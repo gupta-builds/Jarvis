@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Acer conversation archive reroute"
 started_at: 2026-10-28T15:35:48
-ended_at: 2026-10-28T16:02:32
-exported_at: 2026-10-28T16:03:03
-duration_minutes: 26.7
+ended_at: 2026-10-28T16:20:44
+exported_at: 2026-10-28T16:33:03
+duration_minutes: 44.9
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 353c8f27-d7b5-4150-bce2-04736e7068b5
@@ -17,21 +17,37 @@ created: 2026-10-28
 updated: 2026-10-28
 turn_count: 6
 tools_used:
-  Bash: 8
-  Grep: 1
-  PowerShell: 5
-  Write: 1
+  AskUserQuestion: 1
+  Bash: 19
+  Edit: 21
+  Grep: 2
+  Monitor: 1
+  PowerShell: 28
+  Read: 1
+  Write: 7
 tokens:
-  input: 30
-  output: 9220
-  cache_creation: 60868
-  cache_read: 1042793
-  total: 1112911
-cost_usd: 0.440011
+  input: 132
+  output: 84236
+  cache_creation: 163222
+  cache_read: 8608652
+  total: 8856242
+cost_usd: 2.356377
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\353c8f27-d7b5-4150-bce2-04736e7068b5\\scratchpad\\dbg.ps1"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\353c8f27-d7b5-4150-bce2-04736e7068b5\\scratchpad\\test-reroute-apply.ps1"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\55d3a208-38d9-4c4e-945f-715a858d15c9\\tasks\\bupeczosb.output"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Capture Registration.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Capture Scripts.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Conversation Layer.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Legacy Layout and Archives.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\capture-projects.json"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\check-capture-coverage.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\export-claude-session.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\reroute-acer-notes.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\test-capture-projects.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\test-check-capture-coverage.ps1"
 tags:
   - input
   - ai-conversation
@@ -362,6 +378,103 @@ P1 is now recorded, so I'll check the log line and finish the step 1 baseline by
 Step 1 baseline: 129 transcripts, 130 notes in 11 folders (Jarvis 83, The Plan 20, Home 17, Code 3, six singletons), tests green in both shells. Now reading the exporter before changing it.
 
 Step 2: creating the routing file.
+
+Step 3: replacing the hard-coded router with the file-driven loader.
+
+Step 5: writing the routing tests.
+
+Fixing the drive-root edge case (the leaf comes back as `E:\`), then re-running the tests.
+
+Steps 2 to 5 pass. Quick check of `-Force` on a synthetic transcript (outside the vault) before moving on.
+
+`-Force` works in both shells and the transcript count is still 129. Step 6: the read-only coverage script. First I'll check what the assistant marker looks like in a real transcript.
+
+Debugging the coverage test: the script runs now, but several counts are wrong. Printing its output for the synthetic tree.
+
+Step 6 passes in both shells. Running the coverage script on the real tree (read-only) to see the current gaps.
+
+Step 7: writing the reroute script (dry run by default).
+
+Dry run on the real tree (it writes nothing):
+
+The plan is sensible, but the "loose files" count double-counts markers that are already moving out. Fixing that count before showing it to you.
+
+Before I ask for approval, I'll test `-Apply` on a synthetic tree with real junctions, since this is the dangerous step.
+
+The synthetic apply test passes in both shells (junctions removed, transcripts intact, BOM kept, manifest hashes valid). Re-running the real dry run for final numbers:
+
+Steps 1 to 6 are done and the dry run is ready. Step 7 needs your approval before I move anything.
+
+Approved. Step 8: applying, with transcript counts before and after.
+
+Progress, step 8: 8 files moved, 24 archived, 7 folders retired, transcripts 129 before and after. While the re-export runs, I'll read the note headings I'll patch in step 12.
+
+Waiting for the re-export to finish.
+
+While that runs, I'll write the Capture Registration section (step 12), since it doesn't depend on the final counts.
+
+That event was just my placeholder watch ending, not the re-export. Continuing with the Registration section.
+
+The re-export finished. Reading its output:
+
+Step 9 export: 103 notes written (Home 10, Jarvis 71, The Plan 20, UMN Courses 2), 26 junk sessions, 0 errors, transcripts 129. Now the second pass: a dry run to check what's superseded.
+
+This is exactly the expected leftover (the two superseded Code notes, then the empty Code folder). Applying:
+
+All three are fine (no BOM, `status: seed`, `review_state: raw`, right `project:`, balanced fences). Step 11: reading the hook, without editing it.
+
+Every session with a live transcript and an assistant turn now has exactly one note in the right folder, and the live transcripts were never touched.
+
+**Baseline**
+- 129 transcripts (Jarvis 83, The Plan 26, Home 18, CSCI 4521 Code 2); the log said 126 and your brief said 124.
+- 130 notes in 11 folders: Jarvis 83, The Plan 20, Home 17, Code 3, six singletons.
+- Tests were green (8 runs).
+
+**Routing rules** (`30_Order/System/claude-workflow/capture-projects.json`, first match wins):
+1. Jarvis under the vault.
+2. The Plan under the sibling folder.
+3. UMN Courses under `D:\_Anant\10_Areas\UMN`.
+4. Home exact.
+5. Scratch under `%LOCALAPPDATA%\Temp\claude`.
+6. Otherwise a folder named after the directory.
+
+**Tests:** all 12 runs pass under both `pwsh` and `powershell.exe` (two new test files).
+
+**Approved plan, as applied**
+- 8 files moved: 4 notes plus 4 markers.
+- 28 archived, in two passes: 24 first, then 4 after the re-export.
+- 8 folders retired.
+- Archive: `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22`, with a 36-row `MANIFEST.csv`.
+
+**Coverage, final**
+
+| Check | Count |
+|---|---|
+| Top-level transcripts | 129 |
+| With an assistant turn | 103 |
+| One note, right folder | 103 |
+| No note, two notes, or wrong folder | 0 |
+| No assistant turn (no note, expected) | 26 |
+| Notes with no live transcript, no `review_state` | 23 |
+
+The tree now has 126 notes: Jarvis 83, The Plan 20, Home 17, UMN Courses 5, Scratch 1.
+
+**Transcripts:** 129 before and after every step.
+
+**Spot-checks** (one note each from UMN Courses, The Plan and Jarvis): no BOM, `status: seed`, `review_state: raw`, correct `project:`, `session_id` matches a live transcript, fences balanced.
+
+**Hook:** `jarvis-session-continuity.ps1` passes `-Cwd` to the exporter. A UMN cwd routed to UMN Courses in both shells. `_raw_jsonl` in UMN Courses points at one transcript folder only, so it is a partial view.
+
+**Scratch, for you to confirm:** it holds only the `denytest` note.
+
+**Deviation from step 7(b):** for the two live Code sessions I archived their `.exported` markers. Otherwise the exporter would have regenerated them in `Code`. The old notes were archived after the re-export.
+
+**Not done**
+- No commit or push.
+- The hook and the Dell are untouched; the Dell has no routing file.
+- `next:` in Conversation Layer still says P2 is next.
+- My early failing test runs left three test-path lines in `%LOCALAPPDATA%\claude-capture\routing.log`.
+- The 23 old notes keep their old format.
 
 ### Tool Calls
 
@@ -1071,14 +1184,2209 @@ Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
 if ($fail -eq 0) { Write-Output "=== ALL PROJECT ROUTING CHECKS PASSED ==="; exit 0 }
 else { Write-Output "=== $fail PROJECT ROUTING CHECK(S) FAILED ==="; exit 1 }
 ```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && python - <<'EOF'
+import re,io
+p='export-claude-session.ps1'
+s=open(p,encoding='utf-8').read()
+start=s.index('# cwd -> project name. Vault roots')
+end=s.index('# The .exported marker lives inside')
+new='''# cwd -> project name. The rules live in capture-projects.json (one level above this
+# folder): an ordered list, first match wins, each rule "under" a path or "exact" to it,
+# with {vault}, {root}, {home} and {localappdata} tokens resolved from this script's own
+# location and the environment (never a hardcoded drive layout). A cwd no rule matches
+# gets a folder named after its last path segment. If the file is missing or invalid,
+# the built-in Jarvis / The Plan / Home rules apply and one line goes to
+# %LOCALAPPDATA%\\claude-capture\\routing.log. Nothing here may throw: the hook must not fail.
+$CaptureRoutingFile = Join-Path $PSScriptRoot "..\\capture-projects.json"
+$script:RoutingRules = $null
+
+function Write-RoutingLog {
+    param([string]$Message)
+    try {
+        $logDir = Join-Path $env:LOCALAPPDATA "claude-capture"
+        if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+        Add-Content -LiteralPath (Join-Path $logDir "routing.log") -Value "$((Get-Date).ToString('yyyy-MM-ddTHH:mm:ss')) $Message"
+    }
+    catch {}
+}
+
+function Get-BuiltInRoutingRules {
+    return @(
+        @{ Project = 'Jarvis'; Match = 'under'; Path = $VaultRoot.TrimEnd('\\', '/') },
+        @{ Project = 'The Plan'; Match = 'under'; Path = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan').TrimEnd('\\', '/') },
+        @{ Project = 'Home'; Match = 'exact'; Path = "$env:USERPROFILE".TrimEnd('\\', '/') }
+    )
+}
+
+# Resolves tokens and ..\\ in a rule path. Returns $null when a token has no value.
+function Expand-RoutingPath {
+    param([string]$Path)
+    $root = $VaultRoot
+    for ($i = 0; $i -lt 3; $i++) { $root = Split-Path -Path $root -Parent }
+    $values = @{ '{vault}' = $VaultRoot; '{root}' = $root; '{home}' = $env:USERPROFILE; '{localappdata}' = $env:LOCALAPPDATA }
+    foreach ($tok in $values.Keys) {
+        if ($Path.Contains($tok)) {
+            if ([string]::IsNullOrWhiteSpace($values[$tok])) { return $null }
+            $Path = $Path.Replace($tok, $values[$tok])
+        }
+    }
+    if ($Path -match '[{}]') { return $null }
+    return [System.IO.Path]::GetFullPath($Path).TrimEnd('\\', '/')
+}
+
+function Get-RoutingRules {
+    if ($null -ne $script:RoutingRules) { return $script:RoutingRules }
+    $rules = $null
+    try {
+        if (-not (Test-Path -LiteralPath $CaptureRoutingFile)) { throw "file not found" }
+        $cfg = Get-Content -LiteralPath $CaptureRoutingFile -Raw -Encoding UTF8 | ConvertFrom-Json
+        if (-not $cfg.version) { throw "no version" }
+        if ($cfg.fallback -ne 'leaf') { throw "fallback must be 'leaf'" }
+        if ($null -eq $cfg.rules) { throw "no rules list" }
+        $list = New-Object System.Collections.Generic.List[object]
+        foreach ($r in @($cfg.rules)) {
+            if ([string]::IsNullOrWhiteSpace($r.project) -or [string]::IsNullOrWhiteSpace($r.path) -or @('under', 'exact') -notcontains $r.match) {
+                throw "bad rule for project '$($r.project)'"
+            }
+            $p = Expand-RoutingPath -Path ([string]$r.path)
+            if (-not $p) { throw "unresolvable path in rule '$($r.project)'" }
+            $list.Add(@{ Project = [string]$r.project; Match = [string]$r.match; Path = $p })
+        }
+        $rules = @($list)
+    }
+    catch {
+        Write-RoutingLog "routing file '$CaptureRoutingFile' unusable ($($_.Exception.Message)); using built-in Jarvis/The Plan/Home rules"
+        $rules = @(Get-BuiltInRoutingRules)
+    }
+    $script:RoutingRules = $rules
+    return $rules
+}
+
+function Get-ProjectName {
+    param([string]$CwdPath)
+    if ([string]::IsNullOrWhiteSpace($CwdPath)) { return "Unknown" }
+    $norm = $CwdPath.Replace('/', '\\').TrimEnd('\\')
+    foreach ($r in (Get-RoutingRules)) {
+        if ($norm -ieq $r.Path) { return $r.Project }
+        if ($r.Match -eq 'under' -and $norm.StartsWith($r.Path + '\\', [StringComparison]::OrdinalIgnoreCase)) { return $r.Project }
+    }
+    $leaf = Split-Path -Path $norm -Leaf
+    if ([string]::IsNullOrWhiteSpace($leaf)) { return "Unknown" }
+    return $leaf
+}
+
+'''
+s=s[:start]+new+s[end:]
+open(p,'w',encoding='utf-8',newline='').write(s)
+EOF
+grep -c $'\r' export-claude-session.ps1; file export-claude-session.ps1; head -c 3 export-claude-session.ps1 | xxd | head -1
+```
+```
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+0
+export-claude-session.ps1: ASCII text
+00000000: 2320 45                                  # E
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+- # cwd -> project name. Vault roots are resolved from this script's own location, never
+- # a hardcoded drive layout (the old literal map only matched the Dell). Anything inside
+- # the Jarvis or The Plan vault belongs to that vault's project: a session that cd's into
+- # a vault subfolder must not become its own sibling project. Home is exact-match only.
+- # Anything outside these roots falls back to the basename of cwd.
+- function Get-ProjectName {
+-     param([string]$CwdPath)
+-     if ([string]::IsNullOrWhiteSpace($CwdPath)) { return "Unknown" }
+-     $norm = $CwdPath.TrimEnd('\', '/')
+-     $vaults = @(
+-         @{ Name = 'Jarvis'; Root = $VaultRoot },
+-         @{ Name = 'The Plan'; Root = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan') }
+-     )
+-     foreach ($v in $vaults) {
+-         $root = $v.Root.TrimEnd('\', '/')
+-         if ($norm -ieq $root -or $norm.StartsWith($root + '\', [StringComparison]::OrdinalIgnoreCase)) { return $v.Name }
+-     }
+-     if ($env:USERPROFILE -and $norm -ieq $env:USERPROFILE.TrimEnd('\', '/')) { return 'Home' }
+-     return (Split-Path -Path $norm -Leaf)
+- }
+- 
++ # cwd -> project name. The rules live in capture-projects.json (one level above this
++ # folder): an ordered list, first match wins, each rule "under" a path or "exact" to it,
++ # with {vault}, {root}, {home} and {localappdata} tokens resolved from this script's own
++ # location and the environment (never a hardcoded drive layout). A cwd no rule matches
++ # gets a folder named after its last path segment. If the file is missing or invalid,
++ # the built-in Jarvis / The Plan / Home rules apply and one line goes to
++ # %LOCALAPPDATA%\claude-capture\routing.log. Nothing here may throw: the hook must not fail.
++ $CaptureRoutingFile = Join-Path $PSScriptRoot "..\capture-projects.json"
++ $script:RoutingRules = $null
++ 
++ function Write-RoutingLog {
++     param([string]$Message)
++     try {
++         $logDir = Join-Path $env:LOCALAPPDATA "claude-capture"
++         if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
++         Add-Content -LiteralPath (Join-Path $logDir "routing.log") -Value "$((Get-Date).ToString('yyyy-MM-ddTHH:mm:ss')) $Message"
++     }
++     catch {}
++ }
++ 
++ function Get-BuiltInRoutingRules {
++     return @(
++         @{ Project = 'Jarvis'; Match = 'under'; Path = $VaultRoot.TrimEnd('\', '/') },
++         @{ Project = 'The Plan'; Match = 'under'; Path = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan').TrimEnd('\', '/') },
++         @{ Project = 'Home'; Match = 'exact'; Path = "$env:USERPROFILE".TrimEnd('\', '/') }
++     )
++ }
++ 
++ # Resolves tokens and ..\ in a rule path. Returns $null when a token has no value.
++ function Expand-RoutingPath {
++     param([string]$Path)
++     $root = $VaultRoot
++     for ($i = 0; $i -lt 3; $i++) { $root = Split-Path -Path $root -Parent }
++     $values = @{ '{vault}' = $VaultRoot; '{root}' = $root; '{home}' = $env:USERPROFILE; '{localappdata}' = $env:LOCALAPPDATA }
++     foreach ($tok in $values.Keys) {
++         if ($Path.Contains($tok)) {
++             if ([string]::IsNullOrWhiteSpace($values[$tok])) { return $null }
++             $Path = $Path.Replace($tok, $values[$tok])
++         }
++     }
++     if ($Path -match '[{}]') { return $null }
++     return [System.IO.Path]::GetFullPath($Path).TrimEnd('\', '/')
++ }
++ 
++ function Get-RoutingRules {
++     if ($null -ne $script:RoutingRules) { return $script:RoutingRules }
++     $rules = $null
++     try {
++         if (-not (Test-Path -LiteralPath $CaptureRoutingFile)) { throw "file not found" }
++         $cfg = Get-Content -LiteralPath $CaptureRoutingFile -Raw -Encoding UTF8 | ConvertFrom-Json
++         if (-not $cfg.version) { throw "no version" }
++         if ($cfg.fallback -ne 'leaf') { throw "fallback must be 'leaf'" }
++         if ($null -eq $cfg.rules) { throw "no rules list" }
++         $list = New-Object System.Collections.Generic.List[object]
++         foreach ($r in @($cfg.rules)) {
++             if ([string]::IsNullOrWhiteSpace($r.project) -or [string]::IsNullOrWhiteSpace($r.path) -or @('under', 'exact') -notcontains $r.match) {
++                 throw "bad rule for project '$($r.project)'"
++             }
++             $p = Expand-RoutingPath -Path ([string]$r.path)
++             if (-not $p) { throw "unresolvable path in rule '$($r.project)'" }
++             $list.Add(@{ Project = [string]$r.project; Match = [string]$r.match; Path = $p })
++         }
++         $rules = @($list)
++     }
++     catch {
++         Write-RoutingLog "routing file '$CaptureRoutingFile' unusable ($($_.Exception.Message)); using built-in Jarvis/The Plan/Home rules"
++         $rules = @(Get-BuiltInRoutingRules)
++     }
++     $script:RoutingRules = $rules
++     return $rules
++ }
++ 
++ function Get-ProjectName {
++     param([string]$CwdPath)
++     if ([string]::IsNullOrWhiteSpace($CwdPath)) { return "Unknown" }
++     $norm = $CwdPath.Replace('/', '\').TrimEnd('\')
++     foreach ($r in (Get-RoutingRules)) {
++         if ($norm -ieq $r.Path) { return $r.Project }
++         if ($r.Match -eq 'under' -and $norm.StartsWith($r.Path + '\', [StringComparison]::OrdinalIgnoreCase)) { return $r.Project }
++     }
++     $leaf = Split-Path -Path $norm -Leaf
++     if ([string]::IsNullOrWhiteSpace($leaf)) { return "Unknown" }
++     return $leaf
++ }
++ 
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+-     $leaf = Split-Path -Path $norm -Leaf
+-     if ([string]::IsNullOrWhiteSpace($leaf)) { return "Unknown" }
++     $leaf = ''
++     try { $leaf = Split-Path -Path $norm -Leaf } catch {}
++     if ([string]::IsNullOrWhiteSpace($leaf)) { return "Unknown" }
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+- # the vault. Leave it unset everywhere else.
+- param(
+-     [string]$TranscriptPath = "",
+-     [string]$SessionId = "",
+-     [string]$Cwd = "",
+-     [ValidateSet("ClaudeCode", "Cowork")]
+-     [string]$SourceApp = "ClaudeCode",
+-     [switch]$BackfillAll,
+-     [switch]$DryRun
+- )
++ # the vault. Leave it unset everywhere else.
++ #
++ # -Force re-renders a session even when its .exported marker is newer than the
++ # transcript (normally such a session is skipped as "dup"). It reuses the note
++ # file name stored in the marker, so a title change cannot create a second note,
++ # and a session keeps the folder its marker is in. Use it to regenerate notes
++ # after a format change: .\export-claude-session.ps1 -BackfillAll -Force
++ param(
++     [string]$TranscriptPath = "",
++     [string]$SessionId = "",
++     [string]$Cwd = "",
++     [ValidateSet("ClaudeCode", "Cowork")]
++     [string]$SourceApp = "ClaudeCode",
++     [switch]$BackfillAll,
++     [switch]$DryRun,
++     [switch]$Force
++ )
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+-         $grown = $true
+-         if ($hasMarker) {
++         $grown = $true
++         if ($hasMarker -and -not $Force) {
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+-         if ($transcriptTime -le $markerTime) {
++         if (-not $Force -and $transcriptTime -le $markerTime) {
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && grep -n "Status = \"junk\"" export-claude-session.ps1; sed -n 785,800p export-claude-session.ps1
+```
+```
+796:        $result.Status = "junk"
+    # one assistant turn) before any real backfill.
+    $hasRealAssistantContent = @($turns | Where-Object { $_.role -eq 'assistant' -and ($_.text -or $_.calls.Count -gt 0) }).Count -gt 0
+
+    if ($turns.Count -eq 0 -or -not $hasRealAssistantContent) {
+        # Junk: no real assistant turns at all. NOTE this deliberately does NOT
+        # also require an ai-title, unlike the WSL rule - ai-title is a
+        # Claude Code-only JSONL entry type. Cowork transcripts, and a few
+        # older Claude Code sessions predating ai-title, never emit it, so
+        # gating junk-detection on its presence would wrongly discard every
+        # Cowork session and any pre-ai-title Claude Code session.
+        New-Item -ItemType File -Path $markerPath -Force | Out-Null
+        $result.Status = "junk"
+        return $result
+    }
+
+    # Title: last ai-title if present; else the first real (non-synthetic-
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-capture-projects.ps1`
+```
+# Tests for the capture-projects.json router: each rule inside and outside its path,
+# rule order, case, trailing slash, sibling-prefix paths, the Scratch rule on a real
+# %LOCALAPPDATA%\Temp\claude path, the leaf fallback, an empty cwd, and a missing,
+# corrupt or invalid routing file falling back to the built-in behavior.
+
+$ErrorActionPreference = "Stop"
+
+. (Join-Path $PSScriptRoot "export-claude-session.ps1")
+
+$fail = 0
+function Check($label, $actual, $expected) {
+    if ($actual -eq $expected) { Write-Output "PASS: $label ($actual)" }
+    else { Write-Output "FAIL: $label (got '$actual', want '$expected')"; $script:fail++ }
+}
+function Reset-Router($file) {
+    $script:CaptureRoutingFile = $file
+    $script:RoutingRules = $null
+}
+
+$work = Join-Path $env:TEMP "capture-projects-test-$(Get-Random)"
+New-Item -ItemType Directory -Path $work -Force | Out-Null
+$realLocalAppData = $env:LOCALAPPDATA
+
+$root = $VaultRoot
+for ($i = 0; $i -lt 3; $i++) { $root = Split-Path -Path $root -Parent }
+$umn = Join-Path $root "10_Areas\UMN"
+$planRoot = Join-Path (Split-Path $VaultRoot -Parent) "The Plan"
+$scratch = Join-Path $realLocalAppData "Temp\claude"
+
+# ---- the real routing file -----------------------------------------------------------
+$realFile = $script:CaptureRoutingFile
+Check "routing file exists" (Test-Path -LiteralPath $realFile) $true
+Reset-Router $realFile
+
+Check "vault root -> Jarvis" (Get-ProjectName $VaultRoot) "Jarvis"
+Check "vault subfolder -> Jarvis" (Get-ProjectName (Join-Path $VaultRoot "30_Order\System")) "Jarvis"
+Check "outside the vault -> not Jarvis" (Get-ProjectName (Split-Path $VaultRoot -Parent)) "Documents"
+Check "sibling Jarvis-old is not Jarvis" (Get-ProjectName ($VaultRoot + "-old\x")) "x"
+
+Check "The Plan root -> The Plan" (Get-ProjectName $planRoot) "The Plan"
+Check "The Plan subfolder -> The Plan" (Get-ProjectName (Join-Path $planRoot "00_Live\Daily")) "The Plan"
+Check "The Plan sibling prefix is not The Plan" (Get-ProjectName ($planRoot + " Old\x")) "x"
+
+Check "UMN root -> UMN Courses" (Get-ProjectName $umn) "UMN Courses"
+Check "UMN course folder -> UMN Courses" (Get-ProjectName (Join-Path $umn "Classes\CSCI\CSCI 5304")) "UMN Courses"
+Check "UMN deep course repo -> UMN Courses" (Get-ProjectName (Join-Path $umn "Classes\CSCI\CSCI 4061\csci4061-fa26")) "UMN Courses"
+Check "UMN sibling prefix is not UMN Courses" (Get-ProjectName ($umn + "-old\Classes")) "Classes"
+Check "folder beside UMN is not UMN Courses" (Get-ProjectName (Join-Path $root "10_Areas\Career")) "Career"
+
+Check "home exact -> Home" (Get-ProjectName $env:USERPROFILE) "Home"
+Check "home with trailing slash -> Home" (Get-ProjectName ($env:USERPROFILE + "\")) "Home"
+Check "folder inside home is its own project" (Get-ProjectName (Join-Path $env:USERPROFILE "some-repo")) "some-repo"
+
+Check "Scratch root -> Scratch" (Get-ProjectName $scratch) "Scratch"
+Check "Scratch real-style path -> Scratch" (Get-ProjectName (Join-Path $scratch "[REDACTED]\abc123\scratchpad")) "Scratch"
+Check "Temp outside claude is not Scratch" (Get-ProjectName (Join-Path $realLocalAppData "Temp\other-run")) "other-run"
+
+Check "case difference in Jarvis path" (Get-ProjectName (Join-Path $VaultRoot "30_Order").ToUpperInvariant()) "Jarvis"
+Check "case difference in UMN path" (Get-ProjectName (Join-Path $umn "Classes").ToLowerInvariant()) "UMN Courses"
+Check "forward slashes in a UMN path" (Get-ProjectName ((Join-Path $umn "Classes\CSCI") -replace '\\', '/')) "UMN Courses"
+Check "trailing slash on a vault path" (Get-ProjectName ((Join-Path $VaultRoot "30_Order") + "\")) "Jarvis"
+
+Check "unmatched directory -> leaf" (Get-ProjectName "E:\code\my-app") "my-app"
+Check "empty cwd -> Unknown" (Get-ProjectName "") "Unknown"
+Check "null cwd -> Unknown" (Get-ProjectName $null) "Unknown"
+Check "drive root -> Unknown, never an empty folder name" (Get-ProjectName "E:\") "Unknown"
+
+# ---- order: first match wins ------------------------------------------------------------
+$wide = Join-Path $work "wide"
+$narrow = Join-Path $wide "narrow"
+$ordered = @{ version = 1; fallback = "leaf"; rules = @(
+        @{ project = "Narrow"; match = "under"; path = $narrow },
+        @{ project = "Wide"; match = "under"; path = $wide }) }
+$orderedFile = Join-Path $work "ordered.json"
+[System.IO.File]::WriteAllText($orderedFile, ($ordered | ConvertTo-Json -Depth 5), (New-Object System.Text.UTF8Encoding($false)))
+Reset-Router $orderedFile
+Check "narrow rule listed first wins inside its path" (Get-ProjectName (Join-Path $narrow "x")) "Narrow"
+Check "wide rule catches the rest" (Get-ProjectName (Join-Path $wide "y")) "Wide"
+
+$reversed = @{ version = 1; fallback = "leaf"; rules = @(
+        @{ project = "Wide"; match = "under"; path = $wide },
+        @{ project = "Narrow"; match = "under"; path = $narrow }) }
+$reversedFile = Join-Path $work "reversed.json"
+[System.IO.File]::WriteAllText($reversedFile, ($reversed | ConvertTo-Json -Depth 5), (New-Object System.Text.UTF8Encoding($false)))
+Reset-Router $reversedFile
+Check "wide rule listed first shadows the narrow one" (Get-ProjectName (Join-Path $narrow "x")) "Wide"
+
+# ---- exact vs under, tokens, and the per-run cache ---------------------------------------
+$exactCfg = @{ version = 1; fallback = "leaf"; rules = @(
+        @{ project = "OnlyHere"; match = "exact"; path = "{home}\exact-test" }) }
+$exactFile = Join-Path $work "exact.json"
+[System.IO.File]::WriteAllText($exactFile, ($exactCfg | ConvertTo-Json -Depth 5), (New-Object System.Text.UTF8Encoding($false)))
+Reset-Router $exactFile
+Check "exact rule matches the path itself" (Get-ProjectName (Join-Path $env:USERPROFILE "exact-test")) "OnlyHere"
+Check "exact rule does not match a child" (Get-ProjectName (Join-Path $env:USERPROFILE "exact-test\child")) "child"
+[System.IO.File]::WriteAllText($exactFile, "{ broken", (New-Object System.Text.UTF8Encoding($false)))
+Check "rules are cached for the run (file now corrupt, result unchanged)" (Get-ProjectName (Join-Path $env:USERPROFILE "exact-test")) "OnlyHere"
+
+# ---- missing or bad routing file -> built-in Jarvis / The Plan / Home -----------------------
+# LOCALAPPDATA points at the work folder so the fallback's log line stays out of the real log.
+$env:LOCALAPPDATA = Join-Path $work "localappdata"
+New-Item -ItemType Directory -Path $env:LOCALAPPDATA -Force | Out-Null
+$logPath = Join-Path $env:LOCALAPPDATA "claude-capture\routing.log"
+
+function Check-BuiltIn($label, $file) {
+    Reset-Router $file
+    Check "$label : vault -> Jarvis" (Get-ProjectName (Join-Path $VaultRoot "30_Order")) "Jarvis"
+    Check "$label : The Plan -> The Plan" (Get-ProjectName (Join-Path $planRoot "00_Live")) "The Plan"
+    Check "$label : home -> Home" (Get-ProjectName $env:USERPROFILE) "Home"
+    Check "$label : UMN has no rule, so leaf" (Get-ProjectName (Join-Path $umn "Classes\CSCI 5304")) "CSCI 5304"
+    Check "$label : empty -> Unknown" (Get-ProjectName "") "Unknown"
+}
+
+Check-BuiltIn "missing file" (Join-Path $work "does-not-exist.json")
+Check "missing file wrote one log line" @(Get-Content -LiteralPath $logPath).Count 1
+
+$corrupt = Join-Path $work "corrupt.json"
+[System.IO.File]::WriteAllText($corrupt, "{ not json", (New-Object System.Text.UTF8Encoding($false)))
+Check-BuiltIn "corrupt file" $corrupt
+
+$badMatch = Join-Path $work "badmatch.json"
+[System.IO.File]::WriteAllText($badMatch, '{"version":1,"fallback":"leaf","rules":[{"project":"X","match":"sideways","path":"C:\\x"}]}', (New-Object System.Text.UTF8Encoding($false)))
+Check-BuiltIn "invalid match kind" $badMatch
+
+$noRules = Join-Path $work "norules.json"
+[System.IO.File]::WriteAllText($noRules, '{"version":1,"fallback":"leaf"}', (New-Object System.Text.UTF8Encoding($false)))
+Check-BuiltIn "no rules list" $noRules
+
+$badToken = Join-Path $work "badtoken.json"
+[System.IO.File]::WriteAllText($badToken, '{"version":1,"fallback":"leaf","rules":[{"project":"X","match":"under","path":"{nowhere}\\x"}]}', (New-Object System.Text.UTF8Encoding($false)))
+Check-BuiltIn "unknown token" $badToken
+
+Check "each bad file logged once per run" @(Get-Content -LiteralPath $logPath).Count 5
+
+# ---- cleanup ----------------------------------------------------------------------------
+$env:LOCALAPPDATA = $realLocalAppData
+Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
+
+if ($fail -eq 0) { Write-Output "=== ALL CAPTURE PROJECT CHECKS PASSED ==="; exit 0 }
+else { Write-Output "=== $fail CAPTURE PROJECT CHECK(S) FAILED ==="; exit 1 }
+
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File .\test-capture-projects.ps1 2>&1 | Where-Object { $_ -notmatch '^PASS' } }
+```
+```
+Exit code 1
+=== pwsh
+FAIL: UMN root -> UMN Courses (got 'UMN', want 'UMN Courses')
+FAIL: UMN course folder -> UMN Courses (got 'CSCI 5304', want 'UMN Courses')
+FAIL: UMN deep course repo -> UMN Courses (got 'csci4061-fa26', want 'UMN Courses')
+FAIL: Scratch root -> Scratch (got 'claude', want 'Scratch')
+FAIL: Scratch real-style path -> Scratch (got 'scratchpad', want 'Scratch')
+FAIL: case difference in UMN path (got 'classes', want 'UMN Courses')
+FAIL: forward slashes in a UMN path (got 'CSCI', want 'UMN Courses')
+FAIL: drive root -> Unknown, never an empty folder name (got 'E:\', want 'Unknown')
+FAIL: narrow rule listed first wins inside its path (got 'x', want 'Narrow')
+FAIL: wide rule catches the rest (got 'y', want 'Wide')
+FAIL: wide rule listed first shadows the narrow one (got 'x', want 'Wide')
+FAIL: exact rule matches the path itself (got 'exact-test', want 'OnlyHere')
+FAIL: rules are cached for the run (file now corrupt, result unchanged) (got 'exact-test', want 'OnlyHere')
+=== 13 CAPTURE PROJECT CHECK(S) FAILED ===
+=== powershell
+FAIL: UMN root -> UMN Courses (got 'UMN', want 'UMN Courses')
+FAIL: UMN course folder -> UMN Courses (got 'CSCI 5304', want 'UMN Courses')
+FAIL: UMN deep course repo -> UMN Courses (got 'csci4061-fa26', want 'UMN Courses')
+FAIL: Scratch root -> Scratch (got 'claude', want 'Scratch')
+FAIL: Scratch real-style path -> Scratch (got 'scratchpad', want 'Scratch')
+FAIL: case difference in UMN path (got 'classes', want 'UMN Courses')
+FAIL: forward slashes in a UMN path (got 'CSCI', want 'UMN Courses')
+FAIL: drive root -> Unknown, never an empty folder name (got 'E:\', want 'Unknown')
+FAIL: narrow rule listed first wins inside its path (got 'x', want 'Narrow')
+FAIL: wide rule catches the rest (got 'y', want 'Wide')
+FAIL: wide rule listed first shadows the narrow one (got 'x', want 'Wide')
+FAIL: exact rule matches the path itself (got 'exact-test', want 'OnlyHere')
+FAIL: rules are cached for the run (file now corrupt, result unchanged) (got 'exact-test', want 'OnlyHere')
+=== 13 CAPTURE PROJECT CHECK(S) FAILED ===
+```
+- `PowerShell`
+```powershell
+Get-Content "$env:LOCALAPPDATA\claude-capture\routing.log" -Tail 3
+```
+```
+2026-10-28T16:04:17 routing file 'C:\Users\anant\AppData\Local\Temp\[REDACTED]\ordered.json' unusable (Argument types do not match); using built-in Jarvis/The Plan/Home rules
+2026-10-28T16:04:17 routing file 'C:\Users\anant\AppData\Local\Temp\[REDACTED]\reversed.json' unusable (Argument types do not match); using built-in Jarvis/The Plan/Home rules
+2026-10-28T16:04:17 routing file 'C:\Users\anant\AppData\Local\Temp\[REDACTED]\exact.json' unusable (Argument types do not match); using built-in Jarvis/The Plan/Home rules
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; pwsh -NoProfile -Command '. .\export-claude-session.ps1; $cfg = Get-Content -LiteralPath $CaptureRoutingFile -Raw | ConvertFrom-Json; foreach ($r in @($cfg.rules)) { try { Expand-RoutingPath -Path ([string]$r.path) } catch { "EXP " + $_.Exception.Message + " | " + $_.InvocationInfo.PositionMessage } ; try { @("under","exact") -notcontains $r.match } catch { "NC " + $_ } }; $_ = $null' 2>&1 | Select-Object -First 20
+```
+```
+D:\_Anant\20_Progress\Documents\Jarvis
+False
+D:\_Anant\20_Progress\Documents\The Plan
+False
+D:\_Anant\10_Areas\UMN
+False
+C:\Users\anant
+False
+C:\Users\anant\AppData\Local\Temp\claude
+False
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; pwsh -NoProfile -Command '. .\export-claude-session.ps1; $ErrorActionPreference="Stop"; try { $cfg = Get-Content -LiteralPath $CaptureRoutingFile -Raw -Encoding UTF8 | ConvertFrom-Json; "ver " + $cfg.version; $list = New-Object System.Collections.Generic.List[object]; foreach ($r in @($cfg.rules)) { $p = Expand-RoutingPath -Path ([string]$r.path); $list.Add(@{ Project = [string]$r.project; Match = [string]$r.match; Path = $p }) }; "ok " + $list.Count; $x=@($list); "ok2" } catch { $_.Exception.Message; $_.ScriptStackTrace; $_.InvocationInfo.PositionMessage }' 2>&1 | Select-Object -First 20
+```
+```
+ver 1
+ok 5
+Argument types do not match
+at <ScriptBlock>, <No file>: line 1
+At line:1 char:431
++ … ng]$r.match; Path = $p }) }; "ok " + $list.Count; $x=@($list); "ok2"  …
++                                                     ~~~~~~~~~~~
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+-         $rules = @($list)
++         $rules = $list.ToArray()
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File .\test-capture-projects.ps1 2>&1 | Where-Object { $_ -notmatch '^PASS' } }
+```
+```
+Exit code 1
+=== pwsh
+FAIL: drive root -> Unknown, never an empty folder name (got 'E:\', want 'Unknown')
+=== 1 CAPTURE PROJECT CHECK(S) FAILED ===
+=== powershell
+FAIL: drive root -> Unknown, never an empty folder name (got 'E:\', want 'Unknown')
+=== 1 CAPTURE PROJECT CHECK(S) FAILED ===
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
+```diff
+-     if ([string]::IsNullOrWhiteSpace($leaf)) { return "Unknown" }
+-     return $leaf
++     if ([string]::IsNullOrWhiteSpace($leaf) -or $leaf -match '^[A-Za-z]:\\?$') { return "Unknown" }
++     return $leaf
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File .\test-capture-projects.ps1 2>&1 | Select-Object -Last 2 }
+```
+```
+=== pwsh
+PASS: each bad file logged once per run (5)
+=== ALL CAPTURE PROJECT CHECKS PASSED ===
+=== powershell
+PASS: each bad file logged once per run (5)
+=== ALL CAPTURE PROJECT CHECKS PASSED ===
+```
+- `PowerShell`
+```powershell
+$sp='C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad'
+New-Item -ItemType Directory -Force "$sp\force-src","$sp\force-out" | Out-Null
+$t="$sp\force-src\force-0001.jsonl"
+$u=@{type='user';uuid='u0';timestamp='2026-10-28T10:00:00Z';cwd='D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 9999';message=@{role='user';content='hello'}}|ConvertTo-Json -Depth 6 -Compress
+$a=@{type='assistant';uuid='a0';timestamp='2026-10-28T10:01:00Z';cwd='D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 9999';message=@{id='m0';role='assistant';model='claude-sonnet-5';content=@(@{type='text';text='reply'});usage=@{input_tokens=1;output_tokens=1}}}|ConvertTo-Json -Depth 8 -Compress
+[IO.File]::WriteAllLines($t,@($u,$a),(New-Object Text.UTF8Encoding($false)))
+$env:JARVIS_CAPTURE_OUTROOT="$sp\force-out"
+$ex='D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1'
+foreach($sh in 'pwsh','powershell.exe'){
+ "== $sh"
+ & $sh -NoProfile -ExecutionPolicy Bypass -File $ex -TranscriptPath $t -SessionId force-0001 -Cwd 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 9999'
+ (Get-Item $t).LastWriteTimeUtc=(Get-Date).AddMinutes(-5).ToUniversalTime()
+ & $sh -NoProfile -ExecutionPolicy Bypass -File $ex -TranscriptPath $t -SessionId force-0001 -Cwd 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 9999'
+ & $sh -NoProfile -ExecutionPolicy Bypass -File $ex -TranscriptPath $t -SessionId force-0001 -Cwd 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 9999' -Force
+}
+Get-ChildItem "$sp\force-out" -Directory | % { $_.Name; (Get-ChildItem $_.FullName -Filter *.md | % Name) }
+# remove junction first, then folders
+Get-ChildItem "$sp\force-out" -Recurse -Directory -Force | ? { $_.Attributes -band 'ReparsePoint' } | % { [IO.Directory]::Delete($_.FullName) }
+Remove-Item "$sp\force-out","$sp\force-src" -Recurse -Force
+Remove-Item Env:JARVIS_CAPTURE_OUTROOT
+(Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count
+```
+```
+== pwsh
+Status: written -- Project: UMN Courses
+Status: dup -- Project: UMN Courses
+Status: written -- Project: UMN Courses
+== powershell.exe
+Status: dup -- Project: UMN Courses
+Status: dup -- Project: UMN Courses
+Status: written -- Project: UMN Courses
+UMN Courses
+00 - Session Index.md
+00 - Tool Usage Rollup.md
+10-28 hello.md
+129
+```
+- `Bash`
+```bash
+cd /c/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan && f=$(ls *.jsonl | head -1); grep -c '"type":"assistant"' $f; grep -c '"type": "assistant"' $f; head -c 300 $f | cut -c1-300
+```
+```
+88
+0
+{"type":"mode","mode":"normal","sessionId":"[REDACTED]"}
+{"type":"permission-mode","permissionMode":"auto","sessionId":"[REDACTED]"}
+{"type":"atis-latch","atis":"","sessionId":"[REDACTED]"}
+{"type":"file-history-snapshot",
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1`
+```
+# Read-only coverage check. For every top-level transcript under -TranscriptsRoot it
+# reports whether the session has an assistant turn, whether exactly one note exists
+# for it under -NotesRoot (matched on the session_id line in the note head), and whether
+# that note sits in the project folder the routing rules give for the transcript's
+# first cwd. Also counts notes whose transcript is gone and that lack review_state.
+# Exits 1 if any session has no note, two notes, or a wrong folder; otherwise 0.
+#
+#   .\check-capture-coverage.ps1
+#   .\check-capture-coverage.ps1 -TranscriptsRoot <dir> -NotesRoot <dir> -RoutingFile <json>
+#
+# Sessions with no assistant turn are expected to have no note and are not failures.
+# Sessions that only exist in the legacy trees (the exporter skips them) are listed as
+# legacy and are not failures.
+param(
+    [string]$TranscriptsRoot = "",
+    [string]$NotesRoot = "",
+    [string]$RoutingFile = ""
+)
+
+$ErrorActionPreference = "Stop"
+
+$argTranscripts = $TranscriptsRoot
+$argNotes = $NotesRoot
+$argRouting = $RoutingFile
+
+. (Join-Path $PSScriptRoot "export-claude-session.ps1")
+
+$transcriptsDir = if ($argTranscripts) { $argTranscripts } else { Join-Path $env:USERPROFILE ".claude\projects" }
+$notesDir = if ($argNotes) { $argNotes } else { $OutRoot }
+if ($argRouting) { $script:CaptureRoutingFile = $argRouting }
+$script:RoutingRules = $null
+
+if (-not $notesDir) { Write-Output "No notes root: this host has no capture output folder."; exit 2 }
+
+function Read-Head {
+    param([string]$Path, [int]$Max)
+    $out = New-Object System.Collections.Generic.List[string]
+    $sr = New-Object System.IO.StreamReader($Path, [System.Text.Encoding]::UTF8)
+    try {
+        while ($out.Count -lt $Max -and -not $sr.EndOfStream) { $out.Add($sr.ReadLine()) }
+    }
+    finally { $sr.Dispose() }
+    return , $out
+}
+
+function Test-HasAssistantTurn {
+    param([string]$Path)
+    $sr = New-Object System.IO.StreamReader($Path, [System.Text.Encoding]::UTF8)
+    try {
+        while (-not $sr.EndOfStream) {
+            if ($sr.ReadLine().Contains('"type":"assistant"')) { return $true }
+        }
+    }
+    finally { $sr.Dispose() }
+    return $false
+}
+
+function Get-FirstCwd {
+    param([string]$Path)
+    foreach ($l in (Read-Head -Path $Path -Max 20)) {
+        if ([string]::IsNullOrWhiteSpace($l)) { continue }
+        try { $o = $l | ConvertFrom-Json } catch { continue }
+        if ($o.cwd) { return [string]$o.cwd }
+    }
+    return $null
+}
+
+# ---- index the notes: session id -> list of {Folder, Path, HasReviewState} -----------------
+$notes = @{}
+$noteTotal = 0
+$perFolder = @{}
+foreach ($d in Get-ChildItem -LiteralPath $notesDir -Directory -ErrorAction SilentlyContinue) {
+    if ($d.Name.StartsWith('_') -or $d.Name -eq 'Cowork') { continue }
+    foreach ($f in Get-ChildItem -LiteralPath $d.FullName -Filter "*.md" -File -ErrorAction SilentlyContinue) {
+        if ($f.Name -like "00 -*") { continue }
+        $head = Read-Head -Path $f.FullName -Max 40
+        $sid = $null
+        foreach ($l in $head) { if ($l -match '^session_id:\s*(\S+)\s*$') { $sid = $Matches[1]; break } }
+        if (-not $sid) { continue }
+        $hasRs = $false
+        foreach ($l in $head) { if ($l -match '^review_state:') { $hasRs = $true; break } }
+        if (-not $notes.ContainsKey($sid)) { $notes[$sid] = New-Object System.Collections.Generic.List[object] }
+        $notes[$sid].Add(@{ Folder = $d.Name; Path = $f.FullName; HasReviewState = $hasRs })
+        $noteTotal++
+        if (-not $perFolder.ContainsKey($d.Name)) { $perFolder[$d.Name] = 0 }
+        $perFolder[$d.Name]++
+    }
+}
+
+# ---- walk the transcripts ----------------------------------------------------------------
+$seen = New-Object 'System.Collections.Generic.HashSet[string]'
+$rows = New-Object System.Collections.Generic.List[object]
+foreach ($slug in Get-ChildItem -LiteralPath $transcriptsDir -Directory | Where-Object { $_.Name -ne 'template' }) {
+    foreach ($t in Get-ChildItem -LiteralPath $slug.FullName -Filter "*.jsonl" -File) {
+        $sid = $t.BaseName
+        [void]$seen.Add($sid)
+        $hasAsst = Test-HasAssistantTurn -Path $t.FullName
+        $cwd = Get-FirstCwd -Path $t.FullName
+        $expected = Get-ProjectName -CwdPath $cwd
+        $found = if ($notes.ContainsKey($sid)) { @($notes[$sid]) } else { @() }
+        $status = 'ok'
+        if (-not $hasAsst) { $status = 'no-assistant' }
+        elseif ($found.Count -eq 0) { $status = if (Test-LegacyExported $sid) { 'legacy' } else { 'no-note' } }
+        elseif ($found.Count -gt 1) { $status = 'two-notes' }
+        elseif ($found[0].Folder -ne $expected) { $status = 'wrong-folder' }
+        $rows.Add([pscustomobject]@{
+                Session  = $sid
+                Slug     = $slug.Name
+                Assistant = $hasAsst
+                Notes    = $found.Count
+                Folders  = (@($found | ForEach-Object { $_.Folder }) -join ' + ')
+                Expected = $expected
+                Status   = $status
+            })
+    }
+}
+
+# ---- notes whose transcript is gone ----------------------------------------------------------
+$orphans = @($notes.Keys | Where-Object { -not $seen.Contains($_) })
+$orphanNotes = 0
+$orphanNoRs = 0
+$orphanWrongFolder = 0
+foreach ($sid in $orphans) {
+    foreach ($n in $notes[$sid]) {
+        $orphanNotes++
+        if (-not $n.HasReviewState) { $orphanNoRs++ }
+    }
+}
+
+# ---- report --------------------------------------------------------------------------------
+function Count-Status($s) { @($rows | Where-Object { $_.Status -eq $s }).Count }
+$bad = @($rows | Where-Object { @('no-note', 'two-notes', 'wrong-folder') -contains $_.Status })
+
+Write-Output "=== Capture coverage ==="
+Write-Output "Transcripts root : $transcriptsDir"
+Write-Output "Notes root       : $notesDir"
+Write-Output ""
+Write-Output ("Top-level transcripts          : {0}" -f $rows.Count)
+Write-Output ("  with an assistant turn       : {0}" -f @($rows | Where-Object { $_.Assistant }).Count)
+Write-Output ("  ok (one note, right folder)  : {0}" -f (Count-Status 'ok'))
+Write-Output ("  no note                      : {0}" -f (Count-Status 'no-note'))
+Write-Output ("  two or more notes            : {0}" -f (Count-Status 'two-notes'))
+Write-Output ("  wrong folder                 : {0}" -f (Count-Status 'wrong-folder'))
+Write-Output ("  legacy only (exempt)         : {0}" -f (Count-Status 'legacy'))
+Write-Output ("  no assistant turn (exempt)   : {0}" -f (Count-Status 'no-assistant'))
+Write-Output ("Notes in the tree              : {0}" -f $noteTotal)
+Write-Output ("Notes with no live transcript  : {0} ({1} without review_state)" -f $orphanNotes, $orphanNoRs)
+Write-Output ""
+Write-Output "Notes per project folder:"
+foreach ($k in ($perFolder.Keys | Sort-Object)) { Write-Output ("  {0,-20} {1}" -f $k, $perFolder[$k]) }
+
+if ($bad.Count -gt 0) {
+    Write-Output ""
+    Write-Output "Sessions needing attention:"
+    $bad | Sort-Object Status, Session | Format-Table Session, Status, Folders, Expected, Slug -AutoSize | Out-String -Width 240 | Write-Output
+    Write-Output "=== FAIL: $($bad.Count) session(s) without exactly one note in the right folder ==="
+    exit 1
+}
+Write-Output "=== PASS: every session with an assistant turn has one note in the right folder ==="
+exit 0
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1`
+```diff
+- $orphanNoRs = 0
+- $orphanWrongFolder = 0
+- 
++ $orphanNoRs = 0
++ 
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-check-capture-coverage.ps1`
+```
+# Synthetic-folder test for check-capture-coverage.ps1: one session per case (ok,
+# no note, two notes, wrong folder, no assistant turn) plus a note whose transcript is
+# gone. Runs the script under the same shell as this test and checks exit code and output.
+
+$ErrorActionPreference = "Stop"
+
+$fail = 0
+function Check($label, $actual, $expected) {
+    if ($actual -eq $expected) { Write-Output "PASS: $label ($actual)" }
+    else { Write-Output "FAIL: $label (got '$actual', want '$expected')"; $script:fail++ }
+}
+
+$work = Join-Path $env:TEMP "coverage-test-$(Get-Random)"
+$tr = Join-Path $work "projects\slug-one"
+$notesRoot = Join-Path $work "notes"
+$areaA = Join-Path $work "areas\alpha"
+New-Item -ItemType Directory -Path $tr, $notesRoot -Force | Out-Null
+foreach ($p in "Alpha", "Beta") { New-Item -ItemType Directory -Path (Join-Path $notesRoot $p) -Force | Out-Null }
+
+$routing = Join-Path $work "routing.json"
+$cfg = @{ version = 1; fallback = "leaf"; rules = @(@{ project = "Alpha"; match = "under"; path = (Join-Path $work "areas\alpha") }) }
+[System.IO.File]::WriteAllText($routing, ($cfg | ConvertTo-Json -Depth 5), (New-Object System.Text.UTF8Encoding($false)))
+
+function New-Transcript($sid, $cwd, $withAssistant) {
+    $l = New-Object System.Collections.Generic.List[string]
+    $l.Add((@{ type = "user"; uuid = "u0"; timestamp = "2026-10-28T10:00:00Z"; cwd = $cwd; message = @{ role = "user"; content = "hi" } } | ConvertTo-Json -Depth 6 -Compress))
+    if ($withAssistant) {
+        $l.Add((@{ type = "assistant"; uuid = "a0"; timestamp = "2026-10-28T10:01:00Z"; cwd = $cwd; message = @{ id = "m0"; role = "assistant"; content = @(@{ type = "text"; text = "ok" }) } } | ConvertTo-Json -Depth 8 -Compress))
+    }
+    [System.IO.File]::WriteAllLines((Join-Path $tr "$sid.jsonl"), $l, (New-Object System.Text.UTF8Encoding($false)))
+}
+function New-Note($folder, $name, $sid, $reviewState) {
+    $body = "---`ntype: input`nsession_id: $sid`n"
+    if ($reviewState) { $body += "review_state: raw`n" }
+    $body += "---`ntext`n"
+    [System.IO.File]::WriteAllText((Join-Path $notesRoot "$folder\$name.md"), $body, (New-Object System.Text.UTF8Encoding($false)))
+}
+
+New-Transcript "s-ok" $areaA $true;                New-Note "Alpha" "ok note" "s-ok" $true
+New-Transcript "s-nonote" $areaA $true
+New-Transcript "s-two" $areaA $true;               New-Note "Alpha" "two a" "s-two" $true; New-Note "Beta" "two b" "s-two" $true
+New-Transcript "s-wrong" $areaA $true;             New-Note "Beta" "wrong note" "s-wrong" $true
+New-Transcript "s-junk" $areaA $false
+New-Note "Beta" "orphan note" "s-gone" $false
+[System.IO.File]::WriteAllText((Join-Path $notesRoot "Alpha\00 - Session Index.md"), "---`ntype: generated`n---`n", (New-Object System.Text.UTF8Encoding($false)))
+
+$exe = (Get-Process -Id $PID).Path
+$script = Join-Path $PSScriptRoot "check-capture-coverage.ps1"
+$before = Get-ChildItem -LiteralPath $work -Recurse -File | ForEach-Object { "$($_.FullName)|$($_.Length)|$($_.LastWriteTimeUtc.Ticks)" }
+
+$out = & $exe -NoProfile -ExecutionPolicy Bypass -File $script -TranscriptsRoot (Join-Path $work "projects") -NotesRoot $notesRoot -RoutingFile $routing 2>&1 | Out-String
+Check "mixed tree exits 1" $LASTEXITCODE 1
+Check "counts 5 transcripts" ($out -match 'Top-level transcripts\s*:\s*5') $true
+Check "counts 1 ok" ($out -match 'ok \(one note, right folder\)\s*:\s*1\b') $true
+Check "counts 1 no note" ($out -match 'no note\s*:\s*1\b') $true
+Check "counts 1 two notes" ($out -match 'two or more notes\s*:\s*1\b') $true
+Check "counts 1 wrong folder" ($out -match 'wrong folder\s*:\s*1\b') $true
+Check "counts 1 no assistant" ($out -match 'no assistant turn \(exempt\)\s*:\s*1\b') $true
+Check "orphan note counted without review_state" ($out -match 'no live transcript\s*:\s*1 \(1 without review_state\)') $true
+Check "lists s-nonote" ($out -match 's-nonote\s+no-note') $true
+Check "lists s-two" ($out -match 's-two\s+two-notes\s+Alpha \+ Beta') $true
+Check "lists s-wrong with expected Alpha" ($out -match 's-wrong\s+wrong-folder\s+Beta\s+Alpha') $true
+Check "does not list s-ok" ($out -notmatch 's-ok\s+(ok|no-note|two-notes|wrong-folder)') $true
+Check "does not list s-junk as a failure" ($out -notmatch 's-junk\s+(no-note|two-notes|wrong-folder)') $true
+
+$after = Get-ChildItem -LiteralPath $work -Recurse -File | ForEach-Object { "$($_.FullName)|$($_.Length)|$($_.LastWriteTimeUtc.Ticks)" }
+Check "script is read-only (no file changed or created)" (($before -join "`n") -eq ($after -join "`n")) $true
+
+# fix the three bad sessions -> clean tree passes
+Remove-Item -LiteralPath (Join-Path $tr "s-nonote.jsonl"), (Join-Path $tr "s-two.jsonl"), (Join-Path $tr "s-wrong.jsonl")
+$out2 = & $exe -NoProfile -ExecutionPolicy Bypass -File $script -TranscriptsRoot (Join-Path $work "projects") -NotesRoot $notesRoot -RoutingFile $routing 2>&1 | Out-String
+Check "clean tree exits 0" $LASTEXITCODE 0
+Check "clean tree reports PASS" ($out2 -match '=== PASS') $true
+
+Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
+
+if ($fail -eq 0) { Write-Output "=== ALL COVERAGE CHECKS PASSED ==="; exit 0 }
+else { Write-Output "=== $fail COVERAGE CHECK(S) FAILED ==="; exit 1 }
+
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File .\test-check-capture-coverage.ps1 2>&1 | Where-Object { $_ -notmatch '^PASS' } }
+```
+```
+Exit code 1
+=== pwsh
+FAIL: counts 5 transcripts (got 'False', want 'True')
+FAIL: counts 1 ok (got 'False', want 'True')
+FAIL: counts 1 no note (got 'False', want 'True')
+FAIL: counts 1 two notes (got 'False', want 'True')
+FAIL: counts 1 wrong folder (got 'False', want 'True')
+FAIL: counts 1 no assistant (got 'False', want 'True')
+FAIL: orphan note counted without review_state (got 'False', want 'True')
+FAIL: lists s-nonote (got 'False', want 'True')
+FAIL: lists s-two (got 'False', want 'True')
+FAIL: lists s-wrong with expected Alpha (got 'False', want 'True')
+FAIL: clean tree exits 0 (got '1', want '0')
+FAIL: clean tree reports PASS (got 'False', want 'True')
+=== 12 COVERAGE CHECK(S) FAILED ===
+=== powershell
+powershell.exe : Argument types do not match
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-check-capture-coverage.ps1:51 
+char:8
++ $out = & $exe -NoProfile -ExecutionPolicy Bypass -File $script -Trans ...
++        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Argument types do not match:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; $e=$null; pwsh -NoProfile -File .\check-capture-coverage.ps1 -TranscriptsRoot C:\Users\anant\.claude\projects -NotesRoot "D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude" 2>&1 | Select-Object -First 12
+```
+```
+Exit code 1
+OperationStopped: D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1:100
+Line |
+ 100 |  …      $found = if ($notes.ContainsKey($sid)) { @($notes[$sid]) } else  …
+     |                                                  ~~~~~~~~~~~~~~~
+     | Argument types do not match
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1`
+```diff
+- { @($notes[$sid]) } else
++ { $notes[$sid].ToArray() } else
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File .\test-check-capture-coverage.ps1 2>&1 | Where-Object { $_ -notmatch '^PASS' } }
+```
+```
+Exit code 1
+=== pwsh
+FAIL: counts 1 ok (got 'False', want 'True')
+FAIL: counts 1 two notes (got 'False', want 'True')
+FAIL: counts 1 wrong folder (got 'False', want 'True')
+FAIL: lists s-wrong with expected Alpha (got 'False', want 'True')
+FAIL: does not list s-ok (got 'False', want 'True')
+FAIL: clean tree exits 0 (got '1', want '0')
+FAIL: clean tree reports PASS (got 'False', want 'True')
+=== 7 COVERAGE CHECK(S) FAILED ===
+=== powershell
+FAIL: counts 1 ok (got 'False', want 'True')
+FAIL: counts 1 two notes (got 'False', want 'True')
+FAIL: counts 1 wrong folder (got 'False', want 'True')
+FAIL: lists s-wrong with expected Alpha (got 'False', want 'True')
+FAIL: does not list s-ok (got 'False', want 'True')
+FAIL: clean tree exits 0 (got '1', want '0')
+FAIL: clean tree reports PASS (got 'False', want 'True')
+=== 7 COVERAGE CHECK(S) FAILED ===
+```
+- `PowerShell`
+```powershell
+$sp='C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\cov'
+Remove-Item $sp -Recurse -Force -ErrorAction SilentlyContinue
+$tr="$sp\projects\slug"; $nr="$sp\notes"; New-Item -ItemType Directory "$tr","$nr\Alpha","$nr\Beta" -Force | Out-Null
+$area="$sp\areas\alpha"
+'{"version":1,"fallback":"leaf","rules":[{"project":"Alpha","match":"under","path":"'+($area -replace '\\','\\')+'"}]}' | Set-Content "$sp\r.json" -Encoding ascii
+function T($sid,$asst){ $u=(@{type='user';cwd=$area;message=@{role='user';content='hi'}}|ConvertTo-Json -Depth 5 -Compress); $l=@($u); if($asst){$l+=(@{type='assistant';cwd=$area;message=@{role='assistant';content=@(@{type='text';text='ok'})}}|ConvertTo-Json -Depth 6 -Compress)}; [IO.File]::WriteAllLines("$tr\$sid.jsonl",$l) }
+T s-ok $true; T s-wrong $true
+"---`nsession_id: s-ok`nreview_state: raw`n---" | Set-Content "$nr\Alpha\a.md"
+"---`nsession_id: s-wrong`nreview_state: raw`n---" | Set-Content "$nr\Beta\b.md"
+pwsh -NoProfile -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1" -TranscriptsRoot "$sp\projects" -NotesRoot $nr -RoutingFile "$sp\r.json" 2>&1 | Out-String
+```
+```
+Remove-Item on system path ''\\','\\'' is blocked. This path is protected from removal.
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\dbg.ps1`
+```
+$sp = Join-Path $PSScriptRoot 'cov'
+if (Test-Path $sp) { Remove-Item $sp -Recurse -Force }
+$tr = "$sp\projects\slug"; $nr = "$sp\notes"
+New-Item -ItemType Directory "$tr", "$nr\Alpha", "$nr\Beta" -Force | Out-Null
+$area = "$sp\areas\alpha"
+$cfg = @{ version = 1; fallback = 'leaf'; rules = @(@{ project = 'Alpha'; match = 'under'; path = $area }) }
+[IO.File]::WriteAllText("$sp\r.json", ($cfg | ConvertTo-Json -Depth 5))
+function T($sid, $asst) {
+    $l = @((@{ type = 'user'; cwd = $area; message = @{ role = 'user'; content = 'hi' } } | ConvertTo-Json -Depth 5 -Compress))
+    if ($asst) { $l += (@{ type = 'assistant'; cwd = $area; message = @{ role = 'assistant'; content = @(@{ type = 'text'; text = 'ok' }) } } | ConvertTo-Json -Depth 6 -Compress) }
+    [IO.File]::WriteAllLines("$tr\$sid.jsonl", $l)
+}
+T s-ok $true; T s-wrong $true
+Set-Content "$nr\Alpha\a.md" "---`nsession_id: s-ok`nreview_state: raw`n---"
+Set-Content "$nr\Beta\b.md" "---`nsession_id: s-wrong`nreview_state: raw`n---"
+pwsh -NoProfile -File 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1' -TranscriptsRoot "$sp\projects" -NotesRoot $nr -RoutingFile "$sp\r.json" 2>&1 | Out-String
+
+```
+- `PowerShell`
+```powershell
+& 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\dbg.ps1'
+```
+```
+Exit code 1
+=== Capture coverage ===
+Transcripts root : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\cov\projects
+Notes root       : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\cov\notes
+
+Top-level transcripts          : 2
+  with an assistant turn       : 2
+  ok (one note, right folder)  : 0
+  no note                      : 0
+  two or more notes            : 2
+  wrong folder                 : 0
+  legacy only (exempt)         : 0
+  no assistant turn (exempt)   : 0
+Notes in the tree              : 2
+Notes with no live transcript  : 0 (0 without review_state)
+
+Notes per project folder:
+  Alpha                1
+  Beta                 1
+
+Sessions needing attention:
+
+Session Status    Folders Expected Slug
+------- ------    ------- -------- ----
+s-ok    two-notes Alpha   Alpha    slug
+s-wrong two-notes Beta    Alpha    slug
+
+
+=== FAIL: 2 session(s) without exactly one note in the right folder ===
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1`
+```diff
+-         $found = if ($notes.ContainsKey($sid)) { $notes[$sid].ToArray() } else { @() }
++         # @() matters: one note comes back as a bare hashtable, whose .Count is its key count.
++         $found = @(if ($notes.ContainsKey($sid)) { $notes[$sid].ToArray() })
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File .\test-check-capture-coverage.ps1 2>&1 | Where-Object { $_ -notmatch '^PASS' } }; Remove-Item 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\cov' -Recurse -Force
+```
+```
+=== pwsh
+=== ALL COVERAGE CHECKS PASSED ===
+=== powershell
+=== ALL COVERAGE CHECKS PASSED ===
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; pwsh -NoProfile -File .\check-capture-coverage.ps1 2>&1 | Out-String -Width 220; (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count
+```
+```
+Exit code 1
+=== Capture coverage ===
+Transcripts root : C:\Users\anant\.claude\projects
+Notes root       : D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude
+
+Top-level transcripts          : 129
+  with an assistant turn       : 103
+  ok (one note, right folder)  : 97
+  no note                      : 0
+  two or more notes            : 4
+  wrong folder                 : 2
+  legacy only (exempt)         : 0
+  no assistant turn (exempt)   : 26
+Notes in the tree              : 130
+Notes with no live transcript  : 23 (23 without review_state)
+
+Notes per project folder:
+  Code                 3
+  Conversations        1
+  CSCI 5304            1
+  csci4061-fa26        1
+  denytest             1
+  Home                 17
+  Jarvis               83
+  Jesse                1
+  Plans                1
+  sync-workflow        1
+  The Plan             20
+
+Sessions needing attention:
+
+Session                              Status       Folders                Expected    Slug
+-------                              ------       -------                --------    ----
+[REDACTED] two-notes    Jarvis + Jesse         Jarvis      [REDACTED]
+[REDACTED] two-notes    Jarvis + sync-workflow Jarvis      [REDACTED]
+[REDACTED] two-notes    Jarvis + Plans         Jarvis      [REDACTED]
+[REDACTED] two-notes    Conversations + Jarvis Jarvis      [REDACTED]
+[REDACTED] wrong-folder Code                   UMN Courses [REDACTED]
+[REDACTED] wrong-folder Code                   UMN Courses [REDACTED]
+
+
+=== FAIL: 6 session(s) without exactly one note in the right folder ===
+
+129
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude" && head -30 "Code/10-05 CSCI 4521 homework 1.md" | cut -c1-120; echo ----; head -22 "Code/09-21 CSCI 4511W environment setup.md" | cut -c1-100; echo; cat ".exported" 2>/dev/null; ls Code/.exported | head
+```
+```
+﻿---
+type: input
+input_kind: ai-conversation
+source_app: claude-code
+source_os: windows
+title: "CSCI 4521 homework 1"
+started_at: 2026-10-05T23:45:39
+ended_at: 2026-10-06T00:40:00
+exported_at: 2026-10-17T21:06:40
+duration_minutes: 54.3
+project: Code
+cwd: 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code'
+session_id: [REDACTED]
+status: raw
+turn_count: 19
+tools_used:
+  Bash: 29
+  Edit: 2
+  mcp__jarvis__search_simple: 1
+  mcp__jarvis__vault_get_download_url: 2
+  mcp__jarvis__vault_list: 6
+  mcp__jarvis__vault_patch: 1
+  mcp__jarvis__vault_read: 5
+  mcp__jarvis__vault_write: 2
+  PowerShell: 42
+  Read: 21
+  ToolSearch: 2
+  Write: 9
+tokens:
+  input: 488
+----
+﻿---
+type: input
+input_kind: ai-conversation
+source_app: claude-code
+source_os: windows
+title: "CSCI 4511W environment setup"
+started_at: 2026-09-21T13:14:30
+ended_at: 2026-09-21T13:59:00
+exported_at: 2026-10-17T21:06:40
+duration_minutes: 44.5
+project: Code
+cwd: 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Pratice Problems\Code'
+session_id: [REDACTED]
+status: raw
+turn_count: 12
+tools_used:
+  Bash: 19
+  Edit: 1
+  PowerShell: 4
+  Read: 4
+  ScheduleWakeup: 5
+  ToolSearch: 1
+
+[REDACTED].done
+[REDACTED].done
+[REDACTED].done
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -A22 "function Ensure-ProjectScaffold" 30_Order/System/claude-workflow/scripts/export-claude-session.ps1 | head -40
+```
+```
+423:function Ensure-ProjectScaffold {
+424-    param([string]$ProjectDir)
+425-    if (-not (Test-Path -LiteralPath $ProjectDir)) {
+426-        New-Item -ItemType Directory -Path $ProjectDir -Force | Out-Null
+427-    }
+428-    $markerDir = Join-Path $ProjectDir ".exported"
+429-    if (-not (Test-Path -LiteralPath $markerDir)) {
+430-        New-Item -ItemType Directory -Path $markerDir -Force | Out-Null
+431-    }
+432-}
+433-
+434-# Sessions exported before build 5c live under the old Windows\ tree and the
+435-# Dell\ archive. Their .exported markers count as "already exported", so the
+436-# machine-aware layout never re-exports them. Read-only; built once per run.
+437-$script:LegacyIds = $null
+438-function Test-LegacyExported {
+439-    param([string]$SessionIdIn)
+440-    if ($null -eq $script:LegacyIds) {
+441-        $script:LegacyIds = New-Object 'System.Collections.Generic.HashSet[string]'
+442-        $patterns = @(
+443-            'Windows\Claude Code\*\.exported\*.done',
+444-            'Windows\Cowork\*\.exported\*.done',
+445-            'Dell\Windows\Claude\*\.exported\*.done',
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\reroute-acer-notes.ps1`
+```
+# Plans and applies the move of Acer conversation notes into the project folders the
+# routing file (capture-projects.json) gives. Dry run by default; changes only with -Apply.
+# Nothing is deleted: moved-out, superseded and retired items go to -ArchiveRoot with a
+# SHA-256 manifest (MANIFEST.csv there; later runs append).
+#
+#   .\reroute-acer-notes.ps1                 # print the plan
+#   .\reroute-acer-notes.ps1 -Apply          # carry it out
+#
+# What it plans, per session (the folder a note belongs in comes from the transcript's
+# first cwd when the transcript still exists, else from the note's own cwd line):
+#   move-orphan       note has no live transcript and sits in the wrong folder: the note and
+#                     its .exported marker move to the right folder, and its project: line is
+#                     rewritten. A pre-edit copy goes to the archive.
+#   archive-duplicate session has two notes: the one with the later exported_at stays, the
+#                     other (and its marker) goes to the archive.
+#   release-marker    note has a live transcript and sits in the wrong folder: only its marker
+#                     moves to the archive, so the exporter (which keeps a session in the
+#                     folder holding its marker) writes the regenerated note into the right
+#                     folder. The old note stays until the next run, where it is a duplicate
+#                     and is archived.
+#   retire-folder     a project folder left with no notes goes to the archive. Each
+#                     _raw_jsonl junction is removed with `cmd /c rmdir` first (never
+#                     Remove-Item -Recurse), and the live transcript set is re-checked.
+# Folders named by a routing rule are never retired.
+param(
+    [string]$NotesRoot = "",
+    [string]$TranscriptsRoot = "",
+    [string]$RoutingFile = "",
+    [string]$ArchiveRoot = "D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22",
+    [switch]$Apply
+)
+
+$ErrorActionPreference = "Stop"
+
+$argNotes = $NotesRoot
+$argTranscripts = $TranscriptsRoot
+$argRouting = $RoutingFile
+$argArchive = $ArchiveRoot
+$doApply = [bool]$Apply
+
+. (Join-Path $PSScriptRoot "export-claude-session.ps1")
+
+$notesDir = if ($argNotes) { $argNotes } else { $OutRoot }
+$transcriptsDir = if ($argTranscripts) { $argTranscripts } else { Join-Path $env:USERPROFILE ".claude\projects" }
+if ($argRouting) { $script:CaptureRoutingFile = $argRouting }
+$script:RoutingRules = $null
+if (-not $notesDir) { Write-Output "No notes root: this host has no capture output folder."; exit 2 }
+
+function Read-Head {
+    param([string]$Path, [int]$Max)
+    $out = New-Object System.Collections.Generic.List[string]
+    $sr = New-Object System.IO.StreamReader($Path, [System.Text.Encoding]::UTF8)
+    try { while ($out.Count -lt $Max -and -not $sr.EndOfStream) { $out.Add($sr.ReadLine()) } }
+    finally { $sr.Dispose() }
+    return , $out
+}
+
+function Get-FirstCwd {
+    param([string]$Path)
+    foreach ($l in (Read-Head -Path $Path -Max 20)) {
+        if ([string]::IsNullOrWhiteSpace($l)) { continue }
+        try { $o = $l | ConvertFrom-Json } catch { continue }
+        if ($o.cwd) { return [string]$o.cwd }
+    }
+    return $null
+}
+
+function Get-LiveTranscripts {
+    $map = @{}
+    foreach ($d in Get-ChildItem -LiteralPath $transcriptsDir -Directory | Where-Object { $_.Name -ne 'template' }) {
+        foreach ($t in Get-ChildItem -LiteralPath $d.FullName -Filter "*.jsonl" -File) { $map[$t.BaseName] = $t.FullName }
+    }
+    return $map
+}
+
+function Get-YamlScalar {
+    param([string]$Value)
+    $v = $Value.Trim()
+    if ($v.Length -ge 2 -and $v.StartsWith("'") -and $v.EndsWith("'")) { return $v.Substring(1, $v.Length - 2).Replace("''", "'") }
+    if ($v.Length -ge 2 -and $v.StartsWith('"') -and $v.EndsWith('"')) { return $v.Substring(1, $v.Length - 2).Replace('\\', '\') }
+    return $v
+}
+
+$routedNames = @((Get-RoutingRules) | ForEach-Object { $_.Project })
+
+# ---- read the notes ---------------------------------------------------------------------
+$live = Get-LiveTranscripts
+$liveCountBefore = $live.Count
+$noteList = New-Object System.Collections.Generic.List[object]
+$folders = @(Get-ChildItem -LiteralPath $notesDir -Directory | Where-Object { -not $_.Name.StartsWith('_') -and $_.Name -ne 'Cowork' })
+foreach ($d in $folders) {
+    foreach ($f in Get-ChildItem -LiteralPath $d.FullName -Filter "*.md" -File) {
+        if ($f.Name -like "00 -*") { continue }
+        $head = Read-Head -Path $f.FullName -Max 40
+        $rec = [pscustomobject]@{ Sid = $null; Cwd = $null; Exported = $null; Folder = $d.Name; Path = $f.FullName; Name = $f.Name; Marker = $null }
+        foreach ($l in $head) {
+            if ($l -match '^session_id:\s*(\S+)\s*$') { $rec.Sid = $Matches[1] }
+            elseif ($l -match '^cwd:\s*(.+)$') { $rec.Cwd = Get-YamlScalar $Matches[1] }
+            elseif ($l -match '^exported_at:\s*(\S+)\s*$') { $rec.Exported = $Matches[1] }
+        }
+        if (-not $rec.Sid) { Write-Warning "No session_id, skipped: $($f.FullName)"; continue }
+        $when = [datetime]::MinValue
+        if (-not [datetime]::TryParse([string]$rec.Exported, [ref]$when)) { $when = $f.LastWriteTime }
+        $rec.Exported = $when
+        $m = Join-Path $d.FullName ".exported\$($rec.Sid).done"
+        if (Test-Path -LiteralPath $m) { $rec.Marker = $m }
+        $noteList.Add($rec)
+    }
+}
+
+# ---- plan ------------------------------------------------------------------------------
+$plan = New-Object System.Collections.Generic.List[object]
+function Add-Plan($sid, $from, $to, $action, $reason, $rec) {
+    $script:plan.Add([pscustomobject]@{ Session = $sid; From = $from; To = $to; Action = $action; Reason = $reason; Rec = $rec })
+}
+
+$remaining = @{}
+foreach ($d in $folders) { $remaining[$d.Name] = 0 }
+$bySid = $noteList | Group-Object Sid
+foreach ($g in $bySid) {
+    $sid = $g.Name
+    $recs = @($g.Group | Sort-Object @{ Expression = { $_.Exported }; Descending = $true }, @{ Expression = { (Get-Item -LiteralPath $_.Path).LastWriteTimeUtc }; Descending = $true })
+    $isLive = $live.ContainsKey($sid)
+    $cwd = if ($isLive) { Get-FirstCwd $live[$sid] } else { $recs[0].Cwd }
+    if (-not $cwd) { $cwd = $recs[0].Cwd }
+    $target = Get-ProjectName -CwdPath $cwd
+    $keep = $recs[0]
+    for ($i = 1; $i -lt $recs.Count; $i++) {
+        Add-Plan $sid $recs[$i].Folder "(archive)" "archive-duplicate" "second note for the session; kept the one exported at $($keep.Exported.ToString('yyyy-MM-dd HH:mm:ss')) in $($keep.Folder)" $recs[$i]
+    }
+    if ($keep.Folder -ne $target) {
+        if ($isLive) {
+            Add-Plan $sid $keep.Folder $target "release-marker" "live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run" $keep
+            $remaining[$keep.Folder]++
+        }
+        else {
+            $dest = Join-Path (Join-Path $notesDir $target) $keep.Name
+            if (Test-Path -LiteralPath $dest) {
+                Add-Plan $sid $keep.Folder $target "conflict" "a file with this name already exists in the target; not moved" $keep
+                $remaining[$keep.Folder]++
+            }
+            else {
+                Add-Plan $sid $keep.Folder $target "move-orphan" "transcript already swept; note and marker move, project: line updated" $keep
+                if (-not $remaining.ContainsKey($target)) { $remaining[$target] = 0 }
+                $remaining[$target]++
+            }
+        }
+    }
+    else { $remaining[$keep.Folder]++ }
+}
+
+foreach ($d in $folders) {
+    if ($remaining[$d.Name] -gt 0 -or $routedNames -contains $d.Name) { continue }
+    $extra = @(Get-ChildItem -LiteralPath $d.FullName -Force | Where-Object { $_.Name -notlike "00 -*" -and $_.Name -ne '.exported' -and $_.Name -ne '_raw_jsonl' -and $_.Name -notlike '*.md' })
+    $leftNotes = @(Get-ChildItem -LiteralPath $d.FullName -Filter *.md -File | Where-Object { $_.Name -notlike "00 -*" })
+    # notes that are planned to move or be archived out are fine; anything else (a note with no session_id) blocks retirement
+    $planned = @($plan | Where-Object { $_.From -eq $d.Name } | ForEach-Object { $_.Rec.Name })
+    $stray = @($leftNotes | Where-Object { $planned -notcontains $_.Name })
+    if ($extra.Count -gt 0 -or $stray.Count -gt 0) {
+        Add-Plan "-" $d.Name "-" "keep-folder" "folder has unexpected content ($($extra.Count + $stray.Count) item(s)); not retired" $null
+        continue
+    }
+    Add-Plan "-" $d.Name "(archive)" "retire-folder" "no notes left after this plan" $d
+}
+
+# ---- print the plan --------------------------------------------------------------------------
+Write-Output "=== Reroute plan ($(if ($doApply) { 'APPLY' } else { 'DRY RUN' })) ==="
+Write-Output "Notes root   : $notesDir"
+Write-Output "Archive root : $argArchive"
+Write-Output "Live transcripts: $liveCountBefore"
+Write-Output ""
+$plan | Sort-Object Action, From, Session | Format-Table Session, From, To, Action, Reason -AutoSize -Wrap | Out-String -Width 300 | Write-Output
+$n = @{}
+foreach ($p in $plan) { if (-not $n.ContainsKey($p.Action)) { $n[$p.Action] = 0 }; $n[$p.Action]++ }
+$moveNotes = [int]$n['move-orphan']
+$archDup = [int]$n['archive-duplicate']
+$release = [int]$n['release-marker']
+$retire = [int]$n['retire-folder']
+$markersMoved = @($plan | Where-Object { $_.Action -eq 'move-orphan' -and $_.Rec.Marker }).Count
+$markersArchived = @($plan | Where-Object { @('archive-duplicate', 'release-marker') -contains $_.Action -and $_.Rec.Marker }).Count
+$retireFiles = 0
+foreach ($p in ($plan | Where-Object { $_.Action -eq 'retire-folder' })) {
+    # count files that would be archived, without following the junction
+    $retireFiles += @(Get-ChildItem -LiteralPath $p.Rec.FullName -Force -File).Count
+    $dotDir = Join-Path $p.Rec.FullName ".exported"
+    if (Test-Path -LiteralPath $dotDir) { $retireFiles += @(Get-ChildItem -LiteralPath $dotDir -Force -File).Count }
+}
+Write-Output ("Summary: {0} note(s) + {1} marker(s) move to the right folder; {2} duplicate note(s) archived; {3} marker(s) archived ({4} released, {5} with duplicates); {6} folder(s) retired ({7} loose files archived); {8} conflict(s)." -f `
+        $moveNotes, $markersMoved, $archDup, $markersArchived, $release, ($markersArchived - $release), $retire, $retireFiles, [int]$n['conflict'])
+Write-Output ("Files that change place: {0} moved + {1} archived (notes, markers, folder contents; junctions are removed, not archived)." -f `
+        ($moveNotes + $markersMoved), ($archDup + $markersArchived + $retireFiles))
+
+if (-not $doApply) {
+    Write-Output "Dry run: nothing was changed. Re-run with -Apply to carry this out."
+    exit 0
+}
+
+# ---- apply -------------------------------------------------------------------------------------
+$liveSnapshot = @($live.Values)
+function Assert-TranscriptsIntact {
+    param([string]$When)
+    $missing = @($liveSnapshot | Where-Object { -not (Test-Path -LiteralPath $_) })
+    if ($missing.Count -gt 0) {
+        throw "STOP ($When): $($missing.Count) live transcript(s) no longer exist, e.g. $($missing[0])"
+    }
+}
+Assert-TranscriptsIntact "before apply"
+
+if (-not (Test-Path -LiteralPath $argArchive)) { New-Item -ItemType Directory -Path $argArchive -Force | Out-Null }
+$manifestPath = Join-Path $argArchive "MANIFEST.csv"
+if (-not (Test-Path -LiteralPath $manifestPath)) {
+    [System.IO.File]::WriteAllText($manifestPath, "sha256,action,session,original_path,new_path,sha256_after`r`n", (New-Object System.Text.UTF8Encoding($false)))
+}
+function Add-Manifest($sha, $action, $sid, $orig, $new, $shaAfter) {
+    $cells = @($sha, $action, $sid, $orig, $new, $shaAfter) | ForEach-Object { '"' + ([string]$_).Replace('"', '""') + '"' }
+    [System.IO.File]::AppendAllText($manifestPath, (($cells -join ',') + "`r`n"), (New-Object System.Text.UTF8Encoding($false)))
+}
+function Get-Sha($path) { (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() }
+function Get-FreeName($dest) {
+    if (-not (Test-Path -LiteralPath $dest)) { return $dest }
+    $dir = Split-Path $dest -Parent; $base = [IO.Path]::GetFileNameWithoutExtension($dest); $ext = [IO.Path]::GetExtension($dest)
+    for ($i = 2; $i -lt 1000; $i++) {
+        $c = Join-Path $dir "$base ($i)$ext"
+        if (-not (Test-Path -LiteralPath $c)) { return $c }
+    }
+    throw "No free name for $dest"
+}
+function Move-ToArchive($src, $subdir, $action, $sid) {
+    $destDir = Join-Path $argArchive $subdir
+    if (-not (Test-Path -LiteralPath $destDir)) { New-Item -ItemType Directory -Path $destDir -Force | Out-Null }
+    $dest = Get-FreeName (Join-Path $destDir (Split-Path $src -Leaf))
+    $sha = Get-Sha $src
+    Move-Item -LiteralPath $src -Destination $dest
+    Add-Manifest $sha $action $sid $src $dest ""
+}
+
+foreach ($p in ($plan | Where-Object { $_.Action -eq 'archive-duplicate' })) {
+    Move-ToArchive $p.Rec.Path "notes\$($p.From)" "archive-duplicate" $p.Session
+    if ($p.Rec.Marker) { Move-ToArchive $p.Rec.Marker "markers\$($p.From)" "archive-duplicate-marker" $p.Session }
+}
+foreach ($p in ($plan | Where-Object { $_.Action -eq 'release-marker' })) {
+    if ($p.Rec.Marker) { Move-ToArchive $p.Rec.Marker "markers\$($p.From)" "release-marker" $p.Session }
+}
+foreach ($p in ($plan | Where-Object { $_.Action -eq 'move-orphan' })) {
+    $rec = $p.Rec
+    $shaBefore = Get-Sha $rec.Path
+    $backupDir = Join-Path $argArchive "moved-originals\$($p.From)"
+    if (-not (Test-Path -LiteralPath $backupDir)) { New-Item -ItemType Directory -Path $backupDir -Force | Out-Null }
+    $backup = Get-FreeName (Join-Path $backupDir $rec.Name)
+    Copy-Item -LiteralPath $rec.Path -Destination $backup
+    $targetDir = Join-Path $notesDir $p.To
+    if (-not (Test-Path -LiteralPath (Join-Path $targetDir ".exported"))) { New-Item -ItemType Directory -Path (Join-Path $targetDir ".exported") -Force | Out-Null }
+    $destNote = Join-Path $targetDir $rec.Name
+    Move-Item -LiteralPath $rec.Path -Destination $destNote
+    # byte-preserving edit of the first project: line (BOM and line endings stay as they were)
+    $bytes = [System.IO.File]::ReadAllBytes($destNote)
+    $hasBom = $bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF
+    $text = (New-Object System.Text.UTF8Encoding($false)).GetString($bytes, $(if ($hasBom) { 3 } else { 0 }), $bytes.Length - $(if ($hasBom) { 3 } else { 0 }))
+    $re = New-Object System.Text.RegularExpressions.Regex('(?m)^project:[^\r\n]*')
+    $text = $re.Replace($text, "project: $($p.To)", 1)
+    [System.IO.File]::WriteAllText($destNote, $text, (New-Object System.Text.UTF8Encoding($hasBom)))
+    Add-Manifest $shaBefore "move-orphan" $p.Session $rec.Path $destNote (Get-Sha $destNote)
+    if ($rec.Marker) {
+        $destMarker = Join-Path $targetDir ".exported\$($p.Session).done"
+        $shaM = Get-Sha $rec.Marker
+        Move-Item -LiteralPath $rec.Marker -Destination $destMarker
+        Add-Manifest $shaM "move-orphan-marker" $p.Session $rec.Marker $destMarker ""
+    }
+}
+Assert-TranscriptsIntact "after moves"
+
+foreach ($p in ($plan | Where-Object { $_.Action -eq 'retire-folder' })) {
+    $dir = $p.Rec.FullName
+    # junctions first, by themselves: cmd rmdir removes the link and never touches its target
+    foreach ($j in @(Get-ChildItem -LiteralPath $dir -Force -Directory | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint })) {
+        & cmd.exe /c rmdir "$($j.FullName)" | Out-Null
+        if (Test-Path -LiteralPath $j.FullName) { throw "STOP: could not remove junction $($j.FullName)" }
+        Assert-TranscriptsIntact "after removing junction $($j.FullName)"
+    }
+    # a junction nested anywhere else under the folder would make the next step unsafe
+    $nested = @(Get-ChildItem -LiteralPath $dir -Force -Recurse -Directory | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint })
+    if ($nested.Count -gt 0) { throw "STOP: reparse point left under $dir" }
+    foreach ($f in Get-ChildItem -LiteralPath $dir -Force -Recurse -File) {
+        Add-Manifest (Get-Sha $f.FullName) "retire-folder" "-" $f.FullName ($f.FullName.Replace($notesDir, (Join-Path $argArchive "folders"))) ""
+    }
+    $destFolder = Get-FreeName (Join-Path (Join-Path $argArchive "folders") $p.From)
+    if (-not (Test-Path -LiteralPath (Split-Path $destFolder -Parent))) { New-Item -ItemType Directory -Path (Split-Path $destFolder -Parent) -Force | Out-Null }
+    Move-Item -LiteralPath $dir -Destination $destFolder
+    Assert-TranscriptsIntact "after retiring $($p.From)"
+}
+
+$liveAfter = Get-LiveTranscripts
+Write-Output ""
+Write-Output "Applied. Top-level transcripts: $liveCountBefore before, $($liveAfter.Count) after (every one of the $liveCountBefore still present)."
+Write-Output "Manifest: $manifestPath ($(@(Get-Content -LiteralPath $manifestPath).Count - 1) rows)"
+exit 0
+
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; pwsh -NoProfile -File .\reroute-acer-notes.ps1 2>&1 | Out-String -Width 300; (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count; Test-Path "D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22"
+```
+```
+=== Reroute plan (DRY RUN) ===
+Notes root   : D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude
+Archive root : D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22
+Live transcripts: 129
+
+
+Session                              From          To          Action            Reason
+-------                              ----          --          ------            ------
+[REDACTED] Conversations (archive)   archive-duplicate second note for the session; kept the one exported at 2026-10-22 23:03:03 in Jarvis
+[REDACTED] Jesse         (archive)   archive-duplicate second note for the session; kept the one exported at 2026-10-20 08:02:39 in Jarvis
+[REDACTED] Plans         (archive)   archive-duplicate second note for the session; kept the one exported at 2026-10-20 08:02:41 in Jarvis
+[REDACTED] sync-workflow (archive)   archive-duplicate second note for the session; kept the one exported at 2026-10-21 19:33:03 in Jarvis
+[REDACTED] Code          UMN Courses move-orphan       transcript already swept; note and marker move, project: line updated
+[REDACTED] CSCI 5304     UMN Courses move-orphan       transcript already swept; note and marker move, project: line updated
+[REDACTED] csci4061-fa26 UMN Courses move-orphan       transcript already swept; note and marker move, project: line updated
+[REDACTED] denytest      Scratch     move-orphan       transcript already swept; note and marker move, project: line updated
+[REDACTED] Code          UMN Courses release-marker    live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run
+[REDACTED] Code          UMN Courses release-marker    live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run
+-                                    Conversations (archive)   retire-folder     no notes left after this plan
+-                                    CSCI 5304     (archive)   retire-folder     no notes left after this plan
+-                                    csci4061-fa26 (archive)   retire-folder     no notes left after this plan
+-                                    denytest      (archive)   retire-folder     no notes left after this plan
+-                                    Jesse         (archive)   retire-folder     no notes left after this plan
+-                                    Plans         (archive)   retire-folder     no notes left after this plan
+-                                    sync-workflow (archive)   retire-folder     no notes left after this plan
+
+
+Summary: 4 note(s) + 4 marker(s) move to the right folder; 4 duplicate note(s) archived; 6 marker(s) archived (2 released, 4 with duplicates); 7 folder(s) retired (28 loose files archived); 0 conflict(s).
+Files that change place: 8 moved + 38 archived (notes, markers, folder contents; junctions are removed, not archived).
+Dry run: nothing was changed. Re-run with -Apply to carry this out.
+
+129
+False
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\reroute-acer-notes.ps1`
+```diff
+- $retireFiles = 0
+- foreach ($p in ($plan | Where-Object { $_.Action -eq 'retire-folder' })) {
+-     # count files that would be archived, without following the junction
+-     $retireFiles += @(Get-ChildItem -LiteralPath $p.Rec.FullName -Force -File).Count
+-     $dotDir = Join-Path $p.Rec.FullName ".exported"
+-     if (Test-Path -LiteralPath $dotDir) { $retireFiles += @(Get-ChildItem -LiteralPath $dotDir -Force -File).Count }
+- }
++ $retireFiles = 0
++ $leaving = @{}
++ foreach ($p in ($plan | Where-Object { $_.Rec -and $_.Rec.Path })) {
++     $leaving[$p.Rec.Path] = $true
++     if ($p.Rec.Marker) { $leaving[$p.Rec.Marker] = $true }
++ }
++ foreach ($p in ($plan | Where-Object { $_.Action -eq 'retire-folder' })) {
++     # files still in the folder once the moves above have happened (index notes, stray markers);
++     # counted without following the junction
++     $here = @(Get-ChildItem -LiteralPath $p.Rec.FullName -Force -File)
++     $dotDir = Join-Path $p.Rec.FullName ".exported"
++     if (Test-Path -LiteralPath $dotDir) { $here += @(Get-ChildItem -LiteralPath $dotDir -Force -File) }
++     $retireFiles += @($here | Where-Object { -not $leaving.ContainsKey($_.FullName) }).Count
++ }
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\test-reroute-apply.ps1`
+```
+$ErrorActionPreference = "Stop"
+$fail = 0
+function Check($label, $actual, $expected) {
+    if ($actual -eq $expected) { Write-Output "PASS: $label ($actual)" } else { Write-Output "FAIL: $label (got '$actual', want '$expected')"; $script:fail++ }
+}
+$work = Join-Path $PSScriptRoot "rr-$(Get-Random)"
+$tr = Join-Path $work "projects\slug"; $notes = Join-Path $work "notes"; $arch = Join-Path $work "archive"
+$areas = Join-Path $work "areas"
+New-Item -ItemType Directory -Path $tr, $notes -Force | Out-Null
+$cfg = @{ version = 1; fallback = "leaf"; rules = @(@{ project = "Alpha"; match = "under"; path = (Join-Path $areas "alpha") }, @{ project = "Beta"; match = "under"; path = (Join-Path $areas "beta") }) }
+$routing = Join-Path $work "r.json"
+[IO.File]::WriteAllText($routing, ($cfg | ConvertTo-Json -Depth 5))
+foreach ($f in "Alpha", "Beta", "Stray", "Stray2") {
+    New-Item -ItemType Directory -Path (Join-Path $notes "$f\.exported") -Force | Out-Null
+    [IO.File]::WriteAllText((Join-Path $notes "$f\00 - Session Index.md"), "idx")
+    cmd /c mklink /J "$(Join-Path $notes "$f\_raw_jsonl")" "$tr" | Out-Null
+}
+function Tr($sid, $cwd) {
+    $l = @((@{ type = "user"; cwd = $cwd; message = @{ role = "user"; content = "hi" } } | ConvertTo-Json -Depth 5 -Compress), (@{ type = "assistant"; cwd = $cwd; message = @{ role = "assistant"; content = @(@{ type = "text"; text = "ok" }) } } | ConvertTo-Json -Depth 6 -Compress))
+    [IO.File]::WriteAllLines((Join-Path $tr "$sid.jsonl"), $l)
+}
+function Note($folder, $name, $sid, $cwd, $exported, [bool]$bom) {
+    $body = "---`r`ntype: input`r`nexported_at: $exported`r`nproject: $folder`r`ncwd: '$cwd'`r`nsession_id: $sid`r`n---`r`nbody`r`n"
+    [IO.File]::WriteAllText((Join-Path $notes "$folder\$name.md"), $body, (New-Object Text.UTF8Encoding($bom)))
+    [IO.File]::WriteAllText((Join-Path $notes "$folder\.exported\$sid.done"), "$name.md")
+}
+# live, wrong folder (Stray -> Alpha): release-marker
+Tr "s-live" (Join-Path $areas "alpha\x"); Note "Stray" "live note" "s-live" (Join-Path $areas "alpha\x") "2026-10-01T10:00:00" $true
+# orphan, wrong folder (Stray2 -> Beta): move-orphan, BOM kept
+Note "Stray2" "orphan note" "s-orphan" (Join-Path $areas "beta\y") "2026-10-01T10:00:00" $true
+# duplicate, live: Beta older, Alpha newer
+Tr "s-dup" (Join-Path $areas "alpha")
+Note "Beta" "dup old" "s-dup" (Join-Path $areas "alpha") "2026-10-01T10:00:00" $false
+Note "Alpha" "dup new" "s-dup" (Join-Path $areas "alpha") "2026-10-02T10:00:00" $false
+# correct already
+Tr "s-fine" (Join-Path $areas "beta"); Note "Beta" "fine" "s-fine" (Join-Path $areas "beta") "2026-10-01T10:00:00" $false
+
+$exe = (Get-Process -Id $PID).Path
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\reroute-acer-notes.ps1"
+$trBefore = @(Get-ChildItem $tr -Filter *.jsonl).Count
+$dry = & $exe -NoProfile -ExecutionPolicy Bypass -File $script -NotesRoot $notes -TranscriptsRoot (Join-Path $work "projects") -RoutingFile $routing -ArchiveRoot $arch 2>&1 | Out-String
+Check "dry run changes nothing" ((Test-Path $arch) -or -not (Test-Path (Join-Path $notes "Stray2\orphan note.md")) ) $false
+Write-Output $dry
+$out = & $exe -NoProfile -ExecutionPolicy Bypass -File $script -NotesRoot $notes -TranscriptsRoot (Join-Path $work "projects") -RoutingFile $routing -ArchiveRoot $arch -Apply 2>&1 | Out-String
+Write-Output $out
+Check "exit ok" $LASTEXITCODE 0
+Check "transcripts unchanged" @(Get-ChildItem $tr -Filter *.jsonl).Count $trBefore
+Check "orphan moved to Beta" (Test-Path (Join-Path $notes "Beta\orphan note.md")) $true
+Check "orphan marker moved" (Test-Path (Join-Path $notes "Beta\.exported\s-orphan.done")) $true
+$b = [IO.File]::ReadAllBytes((Join-Path $notes "Beta\orphan note.md"))
+Check "BOM kept" ($b[0] -eq 0xEF -and $b[1] -eq 0xBB) $true
+$txt = [IO.File]::ReadAllText((Join-Path $notes "Beta\orphan note.md"))
+Check "project line updated" ($txt -match "project: Beta`r`n") $true
+Check "CRLF kept, other lines intact" ($txt -match "session_id: s-orphan`r`n---`r`nbody") $true
+Check "pre-edit copy archived" (Test-Path (Join-Path $arch "moved-originals\Stray2\orphan note.md")) $true
+Check "dup old archived" (Test-Path (Join-Path $arch "notes\Beta\dup old.md")) $true
+Check "dup new kept" (Test-Path (Join-Path $notes "Alpha\dup new.md")) $true
+Check "live note stays for now" (Test-Path (Join-Path $notes "Stray\live note.md")) $true
+Check "live marker released" (Test-Path (Join-Path $notes "Stray\.exported\s-live.done")) $false
+Check "released marker archived" (Test-Path (Join-Path $arch "markers\Stray\s-live.done")) $true
+Check "Stray2 retired" (Test-Path (Join-Path $notes "Stray2")) $false
+Check "Stray2 in archive" (Test-Path (Join-Path $arch "folders\Stray2\00 - Session Index.md")) $true
+Check "no junction left in archive" @(Get-ChildItem $arch -Recurse -Force -Directory | Where-Object { $_.Attributes -band 'ReparsePoint' }).Count 0
+Check "Stray (still has a note) not retired" (Test-Path (Join-Path $notes "Stray")) $true
+$rows = @(Import-Csv (Join-Path $arch "MANIFEST.csv"))
+Check "manifest has rows" ($rows.Count -ge 6) $true
+Check "manifest hashes are 64 hex" (@($rows | Where-Object { $_.sha256 -notmatch '^[0-9a-f]{64}$' }).Count) 0
+# second pass: the regenerated note appears in Alpha (simulated), old Stray note is now a duplicate
+Note "Alpha" "live new" "s-live" (Join-Path $areas "alpha\x") "2026-10-05T10:00:00" $false
+$out2 = & $exe -NoProfile -ExecutionPolicy Bypass -File $script -NotesRoot $notes -TranscriptsRoot (Join-Path $work "projects") -RoutingFile $routing -ArchiveRoot $arch -Apply 2>&1 | Out-String
+Check "second pass exit ok" $LASTEXITCODE 0
+Check "old live note archived" (Test-Path (Join-Path $arch "notes\Stray\live note.md")) $true
+Check "Stray retired on second pass" (Test-Path (Join-Path $notes "Stray")) $false
+Check "transcripts still unchanged" @(Get-ChildItem $tr -Filter *.jsonl).Count $trBefore
+Check "Alpha and Beta never retired" ((Test-Path (Join-Path $notes "Alpha")) -and (Test-Path (Join-Path $notes "Beta"))) $true
+
+Get-ChildItem $work -Recurse -Force -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Attributes -band 'ReparsePoint' } | ForEach-Object { cmd /c rmdir "$($_.FullName)" | Out-Null }
+Check "transcripts survive cleanup" @(Get-ChildItem $tr -Filter *.jsonl).Count $trBefore
+Remove-Item $work -Recurse -Force
+if ($fail -eq 0) { "=== ALL OK ===" } else { "=== $fail FAILED ===" }
+
+```
+- `PowerShell`
+```powershell
+$s='C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\test-reroute-apply.ps1'; foreach($sh in 'pwsh','powershell'){ "=== $sh"; & $sh -NoProfile -ExecutionPolicy Bypass -File $s 2>&1 | Where-Object { $_ -notmatch '^PASS' } | Out-String -Width 250 }
+```
+```
+=== pwsh
+=== Reroute plan (DRY RUN) ===
+Notes root   : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1956284759\notes
+Archive root : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1956284759\archive
+Live transcripts: 3
+
+
+Session  From   To        Action            Reason
+-------  ----   --        ------            ------
+s-dup    Beta   (archive) archive-duplicate second note for the session; kept the one exported at 2026-10-02 10:00:00 in Alpha
+s-orphan Stray2 Beta      move-orphan       transcript already swept; note and marker move, project: line updated
+s-live   Stray  Alpha     release-marker    live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run
+-        Stray2 (archive) retire-folder     no notes left after this plan
+
+
+Summary: 1 note(s) + 1 marker(s) move to the right folder; 1 duplicate note(s) archived; 2 marker(s) archived (1 released, 1 with duplicates); 1 folder(s) retired (1 loose files archived); 0 conflict(s).
+Files that change place: 2 moved + 4 archived (notes, markers, folder contents; junctions are removed, not archived).
+Dry run: nothing was changed. Re-run with -Apply to carry this out.
+
+=== Reroute plan (APPLY) ===
+Notes root   : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1956284759\notes
+Archive root : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1956284759\archive
+Live transcripts: 3
+
+
+Session  From   To        Action            Reason
+-------  ----   --        ------            ------
+s-dup    Beta   (archive) archive-duplicate second note for the session; kept the one exported at 2026-10-02 10:00:00 in Alpha
+s-orphan Stray2 Beta      move-orphan       transcript already swept; note and marker move, project: line updated
+s-live   Stray  Alpha     release-marker    live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run
+-        Stray2 (archive) retire-folder     no notes left after this plan
+
+
+Summary: 1 note(s) + 1 marker(s) move to the right folder; 1 duplicate note(s) archived; 2 marker(s) archived (1 released, 1 with duplicates); 1 folder(s) retired (1 loose files archived); 0 conflict(s).
+Files that change place: 2 moved + 4 archived (notes, markers, folder contents; junctions are removed, not archived).
+
+Applied. Top-level transcripts: 3 before, 3 after (every one of the 3 still present).
+Manifest: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1956284759\archive\MANIFEST.csv (6 rows)
+
+=== ALL OK ===
+
+=== powershell
+=== Reroute plan (DRY RUN) ===
+Notes root   : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1852608920\notes
+Archive root : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1852608920\archive
+Live transcripts: 3
+
+
+Session  From   To        Action            Reason                                                                                                      
+-------  ----   --        ------            ------                                                                                                      
+s-dup    Beta   (archive) archive-duplicate second note for the session; kept the one exported at 2026-10-02 10:00:00 in Alpha                          
+s-orphan Stray2 Beta      move-orphan       transcript already swept; note and marker move, project: line updated                                       
+s-live   Stray  Alpha     release-marker    live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run
+-        Stray2 (archive) retire-folder     no notes left after this plan                                                                               
+
+
+
+Summary: 1 note(s) + 1 marker(s) move to the right folder; 1 duplicate note(s) archived; 2 marker(s) archived (1 released, 1 with duplicates); 1 folder(s) retired (1 loose files archived); 0 conflict(s).
+Files that change place: 2 moved + 4 archived (notes, markers, folder contents; junctions are removed, not archived).
+Dry run: nothing was changed. Re-run with -Apply to carry this out.
+
+=== Reroute plan (APPLY) ===
+Notes root   : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1852608920\notes
+Archive root : C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1852608920\archive
+Live transcripts: 3
+
+
+Session  From   To        Action            Reason                                                                                                      
+-------  ----   --        ------            ------                                                                                                      
+s-dup    Beta   (archive) archive-duplicate second note for the session; kept the one exported at 2026-10-02 10:00:00 in Alpha                          
+s-orphan Stray2 Beta      move-orphan       transcript already swept; note and marker move, project: line updated                                       
+s-live   Stray  Alpha     release-marker    live transcript; marker leaves so the regenerated note lands in the right folder, old note archived next run
+-        Stray2 (archive) retire-folder     no notes left after this plan                                                                               
+
+
+
+Summary: 1 note(s) + 1 marker(s) move to the right folder; 1 duplicate note(s) archived; 2 marker(s) archived (1 released, 1 with duplicates); 1 folder(s) retired (1 loose files archived); 0 conflict(s).
+Files that change place: 2 moved + 4 archived (notes, markers, folder contents; junctions are removed, not archived).
+
+Applied. Top-level transcripts: 3 before, 3 after (every one of the 3 still present).
+Manifest: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\rr-1852608920\archive\MANIFEST.csv (6 rows)
+
+=== ALL OK ===
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; pwsh -NoProfile -File .\reroute-acer-notes.ps1 2>&1 | Select-Object -Last 4; (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count; Test-Path "D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22"
+```
+```
+Summary: 4 note(s) + 4 marker(s) move to the right folder; 4 duplicate note(s) archived; 6 marker(s) archived (2 released, 4 with duplicates); 7 folder(s) retired (14 loose files archived); 0 conflict(s).
+Files that change place: 8 moved + 24 archived (notes, markers, folder contents; junctions are removed, not archived).
+Dry run: nothing was changed. Re-run with -Apply to carry this out.
+129
+False
+```
+- `AskUserQuestion` -- `{"questions":[{"question":"Approve this reroute plan for the Acer tree? Transcripts: 129, none touched. Moves: 4 swept-transcript notes with their markers go to the right folder (Code\u0027s CSCI 4511W note, CSCI 5304 and csci4061-fa26 go to UMN Courses; denytest goes to Scratch), with the project: line rewritten and a pre-edit copy archived. Archived (not deleted): 4 duplicate notes (the older copies in Conversations, Jesse, Plans, sync-workflow; the Jarvis copies stay), 6 markers (4 with those duplicates, 2 released so the 2 live Code notes regenerate into UMN Courses), and 14 loose files from 7 retired folders (Conversations, CSCI 5304, csci4061-fa26, denytest, Jesse, Plans, sync-workflow). That is 8 files moved and 24 archived, in D:\\_Anant\\99_Archive\\Acer Conversation Reroute 2026-10-22 with a SHA-256 manifest. Each retired folder\u0027s _raw_jsonl junction is removed with cmd rmdir first and the transcript set is re-checked after every removal. Two Code notes stay in place until the re-export writes their replacements.","header":"Reroute plan","multiSelect":false,"options":[{"label":"Approve and apply (Recommended)","description":"Run reroute-acer-notes.ps1 -Apply, then re-export with -BackfillAll -Force."},{"label":"Change the plan first","description":"Stop here. Say what to change (for example keep a folder, or route denytest elsewhere) and I will re-run the dry run."},{"label":"Stop, do not apply","description":"Leave the tree as it is. Scripts and the routing file stay written."}]}]}`
+- `PowerShell`
+```powershell
+$cnt = { (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count }
+"before: " + (& $cnt)
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"
+pwsh -NoProfile -File .\reroute-acer-notes.ps1 -Apply 2>&1 | Select-Object -Last 6
+"exit: $LASTEXITCODE"
+"after: " + (& $cnt)
+```
+```
+before: 129
+
+Summary: 4 note(s) + 4 marker(s) move to the right folder; 4 duplicate note(s) archived; 6 marker(s) archived (2 released, 4 with duplicates); 7 folder(s) retired (14 loose files archived); 0 conflict(s).
+Files that change place: 8 moved + 24 archived (notes, markers, folder contents; junctions are removed, not archived).
+
+Applied. Top-level transcripts: 129 before, 129 after (every one of the 129 still present).
+Manifest: D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22\MANIFEST.csv (32 rows)
+exit: 0
+after: 129
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; $sw=[Diagnostics.Stopwatch]::StartNew(); powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\export-claude-session.ps1 -BackfillAll -Force 2>&1 | Out-String -Width 200; "elapsed: " + $sw.Elapsed.ToString(); "transcripts: " + (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count
+```
+```
+Command running in background with ID: bupeczosb. Output is being written to: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\tasks\bupeczosb.output. You will be notified when it completes — do not poll that file or sleep while waiting. Read the file only if the user asks for progress, or if you need a line it prints before you can go on, such as a server's ready line or port.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && for f in "Capture Registration.md" "Capture Scripts.md" "Legacy Layout and Archives.md"; do echo "##### $f"; head -14 "$f" | cut -c1-160; grep -n "^#" "$f"; done
+```
+```
+##### Capture Registration.md
+---
+type: project
+status: active
+created: 2026-10-21
+updated: 2026-10-28
+tags:
+  - project
+  - ai
+  - conversations
+  - registration
+project_kind: spec
+next: Add a verified-on date for the Dell Windows and Dell WSL rows when the Dell is next reachable.
+notes:
+  - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
+21:# Capture Registration
+22:## What This Is
+25:## Host names
+32:## Acer, Windows (verified 2026-10-21)
+52:## Acer, WSL (from Build 5c, 2026-10-17; not re-verified)
+60:## Dell, Windows and WSL (from Build 5c, not touched here)
+69:## Schedule (Acer, read from Task Scheduler on 2026-10-22, 23:40)
+83:## What nothing compares
+85:## Non-Goals
+##### Capture Scripts.md
+---
+type: project
+status: active
+created: 2026-10-21
+updated: 2026-10-28
+tags:
+  - project
+  - ai
+  - conversations
+  - scripts
+project_kind: spec
+next: Read the scripts again after the research plan's first section and mark which behaviors are accidents rather than decisions.
+notes:
+  - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
+20:# Capture Scripts
+21:## What This Is
+24:## Capture path
+25:### `hooks/jarvis-session-continuity.ps1` (158 lines)
+32:### `scripts/export-claude-session.ps1` (1,004 lines)
+43:### `scripts/wsl-session-export.ps1` (760 lines)
+45:### `scripts/backfill-windows-silent.vbs` and `scripts/backfill-wsl-silent.vbs`
+47:### `scripts/update-capture-health.ps1` (146 lines)
+49:### `scripts/register-capture-backfill-windows-task.ps1` (82 lines)
+51:### `scripts/run-all-tests.ps1` (33 lines) and the `test-*.ps1` files
+55:## Neighbors in the same folder
+61:## Cursor
+63:## Documented limits the scripts were not written against
+67:## Gaps between cards
+72:## Non-Goals
+##### Legacy Layout and Archives.md
+---
+type: project
+status: active
+created: 2026-10-21
+updated: 2026-10-21
+tags:
+  - project
+  - ai
+  - conversations
+  - legacy
+project_kind: spec
+next: Decide whether the legacy Windows trees are retired, then use the duplicate list in the postmortem to pick which copy survives.
+notes:
+  - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
+19:# Legacy Layout and Archives
+20:## What This Is
+23:## The live layout
+25:## The legacy `Windows/` tree
+35:## Duplicates by `session_id`
+45:## The 14 archive folders
+63:## Empty and stray folders
+68:## Backup copies that share live names
+70:## Non-Goals
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && grep -n -A6 "^## Corrections" "Export Conformance.md" | cut -c1-260 | head -14; echo ======; sed -n 28,56p "Capture Scripts.md" | cut -c1-400; echo ======; sed -n 32,51p "Capture Registration.md" | cut -c1-300
+```
+```
+54:## Corrections
+55-**2026-10-28.** The Windows exporter was fixed for notes it writes from now on. Notes already on disk keep their bytes; none was rewritten, so every count above still describes the old corpus. Checked by `scripts/run-all-tests.ps1` (all tests under PowerShe
+56-- *Fixed, new notes only:* `status: seed` with `review_state: raw`, and `created` and `updated` as dates. UTF-8 written without a byte-order mark for notes, markers, and both rollup files. Marker and note-head reads now name UTF-8, so a title with an en das
+57-- *Fixed, new notes only:* prices for `claude-opus-5-5`, `claude-sonnet-5-5`, and `claude-haiku-5-5`. Cache reads on the two 5.5 models cost 0.05 of the input rate, not 0.1, so the old flat multiplier was also wrong for them. The Sonnet 5 rate of $2 and $10
+58-- *Fixed earlier, 2026-10-22:* token deduplication by message id and project routing (a session keeps the folder holding its marker). The "2 to 3 times too high" warning under Source format applies to notes written before that date.
+59-- *Still open:* the old notes (BOM, `status: raw`, no `created` or `updated`, inflated tokens, null costs, old rollup types). The Legacy Shapes migration has not run. The WSL exporter still writes `status: raw` with no `review_state`, `created`, or `updated
+60-- *Still open, found while fixing:* Haiku 5.5 over 100,000 prompt tokens is billed at higher rates and is not priced; `claude-fable-5-1` has no table entry and gets a null cost; the command in a Bash or PowerShell call line and in the `Commands run` list is
+======
+- *Does:* appends one line to `%USERPROFILE%\.claude\jarvis-session-activity.jsonl`; runs the exporter for this session; on `SessionEnd` also runs it for every Cowork transcript found under `%APPDATA%\Claude\local-agent-mode-sessions` (long-path enumeration, only folders ending `-outputs`). It has a `SessionStart` branch that prints a context-pack policy for sessions inside the vault; that event i
+- *Failure:* every side effect sits in an empty `catch`, and the script always exits 0. It cannot block Claude Code and cannot report a failure.
+- *Cost:* runs the exporter on every `Stop`, which is every assistant turn.
+- *Settings:* the `Stop` and `SessionEnd` entries in `C:\Users\anant\.claude\settings.json` set no `timeout` and no `async` (read 2026-10-21). The docs say `SessionEnd` hooks share a 1.5-second budget unless a longer `timeout` is set (up to 60 seconds), and that `async: true` runs a command hook "in the background without blocking". By that wording, the exporter blocks the end of every turn and a 
+### `scripts/export-claude-session.ps1` (1,004 lines)
+- *Parameters:* `-TranscriptPath`, `-SessionId`, `-Cwd`, `-SourceApp` (`ClaudeCode` or `Cowork`), `-BackfillAll`, `-DryRun`.
+- *Test override:* the environment variable `JARVIS_CAPTURE_OUTROOT` replaces the computed output root so tests and real-transcript checks write to a scratch folder. Test only; the hook and the scheduled task never set it.
+- *Machine:* host name `desktop-3vbg0jh` is Dell, `gupta-builds` is Acer, anything else returns nothing and logs to `%LOCALAPPDATA%\claude-capture\unknown-host.log`.
+- *Project:* `Get-ProjectName` maps `c:\users\anant` and `c:\users\anant gupta` to `Home`, two old-vault paths to `Jarvis` and `The Plan`, and uses the cwd leaf for everything else. That is why `Code`, `CSCI 5304`, `denytest`, `Plans`, and `Jesse` exist as project folders on the Acer. An empty cwd gives `Unknown`.
+- *Price table:* twelve models, dollars per million tokens, each with its own cache-read multiplier (0.05 for `claude-opus-5-5` and `claude-sonnet-5-5`, 0.1 for the rest). Added 2026-10-28: `claude-opus-5-5` (4.00 and 20.00), `claude-sonnet-5-5` (2.00 and 10.00), `claude-haiku-5-5` (0.10 and 0.50, the up-to-100,000-token rate). Cache writes are 1.25x (5 minutes) and 2x (1 hour) of input. A model w
+- *Redaction:* `Redact-Secrets` applies eight regex rules: `sk-ant-`, `sk-`, `ghp_`, `xox*-`, `AKIA`, `Bearer` tokens, `SetEnvironmentVariable` values, and a catch-all for any 24-plus character token mixing letters and digits.
+- *Rendering:* `Format-ToolCall` writes each tool call as a list line. Bash and PowerShell commands, their results, Write contents, and Edit and MultiEdit diffs go in fenced blocks (`bash` and `powershell` tagged for commands; every diff line carries `-` or `+`). Read, Grep, Glob, and the default JSON dump for Agent, Skill, and MCP calls stay one-line inline spans. Helpers: `Get-Fence` and `Format
+- *Output:* the note, the `.exported/<id>.done` marker, the `_raw_jsonl` junction, and both `00 -` rollup files (`Update-Rollups`, typed `generated`, `gen_kind: index`). Frontmatter carries `status: seed`, `review_state: raw`, `created`, and `updated`.
+- *Modes:* single session from the hook, a full walk of top-level transcripts with `-BackfillAll`, and `-DryRun`, which reports seen, duplicate, legacy, and pending counts without writing.
+- *Logging:* none to disk except the unknown-host line. Counts go to the console.
+### `scripts/wsl-session-export.ps1` (760 lines)
+- The WSL twin. Same contract, same machine lookup, `Machine/WSL/Claude` as the output. Derived in Build 5c from the Dell's old hook file; the changes were root resolution, the machine segment, the legacy-marker check, create-if-missing, and `-DryRun`. Runs under `pwsh` inside WSL. Dedup is the existence of `_raw_jsonl/<session_id>.jsonl`, a one-way copy, plus the marker. Not run on this machine t
+### `scripts/backfill-windows-silent.vbs` and `scripts/backfill-wsl-silent.vbs`
+- Hidden launchers. Run the exporter with `-BackfillAll` and wait for it, then run `update-capture-health.ps1` with the real exit code, then quit with that same code. The WSL launcher calls `wsl.exe -e bash -lc "pwsh ... ~/.claude/hooks/wsl-session-export.ps1 -BackfillAll"`, so it points at the user-home hook path, not the vault copy.
+### `scripts/update-capture-health.ps1` (146 lines)
+- Takes `-TaskLabel Windows|WSL` and `-ExitCode`. Appends `{timestamp, exitCode}` to `logs/capture-health-<label>.json`, keeping the last 20, then rewrites `00 - Capture Health.md` with the last 10 rows per label and a warning callout after 3 consecutive failures. No model calls. It records the exit code only: not how many sessions were seen, written, skipped, or failed.
+### `scripts/register-capture-backfill-windows-task.ps1` (82 lines)
+- Registers `ConversationCapture-Backfill-Windows` on the Acer only (it refuses any other host). Dry run unless `-Apply`. Settings were copied from the Dell's task on 2026-10-17: 30-minute repetition for 3,650 days, `RestartCount` 3 at `PT2M`, hidden, start when available, 10-minute limit, ignore new instances, and it runs on battery. Logs to `%LOCALAPPDATA%\claude-capture\register-task.log`. Ther
+### `scripts/run-all-tests.ps1` (33 lines) and the `test-*.ps1` files
+- The runner runs every `test-*.ps1` in `scripts/` under `pwsh` and under `powershell.exe` (the hook's shell), prints one PASS or FAIL line per test per shell, and exits non-zero if any fail. Run by hand; nothing schedules it.
+- `test-exporter-output.ps1` (207 lines): synthetic transcripts for frontmatter, no BOM, rollup typing, fenced and inline rendering, per-model cost, and an en dash title surviving a second export. Takes `-ExporterPath` to run against another copy of the exporter.
+- `test-token-dedup.ps1` (93 lines): one count per message id in both exporters. `test-project-routing.ps1` (82 lines): project naming and the folder a session keeps. `test-token-aggregation.ps1` (87 lines): tool, token, and cost totals; rewritten 2026-10-28 to build its own transcript, because the fake one it used no longer existed and it had been failing.
+## Neighbors in the same folder
+- `hooks/jarvis-write-guard.ps1` (95) and `hooks/jarvis-internship-note-guard.ps1` (126): vault write rules and internship frontmatter checks on `PreToolUse` and `PostToolUse`. Not capture. The internship guard writes `logs/internship-note-guard.jsonl`.
+======
+## Acer, Windows (verified 2026-10-21)
+| What | Where registered | Value |
+|---|---|---|
+| `Stop` hook | `C:\Users\anant\.claude\settings.json` | `powershell -NoProfile -ExecutionPolicy Bypass -File D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1` |
+| `SessionEnd` hook | same file | same command |
+| `SessionStart` hook | not registered | the script has a branch for it that never runs |
+| `PreToolUse` guard (Write, Edit, MultiEdit) | project `.claude/settings.json` | `jarvis-write-guard.ps1` |
+| `PostToolUse` guard (Write, Edit, MultiEdit) | project `.claude/settings.json` | `jarvis-internship-note-guard.ps1` |
+| `cleanupPeriodDays` | `C:\Users\anant\.claude\settings.json` | `60`, set 2026-10-28 (was the 30-day default). Safety copy: `D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22`, 272 `.jsonl` files, 633,702,146 bytes. Retention check pending, run on or after 2026-10-30 |
+Neither entry carries a `timeout` or `async` key, so `SessionEnd` runs under the documented 1.5-second budget and both run in the foreground (see the postmortem, finding 12). The hook command is an absolute path into the vault, so it follows the vault if the vault is cloned to the same place and bre
+| Task | Cadence | Last run | Result | Registered by |
+|---|---|---|---|---|
+| `ConversationCapture-Backfill-Windows` | every 30 min | 2026-10-21 19:33 | 0 | `register-capture-backfill-windows-task.ps1`, 2026-10-17 |
+| `Jarvis-GitAutoSync` | every 30 min | 2026-10-21 19:33 | 0 | `register-git-auto-sync-task.ps1` |
+| `Jarvis-WeeklyReview` | Sundays 06:00 | 2026-10-18 13:15 | 0 | `register-weekly-review-task.ps1` |
+| `Jarvis-Syncthing-Health` | about every 5 min | 2026-10-21 19:36 | **1** | not read |
+| `Jarvis-Codex-Daemon-Guard` | not read | not read | not read | `sync-workflow/scripts/codex-daemon-guard.ps1`, untracked |
+| `ThePlan-GitSync` | not read | not read | not read | The Plan vault |
+Not registered on the Acer: `Jarvis-Cursor-Session-Export` (the Cursor sweep) and `SecondBrainClaudekit-JarvisSync` (the Unison leg).
+Checks used: `Get-ScheduledTask` with `Get-ScheduledTaskInfo` for the tasks; a read of both settings files for the hooks; `Get-Content` on `jarvis-session-activity.jsonl` for the hook's own trail.
+```
+- `Monitor` -- `{"command":"echo noop","description":"placeholder"}`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && sed -n 49,53p "Capture Registration.md" | cut -c1-200; grep -c $'\r' "Capture Registration.md"
+```
+```
+| `ThePlan-GitSync` | not read | not read | not read | The Plan vault |
+Not registered on the Acer: `Jarvis-Cursor-Session-Export` (the Cursor sweep) and `SecondBrainClaudekit-JarvisSync` (the Unison leg).
+Checks used: `Get-ScheduledTask` with `Get-ScheduledTaskInfo` for the tasks; a read of both settings files for the hooks; `Get-Content` on `jarvis-session-activity.jsonl` for the hook's own trail.
+## Acer, WSL (from Build 5c, 2026-10-17; not re-verified)
+| What | Value |
+0
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Registration.md`
+```diff
+- ## Acer, WSL (from Build 5c, 2026-10-17; not re-verified)
++ ## Project routing (Acer Windows)
++ Which project folder a session lands in comes from its working directory, through one editable file: `30_Order/System/claude-workflow/capture-projects.json`. The exporter reads it on every run. The rules are checked in order and the first match wins. A path under a rule means the folder itself or anything inside it; a path must match whole folder names, so `Jarvis-old` is not inside `Jarvis`. Case is ignored.
++ | Order | Project folder | Match | Path |
++ |---|---|---|---|
++ | 1 | `Jarvis` | under | the vault, `D:\_Anant\20_Progress\Documents\Jarvis` |
++ | 2 | `The Plan` | under | `D:\_Anant\20_Progress\Documents\The Plan` |
++ | 3 | `UMN Courses` | under | `D:\_Anant\10_Areas\UMN` |
++ | 4 | `Home` | exact | `C:\Users\anant` |
++ | 5 | `Scratch` | under | `%LOCALAPPDATA%\Temp\claude` |
++ A directory no rule matches gets a folder named after its last path segment, so a new place Claude Code is used is recorded without any edit. An empty cwd gives `Unknown`. To add a project, add a rule to the file; put narrower paths above wider ones. If the file is missing or invalid, the exporter uses the built-in Jarvis, The Plan and Home rules and writes one line to `%LOCALAPPDATA%\claude-capture\routing.log`; it never fails the hook. `Scratch` holds Claude Code's own scratch folders, so one-off test runs do not each become a project; the owner is asked to confirm it. A session stays in the folder holding its `.exported` marker, so changing a rule moves only new sessions. Moving old ones is `scripts/reroute-acer-notes.ps1` followed by `export-claude-session.ps1 -BackfillAll -Force`; both are in [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
++ `UMN Courses` folds every course into one folder, so its `_raw_jsonl` junction points at one Claude Code transcript folder only and is a partial view of the course transcripts.
++ ## Acer, WSL (from Build 5c, 2026-10-17; not re-verified)
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Registration.md`
+```diff
+- updated: 2026-10-28
+- tags:
++ updated: 2026-10-28
++ tags:
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow" && wc -l scripts/export-claude-session.ps1 scripts/check-capture-coverage.ps1 scripts/reroute-acer-notes.ps1 scripts/test-capture-projects.ps1 scripts/test-check-capture-coverage.ps1 scripts/run-all-tests.ps1 scripts/test-project-routing.ps1 capture-projects.json
+```
+```
+ 1076 scripts/export-claude-session.ps1
+  160 scripts/check-capture-coverage.ps1
+  303 scripts/reroute-acer-notes.ps1
+  140 scripts/test-capture-projects.ps1
+   78 scripts/test-check-capture-coverage.ps1
+   33 scripts/run-all-tests.ps1
+   82 scripts/test-project-routing.ps1
+   18 capture-projects.json
+ 1890 total
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+```diff
+- ### `scripts/export-claude-session.ps1` (1,004 lines)
+- - *Parameters:* `-TranscriptPath`, `-SessionId`, `-Cwd`, `-SourceApp` (`ClaudeCode` or `Cowork`), `-BackfillAll`, `-DryRun`.
++ ### `scripts/export-claude-session.ps1` (1,076 lines)
++ - *Parameters:* `-TranscriptPath`, `-SessionId`, `-Cwd`, `-SourceApp` (`ClaudeCode` or `Cowork`), `-BackfillAll`, `-DryRun`, `-Force`.
++ - *`-Force`:* re-renders a session even when its marker is newer than the transcript. It reuses the note file name stored in the marker, so a title change cannot create a second note, and the session stays in the folder holding its marker. Used on 2026-10-28 as `-BackfillAll -Force` to regenerate the Acer notes in the finished format.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+```diff
+- - *Project:* `Get-ProjectName` maps `c:\users\anant` and `c:\users\anant gupta` to `Home`, two old-vault paths to `Jarvis` and `The Plan`, and uses the cwd leaf for everything else. That is why `Code`, `CSCI 5304`, `denytest`, `Plans`, and `Jesse` exist as project folders on the Acer. An empty cwd gives `Unknown`.
++ - *Project:* `Get-ProjectName` reads the ordered rules in `capture-projects.json` (see the routing file card below), caches them per run, and uses the cwd's last path segment when no rule matches. An empty cwd gives `Unknown`. Before 2026-10-28 it knew only the vault, The Plan and Home, which is why `Code`, `CSCI 5304`, `denytest`, `Plans`, and `Jesse` existed as project folders on the Acer.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+```diff
+- ### `scripts/wsl-session-export.ps1` (760 lines)
++ ### `capture-projects.json` (18 lines, in `30_Order/System/claude-workflow/`)
++ - *Does:* holds the project routing rules: a `version`, a `comment` on how to add a project, an ordered `rules` list (`project`, `match` of `under` or `exact`, `path` with the tokens `{vault}`, `{root}`, `{home}`, `{localappdata}`), and `fallback: "leaf"`. First match wins. Tokens resolve from the exporter's own location and the environment, so the Dell can reuse the file. The table is in [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].
++ - *Failure:* a missing or invalid file switches the exporter to the built-in Jarvis, The Plan and Home rules and writes one line to `%LOCALAPPDATA%\claude-capture\routing.log`. It never throws.
++ ### `scripts/check-capture-coverage.ps1` (160 lines)
++ - *Does:* read-only proof. For each top-level transcript it reports whether the session has an assistant turn (a text search for the assistant type marker, not a parse), whether exactly one note carries its `session_id`, and whether that note sits in the folder the routing rules give for the transcript's first cwd. It counts notes whose transcript is gone and that lack `review_state`. Exits 1 on any session with no note, two notes, or a wrong folder. Sessions with no assistant turn and sessions that exist only in the legacy trees are listed as exempt.
++ - *Parameters:* `-TranscriptsRoot`, `-NotesRoot`, `-RoutingFile`, so tests can point it at synthetic folders. Tested by `test-check-capture-coverage.ps1`.
++ ### `scripts/reroute-acer-notes.ps1` (303 lines)
++ - *Does:* prints a plan, and changes things only with `-Apply`. Notes whose transcript is gone and that sit in the wrong folder move with their marker and get a new `project:` line (a pre-edit copy is archived). A session with two notes keeps the one with the later `exported_at`. A live session in the wrong folder has only its marker archived, so the exporter writes the regenerated note into the right folder; the old note is archived by the next run. Folders left with no notes are retired, and folders named by a routing rule never are.
++ - *Safety:* nothing is deleted; moved-out files go to the archive folder with a SHA-256 `MANIFEST.csv` that later runs append to. Each retired folder's `_raw_jsonl` junction is removed with `cmd /c rmdir`, never `Remove-Item -Recurse`, and the live transcript set is re-checked after every removal. Parameters: `-NotesRoot`, `-TranscriptsRoot`, `-RoutingFile`, `-ArchiveRoot`, `-Apply`.
++ ### `scripts/wsl-session-export.ps1` (760 lines)
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+```diff
+- - `test-token-dedup.ps1` (93 lines): one count per message id in both exporters.
++ - `test-capture-projects.ps1` (140 lines): every routing rule inside and outside its path, rule order, case, trailing slash, sibling-prefix paths, the Scratch rule on a real `%LOCALAPPDATA%\Temp\claude` path, the leaf fallback, and a missing, corrupt or invalid routing file. `test-check-capture-coverage.ps1` (78 lines): one synthetic session per coverage case, and that the script changes no file.
++ - `test-token-dedup.ps1` (93 lines): one count per message id in both exporters.
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\55d3a208-38d9-4c4e-945f-715a858d15c9\tasks\bupeczosb.output`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; pwsh -NoProfile -File .\reroute-acer-notes.ps1 2>&1 | Out-String -Width 300
+```
+```
+=== Reroute plan (DRY RUN) ===
+Notes root   : D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude
+Archive root : D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22
+Live transcripts: 129
+
+
+Session                              From To        Action            Reason
+-------                              ---- --        ------            ------
+[REDACTED] Code (archive) archive-duplicate second note for the session; kept the one exported at 2026-10-28 16:15:11 in UMN Courses
+[REDACTED] Code (archive) archive-duplicate second note for the session; kept the one exported at 2026-10-28 16:15:11 in UMN Courses
+-                                    Code (archive) retire-folder     no notes left after this plan
+
+
+Summary: 0 note(s) + 0 marker(s) move to the right folder; 2 duplicate note(s) archived; 0 marker(s) archived (0 released, 0 with duplicates); 1 folder(s) retired (2 loose files archived); 0 conflict(s).
+Files that change place: 0 moved + 4 archived (notes, markers, folder contents; junctions are removed, not archived).
+Dry run: nothing was changed. Re-run with -Apply to carry this out.
+```
+- `PowerShell`
+```powershell
+$cnt = { (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count }
+"before: " + (& $cnt)
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"
+pwsh -NoProfile -File .\reroute-acer-notes.ps1 -Apply 2>&1 | Select-Object -Last 3
+"exit: $LASTEXITCODE"
+"after: " + (& $cnt)
+"--- coverage"
+pwsh -NoProfile -File .\check-capture-coverage.ps1 2>&1 | Out-String -Width 220
+"coverage exit: $LASTEXITCODE"
+"after coverage: " + (& $cnt)
+```
+```
+before: 129
+
+Applied. Top-level transcripts: 129 before, 129 after (every one of the 129 still present).
+Manifest: D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22\MANIFEST.csv (36 rows)
+exit: 0
+after: 129
+--- coverage
+=== Capture coverage ===
+Transcripts root : C:\Users\anant\.claude\projects
+Notes root       : D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude
+
+Top-level transcripts          : 129
+  with an assistant turn       : 103
+  ok (one note, right folder)  : 103
+  no note                      : 0
+  two or more notes            : 0
+  wrong folder                 : 0
+  legacy only (exempt)         : 0
+  no assistant turn (exempt)   : 26
+Notes in the tree              : 126
+Notes with no live transcript  : 23 (23 without review_state)
+
+Notes per project folder:
+  Home                 17
+  Jarvis               83
+  Scratch              1
+  The Plan             20
+  UMN Courses          5
+=== PASS: every session with an assistant turn has one note in the right folder ===
+
+coverage exit: 0
+after coverage: 129
+```
+- `PowerShell`
+```powershell
+$acer='D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude'
+foreach($p in 'UMN Courses','The Plan','Jarvis'){
+  $f = Get-ChildItem -LiteralPath "$acer\$p" -Filter *.md -File | ? { $_.Name -notlike '00 -*' } | ? { (Get-Content -LiteralPath $_.FullName -TotalCount 40 -Encoding UTF8) -match '^review_state:' } | Sort-Object LastWriteTime | Select-Object -First 1
+  $b = [IO.File]::ReadAllBytes($f.FullName)[0..2]
+  $head = Get-Content -LiteralPath $f.FullName -TotalCount 30 -Encoding UTF8
+  $sid = ($head | ? { $_ -match '^session_id:' }) -replace 'session_id:\s*',''
+  "=== $p : $($f.Name)"
+  "first bytes: " + (($b | % { '{0:X2}' -f $_ }) -join ' ') + "  (BOM would be EF BB BF)"
+  $head | ? { $_ -match '^(---|status:|review_state:|project:|created:|updated:|session_id:|type:)' }
+  "session_id matches an existing transcript: " + [bool](Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter "$sid.jsonl" -File } | Select-Object -First 1)
+  "fence lines: " + @(Select-String -LiteralPath $f.FullName -Pattern '^(`{3,})(bash|powershell|diff|text)?\s*$').Count + " (open+close fences)"
+}
+```
+```
+=== UMN Courses : 10-27 Conda env csci-4521 setup.md
+first bytes: 2D 2D 2D  (BOM would be EF BB BF)
+---
+type: input
+project: UMN Courses
+session_id: [REDACTED]
+status: seed
+review_state: raw
+created: 2026-10-27
+updated: 2026-10-28
+session_id matches an existing transcript: True
+fence lines: 186 (open+close fences)
+=== The Plan : 10-15 Plan design for The Plan vault.md
+first bytes: 2D 2D 2D  (BOM would be EF BB BF)
+---
+type: input
+project: The Plan
+session_id: [REDACTED]
+status: seed
+review_state: raw
+created: 2026-10-15
+updated: 2026-10-28
+session_id matches an existing transcript: True
+fence lines: 44 (open+close fences)
+=== Jarvis : 10-04 Cross-laptop sync builds 10 and 11 acer verification.md
+first bytes: 2D 2D 2D  (BOM would be EF BB BF)
+---
+type: input
+project: Jarvis
+session_id: [REDACTED]
+status: seed
+review_state: raw
+created: 2026-10-04
+updated: 2026-10-28
+session_id matches an existing transcript: True
+fence lines: 106 (open+close fences)
+```
+- `Grep` -- pattern `Cwd|cwd|export-claude-session|TranscriptPath|SessionId` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && sed -n 20,24p "Legacy Layout and Archives.md" | cut -c1-400; sed -n 63,72p "Legacy Layout and Archives.md" | cut -c1-300; grep -n "^updated:\|^next:" "Conversation Layer.md" | cut -c1-300
+```
+```
+## What This Is
+==The archive holds three layouts at once: the machine-first tree that new exports use, the older `Windows/` tree that old markers still protect, and 14 `_archive-pre-fix` folders from two rewrites.==
+The live tree is authoritative, as the README says. This note records what sits outside it, so a count of "sessions" is not read as a count of distinct work. Measured 2026-10-21.
+## The live layout
+`<Machine>/<OS>/<Tool>/<Project>/`, with Machine `Dell` or `Acer`, OS `Windows` or `WSL`, Tool `Claude` (Claude Code, with Cowork inside it on Windows) or `Cursor`, and Project the cwd leaf. Rolled out 2026-10-17 in Build 5c; the Dell had the same shape from the 10-08 reorganization.
+## Empty and stray folders
+- Empty scaffolds on the Acer only: `Acer/WSL/{AGY,Codex,Cursor,Kiro,Local}` and `Acer/Windows/{AGY,Codex,Kiro,Local}`, with an empty `Home` under `Acer/Windows/AGY`, `Acer/Windows/Codex`, and `Acer/WSL/Claude`. The Dell has none of them.
+- Empty on the Dell: `Dell/WSL/Claude/{capture-test,ecc,everything-claude-code}`, `Dell/Windows/Claude/Unknown`, `Dell/Windows/Cursor/Home`.
+- One-off project folders created by the cwd rule on the Acer: `Code`, `CSCI 5304`, `csci4061-fa26`, `denytest` (a permissions test), `Jesse`, `Plans`, `sync-workflow`, each with one or two notes.
+- Documented but never created: the README still lists `Claude App/` and `OpenCode/`.
+## Backup copies that share live names
+`40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/_backups/acer-5c-20261017/` holds copies of notes that Build 5c edited, including `Conversation Capture.md` and `log.md`, under their live file names. A bare `[[Conversation Capture]]` link therefore matches two files, which is why several
+## Non-Goals
+This does not recommend which copy to keep or whether to delete the archives. It does not cover the files inside `_raw_jsonl`.
+5:updated: 2026-10-28
+11:next: Run Prompts/P2 (project routing and Acer re-export); P0 and P1 ran on 2026-10-28. P3 to P5 get refined by what they return.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Legacy Layout and Archives.md`
+```diff
+- ## Non-Goals
+- This does not recommend which copy to keep
++ ## Corrections
++ **2026-10-28.** The Acer tree under `Acer/Windows/Claude` was reorganized, and the stray-folder and duplicate findings above no longer describe it. It now holds five project folders: `Jarvis` (83 notes), `The Plan` (20), `Home` (17), `UMN Courses` (5), and `Scratch` (1), chosen by `capture-projects.json` (rules in [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]]). The seven one-off folders (`Code`, `CSCI 5304`, `csci4061-fa26`, `denytest`, `Jesse`, `Plans`, `sync-workflow`) are gone from the vault, and the four Acer sessions that had two notes now have one.
++ - *Where things went:* nothing was deleted. Retired folders, the older copy of each duplicate, and the two notes replaced by regeneration are in `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22`, with a SHA-256 `MANIFEST.csv` of 36 rows (8 files moved inside the vault, 28 archived). Four notes whose transcripts were already swept moved to the right folder with their `project:` line rewritten; a pre-edit copy is in the archive's `moved-originals` folder.
++ - *Regenerated:* the 103 sessions with a live transcript and an assistant turn were re-rendered with `export-claude-session.ps1 -BackfillAll -Force` in the finished format. The 23 notes whose transcripts are gone kept their old bytes and still lack `review_state`.
++ - *Not changed:* the legacy `Windows/` trees, the `_archive-pre-fix` folders, and everything under `Dell/`. The Dell's copy of the exporter has no routing file yet. How the scripts work: [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
++ ## Non-Goals
++ This does not recommend which copy to keep
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Legacy Layout and Archives.md`
+```diff
+- updated: 2026-10-21
+- tags:
++ updated: 2026-10-28
++ tags:
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && grep -n "^- \*\*2026-10-28 (later)" "Conversation Layer.md" | cut -c1-60; grep -n "^## Related Notes" "Conversation Layer.md"
+```
+```
+56:- **2026-10-28 (later):** Ran [[20_Progress/Projects/AI U
+57:## Related Notes
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- ## Related Notes
+- - The session prompts, one per phase
++ - **2026-10-28 (P2):** Ran [[P2 - Project Routing and Acer Re-export|P2]] on the Acer. Routing now comes from `30_Order/System/claude-workflow/capture-projects.json` (Jarvis, The Plan, UMN Courses, Home, Scratch, else the cwd leaf); the exporter has `-Force`; `check-capture-coverage.ps1` and `reroute-acer-notes.ps1` exist. Of 129 top-level transcripts, 103 have an assistant turn and each has exactly one note in the right folder (126 notes in 5 folders: Jarvis 83, The Plan 20, Home 17, UMN Courses 5, Scratch 1); 26 have none and no note. 8 files moved and 28 archived to `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22` (36-row SHA-256 manifest); 8 folders retired; 23 notes with swept transcripts kept their old format. Transcripts: 129 before and after every step.
++ ## Related Notes
++ - The session prompts, one per phase
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- [[P2 - Project Routing and Acer Re-export|P2]] on the Acer. Routing
++ [[20_Progress/Projects/AI Use/Conversations/Prompts - Acer/P2 - Project Routing and Acer Re-export|P2]] on the Acer. Routing
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"; "--- em dash check (my edited notes)"; $d='D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations'; foreach($n in 'Capture Registration.md','Capture Scripts.md','Legacy Layout and Archives.md'){ $t=Get-Content -LiteralPath "$d\$n" -Raw -Encoding UTF8; "{0}: {1} em dashes" -f $n, ([regex]::Matches($t,[string][char]0x2014)).Count }
+"--- full tests"; pwsh -NoProfile -File .\run-all-tests.ps1 2>&1 | Out-String; "exit $LASTEXITCODE"
+"transcripts: " + (Get-ChildItem C:\Users\anant\.claude\projects -Directory | % { Get-ChildItem $_.FullName -Filter *.jsonl -File } | Measure-Object).Count
+Get-ChildItem 'D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22' | Select -Expand Name
+(Import-Csv 'D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22\MANIFEST.csv').Count
+Get-ChildItem 'D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude' -Directory | % Name
+```
+```
+--- em dash check (my edited notes)
+Capture Registration.md: 0 em dashes
+Capture Scripts.md: 0 em dashes
+Legacy Layout and Archives.md: 0 em dashes
+--- full tests
+PASS test-capture-projects.ps1 [pwsh]
+PASS test-capture-projects.ps1 [powershell]
+PASS test-check-capture-coverage.ps1 [pwsh]
+PASS test-check-capture-coverage.ps1 [powershell]
+PASS test-exporter-output.ps1 [pwsh]
+PASS test-exporter-output.ps1 [powershell]
+PASS test-project-routing.ps1 [pwsh]
+PASS test-project-routing.ps1 [powershell]
+PASS test-token-aggregation.ps1 [pwsh]
+PASS test-token-aggregation.ps1 [powershell]
+PASS test-token-dedup.ps1 [pwsh]
+PASS test-token-dedup.ps1 [powershell]
+=== ALL 12 TEST RUNS PASSED ===
+
+exit 0
+transcripts: 129
+folders
+markers
+moved-originals
+notes
+MANIFEST.csv
+36
+Home
+Jarvis
+Scratch
+The Plan
+UMN Courses
+```
 
 ## Actions Taken
 
 **Files created:**
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\dbg.ps1`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\353c8f27-d7b5-4150-bce2-04736e7068b5\scratchpad\test-reroute-apply.ps1`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\capture-projects.json`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\check-capture-coverage.ps1`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\reroute-acer-notes.ps1`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-capture-projects.ps1`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-check-capture-coverage.ps1`
 
 **Files modified:**
-_None_
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Registration.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Legacy Layout and Archives.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -1092,4 +3400,15 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && sed -n 520,600p export-claude-session.ps1; echo ------; sed -n 880,1004p export-claude-session.ps1`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && grep -n -i -E "junk|reuseOutputName|\$outputPath =" export-claude-session.ps1 | head -30; ls "$APPDATA/Claude/local-agent-mode-sessions" 2>&1 | head -3`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && cat test-project-routing.ps1`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && python - <<'EOF' import re,io p='export-claude-session.ps1' s=open(p,encoding='utf-8').read() start=s.index('# cwd -> project name. Vault roots') end=s.index('# The .exported marker lives inside') new='''# cwd -> project name. The rules live in capture-projects.json (one level above this # folder): an ordered list, first match wins, each rule "under" a path or "exact" to it, # with {vault}, {root}, {home} and {localappdata} tokens resolved from this script's own # location and the environment (never a hardcoded drive layout). A cwd no rule matches # gets a folder named after its last path segment. If the file is missing or invalid, # the built-in Jarvis / The Plan / Home rules apply and one line goes to # %LOCALAPPDATA%\\claude-capture\\routing.log. Nothing here may throw: the hook must not fail. $CaptureRoutingFile = Join-Path $PSScriptRoot "..\\capture-projects.json" $script:RoutingRules = $null  function Write-RoutingLog {     param([string]$Message)     try {         $logDir = Join-Path $env:LOCALAPPDATA "claude-capture"         if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }         Add-Content -LiteralPath (Join-Path $logDir "routing.log") -Value "$((Get-Date).ToString('yyyy-MM-ddTHH:mm:ss')) $Message"     }     catch {} }  function Get-BuiltInRoutingRules {     return @(         @{ Project = 'Jarvis'; Match = 'under'; Path = $VaultRoot.TrimEnd('\\', '/') },         @{ Project = 'The Plan'; Match = 'under'; Path = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan').TrimEnd('\\', '/') },         @{ Project = 'Home'; Match = 'exact'; Path = "$env:USERPROFILE".TrimEnd('\\', '/') }     ) }  # Resolves tokens and ..\\ in a rule path. Returns $null when a token has no value. function Expand-RoutingPath {     param([string]$Path)     $root = $VaultRoot     for ($i = 0; $i -lt 3; $i++) { $root = Split-Path -Path $root -Parent }     $values = @{ '{vault}' = $VaultRoot; '{root}' = $root; '{home}' = $env:USERPROFILE; '{localappdata}' = $env:LOCALAPPDATA }     foreach ($tok in $values.Keys) {         if ($Path.Contains($tok)) {             if ([string]::IsNullOrWhiteSpace($values[$tok])) { return $null }             $Path = $Path.Replace($tok, $values[$tok])         }     }     if ($Path -match '[{}]') { return $null }     return [System.IO.Path]::GetFullPath($Path).TrimEnd('\\', '/') }  function Get-RoutingRules {     if ($null -ne $script:RoutingRules) { return $script:RoutingRules }     $rules = $null     try {         if (-not (Test-Path -LiteralPath $CaptureRoutingFile)) { throw "file not found" }         $cfg = Get-Content -LiteralPath $CaptureRoutingFile -Raw -Encoding UTF8 | ConvertFrom-Json         if (-not $cfg.version) { throw "no version" }         if ($cfg.fallback -ne 'leaf') { throw "fallback must be 'leaf'" }         if ($null -eq $cfg.rules) { throw "no rules list" }         $list = New-Object System.Collections.Generic.List[object]         foreach ($r in @($cfg.rules)) {             if ([string]::IsNullOrWhiteSpace($r.project) -or [string]::IsNullOrWhiteSpace($r.path) -or @('under', 'exact') -notcontains $r.match) {                 throw "bad rule for project '$($r.project)'"             }             $p = Expand-RoutingPath -Path ([string]$r.path)             if (-not $p) { throw "unresolvable path in rule '$($r.project)'" }             $list.Add(@{ Project = [string]$r.project; Match = [string]$r.match; Path = $p })         }         $rules = @($list)     }     catch {         Write-RoutingLog "routing file '$CaptureRoutingFile' unusable ($($_.Exception.Message)); using built-in Jarvis/The Plan/Home rules"         $rules = @(Get-BuiltInRoutingRules)     }     $script:RoutingRules = $rules     return $rules }  function Get-ProjectName {     param([string]$CwdPath)     if ([string]::IsNullOrWhiteSpace($CwdPath)) { return "Unknown" }     $norm = $CwdPath.Replace('/', '\\').TrimEnd('\\')     foreach ($r in (Get-RoutingRules)) {         if ($norm -ieq $r.Path) { return $r.Project }         if ($r.Match -eq 'under' -and $norm.StartsWith($r.Path + '\\', [StringComparison]::OrdinalIgnoreCase)) { return $r.Project }     }     $leaf = Split-Path -Path $norm -Leaf     if ([string]::IsNullOrWhiteSpace($leaf)) { return "Unknown" }     return $leaf }  ''' s=s[:start]+new+s[end:] open(p,'w',encoding='utf-8',newline='').write(s) EOF grep -c $'\r' export-claude-session.ps1; file export-claude-session.ps1; head -c 3 export-claude-session.ps1 | xxd | head -1`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && grep -n "Status = \"junk\"" export-claude-session.ps1; sed -n 785,800p export-claude-session.ps1`
+- `cd /c/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan && f=$(ls *.jsonl | head -1); grep -c '"type":"assistant"' $f; grep -c '"type": "assistant"' $f; head -c 300 $f | cut -c1-300`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude" && head -30 "Code/10-05 CSCI 4521 homework 1.md" | cut -c1-120; echo ----; head -22 "Code/09-21 CSCI 4511W environment setup.md" | cut -c1-100; echo; cat ".exported" 2>/dev/null; ls Code/.exported | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -A22 "function Ensure-ProjectScaffold" 30_Order/System/claude-workflow/scripts/export-claude-session.ps1 | head -40`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && for f in "Capture Registration.md" "Capture Scripts.md" "Legacy Layout and Archives.md"; do echo "##### $f"; head -14 "$f" | cut -c1-160; grep -n "^#" "$f"; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && grep -n -A6 "^## Corrections" "Export Conformance.md" | cut -c1-260 | head -14; echo ======; sed -n 28,56p "Capture Scripts.md" | cut -c1-400; echo ======; sed -n 32,51p "Capture Registration.md" | cut -c1-300`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && sed -n 49,53p "Capture Registration.md" | cut -c1-200; grep -c $'\r' "Capture Registration.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow" && wc -l scripts/export-claude-session.ps1 scripts/check-capture-coverage.ps1 scripts/reroute-acer-notes.ps1 scripts/test-capture-projects.ps1 scripts/test-check-capture-coverage.ps1 scripts/run-all-tests.ps1 scripts/test-project-routing.ps1 capture-projects.json`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && sed -n 20,24p "Legacy Layout and Archives.md" | cut -c1-400; sed -n 63,72p "Legacy Layout and Archives.md" | cut -c1-300; grep -n "^updated:\|^next:" "Conversation Layer.md" | cut -c1-300`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && grep -n "^- \*\*2026-10-28 (later)" "Conversation Layer.md" | cut -c1-60; grep -n "^## Related Notes" "Conversation Layer.md"`
 

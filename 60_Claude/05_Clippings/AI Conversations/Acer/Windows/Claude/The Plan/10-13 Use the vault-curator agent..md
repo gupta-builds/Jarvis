@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Use the vault-curator agent."
 started_at: 2026-10-13T16:35:55
 ended_at: 2026-10-13T16:36:12
-exported_at: 2026-10-17T21:07:05
+exported_at: 2026-10-28T16:15:51
 duration_minutes: 0.3
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: d5dcee0f-c564-41af-84b4-6b63acf865e4
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-13
+updated: 2026-10-28
 turn_count: 2
 tools_used:
   Agent: 1
@@ -21,7 +24,7 @@ tokens:
   cache_creation: 21871
   cache_read: 15644
   total: 37710
-cost_usd: null
+cost_usd: 0.090982
 model:
   - "claude-sonnet-5-5"
 files_touched: []
@@ -59,5 +62,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

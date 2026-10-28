@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4061 textbook notes refinement build 1"
 started_at: 2026-09-29T13:24:27
 ended_at: 2026-09-29T17:15:08
-exported_at: 2026-10-17T21:07:00
+exported_at: 2026-10-28T16:15:42
 duration_minutes: 230.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: d25f538d-985d-4fa1-bd5a-07daac3a197b
-status: raw
+status: seed
+review_state: raw
+created: 2026-09-29
+updated: 2026-10-28
 turn_count: 6
 tools_used:
   AskUserQuestion: 1
@@ -21,12 +24,12 @@ tools_used:
   Read: 48
   Write: 11
 tokens:
-  input: 614
-  output: 459122
-  cache_creation: 2722381
-  cache_read: 117353159
-  total: 120535276
-cost_usd: 38.952604
+  input: 304
+  output: 209900
+  cache_creation: 1207350
+  cache_read: 62945519
+  total: 64363073
+cost_usd: 19.518112
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -115,7 +118,10 @@ Ready for your review before Build 2 (Chapters 3, 4, 8, 10).
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find "20_Progress/Degree/CSCI 4061" -type f | sort`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && find "20_Progress/Degree/CSCI 4061" -type f | sort
+```
 ```
 20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md
 20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md
@@ -130,14 +136,17 @@ Ready for your review before Build 2 (Chapters 3, 4, 8, 10).
 20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md
 20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md
 ```
-- `Glob` -- pattern `30_Order/Standards/Courses/**` path ``
-- `Glob` -- pattern `30_Order/Workflows/Courses/**` path ``
+- `Glob` -- pattern `30_Order/Standards/Courses/**` path ` `
+- `Glob` -- pattern `30_Order/Workflows/Courses/**` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\CSCI 4061 Board.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Preparation.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Weekly Board.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 1.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
-- `Bash` -- `find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -maxdepth 4 2>&1 | sort`
+- `Bash`
+```bash
+find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -maxdepth 4 2>&1 | sort
+```
 ```
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/Labs
@@ -220,29 +229,32 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Lecture/lecture05-co
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Practice
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Projects
 ```
-- `Glob` -- pattern `20_Progress/Degree/Repetitive Things*` path ``
+- `Glob` -- pattern `20_Progress/Degree/Repetitive Things*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\Repetitive Things.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Textbook Standard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Weekly Standard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Textbook Workflow.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Weekly Workflow.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\HUMAN_WRITING.md`
-- `Glob` -- pattern `30_Order/Templates/Courses/**` path ``
+- `Glob` -- pattern `30_Order/Templates/Courses/**` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Course Production Workflow.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs\Lab - 2.md`
 - `AskUserQuestion` -- `{"questions":[{"question":"Build 1 perfects 2 of the 6 existing chapter notes. Which 2 should this session prioritize?","header":"Chapter order","options":[{"label":"Chapter 1 + Chapter 7 (Recommended)","description":"Week 1\u0027s two core chapters (syscalls/intro + process management) — earliest in the reading order, and Week 1\u0027s weekly note already has a scaffold to build on."},{"label":"Chapter 1 + Chapter 8","description":"The other two Week 1 chapters, if you\u0027d rather finish Week 1\u0027s full chapter set before touching Week 2 material."},{"label":"Chapter 7 + Chapter 3","description":"The Week 2 pair, if Chapter 1 is already close enough to good and doesn\u0027t need a deep redo."},{"label":"Let me specify","description":"Name the two chapters directly (e.g. by number) if none of the above matches what you want."}]}]}`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 1.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 7.md`
-- `Glob` -- pattern `**/Textbook Template*` path ``
-- `Glob` -- pattern `**/Week Template*` path ``
-- `Glob` -- pattern `**/Weekly Board Standard*` path ``
+- `Glob` -- pattern `**/Textbook Template*` path ` `
+- `Glob` -- pattern `**/Week Template*` path ` `
+- `Glob` -- pattern `**/Weekly Board Standard*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Weekly Board Standard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Textbook Template.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Week Template.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 3.md`
-- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/Textbook/**` path ``
+- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/Textbook/**` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Textbook\Chapter - 2.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Chapter 1 first commit ---" && git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" && echo "--- Chapter 7 first commit ---" && git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" && echo "--- last commits touching these ---" && git log -3 --format="%ad %h %s" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Chapter 1 first commit ---" && git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" && echo "--- Chapter 7 first commit ---" && git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" && echo "--- last commits touching these ---" && git log -3 --format="%ad %h %s" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
+```
 ```
 --- Chapter 1 first commit ---
 2026-09-26 ae08204e
@@ -252,11 +264,17 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Projects
 2026-09-26 ae08204e auto: 2026-09-26 14:54 | 139 files
 ```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook\Advanced Programming in the UNIX Environment, 3rd Edition.pdf`
-- `Bash` -- `which pdftotext pdftoppm python3 python 2>&1; python3 -c "import fitz" 2>&1; python3 -c "import pypdf" 2>&1; python3 -c "import PyPDF2" 2>&1`
+- `Bash`
+```bash
+which pdftotext pdftoppm python3 python 2>&1; python3 -c "import fitz" 2>&1; python3 -c "import pypdf" 2>&1; python3 -c "import PyPDF2" 2>&1
+```
 ```
 The server-side auto mode classifier gave no verdict (error), so auto mode cannot determine the safety of Bash. This is a transient failure of the check, not a judgment about the action: a later response may get a verdict. You may try the action again once, as-is. Repeated attempts are slowed by a growing delay, and after 10 responses in a row without a verdict the turn stops. If it keeps failing, continue with other tasks that don't require this action and come back to it later. Note: reading files, searching code, and other read-only operations do not require the classifier and can still be used.
 ```
-- `Bash` -- `which pdftotext pdftoppm python3 python 2>&1; python3 -c "import fitz" 2>&1; python3 -c "import pypdf" 2>&1; python3 -c "import PyPDF2" 2>&1`
+- `Bash`
+```bash
+which pdftotext pdftoppm python3 python 2>&1; python3 -c "import fitz" 2>&1; python3 -c "import pypdf" 2>&1; python3 -c "import PyPDF2" 2>&1
+```
 ```
 Exit code 49
 which: no pdftoppm in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/usr/bin/vendor_perl:/usr/bin/core_perl)
@@ -267,7 +285,10 @@ Python was not found; run without arguments to install from the Microsoft Store,
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook" && pdftotext -f 20 -l 30 -layout "Advanced Programming in the UNIX Environment, 3rd Edition.pdf" - | head -c 3000`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook" && pdftotext -f 20 -l 30 -layout "Advanced Programming in the UNIX Environment, 3rd Edition.pdf" - | head -c 3000
+```
 ```
 xviii Contents
 
@@ -329,7 +350,10 @@ Rich Stevens is certainly another. The first edition of this book, along with hi
 books about networking, are rightful
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook" && mkdir -p /tmp/apue 2>/dev/null; pdftotext -layout "Advanced Programming in the UNIX Environment, 3rd Edition.pdf" "/tmp/apue/full.txt" && wc -l /tmp/apue/full.txt && grep -n "UNIX Architecture" /tmp/apue/full.txt | head -5`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook" && mkdir -p /tmp/apue 2>/dev/null; pdftotext -layout "Advanced Programming in the UNIX Environment, 3rd Edition.pdf" "/tmp/apue/full.txt" && wc -l /tmp/apue/full.txt && grep -n "UNIX Architecture" /tmp/apue/full.txt | head -5
+```
 ```
 58298 /tmp/apue/full.txt
 180:1.2         UNIX Architecture 1
@@ -337,7 +361,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 57958:ttyname function, 137, 276, 442, 452, 695-696, 699  UNIX Architecture, 1-2
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `sed -n '1150,1260p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '1150,1260p' /tmp/apue/full.txt
+```
 ```
                 I am especially grateful to Brian Kernighan for his help in the book. His numerous
           thorough reviews of the entire manuscript and his gentle prodding for better prose
@@ -449,7 +476,10 @@ Login Name
 
 Shells
 ```
-- `Bash` -- `grep -n "^1\.[0-9]* \|^7\.[0-9]* \|^Chapter 2$\|^Chapter 8$\|System Calls and Library Functions\|Summary$" /tmp/apue/full.txt | sed -n '1,60p'`
+- `Bash`
+```bash
+grep -n "^1\.[0-9]* \|^7\.[0-9]* \|^Chapter 2$\|^Chapter 8$\|System Calls and Library Functions\|Summary$" /tmp/apue/full.txt | sed -n '1,60p'
+```
 ```
 178:1.1         Introduction 1
 180:1.2         UNIX Architecture 1
@@ -512,7 +542,10 @@ Shells
 12524:7.9 Environment Variables
 12705:7.10 setjmp and longjmp Functions
 ```
-- `Bash` -- `grep -n "^7\.1[12] \|^7\.12 Summary\|^Exercises$" /tmp/apue/full.txt | sed -n '1,10p'; echo "---"; sed -n '12705,12900p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+grep -n "^7\.1[12] \|^7\.12 Summary\|^Exercises$" /tmp/apue/full.txt | sed -n '1,10p'; echo "---"; sed -n '12705,12900p' /tmp/apue/full.txt
+```
 ```
 384:7.11          getrlimit and setrlimit Functions 220
 386:7.12          Summary 225
@@ -722,7 +755,10 @@ cmd_add(void)
 When main is executed, we call setjmp, which records whatever information it needs
 to in the variable jmpbuffer and returns 0. We then call do_line, which calls
 ```
-- `Bash` -- `sed -n '2101,2276p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '2101,2276p' /tmp/apue/full.txt
+```
 ```
 1.9 Signals
 
@@ -901,7 +937,10 @@ The general topic of times and dates is covered in Section 6.10.
 
 1.11 System Calls and Library Functions
 ```
-- `Bash` -- `sed -n '2276,2410p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '2276,2410p' /tmp/apue/full.txt
+```
 ```
 1.11 System Calls and Library Functions
 
@@ -1039,7 +1078,10 @@ Exercises
 1.1 Verify on your system that the directories dot and dot-dot are not the same, except in the
        root directory.
 ```
-- `Bash` -- `sed -n '1330,1548p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '1330,1548p' /tmp/apue/full.txt
+```
 ```
 1.4 Files and Directories
 
@@ -1261,7 +1303,10 @@ Home Directory
 
 1.5 Input and Output
 ```
-- `Bash` -- `sed -n '1548,1896p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '1548,1896p' /tmp/apue/full.txt
+```
 ```
 1.5 Input and Output
 
@@ -1613,7 +1658,10 @@ Threads and Thread IDs
 
 1.7 Error Handling
 ```
-- `Bash` -- `sed -n '1896,2101p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '1896,2101p' /tmp/apue/full.txt
+```
 ```
 1.7 Error Handling
 
@@ -1822,7 +1870,10 @@ Supplementary Group IDs
 
 1.9 Signals
 ```
-- `Bash` -- `sed -n '11852,12130p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '11852,12130p' /tmp/apue/full.txt
+```
 ```
 7.1 Introduction
 
@@ -2103,7 +2154,10 @@ instead, we return from main.
 
 7.4 Command-Line Arguments
 ```
-- `Bash` -- `sed -n '12219,12311p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '12219,12311p' /tmp/apue/full.txt
+```
 ```
 7.6 Memory Layout of a C Program
 
@@ -2199,7 +2253,10 @@ hexadecimal, respectively.
 
 7.7 Shared Libraries
 ```
-- `Bash` -- `sed -n '12358,12524p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '12358,12524p' /tmp/apue/full.txt
+```
 ```
 7.8 Memory Allocation
 
@@ -2369,7 +2426,10 @@ alloca Function
 
 7.9 Environment Variables
 ```
-- `Bash` -- `sed -n '12900,13091p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '12900,13091p' /tmp/apue/full.txt
+```
 ```
 to in the variable jmpbuffer and returns 0. We then call do_line, which calls
 cmd_add, and assume that an error of some form is detected. Before the call to
@@ -2564,7 +2624,10 @@ either statically (static or extern) or dynamically (one of the alloc functions)
 
 7.11 getrlimit and setrlimit Functions
 ```
-- `Bash` -- `sed -n '13091,13418p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '13091,13418p' /tmp/apue/full.txt
+```
 ```
 7.11 getrlimit and setrlimit Functions
 
@@ -2895,11 +2958,14 @@ Exercise 10.11 continues the discussion of resource limits, after we've covered 
 
 Exercises
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" && for f in "Week - 1/Lec01.pdf" "Week - 1/Lec02.pdf" "Week - 2/Lec03.pdf" "Week - 2/Lec04.pdf" "Week - 3/Lec05.pdf" "Week - 3/Lec06.pdf"; do
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" && for f in "Week - 1/Lec01.pdf" "Week - 1/Lec02.pdf" "Week - 2/Lec03.pdf" "Week - 2/Lec04.pdf" "Week - 3/Lec05.pdf" "Week - 3/Lec06.pdf"; do
   out="/tmp/apue/$(basename "$f" .pdf).txt"
   pdftotext -layout "$f" "$out" 2>&1
   echo "$f -> $out ($(wc -l < "$out") lines)"
-done`
+done
+```
 ```
 Week - 1/Lec01.pdf -> /tmp/apue/Lec01.txt (926 lines)
 Week - 1/Lec02.pdf -> /tmp/apue/Lec02.txt (643 lines)
@@ -2909,13 +2975,19 @@ Week - 3/Lec05.pdf -> /tmp/apue/Lec05.txt (635 lines)
 Week - 3/Lec06.pdf -> /tmp/apue/Lec06.txt (700 lines)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `grep -il "setjmp\|rlimit\|longjmp" /tmp/apue/Lec0*.txt; echo "---none found means no matches---"`
+- `Bash`
+```bash
+grep -il "setjmp\|rlimit\|longjmp" /tmp/apue/Lec0*.txt; echo "---none found means no matches---"
+```
 ```
 ---none found means no matches---
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\apue\Lec01.txt`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\apue\Lec02.txt`
-- `Bash` -- `grep -n "PATH\|LD_PRELOAD\|LD_LIBRARY_PATH\|environ\|getenv\|setenv" /tmp/apue/Lec03.txt | head -40`
+- `Bash`
+```bash
+grep -n "PATH\|LD_PRELOAD\|LD_LIBRARY_PATH\|environ\|getenv\|setenv" /tmp/apue/Lec03.txt | head -40
+```
 ```
 101: called environment variables
 103:� Each environment variable has a name and a value
@@ -2935,7 +3007,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 163:     � execvpe: Use PATH for search, specify environment
 180:      � New arguments, (possibly) new environment
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Transcripts\Week 1 - 3" && for f in *.txt; do echo "$f: $(wc -l < "$f") lines, $(wc -c < "$f") bytes"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Transcripts\Week 1 - 3" && for f in *.txt; do echo "$f: $(wc -l < "$f") lines, $(wc -c < "$f") bytes"; done
+```
 ```
 en-CSCI 4061 September 8 lecture (multi-source).txt: 1286 lines, 63296 bytes
 en-CSCI 4061-10 September 10 Lecture (multi-source).txt: 1123 lines, 54862 bytes
@@ -2952,10 +3027,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\apue\Lec06.txt`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\.devcontainer\devcontainer.json`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Labs\lab01-code\QUESTIONS.txt`
-- `Glob` -- pattern `**/Jarvis Writing and Formatting*` path ``
+- `Glob` -- pattern `**/Jarvis Writing and Formatting*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\Jarvis Writing and Formatting.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 1.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -3280,9 +3355,9 @@ What are the three time values `time(1)` reports for a command, and what does ea
 A signal handler is installed for `SIGINT` with `signal()`. What happens when the user presses Ctrl-C now, versus with no handler installed?::With no handler, `SIGINT`'s default action (terminate) runs. With a handler installed, the kernel suspends normal execution, runs the handler in user space, and resumes where the process left off once the handler returns - the process is not terminated unless the handler itself calls `exit`. #cards/csci4061
 What is the actual relationship between `malloc` and `sbrk`?::`sbrk` is the system call that grows or shrinks a process's heap by a raw byte count with no policy attached; `malloc` is a library function that implements one specific allocation strategy (tracking free blocks, alignment, etc.) on top of repeated `sbrk` calls. #cards/csci4061
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 7.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -3562,12 +3637,12 @@ Why does returning a `FILE *` from a function that called `setvbuf(fp, databuf, 
 What's the actual difference between a resource's soft limit and its hard limit?::The soft limit is what's enforced right now (exceeding it triggers an error or a signal like `SIGXCPU`); the hard limit is the ceiling the soft limit can be raised to. A normal process can move its soft limit anywhere up to the hard limit, but only a superuser process can raise the hard limit itself. #cards/csci4061
 How do `LD_PRELOAD`/`LD_LIBRARY_PATH` differ from `PATH` in what they help resolve?::`PATH` tells the shell where to find an executable *program* by bare name. `LD_PRELOAD`/`LD_LIBRARY_PATH` tell the dynamic linker/loader where to find *shared libraries* (`.so` files) a program depends on - a different search happening at a different stage (load/link time vs. shell command lookup). #cards/csci4061
 
-```
-- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/Weekly/**` path ``
+````
+- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/Weekly/**` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Weekly\Week - 3.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Weekly\Week - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\Minor\MGMT 3001\Week - 9.md`
-- `Glob` -- pattern `20_Progress/Degree/CSCI 4061/**` path ``
+- `Glob` -- pattern `20_Progress/Degree/CSCI 4061/**` path ` `
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 1.md`
 ```
 ---
@@ -3660,23 +3735,32 @@ What's the actual difference between `LD_PRELOAD`/`LD_LIBRARY_PATH` and `PATH`?:
 ```
 placeholder
 ```
-- `Bash` -- `rm "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md" && rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null; rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\" | head -5`
+- `Bash`
+```bash
+rm "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md" && rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null; rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\" | head -5
+```
 ```
 Exit code 2
 /usr/bin/bash: eval: line 1: unexpected EOF while looking for matching `"'
 ```
-- `Bash` -- `rm -f "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md"
+- `Bash`
+```bash
+rm -f "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md"
 rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null
 rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null
-ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\"`
+ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\"
+```
 ```
 Exit code 2
 /usr/bin/bash: eval: line 4: unexpected EOF while looking for matching `"'
 ```
-- `Bash` -- `rm -f "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis/PLACEHOLDER.md"
+- `Bash`
+```bash
+rm -f "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis/PLACEHOLDER.md"
 rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis" 2>/dev/null
 rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents" 2>/dev/null
-ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
+ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"
+```
 ```
 AI
 Degree
@@ -3699,7 +3783,7 @@ area:
 tags:
   - "#class"
   - "#Lecture"
-next: [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]]]"
+next: "[[Week - 3]]"
 ---
 # Week - 2
 ## What you must be able to do
@@ -3801,7 +3885,7 @@ area:
 tags:
   - "#class"
   - "#Lecture"
-next: [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]]]"
+next: "[[Week - 4]]"
 ---
 # Week - 3
 ## What you must be able to do
@@ -3914,7 +3998,7 @@ None yet - no lecture has happened. Revisit once this week's real content lands.
 None yet - no lecture has happened. Revisit once this week's real content lands.
 ## Lecture
 ### Pre-lecture source notes
-Per the [[CSCI 4061 Board]] schedule and the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], this week's reading is Stevens Ch 4 (Files and Directories, continued) and §15.1-15.2 (Pipes) of Chapter 15 (Interprocess Communication). [[Lecture - 6|Lec06]] (9/24, captured in[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week 3]]]) already previewed a meaningful slice of Chapter 4 a full week early - storage devices as fixed-size block arrays, device drivers, the file-system abstraction over them, absolute/relative paths, working/home directories, and the i-node/directory-lookup chain behind `open()`. What Week 4's own lectures most likely add on top of that preview, based on the reading assignment alone (not yet confirmed against slides): the full UNIX file-type taxonomy, hard vs. symbolic links, `umask`, and the special permission bits (setuid/setgid/sticky) - then a pivot into `pipe()` and the two-descriptor mechanism that turns Week 2's `dup2()`-based redirection trick into genuine interprocess communication.
+Per the [[CSCI 4061 Board]] schedule and the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], this week's reading is Stevens Ch 4 (Files and Directories, continued) and §15.1-15.2 (Pipes) of Chapter 15 (Interprocess Communication). [[Lecture - 6|Lec06]] (9/24, captured in [[Week - 3|Week 3]]) already previewed a meaningful slice of Chapter 4 a full week early - storage devices as fixed-size block arrays, device drivers, the file-system abstraction over them, absolute/relative paths, working/home directories, and the i-node/directory-lookup chain behind `open()`. What Week 4's own lectures most likely add on top of that preview, based on the reading assignment alone (not yet confirmed against slides): the full UNIX file-type taxonomy, hard vs. symbolic links, `umask`, and the special permission bits (setuid/setgid/sticky) - then a pivot into `pipe()` and the two-descriptor mechanism that turns Week 2's `dup2()`-based redirection trick into genuine interprocess communication.
 > [!WARNING]
 > Everything in this `## Lecture` section is inferred from the syllabus reading assignment and last week's preview, not from an actual lecture. Do not treat it as lecture-verified content, and do not let it get cited elsewhere in the vault as if it were.
 ## Textbook integration
@@ -3926,7 +4010,7 @@ Deferred until Chapter 4 gets its own perfecting pass (Build 2) and the real Wee
 - [ ] Does this course's Chapter 4 note (once perfected in Build 2) cover §15.1-15.2 pipes at all, or does that need its own separate reading/note since it's technically Chapter 15 content?
 - [ ] Project 1 is due 10/2, right after this week's Thursday lecture - confirm whether Project 1's spec actually depends on this week's pipe material, or is scoped entirely to Weeks 1-3's fork/exec/I/O/redirection content.
 ## Lecture-to-textbook synthesis
-Deferred - the [[Weekly Standard]]'s six-part synthesis (highlight, mechanism, lecture example, textbook connection, concept links, warning/summary) requires real lecture content to fuse with the textbook, and no lecture has happened yet this week. Fill this in once Thursday's lecture (10/1) lands, following the exact shape used in [[Week - 1]], [[Week - 2]], and[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]]] above.
+Deferred - the [[Weekly Standard]]'s six-part synthesis (highlight, mechanism, lecture example, textbook connection, concept links, warning/summary) requires real lecture content to fuse with the textbook, and no lecture has happened yet this week. Fill this in once Thursday's lecture (10/1) lands, following the exact shape used in [[Week - 1]], [[Week - 2]], and [[Week - 3]] above.
 ## Flashcards
 #cards/csci4061
 Deferred - flashcards belong after real lecture and textbook content exist to test, not before. Revisit once this week's material actually lands.
@@ -3935,104 +4019,107 @@ Deferred - flashcards belong after real lecture and textbook content exist to te
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Weekly Board.md`
 ```diff
 - ---
-type: index
-status: seed
-created: 2026-09-08
-updated: 2026-09-08
-tags:
-  - moc
-notes:
-  - "[[CSCI 4061 Board]]"
-next: "Fill Week - 1.md for real once the week's three lectures (Intro, System Calls, Process Management) are all done"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-`Week - 1.md` exists as an untouched template scaffold (the raw [[Week Template]] content, not real lecture capture yet) - Week 1's three lectures span 9/7 (Labor Day, no class) through 9/10, so there's real content to add once that week finishes. Each week from here follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-0 of 15 weeks actually written as of 2026-09-08, despite the Week 1 scaffold existing. Week numbering should follow the Board note's Schedule table directly - that table already holds the real reading and due-date pairing per week.
+- type: index
+- status: seed
+- created: 2026-09-08
+- updated: 2026-09-08
+- tags:
+-   - moc
+- notes:
+-   - "[[CSCI 4061 Board]]"
+- next: "Fill Week - 1.md for real once the week's three lectures (Intro, System Calls, Process Management) are all done"
+- ---
+- # CSCI 4061 — Weekly Board
+- Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
+- ## Map
+- `Week - 1.md` exists as an untouched template scaffold (the raw [[Week Template]] content, not real lecture capture yet) - Week 1's three lectures span 9/7 (Labor Day, no class) through 9/10, so there's real content to add once that week finishes. Each week from here follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
+- ## Status
+- 0 of 15 weeks actually written as of 2026-09-08, despite the Week 1 scaffold existing. Week numbering should follow the Board note's Schedule table directly - that table already holds the real reading and due-date pairing per week.
 + ---
-type: index
-status: sprout
-created: 2026-09-08
-updated: 2026-09-29
-tags:
-  - moc
-notes:
-  - "[[CSCI 4061 Board]]"
-next: "Live-capture Week 4's real lectures (9/29, 10/1) once they happen; source-check Chapters 3, 4, 8, 10 in Build 2 and reconcile Weeks 2-4's provisional citations against them"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-- [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked this session.
-- [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], which is **not yet source-checked** - treat those citations as provisional until Build 2.
-- [[Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], **neither source-checked yet** - provisional until Build 2.
-- [[Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
-Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. A second, separate gap: only [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] have been source-checked against the textbook PDF (this session's Build 1) - Chapters 3, 4, 8, and 10 remain in their original, unverified state, and every weekly note above that cites them flags this explicitly.
++ type: index
++ status: sprout
++ created: 2026-09-08
++ updated: 2026-09-29
++ tags:
++   - moc
++ notes:
++   - "[[CSCI 4061 Board]]"
++ next: "Live-capture Week 4's real lectures (9/29, 10/1) once they happen; source-check Chapters 3, 4, 8, 10 in Build 2 and reconcile Weeks 2-4's provisional citations against them"
++ ---
++ # CSCI 4061 — Weekly Board
++ Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
++ ## Map
++ - [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked this session.
++ - [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], which is **not yet source-checked** - treat those citations as provisional until Build 2.
++ - [[Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], **neither source-checked yet** - provisional until Build 2.
++ - [[Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
++ Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
++ ## Status
++ 4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. A second, separate gap: only [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] have been source-checked against the textbook PDF (this session's Build 1) - Chapters 3, 4, 8, and 10 remain in their original, unverified state, and every weekly note above that cites them flags this explicitly.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - status: seed
-created: 2026-09-08
-updated: 2026-09-08
-area:
-  - "[[CSCI 4061 Board]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next: "Create the first Stevens chapter note once Week 1's Chs 1, 7, 8 are actually covered"
----
+- created: 2026-09-08
+- updated: 2026-09-08
+- area:
+-   - "[[CSCI 4061 Board]]"
+- tags:
+-   - "#class"
+-   - "#Textbook"
+- next: "Create the first Stevens chapter note once Week 1's Chs 1, 7, 8 are actually covered"
+- ---
 + status: sprout
-created: 2026-09-08
-updated: 2026-09-29
-area:
-  - "[[CSCI 4061 Board]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next: "Build 2: source-check Chapters 3, 4, 8, and 10 against the textbook PDF the same way Chapters 1 and 7 were source-checked in Build 1"
----
++ created: 2026-09-08
++ updated: 2026-09-29
++ area:
++   - "[[CSCI 4061 Board]]"
++ tags:
++   - "#class"
++   - "#Textbook"
++ next: "Build 2: source-check Chapters 3, 4, 8, and 10 against the textbook PDF the same way Chapters 1 and 7 were source-checked in Build 1"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - - **Ch 1, 7, 8** - Week 1: System calls, process management basics.
-- **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O.
-- **Ch 10, 4** - Week 3: Signals, intro file systems.
-- **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes.
-- **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory.
-- **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop.
-- **Ch 11** - Week 7: Threads, basic synchronization.
-- **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking.
-- **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP.
-None of these have an individual chapter note yet - each gets created as its week is actually covered, per [[Weekly Standard]].
+- - **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O.
+- - **Ch 10, 4** - Week 3: Signals, intro file systems.
+- - **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes.
+- - **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory.
+- - **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop.
+- - **Ch 11** - Week 7: Threads, basic synchronization.
+- - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking.
+- - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP.
+- None of these have an individual chapter note yet - each gets created as its week is actually covered, per [[Weekly Standard]].
 + - **Ch 1, 7, 8** - Week 1: System calls, process management basics. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter 7]] are landed and **source-checked against the textbook PDF** (2026-09-29). [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter 8]] is landed but not yet source-checked.
-- **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter 3]] is landed but not yet source-checked.
-- **Ch 10, 4** - Week 3: Signals, intro file systems. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] are landed but not yet source-checked.
-- **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 is landed (not source-checked); no note exists yet for §15.1-15.2.
-- **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
-- **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
-- **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
-- **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
-- **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
-Six chapter notes exist as of 2026-09-29 (Chapters 1, 3, 4, 7, 8, 10), covering Weeks 1-4's reading in full - only Chapters 1 and 7 have been checked against the actual textbook PDF so far (Build 1 of the current perfecting pass); Chapters 3, 4, 8, and 10 remain in their original, unverified state until Build 2. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
++ - **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter 3]] is landed but not yet source-checked.
++ - **Ch 10, 4** - Week 3: Signals, intro file systems. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] are landed but not yet source-checked.
++ - **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 is landed (not source-checked); no note exists yet for §15.1-15.2.
++ - **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
++ - **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
++ - **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
++ - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
++ - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
++ Six chapter notes exist as of 2026-09-29 (Chapters 1, 3, 4, 7, 8, 10), covering Weeks 1-4's reading in full - only Chapters 1 and 7 have been checked against the actual textbook PDF so far (Build 1 of the current perfecting pass); Chapters 3, 4, 8, and 10 remain in their original, unverified state until Build 2. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - ## Status
-Zero chapter notes written as of 2026-09-08 - the course is in Week 1 (started 9/8). This map exists so the reading-to-week mapping is planned before individual chapter notes start getting created piecemeal.
+- Zero chapter notes written as of 2026-09-08 - the course is in Week 1 (started 9/8). This map exists so the reading-to-week mapping is planned before individual chapter notes start getting created piecemeal.
 + ## Status
-Six chapter notes exist as of 2026-09-29, matching Weeks 1-4's full reading list. Two (Chapters 1 and 7) are source-checked against the actual textbook PDF, restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored, duplicate template stubs removed, frontmatter fixed, flashcards capped at 10 under `#cards/csci4061`), and enriched with worked examples the original NotebookLM pass had dropped - see each chapter's own Connections section for the lecture-coverage-gap detail. The remaining four (Chapters 3, 4, 8, 10) still carry the original pass's structural issues (missing `Full Reading Notes` heading, duplicate stub sections, blank frontmatter dates, `area:` pointing at `[[UMN Board]]` instead of this course's own Board) and are the explicit target of Build 2.
++ Six chapter notes exist as of 2026-09-29, matching Weeks 1-4's full reading list. Two (Chapters 1 and 7) are source-checked against the actual textbook PDF, restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored, duplicate template stubs removed, frontmatter fixed, flashcards capped at 10 under `#cards/csci4061`), and enriched with worked examples the original NotebookLM pass had dropped - see each chapter's own Connections section for the lecture-coverage-gap detail. The remaining four (Chapters 3, 4, 8, 10) still carry the original pass's structural issues (missing `Full Reading Notes` heading, duplicate stub sections, blank frontmatter dates, `area:` pointing at `[[UMN Board]]` instead of this course's own Board) and are the explicit target of Build 2.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\CSCI 4061 Board.md`
 ```diff
 - next: "Complete the Docker environment setup during Lab 1 (Mon 2026-09-14) - the first real graded action in this course"
 + next: "Attend and live-capture Week 4's lectures (Tue 9/29, Thu 10/1) into [[Week - 4]], then finish Project 1 before its 10/2 deadline"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short -- "20_Progress/Degree/CSCI 4061"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short -- "20_Progress/Degree/CSCI 4061"
+```
 ```
  M "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
  M "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
@@ -4044,12 +4131,18 @@ Six chapter notes exist as of 2026-09-29, matching Weeks 1-4's full reading list
 ?? "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md"
 ?? "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '^$' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '^$' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
+```
 ```
 94:
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 1.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md"; do echo "=== $f ==="; grep -n '^$' "$f"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md"; do echo "=== $f ==="; grep -n '^$' "$f"; done
+```
 ```
 Exit code 1
 === 20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md ===
@@ -4058,7 +4151,10 @@ Exit code 1
 === 20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md ===
 === 20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md ===
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '\[\[Lecture\|\[\[Lab' "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '\[\[Lecture\|\[\[Lab' "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md"
+```
 ```
 20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md:31:Per the [[CSCI 4061 Board]] schedule and the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], this week's reading is Stevens Ch 4 (Files and Directories, continued) and §15.1-15.2 (Pipes) of Chapter 15 (Interprocess Communication). [[Lecture - 6|Lec06]] (9/24, captured in [[Week - 3|Week 3]]) already previewed a meaningful slice of Chapter 4 a full week early - storage devices as fixed-size block arrays, device drivers, the file-system abstraction over them, absolute/relative paths, working/home directories, and the i-node/directory-lookup chain behind `open()`. What Week 4's own lectures most likely add on top of that preview, based on the reading assignment alone (not yet confirmed against slides): the full UNIX file-type taxonomy, hard vs. symbolic links, `umask`, and the special permission bits (setuid/setgid/sticky) - then a pivot into `pipe()` and the two-descriptor mechanism that turns Week 2's `dup2()`-based redirection trick into genuine interprocess communication.
 ```
@@ -4067,7 +4163,10 @@ Exit code 1
 - [[Lecture - 6|Lec06]] (9/24, captured in [[Week - 3|Week 3]]) already previewed
 + Lec06 (9/24, captured in [[Week - 3|Week 3]]) already previewed
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -ohE '\[\[[^]]+\]\]' "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md" | sort -u`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -ohE '\[\[[^]]+\]\]' "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md" | sort -u
+```
 ```
 [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]]
 [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]
@@ -4093,19 +4192,28 @@ Exit code 1
 [[Week - 4]]
 [[Weekly Standard]]
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '\[\[UMN Board\]\]' "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '\[\[UMN Board\]\]' "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
+```
 ```
 20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md:35:Six chapter notes exist as of 2026-09-29, matching Weeks 1-4's full reading list. Two (Chapters 1 and 7) are source-checked against the actual textbook PDF, restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored, duplicate template stubs removed, frontmatter fixed, flashcards capped at 10 under `#cards/csci4061`), and enriched with worked examples the original NotebookLM pass had dropped - see each chapter's own Connections section for the lecture-coverage-gap detail. The remaining four (Chapters 3, 4, 8, 10) still carry the original pass's structural issues (missing `Full Reading Notes` heading, duplicate stub sections, blank frontmatter dates, `area:` pointing at `[[UMN Board]]` instead of this course's own Board) and are the explicit target of Build 2.
 ```
-- `Glob` -- pattern `**/UMN Board.md` path ``
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Chapter 1 highlight count ---" && grep -c '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" && echo "--- Chapter 7 highlight count ---" && grep -c '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"`
+- `Glob` -- pattern `**/UMN Board.md` path ` `
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Chapter 1 highlight count ---" && grep -c '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" && echo "--- Chapter 7 highlight count ---" && grep -c '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
+```
 ```
 --- Chapter 1 highlight count ---
 14
 --- Chapter 7 highlight count ---
 10
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
+```
 ```
 20:UNIX exposes hardware and kernel services to every program through one disciplined boundary, the ==system call interface==, and everything else in this chapter (shell, files, processes, signals, time, error codes) is a convention built on top of that boundary (p. 1).
 64:- ==**signal**==: Asynchronous software notification delivered to a process by the kernel (p. 18).
@@ -4122,7 +4230,10 @@ Exit code 1
 313:- [ ] ==Test what a shell does when `SIGINT` is sent to a process catching the signal versus one that ignores it versus one that takes the default action.==
 318:Why is `errno` defined as a thread-local macro on modern POSIX systems?::==Expanding `errno` into `*__errno_location()` gives each thread its own isolated error slot, so one thread's error doesn't overwrite another thread's `errno` between the failing call and the check.== #cards/csci4061
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '==[^=]' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" | grep -v '== *NULL\|== *-1\|== *0\|== *EOF\|== *SIG_ERR\|=='\''\\n'\'''`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '==[^=]' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" | grep -v '== *NULL\|== *-1\|== *0\|== *EOF\|== *SIG_ERR\|=='\''\\n'\'''
+```
 ```
 39:- ==**stack overflow**==: What happens when the growing stack and growing heap collide in virtual address space (Lec02).
 57:*Course Framing (Lec02):* `main()` is "just another C function," not the true entry point. The real entry point is **`_start()`**, which the C runtime/compiler provides automatically (you can write your own, as in Lecture 1's assembly Hello World). `_start()` sets up the stack and heap, issues the `call` instruction into `main()`, and handles cleanup once `main` returns (Lec02). ==When a C program is executed by the kernel, `_start()` is the true entry point - it takes command-line arguments and the environment from the kernel, sets up the runtime, and only then calls `main()`.==
@@ -4131,18 +4242,24 @@ Exit code 1
 258:4. *Contrast with library lookup:* ==`LD_PRELOAD` and `LD_LIBRARY_PATH` solve a different problem for the dynamic linker at load/link time - locating shared object (`.so`) files - not locating the executable program itself, which is entirely `PATH`'s job.==
 266:- [ ] ==Verify experimentally how `atexit()` handlers interact with `exit()` versus `_exit()` - register a handler, then terminate via both paths and compare.==
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" | grep -E '^(1[0-9]|2[0-9]):|system call interface|Chapter Summary|#cards'`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '==' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" | grep -E '^(1[0-9]|2[0-9]):|system call interface|Chapter Summary|#cards'
+```
 ```
 (Bash completed with no output)
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 7.md`
 ```diff
 - ## Chapter Summary
-A C process runs inside an environment the kernel and C runtime build for it before `main` ever executes, and that same environment - memory layout, command-line arguments, environment variables, resource limits - determines how the process can allocate memory, read configuration, and eventually terminate (p. 197).
+- A C process runs inside an environment the kernel and C runtime build for it before `main` ever executes, and that same environment - memory layout, command-line arguments, environment variables, resource limits - determines how the process can allocate memory, read configuration, and eventually terminate (p. 197).
 + ## Chapter Summary
-A C process runs inside an environment the kernel and C runtime build for it before `main` ever executes, and that same environment - memory layout, command-line arguments, environment variables, resource limits - determines ==how the process can allocate memory, read configuration, and eventually terminate== (p. 197).
++ A C process runs inside an environment the kernel and C runtime build for it before `main` ever executes, and that same environment - memory layout, command-line arguments, environment variables, resource limits - determines ==how the process can allocate memory, read configuration, and eventually terminate== (p. 197).
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== Ch1 sections and highlight check ===" && awk '/^## /{print NR": "$0}' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" && echo "=== Ch7 sections ===" && awk '/^## /{print NR": "$0}' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== Ch1 sections and highlight check ===" && awk '/^## /{print NR": "$0}' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" && echo "=== Ch7 sections ===" && awk '/^## /{print NR": "$0}' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
+```
 ```
 === Ch1 sections and highlight check ===
 19: ## Chapter Summary
@@ -4161,7 +4278,10 @@ A C process runs inside an environment the kernel and C runtime build for it bef
 264: ## Open Questions
 270: ## Flashcards
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Week - 1" "Week - 2" "Week - 3" "Week - 4"; do echo "=== $f ==="; grep -n '==' "20_Progress/Degree/CSCI 4061/Weekly/$f.md"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Week - 1" "Week - 2" "Week - 3" "Week - 4"; do echo "=== $f ==="; grep -n '==' "20_Progress/Degree/CSCI 4061/Weekly/$f.md"; done
+```
 ```
 Exit code 1
 === Week - 1 ===
@@ -4174,7 +4294,10 @@ Exit code 1
 89:Why does `SA_RESTART` matter for a system call like `read()` that's interrupted by a signal?::Without it, an interrupted "slow" system call returns -1 with `errno == EINTR`, requiring a manual retry loop. With `SA_RESTART` set on the handler's `sigaction`, the system call restarts automatically after the handler returns.
 === Week - 4 ===
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Textbook/Chapter - 1" "Textbook/Chapter - 7" "Weekly/Week - 1" "Weekly/Week - 2" "Weekly/Week - 3" "Weekly/Week - 4"; do echo "=== $f ==="; sed -n '1,14p' "20_Progress/Degree/CSCI 4061/$f.md"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Textbook/Chapter - 1" "Textbook/Chapter - 7" "Weekly/Week - 1" "Weekly/Week - 2" "Weekly/Week - 3" "Weekly/Week - 4"; do echo "=== $f ==="; sed -n '1,14p' "20_Progress/Degree/CSCI 4061/$f.md"; done
+```
 ```
 === Textbook/Chapter - 1 ===
 ---
@@ -4278,7 +4401,10 @@ API Error: The response stopped arriving. The response above may be incomplete.
 
 ### Tool Calls
 
-- `Bash` -- `ls -la /tmp/apue/ 2>&1 | head -20`
+- `Bash`
+```bash
+ls -la /tmp/apue/ 2>&1 | head -20
+```
 ```
 total 3488
 drwxr-xr-x 1 anant 197609       0 Sep 29 13:30 .
@@ -4295,7 +4421,10 @@ drwxr-xr-x 1 anant 197609       0 Sep 29 14:05 ..
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 4.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 8.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 10.md`
-- `Bash` -- `grep -n "^3\.[0-9]* \|^4\.[0-9]* \|^8\.[0-9]* \|^10\.[0-9]* " /tmp/apue/full.txt | sed -n '1,90p'`
+- `Bash`
+```bash
+grep -n "^3\.[0-9]* \|^4\.[0-9]* \|^8\.[0-9]* \|^10\.[0-9]* " /tmp/apue/full.txt | sed -n '1,90p'
+```
 ```
 390:8.1           Introduction 227
 393:8.3          fork Function 229                         313
@@ -4388,7 +4517,10 @@ drwxr-xr-x 1 anant 197609       0 Sep 29 14:05 ..
 8908:4.10 In Section 4.22, how does the system's limit on the number of open files affect the myftw
 8911:4.11 In Section 4.22, our version of ftw never changes its directory. Modify this routine so that
 ```
-- `Bash` -- `grep -n "^10\.[0-9]* " /tmp/apue/full.txt | sed -n '1,20p'`
+- `Bash`
+```bash
+grep -n "^10\.[0-9]* " /tmp/apue/full.txt | sed -n '1,20p'
+```
 ```
 453:10.8          Reliable-Signal Terminology and Semantics 335
 454:10.9          kill and raise Functions 336
@@ -4411,7 +4543,10 @@ drwxr-xr-x 1 anant 197609       0 Sep 29 14:05 ..
 18734:10.3 signal Function
 18932:10.4 Unreliable Signals
 ```
-- `Bash` -- `sed -n '18930,18940p' /tmp/apue/full.txt; grep -n "^10\.[4-8] " /tmp/apue/full.txt | sed -n '1,10p'`
+- `Bash`
+```bash
+sed -n '18930,18940p' /tmp/apue/full.txt; grep -n "^10\.[4-8] " /tmp/apue/full.txt | sed -n '1,10p'
+```
 ```
           signal-catching function has meaning in the child.
 
@@ -4435,7 +4570,10 @@ signal: don't ignore it, just remember if it occurs, and tell us later when we'r
 22144:10.6 Write the following program to test the parent-child synchronization functions in
 22150:10.7 In the function shown in Figure 10.25, if the caller catches SIGABRT and returns from the
 ```
-- `Bash` -- `sed -n '4784,5035p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '4784,5035p' /tmp/apue/full.txt
+```
 ```
 3.6 lseek Function
 
@@ -4690,7 +4828,10 @@ file larger than 2 GB (231-1 bytes) depends on the underlying file system type.
 
 3.7 read Function
 ```
-- `Bash` -- `sed -n '5111,5223p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '5111,5223p' /tmp/apue/full.txt
+```
 ```
 3.9 I/O Efficiency
 
@@ -4806,7 +4947,10 @@ good as the elapsed time for larger buffer sizes.
 
 3.10 File Sharing
 ```
-- `Bash` -- `sed -n '5576,5925p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '5576,5925p' /tmp/apue/full.txt
+```
 ```
 3.13  sync, fsync, and fdatasync Functions
 
@@ -5159,7 +5303,10 @@ call to fsync will have no effect. This case is supposed to be represented by th
 
 3.15  ioctl Function
 ```
-- `Bash` -- `sed -n '5925,6049p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '5925,6049p' /tmp/apue/full.txt
+```
 ```
 3.15  ioctl Function
 
@@ -5287,7 +5434,10 @@ command-line option. Using /dev/fd is a step toward uniformity and cleanliness.
 
 3.17  Summary
 ```
-- `Bash` -- `sed -n '6396,6847p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '6396,6847p' /tmp/apue/full.txt
+```
 ```
 4.4 Set-User-ID and Set-Group-ID
 
@@ -5742,7 +5892,10 @@ u=rwx,g=rx,o=
 
 4.9 chmod, fchmod, and fchmodat Functions
 ```
-- `Bash` -- `sed -n '6847,7231p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '6847,7231p' /tmp/apue/full.txt
+```
 ```
 4.9 chmod, fchmod, and fchmodat Functions
 
@@ -6130,7 +6283,10 @@ Holes in a File
 
 4.14 File Systems
 ```
-- `Bash` -- `sed -n '7389,7824p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '7389,7824p' /tmp/apue/full.txt
+```
 ```
 4.15 link, linkat, unlink, unlinkat, and remove Functions
 
@@ -6569,7 +6725,10 @@ evaluates the pathname relative to the open directory represented by fd.
 
 4.19 File Times
 ```
-- `Bash` -- `sed -n '7824,8185p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '7824,8185p' /tmp/apue/full.txt
+```
 ```
 4.19 File Times
 
@@ -6934,7 +7093,10 @@ program was run.
 
 4.22  Reading Directories
 ```
-- `Bash` -- `sed -n '8185,8539p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '8185,8539p' /tmp/apue/full.txt
+```
 ```
 4.22  Reading Directories
 
@@ -7292,7 +7454,10 @@ myfunc(const char *pathname, const struct stat *statptr, int type)
 
 4.23 chdir, fchdir, and getcwd Functions
 ```
-- `Bash` -- `sed -n '8680,8867p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '8680,8867p' /tmp/apue/full.txt
+```
 ```
 4.24  Device Special Files
 
@@ -7483,7 +7648,10 @@ their actual device numbers are 4/0 and 4/1.
 
 4.26 Summary
 ```
-- `Bash` -- `grep -n "^8\.1[1-8] " /tmp/apue/full.txt`
+- `Bash`
+```bash
+grep -n "^8\.1[1-8] " /tmp/apue/full.txt
+```
 ```
 409:8.11         Changing User IDs and Group IDs 255
 411:8.12         Interpreter Files 260
@@ -7502,7 +7670,10 @@ their actual device numbers are 4/0 and 4/1.
 16478:8.17 Process Times
 16657:8.18 Summary
 ```
-- `Bash` -- `sed -n '15047,15548p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '15047,15548p' /tmp/apue/full.txt
+```
 ```
 8.11 Changing User IDs and Group IDs
 
@@ -8007,7 +8178,10 @@ Interpreter files are useful for the following reasons.
 
 8.13  system Function
 ```
-- `Bash` -- `sed -n '15548,15830p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '15548,15830p' /tmp/apue/full.txt
+```
 ```
 8.13  system Function
 
@@ -8293,7 +8467,10 @@ system function should never be used from a set-user-ID or a set-group-ID progra
 
 8.14 Process Accounting
 ```
-- `Bash` -- `sed -n '15830,16657p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '15830,16657p' /tmp/apue/full.txt
+```
 ```
 <persisted-output>
 Output too large (33.5KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\b8g8fjvxm.txt
@@ -8326,7 +8503,10 @@ Preview (first 2KB):
 </persisted-output>
 ```
 - `Read` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\d25f538d-985d-4fa1-bd5a-07daac3a197b\tool-results\b8g8fjvxm.txt`
-- `Bash` -- `sed -n '19449,19550p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '19449,19550p' /tmp/apue/full.txt
+```
 ```
 10.8 Reliable-Signal Terminology and Semantics
 
@@ -8430,11 +8610,17 @@ pid == -1     to send the signal. Note that the term all processes excludes an
               signal. Again, the set of all processes excludes certain system processes,
               as described earlier.
 ```
-- `Bash` -- `grep -n "^10\.10 alarm and pause" /tmp/apue/full.txt | tail -1`
+- `Bash`
+```bash
+grep -n "^10\.10 alarm and pause" /tmp/apue/full.txt | tail -1
+```
 ```
 19581:10.10 alarm and pause Functions
 ```
-- `Bash` -- `sed -n '19581,19720p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '19581,19720p' /tmp/apue/full.txt
+```
 ```
 10.10 alarm and pause Functions
 
@@ -8576,18 +8762,27 @@ sleep2(unsigned int seconds)
 
          if (setjmp(env_alrm) == 0) {
 ```
-- `Bash` -- `sed -n '20800,21050p' /tmp/apue/full.txt | grep -n "10\.1[5-8]" `
+- `Bash`
+```bash
+sed -n '20800,21050p' /tmp/apue/full.txt | grep -n "10\.1[5-8]" 
+```
 ```
 17:Section 10.16  sigsuspend Function 359
 19:10.16 sigsuspend Function
 139:Section 10.16                                            sigsuspend Function 361
 ```
-- `Bash` -- `grep -n "^10\.15 sigsetjmp\|^10\.17 abort\|^10\.18  system" /tmp/apue/full.txt`
+- `Bash`
+```bash
+grep -n "^10\.15 sigsetjmp\|^10\.17 abort\|^10\.18  system" /tmp/apue/full.txt
+```
 ```
 20626:10.15 sigsetjmp and siglongjmp Functions
 21202:10.17 abort Function
 ```
-- `Bash` -- `sed -n '20626,20800p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '20626,20800p' /tmp/apue/full.txt
+```
 ```
 10.15 sigsetjmp and siglongjmp Functions
 
@@ -8764,7 +8959,10 @@ $ in sig_alrm: SIGUSR1 SIGALRM
 finishing sig_usr1: SIGUSR1
 ending main:
 ```
-- `Bash` -- `sed -n '21202,21500p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '21202,21500p' /tmp/apue/full.txt
+```
 ```
 10.17 abort Function
 
@@ -9065,7 +9263,10 @@ if ((pid = fork()) < 0) {
 
              sigprocmask(SIG_SETMASK, &savemask, NULL);
 ```
-- `Bash` -- `sed -n '18932,19026p' /tmp/apue/full.txt; echo "---10.7---"; sed -n '19302,19449p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '18932,19026p' /tmp/apue/full.txt; echo "---10.7---"; sed -n '19302,19449p' /tmp/apue/full.txt
+```
 ```
 10.4 Unreliable Signals
 
@@ -9312,11 +9513,17 @@ if that program depends on the other semantics, it may not work.
 
 10.8 Reliable-Signal Terminology and Semantics
 ```
-- `Bash` -- `grep -n "^10\.21 sigqueue\|^10\.22  Job-Control\|^10\.23 Signal Names" /tmp/apue/full.txt`
+- `Bash`
+```bash
+grep -n "^10\.21 sigqueue\|^10\.22  Job-Control\|^10\.23 Signal Names" /tmp/apue/full.txt
+```
 ```
 (Bash completed with no output)
 ```
-- `Bash` -- `grep -n "^10\.2[1-3]" /tmp/apue/full.txt`
+- `Bash`
+```bash
+grep -n "^10\.2[1-3]" /tmp/apue/full.txt
+```
 ```
 467:10.21         sigqueue Function 376
 468:10.22         Job-Control Signals 377
@@ -9325,7 +9532,10 @@ if that program depends on the other semantics, it may not work.
 22021:10.22 Signal Names and Numbers
 22107:10.23 Summary
 ```
-- `Bash` -- `sed -n '21700,21890p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '21700,21890p' /tmp/apue/full.txt
+```
 ```
             static void
             sig_alrm(int signo)
@@ -9518,7 +9728,10 @@ queues signals even if the caller doesn't use the SA_SIGINFO
 
 10.21 Job-Control Signals
 ```
-- `Bash` -- `sed -n '21890,22107p' /tmp/apue/full.txt`
+- `Bash`
+```bash
+sed -n '21890,22107p' /tmp/apue/full.txt
+```
 ```
 10.21 Job-Control Signals
 
@@ -9739,11 +9952,17 @@ errno when they fail.
 
 10.23 Summary
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md" 2>&1 | sort -u`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md" 2>&1 | sort -u
+```
 ```
 fatal: --follow requires exactly one pathspec
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ==="; git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/$f.md"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ==="; git log --follow --diff-filter=A --format="%ad %h" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/$f.md"; done
+```
 ```
 === Chapter - 3 ===
 2026-04-23 2d03e0cf
@@ -9755,7 +9974,7 @@ fatal: --follow requires exactly one pathspec
 2026-04-23 2d03e0cf
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 3.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -9941,7 +10160,7 @@ Why does `dup2()` beat manually calling `close(fd2)` then `fcntl(fd, F_DUPFD, fd
 What's the actual difference between what `fsync()` and `O_SYNC` each guarantee?::`O_SYNC` makes every single `write()` call block until that write's data (and attributes) physically reach disk; `fsync()` is called on demand to flush everything written so far for one file, without changing how ordinary writes behave in between.
 Why can't a program call `fopen()` to change a descriptor's synchronous-write behavior after the fact?::`fopen()` only opens a new stream - a program that has only a descriptor (stdout, opened by the shell before the program even started) can't re-open it by pathname. `fcntl(fd, F_SETFL, ...)` is what lets a program change an already-open descriptor's properties.
 
-```
+````
 
 ## You
 
@@ -9977,7 +10196,10 @@ The only thing left un-perfected in this course's textbook layer is Chapter 15 (
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "---apue scratch---" && ls /tmp/apue/ 2>&1`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "---apue scratch---" && ls /tmp/apue/ 2>&1
+```
 ```
 ---apue scratch---
 Lec01.txt
@@ -9988,7 +10210,10 @@ Lec05.txt
 Lec06.txt
 full.txt
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git log -3 --format="%ad %h %s" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && git log -3 --format="%ad %h %s" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"
+```
 ```
 2026-09-29 6b70c44d Auto-sync: 2026-09-29 16:48,  4 files changed, 169 insertions(+), 244 deletions(-)
 2026-09-28 fb624b53 Auto-sync: 2026-09-28 21:03,  42 files changed, 334 insertions(+), 9911 deletions(-)
@@ -9998,7 +10223,7 @@ full.txt
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 8.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 10.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 4.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -10207,9 +10432,9 @@ What's the actual mechanical difference between a hard link and a symbolic link?
 Why does deleting an open file's directory entry not free its disk space right away?::`unlink()` only removes the directory entry and decrements the i-node's link count; disk space is reclaimed only once the link count reaches zero *and* no process still has the file open - this is exactly the mechanism the classic open-then-unlink temp-file trick relies on.
 What's the actual difference between `st_mtim` and `st_ctim`, and why do both exist?::`st_mtim` (modification time) tracks when the file's *contents* last changed; `st_ctim` (changed-status time) tracks when the file's *i-node metadata* last changed - permissions, ownership, link count - which can change without the content ever being touched, so one timestamp alone can't represent both kinds of change.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 8.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -10395,9 +10620,9 @@ What does the saved set-user-ID actually let a process do that it couldn't do ot
 Why is calling `system()` from a set-user-ID program considered a serious security hole?::`system()`'s internal `fork`+`exec` inherits the calling process's effective privileges straight through to the shell it invokes, so a set-user-ID-root program handed an arbitrary command string effectively hands out root-level shell access - the shell's own environment-variable parsing (like `IFS`) can also be manipulated by the caller beforehand.
 Why does an interpreter file's `#!` line shift the original command-line arguments by two positions?::The kernel inserts the interpreter's own pathname as `argv[0]` and the interpreter file's optional argument as `argv[1]` before appending the interpreter file's own path and the caller's original arguments - the interpreter never sees the command the way the user actually typed it.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 10.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -10622,8 +10847,11 @@ What extra guarantee does `sigsetjmp`/`siglongjmp` provide over plain `setjmp`/`
 Why does POSIX require `system()` to block `SIGCHLD` and ignore `SIGINT`/`SIGQUIT` while its command runs?::Blocking `SIGCHLD` stops the caller's own child-tracking handler from misfiring when `system()`'s internal shell child exits; ignoring `SIGINT`/`SIGQUIT` stops the caller from also reacting to a terminal interrupt that's really meant for the interactive program `system()` just launched, which shares the same foreground process group.
 Why does the classic block-then-work-then-unblock-then-`pause()` pattern for waiting on a signal have a real bug, not just a theoretical one?::If the signal arrives in the gap between the unblock call and the `pause()` call, the kernel delivers it immediately - the handler runs, but by the time `pause()` actually executes, that signal is already gone, and `pause()` can block forever waiting for one that already happened.
 
+````
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ==="; awk '/^## /{print}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"; done
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ==="; awk '/^## /{print}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"; done`
 ```
 === Chapter - 3 ===
 ## Chapter Summary
@@ -10658,13 +10886,16 @@ Why does the classic block-then-work-then-unblock-then-`pause()` pattern for wai
 ## Open Questions
 ## Flashcards
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do
+- `Bash`
+````bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do
 echo "=== $f ==="
 echo "blank lines outside code fences:"
 awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
 echo "flashcard count:"
 awk '/^## Flashcards/{c=1;next} c && /^#cards\//{next} c && NF{n++} END{print n}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
-done`
+done
+````
 ```
 === Chapter - 3 ===
 blank lines outside code fences:
@@ -10683,13 +10914,16 @@ blank lines outside code fences:
 flashcard count:
 6
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do
 echo "=== $f ==="
 echo "-- Chapter Summary highlight check --"
 awk '/^## Chapter Summary/{f=1;next} /^## /{f=0} f && /==/{print}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
 echo "-- stray #cards/ai check --"
 grep -c '#cards/ai' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
-done`
+done
+```
 ```
 Exit code 1
 === Chapter - 3 ===
@@ -10713,7 +10947,10 @@ A **signal** is a software notification that can land on a process at any instru
 -- stray #cards/ai check --
 0
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -ohE '\[\[[^]]+\]\]' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md" | sort -u`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -ohE '\[\[[^]]+\]\]' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md" | sort -u
+```
 ```
 [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]]
 [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter 1]]
@@ -10727,67 +10964,67 @@ A **signal** is a software notification that can land on a process at any instru
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - next: "Build 2: source-check Chapters 3, 4, 8, and 10 against the textbook PDF the same way Chapters 1 and 7 were source-checked in Build 1"
----
+- ---
 + next: "All six landed chapter notes are now source-checked - create Chapter 15 (Pipes, §15.1-15.2) once Week 4's real lectures happen"
----
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - - **Ch 1, 7, 8** - Week 1: System calls, process management basics. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter 7]] are landed and **source-checked against the textbook PDF** (2026-09-29). [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter 8]] is landed but not yet source-checked.
-- **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter 3]] is landed but not yet source-checked.
-- **Ch 10, 4** - Week 3: Signals, intro file systems. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] are landed but not yet source-checked.
-- **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 is landed (not source-checked); no note exists yet for §15.1-15.2.
-- **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
-- **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
-- **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
-- **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
-- **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
-Six chapter notes exist as of 2026-09-29 (Chapters 1, 3, 4, 7, 8, 10), covering Weeks 1-4's reading in full - only Chapters 1 and 7 have been checked against the actual textbook PDF so far (Build 1 of the current perfecting pass); Chapters 3, 4, 8, and 10 remain in their original, unverified state until Build 2. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
+- - **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter 3]] is landed but not yet source-checked.
+- - **Ch 10, 4** - Week 3: Signals, intro file systems. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] are landed but not yet source-checked.
+- - **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 is landed (not source-checked); no note exists yet for §15.1-15.2.
+- - **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
+- - **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
+- - **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
+- - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
+- - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
+- Six chapter notes exist as of 2026-09-29 (Chapters 1, 3, 4, 7, 8, 10), covering Weeks 1-4's reading in full - only Chapters 1 and 7 have been checked against the actual textbook PDF so far (Build 1 of the current perfecting pass); Chapters 3, 4, 8, and 10 remain in their original, unverified state until Build 2. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
 + - **Ch 1, 7, 8** - Week 1: System calls, process management basics. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter 7]], and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter 8]] are all landed and **source-checked against the textbook PDF**.
-- **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter 3]] is landed and source-checked.
-- **Ch 10, 4** - Week 3: Signals, intro file systems. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] are landed and source-checked.
-- **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 (source-checked) covers the file-systems half; no note exists yet for §15.1-15.2 (Pipes) - Chapter 15 is the next chapter note this course needs, once Week 4's own lectures actually happen.
-- **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
-- **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
-- **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
-- **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
-- **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
-All six landed chapter notes (Chapters 1, 3, 4, 7, 8, 10) are now source-checked against the textbook PDF as of 2026-09-29 (Build 1 covered Chapters 1 and 7; Build 2 covered Chapters 3, 4, 8, and 10), matching Weeks 1-4's reading in full. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
++ - **Ch 7, 3** - Week 2: Process management continued, low-level and advanced I/O. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter 3]] is landed and source-checked.
++ - **Ch 10, 4** - Week 3: Signals, intro file systems. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] are landed and source-checked.
++ - **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 (source-checked) covers the file-systems half; no note exists yet for §15.1-15.2 (Pipes) - Chapter 15 is the next chapter note this course needs, once Week 4's own lectures actually happen.
++ - **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
++ - **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
++ - **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
++ - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
++ - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
++ All six landed chapter notes (Chapters 1, 3, 4, 7, 8, 10) are now source-checked against the textbook PDF as of 2026-09-29 (Build 1 covered Chapters 1 and 7; Build 2 covered Chapters 3, 4, 8, and 10), matching Weeks 1-4's reading in full. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - ## Status
-Six chapter notes exist as of 2026-09-29, matching Weeks 1-4's full reading list. Two (Chapters 1 and 7) are source-checked against the actual textbook PDF, restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored, duplicate template stubs removed, frontmatter fixed, flashcards capped at 10 under `#cards/csci4061`), and enriched with worked examples the original NotebookLM pass had dropped - see each chapter's own Connections section for the lecture-coverage-gap detail. The remaining four (Chapters 3, 4, 8, 10) still carry the original pass's structural issues (missing `Full Reading Notes` heading, duplicate stub sections, blank frontmatter dates, `area:` pointing at `[[UMN Board]]` instead of this course's own Board) and are the explicit target of Build 2.
+- Six chapter notes exist as of 2026-09-29, matching Weeks 1-4's full reading list. Two (Chapters 1 and 7) are source-checked against the actual textbook PDF, restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored, duplicate template stubs removed, frontmatter fixed, flashcards capped at 10 under `#cards/csci4061`), and enriched with worked examples the original NotebookLM pass had dropped - see each chapter's own Connections section for the lecture-coverage-gap detail. The remaining four (Chapters 3, 4, 8, 10) still carry the original pass's structural issues (missing `Full Reading Notes` heading, duplicate stub sections, blank frontmatter dates, `area:` pointing at `[[UMN Board]]` instead of this course's own Board) and are the explicit target of Build 2.
 + ## Status
-All six chapter notes (Chapters 1, 3, 4, 7, 8, 10) are now source-checked against the actual textbook PDF as of 2026-09-29, matching Weeks 1-4's full reading list. Every chapter was restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored where missing, duplicate template stubs removed, frontmatter fixed - real `created`/`updated` dates and `area:` pointing at this course's own Board and Map instead of `[[UMN Board]]`, flashcards capped at 10 under `#cards/csci4061`), and enriched with real content the original NotebookLM pass had dropped entirely: Chapter 3 gained `lseek`, I/O-efficiency benchmarks, `sync`/`fsync`/`fdatasync`, `fcntl`, `ioctl`, and `/dev/fd`; Chapter 4 gained roughly twenty missing subsections (setuid/setgid, `umask`, `chmod`, the sticky bit, `chown`, file truncation, hard and symbolic links, `rename`, file times, `mkdir`/`rmdir`, directory reading, and device special files - previously only 6 of 26 subsections existed); Chapter 7 gained the entire `setjmp`/`longjmp` section (§7.10) and `getrlimit`/`setrlimit` (§7.11); Chapter 8 gained changing UIDs/GIDs, interpreter files, `system`, process accounting, `getlogin`, scheduling, and process times (§8.11-8.17); Chapter 10 gained unreliable-signal history, `SIGCLD` semantics, reliable-signal terminology, `alarm()`, `sigsetjmp`/`siglongjmp`, `abort`, signal-aware `system`, `sigqueue`, formal job-control signals, and signal name/number utilities. See each chapter's own Connections section for exactly which sections still have no matching lecture slide (mostly textbook-only material Lec01-06 never touched).
++ All six chapter notes (Chapters 1, 3, 4, 7, 8, 10) are now source-checked against the actual textbook PDF as of 2026-09-29, matching Weeks 1-4's full reading list. Every chapter was restructured to this vault's real Textbook Standard shape (`Full Reading Notes` heading restored where missing, duplicate template stubs removed, frontmatter fixed - real `created`/`updated` dates and `area:` pointing at this course's own Board and Map instead of `[[UMN Board]]`, flashcards capped at 10 under `#cards/csci4061`), and enriched with real content the original NotebookLM pass had dropped entirely: Chapter 3 gained `lseek`, I/O-efficiency benchmarks, `sync`/`fsync`/`fdatasync`, `fcntl`, `ioctl`, and `/dev/fd`; Chapter 4 gained roughly twenty missing subsections (setuid/setgid, `umask`, `chmod`, the sticky bit, `chown`, file truncation, hard and symbolic links, `rename`, file times, `mkdir`/`rmdir`, directory reading, and device special files - previously only 6 of 26 subsections existed); Chapter 7 gained the entire `setjmp`/`longjmp` section (§7.10) and `getrlimit`/`setrlimit` (§7.11); Chapter 8 gained changing UIDs/GIDs, interpreter files, `system`, process accounting, `getlogin`, scheduling, and process times (§8.11-8.17); Chapter 10 gained unreliable-signal history, `SIGCLD` semantics, reliable-signal terminology, `alarm()`, `sigsetjmp`/`siglongjmp`, `abort`, signal-aware `system`, `sigqueue`, formal job-control signals, and signal name/number utilities. See each chapter's own Connections section for exactly which sections still have no matching lecture slide (mostly textbook-only material Lec01-06 never touched).
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Weekly Board.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Weekly Board.md`
 ```diff
 - next: "Live-capture Week 4's real lectures (9/29, 10/1) once they happen; source-check Chapters 3, 4, 8, 10 in Build 2 and reconcile Weeks 2-4's provisional citations against them"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-- [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked this session.
-- [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], which is **not yet source-checked** - treat those citations as provisional until Build 2.
-- [[Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], **neither source-checked yet** - provisional until Build 2.
-- [[Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
-Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. A second, separate gap: only [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] have been source-checked against the textbook PDF (this session's Build 1) - Chapters 3, 4, 8, and 10 remain in their original, unverified state, and every weekly note above that cites them flags this explicitly.
+- ---
+- # CSCI 4061 — Weekly Board
+- Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
+- ## Map
+- - [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked this session.
+- - [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], which is **not yet source-checked** - treat those citations as provisional until Build 2.
+- - [[Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], **neither source-checked yet** - provisional until Build 2.
+- - [[Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
+- Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
+- ## Status
+- 4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. A second, separate gap: only [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] have been source-checked against the textbook PDF (this session's Build 1) - Chapters 3, 4, 8, and 10 remain in their original, unverified state, and every weekly note above that cites them flags this explicitly.
 + next: "Live-capture Week 4's real lectures (9/29, 10/1) once they happen - all six chapter notes are now source-checked, so no textbook-side gap remains"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-- [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked.
-- [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], now source-checked in Build 2.
-- [[Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], both now source-checked in Build 2.
-- [[Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
-Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. The textbook-side gap flagged after Build 1 is now closed: all six landed chapter notes ([[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]) are source-checked against the textbook PDF as of Build 2 (2026-09-29) - the "provisional" language in Weeks 2-3's own Connections sections is now stale and should be read as resolved.
++ ---
++ # CSCI 4061 — Weekly Board
++ Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
++ ## Map
++ - [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked.
++ - [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], now source-checked in Build 2.
++ - [[Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], both now source-checked in Build 2.
++ - [[Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
++ Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
++ ## Status
++ 4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. The textbook-side gap flagged after Build 1 is now closed: all six landed chapter notes ([[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]) are source-checked against the textbook PDF as of Build 2 (2026-09-29) - the "provisional" language in Weeks 2-3's own Connections sections is now stale and should be read as resolved.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 2.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 2.md`
@@ -10798,16 +11035,16 @@ Each week follows [[Weekly Standard]], cross-referenced against the reading assi
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 2.md`
 ```diff
 - > Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] (already source-checked this session) and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] (Files and Directories - low-level I/O, assigned this week but not yet source-checked; treat as provisional until Build 2).
-The two lectures' file-descriptor-table/system-file-table/inode-table picture and the `dup`/`dup2` mechanics match what Chapter 3 is expected to cover in depth (open/read/write/lseek/close, atomic operations, `dup`, `fcntl`), but that chapter note has not been verified against the actual textbook PDF this session - only Chapters 1 and 7 got that treatment in Build 1. As already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], two real gaps sit outside all six landed chapter notes: the file-permission-bits material (APUE §4.5-4.9, actually Chapter 4) and the buffering material (APUE Chapter 5, never assigned as its own reading) - both were taught this week even though neither has a proper textbook-note home yet.
+- The two lectures' file-descriptor-table/system-file-table/inode-table picture and the `dup`/`dup2` mechanics match what Chapter 3 is expected to cover in depth (open/read/write/lseek/close, atomic operations, `dup`, `fcntl`), but that chapter note has not been verified against the actual textbook PDF this session - only Chapters 1 and 7 got that treatment in Build 1. As already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], two real gaps sit outside all six landed chapter notes: the file-permission-bits material (APUE §4.5-4.9, actually Chapter 4) and the buffering material (APUE Chapter 5, never assigned as its own reading) - both were taught this week even though neither has a proper textbook-note home yet.
 + > Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] (Files and Directories - low-level I/O), both source-checked against the textbook PDF.
-The two lectures' file-descriptor-table/system-file-table/inode-table picture and the `dup`/`dup2` mechanics match Chapter 3's own §3.10-3.12 in full detail, now confirmed against the actual textbook PDF, which also fills in real gaps the lectures alone left open: `lseek`/file holes (§3.6), I/O-efficiency benchmarks (§3.9), and `sync`/`fsync`/`fcntl`/`ioctl`/`/dev/fd` (§3.13-3.16), none of which either lecture covered. As already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], two real gaps still sit outside all six landed chapter notes: the file-permission-bits material (APUE §4.5-4.9, actually Chapter 4, now captured in full in Chapter 4's own note) and the buffering material (APUE Chapter 5, never assigned as its own reading and still genuinely homeless) - both were taught this week regardless.
++ The two lectures' file-descriptor-table/system-file-table/inode-table picture and the `dup`/`dup2` mechanics match Chapter 3's own §3.10-3.12 in full detail, now confirmed against the actual textbook PDF, which also fills in real gaps the lectures alone left open: `lseek`/file holes (§3.6), I/O-efficiency benchmarks (§3.9), and `sync`/`fsync`/`fcntl`/`ioctl`/`/dev/fd` (§3.13-3.16), none of which either lecture covered. As already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]], two real gaps still sit outside all six landed chapter notes: the file-permission-bits material (APUE §4.5-4.9, actually Chapter 4, now captured in full in Chapter 4's own note) and the buffering material (APUE Chapter 5, never assigned as its own reading and still genuinely homeless) - both were taught this week regardless.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 2.md`
 ```diff
 - - [ ] Once Chapter 3 gets its own perfecting pass, confirm its treatment of the "lowest available fd" rule and the atomic-append (`O_APPEND`) guarantee against this week's lecture claims.
-- [ ] Trace the shared-file-offset-after-`fork()` example by hand for a different interleaving (child reads first) and predict the resulting file contents.
+- - [ ] Trace the shared-file-offset-after-`fork()` example by hand for a different interleaving (child reads first) and predict the resulting file contents.
 + - [ ] Reproduce Chapter 3's §3.6 file-hole example (`lseek` past EOF, then write) on the course container and confirm `st_size` vs. actual disk usage diverge the way the book predicts.
-- [ ] Trace the shared-file-offset-after-`fork()` example by hand for a different interleaving (child reads first) and predict the resulting file contents.
++ - [ ] Trace the shared-file-offset-after-`fork()` example by hand for a different interleaving (child reads first) and predict the resulting file contents.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 2.md`
 ```diff
@@ -10823,23 +11060,26 @@ The two lectures' file-descriptor-table/system-file-table/inode-table picture an
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 3.md`
 ```diff
 - > Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] (Signals) and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] (Files and Directories - i-nodes, paths, permissions in depth) - **neither has been source-checked against the actual textbook PDF this session**; Build 1 only perfected Chapters 1 and 7, so treat every claim below as provisional until Build 2 verifies these two chapters directly.
-Lec06 previewing file-system material (storage devices, i-nodes, paths, directories) a full week before Chapter 4's own scheduled Week 4 reading is already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s 2026-09-24 correction - this week's Lecture section above captures that preview honestly rather than pretending it belongs to Week 4 alone. What lecture likely adds beyond the book on signals: the `SA_RESTART`/fast-vs-slow-syscall history and the `errno`-clobbering worked example read like course-specific emphasis rather than verbatim textbook prose, but this can't be confirmed precisely until Chapter 10 gets its own perfecting pass.
+- Lec06 previewing file-system material (storage devices, i-nodes, paths, directories) a full week before Chapter 4's own scheduled Week 4 reading is already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s 2026-09-24 correction - this week's Lecture section above captures that preview honestly rather than pretending it belongs to Week 4 alone. What lecture likely adds beyond the book on signals: the `SA_RESTART`/fast-vs-slow-syscall history and the `errno`-clobbering worked example read like course-specific emphasis rather than verbatim textbook prose, but this can't be confirmed precisely until Chapter 10 gets its own perfecting pass.
 + > Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] (Signals) and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] (Files and Directories - i-nodes, paths, permissions in depth), both now source-checked against the actual textbook PDF.
-Lec06 previewing file-system material (storage devices, i-nodes, paths, directories) a full week before Chapter 4's own scheduled Week 4 reading is already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s 2026-09-24 correction - this week's Lecture section above captures that preview honestly rather than pretending it belongs to Week 4 alone. What lecture adds beyond the book on signals, now confirmed against Chapter 10's own note: the `SA_RESTART`/fast-vs-slow-syscall history and the `errno`-clobbering worked example genuinely are course-specific emphasis, not verbatim textbook prose - the book itself covers the same ground more formally across §10.4-10.8, none of which either lecture touched (unreliable-signal history, `SIGCLD` vs. `SIGCHLD`, and the precise pending/blocked/delivered terminology).
++ Lec06 previewing file-system material (storage devices, i-nodes, paths, directories) a full week before Chapter 4's own scheduled Week 4 reading is already flagged in the [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s 2026-09-24 correction - this week's Lecture section above captures that preview honestly rather than pretending it belongs to Week 4 alone. What lecture adds beyond the book on signals, now confirmed against Chapter 10's own note: the `SA_RESTART`/fast-vs-slow-syscall history and the `errno`-clobbering worked example genuinely are course-specific emphasis, not verbatim textbook prose - the book itself covers the same ground more formally across §10.4-10.8, none of which either lecture touched (unreliable-signal history, `SIGCLD` vs. `SIGCHLD`, and the precise pending/blocked/delivered terminology).
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 3.md`
 ```diff
 - - [ ] Once Chapter 10 is source-checked, confirm its treatment of `SA_RESTART` and the fast/slow system-call history against this week's lecture claims.
-- [ ] Once Chapter 4 is source-checked, confirm the direct/single-indirect/double-indirect/triple-indirect i-node pointer structure against the book's own figures.
+- - [ ] Once Chapter 4 is source-checked, confirm the direct/single-indirect/double-indirect/triple-indirect i-node pointer structure against the book's own figures.
 + - [ ] Reproduce Chapter 10's §10.15 `sigsetjmp`/`siglongjmp` timeline example (§10.15) on the course container and confirm the signal mask really differs across the three code regions the book traces.
-- [ ] Confirm the direct/single-indirect/double-indirect/triple-indirect i-node pointer structure this week's lecture sketches matches Chapter 4's own §4.14 figures exactly.
++ - [ ] Confirm the direct/single-indirect/double-indirect/triple-indirect i-node pointer structure this week's lecture sketches matches Chapter 4's own §4.14 figures exactly.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 3.md`
 ```diff
 - - Textbook connection: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] is expected to formalize the signal lifecycle and `sigaction()` API this week's lecture walks through hands-on (provisional - not yet source-checked); [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] is expected to formalize the i-node/directory-lookup chain this week's lecture previews (also provisional).
 + - Textbook connection: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] formalizes the signal lifecycle and `sigaction()` API this week's lecture walks through hands-on, now source-checked; [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] formalizes the i-node/directory-lookup chain this week's lecture previews, also source-checked.
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n "provisional\|not yet source-checked\|not been through\|Build 2" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n "provisional\|not yet source-checked\|not been through\|Build 2" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
+```
 ```
 33:None created. This week's material - system calls, `fork`/`exec`/`wait`, memory layout, environment variables - is fully captured inside [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]. A cross-cutting "process lifecycle" concept note (fork/exec/wait/zombie/orphan/daemon, spanning Chapters 1, 7, and 8) is a reasonable Build 2 candidate once [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] gets the same perfecting pass.
 61:> Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] (UNIX System Overview) and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] (Process Environment); [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] (Process Control - `fork`/`exec`/`wait` in full) is assigned reading too but has not been through the same source-checking pass this session did for Chapters 1 and 7, so treat its citations below as provisional until Build 2.
@@ -10857,24 +11097,27 @@ Lec06 previewing file-system material (storage devices, i-nodes, paths, director
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 1.md`
 ```diff
 - area:
-  - "[[CSCI 4061 Board]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]"
-tags:
-  - "#class"
-  - "#Lecture"
-next: "[[Week - 2]]"
+-   - "[[CSCI 4061 Board]]"
+-   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]"
+-   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]"
+- tags:
+-   - "#class"
+-   - "#Lecture"
+- next: "[[Week - 2]]"
 + area:
-  - "[[CSCI 4061 Board]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
-tags:
-  - "#class"
-  - "#Lecture"
-next: "[[Week - 2]]"
++   - "[[CSCI 4061 Board]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
++ tags:
++   - "#class"
++   - "#Lecture"
++ next: "[[Week - 2]]"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== git status ===" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "=== blank line check on edited weekly notes ===" && for f in "Week - 1" "Week - 2" "Week - 3"; do echo "-- $f --"; awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Weekly/$f.md"; done`
+- `Bash`
+````bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== git status ===" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "=== blank line check on edited weekly notes ===" && for f in "Week - 1" "Week - 2" "Week - 3"; do echo "-- $f --"; awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Weekly/$f.md"; done
+````
 ```
 === git status ===
  M "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
@@ -10890,7 +11133,10 @@ next: "[[Week - 2]]"
 -- Week - 2 --
 -- Week - 3 --
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "$f: $(wc -l < "20_Progress/Degree/CSCI 4061/Textbook/$f.md") lines"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "$f: $(wc -l < "20_Progress/Degree/CSCI 4061/Textbook/$f.md") lines"; done
+```
 ```
 Chapter - 3: 184 lines
 Chapter - 4: 207 lines
@@ -10920,14 +11166,8 @@ Chapter - 10: 223 lines
 
 **Files deleted (heuristic, from Bash commands):**
 - `rm "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md" && rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null; rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\" | head -5`
-- `rm -f "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md"
-rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null
-rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null
-ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\"`
-- `rm -f "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis/PLACEHOLDER.md"
-rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis" 2>/dev/null
-rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents" 2>/dev/null
-ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
+- `rm -f "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md" rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\"`
+- `rm -f "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis/PLACEHOLDER.md" rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis" 2>/dev/null rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents" 2>/dev/null ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
 
 **Commands run:**
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find "20_Progress/Degree/CSCI 4061" -type f | sort`
@@ -10949,23 +11189,13 @@ ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
 - `sed -n '12358,12524p' /tmp/apue/full.txt`
 - `sed -n '12900,13091p' /tmp/apue/full.txt`
 - `sed -n '13091,13418p' /tmp/apue/full.txt`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" && for f in "Week - 1/Lec01.pdf" "Week - 1/Lec02.pdf" "Week - 2/Lec03.pdf" "Week - 2/Lec04.pdf" "Week - 3/Lec05.pdf" "Week - 3/Lec06.pdf"; do
-  out="/tmp/apue/$(basename "$f" .pdf).txt"
-  pdftotext -layout "$f" "$out" 2>&1
-  echo "$f -> $out ($(wc -l < "$out") lines)"
-done`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" && for f in "Week - 1/Lec01.pdf" "Week - 1/Lec02.pdf" "Week - 2/Lec03.pdf" "Week - 2/Lec04.pdf" "Week - 3/Lec05.pdf" "Week - 3/Lec06.pdf"; do   out="/tmp/apue/$(basename "$f" .pdf).txt"   pdftotext -layout "$f" "$out" 2>&1   echo "$f -> $out ($(wc -l < "$out") lines)" done`
 - `grep -il "setjmp\|rlimit\|longjmp" /tmp/apue/Lec0*.txt; echo "---none found means no matches---"`
 - `grep -n "PATH\|LD_PRELOAD\|LD_LIBRARY_PATH\|environ\|getenv\|setenv" /tmp/apue/Lec03.txt | head -40`
 - `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Transcripts\Week 1 - 3" && for f in *.txt; do echo "$f: $(wc -l < "$f") lines, $(wc -c < "$f") bytes"; done`
 - `rm "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md" && rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null; rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\" | head -5`
-- `rm -f "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md"
-rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null
-rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null
-ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\"`
-- `rm -f "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis/PLACEHOLDER.md"
-rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis" 2>/dev/null
-rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents" 2>/dev/null
-ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
+- `rm -f "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\PLACEHOLDER.md" rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis" 2>/dev/null rmdir "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents" 2>/dev/null ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\"`
+- `rm -f "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis/PLACEHOLDER.md" rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents/Jarvis" 2>/dev/null rmdir "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Documents" 2>/dev/null ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short -- "20_Progress/Degree/CSCI 4061"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n '^$' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md"; do echo "=== $f ==="; grep -n '^$' "$f"; done`
@@ -11014,23 +11244,10 @@ ls "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "---apue scratch---" && ls /tmp/apue/ 2>&1`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git log -3 --format="%ad %h %s" --date=short -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ==="; awk '/^## /{print}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"; done`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do
-echo "=== $f ==="
-echo "blank lines outside code fences:"
-awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
-echo "flashcard count:"
-awk '/^## Flashcards/{c=1;next} c && /^#cards\//{next} c && NF{n++} END{print n}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
-done`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do
-echo "=== $f ==="
-echo "-- Chapter Summary highlight check --"
-awk '/^## Chapter Summary/{f=1;next} /^## /{f=0} f && /==/{print}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
-echo "-- stray #cards/ai check --"
-grep -c '#cards/ai' "20_Progress/Degree/CSCI 4061/Textbook/$f.md"
-done`
+- ````cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ===" echo "blank lines outside code fences:" awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md" echo "flashcard count:" awk '/^## Flashcards/{c=1;next} c && /^#cards\//{next} c && NF{n++} END{print n}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md" done````
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "=== $f ===" echo "-- Chapter Summary highlight check --" awk '/^## Chapter Summary/{f=1;next} /^## /{f=0} f && /==/{print}' "20_Progress/Degree/CSCI 4061/Textbook/$f.md" echo "-- stray #cards/ai check --" grep -c '#cards/ai' "20_Progress/Degree/CSCI 4061/Textbook/$f.md" done`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -ohE '\[\[[^]]+\]\]' "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md" | sort -u`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -n "provisional\|not yet source-checked\|not been through\|Build 2" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== git status ===" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "=== blank line check on edited weekly notes ===" && for f in "Week - 1" "Week - 2" "Week - 3"; do echo "-- $f --"; awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Weekly/$f.md"; done`
+- ````cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== git status ===" && git status --short -- "20_Progress/Degree/CSCI 4061" && echo "=== blank line check on edited weekly notes ===" && for f in "Week - 1" "Week - 2" "Week - 3"; do echo "-- $f --"; awk '/^```/{f=!f} f{next} /^$/{print NR}' "20_Progress/Degree/CSCI 4061/Weekly/$f.md"; done````
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in "Chapter - 3" "Chapter - 4" "Chapter - 8" "Chapter - 10"; do echo "$f: $(wc -l < "20_Progress/Degree/CSCI 4061/Textbook/$f.md") lines"; done`
-
 

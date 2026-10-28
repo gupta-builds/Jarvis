@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CPT, OPT, H1B visa rules"
 started_at: 2026-10-23T13:01:28
 ended_at: 2026-10-23T18:06:38
-exported_at: 2026-10-25T00:19:34
+exported_at: 2026-10-28T16:15:37
 duration_minutes: 305.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a8711819-664b-4922-952b-4190546bfc01
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-23
+updated: 2026-10-28
 turn_count: 10
 tools_used:
   Agent: 5
@@ -29,7 +32,7 @@ tokens:
   cache_creation: 1618044
   cache_read: 139438456
   total: 141477337
-cost_usd: null
+cost_usd: 24.620104
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -150,7 +153,7 @@ The note ends with six open-question tasks. The first is a written question to I
 
 - `ToolSearch` -- `{"query":"firecrawl","max_results":5}`
 - `ToolSearch` -- `{"query":"select:WebSearch","max_results":1}`
-- `Glob` -- pattern `10_Areas/Career/VISAs & Work Auth/**` path ``
+- `Glob` -- pattern `10_Areas/Career/VISAs & Work Auth/**` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\VISA Plan.md`
 - `WebSearch` -- `{"query":"University of Minnesota ISSS CPT suspended 2026 F-1 students","mode":"extended"}`
@@ -161,7 +164,10 @@ The note ends with six open-question tasks. The first is a written question to I
 - `Agent` -- `{"description":"Fetch OPT fee NPRM primary sources","subagent_type":"web-fetch","prompt":"Find and fetch the primary documents for the DHS proposed rule on OPT fees announced Oct 7 2026 (reported docket ICEB-2026-0100, $70,000 initial OPT / $30,000 subsequent OPT, published in Federal Register ~Oct 8 2026). Fetch https://www.dhs.gov/news/2026/10/07/dhs-proposes-fees-foreign-student-work-program-protect-american-jobs and locate the Federal Register notice on federalregister.gov (search federalregister.gov for the rule) and regulations.gov docket. Report: exact URLs, the rule title, agency, RIN, docket number, publication date, comment deadline (exact date), who is charged the fee (schools vs students vs employers), whether it covers STEM OPT, post-completion vs pre-completion OPT, CPT, effective date, and VERBATIM quotes of the key operative paragraphs and the summary. Also resolve the discrepancy: one source says comment deadline Nov 9, another ~Nov 7. Quote the Federal Register wording. State clearly if any page could not be fetched."}`
 - `Agent` -- `{"description":"Fetch CPT lawsuit primary sources","subagent_type":"web-fetch","prompt":"Research the lawsuit filed around Oct 5 2026 by higher-education associations (reported: AAU, possibly ACE, APLU, NAFSA or similar) against DHS/ICE/SEVP over the August 2026 CPT guidance (BCM 2608-01 and 2608-02). Fetch primary or authoritative sources: the press release from the plaintiffs (e.g., aau.edu, acenet.edu, nafsa.org, aplu.org), court docket/complaint (courtlistener.com, the court\u0027s site, or the association\u0027s PDF), and any ruling or TRO/preliminary injunction since. Report: exact URLs, plaintiffs, defendants, court and case number, filing date, claims (APA etc.), relief requested, and the CURRENT status (any hearing dates, ruling, injunction) with dates, with VERBATIM quotes of key passages. Also fetch https://www.nafsa.org pages on the CPT guidance if available. Clearly say what is verified from a primary document vs only reported by secondary sources, and if a page could not be fetched."}`
 - `Agent` -- `{"description":"Fetch DHS Sept 15 rule and lawsuit","subagent_type":"web-fetch","prompt":"UMN ISSS\u0027s forms page (https://isss.umn.edu/forms) reportedly says \u0027a lawsuit has paused implementation of a DHS rule that was originally set for September 15, 2026\u0027 affecting F-1 students. Fetch that page and identify which rule this is. Then find primary sources (federalregister.gov, dhs.gov, ice.gov, studyinthestates.dhs.gov, court docket) for that rule (possibly the \u0027duration of status\u0027 / fixed admission period rule for F-1/J-1, or another F-1 rule such as OPT changes, employment authorization, or SEVIS changes). Report: rule name, Federal Register citation and date, what it changes for F-1 students (including OPT/CPT/STEM OPT/work authorization and how long students may stay), the effective date, the lawsuit (court, case number, plaintiffs, date) and its CURRENT status (stay/injunction/ruling with dates). Give exact URLs and VERBATIM quotes of key passages. Clearly separate verified-from-primary from secondary-only claims, and say if a page could not be fetched."}`
-- `Bash` -- `cd "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/tool-results/" && ls -la *.pdf && which pdftotext; python -I -c "import pypdf;print(pypdf.__version__)" 2>&1 | head -1; python -I -c "import fitz;print('fitz ok')" 2>&1 | head -1`
+- `Bash`
+```bash
+cd "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/tool-results/" && ls -la *.pdf && which pdftotext; python -I -c "import pypdf;print(pypdf.__version__)" 2>&1 | head -1; python -I -c "import fitz;print('fitz ok')" 2>&1 | head -1
+```
 ```
 -rw-r--r-- 1 anant 197609 166258 Oct 23 13:02 [REDACTED].pdf
 -rw-r--r-- 1 anant 197609 155113 Oct 23 13:02 [REDACTED].pdf
@@ -171,7 +177,10 @@ Python was not found; run without arguments to install from the Microsoft Store,
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SRC="C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/tool-results"; OUT="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$OUT"; for f in 4jgrdi 9olqkx qpd0h7; do pdftotext -layout "$SRC/webfetch-"*"-$f.pdf" "$OUT/$f.txt"; echo "== $f"; wc -c "$OUT/$f.txt"; head -8 "$OUT/$f.txt"; done`
+- `Bash`
+```bash
+SRC="C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/tool-results"; OUT="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$OUT"; for f in 4jgrdi 9olqkx qpd0h7; do pdftotext -layout "$SRC/webfetch-"*"-$f.pdf" "$OUT/$f.txt"; echo "== $f"; wc -c "$OUT/$f.txt"; head -8 "$OUT/$f.txt"; done
+```
 ```
 == 4jgrdi
 4752 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/4jgrdi.txt
@@ -207,10 +216,13 @@ EDUCATION AND IMMIGRATION;
 - `Read` -- `C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/4jgrdi.txt`
 - `Read` -- `C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/9olqkx.txt`
 - `Read` -- `C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/qpd0h7.txt`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 curl -sL -m 30 -o fr1.json -w "FR 2026-14439: %{http_code} %{size_download}\n" "https://www.federalregister.gov/api/v1/documents/2026-14439.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=html_url&fields[]=document_number&fields[]=docket_ids&fields[]=regulation_id_numbers"
 curl -sL -m 30 -o ecfr.json -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2"
-head -c 600 fr1.json; echo; head -c 300 ecfr.json`
+head -c 600 fr1.json; echo; head -c 300 ecfr.json
+```
 ```
 FR 2026-14439: 200 572
 eCFR: 406 171
@@ -225,9 +237,12 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `WebSearch` -- `{"query":"First Circuit duration of status preliminary injunction Saylor appeal stay October 2026","mode":"extended"}`
 - `WebSearch` -- `{"query":"UMN CSE co-op international students CPT requirement 2026","mode":"standard"}`
 - `WebSearch` -- `{"query":"H-1B $100,000 fee proclamation change of status F-1 exemption court ruling 2026 USCIS","mode":"extended"}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/2026-20660.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=html_url&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=comments_close_on&fields[]=type&fields[]=abstract&fields[]=dates&fields[]=agencies&fields[]=page_length" | head -c 2500; echo; echo ----;
-curl -sL --compressed -m 60 -o ecfr.xml -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2"; head -c 200 ecfr.xml`
+curl -sL --compressed -m 60 -o ecfr.xml -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2"; head -c 200 ecfr.xml
+```
 ```
 {"title":"Optional Practical Training Fees","citation":"91 FR 64566","publication_date":"2026-10-08","effective_on":null,"html_url":"https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees","docket_ids":["DHS Docket No. ICEB-2026-0100"],"regulation_id_numbers":["1653-AB01"],"comments_close_on":"2026-11-09","type":"Proposed Rule","abstract":"This rule proposes new fees for Optional Practical Training (OPT) to combat fraud, strengthen the integrity of the immigration system, and protect U.S. workers. The following fees would apply for each F-1 nonimmigrant student to engage in OPT through a Student and Exchange Visitor Program-certified institution: $70,000 for initial OPT; and $30,000 for any subsequent OPT.","dates":"Comments must be received on or before November 9, 2026. Information collection comment period: Comments on the information collection described in the Paperwork Reduction Act section below must be received by December 7, 2026.","agencies":[{"raw_name":"DEPARTMENT OF HOMELAND SECURITY","name":"Homeland Security Department","id":227,"url":"https://www.federalregister.gov/agencies/homeland-security-department","json_url":"https://www.federalregister.gov/api/v1/agencies/227","parent_id":null,"slug":"homeland-security-department"}],"page_length":35}
 ----
@@ -236,11 +251,14 @@ eCFR: 200 168537
 <DIV8 N="214.2" TYPE="SECTION" hierarchy_metadata="{&quot;path&quot;:&quot;/on/_SUBSTITUTE_DATE_/title-8/section-214.2&quot;,&quot;citation&quot;:&quot;8 CFR 21
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 curl -sL --compressed -m 60 -o nprm.html "https://www.federalregister.gov/documents/full_text/html/2026/10/08/2026-20660.html" -w "%{http_code} %{size_download}\n"; 
 curl -sL --compressed -m 60 -o nprm.json "https://www.federalregister.gov/api/v1/documents/2026-20660.json?fields[]=raw_text_url&fields[]=body_html_url"; cat nprm.json; echo
 RT=$(sed -n 's/.*"raw_text_url":"\([^"]*\)".*/\1/p' nprm.json); echo $RT; curl -sL --compressed -m 60 -o nprm.txt "$RT" -w "%{http_code} %{size_download}\n"
-grep -n -i -E "STEM|pre-completion|curricular|CPT|effective|post-completion|employer|E-Verify" nprm.txt | head -60`
+grep -n -i -E "STEM|pre-completion|curricular|CPT|effective|post-completion|employer|E-Verify" nprm.txt | head -60
+```
 ```
 200 69947
 {"raw_text_url":"https://www.federalregister.gov/documents/full_text/text/2026/10/08/2026-20660.txt","body_html_url":"https://www.federalregister.gov/documents/full_text/html/2026/10/08/2026-20660.html"}
@@ -249,10 +267,13 @@ https://www.federalregister.gov/documents/full_text/text/2026/10/08/2026-20660.t
 Binary file nprm.txt matches
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 sed -e 's/<[^>]*>/ /g' ecfr.xml | tr -s ' \n' > ecfr.txt; wc -c ecfr.txt
 grep -n -o -E "\(10\) Practical training\..{0,100}" ecfr.txt | head; 
-awk '/\(10\) Practical training\./{f=1} f{print} /\(11\) Reinstatement/{exit}' ecfr.txt | head -c 9000`
+awk '/\(10\) Practical training\./{f=1} f{print} /\(11\) Reinstatement/{exit}' ecfr.txt | head -c 9000
+```
 ```
 720978 ecfr.txt
 458:(10) Practical training. Practical training may be authorized to an F-1 student who has been lawfully enrolled on a full-tim
@@ -273,8 +294,11 @@ awk '/\(10\) Practical training\./{f=1} f{print} /\(11\) Reinstatement/{exit}' e
  ( 4 ) Eligible practical training opportunity. The STEM practical training
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-grep -a -n -i -E "STEM|pre-completion|curricular|effective date|proposed .*§|214\.2\(f\)" nprm.txt | head -50; echo ====; grep -a -n -i -B1 -A3 "Executive Summary\|II. Background" nprm.txt | head -40`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+grep -a -n -i -E "STEM|pre-completion|curricular|effective date|proposed .*§|214\.2\(f\)" nprm.txt | head -50; echo ====; grep -a -n -i -B1 -A3 "Executive Summary\|II. Background" nprm.txt | head -40
+```
 ```
 77:system, and protect U.S. workers. The following fees would apply for 
 193:CPT Curricular Practical Training
@@ -334,8 +358,11 @@ grep -a -n -i -E "STEM|pre-completion|curricular|effective date|proposed .*§|21
 217-
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-grep -a -n -i -E "subsequent OPT|initial OPT|each F-1|extension" nprm.txt | head -40; echo ===; grep -a -n "List of Subjects\|Regulatory Text\|PART 214\|§ 214" nprm.txt | head`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+grep -a -n -i -E "subsequent OPT|initial OPT|each F-1|extension" nprm.txt | head -40; echo ===; grep -a -n "List of Subjects\|Regulatory Text\|PART 214\|§ 214" nprm.txt | head
+```
 ```
 78:each F-1 nonimmigrant student to engage in OPT through a Student and 
 80:OPT; and $30,000 for any subsequent OPT.
@@ -382,7 +409,10 @@ grep -a -n -i -E "subsequent OPT|initial OPT|each F-1|extension" nprm.txt | head
 3228:PART 214--NONIMMIGRANT CLASSES
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1645,1760p' nprm.txt`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1645,1760p' nprm.txt
+```
 ```
 V. Discussion of Changes
 
@@ -502,11 +532,14 @@ proposing to apply this rule prospectively to those F-1 nonimmigrant
 students who apply for OPT after the effective date. DHS has considered
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 q() { curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=$1" --data-urlencode "conditions[publication_date][gte]=$2" --data-urlencode "order=newest" --data-urlencode "per_page=15" -d "fields[]=title" -d "fields[]=type" -d "fields[]=publication_date" -d "fields[]=citation" -d "fields[]=html_url" -d "fields[]=comments_close_on" -d "fields[]=effective_on" | tr '{' '\n' | grep -o '"title":"[^"]*"\|"type":"[^"]*"\|"publication_date":"[^"]*"\|"html_url":"[^"]*"\|"comments_close_on":[^,]*\|"effective_on":[^,]*' | paste -sd' ' | sed 's/"title"/\n"title"/g'; echo; }
 echo "### H-1B"; q '"H-1B" "specialty occupation"' 2026-01-01
 echo "### practical training"; q '"practical training" F-1' 2026-01-01
-echo "### cap-subject fee"; q '"cap-subject" H-1B fee' 2026-06-01`
+echo "### cap-subject fee"; q '"cap-subject" H-1B fee' 2026-06-01
+```
 ```
 ### H-1B
 
@@ -543,8 +576,11 @@ echo "### cap-subject fee"; q '"cap-subject" H-1B fee' 2026-06-01`
 "title":"Naturalization Application Fee Adjustments" "type":"Proposed Rule" "publication_date":"2026-06-23" "html_url":"https://www.federalregister.gov/documents/2026/06/23/2026-12542/naturalization-application-fee-adjustments" "comments_close_on":"2026-08-24" "effective_on":null}]}
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-for d in 2026-18631 2026-17324 2026-11285 2026-19554 2026-19555 2026-06017 2026-14439; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=comments_close_on&fields[]=abstract&fields[]=dates&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=agencies&fields[]=executive_order_number&fields[]=signing_date" | sed 's/"agencies":\[[^]]*\]/"agencies":"..."/' | head -c 2200; echo; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+for d in 2026-18631 2026-17324 2026-11285 2026-19554 2026-19555 2026-06017 2026-14439; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=comments_close_on&fields[]=abstract&fields[]=dates&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=agencies&fields[]=executive_order_number&fields[]=signing_date" | sed 's/"agencies":\[[^]]*\]/"agencies":"..."/' | head -c 2200; echo; done
+```
 ```
 ######## 2026-18631
 {"title":"Eliminating the Discretionary 60-Day Grace Period","citation":"91 FR 57807","publication_date":"2026-09-11","effective_on":null,"comments_close_on":"2026-11-10","abstract":"The Department of Homeland Security (DHS) proposes to remove regulations at 8 CFR 214.1(l)(2) to restore its previous and long- standing policy of not providing aliens in certain nonimmigrant classifications (and their dependents) with an up to 60-day grace period upon cessation of employment prior to the expiration of the alien's authorized period of stay. This proposal restores a direct relationship between an alien's nonimmigrant status and the specific employment or activity that formed the basis of his or her admission or grant of status in the United States and reduces administrative burden.","dates":"Written comments on the notice of proposed rulemaking (NPRM) must be submitted on or before November 10, 2026. The electronic Federal Docket Management System will accept comments before midnight eastern time at the end of that day.","docket_ids":["CIS No. 2858-26","DHS Docket No. USCIS-2026-0364"],"regulation_id_numbers":["1615-AD22"],"agencies":"...","executive_order_number":null,"signing_date":null}
@@ -562,9 +598,12 @@ for d in 2026-18631 2026-17324 2026-11285 2026-19554 2026-19555 2026-06017 2026-
 {"title":"Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure for Nonimmigrant Academic Students, Exchange Visitors, and Representatives of Foreign Information Media","citation":"91 FR 44976","publication_date":"2026-07-17","effective_on":"2026-09-15","comments_close_on":null,"abstract":"The Department of Homeland Security (DHS) is amending its regulations to change the admission period in the F, J, and I classifications from duration of status to an admission for a fixed time period, and additional changes to admission and extension requirements. This final rule will provide additional protections and oversight of these nonimmigrant categories and will allow DHS to better evaluate whether these nonimmigrants are maintaining status while temporarily in the United States. This final rule provides amendments to the proposed rule covering this topic that was published in the Federal Register on August 28, 2025.","dates":"This rule has been classified as a major rule subject to congressional review. The effective date is September 15, 2026. However, at the conclusion of the congressional review, if the effective date has been changed, DHS will publish a document in the Federal Register to establish the actual effective date or to terminate the rule.","docket_ids":["DHS Docket No. ICEB-2025-0001"],"regulation_id_numbers":["1653-AA95"],"agencies":"...","executive_order_number":null,"signing_date":null}
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 for d in "2026/09/23/2026-19554" "2026/09/23/2026-19555" "2026/09/11/2026-18631" "2026/08/25/2026-17324"; do n=$(basename $d); curl -sL --compressed -m 60 -o "t_$n.txt" "https://www.federalregister.gov/documents/full_text/text/$d.txt"; echo "$n $(wc -c < t_$n.txt)"; done
-echo "=== 19554 (proclamation)"; sed -n '1,200p' t_2026-19554.txt | grep -a -v '^\s*$' | head -120`
+echo "=== 19554 (proclamation)"; sed -n '1,200p' t_2026-19554.txt | grep -a -v '^\s*$' | head -120
+```
 ```
 2026-19554 17866
 2026-19555 11259
@@ -693,9 +732,12 @@ Restriction on Entry of Certain Nonimmigrant
                 registrations filed by large IT outsourcing firms, with
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 echo "=== PROC 11069 operative"; sed -n '/Sec. 1/,$p' t_2026-19554.txt | grep -a -v '^\s*$' | head -70
-echo; echo "=== EO 14431"; grep -a -v '^\s*$' t_2026-19555.txt | sed -n '20,110p'`
+echo; echo "=== EO 14431"; grep -a -v '^\s*$' t_2026-19555.txt | sed -n '20,110p'
+```
 ```
 === PROC 11069 operative
 
@@ -793,9 +835,12 @@ Enhancing Program Integrity and Interagency
                 occupation under section 101(a)(15)(H)(i)(b) of the
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 echo "=== 103,265 NPRM: change of status / F-1"; grep -a -n -i -E "change of status|F-1|cap-gap|already in the United States|effective" t_2026-17324.txt | head -30
-echo "=== 60-day grace: classes / F-1"; grep -a -n -i -E "F-1|H-1B|classification" t_2026-18631.txt | head -25`
+echo "=== 60-day grace: classes / F-1"; grep -a -n -i -E "F-1|H-1B|classification" t_2026-18631.txt | head -25
+```
 ```
 === 103,265 NPRM: change of status / F-1
 490:Department of Labor. Effective July 25, 2018, USCIS also collects 
@@ -830,7 +875,10 @@ echo "=== 60-day grace: classes / F-1"; grep -a -n -i -E "F-1|H-1B|classificatio
 314:authorizes the admission of aliens under the TN classification pursuant
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '100,175p'; echo; echo "=== 17324 how applied"; grep -a -n -i -E "all H-1B cap-subject|petitions filed|in-country|consular|apply to|exempt" t_2026-17324.txt | head -20`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '100,175p'; echo; echo "=== 17324 how applied"; grep -a -n -i -E "all H-1B cap-subject|petitions filed|in-country|consular|apply to|exempt" t_2026-17324.txt | head -20
+```
 ```
                 Nationals in the United States, 91 Fed. Reg. 15454,
 [[Page 60498]]
@@ -932,10 +980,13 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 1804:Kentucky Consular Center, to enhance data sharing and risk screening
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 curl -sL --compressed -m 90 -o ds.txt "https://www.federalregister.gov/documents/full_text/text/2026/07/17/2026-14439.txt" -w "ds rule: %{http_code} %{size_download}\n"
 grep -a -n -i -E "delayed (effective|implementation)|SEVIS functionality|OPT.*(effective|implementation)|effective.*OPT|six months after|180 days" ds.txt | head -30
-echo ===; curl -sL -m 30 -A "Mozilla/5.0" -o pa.html -w "PA page: %{http_code} %{size_download}\n" "https://www.presidentsalliance.org/duration-of-status-litigation/"; sed -e 's/<script.*<\/script>//g' -e 's/<[^>]*>/ /g' pa.html | tr -s ' \n' | grep -i -E "first circuit|appeal|injunction|saylor|stay" | head -15`
+echo ===; curl -sL -m 30 -A "Mozilla/5.0" -o pa.html -w "PA page: %{http_code} %{size_download}\n" "https://www.presidentsalliance.org/duration-of-status-litigation/"; sed -e 's/<script.*<\/script>//g' -e 's/<[^>]*>/ /g' pa.html | tr -s ' \n' | grep -i -E "first circuit|appeal|injunction|saylor|stay" | head -15
+```
 ```
 ds rule: 200 351206
 2596:legitimate reasons. Also, multi-year bars begin only after 180 days of 
@@ -971,10 +1022,13 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `WebSearch` -- `{"query":"\"26-cv-14520\" OR \"Association of American Universities v. Department of Homeland Security\" curricular practical training preliminary injunction hearing","mode":"standard"}`
 - `WebSearch` -- `{"query":"studyinthestates.dhs.gov curricular practical training CPT SEVP guidance students employment F-1 2026","mode":"standard"}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 curl -sL --compressed -m 40 -A "Mozilla/5.0" -o nafsa_cpt.html -w "nafsa: %{http_code} %{size_download}\n" "https://www.nafsa.org/legal-defense-CPT"; sed -e 's/<script[^>]*>.*<\/script>//g' -e 's/<[^>]*>/ /g' nafsa_cpt.html | tr -s ' \n' | grep -i -E "hearing|november|updated|judge|ruling" | head -10
 curl -sL --compressed -m 60 -A "Mozilla/5.0" -o memo.pdf -w "memo: %{http_code} %{size_download}\n" "https://www.aau.edu/uploads/files/general/Memo-in-Support-of-PI-and-Stay-AAU-v-DHS.pdf"; file memo.pdf | head -1; pdftotext -layout memo.pdf memo.txt 2>&1 | head -2; wc -c memo.txt
-grep -n -i -E "computer science|November 6|hearing|Judge|1:26-cv|paused|halt|survey|schools have" memo.txt | head -40`
+grep -n -i -E "computer science|November 6|hearing|Judge|1:26-cv|paused|halt|survey|schools have" memo.txt | head -40
+```
 ```
 nafsa: 200 8853
  Last updated: October 8, 2026 Litigation On October 5, NAFSA: Association of International Educators joined the Association of American Universities, Presidents’ Alliance on Higher Education and Immigration, and the Association of Independent Colleges and Universities in Massachusetts (AICUM) in filing a complaint and a motion for preliminary injunction in response to two broadcast messages sent last August by Immigration and Customs Enforcement (ICE) that made drastic changes to Curricular Practical Training (CPT) for international students.&nbsp; These messages to university administrators state that students will only be eligible for CPT when such practical experiences are mandatory for all students in a program. This means that an academically supervised internship or practicum for course credit would be unavailable to an international student if it is an elective rather than a graduation requirement for their degree. This dramatically different interpretation from the agency that oversees CPT has put longstanding campus practices and students’ access to these opportunities at risk, without notice and comment or sufficient time for colleges and universities to respond. The suit, filed in the U.S. District Court for the District of Massachusetts, asks the court to stop the government’s actions before they cause further harm to students, universities, their communities, and the country. As conveyed in a joint press release , the legal complaint argues that the government’s new interpretation of longstanding CPT requirements would severely limit international students’ ability to participate in internships and other experiential learning opportunities that allow them to directly apply knowledge learned in the classroom and gain real-world experience. These hands-on training opportunities are directly connected to their academic courses of study and approved by their colleges and universities. The suit argues that the government’s actions are legally flawed and would cause irreparable harm for a number of reasons: The change was announced abruptly, without a substantive explanation, period for public comment, or acknowledgment that it departed from the federal government’s previous longstanding interpretation of CPT.&nbsp; The communications sent directly to campus university designated school officials (DSOs) threatened them with severe institutional penalties and potential personal liability for practices that the government had previously long permitted. The broadcast messages needlessly disrupt the plans and expectations of students, schools, and others in the community, who responsibly planned their affairs around the government’s longstanding position that these practical-training opportunities will remain permitted. “Changing how CPT is administered through broadcast messages, without formal rulemaking, is an aberration that must be challenged,” said NAFSA Executive Director and CEO Fanta Aw. “These abrupt changes have placed Designated School Officials—the professionals responsible for advising international students and ensuring institutional compliance—in an untenable position, forcing them to navigate significant new restrictions and uncertainty without the clarity and due process that formal rulemaking provides." The press release goes on to say, "the plaintiffs are seeking to restore the government’s longstanding CPT framework, protect students and institutions from retroactive penalties, and ensure that international students can continue to access academically meaningful training opportunities that benefit not only them, but employers, communities, and our entire nation."&nbsp; Hearing&nbsp; A hearing date has been set for November 6. At that time, the judge will hear arguments related to our request for a preliminary injunction and stay of agency action. Plaintiffs The plaintiffs are: the Association of American Universities (AAU); NAFSA: Association of International Educators; the Presidents’ Alliance on Higher Education and Immigration; the Association of Independent Colleges and Universities in Massachusetts (AICUM). The plaintiffs are represented by Jenner &amp; Block LLP . Resources NAFSA members can access a detailed description of the broadcast messages and historical context on NAFSA's website . 
@@ -1024,9 +1078,12 @@ memo.pdf: PDF document, version 1.7, 56 page(s)
 1084:          Case 1:26-cv-14520 Document 9-1 Filed 10/05/26 Page 37 of 56
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/&#039;|&rsquo;/'"'"'/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
-for u in "https://isss.umn.edu/immigration-updates" "https://cse.umn.edu/coop/international-students" "https://isss.umn.edu/fstudents/employment/on-campus"; do echo "################ $u"; get "$u" | head -c 6000; echo; done`
+for u in "https://isss.umn.edu/immigration-updates" "https://cse.umn.edu/coop/international-students" "https://isss.umn.edu/fstudents/employment/on-campus"; do echo "################ $u"; get "$u" | head -c 6000; echo; done
+```
 ```
 ################ https://isss.umn.edu/immigration-updates
  
@@ -1350,11 +1407,14 @@ Minneapolis, MN 55455
  On-campus employment is limit
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
 echo "#### on-campus limits"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Limitations of Employment.\{0,1500\}" | head -c 1700; echo
 echo "#### travel outside US (work/remote/abroad mentions)"; get "https://isss.umn.edu/fstudents/travel/outside-us" | grep -a -i -o ".\{200\}\(remote\|work abroad\|working abroad\|five months\|5 months\|internship\).\{250\}" | head -8
-echo "#### last updated on-campus"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Last updated[^.]*20[0-9][0-9]"`
+echo "#### last updated on-campus"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Last updated[^.]*20[0-9][0-9]"
+```
 ```
 #### on-campus limits
 Limitations of Employment 
@@ -1365,10 +1425,13 @@ Limitations of Employment
 Last updated: February 25, 2025
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
 get "https://isss.umn.edu/fstudents/employment/on-campus" | tr '\n' ' ' | grep -a -o "On-campus employment is limit.\{0,1200\}"
-echo; echo "### 8 CFR 214.2(f)(9)(i) on-campus (eCFR)"; awk '/\(9\) Employment/{f=1} f{print} /\(ii\) Off-campus employment/{exit}' ecfr.txt | head -c 2500`
+echo; echo "### 8 CFR 214.2(f)(9)(i) on-campus (eCFR)"; awk '/\(9\) Employment/{f=1} f{print} /\(ii\) Off-campus employment/{exit}' ecfr.txt | head -c 2500
+```
 ```
 On-campus employment is limited to a total of 20 hours per week while school is in session and up to full-time during semester breaks and the summer vacation period. Students are in violation of their F-1 status if they work more than 20 hours a week while school is in session. Students holding employment in more than one UMN department should inform their employers of the other position(s). Students new to the University and admitted to begin a program of study during the Summer Session are required to enroll full-time over the summer of admission and are limited to 20 hours/week on-campus employment. Maximum hours per week by campus   +   Work Authorization End Date   On-campus work eligibility ends on the day a student completes all of their degree requirements. Students who have applied for post-completion Optional Practical Training (OPT) but fail to complete by the date specified on their OPT application are not eligible to continue on-campus work unless the job is related to their field of study and the student has received the OPT authorization for employment.   +   Finding a Job   The UMN Job Search webpage has postings of on-campus positions (such as data entry, clerical, grounds maintenance, food se
 
@@ -1424,10 +1487,13 @@ On-campus employment is limited to a total of 20 hours per week while school is 
  (2) Student maintenance of Form I-20 or successor form. An
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
 get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
 echo "### FR weighted selection"; curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=\"Weighted Selection Process\" H-1B" --data-urlencode "conditions[type][]=RULE" -d "fields[]=title" -d "fields[]=citation" -d "fields[]=publication_date" -d "fields[]=effective_on" -d "fields[]=html_url" | head -c 800; echo
-echo "### Colorado ISSS Oct 7 2026"; get "https://www.colorado.edu/isss/2026/10/07/100000-h-1b-fee-current-status" | tr '\n' ' ' | grep -a -o "\$100,000 H-1B fee.\{0,3200\}" | head -c 3400`
+echo "### Colorado ISSS Oct 7 2026"; get "https://www.colorado.edu/isss/2026/10/07/100000-h-1b-fee-current-status" | tr '\n' ' ' | grep -a -o "\$100,000 H-1B fee.\{0,3200\}" | head -c 3400
+```
 ```
 ### FR weighted selection
 {"description":"Documents matching '\"Weighted Selection Process\" H-1B' and of type Rule","count":1,"total_pages":1,"results":[{"title":"Weighted Selection Process for Registrants and Petitioners Seeking To File Cap-Subject H-1B Petitions","citation":"90 FR 60864","publication_date":"2025-12-29","effective_on":"2026-02-27","html_url":"https://www.federalregister.gov/documents/2025/12/29/2025-23853/[REDACTED]"}]}
@@ -1436,9 +1502,12 @@ $100,000 H-1B fee – Current status | International Student and Scholar Service
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `WebSearch` -- `{"query":"uscis.gov H-1B $100,000 payment Proclamation 10973 change of status exempt guidance","mode":"standard","allowed_domains":["uscis.gov"]}`
-- `Glob` -- pattern `30_Order/**/{Note Type Registry,Frontmatter Standard,Reference Standard,Reference,Vault Lint,Conformance on Touch}*.md` path ``
-- `Glob` -- pattern `30_Order/Templates/**/*.md` path ``
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career/VISAs & Work Auth" && wc -c *.md && head -30 "H1B Visa.md"`
+- `Glob` -- pattern `30_Order/**/{Note Type Registry,Frontmatter Standard,Reference Standard,Reference,Vault Lint,Conformance on Touch}*.md` path ` `
+- `Glob` -- pattern `30_Order/Templates/**/*.md` path ` `
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career/VISAs & Work Auth" && wc -c *.md && head -30 "H1B Visa.md"
+```
 ```
 0 CPT Program.md
 0 Current News.md
@@ -1453,7 +1522,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Grep` -- pattern `Reference|Current News|Resource` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Note Type Registry.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\HUMAN_WRITING.md`
 - `Glob` -- pattern `**/Jarvis Writing and Formatting.md` path `D:\_Anant\20_Progress\Documents\Jarvis`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career" && ls | head -30; echo ---; grep -rl "reference_kind: link-hub" /d/_Anant/20_Progress/Documents/Jarvis/40_Resources /d/_Anant/20_Progress/Documents/Jarvis/10_Areas 2>/dev/null | head -3`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career" && ls | head -30; echo ---; grep -rl "reference_kind: link-hub" /d/_Anant/20_Progress/Documents/Jarvis/40_Resources /d/_Anant/20_Progress/Documents/Jarvis/10_Areas 2>/dev/null | head -3
+```
 ```
 Certifications
 Engineer Edge Roadmap.md
@@ -1469,11 +1541,17 @@ VISAs & Work Auth
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\Jarvis Writing and Formatting.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\Useful Links.md`
 - `Grep` -- pattern `^area:` path `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas`
-- `Bash` -- `curl -sL --compressed -m 40 -A "Mozilla/5.0" "https://www.uscis.gov/newsroom/alerts/presidential-proclamation-on-restriction-on-entry-of-certain-nonimmigrant-workers" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g' | tr '\n' ' ' | grep -a -o -i ".\{0,300\}\(change of status\|outside the United States\|June 8\|vacat\).\{0,500\}" | head -c 4500`
+- `Bash`
+```bash
+curl -sL --compressed -m 40 -A "Mozilla/5.0" "https://www.uscis.gov/newsroom/alerts/presidential-proclamation-on-restriction-on-entry-of-certain-nonimmigrant-workers" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g' | tr '\n' ' ' | grep -a -o -i ".\{0,300\}\(change of status\|outside the United States\|June 8\|vacat\).\{0,500\}" | head -c 4500
+```
 ```
 timony   Social Media Directory   Breadcrumb   Home   Newsroom   All News   Presidential Proclamation on Restriction on Entry of Certain Nonimmigrant Workers   Presidential Proclamation on Restriction on Entry of Certain Nonimmigrant Workers   Release Date  10/20/2025   Alert Type info   ALERT : On June 8, 2026, the U.S. District Court for the District of Massachusetts issued an order that vacated agency guidance implementing the $100,000 payment requirement for certain H-1B petitions. See State of California v. Mullin, 1:25-cv-13829 (D. Mass.). DHS strongly disagrees with the court’s order and filed a motion to stay pending appeal with the United States Court of Appeals for the First Circuit (First Circuit). The District Court order was administratively stayed while the government pursued its
 ```
-- `Bash` -- `curl -sL --compressed -m 40 -A "Mozilla/5.0" "https://www.uscis.gov/newsroom/alerts/presidential-proclamation-on-restriction-on-entry-of-certain-nonimmigrant-workers" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g' | tr '\n' ' ' | grep -a -o "ALERT : On June 8.\{0,4500\}" | head -c 4800`
+- `Bash`
+```bash
+curl -sL --compressed -m 40 -A "Mozilla/5.0" "https://www.uscis.gov/newsroom/alerts/presidential-proclamation-on-restriction-on-entry-of-certain-nonimmigrant-workers" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g' | tr '\n' ' ' | grep -a -o "ALERT : On June 8.\{0,4500\}" | head -c 4800
+```
 ```
 ALERT : On June 8, 2026, the U.S. District Court for the District of Massachusetts issued an order that vacated agency guidance implementing the $100,000 payment requirement for certain H-1B petitions. See State of California v. Mullin, 1:25-cv-13829 (D. Mass.). DHS strongly disagrees with the court’s order and filed a motion to stay pending appeal with the United States Court of Appeals for the First Circuit (First Circuit). The District Court order was administratively stayed while the government pursued its motion to stay pending appeal with the First Circuit. On July 24, 2026, the First Circuit denied the government’s motion. DHS strongly disagrees with the First Circuit’s order denying the stay request but will comply with the court’s order while DHS considers next steps. If this order is later lifted, DHS still plans to collect the payment.   On September 19, 2025, the President issued a Proclamation, Restriction on Entry of Certain Nonimmigrant Workers , an important initial step to reform the H-1B nonimmigrant visa program. Under the Proclamation, new H-1B petitions filed at or after 12:01 a.m. eastern daylight time on September 21, 2025 must be accompanied by an additional $100,000 payment as a condition of eligibility. In accordance with section 1(c) of the Proclamation, for H-1B petitions subject to the Proclamation, petitioners must submit a copy of the proof of the payment from pay.gov or evidence of an exception from the fee from the Secretary of Homeland Security at the time of filing the H-1B petition. Petitions subject to the $100,000 payment that are filed without evidence of payment or the grant of an exception will be denied. For additional information on the requirements of the Proclamation and how to pay the $100,000 payment, see the H-1B Specialty Occupation Webpage .   Last Reviewed/Updated:   06/15/2026   Was this page helpful?   Yes   No   This page was not helpful because the content:   Select a reason has too little information has too much information is confusing is out of date other   How can the content be improved?   0 / 2000 To protect your privacy, please do not include any personal information in your feedback. Review our Privacy Policy .   Return to top   Topics   Forms   Newsroom   Citizenship   Green Card   Laws   Tools   Contact USCIS   Agency description   USCIS.gov   An official website of the U.S. Department of Homeland Security   Important links   About USCIS   Accessibility   Budget and Performance   DHS Components   Freedom of Information Act   No FEAR Act Data   Privacy and Legal Disclaimers   Site Map   Office of the Inspector General   The White House   USA.gov   Looking for U.S. government information and services?   Visit USA.gov
 ```
@@ -1665,7 +1743,10 @@ I put a ==highlight== on every resource, as you asked. That breaks the vault's o
 
 ### Tool Calls
 
-- `Bash` -- `echo "HOME=$HOME"; ls -la ~ 2>/dev/null | grep -i -E "mcp|\.env" ; echo "--- ~/.claude:"; ls -la ~/.claude 2>/dev/null | grep -i -E "mcp|\.env"; echo "--- tools:"; command -v node npx claude uv 2>&1; node --version 2>&1; npx --version 2>&1 | head -1`
+- `Bash`
+```bash
+echo "HOME=$HOME"; ls -la ~ 2>/dev/null | grep -i -E "mcp|\.env" ; echo "--- ~/.claude:"; ls -la ~/.claude 2>/dev/null | grep -i -E "mcp|\.env"; echo "--- tools:"; command -v node npx claude uv 2>&1; node --version 2>&1; npx --version 2>&1 | head -1
+```
 ```
 HOME=/c/Users/anant
 drwxr-xr-x 1 anant 197609        0 Oct 19 09:21 .mcp-auth
@@ -1680,7 +1761,10 @@ drwxr-xr-x 1 anant 197609        0 Oct 19 09:21 .mcp-auth
 v24.19.0
 11.17.0
 ```
-- `Bash` -- `claude mcp list 2>&1 | head -30`
+- `Bash`
+```bash
+claude mcp list 2>&1 | head -30
+```
 ```
 Checking MCP server health…
 
@@ -1703,22 +1787,31 @@ plugin:sp-global:spglobal: https://kfinance.kensho.com/integrations/mcp (HTTP) -
 jarvis: http://127.0.0.1:27123/mcp/ (HTTP) - ✔ Connected
 the-plan: http://127.0.0.1:27124/mcp/ (HTTP) - ✔ Connected
 ```
-- `Bash` -- `( set -a; . <(tr -d '\r' < ~/.mcp.env) 2>/dev/null; set +a; if [ -n "${FIRECRAWL_API_KEY:-}" ]; then echo "FIRECRAWL_API_KEY: set, length ${#FIRECRAWL_API_KEY}, prefix-ok: $([[ "$FIRECRAWL_API_KEY" == fc-* ]] && echo yes || echo no)"; else echo "FIRECRAWL_API_KEY: NOT set after sourcing"; fi )`
+- `Bash`
+```bash
+( set -a; . <(tr -d '\r' < ~/.mcp.env) 2>/dev/null; set +a; if [ -n "${FIRECRAWL_API_KEY:-}" ]; then echo "FIRECRAWL_API_KEY: set, length ${#FIRECRAWL_API_KEY}, prefix-ok: $([[ "$FIRECRAWL_API_KEY" == fc-* ]] && echo yes || echo no)"; else echo "FIRECRAWL_API_KEY: NOT set after sourcing"; fi )
+```
 ```
 FIRECRAWL_API_KEY: set, length 35, prefix-ok: yes
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; 
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; 
 ( set -a; . <(tr -d '\r' < ~/.mcp.env) 2>/dev/null; set +a;
 for v in v2 v1; do
 code=$(curl -s -m 90 -o "$SP/fc/test_$v.json" -w "%{http_code}" -X POST "https://api.firecrawl.dev/$v/scrape" -H "Authorization: Bearer $FIRECRAWL_API_KEY" -H "Content-Type: application/json" -d '{"url":"https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees","formats":["markdown"]}');
 echo "$v scrape -> HTTP $code, bytes $(wc -c < "$SP/fc/test_$v.json")"; done )
-head -c 300 "$SP/fc/test_v2.json"; echo`
+head -c 300 "$SP/fc/test_v2.json"; echo
+```
 ```
 v2 scrape -> HTTP 200, bytes 282135
 v1 scrape -> HTTP 200, bytes 282176
 {"success":true,"data":{"markdown":"[Skip to Content](https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees#main \"Skip to Content\")\n\nLegal Status\n\nThis site displays a prototype of a “Web 2.0” version of the daily\nFederal Register. It is not an o
 ```
-- `Bash` -- `echo "in-session env has FIRECRAWL_API_KEY: $([ -n "${FIRECRAWL_API_KEY:-}" ] && echo yes || echo no)"; command -v bash; echo "--- PATH bash candidates:"; where.exe bash 2>/dev/null | head; echo "--- firecrawl-mcp on npm:"; npm view firecrawl-mcp version bin --json 2>&1 | head -12`
+- `Bash`
+```bash
+echo "in-session env has FIRECRAWL_API_KEY: $([ -n "${FIRECRAWL_API_KEY:-}" ] && echo yes || echo no)"; command -v bash; echo "--- PATH bash candidates:"; where.exe bash 2>/dev/null | head; echo "--- firecrawl-mcp on npm:"; npm view firecrawl-mcp version bin --json 2>&1 | head -12
+```
 ```
 in-session env has FIRECRAWL_API_KEY: no
 /usr/bin/bash
@@ -1735,19 +1828,25 @@ D:\Apps\Hermes\git\usr\bin\bash.exe
   }
 }
 ```
-- `Bash` -- `GB="/c/Program Files/Git/usr/bin/bash.exe"; CMD='set -a; . <(tr -d "\r" < "$HOME/.mcp.env"); set +a; exec npx -y firecrawl-mcp@3.34.1'
+- `Bash`
+```bash
+GB="/c/Program Files/Git/usr/bin/bash.exe"; CMD='set -a; . <(tr -d "\r" < "$HOME/.mcp.env"); set +a; exec npx -y firecrawl-mcp@3.34.1'
 REQ='{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"1"}}}'
-{ printf '%s\n' "$REQ"; sleep 25; } | timeout 60 "$GB" -c "$CMD" 2>/tmp/fc_err.txt | head -c 600; echo; echo "--- stderr (first 300 chars, key-redacted):"; head -c 300 /tmp/fc_err.txt | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g'`
+{ printf '%s\n' "$REQ"; sleep 25; } | timeout 60 "$GB" -c "$CMD" 2>/tmp/fc_err.txt | head -c 600; echo; echo "--- stderr (first 300 chars, key-redacted):"; head -c 300 /tmp/fc_err.txt | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g'
+```
 ```
 {"result":{"protocolVersion":"2024-11-05","capabilities":{"tools":{},"logging":{},"completions":{}},"serverInfo":{"name":"firecrawl-fastmcp","version":"3.34.1"},"instructions":"If Firecrawl reports that credits ran out or the daily limit without an account was reached, end your final answer with the line it provides, link included. Firecrawl provides web search, page retrieval, site URL discovery, multi-page collection, structured page data, monitoring, and multi-source research that returns structured data. Match the requested operation to the tool boundary: firecrawl_scrape retrieves one sup
 --- stderr (first 300 chars, key-redacted):
 npm warn deprecated koa-router@14.0.0: Please use @koa/router instead, starting from v9!
 ```
-- `Bash` -- `rm -f /tmp/fc_err.txt
+- `Bash`
+```bash
+rm -f /tmp/fc_err.txt
 JSON=$(node -e 'console.log(JSON.stringify({type:"stdio",command:"C:\\Program Files\\Git\\usr\\bin\\bash.exe",args:["-c","set -a; . <(tr -d \"\\r\" < \"$HOME/.mcp.env\"); set +a; exec npx -y firecrawl-mcp@3.34.1"]}))')
 echo "$JSON"
 claude mcp add-json --scope user firecrawl "$JSON" 2>&1 | head -5
-echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
+echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15
+```
 ```
 [eval]:1
 console.log(JSON.stringify({type:"stdio",command:"C:\Program Files\Git\usr\bin\bash.exe",args:["-c","set -a; . <(tr -d \"\r\" < \"$HOME/.mcp.env\"); set +a; exec npx -y firecrawl-mcp@3.34.1"]}))
@@ -1778,9 +1877,12 @@ require("fs").writeFileSync(process.argv[2], JSON.stringify(cfg));
 console.log(JSON.stringify(cfg, null, 1));
 
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node "$SP/mkcfg.js" "$SP/fc_cfg.json" && node -e 'JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); console.log("valid json")' "$SP/fc_cfg.json" && claude mcp add-json --scope user firecrawl "$(cat "$SP/fc_cfg.json")" 2>&1 | head -5
-echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
+echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15
+```
 ```
 {
  "type": "stdio",
@@ -1869,12 +1971,15 @@ async function scrape(url, out, wait) {
 })().catch((e) => console.log("ERR", e.message));
 
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; cd "$SP"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; cd "$SP"
 s() { echo; echo "######## $1"; node fc.js search "$1" "fc/s_$2.json" qdr:m ${3:-7}; }
 s "AAU v. DHS curricular practical training preliminary injunction hearing November 6 District of Massachusetts judge" cpt1
 s "CPT broadcast message lawsuit court order OR ruling OR hearing October 2026 international students" cpt2
 s "SEVP broadcast message October 2026" sevp1
-s "OPT fee $70,000 proposed rule comments universities respond NAFSA" opt1`
+s "OPT fee $70,000 proposed rule comments universities respond NAFSA" opt1
+```
 ```
 ######## AAU v. DHS curricular practical training preliminary injunction hearing November 6 District of Massachusetts judge
 1. Day 1 CPT News - Which Schools Paused CPT, AAU Lawsuit
@@ -2010,7 +2115,9 @@ The public has 60 days to comment on the proposal before DHS can finalize it and
    A proposed U.S. rule would require schools to pay $70,000 before first recommending an F-1 student for Optional Practical Training and $30,000 for each later ...
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; cd "$SP"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; cd "$SP"
 cat > fc/u1.txt <<'EOF'
 https://www.ice.gov/sevis/whats-new
 https://www.ice.gov/doclib/sevis/pdf/bcm2610-02.pdf
@@ -2020,7 +2127,8 @@ https://www.rnlawgroup.com/a-case-to-watch-universities-challenge-sevps-new-rest
 https://www.courtlistener.com/?q=%2226-cv-14520%22&type=r
 EOF
 node fc.js multi fc/u1.txt fc/b1
-echo; echo "###### ICE what's new (head)"; sed -n '1,45p' fc/b1/01.md | cut -c1-220`
+echo; echo "###### ICE what's new (head)"; sed -n '1,45p' fc/b1/01.md | cut -c1-220
+```
 ```
 OK 162415 chars -> fc\b1\01.md | What's New | ICE
 OK 1557 chars -> fc\b1\02.md | DHS Publishes Proposed Rule Establishing Fees for Optional Practical
@@ -2084,12 +2192,15 @@ A **lock** ( LockLocked padlock
 On July 17, 2026, DHS [published](https://www.federalregister.gov/public-inspection/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant) a final rule establishing
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b1"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b1"
 echo "#### ICE what's new: lines 45-110"; sed -n '45,110p' 01.md | cut -c1-300
 echo; echo "#### BCM 2610-02"; cat 02.md
 echo; echo "#### CMU"; cat 03.md | cut -c1-1200
 echo; echo "#### Yale"; cat 04.md
-echo; echo "#### courtlistener"; cat 06.md`
+echo; echo "#### courtlistener"; cat 06.md
+```
 ```
 #### ICE what's new: lines 45-110
 On July 17, 2026, DHS [published](https://www.federalregister.gov/public-inspection/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant) a final rule establishing a fixed time period of admission and an extension of stay procedure for F nonimm
@@ -2263,16 +2374,22 @@ Sign up to receive the Free Law Project newsletter with tips and announcements.
 [LinkedIn - Free Law Project (opens in a new tab)](https://www.linkedin.com/company/free-law-project/)[Bluesky - Free Law Project (opens in a new tab)](https://bsky.app/profile/free.law)[GitHub repository (opens in a new tab)](https://github.com/freelawproject/courtlistener)[Subscribe to the Free Law Project newsletter (opens in a new tab)](https://donate.free.law/np/clients/freelawproject/subscribe.jsp?subscription=9)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode 'q="26-cv-14520"' -d type=r -d format=json -o cl1.json -w "search http %{http_code}\n"; head -c 1500 cl1.json; echo`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode 'q="26-cv-14520"' -d type=r -d format=json -o cl1.json -w "search http %{http_code}\n"; head -c 1500 cl1.json; echo
+```
 ```
 search http 200
 {"count":1,"next":null,"previous":null,"results":[{"assignedTo":"Julia E. Kobick","assigned_to_id":null,"attorney":["Shoba Pillay","Anjali Motgi","Ian Heath Gershengorn","Lindsay C. Harrison","Ishan Bhabha","Daniel Schwei","Elizabeth Henthorne"],"attorney_id":[16163919,16163920,16163921,16163922,16163923,16163924,16163925],"caseName":"Association of American Universities v. U.S. Department of Homeland Security","case_name_full":"","cause":"05:551 Administrative Procedure Act","chapter":null,"court":"District Court, D. Massachusetts","court_citation_string":"D. Mass.","court_id":"mad","dateArgued":null,"dateFiled":"2026-10-05","dateTerminated":null,"docketNumber":"1:26-cv-14520","docket_absolute_url":"/docket/74919449/association-of-american-universities-v-us-department-of-homeland/","docket_id":74919449,"firm":["Jenner & Block LLP"],"firm_id":[14456,873985],"jurisdictionType":"U.S. Government Defendant","juryDemand":"None","meta":{"timestamp":"2026-10-06T21:30:59.251732Z","date_created":"2026-10-05T19:36:27.428460Z","score":{"bm25":210.7087},"more_docs":true},"pacer_case_id":"307243","party":["Association of American Universities","Markwayne Mullin","Presidents' Alliance on Higher Education and Immigration","NAFSA: Association of International Educators","U.S. Department of Homeland Security","U.S. Immigration and Customs Enforcement","U.S. Department of Justice","David Venturella","Association of Independent Colleges and Universities in Massachusetts","Todd Blanche"],"party_
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js scrape "https://www.courtlistener.com/docket/74919449/association-of-american-universities-v-us-department-of-homeland/?order_by=desc" fc/docket_cpt.md 4000
-echo ----; grep -n -i -E "hearing|order|scheduling|opposition|briefing|notice of appearance|motion|kobick|november|nov\." fc/docket_cpt.md | cut -c1-260 | head -50`
+echo ----; grep -n -i -E "hearing|order|scheduling|opposition|briefing|notice of appearance|motion|kobick|november|nov\." fc/docket_cpt.md | cut -c1-260 | head -50
+```
 ```
 OK 27301 chars -> fc/docket_cpt.md | Association of American Universities v. U.S. Department of Homeland Security, 1:26-cv-14520 – CourtListener.com
 ----
@@ -2315,8 +2432,11 @@ OK 27301 chars -> fc/docket_cpt.md | Association of American Universities v. U.S
 807:Motion for Leave to Appear Pro Hac Vice
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-sed -n '60,135p' docket_cpt.md | grep -v '^\s*$' | cut -c1-330 | head -40`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+sed -n '60,135p' docket_cpt.md | grep -v '^\s*$' | cut -c1-330 | head -40
+```
 ```
 Document Number
 Date Filed
@@ -2351,13 +2471,16 @@ Oct 19, 2026
 MOTION for Extension of Time to 10/28/2026 to File Response/Reply as to 1 Complaint,,, 8 MOTION for Preliminary Injunction MOTION to Stay Agency Action by Todd Blanche, Markwayne Mullin, U.S. Department of Homeland Security, U.S. Department of Justice, U.S. Immigration and Customs Enforcement, David Venturella.(Farquhar, Rayford
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
 cl() { curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode "q=$1" -d type=r -d format=json -o "$2" ; node -e 'const j=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));for(const r of j.results||[])console.log([r.caseName,r.court_citation_string,r.docketNumber,"filed "+r.dateFiled,r.assignedTo,"https://www.courtlistener.com"+r.docket_absolute_url].join(" | "))' "$2"; }
 echo "### D/S"; cl '"26-cv-13799"' cl_ds.json
 echo "### H-1B CA v Mullin"; cl '"25-cv-13829"' cl_h1b.json
 echo "### First Circuit appeals"; cl 'Presidents Alliance Higher Education Immigration Department of Homeland Security' cl_ca1.json | head -8
 echo "### Global Nurse Force"; cl 'Global Nurse Force v. Trump' cl_gnf.json | head -5
-echo "### Chamber of Commerce v DHS H-1B"; cl 'Chamber of Commerce v. Department of Homeland Security H-1B proclamation' cl_coc.json | head -5`
+echo "### Chamber of Commerce v DHS H-1B"; cl 'Chamber of Commerce v. Department of Homeland Security H-1B proclamation' cl_coc.json | head -5
+```
 ```
 ### D/S
 Presidents' Alliance on Higher Education and Immigration v. United States Department of Homeland Security | D. Mass. | 1:26-cv-13799 | filed 2026-08-18 | F. Dennis Saylor IV | https://www.courtlistener.com/docket/74661796/presidents-alliance-on-higher-education-and-immigration-v-united-states/
@@ -2401,7 +2524,9 @@ Doe v. Trump | D. Or. | 3:19-cv-01743 | filed 2019-10-30 | Michael Howard Simon 
 ### Chamber of Commerce v DHS H-1B
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u2.txt <<'EOF'
 https://www.courtlistener.com/docket/74908049/presidents-alliance-on-higher-educ-and-immigr-v-dhs/?order_by=desc
 https://www.courtlistener.com/docket/74661796/presidents-alliance-on-higher-education-and-immigration-v-united-states/?order_by=desc
@@ -2410,7 +2535,8 @@ https://www.courtlistener.com/docket/72095497/chamber-of-commerce-of-the-united-
 https://www.courtlistener.com/docket/74966923/global-nurse-force-et-al-v-trump-et-al/?order_by=desc
 EOF
 node fc.js multi fc/u2.txt fc/b2
-for i in 01 02 03 04 05; do echo; echo "################ b2/$i"; head -3 fc/b2/$i.md | cut -c1-200; grep -v '^\s*$' fc/b2/$i.md | grep -n -E "^(Oct|Sep|Aug|Jul|Jun|May|Apr|Mar|Feb|Jan|Dec|Nov) [0-9]+, 202[56]$" | head -0; awk 'BEGIN{n=0} /^[0-9]+$/ {num=$0; getline d; if (d ~ /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [0-9]+, 202[56]/) {getline desc; getline desc2; print num" | "d" | "substr(desc,1,230)" "substr(desc2,1,120); n++; if(n>=8) exit}}' fc/b2/$i.md; done`
+for i in 01 02 03 04 05; do echo; echo "################ b2/$i"; head -3 fc/b2/$i.md | cut -c1-200; grep -v '^\s*$' fc/b2/$i.md | grep -n -E "^(Oct|Sep|Aug|Jul|Jun|May|Apr|Mar|Feb|Jan|Dec|Nov) [0-9]+, 202[56]$" | head -0; awk 'BEGIN{n=0} /^[0-9]+$/ {num=$0; getline d; if (d ~ /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [0-9]+, 202[56]/) {getline desc; getline desc2; print num" | "d" | "substr(desc,1,230)" "substr(desc2,1,120); n++; if(n>=8) exit}}' fc/b2/$i.md; done
+```
 ```
 OK 9550 chars -> fc\b2\01.md | Presidents' Alliance on Higher Educ. and Immigr. v. DHS, 26-2112 – CourtListener.com
 OK 86279 chars -> fc\b2\02.md | Presidents' Alliance on Higher Education and Immigration v. United States Department of Homeland..., 1:26-cv-13799 – CourtListener.com
@@ -2444,8 +2570,11 @@ OK 14220 chars -> fc\b2\05.md | Global Nurse Force, et al. v. Trump, et al., 26-
      statusCode: 200
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-echo "######## 1st Cir 26-2112 (D/S appeal)"; grep -v '^\s*$' 01.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was" | sed -n '20,70p' | cut -c1-420`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
+echo "######## 1st Cir 26-2112 (D/S appeal)"; grep -v '^\s*$' 01.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was" | sed -n '20,70p' | cut -c1-420
+```
 ```
 ######## 1st Cir 26-2112 (D/S appeal)
 to
@@ -2501,8 +2630,11 @@ Abbreviated Record
 Attach­ment 2
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-for f in 03:"1st Cir 26-1699 California v. Mullin (H-1B \$100k)" 04:"D.C. Cir 25-5473 Chamber v. DHS" 05:"9th Cir 26-6667 Global Nurse Force"; do n=${f%%:*}; t=${f#*:}; echo; echo "######## $t"; grep -v '^\s*$' $n.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|From|CourtListener|^\[" | awk '/^Description$/{f=1;next} f' | head -22 | cut -c1-520; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
+for f in 03:"1st Cir 26-1699 California v. Mullin (H-1B \$100k)" 04:"D.C. Cir 25-5473 Chamber v. DHS" 05:"9th Cir 26-6667 Global Nurse Force"; do n=${f%%:*}; t=${f#*:}; echo; echo "######## $t"; grep -v '^\s*$' $n.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|From|CourtListener|^\[" | awk '/^Description$/{f=1;next} f' | head -22 | cut -c1-520; done
+```
 ```
 ######## 1st Cir 26-1699 California v. Mullin (H-1B $100k)
 Sep 21, 2026
@@ -2577,9 +2709,12 @@ NOTICE OF APPEARANCE by Laura Flores-Perilla for Appellee American Association o
 5
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
 echo "### DC Cir argued/calendared"; grep -i -E "argu|calendar|oral|submitted|panel|opinion|judgment" 04.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -12
-echo; echo "### 1st Cir 26-1699 argued/calendar/stay"; grep -i -E "argu|oral|calendar|stay|briefing|expedit" 03.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -14`
+echo; echo "### 1st Cir 26-1699 argued/calendar/stay"; grep -i -E "argu|oral|calendar|stay|briefing|expedit" 03.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -14
+```
 ```
 ### DC Cir argued/calendared
 ### Oral Argument Recordings
@@ -2605,9 +2740,12 @@ ORDER entered. Plaintiffs-Appellees are hereby ordered to respond to Defendants-
 MOTION to stay Pending Appeal filed by Appellants Todd Blanche, DHS, Markwayne Mullin, Marco Rubio, Keith E. Sonderling, United States Department of Justice, US, US Department of Labor and US Department of State. Served on 06/18/2026. \[26-1699\] (TTD) \[Entered: 06/18/2026 05:51 PM\]
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 q() { curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=$1" --data-urlencode "conditions[publication_date][gte]=2026-09-20" --data-urlencode "order=newest" --data-urlencode "per_page=12" -d "fields[]=title" -d "fields[]=type" -d "fields[]=publication_date" -d "fields[]=citation" -d "fields[]=html_url" -d "fields[]=comments_close_on" -d "fields[]=effective_on" -d "fields[]=agency_names" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));for(const r of j.results||[])console.log([r.publication_date,r.type,r.citation,r.title.slice(0,110),"comments:"+r.comments_close_on,"eff:"+r.effective_on,(r.agency_names||[]).join("/").slice(0,50)].join(" | ")+"\n    "+r.html_url)'; }
-for t in '"nonimmigrant" students F-1' '"H-1B"' '"employment authorization"' '"Student and Exchange Visitor"' '"alien" "specialty occupation"' '"practical training"'; do echo "######## $t"; q "$t"; done`
+for t in '"nonimmigrant" students F-1' '"H-1B"' '"employment authorization"' '"Student and Exchange Visitor"' '"alien" "specialty occupation"' '"practical training"'; do echo "######## $t"; q "$t"; done
+```
 ```
 ######## "nonimmigrant" students F-1
 2026-10-14 | Rule | 91 FR 65306 | Removal of Automatic Extensions for Certain Employment Authorization Documents | comments:null | eff:2026-10-14 | Homeland Security Department
@@ -2665,9 +2803,12 @@ for t in '"nonimmigrant" students F-1' '"H-1B"' '"employment authorization"' '"S
     https://www.federalregister.gov/documents/2026/10/08/2026-20613/[REDACTED]
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 for pair in "2026/10/14/2026-20955 eadauto" "2026/10/14/2026-20941 deference" "2026/10/01/2026-20187 hr1fees"; do p=${pair% *}; n=${pair#* }; curl -sL --compressed -m 90 -o "fc/$n.txt" "https://www.federalregister.gov/documents/full_text/text/$p.txt"; echo "== $n $(wc -c < fc/$n.txt)"; done
-for n in eadauto deference hr1fees; do echo; echo "################ $n : abstract-ish + OPT/H-1B/F-1 hits"; grep -a -n -i -E "optional practical|STEM|\(c\)\(3\)|F-1|H-1B|cap-gap|F-1 students" fc/$n.txt | cut -c1-240 | head -16; done`
+for n in eadauto deference hr1fees; do echo; echo "################ $n : abstract-ish + OPT/H-1B/F-1 hits"; grep -a -n -i -E "optional practical|STEM|\(c\)\(3\)|F-1|H-1B|cap-gap|F-1 students" fc/$n.txt | cut -c1-240 | head -16; done
+```
 ```
 == eadauto 461147
 == deference 121359
@@ -2712,9 +2853,12 @@ for n in eadauto deference hr1fees; do echo; echo "################ $n : abstrac
 ################ hr1fees : abstract-ish + OPT/H-1B/F-1 hits
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
 echo "### EAD auto-extension rule: what it says it covers"; sed -n '1,120p' eadauto.txt | grep -a -v '^\s*$' | sed -n '12,60p' | cut -c1-220
-echo; echo "### mentions of student / STEM / 180 / 274a.12(c)(3)"; grep -a -n -i -E "student|STEM|180 days|\(c\)\(3\)|F-1|OPT" eadauto.txt | grep -a -v -i "systemic\|system" | cut -c1-230 | head -25`
+echo; echo "### mentions of student / STEM / 180 / 274a.12(c)(3)"; grep -a -n -i -E "student|STEM|180 days|\(c\)\(3\)|F-1|OPT" eadauto.txt | grep -a -v -i "systemic\|system" | cut -c1-230 | head -25
+```
 ```
 ### EAD auto-extension rule: what it says it covers
 Vol. 91
@@ -2795,8 +2939,11 @@ Documentation
 3440:authorization. In adopting those measures, DHS gave significant weight
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-sed -n '2528,2545p' eadauto.txt; echo ...; grep -a -n -E "Optional Practical|OPT |STEM OPT|science, technology|\(c\)\(3\)\(C\)|\(b\)\(6\)" eadauto.txt | head`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+sed -n '2528,2545p' eadauto.txt; echo ...; grep -a -n -E "Optional Practical|OPT |STEM OPT|science, technology|\(c\)\(3\)\(C\)|\(b\)\(6\)" eadauto.txt | head
+```
 ```
 of other DHS rules, including the recent Duration of Status proposed 
 rule,\66\ which would increase the adjudication workload on USCIS staff 
@@ -2819,12 +2966,15 @@ alien's expired employment authorization and/or EAD merely by filing a
 ...
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
 curl -sL --compressed -m 90 -o e274a13.xml "https://www.ecfr.gov/api/versioner/v1/full/2026-10-20/title-8.xml?part=274a&section=274a.13"; sed -e 's/<[^>]*>/ /g' e274a13.xml | tr -s ' \n' > e274a13.txt; wc -c e274a13.txt
 echo "### 274a.13(d)"; awk '/\(d\) Automatic extension/{f=1} f{print} /\(e\)/{if(f)exit}' e274a13.txt | head -c 3500
 sed -e 's/<[^>]*>/ /g' ../../../scratchpad/ecfr.xml 2>/dev/null | head -0
 cd ..; sed -e 's/<[^>]*>/ /g' ecfr.xml | tr -s ' \n' > ecfr_f.txt 2>/dev/null
-echo; echo "### 214.2(f)(11) OPT application timing"; awk '/\(11\) OPT application and approval process\./{f=1} f{print} /\(12\) Reporting while on optional/{if(f)exit}' ecfr_f.txt | head -c 6500`
+echo; echo "### 214.2(f)(11) OPT application timing"; awk '/\(11\) OPT application and approval process\./{f=1} f{print} /\(12\) Reporting while on optional/{if(f)exit}' ecfr_f.txt | head -c 6500
+```
 ```
 7941 e274a13.txt
 ### 274a.13(d)
@@ -2832,9 +2982,12 @@ echo; echo "### 214.2(f)(11) OPT application timing"; awk '/\(11\) OPT applicati
 ### 214.2(f)(11) OPT application timing
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 echo "### 274a.13 (current, 2026-10-20) — extension-related text"; grep -a -o -i ".\{0,200\}automatic.\{0,700\}" fc/e274a13.txt | head -c 2800
-echo; echo "### 214.2(f)(11)"; grep -a -n "OPT application and approval process\." ecfr.txt | head -3`
+echo; echo "### 214.2(f)(11)"; grep -a -n "OPT application and approval process\." ecfr.txt | head -3
+```
 ```
 ### 274a.13 (current, 2026-10-20) — extension-related text
  (d) Renewal application filed before October 30, 2025 —(1) Automatic extension of Employment Authorization Documents. Except as otherwise provided in this chapter or by law, notwithstanding § 274a.14(a)(1)(i), the validity period of an expired or expiring Employment Authorization Document (Form I-766) and, for aliens who are not employment authorized incident to status, also the attendant employment authorization, will be automatically extended for an additional period not to exceed 540 days if the request for renewal meets all of the criteria listed in paragraphs (d)(1)(i) through (iii) of this section and was pending on May 4, 2022, or was properly filed on or after May 4, 2022. For renewal applications properly filed and adjudicated before May 4, 2022, t
@@ -2845,9 +2998,12 @@ idity period of an expired or expiring Employment Authorization Document and, fo
 ### 214.2(f)(11)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 grep -a -n -E "^ \(11\) OPT|^ \(11\) " ecfr.txt | head -5
-awk '/^ \(11\) OPT application/{c++} c>=2{print; n++} n>40{exit}' ecfr.txt | cut -c1-1400 | head -c 7500`
+awk '/^ \(11\) OPT application/{c++} c>=2{print; n++} n>40{exit}' ecfr.txt | cut -c1-1400 | head -c 7500
+```
 ```
 186: (11) Principal trade. Principal trade between the United States and the treaty country exists when over 50 percent of the volume of international trade of the treaty trader is conducted between the United States and the treaty country of the treaty trader's nationality. 
 324: (11) OPT application and approval process 
@@ -2873,9 +3029,12 @@ awk '/^ \(11\) OPT application/{c++} c>=2{print; n++} n>40{exit}' ecfr.txt | cut
  (A) Within 10 days of the chan
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 for d in 2026-07-01 2026-10-20; do curl -sL --compressed -m 90 -o "fc/e214_$d.xml" "https://www.ecfr.gov/api/versioner/v1/full/$d/title-8.xml?part=214&section=214.2"; sed -e 's/<[^>]*>/ /g' "fc/e214_$d.xml" | tr -s ' \n' > "fc/e214_$d.txt"; echo "== $d: $(wc -c < fc/e214_$d.txt) chars"; grep -a -o "For post-completion OPT, not including a 24-month.\{0,330\}" "fc/e214_$d.txt" | head -1; grep -a -o "A student may not request a start date that is more than.\{0,80\}" "fc/e214_$d.txt" | head -1; done
-echo; echo "### eCFR latest-issue date info"; curl -sL --compressed -m 40 "https://www.ecfr.gov/api/versioner/v1/titles.json" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));const t=j.titles.find(x=>x.number===8);console.log(JSON.stringify(t))'`
+echo; echo "### eCFR latest-issue date info"; curl -sL --compressed -m 40 "https://www.ecfr.gov/api/versioner/v1/titles.json" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));const t=j.titles.find(x=>x.number===8);console.log(JSON.stringify(t))'
+```
 ```
 == 2026-07-01: 702613 chars
 For post-completion OPT, not including a 24-month OPT extension under paragraph (f)(10)(ii)(C)( 2 ) of this section, the student may properly file his or her Form I-765 or successor form up to 90 days prior to his or her program end date and no later than 60 days after his or her program end date. The student must also file his or her Form I-765 or successor form with USCIS wi
@@ -2888,7 +3047,9 @@ A student may not request a start date that is more than 30 days after the stude
 {"number":8,"name":"Aliens and Nationality","latest_amended_on":"2026-10-14","latest_issue_date":"2026-10-14","up_to_date_as_of":"2026-10-21","reserved":false}
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u3.txt <<'EOF'
 https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students
 https://studyinthestates.dhs.gov/stem-opt-hub
@@ -2898,7 +3059,8 @@ https://www.uscis.gov/newsroom/alerts/fy-2027-h-1b-initial-registration-selectio
 https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-cap-season
 https://studyinthestates.dhs.gov/students/work/optional-practical-training
 EOF
-node fc.js multi fc/u3.txt fc/b3`
+node fc.js multi fc/u3.txt fc/b3
+```
 ```
 OK 9540 chars -> fc\b3\01.md | Optional Practical Training (OPT) for F-1 Students | USCIS
 OK 5310 chars -> fc\b3\02.md | STEM OPT Hub | Study in the States
@@ -2909,9 +3071,12 @@ OK 26398 chars -> fc\b3\06.md | H-1B Cap Season | USCIS
 OK 1038 chars -> fc\b3\07.md | Page Not Found | Study in the States
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
 echo "################ 05 FY2027 selection alert"; sed -n '1,60p' 05.md | grep -v '^\s*$' | cut -c1-600
-echo; echo "################ 03 cap-gap (key)"; grep -v '^\s*$' 03.md | sed -n '1,60p' | cut -c1-700`
+echo; echo "################ 03 cap-gap (key)"; grep -v '^\s*$' 03.md | sed -n '1,60p' | cut -c1-700
+```
 ```
 ################ 05 FY2027 selection alert
 <!-- url: https://www.uscis.gov/newsroom/alerts/[REDACTED]
@@ -3009,9 +3174,12 @@ The F-1 student can continue working with their approved EAD while the data fix 
 - **Maintaining valid F-1 status:** If the employer withdraws the H-1B petition before the date that the student officially changes to H-1B status, the student generally will remain in F-1 status while the data fix is pending. The student would have the standard 60-day grace period to depart the United States unless the H-1B petition was revoked because of fraud or violation of status.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
 echo "################ 01 USCIS OPT page"; grep -v '^\s*$' 01.md | sed -n '5,70p' | cut -c1-520
-echo; echo "################ 02 STEM OPT hub"; grep -v '^\s*$' 02.md | sed -n '5,40p' | cut -c1-400`
+echo; echo "################ 02 STEM OPT hub"; grep -v '^\s*$' 02.md | sed -n '5,40p' | cut -c1-400
+```
 ```
 ################ 01 USCIS OPT page
 # Optional Practical Training (OPT) for F-1 Students
@@ -3108,9 +3276,12 @@ Are you an employer of STEM OPT students? Read these resources to learn more abo
 #### Additional Resources
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
 echo "################ 06 cap season: registration / weighted / fee lines"; grep -v '^\s*$' 06.md | grep -i -E "registration period|March|weighted|wage level|\\\$215|registration fee|April 1|FY 2027|FY 2028|FY 2029|selection|master|advanced degree|beneficiary-centric|passport" | cut -c1-420 | head -28
-echo; echo "################ 04 H-1B page: \$100,000 / change of status / exception lines"; grep -v '^\s*$' 04.md | grep -i -E "100,000|change of status|outside the United States|exception|vacat|First Circuit|Global Nurse|June 8|Sept|2027" | cut -c1-560 | head -22`
+echo; echo "################ 04 H-1B page: \$100,000 / change of status / exception lines"; grep -v '^\s*$' 04.md | grep -i -E "100,000|change of status|outside the United States|exception|vacat|First Circuit|Global Nurse|June 8|Sept|2027" | cut -c1-560 | head -22
+```
 ```
 Permission for this action was denied by the Claude Code auto mode classifier. Reason: The server-side auto mode classifier judged this action dangerous (it gave no explanation). If you have other tasks that don't depend on this action, continue working on those. IMPORTANT: You *may* attempt to accomplish this action using other tools that might naturally be used to accomplish this goal, e.g. using head instead of cat. But you *should not* attempt to work around this denial in malicious ways, e.g. do not use your ability to run tests to execute non-test actions. You should only try to work around this restriction in reasonable ways that do not attempt to bypass the intent behind this denial. If you believe this capability is essential to complete the user's request, first try a safer method. Get as much of the rest of the task done as you can, then STOP and explain to the user what you were trying to do and why you need this permission. Let the user decide how to proceed. To allow this type of action in the future, the user can add a permission rule for Bash to their settings.
 ```
@@ -3118,14 +3289,17 @@ Permission for this action was denied by the Claude Code auto mode classifier. R
 - `Grep` -- pattern `100,000|change of status|outside the United States|vacat|First Circuit|Global Nurse|exception` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b3\04.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b3\06.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b3\04.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
 F=e214_2026-07-01.txt
 echo "### (E) unemployment"; grep -a -o "( E ) Unemployment.\{0,900\}" $F | head -1
 echo; echo "### STEM employer reqs: E-Verify / hours / I-983 / 4-9"; grep -a -o "( 5 ) Employer requirements.\{0,1100\}" $F | head -1
 echo; grep -a -o "( 8 ) Minimum hours.\{0,300\}" $F | head -1
 echo; echo "### (12)(ii) reporting"; grep -a -o "reporting obligations are:.\{0,1300\}" $F | head -1
 echo; echo "### (5)(iv) grace on OPT completion"; grep -a -o "within 60 days after.\{0,400\}OPT" $F | head -2
-echo; echo "### CPT text (pre-rule) integral"; grep -a -o "(i) Curricular practical training\..\{0,420\}" $F | head -1`
+echo; echo "### CPT text (pre-rule) integral"; grep -a -o "(i) Curricular practical training\..\{0,420\}" $F | head -1
+```
 ```
 ### (E) unemployment
 
@@ -3142,12 +3316,15 @@ reporting obligations are:
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
 - `Grep` -- pattern `90 days|150 days|E-Verify|20 hours per week|within 10 days|Form I-983|60 days` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\e214_2026-07-01.txt`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 s() { echo; echo "######## $1  [$3]"; node fc.js search "$1" "fc/s_$2.json" "$3" ${4:-6}; }
 s "OPT EAD I-765 processing time days October 2026 F-1 students post-completion" proc qdr:m 6
 s "FY 2027 H-1B registration results eligible registrations selected number weighted selection wage level USCIS data" fy27 qdr:y 6
 s "Fragomen OR Berry Appleman OR Ogletree OR Seyfarth OPT fee proposed rule analysis employers STEM OPT impact" firm qdr:m 6
-s "Study in the States Fall refresher full course of study F-1 October 2026" sits qdr:m 4`
+s "Study in the States Fall refresher full course of study F-1 October 2026" sits qdr:m 4
+```
 ```
 ######## OPT EAD I-765 processing time days October 2026 F-1 students post-completion  [qdr:m]
 1. OPT Delays in 2026: Why the 14-Month Rule Makes a Timely ...
@@ -3258,7 +3435,9 @@ On October 8, 2026, DHS issued a [proposed regulation(link is external)](https:/
    A fixed 4-year F-1 stay was due to take effect on 15 September 2026. A federal court paused it the day before. Here's what changed, what's on hold, ...
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u4.txt <<'EOF'
 https://www.uscis.gov/i-765
 https://www.uscis.gov/forms/all-forms/how-do-i-request-premium-processing
@@ -3270,7 +3449,8 @@ https://internationalcenter.umich.edu/about/news/opt-fee-proposal
 https://studyinthestates.dhs.gov/2026/10/fall-refresher-for-students-full-course-of-study-and-reduced-course-load
 https://ois.jhu.edu/university-community-resources/legal/recent-federal-immigration-actions/ds-rule-change-resources/for-f1-students/
 EOF
-node fc.js multi fc/u4.txt fc/b4`
+node fc.js multi fc/u4.txt fc/b4
+```
 ```
 OK 29220 chars -> fc\b4\01.md | Application for Employment Authorization | USCIS
 OK 26138 chars -> fc\b4\02.md | How Do I Request Premium Processing? | USCIS
@@ -3289,8 +3469,11 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 - `Grep` -- pattern `14-month|14 month|premium|I-765.*(days|months)|processing` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\05.md`
 - `Grep` -- pattern `\(c\)\(3\)|F-1|STEM|optional practical` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\02.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\05.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-for u in "https://egov.uscis.gov/processing-times/api/forms" "https://egov.uscis.gov/processing-times/api/formtypes/I-765"; do code=$(curl -sL --compressed -m 40 -A "Mozilla/5.0" -o fc/pt_try.json -w "%{http_code}" "$u"); echo "$u -> $code $(wc -c < fc/pt_try.json) bytes"; head -c 400 fc/pt_try.json; echo; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+for u in "https://egov.uscis.gov/processing-times/api/forms" "https://egov.uscis.gov/processing-times/api/formtypes/I-765"; do code=$(curl -sL --compressed -m 40 -A "Mozilla/5.0" -o fc/pt_try.json -w "%{http_code}" "$u"); echo "$u -> $code $(wc -c < fc/pt_try.json) bytes"; head -c 400 fc/pt_try.json; echo; done
+```
 ```
 https://egov.uscis.gov/processing-times/api/forms -> 403 5486 bytes
 <!DOCTYPE html>
@@ -3317,20 +3500,26 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 - `Grep` -- pattern `percent|%|registrations|selected|level IV|Level I\b|FY 2027|FY2027|probability|odds` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\03.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\03.md`
 - `Grep` -- pattern `Ten Things|master|wage level|Level I|first year|selected|percent|%` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\04.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u5.txt <<'EOF'
 https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-electronic-registration-process
 https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-electronic-registration-frequently-asked-questions
 EOF
-node fc.js multi fc/u5.txt fc/b5`
+node fc.js multi fc/u5.txt fc/b5
+```
 ```
 OK 20566 chars -> fc\b5\01.md | H-1B Electronic Registration Process | USCIS
 OK 26481 chars -> fc\b5\02.md | H-1B Electronic Registration Frequently Asked Questions | USCIS
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
 - `Grep` -- pattern `211,600|343,981|FY 2027|registration period|\$215|fee` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b5\01.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-grep -v '^\s*$' 02.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -E "Oct (1[5-9]|2[0-3]), 2026|ORDER|Electronic|SCHEDUL|stay|hearing" | cut -c1-520 | head -14`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
+grep -v '^\s*$' 02.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -E "Oct (1[5-9]|2[0-3]), 2026|ORDER|Electronic|SCHEDUL|stay|hearing" | cut -c1-520 | head -14
+```
 ```
 Oct 22, 2026
 Oct 21, 2026
@@ -3351,7 +3540,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 - `Grep` -- pattern `CPT|OPT|employment|work|duration of status|rule` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\08.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\b4\06.md`
 - `Grep` -- pattern `decline|recover|pass (the|these|on)|stop recommending|participation` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\nprm.txt`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1440,1452p' nprm.txt; echo ....; sed -n '1556,1566p' nprm.txt`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1440,1452p' nprm.txt; echo ....; sed -n '1556,1566p' nprm.txt
+```
 ```
 proposed fee rule does not propose the imposition of specific 
 limitations or restrictions on how the schools should collect or source 
@@ -3558,7 +3750,10 @@ Left as originally found. Stale and queued for a rewrite.
 - [ ] Re-check the ISSS CPT page; it said it would "be updated soon" on Sept 3 and was unchanged on Oct 23
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "194,|95,[0-9]{3}|decline|choose not|not to (participate|fund|recommend)|withdraw from" nprm.txt | head -12; echo ----; grep -a -n -i -E "annual(ized)? (fee|transfer|payment)|\\\$8\.4|\\\$16\.5|12\.4 billion" nprm.txt | head -6`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "194,|95,[0-9]{3}|decline|choose not|not to (participate|fund|recommend)|withdraw from" nprm.txt | head -12; echo ----; grep -a -n -i -E "annual(ized)? (fee|transfer|payment)|\\\$8\.4|\\\$16\.5|12\.4 billion" nprm.txt | head -6
+```
 ```
 897:and investigate. In 2024, 194,554 F-1 nonimmigrant students were 
 1131:nonimmigrant students participating in STEM OPT, in addition to 194,554 
@@ -3575,7 +3770,10 @@ Left as originally found. Stale and queued for a rewrite.
 grep: Invalid back reference
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '2193,2202p' nprm.txt; echo ....; sed -n '2494,2500p' nprm.txt`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '2193,2202p' nprm.txt; echo ....; sed -n '2494,2500p' nprm.txt
+```
 ```
 [GRAPHIC] [TIFF OMITTED] TP08OC26.034
 
@@ -3596,7 +3794,10 @@ participation in pre-completion OPT to decline, DHS cannot reasonably
 predict the extent of this
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '2484,2498p' nprm.txt`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '2484,2498p' nprm.txt
+```
 ```
 (3) Impact on Participation in Pre-Completion OPT
     The initial fee of $70,000 applies when an F-1 nonimmigrant 
@@ -3649,48 +3850,51 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career
 ```diff
 - This assumes a May 2028 program end date on the I-20. Confirm the exact date with the DSO, because every window below counts from it.
 + This assumes a May 2028 program end date on the I-20. Confirm the exact date with the DSO, because every window below counts from it. Dates are approximate offsets under the rules in force today, which are the pre-duration-of-status rules.
-| When | Step | Rule | Source |
-| --- | --- | --- | --- |
-| About Feb 2028 (90 days before end date) | Earliest USCIS filing for post-completion OPT, after the DSO recommendation is in SEVIS | File within 30 days of that recommendation | USCIS OPT page, I-765 page |
-| About March 2028 (forecast) | FY2029 H-1B registration, employer picks the wage level | FY2027 ran March 4 to 19 | USCIS registration page |
-| April 1, 2028 | Earliest cap-subject petition filing | Filing window at least 90 days; degree evidence can be a final transcript or registrar letter | USCIS cap season, FY2027 alert |
-| May 2028 | Program end date | Starts every OPT clock | I-20 |
-| About July 2028 (60 days after) | Last day to file OPT and latest requested start date | Under the postponed rule this shrinks to 30 days | USCIS I-765 page, 8 CFR dated July 1 |
-| Oct 1, 2028 | Earliest H-1B start | Cap-gap carries OPT and F-1 status until the change of status takes effect, no later than April 1, 2029 | USCIS cap-gap page |
-| About July 2029 (14 months after) | Outer limit for the initial 12 months of OPT | STEM extension is exempt | 8 CFR 214.2(f)(10)(ii)(A)(3) |
-| Any time on OPT | Unemployment limit | 90 days on initial OPT, 150 with STEM | USCIS cap-gap page |
-| Up to 90 days before OPT ends | STEM OPT filing | E-Verify employer and Form I-983 required | 8 CFR dated July 1 |
-| About March 2029 and March 2030 (inference) | Later registration chances while on OPT and STEM OPT | Requires an employer willing to register each year | My reading of the above, not a source's statement |
++ | When | Step | Rule | Source |
++ | --- | --- | --- | --- |
++ | About Feb 2028 (90 days before end date) | Earliest USCIS filing for post-completion OPT, after the DSO recommendation is in SEVIS | File within 30 days of that recommendation | USCIS OPT page, I-765 page |
++ | About March 2028 (forecast) | FY2029 H-1B registration, employer picks the wage level | FY2027 ran March 4 to 19 | USCIS registration page |
++ | April 1, 2028 | Earliest cap-subject petition filing | Filing window at least 90 days; degree evidence can be a final transcript or registrar letter | USCIS cap season, FY2027 alert |
++ | May 2028 | Program end date | Starts every OPT clock | I-20 |
++ | About July 2028 (60 days after) | Last day to file OPT and latest requested start date | Under the postponed rule this shrinks to 30 days | USCIS I-765 page, 8 CFR dated July 1 |
++ | Oct 1, 2028 | Earliest H-1B start | Cap-gap carries OPT and F-1 status until the change of status takes effect, no later than April 1, 2029 | USCIS cap-gap page |
++ | About July 2029 (14 months after) | Outer limit for the initial 12 months of OPT | STEM extension is exempt | 8 CFR 214.2(f)(10)(ii)(A)(3) |
++ | Any time on OPT | Unemployment limit | 90 days on initial OPT, 150 with STEM | USCIS cap-gap page |
++ | Up to 90 days before OPT ends | STEM OPT filing | E-Verify employer and Form I-983 required | 8 CFR dated July 1 |
++ | About March 2029 and March 2030 (inference) | Later registration chances while on OPT and STEM OPT | Requires an employer willing to register each year | My reading of the above, not a source's statement |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 - ## How Real Are The Dates
-| Date |
+- | Date |
 + ## How Real Are The Dates
-> [!NOTE]
-> The Nov 7 comment date seen in some blogs was a pre-publication estimate and is wrong. The published notice, DHS, and ICE all say Nov 9.
-
-| Date |
++ > [!NOTE]
++ > The Nov 7 comment date seen in some blogs was a pre-publication estimate and is wrong. The published notice, DHS, and ICE all say Nov 9.
++ 
++ | Date |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 - | Unknown | Ruling on CPT motion; First Circuit and Ninth Circuit H-1B rulings | Dockets show no ruling dates | None | Court discretion |
-The Nov 7 comment date seen in some blogs was a pre-publication estimate and is wrong. The published notice says Nov 9.
-## CPT Guidance
+- The Nov 7 comment date seen in some blogs was a pre-publication estimate and is wrong. The published notice says Nov 9.
+- ## CPT Guidance
 + | Unknown | Ruling on CPT motion; First Circuit and Ninth Circuit H-1B rulings | Dockets show no ruling dates | None | Court discretion |
-## CPT Guidance
++ ## CPT Guidance
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 - This assumes a May 2028 program end date on the I-20. Confirm the exact date with the DSO, because every window below counts from it. Dates are approximate offsets under the rules in force today, which are the pre-duration-of-status rules.
-| When |
+- | When |
 + > [!NOTE]
-> This assumes a May 2028 program end date on the I-20. Confirm the exact date with the DSO, because every window below counts from it. Dates are approximate offsets under the rules in force today, which are the pre-duration-of-status rules.
-
-| When |
++ > This assumes a May 2028 program end date on the I-20. Confirm the exact date with the DSO, because every window below counts from it. Dates are approximate offsets under the rules in force today, which are the pre-duration-of-status rules.
++ 
++ | When |
 ```
 - `Grep` -- pattern `—|–|^---$` path `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career/VISAs & Work Auth" && echo "lines: $(wc -l < 'Current News.md')"; echo "blank lines at: $(grep -n '^\s*$' 'Current News.md' | cut -d: -f1 | tr '\n' ' ')"; echo "highlights: $(grep -o '==' 'Current News.md' | wc -l) markers"; tail -c 120 'Current News.md' | cat -A | tail -2 | cut -c1-140`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career/VISAs & Work Auth" && echo "lines: $(wc -l < 'Current News.md')"; echo "blank lines at: $(grep -n '^\s*$' 'Current News.md' | cut -d: -f1 | tr '\n' ' ')"; echo "highlights: $(grep -o '==' 'Current News.md' | wc -l) markers"; tail -c 120 'Current News.md' | cat -A | tail -2 | cut -c1-140
+```
 ```
 lines: 190
 blank lines at: 37 105 
@@ -3790,7 +3994,10 @@ The first step is the written questions to ISSS (due Oct 30) listed in `Junior Y
 
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Note Type Registry.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Frontmatter Standard.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls "10_Areas/Career/VISAs & Work Auth/" && echo "--- vault files mentioning visa topics (names only, skipping 50_Archive and .obsidian):" && grep -rIl -i -E "H-1B|H1B|F-1 |OPT |CPT |STEM OPT|visa" --include=*.md . 2>/dev/null | grep -v -E "^\./(50_Archive|\.obsidian|\.claude|\.git|30_Order)" | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls "10_Areas/Career/VISAs & Work Auth/" && echo "--- vault files mentioning visa topics (names only, skipping 50_Archive and .obsidian):" && grep -rIl -i -E "H-1B|H1B|F-1 |OPT |CPT |STEM OPT|visa" --include=*.md . 2>/dev/null | grep -v -E "^\./(50_Archive|\.obsidian|\.claude|\.git|30_Order)" | head -60
+```
 ```
 CPT Program.md
 Current News.md
@@ -3861,7 +4068,10 @@ VISA Plan.md
 ./.stversions/10_Areas/Career/Internships/List/Dossiers/Other/Technology, Data and Innovation Intern - Technology, Data and Innovation - Deutsche Bank~20261004-125449.md
 ```
 - `Glob` -- pattern `30_Order/**/{MOC Standard,MOC Template,Plan Standard,Plan Template,Evergreen Standard,Concept Standard,Source Summary Standard}.md` path `D:\_Anant\20_Progress\Documents\Jarvis`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "### filename matches (excluding .stversions/.obsidian/50_Archive):"; find . -type f \( -iname "*visa*" -o -iname "*h1b*" -o -iname "*h-1b*" -o -iname "*opt *" -o -iname "*cpt*" -o -iname "*f-1*" -o -iname "*immigration*" -o -iname "*work auth*" \) -not -path "./.stversions/*" -not -path "./.obsidian/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null | head -30; echo "### content matches in 10_Areas, 20_Progress, 40_Resources, 60_Claude (not dossiers/clippings):"; grep -rIl -E "H-1B|H1B|STEM OPT|F-1 visa|F-1 student|work authorization" --include=*.md 10_Areas 20_Progress 40_Resources 60_Claude 2>/dev/null | grep -v -E "Dossiers|05_Clippings|/Tracker/" | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "### filename matches (excluding .stversions/.obsidian/50_Archive):"; find . -type f \( -iname "*visa*" -o -iname "*h1b*" -o -iname "*h-1b*" -o -iname "*opt *" -o -iname "*cpt*" -o -iname "*f-1*" -o -iname "*immigration*" -o -iname "*work auth*" \) -not -path "./.stversions/*" -not -path "./.obsidian/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null | head -30; echo "### content matches in 10_Areas, 20_Progress, 40_Resources, 60_Claude (not dossiers/clippings):"; grep -rIl -E "H-1B|H1B|STEM OPT|F-1 visa|F-1 student|work authorization" --include=*.md 10_Areas 20_Progress 40_Resources 60_Claude 2>/dev/null | grep -v -E "Dossiers|05_Clippings|/Tracker/" | head -30
+```
 ```
 ### filename matches (excluding .stversions/.obsidian/50_Archive):
 ./10_Areas/Career/VISAs & Work Auth/CPT Program.md
@@ -3912,7 +4122,10 @@ VISA Plan.md
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Enrich\Evergreen Standard.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\qpd0h7.txt`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\qpd0h7.txt`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; wc -l qpd0h7.txt; grep -n -E "COUNT (III|IV|V)|PRAYER|CONTRARY|WITHOUT OBSERVANCE|NOTICE-AND|Dated:|Respectfully" qpd0h7.txt | head; echo; awk '/PRAYER FOR RELIEF/{f=1} f' qpd0h7.txt | head -60 | tr -s '\n'`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; wc -l qpd0h7.txt; grep -n -E "COUNT (III|IV|V)|PRAYER|CONTRARY|WITHOUT OBSERVANCE|NOTICE-AND|Dated:|Respectfully" qpd0h7.txt | head; echo; awk '/PRAYER FOR RELIEF/{f=1} f' qpd0h7.txt | head -60 | tr -s '\n'
+```
 ```
 1310 qpd0h7.txt
 1188:                                                   COUNT III
@@ -3974,7 +4187,10 @@ Dated: October 5, 2026      Respectfully submitted,
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\qpd0h7.txt`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -v -E "^\s*$|Case 1:26-cv-14520" memo.txt | sed -n '1,140p' | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -v -E "^\s*$|Case 1:26-cv-14520" memo.txt | sed -n '1,140p' | cut -c1-200
+```
 ```
          UNITED STATES DISTRICT COURT
     FOR THE DISTRICT OF MASSACHUSETTS
@@ -4118,7 +4334,10 @@ Westfield High School L.I.F.E. Club v. City of Westfield, 249 F. Supp. 2d 98 (D.
     Mass. 2003)..............................................................................................................................45
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -n -E "^\s*INTRODUCTION|Impacts of the Broadcasts|PLAINTIFFS' MEMBERS WILL SUFFER|THE COURT SHOULD STAY|CONCLUSION|LEGAL STANDARD" memo.txt | head -12`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -n -E "^\s*INTRODUCTION|Impacts of the Broadcasts|PLAINTIFFS' MEMBERS WILL SUFFER|THE COURT SHOULD STAY|CONCLUSION|LEGAL STANDARD" memo.txt | head -12
+```
 ```
 29:INTRODUCTION ...........................................................................................................................1
 42:         C. Impacts of the Broadcasts ......................................................................................13
@@ -4134,7 +4353,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 1607:                                                CONCLUSION
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; for r in "280,360" "650,700" "1391,1470" "1569,1625"; do echo "======== lines $r"; sed -n "${r}p" memo.txt | grep -v -E "^\s*$|Case 1:26-cv-14520" | cut -c1-230; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; for r in "280,360" "650,700" "1391,1470" "1569,1625"; do echo "======== lines $r"; sed -n "${r}p" memo.txt | grep -v -E "^\s*$|Case 1:26-cv-14520" | cut -c1-230; done
+```
 ```
 ======== lines 280,360
                                                INTRODUCTION
@@ -4368,10 +4590,13 @@ Dated: October 5, 2026      Respectfully submitted,
                             Tel: (312) 222-9350
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js scrape "https://www.aau.edu/who-we-are/our-members" fc/aau_members.md 2000
 node fc.js search "University of Minnesota Association of American Universities member" fc/s_aaumn.json - 5
-echo; grep -n -i "minnesota" fc/aau_members.md | head -5`
+echo; grep -n -i "minnesota" fc/aau_members.md | head -5
+```
 ```
 OK 10411 chars -> fc/aau_members.md | Member Universities | AAU
 1. AAU Member Universities
@@ -4397,7 +4622,10 @@ OK 10411 chars -> fc/aau_members.md | Member Universities | AAU
 13:[![Arizona State University](https://www.aau.edu/uploads/images/general/ASU-full-color-logo.png)](https://www.asu.edu/)[![Boston University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.bu.edu/)[![Brandeis University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.brandeis.edu/)[![Brown University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.brown.edu/)[![California Institute of Technology](https://www.aau.edu/uploads/images/general/caltech_logo_color_3x3.png)](http://www.caltech.edu/)[![Carnegie Mellon University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.cmu.edu/)[![Case Western Reserve University](https://www.aau.edu/uploads/images/general/CWRU_Stacked-Blue.jpg)](https://case.edu/)[![Columbia University](https://www.aau.edu/uploads/images/general/Columbia_University_Logo-Blue.png)](https://research.columbia.edu/)[![Cornell University](https://www.aau.edu/uploads/images/general/cornell_logo_color_3x3.png)](https://www.cornell.edu/)[![Dartmouth](https://www.aau.edu/uploads/images/general/Dartmouth-300x300.png)](http://geiselmed.dartmouth.edu/)[![Duke University](https://www.aau.edu/uploads/images/general/duke_logo_color_3x3.png)](https://www.duke.edu/)[![Emory University](https://www.aau.edu/uploads/images/general/emory_logo_color_3x3.png)](http://www.emory.edu/home/index.html)[![George Washington University](https://www.aau.edu/uploads/images/general/GW-Logo-Full-Color_0.png)](https://www.gwu.edu/)[![Georgia Institute of Technology](https://www.aau.edu/uploads/images/general/Georgia-Tech-AAU-logo-full-color.png)](http://www.gatech.edu/)[![Harvard University](https://www.aau.edu/uploads/images/general/harvard_logo_color_3x3.png)](http://www.harvard.edu/)[![Indiana University Bloomington](https://www.aau.edu/uploads/images/general/IU-website-stacked-tall.png)](https://www.indiana.edu/)[![Massachusetts Institute of Technology](https://www.aau.edu/uploads/images/general/mit_logo_color_3x3.png)](http://web.mit.edu/)[![McGill University](https://www.aau.edu/uploads/images/general/mcgill_logo_color_3x3.png)](http://www.mcgill.ca/)[![Michigan State University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://msu.edu/)[![New York University](https://www.aau.edu/uploads/images/general/nyu_logo_color_3x3.png)](https://www.nyu.edu/)[![Northwestern University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.northwestern.edu/)[![Princeton University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.princeton.edu/main/)[![Purdue University](https://www.aau.edu/uploads/images/general/Purdue-logo-website-main.png)](http://www.purdue.edu/)[![Rice University](https://www.aau.edu/uploads/images/general/rice_logo_color_3x3.png)](http://www.rice.edu/)[![Rutgers University - New Brunswick](https://www.aau.edu/uploads/images/general/RutgersUniversity.jpg)](http://newbrunswick.rutgers.edu/)[![Stanford University](https://www.aau.edu/uploads/images/general/stanford_logo_color_3x3.png)](http://stanford.edu/)[![Stony Brook University - The State University of New York](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.stonybrook.edu/)[![Texas A&M University](https://www.aau.edu/uploads/images/general/texas_am_logo_color_3x3.png)](https://www.tamu.edu/)[![The Johns Hopkins University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.jhu.edu/)[![The Ohio State University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.osu.edu/)[![The Pennsylvania State University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.psu.edu/)[![The University of Arizona](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.arizona.edu/[REDACTED])[![The University of Chicago](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.uchicago.edu/)[![The University of Iowa](https://www.aau.edu/uploads/images/general/Iowa-logo.png)](https://uiowa.edu/)[![The University of Kansas](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.ku.edu/)[![The University of North Carolina at Chapel Hill](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.unc.edu/)[![The University of Texas at Austin](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.utexas.edu/)[![The University of Utah](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.utah.edu/)[![The University of Wisconsin-Madison](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.wisc.edu/)[![Tufts University](https://www.aau.edu/uploads/images/general/Tufts_univ_blue.jpeg)](https://www.tufts.edu/)[![Tulane University](https://www.aau.edu/uploads/images/general/tulane_logo_color_3x3.png)](http://tulane.edu/)[![UC Irvine](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://uci.edu/)[![University at Buffalo - The State University of New York](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.buffalo.edu/)[![University of California San Diego](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.ucsd.edu/)[![University of California Santa Cruz](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.ucsc.edu/)[![University of California, Berkeley](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.berkeley.edu/)[![University of California, Davis](https://www.aau.edu/uploads/images/general/uc_davis_logo_color_3x3.png)](https://www.ucdavis.edu/)[![University of California, Los Angeles](https://www.aau.edu/uploads/images/general/uc_la_logo_color_3x3.png)](http://www.ucla.edu/)[![University of California, Riverside](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.ucr.edu/)[![University of California, Santa Barbara](https://www.aau.edu/uploads/images/general/[REDACTED].jpg)](http://www.ucsb.edu/)[![University of Colorado Boulder](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.colorado.edu/)[![University of Florida](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.ufl.edu/)[![University of Illinois Urbana-Champaign](https://www.aau.edu/uploads/images/general/Illinois-250x250.png)](http://illinois.edu/)[![University of Maryland, College Park](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://umd.edu/)[![University of Miami](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://welcome.miami.edu/)[![University of Michigan](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.umich.edu/)[![University of Minnesota, Twin Cities](https://www.aau.edu/uploads/images/general/UofMN200x200.jpg)](https://twin-cities.umn.edu/)[![University of Missouri, Columbia](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://missouri.edu/)[![University of Notre Dame](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.nd.edu/)[![University of Oregon](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.uoregon.edu/)[![University of Pennsylvania](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.upenn.edu/)[![University of Pittsburgh](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.pitt.edu/)[![University of Rochester](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.rochester.edu/)[![University of South Florida](https://www.aau.edu/uploads/images/general/University-of-South-Florida-Main-Logo.png)](https://www.usf.edu/)[![University of Southern California](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.usc.edu/)[![University of Toronto](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.utoronto.ca/)[![University of Virginia](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.virginia.edu/)[![University of Washington](https://www.aau.edu/uploads/images/general/[REDACTED].png)](http://www.washington.edu/)[![Vanderbilt University](https://www.aau.edu/uploads/images/general/VU_Centered_Black_0.png)](https://www.vanderbilt.edu/)[![Washington University in St. Louis](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://wustl.edu/)[![Yale University](https://www.aau.edu/uploads/images/general/[REDACTED].png)](https://www.yale.edu/)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '214,470p' nprm.txt | grep -a -v '^\s*$' | cut -c1-210`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '214,470p' nprm.txt | grep -a -v '^\s*$' | cut -c1-210
+```
 ```
 III. Background
 A. Legal Authority
@@ -4640,7 +4868,10 @@ Cap-Gap Relief for All F-1 Students With Pending H-1B Petitions, 73
 FR 18944 (Apr. 8, 2008).
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '60,213p' nprm.txt | grep -a -v '^\s*$' | cut -c1-200 | head -150`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '60,213p' nprm.txt | grep -a -v '^\s*$' | cut -c1-200 | head -150
+```
 ```
 8 CFR Part 214
 [DHS Docket No. ICEB-2026-0100]
@@ -4774,7 +5005,10 @@ STEM Science, Technology, Engineering, and Mathematics
 USCIS U.S. Citizenship and Immigration Services
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '575,900p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ ' | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '575,900p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ ' | cut -c1-190
+```
 ```
 D. Practical Training for F-1 Nonimmigrants
     Students in F-1 status are nonimmigrants who enter the United 
@@ -5080,7 +5314,10 @@ post-completion OPT and reported working for an employer in the 2024
 calendar year, compared to 160,627 F-1 nonimmigrant students who
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '896,1430p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------|^\s{4}\S.*(available at|<a href)' | cut -c1-185 | head -330`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '896,1430p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------|^\s{4}\S.*(available at|<a href)' | cut -c1-185 | head -330
+```
 ```
 outpaced the number of companies that DHS is able to effectively review 
 and investigate. In 2024, 194,554 F-1 nonimmigrant students were 
@@ -5414,7 +5651,10 @@ The Impact of High-Skilled Immigration on U.S. Workers (Mar. 1,
 programs . . . have no protections for American workers or foreign
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1452,1645p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-185 | head -140; echo =========== ; grep -a -n -i -E "billion|ten-year|10-year|annualized" nprm.txt | head -25`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1452,1645p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-185 | head -140; echo =========== ; grep -a -n -i -E "billion|ten-year|10-year|annualized" nprm.txt | head -25
+```
 ```
     While DHS understands that the proposed fees are not nominal 
 amounts, such costs are reasonably related to the purposes of INA 
@@ -5584,7 +5824,10 @@ the Department is taking meaningful steps to safeguard the OPT program,
 2398:$11.37 billion during the transition period and $8.41 billion after the
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "---- reliance (1757-1800)"; sed -n '1757,1800p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185; echo "---- effects (2325-2420)"; sed -n '2325,2420p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185; echo "---- 2840-2870"; sed -n '2846,2862p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "---- reliance (1757-1800)"; sed -n '1757,1800p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185; echo "---- effects (2325-2420)"; sed -n '2325,2420p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185; echo "---- 2840-2870"; sed -n '2846,2862p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185
+```
 ```
 ---- reliance (1757-1800)
 there are any serious reliance interests that would be affected by the 
@@ -5738,12 +5981,15 @@ or overlap with this rule. There are no rules or proposed rules that
 conflict with the rule proposed here. There may be rules that seek the
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u6.txt <<'EOF'
 https://studyinthestates.dhs.gov/elimination-of-duration-of-status-quick-facts
 https://studyinthestates.dhs.gov/elimination-of-duration-of-status-frequently-asked-questions
 EOF
-node fc.js multi fc/u6.txt fc/b6; wc -c fc/b6/*.md; grep -v '^\s*$' fc/b6/01.md | cut -c1-600 | head -90`
+node fc.js multi fc/u6.txt fc/b6; wc -c fc/b6/*.md; grep -v '^\s*$' fc/b6/01.md | cut -c1-600 | head -90
+```
 ```
 OK 13274 chars -> fc\b6\01.md | Final Rule: Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure Quick Facts | Study in the States
 OK 31947 chars -> fc\b6\02.md | Final Rule: Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure FAQ | Study in the States
@@ -5819,7 +6065,10 @@ Additional Feedback
 |  |  |
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b6"; grep -v '^\s*$' 02.md | sed -n '8,140p' | cut -c1-900`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b6"; grep -v '^\s*$' 02.md | sed -n '8,140p' | cut -c1-900
+```
 ```
 2. **Final Rule: Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure FAQ**
 ## Final Rule: Establishing a Fixed Time Period of Admission and an Extension of Stay Procedure FAQ
@@ -5956,7 +6205,10 @@ Refer to [U.S. Citizenship and Immigration Services’ website](https://www.usci
 ## Can I receive a new authorized period of admission by traveling?
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' ds.txt | sed -n '1,120p' | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' ds.txt | sed -n '1,120p' | cut -c1-200
+```
 ```
 <html>
 <head>
@@ -6080,7 +6332,10 @@ U.S.C. 1101(a)(15)(F).
 Immigration Statistics-Yearbook 2023, Table 25, Nonimmigrant
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/^II. Executive Summary/{c++} c>=1' ds.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '12,200p' | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/^II. Executive Summary/{c++} c>=1' ds.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '12,200p' | cut -c1-190
+```
 ```
 U.S.C. 1101(a)(15)(F).
     \2\ See INA 101(a)(15)(J), 8 U.S.C. 1101(a)(15)(J).
@@ -6273,7 +6528,10 @@ of admission for the A-3 nonimmigrant classification); (b)(1)
 (period of admission for aliens admitted under the B nonimmigrant
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "=========== PROC 11069 (end)"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '172,260p' | sed 's/^ \{10,\}//' ; echo; echo "=========== EO 14431 (Sec 2+)"; grep -a -v '^\s*$' t_2026-19555.txt | sed -n '105,230p' | sed 's/^ \{10,\}//'`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "=========== PROC 11069 (end)"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '172,260p' | sed 's/^ \{10,\}//' ; echo; echo "=========== EO 14431 (Sec 2+)"; grep -a -v '^\s*$' t_2026-19555.txt | sed -n '105,230p' | sed 's/^ \{10,\}//'
+```
 ```
 =========== PROC 11069 (end)
 changes in H-1B filing patterns that demonstrate the 
@@ -6450,7 +6708,10 @@ Billing code 9110-9M-P
 </html>
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '256,300p' | sed 's/^ \{10,\}//'`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '256,300p' | sed 's/^ \{10,\}//'
+```
 ```
 Homeland Security shall jointly submit to the 
 President, through the Assistant to the President and 
@@ -6489,7 +6750,10 @@ Billing code 3395-F4-P
 </html>
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/II. Executive Summary|^I+\. Executive Summary|Executive Summary$/{c++} c>=1' t_2026-17324.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,95p' | cut -c1-185`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/II. Executive Summary|^I+\. Executive Summary|Executive Summary$/{c++} c>=1' t_2026-17324.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,95p' | cut -c1-185
+```
 ```
 II. Executive Summary
     A. Purpose of the Regulatory Action
@@ -6588,7 +6852,10 @@ OIRA--Office of Information and Regulatory Affairs
 OMB--Office of Management and Budget
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "^A\. Purpose of the Regulatory Action|^C\. Summary of the Major Provisions|^D\. Full Cost Recovery|Fee Elasticity|cap-exempt|volume" t_2026-17324.txt | head -20; echo ----; awk '/^A\. Purpose of the Regulatory Action/{c++} c>=1' t_2026-17324.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,70p' | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "^A\. Purpose of the Regulatory Action|^C\. Summary of the Major Provisions|^D\. Full Cost Recovery|Fee Elasticity|cap-exempt|volume" t_2026-17324.txt | head -20; echo ----; awk '/^A\. Purpose of the Regulatory Action/{c++} c>=1' t_2026-17324.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,70p' | cut -c1-190
+```
 ```
 131:    4. Fee Elasticity
 278:such as cap-exempt filings).
@@ -6611,7 +6878,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ----
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '225,360p' t_2026-17324.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190; echo ....; sed -n '2320,2345p;2425,2470p' t_2026-17324.txt | grep -a -v '^\s*$' | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '225,360p' t_2026-17324.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190; echo ....; sed -n '2320,2345p;2425,2470p' t_2026-17324.txt | grep -a -v '^\s*$' | cut -c1-190
+```
 ```
 Docket No. USCIS-2026-0298. You may also sign up for email alerts on 
 the online docket to be notified when comments are posted or a final 
@@ -6796,7 +7066,10 @@ multiple agencies.
 ---------------------------------------------------------------------------
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "######## DEFERENCE NPRM"; grep -a -v '^\s*$' fc/deference.txt | sed -n '14,70p' | cut -c1-185; echo; grep -a -n -E "^[IVX]+\. |^[A-Z]\. " fc/deference.txt | head -30`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "######## DEFERENCE NPRM"; grep -a -v '^\s*$' fc/deference.txt | sed -n '14,70p' | cut -c1-185; echo; grep -a -n -E "^[IVX]+\. |^[A-Z]\. " fc/deference.txt | head -30
+```
 ```
 ######## DEFERENCE NPRM
  ________________________________________________________________________
@@ -6884,7 +7157,10 @@ SUPPLEMENTARY INFORMATION:
 1883:H. Paperwork Reduction Act
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '183,265p;333,350p;698,730p' fc/deference.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190 | head -120`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '183,265p;333,350p;698,730p' fc/deference.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190 | head -120
+```
 ```
 A. Purpose and Summary of the Proposed Regulatory Action
     The purpose of this proposed rule is to remove 8 CFR 214.1(c)(5). 
@@ -7008,7 +7284,10 @@ Specifically, for H-1B extension cases from FY 2022 through FY 2025,
 the overall combined percentage of non-compliance and/or fraud among H-
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '205,300p' t_2026-18631.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '205,300p' t_2026-18631.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190
+```
 ```
 rule is published.
 II. Executive Summary
@@ -7096,10 +7375,13 @@ Homeland Security by operation of the HSA. See, e.g., INA secs.
 Preap, 139 S. Ct. 954, 959 n.2 (2019).
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 curl -sL --compressed -m 90 -o fc/dol.txt "https://www.federalregister.gov/documents/full_text/text/2026/03/27/2026-06017.txt"; curl -sL --compressed -m 90 -o fc/wsel.txt "https://www.federalregister.gov/documents/full_text/text/2025/12/29/2025-23853.txt"; wc -c fc/dol.txt fc/wsel.txt
 echo "######## WEIGHTED SELECTION FINAL RULE: summary + exec"; grep -a -v '^\s*$' fc/wsel.txt | sed -n '20,60p' | cut -c1-190
-awk '/Executive Summary/{c++} c>=2' fc/wsel.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,60p' | cut -c1-190`
+awk '/Executive Summary/{c++} c>=2' fc/wsel.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,60p' | cut -c1-190
+```
 ```
 338431 fc/dol.txt
 659081 fc/wsel.txt
@@ -7208,7 +7490,10 @@ BILLING CODE 9111-97-P
 [GRAPHIC] [TIFF OMITTED] TR29DE25.002
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "percent(ile)?|Level I |Level IV|17th|34th|52nd|\b50th\b|mean of|experience|20 percent|Level 1|Level 2|Level 3|Level 4" fc/dol.txt | sed -n '1,60p' | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "percent(ile)?|Level I |Level IV|17th|34th|52nd|\b50th\b|mean of|experience|20 percent|Level 1|Level 2|Level 3|Level 4" fc/dol.txt | sed -n '1,60p' | cut -c1-190
+```
 ```
 213:actual wage paid by the employer to individuals with similar experience 
 238:percent of PERM applications were filed on behalf of workers already 
@@ -7272,7 +7557,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 1117:methodology that did not take into account the experience, education,
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1098,1125p' fc/dol.txt | grep -a -v '^\s*$' | cut -c1-190; echo ...; grep -a -n -i -E "effective|transition|60 days|apply to LCAs|filed on or after" fc/dol.txt | sed -n '1,15p' | cut -c1-180`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1098,1125p' fc/dol.txt | grep -a -v '^\s*$' | cut -c1-190; echo ...; grep -a -n -i -E "effective|transition|60 days|apply to LCAs|filed on or after" fc/dol.txt | sed -n '1,15p' | cut -c1-180
+```
 ```
 II. Discussion of the Department's Proposed Amendments to the 
 Prevailing Wage Methodology
@@ -7314,7 +7602,10 @@ Prevailing Wage Levels
 4512:70th, and 88th percentiles) as the most balanced and effective
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/^C\. Summary of the Major Provisions/{c++} c>=1' fc/eadauto.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,45p' | cut -c1-190; echo; grep -a -n -E "180 days before|renew.*180|file.*earlier|as early as" fc/eadauto.txt | head -6 | cut -c1-170`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/^C\. Summary of the Major Provisions/{c++} c>=1' fc/eadauto.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,45p' | cut -c1-190; echo; grep -a -n -E "180 days before|renew.*180|file.*earlier|as early as" fc/eadauto.txt | head -6 | cut -c1-170
+```
 ```
 C. Summary of the Major Provisions of the Regulatory Action
     This final rule adopts the IFR as final, without any changes, after 
@@ -7370,7 +7661,10 @@ previous rules providing for the automatic extension of EADs based on
 3591:lapse in employment authorization by filing as early as permitted under
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; F=e214_2026-07-01.txt; grep -a -n -E "^ \(f\) Students in|^ \(f\) F-1|^ \(g\) Temporary workers|F-1 student in a college|^ \(\(f\)" $F | head; grep -a -n -E "\(1\) Admission of student|\(5\) Duration of status|\(6\) Full course of study|\(9\) Employment|\(13\) Temporary absence|\(16\) Reinstatement|\(2\) Student maintenance|\(7\) Extension of stay|\(8\) Transfer" $F | head -20`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; F=e214_2026-07-01.txt; grep -a -n -E "^ \(f\) Students in|^ \(f\) F-1|^ \(g\) Temporary workers|F-1 student in a college|^ \(\(f\)" $F | head; grep -a -n -E "\(1\) Admission of student|\(5\) Duration of status|\(6\) Full course of study|\(9\) Employment|\(13\) Temporary absence|\(16\) Reinstatement|\(2\) Student maintenance|\(7\) Extension of stay|\(8\) Transfer" $F | head -20
+```
 ```
 26: (f) Students in colleges, universities, seminaries, conservatories, academic high schools, elementary schools, other academic institutions, and in language training programs 
 282: (f) Students in colleges, universities, seminaries, conservatories, academic high schools, elementary schools, other academic institutions, and in language training programs. 
@@ -7396,7 +7690,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 1468: (2) Student maintenance of Form I-20 or successor form. An M-1 student is expected to retain for safekeeping the initial Form I-20 or successor form bearing the admission number and any subsequent Form I-20 or successor form issued to the student. Should the student lose their current Form I-20 or successor form, a replacement copy bearing the same information as the lost copy, including any endorsement for employment and notations, should be issued by the DSO as defined in § 214.3(l)(1).
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; F=e214_2026-07-01.txt; sed -n '364,394p' $F | cut -c1-700; echo ======; sed -n '403,420p' $F | cut -c1-900`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; F=e214_2026-07-01.txt; sed -n '364,394p' $F | cut -c1-700; echo ======; sed -n '403,420p' $F | cut -c1-900
+```
 ```
  (5) Duration of status —(i) General. Duration of status is defined as the time during which an F-1 student is pursuing a full course of study at an educational institution certified by SEVP for attendance by foreign students, or engaging in authorized practical training following completion of studies, except that an F-1 student who is admitted to attend a public high school is restricted to an aggregate of 12 months of study at any public high school(s). An F-1 student may be admitted for a period up to 30 days before the indicated report date or program start date listed on the Form I-20 or successor form. The student is considered to be maintaining status if the student is making norma
  (ii) Change in educational levels. An F-1 student who continues from one educational level to another is considered to be maintaining status, provided that the transition to the new educational level is accomplished according to transfer procedures outlined in paragraph (f)(8) of this section. 
@@ -7453,7 +7750,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Internship\Companies giving OPT & CPT.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - OPT.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - Sponsoring.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; for f in "60_Claude/40_Project_Briefs/Internship/Does Not Offer Sponsorship' means no H-1B, not no OPT — same rule as     everywh.md" "60_Claude/40_Project_Briefs/Internship/OPT signals and content extraction — every eligibility string below marked 'real.md" "10_Areas/Summer Grind.md"; do echo "######## $f"; head -c 2600 "$f"; echo; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; for f in "60_Claude/40_Project_Briefs/Internship/Does Not Offer Sponsorship' means no H-1B, not no OPT — same rule as     everywh.md" "60_Claude/40_Project_Briefs/Internship/OPT signals and content extraction — every eligibility string below marked 'real.md" "10_Areas/Summer Grind.md"; do echo "######## $f"; head -c 2600 "$f"; echo; done
+```
 ```
 ######## 60_Claude/40_Project_Briefs/Internship/Does Not Offer Sponsorship' means no H-1B, not no OPT — same rule as     everywh.md
 ---
@@ -7527,11 +7827,14 @@ This summer is not a list of outcomes. [[Atomic Habits]] instead of motivation. 
 	*System*: [[Arc (Learning Tracker)]] becomes the flagship full-stack + GenAI project if chosen for the summer. It should prove product engineering: auth, database schema, tracked sessions, weekly recap, RAG tutor, deployment, and polish.
 	- **Interlinks:** connect implementation decisions to [[AI Workflow]], [[What MCPs]], [[Gen AI Roadmap]], [[Portfolio]], and [[Engineer Edge
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js scrape "https://www.ice.gov/doclib/sevis/pdf/stemList2024.pdf" fc/stemlist.md
 grep -n -i -E "11\.0701|11\.0101|11\.0103|11\.0401|11\.0201|Computer Science|Computer and Information Sciences, General" fc/stemlist.md | head -12 | cut -c1-200
 grep -n -i -E "effective|updated|July 22, 2024|Federal Register" fc/stemlist.md | head -6 | cut -c1-200
-head -12 fc/stemlist.md | cut -c1-200`
+head -12 fc/stemlist.md | cut -c1-200
+```
 ```
 OK 31949 chars -> fc/stemlist.md | 2024 DHS STEM Designated Degree Program List
 16:innovation, or development of new technologies using engineering, mathematics, computer science,
@@ -7558,11 +7861,14 @@ mathematics (STEM) fields of study for purposes of the 24-month STEM optional pr
 extension described at _8 CFR 214.2(f)._ Under _8 CFR 214.2(f)(10)(ii)(C)(2),_ a STEM field of study is
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"
 echo "### name collisions for planned new notes (should be empty):"
 for n in "F-1 Visa" "F-1 Employment Options" "SEVP and DSOs" "Duration of Status Rule" "Pre-Completion OPT" "STEM OPT Extension" "CPT Broadcast Messages" "CPT Lawsuit" "OPT Fee Proposal" "EAD and OPT Processing" "Cap-Gap Extension" "H-1B Lottery" "H-1B 100K Payment" "H-1B Rule Proposals" "2028 Graduation Timeline" "Visa Litigation Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null); [ -n "$r" ] && echo "EXISTS: $n -> $r"; done
 echo "### link targets that must resolve:"
-for n in "Internship Pipeline" "Phases Run" "Summer Grind" "Fall 2026 Plan" "Plans Board" "Companies giving OPT & CPT" "Portfolio" "AI_CONTEXT" "00_Dashboard" "Atomic Habits" "Mentorship Board" "Internship Review System" "Deadline Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null | head -2 | tr '\n' ' '); echo "$n -> ${r:-MISSING}"; done`
+for n in "Internship Pipeline" "Phases Run" "Summer Grind" "Fall 2026 Plan" "Plans Board" "Companies giving OPT & CPT" "Portfolio" "AI_CONTEXT" "00_Dashboard" "Atomic Habits" "Mentorship Board" "Internship Review System" "Deadline Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null | head -2 | tr '\n' ' '); echo "$n -> ${r:-MISSING}"; done
+```
 ```
 ### name collisions for planned new notes (should be empty):
 ### link targets that must resolve:
@@ -7668,10 +7974,10 @@ Practical training requires one full academic year of full-time enrollment, whic
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
 ```diff
 - > The "current" eCFR view of 8 CFR 214.2 already prints the postponed 30-day wording. Use the version dated 2026-07-01 for the rules actually in force.
-
-## Who Decides What
+- 
+- ## Who Decides What
 + > The "current" eCFR view of 8 CFR 214.2 already prints the postponed rule's 30-day OPT filing and start-date wording. Use the version dated 2026-07-01 for the rules actually in force.
-## Who Decides What
++ ## Who Decides What
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```
@@ -7738,7 +8044,10 @@ ISSS says international students "must always obtain work authorization to work 
 
 ```
 - `Grep` -- pattern `Minimum hours|20 hours per week|minimum of 20 hours` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\a8711819-664b-4922-952b-4190546bfc01\scratchpad\fc\e214_2026-07-01.txt`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; sed -n '436p' e214_2026-07-01.txt | cut -c1-900; echo ...; sed -n '431,433p' e214_2026-07-01.txt | cut -c1-900; echo; sed -n '441,444p' e214_2026-07-01.txt | cut -c1-600`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; sed -n '436p' e214_2026-07-01.txt | cut -c1-900; echo ...; sed -n '431,433p' e214_2026-07-01.txt | cut -c1-900; echo; sed -n '441,444p' e214_2026-07-01.txt | cut -c1-600
+```
 ```
  ( 8 ) Duties, hours, and compensation for training. The terms and conditions of a STEM practical training opportunity during the period of the 24-month OPT extension, including duties, hours, and compensation, must be commensurate with terms and conditions applicable to the employer's similarly situated U.S. workers in the area of employment. A student may not engage in practical training for less than 20 hours per week, excluding time off taken consistent with leave-related policies applicable to the employer's similarly situated U.S. workers in the area of employment. If the employer does not employ and has not recently employed more than two similarly situated U.S. workers in the area of employment, the employer nevertheless remains obligated to attest that the terms and conditions of a STEM practical training opportunity are commensurate with the terms and conditions of employment f
 ...
@@ -7819,10 +8128,10 @@ The OPT fee proposal shifts the same pressure to a new point. Under it a DSO can
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
 ```diff
 - Expect ISSS to move after a ruling, not with it.
-
-## Working With ISSS
+- 
+- ## Working With ISSS
 + Expect ISSS to move after a ruling, not with it.
-## Working With ISSS
++ ## Working With ISSS
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Broadcast Messages.md`
 ```
@@ -8238,7 +8547,7 @@ This is analysis built from the rules above. For a mid-June start, the earliest 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Pre-Completion OPT.md`
 ```diff
 - - A situation in which the fee proposal is withdrawn or scaled back, and the STEM extension is not at risk because enough months remain.
-- A case where a school-recommended training slot becomes available only for OPT.
+- - A case where a school-recommended training slot becomes available only for OPT.
 + - A situation in which the fee proposal is withdrawn or scaled back, and the STEM extension is not at risk because enough months remain.
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
@@ -8472,7 +8781,10 @@ Comments are filed on regulations.gov under docket ICEB-2026-0100, must say whic
 - [WR Immigration, fifteen things to know](https://wolfsdorf.com/fifteen-things-to-know-about-dhss-proposed-opt-fees/): a law firm's summary, checked against the notice.
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "small entit|56\.|percent of (the )?SEVP|small schools" nprm.txt | head -10 | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "small entit|56\.|percent of (the )?SEVP|small schools" nprm.txt | head -10 | cut -c1-200
+```
 ```
 1618:certified institutions are small entities. Id. This approach could 
 1620:SEVP-certified institutions are small entities. Various factors and 
@@ -8486,7 +8798,10 @@ Comments are filed on regulations.gov under docket ICEB-2026-0100, must say whic
 2615:    The small entities to which the proposed rule would apply include
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1612,1624p;2613,2625p' nprm.txt | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1612,1624p;2613,2625p' nprm.txt | cut -c1-190
+```
 ```
 to address the urgent program integrity concerns. The Department seeks 
 to retain flexibility to pursue additional regulatory measures in the 
@@ -8516,7 +8831,10 @@ List, (June 16, 2026), available at <a href="https://studyinthestates.dhs.gov/sc
     To identify small institutions impacted by the proposed rule, DHS
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1596,1612p;1624,1644p' nprm.txt | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1596,1612p;1624,1644p' nprm.txt | cut -c1-190
+```
 ```
 program integrity concerns that cannot be addressed quickly through 
 such procedures alone. Recent concerns regarding misuse and fraud and 
@@ -8560,11 +8878,11 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
 ```diff
 - It acknowledges that over half of certified schools may be small entities and that schools unable to pay could see enrollment and revenue fall.
-## What It Means For Me
+- ## What It Means For Me
 + It estimates that 56 percent of certified schools are small entities and says it considered exempting them but rejected that because it "could leave significant fraud vulnerabilities unaddressed." It acknowledges that schools unable or unwilling to pay could see lower enrollment and revenue.
-## What DHS Signals Next
-The notice calls the fee "a crucial first step" in "a graduated strategy" and says adopting it "should not be interpreted as precluding future changes to the OPT program through additional regulatory requirements." It also says OPT "is not the only practical training program with the potential for significant fraud and national security issues," that fraud and security threats in CPT "have also been historically prevalent," and that DHS "will continue to monitor" them and "take additional actions as necessary." Read together with the August CPT messages, the government's direction on all F-1 practical training is one-way for now ([[CPT Broadcast Messages]]).
-## What It Means For Me
++ ## What DHS Signals Next
++ The notice calls the fee "a crucial first step" in "a graduated strategy" and says adopting it "should not be interpreted as precluding future changes to the OPT program through additional regulatory requirements." It also says OPT "is not the only practical training program with the potential for significant fraud and national security issues," that fraud and security threats in CPT "have also been historically prevalent," and that DHS "will continue to monitor" them and "take additional actions as necessary." Read together with the August CPT messages, the government's direction on all F-1 practical training is one-way for now ([[CPT Broadcast Messages]]).
++ ## What It Means For Me
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
 ```
@@ -8655,7 +8973,10 @@ This section is analysis.
 - [Presidents' Alliance litigation tracker](https://www.presidentsalliance.org/duration-of-status-litigation/) and [ISSS Duration of Status hub](https://isss.umn.edu/duration-of-status).
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b4"; grep -n -i -E "30 days|injunction|postpone|paused|blocked|effective|court" 09.md | head -14 | cut -c1-420; head -12 09.md | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b4"; grep -n -i -E "30 days|injunction|postpone|paused|blocked|effective|court" 09.md | head -14 | cut -c1-420; head -12 09.md | cut -c1-200
+```
 ```
 17:| **Update on DHS Duration of Status Final Rule Litigation** _: On September 14 a federal district court issued a [preliminary injunction](https://storage.courtlistener.com/recap/gov.uscourts.mad.305059/gov.uscourts.mad.305059.51.0.pdf), temporarily postponing the effective date of the [Final Rule to Replace D/S with a Date Certain Period of Admission](https://www.federalregister.gov/documents/2026/07/17/2026-144
 40:Students entering the U.S. on or after the effective date, September 15, 2026:
@@ -8684,7 +9005,10 @@ This section is analysis.
 #### **Last updated on October 12, 2026**
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "March 1[0-9], 2027|March 18|six months after the effective date|within six months" ds.txt | head -12 | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "March 1[0-9], 2027|March 18|six months after the effective date|within six months" ds.txt | head -12 | cut -c1-200
+```
 ```
 5426:for post-completion OPT or a STEM OPT extension on or before March 18, 
 6784:nonimmigrants who timely file EOS on or before March 18, 2027, may 
@@ -8700,7 +9024,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 18541:fee, as described in the form's instructions, on or before March 18,
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '5420,5432p;7380,7392p;17305,17314p' ds.txt | cut -c1-190`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '5420,5432p;7380,7392p;17305,17314p' ds.txt | cut -c1-190
+```
 ```
 whichever comes first. Id. However, should these F and J nonimmigrants 
 decide to travel abroad during this transition period, they will be 
@@ -8748,9 +9075,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
 ```diff
 - - Johns Hopkins's F-1 resource page already states the 30-day OPT filing rule. Other pages, like USCIS's OPT and I-765 pages and a law firm's 14-month-rule article, still give 60 days.
-- ISSS's duration of status FAQ, updated October 14, still says the rule "goes into effect on September 15," while its hub banner says a lawsuit paused it. It also gives a March 18, 2027 cutoff for the six-month OPT filing exemption, while six months after September 15 is March 15, 2027. I could not resolve the three-day difference from the rule text.
+- - ISSS's duration of status FAQ, updated October 14, still says the rule "goes into effect on September 15," while its hub banner says a lawsuit paused it. It also gives a March 18, 2027 cutoff for the six-month OPT filing exemption, while six months after September 15 is March 15, 2027. I could not resolve the three-day difference from the rule text.
 + - Johns Hopkins's F-1 resource page, updated October 12, describes the rule's 30-day windows as if they apply, with an update banner noting the injunction. A later line on the same page still says there is "no indication" the effective date will change. Other pages, like USCIS's OPT and I-765 pages and a law firm's 14-month-rule article, still give 60 days.
-- ISSS's duration of status FAQ, updated October 14, still says the rule "goes into effect on September 15," while its hub banner says a lawsuit paused it. Its March 18, 2027 cutoff for the OPT filing exemption is correct, since that date is written into the rule. DHS's "six months" is a paraphrase of it.
++ - ISSS's duration of status FAQ, updated October 14, still says the rule "goes into effect on September 15," while its hub banner says a lawsuit paused it. Its March 18, 2027 cutoff for the OPT filing exemption is correct, since that date is written into the rule. DHS's "six months" is a paraphrase of it.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
 ```diff
@@ -8833,7 +9160,10 @@ It also extends the dependents' stay. If the petition is approved, the extension
 - [DHS Quick Facts, duration of status](https://studyinthestates.dhs.gov/elimination-of-duration-of-status-quick-facts): the cap-gap transition.
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; for d in 2026-16231 2026-16313 2026-20187; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=abstract&fields[]=dates" | head -c 1800; echo; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; for d in 2026-16231 2026-16313 2026-20187; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=abstract&fields[]=dates" | head -c 1800; echo; done
+```
 ```
 ######## 2026-16231
 {"title":"9-11 Response and Biometric Entry-Exit Fee for H-1B and L-1 Visas","citation":"91 FR 51360","publication_date":"2026-08-10","effective_on":"2026-09-09","abstract":"The Department of Homeland Security (DHS) is amending the regulations concerning the 9-11 Response and Biometric Entry-Exit Fee for certain H-1B and L-1 Visas (9-11 Biometric Fee). The regulatory changes correct DHS's interpretation of statutory language to require that covered employers submit the 9-11 Biometric Fee for all extension of status petitions, regardless of whether the related fraud prevention and detection fee applies, which includes extension of status petitions that do not involve a change of employer. The 9-11 Biometric Fee continues to apply unchanged to petitions seeking an initial grant of status. The changes also help DHS comply with its congressional mandate to implement a biometric entry-exit system.","dates":"This rule is effective on September 9, 2026."}
@@ -8912,7 +9242,10 @@ The direction is toward higher wages, advanced degrees, and fewer small or outso
 - ## Why It Matters That This Is A Pressure Point
 + ## The Direction Of Travel
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b5"; sed -n '17,46p' 01.md | cut -c1-420; echo; grep -n -i -E "wage level|SOC|selected for the first|second round|subsequent|beneficiary-centric" 01.md | head -10 | cut -c1-300`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b5"; sed -n '17,46p' 01.md | cut -c1-420; echo; grep -n -i -E "wage level|SOC|selected for the first|second round|subsequent|beneficiary-centric" 01.md | head -10 | cut -c1-300
+```
 ```
 USCIS has received enough petitions to reach the congressionally mandated 65,000 H-1B visa regular cap and the 20,000 H-1B visa U.S. advanced degree exemption, known as the master’s cap, for FY 2027.
 
@@ -9041,26 +9374,29 @@ FY2027 is the first weighted year. USCIS reports it reached both the regular cap
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
 ```diff
 - | IV | 4 | 61.16% | 16% | about 67th | 88th |
-Selection uses a weighted pool
+- Selection uses a weighted pool
 + | IV | 4 | 61.16% | 16% | about 67th | 88th |
-### Reading The Weighting
-Selection uses a weighted pool
++ ### Reading The Weighting
++ Selection uses a weighted pool
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
 ```diff
 - | FY2026 | 358,737 | 343,981 | 120,141 |
-Dividing selections
+- Dividing selections
 + | FY2026 | 358,737 | 343,981 | 120,141 |
-### Reading The Table
-Dividing selections
++ ### Reading The Table
++ Dividing selections
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u7.txt <<'EOF'
 https://www.courtlistener.com/docket/71541425/global-nurse-force-v-trump/?order_by=desc
 https://www.courtlistener.com/docket/72031571/state-of-california-v-noem/?order_by=desc
 EOF
 node fc.js multi fc/u7.txt fc/b7
-for i in 01 02; do echo; echo "######## b7/$i"; grep -v '^\s*$' fc/b7/$i.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -i -E "order|opinion|judgment|vacat|summary|hearing|grant|deny|proclamation" | head -14 | cut -c1-520; done`
+for i in 01 02; do echo; echo "######## b7/$i"; grep -v '^\s*$' fc/b7/$i.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -i -E "order|opinion|judgment|vacat|summary|hearing|grant|deny|proclamation" | head -14 | cut -c1-520; done
+```
 ```
 OK 161863 chars -> fc\b7\01.md | Global Nurse Force v. Trump, 4:25-cv-08454 – CourtListener.com
 OK 145144 chars -> fc\b7\02.md | State of California v. Noem, 1:25-cv-13829 – CourtListener.com
@@ -9165,7 +9501,10 @@ DHS has separately proposed a $103,265 fee on every cap-subject petition, includ
 - Dockets: [D. Mass. 1:25-cv-13829](https://www.courtlistener.com/docket/72031571/state-of-california-v-noem/), [First Circuit 26-1699](https://www.courtlistener.com/docket/73476893/state-of-california-v-mullin/), [N.D. Cal. 4:25-cv-08454](https://www.courtlistener.com/docket/71541425/global-nurse-force-v-trump/), [Ninth Circuit 26-6667](https://www.courtlistener.com/docket/74966923/global-nurse-force-et-al-v-trump-et-al/), [D.C. Circuit 25-5473](https://www.courtlistener.com/docket/72095497/chamber-of-commerce-of-the-united-states-of-ameri-v-dhs/).
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '722,772p' fc/deference.txt | grep -a -v '^\s*$' | cut -c1-190; echo ....; sed -n '2425,2432p' t_2026-17324.txt | cut -c1-190; grep -a -n -E "2025\.\.\.|Table 13" t_2026-17324.txt | head -4`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '722,772p' fc/deference.txt | grep -a -v '^\s*$' | cut -c1-190; echo ....; sed -n '2425,2432p' t_2026-17324.txt | cut -c1-190; grep -a -n -E "2025\.\.\.|Table 13" t_2026-17324.txt | head -4
+```
 ```
 higher percentages of fraud and non-compliance identified in the
 [[Page 65124]]
@@ -9469,19 +9808,22 @@ This is the dated route from now to an H-1B start for a student who finishes the
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\2028 Graduation Timeline.md`
 ```diff
 - | Summer 2027 | Authorized work only, by on-campus work, CPT if restored, or pre-completion OPT if chosen | Each route has a different gate | [[F-1 Employment Options]] |
-| Mar 18, 2027 | Cutoff written into the fixed-period rule for filing OPT without an extension of stay, if the rule returns | Date fixed in the rule text | [[Duration of Status Rule]] |
+- | Mar 18, 2027 | Cutoff written into the fixed-period rule for filing OPT without an extension of stay, if the rule returns | Date fixed in the rule text | [[Duration of Status Rule]] |
 + | Mar 18, 2027 | Cutoff written into the fixed-period rule for filing OPT without an extension of stay, if the rule returns | Date fixed in the rule text | [[Duration of Status Rule]] |
-| Summer 2027 | Authorized work only, by on-campus work, CPT if restored, or pre-completion OPT if chosen | Each route has a different gate | [[F-1 Employment Options]] |
++ | Summer 2027 | Authorized work only, by on-campus work, CPT if restored, or pre-completion OPT if chosen | Each route has a different gate | [[F-1 Employment Options]] |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\2028 Graduation Timeline.md`
 ```diff
 - a pattern from earlier years, not an announcement.
-
-## The Route By Date
+- 
+- ## The Route By Date
 + a pattern from earlier years, not an announcement.
-## The Route By Date
++ ## The Route By Date
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; for n in "BOOM" "UROP" "Summer 2027" "Internship Tracker" "Internship Notes Standard"; do r=$(find . -type f -iname "$n*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | head -3 | tr '\n' ' '); echo "$n -> ${r:-none}"; done; grep -rIl -i "UROP" --include=*.md 10_Areas 20_Progress 2>/dev/null | head -5`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; for n in "BOOM" "UROP" "Summer 2027" "Internship Tracker" "Internship Notes Standard"; do r=$(find . -type f -iname "$n*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | head -3 | tr '\n' ' '); echo "$n -> ${r:-none}"; done; grep -rIl -i "UROP" --include=*.md 10_Areas 20_Progress 2>/dev/null | head -5
+```
 ```
 BOOM -> ./20_Progress/Projects/Research/BOOM/BOOM Board.md ./20_Progress/Projects/Research/BOOM/BOOM Systems Engineering Bullet.md ./20_Progress/Projects/Research/BOOM/BOOM.md 
 UROP -> none
@@ -9494,7 +9836,10 @@ Internship Notes Standard -> ./30_Order/Standards/Internship/Internship Notes St
 10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Quantitative Research Intern - DRW.md
 10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Quantitative Trading Analyst Intern - DRW.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Research/BOOM"; head -40 BOOM.md | cut -c1-300`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Research/BOOM"; head -40 BOOM.md | cut -c1-300
+```
 ```
 ---
 type: evergreen
@@ -9638,7 +9983,7 @@ Use pre-completion OPT only if all four hold: a strong offer in hand, ISSS confi
 + and USCIS data cited in the CPT complaint show only 80 percent of applications finishing within five months. Those costs
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\VISA Plan.md`
-```
+````
 ---
 type: index
 status: sprout
@@ -9724,7 +10069,7 @@ SORT file.name ASC
 - [Study in the States](https://studyinthestates.dhs.gov/): DHS's student site, including the duration of status FAQ.
 - [USCIS H-1B page](https://www.uscis.gov/working-in-the-united-states/[REDACTED]) and [ISSS off-campus work](https://isss.umn.edu/fstudents/employment/off-campus).
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\VISA Plan.md`
 ```diff
 - ==The route is being rebuilt by seven separate actions, and none of them is final: two broadcast messages on CPT, one proposed OPT fee, one blocked status rule, one blocked payment, a new lottery, and a set of H-1B cost proposals.==
@@ -9744,19 +10089,19 @@ SORT file.name ASC
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 -   - "[[VISA Plan]]"
-  - "[[CPT Program]]"
-  - "[[OPT Program]]"
-  - "[[H1B Visa]]"
-  - "[[Junior Year Internship Decision]]"
----
+-   - "[[CPT Program]]"
+-   - "[[OPT Program]]"
+-   - "[[H1B Visa]]"
+-   - "[[Junior Year Internship Decision]]"
+- ---
 +   - "[[VISA Plan]]"
-  - "[[CPT Program]]"
-  - "[[OPT Program]]"
-  - "[[H1B Visa]]"
-  - "[[Junior Year Internship Decision]]"
-  - "[[Visa Litigation Tracker]]"
-  - "[[2028 Graduation Timeline]]"
----
++   - "[[CPT Program]]"
++   - "[[OPT Program]]"
++   - "[[H1B Visa]]"
++   - "[[Junior Year Internship Decision]]"
++   - "[[Visa Litigation Tracker]]"
++   - "[[2028 Graduation Timeline]]"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
@@ -9858,7 +10203,10 @@ for (const f of files) {
 console.log("\nTOTAL ISSUES:", problems);
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | head -120`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | head -120
+```
 ```
 notes in folder: 22
 
@@ -9934,13 +10282,16 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projec
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 - | About March 2029 and March 2030 (inference) | Later registration chances while on OPT and STEM OPT | Requires an employer willing to register each year | My reading of the above, not a source's statement |
-1. **USCIS, OPT for F-1 Students**
+- 1. **USCIS, OPT for F-1 Students**
 + | About March 2029 and March 2030 (inference) | Later registration chances while on OPT and STEM OPT | Requires an employer willing to register each year | My reading of the above, not a source's statement |
-### Sources Behind The Table
-1. **USCIS, OPT for F-1 Students**
++ ### Sources Behind The Table
++ 1. **USCIS, OPT for F-1 Students**
 ```
 - `Grep` -- pattern `node |npx |python|--kit|--file|usage|Usage|run` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\Vault Lint.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && ls | head; node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 40 2>&1 | head -80`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && ls | head; node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 40 2>&1 | head -80
+```
 ```
 Vault Lint.md
 vault-lint.config.json
@@ -9959,7 +10310,10 @@ Top failure reasons:
 
 First 40 failing notes:
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "vault notes folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 2>/dev/null | head -3; echo "scratchpad:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" 2>/dev/null | head -3; echo "(blank above = no key found)"; echo; echo "git status of the folder:"; git status --short -- "10_Areas/Career/VISAs & Work Auth" | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "vault notes folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 2>/dev/null | head -3; echo "scratchpad:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" 2>/dev/null | head -3; echo "(blank above = no key found)"; echo; echo "git status of the folder:"; git status --short -- "10_Areas/Career/VISAs & Work Auth" | head -30
+```
 ```
 vault notes folder:
 scratchpad:
@@ -10138,20 +10492,23 @@ Mark each with a check as it is answered. If time is short, ask only the ones ma
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
 ```diff
 - what she will refer to an ISSS advisor, and treat anything she says about rules as UMN's practice, not legal advice.
-
-## Facts To Have In My Head
+- 
+- ## Facts To Have In My Head
 + what she will refer to an ISSS advisor, and treat anything she says about rules as UMN's practice, not legal advice.
-## Facts To Have In My Head
++ ## Facts To Have In My Head
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
 ```diff
 - | Rule changes and communication | [[Duration of Status Rule]], [[Visa Litigation Tracker]] |
-- [ ] Save
+- - [ ] Save
 + | Rule changes and communication | [[Duration of Status Rule]], [[Visa Litigation Tracker]] |
-### Follow-Up
-- [ ] Save
++ ### Follow-Up
++ - [ ] Save
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -A2 -E "ISSS Meeting|TOTAL|ISSUE"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" 2>&1 | sed -n '1,3p'`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -A2 -E "ISSS Meeting|TOTAL|ISSUE"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" 2>&1 | sed -n '1,3p'
+```
 ```
 ISSS Meeting.md  [2198 words, 31 wikilinks, blanks at: 112]
    ok
@@ -10227,7 +10584,10 @@ The next step is still the written questions to ISSS by Oct 30. The remaining un
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### ISSS folder"; ls -la "10_Areas/Career/VISAs & Work Auth/" | head -40; echo; ls -la "10_Areas/Career/VISAs & Work Auth/ISSS/" 2>&1 | head; echo; echo "### UMN resources candidates"; find . -type f -ipath "*umn*" -iname "*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | grep -i -E "resource|link|umn\.md|UMN Resources|ISSS" | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### ISSS folder"; ls -la "10_Areas/Career/VISAs & Work Auth/" | head -40; echo; ls -la "10_Areas/Career/VISAs & Work Auth/ISSS/" 2>&1 | head; echo; echo "### UMN resources candidates"; find . -type f -ipath "*umn*" -iname "*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | grep -i -E "resource|link|umn\.md|UMN Resources|ISSS" | head -20
+```
 ```
 ### ISSS folder
 total 204
@@ -10286,7 +10646,10 @@ drwxr-xr-x 1 anant 197609     0 Oct 23 16:17 ..
 ./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Hardware Organization.md
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\October Meeting Transcript.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### Brief standard/template"; find 30_Order -iname "Brief Standard.md" -o -iname "Brief Template.md" -o -iname "Transcript to Brief.md" | head; echo; echo "### UMN Links head"; sed -n '1,40p' 40_Resources/UMN/Links.md | cut -c1-200; echo; echo "### mineru?"; command -v mineru mineru-parse 2>&1 | head -2; pip list 2>/dev/null | grep -i mineru | head -2`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### Brief standard/template"; find 30_Order -iname "Brief Standard.md" -o -iname "Brief Template.md" -o -iname "Transcript to Brief.md" | head; echo; echo "### UMN Links head"; sed -n '1,40p' 40_Resources/UMN/Links.md | cut -c1-200; echo; echo "### mineru?"; command -v mineru mineru-parse 2>&1 | head -2; pip list 2>/dev/null | grep -i mineru | head -2
+```
 ```
 ### Brief standard/template
 30_Order/Standards/Ingestion/Brief Standard.md
@@ -10338,7 +10701,10 @@ Good/All college resources: [**Collegiate life, SUA, and activities**](http://ad
 ### mineru?
 /c/Users/anant/.local/bin/mineru
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; wc -l 40_Resources/UMN/Links.md; grep -n -i -E "isss|international|visa|opt|cpt|career|^#" 40_Resources/UMN/Links.md | cut -c1-220`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; wc -l 40_Resources/UMN/Links.md; grep -n -i -E "isss|international|visa|opt|cpt|career|^#" 40_Resources/UMN/Links.md | cut -c1-220
+```
 ```
 42 40_Resources/UMN/Links.md
 10:# UMN
@@ -10349,8 +10715,11 @@ Good/All college resources: [**Collegiate life, SUA, and activities**](http://ad
 40:# UROP
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion\Brief Standard.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260
+```
 ```
 13:**Alert:** On Sept. 30, 2026, USCIS announced a [Federal Register notice](https://www.federalregister.gov/public-inspection/2026-20187/[REDACTED]) that will increase certain H.R.-
 15:The new inflation-adjusted fees are effective Oct. 16, 2026. If you submit a request postmarked on or after Oct. 16, 2026, for a benefit that requires one of these fees, you must include the new fee for the specific benefit you are requesting. Any request 
@@ -10378,12 +10747,15 @@ grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260`
 205:To protect your privacy, please do not include any personal information in your feedback. Review our [Privacy Policy](https://www.uscis.gov/website-policies/privacy-and-legal-disclaimers).
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 mkdir -p fc/b8
 node fc.js scrape "https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf" fc/b8/g1055.md
 node fc.js scrape "https://www.uscis.gov/i-907" fc/b8/i907.md
 echo "--- G-1055 hits:"; grep -n -i -E "I-765|optional practical|\(c\)\(3\)|F-1|student" fc/b8/g1055.md | head -20 | cut -c1-260
-echo "--- I-907 hits:"; grep -n -i -E "\\$[0-9,]+" fc/b8/i907.md | head -15 | cut -c1-260`
+echo "--- I-907 hits:"; grep -n -i -E "\\$[0-9,]+" fc/b8/i907.md | head -15 | cut -c1-260
+```
 ```
 OK 120046 chars -> fc/b8/g1055.md | G-1055 Fee Schedule
 OK 9503 chars -> fc/b8/i907.md | Request for Premium Processing Service | USCIS
@@ -10411,7 +10783,10 @@ OK 9503 chars -> fc/b8/i907.md | Request for Premium Processing Service | USCIS
 --- I-907 hits:
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b8"; sed -n '488,492p;499,503p;512,520p' g1055.md | cut -c1-900; echo ....; grep -n -i -E "\(c\)\(3\)" g1055.md | cut -c1-700 | head -6; echo; grep -n -i "edition\|effective" g1055.md | head -5 | cut -c1-200; sed -n '310,312p' g1055.md | cut -c1-600; grep -n -F '*' g1055.md | grep -i -E "premium" | head -3 | cut -c1-300`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b8"; sed -n '488,492p;499,503p;512,520p' g1055.md | cut -c1-900; echo ....; grep -n -i -E "\(c\)\(3\)" g1055.md | cut -c1-700 | head -6; echo; grep -n -i "edition\|effective" g1055.md | head -5 | cut -c1-200; sed -n '310,312p' g1055.md | cut -c1-600; grep -n -F '*' g1055.md | grep -i -E "premium" | head -3 | cut -c1-300
+```
 ```
 **Appendix C: I-765, Application for Employment Authorization**
 
@@ -10439,7 +10814,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 307:| I-907 Request for Premium Processing Service (uscis.gov/i-907) | Form I-129 Petition for Nonimmigrant Worker | E-1, E-2, E-3, H-3, L1 (including Blanket L-1), O, P, Q, or TN nonimmigrant classification | Paper Filing: $2,965\* Online Filing: $2,965\* |
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js search "studyinthestates.dhs.gov F-1 optional practical training students reporting SEVP Portal unemployment days" fc/s_sits1.json - 8 | head -40
 echo ======
 cat > fc/u8.txt <<'EOF'
@@ -10453,7 +10830,8 @@ https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application
 https://isss.umn.edu/fstudents/employment/opt-cpt-comparison
 https://isss.umn.edu/fstudents/employment/cpt/basics
 EOF
-node fc.js multi fc/u8.txt fc/b9`
+node fc.js multi fc/u8.txt fc/b9
+```
 ```
 1. F-1 Optional Practical Training (OPT) | Study in the States
    https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/[REDACTED]
@@ -10507,13 +10885,19 @@ OK 59152 chars -> fc\b9\08.md | OPT vs. CPT | ISSS
 SCRAPE FAIL 429 https://isss.umn.edu/fstudents/employment/cpt/basics {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 11, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 31s, r
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; grep -n -E "^# |^## |Last updated" 01.md | head -20; `
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; grep -n -E "^# |^## |Last updated" 01.md | head -20; 
+```
 ```
 461:# Basics of Pre-Completion OPT
 550:Last updated: September 18, 2026
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; for f in 01 02 03 04 05 07 08; do s=$(grep -n -m1 -E "^# " $f.md | cut -d: -f1); e=$(grep -n -m1 "Last updated" $f.md | cut -d: -f1); echo "$f: content lines $s-$e"; done; echo; sed -n '461,552p' 01.md | grep -v '^\s*$' | cut -c1-900`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; for f in 01 02 03 04 05 07 08; do s=$(grep -n -m1 -E "^# " $f.md | cut -d: -f1); e=$(grep -n -m1 "Last updated" $f.md | cut -d: -f1); echo "$f: content lines $s-$e"; done; echo; sed -n '461,552p' 01.md | grep -v '^\s*$' | cut -c1-900
+```
 ```
 01: content lines 461-550
 02: content lines 461-588
@@ -10577,7 +10961,10 @@ Last updated: September 18, 2026
 ![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,590p' 02.md | grep -v '^\s*$' | cut -c1-1100`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,590p' 02.md | grep -v '^\s*$' | cut -c1-1100
+```
 ```
 # Applying for OPT
 There are 5 main steps to completing the OPT application and reporting process.
@@ -10657,7 +11044,10 @@ Last updated: September 23, 2026
 ![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,585p' 03.md | grep -v '^\s*$' | cut -c1-1000`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,585p' 03.md | grep -v '^\s*$' | cut -c1-1000
+```
 ```
 # Requirements During OPT
 _Note: This page refers to post-completion and STEM OPT.  Not all of the content applies to pre-completion OPT._
@@ -10731,7 +11121,10 @@ Last updated: September 15, 2026
 ISSS is a unit of the [Global Programs and Strategy Alliance](https://global.umn.edu/), the central international office for the University of Minnesota system.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,576p' 04.md | grep -v '^\s*$' | cut -c1-1000`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,576p' 04.md | grep -v '^\s*$' | cut -c1-1000
+```
 ```
 # Travel, Study, and More
 You may have questions about your status during OPT. Review the information here. If you still have questions, please [contact an ISSS adviser](https://isss.umn.edu/contact-us).
@@ -10800,7 +11193,10 @@ Last updated: September 15, 2026
 ![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 05 post-completion basics"; sed -n '461,531p' 05.md | grep -v '^\s*$' | cut -c1-800; echo; echo "######## 08 OPT vs CPT"; sed -n '461,482p' 08.md | grep -v '^\s*$' | cut -c1-900`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 05 post-completion basics"; sed -n '461,531p' 05.md | grep -v '^\s*$' | cut -c1-800; echo; echo "######## 08 OPT vs CPT"; sed -n '461,482p' 08.md | grep -v '^\s*$' | cut -c1-900
+```
 ```
 ######## 05 post-completion basics
 # Basics of Post-Completion OPT
@@ -10865,7 +11261,10 @@ Last updated: September 15, 2026
 ![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 07 STEM application"; sed -n '461,589p' 07.md | grep -v '^\s*$' | cut -c1-900`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 07 STEM application"; sed -n '461,589p' 07.md | grep -v '^\s*$' | cut -c1-900
+```
 ```
 ######## 07 STEM application
 # STEM OPT Application Process
@@ -10949,9 +11348,12 @@ Last updated: July 28, 2026
 ![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js scrape "https://www.uscis.gov/sites/default/files/document/policy-alerts/PM-602-0194-PendingApplicationsAdditionalHighRiskCountries-20260101.pdf" fc/b8/hold.md
-grep -v '^\s*$' fc/b8/hold.md | head -60 | cut -c1-700`
+grep -v '^\s*$' fc/b8/hold.md | head -60 | cut -c1-700
+```
 ```
 OK 17047 chars -> fc/b8/hold.md | [REDACTED].pdf
 <!-- url: https://www.uscis.gov/sites/default/files/document/policy-alerts/[REDACTED].pdf
@@ -11016,14 +11418,17 @@ Hold” outlined in this memorandum.
 On January 20, 2025, the President issued Executive Order (EO) 14161, titled _Protecting the United_
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 cat > fc/u9.txt <<'EOF'
 https://www.uscis.gov/working-in-the-united-states/stem-employment-pathways/nonimmigrant-pathways-for-stem-employment-in-the-united-states
 https://www.uscis.gov/working-in-the-united-states/entrepreneur-employment-pathways/nonimmigrant-or-parole-pathways-for-entrepreneur-employment-in-the-united-states
 https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement
 EOF
 node fc.js multi fc/u9.txt fc/b10
-echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exempt\|cap exempt" fc/b3/04.md | head -8 | cut -c1-500`
+echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exempt\|cap exempt" fc/b3/04.md | head -8 | cut -c1-500
+```
 ```
 OK 60581 chars -> fc\b10\01.md | Nonimmigrant Pathways for STEM Employment in the United States | USCIS
 OK 63834 chars -> fc\b10\02.md | Nonimmigrant or Parole Pathways for Entrepreneur Employment in the United States | USCIS
@@ -11034,7 +11439,10 @@ OK 17317 chars -> fc\b10\03.md | O-1 Visa: Individuals with Extraordinary Abilit
 144:- If you are currently employed in a cap-exempt position, you may engage in concurrent employment in a cap-subject position as long as you will continue to be employed in the cap-exempt position. You may begin working concurrently for the cap-subject employer as soon as they properly file a non-frivolous Form I-129 petition on your behalf, or as of the requested start date on that petition, whichever is later. As long as you continue your cap-exempt employment, were previously counted t
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; echo "######## H-1B page: cap-exempt section"; sed -n '120,150p' b3/04.md | grep -v '^\s*$' | cut -c1-1100; echo; echo "######## STEM pathways: headings + cap/F-1 relevant"; grep -n -E "^#{1,4} " b10/01.md | head -40 | cut -c1-160`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; echo "######## H-1B page: cap-exempt section"; sed -n '120,150p' b3/04.md | grep -v '^\s*$' | cut -c1-1100; echo; echo "######## STEM pathways: headings + cap/F-1 relevant"; grep -n -E "^#{1,4} " b10/01.md | head -40 | cut -c1-160
+```
 ```
 ######## H-1B page: cap-exempt section
 The H-1B classification has an annual numerical limit (cap) of 65,000 new statuses or visas each fiscal year (with certain deductions and additions based on H-1B1 set asides and usage). An additional 20,000 petitions filed on behalf of beneficiaries who have earned a master’s degree or higher from a U.S. institution of higher education are exempt from the cap. Additionally, H-1B workers who are petitioned for or employed at an institution of higher education or its affiliated or related nonprofit entities, a nonprofit research organization, or a government research organization, are not subject to this numerical cap.
@@ -11067,7 +11475,10 @@ For further information about the numerical cap, see our [H-1B Cap Season page](
 335:#### J-1 STEM Exchange Visitors
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '137,217p' 01.md | grep -v '^\s*$' | cut -c1-650`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '137,217p' 01.md | grep -v '^\s*$' | cut -c1-650
+```
 ```
 #### O-1A Extraordinary Ability
 The O-1A pathway allows nationally or internationally acclaimed talent across many fields the opportunity to work in the United States, and there is no annual numerical cap. There is no specified limit on the number of extensions a person can receive while working on an O-1.
@@ -11118,7 +11529,10 @@ You will be working on a temporary basis as a nonimmigrant for a specified perio
 Initially, you may be granted up to 3 years to work in the United States (also known as the “validity period”). After your initial validity period, you may be granted extensions of up to 1 year. There is no specified limit to the number of extensions you can obtain.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; echo "### entrepreneur page headings"; grep -n -E "^#{1,4} " 02.md | cut -c1-170 | head -40; echo; echo "### L-1 section (STEM page)"; sed -n '218,260p' 01.md | grep -v '^\s*$' | cut -c1-500 | head -22`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; echo "### entrepreneur page headings"; grep -n -E "^#{1,4} " 02.md | cut -c1-170 | head -40; echo; echo "### L-1 section (STEM page)"; sed -n '218,260p' 01.md | grep -v '^\s*$' | cut -c1-500 | head -22
+```
 ```
 ### entrepreneur page headings
 5:# Nonimmigrant or Parole Pathways for Entrepreneur Employment in the United States
@@ -11155,7 +11569,10 @@ L-1A managerial or executive positions may correlate with STEM occupations, depe
 L-1B specialized knowledge frequently overlaps with STEM occupations, as it involves “special knowledge of your employer’s product, service, research, equipment, techniques, management, or other interests and their application in international markets, or an advanced level of knowledge or expertise in your employer’s processes and procedures.” Some of the evidence you may submit to demonstrate that your overseas employment was in a specialized knowledge capacity includes:
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '11,30p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....; sed -n '117,135p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....F-1 OPT section; sed -n '196,222p' 02.md | grep -v '^\s*$' | cut -c1-700`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '11,30p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....; sed -n '117,135p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....F-1 OPT section; sed -n '196,222p' 02.md | grep -v '^\s*$' | cut -c1-700
+```
 ```
 #### International Entrepreneur Rule
 Under the [International Entrepreneur Rule](https://www.uscis.gov/working-in-the-united-states/international-entrepreneur-rule), the Department of Homeland Security (DHS) may use its authority to grant a period of authorized stay, on a case-by-case basis, to alien entrepreneurs who show that their stay in the United States would provide a significant public benefit through their business venture and that they merit a favorable exercise of discretion. This period of authorized stay is called “parole.”
@@ -11218,12 +11635,18 @@ _**How do I get a 24-month STEM extension of my post-completion OPT?**_\
 If you have completed a qualifying STEM degree, and you are currently in an approved post-completion OPT period based on a designated STEM degree, you may be eligible to apply for a 24-month STEM extension of your post-completion OPT. For a STEM degree to qualify, it must appear on the [DHS STEM Designated Degree Program List (PDF)](https://www.ice.gov/doclib/sevis/pdf/stemList2022.pdf). If you want to apply for a STEM extension, you must apply for the extension with USCIS before your current OPT work authorization expires, but no more than 90 days before the expiration of your OPT. Additionally, you must apply within 60 days after your DSO enters the recommendation into your SEVIS record.\
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "regular cap.*(first|then|before)|first.*regular cap|advanced degree exemption.*(second|subsequent|remaining|after)|master's cap.*(second|remaining|after)|selected.*under the regular cap" fc/wsel.txt | head -12 | cut -c1-220`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "regular cap.*(first|then|before)|first.*regular cap|advanced degree exemption.*(second|subsequent|remaining|after)|master's cap.*(second|remaining|after)|selected.*under the regular cap" fc/wsel.txt | head -12 | cut -c1-220
+```
 ```
 344:those for the advanced degree exemption, submitted on or after the
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "advanced degree" fc/wsel.txt | sed -n '1,40p' | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "advanced degree" fc/wsel.txt | sed -n '1,40p' | cut -c1-200
+```
 ```
 344:those for the advanced degree exemption, submitted on or after the 
 947:benefit from the existing advanced degree exemption and cap selection 
@@ -11267,7 +11690,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 10393:than needed to meet the H-1B regular cap or advanced degree exemption
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '8460,8500p;8924,8945p' fc/wsel.txt | grep -a -v '^\s*$' | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '8460,8500p;8924,8945p' fc/wsel.txt | grep -a -v '^\s*$' | cut -c1-200
+```
 ```
 numerical allocations, USCIS randomly selects from among unique 
 beneficiaries for whom registrations were properly submitted, the 
@@ -11332,9 +11758,12 @@ impact with minor loss of accuracy.
     Table 13 compares the probabilities of being selected and
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js scrape "https://flag.dol.gov/wage-data/wage-data-downloads" fc/b8/oflc.md 3000
-grep -n -i -E "zip|2026|2025|download" fc/b8/oflc.md | head -20 | cut -c1-240`
+grep -n -i -E "zip|2026|2025|download" fc/b8/oflc.md | head -20 | cut -c1-240
+```
 ```
 OK 1361 chars -> fc/b8/oflc.md | OFLC Wage Data Downloads | Flag.dol.gov
 1:<!-- url: https://flag.dol.gov/wage-data/wage-data-downloads
@@ -11352,8 +11781,11 @@ OK 1361 chars -> fc/b8/oflc.md | OFLC Wage Data Downloads | Flag.dol.gov
 27:| 7/2021 - 6/2022 | July 1, 2021 | [2021-2022 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2021-22.zip) (.zip, 11MB) |
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-rm -rf fc/wages26 && mkdir -p fc/wages26 && cd fc/wages26 && curl -sL -m 120 -o w.zip -w "zip http %{http_code} %{size_download}\n" "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip" && (unzip -o -q w.zip 2>&1 | head -3 || true); ls -la | head -20`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+rm -rf fc/wages26 && mkdir -p fc/wages26 && cd fc/wages26 && curl -sL -m 120 -o w.zip -w "zip http %{http_code} %{size_download}\n" "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip" && (unzip -o -q w.zip 2>&1 | head -3 || true); ls -la | head -20
+```
 ```
 zip http 200 12652309
 total 62756
@@ -11370,7 +11802,10 @@ drwxr-xr-x 1 anant 197609        0 Oct 23 16:33 ..
 -rw-r--r-- 1 anant 197609   107296 Jun 15 07:36 xwalk_plus.csv
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; head -2 ALC_Export.csv | cut -c1-300; echo; head -2 Geography.csv | cut -c1-300; echo; grep -i "minneapolis" Geography.csv | head -3 | cut -c1-300; echo; grep -E "15-1252|15-1251|15-1253|15-1211|15-1299" oes_soc_occs.csv | head -8 | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; head -2 ALC_Export.csv | cut -c1-300; echo; head -2 Geography.csv | cut -c1-300; echo; grep -i "minneapolis" Geography.csv | head -3 | cut -c1-300; echo; grep -E "15-1252|15-1251|15-1253|15-1211|15-1299" oes_soc_occs.csv | head -8 | cut -c1-200
+```
 ```
 "Area","SocCode","GeoLvl","Level1","Level2","Level3","Level4","Average","Label"
 "10180","11-1011",1,"49.19","74.04","98.88","123.73","99.14",""
@@ -11389,7 +11824,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 "15-1299","Computer Occupations, All Other","All computer occupations not listed separately."
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; echo "Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)"; grep -E '^"33460","15-1252"' ALC_Export.csv; echo "--- Data scientists/others in Minneapolis:"; for s in 15-1221 15-2051 15-1299 15-1211 15-1244 15-1241; do grep -E "^\"33460\",\"$s\"" ALC_Export.csv; done; echo "--- national (area 99999?) software dev:"; grep -E '^"99999","15-1252"|^"[0-9]*","15-1252",0' ALC_Export.csv | head -3; echo "--- SOC names:"; grep -E '^"(15-1221|15-2051|15-1244|15-1241)"' oes_soc_occs.csv | cut -c1-90; echo; grep -i -E "wage year|effective|OEWS" /dev/null; echo "Level definitions row sample for MN statewide:"; grep -E '^"[0-9]*","15-1252",1' ALC_Export.csv | head -0`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; echo "Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)"; grep -E '^"33460","15-1252"' ALC_Export.csv; echo "--- Data scientists/others in Minneapolis:"; for s in 15-1221 15-2051 15-1299 15-1211 15-1244 15-1241; do grep -E "^\"33460\",\"$s\"" ALC_Export.csv; done; echo "--- national (area 99999?) software dev:"; grep -E '^"99999","15-1252"|^"[0-9]*","15-1252",0' ALC_Export.csv | head -3; echo "--- SOC names:"; grep -E '^"(15-1221|15-2051|15-1244|15-1241)"' oes_soc_occs.csv | cut -c1-90; echo; grep -i -E "wage year|effective|OEWS" /dev/null; echo "Level definitions row sample for MN statewide:"; grep -E '^"[0-9]*","15-1252",1' ALC_Export.csv | head -0
+```
 ```
 Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)
 "33460","15-1252",1,"44.05","53.33","62.60","71.88","62.70",""
@@ -11410,7 +11848,9 @@ Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)
 Level definitions row sample for MN statewide:
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
 const fs=require("fs");
 const geo=fs.readFileSync("Geography.csv","utf8").split(/\r?\n/);
 const name={}; for(const l of geo){const m=l.match(/^"(\d+)","([^"]*)"/); if(m) name[m[1]]=m[2];}
@@ -11418,7 +11858,8 @@ const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.i
 const want=["33460","41940","41860","42660","35620","12420","16980","14460","19740","19100","31080","47900"];
 for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(want.includes(c[0])){const [a,s,g,l1,l2,l3,l4]=c; const f=x=>Math.round(parseFloat(x)*2080).toLocaleString("en-US"); console.log((name[a]||a).padEnd(52), "L1 $"+f(l1).padStart(8), "L2 $"+f(l2).padStart(8), "L3 $"+f(l3).padStart(8), "L4 $"+f(l4).padStart(8), " (hourly L1 "+l1+", L4 "+l4+")");}}
 console.log("count rows for 15-1252:",rows.length);
-'; echo; echo "Minneapolis annual (x2080): L1 $(echo '44.05*2080' | bc 2>/dev/null) ..."; ls *.pdf | head -2`
+'; echo; echo "Minneapolis annual (x2080): L1 $(echo '44.05*2080' | bc 2>/dev/null) ..."; ls *.pdf | head -2
+```
 ```
 Austin-Round Rock-San Marcos, TX                     L1 $  95,888 L2 $ 119,642 L3 $ 143,395 L4 $ 167,149  (hourly L1 46.10, L4 80.36)
 Boston-Cambridge-Newton, MA-NH                       L1 $ 114,275 L2 $ 138,237 L3 $ 162,198 L4 $ 186,160  (hourly L1 54.94, L4 89.50)
@@ -11438,8 +11879,11 @@ Minneapolis annual (x2080): L1  ...
 [REDACTED].pdf
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js search "University of Minnesota Twin Cities academic calendar spring 2028 last day of semester finals" fc/s_cal.json - 6 | head -30`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js search "University of Minnesota Twin Cities academic calendar spring 2028 last day of semester finals" fc/s_cal.json - 6 | head -30
+```
 ```
 1. Academic calendar | Twin Cities One Stop Student Services
    https://onestop.umn.edu/calendar/academic-calendar
@@ -11466,9 +11910,12 @@ node fc.js search "University of Minnesota Twin Cities academic calendar spring 
    The academic calendar has a fall and a spring semester, each of which includes a minimum of 70 days of instruction, a maximum of 75 days of instruction, and ...
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
 node fc.js scrape "https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar" fc/b8/cal2728.md
-grep -v '^\s*$' fc/b8/cal2728.md | sed -n '1,90p' | cut -c1-220`
+grep -v '^\s*$' fc/b8/cal2728.md | sed -n '1,90p' | cut -c1-220
+```
 ```
 OK 6491 chars -> fc/b8/cal2728.md | 2027-28 Twin Cities and Rochester calendar | Academic Support Resources
 <!-- url: https://asr.umn.edu/[REDACTED]
@@ -11553,7 +12000,9 @@ Menu![UMN block M wordmark](https://asr.umn.edu/themes/custom/folwell/images/bra
 |  |  |
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `node -e '
+- `Bash`
+```bash
+node -e '
 const d=(s)=>new Date(s+"T12:00:00Z"); const f=(x)=>x.toISOString().slice(0,10)+" "+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][x.getUTCDay()];
 const add=(x,n)=>new Date(x.getTime()+n*86400000);
 const addM=(s,m)=>{const x=d(s); x.setUTCMonth(x.getUTCMonth()+m); return x;};
@@ -11572,7 +12021,8 @@ console.log("OPT fee NPRM + 323d (D/S analog) final:",f(add(opt,323)),"; effecti
 let x=d("2027-03-17"),n=0; while(n<30){x=add(x,1); const w=x.getUTCDay(); if(w!==0&&w!==6) n++;} console.log("30 business days after 2027-03-17 (no holidays):",f(x));
 let y=d("2028-02-10"),m=0; while(m<30){y=add(y,1); const w=y.getUTCDay(); if(w!==0&&w!==6) m++;} console.log("30 business days after 2028-02-10:",f(y));
 console.log("5 months after 2028-02-10:",f(addM("2028-02-10",5)),"; after 2027-03-17:",f(addM("2027-03-17",5)));
-'`
+'
+```
 ```
 CHECK: Fall 2026 (ISSS says Sep 14 / Sep 24 / Feb 21)  end of term 2026-12-23 Wed
   earliest ISSS request (end-100d): 2026-09-14 Mon
@@ -11612,33 +12062,33 @@ OPT fee NPRM + 323d (D/S analog) final: 2027-08-27 Fri ; effective +60: 2027-10-
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\October Meeting Transcript.md`
 ```diff
 - type: input
-status: seed
-created:
-input_kind: transcript
-source_url:
-related_progress: []
-tags:
-  - transcript
-next:
----
+- status: seed
+- created:
+- input_kind: transcript
+- source_url:
+- related_progress: []
+- tags:
+-   - transcript
+- next:
+- ---
 + type: input
-status: seed
-created: 2026-10-23
-input_kind: transcript
-source_url:
-related_progress:
-  - "[[VISA Plan]]"
-  - "[[ISSS October Meeting Brief]]"
-tags:
-  - transcript
-next: "[[ISSS October Meeting Brief]]"
----
++ status: seed
++ created: 2026-10-23
++ input_kind: transcript
++ source_url:
++ related_progress:
++   - "[[VISA Plan]]"
++   - "[[ISSS October Meeting Brief]]"
++ tags:
++   - transcript
++ next: "[[ISSS October Meeting Brief]]"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Links.md`
 ```diff
 - [Career Pathway](https://cseumn.pathwayu.com/journey)
 + [Career Pathway](https://cseumn.pathwayu.com/journey)
-[ISSS: Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt): eligibility, hours, how much OPT time it uses up, and the 100-day request window. Part of [[VISA Plan]].
++ [ISSS: Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt): eligibility, hours, how much OPT time it uses up, and the 100-day request window. Part of [[VISA Plan]].
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\ISSS October Meeting Brief.md`
 ```
@@ -11880,7 +12330,9 @@ Two recent examples took 96 and 323 days, and the advisor says the second took "
 - - [October Meeting Transcript](ISSS/October%20Meeting%20Transcript.md): the advisor's explanation of the comment period.
 + - [[October Meeting Transcript]]: the advisor's explanation of the comment period.
 ```
-- `Bash` -- `node -e '
+- `Bash`
+```bash
+node -e '
 const d=s=>new Date(s+"T12:00:00Z"); const add=(x,n)=>new Date(x.getTime()+n*86400000);
 const dn=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; const f=x=>x.toISOString().slice(0,10)+" "+dn[x.getUTCDay()];
 const nextBiz=x=>{while(x.getUTCDay()===0||x.getUTCDay()===6)x=add(x,1);return x;};
@@ -11898,7 +12350,8 @@ console.log("\nSTEM if card runs to 2029-07-09: ISSS request opens "+f(add(d("20
 console.log("If post-OPT starts 2028-05-11 (12 months): ends "+f(add(d("2029-05-10"),0)));
 console.log("Dec 23 2027 early-finish path: ISSS request opens "+f(add(d("2027-12-23"),-100)));
 console.log("Days between 2026-10-23 and 2027-03-08:",Math.round((d("2027-03-08")-d("2026-10-23"))/86400000));
-'`
+'
+```
 ```
 PRE-OPT summer 2027 (no US holidays modeled)
 start 2027-05-17 Mon | ISSS request opens 2027-02-06 Sat -> submit 2027-02-08 Mon | I-20 by (10 biz days) 2027-02-22 Mon | USCIS filing opens 2027-02-16 Tue | file on 2027-02-22 Mon | USCIS must receive by (I-20+30d) 2027-03-24 Wed | premium decision by 2027-04-05 Mon | 5 months later 2027-07-22 Thu
@@ -12095,21 +12548,23 @@ The advisor's strongest warning was about how I describe projects and unpaid wor
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 ```diff
 - ### What To Say And What Not To Say
-| Safe | Risky |
+- | Safe | Risky |
 + ### What To Say And What Not To Say
-These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
-| Safe | Risky |
++ These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
++ | Safe | Risky |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 ```diff
 - These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
-| Safe | Risky |
+- | Safe | Risky |
 + > [!NOTE]
-> These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
-
-| Safe | Risky |
++ > These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
++ 
++ | Safe | Risky |
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
 const fs=require("fs");
 const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.startsWith("\"33460\","));
 const names={"15-1252":"Software Developers","15-1221":"Computer & Information Research Scientists","15-2051":"Data Scientists","15-1211":"Computer Systems Analysts","15-1241":"Computer Network Architects","15-1244":"Network & Systems Admins","15-1299":"Computer Occupations, All Other"};
@@ -12121,7 +12576,8 @@ for(const o of [85000,95000,105000,115000,125000,135000,145000,155000]){let lv="
 console.log("\nIllustration: chance to be picked at least once in N independent draws using TRAC modeled per-draw odds");
 const p={I:0.1529,II:0.3058,III:0.4587,IV:0.6116, random:0.2959, FY25actual:135137/470342, FY26actual:120141/343981};
 for(const k of Object.keys(p)){const q=1-p[k]; console.log(k.padEnd(10),"per-draw "+(p[k]*100).toFixed(1)+"%","| 1 draw "+(p[k]*100).toFixed(1)+"% | 2 draws "+((1-q*q)*100).toFixed(1)+"% | 3 draws "+((1-q*q*q)*100).toFixed(1)+"%");}
-'; node -e 'const r=(a,b)=>console.log(a,(b*2080).toFixed(0));'`
+'; node -e 'const r=(a,b)=>console.log(a,(b*2080).toFixed(0));'
+```
 ```
 Twin Cities annual (hourly x 2080), wage year 2026-27
 Computer Systems Analysts                      $84,282  $99,445  $114,629  $129,792
@@ -12307,34 +12763,34 @@ The draw itself, the wage rule proposal, a $103,265 petition fee that employers 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
 ```diff
 - The job type is an occupational code, and software developers are 15-1252.
-| Occupation, Twin Cities |
+- | Occupation, Twin Cities |
 + The job type is an occupational code, and software developers are 15-1252.
-#### The Twin Cities Thresholds
-| Occupation, Twin Cities |
++ #### The Twin Cities Thresholds
++ | Occupation, Twin Cities |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
 ```diff
 - Here is how some offers for a software developer there would land:
-| Offer | Wage level | Tickets |
+- | Offer | Wage level | Tickets |
 + Here is how some offers for a software developer there would land:
-#### Offers And Their Levels
-| Offer | Wage level | Tickets |
++ #### Offers And Their Levels
++ | Offer | Wage level | Tickets |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
 ```diff
 - | San Jose | $152,797 | $255,653 |
-So the same $150,000
+- So the same $150,000
 + | San Jose | $152,797 | $255,653 |
-#### Reading The City Table
-So the same $150,000
++ #### Reading The City Table
++ So the same $150,000
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
 ```diff
 - Draws are not guaranteed to be independent, so this table is an illustration and not a forecast.
-| Per-draw chance used |
+- | Per-draw chance used |
 + Draws are not guaranteed to be independent, so this table is an illustration and not a forecast.
-### The Illustration
-| Per-draw chance used |
++ ### The Illustration
++ | Per-draw chance used |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
 ```diff
@@ -12456,10 +12912,10 @@ I use it only when all of these hold: a written offer for a role directly relate
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Pre-Completion OPT.md`
 ```diff
 - A student who is approved for three months and finds no internship still loses the three months.
-| What I use |
+- | What I use |
 + A student who is approved for three months and finds no internship still loses the three months.
-### The Arithmetic
-| What I use |
++ ### The Arithmetic
++ | What I use |
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Program.md`
 ```
@@ -12644,10 +13100,10 @@ This is the dated route from now to an H-1B start for a student who finishes in 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\2028 Graduation Timeline.md`
 ```diff
 - Dates assume the rules in force today, with 60-day OPT windows.
-
-## The Route By Date
+- 
+- ## The Route By Date
 + Dates assume the rules in force today, with 60-day OPT windows.
-## The Route By Date
++ ## The Route By Date
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Junior Year Internship Decision.md`
 ```
@@ -12752,7 +13208,7 @@ I use it only if all are true: a written offer in computer science, a start date
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\VISA Plan.md`
-```
+````
 ---
 type: index
 status: sprout
@@ -12854,72 +13310,72 @@ SORT file.name ASC
 - [ICE SEVIS What's New](https://www.ice.gov/sevis/whats-new) and [Study in the States](https://studyinthestates.dhs.gov/).
 - [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]).
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
 ```diff
 -   - "[[Companies giving OPT & CPT]]"
----
+- ---
 +   - "[[Companies giving OPT & CPT]]"
-  - "[[US Immigration Rules Explained]]"
-  - "[[ISSS October Meeting Brief]]"
-  - "[[OPT Playbook]]"
----
++   - "[[US Immigration Rules Explained]]"
++   - "[[ISSS October Meeting Brief]]"
++   - "[[OPT Playbook]]"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
 ```diff
 - ## What The Status Is
-==F-1 status is granted
+- ==F-1 status is granted
 + ## In Plain Words
-F-1 is the category the U.S. puts international college students in. It says: you may be in the country because you are studying full-time at an approved school. It is not a job permit. Nothing about F-1 lets me take an off-campus job by itself.
-Three different things are often mixed up. The **visa** is a sticker in my passport from a consulate abroad, used to ask for entry. The **status** is the category I am in once admitted, F-1, which I keep by following the rules. **Work permission** is a separate permit that CPT or OPT provides. I can be in perfect F-1 status and still not be allowed to start an internship. That is exactly why my sophomore-year offer in March could not be used. [[US Immigration Rules Explained]] has the full beginner guide, including every acronym.
-## What The Status Is
-==F-1 status is granted
++ F-1 is the category the U.S. puts international college students in. It says: you may be in the country because you are studying full-time at an approved school. It is not a job permit. Nothing about F-1 lets me take an off-campus job by itself.
++ Three different things are often mixed up. The **visa** is a sticker in my passport from a consulate abroad, used to ask for entry. The **status** is the category I am in once admitted, F-1, which I keep by following the rules. **Work permission** is a separate permit that CPT or OPT provides. I can be in perfect F-1 status and still not be allowed to start an internship. That is exactly why my sophomore-year offer in March could not be used. [[US Immigration Rules Explained]] has the full beginner guide, including every acronym.
++ ## What The Status Is
++ ==F-1 status is granted
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
 ```diff
 - I am at the University of Minnesota Twin Cities, a junior in Fall 2026, with a computer science degree. The internship research notes already filter for a Spring 2028 graduation ([[Companies giving OPT & CPT]]), so every window here counts from a program end date in spring 2028. The exact date on the I-20 decides all of them, so confirm it with ISSS before trusting a calendar.
 + I am at the University of Minnesota Twin Cities, a junior in Fall 2026, with a computer science degree. The internship research notes already filter for a Spring 2028 graduation ([[Companies giving OPT & CPT]]), so every window here counts from a program end date in spring 2028.
-The ISSS advisor explained what that date is. The dates on my first I-20 were only estimates. If I finish all degree requirements earlier, the end date shortens to the end of that semester. ISSS counts the end of the term as the date of degree completion, and UMN's official calendar puts the end of the Spring 2028 term at May 10, 2028 ([[2028 Graduation Timeline]], [[ISSS October Meeting Brief]]). She suggested a detailed planning talk at the start of my last semester, and ISSS offers drop-in hours, email, and appointments.
++ The ISSS advisor explained what that date is. The dates on my first I-20 were only estimates. If I finish all degree requirements earlier, the end date shortens to the end of that semester. ISSS counts the end of the term as the date of degree completion, and UMN's official calendar puts the end of the Spring 2028 term at May 10, 2028 ([[2028 Graduation Timeline]], [[ISSS October Meeting Brief]]). She suggested a detailed planning talk at the start of my last semester, and ISSS offers drop-in hours, email, and appointments.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
 ```diff
 - ## Failure Modes
-- Working off campus without authorization
+- - Working off campus without authorization
 + ## Words Used In This Note
-- *DSO:* a designated school official, the staff member at ISSS who signs my I-20.
-- *SEVIS:* the government database that tracks every F-1 student.
-- *I-94:* the record of my entry that shows how long I may stay.
-- *CIP code:* a six-digit code next to my major on the I-20.
-- *Duration of status:* being allowed to stay as long as I keep studying.
-## Failure Modes
-- Working off campus without authorization
++ - *DSO:* a designated school official, the staff member at ISSS who signs my I-20.
++ - *SEVIS:* the government database that tracks every F-1 student.
++ - *I-94:* the record of my entry that shows how long I may stay.
++ - *CIP code:* a six-digit code next to my major on the I-20.
++ - *Duration of status:* being allowed to stay as long as I keep studying.
++ ## Failure Modes
++ - Working off campus without authorization
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```diff
 -   - "[[STEM OPT Extension]]"
-  - "[[Junior Year Internship Decision]]"
----
+-   - "[[Junior Year Internship Decision]]"
+- ---
 +   - "[[STEM OPT Extension]]"
-  - "[[Junior Year Internship Decision]]"
-  - "[[OPT Playbook]]"
-  - "[[ISSS October Meeting Brief]]"
-  - "[[US Immigration Rules Explained]]"
----
++   - "[[Junior Year Internship Decision]]"
++   - "[[OPT Playbook]]"
++   - "[[ISSS October Meeting Brief]]"
++   - "[[US Immigration Rules Explained]]"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```diff
 - ## The Options Compared
-| Option |
+- | Option |
 + ## In Plain Words
-The rule for F-1 students is simple to state: no work unless a specific exception applies. Each exception is a different permission, from a different office, with different hours. Working without the right one, even for no pay, can put my F-1 status and my later OPT at risk. The table below is the complete list, and the sections after it explain each in plain terms. "Authorizer" means who gives the permission: it is the law itself for on-campus work, my school for CPT, and the government agency USCIS for OPT.
-## The Options Compared
-| Option |
++ The rule for F-1 students is simple to state: no work unless a specific exception applies. Each exception is a different permission, from a different office, with different hours. Working without the right one, even for no pay, can put my F-1 status and my later OPT at risk. The table below is the complete list, and the sections after it explain each in plain terms. "Authorizer" means who gives the permission: it is the law itself for on-campus work, my school for CPT, and the government agency USCIS for OPT.
++ ## The Options Compared
++ | Option |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```diff
 - - Remote work from abroad for a foreign employer. No source I read addresses it, so treat it as unresolved until ISSS answers in writing ([[Junior Year Internship Decision]]).
 + - Remote work done while sitting in the U.S. That is U.S. employment, so it needs CPT or OPT. The ISSS advisor drew the line at location: "you are not tied by F-1 regulations when you physically are in another country," so an internship done while physically abroad is not covered by these rules. I still need ISSS to confirm how it affects my status, summer enrollment, and re-entry ([[ISSS October Meeting Brief]], [[Junior Year Internship Decision]]).
-- Volunteer or unpaid roles described as jobs. The advisor warned that students have been asked by the government to explain work done without authorization, and that a group project should not be presented as an employment opportunity.
++ - Volunteer or unpaid roles described as jobs. The advisor warned that students have been asked by the government to explain work done without authorization, and that a group project should not be presented as an employment opportunity.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```diff
@@ -12929,14 +13385,14 @@ The rule for F-1 students is simple to state: no work unless a specific exceptio
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```diff
 - ## UMN Snapshot
-ISSS says international students "must always obtain work authorization to work off-campus,"
+- ISSS says international students "must always obtain work authorization to work off-campus,"
 + ## Words Used In This Note
-- *Incident to status:* allowed automatically because of F-1 status, with no application.
-- *Authorization:* the specific permission that makes a job legal.
-- *Educationally affiliated site:* an off-campus place tied to the curriculum or to contracted research.
-- *Unauthorized employment:* working without the right permission, paid or not.
-## UMN Snapshot
-ISSS says international students "must always obtain work authorization to work off-campus,"
++ - *Incident to status:* allowed automatically because of F-1 status, with no application.
++ - *Authorization:* the specific permission that makes a job legal.
++ - *Educationally affiliated site:* an off-campus place tied to the curriculum or to contracted research.
++ - *Unauthorized employment:* working without the right permission, paid or not.
++ ## UMN Snapshot
++ ISSS says international students "must always obtain work authorization to work off-campus,"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
 ```diff
@@ -12947,79 +13403,79 @@ ISSS says international students "must always obtain work authorization to work 
 ```diff
 - ## The Two Layers
 + ## In Plain Words
-Two groups of people decide what an international student can actually do. The first is **SEVP**, a government office that approves schools and watches the data. The second is the school's own staff, called **DSOs**, who sign each student's papers. If a student has a question about work, the DSO is the person to ask, and at UMN that is an advisor at ISSS. I met one on October 23. She was careful to say what she could and could not answer: she handles work authorization, she is "not an H-1B advisor," and she sent resume and employer questions to Career Services. ISSS offers drop-in hours, email, and appointments ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
-## The Two Layers
++ Two groups of people decide what an international student can actually do. The first is **SEVP**, a government office that approves schools and watches the data. The second is the school's own staff, called **DSOs**, who sign each student's papers. If a student has a question about work, the DSO is the person to ask, and at UMN that is an advisor at ISSS. I met one on October 23. She was careful to say what she could and could not answer: she handles work authorization, she is "not an H-1B advisor," and she sent resume and employer questions to Career Services. ISSS offers drop-in hours, email, and appointments ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
++ ## The Two Layers
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
 ```diff
 -   - "[[Current News]]"
----
+- ---
 +   - "[[Current News]]"
-  - "[[ISSS October Meeting Brief]]"
-  - "[[US Immigration Rules Explained]]"
----
++   - "[[ISSS October Meeting Brief]]"
++   - "[[US Immigration Rules Explained]]"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
 ```diff
 - ## Working With ISSS
-- Ask in writing, and keep the reply.
+- - Ask in writing, and keep the reply.
 + ## Words Used In This Note
-- *SEVP:* the Student and Exchange Visitor Program, an office inside ICE.
-- *SEVIS:* the database where my record lives.
-- *DSO and PDSO:* the school official who signs my I-20, and the lead one.
-- *Certification:* SEVP's approval of a school to enroll F-1 students.
-- *Broadcast message:* an email from SEVP to DSOs that explains how to apply a rule.
-## Working With ISSS
-- Ask in writing, and keep the reply.
++ - *SEVP:* the Student and Exchange Visitor Program, an office inside ICE.
++ - *SEVIS:* the database where my record lives.
++ - *DSO and PDSO:* the school official who signs my I-20, and the lead one.
++ - *Certification:* SEVP's approval of a school to enroll F-1 students.
++ - *Broadcast message:* an email from SEVP to DSOs that explains how to apply a rule.
++ ## Working With ISSS
++ - Ask in writing, and keep the reply.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
 ```diff
 -   - "[[OPT Program]]"
-  - "[[Junior Year Internship Decision]]"
----
+-   - "[[Junior Year Internship Decision]]"
+- ---
 +   - "[[OPT Program]]"
-  - "[[Junior Year Internship Decision]]"
-  - "[[OPT Playbook]]"
-  - "[[ISSS October Meeting Brief]]"
-  - "[[US Immigration Rules Explained]]"
----
++   - "[[Junior Year Internship Decision]]"
++   - "[[OPT Playbook]]"
++   - "[[ISSS October Meeting Brief]]"
++   - "[[US Immigration Rules Explained]]"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
 ```diff
 - ## What CPT Is
-==CPT is training
+- ==CPT is training
 + ## In Plain Words
-Think of CPT as an internship that my school treats like a class. The school, not the government, approves it, usually within a couple of weeks, and it shows up as a note on my I-20. Because it counts as part of my degree, it does not use up my OPT. In August 2026 the federal government told schools to approve CPT only when the training is required of every student in the degree. Most computer science degrees, including mine as far as I know, do not require an internship, so UMN stopped approving the elective kind. The advisor put it this way: the pause on elective CPT "is really unfortunate," a lawsuit is going on, and "we do not know what CPT will look like going forward" ([[ISSS October Meeting Brief]]).
-## What CPT Is
-==CPT is training
++ Think of CPT as an internship that my school treats like a class. The school, not the government, approves it, usually within a couple of weeks, and it shows up as a note on my I-20. Because it counts as part of my degree, it does not use up my OPT. In August 2026 the federal government told schools to approve CPT only when the training is required of every student in the degree. Most computer science degrees, including mine as far as I know, do not require an internship, so UMN stopped approving the elective kind. The advisor put it this way: the pause on elective CPT "is really unfortunate," a lawsuit is going on, and "we do not know what CPT will look like going forward" ([[ISSS October Meeting Brief]]).
++ ## What CPT Is
++ ==CPT is training
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
 ```diff
 - ## Two Readings Of "Integral"
 + ## How CPT Worked At UMN, Step By Step
-This is the process before August, from ISSS's OPT-versus-CPT page and the advisor. If CPT returns, I run it the same week.
-1. **Have a written offer.** CPT needs a specific internship or co-op offer in my major, with exact start and end dates, because an approval is for one employer.
-2. **Take the ISSS CPT online workshop** and save the completion certificate.
-3. **Meet my academic advisor** to confirm the work relates to my major.
-4. **Register for a CPT course.** Most authorizations require at least one course credit, such as an internship reflection course, a CPT course, or an independent or directed study. The course instructor signs the Course Instructor Verification form.
-5. **Submit the CPT request in MyISSS** and wait for the new I-20. ISSS takes up to 7 business days. The advisor said ISSS could approve within about 2 weeks if everything was ready, and ISSS tells students to allow 2 to 3 weeks after an offer.
-6. **Do not start until the new I-20 is in my hands.** Page 2 lists the employer, address, and dates.
-There is no fee. Part-time CPT has no limit, but 12 months of full-time CPT ends my right to post-completion OPT at this degree level. The CSE co-op route uses the same steps through the course CSE 4896.
-### Why Pre-Completion OPT Was Rare
-The advisor said ISSS did not generally do pre-completion OPT before the last two months because CPT was "a lot more streamlined." ISSS's page also calls pre-completion OPT a category that is "rarely used." That is why UMN has no pre-completion workshop and is now building its request process ([[Pre-Completion OPT]]).
-## Two Readings Of "Integral"
++ This is the process before August, from ISSS's OPT-versus-CPT page and the advisor. If CPT returns, I run it the same week.
++ 1. **Have a written offer.** CPT needs a specific internship or co-op offer in my major, with exact start and end dates, because an approval is for one employer.
++ 2. **Take the ISSS CPT online workshop** and save the completion certificate.
++ 3. **Meet my academic advisor** to confirm the work relates to my major.
++ 4. **Register for a CPT course.** Most authorizations require at least one course credit, such as an internship reflection course, a CPT course, or an independent or directed study. The course instructor signs the Course Instructor Verification form.
++ 5. **Submit the CPT request in MyISSS** and wait for the new I-20. ISSS takes up to 7 business days. The advisor said ISSS could approve within about 2 weeks if everything was ready, and ISSS tells students to allow 2 to 3 weeks after an offer.
++ 6. **Do not start until the new I-20 is in my hands.** Page 2 lists the employer, address, and dates.
++ There is no fee. Part-time CPT has no limit, but 12 months of full-time CPT ends my right to post-completion OPT at this degree level. The CSE co-op route uses the same steps through the course CSE 4896.
++ ### Why Pre-Completion OPT Was Rare
++ The advisor said ISSS did not generally do pre-completion OPT before the last two months because CPT was "a lot more streamlined." ISSS's page also calls pre-completion OPT a category that is "rarely used." That is why UMN has no pre-completion workshop and is now building its request process ([[Pre-Completion OPT]]).
++ ## Two Readings Of "Integral"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
 ```diff
 - ## Failure Modes
-- Starting work on an offer letter
+- - Starting work on an offer letter
 + ## Words Used In This Note
-- *Integral:* essential to completeness, as the government now defines it, so the training must be required of everyone in the degree.
-- *Elective:* optional. A course I may take but need not take to graduate.
-- *Cooperative agreement:* a formal arrangement between my school and the employer.
-- *Authorization:* here, the CPT note on page 2 of my I-20.
-## Failure Modes
-- Starting work on an offer letter
++ - *Integral:* essential to completeness, as the government now defines it, so the training must be required of everyone in the degree.
++ - *Elective:* optional. A course I may take but need not take to graduate.
++ - *Cooperative agreement:* a formal arrangement between my school and the employer.
++ - *Authorization:* here, the CPT note on page 2 of my I-20.
++ ## Failure Modes
++ - Starting work on an offer letter
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
 ```diff
@@ -13029,95 +13485,95 @@ The advisor said ISSS did not generally do pre-completion OPT before the last tw
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Broadcast Messages.md`
 ```diff
 - ## What They Are
-==The two messages never admit
+- ==The two messages never admit
 + ## In Plain Words
-A **broadcast message** is an email that a government office sends to every school official in the country. These two went to the people at every college who sign international students' papers. They said, in effect: from now on, only approve CPT if the training is required for every student in the degree, and if you approve anything else, your school could lose its right to enroll international students and you could face penalties for false statements. The government also called them "reminders," as if nothing had changed, which is the heart of the lawsuit. At UMN, the result is that ISSS stopped approving elective CPT ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
-## What They Are
-==The two messages never admit
++ A **broadcast message** is an email that a government office sends to every school official in the country. These two went to the people at every college who sign international students' papers. They said, in effect: from now on, only approve CPT if the training is required for every student in the degree, and if you approve anything else, your school could lose its right to enroll international students and you could face penalties for false statements. The government also called them "reminders," as if nothing had changed, which is the heart of the lawsuit. At UMN, the result is that ISSS stopped approving elective CPT ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
++ ## What They Are
++ ==The two messages never admit
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Broadcast Messages.md`
 ```diff
 - ## Open Questions
-- [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course
+- - [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course
 + ## Words Used In This Note
-- *Perjury:* lying while swearing something is true. DSOs sign I-20s "under penalty of perjury."
-- *Certification (of a school):* SEVP's approval that lets a school enroll F-1 students. Losing it is the worst outcome for a school.
-- *Cooperative agreement:* a formal arrangement between a school and an employer for student training.
-- *Tipline:* a confidential channel for reporting concerns to SEVP.
-## Open Questions
-- [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course
++ - *Perjury:* lying while swearing something is true. DSOs sign I-20s "under penalty of perjury."
++ - *Certification (of a school):* SEVP's approval that lets a school enroll F-1 students. Losing it is the worst outcome for a school.
++ - *Cooperative agreement:* a formal arrangement between a school and an employer for student training.
++ - *Tipline:* a confidential channel for reporting concerns to SEVP.
++ ## Open Questions
++ - [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Lawsuit.md`
 ```diff
 - ## The Case At A Glance
-| Item | Detail |
+- | Item | Detail |
 + ## In Plain Words
-Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge will hear whether to pause the guidance while the case continues. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
-## The Case At A Glance
-| Item | Detail |
++ Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge will hear whether to pause the guidance while the case continues. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
++ ## The Case At A Glance
++ | Item | Detail |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Lawsuit.md`
 ```diff
 - ## Open Questions
-- [ ] Read the government's October 28 response
+- - [ ] Read the government's October 28 response
 + ## Words Used In This Note
-- *Plaintiff:* the side that sues. Here, the four associations.
-- *Preliminary injunction:* a court order, made early, that bars the government from enforcing something while the case continues.
-- *Stay under section 705:* a pause on the effective date of an agency action.
-- *Administrative Procedure Act:* the law that sets how agencies must make and explain rules.
-- *Arbitrary and capricious:* a legal term for an agency decision that is not reasoned or explained.
-- *Retroactive:* applied to things that happened before the rule.
-## Open Questions
-- [ ] Read the government's October 28 response
++ - *Plaintiff:* the side that sues. Here, the four associations.
++ - *Preliminary injunction:* a court order, made early, that bars the government from enforcing something while the case continues.
++ - *Stay under section 705:* a pause on the effective date of an agency action.
++ - *Administrative Procedure Act:* the law that sets how agencies must make and explain rules.
++ - *Arbitrary and capricious:* a legal term for an agency decision that is not reasoned or explained.
++ - *Retroactive:* applied to things that happened before the rule.
++ ## Open Questions
++ - [ ] Read the government's October 28 response
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
 ```diff
 - ## What It Is
-==The STEM extension is 24 more months
+- ==The STEM extension is 24 more months
 + ## In Plain Words
-After my first 12 months of OPT, a computer science degree lets me ask for 24 more months of work permission. That extension is what turns one try at the H-1B lottery into three. It is not automatic. It needs three things: my degree must be on the government's STEM list, my employer must be enrolled in E-Verify, and my employer and I must sign a training plan. Because of that, the first employer I choose after graduation matters for the next two years. ISSS runs it as a separate application with its own workshop, a $400 school fee for alumni, and about 3.5 to 4 months of USCIS waiting ([[OPT Playbook]], [[US Immigration Rules Explained]]).
-## What It Is
-==The STEM extension is 24 more months
++ After my first 12 months of OPT, a computer science degree lets me ask for 24 more months of work permission. That extension is what turns one try at the H-1B lottery into three. It is not automatic. It needs three things: my degree must be on the government's STEM list, my employer must be enrolled in E-Verify, and my employer and I must sign a training plan. Because of that, the first employer I choose after graduation matters for the next two years. ISSS runs it as a separate application with its own workshop, a $400 school fee for alumni, and about 3.5 to 4 months of USCIS waiting ([[OPT Playbook]], [[US Immigration Rules Explained]]).
++ ## What It Is
++ ==The STEM extension is 24 more months
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
 ```diff
 - ## Why DHS Is Looking Hard At It
 + ## How UMN Runs The Application
-- *Timing:* I ask ISSS for the STEM I-20 up to 100 days before my current work permit expires. USCIS must receive my application no more than 90 days before it expires and no later than its expiry date. I cannot apply at the same time as the first OPT. ISSS says to wait until about 90 days remain.
-- *ISSS steps:* finish the online STEM workshop, upload the certificate, the signed training plan (Form I-983), and the receipt for the $400 one-time ISSS fee, then wait up to 10 business days for the I-20.
-- *USCIS papers:* the I-20 signed on page 1, my last work permit, the electronic I-94, my passport page, my UMN diploma and final transcript, and UMN's accreditation page. Online filing uses the same list.
-- *Waiting:* ISSS says about 3.5 to 4 months. A timely filing lets me keep working for up to 180 days or until USCIS decides, whichever is first.
-- *CIP code:* ISSS does not decide whether my major is STEM. The six-digit code next to my major on the I-20 is checked against the DHS list.
-- *Country hold:* ISSS's page warns that a January 2026 USCIS memo put pending applications from people born in or citizens of certain countries on hold. USCIS now marks that memo as no longer in effect because of court orders. I need to check whether my country is on the December 2025 list.
-## Why DHS Is Looking Hard At It
++ - *Timing:* I ask ISSS for the STEM I-20 up to 100 days before my current work permit expires. USCIS must receive my application no more than 90 days before it expires and no later than its expiry date. I cannot apply at the same time as the first OPT. ISSS says to wait until about 90 days remain.
++ - *ISSS steps:* finish the online STEM workshop, upload the certificate, the signed training plan (Form I-983), and the receipt for the $400 one-time ISSS fee, then wait up to 10 business days for the I-20.
++ - *USCIS papers:* the I-20 signed on page 1, my last work permit, the electronic I-94, my passport page, my UMN diploma and final transcript, and UMN's accreditation page. Online filing uses the same list.
++ - *Waiting:* ISSS says about 3.5 to 4 months. A timely filing lets me keep working for up to 180 days or until USCIS decides, whichever is first.
++ - *CIP code:* ISSS does not decide whether my major is STEM. The six-digit code next to my major on the I-20 is checked against the DHS list.
++ - *Country hold:* ISSS's page warns that a January 2026 USCIS memo put pending applications from people born in or citizens of certain countries on hold. USCIS now marks that memo as no longer in effect because of court orders. I need to check whether my country is on the December 2025 list.
++ ## Why DHS Is Looking Hard At It
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
 ```diff
 - ## Failure Modes
-- Using pre-completion OPT until the 12 months are gone
+- - Using pre-completion OPT until the 12 months are gone
 + ## Words Used In This Note
-- *E-Verify:* a free government system employers use to confirm workers may legally work.
-- *Form I-983:* the training plan I and my employer sign.
-- *STEM list:* the DHS list of majors that qualify, by CIP code.
-- *Site visit:* a visit by DHS to check the employer is providing the training it promised.
-## Failure Modes
-- Using pre-completion OPT until the 12 months are gone
++ - *E-Verify:* a free government system employers use to confirm workers may legally work.
++ - *Form I-983:* the training plan I and my employer sign.
++ - *STEM list:* the DHS list of majors that qualify, by CIP code.
++ - *Site visit:* a visit by DHS to check the employer is providing the training it promised.
++ ## Failure Modes
++ - Using pre-completion OPT until the 12 months are gone
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
 ```diff
 - ## The Form And The Card
 + ## In Plain Words
-OPT is only real when a physical card, the **EAD**, arrives in the mail. To get it, I ask my school for a new I-20, then I send the I-20 and a form (**I-765**) to USCIS with a fee, then I wait. The wait is the hardest part of the whole track. ISSS says USCIS now takes about 5 months, and the advisor said that is "now the normal amount of time." For a faster answer I can pay a second fee for **premium processing**, which forces USCIS to act within 30 business days (the advisor said "lately we've seen them pretty much take the entire 30 business days"). I cannot start work until I hold the card and its start date has come ([[OPT Playbook]], [[US Immigration Rules Explained]]).
-## What It Costs And Who Does What
-USCIS's fee schedule (edition 10/16/26) lists the general work permit application at $470 online or $520 on paper, and premium processing for OPT and STEM OPT at $1,780. ISSS does not charge for the post-completion I-20, and does not require the $85 biometrics fee. UMN's online lookup for the current wait is USCIS's processing-times page, with the form I-765, the category (c)(3) for F-1 students, and the Potomac Service Center selected. ISSS makes the I-20 in up to 10 business days, and USCIS must receive my application within 30 days of that I-20's issue date or it denies it.
-## The Form And The Card
++ OPT is only real when a physical card, the **EAD**, arrives in the mail. To get it, I ask my school for a new I-20, then I send the I-20 and a form (**I-765**) to USCIS with a fee, then I wait. The wait is the hardest part of the whole track. ISSS says USCIS now takes about 5 months, and the advisor said that is "now the normal amount of time." For a faster answer I can pay a second fee for **premium processing**, which forces USCIS to act within 30 business days (the advisor said "lately we've seen them pretty much take the entire 30 business days"). I cannot start work until I hold the card and its start date has come ([[OPT Playbook]], [[US Immigration Rules Explained]]).
++ ## What It Costs And Who Does What
++ USCIS's fee schedule (edition 10/16/26) lists the general work permit application at $470 online or $520 on paper, and premium processing for OPT and STEM OPT at $1,780. ISSS does not charge for the post-completion I-20, and does not require the $85 biometrics fee. UMN's online lookup for the current wait is USCIS's processing-times page, with the form I-765, the category (c)(3) for F-1 students, and the Potomac Service Center selected. ISSS makes the I-20 in up to 10 business days, and USCIS must receive my application within 30 days of that I-20's issue date or it denies it.
++ ## The Form And The Card
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
 ```diff
 - ## Processing Time
-==The only fact the track can rely on
+- ==The only fact the track can rely on
 + ## Processing Time
-==The only fact the track can rely on
++ ==The only fact the track can rely on
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
 ```diff
@@ -13132,14 +13588,14 @@ USCIS's fee schedule (edition 10/16/26) lists the general work permit applicatio
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
 ```diff
 - ## Failure Modes
-- Filing at the last day of the window
+- - Filing at the last day of the window
 + ## Words Used In This Note
-- *EAD:* Employment Authorization Document, the work permit card.
-- *Request for evidence:* a USCIS letter asking for more documents; it stops the clock.
-- *Adjudicate:* to decide an application.
-- *Interim final rule:* a rule that takes effect before the public comments are read.
-## Failure Modes
-- Filing at the last day of the window
++ - *EAD:* Employment Authorization Document, the work permit card.
++ - *Request for evidence:* a USCIS letter asking for more documents; it stops the clock.
++ - *Adjudicate:* to decide an application.
++ - *Interim final rule:* a rule that takes effect before the public comments are read.
++ ## Failure Modes
++ - Filing at the last day of the window
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
 ```diff
@@ -13150,226 +13606,226 @@ USCIS's fee schedule (edition 10/16/26) lists the general work permit applicatio
 ```diff
 - ## The Proposal At A Glance
 + ## In Plain Words
-The government has proposed a new charge for OPT. It would not be billed to me. The school would pay $70,000 the first time it recommends a student for any OPT and $30,000 for each later recommendation, and the school's international office could not even enter the recommendation until it was paid. The proposal does not say the school must absorb the cost, so UMN could pay it, charge it to students or employers, or stop recommending OPT.
-A "proposal" is not a rule yet. The ISSS advisor walked me through what happens next: there is a comment period that ends November 9, the government must read and answer the comments, and only then does it publish a final rule that usually starts about 60 days later. She does not expect fast action, because the end-of-duration-of-status rule took "almost a year." I checked: from proposal to final it took 323 days, while the weighted H-1B lottery rule took 96. Her advice was to focus on the application process and decide when I am applying ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
-## The Proposal At A Glance
++ The government has proposed a new charge for OPT. It would not be billed to me. The school would pay $70,000 the first time it recommends a student for any OPT and $30,000 for each later recommendation, and the school's international office could not even enter the recommendation until it was paid. The proposal does not say the school must absorb the cost, so UMN could pay it, charge it to students or employers, or stop recommending OPT.
++ A "proposal" is not a rule yet. The ISSS advisor walked me through what happens next: there is a comment period that ends November 9, the government must read and answer the comments, and only then does it publish a final rule that usually starts about 60 days later. She does not expect fast action, because the end-of-duration-of-status rule took "almost a year." I checked: from proposal to final it took 323 days, while the weighted H-1B lottery rule took 96. Her advice was to focus on the application process and decide when I am applying ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
++ ## The Proposal At A Glance
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
 ```diff
 - ## How To Comment
 + ## When Could It Take Effect
-The two recent examples give a range, and they are analogies, not forecasts.
-| If it moves like | Final rule about | In force about |
-| --- | --- | --- |
-| The weighted H-1B lottery rule (96 days) | Jan 12, 2027 | Mar 13, 2027 |
-| The duration-of-status rule (323 days) | Aug 27, 2027 | Oct 26, 2027 |
-### What The Range Means
-Both examples land before the Jan 31, 2028 date when I could ask ISSS for my post-graduation OPT I-20, and the fast example lands before a March 2027 pre-completion request. The fee applies to recommendations dated on or after the effective date. So I plan as if the fee could apply, and I watch the rule rather than assume it will stall ([[2028 Graduation Timeline]]).
-## How To Comment
++ The two recent examples give a range, and they are analogies, not forecasts.
++ | If it moves like | Final rule about | In force about |
++ | --- | --- | --- |
++ | The weighted H-1B lottery rule (96 days) | Jan 12, 2027 | Mar 13, 2027 |
++ | The duration-of-status rule (323 days) | Aug 27, 2027 | Oct 26, 2027 |
++ ### What The Range Means
++ Both examples land before the Jan 31, 2028 date when I could ask ISSS for my post-graduation OPT I-20, and the fast example lands before a March 2027 pre-completion request. The fee applies to recommendations dated on or after the effective date. So I plan as if the fee could apply, and I watch the rule rather than assume it will stall ([[2028 Graduation Timeline]]).
++ ## How To Comment
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
 ```diff
 - ## Open Questions
-- [ ] Decide whether to comment by November 9
+- - [ ] Decide whether to comment by November 9
 + ## Words Used In This Note
-- *Notice of proposed rulemaking:* the government's announcement of a rule it wants to make.
-- *Comment period:* the time when the public may write to the government about a proposal.
-- *Final rule:* the version that becomes law, with an effective date.
-- *Recommendation:* the school official's formal support for my OPT, entered in SEVIS.
-- *Pass-through:* the school billing its cost to students or employers.
-## Open Questions
-- [ ] Decide whether to comment by November 9
++ - *Notice of proposed rulemaking:* the government's announcement of a rule it wants to make.
++ - *Comment period:* the time when the public may write to the government about a proposal.
++ - *Final rule:* the version that becomes law, with an effective date.
++ - *Recommendation:* the school official's formal support for my OPT, entered in SEVIS.
++ - *Pass-through:* the school billing its cost to students or employers.
++ ## Open Questions
++ - [ ] Decide whether to comment by November 9
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
 ```diff
 - The two recent examples give a range, and they are analogies, not forecasts.
-| If it moves like |
+- | If it moves like |
 + The two recent examples give a range, and they are analogies, not forecasts.
-### The Two Analogies
-| If it moves like |
++ ### The Two Analogies
++ | If it moves like |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
 ```diff
 - ## The Rule At A Glance
 + ## In Plain Words
-Today an F-1 student is admitted with no end date. I can stay as long as I keep studying or working on OPT. The July 2026 rule would give every student an end date, the "Admit Until Date," of up to four years, and anyone who needs more time, including time for OPT, would have to apply to extend it. A federal judge paused the rule the day before it was to start, so for now the old system continues. The ISSS advisor said the same: "there's still an injunction, but we don't know if or when that would be lifted," and ISSS's OPT page says the OPT process "remains unchanged" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
-For me the worry is paperwork and timing. If the rule returns, OPT windows would shrink from 60 to 30 days, and I would probably file an extension application together with my OPT application ([[2028 Graduation Timeline]]).
-## The Rule At A Glance
++ Today an F-1 student is admitted with no end date. I can stay as long as I keep studying or working on OPT. The July 2026 rule would give every student an end date, the "Admit Until Date," of up to four years, and anyone who needs more time, including time for OPT, would have to apply to extend it. A federal judge paused the rule the day before it was to start, so for now the old system continues. The ISSS advisor said the same: "there's still an injunction, but we don't know if or when that would be lifted," and ISSS's OPT page says the OPT process "remains unchanged" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
++ For me the worry is paperwork and timing. If the rule returns, OPT windows would shrink from 60 to 30 days, and I would probably file an extension application together with my OPT application ([[2028 Graduation Timeline]]).
++ ## The Rule At A Glance
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
 ```diff
 - ## Open Questions
-- [ ] Watch First Circuit No. 26-2112
+- - [ ] Watch First Circuit No. 26-2112
 + ## Words Used In This Note
-- *Duration of status (D/S):* the open-ended stay F-1 students have now.
-- *Admit Until Date:* the fixed end date the new rule would put on the I-94.
-- *Extension of stay:* an application to USCIS for more time.
-- *Injunction:* a court order that bars the government from doing something.
-- *Appeal:* asking a higher court to review a ruling.
-## Open Questions
-- [ ] Watch First Circuit No. 26-2112
++ - *Duration of status (D/S):* the open-ended stay F-1 students have now.
++ - *Admit Until Date:* the fixed end date the new rule would put on the I-94.
++ - *Extension of stay:* an application to USCIS for more time.
++ - *Injunction:* a court order that bars the government from doing something.
++ - *Appeal:* asking a higher court to review a ruling.
++ ## Open Questions
++ - [ ] Watch First Circuit No. 26-2112
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Cap-Gap Extension.md`
 ```diff
 - ## Why The Gap Exists
 + ## In Plain Words
-"Cap-gap" is the safety net between OPT and H-1B. An employer can only file an H-1B petition starting April 1, and the job can only start October 1. If my OPT runs out in between, I would have to stop working. The cap-gap rule automatically extends my F-1 status and my work permission until October 1 or until the H-1B starts, as long as the employer files on time. I do not apply for it. ISSS adds that I do not even need a special I-20 to keep working, but I can request one from MyISSS under the practical training tab if an employer wants proof ([[US Immigration Rules Explained]]).
-ISSS gives two examples. James's OPT ends June 25, which is after April 1, and his employer files on April 1 for an October 1 start, so he gets cap-gap. Pierre's OPT ends March 20, before April 1, so no petition can be filed in time, he gets no cap-gap, and he must stop working on March 20. The lesson is that the OPT end date matters: OPT that ends before April 1 cannot use cap-gap.
-## Why The Gap Exists
++ "Cap-gap" is the safety net between OPT and H-1B. An employer can only file an H-1B petition starting April 1, and the job can only start October 1. If my OPT runs out in between, I would have to stop working. The cap-gap rule automatically extends my F-1 status and my work permission until October 1 or until the H-1B starts, as long as the employer files on time. I do not apply for it. ISSS adds that I do not even need a special I-20 to keep working, but I can request one from MyISSS under the practical training tab if an employer wants proof ([[US Immigration Rules Explained]]).
++ ISSS gives two examples. James's OPT ends June 25, which is after April 1, and his employer files on April 1 for an October 1 start, so he gets cap-gap. Pierre's OPT ends March 20, before April 1, so no petition can be filed in time, he gets no cap-gap, and he must stop working on March 20. The lesson is that the OPT end date matters: OPT that ends before April 1 cannot use cap-gap.
++ ## Why The Gap Exists
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Cap-Gap Extension.md`
 ```diff
 - ## Open Questions
-- [ ] Ask ISSS how it documents cap-gap
+- - [ ] Ask ISSS how it documents cap-gap
 + ## What It Means For My Plan
-For a May 2028 graduate, the first registration is in March 2028, while I am still a student. If I am selected, the petition is filed from April 1, 2028 and the H-1B starts October 1, 2028, which replaces my F-1 and any unused OPT. Cap-gap matters more in later years: a student whose OPT ends between April 1 and October 1 and whose employer files on time keeps working through the gap ([[H-1B Odds Plan]]).
-## Words Used In This Note
-- *Cap-subject:* an H-1B petition that counts against the yearly limit.
-- *Change of status:* switching from F-1 to H-1B without leaving the country.
-- *Grace period:* the 60 days to leave if a petition is denied.
-## Open Questions
-- [ ] Ask ISSS how it documents cap-gap
++ For a May 2028 graduate, the first registration is in March 2028, while I am still a student. If I am selected, the petition is filed from April 1, 2028 and the H-1B starts October 1, 2028, which replaces my F-1 and any unused OPT. Cap-gap matters more in later years: a student whose OPT ends between April 1 and October 1 and whose employer files on time keeps working through the gap ([[H-1B Odds Plan]]).
++ ## Words Used In This Note
++ - *Cap-subject:* an H-1B petition that counts against the yearly limit.
++ - *Change of status:* switching from F-1 to H-1B without leaving the country.
++ - *Grace period:* the 60 days to leave if a petition is denied.
++ ## Open Questions
++ - [ ] Ask ISSS how it documents cap-gap
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
 ```diff
 - ## What H-1B Is
-==H-1B is employer-tied
+- ==H-1B is employer-tied
 + ## In Plain Words
-The H-1B is the most common work visa for graduates in technology. Unlike OPT, which belongs to me, an H-1B belongs to a job. A company must ask for it, pay for it, and prove the job needs a college degree. Because more companies ask than there are visas, the government draws registrations at random each March, and since the 2027 fiscal year higher-paid jobs get more tickets. The ISSS advisor was careful: she is not an H-1B advisor, so employers and their immigration lawyers handle it. She did say students typically move to H-1B "the first year or the second year of their OPT," depending on the employer and the lottery. That corrects my earlier assumption that H-1B only comes after STEM OPT ([[ISSS October Meeting Brief]], [[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
-## What H-1B Is
-==H-1B is employer-tied
++ The H-1B is the most common work visa for graduates in technology. Unlike OPT, which belongs to me, an H-1B belongs to a job. A company must ask for it, pay for it, and prove the job needs a college degree. Because more companies ask than there are visas, the government draws registrations at random each March, and since the 2027 fiscal year higher-paid jobs get more tickets. The ISSS advisor was careful: she is not an H-1B advisor, so employers and their immigration lawyers handle it. She did say students typically move to H-1B "the first year or the second year of their OPT," depending on the employer and the lottery. That corrects my earlier assumption that H-1B only comes after STEM OPT ([[ISSS October Meeting Brief]], [[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
++ ## What H-1B Is
++ ==H-1B is employer-tied
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
 ```diff
 - ## How An F-1 Student Gets There
-1. **Hold OPT status.**
+- 1. **Hold OPT status.**
 + ## Is There A Way Around The Lottery
-Yes, several, and they are laid out with evidence in [[H-1B Odds Plan]]. The main ones: a cap-exempt employer such as a university or research lab, which files without a draw. The O-1A visa for people with extraordinary ability, which has no cap. An L-1 transfer within a multinational company. A U.S. master's degree, which gives a second chance in the draw. And a higher wage level, which gives more lottery tickets.
-## How An F-1 Student Gets There
-1. **Hold OPT status.**
++ Yes, several, and they are laid out with evidence in [[H-1B Odds Plan]]. The main ones: a cap-exempt employer such as a university or research lab, which files without a draw. The O-1A visa for people with extraordinary ability, which has no cap. An L-1 transfer within a multinational company. A U.S. master's degree, which gives a second chance in the draw. And a higher wage level, which gives more lottery tickets.
++ ## How An F-1 Student Gets There
++ 1. **Hold OPT status.**
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
 ```diff
 - ## Open Questions
-- [ ] Learn which wage level each target employer
+- - [ ] Learn which wage level each target employer
 + ## Words Used In This Note
-- *Specialty occupation:* a job that normally requires a bachelor's degree or higher in a specific field.
-- *Cap:* the yearly limit on new H-1B workers.
-- *Petition (Form I-129):* the employer's request for the visa.
-- *Labor Condition Application:* the employer's wage promise to the Department of Labor.
-- *Registration:* the entry in the March lottery.
-## Open Questions
-- [ ] Learn which wage level each target employer
++ - *Specialty occupation:* a job that normally requires a bachelor's degree or higher in a specific field.
++ - *Cap:* the yearly limit on new H-1B workers.
++ - *Petition (Form I-129):* the employer's request for the visa.
++ - *Labor Condition Application:* the employer's wage promise to the Department of Labor.
++ - *Registration:* the entry in the March lottery.
++ ## Open Questions
++ - [ ] Learn which wage level each target employer
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
 ```diff
 - ## How Registration Works
 + ## In Plain Words
-Every March, employers who want to hire a foreign worker on an H-1B enter that worker's name in a drawing. Only people whose names are drawn may then be petitioned for. The drawing is not equal anymore: a job paying at a higher wage tier puts the name in more times. I cannot enter myself, because my employer has to. So my part is to be a person an employer is willing to enter every year, at the highest tier the job allows. The full list of things I can influence is in [[H-1B Odds Plan]], and [[US Immigration Rules Explained]] defines the terms.
-## How Registration Works
++ Every March, employers who want to hire a foreign worker on an H-1B enter that worker's name in a drawing. Only people whose names are drawn may then be petitioned for. The drawing is not equal anymore: a job paying at a higher wage tier puts the name in more times. I cannot enter myself, because my employer has to. So my part is to be a person an employer is willing to enter every year, at the highest tier the job allows. The full list of things I can influence is in [[H-1B Odds Plan]], and [[US Immigration Rules Explained]] defines the terms.
++ ## How Registration Works
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
 ```diff
 - - *A master's degree* changes the odds in the reported numbers, but I have not researched the master's-cap mechanics in the weighted pool.
 + - *A master's degree* gives a second chance: USCIS first draws from everyone, then draws more from the remaining master's-eligible people to fill the 20,000 slots, and DHS kept this two-stage process on purpose to give U.S. master's holders a higher chance ([[H-1B Odds Plan]]).
-- *My wage level* is set by the offer and the work city. In the Twin Cities for 2026-27, a software developer needs about $91,624 for level I, $110,926 for II, $130,208 for III, and $149,510 for IV. The table is in [[H-1B Odds Plan]].
++ - *My wage level* is set by the offer and the work city. In the Twin Cities for 2026-27, a software developer needs about $91,624 for level I, $110,926 for II, $130,208 for III, and $149,510 for IV. The table is in [[H-1B Odds Plan]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
 ```diff
 - ## Open Questions
-- [ ] Find the USCIS FY2027 registration and selection counts
+- - [ ] Find the USCIS FY2027 registration and selection counts
 + ## Words Used In This Note
-- *Registration:* the employer's entry for one person in the lottery.
-- *Wage level:* tier I to IV, set by comparing the offered pay with local pay for the job.
-- *Selected:* drawn, so the employer may file a petition.
-- *Cap-subject:* counted against the yearly limit.
-## Open Questions
-- [ ] Find the USCIS FY2027 registration and selection counts
++ - *Registration:* the employer's entry for one person in the lottery.
++ - *Wage level:* tier I to IV, set by comparing the offered pay with local pay for the job.
++ - *Selected:* drawn, so the employer may file a petition.
++ - *Cap-subject:* counted against the yearly limit.
++ ## Open Questions
++ - [ ] Find the USCIS FY2027 registration and selection counts
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B 100K Payment.md`
 ```diff
 - ## The Text
-==The proclamation restricts
+- ==The proclamation restricts
 + ## In Plain Words
-In September 2025 the President ordered that a company hiring certain H-1B workers from abroad must pay $100,000. Courts have since stopped the government from collecting it, but the President extended the order to September 2027 anyway. For a student like me the key fact comes from USCIS's own page: the payment does not apply to someone already in the U.S. who is approved to change from F-1 to H-1B. It does apply if that change is denied or I leave the country before it is decided. So the practical rule is to stay put while a petition is pending ([[Cap-Gap Extension]], [[US Immigration Rules Explained]]).
-## The Text
-==The proclamation restricts
++ In September 2025 the President ordered that a company hiring certain H-1B workers from abroad must pay $100,000. Courts have since stopped the government from collecting it, but the President extended the order to September 2027 anyway. For a student like me the key fact comes from USCIS's own page: the payment does not apply to someone already in the U.S. who is approved to change from F-1 to H-1B. It does apply if that change is denied or I leave the country before it is decided. So the practical rule is to stay put while a petition is pending ([[Cap-Gap Extension]], [[US Immigration Rules Explained]]).
++ ## The Text
++ ==The proclamation restricts
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B 100K Payment.md`
 ```diff
 - ## Open Questions
-- [ ] Read the Northern District of California order
+- - [ ] Read the Northern District of California order
 + ## Words Used In This Note
-- *Proclamation:* a formal order signed by the President.
-- *Vacated:* a court cancelled the guidance.
-- *Preliminary injunction:* an early court order stopping the government from enforcing something.
-- *Consular notification:* when an approved petition tells a U.S. embassy to issue the visa.
-## Open Questions
-- [ ] Read the Northern District of California order
++ - *Proclamation:* a formal order signed by the President.
++ - *Vacated:* a court cancelled the guidance.
++ - *Preliminary injunction:* an early court order stopping the government from enforcing something.
++ - *Consular notification:* when an approved petition tells a U.S. embassy to issue the visa.
++ ## Open Questions
++ - [ ] Read the Northern District of California order
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Rule Proposals.md`
 ```diff
 - ## The Measures At A Glance
 + ## In Plain Words
-Several government proposals this year would make hiring a foreign graduate on an H-1B more expensive or harder to keep. None of them is final except two small ones. A fee of $103,265 per new H-1B, a higher minimum wage for H-1B jobs, an end to treating a first approval as a reason to approve extensions quickly, and an end to the 60-day cushion after a layoff. The effect on me is mostly through the employer: a company that must pay more is less willing to sponsor, so my plan is to ask each employer how it expects these to affect it ([[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
-## The Measures At A Glance
++ Several government proposals this year would make hiring a foreign graduate on an H-1B more expensive or harder to keep. None of them is final except two small ones. A fee of $103,265 per new H-1B, a higher minimum wage for H-1B jobs, an end to treating a first approval as a reason to approve extensions quickly, and an end to the 60-day cushion after a layoff. The effect on me is mostly through the employer: a company that must pay more is less willing to sponsor, so my plan is to ask each employer how it expects these to affect it ([[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
++ ## The Measures At A Glance
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Rule Proposals.md`
 ```diff
 - ## Open Questions
-- [ ] Read the September 10 correction
+- - [ ] Read the September 10 correction
 + ## Words Used In This Note
-- *Prevailing wage:* the pay level the Department of Labor says is normal for a job and city.
-- *Deference:* USCIS giving weight to an earlier approval of the same facts.
-- *Grace period:* time allowed after a job ends before status is lost.
-- *Cap-subject:* counted against the yearly H-1B limit.
-- *Notice of proposed rulemaking:* a rule the government is thinking about.
-## Open Questions
-- [ ] Read the September 10 correction
++ - *Prevailing wage:* the pay level the Department of Labor says is normal for a job and city.
++ - *Deference:* USCIS giving weight to an earlier approval of the same facts.
++ - *Grace period:* time allowed after a job ends before status is lost.
++ - *Cap-subject:* counted against the yearly H-1B limit.
++ - *Notice of proposed rulemaking:* a rule the government is thinking about.
++ ## Open Questions
++ - [ ] Read the September 10 correction
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Visa Litigation Tracker.md`
 ```diff
 - ## The Cases
-| Case |
+- | Case |
 + ## In Plain Words
-A court case matters to me because a judge can pause or cancel a government rule. A "lawsuit" starts in a trial court. The loser can "appeal" to a higher court, but an appeal alone does not change the ruling being appealed. The ISSS advisor said the only certainty is that there is none: "we are all in the dark on this one." This note keeps every case in one table, so I can see the next date at a glance ([[US Immigration Rules Explained]], [[ISSS October Meeting Brief]]).
-## The Cases
-| Case |
++ A court case matters to me because a judge can pause or cancel a government rule. A "lawsuit" starts in a trial court. The loser can "appeal" to a higher court, but an appeal alone does not change the ruling being appealed. The ISSS advisor said the only certainty is that there is none: "we are all in the dark on this one." This note keeps every case in one table, so I can see the next date at a glance ([[US Immigration Rules Explained]], [[ISSS October Meeting Brief]]).
++ ## The Cases
++ | Case |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 - ## Where Things Stand
-==ICE did not change the CPT regulation.
+- ==ICE did not change the CPT regulation.
 + ## The Golden Source
-==The single most useful source for my own situation is the transcript of my October 23 meeting with an ISSS advisor, because it records what my own school actually says and does.== It is kept untouched at [[October Meeting Transcript]], summarized in [[ISSS October Meeting Brief]], and its facts are carried into the notes mapped from [[VISA Plan]]. Its main points: CPT for elective internships is paused and nobody knows the outcome, pre-completion OPT is an option decided at the window, USCIS takes about five months, premium processing costs about $1,800 and takes up to 30 business days, the OPT fee is still in its comment period, an internship physically abroad is outside F-1 work rules, and projects or unpaid work must not be described as jobs.
-## Where Things Stand
-==ICE did not change the CPT regulation.
++ ==The single most useful source for my own situation is the transcript of my October 23 meeting with an ISSS advisor, because it records what my own school actually says and does.== It is kept untouched at [[October Meeting Transcript]], summarized in [[ISSS October Meeting Brief]], and its facts are carried into the notes mapped from [[VISA Plan]]. Its main points: CPT for elective internships is paused and nobody knows the outcome, pre-completion OPT is an option decided at the window, USCIS takes about five months, premium processing costs about $1,800 and takes up to 30 business days, the OPT fee is still in its comment period, an internship physically abroad is outside F-1 work rules, and projects or unpaid work must not be described as jobs.
++ ## Where Things Stand
++ ==ICE did not change the CPT regulation.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
 - ## What UMN Says
-Left as originally found. Stale and queued for a rewrite.
+- Left as originally found. Stale and queued for a rewrite.
 + ## What UMN Says
-Refreshed on October 23, 2026 from the live pages, with their update dates. The older entries below stay for the record.
-1. **ISSS Basics of Pre-Completion OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), updated Sept 18)
-	==Part-time pre-completion OPT counts half and full-time counts in full against the 12 months, whether or not I work, and the 20-hour term limit includes on-campus jobs.== Examples with 3-month stretches are on the page, and it says part-time in term and full-time in vacation are separate applications.
-2. **ISSS Applying for OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/apply), updated Sept 23)
-	==The five steps, the 10-business-day I-20, the 30-day rule after the I-20 date, and a key-dates table (Fall 2026 graduates: request Sept 14, file from Sept 24, until Feb 21) that proves the date formula.==
-3. **ISSS Requirements During OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/requirements), updated Sept 15)
-	==Report any job or address change in the SEVP Portal within 10 days, work at least 20 hours a week, and stay under 90 days of unemployment.==
-4. **ISSS Travel, Study, and More** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/travel-study), updated Sept 15)
-	==The OPT travel signature lasts 6 months, re-entry needs proof of a job, and a cap-gap example shows OPT ending before April 1 gets no cap-gap.==
-5. **ISSS STEM OPT Application Process** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application), updated July 28)
-	==The STEM request needs a workshop, a signed training plan, and a $400 ISSS fee, and USCIS takes about 3.5 to 4 months.== It also warns about a country-based USCIS hold.
-6. **ISSS OPT vs. CPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison), updated Sept 15)
-	==The old CPT path took ISSS up to 7 business days and 2 to 3 weeks overall, and pre-completion OPT has no job-offer requirement.== It says ISSS is developing the pre-completion request process for Fall 2026.
-7. **USCIS fee schedule, Form G-1055** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf), edition 10/16/26)
-	==OPT work permit application: $470 online or $520 on paper. Premium processing for OPT and STEM OPT: $1,780.==
-8. **UMN 2027-28 academic calendar** ([asr.umn.edu](https://asr.umn.edu/[REDACTED]))
-	==The Spring 2028 term ends May 10, 2028, the date ISSS treats as degree completion.==
-9. **USCIS policy memo PM-602-0194** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/policy-alerts/[REDACTED].pdf))
-	==It put pending applications from people from listed countries on hold, and USCIS now states the memo is no longer in effect due to court orders.== ISSS still cites it.
-Older entries from the first pass:
++ Refreshed on October 23, 2026 from the live pages, with their update dates. The older entries below stay for the record.
++ 1. **ISSS Basics of Pre-Completion OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), updated Sept 18)
++ 	==Part-time pre-completion OPT counts half and full-time counts in full against the 12 months, whether or not I work, and the 20-hour term limit includes on-campus jobs.== Examples with 3-month stretches are on the page, and it says part-time in term and full-time in vacation are separate applications.
++ 2. **ISSS Applying for OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/apply), updated Sept 23)
++ 	==The five steps, the 10-business-day I-20, the 30-day rule after the I-20 date, and a key-dates table (Fall 2026 graduates: request Sept 14, file from Sept 24, until Feb 21) that proves the date formula.==
++ 3. **ISSS Requirements During OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/requirements), updated Sept 15)
++ 	==Report any job or address change in the SEVP Portal within 10 days, work at least 20 hours a week, and stay under 90 days of unemployment.==
++ 4. **ISSS Travel, Study, and More** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/travel-study), updated Sept 15)
++ 	==The OPT travel signature lasts 6 months, re-entry needs proof of a job, and a cap-gap example shows OPT ending before April 1 gets no cap-gap.==
++ 5. **ISSS STEM OPT Application Process** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application), updated July 28)
++ 	==The STEM request needs a workshop, a signed training plan, and a $400 ISSS fee, and USCIS takes about 3.5 to 4 months.== It also warns about a country-based USCIS hold.
++ 6. **ISSS OPT vs. CPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison), updated Sept 15)
++ 	==The old CPT path took ISSS up to 7 business days and 2 to 3 weeks overall, and pre-completion OPT has no job-offer requirement.== It says ISSS is developing the pre-completion request process for Fall 2026.
++ 7. **USCIS fee schedule, Form G-1055** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf), edition 10/16/26)
++ 	==OPT work permit application: $470 online or $520 on paper. Premium processing for OPT and STEM OPT: $1,780.==
++ 8. **UMN 2027-28 academic calendar** ([asr.umn.edu](https://asr.umn.edu/[REDACTED]))
++ 	==The Spring 2028 term ends May 10, 2028, the date ISSS treats as degree completion.==
++ 9. **USCIS policy memo PM-602-0194** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/policy-alerts/[REDACTED].pdf))
++ 	==It put pending applications from people from listed countries on hold, and USCIS now states the memo is no longer in effect due to court orders.== ISSS still cites it.
++ Older entries from the first pass:
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
 ```diff
@@ -13380,48 +13836,51 @@ Older entries from the first pass:
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
 ```diff
 -   - "[[Current News]]"
-next: "Save the transcript, then run /transcript-to-brief and update the notes in the table at the bottom"
----
+- next: "Save the transcript, then run /transcript-to-brief and update the notes in the table at the bottom"
+- ---
 +   - "[[Current News]]"
-  - "[[ISSS October Meeting Brief]]"
-  - "[[October Meeting Transcript]]"
-next: "The meeting happened on 2026-10-23. Use the Brief for what was said and the table below for which prepared questions are still open"
----
++   - "[[ISSS October Meeting Brief]]"
++   - "[[October Meeting Transcript]]"
++ next: "The meeting happened on 2026-10-23. Use the Brief for what was said and the table below for which prepared questions are still open"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
 ```diff
 - ## Read This First
-==The summer 2027 problem
+- ==The summer 2027 problem
 + ## What Happened
-The meeting took place on October 23, 2026 with an ISSS advisor, not a career-services professional. The transcript is [[October Meeting Transcript]] and everything in it is summarized in [[ISSS October Meeting Brief]]. This table shows what became of the questions prepared below. The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
-| Question | Result |
-| --- | --- |
-| 1, 2, 4, 5 (CPT details, required course, restart, existing CPT) | Only partly: the pause is on elective CPT and the outcome is unknown. Not asked: required course, restart, existing CPT |
-| 3 (what other students do) | She would not speak for them; seniors with a fixed start date may use pre-completion OPT |
-| 6, 8 (pre-completion OPT, turnaround, whether to avoid it) | Answered: option, decide at the window, about 5 months, 50 percent counting, separate applications |
-| 7 (OPT fee stance) | Answered in general: comment period ends Nov 9; no UMN stance given |
-| 9, 10, 11, 12 (warning, campus jobs, off-campus labs) | Not asked, except that the 20-hour limit includes on-campus work |
-| 13 (employers) | Answered: still hiring; use Handshake's work-authorization filter |
-| 14 (authorization question) | Answered: "yes and yes" is truthful |
-| 15, 16, 17 (E-Verify employers, contingent offers, alumni data) | Not asked |
-| 18, 19, 20 (end date, workshop, start date) | Answered: end of the semester you finish; self-paced online workshop; plan at the start of the last semester |
-| 21 (H-1B help) | Answered: she is not an H-1B advisor |
-| 22, 23, 24 (communication, rule returns, travel) | Partly: watch ISSS emails; rule still blocked; travel depends on plans |
-| 25 (memberships) | Not asked |
-| 26, 27 (remote abroad, unpaid work) | Answered: physically abroad is outside F-1 work rules; unpaid and project work must be worded carefully |
-| 28 (who answers in writing) | Answered: drop-ins, email, or another appointment |
-## Read This First
-==The summer 2027 problem
++ The meeting took place on October 23, 2026 with an ISSS advisor, not a career-services professional. The transcript is [[October Meeting Transcript]] and everything in it is summarized in [[ISSS October Meeting Brief]]. This table shows what became of the questions prepared below. The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
++ | Question | Result |
++ | --- | --- |
++ | 1, 2, 4, 5 (CPT details, required course, restart, existing CPT) | Only partly: the pause is on elective CPT and the outcome is unknown. Not asked: required course, restart, existing CPT |
++ | 3 (what other students do) | She would not speak for them; seniors with a fixed start date may use pre-completion OPT |
++ | 6, 8 (pre-completion OPT, turnaround, whether to avoid it) | Answered: option, decide at the window, about 5 months, 50 percent counting, separate applications |
++ | 7 (OPT fee stance) | Answered in general: comment period ends Nov 9; no UMN stance given |
++ | 9, 10, 11, 12 (warning, campus jobs, off-campus labs) | Not asked, except that the 20-hour limit includes on-campus work |
++ | 13 (employers) | Answered: still hiring; use Handshake's work-authorization filter |
++ | 14 (authorization question) | Answered: "yes and yes" is truthful |
++ | 15, 16, 17 (E-Verify employers, contingent offers, alumni data) | Not asked |
++ | 18, 19, 20 (end date, workshop, start date) | Answered: end of the semester you finish; self-paced online workshop; plan at the start of the last semester |
++ | 21 (H-1B help) | Answered: she is not an H-1B advisor |
++ | 22, 23, 24 (communication, rule returns, travel) | Partly: watch ISSS emails; rule still blocked; travel depends on plans |
++ | 25 (memberships) | Not asked |
++ | 26, 27 (remote abroad, unpaid work) | Answered: physically abroad is outside F-1 work rules; unpaid and project work must be worded carefully |
++ | 28 (who answers in writing) | Answered: drop-ins, email, or another appointment |
++ ## Read This First
++ ==The summer 2027 problem
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
 ```diff
 - The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
-| Question | Result |
+- | Question | Result |
 + The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
-### The Result Table
-| Question | Result |
++ ### The Result Table
++ | Question | Result |
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && sed -i 's#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md"));#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md")).concat(fs.readdirSync(path.join(FOLDER,"ISSS")).filter((f)=>f.endsWith(".md")).map((f)=>"ISSS/"+f));#' audit.js && node audit.js 2>&1 | grep -B1 -A3 -E "ISSUE|TOTAL|notes in folder"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && sed -i 's#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md"));#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md")).concat(fs.readdirSync(path.join(FOLDER,"ISSS")).filter((f)=>f.endsWith(".md")).map((f)=>"ISSS/"+f));#' audit.js && node audit.js 2>&1 | grep -B1 -A3 -E "ISSUE|TOTAL|notes in folder"
+```
 ```
 notes in folder: 28
 
@@ -13447,37 +13906,40 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 ```diff
 - and it matches exactly.
-| What | Date |
+- | What | Date |
 + and it matches exactly.
-### The Dates
-| What | Date |
++ ### The Dates
++ | What | Date |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 ```diff
 - whether or not I work.
-| If my summer start date is |
+- | If my summer start date is |
 + whether or not I work.
-### The Windows For Three Start Dates
-| If my summer start date is |
++ ### The Windows For Three Start Dates
++ | If my summer start date is |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 ```diff
 - ### What It Costs Me In OPT Months
-| Pre-OPT I might use |
+- | Pre-OPT I might use |
 + ### What It Costs Me In OPT Months
-The last row of the table is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
-#### The Examples
-| Pre-OPT I might use |
++ The last row of the table is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
++ #### The Examples
++ | Pre-OPT I might use |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 ```diff
 - | 3 months full-time plus 9 months part-time | 3 + 4.5 = 7.5 | 4.5 |
-The last row is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
-### My Rules For Choosing It
+- The last row is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
+- ### My Rules For Choosing It
 + | 3 months full-time plus 9 months part-time | 3 + 4.5 = 7.5 | 4.5 |
-### My Rules For Choosing It
++ ### My Rules For Choosing It
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -E "ISSUE|TOTAL|notes in folder|unresolved"; echo ----; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 30 2>&1 | head -30`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -E "ISSUE|TOTAL|notes in folder|unresolved"; echo ----; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 30 2>&1 | head -30
+```
 ```
 notes in folder: 28
    ISSUE: em/en dash present
@@ -13502,7 +13964,10 @@ Top failure reasons:
 First 30 failing notes:
   10_Areas/Career/VISAs & Work Auth/ISSS/October Meeting Transcript.md  [(unmapped)]  6:unmapped; 5:extra-blank-lines:1
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "key scan vault folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md 2>/dev/null; echo "key scan scratchpad (excluding downloaded data):"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" --include=*.js --include=*.json --include=*.md --include=*.txt 2>/dev/null | head -3; echo "(blank = none)"; echo; git status --short -- "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md | sed 's/^/  /' | head -40; echo; ls "10_Areas/Career/VISAs & Work Auth" "10_Areas/Career/VISAs & Work Auth/ISSS" | wc -l`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "key scan vault folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md 2>/dev/null; echo "key scan scratchpad (excluding downloaded data):"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" --include=*.js --include=*.json --include=*.md --include=*.txt 2>/dev/null | head -3; echo "(blank = none)"; echo; git status --short -- "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md | sed 's/^/  /' | head -40; echo; ls "10_Areas/Career/VISAs & Work Auth" "10_Areas/Career/VISAs & Work Auth/ISSS" | wc -l
+```
 ```
 key scan vault folder:
 key scan scratchpad (excluding downloaded data):
@@ -13580,77 +14045,30 @@ key scan scratchpad (excluding downloaded data):
 - `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Links.md`
 
 **Files deleted (heuristic, from Bash commands):**
-- `rm -f /tmp/fc_err.txt
-JSON=$(node -e 'console.log(JSON.stringify({type:"stdio",command:"C:\\Program Files\\Git\\usr\\bin\\bash.exe",args:["-c","set -a; . <(tr -d \"\\r\" < \"$HOME/.mcp.env\"); set +a; exec npx -y firecrawl-mcp@3.34.1"]}))')
-echo "$JSON"
-claude mcp add-json --scope user firecrawl "$JSON" 2>&1 | head -5
-echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
+- `rm -f /tmp/fc_err.txt JSON=$(node -e 'console.log(JSON.stringify({type:"stdio",command:"C:\\Program Files\\Git\\usr\\bin\\bash.exe",args:["-c","set -a; . <(tr -d \"\\r\" < \"$HOME/.mcp.env\"); set +a; exec npx -y firecrawl-mcp@3.34.1"]}))') echo "$JSON" claude mcp add-json --scope user firecrawl "$JSON" 2>&1 | head -5 echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
 
 **Commands run:**
 - `cd "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/tool-results/" && ls -la *.pdf && which pdftotext; python -I -c "import pypdf;print(pypdf.__version__)" 2>&1 | head -1; python -I -c "import fitz;print('fitz ok')" 2>&1 | head -1`
 - `SRC="C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/tool-results"; OUT="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$OUT"; for f in 4jgrdi 9olqkx qpd0h7; do pdftotext -layout "$SRC/webfetch-"*"-$f.pdf" "$OUT/$f.txt"; echo "== $f"; wc -c "$OUT/$f.txt"; head -8 "$OUT/$f.txt"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-curl -sL -m 30 -o fr1.json -w "FR 2026-14439: %{http_code} %{size_download}\n" "https://www.federalregister.gov/api/v1/documents/2026-14439.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=html_url&fields[]=document_number&fields[]=docket_ids&fields[]=regulation_id_numbers"
-curl -sL -m 30 -o ecfr.json -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2"
-head -c 600 fr1.json; echo; head -c 300 ecfr.json`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/2026-20660.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=html_url&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=comments_close_on&fields[]=type&fields[]=abstract&fields[]=dates&fields[]=agencies&fields[]=page_length" | head -c 2500; echo; echo ----;
-curl -sL --compressed -m 60 -o ecfr.xml -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2"; head -c 200 ecfr.xml`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-curl -sL --compressed -m 60 -o nprm.html "https://www.federalregister.gov/documents/full_text/html/2026/10/08/2026-20660.html" -w "%{http_code} %{size_download}\n"; 
-curl -sL --compressed -m 60 -o nprm.json "https://www.federalregister.gov/api/v1/documents/2026-20660.json?fields[]=raw_text_url&fields[]=body_html_url"; cat nprm.json; echo
-RT=$(sed -n 's/.*"raw_text_url":"\([^"]*\)".*/\1/p' nprm.json); echo $RT; curl -sL --compressed -m 60 -o nprm.txt "$RT" -w "%{http_code} %{size_download}\n"
-grep -n -i -E "STEM|pre-completion|curricular|CPT|effective|post-completion|employer|E-Verify" nprm.txt | head -60`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-sed -e 's/<[^>]*>/ /g' ecfr.xml | tr -s ' \n' > ecfr.txt; wc -c ecfr.txt
-grep -n -o -E "\(10\) Practical training\..{0,100}" ecfr.txt | head; 
-awk '/\(10\) Practical training\./{f=1} f{print} /\(11\) Reinstatement/{exit}' ecfr.txt | head -c 9000`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-grep -a -n -i -E "STEM|pre-completion|curricular|effective date|proposed .*§|214\.2\(f\)" nprm.txt | head -50; echo ====; grep -a -n -i -B1 -A3 "Executive Summary\|II. Background" nprm.txt | head -40`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-grep -a -n -i -E "subsequent OPT|initial OPT|each F-1|extension" nprm.txt | head -40; echo ===; grep -a -n "List of Subjects\|Regulatory Text\|PART 214\|§ 214" nprm.txt | head`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  curl -sL -m 30 -o fr1.json -w "FR 2026-14439: %{http_code} %{size_download}\n" "https://www.federalregister.gov/api/v1/documents/2026-14439.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=html_url&fields[]=document_number&fields[]=docket_ids&fields[]=regulation_id_numbers" curl -sL -m 30 -o ecfr.json -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2" head -c 600 fr1.json; echo; head -c 300 ecfr.json`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/2026-20660.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=html_url&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=comments_close_on&fields[]=type&fields[]=abstract&fields[]=dates&fields[]=agencies&fields[]=page_length" | head -c 2500; echo; echo ----; curl -sL --compressed -m 60 -o ecfr.xml -w "eCFR: %{http_code} %{size_download}\n" "https://www.ecfr.gov/api/versioner/v1/full/2026-10-01/title-8.xml?part=214&section=214.2"; head -c 200 ecfr.xml`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  curl -sL --compressed -m 60 -o nprm.html "https://www.federalregister.gov/documents/full_text/html/2026/10/08/2026-20660.html" -w "%{http_code} %{size_download}\n";  curl -sL --compressed -m 60 -o nprm.json "https://www.federalregister.gov/api/v1/documents/2026-20660.json?fields[]=raw_text_url&fields[]=body_html_url"; cat nprm.json; echo RT=$(sed -n 's/.*"raw_text_url":"\([^"]*\)".*/\1/p' nprm.json); echo $RT; curl -sL --compressed -m 60 -o nprm.txt "$RT" -w "%{http_code} %{size_download}\n" grep -n -i -E "STEM|pre-completion|curricular|CPT|effective|post-completion|employer|E-Verify" nprm.txt | head -60`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  sed -e 's/<[^>]*>/ /g' ecfr.xml | tr -s ' \n' > ecfr.txt; wc -c ecfr.txt grep -n -o -E "\(10\) Practical training\..{0,100}" ecfr.txt | head;  awk '/\(10\) Practical training\./{f=1} f{print} /\(11\) Reinstatement/{exit}' ecfr.txt | head -c 9000`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  grep -a -n -i -E "STEM|pre-completion|curricular|effective date|proposed .*§|214\.2\(f\)" nprm.txt | head -50; echo ====; grep -a -n -i -B1 -A3 "Executive Summary\|II. Background" nprm.txt | head -40`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  grep -a -n -i -E "subsequent OPT|initial OPT|each F-1|extension" nprm.txt | head -40; echo ===; grep -a -n "List of Subjects\|Regulatory Text\|PART 214\|§ 214" nprm.txt | head`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1645,1760p' nprm.txt`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-q() { curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=$1" --data-urlencode "conditions[publication_date][gte]=$2" --data-urlencode "order=newest" --data-urlencode "per_page=15" -d "fields[]=title" -d "fields[]=type" -d "fields[]=publication_date" -d "fields[]=citation" -d "fields[]=html_url" -d "fields[]=comments_close_on" -d "fields[]=effective_on" | tr '{' '\n' | grep -o '"title":"[^"]*"\|"type":"[^"]*"\|"publication_date":"[^"]*"\|"html_url":"[^"]*"\|"comments_close_on":[^,]*\|"effective_on":[^,]*' | paste -sd' ' | sed 's/"title"/\n"title"/g'; echo; }
-echo "### H-1B"; q '"H-1B" "specialty occupation"' 2026-01-01
-echo "### practical training"; q '"practical training" F-1' 2026-01-01
-echo "### cap-subject fee"; q '"cap-subject" H-1B fee' 2026-06-01`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-for d in 2026-18631 2026-17324 2026-11285 2026-19554 2026-19555 2026-06017 2026-14439; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=comments_close_on&fields[]=abstract&fields[]=dates&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=agencies&fields[]=executive_order_number&fields[]=signing_date" | sed 's/"agencies":\[[^]]*\]/"agencies":"..."/' | head -c 2200; echo; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-for d in "2026/09/23/2026-19554" "2026/09/23/2026-19555" "2026/09/11/2026-18631" "2026/08/25/2026-17324"; do n=$(basename $d); curl -sL --compressed -m 60 -o "t_$n.txt" "https://www.federalregister.gov/documents/full_text/text/$d.txt"; echo "$n $(wc -c < t_$n.txt)"; done
-echo "=== 19554 (proclamation)"; sed -n '1,200p' t_2026-19554.txt | grep -a -v '^\s*$' | head -120`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-echo "=== PROC 11069 operative"; sed -n '/Sec. 1/,$p' t_2026-19554.txt | grep -a -v '^\s*$' | head -70
-echo; echo "=== EO 14431"; grep -a -v '^\s*$' t_2026-19555.txt | sed -n '20,110p'`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-echo "=== 103,265 NPRM: change of status / F-1"; grep -a -n -i -E "change of status|F-1|cap-gap|already in the United States|effective" t_2026-17324.txt | head -30
-echo "=== 60-day grace: classes / F-1"; grep -a -n -i -E "F-1|H-1B|classification" t_2026-18631.txt | head -25`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  q() { curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=$1" --data-urlencode "conditions[publication_date][gte]=$2" --data-urlencode "order=newest" --data-urlencode "per_page=15" -d "fields[]=title" -d "fields[]=type" -d "fields[]=publication_date" -d "fields[]=citation" -d "fields[]=html_url" -d "fields[]=comments_close_on" -d "fields[]=effective_on" | tr '{' '\n' | grep -o '"title":"[^"]*"\|"type":"[^"]*"\|"publication_date":"[^"]*"\|"html_url":"[^"]*"\|"comments_close_on":[^,]*\|"effective_on":[^,]*' | paste -sd' ' | sed 's/"title"/\n"title"/g'; echo; } echo "### H-1B"; q '"H-1B" "specialty occupation"' 2026-01-01 echo "### practical training"; q '"practical training" F-1' 2026-01-01 echo "### cap-subject fee"; q '"cap-subject" H-1B fee' 2026-06-01`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  for d in 2026-18631 2026-17324 2026-11285 2026-19554 2026-19555 2026-06017 2026-14439; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=comments_close_on&fields[]=abstract&fields[]=dates&fields[]=docket_ids&fields[]=regulation_id_numbers&fields[]=agencies&fields[]=executive_order_number&fields[]=signing_date" | sed 's/"agencies":\[[^]]*\]/"agencies":"..."/' | head -c 2200; echo; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  for d in "2026/09/23/2026-19554" "2026/09/23/2026-19555" "2026/09/11/2026-18631" "2026/08/25/2026-17324"; do n=$(basename $d); curl -sL --compressed -m 60 -o "t_$n.txt" "https://www.federalregister.gov/documents/full_text/text/$d.txt"; echo "$n $(wc -c < t_$n.txt)"; done echo "=== 19554 (proclamation)"; sed -n '1,200p' t_2026-19554.txt | grep -a -v '^\s*$' | head -120`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  echo "=== PROC 11069 operative"; sed -n '/Sec. 1/,$p' t_2026-19554.txt | grep -a -v '^\s*$' | head -70 echo; echo "=== EO 14431"; grep -a -v '^\s*$' t_2026-19555.txt | sed -n '20,110p'`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  echo "=== 103,265 NPRM: change of status / F-1"; grep -a -n -i -E "change of status|F-1|cap-gap|already in the United States|effective" t_2026-17324.txt | head -30 echo "=== 60-day grace: classes / F-1"; grep -a -n -i -E "F-1|H-1B|classification" t_2026-18631.txt | head -25`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' t_2026-19554.txt | sed -n '100,175p'; echo; echo "=== 17324 how applied"; grep -a -n -i -E "all H-1B cap-subject|petitions filed|in-country|consular|apply to|exempt" t_2026-17324.txt | head -20`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-curl -sL --compressed -m 90 -o ds.txt "https://www.federalregister.gov/documents/full_text/text/2026/07/17/2026-14439.txt" -w "ds rule: %{http_code} %{size_download}\n"
-grep -a -n -i -E "delayed (effective|implementation)|SEVIS functionality|OPT.*(effective|implementation)|effective.*OPT|six months after|180 days" ds.txt | head -30
-echo ===; curl -sL -m 30 -A "Mozilla/5.0" -o pa.html -w "PA page: %{http_code} %{size_download}\n" "https://www.presidentsalliance.org/duration-of-status-litigation/"; sed -e 's/<script.*<\/script>//g' -e 's/<[^>]*>/ /g' pa.html | tr -s ' \n' | grep -i -E "first circuit|appeal|injunction|saylor|stay" | head -15`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-curl -sL --compressed -m 40 -A "Mozilla/5.0" -o nafsa_cpt.html -w "nafsa: %{http_code} %{size_download}\n" "https://www.nafsa.org/legal-defense-CPT"; sed -e 's/<script[^>]*>.*<\/script>//g' -e 's/<[^>]*>/ /g' nafsa_cpt.html | tr -s ' \n' | grep -i -E "hearing|november|updated|judge|ruling" | head -10
-curl -sL --compressed -m 60 -A "Mozilla/5.0" -o memo.pdf -w "memo: %{http_code} %{size_download}\n" "https://www.aau.edu/uploads/files/general/Memo-in-Support-of-PI-and-Stay-AAU-v-DHS.pdf"; file memo.pdf | head -1; pdftotext -layout memo.pdf memo.txt 2>&1 | head -2; wc -c memo.txt
-grep -n -i -E "computer science|November 6|hearing|Judge|1:26-cv|paused|halt|survey|schools have" memo.txt | head -40`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/&#039;|&rsquo;/'"'"'/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
-for u in "https://isss.umn.edu/immigration-updates" "https://cse.umn.edu/coop/international-students" "https://isss.umn.edu/fstudents/employment/on-campus"; do echo "################ $u"; get "$u" | head -c 6000; echo; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
-echo "#### on-campus limits"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Limitations of Employment.\{0,1500\}" | head -c 1700; echo
-echo "#### travel outside US (work/remote/abroad mentions)"; get "https://isss.umn.edu/fstudents/travel/outside-us" | grep -a -i -o ".\{200\}\(remote\|work abroad\|working abroad\|five months\|5 months\|internship\).\{250\}" | head -8
-echo "#### last updated on-campus"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Last updated[^.]*20[0-9][0-9]"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
-get "https://isss.umn.edu/fstudents/employment/on-campus" | tr '\n' ' ' | grep -a -o "On-campus employment is limit.\{0,1200\}"
-echo; echo "### 8 CFR 214.2(f)(9)(i) on-campus (eCFR)"; awk '/\(9\) Employment/{f=1} f{print} /\(ii\) Off-campus employment/{exit}' ecfr.txt | head -c 2500`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; 
-get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; }
-echo "### FR weighted selection"; curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=\"Weighted Selection Process\" H-1B" --data-urlencode "conditions[type][]=RULE" -d "fields[]=title" -d "fields[]=citation" -d "fields[]=publication_date" -d "fields[]=effective_on" -d "fields[]=html_url" | head -c 800; echo
-echo "### Colorado ISSS Oct 7 2026"; get "https://www.colorado.edu/isss/2026/10/07/100000-h-1b-fee-current-status" | tr '\n' ' ' | grep -a -o "\$100,000 H-1B fee.\{0,3200\}" | head -c 3400`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  curl -sL --compressed -m 90 -o ds.txt "https://www.federalregister.gov/documents/full_text/text/2026/07/17/2026-14439.txt" -w "ds rule: %{http_code} %{size_download}\n" grep -a -n -i -E "delayed (effective|implementation)|SEVIS functionality|OPT.*(effective|implementation)|effective.*OPT|six months after|180 days" ds.txt | head -30 echo ===; curl -sL -m 30 -A "Mozilla/5.0" -o pa.html -w "PA page: %{http_code} %{size_download}\n" "https://www.presidentsalliance.org/duration-of-status-litigation/"; sed -e 's/<script.*<\/script>//g' -e 's/<[^>]*>/ /g' pa.html | tr -s ' \n' | grep -i -E "first circuit|appeal|injunction|saylor|stay" | head -15`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  curl -sL --compressed -m 40 -A "Mozilla/5.0" -o nafsa_cpt.html -w "nafsa: %{http_code} %{size_download}\n" "https://www.nafsa.org/legal-defense-CPT"; sed -e 's/<script[^>]*>.*<\/script>//g' -e 's/<[^>]*>/ /g' nafsa_cpt.html | tr -s ' \n' | grep -i -E "hearing|november|updated|judge|ruling" | head -10 curl -sL --compressed -m 60 -A "Mozilla/5.0" -o memo.pdf -w "memo: %{http_code} %{size_download}\n" "https://www.aau.edu/uploads/files/general/Memo-in-Support-of-PI-and-Stay-AAU-v-DHS.pdf"; file memo.pdf | head -1; pdftotext -layout memo.pdf memo.txt 2>&1 | head -2; wc -c memo.txt grep -n -i -E "computer science|November 6|hearing|Judge|1:26-cv|paused|halt|survey|schools have" memo.txt | head -40`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/&#039;|&rsquo;/'"'"'/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; } for u in "https://isss.umn.edu/immigration-updates" "https://cse.umn.edu/coop/international-students" "https://isss.umn.edu/fstudents/employment/on-campus"; do echo "################ $u"; get "$u" | head -c 6000; echo; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; } echo "#### on-campus limits"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Limitations of Employment.\{0,1500\}" | head -c 1700; echo echo "#### travel outside US (work/remote/abroad mentions)"; get "https://isss.umn.edu/fstudents/travel/outside-us" | grep -a -i -o ".\{200\}\(remote\|work abroad\|working abroad\|five months\|5 months\|internship\).\{250\}" | head -8 echo "#### last updated on-campus"; get "https://isss.umn.edu/fstudents/employment/on-campus" | grep -a -o "Last updated[^.]*20[0-9][0-9]"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; } get "https://isss.umn.edu/fstudents/employment/on-campus" | tr '\n' ' ' | grep -a -o "On-campus employment is limit.\{0,1200\}" echo; echo "### 8 CFR 214.2(f)(9)(i) on-campus (eCFR)"; awk '/\(9\) Employment/{f=1} f{print} /\(ii\) Off-campus employment/{exit}' ecfr.txt | head -c 2500`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad";  get() { curl -sL --compressed -m 40 -A "Mozilla/5.0" "$1" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g'; } echo "### FR weighted selection"; curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=\"Weighted Selection Process\" H-1B" --data-urlencode "conditions[type][]=RULE" -d "fields[]=title" -d "fields[]=citation" -d "fields[]=publication_date" -d "fields[]=effective_on" -d "fields[]=html_url" | head -c 800; echo echo "### Colorado ISSS Oct 7 2026"; get "https://www.colorado.edu/isss/2026/10/07/100000-h-1b-fee-current-status" | tr '\n' ' ' | grep -a -o "\$100,000 H-1B fee.\{0,3200\}" | head -c 3400`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career/VISAs & Work Auth" && wc -c *.md && head -30 "H1B Visa.md"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career" && ls | head -30; echo ---; grep -rl "reference_kind: link-hub" /d/_Anant/20_Progress/Documents/Jarvis/40_Resources /d/_Anant/20_Progress/Documents/Jarvis/10_Areas 2>/dev/null | head -3`
 - `curl -sL --compressed -m 40 -A "Mozilla/5.0" "https://www.uscis.gov/newsroom/alerts/presidential-proclamation-on-restriction-on-entry-of-certain-nonimmigrant-workers" | perl -0pe 's/<script.*?<\/script>//gs; s/<style.*?<\/style>//gs; s/<[^>]+>/ /g; s/&nbsp;/ /g; s/&amp;/&/g; s/[ \t]+/ /g; s/\n\s*\n+/\n/g' | tr '\n' ' ' | grep -a -o -i ".\{0,300\}\(change of status\|outside the United States\|June 8\|vacat\).\{0,500\}" | head -c 4500`
@@ -13658,161 +14076,40 @@ echo "### Colorado ISSS Oct 7 2026"; get "https://www.colorado.edu/isss/2026/10/
 - `echo "HOME=$HOME"; ls -la ~ 2>/dev/null | grep -i -E "mcp|\.env" ; echo "--- ~/.claude:"; ls -la ~/.claude 2>/dev/null | grep -i -E "mcp|\.env"; echo "--- tools:"; command -v node npx claude uv 2>&1; node --version 2>&1; npx --version 2>&1 | head -1`
 - `claude mcp list 2>&1 | head -30`
 - `( set -a; . <(tr -d '\r' < ~/.mcp.env) 2>/dev/null; set +a; if [ -n "${FIRECRAWL_API_KEY:-}" ]; then echo "FIRECRAWL_API_KEY: set, length ${#FIRECRAWL_API_KEY}, prefix-ok: $([[ "$FIRECRAWL_API_KEY" == fc-* ]] && echo yes || echo no)"; else echo "FIRECRAWL_API_KEY: NOT set after sourcing"; fi )`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; 
-( set -a; . <(tr -d '\r' < ~/.mcp.env) 2>/dev/null; set +a;
-for v in v2 v1; do
-code=$(curl -s -m 90 -o "$SP/fc/test_$v.json" -w "%{http_code}" -X POST "https://api.firecrawl.dev/$v/scrape" -H "Authorization: Bearer $FIRECRAWL_API_KEY" -H "Content-Type: application/json" -d '{"url":"https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees","formats":["markdown"]}');
-echo "$v scrape -> HTTP $code, bytes $(wc -c < "$SP/fc/test_$v.json")"; done )
-head -c 300 "$SP/fc/test_v2.json"; echo`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc";  ( set -a; . <(tr -d '\r' < ~/.mcp.env) 2>/dev/null; set +a; for v in v2 v1; do code=$(curl -s -m 90 -o "$SP/fc/test_$v.json" -w "%{http_code}" -X POST "https://api.firecrawl.dev/$v/scrape" -H "Authorization: Bearer $FIRECRAWL_API_KEY" -H "Content-Type: application/json" -d '{"url":"https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees","formats":["markdown"]}'); echo "$v scrape -> HTTP $code, bytes $(wc -c < "$SP/fc/test_$v.json")"; done ) head -c 300 "$SP/fc/test_v2.json"; echo`
 - `echo "in-session env has FIRECRAWL_API_KEY: $([ -n "${FIRECRAWL_API_KEY:-}" ] && echo yes || echo no)"; command -v bash; echo "--- PATH bash candidates:"; where.exe bash 2>/dev/null | head; echo "--- firecrawl-mcp on npm:"; npm view firecrawl-mcp version bin --json 2>&1 | head -12`
-- `GB="/c/Program Files/Git/usr/bin/bash.exe"; CMD='set -a; . <(tr -d "\r" < "$HOME/.mcp.env"); set +a; exec npx -y firecrawl-mcp@3.34.1'
-REQ='{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"1"}}}'
-{ printf '%s\n' "$REQ"; sleep 25; } | timeout 60 "$GB" -c "$CMD" 2>/tmp/fc_err.txt | head -c 600; echo; echo "--- stderr (first 300 chars, key-redacted):"; head -c 300 /tmp/fc_err.txt | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g'`
-- `rm -f /tmp/fc_err.txt
-JSON=$(node -e 'console.log(JSON.stringify({type:"stdio",command:"C:\\Program Files\\Git\\usr\\bin\\bash.exe",args:["-c","set -a; . <(tr -d \"\\r\" < \"$HOME/.mcp.env\"); set +a; exec npx -y firecrawl-mcp@3.34.1"]}))')
-echo "$JSON"
-claude mcp add-json --scope user firecrawl "$JSON" 2>&1 | head -5
-echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node "$SP/mkcfg.js" "$SP/fc_cfg.json" && node -e 'JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); console.log("valid json")' "$SP/fc_cfg.json" && claude mcp add-json --scope user firecrawl "$(cat "$SP/fc_cfg.json")" 2>&1 | head -5
-echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; cd "$SP"
-s() { echo; echo "######## $1"; node fc.js search "$1" "fc/s_$2.json" qdr:m ${3:-7}; }
-s "AAU v. DHS curricular practical training preliminary injunction hearing November 6 District of Massachusetts judge" cpt1
-s "CPT broadcast message lawsuit court order OR ruling OR hearing October 2026 international students" cpt2
-s "SEVP broadcast message October 2026" sevp1
-s "OPT fee $70,000 proposed rule comments universities respond NAFSA" opt1`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; cd "$SP"
-cat > fc/u1.txt <<'EOF'
-https://www.ice.gov/sevis/whats-new
-https://www.ice.gov/doclib/sevis/pdf/bcm2610-02.pdf
-https://www.cmu.edu/oie/news-and-events/2026-2027/october/cpt-lawsuit.html
-https://oiss.yale.edu/news/cpt-update-sevp-broadcast-messages-and-pending-litigation
-https://www.rnlawgroup.com/a-case-to-watch-universities-challenge-sevps-new-restrictions-on-curricular-practical-training/
-https://www.courtlistener.com/?q=%2226-cv-14520%22&type=r
-EOF
-node fc.js multi fc/u1.txt fc/b1
-echo; echo "###### ICE what's new (head)"; sed -n '1,45p' fc/b1/01.md | cut -c1-220`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b1"
-echo "#### ICE what's new: lines 45-110"; sed -n '45,110p' 01.md | cut -c1-300
-echo; echo "#### BCM 2610-02"; cat 02.md
-echo; echo "#### CMU"; cat 03.md | cut -c1-1200
-echo; echo "#### Yale"; cat 04.md
-echo; echo "#### courtlistener"; cat 06.md`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode 'q="26-cv-14520"' -d type=r -d format=json -o cl1.json -w "search http %{http_code}\n"; head -c 1500 cl1.json; echo`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js scrape "https://www.courtlistener.com/docket/74919449/association-of-american-universities-v-us-department-of-homeland/?order_by=desc" fc/docket_cpt.md 4000
-echo ----; grep -n -i -E "hearing|order|scheduling|opposition|briefing|notice of appearance|motion|kobick|november|nov\." fc/docket_cpt.md | cut -c1-260 | head -50`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-sed -n '60,135p' docket_cpt.md | grep -v '^\s*$' | cut -c1-330 | head -40`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-cl() { curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode "q=$1" -d type=r -d format=json -o "$2" ; node -e 'const j=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));for(const r of j.results||[])console.log([r.caseName,r.court_citation_string,r.docketNumber,"filed "+r.dateFiled,r.assignedTo,"https://www.courtlistener.com"+r.docket_absolute_url].join(" | "))' "$2"; }
-echo "### D/S"; cl '"26-cv-13799"' cl_ds.json
-echo "### H-1B CA v Mullin"; cl '"25-cv-13829"' cl_h1b.json
-echo "### First Circuit appeals"; cl 'Presidents Alliance Higher Education Immigration Department of Homeland Security' cl_ca1.json | head -8
-echo "### Global Nurse Force"; cl 'Global Nurse Force v. Trump' cl_gnf.json | head -5
-echo "### Chamber of Commerce v DHS H-1B"; cl 'Chamber of Commerce v. Department of Homeland Security H-1B proclamation' cl_coc.json | head -5`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u2.txt <<'EOF'
-https://www.courtlistener.com/docket/74908049/presidents-alliance-on-higher-educ-and-immigr-v-dhs/?order_by=desc
-https://www.courtlistener.com/docket/74661796/presidents-alliance-on-higher-education-and-immigration-v-united-states/?order_by=desc
-https://www.courtlistener.com/docket/73476893/state-of-california-v-mullin/?order_by=desc
-https://www.courtlistener.com/docket/72095497/chamber-of-commerce-of-the-united-states-of-ameri-v-dhs/?order_by=desc
-https://www.courtlistener.com/docket/74966923/global-nurse-force-et-al-v-trump-et-al/?order_by=desc
-EOF
-node fc.js multi fc/u2.txt fc/b2
-for i in 01 02 03 04 05; do echo; echo "################ b2/$i"; head -3 fc/b2/$i.md | cut -c1-200; grep -v '^\s*$' fc/b2/$i.md | grep -n -E "^(Oct|Sep|Aug|Jul|Jun|May|Apr|Mar|Feb|Jan|Dec|Nov) [0-9]+, 202[56]$" | head -0; awk 'BEGIN{n=0} /^[0-9]+$/ {num=$0; getline d; if (d ~ /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [0-9]+, 202[56]/) {getline desc; getline desc2; print num" | "d" | "substr(desc,1,230)" "substr(desc2,1,120); n++; if(n>=8) exit}}' fc/b2/$i.md; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-echo "######## 1st Cir 26-2112 (D/S appeal)"; grep -v '^\s*$' 01.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was" | sed -n '20,70p' | cut -c1-420`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-for f in 03:"1st Cir 26-1699 California v. Mullin (H-1B \$100k)" 04:"D.C. Cir 25-5473 Chamber v. DHS" 05:"9th Cir 26-6667 Global Nurse Force"; do n=${f%%:*}; t=${f#*:}; echo; echo "######## $t"; grep -v '^\s*$' $n.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|From|CourtListener|^\[" | awk '/^Description$/{f=1;next} f' | head -22 | cut -c1-520; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-echo "### DC Cir argued/calendared"; grep -i -E "argu|calendar|oral|submitted|panel|opinion|judgment" 04.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -12
-echo; echo "### 1st Cir 26-1699 argued/calendar/stay"; grep -i -E "argu|oral|calendar|stay|briefing|expedit" 03.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -14`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-q() { curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=$1" --data-urlencode "conditions[publication_date][gte]=2026-09-20" --data-urlencode "order=newest" --data-urlencode "per_page=12" -d "fields[]=title" -d "fields[]=type" -d "fields[]=publication_date" -d "fields[]=citation" -d "fields[]=html_url" -d "fields[]=comments_close_on" -d "fields[]=effective_on" -d "fields[]=agency_names" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));for(const r of j.results||[])console.log([r.publication_date,r.type,r.citation,r.title.slice(0,110),"comments:"+r.comments_close_on,"eff:"+r.effective_on,(r.agency_names||[]).join("/").slice(0,50)].join(" | ")+"\n    "+r.html_url)'; }
-for t in '"nonimmigrant" students F-1' '"H-1B"' '"employment authorization"' '"Student and Exchange Visitor"' '"alien" "specialty occupation"' '"practical training"'; do echo "######## $t"; q "$t"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-for pair in "2026/10/14/2026-20955 eadauto" "2026/10/14/2026-20941 deference" "2026/10/01/2026-20187 hr1fees"; do p=${pair% *}; n=${pair#* }; curl -sL --compressed -m 90 -o "fc/$n.txt" "https://www.federalregister.gov/documents/full_text/text/$p.txt"; echo "== $n $(wc -c < fc/$n.txt)"; done
-for n in eadauto deference hr1fees; do echo; echo "################ $n : abstract-ish + OPT/H-1B/F-1 hits"; grep -a -n -i -E "optional practical|STEM|\(c\)\(3\)|F-1|H-1B|cap-gap|F-1 students" fc/$n.txt | cut -c1-240 | head -16; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-echo "### EAD auto-extension rule: what it says it covers"; sed -n '1,120p' eadauto.txt | grep -a -v '^\s*$' | sed -n '12,60p' | cut -c1-220
-echo; echo "### mentions of student / STEM / 180 / 274a.12(c)(3)"; grep -a -n -i -E "student|STEM|180 days|\(c\)\(3\)|F-1|OPT" eadauto.txt | grep -a -v -i "systemic\|system" | cut -c1-230 | head -25`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-sed -n '2528,2545p' eadauto.txt; echo ...; grep -a -n -E "Optional Practical|OPT |STEM OPT|science, technology|\(c\)\(3\)\(C\)|\(b\)\(6\)" eadauto.txt | head`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-curl -sL --compressed -m 90 -o e274a13.xml "https://www.ecfr.gov/api/versioner/v1/full/2026-10-20/title-8.xml?part=274a&section=274a.13"; sed -e 's/<[^>]*>/ /g' e274a13.xml | tr -s ' \n' > e274a13.txt; wc -c e274a13.txt
-echo "### 274a.13(d)"; awk '/\(d\) Automatic extension/{f=1} f{print} /\(e\)/{if(f)exit}' e274a13.txt | head -c 3500
-sed -e 's/<[^>]*>/ /g' ../../../scratchpad/ecfr.xml 2>/dev/null | head -0
-cd ..; sed -e 's/<[^>]*>/ /g' ecfr.xml | tr -s ' \n' > ecfr_f.txt 2>/dev/null
-echo; echo "### 214.2(f)(11) OPT application timing"; awk '/\(11\) OPT application and approval process\./{f=1} f{print} /\(12\) Reporting while on optional/{if(f)exit}' ecfr_f.txt | head -c 6500`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-echo "### 274a.13 (current, 2026-10-20) — extension-related text"; grep -a -o -i ".\{0,200\}automatic.\{0,700\}" fc/e274a13.txt | head -c 2800
-echo; echo "### 214.2(f)(11)"; grep -a -n "OPT application and approval process\." ecfr.txt | head -3`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-grep -a -n -E "^ \(11\) OPT|^ \(11\) " ecfr.txt | head -5
-awk '/^ \(11\) OPT application/{c++} c>=2{print; n++} n>40{exit}' ecfr.txt | cut -c1-1400 | head -c 7500`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-for d in 2026-07-01 2026-10-20; do curl -sL --compressed -m 90 -o "fc/e214_$d.xml" "https://www.ecfr.gov/api/versioner/v1/full/$d/title-8.xml?part=214&section=214.2"; sed -e 's/<[^>]*>/ /g' "fc/e214_$d.xml" | tr -s ' \n' > "fc/e214_$d.txt"; echo "== $d: $(wc -c < fc/e214_$d.txt) chars"; grep -a -o "For post-completion OPT, not including a 24-month.\{0,330\}" "fc/e214_$d.txt" | head -1; grep -a -o "A student may not request a start date that is more than.\{0,80\}" "fc/e214_$d.txt" | head -1; done
-echo; echo "### eCFR latest-issue date info"; curl -sL --compressed -m 40 "https://www.ecfr.gov/api/versioner/v1/titles.json" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));const t=j.titles.find(x=>x.number===8);console.log(JSON.stringify(t))'`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u3.txt <<'EOF'
-https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students
-https://studyinthestates.dhs.gov/stem-opt-hub
-https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/extension-of-post-completion-optional-practical-training-opt-and-f-1-status-for-eligible-students
-https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations
-https://www.uscis.gov/newsroom/alerts/fy-2027-h-1b-initial-registration-selection-process-completed
-https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-cap-season
-https://studyinthestates.dhs.gov/students/work/optional-practical-training
-EOF
-node fc.js multi fc/u3.txt fc/b3`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
-echo "################ 05 FY2027 selection alert"; sed -n '1,60p' 05.md | grep -v '^\s*$' | cut -c1-600
-echo; echo "################ 03 cap-gap (key)"; grep -v '^\s*$' 03.md | sed -n '1,60p' | cut -c1-700`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
-echo "################ 01 USCIS OPT page"; grep -v '^\s*$' 01.md | sed -n '5,70p' | cut -c1-520
-echo; echo "################ 02 STEM OPT hub"; grep -v '^\s*$' 02.md | sed -n '5,40p' | cut -c1-400`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3"
-echo "################ 06 cap season: registration / weighted / fee lines"; grep -v '^\s*$' 06.md | grep -i -E "registration period|March|weighted|wage level|\\\$215|registration fee|April 1|FY 2027|FY 2028|FY 2029|selection|master|advanced degree|beneficiary-centric|passport" | cut -c1-420 | head -28
-echo; echo "################ 04 H-1B page: \$100,000 / change of status / exception lines"; grep -v '^\s*$' 04.md | grep -i -E "100,000|change of status|outside the United States|exception|vacat|First Circuit|Global Nurse|June 8|Sept|2027" | cut -c1-560 | head -22`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"
-F=e214_2026-07-01.txt
-echo "### (E) unemployment"; grep -a -o "( E ) Unemployment.\{0,900\}" $F | head -1
-echo; echo "### STEM employer reqs: E-Verify / hours / I-983 / 4-9"; grep -a -o "( 5 ) Employer requirements.\{0,1100\}" $F | head -1
-echo; grep -a -o "( 8 ) Minimum hours.\{0,300\}" $F | head -1
-echo; echo "### (12)(ii) reporting"; grep -a -o "reporting obligations are:.\{0,1300\}" $F | head -1
-echo; echo "### (5)(iv) grace on OPT completion"; grep -a -o "within 60 days after.\{0,400\}OPT" $F | head -2
-echo; echo "### CPT text (pre-rule) integral"; grep -a -o "(i) Curricular practical training\..\{0,420\}" $F | head -1`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-s() { echo; echo "######## $1  [$3]"; node fc.js search "$1" "fc/s_$2.json" "$3" ${4:-6}; }
-s "OPT EAD I-765 processing time days October 2026 F-1 students post-completion" proc qdr:m 6
-s "FY 2027 H-1B registration results eligible registrations selected number weighted selection wage level USCIS data" fy27 qdr:y 6
-s "Fragomen OR Berry Appleman OR Ogletree OR Seyfarth OPT fee proposed rule analysis employers STEM OPT impact" firm qdr:m 6
-s "Study in the States Fall refresher full course of study F-1 October 2026" sits qdr:m 4`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u4.txt <<'EOF'
-https://www.uscis.gov/i-765
-https://www.uscis.gov/forms/all-forms/how-do-i-request-premium-processing
-https://tracreports.org/reports/768/
-https://wolfsdorf.com/h-1b-cap-fy2027-lottery-results-next-steps/
-https://www.rnlawgroup.com/opt-delays-in-2026-why-the-14-month-rule-makes-a-timely-decision-essential/
-https://wolfsdorf.com/fifteen-things-to-know-about-dhss-proposed-opt-fees/
-https://internationalcenter.umich.edu/about/news/opt-fee-proposal
-https://studyinthestates.dhs.gov/2026/10/fall-refresher-for-students-full-course-of-study-and-reduced-course-load
-https://ois.jhu.edu/university-community-resources/legal/recent-federal-immigration-actions/ds-rule-change-resources/for-f1-students/
-EOF
-node fc.js multi fc/u4.txt fc/b4`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-for u in "https://egov.uscis.gov/processing-times/api/forms" "https://egov.uscis.gov/processing-times/api/formtypes/I-765"; do code=$(curl -sL --compressed -m 40 -A "Mozilla/5.0" -o fc/pt_try.json -w "%{http_code}" "$u"); echo "$u -> $code $(wc -c < fc/pt_try.json) bytes"; head -c 400 fc/pt_try.json; echo; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u5.txt <<'EOF'
-https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-electronic-registration-process
-https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-electronic-registration-frequently-asked-questions
-EOF
-node fc.js multi fc/u5.txt fc/b5`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2"
-grep -v '^\s*$' 02.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -E "Oct (1[5-9]|2[0-3]), 2026|ORDER|Electronic|SCHEDUL|stay|hearing" | cut -c1-520 | head -14`
+- `GB="/c/Program Files/Git/usr/bin/bash.exe"; CMD='set -a; . <(tr -d "\r" < "$HOME/.mcp.env"); set +a; exec npx -y firecrawl-mcp@3.34.1' REQ='{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"probe","version":"1"}}}' { printf '%s\n' "$REQ"; sleep 25; } | timeout 60 "$GB" -c "$CMD" 2>/tmp/fc_err.txt | head -c 600; echo; echo "--- stderr (first 300 chars, key-redacted):"; head -c 300 /tmp/fc_err.txt | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g'`
+- `rm -f /tmp/fc_err.txt JSON=$(node -e 'console.log(JSON.stringify({type:"stdio",command:"C:\\Program Files\\Git\\usr\\bin\\bash.exe",args:["-c","set -a; . <(tr -d \"\\r\" < \"$HOME/.mcp.env\"); set +a; exec npx -y firecrawl-mcp@3.34.1"]}))') echo "$JSON" claude mcp add-json --scope user firecrawl "$JSON" 2>&1 | head -5 echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node "$SP/mkcfg.js" "$SP/fc_cfg.json" && node -e 'JSON.parse(require("fs").readFileSync(process.argv[1],"utf8")); console.log("valid json")' "$SP/fc_cfg.json" && claude mcp add-json --scope user firecrawl "$(cat "$SP/fc_cfg.json")" 2>&1 | head -5 echo "-----"; claude mcp get firecrawl 2>&1 | sed -E 's/fc-[A-Za-z0-9]+/fc-REDACTED/g' | head -15`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; mkdir -p "$SP/fc"; cd "$SP" s() { echo; echo "######## $1"; node fc.js search "$1" "fc/s_$2.json" qdr:m ${3:-7}; } s "AAU v. DHS curricular practical training preliminary injunction hearing November 6 District of Massachusetts judge" cpt1 s "CPT broadcast message lawsuit court order OR ruling OR hearing October 2026 international students" cpt2 s "SEVP broadcast message October 2026" sevp1 s "OPT fee $70,000 proposed rule comments universities respond NAFSA" opt1`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; cd "$SP" cat > fc/u1.txt <<'EOF' https://www.ice.gov/sevis/whats-new https://www.ice.gov/doclib/sevis/pdf/bcm2610-02.pdf https://www.cmu.edu/oie/news-and-events/2026-2027/october/cpt-lawsuit.html https://oiss.yale.edu/news/cpt-update-sevp-broadcast-messages-and-pending-litigation https://www.rnlawgroup.com/a-case-to-watch-universities-challenge-sevps-new-restrictions-on-curricular-practical-training/ https://www.courtlistener.com/?q=%2226-cv-14520%22&type=r EOF node fc.js multi fc/u1.txt fc/b1 echo; echo "###### ICE what's new (head)"; sed -n '1,45p' fc/b1/01.md | cut -c1-220`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b1" echo "#### ICE what's new: lines 45-110"; sed -n '45,110p' 01.md | cut -c1-300 echo; echo "#### BCM 2610-02"; cat 02.md echo; echo "#### CMU"; cat 03.md | cut -c1-1200 echo; echo "#### Yale"; cat 04.md echo; echo "#### courtlistener"; cat 06.md`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode 'q="26-cv-14520"' -d type=r -d format=json -o cl1.json -w "search http %{http_code}\n"; head -c 1500 cl1.json; echo`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js scrape "https://www.courtlistener.com/docket/74919449/association-of-american-universities-v-us-department-of-homeland/?order_by=desc" fc/docket_cpt.md 4000 echo ----; grep -n -i -E "hearing|order|scheduling|opposition|briefing|notice of appearance|motion|kobick|november|nov\." fc/docket_cpt.md | cut -c1-260 | head -50`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" sed -n '60,135p' docket_cpt.md | grep -v '^\s*$' | cut -c1-330 | head -40`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" cl() { curl -sL --compressed -m 40 -A "Mozilla/5.0" -G "https://www.courtlistener.com/api/rest/v4/search/" --data-urlencode "q=$1" -d type=r -d format=json -o "$2" ; node -e 'const j=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));for(const r of j.results||[])console.log([r.caseName,r.court_citation_string,r.docketNumber,"filed "+r.dateFiled,r.assignedTo,"https://www.courtlistener.com"+r.docket_absolute_url].join(" | "))' "$2"; } echo "### D/S"; cl '"26-cv-13799"' cl_ds.json echo "### H-1B CA v Mullin"; cl '"25-cv-13829"' cl_h1b.json echo "### First Circuit appeals"; cl 'Presidents Alliance Higher Education Immigration Department of Homeland Security' cl_ca1.json | head -8 echo "### Global Nurse Force"; cl 'Global Nurse Force v. Trump' cl_gnf.json | head -5 echo "### Chamber of Commerce v DHS H-1B"; cl 'Chamber of Commerce v. Department of Homeland Security H-1B proclamation' cl_coc.json | head -5`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u2.txt <<'EOF' https://www.courtlistener.com/docket/74908049/presidents-alliance-on-higher-educ-and-immigr-v-dhs/?order_by=desc https://www.courtlistener.com/docket/74661796/presidents-alliance-on-higher-education-and-immigration-v-united-states/?order_by=desc https://www.courtlistener.com/docket/73476893/state-of-california-v-mullin/?order_by=desc https://www.courtlistener.com/docket/72095497/chamber-of-commerce-of-the-united-states-of-ameri-v-dhs/?order_by=desc https://www.courtlistener.com/docket/74966923/global-nurse-force-et-al-v-trump-et-al/?order_by=desc EOF node fc.js multi fc/u2.txt fc/b2 for i in 01 02 03 04 05; do echo; echo "################ b2/$i"; head -3 fc/b2/$i.md | cut -c1-200; grep -v '^\s*$' fc/b2/$i.md | grep -n -E "^(Oct|Sep|Aug|Jul|Jun|May|Apr|Mar|Feb|Jan|Dec|Nov) [0-9]+, 202[56]$" | head -0; awk 'BEGIN{n=0} /^[0-9]+$/ {num=$0; getline d; if (d ~ /^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [0-9]+, 202[56]/) {getline desc; getline desc2; print num" | "d" | "substr(desc,1,230)" "substr(desc2,1,120); n++; if(n>=8) exit}}' fc/b2/$i.md; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2" echo "######## 1st Cir 26-2112 (D/S appeal)"; grep -v '^\s*$' 01.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was" | sed -n '20,70p' | cut -c1-420`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2" for f in 03:"1st Cir 26-1699 California v. Mullin (H-1B \$100k)" 04:"D.C. Cir 25-5473 Chamber v. DHS" 05:"9th Cir 26-6667 Global Nurse Force"; do n=${f%%:*}; t=${f#*:}; echo; echo "######## $t"; grep -v '^\s*$' $n.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|From|CourtListener|^\[" | awk '/^Description$/{f=1;next} f' | head -22 | cut -c1-520; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2" echo "### DC Cir argued/calendared"; grep -i -E "argu|calendar|oral|submitted|panel|opinion|judgment" 04.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -12 echo; echo "### 1st Cir 26-1699 argued/calendar/stay"; grep -i -E "argu|oral|calendar|stay|briefing|expedit" 03.md | grep -v -E "^\[|Internet Archive" | cut -c1-300 | head -14`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" q() { curl -sL --compressed -m 40 -G "https://www.federalregister.gov/api/v1/documents.json" --data-urlencode "conditions[term]=$1" --data-urlencode "conditions[publication_date][gte]=2026-09-20" --data-urlencode "order=newest" --data-urlencode "per_page=12" -d "fields[]=title" -d "fields[]=type" -d "fields[]=publication_date" -d "fields[]=citation" -d "fields[]=html_url" -d "fields[]=comments_close_on" -d "fields[]=effective_on" -d "fields[]=agency_names" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));for(const r of j.results||[])console.log([r.publication_date,r.type,r.citation,r.title.slice(0,110),"comments:"+r.comments_close_on,"eff:"+r.effective_on,(r.agency_names||[]).join("/").slice(0,50)].join(" | ")+"\n    "+r.html_url)'; } for t in '"nonimmigrant" students F-1' '"H-1B"' '"employment authorization"' '"Student and Exchange Visitor"' '"alien" "specialty occupation"' '"practical training"'; do echo "######## $t"; q "$t"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" for pair in "2026/10/14/2026-20955 eadauto" "2026/10/14/2026-20941 deference" "2026/10/01/2026-20187 hr1fees"; do p=${pair% *}; n=${pair#* }; curl -sL --compressed -m 90 -o "fc/$n.txt" "https://www.federalregister.gov/documents/full_text/text/$p.txt"; echo "== $n $(wc -c < fc/$n.txt)"; done for n in eadauto deference hr1fees; do echo; echo "################ $n : abstract-ish + OPT/H-1B/F-1 hits"; grep -a -n -i -E "optional practical|STEM|\(c\)\(3\)|F-1|H-1B|cap-gap|F-1 students" fc/$n.txt | cut -c1-240 | head -16; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" echo "### EAD auto-extension rule: what it says it covers"; sed -n '1,120p' eadauto.txt | grep -a -v '^\s*$' | sed -n '12,60p' | cut -c1-220 echo; echo "### mentions of student / STEM / 180 / 274a.12(c)(3)"; grep -a -n -i -E "student|STEM|180 days|\(c\)\(3\)|F-1|OPT" eadauto.txt | grep -a -v -i "systemic\|system" | cut -c1-230 | head -25`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" sed -n '2528,2545p' eadauto.txt; echo ...; grep -a -n -E "Optional Practical|OPT |STEM OPT|science, technology|\(c\)\(3\)\(C\)|\(b\)\(6\)" eadauto.txt | head`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" curl -sL --compressed -m 90 -o e274a13.xml "https://www.ecfr.gov/api/versioner/v1/full/2026-10-20/title-8.xml?part=274a&section=274a.13"; sed -e 's/<[^>]*>/ /g' e274a13.xml | tr -s ' \n' > e274a13.txt; wc -c e274a13.txt echo "### 274a.13(d)"; awk '/\(d\) Automatic extension/{f=1} f{print} /\(e\)/{if(f)exit}' e274a13.txt | head -c 3500 sed -e 's/<[^>]*>/ /g' ../../../scratchpad/ecfr.xml 2>/dev/null | head -0 cd ..; sed -e 's/<[^>]*>/ /g' ecfr.xml | tr -s ' \n' > ecfr_f.txt 2>/dev/null echo; echo "### 214.2(f)(11) OPT application timing"; awk '/\(11\) OPT application and approval process\./{f=1} f{print} /\(12\) Reporting while on optional/{if(f)exit}' ecfr_f.txt | head -c 6500`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" echo "### 274a.13 (current, 2026-10-20) — extension-related text"; grep -a -o -i ".\{0,200\}automatic.\{0,700\}" fc/e274a13.txt | head -c 2800 echo; echo "### 214.2(f)(11)"; grep -a -n "OPT application and approval process\." ecfr.txt | head -3`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" grep -a -n -E "^ \(11\) OPT|^ \(11\) " ecfr.txt | head -5 awk '/^ \(11\) OPT application/{c++} c>=2{print; n++} n>40{exit}' ecfr.txt | cut -c1-1400 | head -c 7500`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" for d in 2026-07-01 2026-10-20; do curl -sL --compressed -m 90 -o "fc/e214_$d.xml" "https://www.ecfr.gov/api/versioner/v1/full/$d/title-8.xml?part=214&section=214.2"; sed -e 's/<[^>]*>/ /g' "fc/e214_$d.xml" | tr -s ' \n' > "fc/e214_$d.txt"; echo "== $d: $(wc -c < fc/e214_$d.txt) chars"; grep -a -o "For post-completion OPT, not including a 24-month.\{0,330\}" "fc/e214_$d.txt" | head -1; grep -a -o "A student may not request a start date that is more than.\{0,80\}" "fc/e214_$d.txt" | head -1; done echo; echo "### eCFR latest-issue date info"; curl -sL --compressed -m 40 "https://www.ecfr.gov/api/versioner/v1/titles.json" | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));const t=j.titles.find(x=>x.number===8);console.log(JSON.stringify(t))'`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u3.txt <<'EOF' https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students https://studyinthestates.dhs.gov/stem-opt-hub https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/extension-of-post-completion-optional-practical-training-opt-and-f-1-status-for-eligible-students https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations https://www.uscis.gov/newsroom/alerts/fy-2027-h-1b-initial-registration-selection-process-completed https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-cap-season https://studyinthestates.dhs.gov/students/work/optional-practical-training EOF node fc.js multi fc/u3.txt fc/b3`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3" echo "################ 05 FY2027 selection alert"; sed -n '1,60p' 05.md | grep -v '^\s*$' | cut -c1-600 echo; echo "################ 03 cap-gap (key)"; grep -v '^\s*$' 03.md | sed -n '1,60p' | cut -c1-700`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3" echo "################ 01 USCIS OPT page"; grep -v '^\s*$' 01.md | sed -n '5,70p' | cut -c1-520 echo; echo "################ 02 STEM OPT hub"; grep -v '^\s*$' 02.md | sed -n '5,40p' | cut -c1-400`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b3" echo "################ 06 cap season: registration / weighted / fee lines"; grep -v '^\s*$' 06.md | grep -i -E "registration period|March|weighted|wage level|\\\$215|registration fee|April 1|FY 2027|FY 2028|FY 2029|selection|master|advanced degree|beneficiary-centric|passport" | cut -c1-420 | head -28 echo; echo "################ 04 H-1B page: \$100,000 / change of status / exception lines"; grep -v '^\s*$' 04.md | grep -i -E "100,000|change of status|outside the United States|exception|vacat|First Circuit|Global Nurse|June 8|Sept|2027" | cut -c1-560 | head -22`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc" F=e214_2026-07-01.txt echo "### (E) unemployment"; grep -a -o "( E ) Unemployment.\{0,900\}" $F | head -1 echo; echo "### STEM employer reqs: E-Verify / hours / I-983 / 4-9"; grep -a -o "( 5 ) Employer requirements.\{0,1100\}" $F | head -1 echo; grep -a -o "( 8 ) Minimum hours.\{0,300\}" $F | head -1 echo; echo "### (12)(ii) reporting"; grep -a -o "reporting obligations are:.\{0,1300\}" $F | head -1 echo; echo "### (5)(iv) grace on OPT completion"; grep -a -o "within 60 days after.\{0,400\}OPT" $F | head -2 echo; echo "### CPT text (pre-rule) integral"; grep -a -o "(i) Curricular practical training\..\{0,420\}" $F | head -1`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" s() { echo; echo "######## $1  [$3]"; node fc.js search "$1" "fc/s_$2.json" "$3" ${4:-6}; } s "OPT EAD I-765 processing time days October 2026 F-1 students post-completion" proc qdr:m 6 s "FY 2027 H-1B registration results eligible registrations selected number weighted selection wage level USCIS data" fy27 qdr:y 6 s "Fragomen OR Berry Appleman OR Ogletree OR Seyfarth OPT fee proposed rule analysis employers STEM OPT impact" firm qdr:m 6 s "Study in the States Fall refresher full course of study F-1 October 2026" sits qdr:m 4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u4.txt <<'EOF' https://www.uscis.gov/i-765 https://www.uscis.gov/forms/all-forms/how-do-i-request-premium-processing https://tracreports.org/reports/768/ https://wolfsdorf.com/h-1b-cap-fy2027-lottery-results-next-steps/ https://www.rnlawgroup.com/opt-delays-in-2026-why-the-14-month-rule-makes-a-timely-decision-essential/ https://wolfsdorf.com/fifteen-things-to-know-about-dhss-proposed-opt-fees/ https://internationalcenter.umich.edu/about/news/opt-fee-proposal https://studyinthestates.dhs.gov/2026/10/fall-refresher-for-students-full-course-of-study-and-reduced-course-load https://ois.jhu.edu/university-community-resources/legal/recent-federal-immigration-actions/ds-rule-change-resources/for-f1-students/ EOF node fc.js multi fc/u4.txt fc/b4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" for u in "https://egov.uscis.gov/processing-times/api/forms" "https://egov.uscis.gov/processing-times/api/formtypes/I-765"; do code=$(curl -sL --compressed -m 40 -A "Mozilla/5.0" -o fc/pt_try.json -w "%{http_code}" "$u"); echo "$u -> $code $(wc -c < fc/pt_try.json) bytes"; head -c 400 fc/pt_try.json; echo; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u5.txt <<'EOF' https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-electronic-registration-process https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-electronic-registration-frequently-asked-questions EOF node fc.js multi fc/u5.txt fc/b5`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b2" grep -v '^\s*$' 02.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -E "Oct (1[5-9]|2[0-3]), 2026|ORDER|Electronic|SCHEDUL|stay|hearing" | cut -c1-520 | head -14`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1440,1452p' nprm.txt; echo ....; sed -n '1556,1566p' nprm.txt`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -E "194,|95,[0-9]{3}|decline|choose not|not to (participate|fund|recommend)|withdraw from" nprm.txt | head -12; echo ----; grep -a -n -i -E "annual(ized)? (fee|transfer|payment)|\\\$8\.4|\\\$16\.5|12\.4 billion" nprm.txt | head -6`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '2193,2202p' nprm.txt; echo ....; sed -n '2494,2500p' nprm.txt`
@@ -13824,22 +14121,14 @@ grep -v '^\s*$' 02.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|Th
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -v -E "^\s*$|Case 1:26-cv-14520" memo.txt | sed -n '1,140p' | cut -c1-200`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -n -E "^\s*INTRODUCTION|Impacts of the Broadcasts|PLAINTIFFS' MEMBERS WILL SUFFER|THE COURT SHOULD STAY|CONCLUSION|LEGAL STANDARD" memo.txt | head -12`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; for r in "280,360" "650,700" "1391,1470" "1569,1625"; do echo "======== lines $r"; sed -n "${r}p" memo.txt | grep -v -E "^\s*$|Case 1:26-cv-14520" | cut -c1-230; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js scrape "https://www.aau.edu/who-we-are/our-members" fc/aau_members.md 2000
-node fc.js search "University of Minnesota Association of American Universities member" fc/s_aaumn.json - 5
-echo; grep -n -i "minnesota" fc/aau_members.md | head -5`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js scrape "https://www.aau.edu/who-we-are/our-members" fc/aau_members.md 2000 node fc.js search "University of Minnesota Association of American Universities member" fc/s_aaumn.json - 5 echo; grep -n -i "minnesota" fc/aau_members.md | head -5`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '214,470p' nprm.txt | grep -a -v '^\s*$' | cut -c1-210`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '60,213p' nprm.txt | grep -a -v '^\s*$' | cut -c1-200 | head -150`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '575,900p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ ' | cut -c1-190`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '896,1430p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------|^\s{4}\S.*(available at|<a href)' | cut -c1-185 | head -330`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1452,1645p' nprm.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-185 | head -140; echo =========== ; grep -a -n -i -E "billion|ten-year|10-year|annualized" nprm.txt | head -25`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "---- reliance (1757-1800)"; sed -n '1757,1800p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185; echo "---- effects (2325-2420)"; sed -n '2325,2420p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185; echo "---- 2840-2870"; sed -n '2846,2862p' nprm.txt | grep -a -v '^\s*$' | cut -c1-185`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u6.txt <<'EOF'
-https://studyinthestates.dhs.gov/elimination-of-duration-of-status-quick-facts
-https://studyinthestates.dhs.gov/elimination-of-duration-of-status-frequently-asked-questions
-EOF
-node fc.js multi fc/u6.txt fc/b6; wc -c fc/b6/*.md; grep -v '^\s*$' fc/b6/01.md | cut -c1-600 | head -90`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u6.txt <<'EOF' https://studyinthestates.dhs.gov/elimination-of-duration-of-status-quick-facts https://studyinthestates.dhs.gov/elimination-of-duration-of-status-frequently-asked-questions EOF node fc.js multi fc/u6.txt fc/b6; wc -c fc/b6/*.md; grep -v '^\s*$' fc/b6/01.md | cut -c1-600 | head -90`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b6"; grep -v '^\s*$' 02.md | sed -n '8,140p' | cut -c1-900`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -v '^\s*$' ds.txt | sed -n '1,120p' | cut -c1-200`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/^II. Executive Summary/{c++} c>=1' ds.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '12,200p' | cut -c1-190`
@@ -13851,26 +14140,15 @@ node fc.js multi fc/u6.txt fc/b6; wc -c fc/b6/*.md; grep -v '^\s*$' fc/b6/01.md 
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; echo "######## DEFERENCE NPRM"; grep -a -v '^\s*$' fc/deference.txt | sed -n '14,70p' | cut -c1-185; echo; grep -a -n -E "^[IVX]+\. |^[A-Z]\. " fc/deference.txt | head -30`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '183,265p;333,350p;698,730p' fc/deference.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190 | head -120`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '205,300p' t_2026-18631.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | cut -c1-190`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-curl -sL --compressed -m 90 -o fc/dol.txt "https://www.federalregister.gov/documents/full_text/text/2026/03/27/2026-06017.txt"; curl -sL --compressed -m 90 -o fc/wsel.txt "https://www.federalregister.gov/documents/full_text/text/2025/12/29/2025-23853.txt"; wc -c fc/dol.txt fc/wsel.txt
-echo "######## WEIGHTED SELECTION FINAL RULE: summary + exec"; grep -a -v '^\s*$' fc/wsel.txt | sed -n '20,60p' | cut -c1-190
-awk '/Executive Summary/{c++} c>=2' fc/wsel.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,60p' | cut -c1-190`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" curl -sL --compressed -m 90 -o fc/dol.txt "https://www.federalregister.gov/documents/full_text/text/2026/03/27/2026-06017.txt"; curl -sL --compressed -m 90 -o fc/wsel.txt "https://www.federalregister.gov/documents/full_text/text/2025/12/29/2025-23853.txt"; wc -c fc/dol.txt fc/wsel.txt echo "######## WEIGHTED SELECTION FINAL RULE: summary + exec"; grep -a -v '^\s*$' fc/wsel.txt | sed -n '20,60p' | cut -c1-190 awk '/Executive Summary/{c++} c>=2' fc/wsel.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,60p' | cut -c1-190`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "percent(ile)?|Level I |Level IV|17th|34th|52nd|\b50th\b|mean of|experience|20 percent|Level 1|Level 2|Level 3|Level 4" fc/dol.txt | sed -n '1,60p' | cut -c1-190`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1098,1125p' fc/dol.txt | grep -a -v '^\s*$' | cut -c1-190; echo ...; grep -a -n -i -E "effective|transition|60 days|apply to LCAs|filed on or after" fc/dol.txt | sed -n '1,15p' | cut -c1-180`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; awk '/^C\. Summary of the Major Provisions/{c++} c>=1' fc/eadauto.txt | grep -a -v '^\s*$' | grep -a -v -E '^\s+\\[0-9]+ |^---------' | sed -n '1,45p' | cut -c1-190; echo; grep -a -n -E "180 days before|renew.*180|file.*earlier|as early as" fc/eadauto.txt | head -6 | cut -c1-170`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; F=e214_2026-07-01.txt; grep -a -n -E "^ \(f\) Students in|^ \(f\) F-1|^ \(g\) Temporary workers|F-1 student in a college|^ \(\(f\)" $F | head; grep -a -n -E "\(1\) Admission of student|\(5\) Duration of status|\(6\) Full course of study|\(9\) Employment|\(13\) Temporary absence|\(16\) Reinstatement|\(2\) Student maintenance|\(7\) Extension of stay|\(8\) Transfer" $F | head -20`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; F=e214_2026-07-01.txt; sed -n '364,394p' $F | cut -c1-700; echo ======; sed -n '403,420p' $F | cut -c1-900`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; for f in "60_Claude/40_Project_Briefs/Internship/Does Not Offer Sponsorship' means no H-1B, not no OPT — same rule as     everywh.md" "60_Claude/40_Project_Briefs/Internship/OPT signals and content extraction — every eligibility string below marked 'real.md" "10_Areas/Summer Grind.md"; do echo "######## $f"; head -c 2600 "$f"; echo; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js scrape "https://www.ice.gov/doclib/sevis/pdf/stemList2024.pdf" fc/stemlist.md
-grep -n -i -E "11\.0701|11\.0101|11\.0103|11\.0401|11\.0201|Computer Science|Computer and Information Sciences, General" fc/stemlist.md | head -12 | cut -c1-200
-grep -n -i -E "effective|updated|July 22, 2024|Federal Register" fc/stemlist.md | head -6 | cut -c1-200
-head -12 fc/stemlist.md | cut -c1-200`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis"
-echo "### name collisions for planned new notes (should be empty):"
-for n in "F-1 Visa" "F-1 Employment Options" "SEVP and DSOs" "Duration of Status Rule" "Pre-Completion OPT" "STEM OPT Extension" "CPT Broadcast Messages" "CPT Lawsuit" "OPT Fee Proposal" "EAD and OPT Processing" "Cap-Gap Extension" "H-1B Lottery" "H-1B 100K Payment" "H-1B Rule Proposals" "2028 Graduation Timeline" "Visa Litigation Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null); [ -n "$r" ] && echo "EXISTS: $n -> $r"; done
-echo "### link targets that must resolve:"
-for n in "Internship Pipeline" "Phases Run" "Summer Grind" "Fall 2026 Plan" "Plans Board" "Companies giving OPT & CPT" "Portfolio" "AI_CONTEXT" "00_Dashboard" "Atomic Habits" "Mentorship Board" "Internship Review System" "Deadline Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null | head -2 | tr '\n' ' '); echo "$n -> ${r:-MISSING}"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js scrape "https://www.ice.gov/doclib/sevis/pdf/stemList2024.pdf" fc/stemlist.md grep -n -i -E "11\.0701|11\.0101|11\.0103|11\.0401|11\.0201|Computer Science|Computer and Information Sciences, General" fc/stemlist.md | head -12 | cut -c1-200 grep -n -i -E "effective|updated|July 22, 2024|Federal Register" fc/stemlist.md | head -6 | cut -c1-200 head -12 fc/stemlist.md | cut -c1-200`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" echo "### name collisions for planned new notes (should be empty):" for n in "F-1 Visa" "F-1 Employment Options" "SEVP and DSOs" "Duration of Status Rule" "Pre-Completion OPT" "STEM OPT Extension" "CPT Broadcast Messages" "CPT Lawsuit" "OPT Fee Proposal" "EAD and OPT Processing" "Cap-Gap Extension" "H-1B Lottery" "H-1B 100K Payment" "H-1B Rule Proposals" "2028 Graduation Timeline" "Visa Litigation Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null); [ -n "$r" ] && echo "EXISTS: $n -> $r"; done echo "### link targets that must resolve:" for n in "Internship Pipeline" "Phases Run" "Summer Grind" "Fall 2026 Plan" "Plans Board" "Companies giving OPT & CPT" "Portfolio" "AI_CONTEXT" "00_Dashboard" "Atomic Habits" "Mentorship Board" "Internship Review System" "Deadline Tracker"; do r=$(find . -type f -iname "$n.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" 2>/dev/null | head -2 | tr '\n' ' '); echo "$n -> ${r:-MISSING}"; done`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; sed -n '436p' e214_2026-07-01.txt | cut -c1-900; echo ...; sed -n '431,433p' e214_2026-07-01.txt | cut -c1-900; echo; sed -n '441,444p' e214_2026-07-01.txt | cut -c1-600`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "small entit|56\.|percent of (the )?SEVP|small schools" nprm.txt | head -10 | cut -c1-200`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '1612,1624p;2613,2625p' nprm.txt | cut -c1-190`
@@ -13880,13 +14158,7 @@ for n in "Internship Pipeline" "Phases Run" "Summer Grind" "Fall 2026 Plan" "Pla
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '5420,5432p;7380,7392p;17305,17314p' ds.txt | cut -c1-190`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; for d in 2026-16231 2026-16313 2026-20187; do echo "######## $d"; curl -sL --compressed -m 40 "https://www.federalregister.gov/api/v1/documents/$d.json?fields[]=title&fields[]=citation&fields[]=publication_date&fields[]=effective_on&fields[]=abstract&fields[]=dates" | head -c 1800; echo; done`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b5"; sed -n '17,46p' 01.md | cut -c1-420; echo; grep -n -i -E "wage level|SOC|selected for the first|second round|subsequent|beneficiary-centric" 01.md | head -10 | cut -c1-300`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u7.txt <<'EOF'
-https://www.courtlistener.com/docket/71541425/global-nurse-force-v-trump/?order_by=desc
-https://www.courtlistener.com/docket/72031571/state-of-california-v-noem/?order_by=desc
-EOF
-node fc.js multi fc/u7.txt fc/b7
-for i in 01 02; do echo; echo "######## b7/$i"; grep -v '^\s*$' fc/b7/$i.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -i -E "order|opinion|judgment|vacat|summary|hearing|grant|deny|proclamation" | head -14 | cut -c1-520; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u7.txt <<'EOF' https://www.courtlistener.com/docket/71541425/global-nurse-force-v-trump/?order_by=desc https://www.courtlistener.com/docket/72031571/state-of-california-v-noem/?order_by=desc EOF node fc.js multi fc/u7.txt fc/b7 for i in 01 02; do echo; echo "######## b7/$i"; grep -v '^\s*$' fc/b7/$i.md | grep -v -E "Buy on PACER|🙏|^Main Doc|CSV|Try again|There was|Attach|Download PDF|Toggle|^From|CourtListener\]|^\[|Internet Archive" | awk '/^Description$/{f=1;next} f' | grep -i -E "order|opinion|judgment|vacat|summary|hearing|grant|deny|proclamation" | head -14 | cut -c1-520; done`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '722,772p' fc/deference.txt | grep -a -v '^\s*$' | cut -c1-190; echo ....; sed -n '2425,2432p' t_2026-17324.txt | cut -c1-190; grep -a -n -E "2025\.\.\.|Table 13" t_2026-17324.txt | head -4`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; for n in "BOOM" "UROP" "Summer 2027" "Internship Tracker" "Internship Notes Standard"; do r=$(find . -type f -iname "$n*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | head -3 | tr '\n' ' '); echo "$n -> ${r:-none}"; done; grep -rIl -i "UROP" --include=*.md 10_Areas 20_Progress 2>/dev/null | head -5`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Research/BOOM"; head -40 BOOM.md | cut -c1-300`
@@ -13897,30 +14169,10 @@ for i in 01 02; do echo; echo "######## b7/$i"; grep -v '^\s*$' fc/b7/$i.md | gr
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### ISSS folder"; ls -la "10_Areas/Career/VISAs & Work Auth/" | head -40; echo; ls -la "10_Areas/Career/VISAs & Work Auth/ISSS/" 2>&1 | head; echo; echo "### UMN resources candidates"; find . -type f -ipath "*umn*" -iname "*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | grep -i -E "resource|link|umn\.md|UMN Resources|ISSS" | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### Brief standard/template"; find 30_Order -iname "Brief Standard.md" -o -iname "Brief Template.md" -o -iname "Transcript to Brief.md" | head; echo; echo "### UMN Links head"; sed -n '1,40p' 40_Resources/UMN/Links.md | cut -c1-200; echo; echo "### mineru?"; command -v mineru mineru-parse 2>&1 | head -2; pip list 2>/dev/null | grep -i mineru | head -2`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; wc -l 40_Resources/UMN/Links.md; grep -n -i -E "isss|international|visa|opt|cpt|career|^#" 40_Resources/UMN/Links.md | cut -c1-220`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-mkdir -p fc/b8
-node fc.js scrape "https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf" fc/b8/g1055.md
-node fc.js scrape "https://www.uscis.gov/i-907" fc/b8/i907.md
-echo "--- G-1055 hits:"; grep -n -i -E "I-765|optional practical|\(c\)\(3\)|F-1|student" fc/b8/g1055.md | head -20 | cut -c1-260
-echo "--- I-907 hits:"; grep -n -i -E "\\$[0-9,]+" fc/b8/i907.md | head -15 | cut -c1-260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" mkdir -p fc/b8 node fc.js scrape "https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf" fc/b8/g1055.md node fc.js scrape "https://www.uscis.gov/i-907" fc/b8/i907.md echo "--- G-1055 hits:"; grep -n -i -E "I-765|optional practical|\(c\)\(3\)|F-1|student" fc/b8/g1055.md | head -20 | cut -c1-260 echo "--- I-907 hits:"; grep -n -i -E "\\$[0-9,]+" fc/b8/i907.md | head -15 | cut -c1-260`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b8"; sed -n '488,492p;499,503p;512,520p' g1055.md | cut -c1-900; echo ....; grep -n -i -E "\(c\)\(3\)" g1055.md | cut -c1-700 | head -6; echo; grep -n -i "edition\|effective" g1055.md | head -5 | cut -c1-200; sed -n '310,312p' g1055.md | cut -c1-600; grep -n -F '*' g1055.md | grep -i -E "premium" | head -3 | cut -c1-300`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js search "studyinthestates.dhs.gov F-1 optional practical training students reporting SEVP Portal unemployment days" fc/s_sits1.json - 8 | head -40
-echo ======
-cat > fc/u8.txt <<'EOF'
-https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt
-https://isss.umn.edu/fstudents/employment/opt/apply
-https://isss.umn.edu/fstudents/employment/opt/requirements
-https://isss.umn.edu/fstudents/employment/opt/travel-study
-https://isss.umn.edu/fstudents/employment/opt/basics
-https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/eligibility
-https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application
-https://isss.umn.edu/fstudents/employment/opt-cpt-comparison
-https://isss.umn.edu/fstudents/employment/cpt/basics
-EOF
-node fc.js multi fc/u8.txt fc/b9`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js search "studyinthestates.dhs.gov F-1 optional practical training students reporting SEVP Portal unemployment days" fc/s_sits1.json - 8 | head -40 echo ====== cat > fc/u8.txt <<'EOF' https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt https://isss.umn.edu/fstudents/employment/opt/apply https://isss.umn.edu/fstudents/employment/opt/requirements https://isss.umn.edu/fstudents/employment/opt/travel-study https://isss.umn.edu/fstudents/employment/opt/basics https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/eligibility https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application https://isss.umn.edu/fstudents/employment/opt-cpt-comparison https://isss.umn.edu/fstudents/employment/cpt/basics EOF node fc.js multi fc/u8.txt fc/b9`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; grep -n -E "^# |^## |Last updated" 01.md | head -20; `
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; for f in 01 02 03 04 05 07 08; do s=$(grep -n -m1 -E "^# " $f.md | cut -d: -f1); e=$(grep -n -m1 "Last updated" $f.md | cut -d: -f1); echo "$f: content lines $s-$e"; done; echo; sed -n '461,552p' 01.md | grep -v '^\s*$' | cut -c1-900`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,590p' 02.md | grep -v '^\s*$' | cut -c1-1100`
@@ -13928,17 +14180,8 @@ node fc.js multi fc/u8.txt fc/b9`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,576p' 04.md | grep -v '^\s*$' | cut -c1-1000`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 05 post-completion basics"; sed -n '461,531p' 05.md | grep -v '^\s*$' | cut -c1-800; echo; echo "######## 08 OPT vs CPT"; sed -n '461,482p' 08.md | grep -v '^\s*$' | cut -c1-900`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 07 STEM application"; sed -n '461,589p' 07.md | grep -v '^\s*$' | cut -c1-900`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js scrape "https://www.uscis.gov/sites/default/files/document/policy-alerts/PM-602-0194-PendingApplicationsAdditionalHighRiskCountries-20260101.pdf" fc/b8/hold.md
-grep -v '^\s*$' fc/b8/hold.md | head -60 | cut -c1-700`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-cat > fc/u9.txt <<'EOF'
-https://www.uscis.gov/working-in-the-united-states/stem-employment-pathways/nonimmigrant-pathways-for-stem-employment-in-the-united-states
-https://www.uscis.gov/working-in-the-united-states/entrepreneur-employment-pathways/nonimmigrant-or-parole-pathways-for-entrepreneur-employment-in-the-united-states
-https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement
-EOF
-node fc.js multi fc/u9.txt fc/b10
-echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exempt\|cap exempt" fc/b3/04.md | head -8 | cut -c1-500`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js scrape "https://www.uscis.gov/sites/default/files/document/policy-alerts/PM-602-0194-PendingApplicationsAdditionalHighRiskCountries-20260101.pdf" fc/b8/hold.md grep -v '^\s*$' fc/b8/hold.md | head -60 | cut -c1-700`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" cat > fc/u9.txt <<'EOF' https://www.uscis.gov/working-in-the-united-states/stem-employment-pathways/nonimmigrant-pathways-for-stem-employment-in-the-united-states https://www.uscis.gov/working-in-the-united-states/entrepreneur-employment-pathways/nonimmigrant-or-parole-pathways-for-entrepreneur-employment-in-the-united-states https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement EOF node fc.js multi fc/u9.txt fc/b10 echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exempt\|cap exempt" fc/b3/04.md | head -8 | cut -c1-500`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; echo "######## H-1B page: cap-exempt section"; sed -n '120,150p' b3/04.md | grep -v '^\s*$' | cut -c1-1100; echo; echo "######## STEM pathways: headings + cap/F-1 relevant"; grep -n -E "^#{1,4} " b10/01.md | head -40 | cut -c1-160`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '137,217p' 01.md | grep -v '^\s*$' | cut -c1-650`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; echo "### entrepreneur page headings"; grep -n -E "^#{1,4} " 02.md | cut -c1-170 | head -40; echo; echo "### L-1 section (STEM page)"; sed -n '218,260p' 01.md | grep -v '^\s*$' | cut -c1-500 | head -22`
@@ -13946,81 +14189,17 @@ echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exem
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "regular cap.*(first|then|before)|first.*regular cap|advanced degree exemption.*(second|subsequent|remaining|after)|master's cap.*(second|remaining|after)|selected.*under the regular cap" fc/wsel.txt | head -12 | cut -c1-220`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "advanced degree" fc/wsel.txt | sed -n '1,40p' | cut -c1-200`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '8460,8500p;8924,8945p' fc/wsel.txt | grep -a -v '^\s*$' | cut -c1-200`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js scrape "https://flag.dol.gov/wage-data/wage-data-downloads" fc/b8/oflc.md 3000
-grep -n -i -E "zip|2026|2025|download" fc/b8/oflc.md | head -20 | cut -c1-240`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-rm -rf fc/wages26 && mkdir -p fc/wages26 && cd fc/wages26 && curl -sL -m 120 -o w.zip -w "zip http %{http_code} %{size_download}\n" "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip" && (unzip -o -q w.zip 2>&1 | head -3 || true); ls -la | head -20`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js scrape "https://flag.dol.gov/wage-data/wage-data-downloads" fc/b8/oflc.md 3000 grep -n -i -E "zip|2026|2025|download" fc/b8/oflc.md | head -20 | cut -c1-240`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" rm -rf fc/wages26 && mkdir -p fc/wages26 && cd fc/wages26 && curl -sL -m 120 -o w.zip -w "zip http %{http_code} %{size_download}\n" "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip" && (unzip -o -q w.zip 2>&1 | head -3 || true); ls -la | head -20`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; head -2 ALC_Export.csv | cut -c1-300; echo; head -2 Geography.csv | cut -c1-300; echo; grep -i "minneapolis" Geography.csv | head -3 | cut -c1-300; echo; grep -E "15-1252|15-1251|15-1253|15-1211|15-1299" oes_soc_occs.csv | head -8 | cut -c1-200`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; echo "Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)"; grep -E '^"33460","15-1252"' ALC_Export.csv; echo "--- Data scientists/others in Minneapolis:"; for s in 15-1221 15-2051 15-1299 15-1211 15-1244 15-1241; do grep -E "^\"33460\",\"$s\"" ALC_Export.csv; done; echo "--- national (area 99999?) software dev:"; grep -E '^"99999","15-1252"|^"[0-9]*","15-1252",0' ALC_Export.csv | head -3; echo "--- SOC names:"; grep -E '^"(15-1221|15-2051|15-1244|15-1241)"' oes_soc_occs.csv | cut -c1-90; echo; grep -i -E "wage year|effective|OEWS" /dev/null; echo "Level definitions row sample for MN statewide:"; grep -E '^"[0-9]*","15-1252",1' ALC_Export.csv | head -0`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
-const fs=require("fs");
-const geo=fs.readFileSync("Geography.csv","utf8").split(/\r?\n/);
-const name={}; for(const l of geo){const m=l.match(/^"(\d+)","([^"]*)"/); if(m) name[m[1]]=m[2];}
-const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.includes("\"15-1252\""));
-const want=["33460","41940","41860","42660","35620","12420","16980","14460","19740","19100","31080","47900"];
-for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(want.includes(c[0])){const [a,s,g,l1,l2,l3,l4]=c; const f=x=>Math.round(parseFloat(x)*2080).toLocaleString("en-US"); console.log((name[a]||a).padEnd(52), "L1 $"+f(l1).padStart(8), "L2 $"+f(l2).padStart(8), "L3 $"+f(l3).padStart(8), "L4 $"+f(l4).padStart(8), " (hourly L1 "+l1+", L4 "+l4+")");}}
-console.log("count rows for 15-1252:",rows.length);
-'; echo; echo "Minneapolis annual (x2080): L1 $(echo '44.05*2080' | bc 2>/dev/null) ..."; ls *.pdf | head -2`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js search "University of Minnesota Twin Cities academic calendar spring 2028 last day of semester finals" fc/s_cal.json - 6 | head -30`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
-node fc.js scrape "https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar" fc/b8/cal2728.md
-grep -v '^\s*$' fc/b8/cal2728.md | sed -n '1,90p' | cut -c1-220`
-- `node -e '
-const d=(s)=>new Date(s+"T12:00:00Z"); const f=(x)=>x.toISOString().slice(0,10)+" "+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][x.getUTCDay()];
-const add=(x,n)=>new Date(x.getTime()+n*86400000);
-const addM=(s,m)=>{const x=d(s); x.setUTCMonth(x.getUTCMonth()+m); return x;};
-function win(label,end){const e=d(end);console.log("\n"+label+"  end of term "+f(e));console.log("  earliest ISSS request (end-100d):",f(add(e,-100)));console.log("  earliest USCIS receipt (end-90d):",f(add(e,-90)));console.log("  latest USCIS receipt (end+60d):",f(add(e,60)));console.log("  14-month outer limit:",f(addM(end,14)));console.log("  postponed-rule latest filing (end+30d):",f(add(e,30)));}
-win("CHECK: Fall 2026 (ISSS says Sep 14 / Sep 24 / Feb 21)","2026-12-23");
-win("SPRING 2028","2028-05-10");
-win("IF FINISHED EARLY: Fall 2027","2027-12-23");
-// pre-completion summer 2027 examples
-for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){const e=d(s);console.log("\nPre-OPT requested start "+f(e)+": ISSS request opens (start-100d) "+f(add(e,-100))+"; USCIS filing opens (start-90d) "+f(add(e,-90)));}
-// proposal timelines
-const nprmDS=d("2025-08-28"), finalDS=d("2026-07-17"); console.log("\nD/S NPRM->final days:",Math.round((finalDS-nprmDS)/86400000));
-const nprmW=d("2025-09-24"), finalW=d("2025-12-29"); console.log("Weighted NPRM->final days:",Math.round((finalW-nprmW)/86400000));
-const opt=d("2026-10-08"); console.log("OPT fee NPRM + 98d (weighted analog) final:",f(add(opt,96)),"; effective +60:",f(add(opt,156)));
-console.log("OPT fee NPRM + 323d (D/S analog) final:",f(add(opt,323)),"; effective +60:",f(add(opt,383)));
-// 30 business days from 2027-03-17 (ignoring holidays)
-let x=d("2027-03-17"),n=0; while(n<30){x=add(x,1); const w=x.getUTCDay(); if(w!==0&&w!==6) n++;} console.log("30 business days after 2027-03-17 (no holidays):",f(x));
-let y=d("2028-02-10"),m=0; while(m<30){y=add(y,1); const w=y.getUTCDay(); if(w!==0&&w!==6) m++;} console.log("30 business days after 2028-02-10:",f(y));
-console.log("5 months after 2028-02-10:",f(addM("2028-02-10",5)),"; after 2027-03-17:",f(addM("2027-03-17",5)));
-'`
-- `node -e '
-const d=s=>new Date(s+"T12:00:00Z"); const add=(x,n)=>new Date(x.getTime()+n*86400000);
-const dn=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; const f=x=>x.toISOString().slice(0,10)+" "+dn[x.getUTCDay()];
-const nextBiz=x=>{while(x.getUTCDay()===0||x.getUTCDay()===6)x=add(x,1);return x;};
-const addBiz=(x,n)=>{let c=0;while(c<n){x=add(x,1);if(x.getUTCDay()!==0&&x.getUTCDay()!==6)c++;}return x;};
-console.log("PRE-OPT summer 2027 (no US holidays modeled)");
-for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){
- const S=d(s); const req=nextBiz(add(S,-100)); const i20=addBiz(req,10); const open=add(S,-90); const file=i20>open?i20:nextBiz(open);
- const deadline30=add(i20,30);
- console.log("start "+f(S)+" | ISSS request opens "+f(add(S,-100))+" -> submit "+f(req)+" | I-20 by (10 biz days) "+f(i20)+" | USCIS filing opens "+f(open)+" | file on "+f(file)+" | USCIS must receive by (I-20+30d) "+f(deadline30)+" | premium decision by "+f(addBiz(file,30))+" | 5 months later "+f(new Date(Date.UTC(file.getUTCFullYear(),file.getUTCMonth()+5,file.getUTCDate(),12))));
-}
-console.log("\nPOST-OPT spring 2028");
-const req=d("2028-01-31"); const i20=addBiz(req,10); const open=d("2028-02-10"); const file=i20>open?i20:open;
-console.log("ISSS request "+f(req)+" | I-20 by "+f(i20)+" | USCIS opens "+f(open)+" | file "+f(file)+" | premium decision by "+f(addBiz(file,30))+" | +5 months "+f(new Date(Date.UTC(2028,file.getUTCMonth()+5,file.getUTCDate(),12)))+" | last receipt "+f(d("2028-07-09")));
-console.log("\nSTEM if card runs to 2029-07-09: ISSS request opens "+f(add(d("2029-07-09"),-100))+"; USCIS filing opens "+f(add(d("2029-07-09"),-90))+"; USCIS must receive by "+f(d("2029-07-09")));
-console.log("If post-OPT starts 2028-05-11 (12 months): ends "+f(add(d("2029-05-10"),0)));
-console.log("Dec 23 2027 early-finish path: ISSS request opens "+f(add(d("2027-12-23"),-100)));
-console.log("Days between 2026-10-23 and 2027-03-08:",Math.round((d("2027-03-08")-d("2026-10-23"))/86400000));
-'`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
-const fs=require("fs");
-const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.startsWith("\"33460\","));
-const names={"15-1252":"Software Developers","15-1221":"Computer & Information Research Scientists","15-2051":"Data Scientists","15-1211":"Computer Systems Analysts","15-1241":"Computer Network Architects","15-1244":"Network & Systems Admins","15-1299":"Computer Occupations, All Other"};
-console.log("Twin Cities annual (hourly x 2080), wage year 2026-27");
-for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(names[c[1]]) console.log(names[c[1]].padEnd(46),[c[3],c[4],c[5],c[6]].map(x=>"$"+Math.round(parseFloat(x)*2080).toLocaleString("en-US")).join("  "));}
-const t={L1:91624,L2:110926,L3:130208,L4:149510};
-console.log("\nOffer -> level (software developers, Twin Cities)");
-for(const o of [85000,95000,105000,115000,125000,135000,145000,155000]){let lv="below L1"; if(o>=t.L4)lv="IV (4 tickets)"; else if(o>=t.L3)lv="III (3 tickets)"; else if(o>=t.L2)lv="II (2 tickets)"; else if(o>=t.L1)lv="I (1 ticket)"; console.log("$"+o.toLocaleString("en-US").padStart(8),lv);}
-console.log("\nIllustration: chance to be picked at least once in N independent draws using TRAC modeled per-draw odds");
-const p={I:0.1529,II:0.3058,III:0.4587,IV:0.6116, random:0.2959, FY25actual:135137/470342, FY26actual:120141/343981};
-for(const k of Object.keys(p)){const q=1-p[k]; console.log(k.padEnd(10),"per-draw "+(p[k]*100).toFixed(1)+"%","| 1 draw "+(p[k]*100).toFixed(1)+"% | 2 draws "+((1-q*q)*100).toFixed(1)+"% | 3 draws "+((1-q*q*q)*100).toFixed(1)+"%");}
-'; node -e 'const r=(a,b)=>console.log(a,(b*2080).toFixed(0));'`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e ' const fs=require("fs"); const geo=fs.readFileSync("Geography.csv","utf8").split(/\r?\n/); const name={}; for(const l of geo){const m=l.match(/^"(\d+)","([^"]*)"/); if(m) name[m[1]]=m[2];} const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.includes("\"15-1252\"")); const want=["33460","41940","41860","42660","35620","12420","16980","14460","19740","19100","31080","47900"]; for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(want.includes(c[0])){const [a,s,g,l1,l2,l3,l4]=c; const f=x=>Math.round(parseFloat(x)*2080).toLocaleString("en-US"); console.log((name[a]||a).padEnd(52), "L1 $"+f(l1).padStart(8), "L2 $"+f(l2).padStart(8), "L3 $"+f(l3).padStart(8), "L4 $"+f(l4).padStart(8), " (hourly L1 "+l1+", L4 "+l4+")");}} console.log("count rows for 15-1252:",rows.length); '; echo; echo "Minneapolis annual (x2080): L1 $(echo '44.05*2080' | bc 2>/dev/null) ..."; ls *.pdf | head -2`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js search "University of Minnesota Twin Cities academic calendar spring 2028 last day of semester finals" fc/s_cal.json - 6 | head -30`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" node fc.js scrape "https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar" fc/b8/cal2728.md grep -v '^\s*$' fc/b8/cal2728.md | sed -n '1,90p' | cut -c1-220`
+- `node -e ' const d=(s)=>new Date(s+"T12:00:00Z"); const f=(x)=>x.toISOString().slice(0,10)+" "+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][x.getUTCDay()]; const add=(x,n)=>new Date(x.getTime()+n*86400000); const addM=(s,m)=>{const x=d(s); x.setUTCMonth(x.getUTCMonth()+m); return x;}; function win(label,end){const e=d(end);console.log("\n"+label+"  end of term "+f(e));console.log("  earliest ISSS request (end-100d):",f(add(e,-100)));console.log("  earliest USCIS receipt (end-90d):",f(add(e,-90)));console.log("  latest USCIS receipt (end+60d):",f(add(e,60)));console.log("  14-month outer limit:",f(addM(end,14)));console.log("  postponed-rule latest filing (end+30d):",f(add(e,30)));} win("CHECK: Fall 2026 (ISSS says Sep 14 / Sep 24 / Feb 21)","2026-12-23"); win("SPRING 2028","2028-05-10"); win("IF FINISHED EARLY: Fall 2027","2027-12-23"); // pre-completion summer 2027 examples for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){const e=d(s);console.log("\nPre-OPT requested start "+f(e)+": ISSS request opens (start-100d) "+f(add(e,-100))+"; USCIS filing opens (start-90d) "+f(add(e,-90)));} // proposal timelines const nprmDS=d("2025-08-28"), finalDS=d("2026-07-17"); console.log("\nD/S NPRM->final days:",Math.round((finalDS-nprmDS)/86400000)); const nprmW=d("2025-09-24"), finalW=d("2025-12-29"); console.log("Weighted NPRM->final days:",Math.round((finalW-nprmW)/86400000)); const opt=d("2026-10-08"); console.log("OPT fee NPRM + 98d (weighted analog) final:",f(add(opt,96)),"; effective +60:",f(add(opt,156))); console.log("OPT fee NPRM + 323d (D/S analog) final:",f(add(opt,323)),"; effective +60:",f(add(opt,383))); // 30 business days from 2027-03-17 (ignoring holidays) let x=d("2027-03-17"),n=0; while(n<30){x=add(x,1); const w=x.getUTCDay(); if(w!==0&&w!==6) n++;} console.log("30 business days after 2027-03-17 (no holidays):",f(x)); let y=d("2028-02-10"),m=0; while(m<30){y=add(y,1); const w=y.getUTCDay(); if(w!==0&&w!==6) m++;} console.log("30 business days after 2028-02-10:",f(y)); console.log("5 months after 2028-02-10:",f(addM("2028-02-10",5)),"; after 2027-03-17:",f(addM("2027-03-17",5))); '`
+- `node -e ' const d=s=>new Date(s+"T12:00:00Z"); const add=(x,n)=>new Date(x.getTime()+n*86400000); const dn=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; const f=x=>x.toISOString().slice(0,10)+" "+dn[x.getUTCDay()]; const nextBiz=x=>{while(x.getUTCDay()===0||x.getUTCDay()===6)x=add(x,1);return x;}; const addBiz=(x,n)=>{let c=0;while(c<n){x=add(x,1);if(x.getUTCDay()!==0&&x.getUTCDay()!==6)c++;}return x;}; console.log("PRE-OPT summer 2027 (no US holidays modeled)"); for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){  const S=d(s); const req=nextBiz(add(S,-100)); const i20=addBiz(req,10); const open=add(S,-90); const file=i20>open?i20:nextBiz(open);  const deadline30=add(i20,30);  console.log("start "+f(S)+" | ISSS request opens "+f(add(S,-100))+" -> submit "+f(req)+" | I-20 by (10 biz days) "+f(i20)+" | USCIS filing opens "+f(open)+" | file on "+f(file)+" | USCIS must receive by (I-20+30d) "+f(deadline30)+" | premium decision by "+f(addBiz(file,30))+" | 5 months later "+f(new Date(Date.UTC(file.getUTCFullYear(),file.getUTCMonth()+5,file.getUTCDate(),12)))); } console.log("\nPOST-OPT spring 2028"); const req=d("2028-01-31"); const i20=addBiz(req,10); const open=d("2028-02-10"); const file=i20>open?i20:open; console.log("ISSS request "+f(req)+" | I-20 by "+f(i20)+" | USCIS opens "+f(open)+" | file "+f(file)+" | premium decision by "+f(addBiz(file,30))+" | +5 months "+f(new Date(Date.UTC(2028,file.getUTCMonth()+5,file.getUTCDate(),12)))+" | last receipt "+f(d("2028-07-09"))); console.log("\nSTEM if card runs to 2029-07-09: ISSS request opens "+f(add(d("2029-07-09"),-100))+"; USCIS filing opens "+f(add(d("2029-07-09"),-90))+"; USCIS must receive by "+f(d("2029-07-09"))); console.log("If post-OPT starts 2028-05-11 (12 months): ends "+f(add(d("2029-05-10"),0))); console.log("Dec 23 2027 early-finish path: ISSS request opens "+f(add(d("2027-12-23"),-100))); console.log("Days between 2026-10-23 and 2027-03-08:",Math.round((d("2027-03-08")-d("2026-10-23"))/86400000)); '`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e ' const fs=require("fs"); const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.startsWith("\"33460\",")); const names={"15-1252":"Software Developers","15-1221":"Computer & Information Research Scientists","15-2051":"Data Scientists","15-1211":"Computer Systems Analysts","15-1241":"Computer Network Architects","15-1244":"Network & Systems Admins","15-1299":"Computer Occupations, All Other"}; console.log("Twin Cities annual (hourly x 2080), wage year 2026-27"); for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(names[c[1]]) console.log(names[c[1]].padEnd(46),[c[3],c[4],c[5],c[6]].map(x=>"$"+Math.round(parseFloat(x)*2080).toLocaleString("en-US")).join("  "));} const t={L1:91624,L2:110926,L3:130208,L4:149510}; console.log("\nOffer -> level (software developers, Twin Cities)"); for(const o of [85000,95000,105000,115000,125000,135000,145000,155000]){let lv="below L1"; if(o>=t.L4)lv="IV (4 tickets)"; else if(o>=t.L3)lv="III (3 tickets)"; else if(o>=t.L2)lv="II (2 tickets)"; else if(o>=t.L1)lv="I (1 ticket)"; console.log("$"+o.toLocaleString("en-US").padStart(8),lv);} console.log("\nIllustration: chance to be picked at least once in N independent draws using TRAC modeled per-draw odds"); const p={I:0.1529,II:0.3058,III:0.4587,IV:0.6116, random:0.2959, FY25actual:135137/470342, FY26actual:120141/343981}; for(const k of Object.keys(p)){const q=1-p[k]; console.log(k.padEnd(10),"per-draw "+(p[k]*100).toFixed(1)+"%","| 1 draw "+(p[k]*100).toFixed(1)+"% | 2 draws "+((1-q*q)*100).toFixed(1)+"% | 3 draws "+((1-q*q*q)*100).toFixed(1)+"%");} '; node -e 'const r=(a,b)=>console.log(a,(b*2080).toFixed(0));'`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && sed -i 's#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md"));#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md")).concat(fs.readdirSync(path.join(FOLDER,"ISSS")).filter((f)=>f.endsWith(".md")).map((f)=>"ISSS/"+f));#' audit.js && node audit.js 2>&1 | grep -B1 -A3 -E "ISSUE|TOTAL|notes in folder"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -E "ISSUE|TOTAL|notes in folder|unresolved"; echo ----; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 30 2>&1 | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "key scan vault folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md 2>/dev/null; echo "key scan scratchpad (excluding downloaded data):"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" --include=*.js --include=*.json --include=*.md --include=*.txt 2>/dev/null | head -3; echo "(blank = none)"; echo; git status --short -- "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md | sed 's/^/  /' | head -40; echo; ls "10_Areas/Career/VISAs & Work Auth" "10_Areas/Career/VISAs & Work Auth/ISSS" | wc -l`
-
 

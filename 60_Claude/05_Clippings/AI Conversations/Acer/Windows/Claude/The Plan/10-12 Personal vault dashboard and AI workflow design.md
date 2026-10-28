@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Personal vault dashboard and AI workflow design"
 started_at: 2026-10-12T18:36:10
 ended_at: 2026-10-15T16:13:59
-exported_at: 2026-10-18T13:33:32
+exported_at: 2026-10-28T16:15:52
 duration_minutes: 4177.8
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: fa3c339c-a222-4d66-8ff5-e4bec9e57536
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-12
+updated: 2026-10-28
 turn_count: 12
 tools_used:
   Agent: 10
@@ -25,12 +28,12 @@ tools_used:
   WebSearch: 8
   Write: 24
 tokens:
-  input: 432
-  output: 646609
-  cache_creation: 2460754
-  cache_read: 30478729
-  total: 33586524
-cost_usd: null
+  input: 120
+  output: 174981
+  cache_creation: 590898
+  cache_read: 9209366
+  total: 9975365
+cost_usd: 5.034579
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -333,7 +336,10 @@ Paste the standing instructions and R1 into a fresh Sonnet 5.5 session at high e
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -a && echo ---- && for d in 00_Live 20_Progress 30_Order 40_Resources 50_Archive 60_Jarvis 60_Claude 00_Inbox; do echo "== $d"; ls "$d" 2>/dev/null | head -30; done; echo; ls -a .claude .claude/* | head -50; cat .claude/settings.json 2>/dev/null | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -a && echo ---- && for d in 00_Live 20_Progress 30_Order 40_Resources 50_Archive 60_Jarvis 60_Claude 00_Inbox; do echo "== $d"; ls "$d" 2>/dev/null | head -30; done; echo; ls -a .claude .claude/* | head -50; cat .claude/settings.json 2>/dev/null | head -60
+```
 ```
 .
 ..
@@ -451,7 +457,10 @@ weekly-review.md
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\startday\SKILL.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\closeday\SKILL.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\README.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls .obsidian .obsidian/plugins; echo ---; ls 60_Jarvis/* 30_Order/* 00_Live/* | head -120; echo ---; cat .obsidian/community-plugins.json; echo; ls "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins"; ls "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls .obsidian .obsidian/plugins; echo ---; ls 60_Jarvis/* 30_Order/* 00_Live/* | head -120; echo ---; cat .obsidian/community-plugins.json; echo; ls "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins"; ls "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets"
+```
 ```
 .obsidian:
 app.json
@@ -653,7 +662,10 @@ readingview.css
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\The Plan Vault Architecture.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Life OS.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\60_Jarvis\00_Control_Center\Jarvis Operating Rules.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 00_Live/Tracking/* 00_Live/Enumerate/Daily 00_Live/Career/* | head -60; echo ---; cat .obsidian/plugins/homepage/data.json | head -30; echo ---; cat .obsidian/community-plugins.json | wc -l; ls .obsidian/snippets; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 60_Claude/07_AI_Information 60_Claude/07_AI_Information/* | head -80; ls 10_Areas/Life 10_Areas/Life/Habits 10_Areas/Life/Tracking 2>/dev/null`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 00_Live/Tracking/* 00_Live/Enumerate/Daily 00_Live/Career/* | head -60; echo ---; cat .obsidian/plugins/homepage/data.json | head -30; echo ---; cat .obsidian/community-plugins.json | wc -l; ls .obsidian/snippets; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 60_Claude/07_AI_Information 60_Claude/07_AI_Information/* | head -80; ls 10_Areas/Life 10_Areas/Life/Habits 10_Areas/Life/Tracking 2>/dev/null
+```
 ```
 00_Live/Tracking/Relationship Log.md
 
@@ -823,7 +835,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Tracking\Habits\Habits Scorecard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily\12-10-2026.md`
 - `Grep` -- pattern `streak` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\CS\Arc\Learning Tracker tool.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -o '"value": *"[^"]*"' .obsidian/plugins/homepage/data.json; cat "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/obsidian-meta-bind-plugin/manifest.json" | grep version; ls "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/snippets"; grep -c "" "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets/dashboard.css"; grep -o '"id": *"[^"]*"' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/lazy-plugins/data.json" 2>/dev/null | head -3; ls 30_Order/System 2>/dev/null; ls "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/git-sync"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -o '"value": *"[^"]*"' .obsidian/plugins/homepage/data.json; cat "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/obsidian-meta-bind-plugin/manifest.json" | grep version; ls "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/snippets"; grep -c "" "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets/dashboard.css"; grep -o '"id": *"[^"]*"' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/lazy-plugins/data.json" 2>/dev/null | head -3; ls 30_Order/System 2>/dev/null; ls "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/git-sync"
+```
 ```
 "value": "10_Areas/Jarvis OS Dashboard.canvas"
 	"version": "1.5.1",
@@ -849,7 +864,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `AskUserQuestion` -- `{"questions":[{"question":"Where will you actually use the dashboard? Your daily note says you write it from your phone on a bus.","header":"Devices","multiSelect":true,"options":[{"label":"Desktop Obsidian","description":"Main surface. Everything works: DataviewJS, Meta Bind, multi-column."},{"label":"Phone Obsidian","description":"Forces a single-column layout and limits which plugins we can rely on. Meta Bind and Dataview work, multi-column renders poorly."},{"label":"Browser view","description":"Would need a separate app reading the vault. Out of scope for the one-hour build unless you insist."}]},{"question":"What does the home dashboard cover? Jarvis owns work (internships, LeetCode, classes). Which domains belong in The Plan\u0027s dashboard?","header":"Scope","multiSelect":true,"options":[{"label":"Habits and identity","description":"Morning routine, gym, reading, no-smoking gate, 80/20 behaviors."},{"label":"Health and finance trackers","description":"Weekly workouts, monthly money snapshot, bucket totals."},{"label":"Learning and study","description":"Study hours, course progress, reading."},{"label":"Career pipeline","description":"Applications, mentors, internship moves. Currently owned by Jarvis, so only include it if you want it mirrored."}]},{"question":"What is the minimum that makes a day count toward the streak?","header":"Daily floor","multiSelect":false,"options":[{"label":"3 of 5 core habits (Recommended)","description":"Pick five core habits and count a day at three or more. Leaves room for a low-energy day and avoids all-or-nothing."},{"label":"One keystone plus 2 others","description":"A fixed keystone (for example the no-smoking gate or the morning move) must be hit, plus any two more."},{"label":"I will define it myself","description":"I list candidate habits from your daily note and you choose the floor."}]},{"question":"Do you want a mind-map style exploration view as a third surface, beyond your stated max of 2 dashboards?","header":"Mind map","multiSelect":false,"options":[{"label":"Yes, as a linked canvas (Recommended)","description":"Home and Monthly stay the two dashboards. A canvas with real edges maps domains and goals for exploring, and is not a daily surface."},{"label":"No, keep to 2 surfaces","description":"Explore through links and Home page sections only."},{"label":"Replace Monthly with the map","description":"Home plus a map. Monthly planning goes into the Home page."}]}]}`
 - `AskUserQuestion` -- `{"questions":[{"question":"Your daily note lists about eight behaviors. Which five are the streak habits (3 of 5 counts the day)? Pick exactly five.","header":"Core 5","multiSelect":true,"options":[{"label":"Morning move at 8 am","description":"Get out of bed and move around."},{"label":"Morning read","description":"Learn something new on the couch, with your 12-page book target."},{"label":"Study block at 2 pm","description":"Go outside and study (Lind Hall). The learning hours line feeds off this."},{"label":"Gym at 5:30","description":"Calisthenics or gym after class."},{"label":"Plan the day (20 min)","description":"Written plan after moving around."},{"label":"No-smoking gate","description":"No smoking before planning, breakfast and the first task."},{"label":"Water 3L + creatine","description":"Easy to log, low friction."},{"label":"Mindset content instead of doomscroll","description":"Your 17-days-left habit from today\u0027s note."}]},{"question":"How should the single daily career line work?","header":"Career line","multiSelect":false,"options":[{"label":"One named task, set at night, ticked next day (Recommended)","description":"You write one specific career task for tomorrow (for example \u0027send application to X\u0027) and the dashboard shows it and a single checkbox. Done or not done, nothing else."},{"label":"Fixed daily question","description":"A yes/no each day: \u0027Did I move my internship search forward?\u0027 Simple, but easy to fake."},{"label":"Pull from Jarvis","description":"The line is read from Jarvis\u0027s startday output. Cross-vault dependency, and I\u0027d avoid it."}]},{"question":"What rewards should make the dashboard addictive to tick? Pick what you actually respond to.","header":"Rewards","multiSelect":true,"options":[{"label":"Streak counter and best streak","description":"Big number on top, with a visible \u0027streak at risk\u0027 warning after one miss."},{"label":"30-day heatmap","description":"Green squares per day, so a gap is visible and hard to ignore."},{"label":"Daily score ring","description":"Ring fills as you tick (x of 5), turns gold at 3, full at 5."},{"label":"Weekly grade and levels","description":"Weekly A-F grade from habit completion, with level titles at streak milestones (7, 30, 100 days)."}]},{"question":"How honest should the dashboard be when you slip? You asked me to stay direct.","header":"Tone","multiSelect":false,"options":[{"label":"Blunt facts only (Recommended)","description":"Shows \u0027Day 2 of miss. Streak breaks tomorrow.\u0027 with the numbers. No praise, no guilt."},{"label":"Blunt plus your own words","description":"Same, plus a line you write once (for example the \u0027You choose\u0027 passage from today\u0027s note) shown on miss days."},{"label":"Encouraging","description":"Softer messages. I\u0027d advise against it, given your note says the system exists against drifting."}]}]}`
 - `AskUserQuestion` -- `{"questions":[{"question":"Core 5, part A. Pick the habits that go in the streak. Across parts A and B you must end with exactly five.","header":"Core A","multiSelect":true,"options":[{"label":"Morning move at 8 am","description":"Get out of bed and move around."},{"label":"Morning read","description":"Learn something new on the couch, 12-page target."},{"label":"Study block at 2 pm","description":"Lind Hall study session. The learning-hours line feeds off this."},{"label":"Gym at 5:30","description":"Calisthenics or gym after class."}]},{"question":"Core 5, part B. Pick the rest so A and B total five.","header":"Core B","multiSelect":true,"options":[{"label":"Plan the day (20 min)","description":"Written plan after moving around."},{"label":"No-smoking gate","description":"No smoking before planning, breakfast and the first task."},{"label":"Water 3L + creatine","description":"Easy to log, low friction."},{"label":"Mindset content, no doomscroll","description":"Your 17-days-left habit from today\u0027s note."}]},{"question":"How should the single daily career line work?","header":"Career line","multiSelect":false,"options":[{"label":"One named task, set the night before (Recommended)","description":"You write one specific career task for tomorrow (for example \u0027send application to X\u0027). The dashboard shows it with one checkbox. Done or not, nothing else."},{"label":"Fixed daily yes/no question","description":"\u0027Did I move my internship search forward today?\u0027 Simple, but easy to fake."},{"label":"Pull from Jarvis","description":"Read from Jarvis\u0027s startday output. Creates a cross-vault dependency; I\u0027d avoid it."}]},{"question":"Which rewards make ticking addictive for you?","header":"Rewards","multiSelect":true,"options":[{"label":"Streak counter and best streak","description":"Big number on top, with a visible \u0027streak at risk\u0027 warning after one miss."},{"label":"30-day heatmap","description":"Green squares per day, so a gap is visible and hard to ignore."},{"label":"Daily score ring","description":"Ring fills as you tick, turns gold at 3 of 5, full at 5."},{"label":"Weekly grade and levels","description":"A-F weekly grade, plus level titles at streak milestones (7, 30, 100 days)."}]}]}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/gupta-builds" && ls && sed -n 1,60p "08-25 gupta-builds contribution card redesign.md" | cut -c1-400; echo ----; grep -n -i "summary\|## Claude" "08-25 gupta-builds contribution card redesign.md" | head; ls -d /d/_Anant/*/gupta-builds* /c/Users/anant/gupta-builds* "D:/_Anant/20_Progress/Documents/gupta-builds" 2>/dev/null`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/gupta-builds" && ls && sed -n 1,60p "08-25 gupta-builds contribution card redesign.md" | cut -c1-400; echo ----; grep -n -i "summary\|## Claude" "08-25 gupta-builds contribution card redesign.md" | head; ls -d /d/_Anant/*/gupta-builds* /c/Users/anant/gupta-builds* "D:/_Anant/20_Progress/Documents/gupta-builds" 2>/dev/null
+```
 ```
 Exit code 2
 00 - Session Index.md
@@ -934,8 +952,11 @@ tags:
 2117:## Claude
 2190:## Claude
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/gupta-builds" && sed -n 1086,1110p "08-25 gupta-builds contribution card redesign.md" | cut -c1-700; echo ....; sed -n 1657,1680p "08-25 gupta-builds contribution card redesign.md" | cut -c1-700; echo; sed -n 2190,2230p "08-25 gupta-builds contribution card redesign.md" | cut -c1-500`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/gupta-builds" && sed -n 1086,1110p "08-25 gupta-builds contribution card redesign.md" | cut -c1-700; echo ....; sed -n 1657,1680p "08-25 gupta-builds contribution card redesign.md" | cut -c1-700; echo; sed -n 2190,2230p "08-25 gupta-builds contribution card redesign.md" | cut -c1-500
 ```
+````
 Everything checks out. Summary of this round's changes, each verified individually:
 
 1. **Font** — swapped `"Segoe UI", Ubuntu, sans-serif` → `"JetBrains Mono", ui-monospace, monospace` (same stack as `generate_ascii_face.py`) on all card text. Typing SVG was already correctly rendering JetBrains Mono — confirmed by fetching the live SVG, no bug there.
@@ -1029,11 +1050,14 @@ git show origin/output:activity-stats.svg 2>&1 | head -c 2000
 From https://github.com/gupta-builds/gupta-builds
  * branch            output     -> FETCH_HEAD
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
-```
+````
 - `AskUserQuestion` -- `{"questions":[{"question":"Are categories 4 and 5 Mind and Career, as proposed?","header":"Categories 4+5","multiSelect":false,"options":[{"label":"Yes: Mind and Career (Recommended)","description":"Mind holds no-doomscroll mindset content (and the no-smoking gate if you add it). Career is the one named daily task."},{"label":"Mind and Discipline, Career is a separate line","description":"Career stays a display-only daily check outside the streak. Streak categories become Morning, Study, Fitness, Mind, Discipline."},{"label":"Different categories","description":"Describe your own two in the notes box."}]},{"question":"When does a category count as done?","header":"Done rule","multiSelect":false,"options":[{"label":"All its actions ticked (Recommended)","description":"Strict and clear. Morning needs move, read and plan all done. Single-action categories (Study, Career) are unaffected."},{"label":"At least one action ticked","description":"Easier. Risk: you tick the easiest action and the category always passes."},{"label":"Majority of its actions","description":"Morning needs 2 of 3, Fitness 1 of 2 rounds up to 2 of 2, so effectively all."}]},{"question":"Should the no-smoking gate be a streak action, a keystone that overrides, or a separate tracker?","header":"Smoking gate","multiSelect":false,"options":[{"label":"Action inside Mind (Recommended)","description":"One of Mind\u0027s actions, ticked daily like the others, with its own history in the heatmap."},{"label":"Keystone that blocks the day","description":"If you smoke before planning, breakfast and first task, the day cannot count no matter what else you tick."},{"label":"Separate tracker, outside the streak","description":"Logged in Health Tracker only. Not shown on Home."}]},{"question":"Do you want me to proceed now to the build plan (session prompts for 30_Order, 60_Jarvis, daily note redesign, dashboard), or keep brainstorming first?","header":"Next step","multiSelect":false,"options":[{"label":"A few more questions, then the plan","description":"I ask about the daily note layout, monthly dashboard contents and the 30_Order standards before writing anything."},{"label":"Go to the build plan now","description":"I assume sensible defaults for the rest and produce the ordered session prompts."},{"label":"Keep brainstorming longer","description":"You said you\u0027d answer many questions. I\u0027ll go deeper on each area one at a time."}]}]}`
 - `AskUserQuestion` -- `{"questions":[{"question":"How are ticks stored in the daily note? This decides how reliable the streak math is.","header":"Tick storage","multiSelect":false,"options":[{"label":"Frontmatter toggles via Meta Bind (Recommended)","description":"Each action is a true/false field (morning_move, gym, etc.). Streak math is exact and survives you rewording a habit line. Tap works on phone."},{"label":"Plain markdown checkboxes","description":"Readable and editable anywhere. Streak math depends on the exact section headings and text staying unchanged, so it breaks more easily."},{"label":"Both: checkbox in the note, mirrored to a field","description":"Most robust and most complex. Needs a script to keep the two in sync, which is a one-hour build risk."}]},{"question":"When do you set tomorrow\u0027s career task and study topic?","header":"Night-before","multiSelect":false,"options":[{"label":"Last 5 minutes of the evening, on phone","description":"Tomorrow\u0027s daily note gets created with those two lines pre-filled. If missing at 8 am, the dashboard shows a red \u0027no target set\u0027 banner."},{"label":"First thing in the morning","description":"Easier to keep, but the line gets written after you\u0027ve already started drifting."},{"label":"Either, but the banner shows until set","description":"Flexible. Banner stays red until both lines exist."}]},{"question":"What must the Monthly dashboard show? Pick everything you want.","header":"Monthly","multiSelect":true,"options":[{"label":"Month heatmap and grade","description":"Per-day squares, days passed, category completion rates, best streak this month."},{"label":"Finance snapshot","description":"Monthly buckets, balances, card-paid check from your Finance Tracker."},{"label":"Health trend","description":"Workout count and baseline lifts from your Health Tracker."},{"label":"Month plan and goals","description":"The few outcomes this month exists to produce, with progress."}]},{"question":"What streak milestones should the score ring and level titles use?","header":"Milestones","multiSelect":false,"options":[{"label":"3 / 7 / 21 / 66 / 100 days","description":"66 matches the average habit-formation research cited in Atomic Habits style material. Frequent early wins, one big one."},{"label":"7 / 30 / 100 / 365 days","description":"Round numbers. Fewer early rewards, so less pull in the first weeks."},{"label":"I will set my own","description":"Name your milestones in the notes box."}]}]}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && f="07-10 Fix untickable checklist in table.md"; grep -n "^## Claude\|^## You" "$f" | head; echo ----; awk '/^## You/{c++} c>=2' "$f" | cut -c1-900 | head -150`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && f="07-10 Fix untickable checklist in table.md"; grep -n "^## Claude\|^## You" "$f" | head; echo ----; awk '/^## You/{c++} c>=2' "$f" | cut -c1-900 | head -150
 ```
+````
 63:## You
 69:## You
 73:## Claude
@@ -1191,8 +1215,11 @@ ac_hist1103: false
 | Track     | Target    | Topic | Done |
 |-----------|-----------|-------|------|
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 30_Order/Templates/Enumerate 2>/dev/null; ls 10_Areas/Life/Enumerate/Daily | tail -3; ls "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Headway Templates" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Metadata"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 30_Order/Templates/Enumerate 2>/dev/null; ls 10_Areas/Life/Enumerate/Daily | tail -3; ls "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Headway Templates" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Metadata"`
 ```
 Better Month.md
 Better Today.md
@@ -1220,7 +1247,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `AskUserQuestion` -- `{"questions":[{"question":"Which vault runs the evening /closeday that writes the next actions into The Plan\u0027s daily note?","header":"closeday","multiSelect":false,"options":[{"label":"The Plan has its own /closeday (Recommended)","description":"Personal close: scores the 5 categories, asks what failed, writes up to 5 next actions. Jarvis\u0027s /closeday stays work-only. No cross-vault writes, which matches AGENTS.md."},{"label":"Jarvis\u0027s /closeday writes into The Plan","description":"One command at night. Creates a cross-vault write path, and Jarvis\u0027s write guard would need to allow The Plan\u0027s folder."},{"label":"Two commands, run back to back","description":"Jarvis closes work, The Plan closes personal. Two prompts per night."}]},{"question":"How should failures be recorded when a category goes unticked?","header":"Failures","multiSelect":false,"options":[{"label":"One-word cause tag per miss (Recommended)","description":"/closeday lists each unticked category and asks for a cause: sleep, no-plan, distracted, energy, other. The Monthly page then shows which cause costs you the most days."},{"label":"Free-text reason","description":"More detail, but you can\u0027t count or chart it."},{"label":"No reason, just the miss","description":"Fastest. Loses the main learning signal."}]},{"question":"How does The Plan\u0027s Monthly dashboard see the state of Jarvis? The two vaults can\u0027t query each other.","header":"Jarvis snapshot","multiSelect":false,"options":[{"label":"Monthly snapshot note, written once a month (Recommended)","description":"A short reviewed note in 60_Jarvis summarising Jarvis\u0027s system state (counts, health, open gaps). Monthly dashboard embeds the latest one. Matches the existing promotion rule."},{"label":"Weekly snapshot","description":"Fresher, four times the maintenance."},{"label":"Manual links only","description":"No snapshot. Monthly just links to Jarvis\u0027s own dashboard."}]},{"question":"Should ticking lists (not tables) be the default, as I recommend?","header":"Tick method","multiSelect":false,"options":[{"label":"Yes: lists with a category field, Meta Bind only for hours/text (Recommended)","description":"Minimal frontmatter, phone-friendly, rewording-proof."},{"label":"Tables with Meta Bind toggles like Jarvis","description":"Looks tidier as a grid. Adds roughly eight true/false frontmatter fields per daily note."},{"label":"Mix: list for actions, one table for the weekly view","description":"Daily note stays list-based; the weekly note uses a table with toggles."}]}]}`
 - `AskUserQuestion` -- `{"questions":[{"question":"Which skills does The Plan get? Jarvis has /startday, /closeday, /weekly-review, /ops, /challenge, /ideas, /strategy, /llm-council, /trace-topic and others. Pick what you will actually run.","header":"Skills","multiSelect":true,"options":[{"label":"/startday (personal)","description":"Reads last night\u0027s next actions and today\u0027s career/study lines, shows today\u0027s targets and streak status. Writes nothing except the day\u0027s plan."},{"label":"/closeday (personal)","description":"Scores the 5 categories, logs failure causes, writes up to 5 next actions, and sets tomorrow\u0027s career line."},{"label":"/weekly-review and /monthly-review","description":"Weekly grade from the daily notes, monthly grade plus the Jarvis snapshot request."},{"label":"/challenge","description":"Adversarial check on a plan or decision, answers directly without agreeing by default. Useful against your own drift."}]},{"question":"Which hooks should The Plan enforce? Jarvis has a write guard and an internship-note guard.","header":"Hooks","multiSelect":true,"options":[{"label":"Write guard","description":"Blocks new files at the vault root and any write to 50_Archive and .obsidian. Same idea as Jarvis, adjusted to The Plan\u0027s folders."},{"label":"Secrets guard","description":"Blocks reading or printing .env files, keys and tokens, enforcing your global rule at the tool level, not just in prose."},{"label":"Daily-note validator","description":"After any write to a daily note, checks the ISO filename, the category fields and the max 5 next actions rule."},{"label":"Session log append","description":"Appends one line per session to a log. Note: your global rule says no writing outside what was asked, so this would need your explicit approval."}]},{"question":"AGENTS.md now calls CLAUDE.md legacy, and Codex also works in this vault. What should CLAUDE.md become?","header":"CLAUDE.md","multiSelect":false,"options":[{"label":"Thin pointer to AGENTS.md plus Claude-only specifics (Recommended)","description":"One rule set in AGENTS.md for every tool. CLAUDE.md only adds skills, hooks and Claude Code behavior. Stops the two files drifting."},{"label":"Full rewrite as the Claude-specific guide","description":"CLAUDE.md stays a complete file for Claude. Risk: duplicated rules that drift from AGENTS.md."},{"label":"Delete CLAUDE.md","description":"AGENTS.md only. Claude Code still reads CLAUDE.md first, so it needs at least an import line."}]},{"question":"What is the first thing you see when the Home page opens?","header":"Home top","multiSelect":false,"options":[{"label":"Streak number and score ring (Recommended)","description":"Streak, best streak and today\u0027s ring at the top, then today\u0027s ticks, then the career and study lines."},{"label":"Today\u0027s career line","description":"The one named task first, since you called it the crucial goal. Streak underneath."},{"label":"Heatmap strip","description":"The GitHub-style record across the top, like your README, with today\u0027s ticks directly below."}]}]}`
 - `AskUserQuestion` -- `{"questions":[{"question":"Approve the five skills, with /recover as number five?","header":"Skills","multiSelect":false,"options":[{"label":"Approve as listed (Recommended)","description":"startday, closeday, weekly-review, monthly-review, recover. Everything else is cut."},{"label":"Swap /recover for something else","description":"Name the fifth skill in the notes box."},{"label":"Add /challenge as a sixth","description":"Breaks the five-skill limit you set, but the skeptic agent already covers it, so I advise against it."}]},{"question":"Approve the four agents and the cuts (career-operator, research-distiller)?","header":"Agents","multiSelect":false,"options":[{"label":"Approve as listed (Recommended)","description":"daily-auditor, review-analyst, skeptic, vault-curator."},{"label":"Keep career-operator too","description":"Adds a fifth agent. It would only act on The Plan\u0027s single daily career line."},{"label":"Fewer agents","description":"Drop to two: daily-auditor and review-analyst. Skeptic and curator become on-demand prompts."}]},{"question":"Time-anchored alarms for the 8 am, 2 pm and 5:30 habits plus a closeday reminder: how?","header":"Alarms","multiSelect":false,"options":[{"label":"Google Calendar recurring events (Recommended)","description":"Phone alerts at those times, outside Obsidian. I would create them only after you approve the exact list."},{"label":"Obsidian-side reminders","description":"Needs another plugin and only fires when Obsidian is open."},{"label":"No alarms","description":"The dashboard alone has to pull you in."}]},{"question":"Approve the four-layer logging design above?","header":"Logging","multiSelect":false,"options":[{"label":"Approve as designed (Recommended)","description":"Daily note, review sections, decision register, and an AI session log that only writes with your approval."},{"label":"Drop the AI session log","description":"Keep the first three layers only. Fewer files, less history of what the AI did."},{"label":"Add a separate streak history file","description":"A monthly archive of streak results. Duplicates daily notes, so I advise against it."}]}]}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git remote -v; echo ---; sed -n 1,40p 30_Order/System/git-sync/plan-git-sync.ps1 | cut -c1-200; echo ---; ls .obsidian/plugins/obsidian-local-rest-api; grep -c "" .gitignore; grep -n "obsidian\|\.env" .gitignore | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git remote -v; echo ---; sed -n 1,40p 30_Order/System/git-sync/plan-git-sync.ps1 | cut -c1-200; echo ---; ls .obsidian/plugins/obsidian-local-rest-api; grep -c "" .gitignore; grep -n "obsidian\|\.env" .gitignore | head
+```
 ```
 origin	https://github.com/gupta-builds/Obsidian-SecondBrain.git (fetch)
 origin	https://github.com/gupta-builds/Obsidian-SecondBrain.git (push)
@@ -1284,7 +1314,10 @@ styles.css
 ```
 - `AskUserQuestion` -- `{"questions":[{"question":"Which task sources must end up in The Plan\u0027s daily note? Pick all that apply.","header":"Intake sources","multiSelect":true,"options":[{"label":"Todoist","description":"Pulled through the Zapier connector at /startday (needs authenticating Zapier, which is not connected yet)."},{"label":"Reminders (phone)","description":"Depends on which app: Apple Reminders, Google Tasks or Todoist. Tell me which in the notes box."},{"label":"Google Calendar","description":"Connector is available now. Events for today become time-anchored lines."},{"label":"Tasks typed in Obsidian","description":"Already in the vault. A Tasks query gathers them from every note."}]},{"question":"Should /jarvis-dump copy or move notes from Jarvis?","header":"Dump mode","multiSelect":false,"options":[{"label":"Copy, Jarvis untouched (Recommended)","description":"Source stays in Jarvis. The dumped note gets source path, date and status unreviewed in frontmatter, and sits in 60_Jarvis/10_Promoted_Notes/."},{"label":"Move","description":"Deletes from Jarvis after copying. Irreversible if the dump is wrong, and Jarvis links would break."},{"label":"Copy, then you approve each note before it is written","description":"Slower, and safest. Fits the \u0027reviewed material only\u0027 rule in AGENTS.md."}]},{"question":"What do we ship in the one-hour build? The rest becomes queued session prompts.","header":"Hour one","multiSelect":false,"options":[{"label":"Daily note, streak, Home page (Recommended)","description":"ISO rename, new daily template, streak script, Home dashboard with ring, heatmap and ticks. This is what makes you open the vault every day."},{"label":"30_Order standards first","description":"Write the rigid rules, templates and schemas, then build the dashboard in the next session. Cleaner but nothing to look at tonight."},{"label":"Skills, agents and hooks first","description":"Build the AI loop, then the dashboard. The AI loop has no daily note to act on until the template exists."}]},{"question":"How do you want every tool in the toolkit linked to its source, as you asked?","header":"References","multiSelect":false,"options":[{"label":"One reference note per tool in 30_Order/Standards, linked from the skill (Recommended)","description":"Each skill, agent, hook and script links to a note holding the official doc URL, the version checked and the date. Obsidian wikilinks, as in Jarvis\u0027s plugin docs."},{"label":"Sources section at the bottom of each skill/agent file","description":"Fewer files, but the reference is buried inside the tool and harder to browse."},{"label":"Both","description":"Highest quality, double maintenance."}]}]}`
 - `Agent` -- `{"description":"Read Sonnet 5.5 prompting guide","subagent_type":"web-fetch","prompt":"Fetch https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED] and report, in full detail but compactly, every concrete recommendation for writing prompts for Claude Sonnet 5.5: structure, how to state goals/constraints, effort level and thinking guidance, tool use and agentic research guidance, output format control, verbosity, XML or section tagging advice, what to avoid (for example over-prompting, aggressive emphasis), and any example prompt patterns the page gives. Quote exact wording for any rules that are phrased as specific instructions. If the page cannot be fetched, say so plainly and do not guess."}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources" && ls -la Obsidian; ls Obsidian/Dashboards 2>&1 | head; ls "../00_Live/Enumerate/Weekly" "../00_Live/Enumerate/Monthly"; cat ../.obsidian/core-plugins.json | tr -d '\n ' | head -c 600`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources" && ls -la Obsidian; ls Obsidian/Dashboards 2>&1 | head; ls "../00_Live/Enumerate/Weekly" "../00_Live/Enumerate/Monthly"; cat ../.obsidian/core-plugins.json | tr -d '\n ' | head -c 600
+```
 ```
 total 4
 drwxr-xr-x 1 anant 197609 0 Oct 12 20:43 .
@@ -1308,7 +1341,10 @@ Prompts.md
 2026-W24.md
 {"file-explorer":true,"global-search":true,"switcher":true,"graph":true,"backlink":true,"canvas":true,"outgoing-link":true,"tag-pane":true,"footnotes":true,"properties":true,"page-preview":true,"daily-notes":false,"templates":false,"note-composer":true,"command-palette":true,"slash-command":true,"editor-status":true,"bookmarks":true,"markdown-importer":true,"zk-prefixer":false,"random-note":true,"outline":true,"word-count":true,"slides":true,"audio-recorder":false,"workspaces":true,"file-recovery":true,"publish":false,"sync":true,"bases":true,"webviewer":false}
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian" && find Dashboards Plugins -type f | head -40; echo ---; wc -c Dashboards/Prompts.md; cat Dashboards/Prompts.md | head -80`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian" && find Dashboards Plugins -type f | head -40; echo ---; wc -c Dashboards/Prompts.md; cat Dashboards/Prompts.md | head -80
+```
 ```
 Dashboards/Prompts.md
 ---
@@ -1402,10 +1438,10 @@ Obsidian renders `- [ ]` checkboxes only on standalone list lines, never inside 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Research - Jarvis Dashboard Findings.md`
 ```diff
 - - **Open security item.** `40_Resources/CS/Links.md` has a Keys section flagged for rotation and stripping in [[The Plan Vault Architecture]].
-- **Quirk.** Plan daily note `12-10-2026` and the Jarvis rule agree on one thing: the note is the single source of "what now".
-
+- - **Quirk.** Plan daily note `12-10-2026` and the Jarvis rule agree on one thing: the note is the single source of "what now".
+- 
 + - **Open security item.** `40_Resources/CS/Links.md` has a Keys section flagged for rotation and stripping in [[The Plan Vault Architecture]].
-
++ 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```
@@ -1478,7 +1514,7 @@ Every question answered in the 2026-10-12 brainstorm, with the consequence for t
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
-```
+````
 ---
 type: project
 status: sprout
@@ -1605,7 +1641,7 @@ After any write to a daily note, check: ISO filename, parent folder, every actio
 - Level titles per milestone.
 - Whether the 80/20 lines in the current daily note become the Targets section or are retired.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
 ```
 ---
@@ -1904,13 +1940,13 @@ tags:
 notes:
   - "[[Dashboards Hub]]"
   - "[[Decisions Log]]"
-  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
+  - "[[Prompts]]"
   - "[[The Plan Vault Architecture]]"
 next: "Run R1, then B1"
 ---
 # Build Plan
 
-This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]].
+This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in [[Prompts]].
 
 ## Order and dependencies
 
@@ -1932,7 +1968,7 @@ This session (about one hour) designs the whole system and writes the prompts. E
 - Research of Jarvis and The Plan: [[Research - Jarvis Dashboard Findings]].
 - Every question answered: [[Decisions Log]].
 - Specs: [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - AI Loop]], [[Spec - Automation Layers]].
-- Prompts for every later session:[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]].
+- Prompts for every later session: [[Prompts]].
 - Nothing outside this folder was written or moved.
 
 ## Next-day target
@@ -1966,7 +2002,7 @@ notes:
   - "[[Spec - AI Loop]]"
   - "[[Spec - Automation Layers]]"
   - "[[Build Plan]]"
-  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
+  - "[[Prompts]]"
   - "[[Life OS]]"
 next: "Run prompt R1, then B1 (see Build Plan)"
 ---
@@ -1995,7 +2031,7 @@ The design record for The Plan's daily dashboard, streak system and AI loop, fro
 | [[Spec - AI Loop]] | Skills, agents, hooks, toolkit, logging, `60_Jarvis` zones |
 | [[Spec - Automation Layers]] | Daily, weekly and monthly layers and their constraints |
 | [[Build Plan]] | Order, dependencies, gates, risks |
-|[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | One prompt per session |
+| [[Prompts]] | One prompt per session |
 
 ## Principles
 
@@ -2009,7 +2045,7 @@ The design record for The Plan's daily dashboard, streak system and AI loop, fro
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Prompts.md`
-```
+````
 ---
 type: project
 status: sprout
@@ -2185,8 +2221,11 @@ Task: turn Spec - Automation Layers into a concrete design, without building any
 For the daily, weekly and monthly layers, propose one transport per layer using only options R1 confirmed. For each, give the trigger, inputs, outputs, the exact lines it adds to the Intake section, the approval step for any outward action, the dry-run mode, the log entry written, and the failure behaviour. Decide the single owner for each task type (Todoist, Reminders, Calendar, Obsidian) so tasks do not duplicate. Settle the monthly archive question: frozen recap note versus moving daily notes. Present the design for approval. Do not create calendar events, reminders, Zapier actions or scheduled tasks.
 ```
 
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && echo "em dashes:"; grep -c "—" *.md; echo; echo "link targets:"; grep -oh "\[\[[^]|]*" *.md | sed 's/\[\[//' | sort -u | while read t; do if ls *.md | grep -qxF "$t.md"; then :; else f=$(find "D:/_Anant/20_Progress/Documents/The Plan" -name "$t.md" -not -path "*/.git/*" 2>/dev/null | head -1); if [ -z "$f" ]; then echo "MISSING: $t"; fi; fi; done; ls -la
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && echo "em dashes:"; grep -c "—" *.md; echo; echo "link targets:"; grep -oh "\[\[[^]|]*" *.md | sed 's/\[\[//' | sort -u | while read t; do if ls *.md | grep -qxF "$t.md"; then :; else f=$(find "D:/_Anant/20_Progress/Documents/The Plan" -name "$t.md" -not -path "*/.git/*" 2>/dev/null | head -1); if [ -z "$f" ]; then echo "MISSING: $t"; fi; fi; done; ls -la`
 ```
 em dashes:
 Build Plan.md:0
@@ -2217,11 +2256,11 @@ drwxr-xr-x 1 anant 197609     0 Oct 12 20:43 Daily
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Research - Jarvis Dashboard Findings.md`
 ```diff
 - ## Where the Jarvis build record lives
-
+- 
 + ## Where the Jarvis build record lives
-
-File names below that contain a hyphen between words ("Fable Prompt - Dashboard and Ingestion Pass", "Jarvis OS - North Star") are spelled with an em dash on disk. Search by the words, not the punctuation.
-
++ 
++ File names below that contain a hyphen between words ("Fable Prompt - Dashboard and Ingestion Pass", "Jarvis OS - North Star") are spelled with an em dash on disk. Search by the words, not the punctuation.
++ 
 ```
 
 ## You
@@ -2388,7 +2427,10 @@ Decision for you: should I run S0? It creates a code repo outside the vault and 
 ### Tool Calls
 
 - `ToolSearch` -- `{"query":"select:WebSearch","max_results":1}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && echo "--- community-plugins.json" && cat community-plugins.json && echo && echo "--- core-plugins.json" && cat core-plugins.json 2>/dev/null | head -60 && echo "--- app.json keys" && cat app.json | head -30 && echo "--- installed manifests" && for d in plugins/*/; do n=$(basename "$d"); v=$(grep -o '"version": *"[^"]*"' "$d/manifest.json" 2>/dev/null | head -1); m=$(grep -o '"isDesktopOnly": *[a-z]*' "$d/manifest.json" 2>/dev/null | head -1); echo "$n | $v | $m"; done && echo "--- snippets" && ls snippets 2>/dev/null; echo "--- themes" && ls themes 2>/dev/null; grep -o '"version": *"[^"]*"' ../.obsidian/*.json 2>/dev/null | head -3`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && echo "--- community-plugins.json" && cat community-plugins.json && echo && echo "--- core-plugins.json" && cat core-plugins.json 2>/dev/null | head -60 && echo "--- app.json keys" && cat app.json | head -30 && echo "--- installed manifests" && for d in plugins/*/; do n=$(basename "$d"); v=$(grep -o '"version": *"[^"]*"' "$d/manifest.json" 2>/dev/null | head -1); m=$(grep -o '"isDesktopOnly": *[a-z]*' "$d/manifest.json" 2>/dev/null | head -1); echo "$n | $v | $m"; done && echo "--- snippets" && ls snippets 2>/dev/null; echo "--- themes" && ls themes 2>/dev/null; grep -o '"version": *"[^"]*"' ../.obsidian/*.json 2>/dev/null | head -3
+```
 ```
 --- community-plugins.json
 [
@@ -2506,7 +2548,10 @@ AnuPpuccin
 - `Agent` -- `{"description":"Fetch Homepage plugin readme","subagent_type":"web-fetch","prompt":"Read https://github.com/mirnovov/obsidian-homepage (README) and its docs/wiki if linked (e.g. the Homepage plugin \u0027Options\u0027 section). Report exactly: the \u0027Homepage kind\u0027 / opening options (Note, Canvas, Base, Workspace, Daily note, etc.), \u0027Opening method\u0027 options (replace all open notes, keep, etc.), \u0027View mode\u0027 options, \u0027Run command on open\u0027 (and whether a command from another plugin like Dataview/Meta Bind/Templater can be run), whether it works on mobile (separate mobile setting? \u0027Open on mobile\u0027), whether it can reopen on \u0027when empty\u0027 and keep the homepage pinned or locked, refresh behaviours (e.g. \u0027auto-scroll\u0027, \u0027Refresh Dataview\u0027), and the minimum Obsidian version. Quote short key phrases. Say plainly if something is not documented."}`
 - `Agent` -- `{"description":"Fetch Dataview and Datacore docs","subagent_type":"web-fetch","prompt":"Read https://blacksmithgu.github.io/obsidian-dataview/ pages: \u0027DataviewJS\u0027 (/api/intro/ , /api/code-reference/ ), \u0027dv.taskList\u0027 / task rendering (/api/code-reference/ and /queries/query-types/ for TASK), and the Dataview settings page (/reference/ or README) for \u0027refresh interval\u0027, \u0027inline JS queries enabled\u0027, \u0027enable DataviewJS\u0027. Then read https://blacksmithgu.github.io/datacore/ (Datacore docs: getting started, JSX views, \u0027dc.useQuery\u0027, checkbox/task editing, mobile support, stability/beta status). Report exactly: (1) Dataview: does dv.taskList render tick-able checkboxes that write back to the source file; what happens on mobile; what the default refresh behaviour is; how dv.view works; whether the plugin is actively maintained and the latest version; (2) Datacore: current release status (beta?), how a view is declared in a note (code block language), whether tasks/checkbox lists are editable in place, whether React hooks/state are supported, whether SVG can be rendered, mobile status, latest version. Quote short key phrases. Say plainly if a page was not reachable."}`
 - `Agent` -- `{"description":"Fetch Obsidian plugin API docs","subagent_type":"web-fetch","prompt":"Read https://docs.obsidian.md/Plugins/User+interface/Views , https://docs.obsidian.md/Reference/TypeScript+API/Plugin/registerView , https://docs.obsidian.md/Reference/TypeScript+API/Plugin/registerExtensions , https://docs.obsidian.md/Reference/TypeScript+API/FileView , and the Obsidian developer policies page https://docs.obsidian.md/Developers+policies . Also try https://docs.obsidian.md/Plugins/Getting+started/Mobile+development . Report exactly: how a plugin registers a custom view for a custom file extension (registerView + registerExtensions + FileView), whether the Bases API lets plugins register custom Bases view types (registerBasesView) and since which version, how a plugin is loaded on mobile (isDesktopOnly), whether a plugin can be installed privately from a local folder in .obsidian/plugins without being on the community directory, and any developer-policy rule that affects a personal private plugin. Quote short key phrases. Say plainly if a page was not reachable."}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && echo "--- appearance" && cat appearance.json && echo && echo "--- lazy-plugins data (head)" && head -c 2500 plugins/lazy-plugins/data.json && echo && echo "--- homepage data" && cat plugins/homepage/data.json | head -50 && echo "--- sync settings?" && ls | head -40 && ls plugins/dataview plugins/homepage`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && echo "--- appearance" && cat appearance.json && echo && echo "--- lazy-plugins data (head)" && head -c 2500 plugins/lazy-plugins/data.json && echo && echo "--- homepage data" && cat plugins/homepage/data.json | head -50 && echo "--- sync settings?" && ls | head -40 && ls plugins/dataview plugins/homepage
+```
 ```
 --- appearance
 {
@@ -2684,7 +2729,10 @@ manifest.json
 styles.css
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "--- gitignore" && cat .gitignore && echo "--- node/npm" && (node -v; npm -v) 2>&1 | head -3 && echo "--- tracked top-level" && git ls-files | cut -d/ -f1 | sort | uniq -c && echo "--- daily dir" && ls "00_Live/Enumerate/Daily" 2>/dev/null | head -5 && echo "--- dashboard.css lines" && wc -l .obsidian/snippets/dashboard.css`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "--- gitignore" && cat .gitignore && echo "--- node/npm" && (node -v; npm -v) 2>&1 | head -3 && echo "--- tracked top-level" && git ls-files | cut -d/ -f1 | sort | uniq -c && echo "--- daily dir" && ls "00_Live/Enumerate/Daily" 2>/dev/null | head -5 && echo "--- dashboard.css lines" && wc -l .obsidian/snippets/dashboard.css
+```
 ```
 --- gitignore
 # Markdown-first Obsidian vault
@@ -2938,7 +2986,7 @@ Build the plugin. It is the only option that meets all five requirements without
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Architecture.md`
-```
+````
 ---
 type: project
 status: sprout
@@ -3027,7 +3075,7 @@ Stored in the plugin's `data.json`: `dailyFolder` (default `00_Live/Enumerate/Da
 
 No framework (Preact or React). The view is about six sections of DOM and SVG, and a framework adds a build step and a dependency for no gain. No database. No network. No Node or Electron APIs, so the same bundle runs on the phone.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
 ```
 ---
@@ -3241,7 +3289,7 @@ Developer policies could not be read. If Anant ever publishes the plugin, read t
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Build Prompts.md`
-```
+````
 ---
 type: project
 status: sprout
@@ -3344,26 +3392,26 @@ Read: Verification and Risks.md. Add reduced-motion support, the light theme tok
 Done means: the acceptance list at the end of Verification and Risks passes on desktop and phone, reported as pass or fail for each line. Stop there.
 ```
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
 - | 30 | Automation | Not part of this build. Only the basic layer is laid out. | Slot reserved in the daily note. |
-
-## Proposed, not yet confirmed
-
-- Score ring colours: grey under 3, gold at 3 and 4, green at 5.
-- Forgiven-miss day counts as zero toward streak length but does not reset it.
-- Heatmap shade equals categories done, with a marker on forgiven days.
+- 
+- ## Proposed, not yet confirmed
+- 
+- - Score ring colours: grey under 3, gold at 3 and 4, green at 5.
+- - Forgiven-miss day counts as zero toward streak length but does not reset it.
+- - Heatmap shade equals categories done, with a marker on forgiven days.
 + | 30 | Automation | Not part of this build. Only the basic layer is laid out. | Slot reserved in the daily note. |
-| 31 | Score ring colours (2026-10-12, second session) | Red, golden orange, light dark green | Red under 3, golden orange at 3 and 4, green at 5. See [[Front End and Visual System]]. |
-| 32 | How forgiven days count | As lost days in the month | Adds 0 to streak length, never resets, counted in the month's lost days. |
-| 33 | Heatmap shading | Eye pleasing | Single green ramp, dashed outline on forgiven days. Fine detail decided on screen. |
-| 34 | Dashboard medium | Not a note, canvas, Kanban or drawing. Homepage opens it on launch. Research the latest Obsidian methods. | Proposed answer: a private plugin view. See [[Dashboard Build Hub]]. Needs Anant's go-ahead for S0. |
-
-## Proposed, not yet confirmed
-
-- Plugin source lives in a separate repo outside the vault, built files copied in. See [[Architecture]].
-- Streak and ring colour hex values in [[Front End and Visual System]].
++ | 31 | Score ring colours (2026-10-12, second session) | Red, golden orange, light dark green | Red under 3, golden orange at 3 and 4, green at 5. See [[Front End and Visual System]]. |
++ | 32 | How forgiven days count | As lost days in the month | Adds 0 to streak length, never resets, counted in the month's lost days. |
++ | 33 | Heatmap shading | Eye pleasing | Single green ramp, dashed outline on forgiven days. Fine detail decided on screen. |
++ | 34 | Dashboard medium | Not a note, canvas, Kanban or drawing. Homepage opens it on launch. Research the latest Obsidian methods. | Proposed answer: a private plugin view. See [[Dashboard Build Hub]]. Needs Anant's go-ahead for S0. |
++ 
++ ## Proposed, not yet confirmed
++ 
++ - Plugin source lives in a separate repo outside the vault, built files copied in. See [[Architecture]].
++ - Streak and ring colour hex values in [[Front End and Visual System]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
@@ -3374,18 +3422,21 @@ Done means: the acceptance list at the end of Verification and Risks passes on d
 ```diff
 - | [[Build Plan]] | Order, dependencies, gates, risks |
 + | [[Build Plan]] | Order, dependencies, gates, risks |
-| [[Dashboard Build Hub]] | How the Home dashboard is built: research, architecture, front end, stages, prompts (folder `Dashboard Build`) |
++ | [[Dashboard Build Hub]] | How the Home dashboard is built: research, architecture, front end, stages, prompts (folder `Dashboard Build`) |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Build Plan.md`
 ```diff
 - ## This session (done in the hour)
 + ## Update 2026-10-12 (second session)
-
-Step 3 (B3, Home dashboard and CSS) is replaced by stages S0 to S6 in [[Dashboard Build Hub]]. The Home is a private plugin view, not a markdown note. B2's streak script becomes the shared engine module.
-
-## This session (done in the hour)
++ 
++ Step 3 (B3, Home dashboard and CSS) is replaced by stages S0 to S6 in [[Dashboard Build Hub]]. The Home is a private plugin view, not a markdown note. B2's streak script becomes the shared engine module.
++ 
++ ## This session (done in the hour)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && echo "em dashes:" && grep -rl $'\u2014' . ; echo "(none above = clean)"; echo "--- wikilink check"; for f in "Dashboard Build"/*.md "Decisions Log.md" "Dashboards Hub.md" "Build Plan.md"; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//' ; done | sort -u | while read -r t; do if [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ]; then :; else r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" -not -path "*/node_modules/*" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; fi; done; ls "Dashboard Build"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && echo "em dashes:" && grep -rl $'\u2014' . ; echo "(none above = clean)"; echo "--- wikilink check"; for f in "Dashboard Build"/*.md "Decisions Log.md" "Dashboards Hub.md" "Build Plan.md"; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//' ; done | sort -u | while read -r t; do if [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ]; then :; else r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" -not -path "*/node_modules/*" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; fi; done; ls "Dashboard Build"
+```
 ```
 em dashes:
 (none above = clean)
@@ -3476,7 +3527,7 @@ Run B1 and B2 from `Prompts.md` first. Then paste the shared preamble and Prompt
 - `WebSearch` -- `{"query":"Obsidian \"Lazy Plugin Loader\" github startup delay instant plugin","mode":"standard"}`
 - `WebSearch` -- `{"query":"Obsidian BRAT private GitHub repository personal access token mobile install plugin","mode":"standard"}`
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Research - Plugin Creation Guide.md`
-```
+````
 ---
 type: input
 status: sprout
@@ -3644,7 +3695,7 @@ The Developer policies and the Submission requirements pages returned "Not Found
 5. Prove each platform fact in [[Verification and Risks]] before building on it.
 6. Test on emulated mobile, then on the phone.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Reference - Obsidian API for This Build.md`
 ```
 ---
@@ -3810,7 +3861,7 @@ notes:
   - "[[Dashboard Build Hub]]"
   - "[[Spec - Streak and Daily Note]]"
   - "[[Spec - Home and Monthly Dashboards]]"
-  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
+  - "[[Prompts]]"
   - "[[Build Plan]]"
   - "[[Decisions Log]]"
   - "[[Architecture]]"
@@ -3824,15 +3875,15 @@ A read-through of every note in `40_Resources/Obsidian/Dashboards` on 2026-10-13
 
 | # | Earlier statement | Where | Now | Action |
 |---|---|---|---|---|
-| 1 | Home is DataviewJS with inline SVG on `00_Dashboard.md` | [[Spec - Home and Monthly Dashboards]], B3 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | Home is a plugin view. See [[Dashboard Build Hub]] | Patch B3 pointer; B3 is not run |
-| 2 | Streak script is Python in `30_Order/System/streak`; DataviewJS must match it | [[Spec - Streak and Daily Note]], B2 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | One TypeScript engine shared by the plugin and the hooks | B2 shrinks to template and QuickAdd steps only |
+| 1 | Home is DataviewJS with inline SVG on `00_Dashboard.md` | [[Spec - Home and Monthly Dashboards]], B3 in [[Prompts]] | Home is a plugin view. See [[Dashboard Build Hub]] | Patch B3 pointer; B3 is not run |
+| 2 | Streak script is Python in `30_Order/System/streak`; DataviewJS must match it | [[Spec - Streak and Daily Note]], B2 in [[Prompts]] | One TypeScript engine shared by the plugin and the hooks | B2 shrinks to template and QuickAdd steps only |
 | 3 | Ring colours proposed grey, gold, green | [[Spec - Streak and Daily Note]] | Red, golden orange, green (answered 2026-10-12) | Patch the spec line when Anant approves |
 | 4 | Plugin set lists Dataview as core for Home and Multi-Column as dropped | [[Spec - Home and Monthly Dashboards]] | Home no longer needs Dataview or Meta Bind; Meta Bind and Dataview stay for other notes | None |
 | 5 | Dataview refresh 2500 ms risk | [[Spec - Home and Monthly Dashboards]] | Not relevant to the plugin view | None |
-| 6 | Hooks to deny every write under `.obsidian` | B5 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | The build deploys three files into `.obsidian/plugins/the-plan-dashboard/` | The write guard must allow that one folder, or the deploy step runs outside Claude Code |
-| 7 | Daily-note validator and `/closeday` call a Python script | B4 and B5 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | They call `node streak-cli.cjs` | Update B4 and B5 wording when they run |
+| 6 | Hooks to deny every write under `.obsidian` | B5 in [[Prompts]] | The build deploys three files into `.obsidian/plugins/the-plan-dashboard/` | The write guard must allow that one folder, or the deploy step runs outside Claude Code |
+| 7 | Daily-note validator and `/closeday` call a Python script | B4 and B5 in [[Prompts]] | They call `node streak-cli.cjs` | Update B4 and B5 wording when they run |
 | 8 | `.claude/` is carried by git | [[Research - Jarvis Dashboard Findings]] | `.gitignore` ignores everything except directories and `.md`, plus listed exceptions. `.claude/settings.json`, hook scripts and the engine bundle are not tracked unless whitelisted | Whitelist them in `.gitignore` during B5, with Anant's approval |
-| 9 | The Standing instructions say edits under `.obsidian` need a yes |[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | Still true | Each plugin prompt names its exact write paths and asks once |
+| 9 | The Standing instructions say edits under `.obsidian` need a yes | [[Prompts]] | Still true | Each plugin prompt names its exact write paths and asks once |
 | 10 | Map is a separate canvas and a Home section | [[Spec - Home and Monthly Dashboards]], [[Front End and Visual System]] | The Explore section of the plugin is the primary map. A canvas version is optional later | Keep canvas out of the five prompts |
 | 11 | `first_template_day` is where the streak starts | [[Spec - Streak and Daily Note]] | The engine takes it as the earliest note that has at least one category action | Written into the engine prompt |
 | 12 | Homepage target is `00_Dashboard` | `.obsidian/plugins/homepage/data.json` | Becomes `Dashboard.plan` (or the command) | Set in the last prompt, with approval |
@@ -3864,7 +3915,7 @@ tags:
 notes:
   - "[[Dashboard Build Hub]]"
   - "[[Build Prompts]]"
-  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
+  - "[[Prompts]]"
 next: "Apply these rules to every prompt in Plugin Build Prompts"
 ---
 # Sonnet 5.5 Prompt Rules
@@ -3944,7 +3995,7 @@ Handoff between the five plugin prompts. Each prompt reads this note first and a
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Plugin Build Prompts.md`
-```
+````
 ---
 type: project
 status: sprout
@@ -3973,7 +4024,7 @@ Five prompts that build the dashboard plugin, run one after another. This note s
 
 ## How to run
 
-1. Run B1 and B2 from[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] first. Prompt 1 checks they are done and stops if not.
+1. Run B1 and B2 from [[Prompts]] first. Prompt 1 checks they are done and stops if not.
 2. Open a fresh Claude Code session in `D:\_Anant\20_Progress\Documents\The Plan`. Model Sonnet 5.5. Set effort to high in the session settings, not in the text.
 3. Paste the **Shared preamble**, then **one** prompt. Run them in order, one per session. Do not start the next until the previous ends with every gate passed and its entry is in [[Build Log]].
 4. Each prompt asks only the questions listed in it. Everything else is answered by the notes.
@@ -4161,8 +4212,10 @@ Done means: every acceptance line has a recorded result, the notes and reference
 
 The hooks (B5) call `.claude/streak/streak-cli.cjs`. The skills (B4) read its JSON and never compute a streak. The Monthly page and the optional canvas map are B7. The automation layers stay A1.
 
-```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && python - <<'EOF'
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && python - <<'EOF'
 import re
 p="Dashboard Build/Research - Plugin Creation Guide.md"
 s=open(p,encoding="utf-8").read()
@@ -4193,7 +4246,8 @@ s=open(p,encoding="utf-8").read()
 s=s.replace("- It never touches frontmatter, never creates notes, never deletes.","- It never touches frontmatter, never creates notes, never deletes. The career line and study hours are shown read-only; tapping opens the note at that line.")
 open(p,"w",encoding="utf-8").write(s)
 EOF
-echo "--- em dash check"; grep -rl $'\u2014' . ; echo "(clean if none)"; echo "--- wikilinks"; for f in "Dashboard Build"/*.md; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//'; done | sort -u | while read -r t; do [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ] || { r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; }; done; ls "Dashboard Build"; wc -w "Dashboard Build/Plugin Build Prompts.md"`
+echo "--- em dash check"; grep -rl $'\u2014' . ; echo "(clean if none)"; echo "--- wikilinks"; for f in "Dashboard Build"/*.md; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//'; done | sort -u | while read -r t; do [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ] || { r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; }; done; ls "Dashboard Build"; wc -w "Dashboard Build/Plugin Build Prompts.md"
+```
 ```
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 --- em dash check
@@ -4220,7 +4274,7 @@ Verification and Risks.md
 ```diff
 - - Size limit 5 MB per file on the Standard plan.
 + - Size limit 5 MB per file on the Standard plan.
-- File types: the default selective sync covers images, audio, video and PDF. "Sync all other types" is a separate toggle. A `.plan` stub file is not a note, so it reaches the phone only if that toggle is on. This is why the command route (Homepage kind Nothing plus the open command) is tried first. Read on the settings page; behaviour with `.plan` is not yet tested.
++ - File types: the default selective sync covers images, audio, video and PDF. "Sync all other types" is a separate toggle. A `.plan` stub file is not a note, so it reaches the phone only if that toggle is on. This is why the command route (Homepage kind Nothing plus the open command) is tried first. Read on the settings page; behaviour with `.plan` is not yet tested.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Private Use and Sharing.md`
 ```diff
@@ -4240,16 +4294,16 @@ Verification and Risks.md
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Dashboard Build Hub.md`
 ```diff
 -   - "[[Build Prompts]]"
-
+- 
 +   - "[[Build Prompts]]"
-  - "[[Plugin Build Prompts]]"
-  - "[[Research - Plugin Creation Guide]]"
-  - "[[Reference - Obsidian API for This Build]]"
-  - "[[Private Use and Sharing]]"
-  - "[[Review - Corrections to Earlier Notes]]"
-  - "[[Sonnet 5.5 Prompt Rules]]"
-  - "[[Build Log]]"
-
++   - "[[Plugin Build Prompts]]"
++   - "[[Research - Plugin Creation Guide]]"
++   - "[[Reference - Obsidian API for This Build]]"
++   - "[[Private Use and Sharing]]"
++   - "[[Review - Corrections to Earlier Notes]]"
++   - "[[Sonnet 5.5 Prompt Rules]]"
++   - "[[Build Log]]"
++ 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Dashboard Build Hub.md`
 ```diff
@@ -4260,13 +4314,13 @@ Verification and Risks.md
 ```diff
 - | [[Build Prompts]] | One prompt per stage |
 + | [[Plugin Build Prompts]] | The five prompts that build the plugin, with the shared preamble |
-| [[Research - Plugin Creation Guide]] | How a plugin is made: sample repo, manifest, guidelines, dev loop, Homepage and Sync internals |
-| [[Reference - Obsidian API for This Build]] | The exact API used, by module, with what to test |
-| [[Private Use and Sharing]] | Whether the plugin must be shared, and what sharing would need |
-| [[Review - Corrections to Earlier Notes]] | Conflicts between earlier notes and what wins |
-| [[Sonnet 5.5 Prompt Rules]] | How the prompts follow the model guide |
-| [[Build Log]] | Handoff between the five prompts |
-| [[Build Prompts]] | Earlier stage prompts S0 to S6, superseded by Plugin Build Prompts |
++ | [[Research - Plugin Creation Guide]] | How a plugin is made: sample repo, manifest, guidelines, dev loop, Homepage and Sync internals |
++ | [[Reference - Obsidian API for This Build]] | The exact API used, by module, with what to test |
++ | [[Private Use and Sharing]] | Whether the plugin must be shared, and what sharing would need |
++ | [[Review - Corrections to Earlier Notes]] | Conflicts between earlier notes and what wins |
++ | [[Sonnet 5.5 Prompt Rules]] | How the prompts follow the model guide |
++ | [[Build Log]] | Handoff between the five prompts |
++ | [[Build Prompts]] | Earlier stage prompts S0 to S6, superseded by Plugin Build Prompts |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
 ```diff
@@ -4403,7 +4457,10 @@ I replaced everything in `40_Resources/Obsidian/Dashboards/Prompts.md` with the 
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - AI Loop.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Agentic OS\Agentic OS.md`
 - `Glob` -- pattern `**/*Plan*.md` path `D:\_Anant\20_Progress\Documents\The Plan\60_Jarvis`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls && echo ---- && ls 00_Live 00_Live/* 20_Progress 30_Order 30_Order/Workflows 30_Order/Standards 2>/dev/null | head -120; echo ---JARVIS; ls "D:/_Anant/20_Progress/Documents/Jarvis" | head -50`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls && echo ---- && ls 00_Live 00_Live/* 20_Progress 30_Order 30_Order/Workflows 30_Order/Standards 2>/dev/null | head -120; echo ---JARVIS; ls "D:/_Anant/20_Progress/Documents/Jarvis" | head -50
+```
 ```
 00_Live
 10_UMN
@@ -4524,7 +4581,10 @@ wa1_template.tex
 ```
 - `Grep` -- pattern `(?i)\bplans?\b` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
 - `Grep` -- pattern `^\| (3[6-9]|[4-9][0-9]) \|` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -R 00_Live/Tracking/Plans 00_Live/Tracking/Habits 00_Live/Career 00_Live/Enumerate/Weekly 00_Live/Enumerate/Monthly 00_Live/Enumerate/Yearly | head -60; echo ---J; cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 10_Areas 20_Progress 30_Order 40_Resources Tracker 60_Claude | head -80; echo; find . -ipath "*plan*" -name "*.md" -not -path "./50_Archive/*" -not -path "./.obsidian/*" -not -path "*/node_modules/*" | head -40`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -R 00_Live/Tracking/Plans 00_Live/Tracking/Habits 00_Live/Career 00_Live/Enumerate/Weekly 00_Live/Enumerate/Monthly 00_Live/Enumerate/Yearly | head -60; echo ---J; cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 10_Areas 20_Progress 30_Order 40_Resources Tracker 60_Claude | head -80; echo; find . -ipath "*plan*" -name "*.md" -not -path "./50_Archive/*" -not -path "./.obsidian/*" -not -path "*/node_modules/*" | head -40
+```
 ```
 00_Live/Career:
 Finance
@@ -4664,7 +4724,10 @@ Each One
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
 - `Grep` -- pattern `(?i)plans? (from|in|to move|vs)|career plan|personal plan|80/20|Targets` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order/Workflows 30_Order/Workflows/Agentic OS 30_Order/Standards/Dashboards 30_Order/Standards/Agentic OS 30_Order/System 60_Jarvis 60_Jarvis/50_Reviews 2>&1 | head -70; ls 40_Resources/Obsidian/Dashboards; ls "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans" "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career" | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order/Workflows 30_Order/Workflows/Agentic OS 30_Order/Standards/Dashboards 30_Order/Standards/Agentic OS 30_Order/System 60_Jarvis 60_Jarvis/50_Reviews 2>&1 | head -70; ls 40_Resources/Obsidian/Dashboards; ls "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans" "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career" | head -30
+```
 ```
 ls: cannot access '30_Order/Workflows/Agentic': No such file or directory
 ls: cannot access 'OS': No such file or directory
@@ -4739,7 +4802,7 @@ Summer 2026
 Zero-Cost AI Stack
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Prompts.md`
-```
+````
 ---
 type: project
 status: sprout
@@ -4893,8 +4956,11 @@ Check before you report: scan every note you wrote for em dashes; confirm every 
 - Changes to Decisions Log, Dashboards Hub, Spec - Automation Layers and Agentic OS are proposed and never applied inside these sessions.
 - The reminder transport, the scheduling route and the Jarvis boundary are the three decisions most likely to change the design. Each has its own phase.
 
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && grep -c "—" Prompts.md; for l in "Dashboards Hub" "Decisions Log" "Build Plan" "Spec - Streak and Daily Note" "Spec - Home and Monthly Dashboards" "Spec - AI Loop" "Spec - Automation Layers" "Research - Platform Facts"; do [ -f "$l.md" ] && echo ok $l || echo MISSING $l; done; ls "../../../30_Order/Workflows/Agentic OS" | head; ls ../../../.claude/skills | head -20
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && grep -c "—" Prompts.md; for l in "Dashboards Hub" "Decisions Log" "Build Plan" "Spec - Streak and Daily Note" "Spec - Home and Monthly Dashboards" "Spec - AI Loop" "Spec - Automation Layers" "Research - Platform Facts"; do [ -f "$l.md" ] && echo ok $l || echo MISSING $l; done; ls "../../../30_Order/Workflows/Agentic OS" | head; ls ../../../.claude/skills | head -20`
 ```
 0
 ok Dashboards Hub
@@ -5047,41 +5113,9 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && echo "--- appearance" && cat appearance.json && echo && echo "--- lazy-plugins data (head)" && head -c 2500 plugins/lazy-plugins/data.json && echo && echo "--- homepage data" && cat plugins/homepage/data.json | head -50 && echo "--- sync settings?" && ls | head -40 && ls plugins/dataview plugins/homepage`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "--- gitignore" && cat .gitignore && echo "--- node/npm" && (node -v; npm -v) 2>&1 | head -3 && echo "--- tracked top-level" && git ls-files | cut -d/ -f1 | sort | uniq -c && echo "--- daily dir" && ls "00_Live/Enumerate/Daily" 2>/dev/null | head -5 && echo "--- dashboard.css lines" && wc -l .obsidian/snippets/dashboard.css`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && echo "em dashes:" && grep -rl $'\u2014' . ; echo "(none above = clean)"; echo "--- wikilink check"; for f in "Dashboard Build"/*.md "Decisions Log.md" "Dashboards Hub.md" "Build Plan.md"; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//' ; done | sort -u | while read -r t; do if [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ]; then :; else r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" -not -path "*/node_modules/*" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; fi; done; ls "Dashboard Build"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && python - <<'EOF'
-import re
-p="Dashboard Build/Research - Plugin Creation Guide.md"
-s=open(p,encoding="utf-8").read()
-s=s.replace("- Size limit 5 MB per file on the Standard plan.","- Size limit 5 MB per file on the Standard plan.\n- File types: the default selective sync covers images, audio, video and PDF. \"Sync all other types\" is a separate toggle. A `.plan` stub file is not a note, so it reaches the phone only if that toggle is on. This is why the command route (Homepage kind Nothing plus the open command) is tried first. **Read on the settings page; behaviour on `.plan` not yet tested.**")
-open(p,"w",encoding="utf-8").write(s)
-p="Dashboard Build/Private Use and Sharing.md"
-s=open(p,encoding="utf-8").read()
-s=s.replace("4. Write a short README and keep a `LICENSE` file in the repo from day one. The directory requires both, plus `manifest.json` at the repo root.","4. Write a short README from day one. The directory also requires a `LICENSE` file and `manifest.json` at the repo root. The licence is undecided, so none is added yet. Choose one before the repo is ever made public.")
-open(p,"w",encoding="utf-8").write(s)
-p="Dashboard Build/Verification and Risks.md"
-s=open(p,encoding="utf-8").read()
-s=s.replace("Three dependencies only: `obsidian`, `esbuild`, `typescript`. Lockfile committed.","Four dependencies only: `obsidian`, `esbuild`, `typescript`, `@types/node`. Lockfile committed.")
-s=s.replace("| 1 | Homepage can open a custom file extension (`.plan`) | S0: register extension, set Homepage kind File to the stub, restart | Use Homepage kind Nothing plus command \"The Plan: Open dashboard\", period Startup only |","| 1 | Homepage can open a custom file extension (`.plan`). Source read 2026-10-13: the picker accepts any registered extension, so likely yes. But Sync does not carry non-note types unless \"Sync all other types\" is on. | Plugin Build Prompts, Prompt 1: try the command route first, the file route second | Use whichever route passes on both devices |")
-open(p,"w",encoding="utf-8").write(s)
-p="Dashboard Build/Dashboard Build Hub.md"
-s=open(p,encoding="utf-8").read()
-s=s.replace('  - "[[Build Prompts]]"\n','  - "[[Build Prompts]]"\n  - "[[Plugin Build Prompts]]"\n  - "[[Research - Plugin Creation Guide]]"\n  - "[[Reference - Obsidian API for This Build]]"\n  - "[[Private Use and Sharing]]"\n  - "[[Review - Corrections to Earlier Notes]]"\n  - "[[Sonnet 5.5 Prompt Rules]]"\n  - "[[Build Log]]"\n')
-s=s.replace('next: "Run Build Prompts S0 (the spike). It decides whether Homepage can open the custom view."','next: "Run B1 and B2, then Plugin Build Prompts 1 to 5 in order"')
-s=s.replace("| [[Build Prompts]] | One prompt per stage |","| [[Build Prompts]] | Earlier stage prompts S0 to S6, superseded by Plugin Build Prompts |\n| [[Plugin Build Prompts]] | The five prompts that build the plugin, with the shared preamble |\n| [[Research - Plugin Creation Guide]] | How a plugin is made: sample repo, manifest, guidelines, dev loop, Homepage and Sync internals |\n| [[Reference - Obsidian API for This Build]] | The exact API used, by module, with what to test |\n| [[Private Use and Sharing]] | Whether the plugin must be shared, and what sharing would need |\n| [[Review - Corrections to Earlier Notes]] | Conflicts found between earlier notes and what wins |\n| [[Sonnet 5.5 Prompt Rules]] | How the prompts follow the model guide |\n| [[Build Log]] | Handoff between the five prompts |")
-open(p,"w",encoding="utf-8").write(s)
-p="Dashboard Build/Front End and Visual System.md"
-s=open(p,encoding="utf-8").read()
-s=s.replace("Career line and study hours edit in place on tap, save on blur.","Career line and study hours are read-only on the dashboard. Tapping one opens today's note at that line. This keeps one write path (the checkbox toggle).")
-s=s.replace("3. **Career and Study.** The one career line and the study hours line. Same tap-to-edit pattern.","3. **Career and Study.** The one career line and the study hours line. Read-only; tap opens the note at that line.")
-open(p,"w",encoding="utf-8").write(s)
-p="Dashboard Build/Architecture.md"
-s=open(p,encoding="utf-8").read()
-s=s.replace("- It never touches frontmatter, never creates notes, never deletes.","- It never touches frontmatter, never creates notes, never deletes. The career line and study hours are shown read-only; tapping opens the note at that line.")
-open(p,"w",encoding="utf-8").write(s)
-EOF
-echo "--- em dash check"; grep -rl $'\u2014' . ; echo "(clean if none)"; echo "--- wikilinks"; for f in "Dashboard Build"/*.md; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//'; done | sort -u | while read -r t; do [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ] || { r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; }; done; ls "Dashboard Build"; wc -w "Dashboard Build/Plugin Build Prompts.md"`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && python - <<'EOF' import re p="Dashboard Build/Research - Plugin Creation Guide.md" s=open(p,encoding="utf-8").read() s=s.replace("- Size limit 5 MB per file on the Standard plan.","- Size limit 5 MB per file on the Standard plan.\n- File types: the default selective sync covers images, audio, video and PDF. \"Sync all other types\" is a separate toggle. A `.plan` stub file is not a note, so it reaches the phone only if that toggle is on. This is why the command route (Homepage kind Nothing plus the open command) is tried first. **Read on the settings page; behaviour on `.plan` not yet tested.**") open(p,"w",encoding="utf-8").write(s) p="Dashboard Build/Private Use and Sharing.md" s=open(p,encoding="utf-8").read() s=s.replace("4. Write a short README and keep a `LICENSE` file in the repo from day one. The directory requires both, plus `manifest.json` at the repo root.","4. Write a short README from day one. The directory also requires a `LICENSE` file and `manifest.json` at the repo root. The licence is undecided, so none is added yet. Choose one before the repo is ever made public.") open(p,"w",encoding="utf-8").write(s) p="Dashboard Build/Verification and Risks.md" s=open(p,encoding="utf-8").read() s=s.replace("Three dependencies only: `obsidian`, `esbuild`, `typescript`. Lockfile committed.","Four dependencies only: `obsidian`, `esbuild`, `typescript`, `@types/node`. Lockfile committed.") s=s.replace("| 1 | Homepage can open a custom file extension (`.plan`) | S0: register extension, set Homepage kind File to the stub, restart | Use Homepage kind Nothing plus command \"The Plan: Open dashboard\", period Startup only |","| 1 | Homepage can open a custom file extension (`.plan`). Source read 2026-10-13: the picker accepts any registered extension, so likely yes. But Sync does not carry non-note types unless \"Sync all other types\" is on. | Plugin Build Prompts, Prompt 1: try the command route first, the file route second | Use whichever route passes on both devices |") open(p,"w",encoding="utf-8").write(s) p="Dashboard Build/Dashboard Build Hub.md" s=open(p,encoding="utf-8").read() s=s.replace('  - "[[Build Prompts]]"\n','  - "[[Build Prompts]]"\n  - "[[Plugin Build Prompts]]"\n  - "[[Research - Plugin Creation Guide]]"\n  - "[[Reference - Obsidian API for This Build]]"\n  - "[[Private Use and Sharing]]"\n  - "[[Review - Corrections to Earlier Notes]]"\n  - "[[Sonnet 5.5 Prompt Rules]]"\n  - "[[Build Log]]"\n') s=s.replace('next: "Run Build Prompts S0 (the spike). It decides whether Homepage can open the custom view."','next: "Run B1 and B2, then Plugin Build Prompts 1 to 5 in order"') s=s.replace("| [[Build Prompts]] | One prompt per stage |","| [[Build Prompts]] | Earlier stage prompts S0 to S6, superseded by Plugin Build Prompts |\n| [[Plugin Build Prompts]] | The five prompts that build the plugin, with the shared preamble |\n| [[Research - Plugin Creation Guide]] | How a plugin is made: sample repo, manifest, guidelines, dev loop, Homepage and Sync internals |\n| [[Reference - Obsidian API for This Build]] | The exact API used, by module, with what to test |\n| [[Private Use and Sharing]] | Whether the plugin must be shared, and what sharing would need |\n| [[Review - Corrections to Earlier Notes]] | Conflicts found between earlier notes and what wins |\n| [[Sonnet 5.5 Prompt Rules]] | How the prompts follow the model guide |\n| [[Build Log]] | Handoff between the five prompts |") open(p,"w",encoding="utf-8").write(s) p="Dashboard Build/Front End and Visual System.md" s=open(p,encoding="utf-8").read() s=s.replace("Career line and study hours edit in place on tap, save on blur.","Career line and study hours are read-only on the dashboard. Tapping one opens today's note at that line. This keeps one write path (the checkbox toggle).") s=s.replace("3. **Career and Study.** The one career line and the study hours line. Same tap-to-edit pattern.","3. **Career and Study.** The one career line and the study hours line. Read-only; tap opens the note at that line.") open(p,"w",encoding="utf-8").write(s) p="Dashboard Build/Architecture.md" s=open(p,encoding="utf-8").read() s=s.replace("- It never touches frontmatter, never creates notes, never deletes.","- It never touches frontmatter, never creates notes, never deletes. The career line and study hours are shown read-only; tapping opens the note at that line.") open(p,"w",encoding="utf-8").write(s) EOF echo "--- em dash check"; grep -rl $'\u2014' . ; echo "(clean if none)"; echo "--- wikilinks"; for f in "Dashboard Build"/*.md; do grep -o '\[\[[^]|#]*' "$f" | sed 's/\[\[//'; done | sort -u | while read -r t; do [ -f "$t.md" ] || [ -f "Dashboard Build/$t.md" ] || { r=$(find "/d/_Anant/20_Progress/Documents/The Plan" -name "$t.md" 2>/dev/null | head -1); [ -z "$r" ] && echo "MISSING: $t"; }; done; ls "Dashboard Build"; wc -w "Dashboard Build/Plugin Build Prompts.md"``
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls && echo ---- && ls 00_Live 00_Live/* 20_Progress 30_Order 30_Order/Workflows 30_Order/Standards 2>/dev/null | head -120; echo ---JARVIS; ls "D:/_Anant/20_Progress/Documents/Jarvis" | head -50`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -R 00_Live/Tracking/Plans 00_Live/Tracking/Habits 00_Live/Career 00_Live/Enumerate/Weekly 00_Live/Enumerate/Monthly 00_Live/Enumerate/Yearly | head -60; echo ---J; cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 10_Areas 20_Progress 30_Order 40_Resources Tracker 60_Claude | head -80; echo; find . -ipath "*plan*" -name "*.md" -not -path "./50_Archive/*" -not -path "./.obsidian/*" -not -path "*/node_modules/*" | head -40`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order/Workflows 30_Order/Workflows/Agentic OS 30_Order/Standards/Dashboards 30_Order/Standards/Agentic OS 30_Order/System 60_Jarvis 60_Jarvis/50_Reviews 2>&1 | head -70; ls 40_Resources/Obsidian/Dashboards; ls "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans" "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Career" | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && grep -c "—" Prompts.md; for l in "Dashboards Hub" "Decisions Log" "Build Plan" "Spec - Streak and Daily Note" "Spec - Home and Monthly Dashboards" "Spec - AI Loop" "Spec - Automation Layers" "Research - Platform Facts"; do [ -f "$l.md" ] && echo ok $l || echo MISSING $l; done; ls "../../../30_Order/Workflows/Agentic OS" | head; ls ../../../.claude/skills | head -20`
-
 

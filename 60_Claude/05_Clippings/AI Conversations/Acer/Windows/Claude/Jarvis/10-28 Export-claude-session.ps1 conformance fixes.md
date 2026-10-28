@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Export-claude-session.ps1 conformance fixes"
 started_at: 2026-10-28T15:16:41
-ended_at: 2026-10-28T16:00:25
-exported_at: 2026-10-28T16:03:03
-duration_minutes: 43.7
+ended_at: 2026-10-28T16:03:27
+exported_at: 2026-10-28T16:15:14
+duration_minutes: 46.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 0fa6954e-ecbc-42d3-90ce-7308c0fe2ac0

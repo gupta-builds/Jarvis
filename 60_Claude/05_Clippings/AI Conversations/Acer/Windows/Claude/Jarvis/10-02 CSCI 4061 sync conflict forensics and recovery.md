@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4061 sync conflict forensics and recovery"
 started_at: 2026-10-02T16:26:49
 ended_at: 2026-10-02T17:32:53
-exported_at: 2026-10-17T21:06:45
+exported_at: 2026-10-28T16:15:20
 duration_minutes: 66.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 4121dbe8-9840-4219-8009-2af1646ce740
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-02
+updated: 2026-10-28
 turn_count: 6
 tools_used:
   Bash: 53
@@ -22,12 +25,12 @@ tools_used:
   ToolSearch: 1
   Write: 3
 tokens:
-  input: 432
-  output: 273521
-  cache_creation: 729177
-  cache_read: 43326673
-  total: 44329803
-cost_usd: 14.318117
+  input: 198
+  output: 110814
+  cache_creation: 258103
+  cache_read: 20776839
+  total: 21145954
+cost_usd: 6.296316
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -149,7 +152,10 @@ Everything is written up in `Cross-Laptop Sync - Build 9 Findings.md`, a new Fai
 
 ### Tool Calls
 
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- .stignore ---" && cat .stignore 2>/dev/null; echo "--- stfolder marker ---" && ls -la .stfolder 2>/dev/null; echo "--- find any sync-conflict files anywhere in vault ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" 2>/dev/null; echo "--- find .stversions dirs ---" && find . -type d -iname ".stversions" -not -path "./.git/*" 2>/dev/null`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- .stignore ---" && cat .stignore 2>/dev/null; echo "--- stfolder marker ---" && ls -la .stfolder 2>/dev/null; echo "--- find any sync-conflict files anywhere in vault ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" 2>/dev/null; echo "--- find .stversions dirs ---" && find . -type d -iname ".stversions" -not -path "./.git/*" 2>/dev/null
+```
 ```
 --- .stignore ---
 .git
@@ -257,7 +263,10 @@ drwxr-xr-x 1 anant 197609   0 Oct  2 00:03 ..
 --- find .stversions dirs ---
 ./.stversions
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- top level listing ---" && ls -la | head -50 && echo "--- look for auto-sync script ---" && find . -maxdepth 3 -iname "*sync*" -not -path "./.git/*" -not -path "*/.stversions/*" 2>/dev/null`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- top level listing ---" && ls -la | head -50 && echo "--- look for auto-sync script ---" && find . -maxdepth 3 -iname "*sync*" -not -path "./.git/*" -not -path "*/.stversions/*" 2>/dev/null
+```
 ```
 --- top level listing ---
 total 119
@@ -301,7 +310,10 @@ drwxr-xr-x 1 anant 197609      0 Sep 20 18:52 copilot
 ./30_Order/System/sync-workflow
 ./60_Claude/20_Distilled_Notes/Jarvis Systems Audit - Retrieval, Sync, and Plugins (2026-08-21).md
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- sync-workflow dir ---" && ls -la "30_Order/System/sync-workflow" && echo "--- any ps1/sh scripts ---" && find "30_Order/System/sync-workflow" -type f`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- sync-workflow dir ---" && ls -la "30_Order/System/sync-workflow" && echo "--- any ps1/sh scripts ---" && find "30_Order/System/sync-workflow" -type f
+```
 ```
 --- sync-workflow dir ---
 total 0
@@ -314,7 +326,10 @@ drwxr-xr-x 1 anant 197609 0 Oct  2 13:18 scripts
 30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\Jarvis Systems Audit - Retrieval, Sync, and Plugins (2026-08-21).md`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- search for git-auto-sync script ---" && find "30_Order/System/claude-workflow" -maxdepth 3 -type f 2>/dev/null && echo "--- grep repo for 'Auto-sync:' commit message producer ---" && grep -rl "Auto-sync:" --include="*.ps1" --include="*.sh" --include="*.py" . 2>/dev/null | grep -v node_modules`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- search for git-auto-sync script ---" && find "30_Order/System/claude-workflow" -maxdepth 3 -type f 2>/dev/null && echo "--- grep repo for 'Auto-sync:' commit message producer ---" && grep -rl "Auto-sync:" --include="*.ps1" --include="*.sh" --include="*.py" . 2>/dev/null | grep -v node_modules
+```
 ```
 --- search for git-auto-sync script ---
 30_Order/System/claude-workflow/claude_desktop_config.read-first.example.json
@@ -348,12 +363,18 @@ drwxr-xr-x 1 anant 197609 0 Oct  2 13:18 scripts
 ./.stversions/30_Order/System/claude-workflow/scripts/git-auto-sync~20261001-234158.ps1
 ./30_Order/System/claude-workflow/scripts/git-auto-sync.ps1
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*Sync - Unison*" -not -path "./.git/*" 2>/dev/null`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*Sync - Unison*" -not -path "./.git/*" 2>/dev/null
+```
 ```
 ./20_Progress/AI/Claude Code/Sync - Unison.md
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- register task script (schedule interval) ---" && cat "30_Order/System/claude-workflow/scripts/register-git-auto-sync-task.ps1"`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- register task script (schedule interval) ---" && cat "30_Order/System/claude-workflow/scripts/register-git-auto-sync-task.ps1"
+```
 ```
 --- register task script (schedule interval) ---
 # Registers Jarvis-GitAutoSync: runs git-auto-sync.ps1 every 15 minutes via
@@ -404,11 +425,14 @@ Get-ScheduledTask -TaskName $TaskName | Format-List TaskName, State
 (Get-ScheduledTask -TaskName $TaskName).Actions | Format-List Execute, Arguments
 (Get-ScheduledTask -TaskName $TaskName).Settings | Format-List Hidden
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git log of git-auto-sync.ps1 ---" && git log --follow --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M" -- "30_Order/System/claude-workflow/scripts/git-auto-sync.ps1" | head -30
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git log of git-auto-sync.ps1 ---" && git log --follow --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M" -- "30_Order/System/claude-workflow/scripts/git-auto-sync.ps1" | head -30
 echo "--- search for Build 7 Findings note ---"
 grep -rl "Build 7 Findings" --include="*.md" . 2>/dev/null
 echo "--- search for any note mentioning conflict incident ---"
-grep -rli "sync-conflict" --include="*.md" . 2>/dev/null | grep -v ".stversions"`
+grep -rli "sync-conflict" --include="*.md" . 2>/dev/null | grep -v ".stversions"
+```
 ```
 --- git log of git-auto-sync.ps1 ---
 ed105499 2026-10-01 23:48 Auto-sync: 2026-10-01 23:48,  1 file changed, 7 insertions(+)
@@ -464,8 +488,47 @@ c5d092bb 2026-09-28 00:33 Auto-sync: 2026-09-28 00:33,  7 files changed, 189 ins
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Rollback Procedure.md`
-- `PowerShell` -- `{"command":"Write-Output \"--- Jarvis-Syncthing-Health task state ---\"\nGet-ScheduledTask -TaskName \"Jarvis-Syncthing-Health\" -ErrorAction SilentlyContinue | Format-List TaskName, State\nGet-ScheduledTaskInfo -TaskName \"Jarvis-Syncthing-Health\" -ErrorAction SilentlyContinue | Format-List LastRunTime, LastTaskResult, NextRunTime\nWrite-Output \"--- Jarvis-GitAutoSync task state ---\"\nGet-ScheduledTask -TaskName \"Jarvis-GitAutoSync\" -ErrorAction SilentlyContinue | Format-List TaskName, State\nGet-ScheduledTaskInfo -TaskName \"Jarvis-GitAutoSync\" -ErrorAction SilentlyContinue | Format-List LastRunTime, LastTaskResult, NextRunTime\nWrite-Output \"--- Jarvis-WeeklyReview task state ---\"\nGet-ScheduledTask -TaskName \"Jarvis-WeeklyReview\" -ErrorAction SilentlyContinue | Format-List TaskName, State"}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- tail of git-auto-sync.log around 09-29/09-30 ---" && grep -n "2026-09-29\|2026-09-30" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -i "conflict\|fail\|===" | tail -80`
+- `PowerShell`
+```powershell
+Write-Output "--- Jarvis-Syncthing-Health task state ---"
+Get-ScheduledTask -TaskName "Jarvis-Syncthing-Health" -ErrorAction SilentlyContinue | Format-List TaskName, State
+Get-ScheduledTaskInfo -TaskName "Jarvis-Syncthing-Health" -ErrorAction SilentlyContinue | Format-List LastRunTime, LastTaskResult, NextRunTime
+Write-Output "--- Jarvis-GitAutoSync task state ---"
+Get-ScheduledTask -TaskName "Jarvis-GitAutoSync" -ErrorAction SilentlyContinue | Format-List TaskName, State
+Get-ScheduledTaskInfo -TaskName "Jarvis-GitAutoSync" -ErrorAction SilentlyContinue | Format-List LastRunTime, LastTaskResult, NextRunTime
+Write-Output "--- Jarvis-WeeklyReview task state ---"
+Get-ScheduledTask -TaskName "Jarvis-WeeklyReview" -ErrorAction SilentlyContinue | Format-List TaskName, State
+```
+```
+--- Jarvis-Syncthing-Health task state ---
+
+TaskName : Jarvis-Syncthing-Health
+State    : Ready
+
+
+LastRunTime    : 10/2/2026 2:51:46 PM
+LastTaskResult : 1
+NextRunTime    : 10/2/2026 4:31:45 PM
+
+--- Jarvis-GitAutoSync task state ---
+
+TaskName : Jarvis-GitAutoSync
+State    : Ready
+
+
+LastRunTime    : 10/2/2026 4:18:01 PM
+LastTaskResult : 0
+NextRunTime    : 10/2/2026 4:33:00 PM
+
+--- Jarvis-WeeklyReview task state ---
+
+TaskName : Jarvis-WeeklyReview
+State    : Ready
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- tail of git-auto-sync.log around 09-29/09-30 ---" && grep -n "2026-09-29\|2026-09-30" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -i "conflict\|fail\|===" | tail -80
+```
 ```
 --- tail of git-auto-sync.log around 09-29/09-30 ---
 8455:[2026-09-29 21:18:00] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
@@ -549,9 +612,12 @@ c5d092bb 2026-09-28 00:33 Auto-sync: 2026-09-28 00:33,  7 files changed, 189 ins
 8985:[2026-09-30 23:48:02] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
 8997:[2026-09-30 23:48:04] === git-auto-sync end (nothing to do) ===
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- full context of 09-30 16:06 CONFLICT ---" && sed -n '8718,8730p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- full context of 09-30 16:06 CONFLICT ---" && sed -n '8718,8730p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"
 echo ""
-echo "--- full context of 09-30 18:03 CONFLICT (second one) ---" && sed -n '8732,8763p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
+echo "--- full context of 09-30 18:03 CONFLICT (second one) ---" && sed -n '8732,8763p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"
+```
 ```
 --- full context of 09-30 16:06 CONFLICT ---
 [2026-09-30 16:06:49] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
@@ -602,12 +668,68 @@ At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\script
 [2026-09-30 18:12:36] CONFLICT: rebase during retry 1 failed. Manual resolution needed.
 [2026-09-30 18:12:36] === git-auto-sync end (FAILED, needs manual attention) ===
 ```
-- `PowerShell` -- `{"command":"$scriptPath = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\nWrite-Output \"--- running health check script live to see current output/error ---\"\n\u0026 $scriptPath\nWrite-Output \"--- exit code: $LASTEXITCODE ---\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log around 09-29 17:2x-17:3x ---" && grep -n "2026-09-29 17:2\|2026-09-29 17:3" "30_Order/System/claude-workflow/logs/git-auto-sync.log"
+- `PowerShell`
+```powershell
+$scriptPath = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+Write-Output "--- running health check script live to see current output/error ---"
+& $scriptPath
+Write-Output "--- exit code: $LASTEXITCODE ---"
+```
+```
+Exit code 1
+--- running health check script live to see current output/error ---
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 11665
+  globalFiles : 11665
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+Write-Error: 
+Line |
+   3 |  & $scriptPath
+     |  ~~~~~~~~~~~~~
+     | Found 4 Syncthing conflict copy/copies.
+Write-Error: 
+Line |
+   3 |  & $scriptPath
+     |  ~~~~~~~~~~~~~
+     |   D:\_Anant\20_Progress\Documents\Jarvis\.copilot\model-catalog-cache.[REDACTED].json
+Write-Error: 
+Line |
+   3 |  & $scriptPath
+     |  ~~~~~~~~~~~~~
+     |   D:\_Anant\20_Progress\Documents\Jarvis\.obsidian\plugins\obsidian-spaced-repetition\data.[REDACTED].json
+Write-Error: 
+Line |
+   3 |  & $scriptPath
+     |  ~~~~~~~~~~~~~
+     |   D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Textbook\Chapter - 3.[REDACTED].md
+Write-Error: 
+Line |
+   3 |  & $scriptPath
+     |  ~~~~~~~~~~~~~
+     |   D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\WSL\Claude Code\internship-research-loop\09-29 Internship loop research and gap analysis.[REDACTED].md
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: NOT IN SYNC
+--- exit code: 1 ---
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log around 09-29 17:2x-17:3x ---" && grep -n "2026-09-29 17:2\|2026-09-29 17:3" "30_Order/System/claude-workflow/logs/git-auto-sync.log"
 echo ""
 echo "--- git log around that time ---" && git log --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M:%S" --since="2026-09-29 17:00" --until="2026-09-29 18:00" --all | head -20
 echo ""
-echo "--- recent Session Logs tail ---" && tail -c 4000 "60_Claude/07_AI_Information/Session Logs/log.md"`
+echo "--- recent Session Logs tail ---" && tail -c 4000 "60_Claude/07_AI_Information/Session Logs/log.md"
+```
 ```
 --- git-auto-sync.log around 09-29 17:2x-17:3x ---
 8228:[2026-09-29 17:33:00] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
@@ -648,10 +770,13 @@ The prompt also records the current MCP limitation discovered in this session: J
 
 **Next:** Run the prompt from a fresh WSL session and report the exact Jarvis MCP reachability, available tool schemas, live Obsidian endpoint, and remaining configuration gap before changing anything else.
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== Chapter - 3.md (CSCI 4511W) diff ===" && diff "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" | head -100
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== Chapter - 3.md (CSCI 4511W) diff ===" && diff "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" | head -100
 echo ""
 echo "=== line counts ===" 
-wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"`
+wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"
+```
 ```
 === Chapter - 3.md (CSCI 4511W) diff ===
 631a632,722
@@ -752,10 +877,13 @@ wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degre
    732 20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.[REDACTED].md
   1373 total
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
 CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md"
 echo "=== line counts ===" && wc -l "$CANON" "$CONF"
-echo "=== diff ===" && diff "$CANON" "$CONF" | head -150`
+echo "=== diff ===" && diff "$CANON" "$CONF" | head -150
+```
 ```
 === line counts ===
   2759 60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md
@@ -913,12 +1041,15 @@ echo "=== diff ===" && diff "$CANON" "$CONF" | head -150`
 < ## Resume and cover letter
 <
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
 CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md"
 echo "=== byte sizes ===" && wc -c "$CANON" "$CONF"
 echo "=== md5/sha ===" && sha256sum "$CANON" "$CONF"
 echo "=== file type (CRLF check) ===" && file "$CANON" "$CONF"
-echo "=== diff ignoring whitespace ===" && diff -q <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF")`
+echo "=== diff ignoring whitespace ===" && diff -q <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF")
+```
 ```
 === byte sizes ===
 199217 60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md
@@ -933,7 +1064,9 @@ echo "=== diff ignoring whitespace ===" && diff -q <(tr -d '\r' < "$CANON") <(tr
 === diff ignoring whitespace ===
 Files /dev/fd/63 and /dev/fd/62 differ
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== spaced-repetition data.json ===" 
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== spaced-repetition data.json ===" 
 CANON=".obsidian/plugins/obsidian-spaced-repetition/data.json"
 CONF=".obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json"
 wc -c "$CANON" "$CONF"
@@ -945,7 +1078,8 @@ echo "=== copilot model-catalog-cache.json ==="
 CANON2=".copilot/model-catalog-cache.json"
 CONF2=".copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json"
 wc -c "$CANON2" "$CONF2"
-sha256sum "$CANON2" "$CONF2"`
+sha256sum "$CANON2" "$CONF2"
+```
 ```
 === spaced-repetition data.json ===
 2951 .obsidian/plugins/obsidian-spaced-repetition/data.json
@@ -963,13 +1097,16 @@ sha256sum "$CANON2" "$CONF2"`
 [REDACTED] *.copilot/model-catalog-cache.json
 [REDACTED] *.copilot/model-catalog-cache.[REDACTED].json
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== normalized diff of internship note ===" 
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== normalized diff of internship note ===" 
 CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
 CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md"
 diff <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF") | head -60
 echo "=== frontmatter of each (first 25 lines) ==="
 echo "--- canon ---"; head -25 "$CANON"
-echo "--- conflict ---"; head -25 "$CONF"`
+echo "--- conflict ---"; head -25 "$CONF"
+```
 ```
 === normalized diff of internship note ===
 10c10
@@ -1030,7 +1167,9 @@ tokens:
   input: 282
   output: 97692
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && python3 -c "
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && python3 -c "
 import json
 a=json.load(open('.obsidian/plugins/obsidian-spaced-repetition/data.json'))
 b=json.load(open('.obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json'))
@@ -1051,12 +1190,15 @@ if a.get('scheduleData') != b.get('scheduleData'):
     for k in diffs[:5]:
         print(k, 'canon=', a['scheduleData'][k], 'conflict=', b['scheduleData'][k])
 "
-`
+
+```
 ```
 Exit code 49
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && node -e "
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && node -e "
 const fs = require('fs');
 const a = JSON.parse(fs.readFileSync('.obsidian/plugins/obsidian-spaced-repetition/data.json'));
 const b = JSON.parse(fs.readFileSync('.obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json'));
@@ -1077,7 +1219,8 @@ const diffs = common.filter(k=>JSON.stringify(sa[k])!==JSON.stringify(sb[k]));
 console.log('differing common keys count:', diffs.length);
 diffs.slice(0,10).forEach(k=>console.log(k,'canon=',JSON.stringify(sa[k]),'conflict=',JSON.stringify(sb[k])));
 "
-`
+
+```
 ```
 buryDate: 2026-09-28 | 2026-09-29
 buryList: [] | []
@@ -1089,20 +1232,25 @@ only in canon: []
 only in conflict: []
 differing common keys count: 0
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && head -c 500 ".copilot/model-catalog-cache.json"; echo ""; echo "---"; node -e "
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && head -c 500 ".copilot/model-catalog-cache.json"; echo ""; echo "---"; node -e "
 const fs=require('fs');
 const a=JSON.parse(fs.readFileSync('.copilot/model-catalog-cache.json'));
 const b=JSON.parse(fs.readFileSync('.copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json'));
 console.log('type a:', Array.isArray(a)?'array len '+a.length : typeof a, Object.keys(a).slice(0,5));
 console.log('type b:', Array.isArray(b)?'array len '+b.length : typeof b, Object.keys(b).slice(0,5));
-"`
+"
+```
 ```
 {"fetchedAt":1790613981849,"data":{"deepinfra":{"id":"deepinfra","env":["DEEPINFRA_API_KEY"],"npm":"@ai-sdk/deepinfra","name":"Deep Infra","doc":"https://deepinfra.com/models","models":{"tencent/Hy3":{"id":"tencent/Hy3","name":"Hy3","description":"Tencent Hy reasoning model for coding, instruction following, and agent tasks","family":"Hy","attachment":false,"reasoning":true,"reasoning_options":[],"tool_call":true,"structured_output":true,"temperature":true,"release_date":"2026-07-06","last_updat
 ---
 type a: object [ 'fetchedAt', 'data' ]
 type b: object [ 'fetchedAt', 'data' ]
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && \
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && \
 ARCHIVE="/d/_Anant/99_Archive/Syncthing Conflict Reconciliation 2026-10-02"
 mkdir -p "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook" \
   "$ARCHIVE/.obsidian/plugins/obsidian-spaced-repetition" \
@@ -1124,7 +1272,8 @@ find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversion
 echo "--- verify archive ---"
 find "$ARCHIVE" -type f
 echo "--- verify restored Chapter 3 line count ---"
-wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"`
+wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"
+```
 ```
 --- verify live vault clean ---
 --- verify archive ---
@@ -1136,15 +1285,42 @@ wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"`
 --- verify restored Chapter 3 line count ---
 732 20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md
 ```
-- `PowerShell` -- `{"command":"\u0026 \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\nWrite-Output \"--- exit code: $LASTEXITCODE ---\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- CSCI 4061 Lab 3 current state ---" && find "20_Progress/Degree/CSCI 4061" -iname "*Lab 3*" -o -iname "*lab3*" 2>/dev/null
+- `PowerShell`
+```powershell
+& "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+Write-Output "--- exit code: $LASTEXITCODE ---"
+```
+```
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 11661
+  globalFiles : 11661
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: IN SYNC
+--- exit code: 0 ---
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- CSCI 4061 Lab 3 current state ---" && find "20_Progress/Degree/CSCI 4061" -iname "*Lab 3*" -o -iname "*lab3*" 2>/dev/null
 echo "--- grep for make test / 1.0 in Lab 3 ---"
 grep -rl "1.0/1.0\|make test" "20_Progress/Degree/CSCI 4061" 2>/dev/null
 echo "--- Weekly Board current (first 30 lines) ---"
 sed -n '1,30p' "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" 2>/dev/null
 echo "--- any CSCI 4061 .stversions entries for Lab 3 ---"
-find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*Lab*" 2>/dev/null`
+find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*Lab*" 2>/dev/null
 ```
+````
 --- CSCI 4061 Lab 3 current state ---
 --- grep for make test / 1.0 in Lab 3 ---
 20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md
@@ -1185,12 +1361,15 @@ SORT file.name ASC
 .stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md
 .stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md
 .stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md
-```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- current Lab 3 grep for 1.0 and real debugging entries ---" && grep -n "1.0/1.0\|make test\|dev container\|debugging" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -20
+````
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- current Lab 3 grep for 1.0 and real debugging entries ---" && grep -n "1.0/1.0\|make test\|dev container\|debugging" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -20
 echo "--- line count comparison ---"
 wc -l "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md"
 echo "--- diff current vs most recent stversion ---"
-diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" | head -40`
+diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" | head -40
+```
 ```
 --- current Lab 3 grep for 1.0 and real debugging entries ---
 14:next: "Paste the handler + sigaction block into wc_signal.c (the two TODO spots only — leave `int keep_going` as-is), mark the 3 QUESTIONS.txt answers, run `make test` inside the dev container, then `make zip` and upload lab03-code.zip to Gradescope before 11:59pm 2026-09-30"
@@ -1247,9 +1426,12 @@ diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Deg
 < <!-- Record the decision points and commands needed to reproduce the work. -->
 < - Setup: `lab03-code` was already unzipped directly into `csci4061-fa26/Labs/lab03-code/`. Dev container confirmed healthy going into this lab (verified in a prior session: Docker Desktop running, full toolchain present, `.gdbinit`/prompt QoL layer added without touching the graded Dockerfile).
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline --since="2026-10-01" --until="2026-10-02 23:59" -- "20_Progress/Degree/CSCI 4061" | head -20
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline --since="2026-10-01" --until="2026-10-02 23:59" -- "20_Progress/Degree/CSCI 4061" | head -20
 echo "--- current git status for CSCI 4061 (any uncommitted changes from my restore?) ---"
-git status --short "20_Progress/Degree/CSCI 4061" ".obsidian" ".copilot" "60_Claude/05_Clippings"`
+git status --short "20_Progress/Degree/CSCI 4061" ".obsidian" ".copilot" "60_Claude/05_Clippings"
+```
 ```
 e7cef3d0 Auto-sync: 2026-10-02 16:18,  22 files changed, 1298 insertions(+), 1918 deletions(-)
 836aa2d5 Auto-sync: 2026-10-02 16:03,  4 files changed, 429 insertions(+), 80 deletions(-)
@@ -1262,7 +1444,10 @@ a1dac4c2 Normalize line endings to LF across the vault
  M .obsidian/plugins/recent-edits/data.json
  D "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.[REDACTED].md"
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git status --short`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git status --short
+```
 ```
  D .copilot/model-catalog-cache.[REDACTED].json
  D .obsidian/plugins/obsidian-spaced-repetition/data.[REDACTED].json
@@ -1274,7 +1459,10 @@ a1dac4c2 Normalize line endings to LF across the vault
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status-silent.vbs`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat .gitignore | grep -i "sync\|lock" `
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat .gitignore | grep -i "sync\|lock" 
+```
 ```
 # Google Drive desktop sync staging cache (transient, not vault content)
 # git-auto-sync's own operational log/lock — tracking these would make every
@@ -1583,20 +1771,134 @@ Complete-HealthCheck -ExitCode $exitCode -Problems $problems -DashboardPath $das
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
 ```diff
 -     if ($content -match $blockPattern) {
-        $content = [regex]::Replace($content, $blockPattern, [System.Text.RegularExpressions.Regex]::Escape($banner).Replace('\', '\\'))
-        # Regex.Replace treats $ in the replacement specially; escape via a MatchEvaluator instead of string substitution.
-        $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
-    } else {
+-         $content = [regex]::Replace($content, $blockPattern, [System.Text.RegularExpressions.Regex]::Escape($banner).Replace('\', '\\'))
+-         # Regex.Replace treats $ in the replacement specially; escape via a MatchEvaluator instead of string substitution.
+-         $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
+-     } else {
 +     if ($content -match $blockPattern) {
-        # A MatchEvaluator (not a replacement string) sidesteps $-substitution
-        # rules in Regex.Replace, since $banner itself may contain literal '$'.
-        $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
-    } else {
++         # A MatchEvaluator (not a replacement string) sidesteps $-substitution
++         # rules in Regex.Replace, since $banner itself may contain literal '$'.
++         $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
++     } else {
 ```
-- `PowerShell` -- `{"command":"powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\nWrite-Output \"--- exit code: $LASTEXITCODE ---\"\nWrite-Output \"--- dashboard banner present? ---\"\nSelect-String -Path \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\" -Pattern \"SYNC-ALERT\" -SimpleMatch\nWrite-Output \"--- state file ---\"\nGet-Content \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\.sync-alert-state.json\" -ErrorAction SilentlyContinue"}`
-- `PowerShell` -- `{"command":"$fake = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.sync-test-fake.[REDACTED].md\"\nSet-Content -Path $fake -Value \"test\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\nWrite-Output \"--- exit code: $LASTEXITCODE ---\"\nWrite-Output \"--- dashboard banner present? ---\"\nSelect-String -Path \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\" -Pattern \"SYNC ALERT\" -SimpleMatch\nWrite-Output \"--- state file ---\"\nGet-Content \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\.sync-alert-state.json\"\nRemove-Item $fake -Force"}`
-- `PowerShell` -- `{"command":"powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\" | Out-Null\nWrite-Output \"exit: $LASTEXITCODE\"\nWrite-Output \"--- banner gone? ---\"\nSelect-String -Path \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\" -Pattern \"SYNC ALERT\" -SimpleMatch\nWrite-Output \"--- dashboard still well-formed around frontmatter ---\"\nGet-Content \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\" -TotalCount 35 | Select-Object -Last 10\nWrite-Output \"--- git diff stat on dashboard (should show only banner add/remove net zero) ---\"\ncd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\"\ngit diff --stat -- 00_Dashboard.md"}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git diff --stat -- 00_Dashboard.md && git checkout -- 00_Dashboard.md && echo "--- reverted, verify ---" && git diff --stat -- 00_Dashboard.md && grep -c "â€”\|Â·" 00_Dashboard.md`
+- `PowerShell`
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+Write-Output "--- exit code: $LASTEXITCODE ---"
+Write-Output "--- dashboard banner present? ---"
+Select-String -Path "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md" -Pattern "SYNC-ALERT" -SimpleMatch
+Write-Output "--- state file ---"
+Get-Content "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\.sync-alert-state.json" -ErrorAction SilentlyContinue
+```
+```
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 11661
+  globalFiles : 11661
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: IN SYNC
+--- exit code: 0 ---
+--- dashboard banner present? ---
+--- state file ---
+{
+    "consecutiveFailures":  0
+}
+```
+- `PowerShell`
+```powershell
+$fake = "D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.sync-conflict-20261002-999999-TEST.md"
+Set-Content -Path $fake -Value "test"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+Write-Output "--- exit code: $LASTEXITCODE ---"
+Write-Output "--- dashboard banner present? ---"
+Select-String -Path "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md" -Pattern "SYNC ALERT" -SimpleMatch
+Write-Output "--- state file ---"
+Get-Content "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\.sync-alert-state.json"
+Remove-Item $fake -Force
+```
+```
+Exit code 1
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 11661
+  globalFiles : 11661
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 : Found 1 
+Syncthing conflict copy/copies.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 :   
+D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.[REDACTED].md
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: NOT IN SYNC
+--- exit code: 1 ---
+--- dashboard banner present? ---
+
+00_Dashboard.md:30:> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-02 16:36)
+--- state file ---
+{
+    "consecutiveFailures":  1
+}
+```
+- `PowerShell`
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1" | Out-Null
+Write-Output "exit: $LASTEXITCODE"
+Write-Output "--- banner gone? ---"
+Select-String -Path "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md" -Pattern "SYNC ALERT" -SimpleMatch
+Write-Output "--- dashboard still well-formed around frontmatter ---"
+Get-Content "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md" -TotalCount 35 | Select-Object -Last 10
+Write-Output "--- git diff stat on dashboard (should show only banner add/remove net zero) ---"
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
+git diff --stat -- 00_Dashboard.md
+```
+```
+exit: 0
+--- banner gone? ---
+--- dashboard still well-formed around frontmatter ---
+  - "[[Jarvis OS â€” North Star]]"
+---
+
+# Jarvis â€” `$= moment().format("dddd, D MMMM YYYY")`
+> [!focus] CURRENT FOCUS
+> **`INPUT[text:today_focus]`**
+> `INPUT[text:today_80]`
+> `INPUT[text:today_20]`
+> *Patched by /startday Â· cleared by /closeday.*
+
+--- git diff stat on dashboard (should show only banner add/remove net zero) ---
+ 00_Dashboard.md | 45 +++++++++++++++++++++++----------------------
+ 1 file changed, 23 insertions(+), 22 deletions(-)
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git diff --stat -- 00_Dashboard.md && git checkout -- 00_Dashboard.md && echo "--- reverted, verify ---" && git diff --stat -- 00_Dashboard.md && grep -c "â€”\|Â·" 00_Dashboard.md
+```
 ```
  00_Dashboard.md | 45 +++++++++++++++++++++++----------------------
  1 file changed, 23 insertions(+), 22 deletions(-)
@@ -1606,91 +1908,179 @@ Complete-HealthCheck -ExitCode $exitCode -Problems $problems -DashboardPath $das
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
 ```diff
 - function Set-DashboardSyncBanner {
-    # Idempotent: replaces its own prior block if present, so repeated 5-minute
-    # runs never accumulate duplicate banners.
-    param([string]$DashboardPath, [string[]]$Problems)
-    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
-    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
-    $endMarker = "<!-- SYNC-ALERT:END -->"
-    $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm'
-    $problemLines = ($Problems | ForEach-Object { "> - $_" }) -join "`n"
-    $banner = "$beginMarker`n> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n$endMarker`n`n"
-    $content = Get-Content -LiteralPath $DashboardPath -Raw
-    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
-    if ($content -match $blockPattern) {
-        # A MatchEvaluator (not a replacement string) sidesteps $-substitution
-        # rules in Regex.Replace, since $banner itself may contain literal '$'.
-        $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
-    } else {
-        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + "`n" + $banner })
-    }
-    Set-Content -LiteralPath $DashboardPath -Value $content -NoNewline -Encoding utf8
-}
-
-function Clear-DashboardSyncBanner {
-    param([string]$DashboardPath)
-    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
-    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
-    $endMarker = "<!-- SYNC-ALERT:END -->"
-    $content = Get-Content -LiteralPath $DashboardPath -Raw
-    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
-    if ($content -match $blockPattern) {
-        $content = [regex]::Replace($content, $blockPattern, "")
-        Set-Content -LiteralPath $DashboardPath -Value $content -NoNewline -Encoding utf8
-    }
-}
+-     # Idempotent: replaces its own prior block if present, so repeated 5-minute
+-     # runs never accumulate duplicate banners.
+-     param([string]$DashboardPath, [string[]]$Problems)
+-     if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
+-     $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
+-     $endMarker = "<!-- SYNC-ALERT:END -->"
+-     $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm'
+-     $problemLines = ($Problems | ForEach-Object { "> - $_" }) -join "`n"
+-     $banner = "$beginMarker`n> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n$endMarker`n`n"
+-     $content = Get-Content -LiteralPath $DashboardPath -Raw
+-     $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
+-     if ($content -match $blockPattern) {
+-         # A MatchEvaluator (not a replacement string) sidesteps $-substitution
+-         # rules in Regex.Replace, since $banner itself may contain literal '$'.
+-         $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
+-     } else {
+-         $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + "`n" + $banner })
+-     }
+-     Set-Content -LiteralPath $DashboardPath -Value $content -NoNewline -Encoding utf8
+- }
+- 
+- function Clear-DashboardSyncBanner {
+-     param([string]$DashboardPath)
+-     if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
+-     $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
+-     $endMarker = "<!-- SYNC-ALERT:END -->"
+-     $content = Get-Content -LiteralPath $DashboardPath -Raw
+-     $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
+-     if ($content -match $blockPattern) {
+-         $content = [regex]::Replace($content, $blockPattern, "")
+-         Set-Content -LiteralPath $DashboardPath -Value $content -NoNewline -Encoding utf8
+-     }
+- }
 + #  Windows PowerShell 5.1's Get-Content/Set-Content, even with -Encoding utf8,
-#  mis-decodes a BOM-less UTF-8 file (falls back to the system codepage) and
-#  writes a BOM back out, corrupting every em dash/middot/smart-quote in the
-#  file (caught live testing this script: "Jarvis OS - North Star" became
-#  mojibake). Reading and writing through .NET's UTF8Encoding($false)
-#  directly bypasses both cmdlets' encoding guessing.
-$Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-function Read-Utf8NoBom { param([string]$Path) [System.IO.File]::ReadAllText($Path, $Utf8NoBom) }
-function Write-Utf8NoBom { param([string]$Path, [string]$Content) [System.IO.File]::WriteAllText($Path, $Content, $Utf8NoBom) }
-
-function Set-DashboardSyncBanner {
-    # Idempotent: replaces its own prior block if present, so repeated 5-minute
-    # runs never accumulate duplicate banners.
-    param([string]$DashboardPath, [string[]]$Problems)
-    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
-    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
-    $endMarker = "<!-- SYNC-ALERT:END -->"
-    $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm'
-    $problemLines = ($Problems | ForEach-Object { "> - $_" }) -join "`n"
-    $banner = "$beginMarker`n> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n$endMarker`n`n"
-    $content = Read-Utf8NoBom -Path $DashboardPath
-    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
-    if ($content -match $blockPattern) {
-        # A MatchEvaluator (not a replacement string) sidesteps $-substitution
-        # rules in Regex.Replace, since $banner itself may contain literal '$'.
-        $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
-    } else {
-        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + "`n" + $banner })
-    }
-    Write-Utf8NoBom -Path $DashboardPath -Content $content
-}
-
-function Clear-DashboardSyncBanner {
-    param([string]$DashboardPath)
-    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
-    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
-    $endMarker = "<!-- SYNC-ALERT:END -->"
-    $content = Read-Utf8NoBom -Path $DashboardPath
-    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
-    if ($content -match $blockPattern) {
-        $content = [regex]::Replace($content, $blockPattern, "")
-        Write-Utf8NoBom -Path $DashboardPath -Content $content
-    }
-}
++ #  mis-decodes a BOM-less UTF-8 file (falls back to the system codepage) and
++ #  writes a BOM back out, corrupting every em dash/middot/smart-quote in the
++ #  file (caught live testing this script: "Jarvis OS - North Star" became
++ #  mojibake). Reading and writing through .NET's UTF8Encoding($false)
++ #  directly bypasses both cmdlets' encoding guessing.
++ $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
++ function Read-Utf8NoBom { param([string]$Path) [System.IO.File]::ReadAllText($Path, $Utf8NoBom) }
++ function Write-Utf8NoBom { param([string]$Path, [string]$Content) [System.IO.File]::WriteAllText($Path, $Content, $Utf8NoBom) }
++ 
++ function Set-DashboardSyncBanner {
++     # Idempotent: replaces its own prior block if present, so repeated 5-minute
++     # runs never accumulate duplicate banners.
++     param([string]$DashboardPath, [string[]]$Problems)
++     if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
++     $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
++     $endMarker = "<!-- SYNC-ALERT:END -->"
++     $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm'
++     $problemLines = ($Problems | ForEach-Object { "> - $_" }) -join "`n"
++     $banner = "$beginMarker`n> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n$endMarker`n`n"
++     $content = Read-Utf8NoBom -Path $DashboardPath
++     $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
++     if ($content -match $blockPattern) {
++         # A MatchEvaluator (not a replacement string) sidesteps $-substitution
++         # rules in Regex.Replace, since $banner itself may contain literal '$'.
++         $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
++     } else {
++         $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + "`n" + $banner })
++     }
++     Write-Utf8NoBom -Path $DashboardPath -Content $content
++ }
++ 
++ function Clear-DashboardSyncBanner {
++     param([string]$DashboardPath)
++     if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
++     $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
++     $endMarker = "<!-- SYNC-ALERT:END -->"
++     $content = Read-Utf8NoBom -Path $DashboardPath
++     $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
++     if ($content -match $blockPattern) {
++         $content = [regex]::Replace($content, $blockPattern, "")
++         Write-Utf8NoBom -Path $DashboardPath -Content $content
++     }
++ }
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\"\n$fake = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.sync-test-fake.[REDACTED].md\"\nSet-Content -Path $fake -Value \"test\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File \".\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\" | Out-Null\nWrite-Output \"fail-run exit: $LASTEXITCODE\"\nRemove-Item $fake -Force\nWrite-Output \"--- banner text (should have clean em dash / middot) ---\"\nSelect-String -Path \"00_Dashboard.md\" -Pattern \"SYNC ALERT\" -Context 0,4\nWrite-Output \"--- mojibake check ---\"\n(Select-String -Path \"00_Dashboard.md\" -Pattern \"â€”|Â·\").Count"}`
-- `PowerShell` -- `{"command":"$dash = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\"\n$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\n$fake = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.sync-test-fake.[REDACTED].md\"\nSet-Content -LiteralPath $fake -Value \"test\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null\nWrite-Output \"fail-run exit: $LASTEXITCODE\"\nRemove-Item -LiteralPath $fake -Force\nWrite-Output \"--- banner text ---\"\nSelect-String -LiteralPath $dash -Pattern \"SYNC ALERT\" -Context 0,4\nWrite-Output \"--- mojibake check (should be 0) ---\"\n(Select-String -LiteralPath $dash -Pattern \"â€”|Â·\").Count"}`
-- `PowerShell` -- `{"command":"$fake = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.sync-test-fake.[REDACTED].md\"\nSet-Content -LiteralPath $fake -Value \"test\"\nWrite-Output \"created fake file\""}`
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null\nWrite-Output \"fail-run exit: $LASTEXITCODE\""}`
-- `PowerShell` -- `{"command":"$fake = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.sync-test-fake.[REDACTED].md\"\nRemove-Item -LiteralPath $fake -Force\n$dash = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\"\nSelect-String -LiteralPath $dash -Pattern \"SYNC ALERT\" -Context 0,4"}`
-- `PowerShell` -- `{"command":"$dash = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md\"\n$bad = Select-String -LiteralPath $dash -Pattern \"â€”\" -SimpleMatch\n$bad2 = Select-String -LiteralPath $dash -Pattern \"Â·\" -SimpleMatch\nWrite-Output \"mojibake hits: $(($bad.Count) + ($bad2.Count))\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD, excluding banner lines ---" && git diff -- 00_Dashboard.md | head -60`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
+$fake = "D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.sync-conflict-20261002-999999-TEST.md"
+Set-Content -Path $fake -Value "test"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1" | Out-Null
+Write-Output "fail-run exit: $LASTEXITCODE"
+Remove-Item $fake -Force
+Write-Output "--- banner text (should have clean em dash / middot) ---"
+Select-String -Path "00_Dashboard.md" -Pattern "SYNC ALERT" -Context 0,4
+Write-Output "--- mojibake check ---"
+(Select-String -Path "00_Dashboard.md" -Pattern "â€”|Â·").Count
+```
+```
+Remove-Item on system path '/' is blocked. This path is protected from removal.
+```
+- `PowerShell`
+```powershell
+$dash = "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md"
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+$fake = "D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.sync-conflict-20261002-999999-TEST.md"
+Set-Content -LiteralPath $fake -Value "test"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null
+Write-Output "fail-run exit: $LASTEXITCODE"
+Remove-Item -LiteralPath $fake -Force
+Write-Output "--- banner text ---"
+Select-String -LiteralPath $dash -Pattern "SYNC ALERT" -Context 0,4
+Write-Output "--- mojibake check (should be 0) ---"
+(Select-String -LiteralPath $dash -Pattern "â€”|Â·").Count
+```
+```
+Exit code 1
+Invoke-Expression: The string is missing the terminator: ".
+```
+- `PowerShell`
+```powershell
+$fake = "D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.sync-conflict-20261002-999999-TEST.md"
+Set-Content -LiteralPath $fake -Value "test"
+Write-Output "created fake file"
+```
+```
+created fake file
+```
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null
+Write-Output "fail-run exit: $LASTEXITCODE"
+```
+```
+Exit code 1
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 : Found 1 
+Syncthing conflict copy/copies.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 :   
+D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.[REDACTED].md
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+fail-run exit: 1
+```
+- `PowerShell`
+```powershell
+$fake = "D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.sync-conflict-20261002-999999-TEST.md"
+Remove-Item -LiteralPath $fake -Force
+$dash = "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md"
+Select-String -LiteralPath $dash -Pattern "SYNC ALERT" -Context 0,4
+```
+```
+> 00_Dashboard.md:30:> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-02 16:38)
+  00_Dashboard.md:31:> `Jarvis-Syncthing-Health` found a real problem. Do not assume notes are current until this 
+clears on its own.
+  00_Dashboard.md:32:> - 1 live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before 
+touching, never bulk-discard (see Known Failure Mode 6).
+  00_Dashboard.md:33:> Run `check-syncthing-status.ps1` for detail, or see [[Cross-Laptop Sync - Known Failure Modes 
+and Prevention]].
+  00_Dashboard.md:34:<!-- SYNC-ALERT:END -->
+```
+- `PowerShell`
+```powershell
+$dash = "D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md"
+$bad = Select-String -LiteralPath $dash -Pattern "â€”" -SimpleMatch
+$bad2 = Select-String -LiteralPath $dash -Pattern "Â·" -SimpleMatch
+Write-Output "mojibake hits: $(($bad.Count) + ($bad2.Count))"
+```
+```
+Exit code 1
+Invoke-Expression: The string is missing the terminator: ".
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD, excluding banner lines ---" && git diff -- 00_Dashboard.md | head -60
+```
 ```
 --- diff dashboard vs HEAD, excluding banner lines ---
 diff --git a/00_Dashboard.md b/00_Dashboard.md
@@ -1713,9 +2103,20 @@ index 7e3a030d..cabc096b 100644
  > [!focus] CURRENT FOCUS
  > **`INPUT[text:today_focus]`**
 ```
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null\nWrite-Output \"clean-run exit: $LASTEXITCODE\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD now (should be empty) ---" && git diff --stat -- 00_Dashboard.md
-echo "--- state file ---" && cat "30_Order/System/claude-workflow/scripts/../../sync-workflow/scripts/.sync-alert-state.json" 2>/dev/null || cat "30_Order/System/sync-workflow/scripts/.sync-alert-state.json"`
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null
+Write-Output "clean-run exit: $LASTEXITCODE"
+```
+```
+clean-run exit: 0
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD now (should be empty) ---" && git diff --stat -- 00_Dashboard.md
+echo "--- state file ---" && cat "30_Order/System/claude-workflow/scripts/../../sync-workflow/scripts/.sync-alert-state.json" 2>/dev/null || cat "30_Order/System/sync-workflow/scripts/.sync-alert-state.json"
+```
 ```
 --- diff dashboard vs HEAD now (should be empty) ---
  00_Dashboard.md | 1 +
@@ -1725,7 +2126,10 @@ echo "--- state file ---" && cat "30_Order/System/claude-workflow/scripts/../../
     "consecutiveFailures":  0
 }
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git diff -- 00_Dashboard.md`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git diff -- 00_Dashboard.md
+```
 ```
 diff --git a/00_Dashboard.md b/00_Dashboard.md
 index 7e3a030d..12013d30 100644
@@ -1743,27 +2147,60 @@ index 7e3a030d..12013d30 100644
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
 ```diff
 -     } else {
-        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + "`n" + $banner })
-    }
+-         $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + "`n" + $banner })
+-     }
 +     } else {
-        # No extra blank line before $banner here: $banner's own leading
-        # marker needs none, and Clear-DashboardSyncBanner's removal pattern
-        # only eats what comes from BEGIN onward, so any line added outside
-        # that range would survive a clear and accumulate as drift.
-        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + $banner })
-    }
++         # No extra blank line before $banner here: $banner's own leading
++         # marker needs none, and Clear-DashboardSyncBanner's removal pattern
++         # only eats what comes from BEGIN onward, so any line added outside
++         # that range would survive a clear and accumulate as drift.
++         $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + $banner })
++     }
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git checkout -- 00_Dashboard.md`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git checkout -- 00_Dashboard.md
+```
 ```
 (Bash completed with no output)
 ```
-- `PowerShell` -- `{"command":"$fake = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.sync-test-fake.[REDACTED].md\"\n$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\nSet-Content -LiteralPath $fake -Value \"test\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null\nWrite-Output \"fail-run exit: $LASTEXITCODE\"\nRemove-Item -LiteralPath $fake -Force\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null\nWrite-Output \"clean-run exit: $LASTEXITCODE\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff should now be fully empty (perfect round-trip) ---" && git diff --stat -- 00_Dashboard.md && git diff -- 00_Dashboard.md`
+- `PowerShell`
+```powershell
+$fake = "D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.sync-conflict-20261002-999999-TEST.md"
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+Set-Content -LiteralPath $fake -Value "test"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null
+Write-Output "fail-run exit: $LASTEXITCODE"
+Remove-Item -LiteralPath $fake -Force
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script | Out-Null
+Write-Output "clean-run exit: $LASTEXITCODE"
+```
+```
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 : Found 1 
+Syncthing conflict copy/copies.
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 :   
+D:\_Anant\20_Progress\Documents\Jarvis\.sync-test-fake.[REDACTED].md
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+fail-run exit: 1
+clean-run exit: 0
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff should now be fully empty (perfect round-trip) ---" && git diff --stat -- 00_Dashboard.md && git diff -- 00_Dashboard.md
+```
 ```
 --- diff should now be fully empty (perfect round-trip) ---
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.gitignore`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "git-auto-sync.lock\|sync-workflow" .gitignore`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "git-auto-sync.lock\|sync-workflow" .gitignore
+```
 ```
 64:30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
 ```
@@ -1771,23 +2208,32 @@ index 7e3a030d..12013d30 100644
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.gitignore`
 ```diff
 - 30_Order/System/claude-workflow/logs/git-auto-sync.log
-30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+- 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
 + 30_Order/System/claude-workflow/logs/git-auto-sync.log
-30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
-# Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
-# self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
-30_Order/System/sync-workflow/scripts/.sync-alert-state.json
++ 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
++ # Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
++ # self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
++ 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "lock\|sync-workflow\|claude-workflow/scripts" .stignore`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "lock\|sync-workflow\|claude-workflow/scripts" .stignore
+```
 ```
 (Bash completed with no output)
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "git-auto-sync.log" .stignore`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "git-auto-sync.log" .stignore
+```
 ```
 85:// git-auto-sync.log is a per-machine artifact - each laptop's own scheduled task writes to its
 90:30_Order/System/claude-workflow/logs/git-auto-sync.log
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && sed -n '83,92p' .stignore`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && sed -n '83,92p' .stignore
+```
 ```
 /NUL
 
@@ -1799,7 +2245,9 @@ index 7e3a030d..12013d30 100644
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> .stignore << 'EOF'
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> .stignore << 'EOF'
 
 // .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own
 // per-machine alert-rate-limiting counter, rewritten every 5 minutes on each
@@ -1808,7 +2256,8 @@ index 7e3a030d..12013d30 100644
 // 5 minutes between two laptops both running the health check on their own clocks.
 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 EOF
-tail -8 .stignore`
+tail -8 .stignore
+```
 ```
 30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
 
@@ -1819,8 +2268,43 @@ tail -8 .stignore`
 // 5 minutes between two laptops both running the health check on their own clocks.
 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 ```
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"\n$errors = $null\n$tokens = $null\n[System.Management.Automation.Language.Parser]::ParseFile($script, [ref]$tokens, [ref]$errors) | Out-Null\nif ($errors.Count -eq 0) { Write-Output \"AST parse: clean, 0 errors\" } else { $errors | Format-List }\nWrite-Output \"--- final live run ---\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script\nWrite-Output \"exit: $LASTEXITCODE\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git status --short`
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+$errors = $null
+$tokens = $null
+[System.Management.Automation.Language.Parser]::ParseFile($script, [ref]$tokens, [ref]$errors) | Out-Null
+if ($errors.Count -eq 0) { Write-Output "AST parse: clean, 0 errors" } else { $errors | Format-List }
+Write-Output "--- final live run ---"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script
+Write-Output "exit: $LASTEXITCODE"
+```
+```
+AST parse: clean, 0 errors
+--- final live run ---
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 11662
+  globalFiles : 11662
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: IN SYNC
+exit: 0
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git status --short
+```
 ```
  D .copilot/model-catalog-cache.[REDACTED].json
  M .gitignore
@@ -1893,76 +2377,79 @@ Two `CONFLICT` log entries on 30-09-2026 (16:06 and 18:03–18:12) are not conte
 ```diff
 - ## How To Verify Sync Is Actually Healthy Right Now (Not Just "Looks Fine")
 + ## Failure Mode 12: A Correctly-Running Safety Net Has No Path To A Human
-**What happened (found 2026-10-02, Build 9):** unlike Failure Mode 4, `Jarvis-Syncthing-Health` was not disabled this time — `Get-ScheduledTask` showed `State: Ready`, and it had been correctly running every 5 minutes and correctly exiting 1 over 4 real leftover conflict files (from the same 2026-09-29 race Failure Mode 5 describes) for roughly three days before anyone noticed. A user-driven recovery session had already fixed the 10 CSCI 4061 files from that same incident, but was scoped to that one course folder and never saw the other 4. The guard was doing its job the entire time; a Task Scheduler `LastTaskResult` simply has no path to a person's attention unless someone thinks to go check it.
-**Fix:** `check-syncthing-status.ps1` rewritten so every failure path flows through one function that (1) writes a self-clearing `[!danger]` callout into `00_Dashboard.md` — the file this vault's own `/startday` cadence already opens — listing the specific problems found, and (2) fires a best-effort Windows toast notification (native WinRT API, no extra module), rate-limited to first-detection-plus-hourly so an unresolved problem keeps reminding without training anyone to dismiss a toast every 5 minutes. Both clear automatically on the next clean run. Full detail: [[Cross-Laptop Sync - Build 9 Findings]].
-**A second, unrelated bug found while building this fix:** Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's non-ASCII characters (em dashes, middots) on every read/write round-trip — caught live before it reached the real vault, fixed by routing through .NET's `UTF8Encoding($false)` directly instead of trusting either cmdlet's encoding guess.
-**Prevention:** a monitoring script's exit code is not itself a warning — it needs an actual surface a human will see without deliberately going to check (a dashboard they already open daily, a system notification, or both). Any future "add a health check" instinct in this vault should default to wiring in a visible alert path from the start, not just an exit code and a log line, since Failure Mode 4 and this one are the same root issue (a safety net silently not reaching anyone) expressed two different ways — one from the net being off, one from the net having nowhere to shout.
-## How To Verify Sync Is Actually Healthy Right Now (Not Just "Looks Fine")
++ **What happened (found 2026-10-02, Build 9):** unlike Failure Mode 4, `Jarvis-Syncthing-Health` was not disabled this time — `Get-ScheduledTask` showed `State: Ready`, and it had been correctly running every 5 minutes and correctly exiting 1 over 4 real leftover conflict files (from the same 2026-09-29 race Failure Mode 5 describes) for roughly three days before anyone noticed. A user-driven recovery session had already fixed the 10 CSCI 4061 files from that same incident, but was scoped to that one course folder and never saw the other 4. The guard was doing its job the entire time; a Task Scheduler `LastTaskResult` simply has no path to a person's attention unless someone thinks to go check it.
++ **Fix:** `check-syncthing-status.ps1` rewritten so every failure path flows through one function that (1) writes a self-clearing `[!danger]` callout into `00_Dashboard.md` — the file this vault's own `/startday` cadence already opens — listing the specific problems found, and (2) fires a best-effort Windows toast notification (native WinRT API, no extra module), rate-limited to first-detection-plus-hourly so an unresolved problem keeps reminding without training anyone to dismiss a toast every 5 minutes. Both clear automatically on the next clean run. Full detail: [[Cross-Laptop Sync - Build 9 Findings]].
++ **A second, unrelated bug found while building this fix:** Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's non-ASCII characters (em dashes, middots) on every read/write round-trip — caught live before it reached the real vault, fixed by routing through .NET's `UTF8Encoding($false)` directly instead of trusting either cmdlet's encoding guess.
++ **Prevention:** a monitoring script's exit code is not itself a warning — it needs an actual surface a human will see without deliberately going to check (a dashboard they already open daily, a system notification, or both). Any future "add a health check" instinct in this vault should default to wiring in a visible alert path from the start, not just an exit code and a log line, since Failure Mode 4 and this one are the same root issue (a safety net silently not reaching anyone) expressed two different ways — one from the net being off, one from the net having nowhere to shout.
++ ## How To Verify Sync Is Actually Healthy Right Now (Not Just "Looks Fine")
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
 ```diff
 - notes:
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
+-   - "[[Cross-Laptop Sync - Build Roadmap]]"
+-   - "[[Cross-Laptop Sync - Build 8 Findings]]"
+-   - "[[Cross-Laptop Sync - Rollback Procedure]]"
 + notes:
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Build 9 Findings]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
++   - "[[Cross-Laptop Sync - Build Roadmap]]"
++   - "[[Cross-Laptop Sync - Build 8 Findings]]"
++   - "[[Cross-Laptop Sync - Build 9 Findings]]"
++   - "[[Cross-Laptop Sync - Rollback Procedure]]"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
 ```diff
 - 6. **`git-auto-sync.log` tail**: the last several `=== git-auto-sync ... ===` pairs should read `success` or `nothing to do`, never `CONFLICT` or `FAILED`, on both machines.
-None of steps 1-3 alone are sufficient — they were all green while 5 and 6 were silently broken for a week.
+- None of steps 1-3 alone are sufficient — they were all green while 5 and 6 were silently broken for a week.
 + 6. **`git-auto-sync.log` tail**: the last several `=== git-auto-sync ... ===` pairs should read `success` or `nothing to do`, never `CONFLICT` or `FAILED`, on both machines.
-7. **The Dashboard itself** (Build 9): if `00_Dashboard.md` currently shows a `[!danger] SYNC ALERT` callout right after its frontmatter, that is the health check actively reporting a real problem, live — it clears itself automatically once resolved, so its mere presence is the fastest "something is wrong right now" signal available, faster than running any command above.
-None of steps 1-3 alone are sufficient — they were all green while 5 and 6 were silently broken for a week, and all of 1-6 can be green while a correctly-running check still goes unnoticed (Failure Mode 12) if nothing ever surfaces its result to a person.
++ 7. **The Dashboard itself** (Build 9): if `00_Dashboard.md` currently shows a `[!danger] SYNC ALERT` callout right after its frontmatter, that is the health check actively reporting a real problem, live — it clears itself automatically once resolved, so its mere presence is the fastest "something is wrong right now" signal available, faster than running any command above.
++ None of steps 1-3 alone are sufficient — they were all green while 5 and 6 were silently broken for a week, and all of 1-6 can be green while a correctly-running check still goes unnoticed (Failure Mode 12) if nothing ever surfaces its result to a person.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 ```diff
 - *Outcome:* Syncthing itself confirmed healthy (`errors: 0`, `needBytes: 0`, completion 100% both ways) — the conflicts are the designed, correct output of two independent, uncoordinated writers racing the same working tree: Syncthing's real-time file sync and `Jarvis-GitAutoSync`'s own 15-minute `pull --rebase --autostash`, run independently on each laptop, whose rebase/autostash checkout is itself indistinguishable from a real edit to Syncthing's watcher. Correlated directly: a same-minute conflict cluster across six-plus unrelated files at 23:31:22 on 2026-09-27, two minutes before a genuine 84-file/3,164-insertion `git-auto-sync` commit at 23:33:02. `obsidian-kanban` confirmed installed, explaining why `*Board.md` files specifically are overrepresented (the plugin rewrites full board content on interaction, not only on typed edits). Found and fixed two live regressions in the existing safety net: `Jarvis-Syncthing-Health` was silently `Disabled` in Task Scheduler (last real run 2026-09-21, six days stale) and Staggered File Versioning was not actually configured (`versioning.type: ""` live) despite being documented as active — versioning restored via REST (`staggered`, `maxAge: 0`), verified live; the health task re-enable was blocked by Windows UAC elevation this session doesn't have, left as one manual step. Widened `fsWatcherDelayS` 10s → 300s per direct request. Structurally patched `git-auto-sync.ps1` (lives in the synced vault, reaches the Dell automatically) to check Syncthing's own live state before touching the working tree, and to pause/resume this machine's folder for the duration of its own git operations — closing the actual race window rather than just debouncing it. Found a second real secret live on disk mid-investigation: a Copilot plugin credentials-backup file, already blocked from git history by GitHub push protection before this build, but never excluded from `.stignore` and therefore likely already replicated to the Dell — `.stignore` patched to close that; the file itself and its Dell copy still need manual deletion and credential rotation. Corrected a stale claim in the 2026-09-25 session-log entry (a reported 355-attempt failure streak "still failing" as of that date) against the live log, which shows the last real failure resolved 2026-09-21 01:48. Full detail: [[Cross-Laptop Sync - Build 8 Findings]].
 + *Outcome:* Syncthing itself confirmed healthy (`errors: 0`, `needBytes: 0`, completion 100% both ways) — the conflicts are the designed, correct output of two independent, uncoordinated writers racing the same working tree: Syncthing's real-time file sync and `Jarvis-GitAutoSync`'s own 15-minute `pull --rebase --autostash`, run independently on each laptop, whose rebase/autostash checkout is itself indistinguishable from a real edit to Syncthing's watcher. Correlated directly: a same-minute conflict cluster across six-plus unrelated files at 23:31:22 on 2026-09-27, two minutes before a genuine 84-file/3,164-insertion `git-auto-sync` commit at 23:33:02. `obsidian-kanban` confirmed installed, explaining why `*Board.md` files specifically are overrepresented (the plugin rewrites full board content on interaction, not only on typed edits). Found and fixed two live regressions in the existing safety net: `Jarvis-Syncthing-Health` was silently `Disabled` in Task Scheduler (last real run 2026-09-21, six days stale) and Staggered File Versioning was not actually configured (`versioning.type: ""` live) despite being documented as active — versioning restored via REST (`staggered`, `maxAge: 0`), verified live; the health task re-enable was blocked by Windows UAC elevation this session doesn't have, left as one manual step. Widened `fsWatcherDelayS` 10s → 300s per direct request. Structurally patched `git-auto-sync.ps1` (lives in the synced vault, reaches the Dell automatically) to check Syncthing's own live state before touching the working tree, and to pause/resume this machine's folder for the duration of its own git operations — closing the actual race window rather than just debouncing it. Found a second real secret live on disk mid-investigation: a Copilot plugin credentials-backup file, already blocked from git history by GitHub push protection before this build, but never excluded from `.stignore` and therefore likely already replicated to the Dell — `.stignore` patched to close that; the file itself and its Dell copy still need manual deletion and credential rotation. Corrected a stale claim in the 2026-09-25 session-log entry (a reported 355-attempt failure streak "still failing" as of that date) against the live log, which shows the last real failure resolved 2026-09-21 01:48. Full detail: [[Cross-Laptop Sync - Build 8 Findings]].
-### Build 9 - Close the "correctly-running guard, nobody sees it" gap, recover a real regression (COMPLETE, 2026-10-02, runs on the Acer)
-*Depends on:* Build 8 (complete). Triggered by the user finding a CSCI 4061 conflict incident (already individually recovered, 10 files, in a separate session) and asking for the sync to be fixed at the root cause with a real warning mechanism for next time, not just another cleanup.
-*Outcome:* The CSCI 4061 incident traced to the exact Failure Mode 5/6 mechanism Build 8 already named — not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. The CSCI 4061 recovery itself was verified intact (Lab 3's real `1.0/1.0` dev-container-verified version is live, matching the described recovery, not the stale version still preserved in `.stversions`). A whole-vault sweep found 4 more live conflict files from the same incident that the course-scoped recovery never saw; each compared individually per Failure Mode 6 — one genuine regression (`CSCI 4511W/Textbook/Chapter - 3.md`, missing 91 lines a rebase had silently dropped), three safe to discard (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) — all 4 archived to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`. The real finding: `Jarvis-Syncthing-Health` was not disabled this time — it had been correctly exiting 1 over those 4 files for roughly three days, and nothing in the system surfaced that `LastTaskResult` to a person. `check-syncthing-status.ps1` rewritten so every failure path reaches a self-clearing `[!danger]` banner in `00_Dashboard.md` (verified live: appears correctly on an induced failure, clears with zero diff on recovery) plus a rate-limited, best-effort Windows toast. Found and fixed a real encoding bug live while building this: Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip — fixed via .NET's `UTF8Encoding($false)` directly, caught before it reached the real vault. Full detail: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.
++ ### Build 9 - Close the "correctly-running guard, nobody sees it" gap, recover a real regression (COMPLETE, 2026-10-02, runs on the Acer)
++ *Depends on:* Build 8 (complete). Triggered by the user finding a CSCI 4061 conflict incident (already individually recovered, 10 files, in a separate session) and asking for the sync to be fixed at the root cause with a real warning mechanism for next time, not just another cleanup.
++ *Outcome:* The CSCI 4061 incident traced to the exact Failure Mode 5/6 mechanism Build 8 already named — not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. The CSCI 4061 recovery itself was verified intact (Lab 3's real `1.0/1.0` dev-container-verified version is live, matching the described recovery, not the stale version still preserved in `.stversions`). A whole-vault sweep found 4 more live conflict files from the same incident that the course-scoped recovery never saw; each compared individually per Failure Mode 6 — one genuine regression (`CSCI 4511W/Textbook/Chapter - 3.md`, missing 91 lines a rebase had silently dropped), three safe to discard (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) — all 4 archived to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`. The real finding: `Jarvis-Syncthing-Health` was not disabled this time — it had been correctly exiting 1 over those 4 files for roughly three days, and nothing in the system surfaced that `LastTaskResult` to a person. `check-syncthing-status.ps1` rewritten so every failure path reaches a self-clearing `[!danger]` banner in `00_Dashboard.md` (verified live: appears correctly on an induced failure, clears with zero diff on recovery) plus a rate-limited, best-effort Windows toast. Found and fixed a real encoding bug live while building this: Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip — fixed via .NET's `UTF8Encoding($false)` directly, caught before it reached the real vault. Full detail: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 ```diff
 - related:
-  - "[[New Laptop Setup]]"
-  - "[[WSL New Laptop Master Plan — Verified 2026-09-11]]"
-  - "[[Sync - Unison]]"
-  - "[[Cross-Laptop Sync - Build 7 Prompt]]"
-  - "[[Cross-Laptop Sync - Build 7 Findings]]"
-  - "[[Cross-Laptop Sync - Jarvis Wrap-Up]]"
-  - "[[Cross-Laptop Sync - Build 6 Findings]]"
-  - "[[Cross-Laptop Sync - Build 5 Findings]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
-  - "[[00 Plugin Reference Index]]"
-  - "[[Plugin Gaps Recommendations and Verification]]"
-next: "[[Cross-Laptop Sync - Jarvis Wrap-Up]]"
----
+-   - "[[New Laptop Setup]]"
+-   - "[[WSL New Laptop Master Plan — Verified 2026-09-11]]"
+-   - "[[Sync - Unison]]"
+-   - "[[Cross-Laptop Sync - Build 7 Prompt]]"
+-   - "[[Cross-Laptop Sync - Build 7 Findings]]"
+-   - "[[Cross-Laptop Sync - Jarvis Wrap-Up]]"
+-   - "[[Cross-Laptop Sync - Build 6 Findings]]"
+-   - "[[Cross-Laptop Sync - Build 5 Findings]]"
+-   - "[[Cross-Laptop Sync - Rollback Procedure]]"
+-   - "[[00 Plugin Reference Index]]"
+-   - "[[Plugin Gaps Recommendations and Verification]]"
+- next: "[[Cross-Laptop Sync - Jarvis Wrap-Up]]"
+- ---
 + related:
-  - "[[New Laptop Setup]]"
-  - "[[WSL New Laptop Master Plan — Verified 2026-09-11]]"
-  - "[[Sync - Unison]]"
-  - "[[Cross-Laptop Sync - Build 7 Prompt]]"
-  - "[[Cross-Laptop Sync - Build 7 Findings]]"
-  - "[[Cross-Laptop Sync - Jarvis Wrap-Up]]"
-  - "[[Cross-Laptop Sync - Build 6 Findings]]"
-  - "[[Cross-Laptop Sync - Build 5 Findings]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Build 9 Findings]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
-  - "[[00 Plugin Reference Index]]"
-  - "[[Plugin Gaps Recommendations and Verification]]"
-next: "Verify the Dell has received and is running the Build 9 patch to check-syncthing-status.ps1 (banner + toast); re-run the Known Failure Modes verification recipe end-to-end on both machines"
----
++   - "[[New Laptop Setup]]"
++   - "[[WSL New Laptop Master Plan — Verified 2026-09-11]]"
++   - "[[Sync - Unison]]"
++   - "[[Cross-Laptop Sync - Build 7 Prompt]]"
++   - "[[Cross-Laptop Sync - Build 7 Findings]]"
++   - "[[Cross-Laptop Sync - Jarvis Wrap-Up]]"
++   - "[[Cross-Laptop Sync - Build 6 Findings]]"
++   - "[[Cross-Laptop Sync - Build 5 Findings]]"
++   - "[[Cross-Laptop Sync - Build 8 Findings]]"
++   - "[[Cross-Laptop Sync - Build 9 Findings]]"
++   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
++   - "[[Cross-Laptop Sync - Rollback Procedure]]"
++   - "[[00 Plugin Reference Index]]"
++   - "[[Plugin Gaps Recommendations and Verification]]"
++ next: "Verify the Dell has received and is running the Build 9 patch to check-syncthing-status.ps1 (banner + toast); re-run the Known Failure Modes verification recipe end-to-end on both machines"
++ ---
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && tail -5 "60_Claude/07_AI_Information/Session Logs/log.md"`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && tail -5 "60_Claude/07_AI_Information/Session Logs/log.md"
+```
 ```
 Created `40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md` as the handoff prompt for the next WSL session. It explicitly keeps `~/projects/ai/` in planning mode: no clone, placeholder repository, dependency install, hook activation, or sync restart. It defines layered environments for WSL, Windows, AI workspace, codebases, sandboxes, Jarvis, and coding courses; uses reviewed `direnv` activation for future directories; and keeps secrets outside vault notes and repositories.
 
@@ -1970,7 +2457,9 @@ The prompt also records the current MCP limitation discovered in this session: J
 
 **Next:** Run the prompt from a fresh WSL session and report the exact Jarvis MCP reachability, available tool schemas, live Obsidian endpoint, and remaining configuration gap before changing anything else.
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'
 
 ## [2026-10-02] write | Cross-Laptop Sync Build 9 - root-caused the CSCI 4061 conflict incident, closed the "no one sees the warning" gap
 
@@ -1982,12 +2471,16 @@ The actual root cause of why this went unnoticed for three days: `Jarvis-Syncthi
 
 **Next:** Confirm the Dell receives and runs the patched `check-syncthing-status.ps1` on its next scheduled tick (no separate Dell step needed, same mechanism as Build 8); periodically re-verify `Jarvis-Syncthing-Health`'s enabled state and Staggered Versioning haven't silently reverted again, per the Known Failure Modes verification recipe.
 LOGEOF
-echo "appended"`
+echo "appended"
+```
 ```
 appended
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- final conflict-file sweep, whole vault ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
-echo "--- git status ---" && git status --short`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- final conflict-file sweep, whole vault ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
+echo "--- git status ---" && git status --short
+```
 ```
 --- final conflict-file sweep, whole vault ---
 --- git status ---
@@ -2005,8 +2498,91 @@ echo "--- git status ---" && git status --short`
  M "60_Claude/07_AI_Information/Session Logs/log.md"
 ?? "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 9 Findings.md"
 ```
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\git-auto-sync.ps1\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script\nWrite-Output \"exit: $LASTEXITCODE\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline -3 && echo "--- status ---" && git status --short && echo "--- ahead/behind origin ---" && git status -sb | head -1`
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script
+Write-Output "exit: $LASTEXITCODE"
+```
+```
+[2026-10-02 16:44:16] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
+[2026-10-02 16:44:17] Syncthing folder 'jarvis' paused=True
+Add-Content : Stream was not readable.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], ArgumentExcep 
+   tion
+    + FullyQualifiedErrorId : GetContentWriterArgumentError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+[2026-10-02 16:44:20]   git : From https://github.com/gupta-builds/Jarvis
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:117 char:5
++     git pull --rebase --autostash origin $Branch 2>&1 | Out-String |  ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (From https://gi...a-builds/Jarvis:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ * branch              infra/cross-laptop-sync -> FETCH_HEAD
+Already up to date.
+Add-Content : Stream was not readable.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], ArgumentExcep 
+   tion
+    + FullyQualifiedErrorId : GetContentWriterArgumentError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+warning: in the working copy of '40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md', CRLF will be replaced by LF the next time Git touches it
+[2026-10-02 16:44:21]   [infra/cross-laptop-sync f7f08a51] Auto-sync: 2026-10-02 16:44,  13 files changed, 362 insertions(+), 3636 deletions(-)
+ 13 files changed, 362 insertions(+), 3636 deletions(-)
+ delete mode 100644 .copilot/model-catalog-cache.[REDACTED].json
+ delete mode 100644 .obsidian/plugins/obsidian-spaced-repetition/data.[REDACTED].json
+ delete mode 100644 20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.[REDACTED].md
+ create mode 100644 40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 9 Findings.md
+ delete mode 100644 60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.[REDACTED].md
+Add-Content : Stream was not readable.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], ArgumentExcep 
+   tion
+    + FullyQualifiedErrorId : GetContentWriterArgumentError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+[2026-10-02 16:44:21] Committed: Auto-sync: 2026-10-02 16:44,  13 files changed, 362 insertions(+), 3636 deletions(-)
+Add-Content : Stream was not readable.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], ArgumentExcep 
+   tion
+    + FullyQualifiedErrorId : GetContentWriterArgumentError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+[2026-10-02 16:44:26] Pushed cleanly to origin/infra/cross-laptop-sync.
+Add-Content : Stream was not readable.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], ArgumentExcep 
+   tion
+    + FullyQualifiedErrorId : GetContentWriterArgumentError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+[2026-10-02 16:44:26] === git-auto-sync end (success) ===
+[2026-10-02 16:44:26] Syncthing folder 'jarvis' paused=False
+Add-Content : The process cannot access the file 
+'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\logs\git-auto-sync.log' because it is being 
+used by another process.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], IOException
+    + FullyQualifiedErrorId : GetContentWriterIOError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+exit: 0
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline -3 && echo "--- status ---" && git status --short && echo "--- ahead/behind origin ---" && git status -sb | head -1
+```
 ```
 f7f08a51 Auto-sync: 2026-10-02 16:44,  13 files changed, 362 insertions(+), 3636 deletions(-)
 7adcaa71 Auto-sync: 2026-10-02 16:33,  1 file changed, 163 insertions(+), 96 deletions(-)
@@ -2015,7 +2591,14 @@ e7cef3d0 Auto-sync: 2026-10-02 16:18,  22 files changed, 1298 insertions(+), 191
 --- ahead/behind origin ---
 ## infra/cross-laptop-sync...origin/infra/cross-laptop-sync
 ```
-- `PowerShell` -- `{"command":"Get-ScheduledTaskInfo -TaskName \"Jarvis-Syncthing-Health\" | Format-List LastRunTime, LastTaskResult"}`
+- `PowerShell`
+```powershell
+Get-ScheduledTaskInfo -TaskName "Jarvis-Syncthing-Health" | Format-List LastRunTime, LastTaskResult
+```
+```
+LastRunTime    : 10/2/2026 2:51:46 PM
+LastTaskResult : 1
+```
 
 ## You
 
@@ -2031,8 +2614,11 @@ Let me pull the full historical picture from the log to answer the cadence quest
 
 ### Tool Calls
 
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log since 16:44 landing ---" && grep -n "2026-10-02 1[6-9]:\|2026-10-02 2[0-3]:\|2026-10-0[3-9]" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -A0 "===\|CONFLICT\|FAILED" | tail -100
-echo "--- current date check ---" && date`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log since 16:44 landing ---" && grep -n "2026-10-02 1[6-9]:\|2026-10-02 2[0-3]:\|2026-10-0[3-9]" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -A0 "===\|CONFLICT\|FAILED" | tail -100
+echo "--- current date check ---" && date
+```
 ```
 --- git-auto-sync.log since 16:44 landing ---
 11633:[2026-10-02 16:03:03] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
@@ -2056,10 +2642,13 @@ echo "--- current date check ---" && date`
 --- current date check ---
 Fri Oct  2 17:21:38 CDT 2026
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- any conflict files since fix landed ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- any conflict files since fix landed ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
 echo "--- git log since fix ---" && git log --oneline --since="2026-10-02 16:44" | head -30
 echo "--- current branch status vs origin ---" && git status -sb | head -1
-echo "--- any uncommitted ---" && git status --short`
+echo "--- any uncommitted ---" && git status --short
+```
 ```
 --- any conflict files since fix landed ---
 --- git log since fix ---
@@ -2073,12 +2662,31 @@ f7f08a51 Auto-sync: 2026-10-02 16:44,  13 files changed, 362 insertions(+), 3636
  M .obsidian/plugins/recent-edits/data.json
  M "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code.md"
 ```
-- `PowerShell` -- `{"command":"Get-ScheduledTaskInfo -TaskName \"Jarvis-Syncthing-Health\" | Format-List LastRunTime, LastTaskResult, NextRunTime\nGet-ScheduledTaskInfo -TaskName \"Jarvis-GitAutoSync\" | Format-List LastRunTime, LastTaskResult, NextRunTime"}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -c "SYNC-ALERT" 00_Dashboard.md`
+- `PowerShell`
+```powershell
+Get-ScheduledTaskInfo -TaskName "Jarvis-Syncthing-Health" | Format-List LastRunTime, LastTaskResult, NextRunTime
+Get-ScheduledTaskInfo -TaskName "Jarvis-GitAutoSync" | Format-List LastRunTime, LastTaskResult, NextRunTime
+```
+```
+LastRunTime    : 10/2/2026 5:21:46 PM
+LastTaskResult : 0
+NextRunTime    : 10/2/2026 5:26:45 PM
+
+
+LastRunTime    : 10/2/2026 5:18:01 PM
+LastTaskResult : 0
+NextRunTime    : 10/2/2026 5:33:00 PM
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -c "SYNC-ALERT" 00_Dashboard.md
+```
 ```
 0
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
 echo "--- total run starts ---" && grep -c "=== git-auto-sync start" "$LOG"
 echo "--- total successful ---" && grep -c "=== git-auto-sync end (success)" "$LOG"
 echo "--- total nothing-to-do ---" && grep -c "nothing to do" "$LOG"
@@ -2086,7 +2694,8 @@ echo "--- total deferred (syncthing not idle) ---" && grep -c "deferred, Syncthi
 echo "--- total CONFLICT ---" && grep -c "^\[.*CONFLICT" "$LOG"
 echo "--- total FAILED ---" && grep -c "FAILED, needs manual" "$LOG"
 echo "--- all CONFLICT lines with context (cause) ---"
-grep -n "CONFLICT:" "$LOG"`
+grep -n "CONFLICT:" "$LOG"
+```
 ```
 --- total run starts ---
 425
@@ -2128,11 +2737,14 @@ grep -n "CONFLICT:" "$LOG"`
 8762:[2026-09-30 18:12:36] CONFLICT: rebase during retry 1 failed. Manual resolution needed.
 9501:[2026-10-01 10:43:36] CONFLICT: initial pull --rebase failed. Manual resolution needed.
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
 for ts in "2026-09-28 13:02" "2026-09-28 14:32" "2026-09-29 13:05" "2026-10-01 10:43"; do
 echo "=== context around $ts ==="
 grep -n "$ts" "$LOG" | head -1
-done`
+done
+```
 ```
 === context around 2026-09-28 13:02 ===
 7145:[2026-09-28 13:02:35] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
@@ -2143,11 +2755,14 @@ done`
 === context around 2026-10-01 10:43 ===
 9492:[2026-10-01 10:43:35] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
 echo "=== 7145-7160 ===" && sed -n '7145,7160p' "$LOG"
 echo "=== 7250-7265 ===" && sed -n '7250,7265p' "$LOG"
 echo "=== 8099-8114 ===" && sed -n '8099,8114p' "$LOG"
-echo "=== 9492,9508 ===" && sed -n '9492,9508p' "$LOG"`
+echo "=== 9492,9508 ===" && sed -n '9492,9508p' "$LOG"
+```
 ```
 === 7145-7160 ===
 [2026-09-28 13:02:35] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
@@ -2459,9 +3074,12 @@ Wrote **`Cross-Laptop Sync - Operations Reference.md`** — the new single entry
 
 ### Tool Calls
 
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- is sync-conflict excluded from git tracking? ---" && grep -n "sync-conflict" .gitignore
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- is sync-conflict excluded from git tracking? ---" && grep -n "sync-conflict" .gitignore
 echo "--- does git currently track any committed sync-conflict files in history (beyond the ones I already removed)? ---"
-git log --all --diff-filter=A --name-only --pretty=format: | grep -i "sync-conflict" | sort -u | head -20`
+git log --all --diff-filter=A --name-only --pretty=format: | grep -i "sync-conflict" | sort -u | head -20
+```
 ```
 --- is sync-conflict excluded from git tracking? ---
 --- does git currently track any committed sync-conflict files in history (beyond the ones I already removed)? ---
@@ -2487,10 +3105,26 @@ git log --all --diff-filter=A --name-only --pretty=format: | grep -i "sync-confl
 .obsidian/plugins/obsidian-spaced-repetition/data.[REDACTED].json
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
-- `PowerShell` -- `{"command":"Get-ScheduledTask -TaskName \"Jarvis-WeeklyReview\" -ErrorAction SilentlyContinue | Format-List TaskName, State\nGet-ScheduledTaskInfo -TaskName \"Jarvis-WeeklyReview\" -ErrorAction SilentlyContinue | Format-List LastRunTime, LastTaskResult, NextRunTime"}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- weekly synthesis index tail ---" && tail -15 "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index.md" 2>/dev/null
-echo "--- list weekly synthesis files ---" && ls -la "60_Claude/30_Reviews/Weekly Synthesis/" 2>/dev/null | tail -10`
+- `PowerShell`
+```powershell
+Get-ScheduledTask -TaskName "Jarvis-WeeklyReview" -ErrorAction SilentlyContinue | Format-List TaskName, State
+Get-ScheduledTaskInfo -TaskName "Jarvis-WeeklyReview" -ErrorAction SilentlyContinue | Format-List LastRunTime, LastTaskResult, NextRunTime
 ```
+```
+TaskName : Jarvis-WeeklyReview
+State    : Ready
+
+
+LastRunTime    : 11/30/1999 12:00:00 AM
+LastTaskResult : 267011
+NextRunTime    : 10/4/2026 6:00:00 AM
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- weekly synthesis index tail ---" && tail -15 "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index.md" 2>/dev/null
+echo "--- list weekly synthesis files ---" && ls -la "60_Claude/30_Reviews/Weekly Synthesis/" 2>/dev/null | tail -10
+```
+````
 --- weekly synthesis index tail ---
 ```
 
@@ -2516,100 +3150,138 @@ drwxr-xr-x 1 anant 197609     0 Sep 25 16:15 Logs
 -rw-r--r-- 1 anant 197609  3724 Apr 24 02:15 Weekly Synthesis — 2026-W17.md
 -rw-r--r-- 1 anant 197609  7806 Jun 24 08:15 Weekly Synthesis — 2026-W22.md
 -rw-r--r-- 1 anant 197609 12333 Sep 26 14:48 Weekly Synthesis — 2026-W39.md
-```
+````
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\register-git-auto-sync-task.ps1`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\register-git-auto-sync-task.ps1`
 ```diff
 - # Registers Jarvis-GitAutoSync: runs git-auto-sync.ps1 every 15 minutes via
-# the hidden VBS launcher (no console popup, real exit code propagated).
-# 15-minute cadence matches ClaudeKit-Sync-All's existing interval per
-# Build 7's instructions. Idempotent: safe to re-run to update the
-# registration.
-
-$TaskName = "Jarvis-GitAutoSync"
-$Launcher = Join-Path $PSScriptRoot "git-auto-sync-silent.vbs"
-
-if (-not (Test-Path $Launcher)) {
-    Write-Error "Missing launcher at $Launcher"
-    exit 1
-}
-
-Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
-
-$action = New-ScheduledTaskAction `
-    -Execute "wscript.exe" `
-    -Argument "//B `"$Launcher`""
-
-$trigger = New-ScheduledTaskTrigger -Daily -At "00:03"
-$trigger.Repetition = (New-ScheduledTaskTrigger -Once -At "00:03" `
-    -RepetitionInterval (New-TimeSpan -Minutes 15) `
-    -RepetitionDuration (New-TimeSpan -Hours 23 -Minutes 55)).Repetition
+- # the hidden VBS launcher (no console popup, real exit code propagated).
+- # 15-minute cadence matches ClaudeKit-Sync-All's existing interval per
+- # Build 7's instructions. Idempotent: safe to re-run to update the
+- # registration.
+- 
+- $TaskName = "Jarvis-GitAutoSync"
+- $Launcher = Join-Path $PSScriptRoot "git-auto-sync-silent.vbs"
+- 
+- if (-not (Test-Path $Launcher)) {
+-     Write-Error "Missing launcher at $Launcher"
+-     exit 1
+- }
+- 
+- Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
+- 
+- $action = New-ScheduledTaskAction `
+-     -Execute "wscript.exe" `
+-     -Argument "//B `"$Launcher`""
+- 
+- $trigger = New-ScheduledTaskTrigger -Daily -At "00:03"
+- $trigger.Repetition = (New-ScheduledTaskTrigger -Once -At "00:03" `
+-     -RepetitionInterval (New-TimeSpan -Minutes 15) `
+-     -RepetitionDuration (New-TimeSpan -Hours 23 -Minutes 55)).Repetition
 + # Registers Jarvis-GitAutoSync: runs git-auto-sync.ps1 every 30 minutes via
-# the hidden VBS launcher (no console popup, real exit code propagated).
-#
-# Build 9 (2026-10-02): widened from the original 15-minute cadence (Build
-# 7/ClaudeKit-Sync-All's interval) after a full log audit — 425 logged runs,
-# of which every single "CONFLICT" entry outside the initial 2026-09-20
-# bootstrap traced to a transient DNS/network blip (`Could not resolve host:
-# github.com`), not a real rebase conflict, and the one genuine content-loss
-# incident (2026-09-29, see Cross-Laptop Sync - Build 9 Findings) came from
-# the rebase/autostash checkout itself racing Syncthing's watcher, which
-# happens once per run regardless of whether that run had anything to do.
-# Halving the run frequency halves the number of daily windows where that
-# race can occur. Syncthing already mirrors content near-real-time and keeps
-# indefinite staggered version history independent of this cadence, so git's
-# job here (version history + GitHub backup) does not need 15-minute
-# granularity to stay safe. Idempotent: safe to re-run to update the
-# registration. Re-run this same script on every machine that runs
-# Jarvis-GitAutoSync — the Scheduled Task's interval is per-machine and is
-# NOT carried by Syncthing just because this script file is.
-
-$TaskName = "Jarvis-GitAutoSync"
-$Launcher = Join-Path $PSScriptRoot "git-auto-sync-silent.vbs"
-
-if (-not (Test-Path $Launcher)) {
-    Write-Error "Missing launcher at $Launcher"
-    exit 1
-}
-
-Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
-
-$action = New-ScheduledTaskAction `
-    -Execute "wscript.exe" `
-    -Argument "//B `"$Launcher`""
-
-$trigger = New-ScheduledTaskTrigger -Daily -At "00:03"
-$trigger.Repetition = (New-ScheduledTaskTrigger -Once -At "00:03" `
-    -RepetitionInterval (New-TimeSpan -Minutes 30) `
-    -RepetitionDuration (New-TimeSpan -Hours 23 -Minutes 55)).Repetition
++ # the hidden VBS launcher (no console popup, real exit code propagated).
++ #
++ # Build 9 (2026-10-02): widened from the original 15-minute cadence (Build
++ # 7/ClaudeKit-Sync-All's interval) after a full log audit — 425 logged runs,
++ # of which every single "CONFLICT" entry outside the initial 2026-09-20
++ # bootstrap traced to a transient DNS/network blip (`Could not resolve host:
++ # github.com`), not a real rebase conflict, and the one genuine content-loss
++ # incident (2026-09-29, see Cross-Laptop Sync - Build 9 Findings) came from
++ # the rebase/autostash checkout itself racing Syncthing's watcher, which
++ # happens once per run regardless of whether that run had anything to do.
++ # Halving the run frequency halves the number of daily windows where that
++ # race can occur. Syncthing already mirrors content near-real-time and keeps
++ # indefinite staggered version history independent of this cadence, so git's
++ # job here (version history + GitHub backup) does not need 15-minute
++ # granularity to stay safe. Idempotent: safe to re-run to update the
++ # registration. Re-run this same script on every machine that runs
++ # Jarvis-GitAutoSync — the Scheduled Task's interval is per-machine and is
++ # NOT carried by Syncthing just because this script file is.
++ 
++ $TaskName = "Jarvis-GitAutoSync"
++ $Launcher = Join-Path $PSScriptRoot "git-auto-sync-silent.vbs"
++ 
++ if (-not (Test-Path $Launcher)) {
++     Write-Error "Missing launcher at $Launcher"
++     exit 1
++ }
++ 
++ Unregister-ScheduledTask -TaskName $TaskName -Confirm:$false -ErrorAction SilentlyContinue
++ 
++ $action = New-ScheduledTaskAction `
++     -Execute "wscript.exe" `
++     -Argument "//B `"$Launcher`""
++ 
++ $trigger = New-ScheduledTaskTrigger -Daily -At "00:03"
++ $trigger.Repetition = (New-ScheduledTaskTrigger -Once -At "00:03" `
++     -RepetitionInterval (New-TimeSpan -Minutes 30) `
++     -RepetitionDuration (New-TimeSpan -Hours 23 -Minutes 55)).Repetition
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\register-git-auto-sync-task.ps1`
 ```diff
 - Write-Output "Registered scheduled task: $TaskName (every 15 min, hidden)"
 + Write-Output "Registered scheduled task: $TaskName (every 30 min, hidden)"
 ```
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\register-git-auto-sync-task.ps1\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script\nWrite-Output \"--- verify repetition interval ---\"\n(Get-ScheduledTask -TaskName \"Jarvis-GitAutoSync\").Triggers.Repetition"}`
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\register-git-auto-sync-task.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script
+Write-Output "--- verify repetition interval ---"
+(Get-ScheduledTask -TaskName "Jarvis-GitAutoSync").Triggers.Repetition
+```
+```
+Registered scheduled task: Jarvis-GitAutoSync (every 30 min, hidden)
+
+
+TaskName : Jarvis-GitAutoSync
+State    : Ready
+
+
+
+
+
+Execute   : wscript.exe
+Arguments : //B 
+            "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync-silent.vbs"
+
+
+
+
+
+Hidden : True
+
+
+
+--- verify repetition interval ---
+
+Duration Interval StopAtDurationEnd PSComputerName
+-------- -------- ----------------- --------------
+PT23H55M PT30M                 True
+```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.gitignore`
 ```diff
 - # Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
-# self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
-30_Order/System/sync-workflow/scripts/.sync-alert-state.json
+- # self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
+- 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 + # Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
-# self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
-30_Order/System/sync-workflow/scripts/.sync-alert-state.json
-
-# Syncthing's own conflict-copy naming pattern (Build 9, 2026-10-02) — found
-# 18+ of these already permanently committed to this repo's history before
-# anyone reconciled them, because git-auto-sync's `git add -A` swept them up
-# like any other file. A .sync-conflict-* file is, by definition, unreconciled
-# — it needs the Known Failure Mode 6 compare-then-archive protocol BEFORE it
-# becomes part of either side's history, not after. This is a public repo;
-# excluding the pattern here stops new ones from ever being auto-committed.
-# Does not touch Syncthing's own ability to create them (that's .stignore's
-# job, and they must stay creatable there — this only keeps git out of it).
-*.sync-conflict-*
++ # self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
++ 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
++ 
++ # Syncthing's own conflict-copy naming pattern (Build 9, 2026-10-02) — found
++ # 18+ of these already permanently committed to this repo's history before
++ # anyone reconciled them, because git-auto-sync's `git add -A` swept them up
++ # like any other file. A .sync-conflict-* file is, by definition, unreconciled
++ # — it needs the Known Failure Mode 6 compare-then-archive protocol BEFORE it
++ # becomes part of either side's history, not after. This is a public repo;
++ # excluding the pattern here stops new ones from ever being auto-committed.
++ # Does not touch Syncthing's own ability to create them (that's .stignore's
++ # job, and they must stay creatable there — this only keeps git out of it).
++ *.sync-conflict-*
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && touch ".test.sync-conflict-20261002-000000-TEST.md" && git status --short ".test.sync-conflict-20261002-000000-TEST.md" ; echo "exit: $?" ; echo "--- check-ignore ---" && git check-ignore -v ".test.sync-conflict-20261002-000000-TEST.md"; rm ".test.sync-conflict-20261002-000000-TEST.md"`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && touch ".test.sync-conflict-20261002-000000-TEST.md" && git status --short ".test.sync-conflict-20261002-000000-TEST.md" ; echo "exit: $?" ; echo "--- check-ignore ---" && git check-ignore -v ".test.sync-conflict-20261002-000000-TEST.md"; rm ".test.sync-conflict-20261002-000000-TEST.md"
+```
 ```
 exit: 0
 --- check-ignore ---
@@ -2618,42 +3290,42 @@ exit: 0
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
 ```diff
 - ## Step 7.6: Sync Health Check
-
-Added 2026-09-28, after a live investigation found real content silently lost in a sync-conflict race (see [[Cross-Laptop Sync - Known Failure Modes and Prevention]] and [[Cross-Laptop Sync - Build 8 Findings]]). This step exists so a `.sync-conflict-*` file is never sitting unnoticed in the live vault for more than a week between reviews.
-
-1. Search the vault for any file matching `*sync-conflict*`. If none exist, write one line in this week's synthesis note's Vault Health section ("No live sync conflicts.") and move on — nothing else to do.
-2. If any exist, for **each one**, read it and its canonical counterpart in full and compare — never assume file size or timestamp tells you which side is correct. A conflict copy can hold the only current copy of real work (confirmed directly: 7 of 31 reconciled on 2026-09-28 had a canonical file silently regressed to stale content by a `git-auto-sync` rebase). Never bulk-delete or bulk-archive without this per-file read.
-3. If canonical is missing entirely, or the conflict copy is clearly more complete/current, restore canonical from the conflict copy's content before doing anything else with that file.
-4. Once canonical is confirmed correct, move (never delete) the conflict file to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation <today's date>` (create the dated folder if this is the first one found this week), preserving its relative path under the vault.
-5. List what was found and restored/archived in this week's synthesis note's Vault Health section — a conflict silently found and fixed is exactly the kind of thing that section exists to surface.
-6. Also run (or ask a session with shell access to run) `30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1` and note its `Overall:` line (`IN SYNC` or `NOT IN SYNC`) in the same section. A non-`IN SYNC` result with zero conflict files found in step 1 means Syncthing itself has a live problem (errors, unsynced bytes) — flag it explicitly as more urgent than a normal conflict file, since it usually means something is actively broken right now, not just a past collision to clean up.
-
----
+- 
+- Added 2026-09-28, after a live investigation found real content silently lost in a sync-conflict race (see [[Cross-Laptop Sync - Known Failure Modes and Prevention]] and [[Cross-Laptop Sync - Build 8 Findings]]). This step exists so a `.sync-conflict-*` file is never sitting unnoticed in the live vault for more than a week between reviews.
+- 
+- 1. Search the vault for any file matching `*sync-conflict*`. If none exist, write one line in this week's synthesis note's Vault Health section ("No live sync conflicts.") and move on — nothing else to do.
+- 2. If any exist, for **each one**, read it and its canonical counterpart in full and compare — never assume file size or timestamp tells you which side is correct. A conflict copy can hold the only current copy of real work (confirmed directly: 7 of 31 reconciled on 2026-09-28 had a canonical file silently regressed to stale content by a `git-auto-sync` rebase). Never bulk-delete or bulk-archive without this per-file read.
+- 3. If canonical is missing entirely, or the conflict copy is clearly more complete/current, restore canonical from the conflict copy's content before doing anything else with that file.
+- 4. Once canonical is confirmed correct, move (never delete) the conflict file to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation <today's date>` (create the dated folder if this is the first one found this week), preserving its relative path under the vault.
+- 5. List what was found and restored/archived in this week's synthesis note's Vault Health section — a conflict silently found and fixed is exactly the kind of thing that section exists to surface.
+- 6. Also run (or ask a session with shell access to run) `30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1` and note its `Overall:` line (`IN SYNC` or `NOT IN SYNC`) in the same section. A non-`IN SYNC` result with zero conflict files found in step 1 means Syncthing itself has a live problem (errors, unsynced bytes) — flag it explicitly as more urgent than a normal conflict file, since it usually means something is actively broken right now, not just a past collision to clean up.
+- 
+- ---
 + ## Step 7.6: Sync Health Check
-
-Added 2026-09-28 after Build 8 found real content silently lost in a sync-conflict race; revised 2026-10-02 after Build 9 found the guard that was supposed to catch this correctly running and correctly failing for three days with nobody noticing. See [[Cross-Laptop Sync - Operations Reference]] first — it is the single consolidated playbook this step follows; [[Cross-Laptop Sync - Known Failure Modes and Prevention]], [[Cross-Laptop Sync - Build 8 Findings]], and [[Cross-Laptop Sync - Build 9 Findings]] hold the full history if deeper context is ever needed. This step exists so a `.sync-conflict-*` file or a correctly-detected-but-unseen problem is never sitting unnoticed in the live vault for more than a week between reviews.
-
-0. **Check `00_Dashboard.md` first, before searching anything.** If it currently shows a `<!-- SYNC-ALERT:BEGIN -->` banner, that is `check-syncthing-status.ps1` actively reporting a real, current problem — read the banner's own problem list, treat it as the starting point for steps 1-4 below, and confirm after fixing that the banner has cleared itself (it should, automatically, on the next clean run — if it is still there after reconciliation, something above this step is still broken, flag that explicitly).
-1. Search the vault for any file matching `*sync-conflict*`. If none exist (and no Dashboard banner from Step 0), write one line in this week's synthesis note's Vault Health section ("No live sync conflicts.") and move on — nothing else to do.
-2. If any exist, for **each one**, read it and its canonical counterpart in full and compare — never assume file size or timestamp tells you which side is correct. A conflict copy can hold the only current copy of real work (confirmed directly twice now: 7 of 31 reconciled on 2026-09-28, 1 of 4 reconciled on 2026-10-02 — both times a canonical file had silently regressed to stale content). Never bulk-delete or bulk-archive without this per-file read.
-3. If canonical is missing entirely, or the conflict copy is clearly more complete/current, restore canonical from the conflict copy's content before doing anything else with that file.
-4. Once canonical is confirmed correct, move (never delete) the conflict file to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation <today's date>` (create the dated folder if this is the first one found this week), preserving its relative path under the vault. (As of Build 9, `.gitignore` excludes `*.sync-conflict-*`, so these never reach git in the first place — the archive step is still required, since that's the only durable record outside Syncthing's own `.stversions`.)
-5. List what was found and restored/archived in this week's synthesis note's Vault Health section — a conflict silently found and fixed is exactly the kind of thing that section exists to surface.
-6. Also run (or ask a session with shell access to run) `30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1` and note its `Overall:` line (`IN SYNC` or `NOT IN SYNC`) in the same section. A non-`IN SYNC` result with zero conflict files found in step 1 means Syncthing itself has a live problem (errors, unsynced bytes) — flag it explicitly as more urgent than a normal conflict file, since it usually means something is actively broken right now, not just a past collision to clean up.
-7. **First review of the month only:** additionally run the full "How To Verify Sync Is Actually Healthy Right Now" checklist from [[Cross-Laptop Sync - Known Failure Modes and Prevention]] (all 7 points — Task Scheduler enabled-state for all three Jarvis scheduled tasks, Staggered Versioning's live `type`/`maxAge`, both machines' `fsWatcherDelayS`). These are exactly the settings Build 8 found had silently reverted with zero file-level trace — a weekly conflict-file scan alone cannot catch a safety net that quietly turned itself off. Note the result in Vault Health even when everything checks out ("Monthly deep check: all clear") so a skipped month is visible in the synthesis history, not just a silent gap.
-8. **If this is the first review since a Dashboard-banner incident actually fired for real** (confirmed by Step 0 finding a banner, or `.sync-alert-state.json`'s `consecutiveFailures` being nonzero when checked), this is the signal the alerting path itself is proven live, not just tested manually — note that confirmation once, since Known Failure Mode 12's fix had not yet had a real unattended trigger as of 2026-10-02.
-
----
++ 
++ Added 2026-09-28 after Build 8 found real content silently lost in a sync-conflict race; revised 2026-10-02 after Build 9 found the guard that was supposed to catch this correctly running and correctly failing for three days with nobody noticing. See [[Cross-Laptop Sync - Operations Reference]] first — it is the single consolidated playbook this step follows; [[Cross-Laptop Sync - Known Failure Modes and Prevention]], [[Cross-Laptop Sync - Build 8 Findings]], and [[Cross-Laptop Sync - Build 9 Findings]] hold the full history if deeper context is ever needed. This step exists so a `.sync-conflict-*` file or a correctly-detected-but-unseen problem is never sitting unnoticed in the live vault for more than a week between reviews.
++ 
++ 0. **Check `00_Dashboard.md` first, before searching anything.** If it currently shows a `<!-- SYNC-ALERT:BEGIN -->` banner, that is `check-syncthing-status.ps1` actively reporting a real, current problem — read the banner's own problem list, treat it as the starting point for steps 1-4 below, and confirm after fixing that the banner has cleared itself (it should, automatically, on the next clean run — if it is still there after reconciliation, something above this step is still broken, flag that explicitly).
++ 1. Search the vault for any file matching `*sync-conflict*`. If none exist (and no Dashboard banner from Step 0), write one line in this week's synthesis note's Vault Health section ("No live sync conflicts.") and move on — nothing else to do.
++ 2. If any exist, for **each one**, read it and its canonical counterpart in full and compare — never assume file size or timestamp tells you which side is correct. A conflict copy can hold the only current copy of real work (confirmed directly twice now: 7 of 31 reconciled on 2026-09-28, 1 of 4 reconciled on 2026-10-02 — both times a canonical file had silently regressed to stale content). Never bulk-delete or bulk-archive without this per-file read.
++ 3. If canonical is missing entirely, or the conflict copy is clearly more complete/current, restore canonical from the conflict copy's content before doing anything else with that file.
++ 4. Once canonical is confirmed correct, move (never delete) the conflict file to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation <today's date>` (create the dated folder if this is the first one found this week), preserving its relative path under the vault. (As of Build 9, `.gitignore` excludes `*.sync-conflict-*`, so these never reach git in the first place — the archive step is still required, since that's the only durable record outside Syncthing's own `.stversions`.)
++ 5. List what was found and restored/archived in this week's synthesis note's Vault Health section — a conflict silently found and fixed is exactly the kind of thing that section exists to surface.
++ 6. Also run (or ask a session with shell access to run) `30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1` and note its `Overall:` line (`IN SYNC` or `NOT IN SYNC`) in the same section. A non-`IN SYNC` result with zero conflict files found in step 1 means Syncthing itself has a live problem (errors, unsynced bytes) — flag it explicitly as more urgent than a normal conflict file, since it usually means something is actively broken right now, not just a past collision to clean up.
++ 7. **First review of the month only:** additionally run the full "How To Verify Sync Is Actually Healthy Right Now" checklist from [[Cross-Laptop Sync - Known Failure Modes and Prevention]] (all 7 points — Task Scheduler enabled-state for all three Jarvis scheduled tasks, Staggered Versioning's live `type`/`maxAge`, both machines' `fsWatcherDelayS`). These are exactly the settings Build 8 found had silently reverted with zero file-level trace — a weekly conflict-file scan alone cannot catch a safety net that quietly turned itself off. Note the result in Vault Health even when everything checks out ("Monthly deep check: all clear") so a skipped month is visible in the synthesis history, not just a silent gap.
++ 8. **If this is the first review since a Dashboard-banner incident actually fired for real** (confirmed by Step 0 finding a banner, or `.sync-alert-state.json`'s `consecutiveFailures` being nonzero when checked), this is the signal the alerting path itself is proven live, not just tested manually — note that confirmation once, since Known Failure Mode 12's fix had not yet had a real unattended trigger as of 2026-10-02.
++ 
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
 ```diff
 - ## Execution Notes for Future Claude
-
-- **Trigger, corrected again 2026-09-28:**
+- 
+- - **Trigger, corrected again 2026-09-28:**
 + ## Execution Notes for Future Claude
-
-- **Trigger, status as of 2026-10-02:** the task is registered and `State: Ready`, but `Get-ScheduledTaskInfo` shows it has never actually fired (`LastRunTime` reads the Windows "never run" sentinel) — expected, not broken, since the registration landed 2026-09-28 (a Monday) and the next Sunday 06:00 slot is 2026-10-04. **The first real unattended fire on 2026-10-04 is the actual verification Known Failure Mode 11 asks for — check `LastRunTime`/`LastTaskResult` after that date before trusting this trigger at all; do not extend that trust backward to any date before then.**
-- **Trigger, corrected again 2026-09-28:**
++ 
++ - **Trigger, status as of 2026-10-02:** the task is registered and `State: Ready`, but `Get-ScheduledTaskInfo` shows it has never actually fired (`LastRunTime` reads the Windows "never run" sentinel) — expected, not broken, since the registration landed 2026-09-28 (a Monday) and the next Sunday 06:00 slot is 2026-10-04. **The first real unattended fire on 2026-10-04 is the actual verification Known Failure Mode 11 asks for — check `LastRunTime`/`LastTaskResult` after that date before trusting this trigger at all; do not extend that trust backward to any date before then.**
++ - **Trigger, corrected again 2026-09-28:**
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Operations Reference.md`
 ```
@@ -2722,7 +3394,10 @@ The natural instinct is "schedule a Claude Code cloud agent to watch this." It c
 - [[Cross-Laptop Sync - Rollback Procedure]] — what to do if sync itself needs to be paused or reconfigured, not just a conflict file reconciled
 
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && ls "40_Resources/CS/Concepts/New Laptop/Sync/" && echo "--- any index/MOC file? ---" && find "40_Resources/CS/Concepts/New Laptop" -iname "*index*" -o -iname "*MOC*" 2>/dev/null`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && ls "40_Resources/CS/Concepts/New Laptop/Sync/" && echo "--- any index/MOC file? ---" && find "40_Resources/CS/Concepts/New Laptop" -iname "*index*" -o -iname "*MOC*" 2>/dev/null
+```
 ```
 Cross-Laptop Sync - Build 1 Findings.md
 Cross-Laptop Sync - Build 2 Findings.md
@@ -2747,88 +3422,99 @@ WSL Session Briefing.md
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 9 Findings.md`
 ```diff
 - notes:
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
-next: "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+-   - "[[Cross-Laptop Sync - Build Roadmap]]"
+-   - "[[Cross-Laptop Sync - Build 8 Findings]]"
+-   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+-   - "[[Cross-Laptop Sync - Rollback Procedure]]"
+- next: "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
 + notes:
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-  - "[[Cross-Laptop Sync - Operations Reference]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
-next: "[[Cross-Laptop Sync - Operations Reference]]"
++   - "[[Cross-Laptop Sync - Build Roadmap]]"
++   - "[[Cross-Laptop Sync - Build 8 Findings]]"
++   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
++   - "[[Cross-Laptop Sync - Operations Reference]]"
++   - "[[Cross-Laptop Sync - Rollback Procedure]]"
++ next: "[[Cross-Laptop Sync - Operations Reference]]"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 9 Findings.md`
 ```diff
 - ## Sources
-- `30_Order/System/claude-workflow/logs/git-auto-sync.log` — read directly around 29-09/30-09-2026, this session
+- - `30_Order/System/claude-workflow/logs/git-auto-sync.log` — read directly around 29-09/30-09-2026, this session
 + ## Addendum, Same Day (2026-10-02, later): Full Log Audit, Cadence Change, Git-Ignore Fix, And A Correction On "Autonomous"
-Follow-up request, same day: confirm nothing broke since the fix landed, decide whether the commit cadence itself should change, and make the whole system genuinely weekly-reviewable rather than needing another manual session like this one.
-**Post-landing verification:** clean through the 37 minutes and 3 auto-sync ticks (16:50, 17:03, 17:18) between the fix landing and this check — all `success`, zero new conflict files, zero `CONFLICT`/`FAILED` log entries, `Jarvis-Syncthing-Health`'s first natural post-fix run (17:21:46) returned `LastTaskResult: 0`, Dashboard carries zero alert banners. Too short a window to call "proven," but nothing is wrong yet.
-**Full `git-auto-sync.log` audit (425 logged runs, the entire history):** 210 `success`, 135 `nothing to do`, 15 `deferred (Syncthing still converging)`, 26 `CONFLICT`, 8 `FAILED`. Read every `CONFLICT` line's actual cause, not just counted them: every single one outside the original 2026-09-20 bootstrap/secret-scrub period (documented in Build 7) is `Could not resolve host: github.com` — a transient DNS/network outage, not a real git rebase conflict. The script's `CONFLICT:` label conflates "two sides genuinely diverged" with "the internet was briefly down," which reads as far more alarming than what's actually happening — a network blip self-resolves on the next tick with nothing touched, since the script aborts the rebase cleanly before any content is at risk. **Zero of the 425 logged runs correspond to the actual content-loss mechanism** (Part 2 of the main note above) — that risk lives entirely in Syncthing's own conflict-copy mechanism, which this log has no visibility into at all. This is worth stating plainly: the git/GitHub workflow itself has been reliable; the risk was never there.
-**Cadence widened 15 → 30 minutes**, in `register-git-auto-sync-task.ps1`, re-registered and verified live (`Triggers.Repetition.Interval: PT30M`). Rationale grounded in the audit above: the content-loss race (Part 2) scales with how often the rebase/autostash checkout runs, not with anything the network-blip `CONFLICT` entries measure. Halving run frequency halves that specific exposure. Syncthing already mirrors content near-real-time independent of git's schedule, so git's own job here (version history + GitHub backup) does not need 15-minute granularity to stay safe. **The Dell needs this same script re-run locally — the Scheduled Task's interval is per-machine, not carried by Syncthing just because the script file is**, the exact standing gap Builds 4-8 already named repeatedly.
-**`.gitignore` now excludes `*.sync-conflict-*`**, verified live (`git check-ignore` confirms a test file matches, `git status` shows nothing). Found in the process: **18+ unreconciled conflict files are already permanently committed to this repo's history** (`.copilot/model-catalog-cache.sync-conflict-*`, several `.obsidian` plugin data files, one `Course Production Board` conflict copy from 2026-09-21, and more) — `git-auto-sync`'s `git add -A` had been sweeping these into history before anyone reconciled them, on a public repo. **Not rewritten this pass** — scrubbing already-pushed history means a force-push, which is destructive and was not asked for; flagged here instead. Going forward, the new `.gitignore` entry stops any new one from repeating this.
-**`/weekly-review` Step 7.6 revised**: now opens with an explicit Dashboard-banner check (Part 3's fastest signal), references the archive-not-delete rule's `.gitignore` interaction, and adds a first-of-the-month deep check running the full Known Failure Modes verification checklist (Task Scheduler state, Staggered Versioning, watcher delay on both machines) — the class of drift a weekly file-level scan cannot catch, since it leaves no file-level trace at all.
-**A new consolidated note, [[Cross-Laptop Sync - Operations Reference]], is now the designated entry point** for this whole system — what each piece does, the one-minute health check, the exact conflict-reconciliation procedure, and an explicit, honest explanation of why a Claude Code **cloud routine** cannot do this job (no network path to local Syncthing's REST API, no access to the gitignored local log, and a write-back routine would recreate the exact git race this build reduces). The actually-autonomous mechanism is the already-local `Jarvis-WeeklyReview` Scheduled Task, which already runs Step 7.6 weekly - **but that task has never fired yet** as of this writing (registered 2026-09-28, a Monday; next Sunday slot is 2026-10-04). Its first real unattended fire on 2026-10-04 is the actual proof this is autonomous, not the registration itself.
-## Sources
-- `30_Order/System/claude-workflow/logs/git-auto-sync.log` — read directly around 29-09/30-09-2026, this session
++ Follow-up request, same day: confirm nothing broke since the fix landed, decide whether the commit cadence itself should change, and make the whole system genuinely weekly-reviewable rather than needing another manual session like this one.
++ **Post-landing verification:** clean through the 37 minutes and 3 auto-sync ticks (16:50, 17:03, 17:18) between the fix landing and this check — all `success`, zero new conflict files, zero `CONFLICT`/`FAILED` log entries, `Jarvis-Syncthing-Health`'s first natural post-fix run (17:21:46) returned `LastTaskResult: 0`, Dashboard carries zero alert banners. Too short a window to call "proven," but nothing is wrong yet.
++ **Full `git-auto-sync.log` audit (425 logged runs, the entire history):** 210 `success`, 135 `nothing to do`, 15 `deferred (Syncthing still converging)`, 26 `CONFLICT`, 8 `FAILED`. Read every `CONFLICT` line's actual cause, not just counted them: every single one outside the original 2026-09-20 bootstrap/secret-scrub period (documented in Build 7) is `Could not resolve host: github.com` — a transient DNS/network outage, not a real git rebase conflict. The script's `CONFLICT:` label conflates "two sides genuinely diverged" with "the internet was briefly down," which reads as far more alarming than what's actually happening — a network blip self-resolves on the next tick with nothing touched, since the script aborts the rebase cleanly before any content is at risk. **Zero of the 425 logged runs correspond to the actual content-loss mechanism** (Part 2 of the main note above) — that risk lives entirely in Syncthing's own conflict-copy mechanism, which this log has no visibility into at all. This is worth stating plainly: the git/GitHub workflow itself has been reliable; the risk was never there.
++ **Cadence widened 15 → 30 minutes**, in `register-git-auto-sync-task.ps1`, re-registered and verified live (`Triggers.Repetition.Interval: PT30M`). Rationale grounded in the audit above: the content-loss race (Part 2) scales with how often the rebase/autostash checkout runs, not with anything the network-blip `CONFLICT` entries measure. Halving run frequency halves that specific exposure. Syncthing already mirrors content near-real-time independent of git's schedule, so git's own job here (version history + GitHub backup) does not need 15-minute granularity to stay safe. **The Dell needs this same script re-run locally — the Scheduled Task's interval is per-machine, not carried by Syncthing just because the script file is**, the exact standing gap Builds 4-8 already named repeatedly.
++ **`.gitignore` now excludes `*.sync-conflict-*`**, verified live (`git check-ignore` confirms a test file matches, `git status` shows nothing). Found in the process: **18+ unreconciled conflict files are already permanently committed to this repo's history** (`.copilot/model-catalog-cache.sync-conflict-*`, several `.obsidian` plugin data files, one `Course Production Board` conflict copy from 2026-09-21, and more) — `git-auto-sync`'s `git add -A` had been sweeping these into history before anyone reconciled them, on a public repo. **Not rewritten this pass** — scrubbing already-pushed history means a force-push, which is destructive and was not asked for; flagged here instead. Going forward, the new `.gitignore` entry stops any new one from repeating this.
++ **`/weekly-review` Step 7.6 revised**: now opens with an explicit Dashboard-banner check (Part 3's fastest signal), references the archive-not-delete rule's `.gitignore` interaction, and adds a first-of-the-month deep check running the full Known Failure Modes verification checklist (Task Scheduler state, Staggered Versioning, watcher delay on both machines) — the class of drift a weekly file-level scan cannot catch, since it leaves no file-level trace at all.
++ **A new consolidated note, [[Cross-Laptop Sync - Operations Reference]], is now the designated entry point** for this whole system — what each piece does, the one-minute health check, the exact conflict-reconciliation procedure, and an explicit, honest explanation of why a Claude Code **cloud routine** cannot do this job (no network path to local Syncthing's REST API, no access to the gitignored local log, and a write-back routine would recreate the exact git race this build reduces). The actually-autonomous mechanism is the already-local `Jarvis-WeeklyReview` Scheduled Task, which already runs Step 7.6 weekly - **but that task has never fired yet** as of this writing (registered 2026-09-28, a Monday; next Sunday slot is 2026-10-04). Its first real unattended fire on 2026-10-04 is the actual proof this is autonomous, not the registration itself.
++ ## Sources
++ - `30_Order/System/claude-workflow/logs/git-auto-sync.log` — read directly around 29-09/30-09-2026, this session
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 9 Findings.md`
 ```diff
 - - [[Cross-Laptop Sync - Build 8 Findings]], [[Cross-Laptop Sync - Known Failure Modes and Prevention]], [[Cross-Laptop Sync - Build Roadmap]] — prior-build context this build built on
 + - [[Cross-Laptop Sync - Build 8 Findings]], [[Cross-Laptop Sync - Known Failure Modes and Prevention]], [[Cross-Laptop Sync - Build Roadmap]] — prior-build context this build built on
-- `git-auto-sync.log` audited in full (425 runs) for the Addendum — every `CONFLICT:` line's surrounding context read individually, not just counted
-- `register-git-auto-sync-task.ps1` re-run live, `Get-ScheduledTask`/`.Triggers.Repetition` checked live afterward for the cadence change
-- `git check-ignore -v` and `git status` against a real test file, verifying the new `.gitignore` pattern — this session, Addendum
++ - `git-auto-sync.log` audited in full (425 runs) for the Addendum — every `CONFLICT:` line's surrounding context read individually, not just counted
++ - `register-git-auto-sync-task.ps1` re-run live, `Get-ScheduledTask`/`.Triggers.Repetition` checked live afterward for the cadence change
++ - `git check-ignore -v` and `git status` against a real test file, verifying the new `.gitignore` pattern — this session, Addendum
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
 ```diff
 - notes:
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Build 9 Findings]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
-next: "[[Cross-Laptop Sync - Build Roadmap]]"
----
-# Cross-Laptop Sync - Known Failure Modes and Prevention
-## One-Line Answer
+-   - "[[Cross-Laptop Sync - Build Roadmap]]"
+-   - "[[Cross-Laptop Sync - Build 8 Findings]]"
+-   - "[[Cross-Laptop Sync - Build 9 Findings]]"
+-   - "[[Cross-Laptop Sync - Rollback Procedure]]"
+- next: "[[Cross-Laptop Sync - Build Roadmap]]"
+- ---
+- # Cross-Laptop Sync - Known Failure Modes and Prevention
+- ## One-Line Answer
 + notes:
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 8 Findings]]"
-  - "[[Cross-Laptop Sync - Build 9 Findings]]"
-  - "[[Cross-Laptop Sync - Operations Reference]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
-next: "[[Cross-Laptop Sync - Operations Reference]]"
----
-# Cross-Laptop Sync - Known Failure Modes and Prevention
-**For day-to-day operation — what to check, how to clear a conflict file, why things are set up this way — see [[Cross-Laptop Sync - Operations Reference]] first.** This note is the detailed failure-mode-by-failure-mode history that reference pulls from; read it when the quick version doesn't cover what you're seeing.
-## One-Line Answer
++   - "[[Cross-Laptop Sync - Build Roadmap]]"
++   - "[[Cross-Laptop Sync - Build 8 Findings]]"
++   - "[[Cross-Laptop Sync - Build 9 Findings]]"
++   - "[[Cross-Laptop Sync - Operations Reference]]"
++   - "[[Cross-Laptop Sync - Rollback Procedure]]"
++ next: "[[Cross-Laptop Sync - Operations Reference]]"
++ ---
++ # Cross-Laptop Sync - Known Failure Modes and Prevention
++ **For day-to-day operation — what to check, how to clear a conflict file, why things are set up this way — see [[Cross-Laptop Sync - Operations Reference]] first.** This note is the detailed failure-mode-by-failure-mode history that reference pulls from; read it when the quick version doesn't cover what you're seeing.
++ ## One-Line Answer
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 ```diff
 -   - "[[Cross-Laptop Sync - Build 9 Findings]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
+-   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+-   - "[[Cross-Laptop Sync - Rollback Procedure]]"
 +   - "[[Cross-Laptop Sync - Build 9 Findings]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-  - "[[Cross-Laptop Sync - Operations Reference]]"
-  - "[[Cross-Laptop Sync - Rollback Procedure]]"
++   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
++   - "[[Cross-Laptop Sync - Operations Reference]]"
++   - "[[Cross-Laptop Sync - Rollback Procedure]]"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 ```diff
 - *Outcome:* The CSCI 4061 incident traced to the exact Failure Mode 5/6 mechanism Build 8 already named — not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. The CSCI 4061 recovery itself was verified intact (Lab 3's real `1.0/1.0` dev-container-verified version is live, matching the described recovery, not the stale version still preserved in `.stversions`). A whole-vault sweep found 4 more live conflict files from the same incident that the course-scoped recovery never saw; each compared individually per Failure Mode 6 — one genuine regression (`CSCI 4511W/Textbook/Chapter - 3.md`, missing 91 lines a rebase had silently dropped), three safe to discard (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) — all 4 archived to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`. The real finding: `Jarvis-Syncthing-Health` was not disabled this time — it had been correctly exiting 1 over those 4 files for roughly three days, and nothing in the system surfaced that `LastTaskResult` to a person. `check-syncthing-status.ps1` rewritten so every failure path reaches a self-clearing `[!danger]` banner in `00_Dashboard.md` (verified live: appears correctly on an induced failure, clears with zero diff on recovery) plus a rate-limited, best-effort Windows toast. Found and fixed a real encoding bug live while building this: Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip — fixed via .NET's `UTF8Encoding($false)` directly, caught before it reached the real vault. Full detail: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.
 + *Outcome:* The CSCI 4061 incident traced to the exact Failure Mode 5/6 mechanism Build 8 already named — not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. The CSCI 4061 recovery itself was verified intact (Lab 3's real `1.0/1.0` dev-container-verified version is live, matching the described recovery, not the stale version still preserved in `.stversions`). A whole-vault sweep found 4 more live conflict files from the same incident that the course-scoped recovery never saw; each compared individually per Failure Mode 6 — one genuine regression (`CSCI 4511W/Textbook/Chapter - 3.md`, missing 91 lines a rebase had silently dropped), three safe to discard (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) — all 4 archived to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`. The real finding: `Jarvis-Syncthing-Health` was not disabled this time — it had been correctly exiting 1 over those 4 files for roughly three days, and nothing in the system surfaced that `LastTaskResult` to a person. `check-syncthing-status.ps1` rewritten so every failure path reaches a self-clearing `[!danger]` banner in `00_Dashboard.md` (verified live: appears correctly on an induced failure, clears with zero diff on recovery) plus a rate-limited, best-effort Windows toast. Found and fixed a real encoding bug live while building this: Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip — fixed via .NET's `UTF8Encoding($false)` directly, caught before it reached the real vault. Full detail: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.
-**Same-day addendum:** a full audit of all 425 logged `git-auto-sync` runs found every `CONFLICT` entry outside the original 2026-09-20 bootstrap was a transient DNS/network blip, not a real rebase conflict — the git/GitHub workflow itself has been reliable throughout. Cadence widened 15 → 30 minutes (halves the daily exposure to the actual race, which scales with run frequency, not with the harmless network blips) — re-register on every machine, this is a per-machine Scheduled Task setting. `.gitignore` now excludes `*.sync-conflict-*` (18+ were already committed to history before this; not rewritten, flagged only). `/weekly-review` Step 7.6 now opens with a Dashboard-banner check and adds a first-of-month deep settings-drift check. New consolidated entry point written: [[Cross-Laptop Sync - Operations Reference]] — explains why a Claude Code cloud routine cannot do this job (no local network access) and that the real autonomous mechanism, `Jarvis-WeeklyReview`, has never actually fired yet as of this writing (first real Sunday slot: 2026-10-04).
++ **Same-day addendum:** a full audit of all 425 logged `git-auto-sync` runs found every `CONFLICT` entry outside the original 2026-09-20 bootstrap was a transient DNS/network blip, not a real rebase conflict — the git/GitHub workflow itself has been reliable throughout. Cadence widened 15 → 30 minutes (halves the daily exposure to the actual race, which scales with run frequency, not with the harmless network blips) — re-register on every machine, this is a per-machine Scheduled Task setting. `.gitignore` now excludes `*.sync-conflict-*` (18+ were already committed to history before this; not rewritten, flagged only). `/weekly-review` Step 7.6 now opens with a Dashboard-banner check and adds a first-of-month deep settings-drift check. New consolidated entry point written: [[Cross-Laptop Sync - Operations Reference]] — explains why a Claude Code cloud routine cannot do this job (no local network access) and that the real autonomous mechanism, `Jarvis-WeeklyReview`, has never actually fired yet as of this writing (first real Sunday slot: 2026-10-04).
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build Roadmap.md`
 ```diff
 - next: "Verify the Dell has received and is running the Build 9 patch to check-syncthing-status.ps1 (banner + toast); re-run the Known Failure Modes verification recipe end-to-end on both machines"
 + next: "Re-run register-git-auto-sync-task.ps1 on the Dell (30-min cadence is per-machine, not synced); check Jarvis-WeeklyReview's LastRunTime/LastTaskResult after 2026-10-04 (its first real scheduled fire); verify the Dell is running the Build 9 patch to check-syncthing-status.ps1"
 ```
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\register-git-auto-sync-task.ps1\"\n$errors = $null; $tokens = $null\n[System.Management.Automation.Language.Parser]::ParseFile($script, [ref]$tokens, [ref]$errors) | Out-Null\nif ($errors.Count -eq 0) { Write-Output \"AST parse: clean\" } else { $errors }"}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\register-git-auto-sync-task.ps1"
+$errors = $null; $tokens = $null
+[System.Management.Automation.Language.Parser]::ParseFile($script, [ref]$tokens, [ref]$errors) | Out-Null
+if ($errors.Count -eq 0) { Write-Output "AST parse: clean" } else { $errors }
+```
+```
+AST parse: clean
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'
 
 ## [2026-10-02] write | Cross-Laptop Sync Build 9 addendum - full workflow audit, cadence change, gitignore fix, autonomy reality-check
 
@@ -2844,12 +3530,16 @@ Wrote `Cross-Laptop Sync - Operations Reference.md` as the new designated entry 
 
 **Next:** Check `Jarvis-WeeklyReview`'s `LastRunTime`/`LastTaskResult` after 2026-10-04. Re-run `register-git-auto-sync-task.ps1` on the Dell (per-machine setting, not synced). Verify the Dell has received Build 9's `check-syncthing-status.ps1` patch.
 LOGEOF
-echo "appended"`
+echo "appended"
+```
 ```
 appended
 ```
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- conflict sweep ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
-echo "--- git status ---" && git status --short`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- conflict sweep ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
+echo "--- git status ---" && git status --short
+```
 ```
 --- conflict sweep ---
 --- git status ---
@@ -2868,8 +3558,57 @@ echo "--- git status ---" && git status --short`
 ?? "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Operations Reference.md"
 ?? wa1_template.tex
 ```
-- `PowerShell` -- `{"command":"$script = \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\git-auto-sync.ps1\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $script\nWrite-Output \"exit: $LASTEXITCODE\""}`
-- `Bash` -- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline -2 && git status --short && git status -sb | head -1`
+- `PowerShell`
+```powershell
+$script = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File $script
+Write-Output "exit: $LASTEXITCODE"
+```
+```
+[2026-10-02 17:29:26] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
+[2026-10-02 17:29:26] Syncthing folder 'jarvis' paused=True
+Add-Content : The process cannot access the file 
+'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\logs\git-auto-sync.log' because it is being 
+used by another process.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], IOException
+    + FullyQualifiedErrorId : GetContentWriterIOError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+[2026-10-02 17:29:27]   git : From https://github.com/gupta-builds/Jarvis
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:117 char:5
++     git pull --rebase --autostash origin $Branch 2>&1 | Out-String |  ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (From https://gi...a-builds/Jarvis:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+ * branch              infra/cross-laptop-sync -> FETCH_HEAD
+Already up to date.
+[2026-10-02 17:29:28]   [infra/cross-laptop-sync 91b71075] Auto-sync: 2026-10-02 17:29,  14 files changed, 353 insertions(+), 127 deletions(-)
+ 14 files changed, 353 insertions(+), 127 deletions(-)
+ create mode 100644 20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing 1 - Learn the Tools.md
+ create mode 100644 40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Operations Reference.md
+ create mode 100644 wa1_template.tex
+[2026-10-02 17:29:28] Committed: Auto-sync: 2026-10-02 17:29,  14 files changed, 353 insertions(+), 127 deletions(-)
+[2026-10-02 17:29:31] Pushed cleanly to origin/infra/cross-laptop-sync.
+[2026-10-02 17:29:31] === git-auto-sync end (success) ===
+[2026-10-02 17:29:31] Syncthing folder 'jarvis' paused=False
+Add-Content : The process cannot access the file 
+'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\logs\git-auto-sync.log' because it is being 
+used by another process.
+At D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1:47 char:5
++     Add-Content -Path $LogFile -Value $line
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : WriteError: (D:\_Anant\20_Pr...t-auto-sync.log:String) [Add-Content], IOException
+    + FullyQualifiedErrorId : GetContentWriterIOError,Microsoft.PowerShell.Commands.AddContentCommand
+ 
+exit: 0
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline -2 && git status --short && git status -sb | head -1
+```
 ```
 91b71075 Auto-sync: 2026-10-02 17:29,  14 files changed, 353 insertions(+), 127 deletions(-)
 4840dda6 Auto-sync: 2026-10-02 17:18,  6 files changed, 69 insertions(+), 28 deletions(-)
@@ -2900,149 +3639,27 @@ _None detected_
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- search for git-auto-sync script ---" && find "30_Order/System/claude-workflow" -maxdepth 3 -type f 2>/dev/null && echo "--- grep repo for 'Auto-sync:' commit message producer ---" && grep -rl "Auto-sync:" --include="*.ps1" --include="*.sh" --include="*.py" . 2>/dev/null | grep -v node_modules`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*Sync - Unison*" -not -path "./.git/*" 2>/dev/null`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- register task script (schedule interval) ---" && cat "30_Order/System/claude-workflow/scripts/register-git-auto-sync-task.ps1"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git log of git-auto-sync.ps1 ---" && git log --follow --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M" -- "30_Order/System/claude-workflow/scripts/git-auto-sync.ps1" | head -30
-echo "--- search for Build 7 Findings note ---"
-grep -rl "Build 7 Findings" --include="*.md" . 2>/dev/null
-echo "--- search for any note mentioning conflict incident ---"
-grep -rli "sync-conflict" --include="*.md" . 2>/dev/null | grep -v ".stversions"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git log of git-auto-sync.ps1 ---" && git log --follow --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M" -- "30_Order/System/claude-workflow/scripts/git-auto-sync.ps1" | head -30 echo "--- search for Build 7 Findings note ---" grep -rl "Build 7 Findings" --include="*.md" . 2>/dev/null echo "--- search for any note mentioning conflict incident ---" grep -rli "sync-conflict" --include="*.md" . 2>/dev/null | grep -v ".stversions"`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- tail of git-auto-sync.log around 09-29/09-30 ---" && grep -n "2026-09-29\|2026-09-30" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -i "conflict\|fail\|===" | tail -80`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- full context of 09-30 16:06 CONFLICT ---" && sed -n '8718,8730p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"
-echo ""
-echo "--- full context of 09-30 18:03 CONFLICT (second one) ---" && sed -n '8732,8763p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log around 09-29 17:2x-17:3x ---" && grep -n "2026-09-29 17:2\|2026-09-29 17:3" "30_Order/System/claude-workflow/logs/git-auto-sync.log"
-echo ""
-echo "--- git log around that time ---" && git log --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M:%S" --since="2026-09-29 17:00" --until="2026-09-29 18:00" --all | head -20
-echo ""
-echo "--- recent Session Logs tail ---" && tail -c 4000 "60_Claude/07_AI_Information/Session Logs/log.md"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== Chapter - 3.md (CSCI 4511W) diff ===" && diff "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" | head -100
-echo ""
-echo "=== line counts ===" 
-wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
-CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md"
-echo "=== line counts ===" && wc -l "$CANON" "$CONF"
-echo "=== diff ===" && diff "$CANON" "$CONF" | head -150`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
-CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md"
-echo "=== byte sizes ===" && wc -c "$CANON" "$CONF"
-echo "=== md5/sha ===" && sha256sum "$CANON" "$CONF"
-echo "=== file type (CRLF check) ===" && file "$CANON" "$CONF"
-echo "=== diff ignoring whitespace ===" && diff -q <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF")`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== spaced-repetition data.json ===" 
-CANON=".obsidian/plugins/obsidian-spaced-repetition/data.json"
-CONF=".obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json"
-wc -c "$CANON" "$CONF"
-sha256sum "$CANON" "$CONF"
-echo "--- json keys top level canon ---"
-python3 -c "import json; d=json.load(open('$CANON')); print(list(d.keys()))" 2>/dev/null || node -e "console.log(Object.keys(JSON.parse(require('fs').readFileSync('$CANON'))))" 2>/dev/null
-echo ""
-echo "=== copilot model-catalog-cache.json ==="
-CANON2=".copilot/model-catalog-cache.json"
-CONF2=".copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json"
-wc -c "$CANON2" "$CONF2"
-sha256sum "$CANON2" "$CONF2"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== normalized diff of internship note ===" 
-CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md"
-CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md"
-diff <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF") | head -60
-echo "=== frontmatter of each (first 25 lines) ==="
-echo "--- canon ---"; head -25 "$CANON"
-echo "--- conflict ---"; head -25 "$CONF"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && python3 -c "
-import json
-a=json.load(open('.obsidian/plugins/obsidian-spaced-repetition/data.json'))
-b=json.load(open('.obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json'))
-print('buryDate:', a.get('buryDate'), '|', b.get('buryDate'))
-print('buryList len:', len(a.get('buryList',[])), '|', len(b.get('buryList',[])))
-print('historyDeck:', a.get('historyDeck'), '|', b.get('historyDeck'))
-sa = a.get('scheduleData') or a.get('settings')
-print('settings equal:', a.get('settings')==b.get('settings'))
-print('scheduleData equal:', a.get('scheduleData')==b.get('scheduleData'))
-if a.get('scheduleData') != b.get('scheduleData'):
-    ka = set(a.get('scheduleData',{}).keys())
-    kb = set(b.get('scheduleData',{}).keys())
-    print('keys only in canon:', ka-kb)
-    print('keys only in conflict:', kb-ka)
-    common = ka & kb
-    diffs = [k for k in common if a['scheduleData'][k]!=b['scheduleData'][k]]
-    print('differing common keys:', diffs[:20], 'count', len(diffs))
-    for k in diffs[:5]:
-        print(k, 'canon=', a['scheduleData'][k], 'conflict=', b['scheduleData'][k])
-"
-`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && node -e "
-const fs = require('fs');
-const a = JSON.parse(fs.readFileSync('.obsidian/plugins/obsidian-spaced-repetition/data.json'));
-const b = JSON.parse(fs.readFileSync('.obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json'));
-console.log('buryDate:', a.buryDate, '|', b.buryDate);
-console.log('buryList:', JSON.stringify(a.buryList), '|', JSON.stringify(b.buryList));
-console.log('historyDeck:', a.historyDeck, '|', b.historyDeck);
-console.log('settings equal:', JSON.stringify(a.settings)===JSON.stringify(b.settings));
-const sa = a.scheduleData||{}, sb = b.scheduleData||{};
-console.log('scheduleData equal:', JSON.stringify(sa)===JSON.stringify(sb));
-const ka = Object.keys(sa), kb = Object.keys(sb);
-console.log('canon keys:', ka.length, 'conflict keys:', kb.length);
-const onlyCanon = ka.filter(k=>!kb.includes(k));
-const onlyConf = kb.filter(k=>!ka.includes(k));
-console.log('only in canon:', onlyCanon);
-console.log('only in conflict:', onlyConf);
-const common = ka.filter(k=>kb.includes(k));
-const diffs = common.filter(k=>JSON.stringify(sa[k])!==JSON.stringify(sb[k]));
-console.log('differing common keys count:', diffs.length);
-diffs.slice(0,10).forEach(k=>console.log(k,'canon=',JSON.stringify(sa[k]),'conflict=',JSON.stringify(sb[k])));
-"
-`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && head -c 500 ".copilot/model-catalog-cache.json"; echo ""; echo "---"; node -e "
-const fs=require('fs');
-const a=JSON.parse(fs.readFileSync('.copilot/model-catalog-cache.json'));
-const b=JSON.parse(fs.readFileSync('.copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json'));
-console.log('type a:', Array.isArray(a)?'array len '+a.length : typeof a, Object.keys(a).slice(0,5));
-console.log('type b:', Array.isArray(b)?'array len '+b.length : typeof b, Object.keys(b).slice(0,5));
-"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && \
-ARCHIVE="/d/_Anant/99_Archive/Syncthing Conflict Reconciliation 2026-10-02"
-mkdir -p "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook" \
-  "$ARCHIVE/.obsidian/plugins/obsidian-spaced-repetition" \
-  "$ARCHIVE/.copilot" \
-  "$ARCHIVE/60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop"
-
-# 1. Restore Chapter 3 (real regression) - canonical gets replaced with the fuller conflict version, old canonical archived alongside for the record
-cp "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3 (stale-canonical-before-restore).md"
-cp "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"
-
-# Archive and remove all 4 conflict files from the live vault
-mv "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook/"
-mv ".obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json" "$ARCHIVE/.obsidian/plugins/obsidian-spaced-repetition/"
-mv ".copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json" "$ARCHIVE/.copilot/"
-mv "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md" "$ARCHIVE/60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/"
-
-echo "--- verify live vault clean ---"
-find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
-echo "--- verify archive ---"
-find "$ARCHIVE" -type f
-echo "--- verify restored Chapter 3 line count ---"
-wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- CSCI 4061 Lab 3 current state ---" && find "20_Progress/Degree/CSCI 4061" -iname "*Lab 3*" -o -iname "*lab3*" 2>/dev/null
-echo "--- grep for make test / 1.0 in Lab 3 ---"
-grep -rl "1.0/1.0\|make test" "20_Progress/Degree/CSCI 4061" 2>/dev/null
-echo "--- Weekly Board current (first 30 lines) ---"
-sed -n '1,30p' "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" 2>/dev/null
-echo "--- any CSCI 4061 .stversions entries for Lab 3 ---"
-find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*Lab*" 2>/dev/null`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- current Lab 3 grep for 1.0 and real debugging entries ---" && grep -n "1.0/1.0\|make test\|dev container\|debugging" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -20
-echo "--- line count comparison ---"
-wc -l "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md"
-echo "--- diff current vs most recent stversion ---"
-diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" | head -40`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline --since="2026-10-01" --until="2026-10-02 23:59" -- "20_Progress/Degree/CSCI 4061" | head -20
-echo "--- current git status for CSCI 4061 (any uncommitted changes from my restore?) ---"
-git status --short "20_Progress/Degree/CSCI 4061" ".obsidian" ".copilot" "60_Claude/05_Clippings"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- full context of 09-30 16:06 CONFLICT ---" && sed -n '8718,8730p' "30_Order/System/claude-workflow/logs/git-auto-sync.log" echo "" echo "--- full context of 09-30 18:03 CONFLICT (second one) ---" && sed -n '8732,8763p' "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log around 09-29 17:2x-17:3x ---" && grep -n "2026-09-29 17:2\|2026-09-29 17:3" "30_Order/System/claude-workflow/logs/git-auto-sync.log" echo "" echo "--- git log around that time ---" && git log --format="%h %ad %s" --date=format:"%Y-%m-%d %H:%M:%S" --since="2026-09-29 17:00" --until="2026-09-29 18:00" --all | head -20 echo "" echo "--- recent Session Logs tail ---" && tail -c 4000 "60_Claude/07_AI_Information/Session Logs/log.md"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== Chapter - 3.md (CSCI 4511W) diff ===" && diff "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" | head -100 echo "" echo "=== line counts ==="  wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md" CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md" echo "=== line counts ===" && wc -l "$CANON" "$CONF" echo "=== diff ===" && diff "$CANON" "$CONF" | head -150`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md" CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md" echo "=== byte sizes ===" && wc -c "$CANON" "$CONF" echo "=== md5/sha ===" && sha256sum "$CANON" "$CONF" echo "=== file type (CRLF check) ===" && file "$CANON" "$CONF" echo "=== diff ignoring whitespace ===" && diff -q <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF")`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== spaced-repetition data.json ==="  CANON=".obsidian/plugins/obsidian-spaced-repetition/data.json" CONF=".obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json" wc -c "$CANON" "$CONF" sha256sum "$CANON" "$CONF" echo "--- json keys top level canon ---" python3 -c "import json; d=json.load(open('$CANON')); print(list(d.keys()))" 2>/dev/null || node -e "console.log(Object.keys(JSON.parse(require('fs').readFileSync('$CANON'))))" 2>/dev/null echo "" echo "=== copilot model-catalog-cache.json ===" CANON2=".copilot/model-catalog-cache.json" CONF2=".copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json" wc -c "$CANON2" "$CONF2" sha256sum "$CANON2" "$CONF2"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "=== normalized diff of internship note ==="  CANON="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md" CONF="60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md" diff <(tr -d '\r' < "$CANON") <(tr -d '\r' < "$CONF") | head -60 echo "=== frontmatter of each (first 25 lines) ===" echo "--- canon ---"; head -25 "$CANON" echo "--- conflict ---"; head -25 "$CONF"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && python3 -c " import json a=json.load(open('.obsidian/plugins/obsidian-spaced-repetition/data.json')) b=json.load(open('.obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json')) print('buryDate:', a.get('buryDate'), '|', b.get('buryDate')) print('buryList len:', len(a.get('buryList',[])), '|', len(b.get('buryList',[]))) print('historyDeck:', a.get('historyDeck'), '|', b.get('historyDeck')) sa = a.get('scheduleData') or a.get('settings') print('settings equal:', a.get('settings')==b.get('settings')) print('scheduleData equal:', a.get('scheduleData')==b.get('scheduleData')) if a.get('scheduleData') != b.get('scheduleData'):     ka = set(a.get('scheduleData',{}).keys())     kb = set(b.get('scheduleData',{}).keys())     print('keys only in canon:', ka-kb)     print('keys only in conflict:', kb-ka)     common = ka & kb     diffs = [k for k in common if a['scheduleData'][k]!=b['scheduleData'][k]]     print('differing common keys:', diffs[:20], 'count', len(diffs))     for k in diffs[:5]:         print(k, 'canon=', a['scheduleData'][k], 'conflict=', b['scheduleData'][k]) " `
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && node -e " const fs = require('fs'); const a = JSON.parse(fs.readFileSync('.obsidian/plugins/obsidian-spaced-repetition/data.json')); const b = JSON.parse(fs.readFileSync('.obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json')); console.log('buryDate:', a.buryDate, '|', b.buryDate); console.log('buryList:', JSON.stringify(a.buryList), '|', JSON.stringify(b.buryList)); console.log('historyDeck:', a.historyDeck, '|', b.historyDeck); console.log('settings equal:', JSON.stringify(a.settings)===JSON.stringify(b.settings)); const sa = a.scheduleData||{}, sb = b.scheduleData||{}; console.log('scheduleData equal:', JSON.stringify(sa)===JSON.stringify(sb)); const ka = Object.keys(sa), kb = Object.keys(sb); console.log('canon keys:', ka.length, 'conflict keys:', kb.length); const onlyCanon = ka.filter(k=>!kb.includes(k)); const onlyConf = kb.filter(k=>!ka.includes(k)); console.log('only in canon:', onlyCanon); console.log('only in conflict:', onlyConf); const common = ka.filter(k=>kb.includes(k)); const diffs = common.filter(k=>JSON.stringify(sa[k])!==JSON.stringify(sb[k])); console.log('differing common keys count:', diffs.length); diffs.slice(0,10).forEach(k=>console.log(k,'canon=',JSON.stringify(sa[k]),'conflict=',JSON.stringify(sb[k]))); " `
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && head -c 500 ".copilot/model-catalog-cache.json"; echo ""; echo "---"; node -e " const fs=require('fs'); const a=JSON.parse(fs.readFileSync('.copilot/model-catalog-cache.json')); const b=JSON.parse(fs.readFileSync('.copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json')); console.log('type a:', Array.isArray(a)?'array len '+a.length : typeof a, Object.keys(a).slice(0,5)); console.log('type b:', Array.isArray(b)?'array len '+b.length : typeof b, Object.keys(b).slice(0,5)); "`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && \ ARCHIVE="/d/_Anant/99_Archive/Syncthing Conflict Reconciliation 2026-10-02" mkdir -p "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook" \   "$ARCHIVE/.obsidian/plugins/obsidian-spaced-repetition" \   "$ARCHIVE/.copilot" \   "$ARCHIVE/60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop"  # 1. Restore Chapter 3 (real regression) - canonical gets replaced with the fuller conflict version, old canonical archived alongside for the record cp "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md" "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3 (stale-canonical-before-restore).md" cp "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"  # Archive and remove all 4 conflict files from the live vault mv "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" "$ARCHIVE/20_Progress/Degree/CSCI 4511W/Textbook/" mv ".obsidian/plugins/obsidian-spaced-repetition/data.sync-conflict-20260929-172611-2D4OE4D.json" "$ARCHIVE/.obsidian/plugins/obsidian-spaced-repetition/" mv ".copilot/model-catalog-cache.sync-conflict-20260929-172612-2D4OE4D.json" "$ARCHIVE/.copilot/" mv "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md" "$ARCHIVE/60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/"  echo "--- verify live vault clean ---" find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null echo "--- verify archive ---" find "$ARCHIVE" -type f echo "--- verify restored Chapter 3 line count ---" wc -l "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- CSCI 4061 Lab 3 current state ---" && find "20_Progress/Degree/CSCI 4061" -iname "*Lab 3*" -o -iname "*lab3*" 2>/dev/null echo "--- grep for make test / 1.0 in Lab 3 ---" grep -rl "1.0/1.0\|make test" "20_Progress/Degree/CSCI 4061" 2>/dev/null echo "--- Weekly Board current (first 30 lines) ---" sed -n '1,30p' "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" 2>/dev/null echo "--- any CSCI 4061 .stversions entries for Lab 3 ---" find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*Lab*" 2>/dev/null`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- current Lab 3 grep for 1.0 and real debugging entries ---" && grep -n "1.0/1.0\|make test\|dev container\|debugging" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -20 echo "--- line count comparison ---" wc -l "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" echo "--- diff current vs most recent stversion ---" diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" | head -40`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline --since="2026-10-01" --until="2026-10-02 23:59" -- "20_Progress/Degree/CSCI 4061" | head -20 echo "--- current git status for CSCI 4061 (any uncommitted changes from my restore?) ---" git status --short "20_Progress/Degree/CSCI 4061" ".obsidian" ".copilot" "60_Claude/05_Clippings"`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git status --short`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat .gitignore | grep -i "sync\|lock" `
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git diff --stat -- 00_Dashboard.md && git checkout -- 00_Dashboard.md && echo "--- reverted, verify ---" && git diff --stat -- 00_Dashboard.md && grep -c "â€”\|Â·" 00_Dashboard.md`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD, excluding banner lines ---" && git diff -- 00_Dashboard.md | head -60`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD now (should be empty) ---" && git diff --stat -- 00_Dashboard.md
-echo "--- state file ---" && cat "30_Order/System/claude-workflow/scripts/../../sync-workflow/scripts/.sync-alert-state.json" 2>/dev/null || cat "30_Order/System/sync-workflow/scripts/.sync-alert-state.json"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff dashboard vs HEAD now (should be empty) ---" && git diff --stat -- 00_Dashboard.md echo "--- state file ---" && cat "30_Order/System/claude-workflow/scripts/../../sync-workflow/scripts/.sync-alert-state.json" 2>/dev/null || cat "30_Order/System/sync-workflow/scripts/.sync-alert-state.json"`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git diff -- 00_Dashboard.md`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git checkout -- 00_Dashboard.md`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- diff should now be fully empty (perfect round-trip) ---" && git diff --stat -- 00_Dashboard.md && git diff -- 00_Dashboard.md`
@@ -3050,85 +3667,22 @@ echo "--- state file ---" && cat "30_Order/System/claude-workflow/scripts/../../
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "lock\|sync-workflow\|claude-workflow/scripts" .stignore`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -n "git-auto-sync.log" .stignore`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && sed -n '83,92p' .stignore`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> .stignore << 'EOF'
-
-// .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own
-// per-machine alert-rate-limiting counter, rewritten every 5 minutes on each
-// laptop independently - same per-machine-artifact reasoning as git-auto-sync.log
-// above. Syncing it would manufacture a sync-conflict on this file roughly every
-// 5 minutes between two laptops both running the health check on their own clocks.
-30_Order/System/sync-workflow/scripts/.sync-alert-state.json
-EOF
-tail -8 .stignore`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> .stignore << 'EOF'  // .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own // per-machine alert-rate-limiting counter, rewritten every 5 minutes on each // laptop independently - same per-machine-artifact reasoning as git-auto-sync.log // above. Syncing it would manufacture a sync-conflict on this file roughly every // 5 minutes between two laptops both running the health check on their own clocks. 30_Order/System/sync-workflow/scripts/.sync-alert-state.json EOF tail -8 .stignore`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && tail -5 "60_Claude/07_AI_Information/Session Logs/log.md"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'
-
-## [2026-10-02] write | Cross-Laptop Sync Build 9 - root-caused the CSCI 4061 conflict incident, closed the "no one sees the warning" gap
-
-Investigated the user-reported CSCI 4061 sync-conflict incident (29-09-2026, 10 files, already individually recovered in a separate session) and traced it to the exact Failure Mode 5/6 race Build 8 already diagnosed (git-auto-sync's rebase/autostash racing Syncthing's watcher) - not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. Verified the prior session's CSCI 4061 recovery actually held (Lab 3's real `1.0/1.0` dev-container-verified version is live and committed).
-
-A whole-vault sweep found 4 more live `.sync-conflict-*` files from the same incident that the course-scoped recovery never saw. Compared each individually against canonical (Known Failure Mode 6 protocol): `CSCI 4511W/Textbook/Chapter - 3.md` was a genuine regression (canonical missing 91 lines of real content a rebase had silently dropped) and was restored; the other 3 (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) were confirmed safe and archived. All 4 moved to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`, matching Build 8's archive convention. Live vault now has zero `.sync-conflict-*` files anywhere.
-
-The actual root cause of why this went unnoticed for three days: `Jarvis-Syncthing-Health` was not disabled this time (unlike Build 8's finding) - it was running correctly every 5 minutes and correctly exiting 1 the whole time. A Task Scheduler exit code has no path to a human's attention. Rewrote `check-syncthing-status.ps1` so every failure path writes a self-clearing `[!danger] SYNC ALERT` banner into `00_Dashboard.md` (the file `/startday` already opens) and fires a rate-limited, best-effort Windows toast. Verified live with an induced fake conflict file: banner appears with the exact problem list, then clears with a byte-for-byte zero diff on recovery. Found and fixed a real encoding bug while building this - Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip; fixed via .NET's `UTF8Encoding($false)` directly, caught before it touched the real vault. Full writeup: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.
-
-**Next:** Confirm the Dell receives and runs the patched `check-syncthing-status.ps1` on its next scheduled tick (no separate Dell step needed, same mechanism as Build 8); periodically re-verify `Jarvis-Syncthing-Health`'s enabled state and Staggered Versioning haven't silently reverted again, per the Known Failure Modes verification recipe.
-LOGEOF
-echo "appended"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- final conflict-file sweep, whole vault ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
-echo "--- git status ---" && git status --short`
+- ``cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'  ## [2026-10-02] write | Cross-Laptop Sync Build 9 - root-caused the CSCI 4061 conflict incident, closed the "no one sees the warning" gap  Investigated the user-reported CSCI 4061 sync-conflict incident (29-09-2026, 10 files, already individually recovered in a separate session) and traced it to the exact Failure Mode 5/6 race Build 8 already diagnosed (git-auto-sync's rebase/autostash racing Syncthing's watcher) - not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. Verified the prior session's CSCI 4061 recovery actually held (Lab 3's real `1.0/1.0` dev-container-verified version is live and committed).  A whole-vault sweep found 4 more live `.sync-conflict-*` files from the same incident that the course-scoped recovery never saw. Compared each individually against canonical (Known Failure Mode 6 protocol): `CSCI 4511W/Textbook/Chapter - 3.md` was a genuine regression (canonical missing 91 lines of real content a rebase had silently dropped) and was restored; the other 3 (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) were confirmed safe and archived. All 4 moved to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`, matching Build 8's archive convention. Live vault now has zero `.sync-conflict-*` files anywhere.  The actual root cause of why this went unnoticed for three days: `Jarvis-Syncthing-Health` was not disabled this time (unlike Build 8's finding) - it was running correctly every 5 minutes and correctly exiting 1 the whole time. A Task Scheduler exit code has no path to a human's attention. Rewrote `check-syncthing-status.ps1` so every failure path writes a self-clearing `[!danger] SYNC ALERT` banner into `00_Dashboard.md` (the file `/startday` already opens) and fires a rate-limited, best-effort Windows toast. Verified live with an induced fake conflict file: banner appears with the exact problem list, then clears with a byte-for-byte zero diff on recovery. Found and fixed a real encoding bug while building this - Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip; fixed via .NET's `UTF8Encoding($false)` directly, caught before it touched the real vault. Full writeup: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.  **Next:** Confirm the Dell receives and runs the patched `check-syncthing-status.ps1` on its next scheduled tick (no separate Dell step needed, same mechanism as Build 8); periodically re-verify `Jarvis-Syncthing-Health`'s enabled state and Staggered Versioning haven't silently reverted again, per the Known Failure Modes verification recipe. LOGEOF echo "appended"``
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- final conflict-file sweep, whole vault ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null echo "--- git status ---" && git status --short`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline -3 && echo "--- status ---" && git status --short && echo "--- ahead/behind origin ---" && git status -sb | head -1`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log since 16:44 landing ---" && grep -n "2026-10-02 1[6-9]:\|2026-10-02 2[0-3]:\|2026-10-0[3-9]" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -A0 "===\|CONFLICT\|FAILED" | tail -100
-echo "--- current date check ---" && date`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- any conflict files since fix landed ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
-echo "--- git log since fix ---" && git log --oneline --since="2026-10-02 16:44" | head -30
-echo "--- current branch status vs origin ---" && git status -sb | head -1
-echo "--- any uncommitted ---" && git status --short`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- git-auto-sync.log since 16:44 landing ---" && grep -n "2026-10-02 1[6-9]:\|2026-10-02 2[0-3]:\|2026-10-0[3-9]" "30_Order/System/claude-workflow/logs/git-auto-sync.log" | grep -A0 "===\|CONFLICT\|FAILED" | tail -100 echo "--- current date check ---" && date`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- any conflict files since fix landed ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null echo "--- git log since fix ---" && git log --oneline --since="2026-10-02 16:44" | head -30 echo "--- current branch status vs origin ---" && git status -sb | head -1 echo "--- any uncommitted ---" && git status --short`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && grep -c "SYNC-ALERT" 00_Dashboard.md`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
-echo "--- total run starts ---" && grep -c "=== git-auto-sync start" "$LOG"
-echo "--- total successful ---" && grep -c "=== git-auto-sync end (success)" "$LOG"
-echo "--- total nothing-to-do ---" && grep -c "nothing to do" "$LOG"
-echo "--- total deferred (syncthing not idle) ---" && grep -c "deferred, Syncthing still converging" "$LOG"
-echo "--- total CONFLICT ---" && grep -c "^\[.*CONFLICT" "$LOG"
-echo "--- total FAILED ---" && grep -c "FAILED, needs manual" "$LOG"
-echo "--- all CONFLICT lines with context (cause) ---"
-grep -n "CONFLICT:" "$LOG"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
-for ts in "2026-09-28 13:02" "2026-09-28 14:32" "2026-09-29 13:05" "2026-10-01 10:43"; do
-echo "=== context around $ts ==="
-grep -n "$ts" "$LOG" | head -1
-done`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log"
-echo "=== 7145-7160 ===" && sed -n '7145,7160p' "$LOG"
-echo "=== 7250-7265 ===" && sed -n '7250,7265p' "$LOG"
-echo "=== 8099-8114 ===" && sed -n '8099,8114p' "$LOG"
-echo "=== 9492,9508 ===" && sed -n '9492,9508p' "$LOG"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- is sync-conflict excluded from git tracking? ---" && grep -n "sync-conflict" .gitignore
-echo "--- does git currently track any committed sync-conflict files in history (beyond the ones I already removed)? ---"
-git log --all --diff-filter=A --name-only --pretty=format: | grep -i "sync-conflict" | sort -u | head -20`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- weekly synthesis index tail ---" && tail -15 "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index.md" 2>/dev/null
-echo "--- list weekly synthesis files ---" && ls -la "60_Claude/30_Reviews/Weekly Synthesis/" 2>/dev/null | tail -10`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log" echo "--- total run starts ---" && grep -c "=== git-auto-sync start" "$LOG" echo "--- total successful ---" && grep -c "=== git-auto-sync end (success)" "$LOG" echo "--- total nothing-to-do ---" && grep -c "nothing to do" "$LOG" echo "--- total deferred (syncthing not idle) ---" && grep -c "deferred, Syncthing still converging" "$LOG" echo "--- total CONFLICT ---" && grep -c "^\[.*CONFLICT" "$LOG" echo "--- total FAILED ---" && grep -c "FAILED, needs manual" "$LOG" echo "--- all CONFLICT lines with context (cause) ---" grep -n "CONFLICT:" "$LOG"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log" for ts in "2026-09-28 13:02" "2026-09-28 14:32" "2026-09-29 13:05" "2026-10-01 10:43"; do echo "=== context around $ts ===" grep -n "$ts" "$LOG" | head -1 done`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && LOG="30_Order/System/claude-workflow/logs/git-auto-sync.log" echo "=== 7145-7160 ===" && sed -n '7145,7160p' "$LOG" echo "=== 7250-7265 ===" && sed -n '7250,7265p' "$LOG" echo "=== 8099-8114 ===" && sed -n '8099,8114p' "$LOG" echo "=== 9492,9508 ===" && sed -n '9492,9508p' "$LOG"`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- is sync-conflict excluded from git tracking? ---" && grep -n "sync-conflict" .gitignore echo "--- does git currently track any committed sync-conflict files in history (beyond the ones I already removed)? ---" git log --all --diff-filter=A --name-only --pretty=format: | grep -i "sync-conflict" | sort -u | head -20`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- weekly synthesis index tail ---" && tail -15 "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index.md" 2>/dev/null echo "--- list weekly synthesis files ---" && ls -la "60_Claude/30_Reviews/Weekly Synthesis/" 2>/dev/null | tail -10`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && touch ".test.sync-conflict-20261002-000000-TEST.md" && git status --short ".test.sync-conflict-20261002-000000-TEST.md" ; echo "exit: $?" ; echo "--- check-ignore ---" && git check-ignore -v ".test.sync-conflict-20261002-000000-TEST.md"; rm ".test.sync-conflict-20261002-000000-TEST.md"`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && ls "40_Resources/CS/Concepts/New Laptop/Sync/" && echo "--- any index/MOC file? ---" && find "40_Resources/CS/Concepts/New Laptop" -iname "*index*" -o -iname "*MOC*" 2>/dev/null`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'
-
-## [2026-10-02] write | Cross-Laptop Sync Build 9 addendum - full workflow audit, cadence change, gitignore fix, autonomy reality-check
-
-Follow-up to the same-day Build 9 session. Audited all 425 logged `git-auto-sync` runs end to end: every `CONFLICT` entry outside the original 2026-09-20 bootstrap traced to a transient DNS/network blip (`Could not resolve host: github.com`), not a real rebase conflict - the git/GitHub workflow itself has been reliable the whole time. The actual content-loss race (Failure Mode 5/6) scales with how often the rebase/autostash checkout runs, not with those network blips, so `Jarvis-GitAutoSync`'s cadence was widened 15 -> 30 minutes (`register-git-auto-sync-task.ps1`, re-registered and verified live) to roughly halve that exposure.
-
-Found 18+ unreconciled `.sync-conflict-*` files already permanently committed to this public repo's history, because `git-auto-sync`'s `git add -A` had been sweeping them up before anyone reconciled them. Added `*.sync-conflict-*` to `.gitignore` (verified live via `git check-ignore`) so this stops going forward; did not rewrite existing history (would require a destructive force-push, not asked for).
-
-Revised `/weekly-review` Step 7.6: now opens with a Dashboard-banner check (the fastest signal, per Build 9's new alerting) and adds a first-of-month deep check running the full Known Failure Modes verification recipe, since that class of drift (a safety net silently disabled) leaves no file-level trace a weekly conflict scan would catch.
-
-Investigated whether a Claude Code cloud routine could run this autonomously instead of a manual session - it cannot: no network path to local Syncthing's REST API, no access to the gitignored local log, and a write-back routine would recreate the exact git race this build reduces. The correct mechanism is the already-local `Jarvis-WeeklyReview` Scheduled Task, which has never actually fired yet (registered 2026-09-28, next real Sunday slot 2026-10-04) - flagged explicitly rather than assumed working.
-
-Wrote `Cross-Laptop Sync - Operations Reference.md` as the new designated entry point for this whole system - what each piece does, a one-minute health check, the exact conflict-reconciliation procedure, and the cloud-routine limitation above - cross-linked from the Roadmap, Known Failure Modes, and Build 9 Findings notes.
-
-**Next:** Check `Jarvis-WeeklyReview`'s `LastRunTime`/`LastTaskResult` after 2026-10-04. Re-run `register-git-auto-sync-task.ps1` on the Dell (per-machine setting, not synced). Verify the Dell has received Build 9's `check-syncthing-status.ps1` patch.
-LOGEOF
-echo "appended"`
-- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- conflict sweep ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null
-echo "--- git status ---" && git status --short`
+- ``cd "/d/_Anant/20_Progress/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'LOGEOF'  ## [2026-10-02] write | Cross-Laptop Sync Build 9 addendum - full workflow audit, cadence change, gitignore fix, autonomy reality-check  Follow-up to the same-day Build 9 session. Audited all 425 logged `git-auto-sync` runs end to end: every `CONFLICT` entry outside the original 2026-09-20 bootstrap traced to a transient DNS/network blip (`Could not resolve host: github.com`), not a real rebase conflict - the git/GitHub workflow itself has been reliable the whole time. The actual content-loss race (Failure Mode 5/6) scales with how often the rebase/autostash checkout runs, not with those network blips, so `Jarvis-GitAutoSync`'s cadence was widened 15 -> 30 minutes (`register-git-auto-sync-task.ps1`, re-registered and verified live) to roughly halve that exposure.  Found 18+ unreconciled `.sync-conflict-*` files already permanently committed to this public repo's history, because `git-auto-sync`'s `git add -A` had been sweeping them up before anyone reconciled them. Added `*.sync-conflict-*` to `.gitignore` (verified live via `git check-ignore`) so this stops going forward; did not rewrite existing history (would require a destructive force-push, not asked for).  Revised `/weekly-review` Step 7.6: now opens with a Dashboard-banner check (the fastest signal, per Build 9's new alerting) and adds a first-of-month deep check running the full Known Failure Modes verification recipe, since that class of drift (a safety net silently disabled) leaves no file-level trace a weekly conflict scan would catch.  Investigated whether a Claude Code cloud routine could run this autonomously instead of a manual session - it cannot: no network path to local Syncthing's REST API, no access to the gitignored local log, and a write-back routine would recreate the exact git race this build reduces. The correct mechanism is the already-local `Jarvis-WeeklyReview` Scheduled Task, which has never actually fired yet (registered 2026-09-28, next real Sunday slot 2026-10-04) - flagged explicitly rather than assumed working.  Wrote `Cross-Laptop Sync - Operations Reference.md` as the new designated entry point for this whole system - what each piece does, a one-minute health check, the exact conflict-reconciliation procedure, and the cloud-routine limitation above - cross-linked from the Roadmap, Known Failure Modes, and Build 9 Findings notes.  **Next:** Check `Jarvis-WeeklyReview`'s `LastRunTime`/`LastTaskResult` after 2026-10-04. Re-run `register-git-auto-sync-task.ps1` on the Dell (per-machine setting, not synced). Verify the Dell has received Build 9's `check-syncthing-status.ps1` patch. LOGEOF echo "appended"``
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis" && echo "--- conflict sweep ---" && find . -iname "*.sync-conflict-*" -not -path "./.git/*" -not -path "./.stversions/*" 2>/dev/null echo "--- git status ---" && git status --short`
 - `cd "/d/_Anant/20_Progress/Documents/Jarvis" && git log --oneline -2 && git status --short && git status -sb | head -1`
-
 

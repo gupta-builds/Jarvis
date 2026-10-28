@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,21 +6,24 @@ source_os: windows
 title: "MGMT 3015 entrepreneurship quiz"
 started_at: 2026-10-07T14:57:42
 ended_at: 2026-10-07T14:58:40
-exported_at: 2026-10-17T21:06:45
+exported_at: 2026-10-28T16:15:21
 duration_minutes: 1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 543de5df-439e-4ce7-a665-7f3e9a0b1049
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-07
+updated: 2026-10-28
 turn_count: 2
 tools_used: {}
 tokens:
-  input: 4
-  output: 9498
-  cache_creation: 76428
-  cache_read: 74336
-  total: 160266
-cost_usd: 0.415567
+  input: 2
+  output: 4749
+  cache_creation: 38214
+  cache_read: 37168
+  total: 80133
+cost_usd: 0.207784
 model:
   - "claude-sonnet-5"
 files_touched: []
@@ -747,5 +750,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

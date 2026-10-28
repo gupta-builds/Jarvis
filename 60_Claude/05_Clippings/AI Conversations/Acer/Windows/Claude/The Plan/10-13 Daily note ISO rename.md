@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Daily note ISO rename"
 started_at: 2026-10-13T00:25:12
 ended_at: 2026-10-13T00:36:47
-exported_at: 2026-10-17T21:07:03
+exported_at: 2026-10-28T16:15:49
 duration_minutes: 11.6
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: 57d0591e-23cb-433f-b147-8d63823ac43e
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-13
+updated: 2026-10-28
 turn_count: 6
 tools_used:
   Edit: 10
@@ -21,12 +24,12 @@ tools_used:
   Read: 11
   Write: 5
 tokens:
-  input: 172
-  output: 98519
-  cache_creation: 439602
-  cache_read: 7757407
-  total: 8295700
-cost_usd: null
+  input: 56
+  output: 25756
+  cache_creation: 106067
+  cache_read: 2703281
+  total: 2835160
+cost_usd: 0.952268
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -172,30 +175,165 @@ Reply "yes" to run the map as written (recommended name `2025-12-22.md`), or tel
 
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\AGENTS.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
-- `Glob` -- pattern `**/{Spec - Streak and Daily Note,Decisions Log,The Plan Vault Architecture,Research - Platform Facts}.md` path ``
-- `Glob` -- pattern `00_Live/Enumerate/**/*` path ``
-- `Glob` -- pattern `**/*Platform Facts*` path ``
+- `Glob` -- pattern `**/{Spec - Streak and Daily Note,Decisions Log,The Plan Vault Architecture,Research - Platform Facts}.md` path ` `
+- `Glob` -- pattern `00_Live/Enumerate/**/*` path ` `
+- `Glob` -- pattern `**/*Platform Facts*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\The Plan Vault Architecture.md`
-- `Grep` -- pattern `Platform Facts` path ``
-- `Glob` -- pattern `**/Research - *.md` path ``
-- `Grep` -- pattern `\[\[(\d{2}-\d{2}-\d{4}[^\]]*)\]\]` path ``
-- `PowerShell` -- `{"command":"Get-Command obsidian -ErrorAction SilentlyContinue | Select-Object Source; Get-ChildItem \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Daily\" | Select-Object Name,Length | Format-Table -AutoSize | Out-String -Width 200"}`
+- `Grep` -- pattern `Platform Facts` path ` `
+- `Glob` -- pattern `**/Research - *.md` path ` `
+- `Grep` -- pattern `\[\[(\d{2}-\d{2}-\d{4}[^\]]*)\]\]` path ` `
+- `PowerShell`
+```powershell
+Get-Command obsidian -ErrorAction SilentlyContinue | Select-Object Source; Get-ChildItem "D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily" | Select-Object Name,Length | Format-Table -AutoSize | Out-String -Width 200
+```
+```
+Source
+------
+D:\Apps\Obsidian\Obsidian.com
+
+Name                     Length
+----                     ------
+01-03-2026.md              2169
+01-06-2026.md              1503
+01-07-2026.md              1503
+04-06-2026.md              5084
+05-04-2026.md              4852
+05-10-2026.md              2997
+06-04-2026.md              1304
+07-04-2026.md              1758
+08-04-2026.md               515
+08-07-2026.md              1503
+09-05-2026.md              2009
+10-04-2026.md              1283
+11-06-2026.md              1503
+12-10-2026.md              2308
+13-06-2026.md              1813
+16-04-2026.md              1650
+17-03-2026.md               608
+17-04-2026.md              1944
+19-03-2026.md               690
+20-03-2026.md              2538
+21-03-2026.md               348
+22-05-2026.md              1873
+22-12-2025 and before.md   1250
+23-03-2026.md              1963
+24-05-2026.md              1918
+24-12-2025.md               606
+25-03-2026.md               752
+26-09-2026.md              1503
+```
 - `Grep` -- pattern `Platform Facts` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Prompts.md`
-- `Grep` -- pattern `\b\d{2}-\d{2}-20\d{2}\b` path ``
+- `Grep` -- pattern `\b\d{2}-\d{2}-20\d{2}\b` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily\22-12-2025 and before.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily\12-10-2026.md`
-- `PowerShell` -- `{"command":"$v=\"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-Content \"$v\\.obsidian\\daily-notes.json\" -ErrorAction SilentlyContinue; \"---\"; Get-ChildItem \"$v\\.obsidian\" -Name | Select-String -Pattern \"periodic|templater|calendar|daily\" ; \"---\"; Get-Content \"$v\\00_Live\\Enumerate\\Weekly\\2025-W52.md\" -TotalCount 20; \"---\"; \u0026 obsidian version 2\u003e\u00261 | Select-Object -First 3"}`
-- `PowerShell` -- `{"command":"$v=\"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-Content \"$v\\.obsidian\\core-plugins.json\" | Select-String -Pattern \"daily\"; Get-Content \"$v\\.obsidian\\community-plugins.json\"; cd $v; \u0026 obsidian vault 2\u003e\u00261 | Select-Object -First 5"}`
-- `Glob` -- pattern `30_Order/{Standards,Templates/Metadata}/**/*` path ``
-- `Grep` -- pattern `^type:\s*\S+` path ``
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-ChildItem -Recurse -Filter *.md -File | Where-Object { $_.FullName -notmatch \u0027\\\\(50_Archive|\\.obsidian|\\.git)\\\\\u0027 } | ForEach-Object { $l = Select-String -Path $_.FullName -Pattern \u0027^type:\\s*(\\S+)\u0027 -List | Select-Object -First 1; if($l){ $l.Matches[0].Groups[1].Value } } | Group-Object | Sort-Object Count -Descending | Format-Table Name,Count -AutoSize | Out-String; Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.BaseName -in @(\u0027Spec - Home and Monthly Dashboards\u0027,\u0027Spec - AI Loop\u0027,\u0027Dashboards Hub\u0027,\u0027Atomic Habits\u0027,\u0027Build Plan\u0027) } | Select-Object -ExpandProperty FullName"}`
+- `PowerShell`
+```powershell
+$v="D:\_Anant\20_Progress\Documents\The Plan"; Get-Content "$v\.obsidian\daily-notes.json" -ErrorAction SilentlyContinue; "---"; Get-ChildItem "$v\.obsidian" -Name | Select-String -Pattern "periodic|templater|calendar|daily" ; "---"; Get-Content "$v\00_Live\Enumerate\Weekly\2025-W52.md" -TotalCount 20; "---"; & obsidian version 2>&1 | Select-Object -First 3
+```
+```
+---
+---
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: 2025-12-24
+related_progress:
+  - "[[24-12-2025]]"
+  - "[[23-12-2025]]"
+  - "[[22-12-2025 and before]]"
+  - "[[2025]]"
+  - "[[25-12-2025]]"
+tags:
+  - thought
+  - brainstorm
+next: "[[12-2025]]"
+---
+# 52 Weeks
+> [!NOTE] **Summary**: 
+## Goals
+
+---
+1.14.4 (installer 1.13.7)
+```
+- `PowerShell`
+```powershell
+$v="D:\_Anant\20_Progress\Documents\The Plan"; Get-Content "$v\.obsidian\core-plugins.json" | Select-String -Pattern "daily"; Get-Content "$v\.obsidian\community-plugins.json"; cd $v; & obsidian vault 2>&1 | Select-Object -First 5
+```
+```
+  "daily-notes": false,
+[
+  "code-styler",
+  "dataview",
+  "file-explorer-plus",
+  "lazy-plugins",
+  "ninja-cursor",
+  "obsidian-latex-suite",
+  "obsidian-style-settings",
+  "obsidian-tasks-plugin",
+  "recent-files-obsidian",
+  "templater-obsidian",
+  "url-into-selection",
+  "obsidian-local-rest-api"
+]
+name	The Plan
+path	D:\_Anant\20_Progress\Documents\The Plan
+files	633
+folders	162
+size	12657952
+```
+- `Glob` -- pattern `30_Order/{Standards,Templates/Metadata}/**/*` path ` `
+- `Grep` -- pattern `^type:\s*\S+` path ` `
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; Get-ChildItem -Recurse -Filter *.md -File | Where-Object { $_.FullName -notmatch '\\(50_Archive|\.obsidian|\.git)\\' } | ForEach-Object { $l = Select-String -Path $_.FullName -Pattern '^type:\s*(\S+)' -List | Select-Object -First 1; if($l){ $l.Matches[0].Groups[1].Value } } | Group-Object | Sort-Object Count -Descending | Format-Table Name,Count -AutoSize | Out-String; Get-ChildItem -Recurse -Filter *.md | Where-Object { $_.BaseName -in @('Spec - Home and Monthly Dashboards','Spec - AI Loop','Dashboards Hub','Atomic Habits','Build Plan') } | Select-Object -ExpandProperty FullName
+```
+```
+Name                Count
+----                -----
+evergreen              61
+thought                50
+project                43
+input                  29
+class                  22
+concept                20
+brainstorm             19
+output                  8
+review                  7
+audit-dashboard         2
+status                  1
+snapshot-register       1
+promotion-queue         1
+promotion-index         1
+policy                  1
+plan                    1
+`string`                1
+operating-guide         1
+`object`                1
+template                1
+decision-register       1
+dashboard               1
+control-center          1
+change-log              1
+capability-register     1
+board                   1
+operating-rules         1
+"#                      1
+
+
+D:\_Anant\20_Progress\Documents\The Plan\00_Live\Books\Atomic Habits.md
+D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Build Plan.md
+D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md
+D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - AI Loop.md
+D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md
+```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Metadata\For Everything.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Metadata\For Thoughts.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Metadata\For Evergreen.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Note Types and Frontmatter.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -263,9 +401,9 @@ Other type values exist in the vault, each in one or two notes, for example `das
 4. Wikilinks in `notes` and `related_progress` are quoted strings.
 5. `tags` entries have no leading `#`.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Daily Note Schema.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -340,9 +478,9 @@ After any write to a daily note, check the following and report failures without
 
 The streak is computed from this schema by [[Streak Rule]].
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Streak Rule.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -411,7 +549,7 @@ at_risk    = prev_miss and not today_met
 
 Score ring: red under 3 categories, golden orange at 3 and 4, green at 5 (Decision 31).
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Naming and Folder Map.md`
 ```
 ---
@@ -470,7 +608,7 @@ Rules for every file name:
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\References\Tool Reference Template.md`
-```
+````
 ---
 type: template
 status: sprout
@@ -528,25 +666,35 @@ The command or action run, in this vault, and the result. A syntax-only check do
 Known constraints, for example mobile support or required licences.
 ```
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\The Plan Vault Architecture.md`
 ```diff
 - - The vault's own root `CLAUDE.md` still describes the old Jarvis-mirrored folder scheme (`60_Claude/05_Clippings`, `00_Inbox`) and needs a full rewrite to match this architecture
-
+- 
 + - The vault's own root `CLAUDE.md` still describes the old Jarvis-mirrored folder scheme (`60_Claude/05_Clippings`, `00_Inbox`) and needs a full rewrite to match this architecture
-
-## Current standards
-
-Written 2026-10-13 from [[Spec - Streak and Daily Note]]. They fill the empty `Standards/` folder noted above.
-
-- [[Note Types and Frontmatter]]
-- [[Daily Note Schema]]
-- [[Streak Rule]]
-- [[Naming and Folder Map]]
-- [[Tool Reference Template]] (in `Standards/References/`)
-
++ 
++ ## Current standards
++ 
++ Written 2026-10-13 from [[Spec - Streak and Daily Note]]. They fill the empty `Standards/` folder noted above.
++ 
++ - [[Note Types and Frontmatter]]
++ - [[Daily Note Schema]]
++ - [[Streak Rule]]
++ - [[Naming and Folder Map]]
++ - [[Tool Reference Template]] (in `Standards/References/`)
++ 
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Select-String -Path 30_Order\\Standards\\*.md,30_Order\\Standards\\References\\*.md -Pattern \u0027—\u0027 | Select-Object Path,LineNumber | Where-Object { $_.Path -notmatch \u0027Vault Architecture\u0027 }; \"--- unresolved:\"; \u0026 obsidian unresolved verbose 2\u003e\u00261 | Select-String -Pattern \u0027Standards|2025-12|-2025|-2026\u0027 | Select-Object -First 30"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; Select-String -Path 30_Order\Standards\*.md,30_Order\Standards\References\*.md -Pattern '—' | Select-Object Path,LineNumber | Where-Object { $_.Path -notmatch 'Vault Architecture' }; "--- unresolved:"; & obsidian unresolved verbose 2>&1 | Select-String -Pattern 'Standards|2025-12|-2025|-2026' | Select-Object -First 30
+```
+```
+--- unresolved:
+
+23-12-2025	1	00_Live/Enumerate/Weekly/2025-W52.md
+25-12-2025	1	00_Live/Enumerate/Weekly/2025-W52.md
+the-plan-vault-structure	1	30_Order/Standards/The Plan Vault Architecture.md
+```
 
 ## You
 
@@ -597,24 +745,203 @@ Part 1 and Part 2 are done, and your three extras too. Every check passed, apart
 
 ### Tool Calls
 
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; $d=\"00_Live/Enumerate/Daily\"; $files = Get-ChildItem \"$d\" -Filter *.md -Name; foreach($f in $files){ if($f -match \u0027^(\\d{2})-(\\d{2})-(\\d{4})\\.md$\u0027){ $new=\"$($Matches[3])-$($Matches[2])-$($Matches[1]).md\" } elseif($f -eq \u002722-12-2025 and before.md\u0027){ $new=\u00272025-12-22.md\u0027 } else { continue }; $r = \u0026 obsidian move path=\"$d/$f\" to=\"$d/$new\" 2\u003e\u00261; \"$f -\u003e $new : $r\" }"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \"count: \" + (Get-ChildItem 00_Live\\Enumerate\\Daily -Filter *.md).Count; \"old-named left: \" + (Get-ChildItem 00_Live\\Enumerate\\Daily -Filter *.md | Where-Object { $_.Name -notmatch \u0027^\\d{4}-\\d{2}-\\d{2}\\.md$\u0027 }).Count; \"--- links:\"; Select-String -Path 00_Live\\Enumerate\\Weekly\\2025-W52.md,00_Live\\Enumerate\\Enumerate*.md -Pattern \u0027\\[\\[\\d{2,4}-\\d{2}-\\d{2,4}\u0027; \"--- unresolved:\"; \u0026 obsidian unresolved verbose 2\u003e\u00261 | Select-String -Pattern \u0027\\d{2}-\\d{2}-\\d{4}|\\d{4}-\\d{2}-\\d{2}\u0027; \"--- open:\"; \u0026 obsidian read path=\"00_Live/Enumerate/Daily/2026-04-05.md\" 2\u003e\u00261 | Select-Object -First 4; \"--- backlinks:\"; \u0026 obsidian backlinks path=\"00_Live/Enumerate/Daily/2026-04-05.md\" 2\u003e\u00261; \"--- dv:\"; \u0026 obsidian eval code=\"const p=app.plugins.plugins.dataview; const r=p.api.pages(\u0027\"\"00_Live/Enumerate/Daily\"\"\u0027); JSON.stringify(r.array().map(x=\u003e[x.file.name, x.file.day?x.file.day.toISODate():null]))\" 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \u0026 obsidian eval code=\"const p=app.plugins.plugins.dataview; const x=p.api.page(\u002700_Live/Enumerate/Daily/2026-04-05.md\u0027); JSON.stringify({ver:p.manifest.version, keys:Object.keys(x.file), day:String(x.file.day), dayType:typeof x.file.day, ctime:String(x.file.ctime), rawDayInPage:!!p.index.pages.get(\u002700_Live/Enumerate/Daily/2026-04-05.md\u0027).day, pagesDay:String(p.index.pages.get(\u002700_Live/Enumerate/Daily/2026-04-05.md\u0027).day)})\" 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \u0026 obsidian eval code=\"const p=app.plugins.plugins.dataview; const lint=p.api.page(\u002760_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md\u0027); const f=app.vault.getAbstractFileByPath(\u002700_Live/Enumerate/Daily/2026-04-05.md\u0027); app.metadataCache.trigger(\u0027changed\u0027, f); await new Promise(r=\u003esetTimeout(r,1500)); const x=p.api.page(f.path); JSON.stringify({lintDay:String(lint.file.day), after:String(x.file.day)})\" 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \u0026 obsidian eval code=\"const p=app.plugins.plugins.dataview; const lint=p.api.page(\u002760_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md\u0027); const f=app.vault.getAbstractFileByPath(\u002700_Live/Enumerate/Daily/2026-04-05.md\u0027); app.metadataCache.trigger(\u0027changed\u0027, f); new Promise(r=\u003esetTimeout(()=\u003e{const x=p.api.page(f.path); r(JSON.stringify({lintDay:String(lint.file.day), after:String(x.file.day)}))},2000))\" 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \u0026 obsidian eval code=\"const p=app.plugins.plugins.dataview; const f=app.vault.getAbstractFileByPath(\u002700_Live/Enumerate/Daily/2026-04-05.md\u0027); app.vault.trigger(\u0027modify\u0027, f); new Promise(r=\u003esetTimeout(()=\u003e{const x=p.api.page(f.path); r(String(x.file.day)+\u0027 | \u0027+String(x.file.cday))},3000))\" 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \u0026 obsidian eval code=\"const p=app.plugins.plugins.dataview; app.vault.getFiles().filter(f=\u003ef.path.startsWith(\u002700_Live/Enumerate/Daily/\u0027)).forEach(f=\u003eapp.vault.trigger(\u0027modify\u0027, f)); new Promise(r=\u003esetTimeout(()=\u003e{const a=p.api.pages(\u0027\"\"00_Live/Enumerate/Daily\"\"\u0027).array(); r(a.length+\u0027 pages; with day: \u0027+a.filter(x=\u003ex.file.day).length+\u0027; mismatches: \u0027+JSON.stringify(a.filter(x=\u003e!x.file.day||x.file.day.toISODate()!==x.file.name).map(x=\u003ex.file.name)))},5000))\" 2\u003e\u00261; \"--- monthly + similar targets:\"; Get-ChildItem -Recurse -File -Filter *.md | Where-Object { $_.BaseName -match \u0027vault.structure|^20(25|26)-(01|03|06|12)$\u0027 } | Select-Object -ExpandProperty FullName; Get-ChildItem 00_Live\\Enumerate\\Monthly -Name"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; $d=\"00_Live/Enumerate/Monthly\"; foreach($f in \u0027Monthly\u0027){ }; Get-ChildItem $d -Name | ForEach-Object { if($_ -match \u0027^(\\d{2})-(\\d{4})\\.md$\u0027){ $new=\"$($Matches[2])-$($Matches[1]).md\"; \"$_ -\u003e $new : \" + (\u0026 obsidian move path=\"$d/$_\" to=\"$d/$new\" 2\u003e\u00261) } }; \"--- old monthly refs left:\"; Select-String -Path (Get-ChildItem -Recurse -Filter *.md -File | Where-Object { $_.FullName -notmatch \u0027\\\\(50_Archive|\\.obsidian|\\.git)\\\\\u0027 }).FullName -Pattern \u0027\\[\\[(12-2025|01-2026|03-2026|06-2026)[\\]|#]\u0027 | Select-Object -First 20 Path,LineNumber,Line"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; $d="00_Live/Enumerate/Daily"; $files = Get-ChildItem "$d" -Filter *.md -Name; foreach($f in $files){ if($f -match '^(\d{2})-(\d{2})-(\d{4})\.md$'){ $new="$($Matches[3])-$($Matches[2])-$($Matches[1]).md" } elseif($f -eq '22-12-2025 and before.md'){ $new='2025-12-22.md' } else { continue }; $r = & obsidian move path="$d/$f" to="$d/$new" 2>&1; "$f -> $new : $r" }
+```
+```
+01-03-2026.md -> 2026-03-01.md : Moved: 00_Live/Enumerate/Daily/01-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-01.md
+01-06-2026.md -> 2026-06-01.md : Moved: 00_Live/Enumerate/Daily/01-06-2026.md -> 00_Live/Enumerate/Daily/2026-06-01.md
+01-07-2026.md -> 2026-07-01.md : Moved: 00_Live/Enumerate/Daily/01-07-2026.md -> 00_Live/Enumerate/Daily/2026-07-01.md
+04-06-2026.md -> 2026-06-04.md : Moved: 00_Live/Enumerate/Daily/04-06-2026.md -> 00_Live/Enumerate/Daily/2026-06-04.md
+05-04-2026.md -> 2026-04-05.md : Moved: 00_Live/Enumerate/Daily/05-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-05.md
+05-10-2026.md -> 2026-10-05.md : Moved: 00_Live/Enumerate/Daily/05-10-2026.md -> 00_Live/Enumerate/Daily/2026-10-05.md
+06-04-2026.md -> 2026-04-06.md : Moved: 00_Live/Enumerate/Daily/06-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-06.md
+07-04-2026.md -> 2026-04-07.md : Moved: 00_Live/Enumerate/Daily/07-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-07.md
+08-04-2026.md -> 2026-04-08.md : Moved: 00_Live/Enumerate/Daily/08-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-08.md
+08-07-2026.md -> 2026-07-08.md : Moved: 00_Live/Enumerate/Daily/08-07-2026.md -> 00_Live/Enumerate/Daily/2026-07-08.md
+09-05-2026.md -> 2026-05-09.md : Moved: 00_Live/Enumerate/Daily/09-05-2026.md -> 00_Live/Enumerate/Daily/2026-05-09.md
+10-04-2026.md -> 2026-04-10.md : Moved: 00_Live/Enumerate/Daily/10-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-10.md
+11-06-2026.md -> 2026-06-11.md : Moved: 00_Live/Enumerate/Daily/11-06-2026.md -> 00_Live/Enumerate/Daily/2026-06-11.md
+12-10-2026.md -> 2026-10-12.md : Moved: 00_Live/Enumerate/Daily/12-10-2026.md -> 00_Live/Enumerate/Daily/2026-10-12.md
+13-06-2026.md -> 2026-06-13.md : Moved: 00_Live/Enumerate/Daily/13-06-2026.md -> 00_Live/Enumerate/Daily/2026-06-13.md
+16-04-2026.md -> 2026-04-16.md : Moved: 00_Live/Enumerate/Daily/16-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-16.md
+17-03-2026.md -> 2026-03-17.md : Moved: 00_Live/Enumerate/Daily/17-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-17.md
+17-04-2026.md -> 2026-04-17.md : Moved: 00_Live/Enumerate/Daily/17-04-2026.md -> 00_Live/Enumerate/Daily/2026-04-17.md
+19-03-2026.md -> 2026-03-19.md : Moved: 00_Live/Enumerate/Daily/19-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-19.md
+20-03-2026.md -> 2026-03-20.md : Moved: 00_Live/Enumerate/Daily/20-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-20.md
+21-03-2026.md -> 2026-03-21.md : Moved: 00_Live/Enumerate/Daily/21-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-21.md
+22-05-2026.md -> 2026-05-22.md : Moved: 00_Live/Enumerate/Daily/22-05-2026.md -> 00_Live/Enumerate/Daily/2026-05-22.md
+22-12-2025 and before.md -> 2025-12-22.md : Moved: 00_Live/Enumerate/Daily/22-12-2025 and before.md -> 00_Live/Enumerate/Daily/2025-12-22.md
+23-03-2026.md -> 2026-03-23.md : Moved: 00_Live/Enumerate/Daily/23-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-23.md
+24-05-2026.md -> 2026-05-24.md : Moved: 00_Live/Enumerate/Daily/24-05-2026.md -> 00_Live/Enumerate/Daily/2026-05-24.md
+24-12-2025.md -> 2025-12-24.md : Moved: 00_Live/Enumerate/Daily/24-12-2025.md -> 00_Live/Enumerate/Daily/2025-12-24.md
+25-03-2026.md -> 2026-03-25.md : Moved: 00_Live/Enumerate/Daily/25-03-2026.md -> 00_Live/Enumerate/Daily/2026-03-25.md
+26-09-2026.md -> 2026-09-26.md : Moved: 00_Live/Enumerate/Daily/26-09-2026.md -> 00_Live/Enumerate/Daily/2026-09-26.md
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; "count: " + (Get-ChildItem 00_Live\Enumerate\Daily -Filter *.md).Count; "old-named left: " + (Get-ChildItem 00_Live\Enumerate\Daily -Filter *.md | Where-Object { $_.Name -notmatch '^\d{4}-\d{2}-\d{2}\.md$' }).Count; "--- links:"; Select-String -Path 00_Live\Enumerate\Weekly\2025-W52.md,00_Live\Enumerate\Enumerate*.md -Pattern '\[\[\d{2,4}-\d{2}-\d{2,4}'; "--- unresolved:"; & obsidian unresolved verbose 2>&1 | Select-String -Pattern '\d{2}-\d{2}-\d{4}|\d{4}-\d{2}-\d{2}'; "--- open:"; & obsidian read path="00_Live/Enumerate/Daily/2026-04-05.md" 2>&1 | Select-Object -First 4; "--- backlinks:"; & obsidian backlinks path="00_Live/Enumerate/Daily/2026-04-05.md" 2>&1; "--- dv:"; & obsidian eval code="const p=app.plugins.plugins.dataview; const r=p.api.pages('""00_Live/Enumerate/Daily""'); JSON.stringify(r.array().map(x=>[x.file.name, x.file.day?x.file.day.toISODate():null]))" 2>&1
+```
+```
+count: 28
+old-named left: 0
+--- links:
+
+00_Live\Enumerate\Weekly\2025-W52.md:7:  - "[[2025-12-24]]"
+00_Live\Enumerate\Weekly\2025-W52.md:8:  - "[[23-12-2025]]"
+00_Live\Enumerate\Weekly\2025-W52.md:9:  - "[[2025-12-22]]"
+00_Live\Enumerate\Weekly\2025-W52.md:11:  - "[[25-12-2025]]"
+00_Live\Enumerate\Enumerate Board.md:11:- Highlight - [[2026-04-05|Ego Death]]
+--- unresolved:
+00_Inbox	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+00_Inbox Board	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+10 care coordination challenges draining your healthcare organization’s ROI and operational efficiency	2	
+60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+10_Session_Logs	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+10_Session_Logs Board	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+20_Distilled_Notes Board	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+23-12-2025	1	00_Live/Enumerate/Weekly/2025-W52.md
+25-12-2025	1	00_Live/Enumerate/Weekly/2025-W52.md
+50_Reviews Board	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+60_Claude/30_Source_Summaries/30_Source_Summaries Board	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+60_Claude/30_Source_Summaries/Kairo — Know What's Coming - Summary	7	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 
+2026-04-24.md
+60_Indexes	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+aaif-goose	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+aaif-goose/goose	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+aaif-goosegoose an open source, extensible AI agent that goes beyond code suggestions - install, execute, edit, and 
+test with any LLM	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Aakash Lahoti	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+AI Agents for Sales & GTM Teams	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+AI Training Jobs — Earn $15-$100+hr from Home  Mindrift Remote Freelance AI Work 2026	1	60_Jarvis/50_Reviews/Ops 
+Reports/Lint Report - 2026-04-24.md
+Albert Gu	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+AMI Labs Real World. Real Intelligence.	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Aviv Bick	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Berlin Chen	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Caitlin Wang	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Claude Layer Index	3	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Clippings board	8	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Clippings Index	11	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Cognitive AI	3	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+CSCI 2041 and 4041 Resource Map	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md, 
+60_Jarvis/50_Reviews/Project Brief Reviews/Vault Web Ingestion Audit.md
+deonmenezesopentradex Dashboard-first agent harness for AI-assisted trading workflows.	2	60_Jarvis/50_Reviews/Ops 
+Reports/Lint Report - 2026-04-24.md
+EX Program Recommendations	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Figma	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+GitHub - tradesdontlietradingview-mcp AI-assisted TradingView chart analysis — connect Claude Code to your TradingView 
+Desktop for personal workflow automation	4	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Internship Search Stack	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md, 60_Jarvis/50_Reviews/Project 
+Brief Reviews/Vault Web Ingestion Audit.md
+J. Zico Kolter	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Kairo — Know What's Coming	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Kevin Y. Li	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+log	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Mamba-3 Improved Sequence Modeling using State Space Principles	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 
+2026-04-24.md
+Maverick AI Resource Hub	6	60_Jarvis/01_Prompt_Library/Prompts Index.md, 60_Jarvis/50_Reviews/Ops Reports/Lint Report 
+- 2026-04-24.md
+Maverick AI Resource Hub 1	3	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Maverick Maltin	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Meta	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Multimodal AI	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Open-Source AI	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+OpenTradex	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+public-apis	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+public-apis/public-apis	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+public-apispublic-apis A collective list of free APIs	4	
+50_Archive/copilot/copilot-conversations/Getting_Free_API_Keys@20260425_190530.md, 60_Jarvis/50_Reviews/Ops 
+Reports/Lint Report - 2026-04-24.md
+The User Research Recruiting Platform for Teams	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+tradesdontlietradingview-mcp AI-assisted TradingView chart analysis — connect Claude Code to your TradingView Desktop 
+for personal workflow automation	4	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+Tri Dao	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+TRIBE v2	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+UMN Student Infrastructure	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md, 
+60_Jarvis/50_Reviews/Project Brief Reviews/Vault Web Ingestion Audit.md
+Vault Health Dashboard	2	60_Jarvis/50_Reviews/Ops Reports/Jarvis Ops Report - 2026-04-24 20260424-170132.md, 
+60_Jarvis/50_Reviews/Project Brief Reviews/Jarvis Ops CLI and Operations Layer.md
+Vault Web Ingestion Index	3	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md, 60_Jarvis/50_Reviews/Project 
+Brief Reviews/Vault Web Ingestion Audit.md
+VectifyAI	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+VectifyAI/PageIndex	1	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+VectifyAIPageIndex 📑 PageIndex Document Index for Vectorless, Reasoning-based RAG	2	60_Jarvis/50_Reviews/Ops 
+Reports/Lint Report - 2026-04-24.md
+Wearable AI	2	60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md
+--- open:
+---
+type: thought
+thought_kind: reflection
+status: sprout
+--- backlinks:
+00_Live/Enumerate/Enumerate Board.md
+--- dv:
+=> [["2026-03-01",null],["2026-06-01",null],["2026-07-01",null],["2026-06-04",null],["2026-04-05",null],["2026-10-05",null],["2026-04-06",null],["2026-04-07",null],["2026-04-08",null],["2026-07-08",null],["2026-05-09",null],["2026-04-10",null],["2026-06-11",null],["2026-10-12",null],["2026-06-13",null],["2026-04-16",null],["2026-03-17",null],["2026-04-17",null],["2026-03-19",null],["2026-03-20",null],["2026-03-21",null],["2026-05-22",null],["2025-12-22",null],["2026-03-23",null],["2026-05-24",null],["2025-12-24",null],["2026-03-25",null],["2026-09-26",null]]
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; & obsidian eval code="const p=app.plugins.plugins.dataview; const x=p.api.page('00_Live/Enumerate/Daily/2026-04-05.md'); JSON.stringify({ver:p.manifest.version, keys:Object.keys(x.file), day:String(x.file.day), dayType:typeof x.file.day, ctime:String(x.file.ctime), rawDayInPage:!!p.index.pages.get('00_Live/Enumerate/Daily/2026-04-05.md').day, pagesDay:String(p.index.pages.get('00_Live/Enumerate/Daily/2026-04-05.md').day)})" 2>&1
+```
+```
+=> {"ver":"0.5.68","keys":["path","folder","name","link","outlinks","inlinks","etags","tags","aliases","lists","tasks","ctime","cday","mtime","mday","size","starred","frontmatter","ext"],"day":"undefined","dayType":"undefined","ctime":"2026-04-05T15:17:44.147-05:00","rawDayInPage":false,"pagesDay":"undefined"}
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; & obsidian eval code="const p=app.plugins.plugins.dataview; const lint=p.api.page('60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md'); const f=app.vault.getAbstractFileByPath('00_Live/Enumerate/Daily/2026-04-05.md'); app.metadataCache.trigger('changed', f); await new Promise(r=>setTimeout(r,1500)); const x=p.api.page(f.path); JSON.stringify({lintDay:String(lint.file.day), after:String(x.file.day)})" 2>&1
+```
+```
+Error: await is only valid in async functions and the top level bodies of modules
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; & obsidian eval code="const p=app.plugins.plugins.dataview; const lint=p.api.page('60_Jarvis/50_Reviews/Ops Reports/Lint Report - 2026-04-24.md'); const f=app.vault.getAbstractFileByPath('00_Live/Enumerate/Daily/2026-04-05.md'); app.metadataCache.trigger('changed', f); new Promise(r=>setTimeout(()=>{const x=p.api.page(f.path); r(JSON.stringify({lintDay:String(lint.file.day), after:String(x.file.day)}))},2000))" 2>&1
+```
+```
+=> {"lintDay":"2026-04-24T00:00:00.000-05:00","after":"undefined"}
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; & obsidian eval code="const p=app.plugins.plugins.dataview; const f=app.vault.getAbstractFileByPath('00_Live/Enumerate/Daily/2026-04-05.md'); app.vault.trigger('modify', f); new Promise(r=>setTimeout(()=>{const x=p.api.page(f.path); r(String(x.file.day)+' | '+String(x.file.cday))},3000))" 2>&1
+```
+```
+=> 2026-04-05T00:00:00.000-05:00 | 2026-04-05T00:00:00.000-05:00
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; & obsidian eval code="const p=app.plugins.plugins.dataview; app.vault.getFiles().filter(f=>f.path.startsWith('00_Live/Enumerate/Daily/')).forEach(f=>app.vault.trigger('modify', f)); new Promise(r=>setTimeout(()=>{const a=p.api.pages('""00_Live/Enumerate/Daily""').array(); r(a.length+' pages; with day: '+a.filter(x=>x.file.day).length+'; mismatches: '+JSON.stringify(a.filter(x=>!x.file.day||x.file.day.toISODate()!==x.file.name).map(x=>x.file.name)))},5000))" 2>&1; "--- monthly + similar targets:"; Get-ChildItem -Recurse -File -Filter *.md | Where-Object { $_.BaseName -match 'vault.structure|^20(25|26)-(01|03|06|12)$' } | Select-Object -ExpandProperty FullName; Get-ChildItem 00_Live\Enumerate\Monthly -Name
+```
+```
+=> 28 pages; with day: 28; mismatches: []
+--- monthly + similar targets:
+D:\_Anant\20_Progress\Documents\The Plan\50_Archive\copilot\copilot-conversations\AI_Second_Brain_Vault_Structure@20260423_203909.md
+01-2026.md
+03-2026.md
+06-2026.md
+12-2025.md
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; $d="00_Live/Enumerate/Monthly"; foreach($f in 'Monthly'){ }; Get-ChildItem $d -Name | ForEach-Object { if($_ -match '^(\d{2})-(\d{4})\.md$'){ $new="$($Matches[2])-$($Matches[1]).md"; "$_ -> $new : " + (& obsidian move path="$d/$_" to="$d/$new" 2>&1) } }; "--- old monthly refs left:"; Select-String -Path (Get-ChildItem -Recurse -Filter *.md -File | Where-Object { $_.FullName -notmatch '\\(50_Archive|\.obsidian|\.git)\\' }).FullName -Pattern '\[\[(12-2025|01-2026|03-2026|06-2026)[\]|#]' | Select-Object -First 20 Path,LineNumber,Line
+```
+```
+01-2026.md -> 2026-01.md : Moved: 00_Live/Enumerate/Monthly/01-2026.md -> 00_Live/Enumerate/Monthly/2026-01.md
+03-2026.md -> 2026-03.md : Moved: 00_Live/Enumerate/Monthly/03-2026.md -> 00_Live/Enumerate/Monthly/2026-03.md
+06-2026.md -> 2026-06.md : Moved: 00_Live/Enumerate/Monthly/06-2026.md -> 00_Live/Enumerate/Monthly/2026-06.md
+12-2025.md -> 2025-12.md : Moved: 00_Live/Enumerate/Monthly/12-2025.md -> 00_Live/Enumerate/Monthly/2025-12.md
+--- old monthly refs left:
+```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Weekly\2025-W52.md`
 ```diff
 -   - "[[23-12-2025]]"
-
+- 
 + 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Weekly\2025-W52.md`
 ```diff
 -   - "[[25-12-2025]]"
-
+- 
 + 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\The Plan Vault Architecture.md`
@@ -632,7 +959,92 @@ Part 1 and Part 2 are done, and your three extras too. Every check passed, apart
 - next: "Add the weekly and monthly naming rule once it is decided"
 + next: "Record the monthly rename (MM-YYYY to YYYY-MM) in the Decisions Log if Anant wants it logged"
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \"--- unresolved touching date names / our files:\"; \u0026 obsidian unresolved verbose 2\u003e\u00261 | Select-String -Pattern \u0027^\\d{2}-\\d{2}-\\d{4}|^\\d{4}-\\d{2}|the-plan-vault|00_Live/Enumerate|30_Order\u0027; \"--- W52:\"; Get-Content 00_Live\\Enumerate\\Weekly\\2025-W52.md -TotalCount 14; \"--- monthly backlinks:\"; \u0026 obsidian backlinks path=\"00_Live/Enumerate/Monthly/2025-12.md\" 2\u003e\u00261; \"--- git:\"; git status --short | Select-Object -First 5; git status --short | Measure-Object | Select-Object -ExpandProperty Count"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; "--- unresolved touching date names / our files:"; & obsidian unresolved verbose 2>&1 | Select-String -Pattern '^\d{2}-\d{2}-\d{4}|^\d{4}-\d{2}|the-plan-vault|00_Live/Enumerate|30_Order'; "--- W52:"; Get-Content 00_Live\Enumerate\Weekly\2025-W52.md -TotalCount 14; "--- monthly backlinks:"; & obsidian backlinks path="00_Live/Enumerate/Monthly/2025-12.md" 2>&1; "--- git:"; git status --short | Select-Object -First 5; git status --short | Measure-Object | Select-Object -ExpandProperty Count
+```
+```
+--- unresolved touching date names / our files:
+
+40_Resources/Obsidian/Data View's/Inbox Dashboard	1	30_Order/Templates/MOC.md
+40_Resources/Obsidian/Data View's/UMN Dashboard	1	30_Order/Templates/MOC.md
+Concept - ...	31	20_Progress/Projects/AI Second Brain/My AI Twin.md, 20_Progress/Projects/CS/Hivemind.md, 
+30_Order/Templates/Classes/Homework Template.md, 30_Order/Templates/Classes/Project Template.md, 
+30_Order/Templates/Classes/Week Template.md, 50_Archive/Previous Classes/CSCI/CSCI 2041/Week - 3.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2041/Week - 4.md, 50_Archive/Previous Classes/CSCI/CSCI 2041/Week - 5.md, 
+50_Archive/Previous Classes/CSCI/CSCI 3923/Homework/In Class Assignment.md, 50_Archive/Previous Classes/CSCI/CSCI 
+3923/Homework/Paper - 1.md, 50_Archive/Previous Classes/CSCI/CSCI 3923/Week - 7.md, 50_Archive/Previous Classes/Lib 
+Ed/BIOL 1012/Post Labs.md, 50_Archive/Previous Classes/Lib Ed/BIOL 1012/Theme 1/Concepts/Course Packets.md, 
+50_Archive/Previous Classes/Lib Ed/BIOL 1012/Theme 1/Week - 2.md, 50_Archive/Previous Classes/Lib Ed/BIOL 1012/Theme 
+1/Week - 5.md, 50_Archive/Previous Classes/Lib Ed/MUS 1013/Reading Assignments.md, 50_Archive/Previous Classes/Lib 
+Ed/MUS 1013/Week - 3.md
+HW__ - ...	25	10_UMN/Fall'26 Syllabus.md, 20_Progress/Projects/CS/Back End Analysis - Arc.md, 
+20_Progress/Projects/CS/Hackathons/01_Summit.md, 20_Progress/Projects/CS/Hackathons/4 Day Hackathon.md, 
+30_Order/Templates/Classes/Concept Template.md, 40_Resources/CS/AI/Claude Code.md, 40_Resources/CS/AI/Jan.md, 
+40_Resources/CS/AI/Skills/Skills.md, 40_Resources/CS/Concepts/Cheat Sheet's & Notes.md, 
+40_Resources/CS/Concepts/Ubuntu - WSL.md, 50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts/Untitled.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Clustering, K-n.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Clustering.md, 50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Geometric Transformations, 
+Graphs, Linear Equations, and the Matrix Class.md, 50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Least 
+Squares Classifiers, Optimization, and Gradient Descent.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Least Squares and Feature Engineering.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Linear Independence, Bases, Orthonormality, and Matrices.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Linear Systems, Inverses, Pseudo-Inverse, and Polynomial Interpolation.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2033/Concepts_old/Matrix–Matrix Products, QR Factorization, and Householder Reflectors.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Norms, Distance, Standard Deviation, and Angles.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Singular Value Decomposition and Eigenfaces.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/The Google PageRank Algorithm.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2033/Concepts_old/Vectors, Linear Functions, and the Regression Model.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2041/Concepts/OCaml - Polymorphism.md, 50_Archive/Previous Classes/CSCI/CSCI 2041/Concepts/OCaml - 
+Tautology Problems.md
+Textbook	6	10_UMN/MGMT/Presentation.md, 30_Order/Templates/Classes/Week Template.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2041/Week - 3.md, 50_Archive/Previous Classes/CSCI/CSCI 2041/Week - 5.md, 50_Archive/Previous 
+Classes/Lib Ed/BIOL 1012/Theme 1/Week - 5.md, 50_Archive/Previous Classes/Lib Ed/MUS 1013/Week - 3.md
+W__ L__ - ...	23	10_UMN/Fall'26 Syllabus.md, 20_Progress/Projects/CS/Hackathons/01_Summit.md, 
+20_Progress/Projects/CS/Hackathons/4 Day Hackathon.md, 30_Order/Templates/Classes/Concept Template.md, 
+40_Resources/CS/AI/Claude Code.md, 40_Resources/CS/AI/Skills/Skills.md, 40_Resources/CS/Concepts/Cheat Sheet's & 
+Notes.md, 40_Resources/CS/Concepts/Ubuntu - WSL.md, 50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts/Untitled.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Clustering, K-n.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Clustering.md, 50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Geometric Transformations, 
+Graphs, Linear Equations, and the Matrix Class.md, 50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Least 
+Squares Classifiers, Optimization, and Gradient Descent.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Least Squares and Feature Engineering.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Linear Independence, Bases, Orthonormality, and Matrices.md, 50_Archive/Previous Classes/CSCI/CSCI 
+2033/Concepts_old/Linear Systems, Inverses, Pseudo-Inverse, and Polynomial Interpolation.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2033/Concepts_old/Matrix–Matrix Products, QR Factorization, and Householder Reflectors.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Norms, Distance, Standard Deviation, and Angles.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/Singular Value Decomposition and Eigenfaces.md, 
+50_Archive/Previous Classes/CSCI/CSCI 2033/Concepts_old/The Google PageRank Algorithm.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2033/Concepts_old/Vectors, Linear Functions, and the Regression Model.md, 50_Archive/Previous 
+Classes/CSCI/CSCI 2041/Concepts/OCaml - Polymorphism.md, 50_Archive/Previous Classes/CSCI/CSCI 2041/Concepts/OCaml - 
+Tautology Problems.md
+--- W52:
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: 2025-12-24
+related_progress:
+  - "[[2025-12-24]]"
+  - "[[2025-12-22]]"
+  - "[[2025]]"
+tags:
+  - thought
+  - brainstorm
+next: "[[2025-12]]"
+---
+--- monthly backlinks:
+00_Live/Enumerate/Daily/2025-12-22.md
+00_Live/Enumerate/Daily/2025-12-24.md
+00_Live/Enumerate/Weekly/2025-W52.md
+--- git:
+ D 00_Live/Enumerate/Daily/01-03-2026.md
+ D 00_Live/Enumerate/Daily/01-06-2026.md
+ D 00_Live/Enumerate/Daily/01-07-2026.md
+ D 00_Live/Enumerate/Daily/04-06-2026.md
+ D 00_Live/Enumerate/Daily/05-04-2026.md
+75
+```
 
 ## You
 
@@ -651,7 +1063,7 @@ Both Decisions Log changes are in. This wraps up the session.
 
 ### Tool Calls
 
-- `Glob` -- pattern `40_Resources/Obsidian/Dashboards/Research - Platform Facts.md` path ``
+- `Glob` -- pattern `40_Resources/Obsidian/Dashboards/Research - Platform Facts.md` path ` `
 - `Grep` -- pattern `References|Decision 27|\| 27 \|` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Research - Platform Facts.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
@@ -662,15 +1074,15 @@ Both Decisions Log changes are in. This wraps up the session.
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
 - | 34 | Dashboard medium | Not a note, canvas, Kanban or drawing. Homepage opens it on launch. Research the latest Obsidian methods. | Proposed answer: a private plugin view. See [[Dashboard Build Hub]]. Needs Anant's go-ahead for S0. |
-
+- 
 + | 34 | Dashboard medium | Not a note, canvas, Kanban or drawing. Homepage opens it on launch. Research the latest Obsidian methods. | Proposed answer: a private plugin view. See [[Dashboard Build Hub]]. Needs Anant's go-ahead for S0. |
-| 35 | ISO rename done (2026-10-13) | Approved and executed. 27 daily notes `DD-MM-YYYY` to `YYYY-MM-DD`; `22-12-2025 and before` became `2025-12-22`; 4 monthly notes `MM-YYYY` to `YYYY-MM` (`2025-12`, `2026-01`, `2026-03`, `2026-06`). | Moved with `obsidian move`, so wikilinks updated. Dataview returns `file.day` for all 28 dailies (after a reindex, since Dataview does not reparse on rename). Two dead links to missing 23-12-2025 and 25-12-2025 were removed from `2025-W52`. Weekly and yearly names were already ISO-style. See [[Naming and Folder Map]]. |
-
++ | 35 | ISO rename done (2026-10-13) | Approved and executed. 27 daily notes `DD-MM-YYYY` to `YYYY-MM-DD`; `22-12-2025 and before` became `2025-12-22`; 4 monthly notes `MM-YYYY` to `YYYY-MM` (`2025-12`, `2026-01`, `2026-03`, `2026-06`). | Moved with `obsidian move`, so wikilinks updated. Dataview returns `file.day` for all 28 dailies (after a reindex, since Dataview does not reparse on rename). Two dead links to missing 23-12-2025 and 25-12-2025 were removed from `2025-W52`. Weekly and yearly names were already ISO-style. See [[Naming and Folder Map]]. |
++ 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
 - - Reference notes live in `30_Order/Standards/References/`.
-
+- 
 + 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Naming and Folder Map.md`
@@ -678,7 +1090,15 @@ Both Decisions Log changes are in. This wraps up the session.
 - next: "Record the monthly rename (MM-YYYY to YYYY-MM) in the Decisions Log if Anant wants it logged"
 + next: "Add the weekly naming rule if it ever changes"
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; \u0026 obsidian unresolved verbose 2\u003e\u00261 | Select-String -Pattern \u0027Tool Reference|Naming and Folder|Decisions Log\u0027; \"unresolved check done\"; Select-String -Path \"40_Resources\\Obsidian\\Dashboards\\Decisions Log.md\" -Pattern \u0027—\u0027; Select-String -Path \"40_Resources\\Obsidian\\Dashboards\\Decisions Log.md\" -Pattern \u0027^\\| (27|35) \\|\u0027 | ForEach-Object { $_.Line.Substring(0,60) }"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; & obsidian unresolved verbose 2>&1 | Select-String -Pattern 'Tool Reference|Naming and Folder|Decisions Log'; "unresolved check done"; Select-String -Path "40_Resources\Obsidian\Dashboards\Decisions Log.md" -Pattern '—'; Select-String -Path "40_Resources\Obsidian\Dashboards\Decisions Log.md" -Pattern '^\| (27|35) \|' | ForEach-Object { $_.Line.Substring(0,60) }
+```
+```
+unresolved check done
+| 27 | Tool references | One reference note per tool in `30_
+| 35 | ISO rename done (2026-10-13) | Approved and executed.
+```
 
 ## Actions Taken
 
@@ -699,5 +1119,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

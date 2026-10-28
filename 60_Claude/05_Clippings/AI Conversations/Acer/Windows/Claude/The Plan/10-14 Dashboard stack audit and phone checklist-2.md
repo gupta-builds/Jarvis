@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,23 +6,26 @@ source_os: windows
 title: "Dashboard stack audit and phone checklist"
 started_at: 2026-10-14T15:16:39
 ended_at: 2026-10-14T15:17:06
-exported_at: 2026-10-17T21:07:05
+exported_at: 2026-10-28T16:15:51
 duration_minutes: 0.4
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: a07e046f-be8c-448a-bf09-57791c0fad30
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-14
+updated: 2026-10-28
 turn_count: 5
 tools_used:
   Glob: 2
   Read: 2
 tokens:
-  input: 12
-  output: 1641
-  cache_creation: 123926
-  cache_read: 207082
-  total: 332661
-cost_usd: null
+  input: 4
+  output: 341
+  cache_creation: 30262
+  cache_read: 84638
+  total: 115245
+cost_usd: 0.13293
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -83,8 +86,8 @@ I'll start with the Dashboards Hub and the two named notes.
 
 ### Tool Calls
 
-- `Glob` -- pattern `**/{Dashboards Hub,Spec - Home and Monthly Dashboards,Research - Platform Facts}.md` path ``
-- `Glob` -- pattern `.obsidian/{community-plugins.json,core-plugins.json,plugins/*/manifest.json}` path ``
+- `Glob` -- pattern `**/{Dashboards Hub,Spec - Home and Monthly Dashboards,Research - Platform Facts}.md` path ` `
+- `Glob` -- pattern `.obsidian/{community-plugins.json,core-plugins.json,plugins/*/manifest.json}` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\git-sync\plan-git-sync.ps1`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
 
@@ -105,5 +108,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Jarvis 30_Order rebuild and cleanup"
 started_at: 2026-10-17T17:32:17
 ended_at: 2026-10-17T17:41:06
-exported_at: 2026-10-18T13:15:36
+exported_at: 2026-10-28T16:15:44
 duration_minutes: 8.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: e5420810-3e08-432d-b29a-35be8ea781b4
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-17
+updated: 2026-10-28
 turn_count: 5
 tools_used:
   Bash: 5
@@ -19,12 +22,12 @@ tools_used:
   PowerShell: 5
   Read: 2
 tokens:
-  input: 50
-  output: 26417
-  cache_creation: 337599
-  cache_read: 1616798
-  total: 1980864
-cost_usd: null
+  input: 18
+  output: 10068
+  cache_creation: 93977
+  cache_read: 640785
+  total: 744848
+cost_usd: 0.540702
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -275,14 +278,386 @@ I can also write this up as a note if you want it kept. I haven't, per your no-e
 
 ### Tool Calls
 
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\"; Get-ChildItem -Recurse -File | Group-Object { ($_.FullName.Substring((Get-Location).Path.Length+1) -split \u0027\\\\\u0027)[0] } | Select Name,Count | Format-Table -AutoSize; \"Total:\"; (Get-ChildItem -Recurse -File).Count; \"By ext:\"; Get-ChildItem -Recurse -File | Group-Object Extension | Select Name,Count | Format-Table -AutoSize","description":"Count files in 30_Order by folder and extension"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\"; foreach($top in \u0027Standards\u0027,\u0027Templates\u0027,\u0027Workflows\u0027,\u0027Specs\u0027){ if(Test-Path $top){ \"== $top\"; Get-ChildItem $top -Directory | ForEach-Object { $n=(Get-ChildItem $_.FullName -Recurse -File).Count; $b=(Get-ChildItem $_.FullName -Recurse -File | Measure-Object Length -Sum).Sum; \"{0,-40} {1,4} files {2,8} bytes\" -f $_.Name,$n,$b }; \"  (loose files at top: \" + (Get-ChildItem $top -File).Count + \")\" } }; Get-ChildItem -File | Select Name,Length","description":"Per-family file counts and sizes in 30_Order"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\"; Get-ChildItem Standards -Recurse -File | ForEach-Object { \"{0,6}  {1}\" -f $_.Length, $_.FullName.Substring((Get-Location).Path.Length+1) }; \"---- spec-like:\"; Get-ChildItem -Recurse -File | Where-Object { $_.Name -match \u0027spec\u0027 } | Select -First 20 FullName","description":"List all Standards files with sizes, look for Specs"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order"; Get-ChildItem -Recurse -File | Group-Object { ($_.FullName.Substring((Get-Location).Path.Length+1) -split '\\')[0] } | Select Name,Count | Format-Table -AutoSize; "Total:"; (Get-ChildItem -Recurse -File).Count; "By ext:"; Get-ChildItem -Recurse -File | Group-Object Extension | Select Name,Count | Format-Table -AutoSize
+```
+```
+Name                        Count
+----                        -----
+00_How This Folder Works.md     1
+Note Type Registry.md           1
+Standards                      74
+System                         66
+Templates                      78
+Workflows                      49
+
+Total:
+269
+By ext:
+
+Name       Count
+----       -----
+.gitignore     1
+.js            1
+.json          9
+.jsonl         1
+.log           4
+.md          212
+.ps1          19
+.py           11
+.sql           1
+.sqlite        1
+.txt           1
+.vbs           8
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order"; foreach($top in 'Standards','Templates','Workflows','Specs'){ if(Test-Path $top){ "== $top"; Get-ChildItem $top -Directory | ForEach-Object { $n=(Get-ChildItem $_.FullName -Recurse -File).Count; $b=(Get-ChildItem $_.FullName -Recurse -File | Measure-Object Length -Sum).Sum; "{0,-40} {1,4} files {2,8} bytes" -f $_.Name,$n,$b }; "  (loose files at top: " + (Get-ChildItem $top -File).Count + ")" } }; Get-ChildItem -File | Select Name,Length
+```
+```
+== Standards
+AI Loop                                    10 files    40230 bytes
+Courses                                    16 files    78818 bytes
+Enrich                                     11 files    48492 bytes
+Ingestion                                   5 files    16833 bytes
+Internship                                 12 files    55098 bytes
+Operations                                  4 files    20963 bytes
+Projects                                    5 files    23588 bytes
+  (loose files at top: 11)
+== Templates
+AI Toolkit                                  9 files     7413 bytes
+Capability                                 10 files    10256 bytes
+Career                                     15 files    14926 bytes
+Classes                                    15 files    12021 bytes
+Enumerate                                   4 files     3124 bytes
+Frontmatter                                10 files     5052 bytes
+Knowledge                                   5 files     2595 bytes
+Projects                                    7 files     4120 bytes
+System                                      2 files     1727 bytes
+  (loose files at top: 1)
+== Workflows
+Courses                                    17 files    67693 bytes
+Enrichment                                  7 files    13956 bytes
+Ingestion                                   7 files    13816 bytes
+Internship                                  8 files    20432 bytes
+Operations                                  1 files     2031 bytes
+Projects                                    1 files     1647 bytes
+System                                      2 files     4351 bytes
+Toolkit                                     5 files     9009 bytes
+  (loose files at top: 1)
+
+Name                        Length
+----                        ------
+00_How This Folder Works.md   3817
+Note Type Registry.md        16285
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order"; Get-ChildItem Standards -Recurse -File | ForEach-Object { "{0,6}  {1}" -f $_.Length, $_.FullName.Substring((Get-Location).Path.Length+1) }; "---- spec-like:"; Get-ChildItem -Recurse -File | Where-Object { $_.Name -match 'spec' } | Select -First 20 FullName
+```
+```
+  4055  Standards\Conformance Standard.md
+  3814  Standards\Decoration Standard.md
+  2712  Standards\Editing Standard.md
+  8493  Standards\Frontmatter Standard.md
+  3474  Standards\Generated Output Standard.md
+  3203  Standards\Log Standard.md
+  3855  Standards\MOC Standard.md
+  7978  Standards\Note Kit Standard.md
+  4880  Standards\Plan Standard.md
+  4882  Standards\Project Standard.md
+  3547  Standards\System Component Standard.md
+  6850  Standards\AI Loop\Conversations.md
+  4458  Standards\AI Loop\Graphify Notes.md
+  3083  Standards\AI Loop\Knowledge Noting.md
+  4653  Standards\AI Loop\Logs.md
+  3372  Standards\AI Loop\Memory Management.md
+  3947  Standards\AI Loop\Orchestration.md
+  3410  Standards\AI Loop\Per Project Review.md
+  3860  Standards\AI Loop\Review System.md
+  2404  Standards\AI Loop\Tool Calls.md
+  4193  Standards\AI Loop\Tool Setup.md
+  5850  Standards\Courses\Board Standard.md
+  6220  Standards\Courses\Concept Standard.md
+  6242  Standards\Courses\Course Project Standard.md
+  3333  Standards\Courses\Degree Audit Standard.md
+  4300  Standards\Courses\Degree Control Standard.md
+  4376  Standards\Courses\Discussion Standard.md
+  4306  Standards\Courses\Exam Material Standard.md
+  4763  Standards\Courses\Exam Standard.md
+  5510  Standards\Courses\Homework Standard.md
+  4148  Standards\Courses\Lab Standard.md
+  4775  Standards\Courses\Preparation Standard.md
+  3993  Standards\Courses\Self-Study Track Standard.md
+  4174  Standards\Courses\Textbook Map Standard.md
+  5594  Standards\Courses\Textbook Standard.md
+  4873  Standards\Courses\Weekly Board Standard.md
+  6361  Standards\Courses\Weekly Standard.md
+  4271  Standards\Enrich\Audit Report Standard.md
+  4603  Standards\Enrich\Capability Review Standard.md
+  6311  Standards\Enrich\Evergreen Standard.md
+  3581  Standards\Enrich\Human Writing Standard.md
+  5018  Standards\Enrich\Output Standard.md
+  3710  Standards\Enrich\Plugins Usage Standard.md
+  4475  Standards\Enrich\Reference Standard.md
+  4062  Standards\Enrich\Repo Evaluation Standard.md
+  5936  Standards\Enrich\Review Standard.md
+  5623  Standards\Enrich\Source Summary Standard.md
+   902  Standards\Enrich\Tracking Standard.md
+  3674  Standards\Ingestion\Action Standard.md
+  4555  Standards\Ingestion\Brief Standard.md
+  3443  Standards\Ingestion\Clipping Standard.md
+  2283  Standards\Ingestion\Humanized Writing Standard.md
+  2878  Standards\Ingestion\PDF Extraction Standard.md
+  4686  Standards\Internship\Applying Standard.md
+  3105  Standards\Internship\Career Fair Standard.md
+  4143  Standards\Internship\Contact Standard.md
+  4355  Standards\Internship\Cover Letter Alteration Standard.md
+  4555  Standards\Internship\Deadline and Intake Triage Standard.md
+  7119  Standards\Internship\Internship Loop Review Standard.md
+  4947  Standards\Internship\Internship Notes Standard.md
+  4563  Standards\Internship\Internship Tracker Standard.md
+  4069  Standards\Internship\Interview Prep Standard.md
+  4088  Standards\Internship\Mentorship Meeting Standard.md
+  4940  Standards\Internship\Program Standard.md
+  4528  Standards\Internship\Resume Alteration Standard.md
+  5168  Standards\Operations\Daily Note Standard.md
+  4869  Standards\Operations\Dashboard Standard.md
+  5500  Standards\Operations\Field OS Standard.md
+  5426  Standards\Operations\Periodic Review Note Standard.md
+  5106  Standards\Projects\Agent Prompt Standard.md
+  4035  Standards\Projects\Code Mirror Doc Standard.md
+  4397  Standards\Projects\Machine Runbook Standard.md
+  5927  Standards\Projects\Spec and Plan Standard.md
+  4123  Standards\Projects\Technical Concept Standard.md
+---- spec-like:
+
+FullName
+--------
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Projects\Spec and Plan Standard.md
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Projects\Project Spec Template.md
+```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Note Type Registry.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\00_How This Folder Works.md`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\"; foreach($t in \u0027Templates\u0027,\u0027Workflows\u0027){ \"===== $t\"; Get-ChildItem $t -Recurse -File | ForEach-Object { \"{0,6}  {1}\" -f $_.Length, $_.FullName.Substring((Get-Location).Path.Length+1) } }","description":"List Templates and Workflows files with sizes"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\"; \"===== System\"; Get-ChildItem System -Recurse -File | ForEach-Object { \"{0,7}  {1}\" -f $_.Length, $_.FullName.Substring((Get-Location).Path.Length+1) }; \"--- empty md files:\"; Get-ChildItem -Recurse -File -Filter *.md | Where-Object { $_.Length -lt 50 } | Select FullName; \"--- duplicate md names:\"; Get-ChildItem -Recurse -File -Filter *.md | Group-Object Name | Where-Object Count -gt 1 | Select Name,Count","description":"List System folder; check empty and duplicate files"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "agents: $(ls .claude/agents 2>/dev/null | wc -l)"; echo "commands: $(ls .claude/commands 2>/dev/null | wc -l)"; echo "skills dirs/files:"; find .claude/skills -maxdepth 2 -name 'SKILL.md' 2>/dev/null | wc -l; find .claude/skills -maxdepth 1 -type f 2>/dev/null | wc -l; echo "conversation files:"; find "60_Claude/05_Clippings/AI Conversations" -type f -name '*.md' 2>/dev/null | wc -l; echo "--- git"; git log --oneline -3; git status --short | head; echo "--- last commits touching 30_Order"; git log --oneline -5 -- 30_Order; echo "--- node?"; which node python python3 2>&1 | head`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order"; foreach($t in 'Templates','Workflows'){ "===== $t"; Get-ChildItem $t -Recurse -File | ForEach-Object { "{0,6}  {1}" -f $_.Length, $_.FullName.Substring((Get-Location).Path.Length+1) } }
+```
+```
+===== Templates
+   818  Templates\MOC.md
+  1222  Templates\AI Toolkit\AI Conversation.md
+  1051  Templates\AI Toolkit\AI Monthly Review Template.md
+  1107  Templates\AI Toolkit\AI Weekly Review Template.md
+   958  Templates\AI Toolkit\Clipping Distill Template.md
+   784  Templates\AI Toolkit\Deep Dive Template.md
+   682  Templates\AI Toolkit\Graphify Notes Template.md
+   478  Templates\AI Toolkit\Tool Logs.md
+   780  Templates\AI Toolkit\Tool Setup Template.md
+   351  Templates\AI Toolkit\Write Logs.md
+   548  Templates\Capability\Action Template.md
+   793  Templates\Capability\Audit Report Template.md
+   986  Templates\Capability\Brief Template.md
+  1296  Templates\Capability\Depth Ladder Template.md
+  1830  Templates\Capability\Field OS Template.md
+   685  Templates\Capability\MOC Template.md
+   398  Templates\Capability\Output Template.md
+  2040  Templates\Capability\Question Bank Template.md
+   325  Templates\Capability\Synthesis Template.md
+  1355  Templates\Capability\Weekly Synthesis Template.md
+   691  Templates\Career\List Monthly Log.md
+   718  Templates\Career\Mentorship Meeting Template.md
+   807  Templates\Career\Plan Template.md
+   562  Templates\Career\Tracking.md
+   947  Templates\Career\Internship\Applying Template.md
+   598  Templates\Career\Internship\Cheat Template.md
+   708  Templates\Career\Internship\Contact Template.md
+   857  Templates\Career\Internship\Cover Letter Template.md
+  1559  Templates\Career\Internship\Internship Loop Monthly Review Template.md
+  1553  Templates\Career\Internship\Internship Loop Weekly Review Template.md
+   999  Templates\Career\Internship\Interview Prep Template.md
+  1897  Templates\Career\Internship\Job & Company Template.md
+   456  Templates\Career\Internship\LinkedIn Post Template.md
+   950  Templates\Career\Internship\Program Template.md
+  1624  Templates\Career\Internship\Tracking Template.md
+  1338  Templates\Classes\Board or Main Template.md
+   886  Templates\Classes\Concept Template.md
+   555  Templates\Classes\Degree Control Template.md
+   544  Templates\Classes\Discussion Template.md
+   535  Templates\Classes\Exam Material Template.md
+   717  Templates\Classes\Exam Sheet Template.md
+   656  Templates\Classes\Homework Template.md
+   626  Templates\Classes\Lab Template.md
+   852  Templates\Classes\Preparation Template.md
+  1005  Templates\Classes\Project Template.md
+   692  Templates\Classes\Textbook Map Template.md
+   963  Templates\Classes\Textbook Template.md
+   642  Templates\Classes\Track Template.md
+  1167  Templates\Classes\Week Template.md
+   843  Templates\Classes\Weekly Board Template.md
+   418  Templates\Enumerate\Better Month.md
+  1441  Templates\Enumerate\Better Today.md
+   797  Templates\Enumerate\Better Weekly.md
+   468  Templates\Enumerate\Better Year.md
+   171  Templates\Frontmatter\For AI.md
+   179  Templates\Frontmatter\For Brainstorm.md
+   155  Templates\Frontmatter\For Classes.md
+   177  Templates\Frontmatter\For Dashboards.md
+  2227  Templates\Frontmatter\For Evergreen.md
+   129  Templates\Frontmatter\For Everything.md
+   171  Templates\Frontmatter\For Inputs.md
+  1226  Templates\Frontmatter\For Progress.md
+   165  Templates\Frontmatter\For Thoughts.md
+   452  Templates\Frontmatter\For Transcript.md
+   364  Templates\Knowledge\Output Bullet Template.md
+   583  Templates\Knowledge\Output One-Pager Template.md
+   286  Templates\Knowledge\Reference Template.md
+   778  Templates\Knowledge\Repo Evaluation Template.md
+   584  Templates\Knowledge\Synthesis Note Template.md
+   642  Templates\Projects\Agent Prompt Template.md
+   411  Templates\Projects\Code Mirror Template.md
+   545  Templates\Projects\Machine Runbook Template.md
+   741  Templates\Projects\Project Note Template.md
+   478  Templates\Projects\Project Plan Template.md
+   529  Templates\Projects\Project Spec Template.md
+   774  Templates\Projects\Technical Concept Template.md
+  1176  Templates\System\Standard Template.md
+   551  Templates\System\Workflow Template.md
+===== Workflows
+  7811  Workflows\00_Workflows Index.md
+  1783  Workflows\Courses\Board Workflow.md
+  2149  Workflows\Courses\Concept Workflow.md
+  2662  Workflows\Courses\Course Production Workflow.md
+  1671  Workflows\Courses\Discussion Workflow.md
+  2354  Workflows\Courses\Exam Workflow.md
+  1995  Workflows\Courses\Homework Workflow.md
+  1615  Workflows\Courses\Lab Workflow.md
+  1774  Workflows\Courses\Preparation Workflow.md
+  2078  Workflows\Courses\Projects Workflow.md
+  1713  Workflows\Courses\Textbook Map Workflow.md
+  2162  Workflows\Courses\Textbook Workflow.md
+  1800  Workflows\Courses\Weekly Board Workflow.md
+  2093  Workflows\Courses\Weekly Workflow.md
+ 15420  Workflows\Courses\Per Class\CSCI 4061 Workflow.md
+ 12740  Workflows\Courses\Per Class\CSCI 4511W Workflow.md
+  9909  Workflows\Courses\Per Class\CSCI 5304 Workflow.md
+  3775  Workflows\Courses\Per Class\Technical Interview Workflow.md
+  2016  Workflows\Enrichment\Capture to Summary.md
+  1824  Workflows\Enrichment\Decoration.md
+  2066  Workflows\Enrichment\Enrichment.md
+  2028  Workflows\Enrichment\Human Content Writer.md
+  1572  Workflows\Enrichment\Output with Provenance.md
+  2056  Workflows\Enrichment\Plugins Usage.md
+  2394  Workflows\Enrichment\Researcher.md
+  1675  Workflows\Ingestion\Brief to Action.md
+  1825  Workflows\Ingestion\Brief to Progress.md
+  2085  Workflows\Ingestion\Conversations Loop.md
+  2410  Workflows\Ingestion\PDF Extraction.md
+  2255  Workflows\Ingestion\Plan Review Cadence.md
+  1781  Workflows\Ingestion\Summary to Distilled.md
+  1785  Workflows\Ingestion\Transcript to Brief.md
+   562  Workflows\Internship\Application Document Preparation 1.md
+  2075  Workflows\Internship\Application Document Preparation.md
+  1654  Workflows\Internship\Career Fair Intake.md
+  7377  Workflows\Internship\Internship - Design Rationale.md
+  2643  Workflows\Internship\Internship Pipeline.md
+  2469  Workflows\Internship\Internship Review System.md
+  1944  Workflows\Internship\Internship Tracking Workflow.md
+  1708  Workflows\Internship\Promotion.md
+  2031  Workflows\Operations\Daily Close Loop.md
+  1647  Workflows\Projects\Prompt Cycle.md
+  2242  Workflows\System\Building a Note Kit.md
+  2109  Workflows\System\Conformance on Touch.md
+  2133  Workflows\Toolkit\Conversation Capture.md
+  1793  Workflows\Toolkit\Files Tracking.md
+  1734  Workflows\Toolkit\Graphify Folders.md
+  1670  Workflows\Toolkit\Maintaining Logs.md
+  1679  Workflows\Toolkit\Tools Tracking.md
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis\30_Order"; "===== System"; Get-ChildItem System -Recurse -File | ForEach-Object { "{0,7}  {1}" -f $_.Length, $_.FullName.Substring((Get-Location).Path.Length+1) }; "--- empty md files:"; Get-ChildItem -Recurse -File -Filter *.md | Where-Object { $_.Length -lt 50 } | Select FullName; "--- duplicate md names:"; Get-ChildItem -Recurse -File -Filter *.md | Group-Object Name | Where-Object Count -gt 1 | Select Name,Count
+```
+```
+===== System
+    670  System\claude-workflow\claude_desktop_config.read-first.example.json
+   7926  System\claude-workflow\Cowork-Operating-System.md
+     58  System\claude-workflow\distilled-sessions.json
+   1020  System\claude-workflow\excalidraw.log
+   5220  System\claude-workflow\README.md
+   5803  System\claude-workflow\hooks\jarvis-internship-note-guard.ps1
+   7242  System\claude-workflow\hooks\jarvis-session-continuity.ps1
+   3489  System\claude-workflow\hooks\jarvis-write-guard.ps1
+3075891  System\claude-workflow\logs\git-auto-sync.log
+    247  System\claude-workflow\logs\internship-note-guard.jsonl
+     95  System\claude-workflow\logs\weekly-review.log
+   1246  System\claude-workflow\scripts\backfill-windows-silent.vbs
+   1079  System\claude-workflow\scripts\backfill-wsl-silent.vbs
+  36666  System\claude-workflow\scripts\export-claude-session.ps1
+   1113  System\claude-workflow\scripts\git-auto-sync-silent.vbs
+  21809  System\claude-workflow\scripts\git-auto-sync.ps1
+   2845  System\claude-workflow\scripts\register-git-auto-sync-task.ps1
+   2890  System\claude-workflow\scripts\register-jarvis-sync-task.ps1
+   1837  System\claude-workflow\scripts\register-weekly-review-task.ps1
+   2600  System\claude-workflow\scripts\run-weekly-review.ps1
+   1217  System\claude-workflow\scripts\sync-all-silent.vbs
+    543  System\claude-workflow\scripts\sync-jarvis-silent.vbs
+   2725  System\claude-workflow\scripts\test-token-aggregation.ps1
+   5485  System\claude-workflow\scripts\update-capture-health.ps1
+   1065  System\claude-workflow\scripts\weekly-review-silent.vbs
+    903  System\claude-workflow\_retired-2026-07-31\exported-claude-sessions.json
+  29238  System\claude-workflow\_retired-2026-07-31\exported-cowork-sessions.json
+    177  System\cursor-workflow\exported-cursor-composers.json
+   4933  System\cursor-workflow\README.md
+    358  System\cursor-workflow\scripts\_run-backfill.ps1
+    276  System\cursor-workflow\scripts\_run-ref-test.ps1
+   1357  System\cursor-workflow\scripts\_verify-and-register.ps1
+    912  System\cursor-workflow\scripts\append-exported-composer.py
+   1189  System\cursor-workflow\scripts\composer_index.py
+   4007  System\cursor-workflow\scripts\cursor-db-run.py
+   2373  System\cursor-workflow\scripts\dump-composer-raw.py
+  11835  System\cursor-workflow\scripts\export-cursor-composer.py
+  34623  System\cursor-workflow\scripts\export-cursor-sessions.py
+   5143  System\cursor-workflow\scripts\list-cursor-composers.py
+   1150  System\cursor-workflow\scripts\redact_secrets.py
+   2220  System\cursor-workflow\scripts\register-cursor-export-task.ps1
+    530  System\cursor-workflow\scripts\sweep-cursor-sessions-silent.vbs
+   1823  System\cursor-workflow\scripts\sweep-cursor-sessions.ps1
+    421  System\excalidraw-mcp\excalidraw.log
+ 213650  System\excalidraw-mcp\package-lock.json
+    314  System\excalidraw-mcp\package.json
+   3374  System\excalidraw-mcp\README.md
+  29621  System\jarvis-cli\jarvis_ops.py
+    582  System\jarvis-cli\jarvis.ps1
+   3698  System\jarvis-cli\README.md
+    134  System\jarvis-memory\.gitignore
+   3374  System\jarvis-memory\README.md
+   7322  System\jarvis-memory\registry.py
+2600960  System\jarvis-memory\registry.sqlite
+   3473  System\jarvis-memory\schema.sql
+   1823  System\jarvis-memory\server.py
+   4227  System\sync-workflow\README.md
+    426  System\sync-workflow\Sync Alert Banner.md
+     42  System\sync-workflow\scripts\.sync-alert-state.json
+     55  System\sync-workflow\scripts\.syncthing-exe-path.txt
+    693  System\sync-workflow\scripts\check-syncthing-status-silent.vbs
+  25417  System\sync-workflow\scripts\check-syncthing-status.ps1
+   3709  System\sync-workflow\scripts\rotate-sync-logs.ps1
+   2527  System\vault-lint\Vault Lint.md
+    546  System\vault-lint\vault-lint.config.json
+  28182  System\vault-lint\vault-lint.js
+--- empty md files:
+--- duplicate md names:
+
+Name      Count
+----      -----
+README.md     6
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "agents: $(ls .claude/agents 2>/dev/null | wc -l)"; echo "commands: $(ls .claude/commands 2>/dev/null | wc -l)"; echo "skills dirs/files:"; find .claude/skills -maxdepth 2 -name 'SKILL.md' 2>/dev/null | wc -l; find .claude/skills -maxdepth 1 -type f 2>/dev/null | wc -l; echo "conversation files:"; find "60_Claude/05_Clippings/AI Conversations" -type f -name '*.md' 2>/dev/null | wc -l; echo "--- git"; git log --oneline -3; git status --short | head; echo "--- last commits touching 30_Order"; git log --oneline -5 -- 30_Order; echo "--- node?"; which node python python3 2>&1 | head
+```
 ```
 agents: 11
 commands: 17
@@ -306,9 +681,12 @@ abcc516a Auto-sync: 2026-10-16 20:03,  33 files changed, 1528 insertions(+), 595
 /c/Users/anant/AppData/Local/Microsoft/WindowsApps/python
 /c/Users/anant/AppData/Local/Microsoft/WindowsApps/python3
 ```
-- `Grep` -- pattern `^```(yaml|json)? ?spec|^## Spec|^## Machine|spec_id|^spec:` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; find .claude/skills -name 'SKILL.md' | wc -l; find .claude/skills -type f -name '*.md' | wc -l; ls .claude/skills | head -40; echo ---; sed -n 1,60p "30_Order/System/vault-lint/Vault Lint.md"`
+- `Grep` -- pattern ````^```(yaml|json)? ?spec|^## Spec|^## Machine|spec_id|^spec:```` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; find .claude/skills -name 'SKILL.md' | wc -l; find .claude/skills -type f -name '*.md' | wc -l; ls .claude/skills | head -40; echo ---; sed -n 1,60p "30_Order/System/vault-lint/Vault Lint.md"
 ```
+````
 6
 25
 challenge
@@ -379,8 +757,11 @@ It never edits a note. A Spec block that is not valid JSON is reported as an err
 Run `node vault-lint.js --specs` and compare the Spec count with the number of Spec blocks you wrote. Lint a note you know fits and one you know does not. The scanned count plus the excluded counts equals the number of `.md` files under the root.
 ## Retire
 Delete this folder in one commit and remove the lint step from the weekly review. The fit number then goes back to being unmeasured.
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; echo "=== specs"; node vault-lint.js --specs 2>&1 | head -40; echo "=== path 30_Order"; node vault-lint.js --path 30_Order/ 2>&1 | head -60; echo "=== kit"; node vault-lint.js --kit 2>&1 | head -50
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; echo "=== specs"; node vault-lint.js --specs 2>&1 | head -40; echo "=== path 30_Order"; node vault-lint.js --path 30_Order/ 2>&1 | head -60; echo "=== kit"; node vault-lint.js --kit 2>&1 | head -50`
 ```
 === specs
 Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
@@ -435,7 +816,10 @@ WARN  30_Order/Workflows/Toolkit/Graphify Folders.md  serves does not point back
 
 0 errors, 12 warnings
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js 2>&1 | head -50; cd ../../..; echo; echo "=== skill list in .claude/skills (names only):"; ls .claude/skills | wc -l; echo "=== MCP server names (keys only):"; node -e "const j=require('./.mcp.json');console.log(Object.keys(j.mcpServers||j))" 2>&1 | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js 2>&1 | head -50; cd ../../..; echo; echo "=== skill list in .claude/skills (names only):"; ls .claude/skills | wc -l; echo "=== MCP server names (keys only):"; node -e "const j=require('./.mcp.json');console.log(Object.keys(j.mcpServers||j))" 2>&1 | head
+```
 ```
 Scanned 5299 notes in scope (excluded: 1 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
 FIT: 135/5299 = 2.5%
@@ -493,7 +877,10 @@ By family (fit / total, near-fit, failing checks):
 === MCP server names (keys only):
 [ 'jarvis' ]
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js 2>&1 | sed -n '/By family/,/Top failure/p' | tail -n +44; echo ...; node vault-lint.js 2>&1 | sed -n '/Top failure/,$p' | head -20; cd ../..; echo "== sizes (KB)"; for d in Standards Templates Workflows System; do echo "$d: $(find $d -type f -name '*.md' -print0 | xargs -0 cat | wc -c) bytes md"; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js 2>&1 | sed -n '/By family/,/Top failure/p' | tail -n +44; echo ...; node vault-lint.js 2>&1 | sed -n '/Top failure/,$p' | head -20; cd ../..; echo "== sizes (KB)"; for d in Standards Templates Workflows System; do echo "$d: $(find $d -type f -name '*.md' -print0 | xargs -0 cat | wc -c) bytes md"; done
+```
 ```
   depth-ladder                     0/5       0.0%  near    0  F1:5 F2:5 F3:1 F5:5 F6:5
   field-os                         0/5       0.0%  near    0  F1:5 F5:5 F6:5
@@ -568,5 +955,4 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; echo "=== specs"; node vault-lint.js --specs 2>&1 | head -40; echo "=== path 30_Order"; node vault-lint.js --path 30_Order/ 2>&1 | head -60; echo "=== kit"; node vault-lint.js --kit 2>&1 | head -50`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js 2>&1 | head -50; cd ../../..; echo; echo "=== skill list in .claude/skills (names only):"; ls .claude/skills | wc -l; echo "=== MCP server names (keys only):"; node -e "const j=require('./.mcp.json');console.log(Object.keys(j.mcpServers||j))" 2>&1 | head`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js 2>&1 | sed -n '/By family/,/Top failure/p' | tail -n +44; echo ...; node vault-lint.js 2>&1 | sed -n '/Top failure/,$p' | head -20; cd ../..; echo "== sizes (KB)"; for d in Standards Templates Workflows System; do echo "$d: $(find $d -type f -name '*.md' -print0 | xargs -0 cat | wc -c) bytes md"; done`
-
 

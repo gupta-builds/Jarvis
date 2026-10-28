@@ -8,7 +8,7 @@ started_at: 2026-09-21T13:56:57
 ended_at: 2026-09-21T14:12:56
 exported_at: 2026-10-17T21:06:40
 duration_minutes: 16
-project: CSCI 5304
+project: UMN Courses
 cwd: 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304'
 session_id: dacca67d-d34b-485b-9f68-dc33f8d037d0
 status: raw

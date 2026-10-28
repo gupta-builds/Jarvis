@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,21 +6,24 @@ source_os: windows
 title: "Sonnet 5.5 default model"
 started_at: 2026-10-15T17:05:57
 ended_at: 2026-10-15T17:53:10
-exported_at: 2026-10-17T21:06:45
+exported_at: 2026-10-28T16:15:21
 duration_minutes: 47.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 53cf7585-a302-4715-b2d7-fd52300dbf30
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-15
+updated: 2026-10-28
 turn_count: 5
 tools_used: {}
 tokens:
-  input: 4
-  output: 2960
-  cache_creation: 54682
-  cache_read: 86884
-  total: 144530
-cost_usd: 0.265713
+  input: 2
+  output: 1480
+  cache_creation: 27341
+  cache_read: 43442
+  total: 72265
+cost_usd: 0.132856
 model:
   - "claude-sonnet-5"
 files_touched: []
@@ -72,5 +75,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

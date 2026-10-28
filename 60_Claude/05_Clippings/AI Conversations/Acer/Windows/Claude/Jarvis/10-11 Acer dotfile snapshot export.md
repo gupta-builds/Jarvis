@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Acer dotfile snapshot export"
 started_at: 2026-10-11T18:16:16
 ended_at: 2026-10-11T19:02:24
-exported_at: 2026-10-17T21:06:54
+exported_at: 2026-10-28T16:15:35
 duration_minutes: 46.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 9eb4b012-285e-4602-bcc0-1328ecde1538
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-11
+updated: 2026-10-28
 turn_count: 16
 tools_used:
   AskUserQuestion: 3
@@ -23,12 +26,12 @@ tools_used:
   Read: 21
   Write: 8
 tokens:
-  input: 398
-  output: 386653
-  cache_creation: 891947
-  cache_read: 33505854
-  total: 34784852
-cost_usd: 14.136285
+  input: 146
+  output: 120056
+  cache_creation: 276265
+  cache_read: 12259512
+  total: 12655979
+cost_usd: 4.757814
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -124,7 +127,10 @@ Per the block's own instructions, I shouldn't keep retrying — it'll keep refus
 
 ### Tool Calls
 
-- `Bash` -- `ls -d 40_Resources/CS/Concepts 2>&1; echo "---"; ls "40_Resources/CS/Concepts" 2>&1 | head -30`
+- `Bash`
+```bash
+ls -d 40_Resources/CS/Concepts 2>&1; echo "---"; ls "40_Resources/CS/Concepts" 2>&1 | head -30
+```
 ```
 40_Resources/CS/Concepts
 ---
@@ -137,8 +143,23 @@ New Laptop
 Software Fundamentals Matter More Than Ever With AI Coding.md
 Terminal.md
 ```
-- `PowerShell` -- `{"command":"wsl -l -v 2\u003e\u00261; echo \"---USER---\"; wsl -e whoami 2\u003e\u00261; echo \"---HOME---\"; wsl -e bash -c \u0027echo $HOME\u0027 2\u003e\u00261","description":"List WSL distros and get WSL username/home"}`
-- `Bash` -- `find "40_Resources/CS/Concepts/New Laptop" -maxdepth 3 2>&1`
+- `PowerShell`
+```powershell
+wsl -l -v 2>&1; echo "---USER---"; wsl -e whoami 2>&1; echo "---HOME---"; wsl -e bash -c 'echo $HOME' 2>&1
+```
+```
+    N A M E                             S T A T E                       V E R S I O N  
+ *   U b u n t u - 2 4 . 0 4             R u n n i n g                   2  
+     d o c k e r - d e s k t o p         S t o p p e d                   2  
+ ---USER---
+anant_gupta
+---HOME---
+/home/anant_gupta
+```
+- `Bash`
+```bash
+find "40_Resources/CS/Concepts/New Laptop" -maxdepth 3 2>&1
+```
 ```
 40_Resources/CS/Concepts/New Laptop
 40_Resources/CS/Concepts/New Laptop/Acer Live State — 2026-09-16.md
@@ -215,7 +236,10 @@ Terminal.md
 40_Resources/CS/Concepts/New Laptop/VS Code Professional Setup.md
 40_Resources/CS/Concepts/New Laptop/WSL New Laptop Master Plan — Verified 2026-09-11.md
 ```
-- `Bash` -- `grep -l "New Laptop\|Dotfile\|Dell" 40_Resources/CS/Concepts/*.md 2>/dev/null; echo "---"; cat "40_Resources/CS/Concepts/Terminal.md" 2>&1 | head -60`
+- `Bash`
+```bash
+grep -l "New Laptop\|Dotfile\|Dell" 40_Resources/CS/Concepts/*.md 2>/dev/null; echo "---"; cat "40_Resources/CS/Concepts/Terminal.md" 2>&1 | head -60
+```
 ```
 ---
 ---
@@ -236,7 +260,10 @@ Tools Covered:
 •	Starship (stunning prompt customization)
 ```
 - `Grep` -- pattern `Dotfile Snapshot|Acer Dotfile` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
-- `Bash` -- `sed -n '1,40p' "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Index.md"`
+- `Bash`
+```bash
+sed -n '1,40p' "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Index.md"
+```
 ```
 ---
 type: note
@@ -279,10 +306,183 @@ The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only p
 |---|---|
 | Machine | Dell Latitude 5530, i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only, no NVIDIA GPU |
 ```
-- `PowerShell` -- `{"command":"$h = $env:USERPROFILE\nWrite-Output \"HOME=$h\"\nWrite-Output \"---starship---\"; Test-Path \"$h\\.config\\starship.toml\"\nWrite-Output \"---yazi---\"; Test-Path \"$h\\.config\\yazi\"\nif (Test-Path \"$h\\.config\\yazi\") { Get-ChildItem -Recurse \"$h\\.config\\yazi\" | Select-Object FullName,Length | ForEach-Object { $_.FullName } }\nWrite-Output \"---lazygit APPDATA---\"; Test-Path \"$env:APPDATA\\lazygit\\config.yml\"\nWrite-Output \"---bat APPDATA---\"; Test-Path \"$env:APPDATA\\bat\\config\"\nWrite-Output \"---ripgrep env---\"; $env:RIPGREP_CONFIG_PATH\nWrite-Output \"---ripgreprc home---\"; Test-Path \"$h\\.ripgreprc\"\nWrite-Output \"---delta gitconfig section---\"\nWrite-Output \"---gh-dash APPDATA---\"; Test-Path \"$env:APPDATA\\gh-dash\\config.yml\"\nWrite-Output \"---gitconfig---\"; Test-Path \"$h\\.gitconfig\"\nWrite-Output \"---config git dir---\"; Test-Path \"$h\\.config\\git\"\nWrite-Output \"---WT settings---\"\nGet-ChildItem \"$env:LOCALAPPDATA\\Packages\" -Filter \"Microsoft.WindowsTerminal*\" -ErrorAction SilentlyContinue | ForEach-Object { Test-Path \"$($_.FullName)\\LocalState\\settings.json\" }\nWrite-Output \"---PS profiles---\"\nTest-Path \"$h\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\"\nTest-Path \"$h\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1\"\nWrite-Output \"---winget---\"\nGet-Command winget -ErrorAction SilentlyContinue | Select-Object Source\n","description":"Discover Windows-side config file locations"}`
-- `PowerShell` -- `{"command":"wsl -e bash -c \u0027\necho \"HOME=$HOME\"\necho \"---starship---\"; test -f ~/.config/starship.toml \u0026\u0026 echo yes\necho \"---yazi---\"; find ~/.config/yazi -type f 2\u003e/dev/null\necho \"---atuin---\"; test -f ~/.config/atuin/config.toml \u0026\u0026 echo yes\necho \"---sesh---\"; test -f ~/.config/sesh/sesh.toml \u0026\u0026 echo yes\necho \"---gh-dash---\"; find ~/.config/gh-dash -type f 2\u003e/dev/null\necho \"---lazygit---\"; find ~/.config/lazygit -type f 2\u003e/dev/null\necho \"---git dir---\"; find ~/.config/git -type f 2\u003e/dev/null\necho \"---gitconfig---\"; test -f ~/.gitconfig \u0026\u0026 echo yes\necho \"---tmux conf---\"; test -f ~/.tmux.conf \u0026\u0026 echo yes\necho \"---tmux plugins---\"; find ~/.tmux/plugins -maxdepth 1 2\u003e/dev/null\necho \"---ncdu---\"; find ~/.config/ncdu -type f 2\u003e/dev/null\necho \"---wslconf---\"; test -f /etc/wsl.conf \u0026\u0026 echo yes\necho \"---bashrc jarvis block---\"; grep -n \"JARVIS_WSL_ENV_BLOCK\" ~/.bashrc\n\u0027\n","description":"Discover WSL-side config file locations"}`
-- `PowerShell` -- `{"command":"$h = $env:USERPROFILE\nWrite-Output \"---wslconfig---\"; Test-Path \"$h\\.wslconfig\"\nWrite-Output \"---gitconfig has delta section---\"\nSelect-String -Path \"$h\\.gitconfig\" -Pattern \"\\[delta\" -SimpleMatch:$false\nWrite-Output \"---gitconfig sections list (names only)---\"\nSelect-String -Path \"$h\\.gitconfig\" -Pattern \"^\\[\" \nWrite-Output \"---config git dir listing---\"\nGet-ChildItem \"$h\\.config\\git\" -Recurse\nWrite-Output \"---ripgrep config file candidates---\"\nGet-ChildItem \"$h\" -Filter \".ripgreprc\" -ErrorAction SilentlyContinue\nGet-ChildItem \"$h\\.config\" -Filter \"ripgrep*\" -ErrorAction SilentlyContinue\nWrite-Output \"---DELTA_PAGER / bat appdata roaming alt locations---\"\nTest-Path \"$h\\.config\\bat\"\nTest-Path \"$h\\.config\\delta\"\nTest-Path \"$h\\.config\\lazygit\"\nTest-Path \"$h\\.config\\gh-dash\"\n","description":"Check for .wslconfig, delta config inside gitconfig, and alt config locations on Windows"}`
-- `Bash` -- `wsl -e bash -c '
+- `PowerShell`
+```powershell
+$h = $env:USERPROFILE
+Write-Output "HOME=$h"
+Write-Output "---starship---"; Test-Path "$h\.config\starship.toml"
+Write-Output "---yazi---"; Test-Path "$h\.config\yazi"
+if (Test-Path "$h\.config\yazi") { Get-ChildItem -Recurse "$h\.config\yazi" | Select-Object FullName,Length | ForEach-Object { $_.FullName } }
+Write-Output "---lazygit APPDATA---"; Test-Path "$env:APPDATA\lazygit\config.yml"
+Write-Output "---bat APPDATA---"; Test-Path "$env:APPDATA\bat\config"
+Write-Output "---ripgrep env---"; $env:RIPGREP_CONFIG_PATH
+Write-Output "---ripgreprc home---"; Test-Path "$h\.ripgreprc"
+Write-Output "---delta gitconfig section---"
+Write-Output "---gh-dash APPDATA---"; Test-Path "$env:APPDATA\gh-dash\config.yml"
+Write-Output "---gitconfig---"; Test-Path "$h\.gitconfig"
+Write-Output "---config git dir---"; Test-Path "$h\.config\git"
+Write-Output "---WT settings---"
+Get-ChildItem "$env:LOCALAPPDATA\Packages" -Filter "Microsoft.WindowsTerminal*" -ErrorAction SilentlyContinue | ForEach-Object { Test-Path "$($_.FullName)\LocalState\settings.json" }
+Write-Output "---PS profiles---"
+Test-Path "$h\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+Test-Path "$h\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+Write-Output "---winget---"
+Get-Command winget -ErrorAction SilentlyContinue | Select-Object Source
+
+```
+```
+HOME=C:\Users\anant
+---starship---
+True
+---yazi---
+False
+---lazygit APPDATA---
+False
+---bat APPDATA---
+False
+---ripgrep env---
+---ripgreprc home---
+False
+---delta gitconfig section---
+---gh-dash APPDATA---
+False
+---gitconfig---
+True
+---config git dir---
+True
+---WT settings---
+True
+---PS profiles---
+False
+False
+---winget---
+
+Source
+------
+C:\Users\anant\AppData\Local\Microsoft\WindowsApps\winget.exe
+```
+- `PowerShell`
+```powershell
+wsl -e bash -c '
+echo "HOME=$HOME"
+echo "---starship---"; test -f ~/.config/starship.toml && echo yes
+echo "---yazi---"; find ~/.config/yazi -type f 2>/dev/null
+echo "---atuin---"; test -f ~/.config/atuin/config.toml && echo yes
+echo "---sesh---"; test -f ~/.config/sesh/sesh.toml && echo yes
+echo "---gh-dash---"; find ~/.config/gh-dash -type f 2>/dev/null
+echo "---lazygit---"; find ~/.config/lazygit -type f 2>/dev/null
+echo "---git dir---"; find ~/.config/git -type f 2>/dev/null
+echo "---gitconfig---"; test -f ~/.gitconfig && echo yes
+echo "---tmux conf---"; test -f ~/.tmux.conf && echo yes
+echo "---tmux plugins---"; find ~/.tmux/plugins -maxdepth 1 2>/dev/null
+echo "---ncdu---"; find ~/.config/ncdu -type f 2>/dev/null
+echo "---wslconf---"; test -f /etc/wsl.conf && echo yes
+echo "---bashrc jarvis block---"; grep -n "JARVIS_WSL_ENV_BLOCK" ~/.bashrc
+'
+
+```
+```
+HOME=/home/anant_gupta
+---starship---
+yes
+---yazi---
+/home/anant_gupta/.config/yazi/yazi.toml
+/home/anant_gupta/.config/yazi/init.lua
+/home/anant_gupta/.config/yazi/plugins/smart-filter.yazi/LICENSE
+/home/anant_gupta/.config/yazi/plugins/smart-filter.yazi/main.lua
+/home/anant_gupta/.config/yazi/plugins/smart-filter.yazi/README.md
+/home/anant_gupta/.config/yazi/plugins/git.yazi/LICENSE
+/home/anant_gupta/.config/yazi/plugins/git.yazi/main.lua
+/home/anant_gupta/.config/yazi/plugins/git.yazi/README.md
+/home/anant_gupta/.config/yazi/plugins/git.yazi/types.lua
+/home/anant_gupta/.config/yazi/plugins/full-border.yazi/LICENSE
+/home/anant_gupta/.config/yazi/plugins/full-border.yazi/main.lua
+/home/anant_gupta/.config/yazi/plugins/full-border.yazi/README.md
+/home/anant_gupta/.config/yazi/package.toml
+/home/anant_gupta/.config/yazi/flavors/tokyonight-storm.yazi/LICENSE-tmtheme
+/home/anant_gupta/.config/yazi/flavors/tokyonight-storm.yazi/LICENSE
+/home/anant_gupta/.config/yazi/flavors/tokyonight-storm.yazi/tmtheme.xml
+/home/anant_gupta/.config/yazi/flavors/tokyonight-storm.yazi/README.md
+/home/anant_gupta/.config/yazi/flavors/tokyonight-storm.yazi/flavor.toml
+/home/anant_gupta/.config/yazi/flavors/tokyonight-storm.yazi/preview.png
+/home/anant_gupta/.config/yazi/keymap.toml
+/home/anant_gupta/.config/yazi/theme.toml
+---atuin---
+yes
+---sesh---
+yes
+---gh-dash---
+/home/anant_gupta/.config/gh-dash/config.yml
+---lazygit---
+/home/anant_gupta/.config/lazygit/config.yml
+---git dir---
+/home/anant_gupta/.config/git/ignore
+---gitconfig---
+yes
+---tmux conf---
+yes
+---tmux plugins---
+/home/anant_gupta/.tmux/plugins
+/home/anant_gupta/.tmux/plugins/tmux-fzf
+/home/anant_gupta/.tmux/plugins/tmux-continuum
+/home/anant_gupta/.tmux/plugins/tmux-resurrect
+/home/anant_gupta/.tmux/plugins/tpm
+/home/anant_gupta/.tmux/plugins/tmux-handlr
+/home/anant_gupta/.tmux/plugins/tmux-agent-status
+---ncdu---
+/home/anant_gupta/.config/ncdu/config
+---wslconf---
+yes
+---bashrc jarvis block---
+127:# JARVIS_WSL_ENV_BLOCK
+```
+- `PowerShell`
+```powershell
+$h = $env:USERPROFILE
+Write-Output "---wslconfig---"; Test-Path "$h\.wslconfig"
+Write-Output "---gitconfig has delta section---"
+Select-String -Path "$h\.gitconfig" -Pattern "\[delta" -SimpleMatch:$false
+Write-Output "---gitconfig sections list (names only)---"
+Select-String -Path "$h\.gitconfig" -Pattern "^\[" 
+Write-Output "---config git dir listing---"
+Get-ChildItem "$h\.config\git" -Recurse
+Write-Output "---ripgrep config file candidates---"
+Get-ChildItem "$h" -Filter ".ripgreprc" -ErrorAction SilentlyContinue
+Get-ChildItem "$h\.config" -Filter "ripgrep*" -ErrorAction SilentlyContinue
+Write-Output "---DELTA_PAGER / bat appdata roaming alt locations---"
+Test-Path "$h\.config\bat"
+Test-Path "$h\.config\delta"
+Test-Path "$h\.config\lazygit"
+Test-Path "$h\.config\gh-dash"
+
+```
+```
+---wslconfig---
+True
+---gitconfig has delta section---
+---gitconfig sections list (names only)---
+
+C:\Users\anant\.gitconfig:1:[windows]
+C:\Users\anant\.gitconfig:3:[credential "https://github.com"]
+C:\Users\anant\.gitconfig:5:[credential]
+C:\Users\anant\.gitconfig:7:[user]
+C:\Users\anant\.gitconfig:10:[core]
+---config git dir listing---
+
+LastWriteTime : 9/26/2026 3:02:09 PM
+Length        : 305
+Name          : ignore
+
+---ripgrep config file candidates---
+---DELTA_PAGER / bat appdata roaming alt locations---
+False
+False
+False
+False
+```
+- `Bash`
+```bash
+wsl -e bash -c '
 echo "---bashrc block range---"
 grep -n "JARVIS_WSL_ENV_BLOCK" ~/.bashrc
 echo "---gitconfig sections---"
@@ -292,7 +492,8 @@ grep -n "delta" ~/.gitconfig 2>/dev/null
 echo "---wsl.conf content check (non-secret, just size)---"
 wc -l /etc/wsl.conf
 '
-`
+
+```
 ```
 ---bashrc block range---
 127:# JARVIS_WSL_ENV_BLOCK
@@ -314,11 +515,38 @@ wc -l /etc/wsl.conf
 ---wsl.conf content check (non-secret, just size)---
 9 /etc/wsl.conf
 ```
-- `PowerShell` -- `{"command":"$h = $env:USERPROFILE\nGet-Content \"$h\\.gitconfig\" | ForEach-Object {\n  if ($_ -match \u0027^\\s*\\[\u0027) { $_ }\n  elseif ($_ -match \u0027^\\s*([A-Za-z0-9_-]+)\\s*=\u0027) { \"    $($matches[1]) = \u003credacted\u003e\" }\n  else { \"    \u003cblank/other\u003e\" }\n}\n","description":"Show gitconfig structure (keys only, values redacted) to plan credential stripping"}`
-- `Bash` -- `wsl -e bash -c "
+- `PowerShell`
+```powershell
+$h = $env:USERPROFILE
+Get-Content "$h\.gitconfig" | ForEach-Object {
+  if ($_ -match '^\s*\[') { $_ }
+  elseif ($_ -match '^\s*([A-Za-z0-9_-]+)\s*=') { "    $($matches[1]) = <redacted>" }
+  else { "    <blank/other>" }
+}
+
+```
+```
+[windows]
+    appendAtomically = <redacted>
+[credential "https://github.com"]
+    helper = <redacted>
+[credential]
+    helper = <redacted>
+[user]
+    name = <redacted>
+    email = <redacted>
+[core]
+    longpaths = <redacted>
+    fsmonitor = <redacted>
+    untrackedCache = <redacted>
+```
+- `Bash`
+```bash
+wsl -e bash -c "
 sed -E 's/^([[:space:]]*[A-Za-z0-9_-]+[[:space:]]*=).*/\1 <redacted>/' ~/.gitconfig
 "
-`
+
+```
 ```
 [credential "https://github.com"]
 	helper = <redacted>
@@ -349,11 +577,17 @@ sed -E 's/^([[:space:]]*[A-Za-z0-9_-]+[[:space:]]*=).*/\1 <redacted>/' ~/.gitcon
 [diff]
 	colorMoved = <redacted>
 ```
-- `Bash` -- `wsl -e bash -c "grep -n 'JARVIS_WSL_ENV_BLOCK\|^# ===\|^#===' ~/.bashrc"`
+- `Bash`
+```bash
+wsl -e bash -c "grep -n 'JARVIS_WSL_ENV_BLOCK\|^# ===\|^#===' ~/.bashrc"
+```
 ```
 127:# JARVIS_WSL_ENV_BLOCK
 ```
-- `Bash` -- `wsl -e bash -c "sed -n '120,170p' ~/.bashrc | sed -E 's/^([[:space:]]*export[[:space:]]+[A-Za-z0-9_]+=).*/\1<redacted>/'"`
+- `Bash`
+```bash
+wsl -e bash -c "sed -n '120,170p' ~/.bashrc | sed -E 's/^([[:space:]]*export[[:space:]]+[A-Za-z0-9_]+=).*/\1<redacted>/'"
+```
 ```
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -404,7 +638,10 @@ if [ "$TERM_PROGRAM" = "vscode" ] && [ -z "$VSCODE_ENV_DISABLE" ] && [ -f "$HOME
 fi
 # <<< vscode-env <<<
 ```
-- `Bash` -- `wsl -e bash -c "grep -n '.' ~/.bashrc | sed -n '120,150p' | cut -d: -f1 | sed -n '1p;$p'; echo '---'; grep -n 'vscode-env\|conda initialize\|JARVIS_WSL_ENV_BLOCK' ~/.bashrc; echo '---total lines---'; wc -l ~/.bashrc"`
+- `Bash`
+```bash
+wsl -e bash -c "grep -n '.' ~/.bashrc | sed -n '120,150p' | cut -d: -f1 | sed -n '1p;$p'; echo '---'; grep -n 'vscode-env\|conda initialize\|JARVIS_WSL_ENV_BLOCK' ~/.bashrc; echo '---total lines---'; wc -l ~/.bashrc"
+```
 ```
 150
 ---
@@ -418,8 +655,48 @@ fi
 ---total lines---
 167 /home/anant_gupta/.bashrc
 ```
-- `PowerShell` -- `{"command":"$tools = @(\u0027starship\u0027,\u0027yazi\u0027,\u0027lazygit\u0027,\u0027bat\u0027,\u0027rg\u0027,\u0027delta\u0027,\u0027gh\u0027,\u0027git\u0027,\u0027pwsh\u0027,\u0027wt\u0027,\u0027winget\u0027)\nforeach ($t in $tools) {\n  $cmd = Get-Command $t -ErrorAction SilentlyContinue\n  if ($cmd) { Write-Output \"$t =\u003e $($cmd.Source)\" } else { Write-Output \"$t =\u003e NOT FOUND\" }\n}\nWrite-Output \"---PS5.1---\"\npowershell.exe -NoProfile -Command \u0027$PSVersionTable.PSVersion.ToString()\u0027\nWrite-Output \"---PS7---\"\npwsh -NoProfile -Command \u0027$PSVersionTable.PSVersion.ToString()\u0027\nWrite-Output \"---fonts---\"\n(Get-ChildItem \u0027C:\\Windows\\Fonts\u0027 -ErrorAction SilentlyContinue | Select-Object -First 3).Name\nWrite-Output \"---gh dash ext---\"\ngh extension list 2\u003e\u00261\n","description":"Check which terminal tool binaries exist on Windows PATH and get PS versions"}`
-- `Bash` -- `wsl -e bash -c '
+- `PowerShell`
+```powershell
+$tools = @('starship','yazi','lazygit','bat','rg','delta','gh','git','pwsh','wt','winget')
+foreach ($t in $tools) {
+  $cmd = Get-Command $t -ErrorAction SilentlyContinue
+  if ($cmd) { Write-Output "$t => $($cmd.Source)" } else { Write-Output "$t => NOT FOUND" }
+}
+Write-Output "---PS5.1---"
+powershell.exe -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+Write-Output "---PS7---"
+pwsh -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+Write-Output "---fonts---"
+(Get-ChildItem 'C:\Windows\Fonts' -ErrorAction SilentlyContinue | Select-Object -First 3).Name
+Write-Output "---gh dash ext---"
+gh extension list 2>&1
+
+```
+```
+starship => C:\Program Files\starship\bin\starship.exe
+yazi => C:\Users\anant\AppData\Local\Microsoft\WinGet\Links\yazi.exe
+lazygit => NOT FOUND
+bat => NOT FOUND
+rg => C:\Users\anant\AppData\Local\Microsoft\WinGet\Packages\BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe\ripgrep-15.2.[REDACTED]\rg.exe
+delta => NOT FOUND
+gh => C:\Program Files\GitHub CLI\gh.exe
+git => C:\Program Files\Git\cmd\git.exe
+pwsh => C:\Program Files\WindowsApps\Microsoft.PowerShell_7.6.6.0_x64__8wekyb3d8bbwe\pwsh.exe
+wt => C:\Users\anant\AppData\Local\Microsoft\WindowsApps\wt.exe
+winget => C:\Users\anant\AppData\Local\Microsoft\WindowsApps\winget.exe
+---PS5.1---
+5.1.26100.9549
+---PS7---
+7.6.6
+---fonts---
+8514fix.fon
+8514fixe.fon
+8514fixg.fon
+---gh dash ext---
+```
+- `Bash`
+```bash
+wsl -e bash -c '
 for t in starship yazi lazygit bat rg delta gh git tmux atuin sesh ncdu gh-dash; do
   p=$(command -v $t 2>/dev/null)
   if [ -n "$p" ]; then echo "$t => $p"; else echo "$t => NOT FOUND"; fi
@@ -427,7 +704,8 @@ done
 echo "---gh extension list---"
 gh extension list 2>&1
 '
-`
+
+```
 ```
 starship => /usr/local/bin/starship
 yazi => NOT FOUND
@@ -445,12 +723,15 @@ gh-dash => NOT FOUND
 ---gh extension list---
 gh dash	dlvhdr/gh-dash	v4.25.2
 ```
-- `Bash` -- `wsl -e bash -ic '
+- `Bash`
+```bash
+wsl -e bash -ic '
 for t in starship yazi lazygit bat rg delta gh git tmux atuin sesh ncdu; do
   p=$(command -v $t 2>/dev/null)
   if [ -n "$p" ]; then v=$($t --version 2>&1 | head -1); echo "$t => $p ($v)"; else echo "$t => NOT FOUND"; fi
 done
-' 2>&1 | grep -v "^bash:"`
+' 2>&1 | grep -v "^bash:"
+```
 ```
 stty: 'standard input': Inappropriate ioctl for device
 starship => /usr/local/bin/starship (starship 1.26.0)
@@ -466,10 +747,13 @@ atuin => /home/anant_gupta/.atuin/bin/atuin (atuin 18.22.0 ([REDACTED]))
 sesh => /home/anant_gupta/.local/bin/sesh (sesh version 2.30.1)
 ncdu => /usr/bin/ncdu (ncdu 1.19)
 ```
-- `Bash` -- `wsl -e bash -ic '
+- `Bash`
+```bash
+wsl -e bash -ic '
 yazi --version 2>&1
 tmux -V 2>&1
-' 2>&1 | grep -v "stty\|^bash:"`
+' 2>&1 | grep -v "stty\|^bash:"
+```
 ```
 Yazi
     Version: 26.9.1 (8dd895c 2026-09-01)
@@ -479,18 +763,59 @@ Yazi
 
 tmux 3.7c
 ```
-- `PowerShell` -- `{"command":"Add-Type -AssemblyName System.Drawing\n$fc = New-Object System.Drawing.Text.InstalledFontCollection\n$fc.Families.Name | Where-Object { $_ -match \u0027Mono|Nerd|Code|Cascadia|Fira|Hack|Jetbrains|Meslo\u0027 } | Sort-Object -Unique\n","description":"List installed monospace/nerd font family names on Windows"}`
-- `PowerShell` -- `{"command":"[Environment]::GetEnvironmentVariables(\u0027User\u0027).GetEnumerator() | Where-Object {\n  $_.Key -match \u0027CONFIG|HOME|STARSHIP|YAZI|BAT_|RIPGREP|LAZYGIT|DELTA|GH_|TMUX|NVM_DIR|CARGO_HOME|XDG\u0027\n} | Where-Object { $_.Key -notmatch \u0027TOKEN|KEY|SECRET|PASSWORD|CRED\u0027 } | ForEach-Object { \"$($_.Key)=$($_.Value)\" }\n","description":"List user env vars pointing at config folders on Windows (name pattern filtered, secrets excluded by name)"}`
-- `Bash` -- `wsl -e bash -ic '
+- `PowerShell`
+```powershell
+Add-Type -AssemblyName System.Drawing
+$fc = New-Object System.Drawing.Text.InstalledFontCollection
+$fc.Families.Name | Where-Object { $_ -match 'Mono|Nerd|Code|Cascadia|Fira|Hack|Jetbrains|Meslo' } | Sort-Object -Unique
+
+```
+```
+Cascadia Code
+Cascadia Code ExtraLight
+Cascadia Code Light
+Cascadia Code SemiBold
+Cascadia Code SemiLight
+Cascadia Mono
+Cascadia Mono ExtraLight
+Cascadia Mono Light
+Cascadia Mono SemiBold
+Cascadia Mono SemiLight
+Lucida Sans Unicode
+Monotype Corsiva
+Ubuntu Sans Mono
+Ubuntu Sans Mono ExtraLight
+Ubuntu Sans Mono Light
+Ubuntu Sans Mono Medium
+Ubuntu Sans Mono SemiBold
+Ubuntu Sans Mono Thin
+```
+- `PowerShell`
+```powershell
+[Environment]::GetEnvironmentVariables('User').GetEnumerator() | Where-Object {
+  $_.Key -match 'CONFIG|HOME|STARSHIP|YAZI|BAT_|RIPGREP|LAZYGIT|DELTA|GH_|TMUX|NVM_DIR|CARGO_HOME|XDG'
+} | Where-Object { $_.Key -notmatch 'TOKEN|KEY|SECRET|PASSWORD|CRED' } | ForEach-Object { "$($_.Key)=$($_.Value)" }
+
+```
+```
+HERMES_HOME=D:\Apps\Hermes
+```
+- `Bash`
+```bash
+wsl -e bash -ic '
 env | grep -iE "CONFIG|XDG|STARSHIP|YAZI|BAT_|RIPGREP|LAZYGIT|DELTA|GH_|TMUX_CONF|NVM_DIR|CARGO_HOME" | grep -ivE "TOKEN|KEY|SECRET|PASSWORD|CRED"
-' 2>&1 | grep -v "stty\|^bash:"`
+' 2>&1 | grep -v "stty\|^bash:"
+```
 ```
 STARSHIP_SHELL=bash
 NVM_DIR=/home/anant_gupta/.nvm
 XDG_RUNTIME_DIR=/run/user/1000
 PATH=/home/anant_gupta/miniconda3/condabin:/home/anant_gupta/.atuin/bin:/home/anant_gupta/.local/bin:/home/anant_gupta/.local/bin:/home/anant_gupta/.cargo/bin:/home/anant_gupta/.nvm/versions/node/v24.21.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Users/anant/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/local/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Program Files/Git/mingw64/bin:/mnt/c/Program Files/Git/usr/bin:/mnt/c/Users/anant/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0:/mnt/c/WINDOWS/System32/OpenSSH:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/starship/bin:/mnt/c/Program Files/nodejs:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/GitHub CLI:/mnt/c/Users/anant/.local/bin:/mnt/d/Apps/Hermes/bin:/mnt/c/Users/anant/AppData/Local/agy/bin:/mnt/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/mnt/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/anant/AppData/Local/PowerToys/DSCModules:/mnt/d/Apps/Microsoft VS Code/bin:/mnt/d/Apps/Cursor/resources/app/bin:/mnt/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/mnt/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/mnt/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/mnt/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/mnt/c/Users/anant/AppData/Local/Programs/Ollama:/mnt/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/mnt/c/Users/anant/AppData/Roaming/npm:/mnt/d/Apps/Hermes/git/cmd:/mnt/d/Apps/Hermes/git/bin:/mnt/d/Apps/Hermes/git/usr/bin:/mnt/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/mnt/d/AI/npm-global:/mnt/d/Apps/Obsidian:/mnt/c/Program Files/Git/usr/bin/vendor_perl:/mnt/c/Program Files/Git/usr/bin/core_perl
 ```
-- `Bash` -- `wsl -e bash -c "ls -la /etc/wsl.conf; echo ---; sed -n '127,145p' ~/.bashrc | sed -E 's/^([[:space:]]*export[[:space:]]+[A-Za-z0-9_]+=).*/\1<redacted>/'"`
+- `Bash`
+```bash
+wsl -e bash -c "ls -la /etc/wsl.conf; echo ---; sed -n '127,145p' ~/.bashrc | sed -E 's/^([[:space:]]*export[[:space:]]+[A-Za-z0-9_]+=).*/\1<redacted>/'"
+```
 ```
 -rw-r--r-- 1 root root 95 Sep 18 15:05 /etc/wsl.conf
 ---
@@ -653,39 +978,39 @@ Write-Output "DONE: $($Manifest.Count) copied, $($Excluded.Count) excluded/not-p
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\windows-export.ps1`
 ```diff
 - $Snap = "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot"
-$Win  = Join-Path $Snap "windows"
-$H    = $env:USERPROFILE
-
-New-Item -ItemType Directory -Force -Path $Win | Out-Null
+- $Win  = Join-Path $Snap "windows"
+- $H    = $env:USERPROFILE
+- 
+- New-Item -ItemType Directory -Force -Path $Win | Out-Null
 + $Snap = "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot"
-$Win  = Join-Path $Snap "windows"
-$Wsl  = Join-Path $Snap "wsl"
-$H    = $env:USERPROFILE
-
-New-Item -ItemType Directory -Force -Path $Win | Out-Null
-New-Item -ItemType Directory -Force -Path $Wsl | Out-Null
++ $Win  = Join-Path $Snap "windows"
++ $Wsl  = Join-Path $Snap "wsl"
++ $H    = $env:USERPROFILE
++ 
++ New-Item -ItemType Directory -Force -Path $Win | Out-Null
++ New-Item -ItemType Directory -Force -Path $Wsl | Out-Null
 ```
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\windows-export.ps1`
 ```diff
 - # tools with no config present on this host - record as not present (not "excluded")
 + # .wslconfig - a Windows-side file that configures WSL; task groups it under the WSL section
-$wslconfigSrc = "$H\.wslconfig"
-if (Test-Path $wslconfigSrc) {
-  if (Test-SecretContent $wslconfigSrc) {
-    $Excluded += [pscustomobject]@{ Source=$wslconfigSrc; RelDest="windows-host\.wslconfig"; Reason="matched secret heuristic - not copied" }
-  } else {
-    $destPath = Join-Path $Wsl "windows-host\.wslconfig"
-    New-Item -ItemType Directory -Force -Path (Split-Path $destPath -Parent) | Out-Null
-    Copy-Item $wslconfigSrc $destPath -Force
-    $hash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-    $size = (Get-Item $destPath).Length
-    $Manifest += [pscustomobject]@{ Source=$wslconfigSrc; RelDest="wsl/windows-host/.wslconfig"; Size=$size; SHA256=$hash }
-  }
-} else {
-  $Excluded += [pscustomobject]@{ Source=$wslconfigSrc; RelDest="windows-host\.wslconfig"; Reason="not present on this host" }
-}
-
-# tools with no config present on this host - record as not present (not "excluded")
++ $wslconfigSrc = "$H\.wslconfig"
++ if (Test-Path $wslconfigSrc) {
++   if (Test-SecretContent $wslconfigSrc) {
++     $Excluded += [pscustomobject]@{ Source=$wslconfigSrc; RelDest="windows-host\.wslconfig"; Reason="matched secret heuristic - not copied" }
++   } else {
++     $destPath = Join-Path $Wsl "windows-host\.wslconfig"
++     New-Item -ItemType Directory -Force -Path (Split-Path $destPath -Parent) | Out-Null
++     Copy-Item $wslconfigSrc $destPath -Force
++     $hash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
++     $size = (Get-Item $destPath).Length
++     $Manifest += [pscustomobject]@{ Source=$wslconfigSrc; RelDest="wsl/windows-host/.wslconfig"; Size=$size; SHA256=$hash }
++   }
++ } else {
++   $Excluded += [pscustomobject]@{ Source=$wslconfigSrc; RelDest="windows-host\.wslconfig"; Reason="not present on this host" }
++ }
++ 
++ # tools with no config present on this host - record as not present (not "excluded")
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\wsl-export.sh`
 ```
@@ -837,9 +1162,24 @@ echo "copied: $(wc -l < "$MANIFEST_TSV")"
 echo "excluded/not-present: $(wc -l < "$EXCLUDED_TSV")"
 
 ```
-- `PowerShell` -- `{"command":"powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\windows-export.ps1\"","description":"Run the Windows-side dotfile export script"}`
-- `PowerShell` -- `{"command":"Write-Output \"test\"","description":"Test if PowerShell tool is still usable at all"}`
-- `Bash` -- `echo test`
+- `PowerShell`
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\windows-export.ps1"
+```
+```
+Auto mode could not evaluate this action and is blocking it for safety — a safety check separate from auto mode blocked this request because of earlier conversation content — it isn't about the action itself — run with --debug for details. This is not a judgment that the action is unsafe. Retrying it will hit the same refusal, so don't rewrite or rework the action to get around this — it reacts to earlier conversation content, not to the action itself, and it will keep firing for the rest of this conversation. Continue with other tasks that don't require this action. If it is essential, stop and tell the user that auto mode could not evaluate it, and suggest running this action outside auto mode (switch back to the default permission mode) or starting a fresh session. Note: reading files, searching code, and other read-only operations do not require the classifier and can still be used.
+```
+- `PowerShell`
+```powershell
+Write-Output "test"
+```
+```
+Auto mode could not evaluate this action and is blocking it for safety — a safety check separate from auto mode blocked this request because of earlier conversation content — it isn't about the action itself — run with --debug for details. This is not a judgment that the action is unsafe. Retrying it will hit the same refusal, so don't rewrite or rework the action to get around this — it reacts to earlier conversation content, not to the action itself, and it will keep firing for the rest of this conversation. Continue with other tasks that don't require this action. If it is essential, stop and tell the user that auto mode could not evaluate it, and suggest running this action outside auto mode (switch back to the default permission mode) or starting a fresh session. Note: reading files, searching code, and other read-only operations do not require the classifier and can still be used.
+```
+- `Bash`
+```bash
+echo test
+```
 ```
 Auto mode could not evaluate this action and is blocking it for safety — a safety check separate from auto mode blocked this request because of earlier conversation content — it isn't about the action itself — run with --debug for details. This is not a judgment that the action is unsafe. Retrying it will hit the same refusal, so don't rewrite or rework the action to get around this — it reacts to earlier conversation content, not to the action itself, and it will keep firing for the rest of this conversation. Continue with other tasks that don't require this action. If it is essential, stop and tell the user that auto mode could not evaluate it, and suggest running this action outside auto mode (switch back to the default permission mode) or starting a fresh session. Note: reading files, searching code, and other read-only operations do not require the classifier and can still be used.
 ```
@@ -1310,7 +1650,7 @@ echo "excluded/not-present: $(( $(wc -l < "$EXCLUDED") - 1 ))"
 ```diff
 -     [System.IO.File]::WriteAllText($destPath, $redactedText, [System.Text.Encoding]::ASCII)
 +     $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
-    [System.IO.File]::WriteAllText($destPath, $redactedText, $utf8NoBom)
++     [System.IO.File]::WriteAllText($destPath, $redactedText, $utf8NoBom)
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\windows-export.ps1`
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
@@ -1763,22 +2103,22 @@ It's idempotent — it will overwrite the 34 files, `hashes-wsl.txt`, and `exclu
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 -     end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; exit} END{if(NR>0) print NR}' "$HOME/.bashrc")
-    block=$(sed -n "${start},${end}p" "$HOME/.bashrc")
-    # trim trailing blank lines from the extracted block
-    block=$(printf '%s\n' "$block" | sed -e :a -e '/^\s*$/{$d;N;ba' -e '}')
+-     block=$(sed -n "${start},${end}p" "$HOME/.bashrc")
+-     # trim trailing blank lines from the extracted block
+-     block=$(printf '%s\n' "$block" | sed -e :a -e '/^\s*$/{$d;N;ba' -e '}')
 +     end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; exit} END{if(NR>0) print NR}' "$HOME/.bashrc")
-    # extract the range, then trim trailing blank lines via awk (portable, no multi-line sed tricks)
-    block=$(sed -n "${start},${end}p" "$HOME/.bashrc" | awk '{lines[NR]=$0} END{n=NR; while (n>0 && lines[n]=="") n--; for (i=1;i<=n;i++) print lines[i]}')
++     # extract the range, then trim trailing blank lines via awk (portable, no multi-line sed tricks)
++     block=$(sed -n "${start},${end}p" "$HOME/.bashrc" | awk '{lines[NR]=$0} END{n=NR; while (n>0 && lines[n]=="") n--; for (i=1;i<=n;i++) print lines[i]}')
 ```
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\wsl-export.sh`
 ```diff
 -     end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; exit} END{if(NR>0) print NR}' "$HOME/.bashrc")
-    block=$(sed -n "${start},${end}p" "$HOME/.bashrc")
-    # trim trailing blank lines from the extracted block
-    block=$(printf '%s\n' "$block" | sed -e :a -e '/^\s*$/{$d;N;ba' -e '}')
+-     block=$(sed -n "${start},${end}p" "$HOME/.bashrc")
+-     # trim trailing blank lines from the extracted block
+-     block=$(printf '%s\n' "$block" | sed -e :a -e '/^\s*$/{$d;N;ba' -e '}')
 +     end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; exit} END{if(NR>0) print NR}' "$HOME/.bashrc")
-    # extract the range, then trim trailing blank lines via awk (portable, no multi-line sed tricks)
-    block=$(sed -n "${start},${end}p" "$HOME/.bashrc" | awk '{lines[NR]=$0} END{n=NR; while (n>0 && lines[n]=="") n--; for (i=1;i<=n;i++) print lines[i]}')
++     # extract the range, then trim trailing blank lines via awk (portable, no multi-line sed tricks)
++     block=$(sed -n "${start},${end}p" "$HOME/.bashrc" | awk '{lines[NR]=$0} END{n=NR; while (n>0 && lines[n]=="") n--; for (i=1;i<=n;i++) print lines[i]}')
 ```
 - `Grep` -- pattern `[^\x00-\x7F]` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 
@@ -1876,87 +2216,87 @@ Paste both outputs when done.
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
 ```diff
 - # hashes-windows.txt columns: RelDest  Source  SourceSHA256  CopySHA256  Status
-$HashLines = New-Object System.Collections.Generic.List[string]
-$HashLines.Add("RelDest`tSource`tSourceSHA256`tCopySHA256`tStatus")
-# excluded-windows.txt columns: Source  RelDest  Reason
-$ExcludedLines = New-Object System.Collections.Generic.List[string]
-$ExcludedLines.Add("Source`tRelDest`tReason")
-
-function Add-Excluded {
-  param([string]$Source, [string]$RelDest, [string]$Reason)
-  $ExcludedLines.Add("$Source`t$RelDest`t$Reason")
-}
-
-function Add-Hash {
-  param([string]$RelDest, [string]$Source, [string]$SourceHash, [string]$CopyHash, [string]$Status)
-  $HashLines.Add("$RelDest`t$Source`t$SourceHash`t$CopyHash`t$Status")
-}
+- $HashLines = New-Object System.Collections.Generic.List[string]
+- $HashLines.Add("RelDest`tSource`tSourceSHA256`tCopySHA256`tStatus")
+- # excluded-windows.txt columns: Source  RelDest  Reason
+- $ExcludedLines = New-Object System.Collections.Generic.List[string]
+- $ExcludedLines.Add("Source`tRelDest`tReason")
+- 
+- function Add-Excluded {
+-   param([string]$Source, [string]$RelDest, [string]$Reason)
+-   $ExcludedLines.Add("$Source`t$RelDest`t$Reason")
+- }
+- 
+- function Add-Hash {
+-   param([string]$RelDest, [string]$Source, [string]$SourceHash, [string]$CopyHash, [string]$Status)
+-   $HashLines.Add("$RelDest`t$Source`t$SourceHash`t$CopyHash`t$Status")
+- }
 + # hashes-windows.txt columns: RelDest  Source  SourceSHA256  CopySHA256  CopySize  Status
-$HashLines = New-Object System.Collections.Generic.List[string]
-$HashLines.Add("RelDest`tSource`tSourceSHA256`tCopySHA256`tCopySize`tStatus")
-# excluded-windows.txt columns: Source  RelDest  Reason
-$ExcludedLines = New-Object System.Collections.Generic.List[string]
-$ExcludedLines.Add("Source`tRelDest`tReason")
-
-function Add-Excluded {
-  param([string]$Source, [string]$RelDest, [string]$Reason)
-  $ExcludedLines.Add("$Source`t$RelDest`t$Reason")
-}
-
-function Add-Hash {
-  param([string]$RelDest, [string]$Source, [string]$SourceHash, [string]$CopyHash, [long]$CopySize, [string]$Status)
-  $HashLines.Add("$RelDest`t$Source`t$SourceHash`t$CopyHash`t$CopySize`t$Status")
-}
++ $HashLines = New-Object System.Collections.Generic.List[string]
++ $HashLines.Add("RelDest`tSource`tSourceSHA256`tCopySHA256`tCopySize`tStatus")
++ # excluded-windows.txt columns: Source  RelDest  Reason
++ $ExcludedLines = New-Object System.Collections.Generic.List[string]
++ $ExcludedLines.Add("Source`tRelDest`tReason")
++ 
++ function Add-Excluded {
++   param([string]$Source, [string]$RelDest, [string]$Reason)
++   $ExcludedLines.Add("$Source`t$RelDest`t$Reason")
++ }
++ 
++ function Add-Hash {
++   param([string]$RelDest, [string]$Source, [string]$SourceHash, [string]$CopyHash, [long]$CopySize, [string]$Status)
++   $HashLines.Add("$RelDest`t$Source`t$SourceHash`t$CopyHash`t$CopySize`t$Status")
++ }
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
 ```diff
 -   $srcHash = (Get-FileHash -Algorithm SHA256 -Path $Source).Hash
-  $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-  $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
-  Add-Hash "windows/$RelDest" $Source $srcHash $dstHash $status
-}
+-   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
+-   $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
+-   Add-Hash "windows/$RelDest" $Source $srcHash $dstHash $status
+- }
 +   $srcHash = (Get-FileHash -Algorithm SHA256 -Path $Source).Hash
-  $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-  $dstSize = (Get-Item $destPath).Length
-  $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
-  Add-Hash "windows/$RelDest" $Source $srcHash $dstHash $dstSize $status
-}
++   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
++   $dstSize = (Get-Item $destPath).Length
++   $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
++   Add-Hash "windows/$RelDest" $Source $srcHash $dstHash $dstSize $status
++ }
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
 ```diff
 -     $srcHash = (Get-FileHash -Algorithm SHA256 -Path $gitconfigSrc).Hash
-    $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-    Add-Hash "windows/home/.gitconfig" "$gitconfigSrc (redacted: removed [credential] and [user] sections)" $srcHash $dstHash "DIFF"
+-     $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
+-     Add-Hash "windows/home/.gitconfig" "$gitconfigSrc (redacted: removed [credential] and [user] sections)" $srcHash $dstHash "DIFF"
 +     $srcHash = (Get-FileHash -Algorithm SHA256 -Path $gitconfigSrc).Hash
-    $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-    $dstSize = (Get-Item $destPath).Length
-    Add-Hash "windows/home/.gitconfig" "$gitconfigSrc (redacted: removed [credential] and [user] sections)" $srcHash $dstHash $dstSize "DIFF"
++     $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
++     $dstSize = (Get-Item $destPath).Length
++     Add-Hash "windows/home/.gitconfig" "$gitconfigSrc (redacted: removed [credential] and [user] sections)" $srcHash $dstHash $dstSize "DIFF"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
 ```diff
 -   $srcHash = (Get-FileHash -Algorithm SHA256 -Path $wslconfigSrc).Hash
-  $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-  $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
-  Add-Hash "wsl/windows-host/.wslconfig" $wslconfigSrc $srcHash $dstHash $status
-}
+-   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
+-   $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
+-   Add-Hash "wsl/windows-host/.wslconfig" $wslconfigSrc $srcHash $dstHash $status
+- }
 +   $srcHash = (Get-FileHash -Algorithm SHA256 -Path $wslconfigSrc).Hash
-  $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-  $dstSize = (Get-Item $destPath).Length
-  $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
-  Add-Hash "wsl/windows-host/.wslconfig" $wslconfigSrc $srcHash $dstHash $dstSize $status
-}
++   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
++   $dstSize = (Get-Item $destPath).Length
++   $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
++   Add-Hash "wsl/windows-host/.wslconfig" $wslconfigSrc $srcHash $dstHash $dstSize $status
++ }
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
 ```diff
 - if (Test-Path $wingetOut) {
-  $dstHash = (Get-FileHash -Algorithm SHA256 -Path $wingetOut).Hash
-  Add-Hash "windows/winget/winget-export.json" "winget export (generated)" "n/a" $dstHash "GENERATED"
-}
+-   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $wingetOut).Hash
+-   Add-Hash "windows/winget/winget-export.json" "winget export (generated)" "n/a" $dstHash "GENERATED"
+- }
 + if (Test-Path $wingetOut) {
-  $dstHash = (Get-FileHash -Algorithm SHA256 -Path $wingetOut).Hash
-  $dstSize = (Get-Item $wingetOut).Length
-  Add-Hash "windows/winget/winget-export.json" "winget export (generated)" "n/a" $dstHash $dstSize "GENERATED"
-}
++   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $wingetOut).Hash
++   $dstSize = (Get-Item $wingetOut).Length
++   Add-Hash "windows/winget/winget-export.json" "winget export (generated)" "n/a" $dstHash $dstSize "GENERATED"
++ }
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
@@ -1966,59 +2306,59 @@ function Add-Hash {
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 - log_hash() {
-  # args: reldest  source  sourcehash  copyhash  status
-  printf '%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" >> "$HASHES"
-}
+-   # args: reldest  source  sourcehash  copyhash  status
+-   printf '%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" >> "$HASHES"
+- }
 + log_hash() {
-  # args: reldest  source  sourcehash  copyhash  copysize  status
-  printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" "$6" >> "$HASHES"
-}
++   # args: reldest  source  sourcehash  copyhash  copysize  status
++   printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" "$6" >> "$HASHES"
++ }
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 -   local srchash dsthash status
-  srchash=$(sha256sum "$src" | cut -d' ' -f1)
-  dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-  if [ "$srchash" = "$dsthash" ]; then status="MATCH"; else status="DIFF"; fi
-  log_hash "wsl/$rel" "$src" "$srchash" "$dsthash" "$status"
-}
+-   srchash=$(sha256sum "$src" | cut -d' ' -f1)
+-   dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
+-   if [ "$srchash" = "$dsthash" ]; then status="MATCH"; else status="DIFF"; fi
+-   log_hash "wsl/$rel" "$src" "$srchash" "$dsthash" "$status"
+- }
 +   local srchash dsthash dstsize status
-  srchash=$(sha256sum "$src" | cut -d' ' -f1)
-  dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-  dstsize=$(stat -c%s "$dest")
-  if [ "$srchash" = "$dsthash" ]; then status="MATCH"; else status="DIFF"; fi
-  log_hash "wsl/$rel" "$src" "$srchash" "$dsthash" "$dstsize" "$status"
-}
++   srchash=$(sha256sum "$src" | cut -d' ' -f1)
++   dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
++   dstsize=$(stat -c%s "$dest")
++   if [ "$srchash" = "$dsthash" ]; then status="MATCH"; else status="DIFF"; fi
++   log_hash "wsl/$rel" "$src" "$srchash" "$dsthash" "$dstsize" "$status"
++ }
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 -     srchash=$(sha256sum "$HOME/.gitconfig" | cut -d' ' -f1)
-    dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-    log_hash "wsl/home/.gitconfig" "$HOME/.gitconfig (redacted: removed [credential] and [user] sections)" "$srchash" "$dsthash" "DIFF"
+-     dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
+-     log_hash "wsl/home/.gitconfig" "$HOME/.gitconfig (redacted: removed [credential] and [user] sections)" "$srchash" "$dsthash" "DIFF"
 +     srchash=$(sha256sum "$HOME/.gitconfig" | cut -d' ' -f1)
-    dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-    dstsize=$(stat -c%s "$dest")
-    log_hash "wsl/home/.gitconfig" "$HOME/.gitconfig (redacted: removed [credential] and [user] sections)" "$srchash" "$dsthash" "$dstsize" "DIFF"
++     dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
++     dstsize=$(stat -c%s "$dest")
++     log_hash "wsl/home/.gitconfig" "$HOME/.gitconfig (redacted: removed [credential] and [user] sections)" "$srchash" "$dsthash" "$dstsize" "DIFF"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 -   printf '%s\n' "$listing" > "$dest"
-  dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-  log_hash "wsl/home/.tmux-plugins-list.txt" "$HOME/.tmux/plugins (directory listing only, not plugin source, generated)" "n/a" "$dsthash" "GENERATED"
+-   dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
+-   log_hash "wsl/home/.tmux-plugins-list.txt" "$HOME/.tmux/plugins (directory listing only, not plugin source, generated)" "n/a" "$dsthash" "GENERATED"
 +   printf '%s\n' "$listing" > "$dest"
-  dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-  dstsize=$(stat -c%s "$dest")
-  log_hash "wsl/home/.tmux-plugins-list.txt" "$HOME/.tmux/plugins (directory listing only, not plugin source, generated)" "n/a" "$dsthash" "$dstsize" "GENERATED"
++   dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
++   dstsize=$(stat -c%s "$dest")
++   log_hash "wsl/home/.tmux-plugins-list.txt" "$HOME/.tmux/plugins (directory listing only, not plugin source, generated)" "n/a" "$dsthash" "$dstsize" "GENERATED"
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 -       printf '%s\n' "$block" > "$dest"
-      dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-      log_hash "wsl/home/.bashrc.jarvis_block" "$HOME/.bashrc (JARVIS_WSL_ENV_BLOCK lines $start-$end only, generated excerpt)" "n/a" "$dsthash" "GENERATED"
+-       dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
+-       log_hash "wsl/home/.bashrc.jarvis_block" "$HOME/.bashrc (JARVIS_WSL_ENV_BLOCK lines $start-$end only, generated excerpt)" "n/a" "$dsthash" "GENERATED"
 +       printf '%s\n' "$block" > "$dest"
-      dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-      dstsize=$(stat -c%s "$dest")
-      log_hash "wsl/home/.bashrc.jarvis_block" "$HOME/.bashrc (JARVIS_WSL_ENV_BLOCK lines $start-$end only, generated excerpt)" "n/a" "$dsthash" "$dstsize" "GENERATED"
++       dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
++       dstsize=$(stat -c%s "$dest")
++       log_hash "wsl/home/.bashrc.jarvis_block" "$HOME/.bashrc (JARVIS_WSL_ENV_BLOCK lines $start-$end only, generated excerpt)" "n/a" "$dsthash" "$dstsize" "GENERATED"
 ```
 - `Grep` -- pattern `[^\x00-\x7F]` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 - `Grep` -- pattern `[^\x00-\x7F]` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\windows-export.ps1`
@@ -2067,30 +2407,30 @@ Paste the output — I'll re-check the `.gitconfig` copy content directly this t
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 ```diff
 -   redacted=$(awk '
-    /^[[:space:]]*\[(credential|user)\b/ { skip=1; next }
-    /^[[:space:]]*\[/ { skip=0 }
-    !skip { print }
-  ' "$HOME/.gitconfig")
+-     /^[[:space:]]*\[(credential|user)\b/ { skip=1; next }
+-     /^[[:space:]]*\[/ { skip=0 }
+-     !skip { print }
+-   ' "$HOME/.gitconfig")
 +   redacted=$(awk '
-    /^[[:space:]]*\[credential/ { skip=1; next }
-    /^[[:space:]]*\[user\]/ { skip=1; next }
-    /^[[:space:]]*\[/ { skip=0 }
-    !skip { print }
-  ' "$HOME/.gitconfig")
++     /^[[:space:]]*\[credential/ { skip=1; next }
++     /^[[:space:]]*\[user\]/ { skip=1; next }
++     /^[[:space:]]*\[/ { skip=0 }
++     !skip { print }
++   ' "$HOME/.gitconfig")
 ```
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\9eb4b012-285e-4602-bcc0-1328ecde1538\scratchpad\wsl-export.sh`
 ```diff
 -   redacted=$(awk '
-    /^[[:space:]]*\[(credential|user)\b/ { skip=1; next }
-    /^[[:space:]]*\[/ { skip=0 }
-    !skip { print }
-  ' "$HOME/.gitconfig")
+-     /^[[:space:]]*\[(credential|user)\b/ { skip=1; next }
+-     /^[[:space:]]*\[/ { skip=0 }
+-     !skip { print }
+-   ' "$HOME/.gitconfig")
 +   redacted=$(awk '
-    /^[[:space:]]*\[credential/ { skip=1; next }
-    /^[[:space:]]*\[user\]/ { skip=1; next }
-    /^[[:space:]]*\[/ { skip=0 }
-    !skip { print }
-  ' "$HOME/.gitconfig")
++     /^[[:space:]]*\[credential/ { skip=1; next }
++     /^[[:space:]]*\[user\]/ { skip=1; next }
++     /^[[:space:]]*\[/ { skip=0 }
++     !skip { print }
++   ' "$HOME/.gitconfig")
 ```
 - `Grep` -- pattern `\\b` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
 - `Grep` -- pattern `[^\x00-\x7F]` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\_scripts\wsl-export.sh`
@@ -2384,47 +2724,15 @@ _None detected_
 - `find "40_Resources/CS/Concepts/New Laptop" -maxdepth 3 2>&1`
 - `grep -l "New Laptop\|Dotfile\|Dell" 40_Resources/CS/Concepts/*.md 2>/dev/null; echo "---"; cat "40_Resources/CS/Concepts/Terminal.md" 2>&1 | head -60`
 - `sed -n '1,40p' "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Index.md"`
-- `wsl -e bash -c '
-echo "---bashrc block range---"
-grep -n "JARVIS_WSL_ENV_BLOCK" ~/.bashrc
-echo "---gitconfig sections---"
-grep -n "^\[" ~/.config/git/config 2>/dev/null || grep -n "^\[" ~/.gitconfig 2>/dev/null
-echo "---which gitconfig has delta---"
-grep -n "delta" ~/.gitconfig 2>/dev/null
-echo "---wsl.conf content check (non-secret, just size)---"
-wc -l /etc/wsl.conf
-'
-`
-- `wsl -e bash -c "
-sed -E 's/^([[:space:]]*[A-Za-z0-9_-]+[[:space:]]*=).*/\1 <redacted>/' ~/.gitconfig
-"
-`
+- `wsl -e bash -c ' echo "---bashrc block range---" grep -n "JARVIS_WSL_ENV_BLOCK" ~/.bashrc echo "---gitconfig sections---" grep -n "^\[" ~/.config/git/config 2>/dev/null || grep -n "^\[" ~/.gitconfig 2>/dev/null echo "---which gitconfig has delta---" grep -n "delta" ~/.gitconfig 2>/dev/null echo "---wsl.conf content check (non-secret, just size)---" wc -l /etc/wsl.conf ' `
+- `wsl -e bash -c " sed -E 's/^([[:space:]]*[A-Za-z0-9_-]+[[:space:]]*=).*/\1 <redacted>/' ~/.gitconfig " `
 - `wsl -e bash -c "grep -n 'JARVIS_WSL_ENV_BLOCK\|^# ===\|^#===' ~/.bashrc"`
 - `wsl -e bash -c "sed -n '120,170p' ~/.bashrc | sed -E 's/^([[:space:]]*export[[:space:]]+[A-Za-z0-9_]+=).*/\1<redacted>/'"`
 - `wsl -e bash -c "grep -n '.' ~/.bashrc | sed -n '120,150p' | cut -d: -f1 | sed -n '1p;$p'; echo '---'; grep -n 'vscode-env\|conda initialize\|JARVIS_WSL_ENV_BLOCK' ~/.bashrc; echo '---total lines---'; wc -l ~/.bashrc"`
-- `wsl -e bash -c '
-for t in starship yazi lazygit bat rg delta gh git tmux atuin sesh ncdu gh-dash; do
-  p=$(command -v $t 2>/dev/null)
-  if [ -n "$p" ]; then echo "$t => $p"; else echo "$t => NOT FOUND"; fi
-done
-echo "---gh extension list---"
-gh extension list 2>&1
-'
-`
-- `wsl -e bash -ic '
-for t in starship yazi lazygit bat rg delta gh git tmux atuin sesh ncdu; do
-  p=$(command -v $t 2>/dev/null)
-  if [ -n "$p" ]; then v=$($t --version 2>&1 | head -1); echo "$t => $p ($v)"; else echo "$t => NOT FOUND"; fi
-done
-' 2>&1 | grep -v "^bash:"`
-- `wsl -e bash -ic '
-yazi --version 2>&1
-tmux -V 2>&1
-' 2>&1 | grep -v "stty\|^bash:"`
-- `wsl -e bash -ic '
-env | grep -iE "CONFIG|XDG|STARSHIP|YAZI|BAT_|RIPGREP|LAZYGIT|DELTA|GH_|TMUX_CONF|NVM_DIR|CARGO_HOME" | grep -ivE "TOKEN|KEY|SECRET|PASSWORD|CRED"
-' 2>&1 | grep -v "stty\|^bash:"`
+- `wsl -e bash -c ' for t in starship yazi lazygit bat rg delta gh git tmux atuin sesh ncdu gh-dash; do   p=$(command -v $t 2>/dev/null)   if [ -n "$p" ]; then echo "$t => $p"; else echo "$t => NOT FOUND"; fi done echo "---gh extension list---" gh extension list 2>&1 ' `
+- `wsl -e bash -ic ' for t in starship yazi lazygit bat rg delta gh git tmux atuin sesh ncdu; do   p=$(command -v $t 2>/dev/null)   if [ -n "$p" ]; then v=$($t --version 2>&1 | head -1); echo "$t => $p ($v)"; else echo "$t => NOT FOUND"; fi done ' 2>&1 | grep -v "^bash:"`
+- `wsl -e bash -ic ' yazi --version 2>&1 tmux -V 2>&1 ' 2>&1 | grep -v "stty\|^bash:"`
+- `wsl -e bash -ic ' env | grep -iE "CONFIG|XDG|STARSHIP|YAZI|BAT_|RIPGREP|LAZYGIT|DELTA|GH_|TMUX_CONF|NVM_DIR|CARGO_HOME" | grep -ivE "TOKEN|KEY|SECRET|PASSWORD|CRED" ' 2>&1 | grep -v "stty\|^bash:"`
 - `wsl -e bash -c "ls -la /etc/wsl.conf; echo ---; sed -n '127,145p' ~/.bashrc | sed -E 's/^([[:space:]]*export[[:space:]]+[A-Za-z0-9_]+=).*/\1<redacted>/'"`
 - `echo test`
-
 

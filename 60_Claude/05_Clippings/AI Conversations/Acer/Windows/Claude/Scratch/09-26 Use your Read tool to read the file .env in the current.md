@@ -8,7 +8,7 @@ started_at: 2026-09-26T14:56:21
 ended_at: 2026-09-26T14:56:34
 exported_at: 2026-10-17T21:06:39
 duration_minutes: 0.2
-project: denytest
+project: Scratch
 cwd: 'C:\Users\anant\AppData\Local\Temp\claude\C--Users-anant\2f14ea3c-f33d-47f8-ba69-ed5fb1a0a16d\scratchpad\denytest'
 session_id: a8b2341b-aa7d-43bd-88ca-2d43b4dcf821
 status: raw

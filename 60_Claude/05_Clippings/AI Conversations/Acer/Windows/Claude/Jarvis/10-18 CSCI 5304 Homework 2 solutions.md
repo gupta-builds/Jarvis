@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 5304 Homework 2 solutions"
 started_at: 2026-10-18T20:29:52
 ended_at: 2026-10-18T22:44:50
-exported_at: 2026-10-18T23:17:26
+exported_at: 2026-10-28T16:15:31
 duration_minutes: 135
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 77eb581b-41bc-45f2-a896-ca7bc0832b99
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-18
+updated: 2026-10-28
 turn_count: 10
 tools_used:
   Bash: 9
@@ -22,12 +25,12 @@ tools_used:
   Read: 22
   Write: 2
 tokens:
-  input: 194
-  output: 218398
-  cache_creation: 974513
-  cache_read: 18916739
-  total: 20109844
-cost_usd: 9.865768
+  input: 80
+  output: 91206
+  cache_creation: 316449
+  cache_read: 8365830
+  total: 8773565
+cost_usd: 3.851182
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -81,11 +84,17 @@ Note: the homework's real due date is still unverified per the course Board (the
 
 ### Tool Calls
 
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2" -type f 2>&1`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2" -type f 2>&1
+```
 ```
 find: 'D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2': No such file or directory
 ```
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304" -maxdepth 2 -type f 2>&1`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304" -maxdepth 2 -type f 2>&1
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Concepts/Definitions.md
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Concepts/Weekly Board.md
@@ -108,7 +117,10 @@ D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Weekly/Week 
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Weekly/Week - 4.md
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Weekly/Weekly Board.md
 ```
-- `Bash` -- `find "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304" -maxdepth 3 2>&1`
+- `Bash`
+```bash
+find "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304" -maxdepth 3 2>&1
+```
 ```
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/.conda
@@ -232,7 +244,10 @@ D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/Textbook & Resources/CSCI 5304 Tex
 - `Grep` -- pattern `type: concept` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Textbook\Lecture - 7.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Textbook\Lecture - 8.md`
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Textbook" -name "Lecture*" 2>&1`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Textbook" -name "Lecture*" 2>&1
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3.md
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md
@@ -414,7 +429,10 @@ One thing worth flagging: the source PDF's own header prints "Quiz 2 (10 points 
 
 ### Tool Calls
 
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW" -type f 2>&1`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW" -type f 2>&1
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2.md
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Quiz & HW/Quiz - 2.md
@@ -515,107 +533,107 @@ All matrices in the note now have consistent row/column counts (I checked every 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 ```diff
 - ### 6. $R_i$ as diagonal $\times$ unit upper triangular
-Each $R_i=D_iN_i$: $D_i$ scales column $i$ by $1/r_{ii}$ (line `q_i = v_i / r_ii`); $N_i$ is unit-upper-triangular, row $i$ entries $-r_{ij}$ for $j>i$, subtracting $r_{ij}q_i$ from column $j$ (lines `r_ij = q_i^* v_j` and `v_j = v_j - r_ij q_i`). $AD_i$ must happen before $N_i$ since the shear uses the already-normalized $q_i$.
-**(a)** $i=1$: $D_1=\mathrm{diag}(1/r_{11},1,\dots,1)$. $AD_1=[a_1/r_{11}\mid a_2\mid\cdots\mid a_n]=[q_1\mid a_2\mid\cdots\mid a_n]$.
-**(b)** $i=2$: $D_2=\mathrm{diag}(1,1/r_{22},1,\dots,1)$, scales column 2 ($v_2^{(2)}$) to $q_2$. $N_2=I$ except row 2: entries $-r_{2j}$ for $j>2$, subtracts $r_{2j}q_2$ from later columns. ($D_2N_2$ reproduces the text's combined $R_2=\begin{bmatrix}1&&\\&1/r_{22}&-r_{23}/r_{22}&\cdots\\&&1&\end{bmatrix}$.)
-**(c)** General $i$: $D_i=I$ with $(i,i)$ entry $1/r_{ii}$ — the normalization line `q_i = v_i / r_ii`. $N_i=I$ with row-$i$ entries $(i,j)=-r_{ij}$, $j>i$ — the orthogonalization lines `r_ij = q_i^* v_j` (computes the shear coefficient) and `v_j = v_j - r_ij q_i` (applies it). $R_i=D_iN_i$: scale, then shear.
+- Each $R_i=D_iN_i$: $D_i$ scales column $i$ by $1/r_{ii}$ (line `q_i = v_i / r_ii`); $N_i$ is unit-upper-triangular, row $i$ entries $-r_{ij}$ for $j>i$, subtracting $r_{ij}q_i$ from column $j$ (lines `r_ij = q_i^* v_j` and `v_j = v_j - r_ij q_i`). $AD_i$ must happen before $N_i$ since the shear uses the already-normalized $q_i$.
+- **(a)** $i=1$: $D_1=\mathrm{diag}(1/r_{11},1,\dots,1)$. $AD_1=[a_1/r_{11}\mid a_2\mid\cdots\mid a_n]=[q_1\mid a_2\mid\cdots\mid a_n]$.
+- **(b)** $i=2$: $D_2=\mathrm{diag}(1,1/r_{22},1,\dots,1)$, scales column 2 ($v_2^{(2)}$) to $q_2$. $N_2=I$ except row 2: entries $-r_{2j}$ for $j>2$, subtracts $r_{2j}q_2$ from later columns. ($D_2N_2$ reproduces the text's combined $R_2=\begin{bmatrix}1&&\\&1/r_{22}&-r_{23}/r_{22}&\cdots\\&&1&\end{bmatrix}$.)
+- **(c)** General $i$: $D_i=I$ with $(i,i)$ entry $1/r_{ii}$ — the normalization line `q_i = v_i / r_ii`. $N_i=I$ with row-$i$ entries $(i,j)=-r_{ij}$, $j>i$ — the orthogonalization lines `r_ij = q_i^* v_j` (computes the shear coefficient) and `v_j = v_j - r_ij q_i` (applies it). $R_i=D_iN_i$: scale, then shear.
 + ### 6. $R_i$ as diagonal $\times$ unit upper triangular
-**Setup.** Every $R_i$ splits as $R_i=D_iN_i$: $D_i$ is a diagonal matrix that does the *normalizing* division (`q_i = v_i / r_ii`), applied first; $N_i$ is a unit-upper-triangular matrix (1's on the diagonal) that does the *orthogonalizing* subtraction (`r_ij = q_i^* v_j` then `v_j = v_j - r_ij q_i`), applied second — scale column $i$ to a unit vector, *then* shear it out of the later columns. Below, $n=4$ is used as a concrete, fully-written-out example; the pattern is the same for any $n$.
-
-**(a) $i=1$:**
-$$D_1=\begin{bmatrix}\tfrac1{r_{11}}&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}=\mathrm{diag}\!\left(\tfrac1{r_{11}},1,\dots,1\right)$$
-$$A\,D_1=[\,a_1/r_{11}\mid a_2\mid a_3\mid a_4\,]=[\,q_1\mid a_2\mid a_3\mid a_4\,]$$
-— only column 1 is touched, turned into $q_1$; columns $2,\dots,n$ are untouched (matches the problem statement exactly).
-
-**(b) $i=2$, the two matrices:**
-$$D_2=\begin{bmatrix}1&0&0&0\\0&\tfrac1{r_{22}}&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix},\qquad N_2=\begin{bmatrix}1&0&0&0\\0&1&-r_{23}&-r_{24}\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
-$D_2$ scales column 2 (currently $v_2^{(2)}$) down to $q_2$; $N_2$ then subtracts $r_{2j}\,q_2$ from columns $j=3,4,\dots$. Multiplying them out reproduces the textbook's combined $R_2$ (p. 61) directly, since $D_2$ is diagonal so it just scales $N_2$'s second row:
-$$R_2=D_2N_2=\begin{bmatrix}1&0&0&0\\0&\tfrac1{r_{22}}&-\tfrac{r_{23}}{r_{22}}&-\tfrac{r_{24}}{r_{22}}\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
-
-**(c) General step $i$:**
-$$D_i=I\text{ with }(i,i)\text{ entry }\tfrac1{r_{ii}}\qquad\longleftrightarrow\qquad\text{line \texttt{q\_i = v\_i / r\_ii}}$$
-$$N_i=I\text{ with row-}i\text{ entries }(i,j)=-r_{ij}\text{ for }j>i\qquad\longleftrightarrow\qquad\text{lines \texttt{r\_ij = q\_i* v\_j} and \texttt{v\_j = v\_j - r\_ij q\_i}}$$
-$D_i$ is the division/normalization line; $N_i$ is the inner-loop pair that computes each shear coefficient $r_{ij}$ and applies it. $R_i=D_iN_i$: normalize column $i$, then shear it out of every later column — exactly the two things the $i$-th outer step of Algorithm 8.1 does.
++ **Setup.** Every $R_i$ splits as $R_i=D_iN_i$: $D_i$ is a diagonal matrix that does the *normalizing* division (`q_i = v_i / r_ii`), applied first; $N_i$ is a unit-upper-triangular matrix (1's on the diagonal) that does the *orthogonalizing* subtraction (`r_ij = q_i^* v_j` then `v_j = v_j - r_ij q_i`), applied second — scale column $i$ to a unit vector, *then* shear it out of the later columns. Below, $n=4$ is used as a concrete, fully-written-out example; the pattern is the same for any $n$.
++ 
++ **(a) $i=1$:**
++ $$D_1=\begin{bmatrix}\tfrac1{r_{11}}&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}=\mathrm{diag}\!\left(\tfrac1{r_{11}},1,\dots,1\right)$$
++ $$A\,D_1=[\,a_1/r_{11}\mid a_2\mid a_3\mid a_4\,]=[\,q_1\mid a_2\mid a_3\mid a_4\,]$$
++ — only column 1 is touched, turned into $q_1$; columns $2,\dots,n$ are untouched (matches the problem statement exactly).
++ 
++ **(b) $i=2$, the two matrices:**
++ $$D_2=\begin{bmatrix}1&0&0&0\\0&\tfrac1{r_{22}}&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix},\qquad N_2=\begin{bmatrix}1&0&0&0\\0&1&-r_{23}&-r_{24}\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
++ $D_2$ scales column 2 (currently $v_2^{(2)}$) down to $q_2$; $N_2$ then subtracts $r_{2j}\,q_2$ from columns $j=3,4,\dots$. Multiplying them out reproduces the textbook's combined $R_2$ (p. 61) directly, since $D_2$ is diagonal so it just scales $N_2$'s second row:
++ $$R_2=D_2N_2=\begin{bmatrix}1&0&0&0\\0&\tfrac1{r_{22}}&-\tfrac{r_{23}}{r_{22}}&-\tfrac{r_{24}}{r_{22}}\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
++ 
++ **(c) General step $i$:**
++ $$D_i=I\text{ with }(i,i)\text{ entry }\tfrac1{r_{ii}}\qquad\longleftrightarrow\qquad\text{line \texttt{q\_i = v\_i / r\_ii}}$$
++ $$N_i=I\text{ with row-}i\text{ entries }(i,j)=-r_{ij}\text{ for }j>i\qquad\longleftrightarrow\qquad\text{lines \texttt{r\_ij = q\_i* v\_j} and \texttt{v\_j = v\_j - r\_ij q\_i}}$$
++ $D_i$ is the division/normalization line; $N_i$ is the inner-loop pair that computes each shear coefficient $r_{ij}$ and applies it. $R_i=D_iN_i$: normalize column $i$, then shear it out of every later column — exactly the two things the $i$-th outer step of Algorithm 8.1 does.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 ```diff
 - ### 7. Householder reflector $H=I-2\vec v\vec v^T$, $\|\vec v\|_2=1$
-**(a)** $Hv=v-2v(v^Tv)=v-2v=-v$ ($v^Tv=1$) $\Rightarrow\lambda=-1$ (eigenvector $v$). For $w\perp v$: $Hw=w-2v(v^Tw)=w\Rightarrow\lambda=+1$, multiplicity $m-1$.
-Eigenvalues: $-1$ (×1), $+1$ (×$(m-1)$).
-
-**(b)** $\det H=\prod\lambda_i=(-1)(1)^{m-1}=-1$.
-
-**(c)** $H^TH=H^2=I-4vv^T+4v(v^Tv)v^T=I$ $\Rightarrow H$ unitary $\Rightarrow$ all $m$ singular values $=1$.
-
-**(d)** $H$ is the reflection across the hyperplane $\perp v$: the component along $v$ flips (why $\lambda=-1$ there), the $(m-1)$-dim hyperplane $\perp v$ is fixed pointwise (why $\lambda=+1$ there). A reflection is an isometry — it preserves every vector's length, stretching nothing — so every singular value is exactly $1$.
+- **(a)** $Hv=v-2v(v^Tv)=v-2v=-v$ ($v^Tv=1$) $\Rightarrow\lambda=-1$ (eigenvector $v$). For $w\perp v$: $Hw=w-2v(v^Tw)=w\Rightarrow\lambda=+1$, multiplicity $m-1$.
+- Eigenvalues: $-1$ (×1), $+1$ (×$(m-1)$).
+- 
+- **(b)** $\det H=\prod\lambda_i=(-1)(1)^{m-1}=-1$.
+- 
+- **(c)** $H^TH=H^2=I-4vv^T+4v(v^Tv)v^T=I$ $\Rightarrow H$ unitary $\Rightarrow$ all $m$ singular values $=1$.
+- 
+- **(d)** $H$ is the reflection across the hyperplane $\perp v$: the component along $v$ flips (why $\lambda=-1$ there), the $(m-1)$-dim hyperplane $\perp v$ is fixed pointwise (why $\lambda=+1$ there). A reflection is an isometry — it preserves every vector's length, stretching nothing — so every singular value is exactly $1$.
 + ### 7. Householder reflector $H=I-2\vec v\vec v^T$, $\|\vec v\|_2=1$
-**(a) Eigenvalues.** Apply $H$ to $v$ itself ($v^Tv=1$):
-$$Hv=v-2v(v^Tv)=v-2v=-v\ \Rightarrow\ \lambda=-1,\text{ eigenvector }v.$$
-Apply $H$ to any $w$ with $w\perp v$ (so $v^Tw=0$):
-$$Hw=w-2v(v^Tw)=w\ \Rightarrow\ \lambda=+1,\text{ for every }w\text{ in the }(m-1)\text{-dim space }v^\perp.$$
-$$\boxed{\lambda=-1\ (\text{multiplicity }1),\qquad \lambda=+1\ (\text{multiplicity }m-1)}$$
-
-**(b) Determinant.**
-$$\det H=\prod_i\lambda_i=(-1)\cdot(+1)^{m-1}=-1$$
-
-**(c) Singular values.** First check $H$ is unitary:
-$$H^2=(I-2vv^T)(I-2vv^T)=I-4vv^T+4v(v^Tv)v^T=I-4vv^T+4vv^T=I.$$
-$H^T=H$ (symmetric) and $H^2=I$ $\Rightarrow H^TH=I\Rightarrow H$ is unitary $\Rightarrow$ every singular value is $1$:
-$$\sigma_1=\sigma_2=\cdots=\sigma_m=1$$
-
-**(d) Geometric argument.** $H$ reflects $\mathbb R^m$ across the hyperplane orthogonal to $v$:
-- the component of a vector **along $v$** gets flipped — exactly why $v$ has eigenvalue $-1$;
-- the component **in the hyperplane $v^\perp$** ($\dim=m-1$) is left fixed — eigenvalue $+1$ there;
-- a reflection is a rigid motion (isometry): it preserves every vector's length, stretching nothing in any direction — so every singular value (which measures exactly how much a direction gets stretched) equals $1$.
++ **(a) Eigenvalues.** Apply $H$ to $v$ itself ($v^Tv=1$):
++ $$Hv=v-2v(v^Tv)=v-2v=-v\ \Rightarrow\ \lambda=-1,\text{ eigenvector }v.$$
++ Apply $H$ to any $w$ with $w\perp v$ (so $v^Tw=0$):
++ $$Hw=w-2v(v^Tw)=w\ \Rightarrow\ \lambda=+1,\text{ for every }w\text{ in the }(m-1)\text{-dim space }v^\perp.$$
++ $$\boxed{\lambda=-1\ (\text{multiplicity }1),\qquad \lambda=+1\ (\text{multiplicity }m-1)}$$
++ 
++ **(b) Determinant.**
++ $$\det H=\prod_i\lambda_i=(-1)\cdot(+1)^{m-1}=-1$$
++ 
++ **(c) Singular values.** First check $H$ is unitary:
++ $$H^2=(I-2vv^T)(I-2vv^T)=I-4vv^T+4v(v^Tv)v^T=I-4vv^T+4vv^T=I.$$
++ $H^T=H$ (symmetric) and $H^2=I$ $\Rightarrow H^TH=I\Rightarrow H$ is unitary $\Rightarrow$ every singular value is $1$:
++ $$\sigma_1=\sigma_2=\cdots=\sigma_m=1$$
++ 
++ **(d) Geometric argument.** $H$ reflects $\mathbb R^m$ across the hyperplane orthogonal to $v$:
++ - the component of a vector **along $v$** gets flipped — exactly why $v$ has eigenvalue $-1$;
++ - the component **in the hyperplane $v^\perp$** ($\dim=m-1$) is left fixed — eigenvalue $+1$ there;
++ - a reflection is a rigid motion (isometry): it preserves every vector's length, stretching nothing in any direction — so every singular value (which measures exactly how much a direction gets stretched) equals $1$.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 ```diff
 - ### 8. Block matrix $A=\begin{bmatrix}A_1\\A_2\end{bmatrix}$
-**(a)** $A$ has full column rank $n$ (since $A_1$ nonsingular forces rank $n$), so $A^+=(A^*A)^{-1}A^*$ has singular values $1/\sigma_i$ for each nonzero $\sigma_i(A)$. The 2-norm is the largest singular value, so
-$$\|A^+\|_2=\frac1{\sigma_{\min}(A)}=\frac1{\sigma_n(A)}.$$
-
-**(b)** For any $x$: $\|Ax\|_2^2=\|A_1x\|_2^2+\|A_2x\|_2^2\Rightarrow\|Ax\|_2=\sqrt{\|A_1x\|_2^2+\|A_2x\|_2^2}\le\|A_1x\|_2+\|A_2x\|_2$ (since $\sqrt{a^2+b^2}\le a+b$) $\le(\|A_1\|_2+\|A_2\|_2)\|x\|_2$. Taking $\sup_{\|x\|_2=1}$: $\|A\|_2\le\|A_1\|_2+\|A_2\|_2$. $\blacksquare$
-
-**(c)** Let $L=[\,A_1^{-1}\ \ 0\,]$ ($n\times m$): $LA=A_1^{-1}A_1=I_n$, a left inverse, $\|L\|_2=\|A_1^{-1}\|_2$.
-Any left inverse is $L=A^++N$ with $NA=0$ (rows of $N\perp\mathrm{range}(A)$), while rows of $A^+=(A^*A)^{-1}A^*$ lie *in* $\mathrm{range}(A)$ — so $A^+N^T=0$ and
-$$LL^T=A^+(A^+)^T+NN^T\succeq A^+(A^+)^T,$$
-PSD order, so $\|L\|_2\ge\|A^+\|_2$ for every left inverse. In particular
-$$\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2.\ \blacksquare$$
+- **(a)** $A$ has full column rank $n$ (since $A_1$ nonsingular forces rank $n$), so $A^+=(A^*A)^{-1}A^*$ has singular values $1/\sigma_i$ for each nonzero $\sigma_i(A)$. The 2-norm is the largest singular value, so
+- $$\|A^+\|_2=\frac1{\sigma_{\min}(A)}=\frac1{\sigma_n(A)}.$$
+- 
+- **(b)** For any $x$: $\|Ax\|_2^2=\|A_1x\|_2^2+\|A_2x\|_2^2\Rightarrow\|Ax\|_2=\sqrt{\|A_1x\|_2^2+\|A_2x\|_2^2}\le\|A_1x\|_2+\|A_2x\|_2$ (since $\sqrt{a^2+b^2}\le a+b$) $\le(\|A_1\|_2+\|A_2\|_2)\|x\|_2$. Taking $\sup_{\|x\|_2=1}$: $\|A\|_2\le\|A_1\|_2+\|A_2\|_2$. $\blacksquare$
+- 
+- **(c)** Let $L=[\,A_1^{-1}\ \ 0\,]$ ($n\times m$): $LA=A_1^{-1}A_1=I_n$, a left inverse, $\|L\|_2=\|A_1^{-1}\|_2$.
+- Any left inverse is $L=A^++N$ with $NA=0$ (rows of $N\perp\mathrm{range}(A)$), while rows of $A^+=(A^*A)^{-1}A^*$ lie *in* $\mathrm{range}(A)$ — so $A^+N^T=0$ and
+- $$LL^T=A^+(A^+)^T+NN^T\succeq A^+(A^+)^T,$$
+- PSD order, so $\|L\|_2\ge\|A^+\|_2$ for every left inverse. In particular
+- $$\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2.\ \blacksquare$$
 + ### 8. Block matrix $A=\begin{bmatrix}A_1\\A_2\end{bmatrix}$, $A_1$ nonsingular $n\times n$, $A_2$ arbitrary $(m-n)\times n$
-**(a) $\|A^+\|_2$ via singular values.** $A_1$ nonsingular $\Rightarrow A$ has full column rank $n$ $\Rightarrow$ all $n$ singular values $\sigma_1\ge\cdots\ge\sigma_n$ of $A$ are nonzero. From $A=U\Sigma V^T$, $A^+=V\Sigma^{-1}U^T$, so $A^+$'s singular values are $1/\sigma_1,\dots,1/\sigma_n$. The 2-norm is the *largest* singular value:
-$$\boxed{\|A^+\|_2=\frac1{\sigma_n(A)}}\qquad(\sigma_n=\text{smallest singular value of }A)$$
-
-**(b) $\|A\|_2\le\|A_1\|_2+\|A_2\|_2$.** For any $x$:
-$$\|Ax\|_2^2=\left\|\begin{bmatrix}A_1x\\A_2x\end{bmatrix}\right\|_2^2=\|A_1x\|_2^2+\|A_2x\|_2^2$$
-Since $\sqrt{a^2+b^2}\le a+b$ for $a,b\ge0$:
-$$\|Ax\|_2=\sqrt{\|A_1x\|_2^2+\|A_2x\|_2^2}\ \le\ \|A_1x\|_2+\|A_2x\|_2\ \le\ \big(\|A_1\|_2+\|A_2\|_2\big)\|x\|_2$$
-Take $\sup$ over $\|x\|_2=1$:
-$$\boxed{\|A\|_2\le\|A_1\|_2+\|A_2\|_2}\ \blacksquare$$
-
-**(c) $\|A^+\|_2\le\|A_1^{-1}\|_2$.** Let $L=\begin{bmatrix}A_1^{-1}&0\end{bmatrix}$ ($n\times m$, split to match $A$'s row blocks). Then
-$$LA=A_1^{-1}A_1=I_n$$
-so $L$ is *a* left inverse of $A$, with $\|L\|_2=\|A_1^{-1}\|_2$.
-Any left inverse can be written $L=A^++N$ with $NA=0$ (rows of $N$ orthogonal to $\mathrm{range}(A)$), while the rows of $A^+=(A^*A)^{-1}A^*$ lie *in* $\mathrm{range}(A)$ — so these row spaces are orthogonal, $A^+N^T=0$, and
-$$LL^T=A^+(A^+)^T+NN^T\ \succeq\ A^+(A^+)^T\qquad(\text{PSD order, since }NN^T\succeq0)$$
-This means $\|L\|_2\ge\|A^+\|_2$ for *every* left inverse $L$ (the pseudoinverse has the smallest 2-norm of any left inverse). Using our explicit $L$:
-$$\boxed{\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2}\ \blacksquare$$
++ **(a) $\|A^+\|_2$ via singular values.** $A_1$ nonsingular $\Rightarrow A$ has full column rank $n$ $\Rightarrow$ all $n$ singular values $\sigma_1\ge\cdots\ge\sigma_n$ of $A$ are nonzero. From $A=U\Sigma V^T$, $A^+=V\Sigma^{-1}U^T$, so $A^+$'s singular values are $1/\sigma_1,\dots,1/\sigma_n$. The 2-norm is the *largest* singular value:
++ $$\boxed{\|A^+\|_2=\frac1{\sigma_n(A)}}\qquad(\sigma_n=\text{smallest singular value of }A)$$
++ 
++ **(b) $\|A\|_2\le\|A_1\|_2+\|A_2\|_2$.** For any $x$:
++ $$\|Ax\|_2^2=\left\|\begin{bmatrix}A_1x\\A_2x\end{bmatrix}\right\|_2^2=\|A_1x\|_2^2+\|A_2x\|_2^2$$
++ Since $\sqrt{a^2+b^2}\le a+b$ for $a,b\ge0$:
++ $$\|Ax\|_2=\sqrt{\|A_1x\|_2^2+\|A_2x\|_2^2}\ \le\ \|A_1x\|_2+\|A_2x\|_2\ \le\ \big(\|A_1\|_2+\|A_2\|_2\big)\|x\|_2$$
++ Take $\sup$ over $\|x\|_2=1$:
++ $$\boxed{\|A\|_2\le\|A_1\|_2+\|A_2\|_2}\ \blacksquare$$
++ 
++ **(c) $\|A^+\|_2\le\|A_1^{-1}\|_2$.** Let $L=\begin{bmatrix}A_1^{-1}&0\end{bmatrix}$ ($n\times m$, split to match $A$'s row blocks). Then
++ $$LA=A_1^{-1}A_1=I_n$$
++ so $L$ is *a* left inverse of $A$, with $\|L\|_2=\|A_1^{-1}\|_2$.
++ Any left inverse can be written $L=A^++N$ with $NA=0$ (rows of $N$ orthogonal to $\mathrm{range}(A)$), while the rows of $A^+=(A^*A)^{-1}A^*$ lie *in* $\mathrm{range}(A)$ — so these row spaces are orthogonal, $A^+N^T=0$, and
++ $$LL^T=A^+(A^+)^T+NN^T\ \succeq\ A^+(A^+)^T\qquad(\text{PSD order, since }NN^T\succeq0)$$
++ This means $\|L\|_2\ge\|A^+\|_2$ for *every* left inverse $L$ (the pseudoinverse has the smallest 2-norm of any left inverse). Using our explicit $L$:
++ $$\boxed{\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2}\ \blacksquare$$
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 ```diff
 - **(b)** $A^{-1}=V\Sigma^{-1}U^T$. $\Sigma^{-1}=\mathrm{diag}(\tfrac1{10\sqrt2},\tfrac1{5\sqrt2})$.
-$$A^{-1}=\frac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}$$
-(carried out: $V\Sigma^{-1}=\tfrac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}$, times $U^T=\tfrac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$ gives $\tfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches direct inverse $\tfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$.)
+- $$A^{-1}=\frac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}$$
+- (carried out: $V\Sigma^{-1}=\tfrac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}$, times $U^T=\tfrac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$ gives $\tfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches direct inverse $\tfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$.)
 + **(b)** Formula: $A^{-1}=V\Sigma^{-1}U^T$, with $\Sigma^{-1}=\mathrm{diag}\!\left(\tfrac1{10\sqrt2},\tfrac1{5\sqrt2}\right)$.
-
-Step 1 — $V\Sigma^{-1}$ (scale each column of $V$ by the matching entry of $\Sigma^{-1}$):
-$$V\Sigma^{-1}=\begin{bmatrix}-\tfrac35&\tfrac45\\[2pt]\tfrac45&\tfrac35\end{bmatrix}\begin{bmatrix}\tfrac1{10\sqrt2}&0\\[2pt]0&\tfrac1{5\sqrt2}\end{bmatrix}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}$$
-
-Step 2 — multiply by $U^T=\dfrac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$:
-$$A^{-1}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}\cdot\frac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}=\frac1{100}\begin{bmatrix}-3+8&-3-8\\4+6&4-6\end{bmatrix}=\frac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$$
-
-$$\boxed{A^{-1}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}}$$
-
-*Check against the direct formula* $A^{-1}=\dfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}=\dfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches exactly.
++ 
++ Step 1 — $V\Sigma^{-1}$ (scale each column of $V$ by the matching entry of $\Sigma^{-1}$):
++ $$V\Sigma^{-1}=\begin{bmatrix}-\tfrac35&\tfrac45\\[2pt]\tfrac45&\tfrac35\end{bmatrix}\begin{bmatrix}\tfrac1{10\sqrt2}&0\\[2pt]0&\tfrac1{5\sqrt2}\end{bmatrix}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}$$
++ 
++ Step 2 — multiply by $U^T=\dfrac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$:
++ $$A^{-1}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}\cdot\frac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}=\frac1{100}\begin{bmatrix}-3+8&-3-8\\4+6&4-6\end{bmatrix}=\frac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$$
++ 
++ $$\boxed{A^{-1}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}}$$
++ 
++ *Check against the direct formula* $A^{-1}=\dfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}=\dfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches exactly.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 
@@ -645,69 +663,69 @@ Each has a numbered build order so you can reproduce it exactly on graph paper.
 ```diff
 - **(c)** Unit circle, mark $v_1=(-0.6,0.8)$, $v_2=(0.8,0.6)$ on it (orthogonal radii). Image is an ellipse; its semi-axis endpoints are $\sigma_1u_1=(10,10)$ and $\sigma_2u_2=(5,-5)$ (and their negatives). Draw: circle with $v_1,v_2$ marked $\to$ arrow $\to$ ellipse through $(10,10),(-10,-10)$ (major axis, length $10\sqrt2$ each way) and $(5,-5),(-5,5)$ (minor axis, length $5\sqrt2$ each way), major axis along $u_1=(1,1)/\sqrt2$ direction, minor along $u_2=(1,-1)/\sqrt2$.
 + **(c)** Two side-by-side panels, connected by an arrow for "apply $A$."
-
-**Panel 1 — the unit ball (domain), left side of the box:**
-1. Draw $x$- and $y$-axes, and a circle of radius $1$ centered at the origin.
-2. Mark the point $v_1=(-0.6,\,0.8)$ on the circle. This sits at angle $126.87°$ from the positive $x$-axis (in the second quadrant, closer to the $y$-axis than the $x$-axis). Draw the radius arrow from the origin to this point and label it $\vec v_1$.
-3. Mark the point $v_2=(0.8,\,0.6)$ on the circle, angle $36.87°$ (first quadrant, closer to the $x$-axis). Draw the radius arrow and label it $\vec v_2$.
-4. Check your drawing: the angle between $\vec v_1$ and $\vec v_2$ must look like exactly $90°$ ($126.87°-36.87°=90°$) — they are perpendicular radii of the circle.
-
-**Panel 2 — the image ellipse (codomain), right side of the box, bigger scale (axes from about $-15$ to $15$):**
-1. Draw $x$- and $y$-axes at this larger scale.
-2. Lightly draw two dashed guide lines through the origin: one along $y=x$ (the $45°$ diagonal) and one along $y=-x$ (the $-45°$ diagonal). These are the ellipse's major and minor axes.
-3. On the $y=x$ line, mark the points $(10,10)$ and $(-10,-10)$ — these are the ends of the **major axis**, at distance $\sigma_1=10\sqrt2\approx14.14$ from the origin each way.
-4. On the $y=-x$ line, mark the points $(5,-5)$ and $(-5,5)$ — the ends of the **minor axis**, at distance $\sigma_2=5\sqrt2\approx7.07$ from the origin each way.
-5. Draw a smooth ellipse through all four marked points, tangent to the picture so that $(10,10)/(-10,-10)$ are its far (long) tips and $(5,-5)/(-5,5)$ are its near (short) tips.
-6. Draw the arrow from the origin to $(10,10)$ and label it $\sigma_1\vec u_1$; draw the arrow to $(5,-5)$ and label it $\sigma_2\vec u_2$.
-
-**Connecting the two panels:** draw a curved arrow from $\vec v_1$ (panel 1) to the $(10,10)$ tip (panel 2) labeled "$A\vec v_1=\sigma_1\vec u_1$," and a second arrow from $\vec v_2$ to $(5,-5)$ labeled "$A\vec v_2=\sigma_2\vec u_2$" — this is the one fact the whole picture is illustrating: $A$ takes the orthogonal unit vectors $\vec v_1,\vec v_2$ to the orthogonal ellipse-axis vectors $\sigma_1\vec u_1,\sigma_2\vec u_2$.
++ 
++ **Panel 1 — the unit ball (domain), left side of the box:**
++ 1. Draw $x$- and $y$-axes, and a circle of radius $1$ centered at the origin.
++ 2. Mark the point $v_1=(-0.6,\,0.8)$ on the circle. This sits at angle $126.87°$ from the positive $x$-axis (in the second quadrant, closer to the $y$-axis than the $x$-axis). Draw the radius arrow from the origin to this point and label it $\vec v_1$.
++ 3. Mark the point $v_2=(0.8,\,0.6)$ on the circle, angle $36.87°$ (first quadrant, closer to the $x$-axis). Draw the radius arrow and label it $\vec v_2$.
++ 4. Check your drawing: the angle between $\vec v_1$ and $\vec v_2$ must look like exactly $90°$ ($126.87°-36.87°=90°$) — they are perpendicular radii of the circle.
++ 
++ **Panel 2 — the image ellipse (codomain), right side of the box, bigger scale (axes from about $-15$ to $15$):**
++ 1. Draw $x$- and $y$-axes at this larger scale.
++ 2. Lightly draw two dashed guide lines through the origin: one along $y=x$ (the $45°$ diagonal) and one along $y=-x$ (the $-45°$ diagonal). These are the ellipse's major and minor axes.
++ 3. On the $y=x$ line, mark the points $(10,10)$ and $(-10,-10)$ — these are the ends of the **major axis**, at distance $\sigma_1=10\sqrt2\approx14.14$ from the origin each way.
++ 4. On the $y=-x$ line, mark the points $(5,-5)$ and $(-5,5)$ — the ends of the **minor axis**, at distance $\sigma_2=5\sqrt2\approx7.07$ from the origin each way.
++ 5. Draw a smooth ellipse through all four marked points, tangent to the picture so that $(10,10)/(-10,-10)$ are its far (long) tips and $(5,-5)/(-5,5)$ are its near (short) tips.
++ 6. Draw the arrow from the origin to $(10,10)$ and label it $\sigma_1\vec u_1$; draw the arrow to $(5,-5)$ and label it $\sigma_2\vec u_2$.
++ 
++ **Connecting the two panels:** draw a curved arrow from $\vec v_1$ (panel 1) to the $(10,10)$ tip (panel 2) labeled "$A\vec v_1=\sigma_1\vec u_1$," and a second arrow from $\vec v_2$ to $(5,-5)$ labeled "$A\vec v_2=\sigma_2\vec u_2$" — this is the one fact the whole picture is illustrating: $A$ takes the orthogonal unit vectors $\vec v_1,\vec v_2$ to the orthogonal ellipse-axis vectors $\sigma_1\vec u_1,\sigma_2\vec u_2$.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 ```diff
 - **(b)/(c)** Draw a line through the origin for $\mathcal R(P)$. Arbitrary $\vec x$ off the line; drop $P\vec x$ = orthogonal projection of $\vec x$ onto the line; $(I-P)\vec x=\vec x-P\vec x$ = perpendicular component.
-$(I-2P)\vec x=\vec x-2P\vec x=(I-P)\vec x-P\vec x$: the component **along** $\mathcal R(P)$ flips sign, the component **$\perp\mathcal R(P)$** is unchanged. Mark both $P\vec x$ and $-P\vec x$ on the picture, and $(I-2P)\vec x$ as the vector sum of $-P\vec x$ and $(I-P)\vec x$.
-*Geometric interpretation:* $I-2P$ is the reflection of $\vec x$ across the line (hyperplane) **orthogonal to** $\mathcal R(P)$ — a mirror image through $\mathcal R(P)^\perp$.
+- $(I-2P)\vec x=\vec x-2P\vec x=(I-P)\vec x-P\vec x$: the component **along** $\mathcal R(P)$ flips sign, the component **$\perp\mathcal R(P)$** is unchanged. Mark both $P\vec x$ and $-P\vec x$ on the picture, and $(I-2P)\vec x$ as the vector sum of $-P\vec x$ and $(I-P)\vec x$.
+- *Geometric interpretation:* $I-2P$ is the reflection of $\vec x$ across the line (hyperplane) **orthogonal to** $\mathcal R(P)$ — a mirror image through $\mathcal R(P)^\perp$.
 + **(b)/(c)** One picture does both parts — build it in layers. A concrete worked example is given alongside the generic steps so you can plot it precisely on graph paper; the construction is the same for any line/vector choice.
-
-*Concrete numbers to plot:* line $\mathcal R(P)$ at $30°$ above horizontal; $\vec x=(0,2)$ (straight up, length $2$). Then $P\vec x=\left(\tfrac{\sqrt3}2,\tfrac12\right)\approx(0.87,0.5)$, $(I-P)\vec x=\left(-\tfrac{\sqrt3}2,\tfrac32\right)\approx(-0.87,1.5)$, and $(I-2P)\vec x=(-\sqrt3,1)\approx(-1.73,1)$.
-
-**Layer 1 — the two lines:**
-1. Draw $x,y$-axes lightly for reference.
-2. Draw a **solid** line through the origin at $30°$ above horizontal, extending both directions. Label it $\mathcal R(P)$.
-3. Draw a **dashed** line through the origin, perpendicular to the first (at $120°$, i.e. $30°+90°$). Label it $\mathcal R(P)^\perp$ — this dashed line is the mirror axis part (c) needs, so get it in now even though part (b) alone doesn't ask for it.
-
-**Layer 2 — $\vec x$ and its projection (part b):**
-4. Draw the arrow from the origin straight up to $(0,2)$, length $2$. Label it $\vec x$.
-5. From the tip of $\vec x$, drop a perpendicular down onto the solid $\mathcal R(P)$ line; the foot lands at $\approx(0.87,0.5)$. Draw the arrow from the origin to that foot and label it $P\vec x$ — this is $\vec x$'s orthogonal projection onto $\mathcal R(P)$.
-6. Draw the short connecting segment from the tip of $P\vec x$ up to the tip of $\vec x$ (from $(0.87,0.5)$ to $(0,2)$); mark the right angle where it meets the solid line. Label this segment $(I-P)\vec x$ — it is parallel to the dashed line, i.e. perpendicular to $\mathcal R(P)$.
-7. You now have a right triangle: origin $\to P\vec x \to \vec x \to$ back to origin, right angle at $P\vec x$, hypotenuse $\vec x$, legs $P\vec x$ (along the solid line) and $(I-P)\vec x$ (along the dashed direction). **This triangle is the complete answer to part (b).**
-
-**Layer 3 — building $(I-2P)\vec x$ (part c):**
-8. Mark the point $-P\vec x\approx(-0.87,-0.5)$: the mirror image of $P\vec x$ straight through the origin, same distance on the opposite side of the solid line. Draw a short dashed arrow from the origin to it.
-9. From $-P\vec x$, draw a segment parallel to, and the same length as, the $(I-P)\vec x$ segment from Layer 2 (i.e. shift that segment so it starts at $-P\vec x$ instead of $P\vec x$). Its far end lands at $(-\sqrt3,1)\approx(-1.73,1)$.
-10. Draw the arrow from the origin to $(-1.73,1)$ and label it $(I-2P)\vec x$.
-11. **Check your drawing:** $(I-2P)\vec x$ should be the exact mirror image of $\vec x$ reflected across the **dashed** line $\mathcal R(P)^\perp$ — fold the page along the dashed line and $\vec x$'s arrow should land exactly on $(I-2P)\vec x$'s arrow. Both have the same length ($2$), confirming nothing is stretched, only reflected.
-
-*Geometric interpretation (what to write for part c):* $I-2P$ reflects $\vec x$ across the line **orthogonal to $\mathcal R(P)$** (the dashed line) — equivalently, the component of $\vec x$ **along** $\mathcal R(P)$ (i.e. $P\vec x$) gets flipped in sign, while the component **perpendicular to** $\mathcal R(P)$ (i.e. $(I-P)\vec x$) is left unchanged. Note carefully: the mirror is $\mathcal R(P)^\perp$, *not* $\mathcal R(P)$ itself.
++ 
++ *Concrete numbers to plot:* line $\mathcal R(P)$ at $30°$ above horizontal; $\vec x=(0,2)$ (straight up, length $2$). Then $P\vec x=\left(\tfrac{\sqrt3}2,\tfrac12\right)\approx(0.87,0.5)$, $(I-P)\vec x=\left(-\tfrac{\sqrt3}2,\tfrac32\right)\approx(-0.87,1.5)$, and $(I-2P)\vec x=(-\sqrt3,1)\approx(-1.73,1)$.
++ 
++ **Layer 1 — the two lines:**
++ 1. Draw $x,y$-axes lightly for reference.
++ 2. Draw a **solid** line through the origin at $30°$ above horizontal, extending both directions. Label it $\mathcal R(P)$.
++ 3. Draw a **dashed** line through the origin, perpendicular to the first (at $120°$, i.e. $30°+90°$). Label it $\mathcal R(P)^\perp$ — this dashed line is the mirror axis part (c) needs, so get it in now even though part (b) alone doesn't ask for it.
++ 
++ **Layer 2 — $\vec x$ and its projection (part b):**
++ 4. Draw the arrow from the origin straight up to $(0,2)$, length $2$. Label it $\vec x$.
++ 5. From the tip of $\vec x$, drop a perpendicular down onto the solid $\mathcal R(P)$ line; the foot lands at $\approx(0.87,0.5)$. Draw the arrow from the origin to that foot and label it $P\vec x$ — this is $\vec x$'s orthogonal projection onto $\mathcal R(P)$.
++ 6. Draw the short connecting segment from the tip of $P\vec x$ up to the tip of $\vec x$ (from $(0.87,0.5)$ to $(0,2)$); mark the right angle where it meets the solid line. Label this segment $(I-P)\vec x$ — it is parallel to the dashed line, i.e. perpendicular to $\mathcal R(P)$.
++ 7. You now have a right triangle: origin $\to P\vec x \to \vec x \to$ back to origin, right angle at $P\vec x$, hypotenuse $\vec x$, legs $P\vec x$ (along the solid line) and $(I-P)\vec x$ (along the dashed direction). **This triangle is the complete answer to part (b).**
++ 
++ **Layer 3 — building $(I-2P)\vec x$ (part c):**
++ 8. Mark the point $-P\vec x\approx(-0.87,-0.5)$: the mirror image of $P\vec x$ straight through the origin, same distance on the opposite side of the solid line. Draw a short dashed arrow from the origin to it.
++ 9. From $-P\vec x$, draw a segment parallel to, and the same length as, the $(I-P)\vec x$ segment from Layer 2 (i.e. shift that segment so it starts at $-P\vec x$ instead of $P\vec x$). Its far end lands at $(-\sqrt3,1)\approx(-1.73,1)$.
++ 10. Draw the arrow from the origin to $(-1.73,1)$ and label it $(I-2P)\vec x$.
++ 11. **Check your drawing:** $(I-2P)\vec x$ should be the exact mirror image of $\vec x$ reflected across the **dashed** line $\mathcal R(P)^\perp$ — fold the page along the dashed line and $\vec x$'s arrow should land exactly on $(I-2P)\vec x$'s arrow. Both have the same length ($2$), confirming nothing is stretched, only reflected.
++ 
++ *Geometric interpretation (what to write for part c):* $I-2P$ reflects $\vec x$ across the line **orthogonal to $\mathcal R(P)$** (the dashed line) — equivalently, the component of $\vec x$ **along** $\mathcal R(P)$ (i.e. $P\vec x$) gets flipped in sign, while the component **perpendicular to** $\mathcal R(P)$ (i.e. $(I-P)\vec x$) is left unchanged. Note carefully: the mirror is $\mathcal R(P)^\perp$, *not* $\mathcal R(P)$ itself.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 ```diff
 - **(c)** $|\det A|$ = volume of the parallelepiped spanned by the columns $a_j$. $\prod\|a_j\|_2$ = volume of the **rectangular box** with the same edge lengths but mutually orthogonal edges. A slanted (non-orthogonal) parallelepiped always encloses *less* volume than that box — draw a 2D parallelogram vs. a rectangle with the same two side lengths, area $=\|a_1\|\|a_2\|\sin\theta\le\|a_1\|\|a_2\|$. Equality (part b) is exactly the case $\theta=90°$: orthogonal columns, no "squashing," parallelepiped = box.
 + **(c)** Two side-by-side panels (2D, since that's the easy case to actually draw — note underneath that the same idea extends to a 3D parallelepiped vs. a box).
-
-**Panel 1 — general $A$, the inequality is strict ($\theta\ne90°$):**
-1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ — an arrow along the $x$-axis, length $3$.
-2. Draw $\vec a_2$ at $60°$ above $\vec a_1$, length $2$: that's the point $(1,\,1.73)$ since $2\cos60°=1,\ 2\sin60°=1.73$.
-3. Complete the parallelogram: from the tip of $\vec a_1$ at $(3,0)$, draw a segment parallel to $\vec a_2$ reaching $(4,\,1.73)$; from the tip of $\vec a_2$ at $(1,1.73)$, draw a segment parallel to $\vec a_1$ to the same point $(4,1.73)$. Shade this slanted parallelogram — its area is $|\det A|=\|\vec a_1\|\|\vec a_2\|\sin60°=3\times2\times0.866\approx5.2$.
-4. Now draw a **dashed rectangle** with the same two side lengths ($3$ and $2$) but with $\vec a_2$ rotated up to a true $90°$ — corners at $(0,0),(3,0),(3,2),(0,2)$. Its area is $\|\vec a_1\|\|\vec a_2\|=3\times2=6$.
-5. Label the shaded parallelogram "$|\det A|\approx5.2$" and the dashed rectangle "$\prod\|\vec a_j\|_2=6$" — visually, the slanted shape sits *inside* what the rectangle's area would be: the same two side lengths enclose less area once you lean them together at an angle other than $90°$.
-
-**Panel 2 — $A$ unitary (orthonormal columns), equality:**
-1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ and $\vec a_2=(0,2)$ — a true right angle between them (columns orthogonal).
-2. Complete the shape: it is already a plain rectangle, corners $(0,0),(3,0),(3,2),(0,2)$ — the "parallelogram" and the "box" are literally the same shape here.
-3. Label it "$|\det A|=\|\vec a_1\|\|\vec a_2\|=6$ — equality" — there is no slant left to lose area to.
-
-*What the two panels show together:* $|\det A|$ is always the actual enclosed area (2D) / volume (3D, extend the same picture to three mutually-skewed edges vs. a rectangular box) of the shape the columns span; $\prod\|\vec a_j\|_2$ is the area/volume of the "unfolded" box with the same edge lengths but everything forced perpendicular. Leaning the edges together (any angle $\ne90°$) can only shrink the enclosed area/volume relative to that box, never grow it — hence $\le$, with equality exactly when there's no leaning left to do, i.e. the columns are already orthogonal.
++ 
++ **Panel 1 — general $A$, the inequality is strict ($\theta\ne90°$):**
++ 1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ — an arrow along the $x$-axis, length $3$.
++ 2. Draw $\vec a_2$ at $60°$ above $\vec a_1$, length $2$: that's the point $(1,\,1.73)$ since $2\cos60°=1,\ 2\sin60°=1.73$.
++ 3. Complete the parallelogram: from the tip of $\vec a_1$ at $(3,0)$, draw a segment parallel to $\vec a_2$ reaching $(4,\,1.73)$; from the tip of $\vec a_2$ at $(1,1.73)$, draw a segment parallel to $\vec a_1$ to the same point $(4,1.73)$. Shade this slanted parallelogram — its area is $|\det A|=\|\vec a_1\|\|\vec a_2\|\sin60°=3\times2\times0.866\approx5.2$.
++ 4. Now draw a **dashed rectangle** with the same two side lengths ($3$ and $2$) but with $\vec a_2$ rotated up to a true $90°$ — corners at $(0,0),(3,0),(3,2),(0,2)$. Its area is $\|\vec a_1\|\|\vec a_2\|=3\times2=6$.
++ 5. Label the shaded parallelogram "$|\det A|\approx5.2$" and the dashed rectangle "$\prod\|\vec a_j\|_2=6$" — visually, the slanted shape sits *inside* what the rectangle's area would be: the same two side lengths enclose less area once you lean them together at an angle other than $90°$.
++ 
++ **Panel 2 — $A$ unitary (orthonormal columns), equality:**
++ 1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ and $\vec a_2=(0,2)$ — a true right angle between them (columns orthogonal).
++ 2. Complete the shape: it is already a plain rectangle, corners $(0,0),(3,0),(3,2),(0,2)$ — the "parallelogram" and the "box" are literally the same shape here.
++ 3. Label it "$|\det A|=\|\vec a_1\|\|\vec a_2\|=6$ — equality" — there is no slant left to lose area to.
++ 
++ *What the two panels show together:* $|\det A|$ is always the actual enclosed area (2D) / volume (3D, extend the same picture to three mutually-skewed edges vs. a rectangular box) of the shape the columns span; $\prod\|\vec a_j\|_2$ is the area/volume of the "unfolded" box with the same edge lengths but everything forced perpendicular. Leaning the edges together (any angle $\ne90°$) can only shrink the enclosed area/volume relative to that box, never grow it — hence $\le$, with equality exactly when there's no leaning left to do, i.e. the columns are already orthogonal.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 
@@ -741,7 +759,10 @@ One thing I'm leaving alone: two Excalidraw files (`Quiz 3 - 1a box1/box2 - F re
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status && echo "---BRANCH---" && git branch -vv && echo "---REMOTE---" && git remote -v`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status && echo "---BRANCH---" && git branch -vv && echo "---REMOTE---" && git remote -v
+```
 ```
 On branch infra/cross-laptop-sync
 Your branch is ahead of 'origin/infra/cross-laptop-sync' by 1 commit.
@@ -765,7 +786,10 @@ no changes added to commit (use "git add" and/or "git commit -a")
 origin	https://github.com/gupta-builds/Jarvis.git (fetch)
 origin	https://github.com/gupta-builds/Jarvis.git (push)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*syncthing*" 2>/dev/null | grep -v "/.git/" ; echo "---git-auto-sync log tail---"; tail -n 40 "30_Order/System/claude-workflow/logs/git-auto-sync.log" 2>/dev/null; echo "---look for sync scripts---"; find . -iname "*sync*" -not -path "*/.git/*" 2>/dev/null | head -50`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*syncthing*" 2>/dev/null | grep -v "/.git/" ; echo "---git-auto-sync log tail---"; tail -n 40 "30_Order/System/claude-workflow/logs/git-auto-sync.log" 2>/dev/null; echo "---look for sync scripts---"; find . -iname "*sync*" -not -path "*/.git/*" 2>/dev/null | head -50
+```
 ```
 ./.stfolder/syncthing-folder-dda820.txt
 ./.stversions/30_Order/System/sync-workflow/scripts/check-syncthing-status~20260928-211019.ps1
@@ -884,7 +908,10 @@ origin	https://github.com/gupta-builds/Jarvis.git (push)
 ./.stversions/00_Dashboard.[REDACTED]~20261003-224405.md
 ./.stversions/00_Dashboard.[REDACTED]~20261003-225349.md
 ```
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System" -iname "*.ps1" -o -iname "*.py" 2>/dev/null | grep -iv node_modules`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System" -iname "*.ps1" -o -iname "*.py" 2>/dev/null | grep -iv node_modules
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1
 D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
@@ -921,9 +948,63 @@ D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/sync-workflow/scripts/rot
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1`
-- `PowerShell` -- `{"command":"powershell -ExecutionPolicy Bypass -File \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"","description":"Run Syncthing health check against the Dell device"}`
-- `PowerShell` -- `{"command":"powershell -ExecutionPolicy Bypass -File \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\git-auto-sync.ps1\"","description":"Run git-auto-sync to commit, rebase-pull, and push cleanly"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status && echo "---LOG---" && git log --oneline -3`
+- `PowerShell`
+```powershell
+powershell -ExecutionPolicy Bypass -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+```
+```
+Exit code 1
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 12623
+  globalFiles : 12623
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1 : 
+git-auto-sync.log's most recent run ended FAILED: [2026-10-18 22:33:03] === git-auto-sync end (FAILED, local changes 
+could not be committed) ===
+    + CategoryInfo          : NotSpecified: (:) [Write-Error], WriteErrorException
+    + FullyQualifiedErrorId : Microsoft.PowerShell.Commands.WriteErrorException,check-syncthing-status.ps1
+ 
+
+Overall: NOT IN SYNC
+```
+- `PowerShell`
+```powershell
+powershell -ExecutionPolicy Bypass -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1"
+```
+```
+[2026-10-18 22:44:22] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
+[2026-10-18 22:44:22] Syncthing folder 'jarvis' paused=True
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-12 C drive cleanup and old laptop rebuild.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-14 Plans for The Plan and Jarvis.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-17 Second-brain conversation layer postmortem.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-18 CSCI 5304 Homework 2 solutions.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan/10-15 Plan design for The Plan vault.md', CRLF will be replaced by LF the next time Git touches it
+[2026-10-18 22:44:24]   [infra/cross-laptop-sync 835a9f02] Auto-sync: 2026-10-18 22:44,  6 files changed, 162 insertions(+), 21 deletions(-)
+ 6 files changed, 162 insertions(+), 21 deletions(-)
+[2026-10-18 22:44:24] Committed: Auto-sync: 2026-10-18 22:44,  6 files changed, 162 insertions(+), 21 deletions(-)
+[2026-10-18 22:44:25]   From https://github.com/gupta-builds/Jarvis
+[2026-10-18 22:44:25]    * branch              infra/cross-laptop-sync -> FETCH_HEAD
+[2026-10-18 22:44:25]   Current branch infra/cross-laptop-sync is up to date.
+[2026-10-18 22:44:25] No real diff to commit, clean, nothing staged.
+[2026-10-18 22:44:27] Pushed cleanly to origin/infra/cross-laptop-sync.
+[2026-10-18 22:44:27] === git-auto-sync end (success) ===
+[2026-10-18 22:44:27] Syncthing folder 'jarvis' paused=False
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status && echo "---LOG---" && git log --oneline -3
+```
 ```
 On branch infra/cross-laptop-sync
 Your branch is up to date with 'origin/infra/cross-laptop-sync'.
@@ -940,7 +1021,29 @@ no changes added to commit (use "git add" and/or "git commit -a")
 a0e0cb6b Auto-sync: 2026-10-18 22:33,  5 files changed, 206 insertions(+), 40 deletions(-)
 cc32b462 Auto-sync: 2026-10-18 22:03,  16 files changed, 553 insertions(+), 12 deletions(-)
 ```
-- `PowerShell` -- `{"command":"powershell -ExecutionPolicy Bypass -File \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1\"","description":"Re-run Syncthing health check to confirm clean state"}`
+- `PowerShell`
+```powershell
+powershell -ExecutionPolicy Bypass -File "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1"
+```
+```
+Local device ID: [REDACTED]
+
+Folder 'jarvis' local state:
+  state       : idle
+  localFiles  : 12623
+  globalFiles : 12623
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: IN SYNC
+```
 
 ## Actions Taken
 
@@ -964,5 +1067,4 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*syncthing*" 2>/dev/null | grep -v "/.git/" ; echo "---git-auto-sync log tail---"; tail -n 40 "30_Order/System/claude-workflow/logs/git-auto-sync.log" 2>/dev/null; echo "---look for sync scripts---"; find . -iname "*sync*" -not -path "*/.git/*" 2>/dev/null | head -50`
 - `find "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System" -iname "*.ps1" -o -iname "*.py" 2>/dev/null | grep -iv node_modules`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status && echo "---LOG---" && git log --oneline -3`
-
 

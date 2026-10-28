@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-28
 tags:
   - project
   - ai
@@ -67,5 +67,10 @@ They were archived, not deleted, and have not been compared with the live notes 
 - Documented but never created: the README still lists `Claude App/` and `OpenCode/`.
 ## Backup copies that share live names
 `40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/_backups/acer-5c-20261017/` holds copies of notes that Build 5c edited, including `Conversation Capture.md` and `log.md`, under their live file names. A bare `[[Conversation Capture]]` link therefore matches two files, which is why several conversation notes in this layer use path-qualified links.
+## Corrections
+**2026-10-28.** The Acer tree under `Acer/Windows/Claude` was reorganized, and the stray-folder and duplicate findings above no longer describe it. It now holds five project folders: `Jarvis` (83 notes), `The Plan` (20), `Home` (17), `UMN Courses` (5), and `Scratch` (1), chosen by `capture-projects.json` (rules in [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]]). The seven one-off folders (`Code`, `CSCI 5304`, `csci4061-fa26`, `denytest`, `Jesse`, `Plans`, `sync-workflow`) are gone from the vault, and the four Acer sessions that had two notes now have one.
+- *Where things went:* nothing was deleted. Retired folders, the older copy of each duplicate, and the two notes replaced by regeneration are in `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22`, with a SHA-256 `MANIFEST.csv` of 36 rows (8 files moved inside the vault, 28 archived). Four notes whose transcripts were already swept moved to the right folder with their `project:` line rewritten; a pre-edit copy is in the archive's `moved-originals` folder.
+- *Regenerated:* the 103 sessions with a live transcript and an assistant turn were re-rendered with `export-claude-session.ps1 -BackfillAll -Force` in the finished format. The 23 notes whose transcripts are gone kept their old bytes and still lack `review_state`.
+- *Not changed:* the legacy `Windows/` trees, the `_archive-pre-fix` folders, and everything under `Dell/`. The Dell's copy of the exporter has no routing file yet. How the scripts work: [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
 ## Non-Goals
 This does not recommend which copy to keep or whether to delete the archives. It does not cover the files inside `_raw_jsonl`.

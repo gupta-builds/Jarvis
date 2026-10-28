@@ -5,6 +5,12 @@
 # Environment (TEST ONLY): JARVIS_CAPTURE_OUTROOT replaces the computed output
 # root so tests and real-transcript checks write to a scratch folder instead of
 # the vault. Leave it unset everywhere else.
+#
+# -Force re-renders a session even when its .exported marker is newer than the
+# transcript (normally such a session is skipped as "dup"). It reuses the note
+# file name stored in the marker, so a title change cannot create a second note,
+# and a session keeps the folder its marker is in. Use it to regenerate notes
+# after a format change: .\export-claude-session.ps1 -BackfillAll -Force
 param(
     [string]$TranscriptPath = "",
     [string]$SessionId = "",
@@ -12,7 +18,8 @@ param(
     [ValidateSet("ClaudeCode", "Cowork")]
     [string]$SourceApp = "ClaudeCode",
     [switch]$BackfillAll,
-    [switch]$DryRun
+    [switch]$DryRun,
+    [switch]$Force
 )
 
 $ErrorActionPreference = "Stop"
@@ -76,25 +83,90 @@ function Resolve-PricingKey {
     return $null
 }
 
-# cwd -> project name. Vault roots are resolved from this script's own location, never
-# a hardcoded drive layout (the old literal map only matched the Dell). Anything inside
-# the Jarvis or The Plan vault belongs to that vault's project: a session that cd's into
-# a vault subfolder must not become its own sibling project. Home is exact-match only.
-# Anything outside these roots falls back to the basename of cwd.
+# cwd -> project name. The rules live in capture-projects.json (one level above this
+# folder): an ordered list, first match wins, each rule "under" a path or "exact" to it,
+# with {vault}, {root}, {home} and {localappdata} tokens resolved from this script's own
+# location and the environment (never a hardcoded drive layout). A cwd no rule matches
+# gets a folder named after its last path segment. If the file is missing or invalid,
+# the built-in Jarvis / The Plan / Home rules apply and one line goes to
+# %LOCALAPPDATA%\claude-capture\routing.log. Nothing here may throw: the hook must not fail.
+$CaptureRoutingFile = Join-Path $PSScriptRoot "..\capture-projects.json"
+$script:RoutingRules = $null
+
+function Write-RoutingLog {
+    param([string]$Message)
+    try {
+        $logDir = Join-Path $env:LOCALAPPDATA "claude-capture"
+        if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+        Add-Content -LiteralPath (Join-Path $logDir "routing.log") -Value "$((Get-Date).ToString('yyyy-MM-ddTHH:mm:ss')) $Message"
+    }
+    catch {}
+}
+
+function Get-BuiltInRoutingRules {
+    return @(
+        @{ Project = 'Jarvis'; Match = 'under'; Path = $VaultRoot.TrimEnd('\', '/') },
+        @{ Project = 'The Plan'; Match = 'under'; Path = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan').TrimEnd('\', '/') },
+        @{ Project = 'Home'; Match = 'exact'; Path = "$env:USERPROFILE".TrimEnd('\', '/') }
+    )
+}
+
+# Resolves tokens and ..\ in a rule path. Returns $null when a token has no value.
+function Expand-RoutingPath {
+    param([string]$Path)
+    $root = $VaultRoot
+    for ($i = 0; $i -lt 3; $i++) { $root = Split-Path -Path $root -Parent }
+    $values = @{ '{vault}' = $VaultRoot; '{root}' = $root; '{home}' = $env:USERPROFILE; '{localappdata}' = $env:LOCALAPPDATA }
+    foreach ($tok in $values.Keys) {
+        if ($Path.Contains($tok)) {
+            if ([string]::IsNullOrWhiteSpace($values[$tok])) { return $null }
+            $Path = $Path.Replace($tok, $values[$tok])
+        }
+    }
+    if ($Path -match '[{}]') { return $null }
+    return [System.IO.Path]::GetFullPath($Path).TrimEnd('\', '/')
+}
+
+function Get-RoutingRules {
+    if ($null -ne $script:RoutingRules) { return $script:RoutingRules }
+    $rules = $null
+    try {
+        if (-not (Test-Path -LiteralPath $CaptureRoutingFile)) { throw "file not found" }
+        $cfg = Get-Content -LiteralPath $CaptureRoutingFile -Raw -Encoding UTF8 | ConvertFrom-Json
+        if (-not $cfg.version) { throw "no version" }
+        if ($cfg.fallback -ne 'leaf') { throw "fallback must be 'leaf'" }
+        if ($null -eq $cfg.rules) { throw "no rules list" }
+        $list = New-Object System.Collections.Generic.List[object]
+        foreach ($r in @($cfg.rules)) {
+            if ([string]::IsNullOrWhiteSpace($r.project) -or [string]::IsNullOrWhiteSpace($r.path) -or @('under', 'exact') -notcontains $r.match) {
+                throw "bad rule for project '$($r.project)'"
+            }
+            $p = Expand-RoutingPath -Path ([string]$r.path)
+            if (-not $p) { throw "unresolvable path in rule '$($r.project)'" }
+            $list.Add(@{ Project = [string]$r.project; Match = [string]$r.match; Path = $p })
+        }
+        $rules = $list.ToArray()
+    }
+    catch {
+        Write-RoutingLog "routing file '$CaptureRoutingFile' unusable ($($_.Exception.Message)); using built-in Jarvis/The Plan/Home rules"
+        $rules = @(Get-BuiltInRoutingRules)
+    }
+    $script:RoutingRules = $rules
+    return $rules
+}
+
 function Get-ProjectName {
     param([string]$CwdPath)
     if ([string]::IsNullOrWhiteSpace($CwdPath)) { return "Unknown" }
-    $norm = $CwdPath.TrimEnd('\', '/')
-    $vaults = @(
-        @{ Name = 'Jarvis'; Root = $VaultRoot },
-        @{ Name = 'The Plan'; Root = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan') }
-    )
-    foreach ($v in $vaults) {
-        $root = $v.Root.TrimEnd('\', '/')
-        if ($norm -ieq $root -or $norm.StartsWith($root + '\', [StringComparison]::OrdinalIgnoreCase)) { return $v.Name }
+    $norm = $CwdPath.Replace('/', '\').TrimEnd('\')
+    foreach ($r in (Get-RoutingRules)) {
+        if ($norm -ieq $r.Path) { return $r.Project }
+        if ($r.Match -eq 'under' -and $norm.StartsWith($r.Path + '\', [StringComparison]::OrdinalIgnoreCase)) { return $r.Project }
     }
-    if ($env:USERPROFILE -and $norm -ieq $env:USERPROFILE.TrimEnd('\', '/')) { return 'Home' }
-    return (Split-Path -Path $norm -Leaf)
+    $leaf = ''
+    try { $leaf = Split-Path -Path $norm -Leaf } catch {}
+    if ([string]::IsNullOrWhiteSpace($leaf) -or $leaf -match '^[A-Za-z]:\\?$') { return "Unknown" }
+    return $leaf
 }
 
 # The .exported marker lives inside the derived project folder, so any change in how a
@@ -502,7 +574,7 @@ function Export-Session {
     }
     if ($DryRun) {
         $grown = $true
-        if ($hasMarker) {
+        if ($hasMarker -and -not $Force) {
             $grown = (Get-Item -LiteralPath $tpath).LastWriteTimeUtc -gt (Get-Item -LiteralPath $markerPath).LastWriteTimeUtc
         }
         $result.Status = if ($grown) { "pending" } else { "dup" }
@@ -515,7 +587,7 @@ function Export-Session {
     if (Test-Path -LiteralPath $markerPath) {
         $markerTime = (Get-Item -LiteralPath $markerPath).LastWriteTimeUtc
         $transcriptTime = (Get-Item -LiteralPath $tpath).LastWriteTimeUtc
-        if ($transcriptTime -le $markerTime) {
+        if (-not $Force -and $transcriptTime -le $markerTime) {
             $result.Status = "dup"
             return $result
         }

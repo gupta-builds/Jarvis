@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Codex config.toml duplicate key error"
 started_at: 2026-10-07T15:09:45
 ended_at: 2026-10-07T15:13:19
-exported_at: 2026-10-17T21:06:39
+exported_at: 2026-10-28T16:15:10
 duration_minutes: 3.6
 project: Home
 cwd: 'C:\Users\anant'
 session_id: ba6b93b9-651f-451c-ab91-440bdb302edc
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-07
+updated: 2026-10-28
 turn_count: 3
 tools_used:
   Bash: 1
@@ -19,12 +22,12 @@ tools_used:
   PowerShell: 1
   Read: 1
 tokens:
-  input: 16
-  output: 2579
-  cache_creation: 56862
-  cache_read: 374120
-  total: 433577
-cost_usd: null
+  input: 8
+  output: 1271
+  cache_creation: 27232
+  cache_read: 189002
+  total: 217513
+cost_usd: 0.140554
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -97,18 +100,66 @@ I didn't see any other problems in the file. The rest of the TOML looks fine on 
 - `Edit` -- `C:\Users\anant\.codex\config.toml`
 ```diff
 - remote_plugin = false
-skill_search = false
-
+- skill_search = false
+- 
 + remote_plugin = false
-
++ 
 ```
-- `Bash` -- `cd ~ && python -c "import tomllib;tomllib.load(open('.codex/config.toml','rb'));print('valid toml')" 2>&1 || py -c "import tomllib;tomllib.load(open('.codex/config.toml','rb'));print('valid toml')"; codex --version 2>&1 | head -3`
+- `Bash`
+```bash
+cd ~ && python -c "import tomllib;tomllib.load(open('.codex/config.toml','rb'));print('valid toml')" 2>&1 || py -c "import tomllib;tomllib.load(open('.codex/config.toml','rb'));print('valid toml')"; codex --version 2>&1 | head -3
+```
 ```
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 /usr/bin/bash: line 1: py: command not found
 codex-cli 0.161.0
 ```
-- `PowerShell` -- `{"command":"codex features list 2\u003e\u00261 | Select-Object -First 40","description":"Load codex config via features list"}`
+- `PowerShell`
+```powershell
+codex features list 2>&1 | Select-Object -First 40
+```
+```
+agent_message_board                      under development  false
+analytics_plan_history                   experimental       false
+api_key_cyber_access_programs            stable             false
+api_key_model_discovery                  stable             true
+apply_patch_freeform                     removed            false
+apply_patch_preserve_line_endings        under development  false
+apply_patch_streaming_events             under development  false
+apps                                     stable             false
+apps_mcp_path_override                   removed            false
+artifact                                 under development  false
+auth_elicitation                         stable             true
+background_paginated_rollout_migration   under development  false
+bedrock_setup_wizard                     under development  false
+browser_annotation_api                   stable             true
+browser_use                              stable             false
+browser_use_external                     stable             false
+browser_use_full_cdp_access              stable             true
+chronicle                                under development  false
+cli_daybreak                             under development  false
+code_mode                                under development  false
+code_mode_buffered_exec                  removed            false
+code_mode_host                           stable             true
+code_mode_interrupt                      under development  false
+code_mode_only                           under development  false
+code_mode_prewarm                        under development  false
+[REDACTED]                under development  false
+codex_git_commit                         removed            false
+collaboration_modes                      removed            true
+compaction_image_budget                  stable             true
+computer_use                             stable             false
+concurrent_reasoning_summaries           under development  false
+content_item_kinds                       stable             true
+context_management                       under development  false
+current_time_reminder                    under development  false
+cwd_relative_turn_diffs                  under development  false
+daemon_auto_start                        stable             true
+default_mode_request_user_input          under development  false
+defer_mailbox_preemption                 under development  false
+deferred_executor                        under development  false
+deferred_tool_world_state                under development  false
+```
 
 ## Actions Taken
 
@@ -123,5 +174,4 @@ _None detected_
 
 **Commands run:**
 - `cd ~ && python -c "import tomllib;tomllib.load(open('.codex/config.toml','rb'));print('valid toml')" 2>&1 || py -c "import tomllib;tomllib.load(open('.codex/config.toml','rb'));print('valid toml')"; codex --version 2>&1 | head -3`
-
 

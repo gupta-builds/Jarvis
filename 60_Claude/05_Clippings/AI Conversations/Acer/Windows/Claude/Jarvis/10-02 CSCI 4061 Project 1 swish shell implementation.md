@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4061 Project 1 swish shell implementation"
 started_at: 2026-10-02T17:21:19
 ended_at: 2026-10-02T17:38:16
-exported_at: 2026-10-17T21:06:43
+exported_at: 2026-10-28T16:15:15
 duration_minutes: 17
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 10557e7e-d467-4c17-abad-a5279be69e48
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-02
+updated: 2026-10-28
 turn_count: 4
 tools_used:
   Bash: 30
@@ -20,12 +23,12 @@ tools_used:
   Read: 28
   Write: 2
 tokens:
-  input: 276
-  output: 180485
-  cache_creation: 553899
-  cache_read: 21916941
-  total: 22651601
-cost_usd: 8.404386
+  input: 112
+  output: 67284
+  cache_creation: 189944
+  cache_read: 9384398
+  total: 9641738
+cost_usd: 3.30972
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -148,14 +151,36 @@ Good, directory confirmed. Now reading all the starter code files in full.
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "20_Progress/Degree/CSCI 4061/Projects/" && echo "---" && ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\" 2>&1 | head -50`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "20_Progress/Degree/CSCI 4061/Projects/" && echo "---" && ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\" 2>&1 | head -50
+```
 ```
 Exit code 2
 /usr/bin/bash: eval: line 1: unexpected EOF while looking for matching `"'
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
-- `PowerShell` -- `{"command":"Get-ChildItem \"D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-code\\\" -ErrorAction SilentlyContinue | Select-Object Name","description":"List starter code directory contents"}`
-- `Bash` -- `find "D:\_Anant" -iname "proj1-code" -type d 2>/dev/null`
+- `PowerShell`
+```powershell
+Get-ChildItem "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\" -ErrorAction SilentlyContinue | Select-Object Name
+```
+```
+Name
+----
+test_cases
+job_list.c
+job_list.h
+Makefile
+string_vector.c
+string_vector.h
+swish_funcs.c
+swish_funcs.h
+swish.c
+```
+- `Bash`
+```bash
+find "D:\_Anant" -iname "proj1-code" -type d 2>/dev/null
+```
 ```
 D:\_Anant/10_Areas/UMN/Classes/CSCI/CSCI 2021/csci2021/proj1-code
 D:\_Anant/10_Areas/UMN/Classes/CSCI/CSCI 2021/csci2021/proj1-code/proj1-code
@@ -244,14 +269,44 @@ Implemented all seven tasks of `swish` in `swish.c` and `swish_funcs.c` (only th
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 1.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 3.md`
-- `Bash` -- `find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs" -iname "*Lab - 2*" 2>/dev/null; find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -iname "redirect_child*" 2>/dev/null`
+- `Bash`
+```bash
+find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs" -iname "*Lab - 2*" 2>/dev/null; find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -iname "redirect_child*" 2>/dev/null
+```
 ```
 D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs/Lab - 2.md
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Labs/lab02-code/redirect_child.c
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Labs/lab02-code/test_cases/input/redirect_child.txt
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Labs/lab02-code/test_cases/output/redirect_child.txt
 ```
-- `PowerShell` -- `{"command":"Get-ChildItem \"D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-code\\test_cases\\\" -ErrorAction SilentlyContinue | Select-Object Name | Select-Object -First 20\nGet-ChildItem \"D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-code\\test_cases\\input\\\" -ErrorAction SilentlyContinue | Select-Object Name | Select-Object -First 15","description":"List test_cases directory and input subfolder"}`
+- `PowerShell`
+```powershell
+Get-ChildItem "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\" -ErrorAction SilentlyContinue | Select-Object Name | Select-Object -First 20
+Get-ChildItem "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\" -ErrorAction SilentlyContinue | Select-Object Name | Select-Object -First 15
+```
+```
+Name
+----
+input
+output
+resources
+test_swish.json
+1.txt
+10.txt
+12.txt
+13.txt
+14.txt
+15.txt
+17.txt
+18.txt
+2.txt
+20.txt
+21.txt
+23.txt
+25.txt
+27.txt
+29.txt
+```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Labs\lab02-code\redirect_child.c`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs\Lab - 2.md`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\23.txt`
@@ -259,562 +314,565 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/csci4061-fa26/Labs/lab02-code/test
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 - int tokenize(char *s, strvec_t *tokens) {
-    // TODO Task 0: Tokenize string s
-    // Assume each token is separated by a single space (" ")
-    // Use the strtok() function to accomplish this
-    // Add each token to the 'tokens' parameter (a string vector)
-    // Return 0 on success, -1 on error
-    return 0;
-}
+-     // TODO Task 0: Tokenize string s
+-     // Assume each token is separated by a single space (" ")
+-     // Use the strtok() function to accomplish this
+-     // Add each token to the 'tokens' parameter (a string vector)
+-     // Return 0 on success, -1 on error
+-     return 0;
+- }
 + int tokenize(char *s, strvec_t *tokens) {
-    // TODO Task 0: Tokenize string s
-    // Assume each token is separated by a single space (" ")
-    // Use the strtok() function to accomplish this
-    // Add each token to the 'tokens' parameter (a string vector)
-    // Return 0 on success, -1 on error
-    char *token = strtok(s, " ");
-    while (token != NULL) {
-        if (strvec_add(tokens, token) == -1) {
-            return -1;
-        }
-        token = strtok(NULL, " ");
-    }
-    return 0;
-}
++     // TODO Task 0: Tokenize string s
++     // Assume each token is separated by a single space (" ")
++     // Use the strtok() function to accomplish this
++     // Add each token to the 'tokens' parameter (a string vector)
++     // Return 0 on success, -1 on error
++     char *token = strtok(s, " ");
++     while (token != NULL) {
++         if (strvec_add(tokens, token) == -1) {
++             return -1;
++         }
++         token = strtok(NULL, " ");
++     }
++     return 0;
++ }
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 - int run_command(strvec_t *tokens) {
-    // TODO Task 2: Execute the specified program (token 0) with the
-    // specified command-line arguments
-    // THIS FUNCTION SHOULD BE CALLED FROM A CHILD OF THE MAIN SHELL PROCESS
-    // Hint: Build a string array from the 'tokens' vector and pass this into execvp()
-    // Another Hint: You have a guarantee of the longest possible needed array, so you
-    // won't have to use malloc.
-
-    // TODO Task 3: Extend this function to perform output redirection before exec()'ing
-    // Check for '<' (redirect input), '>' (redirect output), '>>' (redirect and append output)
-    // entries inside of 'tokens' (the strvec_find() function will do this for you)
-    // Open the necessary file for reading (<), writing (>), or appending (>>)
-    // Use dup2() to redirect stdin (<), stdout (> or >>)
-    // DO NOT pass redirection operators and file names to exec()'d program
-    // E.g., "ls -l > out.txt" should be exec()'d with strings "ls", "-l", NULL
-
-    // TODO Task 4: You need to do two items of setup before exec()'ing
-    // 1. Restore the signal handlers for SIGTTOU and SIGTTIN to their defaults.
-    // The code in main() within swish.c sets these handlers to the SIG_IGN value.
-    // Adapt this code to use sigaction() to set the handlers to the SIG_DFL value.
-    // 2. Change the process group of this process (a child of the main shell).
-    // Call getpid() to get its process ID then call setpgid() and use this process
-    // ID as the value for the new process group ID
-
-    return 0;
-}
+-     // TODO Task 2: Execute the specified program (token 0) with the
+-     // specified command-line arguments
+-     // THIS FUNCTION SHOULD BE CALLED FROM A CHILD OF THE MAIN SHELL PROCESS
+-     // Hint: Build a string array from the 'tokens' vector and pass this into execvp()
+-     // Another Hint: You have a guarantee of the longest possible needed array, so you
+-     // won't have to use malloc.
+- 
+-     // TODO Task 3: Extend this function to perform output redirection before exec()'ing
+-     // Check for '<' (redirect input), '>' (redirect output), '>>' (redirect and append output)
+-     // entries inside of 'tokens' (the strvec_find() function will do this for you)
+-     // Open the necessary file for reading (<), writing (>), or appending (>>)
+-     // Use dup2() to redirect stdin (<), stdout (> or >>)
+-     // DO NOT pass redirection operators and file names to exec()'d program
+-     // E.g., "ls -l > out.txt" should be exec()'d with strings "ls", "-l", NULL
+- 
+-     // TODO Task 4: You need to do two items of setup before exec()'ing
+-     // 1. Restore the signal handlers for SIGTTOU and SIGTTIN to their defaults.
+-     // The code in main() within swish.c sets these handlers to the SIG_IGN value.
+-     // Adapt this code to use sigaction() to set the handlers to the SIG_DFL value.
+-     // 2. Change the process group of this process (a child of the main shell).
+-     // Call getpid() to get its process ID then call setpgid() and use this process
+-     // ID as the value for the new process group ID
+- 
+-     return 0;
+- }
 + int run_command(strvec_t *tokens) {
-    // TODO Task 2: Execute the specified program (token 0) with the
-    // specified command-line arguments
-    // THIS FUNCTION SHOULD BE CALLED FROM A CHILD OF THE MAIN SHELL PROCESS
-    // Hint: Build a string array from the 'tokens' vector and pass this into execvp()
-    // Another Hint: You have a guarantee of the longest possible needed array, so you
-    // won't have to use malloc.
-    char *args[MAX_ARGS + 1];
-
-    // TODO Task 3: Extend this function to perform output redirection before exec()'ing
-    // Check for '<' (redirect input), '>' (redirect output), '>>' (redirect and append output)
-    // entries inside of 'tokens' (the strvec_find() function will do this for you)
-    // Open the necessary file for reading (<), writing (>), or appending (>>)
-    // Use dup2() to redirect stdin (<), stdout (> or >>)
-    // DO NOT pass redirection operators and file names to exec()'d program
-    // E.g., "ls -l > out.txt" should be exec()'d with strings "ls", "-l", NULL
-    int input_idx = strvec_find(tokens, "<");
-    int output_idx = strvec_find(tokens, ">");
-    int append_idx = strvec_find(tokens, ">>");
-
-    // Simplifying assumption (Task 3): redirection tokens only ever appear after
-    // the program name and its arguments, so the earliest one present marks where
-    // the real argument list ends.
-    int redir_start = (int)tokens->length;
-    if (input_idx != -1 && input_idx < redir_start) {
-        redir_start = input_idx;
-    }
-    if (output_idx != -1 && output_idx < redir_start) {
-        redir_start = output_idx;
-    }
-    if (append_idx != -1 && append_idx < redir_start) {
-        redir_start = append_idx;
-    }
-
-    int i;
-    for (i = 0; i < redir_start; i++) {
-        args[i] = strvec_get(tokens, i);
-    }
-    args[i] = NULL;
-
-    if (input_idx != -1) {
-        char *in_file = strvec_get(tokens, input_idx + 1);
-        int fd = open(in_file, O_RDONLY);
-        if (fd == -1) {
-            perror("Failed to open input file");
-            return -1;
-        }
-        if (dup2(fd, STDIN_FILENO) == -1) {
-            perror("dup2");
-            close(fd);
-            return -1;
-        }
-        close(fd);
-    }
-
-    // Simplifying assumption (Task 3): only one of '>' or '>>' is ever present.
-    if (output_idx != -1 || append_idx != -1) {
-        char *out_file;
-        int flags = O_CREAT | O_WRONLY;
-        if (output_idx != -1) {
-            out_file = strvec_get(tokens, output_idx + 1);
-            flags |= O_TRUNC;
-        } else {
-            out_file = strvec_get(tokens, append_idx + 1);
-            flags |= O_APPEND;
-        }
-        int fd = open(out_file, flags, S_IRUSR | S_IWUSR);
-        if (fd == -1) {
-            perror("Failed to open output file");
-            return -1;
-        }
-        if (dup2(fd, STDOUT_FILENO) == -1) {
-            perror("dup2");
-            close(fd);
-            return -1;
-        }
-        close(fd);
-    }
-
-    // TODO Task 4: You need to do two items of setup before exec()'ing
-    // 1. Restore the signal handlers for SIGTTOU and SIGTTIN to their defaults.
-    // The code in main() within swish.c sets these handlers to the SIG_IGN value.
-    // Adapt this code to use sigaction() to set the handlers to the SIG_DFL value.
-    // 2. Change the process group of this process (a child of the main shell).
-    // Call getpid() to get its process ID then call setpgid() and use this process
-    // ID as the value for the new process group ID
-    struct sigaction sac;
-    sac.sa_handler = SIG_DFL;
-    if (sigfillset(&sac.sa_mask) == -1) {
-        perror("sigfillset");
-        return -1;
-    }
-    sac.sa_flags = 0;
-    if (sigaction(SIGTTIN, &sac, NULL) == -1 || sigaction(SIGTTOU, &sac, NULL) == -1) {
-        perror("sigaction");
-        return -1;
-    }
-
-    pid_t self_pid = getpid();
-    if (setpgid(self_pid, self_pid) == -1) {
-        perror("setpgid");
-        return -1;
-    }
-
-    execvp(args[0], args);
-    perror("exec");
-    return -1;
-}
++     // TODO Task 2: Execute the specified program (token 0) with the
++     // specified command-line arguments
++     // THIS FUNCTION SHOULD BE CALLED FROM A CHILD OF THE MAIN SHELL PROCESS
++     // Hint: Build a string array from the 'tokens' vector and pass this into execvp()
++     // Another Hint: You have a guarantee of the longest possible needed array, so you
++     // won't have to use malloc.
++     char *args[MAX_ARGS + 1];
++ 
++     // TODO Task 3: Extend this function to perform output redirection before exec()'ing
++     // Check for '<' (redirect input), '>' (redirect output), '>>' (redirect and append output)
++     // entries inside of 'tokens' (the strvec_find() function will do this for you)
++     // Open the necessary file for reading (<), writing (>), or appending (>>)
++     // Use dup2() to redirect stdin (<), stdout (> or >>)
++     // DO NOT pass redirection operators and file names to exec()'d program
++     // E.g., "ls -l > out.txt" should be exec()'d with strings "ls", "-l", NULL
++     int input_idx = strvec_find(tokens, "<");
++     int output_idx = strvec_find(tokens, ">");
++     int append_idx = strvec_find(tokens, ">>");
++ 
++     // Simplifying assumption (Task 3): redirection tokens only ever appear after
++     // the program name and its arguments, so the earliest one present marks where
++     // the real argument list ends.
++     int redir_start = (int)tokens->length;
++     if (input_idx != -1 && input_idx < redir_start) {
++         redir_start = input_idx;
++     }
++     if (output_idx != -1 && output_idx < redir_start) {
++         redir_start = output_idx;
++     }
++     if (append_idx != -1 && append_idx < redir_start) {
++         redir_start = append_idx;
++     }
++ 
++     int i;
++     for (i = 0; i < redir_start; i++) {
++         args[i] = strvec_get(tokens, i);
++     }
++     args[i] = NULL;
++ 
++     if (input_idx != -1) {
++         char *in_file = strvec_get(tokens, input_idx + 1);
++         int fd = open(in_file, O_RDONLY);
++         if (fd == -1) {
++             perror("Failed to open input file");
++             return -1;
++         }
++         if (dup2(fd, STDIN_FILENO) == -1) {
++             perror("dup2");
++             close(fd);
++             return -1;
++         }
++         close(fd);
++     }
++ 
++     // Simplifying assumption (Task 3): only one of '>' or '>>' is ever present.
++     if (output_idx != -1 || append_idx != -1) {
++         char *out_file;
++         int flags = O_CREAT | O_WRONLY;
++         if (output_idx != -1) {
++             out_file = strvec_get(tokens, output_idx + 1);
++             flags |= O_TRUNC;
++         } else {
++             out_file = strvec_get(tokens, append_idx + 1);
++             flags |= O_APPEND;
++         }
++         int fd = open(out_file, flags, S_IRUSR | S_IWUSR);
++         if (fd == -1) {
++             perror("Failed to open output file");
++             return -1;
++         }
++         if (dup2(fd, STDOUT_FILENO) == -1) {
++             perror("dup2");
++             close(fd);
++             return -1;
++         }
++         close(fd);
++     }
++ 
++     // TODO Task 4: You need to do two items of setup before exec()'ing
++     // 1. Restore the signal handlers for SIGTTOU and SIGTTIN to their defaults.
++     // The code in main() within swish.c sets these handlers to the SIG_IGN value.
++     // Adapt this code to use sigaction() to set the handlers to the SIG_DFL value.
++     // 2. Change the process group of this process (a child of the main shell).
++     // Call getpid() to get its process ID then call setpgid() and use this process
++     // ID as the value for the new process group ID
++     struct sigaction sac;
++     sac.sa_handler = SIG_DFL;
++     if (sigfillset(&sac.sa_mask) == -1) {
++         perror("sigfillset");
++         return -1;
++     }
++     sac.sa_flags = 0;
++     if (sigaction(SIGTTIN, &sac, NULL) == -1 || sigaction(SIGTTOU, &sac, NULL) == -1) {
++         perror("sigaction");
++         return -1;
++     }
++ 
++     pid_t self_pid = getpid();
++     if (setpgid(self_pid, self_pid) == -1) {
++         perror("setpgid");
++         return -1;
++     }
++ 
++     execvp(args[0], args);
++     perror("exec");
++     return -1;
++ }
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 - int resume_job(strvec_t *tokens, job_list_t *jobs, int is_foreground) {
-    // TODO Task 5: Implement the ability to resume stopped jobs in the foreground
-    // 1. Look up the relevant job information (in a job_t) from the jobs list
-    //    using the index supplied by the user (in tokens index 1)
-    //    Feel free to use sscanf() or atoi() to convert this string to an int
-    // 2. Call tcsetpgrp(STDIN_FILENO, <job_pid>) where job_pid is the job's process ID
-    // 3. Send the process the SIGCONT signal with the kill() system call
-    // 4. Use the same waitpid() logic as in main -- don't forget WUNTRACED
-    // 5. If the job has terminated (not stopped), remove it from the 'jobs' list
-    // 6. Call tcsetpgrp(STDIN_FILENO, <shell_pid>). shell_pid is the *current*
-    //    process's pid, since we call this function from the main shell process
-
-    // TODO Task 6: Implement the ability to resume stopped jobs in the background.
-    // This really just means omitting some of the steps used to resume a job in the foreground:
-    // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process group
-    // 2. DO NOT call waitpid() to wait on the job
-    // 3. Make sure to modify the 'status' field of the relevant job list entry to BACKGROUND
-    //    (as it was STOPPED before this)
-
-    return 0;
-}
+-     // TODO Task 5: Implement the ability to resume stopped jobs in the foreground
+-     // 1. Look up the relevant job information (in a job_t) from the jobs list
+-     //    using the index supplied by the user (in tokens index 1)
+-     //    Feel free to use sscanf() or atoi() to convert this string to an int
+-     // 2. Call tcsetpgrp(STDIN_FILENO, <job_pid>) where job_pid is the job's process ID
+-     // 3. Send the process the SIGCONT signal with the kill() system call
+-     // 4. Use the same waitpid() logic as in main -- don't forget WUNTRACED
+-     // 5. If the job has terminated (not stopped), remove it from the 'jobs' list
+-     // 6. Call tcsetpgrp(STDIN_FILENO, <shell_pid>). shell_pid is the *current*
+-     //    process's pid, since we call this function from the main shell process
+- 
+-     // TODO Task 6: Implement the ability to resume stopped jobs in the background.
+-     // This really just means omitting some of the steps used to resume a job in the foreground:
+-     // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process group
+-     // 2. DO NOT call waitpid() to wait on the job
+-     // 3. Make sure to modify the 'status' field of the relevant job list entry to BACKGROUND
+-     //    (as it was STOPPED before this)
+- 
+-     return 0;
+- }
 + int resume_job(strvec_t *tokens, job_list_t *jobs, int is_foreground) {
-    // TODO Task 5: Implement the ability to resume stopped jobs in the foreground
-    // 1. Look up the relevant job information (in a job_t) from the jobs list
-    //    using the index supplied by the user (in tokens index 1)
-    //    Feel free to use sscanf() or atoi() to convert this string to an int
-    // 2. Call tcsetpgrp(STDIN_FILENO, <job_pid>) where job_pid is the job's process ID
-    // 3. Send the process the SIGCONT signal with the kill() system call
-    // 4. Use the same waitpid() logic as in main -- don't forget WUNTRACED
-    // 5. If the job has terminated (not stopped), remove it from the 'jobs' list
-    // 6. Call tcsetpgrp(STDIN_FILENO, <shell_pid>). shell_pid is the *current*
-    //    process's pid, since we call this function from the main shell process
-    if (tokens->length < 2) {
-        fprintf(stderr, "Job index out of bounds\n");
-        return -1;
-    }
-    int idx = atoi(strvec_get(tokens, 1));
-    job_t *job = job_list_get(jobs, idx);
-    if (job == NULL) {
-        fprintf(stderr, "Job index out of bounds\n");
-        return -1;
-    }
-    pid_t job_pid = job->pid;
-
-    if (is_foreground) {
-        if (tcsetpgrp(STDIN_FILENO, job_pid) == -1) {
-            perror("tcsetpgrp");
-            return -1;
-        }
-    }
-
-    if (kill(job_pid, SIGCONT) == -1) {
-        perror("kill");
-        return -1;
-    }
-
-    if (is_foreground) {
-        int status;
-        if (waitpid(job_pid, &status, WUNTRACED) == -1) {
-            perror("waitpid");
-            return -1;
-        }
-        if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
-            perror("tcsetpgrp");
-            return -1;
-        }
-        if (!WIFSTOPPED(status)) {
-            if (job_list_remove(jobs, idx) == -1) {
-                fprintf(stderr, "Failed to remove job from list\n");
-                return -1;
-            }
-        }
-
-        // TODO Task 6: Implement the ability to resume stopped jobs in the background.
-        // This really just means omitting some of the steps used to resume a job in the
-        // foreground:
-        // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process
-        // group
-        // 2. DO NOT call waitpid() to wait on the job
-        // 3. Make sure to modify the 'status' field of the relevant job list entry to
-        // BACKGROUND
-        //    (as it was STOPPED before this)
-    } else {
-        job->status = BACKGROUND;
-    }
-
-    return 0;
-}
++     // TODO Task 5: Implement the ability to resume stopped jobs in the foreground
++     // 1. Look up the relevant job information (in a job_t) from the jobs list
++     //    using the index supplied by the user (in tokens index 1)
++     //    Feel free to use sscanf() or atoi() to convert this string to an int
++     // 2. Call tcsetpgrp(STDIN_FILENO, <job_pid>) where job_pid is the job's process ID
++     // 3. Send the process the SIGCONT signal with the kill() system call
++     // 4. Use the same waitpid() logic as in main -- don't forget WUNTRACED
++     // 5. If the job has terminated (not stopped), remove it from the 'jobs' list
++     // 6. Call tcsetpgrp(STDIN_FILENO, <shell_pid>). shell_pid is the *current*
++     //    process's pid, since we call this function from the main shell process
++     if (tokens->length < 2) {
++         fprintf(stderr, "Job index out of bounds\n");
++         return -1;
++     }
++     int idx = atoi(strvec_get(tokens, 1));
++     job_t *job = job_list_get(jobs, idx);
++     if (job == NULL) {
++         fprintf(stderr, "Job index out of bounds\n");
++         return -1;
++     }
++     pid_t job_pid = job->pid;
++ 
++     if (is_foreground) {
++         if (tcsetpgrp(STDIN_FILENO, job_pid) == -1) {
++             perror("tcsetpgrp");
++             return -1;
++         }
++     }
++ 
++     if (kill(job_pid, SIGCONT) == -1) {
++         perror("kill");
++         return -1;
++     }
++ 
++     if (is_foreground) {
++         int status;
++         if (waitpid(job_pid, &status, WUNTRACED) == -1) {
++             perror("waitpid");
++             return -1;
++         }
++         if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
++             perror("tcsetpgrp");
++             return -1;
++         }
++         if (!WIFSTOPPED(status)) {
++             if (job_list_remove(jobs, idx) == -1) {
++                 fprintf(stderr, "Failed to remove job from list\n");
++                 return -1;
++             }
++         }
++ 
++         // TODO Task 6: Implement the ability to resume stopped jobs in the background.
++         // This really just means omitting some of the steps used to resume a job in the
++         // foreground:
++         // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process
++         // group
++         // 2. DO NOT call waitpid() to wait on the job
++         // 3. Make sure to modify the 'status' field of the relevant job list entry to
++         // BACKGROUND
++         //    (as it was STOPPED before this)
++     } else {
++         job->status = BACKGROUND;
++     }
++ 
++     return 0;
++ }
 ```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 -         if (!WIFSTOPPED(status)) {
-            if (job_list_remove(jobs, idx) == -1) {
-                fprintf(stderr, "Failed to remove job from list\n");
-                return -1;
-            }
-        }
-
-        // TODO Task 6: Implement the ability to resume stopped jobs in the background.
-        // This really just means omitting some of the steps used to resume a job in the
-        // foreground:
-        // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process
-        // group
-        // 2. DO NOT call waitpid() to wait on the job
-        // 3. Make sure to modify the 'status' field of the relevant job list entry to
-        // BACKGROUND
-        //    (as it was STOPPED before this)
-    } else {
-        job->status = BACKGROUND;
-    }
+-             if (job_list_remove(jobs, idx) == -1) {
+-                 fprintf(stderr, "Failed to remove job from list\n");
+-                 return -1;
+-             }
+-         }
+- 
+-         // TODO Task 6: Implement the ability to resume stopped jobs in the background.
+-         // This really just means omitting some of the steps used to resume a job in the
+-         // foreground:
+-         // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process
+-         // group
+-         // 2. DO NOT call waitpid() to wait on the job
+-         // 3. Make sure to modify the 'status' field of the relevant job list entry to
+-         // BACKGROUND
+-         //    (as it was STOPPED before this)
+-     } else {
+-         job->status = BACKGROUND;
+-     }
 +         if (!WIFSTOPPED(status)) {
-            if (job_list_remove(jobs, idx) == -1) {
-                fprintf(stderr, "Failed to remove job from list\n");
-                return -1;
-            }
-        }
-    } else {
-        // TODO Task 6: Implement the ability to resume stopped jobs in the background.
-        // This really just means omitting some of the steps used to resume a job in the
-        // foreground:
-        // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process
-        // group
-        // 2. DO NOT call waitpid() to wait on the job
-        // 3. Make sure to modify the 'status' field of the relevant job list entry to
-        // BACKGROUND
-        //    (as it was STOPPED before this)
-        job->status = BACKGROUND;
-    }
++             if (job_list_remove(jobs, idx) == -1) {
++                 fprintf(stderr, "Failed to remove job from list\n");
++                 return -1;
++             }
++         }
++     } else {
++         // TODO Task 6: Implement the ability to resume stopped jobs in the background.
++         // This really just means omitting some of the steps used to resume a job in the
++         // foreground:
++         // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process
++         // group
++         // 2. DO NOT call waitpid() to wait on the job
++         // 3. Make sure to modify the 'status' field of the relevant job list entry to
++         // BACKGROUND
++         //    (as it was STOPPED before this)
++         job->status = BACKGROUND;
++     }
 ```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 - int await_background_job(strvec_t *tokens, job_list_t *jobs) {
-    // TODO Task 6: Wait for a specific job to stop or terminate
-    // 1. Look up the relevant job information (in a job_t) from the jobs list
-    //    using the index supplied by the user (in tokens index 1)
-    // 2. Make sure the job's status is BACKGROUND (no sense waiting for a stopped job)
-    // 3. Use waitpid() to wait for the job to terminate, as you have in resume_job() and main().
-    // 4. If the process terminates (is not stopped by a signal) remove it from the jobs list
-
-    return 0;
-}
-
-int await_all_background_jobs(job_list_t *jobs) {
-    // TODO Task 6: Wait for all background jobs to stop or terminate
-    // 1. Iterate through the jobs list, ignoring any stopped jobs
-    // 2. For a background job, call waitpid() with WUNTRACED.
-    // 3. If the job has stopped (check with WIFSTOPPED), change its
-    //    status to STOPPED. If the job has terminated, do nothing until the
-    //    next step (don't attempt to remove it while iterating through the list).
-    // 4. Remove all background jobs (which have all just terminated) from jobs list.
-    //    Use the job_list_remove_by_status() function.
-
-    return 0;
-}
+-     // TODO Task 6: Wait for a specific job to stop or terminate
+-     // 1. Look up the relevant job information (in a job_t) from the jobs list
+-     //    using the index supplied by the user (in tokens index 1)
+-     // 2. Make sure the job's status is BACKGROUND (no sense waiting for a stopped job)
+-     // 3. Use waitpid() to wait for the job to terminate, as you have in resume_job() and main().
+-     // 4. If the process terminates (is not stopped by a signal) remove it from the jobs list
+- 
+-     return 0;
+- }
+- 
+- int await_all_background_jobs(job_list_t *jobs) {
+-     // TODO Task 6: Wait for all background jobs to stop or terminate
+-     // 1. Iterate through the jobs list, ignoring any stopped jobs
+-     // 2. For a background job, call waitpid() with WUNTRACED.
+-     // 3. If the job has stopped (check with WIFSTOPPED), change its
+-     //    status to STOPPED. If the job has terminated, do nothing until the
+-     //    next step (don't attempt to remove it while iterating through the list).
+-     // 4. Remove all background jobs (which have all just terminated) from jobs list.
+-     //    Use the job_list_remove_by_status() function.
+- 
+-     return 0;
+- }
 + int await_background_job(strvec_t *tokens, job_list_t *jobs) {
-    // TODO Task 6: Wait for a specific job to stop or terminate
-    // 1. Look up the relevant job information (in a job_t) from the jobs list
-    //    using the index supplied by the user (in tokens index 1)
-    // 2. Make sure the job's status is BACKGROUND (no sense waiting for a stopped job)
-    // 3. Use waitpid() to wait for the job to terminate, as you have in resume_job() and main().
-    // 4. If the process terminates (is not stopped by a signal) remove it from the jobs list
-    if (tokens->length < 2) {
-        fprintf(stderr, "Job index out of bounds\n");
-        return -1;
-    }
-    int idx = atoi(strvec_get(tokens, 1));
-    job_t *job = job_list_get(jobs, idx);
-    if (job == NULL) {
-        fprintf(stderr, "Job index out of bounds\n");
-        return -1;
-    }
-    if (job->status != BACKGROUND) {
-        fprintf(stderr, "Job index is for stopped process not background process\n");
-        return -1;
-    }
-
-    int status;
-    if (waitpid(job->pid, &status, WUNTRACED) == -1) {
-        perror("waitpid");
-        return -1;
-    }
-    if (WIFSTOPPED(status)) {
-        job->status = STOPPED;
-    } else {
-        if (job_list_remove(jobs, idx) == -1) {
-            fprintf(stderr, "Failed to remove job from list\n");
-            return -1;
-        }
-    }
-
-    return 0;
-}
-
-int await_all_background_jobs(job_list_t *jobs) {
-    // TODO Task 6: Wait for all background jobs to stop or terminate
-    // 1. Iterate through the jobs list, ignoring any stopped jobs
-    // 2. For a background job, call waitpid() with WUNTRACED.
-    // 3. If the job has stopped (check with WIFSTOPPED), change its
-    //    status to STOPPED. If the job has terminated, do nothing until the
-    //    next step (don't attempt to remove it while iterating through the list).
-    // 4. Remove all background jobs (which have all just terminated) from jobs list.
-    //    Use the job_list_remove_by_status() function.
-    job_t *current = jobs->head;
-    while (current != NULL) {
-        if (current->status != STOPPED) {
-            int status;
-            if (waitpid(current->pid, &status, WUNTRACED) == -1) {
-                perror("waitpid");
-                return -1;
-            }
-            if (WIFSTOPPED(status)) {
-                current->status = STOPPED;
-            }
-        }
-        current = current->next;
-    }
-
-    job_list_remove_by_status(jobs, BACKGROUND);
-    return 0;
-}
++     // TODO Task 6: Wait for a specific job to stop or terminate
++     // 1. Look up the relevant job information (in a job_t) from the jobs list
++     //    using the index supplied by the user (in tokens index 1)
++     // 2. Make sure the job's status is BACKGROUND (no sense waiting for a stopped job)
++     // 3. Use waitpid() to wait for the job to terminate, as you have in resume_job() and main().
++     // 4. If the process terminates (is not stopped by a signal) remove it from the jobs list
++     if (tokens->length < 2) {
++         fprintf(stderr, "Job index out of bounds\n");
++         return -1;
++     }
++     int idx = atoi(strvec_get(tokens, 1));
++     job_t *job = job_list_get(jobs, idx);
++     if (job == NULL) {
++         fprintf(stderr, "Job index out of bounds\n");
++         return -1;
++     }
++     if (job->status != BACKGROUND) {
++         fprintf(stderr, "Job index is for stopped process not background process\n");
++         return -1;
++     }
++ 
++     int status;
++     if (waitpid(job->pid, &status, WUNTRACED) == -1) {
++         perror("waitpid");
++         return -1;
++     }
++     if (WIFSTOPPED(status)) {
++         job->status = STOPPED;
++     } else {
++         if (job_list_remove(jobs, idx) == -1) {
++             fprintf(stderr, "Failed to remove job from list\n");
++             return -1;
++         }
++     }
++ 
++     return 0;
++ }
++ 
++ int await_all_background_jobs(job_list_t *jobs) {
++     // TODO Task 6: Wait for all background jobs to stop or terminate
++     // 1. Iterate through the jobs list, ignoring any stopped jobs
++     // 2. For a background job, call waitpid() with WUNTRACED.
++     // 3. If the job has stopped (check with WIFSTOPPED), change its
++     //    status to STOPPED. If the job has terminated, do nothing until the
++     //    next step (don't attempt to remove it while iterating through the list).
++     // 4. Remove all background jobs (which have all just terminated) from jobs list.
++     //    Use the job_list_remove_by_status() function.
++     job_t *current = jobs->head;
++     while (current != NULL) {
++         if (current->status != STOPPED) {
++             int status;
++             if (waitpid(current->pid, &status, WUNTRACED) == -1) {
++                 perror("waitpid");
++                 return -1;
++             }
++             if (WIFSTOPPED(status)) {
++                 current->status = STOPPED;
++             }
++         }
++         current = current->next;
++     }
++ 
++     job_list_remove_by_status(jobs, BACKGROUND);
++     return 0;
++ }
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c`
 ```diff
 - #include <signal.h>
-#include <stdio.h>
-#include <string.h>
+- #include <stdio.h>
+- #include <string.h>
 + #include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
++ #include <stdio.h>
++ #include <stdlib.h>
++ #include <string.h>
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c`
 ```diff
 -         if (strcmp(first_token, "pwd") == 0) {
-            // TODO Task 1: Print the shell's current working directory
-            // Use the getcwd() system call
-        }
-
-        else if (strcmp(first_token, "cd") == 0) {
-            // TODO Task 1: Change the shell's current working directory
-            // Use the chdir() system call
-            // If the user supplied an argument (token at index 1), change to that directory
-            // Otherwise, change to the home directory by default
-            // This is available in the HOME environment variable (use getenv())
-        }
+-             // TODO Task 1: Print the shell's current working directory
+-             // Use the getcwd() system call
+-         }
+- 
+-         else if (strcmp(first_token, "cd") == 0) {
+-             // TODO Task 1: Change the shell's current working directory
+-             // Use the chdir() system call
+-             // If the user supplied an argument (token at index 1), change to that directory
+-             // Otherwise, change to the home directory by default
+-             // This is available in the HOME environment variable (use getenv())
+-         }
 +         if (strcmp(first_token, "pwd") == 0) {
-            // TODO Task 1: Print the shell's current working directory
-            // Use the getcwd() system call
-            char cwd[CMD_LEN];
-            if (getcwd(cwd, CMD_LEN) == NULL) {
-                perror("getcwd");
-            } else {
-                printf("%s\n", cwd);
-            }
-        }
-
-        else if (strcmp(first_token, "cd") == 0) {
-            // TODO Task 1: Change the shell's current working directory
-            // Use the chdir() system call
-            // If the user supplied an argument (token at index 1), change to that directory
-            // Otherwise, change to the home directory by default
-            // This is available in the HOME environment variable (use getenv())
-            const char *dir;
-            if (tokens.length > 1) {
-                dir = strvec_get(&tokens, 1);
-            } else {
-                dir = getenv("HOME");
-            }
-            if (dir == NULL || chdir(dir) == -1) {
-                perror("chdir");
-            }
-        }
++             // TODO Task 1: Print the shell's current working directory
++             // Use the getcwd() system call
++             char cwd[CMD_LEN];
++             if (getcwd(cwd, CMD_LEN) == NULL) {
++                 perror("getcwd");
++             } else {
++                 printf("%s\n", cwd);
++             }
++         }
++ 
++         else if (strcmp(first_token, "cd") == 0) {
++             // TODO Task 1: Change the shell's current working directory
++             // Use the chdir() system call
++             // If the user supplied an argument (token at index 1), change to that directory
++             // Otherwise, change to the home directory by default
++             // This is available in the HOME environment variable (use getenv())
++             const char *dir;
++             if (tokens.length > 1) {
++                 dir = strvec_get(&tokens, 1);
++             } else {
++                 dir = getenv("HOME");
++             }
++             if (dir == NULL || chdir(dir) == -1) {
++                 perror("chdir");
++             }
++         }
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c`
 ```diff
 -         else {
-            // TODO Task 2: If the user input does not match any built-in shell command,
-            // treat the input as a program name and command-line arguments
-            // USE THE run_command() FUNCTION DEFINED IN swish_funcs.c IN YOUR IMPLEMENTATION
-            // You should take the following steps:
-            //   1. Use fork() to spawn a child process
-            //   2. Call run_command() in the child process
-            //   2. In the parent, use waitpid() to wait for the program to exit
-
-            // TODO Task 4: Set the child process as the target of signals sent to the terminal
-            // via the keyboard.
-            // To do this, call 'tcsetpgrp(STDIN_FILENO, <child_pid>)', where child_pid is the
-            // child's process ID just returned by fork(). Do this in the parent process.
-
-            // TODO Task 5: Handle the issue of foreground/background terminal process groups.
-            // Do this by taking the following steps in the shell (parent) process:
-            // 1. Modify your call to waitpid(): Wait specifically for the child just forked, and
-            //    use WUNTRACED as your third argument to detect if it has stopped from a signal
-            // 2. After waitpid() has returned, call tcsetpgrp(STDIN_FILENO, <pid>) where pid is
-            //    the process ID of the shell process (use getpid() to obtain it)
-            // 3. If the child status was stopped by a signal, add it to 'jobs', the
-            //    the terminal's jobs list.
-            // You can detect if this has occurred using WIFSTOPPED on the status
-            // variable set by waitpid()
-
-            // TODO Task 6: If the last token input by the user is "&", start the current
-            // command in the background.
-            // 1. Determine if the last token is "&". If present, use strvec_take() to remove
-            //    the "&" from the token list.
-            // 2. Modify the code for the parent (shell) process: Don't use tcsetpgrp() or
-            //    use waitpid() to interact with the newly spawned child process.
-            // 3. Add a new entry to the jobs list with the child's pid, program name,
-            //    and status BACKGROUND.
-        }
+-             // TODO Task 2: If the user input does not match any built-in shell command,
+-             // treat the input as a program name and command-line arguments
+-             // USE THE run_command() FUNCTION DEFINED IN swish_funcs.c IN YOUR IMPLEMENTATION
+-             // You should take the following steps:
+-             //   1. Use fork() to spawn a child process
+-             //   2. Call run_command() in the child process
+-             //   2. In the parent, use waitpid() to wait for the program to exit
+- 
+-             // TODO Task 4: Set the child process as the target of signals sent to the terminal
+-             // via the keyboard.
+-             // To do this, call 'tcsetpgrp(STDIN_FILENO, <child_pid>)', where child_pid is the
+-             // child's process ID just returned by fork(). Do this in the parent process.
+- 
+-             // TODO Task 5: Handle the issue of foreground/background terminal process groups.
+-             // Do this by taking the following steps in the shell (parent) process:
+-             // 1. Modify your call to waitpid(): Wait specifically for the child just forked, and
+-             //    use WUNTRACED as your third argument to detect if it has stopped from a signal
+-             // 2. After waitpid() has returned, call tcsetpgrp(STDIN_FILENO, <pid>) where pid is
+-             //    the process ID of the shell process (use getpid() to obtain it)
+-             // 3. If the child status was stopped by a signal, add it to 'jobs', the
+-             //    the terminal's jobs list.
+-             // You can detect if this has occurred using WIFSTOPPED on the status
+-             // variable set by waitpid()
+- 
+-             // TODO Task 6: If the last token input by the user is "&", start the current
+-             // command in the background.
+-             // 1. Determine if the last token is "&". If present, use strvec_take() to remove
+-             //    the "&" from the token list.
+-             // 2. Modify the code for the parent (shell) process: Don't use tcsetpgrp() or
+-             //    use waitpid() to interact with the newly spawned child process.
+-             // 3. Add a new entry to the jobs list with the child's pid, program name,
+-             //    and status BACKGROUND.
+-         }
 +         else {
-            // TODO Task 6: If the last token input by the user is "&", start the current
-            // command in the background.
-            // 1. Determine if the last token is "&". If present, use strvec_take() to remove
-            //    the "&" from the token list.
-            // 2. Modify the code for the parent (shell) process: Don't use tcsetpgrp() or
-            //    use waitpid() to interact with the newly spawned child process.
-            // 3. Add a new entry to the jobs list with the child's pid, program name,
-            //    and status BACKGROUND.
-            int is_background = 0;
-            if (tokens.length > 0 &&
-                strcmp(strvec_get(&tokens, tokens.length - 1), "&") == 0) {
-                is_background = 1;
-                strvec_take(&tokens, tokens.length - 1);
-            }
-
-            // TODO Task 2: If the user input does not match any built-in shell command,
-            // treat the input as a program name and command-line arguments
-            // USE THE run_command() FUNCTION DEFINED IN swish_funcs.c IN YOUR IMPLEMENTATION
-            // You should take the following steps:
-            //   1. Use fork() to spawn a child process
-            //   2. Call run_command() in the child process
-            //   2. In the parent, use waitpid() to wait for the program to exit
-            pid_t child_pid = fork();
-            if (child_pid == -1) {
-                // Per the Error Handling Strategy: a fork() failure is unrelated to any
-                // specific user command, so clean up and return a failure value instead
-                // of re-prompting.
-                perror("fork");
-                strvec_clear(&tokens);
-                job_list_free(&jobs);
-                return 1;
-            } else if (child_pid == 0) {
-                if (run_command(&tokens) == -1) {
-                    // run_command() already printed the relevant perror(). Don't run two
-                    // swish processes: terminate this child immediately.
-                    return 1;
-                }
-            } else if (is_background) {
-                if (job_list_add(&jobs, child_pid, first_token, BACKGROUND) == -1) {
-                    fprintf(stderr, "Failed to add job to list\n");
-                }
-            } else {
-                // TODO Task 4: Set the child process as the target of signals sent to the
-                // terminal via the keyboard.
-                // To do this, call 'tcsetpgrp(STDIN_FILENO, <child_pid>)', where child_pid is
-                // the child's process ID just returned by fork(). Do this in the parent
-                // process.
-                if (tcsetpgrp(STDIN_FILENO, child_pid) == -1) {
-                    perror("tcsetpgrp");
-                }
-
-                // TODO Task 5: Handle the issue of foreground/background terminal process
-                // groups.
-                // Do this by taking the following steps in the shell (parent) process:
-                // 1. Modify your call to waitpid(): Wait specifically for the child just
-                //    forked, and use WUNTRACED as your third argument to detect if it has
-                //    stopped from a signal
-                // 2. After waitpid() has returned, call tcsetpgrp(STDIN_FILENO, <pid>) where
-                //    pid is the process ID of the shell process (use getpid() to obtain it)
-                // 3. If the child status was stopped by a signal, add it to 'jobs', the
-                //    the terminal's jobs list.
-                // You can detect if this has occurred using WIFSTOPPED on the status
-                // variable set by waitpid()
-                int status;
-                int wait_result = waitpid(child_pid, &status, WUNTRACED);
-                if (wait_result == -1) {
-                    perror("waitpid");
-                }
-
-                if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
-                    perror("tcsetpgrp");
-                }
-
-                if (wait_result != -1 && WIFSTOPPED(status)) {
-                    if (job_list_add(&jobs, child_pid, first_token, STOPPED) == -1) {
-                        fprintf(stderr, "Failed to add job to list\n");
-                    }
-                }
-            }
-        }
++             // TODO Task 6: If the last token input by the user is "&", start the current
++             // command in the background.
++             // 1. Determine if the last token is "&". If present, use strvec_take() to remove
++             //    the "&" from the token list.
++             // 2. Modify the code for the parent (shell) process: Don't use tcsetpgrp() or
++             //    use waitpid() to interact with the newly spawned child process.
++             // 3. Add a new entry to the jobs list with the child's pid, program name,
++             //    and status BACKGROUND.
++             int is_background = 0;
++             if (tokens.length > 0 &&
++                 strcmp(strvec_get(&tokens, tokens.length - 1), "&") == 0) {
++                 is_background = 1;
++                 strvec_take(&tokens, tokens.length - 1);
++             }
++ 
++             // TODO Task 2: If the user input does not match any built-in shell command,
++             // treat the input as a program name and command-line arguments
++             // USE THE run_command() FUNCTION DEFINED IN swish_funcs.c IN YOUR IMPLEMENTATION
++             // You should take the following steps:
++             //   1. Use fork() to spawn a child process
++             //   2. Call run_command() in the child process
++             //   2. In the parent, use waitpid() to wait for the program to exit
++             pid_t child_pid = fork();
++             if (child_pid == -1) {
++                 // Per the Error Handling Strategy: a fork() failure is unrelated to any
++                 // specific user command, so clean up and return a failure value instead
++                 // of re-prompting.
++                 perror("fork");
++                 strvec_clear(&tokens);
++                 job_list_free(&jobs);
++                 return 1;
++             } else if (child_pid == 0) {
++                 if (run_command(&tokens) == -1) {
++                     // run_command() already printed the relevant perror(). Don't run two
++                     // swish processes: terminate this child immediately.
++                     return 1;
++                 }
++             } else if (is_background) {
++                 if (job_list_add(&jobs, child_pid, first_token, BACKGROUND) == -1) {
++                     fprintf(stderr, "Failed to add job to list\n");
++                 }
++             } else {
++                 // TODO Task 4: Set the child process as the target of signals sent to the
++                 // terminal via the keyboard.
++                 // To do this, call 'tcsetpgrp(STDIN_FILENO, <child_pid>)', where child_pid is
++                 // the child's process ID just returned by fork(). Do this in the parent
++                 // process.
++                 if (tcsetpgrp(STDIN_FILENO, child_pid) == -1) {
++                     perror("tcsetpgrp");
++                 }
++ 
++                 // TODO Task 5: Handle the issue of foreground/background terminal process
++                 // groups.
++                 // Do this by taking the following steps in the shell (parent) process:
++                 // 1. Modify your call to waitpid(): Wait specifically for the child just
++                 //    forked, and use WUNTRACED as your third argument to detect if it has
++                 //    stopped from a signal
++                 // 2. After waitpid() has returned, call tcsetpgrp(STDIN_FILENO, <pid>) where
++                 //    pid is the process ID of the shell process (use getpid() to obtain it)
++                 // 3. If the child status was stopped by a signal, add it to 'jobs', the
++                 //    the terminal's jobs list.
++                 // You can detect if this has occurred using WIFSTOPPED on the status
++                 // variable set by waitpid()
++                 int status;
++                 int wait_result = waitpid(child_pid, &status, WUNTRACED);
++                 if (wait_result == -1) {
++                     perror("waitpid");
++                 }
++ 
++                 if (tcsetpgrp(STDIN_FILENO, getpid()) == -1) {
++                     perror("tcsetpgrp");
++                 }
++ 
++                 if (wait_result != -1 && WIFSTOPPED(status)) {
++                     if (job_list_add(&jobs, child_pid, first_token, STOPPED) == -1) {
++                         fprintf(stderr, "Failed to add job to list\n");
++                     }
++                 }
++             }
++         }
 ```
-- `Bash` -- `which gcc 2>&1; which wsl 2>&1; wsl --list 2>&1; gcc --version 2>&1 | head -3`
+- `Bash`
+```bash
+which gcc 2>&1; which wsl 2>&1; wsl --list 2>&1; gcc --version 2>&1 | head -3
+```
 ```
 which: no gcc in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/usr/bin/vendor_perl:/usr/bin/core_perl)
 /c/WINDOWS/system32/wsl
@@ -823,7 +881,10 @@ W i n d o w s   S u b s y s t e m   f o r   L i n u x   D i s t r i b u t i o n 
  d o c k e r - d e s k t o p  
  /usr/bin/bash: line 1: gcc: command not found
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "which gcc make; gcc --version | head -1; ls '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' 2>&1 | head -20"`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "which gcc make; gcc --version | head -1; ls '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' 2>&1 | head -20"
+```
 ```
 /usr/bin/gcc
 /usr/bin/make
@@ -838,7 +899,10 @@ swish_funcs.c
 swish_funcs.h
 test_cases
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && make clean 2>&1 && make 2>&1"`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && make clean 2>&1 && make 2>&1"
+```
 ```
 rm -f *.o swish slow_write
 gcc -Wall -Werror -g -c swish.c
@@ -848,7 +912,10 @@ gcc -Wall -Werror -g -c swish_funcs.c
 gcc -Wall -Werror -g -o swish swish.o string_vector.o job_list.o swish_funcs.o
 gcc -Wall -Werror -g -o slow_write test_cases/resources/slow_write.c
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "which testius python3; python3 -c 'import testius' 2>&1"`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "which testius python3; python3 -c 'import testius' 2>&1"
+```
 ```
 Exit code 1
 /usr/bin/python3
@@ -856,8 +923,11 @@ Traceback (most recent call last):
   File "<string>", line 1, in <module>
 ModuleNotFoundError: No module named 'testius'
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(len(d)); print(json.dumps(d[0], indent=2)); print(json.dumps(d[1], indent=2))\""`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(len(d)); print(json.dumps(d[0], indent=2)); print(json.dumps(d[1], indent=2))\""
+```
 ```
 Exit code 1
 5
@@ -865,14 +935,19 @@ aceback (most recent call last):
   File "<string>", line 1, in <module>
 KeyError: 0
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(list(d.keys())[:5]); import itertools; 
-k=list(d.keys())[0]; print(k); print(json.dumps(d[k], indent=2)[:1500])\""`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(list(d.keys())[:5]); import itertools; 
+k=list(d.keys())[0]; print(k); print(json.dumps(d[k], indent=2)[:1500])\""
+```
 ```
 ['name', 'command', 'prompt', 'use_valgrind', 'tests']
 name
 "Swish Shell Tests"
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"
 import json
 d = json.load(open('test_cases/test_swish.json'))
 print(d['command'], d['prompt'])
@@ -880,7 +955,8 @@ tests = d['tests']
 print(len(tests), 'tests')
 for t in tests[:3]:
     print(json.dumps(t, indent=2))
-\""`
+\""
+```
 ```
 ./swish @> 
 32 tests
@@ -905,8 +981,11 @@ for t in tests[:3]:
 ```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\output\1.txt`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\output\12.txt`
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-ls test_cases/input/ | sort`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+ls test_cases/input/ | sort
+```
 ```
 1.txt
 10.txt
@@ -942,7 +1021,10 @@ ls test_cases/input/ | sort`
 9.txt
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "python3 -c 'import pexpect; print(pexpect.__version__)' 2>&1; which script expect 2>&1"`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "python3 -c 'import pexpect; print(pexpect.__version__)' 2>&1; which script expect 2>&1"
+```
 ```
 Exit code 1
 Traceback (most recent call last):
@@ -954,12 +1036,15 @@ ModuleNotFoundError: No module named 'pexpect'
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\output\17.txt`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\18.txt`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\output\18.txt`
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 grep -l "fg\|bg\|wait-for\|wait-all\|jobs" test_cases/input/*.txt
 echo "---"
 cat "test_cases/input/30.txt"
 echo "=== output 30 ==="
-cat "test_cases/output/30.txt"`
+cat "test_cases/output/30.txt"
+```
 ```
 test_cases/input/29.txt
 test_cases/input/30.txt
@@ -986,8 +1071,11 @@ test_cases/input/52.txt
 @> exit
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-od -c test_cases/input/30.txt | head -10`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+od -c test_cases/input/30.txt | head -10
+```
 ```
 0000000   @   >       w   c       -   l       -   m  \n   ^   Z  \n   @
 0000020   >       j   o   b   s  \n   @   >       e   x   i   t  \n
@@ -1127,8 +1215,11 @@ if __name__ == "__main__":
         print()
 
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 1 2 3 2>&1"`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 1 2 3 2>&1"
+```
 ```
 ===== TEST 1 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1149,8 +1240,11 @@ wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSC
 '@> pwd\n/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code\n@> cd test_cases\n@> pwd\n/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/test_cases\n@> exit\n'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 8 9 10 12 13 14 15 2>&1"`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 8 9 10 12 13 14 15 2>&1"
+```
 ```
 ===== TEST 6 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1204,24 +1298,27 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\10557e7e-d467-4c17-abad-a5279be69e48\scratchpad\run_swish_test.py`
 ```diff
 -     commands = []
-    for l in raw_lines:
-        if l.startswith("@> "):
-            commands.append(l[3:])
-        else:
-            commands.append(l)
+-     for l in raw_lines:
+-         if l.startswith("@> "):
+-             commands.append(l[3:])
+-         else:
+-             commands.append(l)
 +     commands = []
-    for l in raw_lines:
-        if l.startswith("@> "):
-            commands.append(resolve_templates(l[3:]))
-        else:
-            commands.append(resolve_templates(l))
++     for l in raw_lines:
++         if l.startswith("@> "):
++             commands.append(resolve_templates(l[3:]))
++         else:
++             commands.append(resolve_templates(l))
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 2>&1
 echo '--- also test bare cd with no arg ---'
 printf '@> cd\n@> pwd\n@> exit\n' > /tmp/bare_cd_test.txt
 cp /tmp/bare_cd_test.txt test_cases/input/__barecd.txt 2>/dev/null
-HOME=\$HOME echo check"`
+HOME=\$HOME echo check"
+```
 ```
 ===== TEST 6 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1233,13 +1330,19 @@ HOME=\$HOME echo check"`
 check
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd\npwd\nexit\n' | ./swish; echo \"HOME was: \$HOME\""`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd\npwd\nexit\n' | ./swish; echo \"HOME was: \$HOME\""
+```
 ```
 @> /mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code
 @> @> /home/anant_gupta
 @> HOME was: /home/anant_gupta
 ```
-- `Bash` -- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/append_test.txt && printf 'echo first > /tmp/append_test.txt\necho second >> /tmp/append_test.txt\ncat /tmp/append_test.txt\nexit\n' | ./swish"`
+- `Bash`
+```bash
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/append_test.txt && printf 'echo first > /tmp/append_test.txt\necho second >> /tmp/append_test.txt\ncat /tmp/append_test.txt\nexit\n' | ./swish"
+```
 ```
 first
 second
@@ -1250,7 +1353,9 @@ tcsetpgrp: Inappropriate ioctl for device
 tcsetpgrp: Inappropriate ioctl for device
 tcsetpgrp: Inappropriate ioctl for device
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/append_test2.txt && python3 -c \"
 import sys
 sys.path.insert(0, '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad')
@@ -1271,16 +1376,20 @@ for c in cmds:
     while select.select([fd],[],[],0.1)[0]:
         out += os.read(fd, 4096)
 print(out.decode(errors='replace'))
-\""`
+\""
+```
 ```
 Exit code 1
 Traceback (most recent call last):
   File "<string>", line 19, in <module>
 OSError: [Errno 5] Input/output error
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && mkdir -p test_cases/input test_cases/output && rm -f /tmp/append_test3.txt && printf '@> echo first > /tmp/append_test3.txt\n@> echo second >> /tmp/append_test3.txt\n@> cat /tmp/append_test3.txt\n@> exit\n' > test_cases/input/__append.txt && printf 'first\nsecond\n' > test_cases/output/__append.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' __append 2>&1
-rm -f test_cases/input/__append.txt test_cases/output/__append.txt"`
+rm -f test_cases/input/__append.txt test_cases/output/__append.txt"
+```
 ```
 ===== TEST __append =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1289,8 +1398,11 @@ rm -f test_cases/input/__append.txt test_cases/output/__append.txt"`
 'first\nsecond\n'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 29 30 32 33 2>&1" `
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 29 30 32 33 2>&1" 
+```
 ```
 ===== TEST 29 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1317,8 +1429,11 @@ wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSC
 '@> wc\n@> jobs\n0: wc (stopped)\n@> cat\n@> jobs\n0: wc (stopped)\n1: cat (stopped)\n@> wc -l\n@> jobs\n0: wc (stopped)\n1: cat (stopped)\n2: wc (stopped)\n@> fg 1\nthis is a test\nthis is a test\nof your shell program\nof your shell program\n@> jobs\n0: wc (stopped)\n1: wc (stopped)\n@> fg 0\nthis is a test\n  1 4 15\n@> jobs\n0: wc (stopped)\n@> fg 0\nthis is a test\n1\n@> jobs\n@> exit\n'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 36 37 38 39 41 43 44 2>&1"`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 36 37 38 39 41 43 44 2>&1"
+```
 ```
 ===== TEST 36 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1366,41 +1481,44 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\10557e7e-d467-4c17-abad-a5279be69e48\scratchpad\run_swish_test.py`
 ```diff
 -     drain(0.3)  # initial prompt
-    for cmd in commands:
-        special = SPECIAL.get(cmd.strip())
-        if special is not None:
-            os.write(master_fd, special)
-        else:
-            os.write(master_fd, (cmd + "\n").encode())
-        drain(settle)
+-     for cmd in commands:
+-         special = SPECIAL.get(cmd.strip())
+-         if special is not None:
+-             os.write(master_fd, special)
+-         else:
+-             os.write(master_fd, (cmd + "\n").encode())
+-         drain(settle)
 +     def drain_until_prompt(max_wait=15.0):
-        nonlocal captured
-        end = time.time() + max_wait
-        while time.time() < end:
-            r, _, _ = select.select([master_fd], [], [], 0.1)
-            if master_fd in r:
-                try:
-                    chunk = os.read(master_fd, 65536)
-                except OSError:
-                    return
-                if not chunk:
-                    return
-                captured += chunk
-            if captured.endswith(b"@> "):
-                return
-
-    drain_until_prompt(2.0)  # initial prompt
-    for cmd in commands:
-        special = SPECIAL.get(cmd.strip())
-        if special is not None:
-            os.write(master_fd, special)
-            drain(settle)
-        else:
-            os.write(master_fd, (cmd + "\n").encode())
-            drain_until_prompt(15.0)
++         nonlocal captured
++         end = time.time() + max_wait
++         while time.time() < end:
++             r, _, _ = select.select([master_fd], [], [], 0.1)
++             if master_fd in r:
++                 try:
++                     chunk = os.read(master_fd, 65536)
++                 except OSError:
++                     return
++                 if not chunk:
++                     return
++                 captured += chunk
++             if captured.endswith(b"@> "):
++                 return
++ 
++     drain_until_prompt(2.0)  # initial prompt
++     for cmd in commands:
++         special = SPECIAL.get(cmd.strip())
++         if special is not None:
++             os.write(master_fd, special)
++             drain(settle)
++         else:
++             os.write(master_fd, (cmd + "\n").encode())
++             drain_until_prompt(15.0)
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 41 43 44 47 49 52 2>&1" `
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 41 43 44 47 49 52 2>&1" 
+```
 ```
 ===== TEST 41 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1439,8 +1557,11 @@ wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSC
 '@> bg 0\nJob index out of bounds\nFailed to resume job in background\n@> wc\n@> bg 1\nJob index out of bounds\nFailed to resume job in background\n@> fg 0\n      0       0       0\n@> exit\n'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-cat test_cases/resources/slow_write.c 2>&1 | head -40`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+cat test_cases/resources/slow_write.c 2>&1 | head -40
+```
 ```
 // SPDX-FileCopyrightText: 2026 John Kolb <jhkolb@umn.edu>
 // SPDX-License-Identifier: GPL-3.0-or-later
@@ -1477,7 +1598,9 @@ int main(int argc, char **argv) {
 }
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt && python3 -c \"
 import sys, os, pty, select, time
 sys.path.insert(0, '.')
@@ -1521,7 +1644,8 @@ try:
     os.kill(pid, 9)
     os.waitpid(pid, 0)
 except Exception: pass
-\""`
+\""
+```
 ```
 @> ./slow_write 10 1 out.txt
 ^Z@> jobs
@@ -1544,8 +1668,11 @@ except Exception: pass
 @> exit
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 20 21 23 25 27 2>&1"`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 20 21 23 25 27 2>&1"
+```
 ```
 ===== TEST 20 =====
 --- ACTUAL (raw, includes tty echo) ---
@@ -1578,7 +1705,10 @@ wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSC
 '@> wc\n@> echo foo\nfoo\n@> exit\n'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" -iname "*Board*" 2>/dev/null`
+- `Bash`
+```bash
+find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" -iname "*Board*" 2>/dev/null
+```
 ```
 D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061/Concepts/Concepts Board.md
 D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061/CSCI 4061 Board.md
@@ -1586,7 +1716,10 @@ D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061/Projects/Pro
 D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061/Weekly/Weekly Board.md
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\HUMAN_WRITING.md`
-- `Bash` -- `find "D:\_Anant\20_Progress\Documents\Jarvis" -iname "Project Standard*" 2>/dev/null`
+- `Bash`
+```bash
+find "D:\_Anant\20_Progress\Documents\Jarvis" -iname "Project Standard*" 2>/dev/null
+```
 ```
 D:\_Anant\20_Progress\Documents\Jarvis/30_Order/Standards/Courses/Project Standard.md
 D:\_Anant\20_Progress\Documents\Jarvis/30_Order/Standards/Project Standard.md
@@ -1687,16 +1820,16 @@ Run `make zip` inside the actual course Docker container (this WSL copy is a cor
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 ```diff
 - ## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
+- <!-- Record real progress, decisions, failures, and fixes as they happen. -->
+- - Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
 + ## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- **2026-10-02:** Implemented Tasks 0-6 against the real starter code at `csci4061-fa26/Projects/proj1-code/`. Read every TODO comment in `swish.c`/`swish_funcs.c`, `job_list.h`, `string_vector.h`, the Makefile, and the job-lifecycle diagram in full before writing anything. `tokenize()` was a direct `strtok()` loop. `run_command()` turned out to be one function carrying Tasks 2-4 (args array, then redirection, then signal/pgid setup) because the TODO blocks stack directly on each other — building args before checking for `<`/`>`/`>>` made finding `redir_start` (the earliest redirection token index) the natural way to know where the argument list actually ends.
-- **2026-10-02:** The `swish.c` `else` branch needed `&`-detection (Task 6) checked *first*, before `fork()`, since it decides whether the parent branch does `tcsetpgrp`+`waitpid` at all. Treated a `fork()` failure as the Error Handling Strategy section's own named example of "unrelated to a specific user command" — `perror`, clean up, `return 1` from `main()` instead of re-prompting, rather than treating it like a normal failed user command.
-- **2026-10-02:** Added `#include <stdlib.h>` to `swish.c` — the starter file didn't have it, but Task 1's `cd` needs `getenv()`, and without the header `-Wall -Werror` would fail the build on an implicit-declaration warning. The only header change made; everything else stayed inside the marked TODO regions.
-- **2026-10-02:** No `testius` in this environment, so verification used a real compiler (WSL2 Ubuntu 24.04, gcc 13.3.0) plus a hand-written Python `pty`-based harness replaying all 32 provided `test_cases/input/*.txt` files against the actual compiled binary over a real pseudoterminal (needed because `tcsetpgrp()` requires a real controlling tty, which a plain piped `./swish < file` doesn't have). All 32 matched. First pass on the `bg`/`wait-for` timing tests (43, 44, 47) raced a scripted `Ctrl-Z` against `slow_write`'s own natural completion and stopped the idle shell instead of the job — correct `SIGTSTP` behavior, wrong test timing. Fixed by sending `Ctrl-Z` mid-run instead of after waiting for the next prompt; a direct replay then confirmed `SIGCONT` resumes a backgrounded job in place (continued counting from where `Ctrl-Z` caught it, not from 1) and `wait-for` actually blocks until it exits.
-- **2026-10-02:** Directly checked both of the assignment's own named Hidden Tests gaps rather than trusting the provided suite: bare `cd` lands in `$HOME`, and `>>` appends onto existing content rather than truncating it (verified with `echo first > f`, `echo second >> f`, `cat f` showing both lines over a real pty).
-- Full implementation record with per-task mechanism detail: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
++ <!-- Record real progress, decisions, failures, and fixes as they happen. -->
++ - **2026-10-02:** Implemented Tasks 0-6 against the real starter code at `csci4061-fa26/Projects/proj1-code/`. Read every TODO comment in `swish.c`/`swish_funcs.c`, `job_list.h`, `string_vector.h`, the Makefile, and the job-lifecycle diagram in full before writing anything. `tokenize()` was a direct `strtok()` loop. `run_command()` turned out to be one function carrying Tasks 2-4 (args array, then redirection, then signal/pgid setup) because the TODO blocks stack directly on each other — building args before checking for `<`/`>`/`>>` made finding `redir_start` (the earliest redirection token index) the natural way to know where the argument list actually ends.
++ - **2026-10-02:** The `swish.c` `else` branch needed `&`-detection (Task 6) checked *first*, before `fork()`, since it decides whether the parent branch does `tcsetpgrp`+`waitpid` at all. Treated a `fork()` failure as the Error Handling Strategy section's own named example of "unrelated to a specific user command" — `perror`, clean up, `return 1` from `main()` instead of re-prompting, rather than treating it like a normal failed user command.
++ - **2026-10-02:** Added `#include <stdlib.h>` to `swish.c` — the starter file didn't have it, but Task 1's `cd` needs `getenv()`, and without the header `-Wall -Werror` would fail the build on an implicit-declaration warning. The only header change made; everything else stayed inside the marked TODO regions.
++ - **2026-10-02:** No `testius` in this environment, so verification used a real compiler (WSL2 Ubuntu 24.04, gcc 13.3.0) plus a hand-written Python `pty`-based harness replaying all 32 provided `test_cases/input/*.txt` files against the actual compiled binary over a real pseudoterminal (needed because `tcsetpgrp()` requires a real controlling tty, which a plain piped `./swish < file` doesn't have). All 32 matched. First pass on the `bg`/`wait-for` timing tests (43, 44, 47) raced a scripted `Ctrl-Z` against `slow_write`'s own natural completion and stopped the idle shell instead of the job — correct `SIGTSTP` behavior, wrong test timing. Fixed by sending `Ctrl-Z` mid-run instead of after waiting for the next prompt; a direct replay then confirmed `SIGCONT` resumes a backgrounded job in place (continued counting from where `Ctrl-Z` caught it, not from 1) and `wait-for` actually blocks until it exits.
++ - **2026-10-02:** Directly checked both of the assignment's own named Hidden Tests gaps rather than trusting the provided suite: bare `cd` lands in `$HOME`, and `>>` appends onto existing content rather than truncating it (verified with `echo first > f`, `echo second >> f`, `cat f` showing both lines over a real pty).
++ - Full implementation record with per-task mechanism detail: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
 ```diff
@@ -1706,33 +1839,36 @@ Run `make zip` inside the actual course Docker container (this WSL copy is a cor
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
 ```diff
 - | Task | What it is | Points | Status |
-|---|---|---|---|
-| 0 | `tokenize()` — split input into a `strvec_t` with `strtok()` | 2 | Not started |
-| 1 | `pwd`/`cd` built-ins via `getcwd()`/`chdir()` | 4 | Not started |
-| 2 | `run_command()` — `fork`/`exec`/`wait` for non-built-ins | 4 | Not started |
-| 3 | `<`/`>`/`>>` redirection via `open()`/`dup2()` | 4 | Not started |
-| 4 | Foreground process groups: `setpgid`/`tcsetpgrp`, restore `SIGTTOU`/`SIGTTIN` defaults in the child | 4 | Not started |
-| 5 | Stopped-job tracking: `WUNTRACED`, `WIFSTOPPED`, `resume_job()`/`fg` | 4 | Not started |
-| 6 | Background jobs: `&`, `bg`, `wait-for`, `wait-all` | 4 | Not started |
+- |---|---|---|---|
+- | 0 | `tokenize()` — split input into a `strvec_t` with `strtok()` | 2 | Not started |
+- | 1 | `pwd`/`cd` built-ins via `getcwd()`/`chdir()` | 4 | Not started |
+- | 2 | `run_command()` — `fork`/`exec`/`wait` for non-built-ins | 4 | Not started |
+- | 3 | `<`/`>`/`>>` redirection via `open()`/`dup2()` | 4 | Not started |
+- | 4 | Foreground process groups: `setpgid`/`tcsetpgrp`, restore `SIGTTOU`/`SIGTTIN` defaults in the child | 4 | Not started |
+- | 5 | Stopped-job tracking: `WUNTRACED`, `WIFSTOPPED`, `resume_job()`/`fg` | 4 | Not started |
+- | 6 | Background jobs: `&`, `bg`, `wait-for`, `wait-all` | 4 | Not started |
 + | Task | What it is | Points | Status |
-|---|---|---|---|
-| 0 | `tokenize()` — split input into a `strvec_t` with `strtok()` | 2 | Passing locally |
-| 1 | `pwd`/`cd` built-ins via `getcwd()`/`chdir()` | 4 | Passing locally |
-| 2 | `run_command()` — `fork`/`exec`/`wait` for non-built-ins | 4 | Passing locally |
-| 3 | `<`/`>`/`>>` redirection via `open()`/`dup2()` | 4 | Passing locally |
-| 4 | Foreground process groups: `setpgid`/`tcsetpgrp`, restore `SIGTTOU`/`SIGTTIN` defaults in the child | 4 | Passing locally |
-| 5 | Stopped-job tracking: `WUNTRACED`, `WIFSTOPPED`, `resume_job()`/`fg` | 4 | Passing locally |
-| 6 | Background jobs: `&`, `bg`, `wait-for`, `wait-all` | 4 | Passing locally |
++ |---|---|---|---|
++ | 0 | `tokenize()` — split input into a `strvec_t` with `strtok()` | 2 | Passing locally |
++ | 1 | `pwd`/`cd` built-ins via `getcwd()`/`chdir()` | 4 | Passing locally |
++ | 2 | `run_command()` — `fork`/`exec`/`wait` for non-built-ins | 4 | Passing locally |
++ | 3 | `<`/`>`/`>>` redirection via `open()`/`dup2()` | 4 | Passing locally |
++ | 4 | Foreground process groups: `setpgid`/`tcsetpgrp`, restore `SIGTTOU`/`SIGTTIN` defaults in the child | 4 | Passing locally |
++ | 5 | Stopped-job tracking: `WUNTRACED`, `WIFSTOPPED`, `resume_job()`/`fg` | 4 | Passing locally |
++ | 6 | Background jobs: `&`, `bg`, `wait-for`, `wait-all` | 4 | Passing locally |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
 ```diff
 - ## Verification Notes
-Task status above is self-reported scaffolding, not yet checked against a real build — update this table as each task actually compiles and passes its own test cases, not before.
+- Task status above is self-reported scaffolding, not yet checked against a real build — update this table as each task actually compiles and passes its own test cases, not before.
 + ## Verification Notes
-Built clean under `-Wall -Werror` (WSL2 Ubuntu 24.04, gcc 13.3.0) and all 32 provided test cases replayed against the real compiled binary over a real pty, matching expected output — `testius` itself wasn't available in this environment, so verification used a hand-written `pty`-based Python harness instead. Not yet run inside the actual course Docker container or against the real Gradescope autograder; "Passing locally" means this specific build and test replay, not a Gradescope confirmation. Full mechanism-level writeup: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
++ Built clean under `-Wall -Werror` (WSL2 Ubuntu 24.04, gcc 13.3.0) and all 32 provided test cases replayed against the real compiled binary over a real pty, matching expected output — `testius` itself wasn't available in this environment, so verification used a hand-written `pty`-based Python harness instead. Not yet run inside the actual course Docker container or against the real Gradescope autograder; "Passing locally" means this specific build and test replay, not a Gradescope confirmation. Full mechanism-level writeup: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean 2>&1 && make 2>&1 && echo BUILD_OK"`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean 2>&1 && make 2>&1 && echo BUILD_OK"
+```
 ```
 rm -f *.o swish slow_write
 gcc -Wall -Werror -g -c swish.c
@@ -1770,125 +1906,27 @@ _None detected_
 - `wsl -d Ubuntu-24.04 -- bash -lc "which gcc make; gcc --version | head -1; ls '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' 2>&1 | head -20"`
 - `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && make clean 2>&1 && make 2>&1"`
 - `wsl -d Ubuntu-24.04 -- bash -lc "which testius python3; python3 -c 'import testius' 2>&1"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(len(d)); print(json.dumps(d[0], indent=2)); print(json.dumps(d[1], indent=2))\""`
-- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(list(d.keys())[:5]); import itertools; 
-k=list(d.keys())[0]; print(k); print(json.dumps(d[k], indent=2)[:1500])\""`
-- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"
-import json
-d = json.load(open('test_cases/test_swish.json'))
-print(d['command'], d['prompt'])
-tests = d['tests']
-print(len(tests), 'tests')
-for t in tests[:3]:
-    print(json.dumps(t, indent=2))
-\""`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-ls test_cases/input/ | sort`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(len(d)); print(json.dumps(d[0], indent=2)); print(json.dumps(d[1], indent=2))\""`
+- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \"import json; d=json.load(open('test_cases/test_swish.json')); print(list(d.keys())[:5]); import itertools;  k=list(d.keys())[0]; print(k); print(json.dumps(d[k], indent=2)[:1500])\""`
+- `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code/' && python3 -c \" import json d = json.load(open('test_cases/test_swish.json')) print(d['command'], d['prompt']) tests = d['tests'] print(len(tests), 'tests') for t in tests[:3]:     print(json.dumps(t, indent=2)) \""`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" ls test_cases/input/ | sort`
 - `wsl -d Ubuntu-24.04 -- bash -lc "python3 -c 'import pexpect; print(pexpect.__version__)' 2>&1; which script expect 2>&1"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-grep -l "fg\|bg\|wait-for\|wait-all\|jobs" test_cases/input/*.txt
-echo "---"
-cat "test_cases/input/30.txt"
-echo "=== output 30 ==="
-cat "test_cases/output/30.txt"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-od -c test_cases/input/30.txt | head -10`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 1 2 3 2>&1"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 8 9 10 12 13 14 15 2>&1"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 2>&1
-echo '--- also test bare cd with no arg ---'
-printf '@> cd\n@> pwd\n@> exit\n' > /tmp/bare_cd_test.txt
-cp /tmp/bare_cd_test.txt test_cases/input/__barecd.txt 2>/dev/null
-HOME=\$HOME echo check"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" grep -l "fg\|bg\|wait-for\|wait-all\|jobs" test_cases/input/*.txt echo "---" cat "test_cases/input/30.txt" echo "=== output 30 ===" cat "test_cases/output/30.txt"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" od -c test_cases/input/30.txt | head -10`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 1 2 3 2>&1"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt test_cases/out.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 8 9 10 12 13 14 15 2>&1"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 6 2>&1 echo '--- also test bare cd with no arg ---' printf '@> cd\n@> pwd\n@> exit\n' > /tmp/bare_cd_test.txt cp /tmp/bare_cd_test.txt test_cases/input/__barecd.txt 2>/dev/null HOME=\$HOME echo check"`
 - `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd\npwd\nexit\n' | ./swish; echo \"HOME was: \$HOME\""`
 - `wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/append_test.txt && printf 'echo first > /tmp/append_test.txt\necho second >> /tmp/append_test.txt\ncat /tmp/append_test.txt\nexit\n' | ./swish"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/append_test2.txt && python3 -c \"
-import sys
-sys.path.insert(0, '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad')
-import run_swish_test as rt
-import os, pty, select, time
-pid, fd = pty.fork()
-if pid == 0:
-    os.chdir(rt.PROJ_DIR)
-    os.execvp('./swish', ['./swish'])
-cmds = ['echo first > /tmp/append_test2.txt', 'echo second >> /tmp/append_test2.txt', 'cat /tmp/append_test2.txt', 'exit']
-out = b''
-time.sleep(0.2)
-while select.select([fd],[],[],0.1)[0]:
-    out += os.read(fd, 4096)
-for c in cmds:
-    os.write(fd, (c+chr(10)).encode())
-    time.sleep(0.3)
-    while select.select([fd],[],[],0.1)[0]:
-        out += os.read(fd, 4096)
-print(out.decode(errors='replace'))
-\""`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && mkdir -p test_cases/input test_cases/output && rm -f /tmp/append_test3.txt && printf '@> echo first > /tmp/append_test3.txt\n@> echo second >> /tmp/append_test3.txt\n@> cat /tmp/append_test3.txt\n@> exit\n' > test_cases/input/__append.txt && printf 'first\nsecond\n' > test_cases/output/__append.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' __append 2>&1
-rm -f test_cases/input/__append.txt test_cases/output/__append.txt"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 29 30 32 33 2>&1" `
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 36 37 38 39 41 43 44 2>&1"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 41 43 44 47 49 52 2>&1" `
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-cat test_cases/resources/slow_write.c 2>&1 | head -40`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt && python3 -c \"
-import sys, os, pty, select, time
-sys.path.insert(0, '.')
-PROJ='/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code'
-pid, fd = pty.fork()
-if pid == 0:
-    os.chdir(PROJ)
-    os.execvp('./swish', ['./swish'])
-
-out = b''
-def drain(t):
-    global out
-    end=time.time()+t
-    while time.time()<end:
-        r,_,_=select.select([fd],[],[],0.05)
-        if fd in r:
-            try: c=os.read(fd,4096)
-            except OSError: return
-            if not c: return
-            out+=c
-
-drain(0.3)
-os.write(fd, b'./slow_write 10 1 out.txt\n')
-drain(0.4)              # let it launch and start running, but not finish
-os.write(fd, b'\x1a')   # Ctrl-Z, mid-run
-drain(0.5)
-os.write(fd, b'jobs\n')
-drain(0.5)
-os.write(fd, b'bg 0\n')
-drain(0.5)
-os.write(fd, b'jobs\n')
-drain(0.5)
-os.write(fd, b'wait-for 0\n')
-drain(12)
-os.write(fd, b'cat out.txt\n')
-drain(1)
-os.write(fd, b'exit\n')
-drain(1)
-print(out.decode(errors='replace'))
-try:
-    os.kill(pid, 9)
-    os.waitpid(pid, 0)
-except Exception: pass
-\""`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 20 21 23 25 27 2>&1"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/append_test2.txt && python3 -c \" import sys sys.path.insert(0, '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad') import run_swish_test as rt import os, pty, select, time pid, fd = pty.fork() if pid == 0:     os.chdir(rt.PROJ_DIR)     os.execvp('./swish', ['./swish']) cmds = ['echo first > /tmp/append_test2.txt', 'echo second >> /tmp/append_test2.txt', 'cat /tmp/append_test2.txt', 'exit'] out = b'' time.sleep(0.2) while select.select([fd],[],[],0.1)[0]:     out += os.read(fd, 4096) for c in cmds:     os.write(fd, (c+chr(10)).encode())     time.sleep(0.3)     while select.select([fd],[],[],0.1)[0]:         out += os.read(fd, 4096) print(out.decode(errors='replace')) \""`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && mkdir -p test_cases/input test_cases/output && rm -f /tmp/append_test3.txt && printf '@> echo first > /tmp/append_test3.txt\n@> echo second >> /tmp/append_test3.txt\n@> cat /tmp/append_test3.txt\n@> exit\n' > test_cases/input/__append.txt && printf 'first\nsecond\n' > test_cases/output/__append.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' __append 2>&1 rm -f test_cases/input/__append.txt test_cases/output/__append.txt"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 29 30 32 33 2>&1" `
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 36 37 38 39 41 43 44 2>&1"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 41 43 44 47 49 52 2>&1" `
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" cat test_cases/resources/slow_write.c 2>&1 | head -40`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt && python3 -c \" import sys, os, pty, select, time sys.path.insert(0, '.') PROJ='/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' pid, fd = pty.fork() if pid == 0:     os.chdir(PROJ)     os.execvp('./swish', ['./swish'])  out = b'' def drain(t):     global out     end=time.time()+t     while time.time()<end:         r,_,_=select.select([fd],[],[],0.05)         if fd in r:             try: c=os.read(fd,4096)             except OSError: return             if not c: return             out+=c  drain(0.3) os.write(fd, b'./slow_write 10 1 out.txt\n') drain(0.4)              # let it launch and start running, but not finish os.write(fd, b'\x1a')   # Ctrl-Z, mid-run drain(0.5) os.write(fd, b'jobs\n') drain(0.5) os.write(fd, b'bg 0\n') drain(0.5) os.write(fd, b'jobs\n') drain(0.5) os.write(fd, b'wait-for 0\n') drain(12) os.write(fd, b'cat out.txt\n') drain(1) os.write(fd, b'exit\n') drain(1) print(out.decode(errors='replace')) try:     os.kill(pid, 9)     os.waitpid(pid, 0) except Exception: pass \""`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f out.txt out2.txt && python3 '/mnt/c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/10557e7e-d467-4c17-abad-a5279be69e48/scratchpad/run_swish_test.py' 20 21 23 25 27 2>&1"`
 - `find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" -iname "*Board*" 2>/dev/null`
 - `find "D:\_Anant\20_Progress\Documents\Jarvis" -iname "Project Standard*" 2>/dev/null`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean 2>&1 && make 2>&1 && echo BUILD_OK"`
-
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" wsl -d Ubuntu-24.04 -- bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean 2>&1 && make 2>&1 && echo BUILD_OK"`
 

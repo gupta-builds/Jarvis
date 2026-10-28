@@ -1,9 +1,11 @@
-﻿---
-type: index
+---
+type: generated
+generator: claude-session-exporter
+gen_kind: index
 ---
 
 ```dataviewjs
-const pages = dv.pages(`"60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Conversations"`).where(p => p.type === "input");
+const pages = dv.pages(`"60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/UMN Courses"`).where(p => p.type === "input");
 let toolTotals = {};
 let tokenTotal = 0;
 let costTotal = 0;

@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4061 course preparation and concept notes"
 started_at: 2026-10-01T13:50:06
 ended_at: 2026-10-02T18:14:31
-exported_at: 2026-10-17T21:06:56
+exported_at: 2026-10-28T16:15:38
 duration_minutes: 1704.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: b27c2f17-d9d3-4ac1-8c20-16420a6be26f
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-01
+updated: 2026-10-28
 turn_count: 29
 tools_used:
   Agent: 8
@@ -25,12 +28,12 @@ tools_used:
   WebFetch: 1
   Write: 8
 tokens:
-  input: 826
-  output: 921831
-  cache_creation: 7509406
-  cache_read: 186141766
-  total: 194573829
-cost_usd: 76.485939
+  input: 310
+  output: 270893
+  cache_creation: 1517250
+  cache_read: 73191011
+  total: 74979464
+cost_usd: 23.416752
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -131,11 +134,14 @@ Both research forks are running now — one inventorying the existing CSCI 2021 
 
 ### Tool Calls
 
-- `Bash` -- `echo "=== CSCI 4061 top level ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" 2>&1
+- `Bash`
+```bash
+echo "=== CSCI 4061 top level ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" 2>&1
 echo "=== CSCI 4061 Weeks ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weeks" 2>&1
 echo "=== CSCI 4061 Concepts ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts" 2>&1
 echo "=== CSCI 4061 Lecture ==="; ls -R "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" 2>&1 | head -100
-`
+
+```
 ```
 === CSCI 4061 top level ===
 CSCI 4061 Board.md
@@ -192,7 +198,9 @@ Lec06.pdf
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture/Week - 4:
 Lec07.pdf
 ```
-- `Bash` -- `echo "=== Weekly folder ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly" 2>&1
+- `Bash`
+```bash
+echo "=== Weekly folder ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly" 2>&1
 echo "=== Concepts/Weekly (dup?) ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Weekly" 2>&1
 echo "=== Concepts/Labs ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Labs" 2>&1
 echo "=== Concepts/Projects ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Projects" 2>&1
@@ -200,7 +208,8 @@ echo "=== C Refresher (current) ==="; ls -R "D:\_Anant\20_Progress\Documents\Jar
 echo "=== Labs top ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs" 2>&1
 echo "=== Projects top ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects" 2>&1
 echo "=== Textbook (notes) top ==="; ls -R "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook" 2>&1 | head -80
-`
+
+```
 ```
 === Weekly folder ===
 Week - 1.md
@@ -239,7 +248,9 @@ Textbook Map.md
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 3.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 4.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
-- `Bash` -- `echo "=== sync-conflict files remaining in CSCI 4061 ==="
+- `Bash`
+```bash
+echo "=== sync-conflict files remaining in CSCI 4061 ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" -iname "*sync-conflict*" -o -iname "*~syncthing~*" 2>&1
 echo "=== CSCI 2021 (20_Progress, if any) ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree" -maxdepth 1 -iname "*2021*" 2>&1
@@ -247,7 +258,8 @@ echo "=== CSCI 2021 in 40_Resources ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2021" -maxdepth 2 2>&1
 echo "=== CSCI 2033 Concepts target ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2033" -maxdepth 2 2>&1
-`
+
+```
 ```
 === sync-conflict files remaining in CSCI 4061 ===
 D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061/CSCI 4061 Board.[REDACTED].md
@@ -332,9 +344,12 @@ D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CS
 D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2033/Week - 8.md
 D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2033/Week - 9.md
 ```
-- `Bash` -- `echo "=== CSCI 2021 source (areas, classes) top ==="
+- `Bash`
+```bash
+echo "=== CSCI 2021 source (areas, classes) top ==="
 find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021" -maxdepth 2 2>&1
-`
+
+```
 ```
 === CSCI 2021 source (areas, classes) top ===
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021
@@ -372,7 +387,9 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021/Textbook.pdf
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021/The Ultimate C Handbook.pdf
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021/x64_cheatsheet.pdf
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
 echo "=== Board diff (conflict vs canonical) ==="
 diff "CSCI 4061 Board.md" "CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
 echo "=== exit code $? ==="
@@ -381,7 +398,8 @@ diff "Textbook/Chapter - 3.md" "Textbook/Chapter - 3.sync-conflict-20260929-1726
 echo "=== exit code $? ==="
 echo "=== Weekly Board tmp sizes ==="
 ls -la "Weekly/"
-`
+
+```
 ```
 <persisted-output>
 Output too large (58.5KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\bnpcfdaue.txt
@@ -425,7 +443,9 @@ Preview (first 2KB):
 ...
 </persisted-output>
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
 echo "=== Weekly Board.md (canonical) head ==="
 head -20 "Weekly/Weekly Board.md"
 echo "=== tmp file 1 ==="
@@ -434,8 +454,9 @@ echo "exit=$?"
 echo "=== tmp file 2 (conflict) ==="
 diff "Weekly/Weekly Board.md" "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp"
 echo "exit=$?"
-`
+
 ```
+````
 === Weekly Board.md (canonical) head ===
 ---
 type: index
@@ -463,12 +484,15 @@ exit=1
 === tmp file 2 (conflict) ===
 Binary files 'Weekly/Weekly Board.md' and 'Weekly/~syncthing~Weekly Board.[REDACTED].md.tmp' differ
 exit=1
-```
+````
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\~syncthing~Weekly Board.md.tmp`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
 wc -c "Weekly/~syncthing~Weekly Board.md.tmp" "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp" "Weekly/Weekly Board.md"
 file "Weekly/~syncthing~Weekly Board.md.tmp" 2>&1 || true
-`
+
+```
 ```
 1300 Weekly/~syncthing~Weekly Board.md.tmp
 3236 Weekly/~syncthing~Weekly Board.[REDACTED].md.tmp
@@ -476,14 +500,17 @@ file "Weekly/~syncthing~Weekly Board.md.tmp" 2>&1 || true
 5836 total
 Weekly/~syncthing~Weekly Board.md.tmp: data
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
 rm "CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
 rm "Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"
 rm "Weekly/~syncthing~Weekly Board.md.tmp"
 rm "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp"
 echo "deleted junk sync files"
 ls -la "Concepts/Weekly" "Concepts/Labs" "Concepts/Projects" 2>&1
-`
+
+```
 ```
 deleted junk sync files
 Concepts/Labs:
@@ -511,9 +538,12 @@ drwxr-xr-x 1 anant 197609 0 Oct  1 13:10 ..
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Concepts Board.md`
-- `Bash` -- `echo "=== CSCI 4061 source top-level (look for lab materials) ==="
+- `Bash`
+```bash
+echo "=== CSCI 4061 source top-level (look for lab materials) ==="
 find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -maxdepth 2 2>&1
-`
+
+```
 ```
 === CSCI 4061 source top-level (look for lab materials) ===
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061
@@ -537,9 +567,12 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/Midterm
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/Textbook
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061/Textbook/Advanced Programming in the UNIX Environment, 3rd Edition.pdf
 ```
-- `Bash` -- `echo "=== 30_Order top ==="
+- `Bash`
+```bash
+echo "=== 30_Order top ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order" -maxdepth 2 2>&1
-`
+
+```
 ```
 === 30_Order top ===
 D:\_Anant\20_Progress\Documents\Jarvis\30_Order
@@ -580,13 +613,16 @@ D:\_Anant\20_Progress\Documents\Jarvis\30_Order/Workflows/Ingestion
 D:\_Anant\20_Progress\Documents\Jarvis\30_Order/Workflows/Internship
 ```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Labs\CSCI 4061 Lab 03.pdf`
-- `Bash` -- `echo "=== Workflows/Courses ==="
+- `Bash`
+```bash
+echo "=== Workflows/Courses ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses" -maxdepth 3 2>&1
 echo "=== Standards/Courses ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses" -maxdepth 2 2>&1
 echo "=== Templates/Classes ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes" -maxdepth 2 2>&1
-`
+
+```
 ```
 === Workflows/Courses ===
 D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses
@@ -673,53 +709,53 @@ D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes/~syncthing~Wee
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 1.md`
 ```diff
 - status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next:
----
+- created:
+- updated:
+- area:
+-   - "[[UMN Board]]"
+- tags:
+-   - "#class"
+-   - "#Textbook"
+- next:
+- ---
 + status: seed
-created: 2026-09-08
-updated: 2026-09-29
-area:
-  - "[[CSCI 4061 Board]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next: "Feed this chapter into Week - 1's Textbook integration section"
----
++ created: 2026-09-08
++ updated: 2026-09-29
++ area:
++   - "[[CSCI 4061 Board]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]"
++ tags:
++   - "#class"
++   - "#Textbook"
++ next: "Feed this chapter into Week - 1's Textbook integration section"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 7.md`
 ```diff
 - status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next:
----
+- created:
+- updated:
+- area:
+-   - "[[UMN Board]]"
+- tags:
+-   - "#class"
+-   - "#Textbook"
+- next:
+- ---
 + status: seed
-created: 2026-09-08
-updated: 2026-09-29
-area:
-  - "[[CSCI 4061 Board]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next: "Feed this chapter into Week - 1's Textbook integration section"
----
++ created: 2026-09-08
++ updated: 2026-09-29
++ area:
++   - "[[CSCI 4061 Board]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]"
++ tags:
++   - "#class"
++   - "#Textbook"
++ next: "Feed this chapter into Week - 1's Textbook integration section"
++ ---
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs\Lab - 3.md`
-```
+````
 ---
 type: class
 input_kind: lab
@@ -801,105 +837,105 @@ Why `volatile sig_atomic_t` instead of a plain `int` for the running flag, even 
 - [ ] Run `make test-quiz` and `make test-code`, fill in Results with real output, and record any real Problem/Fix/Why entries from the actual build.
 - [ ] Confirm the deadline against Canvas/Gradescope directly — `11:59pm the Wednesday following` the Monday lab session, per [[CSCI 4061 Board]]'s Labs policy.
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 ```diff
 - status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
-deadline:
-related: []
-tags:
-  - "#class"
-next:
----
+- created:
+- updated:
+- area:
+-   - "[[UMN Board]]"
+- deadline:
+- related: []
+- tags:
+-   - "#class"
+- next:
+- ---
 + status: seed
-created: 2026-09-15
-updated: 2026-10-01
-area:
-  - "[[CSCI 4061 Board]]"
-deadline: 2026-10-02
-related:
-  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]]"
-  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]"
-  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
-  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]"
-tags:
-  - "#class"
-next: "Submit swish.c/swish_funcs.c via make zip to Gradescope before 11:59pm 2026-10-02, then sign up for the individual oral exam"
----
++ created: 2026-09-15
++ updated: 2026-10-01
++ area:
++   - "[[CSCI 4061 Board]]"
++ deadline: 2026-10-02
++ related:
++   - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]]"
++   - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]"
++   - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
++   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]"
++ tags:
++   - "#class"
++ next: "Submit swish.c/swish_funcs.c via make zip to Gradescope before 11:59pm 2026-10-02, then sign up for the individual oral exam"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 ```diff
 - # Project - 1 Assignment
-## Overview
-<!-- State the deliverable, shared scaffold, and constraints in one to three sentences. -->
--
-Projects are to be completed
+- ## Overview
+- <!-- State the deliverable, shared scaffold, and constraints in one to three sentences. -->
+- -
+- Projects are to be completed
 + # Project - 1 Assignment
-## Overview
-==`swish` ("Simple Working Implementation Shell") is a from-scratch command-line shell built across seven tasks (0-6): tokenization, `cd`/`pwd`, `fork`/`exec`/`wait` command execution, `<`/`>`/`>>` redirection, foreground/background process-group management via `setpgid`/`tcsetpgrp`, stopped-job tracking, and background job control (`bg`, `wait-for`, `wait-all`).== Every task builds directly on Weeks 1-3's material: `fork`/`exec`/`wait` ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]]), `open`/`dup2`/redirection ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]), and signals/process groups ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]]) — there is no new systems-programming concept this project introduces that lecture hasn't already covered.
-Projects are to be completed
++ ## Overview
++ ==`swish` ("Simple Working Implementation Shell") is a from-scratch command-line shell built across seven tasks (0-6): tokenization, `cd`/`pwd`, `fork`/`exec`/`wait` command execution, `<`/`>`/`>>` redirection, foreground/background process-group management via `setpgid`/`tcsetpgrp`, stopped-job tracking, and background job control (`bg`, `wait-for`, `wait-all`).== Every task builds directly on Weeks 1-3's material: `fork`/`exec`/`wait` ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]]), `open`/`dup2`/redirection ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]), and signals/process groups ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]]) — there is no new systems-programming concept this project introduces that lecture hasn't already covered.
++ Projects are to be completed
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 ```diff
 - ## Concept Links
-<!-- Link verified weeks, chapters, and concepts genuinely used by the chosen project. -->
-- 
-## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- 
-## Post-Submit Reflection
-<!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
-- What failed first?
-- What pattern repeats?
+- <!-- Link verified weeks, chapters, and concepts genuinely used by the chosen project. -->
+- - 
+- ## Work Log
+- <!-- Record real progress, decisions, failures, and fixes as they happen. -->
+- - 
+- ## Post-Submit Reflection
+- <!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
+- - What failed first?
+- - What pattern repeats?
 + ## Concept Links
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] — `fork`/`exec`/`wait`, the exact pattern Task 2's `run_command()` implements.
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]] — `open()` flags, `dup2()` redirection mechanics Task 3 implements directly (`ls -l > out.txt` is literally the `dup2`-after-`fork` pattern from Lec04).
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] — `SIGINT`/`SIGTSTP`/`SIGCONT`, process groups, and job-control signals that Tasks 4-6 build on.
-- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] — low-level I/O (`open`/`read`/`write`/`dup2`) behind Task 3's redirection.
-- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] — `fork`/`exec`/`wait`/`waitpid` and the `WIFEXITED`/`WIFSTOPPED` status macros Tasks 2 and 5 depend on.
-- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] — job-control signals (§10.21: `SIGCHLD`, `SIGCONT`, `SIGSTOP`, `SIGTSTP`, `SIGTTIN`, `SIGTTOU`) behind Task 4's `tcsetpgrp`/`setpgid` foreground-group handoff.
-- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] — `redirect_child.c`'s `open`/`dup2`/`close`-before-`exec` pattern is a smaller, already-solved version of Task 3.
-## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
-## Post-Submit Reflection
-<!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
-- What failed first?
-- What pattern repeats?
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] — `fork`/`exec`/`wait`, the exact pattern Task 2's `run_command()` implements.
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]] — `open()` flags, `dup2()` redirection mechanics Task 3 implements directly (`ls -l > out.txt` is literally the `dup2`-after-`fork` pattern from Lec04).
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] — `SIGINT`/`SIGTSTP`/`SIGCONT`, process groups, and job-control signals that Tasks 4-6 build on.
++ - [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] — low-level I/O (`open`/`read`/`write`/`dup2`) behind Task 3's redirection.
++ - [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] — `fork`/`exec`/`wait`/`waitpid` and the `WIFEXITED`/`WIFSTOPPED` status macros Tasks 2 and 5 depend on.
++ - [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] — job-control signals (§10.21: `SIGCHLD`, `SIGCONT`, `SIGSTOP`, `SIGTSTP`, `SIGTTIN`, `SIGTTOU`) behind Task 4's `tcsetpgrp`/`setpgid` foreground-group handoff.
++ - [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] — `redirect_child.c`'s `open`/`dup2`/`close`-before-`exec` pattern is a smaller, already-solved version of Task 3.
++ ## Work Log
++ <!-- Record real progress, decisions, failures, and fixes as they happen. -->
++ - Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
++ ## Post-Submit Reflection
++ <!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
++ - What failed first?
++ - What pattern repeats?
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 ```diff
 - ## Concept Links
-<!-- Link verified weeks, chapters, and concepts genuinely used by the chosen project. -->
-- 
-## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- 
-## Post-Submit Reflection
-<!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
-- What failed first?
-- What pattern repeats?
+- <!-- Link verified weeks, chapters, and concepts genuinely used by the chosen project. -->
+- - 
+- ## Work Log
+- <!-- Record real progress, decisions, failures, and fixes as they happen. -->
+- - 
+- ## Post-Submit Reflection
+- <!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
+- - What failed first?
+- - What pattern repeats?
 + ## Concept Links
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] — `fork`/`exec`/`wait`, the exact pattern Task 2's `run_command()` implements.
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]] — `open()` flags, `dup2()` redirection mechanics Task 3 implements directly (`ls -l > out.txt` is literally the `dup2`-after-`fork` pattern from Lec04).
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] — `SIGINT`/`SIGTSTP`/`SIGCONT`, process groups, and job-control signals that Tasks 4-6 build on.
-- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] — low-level I/O (`open`/`read`/`write`/`dup2`) behind Task 3's redirection.
-- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] — `fork`/`exec`/`wait`/`waitpid` and the `WIFEXITED`/`WIFSTOPPED` status macros Tasks 2 and 5 depend on.
-- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] — job-control signals (§10.21: `SIGCHLD`, `SIGCONT`, `SIGSTOP`, `SIGTSTP`, `SIGTTIN`, `SIGTTOU`) behind Task 4's `tcsetpgrp`/`setpgid` foreground-group handoff.
-- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] — `redirect_child.c`'s `open`/`dup2`/`close`-before-`exec` pattern is a smaller, already-solved version of Task 3.
-## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
-## Post-Submit Reflection
-<!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
-- What failed first?
-- What pattern repeats?
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] — `fork`/`exec`/`wait`, the exact pattern Task 2's `run_command()` implements.
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]] — `open()` flags, `dup2()` redirection mechanics Task 3 implements directly (`ls -l > out.txt` is literally the `dup2`-after-`fork` pattern from Lec04).
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] — `SIGINT`/`SIGTSTP`/`SIGCONT`, process groups, and job-control signals that Tasks 4-6 build on.
++ - [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] — low-level I/O (`open`/`read`/`write`/`dup2`) behind Task 3's redirection.
++ - [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] — `fork`/`exec`/`wait`/`waitpid` and the `WIFEXITED`/`WIFSTOPPED` status macros Tasks 2 and 5 depend on.
++ - [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] — job-control signals (§10.21: `SIGCHLD`, `SIGCONT`, `SIGSTOP`, `SIGTSTP`, `SIGTTIN`, `SIGTTOU`) behind Task 4's `tcsetpgrp`/`setpgid` foreground-group handoff.
++ - [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] — `redirect_child.c`'s `open`/`dup2`/`close`-before-`exec` pattern is a smaller, already-solved version of Task 3.
++ ## Work Log
++ <!-- Record real progress, decisions, failures, and fixes as they happen. -->
++ - Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
++ ## Post-Submit Reflection
++ <!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
++ - What failed first?
++ - What pattern repeats?
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
 ```
@@ -939,7 +975,7 @@ Task status above is self-reported scaffolding, not yet checked against a real b
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Concepts Board.md`
-```
+````
 ---
 type: index
 status: seed
@@ -966,90 +1002,90 @@ WHERE type = "concept"
 SORT file.name ASC
 ```
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Weekly Board.md`
 ```diff
 - created: 2026-09-08
-updated: 2026-09-08
-tags:
-  - moc
-notes:
-  - "[[CSCI 4061 Board]]"
-next: "Fill Week - 1.md for real once the week's three lectures (Intro, System Calls, Process Management) are all done"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-`Week - 1.md` exists as an untouched template scaffold (the raw [[Week Template]] content, not real lecture capture yet) - Week 1's three lectures span 9/7 (Labor Day, no class) through 9/10, so there's real content to add once that week finishes. Each week from here follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-0 of 15 weeks actually written as of 2026-09-08, despite the Week 1 scaffold existing. Week numbering should follow the Board note's Schedule table directly - that table already holds the real reading and due-date pairing per week.
+- updated: 2026-09-08
+- tags:
+-   - moc
+- notes:
+-   - "[[CSCI 4061 Board]]"
+- next: "Fill Week - 1.md for real once the week's three lectures (Intro, System Calls, Process Management) are all done"
+- ---
+- # CSCI 4061 — Weekly Board
+- Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
+- ## Map
+- `Week - 1.md` exists as an untouched template scaffold (the raw [[Week Template]] content, not real lecture capture yet) - Week 1's three lectures span 9/7 (Labor Day, no class) through 9/10, so there's real content to add once that week finishes. Each week from here follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
+- ## Status
+- 0 of 15 weeks actually written as of 2026-09-08, despite the Week 1 scaffold existing. Week numbering should follow the Board note's Schedule table directly - that table already holds the real reading and due-date pairing per week.
 + created: 2026-09-08
-updated: 2026-10-01
-tags:
-  - moc
-notes:
-  - "[[CSCI 4061 Board]]"
-next: "Live-capture Week 4 (Lec07 9/29, Lec08 10/1) once both lectures have actually happened, per the pre-lecture scaffold already sitting in Week - 4"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-[[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] (System calls, `fork`/`exec`/`wait`, memory layout) through [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] (signals, `sigaction`, i-nodes/file systems) are fully captured and source-checked against both lecture and [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s chapter notes - each carries a complete Lecture section, Textbook integration, lecture-to-textbook synthesis, and a flashcard deck. [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] is a deliberate pre-lecture scaffold only (file systems continued, IPC pipes) - its own `## Lecture` section is explicitly marked as inferred from the syllabus, not yet lecture-verified, and stays that way until the real 9/29/10/1 lectures are live-captured into it. Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-3 of 15 weeks fully captured and reconciled (Weeks 1-3) as of 2026-10-01; Week 4 is scaffolded but not yet lecture-verified. Weekly layer is **current** through Week 3, the earliest incomplete week is Week 4, and the exact missing action is live-capturing its two lectures once they happen. Week numbering follows the Board note's Schedule table directly - that table already holds the real reading and due-date pairing per week.
++ updated: 2026-10-01
++ tags:
++   - moc
++ notes:
++   - "[[CSCI 4061 Board]]"
++ next: "Live-capture Week 4 (Lec07 9/29, Lec08 10/1) once both lectures have actually happened, per the pre-lecture scaffold already sitting in Week - 4"
++ ---
++ # CSCI 4061 — Weekly Board
++ Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
++ ## Map
++ [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] (System calls, `fork`/`exec`/`wait`, memory layout) through [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] (signals, `sigaction`, i-nodes/file systems) are fully captured and source-checked against both lecture and [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s chapter notes - each carries a complete Lecture section, Textbook integration, lecture-to-textbook synthesis, and a flashcard deck. [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] is a deliberate pre-lecture scaffold only (file systems continued, IPC pipes) - its own `## Lecture` section is explicitly marked as inferred from the syllabus, not yet lecture-verified, and stays that way until the real 9/29/10/1 lectures are live-captured into it. Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
++ ## Status
++ 3 of 15 weeks fully captured and reconciled (Weeks 1-3) as of 2026-10-01; Week 4 is scaffolded but not yet lecture-verified. Weekly layer is **current** through Week 3, the earliest incomplete week is Week 4, and the exact missing action is live-capturing its two lectures once they happen. Week numbering follows the Board note's Schedule table directly - that table already holds the real reading and due-date pairing per week.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Preparation.md`
 ```diff
 - created: 2026-09-08
-updated: 2026-09-08
-area:
-  - "[[CSCI 4061 Board]]"
-tags:
-  - "#class"
-next: "Complete the Docker environment setup in Lab 1 (Mon 9/14) before Project 1 releases the same week"
----
+- updated: 2026-09-08
+- area:
+-   - "[[CSCI 4061 Board]]"
+- tags:
+-   - "#class"
+- next: "Complete the Docker environment setup in Lab 1 (Mon 9/14) before Project 1 releases the same week"
+- ---
 + created: 2026-09-08
-updated: 2026-10-01
-area:
-  - "[[CSCI 4061 Board]]"
-tags:
-  - "#class"
-next: "Finish Project 1 (due 2026-10-02) using the Week 1-3 instructional map below, then read Chapter - 4's back half ahead of Week 4's live lectures"
----
++ updated: 2026-10-01
++ area:
++   - "[[CSCI 4061 Board]]"
++ tags:
++   - "#class"
++ next: "Finish Project 1 (due 2026-10-02) using the Week 1-3 instructional map below, then read Chapter - 4's back half ahead of Week 4's live lectures"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Preparation.md`
 ```diff
 - ## Weekly Study Plan
 + ## Must-Do Habits
-- **Before each lecture:** skim the week's assigned Stevens chapter(s) from [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] and check whether that chapter's note already exists under `Textbook/` - if it does, read its Chapter Summary and Key Concepts before class; if not, that is the week's first production task. Done when: the chapter's one-sentence Chapter Summary can be restated without looking.
-- **During lecture:** write live capture directly into that week's note under `## Lecture`, per [[Weekly Standard]]'s lifecycle rule - never postpone capture to "clean up later," and never let an agent silently rewrite that live capture afterward. Done when: every numbered lecture topic for the day has at least one real sentence, not a placeholder.
-- **After lecture, same day if possible:** reconcile the week's live capture against the matching textbook chapter(s) - note what lecture added beyond the book, what the book covers that lecture skipped, and file that under the week's own Textbook integration section. Done when: the week note's `## Connections`/Textbook integration section names at least one real gap in each direction.
-- **Before touching a project task:** check this Preparation note's Week-by-Week Instructions below for which week's material that task actually draws from, then re-read that week's `## Key ideas` before writing code - most of this course's point deductions are error-handling omissions (`-1 point per missed check, -1 per missed cleanup step`, per Lec01), not conceptual misunderstanding. Done when: every system call used in the task has a matching `if (x == -1) { perror(...); ...}` or equivalent in the code.
-- **After every lab or project submission:** record the actual Gradescope/test result and at least one reusable Problem/Fix/Why entry in that lab's or project's own note, per [[Lab Standard]] and [[Project Standard]] - never leave Results as an unfilled template after a real run has happened.
-- **Before each exam:** build out rich concept notes in [[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/C Language|C Refresher]] and this course's own Concepts layer for anything that recurred across three or more weeks, then drill the accumulated `#cards/csci4061` flashcard deck rather than re-reading week notes passively.
-## Common Mistakes / Traps
-- **Treating `fork()` order as predictable.** Every week-1-through-3 note repeats this warning because it is the single most common wrong assumption in this course's own material: code that only works if the parent happens to run first will pass locally and fail on Gradescope's scheduler.
-- **Skipping error checks to save time.** This course grades error handling directly and separately from correctness (-1 per missed check, -1 per missed cleanup, confirmed in Lec01 and baked into every project's Error Checking Criteria) - an otherwise-correct `swish` implementation that skips a `perror` on a failed `open()` loses real points even if every test passes.
-- **Confusing `wait()`'s raw `status` with the actual exit code.** [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] and [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] both hit this directly - the real exit code only exists after `WIFEXITED(status)` confirms normal exit, then `WEXITSTATUS(status)` extracts it.
-- **Assuming two independent `open()` calls on the same file share an offset.** They don't - only a `fork()`-inherited fd shares the system-file-table entry (and therefore the offset) with its parent's copy; two unrelated `open()` calls on an identical path get two independent offsets. See [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]'s own warning on this.
-- **Calling `pause()` right after unblocking a signal.** The classic race this course builds an entire Week 3 exercise around: a signal delivered in the gap between unblock and `pause()` is lost, and the process can wait forever. `sigsuspend()` exists specifically to close this gap.
-## Professor-Specific Notes
-- **Verified (Lec01, 9/8):** error handling is graded as its own rubric line on every project, not folded into correctness - "-1 point per missed error check, -1 point per missed cleanup step," starting with Project 1.
-- **Verified (Lec01, 9/8):** the Gradescope score and the final Canvas score will not match - manual inspection and the individual oral exam adjust the automated score afterward. Passing every automated test is not a completion guarantee.
-- **Verified ([[CSCI 4061 Board]], Projects section):** project grade is the **latest** submission, not the best one - a late "fix" that introduces a new bug can score worse than an earlier, working, on-time version.
-- **Observed repeatedly (Lec01-06):** the course's own slide material routinely diverges from the textbook's chapter boundaries - permission bits taught during the "Chapter 3 week" are actually APUE §4.5-4.9, and buffering taught the same week is actually APUE Chapter 5 (never assigned as its own reading). Don't assume a lecture's topic matches its paired textbook chapter number exactly; check [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s own correction note before trusting the week-to-chapter mapping blindly.
-- **Ask/confirm:** whether Project 1's spec quiz is genuinely scoped to Weeks 1-3 content only, or draws on Week 4's pipe material too - flagged as an open question in [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] and still unresolved as of 2026-10-01.
-## Week-by-Week Instructions
-Weeks 1-3 below are fully captured and reconciled; each entry names the concrete study action, not just what happened. Week 4 is intentionally lighter, since its own note is still a pre-lecture scaffold - see [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]]'s own warning before treating anything there as lecture-verified.
-### Week 1 — System calls, `fork`/`exec`/`wait`, memory layout
-Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] start to finish once, then drill its own `#cards/csci4061` flashcards until the `fork()` "called once, returns twice" framing and the five memory segments (text/data/bss/heap/stack) can be explained without the note open. Cross-reference [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] for the referee/illusionist/glue vocabulary and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] for `_start()`/memory-layout mechanism, and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] for the full `fork`/`exec`/`wait` API. Run the three `fork()` "brain melting" loop variants from the week note's Takeaways section by hand before trusting your own prediction of their process trees.
-### Week 2 — Low-level I/O, file descriptors, `dup2`, buffering
-Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]], then [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] for the full file-descriptor/system-file-table/inode chain `dup2` exploits. This week is the direct prerequisite for Project 1's Task 3 (redirection) - work [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]]'s `redirect_child.c` by hand first, since it is a smaller, already-solved version of exactly that task. Memorize the open-flag combinations (`O_CREAT|O_WRONLY|O_TRUNC` for `>`, add `O_APPEND` instead of `O_TRUNC` for `>>`) rather than re-deriving them each time.
-### Week 3 — Signals, `sigaction`, intro file systems
-Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]], then [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] for the full signal lifecycle and the three "tricky items" (interrupted system calls, `errno` corruption, reentrancy), and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] for the i-node/path-resolution mechanism. Complete [[20_Progress/Degree/CSCI 4061/Labs/Lab - 3|Lab - 3]]'s `sigaction()`/`SA_RESTART`/`volatile sig_atomic_t` pattern directly inside the dev container - this is the same mechanism Project 1's Task 4 needs for `SIGTTOU`/`SIGTTIN` handling, just applied to a different signal.
-### Week 4 — File systems continued, IPC pipes (in progress)
-[[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] is a scaffold, not a captured week - its `## Lecture` section is explicitly inferred from the syllabus and not yet lecture-verified. Live-capture the real 9/29 and 10/1 lectures into that note directly, then reconcile against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]]'s un-lectured sections (hard/symbolic links, `mkdir`/directory reading) once Build 2's source-check pass is confirmed against what was actually taught. Project 1 is due 10/2, right after Thursday's lecture - per the week note's own open question, confirm whether the project actually depends on this week's pipe material before assuming it does.
-## Weekly Study Plan
++ - **Before each lecture:** skim the week's assigned Stevens chapter(s) from [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] and check whether that chapter's note already exists under `Textbook/` - if it does, read its Chapter Summary and Key Concepts before class; if not, that is the week's first production task. Done when: the chapter's one-sentence Chapter Summary can be restated without looking.
++ - **During lecture:** write live capture directly into that week's note under `## Lecture`, per [[Weekly Standard]]'s lifecycle rule - never postpone capture to "clean up later," and never let an agent silently rewrite that live capture afterward. Done when: every numbered lecture topic for the day has at least one real sentence, not a placeholder.
++ - **After lecture, same day if possible:** reconcile the week's live capture against the matching textbook chapter(s) - note what lecture added beyond the book, what the book covers that lecture skipped, and file that under the week's own Textbook integration section. Done when: the week note's `## Connections`/Textbook integration section names at least one real gap in each direction.
++ - **Before touching a project task:** check this Preparation note's Week-by-Week Instructions below for which week's material that task actually draws from, then re-read that week's `## Key ideas` before writing code - most of this course's point deductions are error-handling omissions (`-1 point per missed check, -1 per missed cleanup step`, per Lec01), not conceptual misunderstanding. Done when: every system call used in the task has a matching `if (x == -1) { perror(...); ...}` or equivalent in the code.
++ - **After every lab or project submission:** record the actual Gradescope/test result and at least one reusable Problem/Fix/Why entry in that lab's or project's own note, per [[Lab Standard]] and [[Project Standard]] - never leave Results as an unfilled template after a real run has happened.
++ - **Before each exam:** build out rich concept notes in [[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/C Language|C Refresher]] and this course's own Concepts layer for anything that recurred across three or more weeks, then drill the accumulated `#cards/csci4061` flashcard deck rather than re-reading week notes passively.
++ ## Common Mistakes / Traps
++ - **Treating `fork()` order as predictable.** Every week-1-through-3 note repeats this warning because it is the single most common wrong assumption in this course's own material: code that only works if the parent happens to run first will pass locally and fail on Gradescope's scheduler.
++ - **Skipping error checks to save time.** This course grades error handling directly and separately from correctness (-1 per missed check, -1 per missed cleanup, confirmed in Lec01 and baked into every project's Error Checking Criteria) - an otherwise-correct `swish` implementation that skips a `perror` on a failed `open()` loses real points even if every test passes.
++ - **Confusing `wait()`'s raw `status` with the actual exit code.** [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] and [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] both hit this directly - the real exit code only exists after `WIFEXITED(status)` confirms normal exit, then `WEXITSTATUS(status)` extracts it.
++ - **Assuming two independent `open()` calls on the same file share an offset.** They don't - only a `fork()`-inherited fd shares the system-file-table entry (and therefore the offset) with its parent's copy; two unrelated `open()` calls on an identical path get two independent offsets. See [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]'s own warning on this.
++ - **Calling `pause()` right after unblocking a signal.** The classic race this course builds an entire Week 3 exercise around: a signal delivered in the gap between unblock and `pause()` is lost, and the process can wait forever. `sigsuspend()` exists specifically to close this gap.
++ ## Professor-Specific Notes
++ - **Verified (Lec01, 9/8):** error handling is graded as its own rubric line on every project, not folded into correctness - "-1 point per missed error check, -1 point per missed cleanup step," starting with Project 1.
++ - **Verified (Lec01, 9/8):** the Gradescope score and the final Canvas score will not match - manual inspection and the individual oral exam adjust the automated score afterward. Passing every automated test is not a completion guarantee.
++ - **Verified ([[CSCI 4061 Board]], Projects section):** project grade is the **latest** submission, not the best one - a late "fix" that introduces a new bug can score worse than an earlier, working, on-time version.
++ - **Observed repeatedly (Lec01-06):** the course's own slide material routinely diverges from the textbook's chapter boundaries - permission bits taught during the "Chapter 3 week" are actually APUE §4.5-4.9, and buffering taught the same week is actually APUE Chapter 5 (never assigned as its own reading). Don't assume a lecture's topic matches its paired textbook chapter number exactly; check [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]'s own correction note before trusting the week-to-chapter mapping blindly.
++ - **Ask/confirm:** whether Project 1's spec quiz is genuinely scoped to Weeks 1-3 content only, or draws on Week 4's pipe material too - flagged as an open question in [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] and still unresolved as of 2026-10-01.
++ ## Week-by-Week Instructions
++ Weeks 1-3 below are fully captured and reconciled; each entry names the concrete study action, not just what happened. Week 4 is intentionally lighter, since its own note is still a pre-lecture scaffold - see [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]]'s own warning before treating anything there as lecture-verified.
++ ### Week 1 — System calls, `fork`/`exec`/`wait`, memory layout
++ Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] start to finish once, then drill its own `#cards/csci4061` flashcards until the `fork()` "called once, returns twice" framing and the five memory segments (text/data/bss/heap/stack) can be explained without the note open. Cross-reference [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] for the referee/illusionist/glue vocabulary and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] for `_start()`/memory-layout mechanism, and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] for the full `fork`/`exec`/`wait` API. Run the three `fork()` "brain melting" loop variants from the week note's Takeaways section by hand before trusting your own prediction of their process trees.
++ ### Week 2 — Low-level I/O, file descriptors, `dup2`, buffering
++ Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]], then [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] for the full file-descriptor/system-file-table/inode chain `dup2` exploits. This week is the direct prerequisite for Project 1's Task 3 (redirection) - work [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]]'s `redirect_child.c` by hand first, since it is a smaller, already-solved version of exactly that task. Memorize the open-flag combinations (`O_CREAT|O_WRONLY|O_TRUNC` for `>`, add `O_APPEND` instead of `O_TRUNC` for `>>`) rather than re-deriving them each time.
++ ### Week 3 — Signals, `sigaction`, intro file systems
++ Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]], then [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] for the full signal lifecycle and the three "tricky items" (interrupted system calls, `errno` corruption, reentrancy), and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] for the i-node/path-resolution mechanism. Complete [[20_Progress/Degree/CSCI 4061/Labs/Lab - 3|Lab - 3]]'s `sigaction()`/`SA_RESTART`/`volatile sig_atomic_t` pattern directly inside the dev container - this is the same mechanism Project 1's Task 4 needs for `SIGTTOU`/`SIGTTIN` handling, just applied to a different signal.
++ ### Week 4 — File systems continued, IPC pipes (in progress)
++ [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] is a scaffold, not a captured week - its `## Lecture` section is explicitly inferred from the syllabus and not yet lecture-verified. Live-capture the real 9/29 and 10/1 lectures into that note directly, then reconcile against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]]'s un-lectured sections (hard/symbolic links, `mkdir`/directory reading) once Build 2's source-check pass is confirmed against what was actually taught. Project 1 is due 10/2, right after Thursday's lecture - per the week note's own open question, confirm whether the project actually depends on this week's pipe material before assuming it does.
++ ## Weekly Study Plan
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\CSCI 4061 Board.md`
 ```diff
@@ -1059,13 +1095,13 @@ Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]], then [[20_Progre
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs\Lab - 2.md`
 ```diff
 - area:
-  - "[[UMN Board]]"
-  - "[[CSCI 4061 Board]]"
+-   - "[[UMN Board]]"
+-   - "[[CSCI 4061 Board]]"
 + area:
-  - "[[CSCI 4061 Board]]"
++   - "[[CSCI 4061 Board]]"
 ```
-- `Agent` -- `{"subagent_type":"fork","description":"Inventory CSCI 2021 vault notes","prompt":"We\u0027re preparing a C-programming refresher for CSCI 4061 (current course) built from CSCI 2021 (the prerequisite course, already completed). Your job is a READ-ONLY research pass over the existing CSCI 2021 vault notes — do not write or edit anything.\n\nScope — read in full:\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2021\\CSCI 2021 Board.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2021\\C Language.md`\n3. Every `Week - N.md` file in that same folder (Week 1, 2, 3, 4, 6, 7, 8, 9, 11, \"12 \u0026 13\" — note Weeks 5 and 10 appear to be missing; confirm and note that)\n4. `Midterm - 1.md`, `Structs.md`, `Mallac and free functions.md` (note the typo in that filename — it\u0027s real, don\u0027t \"fix\" it, just report it)\n5. Every file under `CSCI 2021/Concepts/`: Compilation system.md, Hardware Organization.md, Linked list.md, Placeholders.md, Static and dynamic.md, Text files.md, Two Dimensional Arrays.md\n\nFor each file, note:\n- Its current frontmatter (type, status, created/updated, area, tags, next) — flag anything stale, empty, or pointing at the wrong course (e.g. `[[UMN Board]]` where it should be `[[CSCI 2021 Board]]`, broken/missing wikilinks, missing dates).\n- A dense content summary: what C topics/mechanisms it actually covers, with enough specificity that someone could later judge which of 10 planned \"C Refresher\" concept notes this content should feed into. Don\u0027t just restate the title — extract the actual technical content (function names, syntax patterns, gotchas mentioned).\n- Whether its content genuinely belongs to CSCI 2021 (systems programming in C — pointers, memory, compilation, data structures in C, Linux/x64 basics) or looks misplaced (e.g. could actually be CSCI 2033 material — that course is linear algebra / data science in Python, covers things like clustering, PageRank, SVD, matrices — so check if \"Linked list.md\" or \"Two Dimensional Arrays.md\" or any other Concepts file is actually generic CS content vs. specifically C-language content). CSCI 2021\u0027s actual topic is systems/C programming (x86-64 assembly, C, memory, data structures, Linux). Name which specific files look misplaced and why, concretely (quote a telling line if it helps).\n\nAlso check for any leftover `sync-conflict` or `~syncthing~` junk files in the CSCI 2021 folder tree and report their names/sizes (don\u0027t delete).\n\nThen also separately check the companion folder `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2033\\Concepts` and `CSCI 2033\\Concepts_new` and `Concepts_old` — just list what\u0027s there (filenames only, no need to read in depth) so we know the shape of the destination folder before anything gets moved there.\n\nDeliverable: a structured report (it\u0027s fine if it\u0027s long — this is a research dump, not prose for a note) organized as:\nA. Frontmatter/link issues found, file by file.\nB. A content inventory mapping real CSCI 2021 topics (with specifics) to what\u0027s already captured where.\nC. A concrete list of which Concepts/ files (if any) should move to CSCI 2033, with your reasoning and a representative quote from each.\nD. Gaps: any major C topic (pointers, arrays, structs, dynamic memory, file I/O, bitwise ops, preprocessor, compilation/linking, x86-64 basics, recursion, data structures like linked lists/trees/stacks) that doesn\u0027t appear to be covered anywhere in these notes yet.\nE. The CSCI 2033 Concepts/Concepts_new/Concepts_old file listing.\n\nDo not fabricate — if a file is sparse or a topic is missing, say so plainly rather than inferring content that isn\u0027t there."}`
-- `Agent` -- `{"subagent_type":"fork","description":"Inventory CSCI 2021 dev container and textbooks","prompt":"We\u0027re preparing a detailed C-programming refresher for CSCI 4061 (current course) built from CSCI 2021 (the prerequisite course, already completed — a systems programming / C course). Your job is a READ-ONLY research pass over the actual course materials and code from CSCI 2021 — do not write or edit anything, this is pure inventory/research.\n\nScope:\n\n1. The dev container / assignment code at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\`. It contains: lab01-code through lab10-code, homework02-code through homework12-code, proj1-code through proj4-code, lecture14-code, plus `.devcontainer` and `.clang-format`. For EACH lab/homework/project folder: list its files, and specifically read any `questions.txt`, `README`, or spec/instructions file in full (these are usually small and contain the real assignment description). For the actual `.c`/`.h` source files, don\u0027t read every single one exhaustively — skim filenames and open the ones whose names suggest a core C-mechanism (e.g. anything with \"linked_list\", \"malloc\", \"stack\", \"queue\", \"tree\", \"bitwise\", \"pointer\", \"struct\", \"string\", \"recursion\", \"array\" in the name) to see what\u0027s actually implemented, enough to describe the mechanism concretely (e.g. \"homework05 implements a singly linked list with insert/delete/reverse, using a `node_t` struct with `int val; struct node *next;`\"). The goal is to be able to say, concretely, which labs/homeworks/projects exercise which C concepts, with real function/struct names as evidence — not to transcribe all the code.\n\n2. The two textbooks for this prior course:\n   - `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\Textbook.pdf`\n   - `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\The Ultimate C Handbook.pdf`\n   For each, read enough (table of contents, chapter headings, and a sample of actual content from 2-3 chapters covering core C fundamentals) to describe its structure and what it\u0027s good for as a refresher source. Note which one looks like the primary systems-programming textbook (likely \"Computer Systems: A Programmer\u0027s Perspective\" or similar, covering x86-64/memory/linking) vs. which is a pure C-language-from-basics handbook. We specifically want to know: does \"The Ultimate C Handbook\" teach C from true basics (variables, loops, pointers, arrays, structs, memory) in a way that could ground 10 concept notes teaching C to a beginner? Give a chapter list if you can get one.\n\n3. Also check `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\x64_cheatsheet.pdf` and `Links.txt` briefly — what do they contain.\n\nDeliverable: a structured report (long is fine, this is a research dump):\nA. Per-assignment inventory: lab01-10, homework02-12, proj1-4, lecture14 — one entry each naming the core C concept(s) it exercises and the concrete evidence (filenames, function/struct names, a short code detail) backing that claim.\nB. A consolidated map: for each of these candidate C topics — (1) pointers \u0026 addresses, (2) arrays \u0026 strings, (3) structs \u0026 typedef, (4) dynamic memory (malloc/free/realloc), (5) linked data structures (linked lists/trees/stacks/queues), (6) file I/O in C, (7) the compilation/linking pipeline, (8) bitwise operations \u0026 bit manipulation, (9) the preprocessor \u0026 multi-file programs (headers, Makefiles), (10) recursion \u0026 recursive data structures, (11) x86-64/memory layout basics — list which specific labs/homeworks/projects actually exercise it, so we can ground 10 concept notes in real assignments rather than generic textbook prose.\nC. Textbook structure summary for both PDFs (chapter list where obtainable), and your assessment of which sections are the best source for each of the 11 candidate topics above.\nD. Anything from x64_cheatsheet.pdf or Links.txt worth citing later.\n\nBe concrete and cite evidence (filenames, function names, struct names, page/chapter numbers) throughout — this report will be used to ground detailed concept notes, so vague summaries aren\u0027t useful. If a topic genuinely isn\u0027t covered by any assignment, say so rather than guessing."}`
+- `Agent` -- ``{"subagent_type":"fork","description":"Inventory CSCI 2021 vault notes","prompt":"We\u0027re preparing a C-programming refresher for CSCI 4061 (current course) built from CSCI 2021 (the prerequisite course, already completed). Your job is a READ-ONLY research pass over the existing CSCI 2021 vault notes — do not write or edit anything.\n\nScope — read in full:\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2021\\CSCI 2021 Board.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2021\\C Language.md`\n3. Every `Week - N.md` file in that same folder (Week 1, 2, 3, 4, 6, 7, 8, 9, 11, \"12 \u0026 13\" — note Weeks 5 and 10 appear to be missing; confirm and note that)\n4. `Midterm - 1.md`, `Structs.md`, `Mallac and free functions.md` (note the typo in that filename — it\u0027s real, don\u0027t \"fix\" it, just report it)\n5. Every file under `CSCI 2021/Concepts/`: Compilation system.md, Hardware Organization.md, Linked list.md, Placeholders.md, Static and dynamic.md, Text files.md, Two Dimensional Arrays.md\n\nFor each file, note:\n- Its current frontmatter (type, status, created/updated, area, tags, next) — flag anything stale, empty, or pointing at the wrong course (e.g. `[[UMN Board]]` where it should be `[[CSCI 2021 Board]]`, broken/missing wikilinks, missing dates).\n- A dense content summary: what C topics/mechanisms it actually covers, with enough specificity that someone could later judge which of 10 planned \"C Refresher\" concept notes this content should feed into. Don\u0027t just restate the title — extract the actual technical content (function names, syntax patterns, gotchas mentioned).\n- Whether its content genuinely belongs to CSCI 2021 (systems programming in C — pointers, memory, compilation, data structures in C, Linux/x64 basics) or looks misplaced (e.g. could actually be CSCI 2033 material — that course is linear algebra / data science in Python, covers things like clustering, PageRank, SVD, matrices — so check if \"Linked list.md\" or \"Two Dimensional Arrays.md\" or any other Concepts file is actually generic CS content vs. specifically C-language content). CSCI 2021\u0027s actual topic is systems/C programming (x86-64 assembly, C, memory, data structures, Linux). Name which specific files look misplaced and why, concretely (quote a telling line if it helps).\n\nAlso check for any leftover `sync-conflict` or `~syncthing~` junk files in the CSCI 2021 folder tree and report their names/sizes (don\u0027t delete).\n\nThen also separately check the companion folder `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2033\\Concepts` and `CSCI 2033\\Concepts_new` and `Concepts_old` — just list what\u0027s there (filenames only, no need to read in depth) so we know the shape of the destination folder before anything gets moved there.\n\nDeliverable: a structured report (it\u0027s fine if it\u0027s long — this is a research dump, not prose for a note) organized as:\nA. Frontmatter/link issues found, file by file.\nB. A content inventory mapping real CSCI 2021 topics (with specifics) to what\u0027s already captured where.\nC. A concrete list of which Concepts/ files (if any) should move to CSCI 2033, with your reasoning and a representative quote from each.\nD. Gaps: any major C topic (pointers, arrays, structs, dynamic memory, file I/O, bitwise ops, preprocessor, compilation/linking, x86-64 basics, recursion, data structures like linked lists/trees/stacks) that doesn\u0027t appear to be covered anywhere in these notes yet.\nE. The CSCI 2033 Concepts/Concepts_new/Concepts_old file listing.\n\nDo not fabricate — if a file is sparse or a topic is missing, say so plainly rather than inferring content that isn\u0027t there."}``
+- `Agent` -- ``{"subagent_type":"fork","description":"Inventory CSCI 2021 dev container and textbooks","prompt":"We\u0027re preparing a detailed C-programming refresher for CSCI 4061 (current course) built from CSCI 2021 (the prerequisite course, already completed — a systems programming / C course). Your job is a READ-ONLY research pass over the actual course materials and code from CSCI 2021 — do not write or edit anything, this is pure inventory/research.\n\nScope:\n\n1. The dev container / assignment code at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\`. It contains: lab01-code through lab10-code, homework02-code through homework12-code, proj1-code through proj4-code, lecture14-code, plus `.devcontainer` and `.clang-format`. For EACH lab/homework/project folder: list its files, and specifically read any `questions.txt`, `README`, or spec/instructions file in full (these are usually small and contain the real assignment description). For the actual `.c`/`.h` source files, don\u0027t read every single one exhaustively — skim filenames and open the ones whose names suggest a core C-mechanism (e.g. anything with \"linked_list\", \"malloc\", \"stack\", \"queue\", \"tree\", \"bitwise\", \"pointer\", \"struct\", \"string\", \"recursion\", \"array\" in the name) to see what\u0027s actually implemented, enough to describe the mechanism concretely (e.g. \"homework05 implements a singly linked list with insert/delete/reverse, using a `node_t` struct with `int val; struct node *next;`\"). The goal is to be able to say, concretely, which labs/homeworks/projects exercise which C concepts, with real function/struct names as evidence — not to transcribe all the code.\n\n2. The two textbooks for this prior course:\n   - `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\Textbook.pdf`\n   - `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\The Ultimate C Handbook.pdf`\n   For each, read enough (table of contents, chapter headings, and a sample of actual content from 2-3 chapters covering core C fundamentals) to describe its structure and what it\u0027s good for as a refresher source. Note which one looks like the primary systems-programming textbook (likely \"Computer Systems: A Programmer\u0027s Perspective\" or similar, covering x86-64/memory/linking) vs. which is a pure C-language-from-basics handbook. We specifically want to know: does \"The Ultimate C Handbook\" teach C from true basics (variables, loops, pointers, arrays, structs, memory) in a way that could ground 10 concept notes teaching C to a beginner? Give a chapter list if you can get one.\n\n3. Also check `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\x64_cheatsheet.pdf` and `Links.txt` briefly — what do they contain.\n\nDeliverable: a structured report (long is fine, this is a research dump):\nA. Per-assignment inventory: lab01-10, homework02-12, proj1-4, lecture14 — one entry each naming the core C concept(s) it exercises and the concrete evidence (filenames, function/struct names, a short code detail) backing that claim.\nB. A consolidated map: for each of these candidate C topics — (1) pointers \u0026 addresses, (2) arrays \u0026 strings, (3) structs \u0026 typedef, (4) dynamic memory (malloc/free/realloc), (5) linked data structures (linked lists/trees/stacks/queues), (6) file I/O in C, (7) the compilation/linking pipeline, (8) bitwise operations \u0026 bit manipulation, (9) the preprocessor \u0026 multi-file programs (headers, Makefiles), (10) recursion \u0026 recursive data structures, (11) x86-64/memory layout basics — list which specific labs/homeworks/projects actually exercise it, so we can ground 10 concept notes in real assignments rather than generic textbook prose.\nC. Textbook structure summary for both PDFs (chapter list where obtainable), and your assessment of which sections are the best source for each of the 11 candidate topics above.\nD. Anything from x64_cheatsheet.pdf or Links.txt worth citing later.\n\nBe concrete and cite evidence (filenames, function names, struct names, page/chapter numbers) throughout — this report will be used to ground detailed concept notes, so vague summaries aren\u0027t useful. If a topic genuinely isn\u0027t covered by any assignment, say so rather than guessing."}``
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class\CSCI 4511W Workflow.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class\CSCI 5304 Workflow.md`
 
@@ -1214,12 +1250,12 @@ All six agents are running in parallel — five writing the 10 C Refresher conce
 
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Concept Template.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2021\C Language.md`
-- `Agent` -- `{"subagent_type":"fork","description":"Write Pointers and Arrays/Strings concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Pointers and Addresses.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Arrays and Strings.md` — NOTE: fix that double path before writing; the real path is `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Arrays and Strings.md`\n\nFollow [[Concept Standard]] exactly (you already have it in context from earlier in this conversation — re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape (from `30_Order/Templates/Classes/Concept Template.md`):\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it; never invent a link). `evidence:` should link real CSCI 2021 week notes that discuss this topic — these live in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` and must be path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2|Week - 2]]`, because bare `Week - N` names collide with other courses in this vault.\n\nBody sections, in order: `## One-Line Answer` (one `==highlighted==` peer-level sentence), `## Mechanism` (the core of the note — inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded example with real code evidence, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (a `\u003e [!WARNING]` callout with a real, specific misconception), `## Evidence From This Vault`, `## Flashcards` (3-8 cards under `#cards/csci2021`, testing mechanism/contrast, not the label).\n\nGround each note in REAL evidence from the dev-container/textbook research already in your context:\n\n**Pointers and Addresses**: Evidence available — Lab03\u0027s `\u0026tmap-\u003elocations[i].row` pattern (address-of a struct field through a pointer), Lab10/HW11\u0027s `(file_header_t*)file_bytes` pointer-cast-onto-raw-bytes technique and `(contact_t*)(file_bytes+offset)` pointer arithmetic, Proj4 `el_malloc.c`\u0027s `PTR_PLUS_BYTES`/`PTR_MINUS_PTR` macros (pointer arithmetic as a first-class technique in a real allocator), Lecture14\u0027s `mstore.c`. CS:APP Ch.2-3 and CSCI 2021\u0027s own Week 1-2 notes (pass-by-pointer, `\u0026`/`*`, the `swap` example) are the textbook/lecture grounding — verify these week notes\u0027 actual content by reading them at `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 1.md` and `Week - 2.md` before citing them. Also open `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab03-code\\` (or lab10/homework11) to pull one real, verified code line for the Mechanism section\u0027s worked example — don\u0027t invent syntax, confirm it against the actual file. Contrast this note against the common confusion between a pointer\u0027s own address (`\u0026p`) and the address it holds (`p`), and between pointer arithmetic (scaled by `sizeof(*p)`) and raw byte arithmetic.\n\n**Arrays and Strings**: Evidence available — Lab08\u0027s `array_find()` vs `list_find()` contiguity contrast, HW09\u0027s `MGET(mat,i,j)` row-major 2D-array-as-1D macro (`data[i*cols+j]`), CSCI 2021\u0027s own Week 2 note (array decay to pointer in function calls, C strings via `strcpy`/`strlen`/null terminator, all three dynamic-2D-array construction methods: single malloc+manual offset, array-of-mallocs, `int**`). The Ultimate C Handbook pp. ~611-780 (pointer arithmetic/arrays/strings) is the beginner-level grounding source. Set `prerequisites: [\"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]\"]` since array decay IS a pointer concept. Contrast a 2D array\u0027s row-major layout against the array-of-pointers (`int**`) alternative — these look similar in code but have completely different memory shapes, which is a genuine, common point of confusion worth a dedicated Contrast entry.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler, no multi-paragraph throat-clearing. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference, not a textbook summary. Do not pad with sentences that carry no information. When you\u0027re done, report back only a one-line confirmation of what you wrote and any real uncertainty you hit (e.g. a fact you couldn\u0027t verify) — do not paste the note content back into your response."}`
-- `Agent` -- `{"subagent_type":"fork","description":"Write Structs/Typedef and Dynamic Memory concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Structs and Typedef.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Dynamic Memory.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it; never invent a link). `evidence:` should link real CSCI 2021 week notes — these live in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` and must be path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]`, since bare `Week - N` collides with other courses.\n\nBody sections, in order: `## One-Line Answer` (one `==highlighted==` peer-level sentence), `## Mechanism` (core of the note — inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded example with real verified code evidence, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]` callout, real specific misconception), `## Evidence From This Vault`, `## Flashcards` (3-8 cards under `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**Structs and Typedef**: Evidence available — Lab02/Lab08\u0027s `node_t{char data[128]; struct node *next;}` self-referential struct, Lab03\u0027s nested `treasuremap_t{int height,width,ntreasures; treasureloc_t *locations;}`, Lab09\u0027s `int_field_t` vs `arr_field_t` — a genuinely good worked contrast between Array-of-Structs and Struct-of-Arrays memory layout (\"ABABAB\" vs \"AAAABBBB\" striding, with loop fusion to kill stride — this is real, specific, and worth including as a dedicated mechanism point since it shows struct layout has real performance consequences, not just organizational ones), HW09\u0027s `matrix_t`, Proj1\u0027s `node_t{char name[64]; int score; struct node *left,*right;}` BST, Proj4\u0027s `el_blockhead_t`/`el_blockfoot_t`. CSCI 2021\u0027s own Week 3-4 notes cover struct definition/dot-access/pointer-to-struct/`-\u003e`/self-referential structs and padding/alignment rules — read `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3.md`, `Week - 4.md`, and `Structs.md` (same folder) to verify and cite precisely. Cover `.` vs `-\u003e` access as the clearest Contrast entry (struct value vs pointer-to-struct), and struct padding/alignment as a genuine Failure Mode (assuming `sizeof(struct)` equals the sum of its members\u0027 sizes).\n\n**Dynamic Memory**: This is the richest evidence trail in the whole research set — Proj4 (`el_malloc.c`/`el_malloc.h`) is a from-scratch heap allocator: doubly-linked block list with header/footer (`el_blockhead_t{size_t size; char state; struct block *next,*prev;}`), boundary-tag coalescing (`el_merge_block_with_above`), first-fit search (`el_find_first_avail`), block splitting (`el_split_block`) — open this file directly at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\proj4-code\\` and use it as the Mechanism section\u0027s centerpiece worked example: this is literally \"what malloc/free actually do under the hood,\" not a toy explanation. Also use HW03\u0027s `read_all_doubles()` (two-pass file read specifically to size a malloc call correctly) and CSCI 2021\u0027s own Week 2 note (`malloc`/`free` prototype, good-practice NULL-reset after free) and `Mallac and free functions.md` (same folder, CSAPP-sourced). CS:APP §9.9 and The Ultimate C Handbook pp.~918-939 are the textbook grounding. Set `prerequisites: [\"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]\", \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef|Structs and Typedef]]\"]` (verify these two sibling files exist by the time you write — if not yet written by the parallel fork doing them, link them anyway since they will exist shortly; do not skip the link over a race). Cover double-free and use-after-free as real Failure Modes, and contrast stack allocation (automatic, scope-bound) against heap allocation (manual, `malloc`/`free`-bound) as the Contrast section.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}`
-- `Agent` -- `{"subagent_type":"fork","description":"Write Linked Data Structures and Recursion concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Linked Data Structures.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Recursion.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites:\n  - \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]\"\n  - \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef|Structs and Typedef]]\"\n  - \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Dynamic Memory|Dynamic Memory]]\"\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\n(Those three prerequisite notes are being written in parallel by sibling forks right now — link them anyway, they will exist. Add real `evidence:` links too, Grep-verified against `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` week notes, path-qualified since bare `Week - N` collides across courses.)\n\nBody sections, in order: `## One-Line Answer` (`==highlighted==`), `## Mechanism` (inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded verified example, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]`), `## Evidence From This Vault`, `## Flashcards` (3-8 cards, `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**Linked Data Structures**: Evidence available — Lab02\u0027s singly linked list (`list.h`: `node_t{char data[128]; struct node *next;}`, `list_t{node_t *head; int size;}`, a buggy `list_insert()` return value fixed as part of the lab, `list_contains()`), Lab08\u0027s linked-list *performance* lesson (`list_find()` is O(n²) because it calls O(n) `list_get()` per step; student writes O(n) `list_find_student()`; contrasted against `array_find()` to show array contiguity beats list scatter — this is a genuinely good, specific example for the Contrast section: linked list vs. array isn\u0027t just \"different syntax,\" it\u0027s a real Big-O and cache-locality difference), Proj1\u0027s binary search tree gradebook (`node_t{char name[64]; int score; struct node *left,*right;}`, recursive insert/search), HW12\u0027s *second*, independent BST implementation (`ds_search_dynamic/tree.c`) worth citing as a second real-world example of the same structure. Open Lab02\u0027s or Lab08\u0027s actual `list_funcs.c` at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab02-code\\` (or lab08-code) to verify and ground one real insert/traverse code detail. CSCI 2021\u0027s own `Linked list.md` (in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/`) and Week 3 note (self-referential struct → linked list node) are the existing vault grounding — read and cite them. Cover: why a linked list needs a self-referential struct, how traversal/insert/delete actually manipulate `next` pointers, and the O(n²) list-find-via-repeated-get trap as a concrete Failure Mode (not a generic \"linked lists are slower\" claim — the actual mechanism: repeatedly calling an O(n) accessor inside a loop silently makes an algorithm quadratic).\n\n**Recursion**: Evidence available — Lecture14\u0027s `collatz.c`/`collatz.s` (recursion in C hand-translated to assembly — a genuinely illuminating way to show recursion is just \"function calls that happen to target the same function,\" with the call stack growing one frame per recursive call), Lab02\u0027s `node_insert()`/`node_print_all()` on the linked list (recursive unstitch/restitch), Proj1\u0027s BST insert/search (recursive-by-construction, since a tree is a recursive data structure — explicitly tie this back to the sibling Linked Data Structures note). The Ultimate C Handbook pp.~560-566 explicitly defines base case and infinite-recursion risk — this is the best beginner-level grounding available; cite it directly. Cover: what a base case actually prevents (unbounded stack growth → stack overflow, tie this to CSCI 4061\u0027s own stack-overflow material if a relevant week/chapter note exists — check `20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md` and `Textbook/Chapter - 7.md`, which already discuss stack-overflow-from-heap-collision; note the contrast that recursion\u0027s stack overflow is a different mechanism — exhausting stack frames, not heap/stack collision — don\u0027t conflate them, name the real distinction explicitly), and how the Collatz C-vs-assembly comparison makes the call-stack mechanism literally visible (`callq` pushing a return address each recursive call). Contrast recursion against iteration (a loop) along the axis of call-stack cost vs. no extra memory, and name tail-call patterns as a case where the two blur.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}`
-- `Agent` -- `{"subagent_type":"fork","description":"Write File I/O and Compilation/Linking concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\File IO in C.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Compilation and Linking.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it). `evidence:` should link real CSCI 2021 week notes — path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 4|Week - 4]]`, since bare `Week - N` collides across courses.\n\nBody sections, in order: `## One-Line Answer` (`==highlighted==`), `## Mechanism` (inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded verified example, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]`), `## Evidence From This Vault`, `## Flashcards` (3-8 cards, `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**File IO in C**: Evidence available — Lab03\u0027s dual-format `treasuremap_load_text`/`_binary` (same logical data, `fscanf`-based text parsing vs. raw `fread` binary parsing — genuinely good Contrast material: text I/O is human-readable/portable but slower to parse, binary I/O is fast/exact but platform-dependent and unreadable without the right struct layout), HW03\u0027s `twopass.c`/`read_items.c` (two-pass read pattern: first pass counts, second pass `malloc`s exactly the right size and reads for real — a real, reusable idiom worth naming explicitly), Lab10/HW11\u0027s `mmap()`-based binary parsing (`(file_header_t*)file_bytes` pointer-cast onto a memory-mapped file — the most advanced technique in this evidence set, worth covering as \"the technique beyond fread/fwrite,\" contrasted against ordinary buffered I/O), Proj1\u0027s gradebook text+binary persistence. CSCI 2021\u0027s own Week 3-4 notes cover `fopen`/`fclose`/`getc`/`putc`/`rewind`/`fseek` (text) and `fread`/`fwrite` (binary) — read and cite `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3.md` and `Week - 4.md` to verify exact function names used. Open one real file from Lab03 at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab03-code\\` to ground the worked example with a verified real line. Cover the forgetting-to-check-`fopen`-for-NULL and forgetting-`fclose` failure modes concretely.\n\n**Compilation and Linking**: Evidence available — HW12 is the explicit teaching moment: a missing `-lm` link error, static (`.a`) vs. dynamic (`.so`) libraries, `-I`/`-L`/`-l` compiler/linker flags, `ldd`, `LD_LIBRARY_PATH` — and notably its dynamic-library example (`ds_search_dynamic/`) builds one library from three independent backend implementations (`tree.c`, `array.c`, `list.c`, all implementing the same search interface) which is a genuinely good concrete example of why you\u0027d want a shared library at all (swap implementations without recompiling the caller). HW05/HW06 show the compile-to-assembly step directly (`gcc -S`), and HW06\u0027s deliberately-broken assembly (wrong operand size, `cqto` clobbering `%rdx`) and binary forensics with `strings`/`nm`/`gdb` on a sourceless `.o` file are worth citing as what happens when the pipeline\u0027s stages are misunderstood. CS:APP Ch.7 \"Linking\" is the canonical textbook source — this is explicitly the best-matched chapter in the whole research report, cite it directly. CSCI 2021\u0027s own `C Language.md` sketches the header/source/main-file split at a high level — read `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language.md` and build on it rather than just repeating it. Cover the actual pipeline stages (preprocessor → compiler → assembler → linker) as the Mechanism\u0027s causal sequence, with a real worked trace of what changes `#include` resolution, `.c`→`.s`→`.o`→executable. Cover the \"every lab/homework/project uses a provided Makefile + header/.c split\" pattern as the practical day-to-day form this takes. Name \"undefined reference\" / \"undefined symbol\" linker errors and missing header guards (multiple-inclusion) as concrete Failure Modes.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}`
-- `Agent` -- `{"subagent_type":"fork","description":"Write Bitwise/Integers and x86-64 Memory Layout concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Bitwise Operations and Integer Representation.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\x86-64 and Memory Layout.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it). `evidence:` should link real CSCI 2021 week notes — path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]`, since bare `Week - N` collides across courses. For `x86-64 and Memory Layout`, also link real CSCI 4061 notes where relevant since this is the one concept that bridges straight into the current course — e.g. `[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]` (process memory layout) if its content genuinely matches (verify by reading it first; it\u0027s in your context already from earlier in this conversation).\n\nBody sections, in order: `## One-Line Answer` (`==highlighted==`), `## Mechanism` (inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded verified example, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]`), `## Evidence From This Vault`, `## Flashcards` (3-8 cards, `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**Bitwise Operations and Integer Representation**: Evidence available — Lab04\u0027s masking fundamentals (`x | (1\u003c\u003c19)` to set a bit, `x \u0026 ~(1\u003c\u003c8)` to clear a bit — these two patterns are the actual mechanism worth naming explicitly, not just \"bitwise ops exist\"), Lab04 also seeding Project 2 with `is_even()` implemented using *only* bitwise/logical ops, HW04\u0027s binary/hex/decimal conversion and two\[REDACTED] material, HW05\u0027s packed bitfield struct `coins_t` manipulated via shift+mask in actual x86-64 assembly (`total_coins()`) — open this at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\homework05-code\\` to verify and ground a real extraction example, and Proj2/Proj3\u0027s `bits.c` — explicitly \"based on Bryant and O\u0027Halloran\u0027s original CS:APP datalab assignment,\" pure bit-manipulation puzzles (`bitAnd`, `isPower2`, `rotateLeft`, `floatIsEqual`) implementable only with `\u0026|^~\u003c\u003c\u003e\u003e`, no arithmetic/control-flow allowed — this is the single deepest bitwise source in the whole course; open it to pull one real verified puzzle function as a worked example. CS:APP Ch.2 is the canonical textbook source for two\u0027s-complement/representation. CSCI 2021\u0027s own Week 3-4 notes cover bitwise vs. logical operators, shifts, unsigned/signed encoding, two\u0027s-complement negation (invert-and-add-1), overflow detection — read and cite them. Cover signed vs. unsigned comparison as a real, specific Failure Mode (a classic C gotcha: comparing a negative `int` against an `unsigned` silently promotes the int to a huge unsigned value).\n\n**x86-64 and Memory Layout**: This topic has the deepest assignment grounding in the whole research set (5+ labs/homeworks). Evidence available — Lab06 (calling convention: `%edi`/`%esi` for args, `%rax` for return, which registers are caller-saved), Lab07 (stack frame growth via `subq $N,%rsp`, 16-byte alignment required before `callq`, a *reproduced* segfault from misaligned local space — open `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab07-code\\` to verify this concretely), HW06 (a deliberately broken `cqto` instruction clobbering `%rdx` while it holds a pointer, causing a segfault at a tiny address — a genuinely illuminating real bug to cite as a Failure Mode, since it shows a register-convention violation producing a crash that looks unrelated to its actual cause), HW07\u0027s stack-smashing demo (`fill_seq()` writes 8 ints into a 4-int stack array, corrupting the return address — the classic buffer-overflow-into-return-address mechanism, verify against the real `smash1.c`/`smash2.c`), HW11\u0027s `pmap`-observed process memory regions (text/global/heap/stack/mmap\u0027d-file addresses all visible in one real process). CS:APP Ch.3 (machine-level programs, stack, buffer overflow) and Ch.9 (virtual memory) are the canonical sources; `x64_cheatsheet.pdf` (Brown University\u0027s CSCI0330 reference, cite it as a generic cross-university reference, not UMN\u0027s own material) has the full register table if you need exact register names. If `[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]` (already in this vault, covering CSCI 4061\u0027s own process memory layout: text/initialized-data/bss/heap/stack, stack-overflow-from-collision) genuinely overlaps, name that bridge explicitly in Evidence From This Vault — this is the one concept note meant to connect directly back to the current course, not just refresh the prior one. Cover the actual calling convention (which registers hold which arguments, why 16-byte stack alignment matters before a `call`) as the Mechanism\u0027s core, and the HW07 buffer-overflow mechanism as the dedicated Failure Mode entry — be concrete about *why* overwriting a few bytes past a stack array can corrupt a return address (stack memory layout places the saved return address near local variables, growing toward each other).\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}`
-- `Agent` -- `{"description":"Fix CSCI 2021 notes frontmatter and broken links","subagent_type":"vault-curator","prompt":"This is an Obsidian vault at `D:\\_Anant\\20_Progress\\Documents\\Jarvis`. You\u0027re fixing a specific, already-diagnosed set of frontmatter and wikilink problems across the CSCI 2021 course notes (a previous, already-completed course that lives in `40_Resources`, not `20_Progress`, since it\u0027s reference material now rather than active work). This is explicit, user-authorized cleanup work — apply the fixes directly, do not pause for approval, and do not produce a separate curator report first; just fix the files listed below and report back a short summary of what you changed.\n\n## Background\nA research pass already read every file in this folder and found: every file has `status: archived` even though the files live in `40_Resources` (not `50_Archive`) — a leftover inconsistency. Most files\u0027 `area:`/`next:`/`notes:` frontmatter fields point into `50_Archive/Previous Classes/CSCI/CSCI 2021/...` paths. **You must never read or write anything under `50_Archive/` — that folder is permanently off-limits in this vault.** These archive-pointing links need to be repointed at the REAL files that already exist as siblings in the same `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` folder, or removed if no real equivalent exists (never invent a note or link to something that doesn\u0027t exist).\n\n## Folder to work in\n`D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2021\\` and its `Concepts\\` subfolder.\n\n## Files to fix (confirmed to exist)\n- `CSCI 2021 Board.md`\n- `C Language.md`\n- `Week - 1.md`, `Week - 2.md`, `Week - 3.md`, `Week - 4.md`, `Week - 6.md`, `Week - 7.md`, `Week - 8.md`, `Week - 9.md`, `Week - 11.md`, `Week - 12 \u0026 13.md` (Weeks 5 and 10 are confirmed missing — do not create them, do not link to them as if they exist; if any file references a missing Week 5 or 10, just drop that specific link rather than inventing a target)\n- `Midterm - 1.md`\n- `Structs.md`\n- `Mallac and free functions.md` (the typo in this filename is real and intentional — do not rename the file)\n- `Concepts/Compilation system.md`, `Concepts/Hardware Organization.md`, `Concepts/Linked list.md`, `Concepts/Placeholders.md`, `Concepts/Static and dynamic.md`, `Concepts/Text files.md`, `Concepts/Two Dimensional Arrays.md`\n\n## Fix rules\n1. **Status:** Change `status: archived` to a real maturity value per the vault\u0027s seed→sprout→tree model: use `tree` for content that is rich, complete, and well-organized (this applies to most of the Week notes — they\u0027re genuinely dense and finished); use `sprout` for content that\u0027s real but thin or could still grow (this likely applies to some of the shorter Concepts/ files like `Placeholders.md`, `Static and dynamic.md`, `Text files.md`, `Two Dimensional Arrays.md` — read each one and judge honestly based on its actual length/depth, don\u0027t mechanically apply one value to all).\n2. **Links into `50_Archive/`:** For every wikilink or frontmatter field pointing into `50_Archive/Previous Classes/CSCI/CSCI 2021/...`, check whether a real file with that same name exists as a sibling in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` (e.g. `50_Archive/.../Week - 2` → real file is `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2.md`, so the link becomes `[[Week - 2]]` or `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2|Week - 2]]` if you\u0027re linking from outside this folder). If the archive-referenced file has no real sibling (e.g. a reference to a missing Week 5/10, or \"Midterm - 2\"/\"Final\" which don\u0027t exist anywhere), remove that link entirely rather than leaving it broken or inventing a target.\n3. **`area:`** should generally point to `[[CSCI 2021 Board]]` as the primary course anchor, plus `[[C Language]]` where a note is specifically about C-language mechanics (most of the Week 1-4 notes and the Concepts/ files qualify; the x86-64/architecture-heavy Week 6+ notes and `Midterm - 1.md` probably shouldn\u0027t link `C Language` since they\u0027re architecture content, not C-language content — use judgment).\n4. **`next:`** should be a real, concrete statement, not empty and not a stale archive reference. For stable, finished notes, something like \"No action needed — stable reference\" is fine and honest; don\u0027t invent a fake pending task.\n5. **`C Language.md` specifically:** its `notes:` frontmatter list currently contains a malformed entry — a bare string `\"missing midterm - 2 and final\"` that isn\u0027t a real wikilink (YAML list entries here should all be `\"[[Note Name]]\"` wikilinks or omitted, never plain prose). Remove that malformed entry. Also fix its `notes:` entry pointing at `[[50_Archive/.../Midterm - 1|Midterm - 1]]` to just `[[Midterm - 1]]` (the real file is a direct sibling in this same folder). Add a real `updated:` date (use 2026-10-01) since it currently has none. Leave the actual body content of this note alone — it\u0027s intentionally a short/basic reference note, not something to expand; just fix its frontmatter and any malformed links, plus light, minimal tidying if you spot an obviously broken list item or stray dangling `-` bullet, but do not rewrite its content or voice.\n6. Do not touch `type:`, `created:`, `tags:`, or body content beyond what\u0027s described above, and do not add new sections. This is a metadata/link repair pass, not a rewrite.\n\n## Verification discipline\nBefore writing any new wikilink, Grep or Glob to confirm the target file actually exists at the path you\u0027re about to link. Never link to a note that doesn\u0027t exist, and never link into `50_Archive/`. When you\u0027re done, report back a short per-file summary of what changed (not the full diff) — one line per file is enough."}`
+- `Agent` -- ````{"subagent_type":"fork","description":"Write Pointers and Arrays/Strings concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Pointers and Addresses.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Arrays and Strings.md` — NOTE: fix that double path before writing; the real path is `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Arrays and Strings.md`\n\nFollow [[Concept Standard]] exactly (you already have it in context from earlier in this conversation — re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape (from `30_Order/Templates/Classes/Concept Template.md`):\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it; never invent a link). `evidence:` should link real CSCI 2021 week notes that discuss this topic — these live in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` and must be path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2|Week - 2]]`, because bare `Week - N` names collide with other courses in this vault.\n\nBody sections, in order: `## One-Line Answer` (one `==highlighted==` peer-level sentence), `## Mechanism` (the core of the note — inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded example with real code evidence, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (a `\u003e [!WARNING]` callout with a real, specific misconception), `## Evidence From This Vault`, `## Flashcards` (3-8 cards under `#cards/csci2021`, testing mechanism/contrast, not the label).\n\nGround each note in REAL evidence from the dev-container/textbook research already in your context:\n\n**Pointers and Addresses**: Evidence available — Lab03\u0027s `\u0026tmap-\u003elocations[i].row` pattern (address-of a struct field through a pointer), Lab10/HW11\u0027s `(file_header_t*)file_bytes` pointer-cast-onto-raw-bytes technique and `(contact_t*)(file_bytes+offset)` pointer arithmetic, Proj4 `el_malloc.c`\u0027s `PTR_PLUS_BYTES`/`PTR_MINUS_PTR` macros (pointer arithmetic as a first-class technique in a real allocator), Lecture14\u0027s `mstore.c`. CS:APP Ch.2-3 and CSCI 2021\u0027s own Week 1-2 notes (pass-by-pointer, `\u0026`/`*`, the `swap` example) are the textbook/lecture grounding — verify these week notes\u0027 actual content by reading them at `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 1.md` and `Week - 2.md` before citing them. Also open `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab03-code\\` (or lab10/homework11) to pull one real, verified code line for the Mechanism section\u0027s worked example — don\u0027t invent syntax, confirm it against the actual file. Contrast this note against the common confusion between a pointer\u0027s own address (`\u0026p`) and the address it holds (`p`), and between pointer arithmetic (scaled by `sizeof(*p)`) and raw byte arithmetic.\n\n**Arrays and Strings**: Evidence available — Lab08\u0027s `array_find()` vs `list_find()` contiguity contrast, HW09\u0027s `MGET(mat,i,j)` row-major 2D-array-as-1D macro (`data[i*cols+j]`), CSCI 2021\u0027s own Week 2 note (array decay to pointer in function calls, C strings via `strcpy`/`strlen`/null terminator, all three dynamic-2D-array construction methods: single malloc+manual offset, array-of-mallocs, `int**`). The Ultimate C Handbook pp. ~611-780 (pointer arithmetic/arrays/strings) is the beginner-level grounding source. Set `prerequisites: [\"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]\"]` since array decay IS a pointer concept. Contrast a 2D array\u0027s row-major layout against the array-of-pointers (`int**`) alternative — these look similar in code but have completely different memory shapes, which is a genuine, common point of confusion worth a dedicated Contrast entry.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler, no multi-paragraph throat-clearing. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference, not a textbook summary. Do not pad with sentences that carry no information. When you\u0027re done, report back only a one-line confirmation of what you wrote and any real uncertainty you hit (e.g. a fact you couldn\u0027t verify) — do not paste the note content back into your response."}````
+- `Agent` -- ````{"subagent_type":"fork","description":"Write Structs/Typedef and Dynamic Memory concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Structs and Typedef.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Dynamic Memory.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it; never invent a link). `evidence:` should link real CSCI 2021 week notes — these live in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` and must be path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]`, since bare `Week - N` collides with other courses.\n\nBody sections, in order: `## One-Line Answer` (one `==highlighted==` peer-level sentence), `## Mechanism` (core of the note — inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded example with real verified code evidence, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]` callout, real specific misconception), `## Evidence From This Vault`, `## Flashcards` (3-8 cards under `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**Structs and Typedef**: Evidence available — Lab02/Lab08\u0027s `node_t{char data[128]; struct node *next;}` self-referential struct, Lab03\u0027s nested `treasuremap_t{int height,width,ntreasures; treasureloc_t *locations;}`, Lab09\u0027s `int_field_t` vs `arr_field_t` — a genuinely good worked contrast between Array-of-Structs and Struct-of-Arrays memory layout (\"ABABAB\" vs \"AAAABBBB\" striding, with loop fusion to kill stride — this is real, specific, and worth including as a dedicated mechanism point since it shows struct layout has real performance consequences, not just organizational ones), HW09\u0027s `matrix_t`, Proj1\u0027s `node_t{char name[64]; int score; struct node *left,*right;}` BST, Proj4\u0027s `el_blockhead_t`/`el_blockfoot_t`. CSCI 2021\u0027s own Week 3-4 notes cover struct definition/dot-access/pointer-to-struct/`-\u003e`/self-referential structs and padding/alignment rules — read `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3.md`, `Week - 4.md`, and `Structs.md` (same folder) to verify and cite precisely. Cover `.` vs `-\u003e` access as the clearest Contrast entry (struct value vs pointer-to-struct), and struct padding/alignment as a genuine Failure Mode (assuming `sizeof(struct)` equals the sum of its members\u0027 sizes).\n\n**Dynamic Memory**: This is the richest evidence trail in the whole research set — Proj4 (`el_malloc.c`/`el_malloc.h`) is a from-scratch heap allocator: doubly-linked block list with header/footer (`el_blockhead_t{size_t size; char state; struct block *next,*prev;}`), boundary-tag coalescing (`el_merge_block_with_above`), first-fit search (`el_find_first_avail`), block splitting (`el_split_block`) — open this file directly at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\proj4-code\\` and use it as the Mechanism section\u0027s centerpiece worked example: this is literally \"what malloc/free actually do under the hood,\" not a toy explanation. Also use HW03\u0027s `read_all_doubles()` (two-pass file read specifically to size a malloc call correctly) and CSCI 2021\u0027s own Week 2 note (`malloc`/`free` prototype, good-practice NULL-reset after free) and `Mallac and free functions.md` (same folder, CSAPP-sourced). CS:APP §9.9 and The Ultimate C Handbook pp.~918-939 are the textbook grounding. Set `prerequisites: [\"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]\", \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef|Structs and Typedef]]\"]` (verify these two sibling files exist by the time you write — if not yet written by the parallel fork doing them, link them anyway since they will exist shortly; do not skip the link over a race). Cover double-free and use-after-free as real Failure Modes, and contrast stack allocation (automatic, scope-bound) against heap allocation (manual, `malloc`/`free`-bound) as the Contrast section.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}````
+- `Agent` -- ````{"subagent_type":"fork","description":"Write Linked Data Structures and Recursion concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Linked Data Structures.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Recursion.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites:\n  - \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]\"\n  - \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef|Structs and Typedef]]\"\n  - \"[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Dynamic Memory|Dynamic Memory]]\"\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\n(Those three prerequisite notes are being written in parallel by sibling forks right now — link them anyway, they will exist. Add real `evidence:` links too, Grep-verified against `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` week notes, path-qualified since bare `Week - N` collides across courses.)\n\nBody sections, in order: `## One-Line Answer` (`==highlighted==`), `## Mechanism` (inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded verified example, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]`), `## Evidence From This Vault`, `## Flashcards` (3-8 cards, `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**Linked Data Structures**: Evidence available — Lab02\u0027s singly linked list (`list.h`: `node_t{char data[128]; struct node *next;}`, `list_t{node_t *head; int size;}`, a buggy `list_insert()` return value fixed as part of the lab, `list_contains()`), Lab08\u0027s linked-list *performance* lesson (`list_find()` is O(n²) because it calls O(n) `list_get()` per step; student writes O(n) `list_find_student()`; contrasted against `array_find()` to show array contiguity beats list scatter — this is a genuinely good, specific example for the Contrast section: linked list vs. array isn\u0027t just \"different syntax,\" it\u0027s a real Big-O and cache-locality difference), Proj1\u0027s binary search tree gradebook (`node_t{char name[64]; int score; struct node *left,*right;}`, recursive insert/search), HW12\u0027s *second*, independent BST implementation (`ds_search_dynamic/tree.c`) worth citing as a second real-world example of the same structure. Open Lab02\u0027s or Lab08\u0027s actual `list_funcs.c` at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab02-code\\` (or lab08-code) to verify and ground one real insert/traverse code detail. CSCI 2021\u0027s own `Linked list.md` (in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/`) and Week 3 note (self-referential struct → linked list node) are the existing vault grounding — read and cite them. Cover: why a linked list needs a self-referential struct, how traversal/insert/delete actually manipulate `next` pointers, and the O(n²) list-find-via-repeated-get trap as a concrete Failure Mode (not a generic \"linked lists are slower\" claim — the actual mechanism: repeatedly calling an O(n) accessor inside a loop silently makes an algorithm quadratic).\n\n**Recursion**: Evidence available — Lecture14\u0027s `collatz.c`/`collatz.s` (recursion in C hand-translated to assembly — a genuinely illuminating way to show recursion is just \"function calls that happen to target the same function,\" with the call stack growing one frame per recursive call), Lab02\u0027s `node_insert()`/`node_print_all()` on the linked list (recursive unstitch/restitch), Proj1\u0027s BST insert/search (recursive-by-construction, since a tree is a recursive data structure — explicitly tie this back to the sibling Linked Data Structures note). The Ultimate C Handbook pp.~560-566 explicitly defines base case and infinite-recursion risk — this is the best beginner-level grounding available; cite it directly. Cover: what a base case actually prevents (unbounded stack growth → stack overflow, tie this to CSCI 4061\u0027s own stack-overflow material if a relevant week/chapter note exists — check `20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md` and `Textbook/Chapter - 7.md`, which already discuss stack-overflow-from-heap-collision; note the contrast that recursion\u0027s stack overflow is a different mechanism — exhausting stack frames, not heap/stack collision — don\u0027t conflate them, name the real distinction explicitly), and how the Collatz C-vs-assembly comparison makes the call-stack mechanism literally visible (`callq` pushing a return address each recursive call). Contrast recursion against iteration (a loop) along the axis of call-stack cost vs. no extra memory, and name tail-call patterns as a case where the two blur.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}````
+- `Agent` -- ````{"subagent_type":"fork","description":"Write File I/O and Compilation/Linking concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\File IO in C.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Compilation and Linking.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it). `evidence:` should link real CSCI 2021 week notes — path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 4|Week - 4]]`, since bare `Week - N` collides across courses.\n\nBody sections, in order: `## One-Line Answer` (`==highlighted==`), `## Mechanism` (inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded verified example, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]`), `## Evidence From This Vault`, `## Flashcards` (3-8 cards, `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**File IO in C**: Evidence available — Lab03\u0027s dual-format `treasuremap_load_text`/`_binary` (same logical data, `fscanf`-based text parsing vs. raw `fread` binary parsing — genuinely good Contrast material: text I/O is human-readable/portable but slower to parse, binary I/O is fast/exact but platform-dependent and unreadable without the right struct layout), HW03\u0027s `twopass.c`/`read_items.c` (two-pass read pattern: first pass counts, second pass `malloc`s exactly the right size and reads for real — a real, reusable idiom worth naming explicitly), Lab10/HW11\u0027s `mmap()`-based binary parsing (`(file_header_t*)file_bytes` pointer-cast onto a memory-mapped file — the most advanced technique in this evidence set, worth covering as \"the technique beyond fread/fwrite,\" contrasted against ordinary buffered I/O), Proj1\u0027s gradebook text+binary persistence. CSCI 2021\u0027s own Week 3-4 notes cover `fopen`/`fclose`/`getc`/`putc`/`rewind`/`fseek` (text) and `fread`/`fwrite` (binary) — read and cite `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3.md` and `Week - 4.md` to verify exact function names used. Open one real file from Lab03 at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab03-code\\` to ground the worked example with a verified real line. Cover the forgetting-to-check-`fopen`-for-NULL and forgetting-`fclose` failure modes concretely.\n\n**Compilation and Linking**: Evidence available — HW12 is the explicit teaching moment: a missing `-lm` link error, static (`.a`) vs. dynamic (`.so`) libraries, `-I`/`-L`/`-l` compiler/linker flags, `ldd`, `LD_LIBRARY_PATH` — and notably its dynamic-library example (`ds_search_dynamic/`) builds one library from three independent backend implementations (`tree.c`, `array.c`, `list.c`, all implementing the same search interface) which is a genuinely good concrete example of why you\u0027d want a shared library at all (swap implementations without recompiling the caller). HW05/HW06 show the compile-to-assembly step directly (`gcc -S`), and HW06\u0027s deliberately-broken assembly (wrong operand size, `cqto` clobbering `%rdx`) and binary forensics with `strings`/`nm`/`gdb` on a sourceless `.o` file are worth citing as what happens when the pipeline\u0027s stages are misunderstood. CS:APP Ch.7 \"Linking\" is the canonical textbook source — this is explicitly the best-matched chapter in the whole research report, cite it directly. CSCI 2021\u0027s own `C Language.md` sketches the header/source/main-file split at a high level — read `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language.md` and build on it rather than just repeating it. Cover the actual pipeline stages (preprocessor → compiler → assembler → linker) as the Mechanism\u0027s causal sequence, with a real worked trace of what changes `#include` resolution, `.c`→`.s`→`.o`→executable. Cover the \"every lab/homework/project uses a provided Makefile + header/.c split\" pattern as the practical day-to-day form this takes. Name \"undefined reference\" / \"undefined symbol\" linker errors and missing header guards (multiple-inclusion) as concrete Failure Modes.\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}````
+- `Agent` -- ````{"subagent_type":"fork","description":"Write Bitwise/Integers and x86-64 Memory Layout concept notes","prompt":"Write two new concept notes for the CSCI 4061 \"C Refresher\" folder, a beginner-explainable but detailed C cheat-reference rebuilt from CSCI 2021 (the prerequisite course). You have two research reports already in this conversation\u0027s context (the CSCI 2021 vault-notes inventory fork and the dev-container/textbook inventory fork) — use their findings as your evidence base, but also open and verify 1-2 real source files yourself for each concept before writing, since the reports are summaries and the notes need source-grounded specifics, not paraphrase.\n\nWrite these two files (use the Write tool; these are new files, not edits):\n1. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\Bitwise Operations and Integer Representation.md`\n2. `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\Concepts\\C Refresher\\x86-64 and Memory Layout.md`\n\nFollow [[Concept Standard]] exactly (re-read `D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md` if you need to confirm a detail). Use this exact frontmatter shape:\n```\n---\ntype: concept\nstatus: sprout\ncreated: 2026-10-01\nupdated: 2026-10-01\ncourse: \"[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]\"\ntrack: \"C Refresher\"\nmastery_level: 0\nprerequisites: []\nused_in:\n  - \"[[CSCI 4061 Board]]\"\nevidence: []\ntags:\n  - concept\nrelated: []\n---\n```\nFill `prerequisites`/`used_in`/`evidence`/`related` with REAL verified wikilinks only (Grep to confirm a note exists before linking it). `evidence:` should link real CSCI 2021 week notes — path-qualified, e.g. `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]`, since bare `Week - N` collides across courses. For `x86-64 and Memory Layout`, also link real CSCI 4061 notes where relevant since this is the one concept that bridges straight into the current course — e.g. `[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]` (process memory layout) if its content genuinely matches (verify by reading it first; it\u0027s in your context already from earlier in this conversation).\n\nBody sections, in order: `## One-Line Answer` (`==highlighted==`), `## Mechanism` (inputs/state, causal sequence, invariants, output, complexity/limitations, a source-grounded verified example, a failure boundary), `## Contrast / What It Is Not`, `## Failure Modes / Misconceptions` (`\u003e [!WARNING]`), `## Evidence From This Vault`, `## Flashcards` (3-8 cards, `#cards/csci2021`).\n\nGround each note in REAL evidence already in your context:\n\n**Bitwise Operations and Integer Representation**: Evidence available — Lab04\u0027s masking fundamentals (`x | (1\u003c\u003c19)` to set a bit, `x \u0026 ~(1\u003c\u003c8)` to clear a bit — these two patterns are the actual mechanism worth naming explicitly, not just \"bitwise ops exist\"), Lab04 also seeding Project 2 with `is_even()` implemented using *only* bitwise/logical ops, HW04\u0027s binary/hex/decimal conversion and two\[REDACTED] material, HW05\u0027s packed bitfield struct `coins_t` manipulated via shift+mask in actual x86-64 assembly (`total_coins()`) — open this at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\homework05-code\\` to verify and ground a real extraction example, and Proj2/Proj3\u0027s `bits.c` — explicitly \"based on Bryant and O\u0027Halloran\u0027s original CS:APP datalab assignment,\" pure bit-manipulation puzzles (`bitAnd`, `isPower2`, `rotateLeft`, `floatIsEqual`) implementable only with `\u0026|^~\u003c\u003c\u003e\u003e`, no arithmetic/control-flow allowed — this is the single deepest bitwise source in the whole course; open it to pull one real verified puzzle function as a worked example. CS:APP Ch.2 is the canonical textbook source for two\u0027s-complement/representation. CSCI 2021\u0027s own Week 3-4 notes cover bitwise vs. logical operators, shifts, unsigned/signed encoding, two\u0027s-complement negation (invert-and-add-1), overflow detection — read and cite them. Cover signed vs. unsigned comparison as a real, specific Failure Mode (a classic C gotcha: comparing a negative `int` against an `unsigned` silently promotes the int to a huge unsigned value).\n\n**x86-64 and Memory Layout**: This topic has the deepest assignment grounding in the whole research set (5+ labs/homeworks). Evidence available — Lab06 (calling convention: `%edi`/`%esi` for args, `%rax` for return, which registers are caller-saved), Lab07 (stack frame growth via `subq $N,%rsp`, 16-byte alignment required before `callq`, a *reproduced* segfault from misaligned local space — open `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 2021\\csci2021\\lab07-code\\` to verify this concretely), HW06 (a deliberately broken `cqto` instruction clobbering `%rdx` while it holds a pointer, causing a segfault at a tiny address — a genuinely illuminating real bug to cite as a Failure Mode, since it shows a register-convention violation producing a crash that looks unrelated to its actual cause), HW07\u0027s stack-smashing demo (`fill_seq()` writes 8 ints into a 4-int stack array, corrupting the return address — the classic buffer-overflow-into-return-address mechanism, verify against the real `smash1.c`/`smash2.c`), HW11\u0027s `pmap`-observed process memory regions (text/global/heap/stack/mmap\u0027d-file addresses all visible in one real process). CS:APP Ch.3 (machine-level programs, stack, buffer overflow) and Ch.9 (virtual memory) are the canonical sources; `x64_cheatsheet.pdf` (Brown University\u0027s CSCI0330 reference, cite it as a generic cross-university reference, not UMN\u0027s own material) has the full register table if you need exact register names. If `[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]` (already in this vault, covering CSCI 4061\u0027s own process memory layout: text/initialized-data/bss/heap/stack, stack-overflow-from-collision) genuinely overlaps, name that bridge explicitly in Evidence From This Vault — this is the one concept note meant to connect directly back to the current course, not just refresh the prior one. Cover the actual calling convention (which registers hold which arguments, why 16-byte stack alignment matters before a `call`) as the Mechanism\u0027s core, and the HW07 buffer-overflow mechanism as the dedicated Failure Mode entry — be concrete about *why* overwriting a few bytes past a stack array can corrupt a return address (stack memory layout places the saved return address near local variables, growing toward each other).\n\nWrite in this vault\u0027s established voice: dense, concrete, mechanism-first, real examples over generic prose, no AI-slop filler. A beginner should be able to learn the concept from this note, but it should read like a sharp practitioner\u0027s reference. When done, report back only a one-line confirmation and any real uncertainty — do not paste note content back."}````
+- `Agent` -- ``{"description":"Fix CSCI 2021 notes frontmatter and broken links","subagent_type":"vault-curator","prompt":"This is an Obsidian vault at `D:\\_Anant\\20_Progress\\Documents\\Jarvis`. You\u0027re fixing a specific, already-diagnosed set of frontmatter and wikilink problems across the CSCI 2021 course notes (a previous, already-completed course that lives in `40_Resources`, not `20_Progress`, since it\u0027s reference material now rather than active work). This is explicit, user-authorized cleanup work — apply the fixes directly, do not pause for approval, and do not produce a separate curator report first; just fix the files listed below and report back a short summary of what you changed.\n\n## Background\nA research pass already read every file in this folder and found: every file has `status: archived` even though the files live in `40_Resources` (not `50_Archive`) — a leftover inconsistency. Most files\u0027 `area:`/`next:`/`notes:` frontmatter fields point into `50_Archive/Previous Classes/CSCI/CSCI 2021/...` paths. **You must never read or write anything under `50_Archive/` — that folder is permanently off-limits in this vault.** These archive-pointing links need to be repointed at the REAL files that already exist as siblings in the same `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` folder, or removed if no real equivalent exists (never invent a note or link to something that doesn\u0027t exist).\n\n## Folder to work in\n`D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Previous Classes\\CSCI\\CSCI 2021\\` and its `Concepts\\` subfolder.\n\n## Files to fix (confirmed to exist)\n- `CSCI 2021 Board.md`\n- `C Language.md`\n- `Week - 1.md`, `Week - 2.md`, `Week - 3.md`, `Week - 4.md`, `Week - 6.md`, `Week - 7.md`, `Week - 8.md`, `Week - 9.md`, `Week - 11.md`, `Week - 12 \u0026 13.md` (Weeks 5 and 10 are confirmed missing — do not create them, do not link to them as if they exist; if any file references a missing Week 5 or 10, just drop that specific link rather than inventing a target)\n- `Midterm - 1.md`\n- `Structs.md`\n- `Mallac and free functions.md` (the typo in this filename is real and intentional — do not rename the file)\n- `Concepts/Compilation system.md`, `Concepts/Hardware Organization.md`, `Concepts/Linked list.md`, `Concepts/Placeholders.md`, `Concepts/Static and dynamic.md`, `Concepts/Text files.md`, `Concepts/Two Dimensional Arrays.md`\n\n## Fix rules\n1. **Status:** Change `status: archived` to a real maturity value per the vault\u0027s seed→sprout→tree model: use `tree` for content that is rich, complete, and well-organized (this applies to most of the Week notes — they\u0027re genuinely dense and finished); use `sprout` for content that\u0027s real but thin or could still grow (this likely applies to some of the shorter Concepts/ files like `Placeholders.md`, `Static and dynamic.md`, `Text files.md`, `Two Dimensional Arrays.md` — read each one and judge honestly based on its actual length/depth, don\u0027t mechanically apply one value to all).\n2. **Links into `50_Archive/`:** For every wikilink or frontmatter field pointing into `50_Archive/Previous Classes/CSCI/CSCI 2021/...`, check whether a real file with that same name exists as a sibling in `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/` (e.g. `50_Archive/.../Week - 2` → real file is `40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2.md`, so the link becomes `[[Week - 2]]` or `[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2|Week - 2]]` if you\u0027re linking from outside this folder). If the archive-referenced file has no real sibling (e.g. a reference to a missing Week 5/10, or \"Midterm - 2\"/\"Final\" which don\u0027t exist anywhere), remove that link entirely rather than leaving it broken or inventing a target.\n3. **`area:`** should generally point to `[[CSCI 2021 Board]]` as the primary course anchor, plus `[[C Language]]` where a note is specifically about C-language mechanics (most of the Week 1-4 notes and the Concepts/ files qualify; the x86-64/architecture-heavy Week 6+ notes and `Midterm - 1.md` probably shouldn\u0027t link `C Language` since they\u0027re architecture content, not C-language content — use judgment).\n4. **`next:`** should be a real, concrete statement, not empty and not a stale archive reference. For stable, finished notes, something like \"No action needed — stable reference\" is fine and honest; don\u0027t invent a fake pending task.\n5. **`C Language.md` specifically:** its `notes:` frontmatter list currently contains a malformed entry — a bare string `\"missing midterm - 2 and final\"` that isn\u0027t a real wikilink (YAML list entries here should all be `\"[[Note Name]]\"` wikilinks or omitted, never plain prose). Remove that malformed entry. Also fix its `notes:` entry pointing at `[[50_Archive/.../Midterm - 1|Midterm - 1]]` to just `[[Midterm - 1]]` (the real file is a direct sibling in this same folder). Add a real `updated:` date (use 2026-10-01) since it currently has none. Leave the actual body content of this note alone — it\u0027s intentionally a short/basic reference note, not something to expand; just fix its frontmatter and any malformed links, plus light, minimal tidying if you spot an obviously broken list item or stray dangling `-` bullet, but do not rewrite its content or voice.\n6. Do not touch `type:`, `created:`, `tags:`, or body content beyond what\u0027s described above, and do not add new sections. This is a metadata/link repair pass, not a rewrite.\n\n## Verification discipline\nBefore writing any new wikilink, Grep or Glob to confirm the target file actually exists at the path you\u0027re about to link. Never link to a note that doesn\u0027t exist, and never link into `50_Archive/`. When you\u0027re done, report back a short per-file summary of what changed (not the full diff) — one line per file is enough."}``
 
 ## You
 
@@ -1481,11 +1517,14 @@ The vault's own auto-sync has already committed everything (it runs every ~15 mi
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher"
 ls -la
 echo "=== frontmatter spot-check ==="
 for f in *.md; do echo "--- $f ---"; head -20 "$f"; echo; done
-`
+
+```
 ```
 total 88
 drwxr-xr-x 1 anant 197609     0 Oct  1 14:07 .
@@ -1723,7 +1762,7 @@ related:
 ```
 - `Grep` -- pattern `^==.*==$` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher`
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher\C Language.md`
-```
+````
 ---
 type: index
 status: sprout
@@ -1764,7 +1803,7 @@ SORT file.name ASC
 ## Links
 [[20_Progress/Degree/CSCI 4061/Concepts/Concepts Board|Concepts Board]] is the parent index this hub sits under. [[CSCI 4061 Board]]'s own C Programming Resources section (Dive Into Systems, Beej's Guide, the GNU C Tutorial) are external supplements if any of these ten notes still leave a gap after review.
 
-```
+````
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher\Dynamic Memory.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class\CSCI 4061 Workflow.md`
 ```
@@ -1848,12 +1887,15 @@ Ask the user or verify the live source when: a Canvas/Gradescope date conflicts 
 - Unknowns (unverified exam policy, unconfirmed schedule changes, genuine CSCI 2021 coverage gaps) remain visible instead of being guessed past.
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== git status summary ==="
 git status --short | head -80
 echo "=== count ==="
 git status --short | wc -l
-`
+
+```
 ```
 === git status summary ===
  M .obsidian/plugins/recent-edits/data.json
@@ -1885,7 +1927,9 @@ git status --short | wc -l
 25
 ```
 - `Grep` -- pattern `50_Archive` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2021`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== check gitignore for CSCI 4061 ==="
 git check-ignore -v "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" 2>&1
 echo "=== direct status on that path ==="
@@ -1894,7 +1938,8 @@ echo "=== does git see it as a repo path at all? ==="
 git ls-files -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" 2>&1
 echo "=== is there a nested .git ==="
 find "20_Progress/Degree/CSCI 4061" -maxdepth 1 -iname ".git*" 2>&1
-`
+
+```
 ```
 === check gitignore for CSCI 4061 ===
 === direct status on that path ===
@@ -1903,9 +1948,12 @@ find "20_Progress/Degree/CSCI 4061" -maxdepth 1 -iname ".git*" 2>&1
 20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md
 === is there a nested .git ===
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 git log --oneline -15
-`
+
+```
 ```
 70fdbb4f Auto-sync: 2026-10-01 14:03,  13 files changed, 208 insertions(+), 464 deletions(-)
 8fa4c904 Auto-sync: 2026-10-01 13:48,  1 file changed, 10 insertions(+), 10 deletions(-)
@@ -1923,12 +1971,15 @@ f7ed19fe Auto-sync: 2026-09-30 21:18,  1 file changed, 1 insertion(+), 1 deletio
 f458a823 Auto-sync: 2026-09-30 20:18,  1 file changed, 1 insertion(+), 1 deletion(-)
 699615af Auto-sync: 2026-09-30 18:03,  2 files changed, 32 insertions(+), 32 deletions(-)
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 grep -rl "Documents\\\\Jarvis\\\\20_Progress\\\\Documents" "20_Progress/Degree/CSCI 4061" 2>/dev/null
 echo "---"
 grep -rln "Progress/Degree/CSCI 4061/Concepts/C Refresher/C Refresher" "20_Progress/Degree/CSCI 4061" 2>/dev/null
 echo "done - empty output above means no duplication artifacts found"
-`
+
+```
 ```
 ---
 done - empty output above means no duplication artifacts found
@@ -1980,7 +2031,7 @@ I'm stopping here per your sequencing — waiting for Week 4's textbook note to 
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs\Lab - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs\Lab - 3.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Preparation.md`
-- `Glob` -- pattern `20_Progress/Degree/Repetitive Things*` path ``
+- `Glob` -- pattern `20_Progress/Degree/Repetitive Things*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Concept Template.md`
 - `Grep` -- pattern `: "[0-9]` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates`
 - `Grep` -- pattern `mastery_level|mastery \(` path `D:\_Anant\20_Progress\Documents\Jarvis`
@@ -1992,27 +2043,104 @@ I'm stopping here per your sequencing — waiting for Week 4's textbook note to 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Concept Standard.md`
 ```diff
 - > [!WARNING]
-> Reusing the invalid `mastery (1/10):` key (a parenthesis in a YAML key), or filling `evidence:` with notes that do not exist. Keep relational fields empty rather than fake.
+- > Reusing the invalid `mastery (1/10):` key (a parenthesis in a YAML key), or filling `evidence:` with notes that do not exist. Keep relational fields empty rather than fake.
 + > [!WARNING]
-> Reusing the invalid `mastery (1/10):` key (a parenthesis in a YAML key), or filling `evidence:` with notes that do not exist. Keep relational fields empty rather than fake.
-> [!WARNING] 2026-10-02: `mastery_level` was quoted in the template itself
-> `Concept Template.md` shipped with `mastery_level: "0"` (a quoted string) instead of `mastery_level: 0` (a bare integer) for over a month before this was caught, and every concept note created from the template inherited the bug. A quoted number is a real, silent problem in this vault, not cosmetic: Obsidian's Properties panel renders a quoted number as its Text type instead of Number, Dataview's numeric comparisons/sorts (`WHERE mastery_level > 5`) silently fail or sort lexically ("10" before "2") against a string, and the Capability Engine's spaced-repetition scheduling (see [[40_Resources/Obsidian/Plugins/Spaced Repetition and Learning Loops]]) depends on `mastery_level` being a real number. The template is now fixed (`mastery_level: 0`, unquoted) - if you ever see `mastery_level: "N"` with quotes on a concept note, that note was created before the fix and its quotes should be stripped.
-> **The general rule this incident demonstrates:** before adding or changing any frontmatter property, on a template or a real note, decide its actual YAML type on purpose and write it accordingly - never let a quote appear "just in case." Numbers (`mastery_level`, any future score/count/weight field) are bare and unquoted. Wikilinks (`course:`, `area:`, `evidence:` entries) are quoted strings (`"[[Note]]"`) because the YAML parser would otherwise choke on the brackets. Dates (`created:`, `updated:`) are bare, unquoted, ISO `YYYY-MM-DD` - Obsidian reads that shape as its native Date type, and quoting it downgrades it to Text and breaks date-based Dataview sorts the same way. Plain enum-like strings (`status:`, `track:`) can go either way stylistically, but should stay consistent within one template. Empty relational fields are `[]`, never an empty quoted string. When a template is touched for any other reason, spend ten seconds checking every property's type is still what Dataview/the Properties panel actually need, not just what looks tidy.
++ > Reusing the invalid `mastery (1/10):` key (a parenthesis in a YAML key), or filling `evidence:` with notes that do not exist. Keep relational fields empty rather than fake.
++ > [!WARNING] 2026-10-02: `mastery_level` was quoted in the template itself
++ > `Concept Template.md` shipped with `mastery_level: "0"` (a quoted string) instead of `mastery_level: 0` (a bare integer) for over a month before this was caught, and every concept note created from the template inherited the bug. A quoted number is a real, silent problem in this vault, not cosmetic: Obsidian's Properties panel renders a quoted number as its Text type instead of Number, Dataview's numeric comparisons/sorts (`WHERE mastery_level > 5`) silently fail or sort lexically ("10" before "2") against a string, and the Capability Engine's spaced-repetition scheduling (see [[40_Resources/Obsidian/Plugins/Spaced Repetition and Learning Loops]]) depends on `mastery_level` being a real number. The template is now fixed (`mastery_level: 0`, unquoted) - if you ever see `mastery_level: "N"` with quotes on a concept note, that note was created before the fix and its quotes should be stripped.
++ > **The general rule this incident demonstrates:** before adding or changing any frontmatter property, on a template or a real note, decide its actual YAML type on purpose and write it accordingly - never let a quote appear "just in case." Numbers (`mastery_level`, any future score/count/weight field) are bare and unquoted. Wikilinks (`course:`, `area:`, `evidence:` entries) are quoted strings (`"[[Note]]"`) because the YAML parser would otherwise choke on the brackets. Dates (`created:`, `updated:`) are bare, unquoted, ISO `YYYY-MM-DD` - Obsidian reads that shape as its native Date type, and quoting it downgrades it to Text and breaks date-based Dataview sorts the same way. Plain enum-like strings (`status:`, `track:`) can go either way stylistically, but should stay consistent within one template. Empty relational fields are `[]`, never an empty quoted string. When a template is touched for any other reason, spend ten seconds checking every property's type is still what Dataview/the Properties panel actually need, not just what looks tidy.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\Repetitive Things.md`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook\Advanced Programming in the UNIX Environment, 3rd Edition.pdf`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook\Advanced Programming in the UNIX Environment, 3rd Edition.pdf`
-- `PowerShell` -- `{"command":"winget list poppler 2\u003e\u00261 | Select-Object -First 5; Write-Output \"---\"; (Get-Command pdftoppm -ErrorAction SilentlyContinue)","description":"Check if poppler/pdftoppm is available via winget or PATH"}`
-- `PowerShell` -- `{"command":"winget search poppler 2\u003e\u00261","description":"Search winget for a poppler package to install","timeout":60000}`
-- `PowerShell` -- `{"command":"winget install --id oschwartz10612.Poppler -e --accept-source-agreements --accept-package-agreements 2\u003e\u00261","description":"Install Poppler utilities for PDF page rendering","timeout":120000}`
-- `PowerShell` -- `{"command":"Get-Command pdftoppm -ErrorAction SilentlyContinue | Select-Object Source\n$env:PATH -split \u0027;\u0027 | Select-String -Pattern \u0027poppler\u0027 -SimpleMatch","description":"Check if pdftoppm is now resolvable on PATH"}`
-- `PowerShell` -- `{"command":"$p = Get-ChildItem \"$env:LOCALAPPDATA\\Microsoft\\WinGet\\Packages\" -Directory -Filter \"*Poppler*\" -ErrorAction SilentlyContinue\n$p | ForEach-Object { Get-ChildItem $_.FullName -Recurse -Filter \"pdftoppm.exe\" -ErrorAction SilentlyContinue } | Select-Object -First 1 -ExpandProperty DirectoryName","description":"Locate the installed pdftoppm.exe directory"}`
+- `PowerShell`
+```powershell
+winget list poppler 2>&1 | Select-Object -First 5; Write-Output "---"; (Get-Command pdftoppm -ErrorAction SilentlyContinue)
+```
+```
+Exit code 20
+No installed package found matching input criteria.
+---
+```
+- `PowerShell`
+```powershell
+winget search poppler 2>&1
+```
+```
+Name     Id                     Version   Match        Source
+-------------------------------------------------------------
+Poppler  oschwartz10612.Poppler 25.07.0-0              winget
+pympress Cimbali.pympress       1.8.6     Tag: poppler winget
+```
+- `PowerShell`
+```powershell
+winget install --id oschwartz10612.Poppler -e --accept-source-agreements --accept-package-agreements 2>&1
+```
+```
+Found Poppler [oschwartz10612.Poppler] Version 25.07.0-0
+This application is licensed to you by its owner.
+Microsoft is not responsible for, nor does it grant any licenses to, third-party packages.
+This package requires the following dependencies:
+  - Packages
+      Microsoft.VCRedist.2015+.x64
+Downloading https://github.com/oschwartz10612/poppler-windows/releases/download/v25.07.0-0/Release-25.07.0-0.zip
+Successfully verified installer hash
+Extracting archive...
+Successfully extracted archive
+Starting package install...
+Path environment variable modified; restart your shell to use the new value.
+Command line alias added: "pdfattach"
+Command line alias added: "pdfdetach"
+Command line alias added: "pdffonts"
+Command line alias added: "pdfimages"
+Command line alias added: "pdfinfo"
+Command line alias added: "pdfseparate"
+Command line alias added: "pdftocairo"
+Command line alias added: "pdftohtml"
+Command line alias added: "pdftoppm"
+Command line alias added: "pdftops"
+Command line alias added: "pdftotext"
+Command line alias added: "pdfunite"
+Command line alias added: "zstd"
+Successfully installed
+```
+- `PowerShell`
+```powershell
+Get-Command pdftoppm -ErrorAction SilentlyContinue | Select-Object Source
+$env:PATH -split ';' | Select-String -Pattern 'poppler' -SimpleMatch
+```
+```
+(PowerShell completed with no output)
+```
+- `PowerShell`
+```powershell
+$p = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" -Directory -Filter "*Poppler*" -ErrorAction SilentlyContinue
+$p | ForEach-Object { Get-ChildItem $_.FullName -Recurse -Filter "pdftoppm.exe" -ErrorAction SilentlyContinue } | Select-Object -First 1 -ExpandProperty DirectoryName
+```
+```
+C:\Users\anant\AppData\Local\Microsoft\WinGet\Packages\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\poppler-25.07.0\Library\bin
+```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook\Advanced Programming in the UNIX Environment, 3rd Edition.pdf`
-- `PowerShell` -- `{"command":"$pdftotext = \"C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\\poppler-25.07.0\\Library\\bin\\pdftotext.exe\"\n$pdf = \"D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\Textbook\\Advanced Programming in the UNIX Environment, 3rd Edition.pdf\"\n$out = \"$env:TEMP\\apue_full.txt\"\n\u0026 $pdftotext -layout $pdf $out\n(Get-Item $out).Length\n(Get-Content $out | Measure-Object -Line).Lines","description":"Extract the full APUE textbook PDF to plain text using poppler","timeout":90000}`
-- `Bash` -- `grep -n "^15\.[0-9]" "$TEMP/apue_full.txt" 2>/dev/null | head -40
+- `PowerShell`
+```powershell
+$pdftotext = "C:\Users\anant\AppData\Local\Microsoft\WinGet\Packages\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\poppler-25.07.0\Library\bin\pdftotext.exe"
+$pdf = "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook\Advanced Programming in the UNIX Environment, 3rd Edition.pdf"
+$out = "$env:TEMP\apue_full.txt"
+& $pdftotext -layout $pdf $out
+(Get-Item $out).Length
+(Get-Content $out | Measure-Object -Line).Lines
+```
+```
+2957721
+41520
+```
+- `Bash`
+```bash
+grep -n "^15\.[0-9]" "$TEMP/apue_full.txt" 2>/dev/null | head -40
 echo "---"
 grep -n "Interprocess Communication" "$TEMP/apue_full.txt" | head -10
-`
+
+```
 ```
 27570:15.1   Introduction
 27637:15.2   Pipes
@@ -2038,7 +2166,10 @@ grep -n "Interprocess Communication" "$TEMP/apue_full.txt" | head -10
 28230:546   Interprocess Communication                                                               Chapter 15
 28338:548    Interprocess Communication                                                         Chapter 15
 ```
-- `Bash` -- `sed -n '27560,27990p' "$TEMP/apue_full.txt"`
+- `Bash`
+```bash
+sed -n '27560,27990p' "$TEMP/apue_full.txt"
+```
 ```
             for the input file is updated.
       14.11 In the program from Figure 14.27, close the input file after calling mmap to verify that
@@ -2472,7 +2603,10 @@ Example
         or send it input, the standard I/O library has historically provided the popen and
         pclose functions. These two functions handle all the dirty work that we’ve been doing
 ```
-- `Bash` -- `sed -n '29538,29905p' "$TEMP/apue_full.txt"`
+- `Bash`
+```bash
+sed -n '29538,29905p' "$TEMP/apue_full.txt"
+```
 ```
 15.9    Shared Memory
         Shared memory allows two or more processes to share a given region of memory. This
@@ -2842,13 +2976,16 @@ Example — Anonymous Memory Mapping
 
 15.10 POSIX Semaphores
 ```
-- `Bash` -- `echo "=== Week 4-8 transcripts ==="
+- `Bash`
+```bash
+echo "=== Week 4-8 transcripts ==="
 ls -la "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Transcripts\Week 4 - 8" 2>&1
 echo "=== Lecture/Week - 4 folder (slides) ==="
 ls -la "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4" 2>&1
 echo "=== csci4061-fa26 Lecture code folder ==="
 find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture" -maxdepth 2 2>&1
-`
+
+```
 ```
 === Week 4-8 transcripts ===
 total 68
@@ -2895,7 +3032,9 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture/lecture08-co
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture/lecture08-code/Makefile
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture/lecture08-code/single_pipe.c
 ```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w4prompt.txt"
+- `Bash`
+````bash
+cat << 'EOF' > "$TEMP/w4prompt.txt"
 You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so course AI-use policy on essays/coding does not apply, but you must still never invent facts beyond the attached sources.
 
 SOURCES AND PRIORITY
@@ -2938,11 +3077,14 @@ Return the entire note as a single fenced Markdown code block (```markdown ... `
 Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
 EOF
 wc -c "$TEMP/w4prompt.txt"
-`
+
+````
 ```
 3905 C:\Users\anant\AppData\Local\Temp/w4prompt.txt
 ```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w4prompt.txt"
+- `Bash`
+````bash
+cat << 'EOF' > "$TEMP/w4prompt.txt"
 You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, course AI-use policy on essays/coding does not apply, but never invent facts beyond the attached sources.
 
 SOURCES AND PRIORITY
@@ -2977,11 +3119,14 @@ Return the entire note as a single fenced Markdown code block (```markdown ... `
 Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
 EOF
 wc -c "$TEMP/w4prompt.txt"
-`
+
+````
 ```
 3362 C:\Users\anant\AppData\Local\Temp/w4prompt.txt
 ```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w4prompt.txt"
+- `Bash`
+````bash
+cat << 'EOF' > "$TEMP/w4prompt.txt"
 You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so AI-use policy on essays/coding does not apply, but never invent facts beyond the attached sources.
 
 SOURCES AND PRIORITY
@@ -3016,11 +3161,14 @@ Return the entire note as a single fenced Markdown code block (```markdown ... `
 Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
 EOF
 wc -c "$TEMP/w4prompt.txt"
-`
+
+````
 ```
 3123 C:\Users\anant\AppData\Local\Temp/w4prompt.txt
 ```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w4prompt.txt"
+- `Bash`
+````bash
+cat << 'EOF' > "$TEMP/w4prompt.txt"
 You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only — not graded work, so AI-use policy doesn't apply, but never invent facts beyond the attached sources.
 
 SOURCES AND PRIORITY
@@ -3055,11 +3203,14 @@ Return the entire note as a single fenced Markdown code block (```markdown ... `
 Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
 EOF
 wc -c "$TEMP/w4prompt.txt"
-`
+
+````
 ```
 3055 C:\Users\anant\AppData\Local\Temp/w4prompt.txt
 ```
-- `Bash` -- `python3 - << 'PYEOF' 2>/dev/null || perl -e '
+- `Bash`
+```bash
+python3 - << 'PYEOF' 2>/dev/null || perl -e '
 open(F,"<","$ENV{TEMP}/w4prompt.txt"); local $/; my $t=<F>; close F;
 $t =~ s/ for personal study only — not graded work, so AI-use policy doesn.t apply,/ for personal study only,/;
 $t =~ s/\. Structure\/depth from these two sections, book.s order\./\./;
@@ -3067,12 +3218,16 @@ $t =~ s/ \(flag it, don.t fold in\)//;
 open(G,">","$ENV{TEMP}/w4prompt.txt"); print G $t; close G;
 '
 wc -c "$TEMP/w4prompt.txt"
-`
+
+```
 ```
 /usr/bin/bash: line 8: warning: here-document at line 7 delimited by end-of-file (wanted `PYEOF')
 ```
-- `Bash` -- `wc -c "$TEMP/w4prompt.txt"
-head -c 200 "$TEMP/w4prompt.txt"`
+- `Bash`
+```bash
+wc -c "$TEMP/w4prompt.txt"
+head -c 200 "$TEMP/w4prompt.txt"
+```
 ```
 2923 C:\Users\anant\AppData\Local\Temp/w4prompt.txt
 You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources.
@@ -3080,8 +3235,11 @@ You are producing a source-grounded study note for a university course, in Obsid
 SOURCES AND PRIORITY
 1. PRIM
 ```
-- `Bash` -- `cat "$TEMP/w4prompt.txt"`
+- `Bash`
+```bash
+cat "$TEMP/w4prompt.txt"
 ```
+````
 You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources.
 
 SOURCES AND PRIORITY
@@ -3114,8 +3272,10 @@ OUTPUT CONTRACT
 Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
 
 Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
-```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w5prompt.txt"
+````
+- `Bash`
+```bash
+cat << 'EOF' > "$TEMP/w5prompt.txt"
 You are extending an already-landed Obsidian study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this prompt covers only the NEW section being added to an existing Chapter 15 note.
 
 SOURCES AND PRIORITY
@@ -3148,11 +3308,14 @@ Return the four labeled pieces above as a single fenced Markdown code block. Aft
 Before answering, silently verify: no 15.1/15.2 content was regenerated; exactly one highlight in the new subsection; every bolded term is defined; the code block is the entire response.
 EOF
 wc -c "$TEMP/w5prompt.txt"
-`
+
+```
 ```
 3392 C:\Users\anant\AppData\Local\Temp/w5prompt.txt
 ```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w5prompt.txt"
+- `Bash`
+```bash
+cat << 'EOF' > "$TEMP/w5prompt.txt"
 You are extending an already-landed Obsidian study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
 
 SOURCES AND PRIORITY
@@ -3185,11 +3348,14 @@ Return the four labeled pieces as a single fenced Markdown code block. After pas
 Before answering, silently verify: no 15.1/15.2 content was regenerated; exactly one highlight; every bolded term is defined; the code block is the entire response.
 EOF
 wc -c "$TEMP/w5prompt.txt"
-`
+
+```
 ```
 3110 C:\Users\anant\AppData\Local\Temp/w5prompt.txt
 ```
-- `Bash` -- `cat << 'EOF' > "$TEMP/w5prompt.txt"
+- `Bash`
+```bash
+cat << 'EOF' > "$TEMP/w5prompt.txt"
 You are extending an already-landed Obsidian study note, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
 
 SOURCES AND PRIORITY
@@ -3222,11 +3388,15 @@ Return the four labeled pieces as one fenced Markdown code block. After pasting:
 Before answering, silently verify: no 15.1/15.2 content regenerated; exactly one highlight; every bolded term defined; the code block is the entire response.
 EOF
 wc -c "$TEMP/w5prompt.txt"
-`
+
+```
 ```
 2817 C:\Users\anant\AppData\Local\Temp/w5prompt.txt
 ```
-- `Bash` -- `cat "$TEMP/w5prompt.txt"`
+- `Bash`
+```bash
+cat "$TEMP/w5prompt.txt"
+```
 ```
 You are extending an already-landed Obsidian study note, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
 
@@ -3261,74 +3431,74 @@ Before answering, silently verify: no 15.1/15.2 content regenerated; exactly one
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\Repetitive Things.md`
-```diff
+````diff
 - No source exists yet for Lecture 07+ (Chapter 4's lecture emphasis) or for the discussion-section meeting time — both remain open per the Board's own unresolved list.
-# 
+- # 
 + No source exists yet for Lecture 07+ (Chapter 4's lecture emphasis) or for the discussion-section meeting time — both remain open per the Board's own unresolved list.
-# CSCI 4061 — Chapter 15 (Pipes / Shared Memory) Prompts
-Written 2026-10-02, Week 4 of the semester, after reading [[CSCI 4061 Board]]'s Schedule table and [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] (Week 4 = Ch 4 continued + §15.1-15.2; Week 5 = §15.1, 15.2, 15.9 — Ch 4 is already landed and source-checked, so only Chapter 15 needs a prompt). The APUE PDF itself was read directly for Chapter 15's real structure, since this session's `pdftoppm`-based PDF reader was broken (missing on this machine) — installed `poppler` via `winget install oschwartz10612.Poppler`, then extracted the chapter with `pdftotext -layout` and read the real text, rather than relying on memory of the book. Confirmed real section numbers/pages: 15.1 Introduction, 15.2 Pipes (pp. 533-540), 15.3 popen/pclose, 15.4 Coprocesses, 15.5 FIFOs, 15.6 XSI IPC, 15.7 Message Queues, 15.8 Semaphores, 15.9 Shared Memory (pp. 571-579), 15.10 POSIX Semaphores, 15.11 Client-Server Properties, 15.12 Summary. Confirmed Week 4's real lecture sources: `Lec07.pdf`/`Lec08.pdf` in `Lecture\Week - 4\`, transcripts for 9/29 and 10/1 in `Lecture\Transcripts\Week 4 - 8\`, and `csci4061-fa26\Lecture\lecture08-code\single_pipe.c` — confirming Lec08 (Oct 1) is the real pipes lecture, so that PDF is the SECONDARY source below. No lecture file exists yet for Week 5 (hasn't happened), which is why that prompt is textbook-only by design, not by omission — per the master Notebook template's own guidance, a Notebook prompt only needs a lecture source when one actually exists to cross-check against.
-Both prompts measured under the 3,000-character target before being written here (Prompt 1: 2,923 chars; Prompt 2: 2,817 chars). Prompt 2 is intentionally shaped differently from the reusable master template: it extends the Chapter 15 note Prompt 1 creates rather than building a fresh chapter note, since §15.9 is a second reading assignment for the *same* chapter the following week — its OUTPUT section asks for only the new §15.9 piece plus appendable Key Concepts/Flashcards, not a full regenerated note, so the model never wastes budget re-deriving §15.1-15.2 it already has no reason to touch.
-### Prompt 1 — §15.1-15.2 Pipes (Week 4, run first)
-```
-You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources.
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Do NOT cover 15.3+ (popen onward) — later week.
-2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which names/examples the professor used verbatim, what's uncovered, and whether later-section content got pulled in.
-SCOPE
-15.1: three-way IPC chapter split, half- vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limits (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0/SIGPIPE-EPIPE close rules, PIPE_BUF, parent-to-child pipe example, exec-a-pager-via-dup2 example, TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplemented with pipes — note this is Ch 8/10's signal-based sync API, rebuilt with pipes. Get figure numbers from the PDF.
-STRUCTURE — exactly these headings, in order:
-# Chapter - 15 — Interprocess Communication
-## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it.
-## Key Concepts — every named term, **bolded** first use: meaning + why it matters.
-## Full Reading Notes — one ### per subsection (15.1, 15.2), book's titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc."
-## Worked Example — one example tying 15.1-15.2 together (pager-via-pipe is the natural pick).
-## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in. Textbook: "(pending next chapter)".
-## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts.
-## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- ==highlight==: exactly one per major ## heading.
-- **bold**: named concepts/functions on first introduction only.
-- *label:* italics for sub-category intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the mechanism.
-- No sentence pasteable into a generic study-guide site unchanged.
-- Cite page numbers for direct definitions/close paraphrases, in parentheses.
-OUTPUT CONTRACT
-Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
-Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
-```
-### Prompt 2 — §15.9 Shared Memory (Week 5, run second, same Gemini Notebook chat)
-Upload the saved `Chapter - 15.md` output from Prompt 1 as the CONTINUITY source before pasting this one — fresh chat per the Notebook workflow rule, same as any other chapter, but this prompt specifically depends on that upload for voice/style matching.
-```
-You are extending an already-landed Obsidian study note, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15, Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward). Do NOT re-cover 15.1-15.2.
-2. CONTINUITY: the already-landed `Chapter - 15.md` (15.1-15.2, Pipes) — uploaded so terminology/heading style/==highlight==/flashcard conventions match. Don't repeat its content; match its voice.
-SCOPE
-shmget (key/size/flag, shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY, recommended addr=0), shmdt, the memory-layout example (array/malloc/shm/stack addresses), the /dev/zero memory-mapped-IPC example (with TELL_WAIT sync), the anonymous-mapping (MAP_ANON) variant, and the closing XSI-shm-vs-mmap contrast. Get real figure numbers from the PDF.
-OUTPUT — exactly these labeled pieces, nothing else:
-### 15.9 Shared Memory
-A ### subsection matching the landed note's 15.1/15.2 style — every claim/example/struct/signature from 15.9, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions.
-NEW KEY CONCEPTS
-Every new term, **bolded** first use, one line each — same format as the landed Key Concepts list, ready to append.
-UPDATED WORKED EXAMPLE (optional)
-Only if /dev/zero or shmat/shmdt beats the existing pager-via-pipe example — else "(keep existing)".
-NEW FLASHCARDS
-3-5 cards, "Question::Answer #cards/csci4061", testing mechanisms (e.g. XSI shm vs. mmap, why shmdt doesn't remove the segment).
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- Exactly one ==highlight==, the single most important claim in 15.9.
-- **bold** named concepts/functions first use only; *label:* italics for intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey").
-- No sentence pasteable into a generic study-guide site unchanged.
-OUTPUT CONTRACT
-Return the four labeled pieces as one fenced Markdown code block. After pasting: insert "### 15.9 Shared Memory" right after "### 15.2 Pipes" in Full Reading Notes, append NEW KEY CONCEPTS and NEW FLASHCARDS to their existing lists. No commentary before/after the code block.
-Before answering, silently verify: no 15.1/15.2 content regenerated; exactly one highlight; every bolded term defined; the code block is the entire response.
-```
-## Resume signal for this session
-Once `Chapter - 15.md` exists with both §15.1-15.2 and §15.9 landed (i.e. once you've moved on to running Week 5/6 prompts), the next session task is: build out `Week - 4.md` from the real transcripts/slides/lecture code already in the source folder, and do a source-check pass on the newly-landed `Chapter - 15.md` the same way Chapters 3/4/8/10 already got one (restructure to the Textbook Standard shape if Gemini Notebook's output drifted from it, verify page citations, fold in anything Lec07/Lec08 emphasized that the Notebook prompt's SECONDARY-source instruction might have under-weighted).
-# 
-```
++ # CSCI 4061 — Chapter 15 (Pipes / Shared Memory) Prompts
++ Written 2026-10-02, Week 4 of the semester, after reading [[CSCI 4061 Board]]'s Schedule table and [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] (Week 4 = Ch 4 continued + §15.1-15.2; Week 5 = §15.1, 15.2, 15.9 — Ch 4 is already landed and source-checked, so only Chapter 15 needs a prompt). The APUE PDF itself was read directly for Chapter 15's real structure, since this session's `pdftoppm`-based PDF reader was broken (missing on this machine) — installed `poppler` via `winget install oschwartz10612.Poppler`, then extracted the chapter with `pdftotext -layout` and read the real text, rather than relying on memory of the book. Confirmed real section numbers/pages: 15.1 Introduction, 15.2 Pipes (pp. 533-540), 15.3 popen/pclose, 15.4 Coprocesses, 15.5 FIFOs, 15.6 XSI IPC, 15.7 Message Queues, 15.8 Semaphores, 15.9 Shared Memory (pp. 571-579), 15.10 POSIX Semaphores, 15.11 Client-Server Properties, 15.12 Summary. Confirmed Week 4's real lecture sources: `Lec07.pdf`/`Lec08.pdf` in `Lecture\Week - 4\`, transcripts for 9/29 and 10/1 in `Lecture\Transcripts\Week 4 - 8\`, and `csci4061-fa26\Lecture\lecture08-code\single_pipe.c` — confirming Lec08 (Oct 1) is the real pipes lecture, so that PDF is the SECONDARY source below. No lecture file exists yet for Week 5 (hasn't happened), which is why that prompt is textbook-only by design, not by omission — per the master Notebook template's own guidance, a Notebook prompt only needs a lecture source when one actually exists to cross-check against.
++ Both prompts measured under the 3,000-character target before being written here (Prompt 1: 2,923 chars; Prompt 2: 2,817 chars). Prompt 2 is intentionally shaped differently from the reusable master template: it extends the Chapter 15 note Prompt 1 creates rather than building a fresh chapter note, since §15.9 is a second reading assignment for the *same* chapter the following week — its OUTPUT section asks for only the new §15.9 piece plus appendable Key Concepts/Flashcards, not a full regenerated note, so the model never wastes budget re-deriving §15.1-15.2 it already has no reason to touch.
++ ### Prompt 1 — §15.1-15.2 Pipes (Week 4, run first)
++ ```
++ You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources.
++ SOURCES AND PRIORITY
++ 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Do NOT cover 15.3+ (popen onward) — later week.
++ 2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which names/examples the professor used verbatim, what's uncovered, and whether later-section content got pulled in.
++ SCOPE
++ 15.1: three-way IPC chapter split, half- vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limits (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0/SIGPIPE-EPIPE close rules, PIPE_BUF, parent-to-child pipe example, exec-a-pager-via-dup2 example, TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplemented with pipes — note this is Ch 8/10's signal-based sync API, rebuilt with pipes. Get figure numbers from the PDF.
++ STRUCTURE — exactly these headings, in order:
++ # Chapter - 15 — Interprocess Communication
++ ## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it.
++ ## Key Concepts — every named term, **bolded** first use: meaning + why it matters.
++ ## Full Reading Notes — one ### per subsection (15.1, 15.2), book's titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc."
++ ## Worked Example — one example tying 15.1-15.2 together (pager-via-pipe is the natural pick).
++ ## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in. Textbook: "(pending next chapter)".
++ ## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts.
++ ## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.
++ FORMATTING RULES (violating these is a failure, not a style choice)
++ - Zero blank lines between a heading and its first content line, zero between list items/sections.
++ - ==highlight==: exactly one per major ## heading.
++ - **bold**: named concepts/functions on first introduction only.
++ - *label:* italics for sub-category intros like *Mechanism:*.
++ - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the mechanism.
++ - No sentence pasteable into a generic study-guide site unchanged.
++ - Cite page numbers for direct definitions/close paraphrases, in parentheses.
++ OUTPUT CONTRACT
++ Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
++ Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
++ ```
++ ### Prompt 2 — §15.9 Shared Memory (Week 5, run second, same Gemini Notebook chat)
++ Upload the saved `Chapter - 15.md` output from Prompt 1 as the CONTINUITY source before pasting this one — fresh chat per the Notebook workflow rule, same as any other chapter, but this prompt specifically depends on that upload for voice/style matching.
++ ```
++ You are extending an already-landed Obsidian study note, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
++ SOURCES AND PRIORITY
++ 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15, Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward). Do NOT re-cover 15.1-15.2.
++ 2. CONTINUITY: the already-landed `Chapter - 15.md` (15.1-15.2, Pipes) — uploaded so terminology/heading style/==highlight==/flashcard conventions match. Don't repeat its content; match its voice.
++ SCOPE
++ shmget (key/size/flag, shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY, recommended addr=0), shmdt, the memory-layout example (array/malloc/shm/stack addresses), the /dev/zero memory-mapped-IPC example (with TELL_WAIT sync), the anonymous-mapping (MAP_ANON) variant, and the closing XSI-shm-vs-mmap contrast. Get real figure numbers from the PDF.
++ OUTPUT — exactly these labeled pieces, nothing else:
++ ### 15.9 Shared Memory
++ A ### subsection matching the landed note's 15.1/15.2 style — every claim/example/struct/signature from 15.9, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions.
++ NEW KEY CONCEPTS
++ Every new term, **bolded** first use, one line each — same format as the landed Key Concepts list, ready to append.
++ UPDATED WORKED EXAMPLE (optional)
++ Only if /dev/zero or shmat/shmdt beats the existing pager-via-pipe example — else "(keep existing)".
++ NEW FLASHCARDS
++ 3-5 cards, "Question::Answer #cards/csci4061", testing mechanisms (e.g. XSI shm vs. mmap, why shmdt doesn't remove the segment).
++ FORMATTING RULES (violating these is a failure, not a style choice)
++ - Zero blank lines between a heading and its first content line, zero between list items/sections.
++ - Exactly one ==highlight==, the single most important claim in 15.9.
++ - **bold** named concepts/functions first use only; *label:* italics for intros like *Mechanism:*.
++ - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey").
++ - No sentence pasteable into a generic study-guide site unchanged.
++ OUTPUT CONTRACT
++ Return the four labeled pieces as one fenced Markdown code block. After pasting: insert "### 15.9 Shared Memory" right after "### 15.2 Pipes" in Full Reading Notes, append NEW KEY CONCEPTS and NEW FLASHCARDS to their existing lists. No commentary before/after the code block.
++ Before answering, silently verify: no 15.1/15.2 content regenerated; exactly one highlight; every bolded term defined; the code block is the entire response.
++ ```
++ ## Resume signal for this session
++ Once `Chapter - 15.md` exists with both §15.1-15.2 and §15.9 landed (i.e. once you've moved on to running Week 5/6 prompts), the next session task is: build out `Week - 4.md` from the real transcripts/slides/lecture code already in the source folder, and do a source-check pass on the newly-landed `Chapter - 15.md` the same way Chapters 3/4/8/10 already got one (restructure to the Textbook Standard shape if Gemini Notebook's output drifted from it, verify page citations, fold in anything Lec07/Lec08 emphasized that the Notebook prompt's SECONDARY-source instruction might have under-weighted).
++ # 
+````
 
 ## You
 
@@ -3395,7 +3565,9 @@ The CSCI 4061 folder is in a genuinely good state now — ready for Week 5 whene
 
 ### Tool Calls
 
-- `Bash` -- `echo "=== mineru on PATH? ==="
+- `Bash`
+```bash
+echo "=== mineru on PATH? ==="
 command -v mineru 2>&1
 echo "=== pip mineru? ==="
 pip show mineru 2>&1 | head -5
@@ -3404,7 +3576,8 @@ echo "=== conda/python envs with mineru ==="
 where mineru 2>&1
 echo "=== check common install locations ==="
 find "C:\Users\anant" -maxdepth 4 -iname "*mineru*" 2>/dev/null | head -20
-`
+
+```
 ```
 === mineru on PATH? ===
 /c/Users/anant/.local/bin/mineru
@@ -3435,12 +3608,15 @@ C:\Users\anant/AppData/Local/Temp/mineru_job_1s_g160s
 C:\Users\anant/AppData/Local/Temp/mineru_job_4lxbfc_6
 C:\Users\anant/AppData/Local/Temp/mineru_readme.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== ALL sync-conflict / syncthing temp files in CSCI 4061 folder ==="
 find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1
 echo "=== count ==="
 find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1 | wc -l
-`
+
+```
 ```
 === ALL sync-conflict / syncthing temp files in CSCI 4061 folder ===
 20_Progress/Degree/CSCI 4061/CSCI 4061 Board.[REDACTED].md
@@ -3453,13 +3629,16 @@ find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syn
 === count ===
 7
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 for f in "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" "20_Progress/Degree/CSCI 4061/Preparation.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"; do
   echo "=== $f ==="
   git log --oneline -- "$f" | head -8
   echo
 done
-`
+
+```
 ```
 === 20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md ===
 f2e4aa71 auto: 2026-09-25 16:16 | 24 files
@@ -3495,12 +3674,15 @@ f2e4aa71 auto: 2026-09-25 16:16 | 24 files
 016b16cf auto: 2026-09-20 22:06 | 168 files
 b4981c6e Build 7: catch up Jarvis git history to live vault state on the Acer
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== 70fdbb4f (14:03) files touched ==="
 git show --stat 70fdbb4f | head -30
 echo "=== c595ff1f (13:18) files touched ==="
 git show --stat c595ff1f | head -30
-`
+
+```
 ```
 === 70fdbb4f (14:03) files touched ===
 commit [REDACTED]
@@ -3548,7 +3730,9 @@ Date:   Thu Oct 1 13:18:03 2026 -0500
  ...0 Jarvis vault plugins documentation batch 3.md |  46 +++
  16 files changed, 905 insertions(+), 1426 deletions(-)
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== Lab-3 @ c595ff1f (13:18) - line count and first 5 lines ==="
 git show c595ff1f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | wc -l
 git show c595ff1f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -5
@@ -3561,7 +3745,8 @@ head -5 "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md"
 echo "=== HEAD (latest commit) ==="
 git log -1 --oneline
 git show HEAD:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" 2>&1 | wc -l
-`
+
+```
 ```
 === Lab-3 @ c595ff1f (13:18) - line count and first 5 lines ===
 31
@@ -3588,14 +3773,17 @@ created:
 836aa2d5 Auto-sync: 2026-10-02 16:03,  4 files changed, 429 insertions(+), 80 deletions(-)
 31
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== 836aa2d5 full info ==="
 git show --stat 836aa2d5 | head -20
 echo "=== parents ==="
 git log -1 --format="%H %P" 836aa2d5
 echo "=== commit log around it ==="
 git log --oneline -8
-`
+
+```
 ```
 === 836aa2d5 full info ===
 commit [REDACTED]
@@ -3621,7 +3809,9 @@ ece225c4 Auto-sync: 2026-10-02 12:48,  14 files changed, 257 insertions(+), 89 d
 9bb3b386 Auto-sync: 2026-10-02 12:03,  1 file changed, 84 insertions(+), 15 deletions(-)
 591d0859 Auto-sync: 2026-10-02 11:03,  2 files changed, 89 insertions(+)
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== current contents of Concepts/Projects ==="
 ls -la "20_Progress/Degree/CSCI 4061/Concepts/Projects" 2>&1
 echo "=== git log for anything ever inside that path ==="
@@ -3630,7 +3820,8 @@ echo "=== does Projects/Project - 1 Assignment.md (real folder, not Concepts/) h
 wc -l "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" 2>&1
 echo "=== any file anywhere in vault with Project-1-like content, modified recently ==="
 git log --all --oneline --diff-filter=A -- "**/Project*1*" 2>&1 | head -20
-`
+
+```
 ```
 === current contents of Concepts/Projects ===
 total 4
@@ -3663,7 +3854,9 @@ eba44b29 auto: 2026-06-13 15:00 | 31 files
 c3789d1c auto: 2026-06-12 15:53 | 27 files
 c649abb5 auto: 2026-06-12 12:50 | 25 files
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== current Projects/ folder listing ==="
 ls -la "20_Progress/Degree/CSCI 4061/Projects" 2>&1
 echo "=== git log on exact Project-1-Assignment path ==="
@@ -3672,7 +3865,8 @@ echo "=== git log on exact Project-1-Board path ==="
 git log --oneline -- "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" 2>&1
 echo "=== whole CSCI 4061 folder current listing (top 2 levels) ==="
 find "20_Progress/Degree/CSCI 4061" -maxdepth 2 2>&1
-`
+
+```
 ```
 === current Projects/ folder listing ===
 ls: cannot access '20_Progress/Degree/CSCI 4061/Projects': No such file or directory
@@ -3713,7 +3907,9 @@ ls: cannot access '20_Progress/Degree/CSCI 4061/Projects': No such file or direc
 20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md
 20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.[REDACTED].md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== Obsidian .trash folder ==="
 find .trash -iname "*project*1*" 2>&1 | head -20
 find .trash -maxdepth 2 2>&1 | head -30
@@ -3722,7 +3918,8 @@ find . -maxdepth 2 -iname ".stversions" 2>&1
 find . -iname "*stversions*" -maxdepth 1 2>&1
 echo "=== search whole D: drive quickly for stversions ==="
 find "D:\_Anant" -maxdepth 3 -iname "*stversions*" 2>&1
-`
+
+```
 ```
 === Obsidian .trash folder ===
 find: '.trash': No such file or directory
@@ -3732,11 +3929,14 @@ find: '.trash': No such file or directory
 ./.stversions
 === search whole D: drive quickly for stversions ===
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*roject*" 2>&1
 echo "---"
 find ".stversions" -ipath "*CSCI 4061*Project*" 2>&1
-`
+
+```
 ```
 .stversions/20_Progress/Degree/CSCI 4061/Projects
 .stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md
@@ -3747,31 +3947,40 @@ find ".stversions" -ipath "*CSCI 4061*Project*" 2>&1
 .stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.stversions\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment~20261001-230200.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 wc -l ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md" ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md"
-`
+
+```
 ```
   340 .stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md
    33 .stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md
   373 total
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.stversions\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board~20261001-230200.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 mkdir -p "20_Progress/Degree/CSCI 4061/Projects"
 cp ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"
 cp ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md"
 echo "=== restored, verify ==="
 wc -l "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md"
-`
+
+```
 ```
 === restored, verify ===
   340 20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md
    33 20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md
   373 total
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 find ".stversions/20_Progress/Degree/CSCI 4061" -type f | sort
-`
+
+```
 ```
 .stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md
 .stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md
@@ -3791,7 +4000,9 @@ find ".stversions/20_Progress/Degree/CSCI 4061" -type f | sort
 .stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.[REDACTED]~20260929-210843.md
 .stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 for f in ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" \
   ".stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md" \
   ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md" \
@@ -3805,7 +4016,8 @@ for f in ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-2301
   ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md"; do
   echo "--- $f : $(wc -l < "$f") lines ---"
 done
-`
+
+```
 ```
 --- .stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md : 128 lines ---
 --- .stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md : 25 lines ---
@@ -3820,7 +4032,9 @@ done
 --- .stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md : 24 lines ---
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.stversions\20_Progress\Degree\CSCI 4061\Labs\Lab - 3~20261001-130359.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 for pair in \
   "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md|20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" \
   "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md|20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" \
@@ -3833,7 +4047,8 @@ for pair in \
   echo "=== $b ==="
   diff -q "$a" "$b" && echo "IDENTICAL" || wc -l "$a" "$b"
 done
-`
+
+```
 ```
 === 20_Progress/Degree/CSCI 4061/CSCI 4061 Board.[REDACTED].md ===
 Files '20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md' and '20_Progress/Degree/CSCI 4061/CSCI 4061 Board.[REDACTED].md' differ
@@ -3866,14 +4081,17 @@ Files '20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md' and '20_Progress/Deg
   28 20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.[REDACTED].md
   52 total
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== Chapter-1: stversions vs sync-conflict ==="
 diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" | head -30
 echo "=== Chapter-7: stversions vs sync-conflict ==="
 diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md" | head -30
 echo "=== Week-1: stversions vs sync-conflict ==="
 diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md"
-`
+
+```
 ```
 === Chapter-1: stversions vs sync-conflict ===
 5c5
@@ -3910,15 +4128,18 @@ diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 1~20261001-230154.m
 ---
 > next: "[[Week - 2]]"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== Textbook Map: stversions vs sync-conflict ==="
 diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Textbook Map~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md"
 echo "=== Weekly Board: stversions vs sync-conflict ==="
 diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md"
 echo "=== CSCI 4061 Board: stversions vs sync-conflict ==="
 diff ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
-`
+
 ```
+````
 === Textbook Map: stversions vs sync-conflict ===
 4c4
 < status: seed
@@ -3992,14 +4213,17 @@ diff ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.m
 < next: "Submit Project 1 (swish) to Gradescope before 2026-10-02 11:59pm, then live-capture Week 4's two lectures (9/29, 10/1)"
 ---
 > next: "Attend and live-capture Week 4's lectures (Tue 9/29, Thu 10/1) into [[Week - 4]], then finish Project 1 before its 10/2 deadline"
-```
+````
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.stversions\20_Progress\Degree\CSCI 4061\Concepts\Concepts Board~20261001-230200.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== current Concepts Board ==="
 cat "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md"
 echo "=== current Lab-2 vs archived ==="
 diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md"
-`
+
+```
 ```
 === current Concepts Board ===
 cat: '20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md': No such file or directory
@@ -4007,7 +4231,9 @@ cat: '20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md': No such file or 
 8d7
 <   - "[[UMN Board]]"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 # Files where my own last-session edit (stversions 230154) is correct and canonical
 cp ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
 cp ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
@@ -4022,7 +4248,8 @@ cp "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-1726
 cp "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
 echo "=== restored. verifying line counts ==="
 wc -l "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Preparation.md" "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
-`
+
+```
 ```
 === restored. verifying line counts ===
    128 20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md
@@ -4036,7 +4263,9 @@ wc -l "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI
     85 20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md
   1132 total
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== Week-2 current ==="
 wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md"
 head -3 "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md"
@@ -4048,7 +4277,8 @@ diff -q "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" ".stversions/20_Progre
 diff -q "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 3~20260929-210843.md"
 echo "=== Week-4 current vs archived 9/29 (should differ a LOT since real content landed since) ==="
 wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 4~20260929-210843.md"
-`
+
+```
 ```
 === Week-2 current ===
 97 20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md
@@ -4068,11 +4298,14 @@ Files '20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md' and '.stversions/20_Prog
    46 .stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 4~20260929-210843.md
    92 total
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 2~20260929-210843.md" | head -20
 echo "---"
 diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 3~20260929-210843.md" | head -20
-`
+
+```
 ```
 14c14
 < next: "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]]"
@@ -4084,7 +4317,9 @@ diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/
 ---
 > next: "[[Week - 4]]"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 rm "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
 rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md"
 rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"
@@ -4096,20 +4331,24 @@ echo "=== verify none remain ==="
 find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1
 echo "=== Chapter - 3.md still intact? (its conflict partner deleted) ==="
 wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"
-`
+
+```
 ```
 === verify none remain ===
 === Chapter - 3.md still intact? (its conflict partner deleted) ===
 293 20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== full CSCI 4061 folder tree, final state ==="
 find "20_Progress/Degree/CSCI 4061" -type f | sort
 echo "=== sanity: any remaining conflict/temp files anywhere in vault touching 4061? ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis" \( -iname "*4061*sync-conflict*" -o -iname "*sync-conflict*4061*" \) 2>&1
 echo "=== sanity: Chapter 4/8/10 still rich (untouched by this issue) ==="
 wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
-`
+
+```
 ```
 === full CSCI 4061 folder tree, final state ===
 20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md
@@ -4150,7 +4389,10 @@ wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree
    223 20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md
    614 total
 ```
-- `Bash` -- `mineru --help 2>&1 | head -60`
+- `Bash`
+```bash
+mineru --help 2>&1 | head -60
+```
 ```
  Usage: mineru [OPTIONS] COMMAND [ARGS]...                                     
                                                                                
@@ -4180,12 +4422,15 @@ wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree
 │ version     Print MinerU and Python versions.                               │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-- `Bash` -- `mineru parse --help 2>&1 | head -40
+- `Bash`
+```bash
+mineru parse --help 2>&1 | head -40
 echo "======"
 mineru read --help 2>&1 | head -30
 echo "======"
 mineru search --help 2>&1 | head -20
-`
+
+```
 ```
  Usage: mineru parse [OPTIONS] {path}                                          
                                                                                
@@ -4275,7 +4520,10 @@ mineru search --help 2>&1 | head -20
 │                                                 advanced                    │
 │ --min-tier          <flash|basic|standard|adva  Minimum search index tier:  │
 ```
-- `Bash` -- `mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec07.pdf" --tier flash --pages all 2>&1 | head -60`
+- `Bash`
+```bash
+mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec07.pdf" --tier flash --pages all 2>&1 | head -60
+```
 ```
 <!-- page 1 of 27 -->
 
@@ -4337,15 +4585,37 @@ CSCI 4061 Fall '26 (Kolb)
 
 4
 ```
-- `PowerShell` -- `{"command":"winget uninstall --id oschwartz10612.Poppler -e 2\u003e\u00261","description":"Uninstall the poppler package installed earlier this session","timeout":60000}`
-- `Bash` -- `rm -f "$TEMP/apue_full.txt" "$TEMP/w4prompt.txt" "$TEMP/w5prompt.txt"
+- `PowerShell`
+```powershell
+winget uninstall --id oschwartz10612.Poppler -e 2>&1
+```
+```
+Found Poppler [oschwartz10612.Poppler]
+Starting package uninstall...
+Successfully uninstalled
+```
+- `Bash`
+```bash
+rm -f "$TEMP/apue_full.txt" "$TEMP/w4prompt.txt" "$TEMP/w5prompt.txt"
 echo "cleaned temp extraction files"
-`
+
+```
 ```
 cleaned temp extraction files
 ```
-- `PowerShell` -- `{"command":"Test-Path \"C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe\"\nGet-Command pdftoppm -ErrorAction SilentlyContinue","description":"Confirm poppler package directory and PATH entries are gone"}`
-- `Bash` -- `mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec07.pdf" --tier flash --pages all 2>&1`
+- `PowerShell`
+```powershell
+Test-Path "C:\Users\anant\AppData\Local\Microsoft\WinGet\Packages\oschwartz10612.Poppler_Microsoft.Winget.Source_8wekyb3d8bbwe"
+Get-Command pdftoppm -ErrorAction SilentlyContinue
+```
+```
+Exit code 1
+False
+```
+- `Bash`
+```bash
+mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec07.pdf" --tier flash --pages all 2>&1
+```
 ```
 <!-- page 1 of 27 -->
 
@@ -4932,7 +5202,10 @@ CSCI 4061 Fall '26 (Kolb)
 
 27
 ```
-- `Bash` -- `mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec08.pdf" --tier flash --pages all 2>&1`
+- `Bash`
+```bash
+mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec08.pdf" --tier flash --pages all 2>&1
+```
 ```
 <!-- page 1 of 27 -->
 
@@ -5523,7 +5796,7 @@ CSCI 4061 Fall '26 (Kolb)
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture\lecture07-code\dir_size.c`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture\lecture08-code\single_pipe.c`
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Chapter - 15.md`
-```
+````
 ---
 type: class
 input_kind: book
@@ -5641,7 +5914,7 @@ Calling `shmdt()` on an attached segment - does this delete the shared memory?::
 What does `MAP_ANON` let a program skip compared to the `/dev/zero`-mapping technique for shared memory?::`MAP_ANON` (with `fd = -1`) creates the same zero-filled, `fork()`-inheritable shared region directly, without ever calling `open()`/`close()` on `/dev/zero` first - one fewer real file descriptor in play for the identical result.
 Project 2 requires an array of pipes rather than one shared pipe - what's the actual indexing pattern?::For `n` pipes, allocate `2*n` file descriptors; initializing pipe `i` is `pipe(pipe_fds + 2*i)`, after which `pipe_fds[2*i]` is that pipe's read end and `pipe_fds[2*i + 1]` is its write end - pointer arithmetic selecting which two-slot block belongs to pipe `i`.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Week - 4.md`
 ```
 ---
@@ -5745,82 +6018,84 @@ What's the real difference between what a hard link and a symbolic link actually
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly\Weekly Board.md`
 ```diff
 - updated: 2026-09-29
-tags:
-  - moc
-notes:
-  - "[[CSCI 4061 Board]]"
-next: "Live-capture Week 4's real lectures (9/29, 10/1) once they happen - all six chapter notes are now source-checked, so no textbook-side gap remains"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-- [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked.
-- [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], now source-checked in Build 2.
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], both now source-checked in Build 2.
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
-Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. The textbook-side gap flagged after Build 1 is now closed: all six landed chapter notes ([[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]) are source-checked against the textbook PDF as of Build 2 (2026-09-29) - the "provisional" language in Weeks 2-3's own Connections sections is now stale and should be read as resolved.
+- tags:
+-   - moc
+- notes:
+-   - "[[CSCI 4061 Board]]"
+- next: "Live-capture Week 4's real lectures (9/29, 10/1) once they happen - all six chapter notes are now source-checked, so no textbook-side gap remains"
+- ---
+- # CSCI 4061 — Weekly Board
+- Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
+- ## Map
+- - [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked.
+- - [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], now source-checked in Build 2.
+- - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], both now source-checked in Build 2.
+- - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]] - **pre-lecture scaffold only**, built 2026-09-29 before that week's lectures (9/29, 10/1) happen. No `Lec07`/`Lec08` exists in the source folder yet. Fill the real `## Lecture` capture live once class happens, per [[Weekly Standard]]'s lifecycle rule.
+- Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
+- ## Status
+- 4 of 15 weeks now have notes as of 2026-09-29 - Weeks 1-3 captured and reconciled, Week 4 a pre-lecture scaffold awaiting real lecture. The weekly layer is **current, not ahead**: it tracks exactly through the last lecture that has actually happened (9/24), with Week 4 honestly marked incomplete rather than backfilled. The earliest real gap is Week 4's live lecture capture, due once 9/29's and 10/1's lectures happen. The textbook-side gap flagged after Build 1 is now closed: all six landed chapter notes ([[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]) are source-checked against the textbook PDF as of Build 2 (2026-09-29) - the "provisional" language in Weeks 2-3's own Connections sections is now stale and should be read as resolved.
 + updated: 2026-10-02
-tags:
-  - moc
-notes:
-  - "[[CSCI 4061 Board]]"
-next: "Live-capture Week 5 (IPC: shared memory, finish pipes) once its lectures happen"
----
-# CSCI 4061 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
-## Map
-- [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked.
-- [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], now source-checked in Build 2.
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], both now source-checked in Build 2.
-- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]] - captured and reconciled. Lec07 (9/29, file systems: i-nodes, directories, hard/symbolic links) and Lec08 (10/1, IPC: `pipe()`, descriptor-close semantics, FIFOs previewed early), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] and the newly-landed [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]] (§15.1-15.2).
-Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
-## Status
-4 of 15 weeks fully captured and reconciled (Weeks 1-4) as of 2026-10-02. Weekly layer is **current** through Week 4; the earliest incomplete week is Week 5 (IPC: shared memory, §15.9 - that extension to [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]] has already landed on the textbook side, but no Week 5 weekly note exists yet since its lectures haven't happened). All seven landed chapter notes ([[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]]) are source-checked against the textbook PDF.
++ tags:
++   - moc
++ notes:
++   - "[[CSCI 4061 Board]]"
++ next: "Live-capture Week 5 (IPC: shared memory, finish pipes) once its lectures happen"
++ ---
++ # CSCI 4061 — Weekly Board
++ Index of this course's week-by-week synthesis notes. [[CSCI 4061 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
++ ## Map
++ - [[Week - 1]] - captured and reconciled. Lec01 (9/8, course intro/OS framing) and Lec02 (9/10, `_start()`/memory layout/`fork`/`exec`/`wait`), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], both source-checked.
++ - [[Week - 2]] - captured and reconciled. Lec03 (9/15) and Lec04 (9/17), low-level I/O (`open`/`read`/`write`), file permissions, the fd-table/system-file-table/inode chain, `dup2`/redirection, and pipes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], now source-checked in Build 2.
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]] - captured and reconciled. Lec05 (9/22) and Lec06 (9/24), signals end-to-end plus an early preview of file systems/i-nodes. Cites [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], both now source-checked in Build 2.
++ - [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]] - captured and reconciled. Lec07 (9/29, file systems: i-nodes, directories, hard/symbolic links) and Lec08 (10/1, IPC: `pipe()`, descriptor-close semantics, FIFOs previewed early), synthesized against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] and the newly-landed [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]] (§15.1-15.2).
++ Each week follows [[Weekly Standard]], cross-referenced against the reading assignments in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]].
++ ## Status
++ 4 of 15 weeks fully captured and reconciled (Weeks 1-4) as of 2026-10-02. Weekly layer is **current** through Week 4; the earliest incomplete week is Week 5 (IPC: shared memory, §15.9 - that extension to [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]] has already landed on the textbook side, but no Week 5 weekly note exists yet since its lectures haven't happened). All seven landed chapter notes ([[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]]) are source-checked against the textbook PDF.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - updated: 2026-09-29
-area:
-  - "[[CSCI 4061 Board]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next: "All six landed chapter notes are now source-checked - create Chapter 15 (Pipes, §15.1-15.2) once Week 4's real lectures happen"
----
+- area:
+-   - "[[CSCI 4061 Board]]"
+- tags:
+-   - "#class"
+-   - "#Textbook"
+- next: "All six landed chapter notes are now source-checked - create Chapter 15 (Pipes, §15.1-15.2) once Week 4's real lectures happen"
+- ---
 + updated: 2026-10-02
-area:
-  - "[[CSCI 4061 Board]]"
-tags:
-  - "#class"
-  - "#Textbook"
-next: "Extend Chapter 15 past §15.9 (Message Queues §15.7, Semaphores §15.8) only if a future week's reading actually assigns them - not assigned as of Week 5"
----
++ area:
++   - "[[CSCI 4061 Board]]"
++ tags:
++   - "#class"
++   - "#Textbook"
++ next: "Extend Chapter 15 past §15.9 (Message Queues §15.7, Semaphores §15.8) only if a future week's reading actually assigns them - not assigned as of Week 5"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook\Textbook Map.md`
 ```diff
 - - **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. Chapter 4 (source-checked) covers the file-systems half; no note exists yet for §15.1-15.2 (Pipes) - Chapter 15 is the next chapter note this course needs, once Week 4's own lectures actually happen.
-- **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
-- **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
-- **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
-- **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
-- **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
-All six landed chapter notes (Chapters 1, 3, 4, 7, 8, 10) are now source-checked against the textbook PDF as of 2026-09-29 (Build 1 covered Chapters 1 and 7; Build 2 covered Chapters 3, 4, 8, and 10), matching Weeks 1-4's reading in full. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
+- - **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. No chapter note yet.
+- - **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
+- - **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
+- - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
+- - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
+- All six landed chapter notes (Chapters 1, 3, 4, 7, 8, 10) are now source-checked against the textbook PDF as of 2026-09-29 (Build 1 covered Chapters 1 and 7; Build 2 covered Chapters 3, 4, 8, and 10), matching Weeks 1-4's reading in full. Chapters for Weeks 5+ are created as their weeks are actually covered, per [[Weekly Standard]].
 + - **Ch 4, 15.1-15.2** - Week 4: File systems continued, IPC pipes. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter 4]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter 15]] (§15.1-15.2) are both landed and source-checked.
-- **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter 15]] already covers §15.9 (landed ahead of this week, since Gemini Notebook built both parts back to back) - no further textbook production needed for Week 5 unless the real lecture reveals a gap.
-- **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
-- **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
-- **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
-- **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
-All seven landed chapter notes (Chapters 1, 3, 4, 7, 8, 10, 15) are now source-checked against the textbook PDF as of 2026-10-02, matching Weeks 1-5's reading in full. Chapters for Weeks 6+ are created as their weeks are actually covered, per [[Weekly Standard]].
++ - **15.1, 15.2, 15.9** - Week 5: IPC pipes and shared memory. [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter 15]] already covers §15.9 (landed ahead of this week, since Gemini Notebook built both parts back to back) - no further textbook production needed for Week 5 unless the real lecture reveals a gap.
++ - **15.9, 14.4** - Week 6: Finish IPC/multiplexed I/O, systems programming in Python and C/Python interop. No chapter note yet.
++ - **Ch 11** - Week 7: Threads, basic synchronization. No chapter note yet.
++ - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking. No chapter note yet.
++ - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP. No chapter note yet.
++ All seven landed chapter notes (Chapters 1, 3, 4, 7, 8, 10, 15) are now source-checked against the textbook PDF as of 2026-10-02, matching Weeks 1-5's reading in full. Chapters for Weeks 6+ are created as their weeks are actually covered, per [[Weekly Standard]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\CSCI 4061 Board.md`
 ```diff
 - next: "Submit Project 1 (swish) to Gradescope before 2026-10-02 11:59pm, then live-capture Week 4's two lectures (9/29, 10/1)"
 + next: "Submit Project 1 (swish) to Gradescope before 2026-10-02 11:59pm, then sign up for the oral exam slot - Week 4 is fully captured"
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
 echo "=== any new conflict/temp files? ==="
 find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1
 echo "=== CSCI 4061 Board current - does my edit survive? ==="
@@ -5829,7 +6104,8 @@ echo "=== full folder listing, final ==="
 find "20_Progress/Degree/CSCI 4061" -type f | sort | wc -l
 echo "=== git status, uncommitted working tree changes ==="
 git status --short "20_Progress/Degree/CSCI 4061" "30_Order/Templates/Classes/Concept Template.md" "30_Order/Standards/Courses/Concept Standard.md" "20_Progress/Degree/Repetitive Things.md" 2>&1 | head -40
-`
+
+```
 ```
 === any new conflict/temp files? ===
 === CSCI 4061 Board current - does my edit survive? ===
@@ -5887,7 +6163,10 @@ The note itself is just a thin wrapper right now, exactly as you asked — the r
 ### Tool Calls
 
 - `ToolSearch` -- `{"query":"WebFetch","max_results":3}`
-- `Bash` -- `find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" -type f 2>&1`
+- `Bash`
+```bash
+find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" -type f 2>&1
+```
 ```
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/job_list.c
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/job_list.h
@@ -5971,17 +6250,20 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.h`
-- `Glob` -- pattern `20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code.md` path ``
+- `Glob` -- pattern `20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code.md` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Code.md`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\job_list.h`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\string_vector.h`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-find . -iname "Pasted image 20261002170339.png" 2>&1`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
+find . -iname "Pasted image 20261002170339.png" 2>&1
+```
 ```
 ./Pasted image 20261002170339.png
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Code.md`
-```
+````
 ---
 type: class
 input_kind: project
@@ -6071,7 +6353,7 @@ This is a long, multi-file agentic task — give the user real progress updates 
 </done_conditions>
 ```
 
-```
+````
 
 ## You
 
@@ -6181,9 +6463,12 @@ All seven tasks are implemented correctly against the real spec, scope disciplin
 
 ### Tool Calls
 
-- `Bash` -- `echo "=== recursive diff of entire original vs worked directory ==="
+- `Bash`
+```bash
+echo "=== recursive diff of entire original vs worked directory ==="
 diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1
-`
+
+```
 ```
 === recursive diff of entire original vs worked directory ===
 Only in 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code': job_list.o
@@ -6198,13 +6483,16 @@ Only in 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\pr
 Only in 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/test_cases/input': __barecd.txt
 Only in 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/test_cases': out.txt
 ```
-- `Bash` -- `echo "=== stray test_cases file check ==="
+- `Bash`
+```bash
+echo "=== stray test_cases file check ==="
 cat "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\__barecd.txt" 2>&1
 echo "---"
 cat "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\out.txt" 2>&1
 echo "=== Makefile zip target (does it sweep in test_cases/ or only swish.c/swish_funcs.c?) ==="
 grep -n -A5 "^zip" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile"
-`
+
+```
 ```
 === stray test_cases file check ===
 @> cd
@@ -6222,10 +6510,13 @@ slow_write.c
 51-	@if (( $$(stat -c '%s' $(AN)-code.zip) > 10*(2**20) )); then echo "WARNING: $(AN)-code.zip seems REALLY big, check there are no abnormally large test files"; du -h $(AN)-code.zip; fi
 52-	@if (( $$(unzip -t $(AN)-code.zip | wc -l) > 256 )); then echo "WARNING: $(AN)-code.zip has 256 or more files in it which may cause submission problems"; fi
 ```
-- `Bash` -- `grep -n -A5 "^clean-tests" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile"
+- `Bash`
+```bash
+grep -n -A5 "^clean-tests" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile"
 echo "=== test_swish.json - is __barecd.txt referenced by any real test? ==="
 grep -n "barecd" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1
-`
+
+```
 ```
 44:clean-tests:
 45-	rm -rf test_results out.txt out2.txt test_cases/out.txt
@@ -6235,7 +6526,10 @@ grep -n "barecd" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Pr
 49-	cd .. && zip "$(CWD)/$(AN)-code.zip" -r "$(CWD)" -x "$(CWD)/test_cases/*" "$(CWD)/slow_write" "$(CWD)/.git/*"
 === test_swish.json - is __barecd.txt referenced by any real test? ===
 ```
-- `Bash` -- `diff -u "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original\swish.c" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c"`
+- `Bash`
+```bash
+diff -u "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original\swish.c" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c"
+```
 ```
 --- "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-original\\swish.c"	2026-10-02 17:27:41.233153900 -0500
 +++ "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-code\\swish.c"	2026-10-02 17:25:33.005547900 -0500
@@ -6386,7 +6680,10 @@ grep -n "barecd" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Pr
  
          strvec_clear(&tokens);
 ```
-- `Bash` -- `diff -u "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original\swish_funcs.c" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c"`
+- `Bash`
+```bash
+diff -u "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original\swish_funcs.c" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c"
+```
 ```
 --- "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-original\\swish_funcs.c"	2026-10-02 17:27:41.236152900 -0500
 +++ "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj1-code\\swish_funcs.c"	2026-10-02 17:25:04.064282700 -0500
@@ -6637,26 +6934,32 @@ grep -n "barecd" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Pr
 ```
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\string_vector.c`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\job_list.c`
-- `Bash` -- `grep -c '"&"' "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1
+- `Bash`
+```bash
+grep -c '"&"' "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1
 echo "---checking if any test's input is literally just &---"
 grep -rn "^&$" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\" 2>&1
 echo "=== WSL available? ==="
 wsl.exe --status 2>&1 | head -5
 which gcc 2>&1
-`
+
+```
 ```
 Exit code 2
 0
 ---checking if any test's input is literally just &---
 /usr/bin/bash: eval: line 4: unexpected EOF while looking for matching `"'
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 grep -l '^&$' test_cases/input/*.txt 2>&1
 echo "exit=$?"
 echo "=== gcc check ==="
 command -v gcc 2>&1
 wsl.exe -e bash -lc "gcc --version" 2>&1 | head -3
-`
+
+```
 ```
 exit=1
 === gcc check ===
@@ -6665,7 +6968,10 @@ Copyright (C) 2023 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean && make 2>&1"`
+- `Bash`
+```bash
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean && make 2>&1"
+```
 ```
 rm -f *.o swish slow_write
 gcc -Wall -Werror -g -c swish.c
@@ -6675,7 +6981,10 @@ gcc -Wall -Werror -g -c swish_funcs.c
 gcc -Wall -Werror -g -o swish swish.o string_vector.o job_list.o swish_funcs.o
 gcc -Wall -Werror -g -o slow_write test_cases/resources/slow_write.c
 ```
-- `Bash` -- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && cat Makefile | head -45 && echo '---testius check---' && command -v testius; which python3; python3 --version"`
+- `Bash`
+```bash
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && cat Makefile | head -45 && echo '---testius check---' && command -v testius; which python3; python3 --version"
+```
 ```
 # SPDX-FileCopyrightText: John Kolb <jhkolb@umn.edu>
 # SPDX-License-Identifier: GPL-3.0-or-later
@@ -6726,13 +7035,19 @@ clean-tests:
 /usr/bin/python3
 Python 3.12.3
 ```
-- `Bash` -- `wsl.exe -e bash -lc "pip3 show testius 2>&1; pip3 install testius 2>&1 | tail -5"`
+- `Bash`
+```bash
+wsl.exe -e bash -lc "pip3 show testius 2>&1; pip3 install testius 2>&1 | tail -5"
+```
 ```
 bash: line 1: pip3: command not found
 bash: line 1: pip3: command not found
 ```
-- `Bash` -- `cd "/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code" 2>/dev/null
-wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\nexit\n' | ./swish; echo EXITCODE=\$?"`
+- `Bash`
+```bash
+cd "/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code" 2>/dev/null
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\nexit\n' | ./swish; echo EXITCODE=\$?"
+```
 ```
 hello
 11
@@ -6743,18 +7058,24 @@ tpgrp: Inappropriate ioctl for device
 tcsetpgrp: Inappropriate ioctl for device
 tcsetpgrp: Inappropriate ioctl for device
 ```
-- `Bash` -- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf '&\necho after\nexit\n' | ./swish; echo EXITCODE=\$?"`
+- `Bash`
+```bash
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf '&\necho after\nexit\n' | ./swish; echo EXITCODE=\$?"
+```
 ```
 after
 @> @> @> EXITCODE=0
 octl for device
 tcsetpgrp: Inappropriate ioctl for device
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
 find . -maxdepth 2 -iname "*.py" -o -iname "*harness*" -o -iname "*verify*" 2>&1
 echo "=== check whole proj1-code and proj1-original parents for any stray harness script ==="
 find .. -maxdepth 2 -newer Makefile -type f 2>&1 | grep -v "\.o$\|proj1-code/\|proj1-original/"
-`
+
+```
 ```
 === check whole proj1-code and proj1-original parents for any stray harness script ===
 ../[REDACTED]/job_list.c
@@ -6768,9 +7089,12 @@ find .. -maxdepth 2 -newer Makefile -type f 2>&1 | grep -v "\.o$\|proj1-code/\|p
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Code.md`
-- `Bash` -- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && echo HOME=\$HOME && printf 'cd\npwd\nexit\n' | ./swish"
+- `Bash`
+```bash
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && echo HOME=\$HOME && printf 'cd\npwd\nexit\n' | ./swish"
 echo "=== append test ==="
-wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/appendtest.txt && printf 'echo first > /tmp/appendtest.txt\necho second >> /tmp/appendtest.txt\ncat /tmp/appendtest.txt\nexit\n' | ./swish"`
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/appendtest.txt && printf 'echo first > /tmp/appendtest.txt\necho second >> /tmp/appendtest.txt\ncat /tmp/appendtest.txt\nexit\n' | ./swish"
+```
 ```
 HOME=/home/anant_gupta
 @> @> /home/anant_gupta
@@ -6784,8 +7108,11 @@ tcsetpgrp: Inappropriate ioctl for device
 tcsetpgrp: Inappropriate ioctl for device
 tcsetpgrp: Inappropriate ioctl for device
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-grep -n -A10 "^## Work Log" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis"
+grep -n -A10 "^## Work Log" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"
+```
 ```
 334:## Work Log
 335-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
@@ -6799,12 +7126,15 @@ grep -n -A10 "^## Work Log" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 A
 343-<!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
 344-- What failed first?
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects"
 ls -la --time-style=full-iso "proj1-cod_for_Team_peoject" 2>&1 | head -3
 stat -c '%y %n' "proj1-cod_for_Team_peoject/swish.c" 2>&1
 echo "=== diff that folder's swish.c against the ORIGINAL (untouched) baseline, to see if it's pristine or modified ==="
 diff -q "proj1-original/swish.c" "proj1-cod_for_Team_peoject/swish.c" 2>&1
-`
+
+```
 ```
 total 36
 drwxr-xr-x 1 anant 197609    0 2026-10-02 17:52:12.566185200 -0500 .
@@ -6813,10 +7143,13 @@ drwxr-xr-x 1 anant 197609    0 2026-10-02 17:52:21.320057700 -0500 ..
 === diff that folder's swish.c against the ORIGINAL (untouched) baseline, to see if it's pristine or modified ===
 Files proj1-original/swish.c and [REDACTED]/swish.c differ
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects"
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects"
 diff -q "proj1-code/swish.c" "proj1-cod_for_Team_peoject/swish.c" 2>&1
 diff -q "proj1-code/swish_funcs.c" "proj1-cod_for_Team_peoject/swish_funcs.c" 2>&1
-echo "exit=$?"`
+echo "exit=$?"
+```
 ```
 Files proj1-code/swish.c and [REDACTED]/swish.c differ
 Files proj1-code/swish_funcs.c and [REDACTED]/swish_funcs.c differ
@@ -6913,48 +7246,51 @@ You're fully set to run the checklist and submit.
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c`
 ```diff
 -             if (child_pid == -1) {
-                // Per the Error Handling Strategy: a fork() failure is unrelated to any
-                // specific user command, so clean up and return a failure value instead
-                // of re-prompting.
-                perror("fork");
-                strvec_clear(&tokens);
-                job_list_free(&jobs);
-                return 1;
-            } else if (child_pid == 0) {
-                if (run_command(&tokens) == -1) {
-                    // run_command() already printed the relevant perror(). Don't run two
-                    // swish processes: terminate this child immediately.
-                    return 1;
-                }
+-                 // Per the Error Handling Strategy: a fork() failure is unrelated to any
+-                 // specific user command, so clean up and return a failure value instead
+-                 // of re-prompting.
+-                 perror("fork");
+-                 strvec_clear(&tokens);
+-                 job_list_free(&jobs);
+-                 return 1;
+-             } else if (child_pid == 0) {
+-                 if (run_command(&tokens) == -1) {
+-                     // run_command() already printed the relevant perror(). Don't run two
+-                     // swish processes: terminate this child immediately.
+-                     return 1;
+-                 }
 +             if (child_pid == -1) {
-                // fork has failed, no child created
-                perror("fork");
-                strvec_clear(&tokens);
-                job_list_free(&jobs);
-                return 1;
-            } else if (child_pid == 0) {
-                if (run_command(&tokens) == -1) {
-                    // run_command() only returns on failure
-                    return 1;
-                }
++                 // fork has failed, no child created
++                 perror("fork");
++                 strvec_clear(&tokens);
++                 job_list_free(&jobs);
++                 return 1;
++             } else if (child_pid == 0) {
++                 if (run_command(&tokens) == -1) {
++                     // run_command() only returns on failure
++                     return 1;
++                 }
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 -     // Simplifying assumption (Task 3): redirection tokens only ever appear after
-    // the program name and its arguments, so the earliest one present marks where
-    // the real argument list ends.
-    int redir_start = (int)tokens->length;
+-     // the program name and its arguments, so the earliest one present marks where
+-     // the real argument list ends.
+-     int redir_start = (int)tokens->length;
 +     // redirection tokens always come after the real arguments
-    int redir_start = (int)tokens->length;
++     int redir_start = (int)tokens->length;
 ```
 - `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c`
 ```diff
 -     // Simplifying assumption (Task 3): only one of '>' or '>>' is ever present.
-    if (output_idx != -1 || append_idx != -1) {
+-     if (output_idx != -1 || append_idx != -1) {
 +     // only one of '>' or '>>' can be present
-    if (output_idx != -1 || append_idx != -1) {
++     if (output_idx != -1 || append_idx != -1) {
 ```
-- `Bash` -- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean && make 2>&1"`
+- `Bash`
+```bash
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean && make 2>&1"
+```
 ```
 rm -f *.o swish slow_write
 gcc -Wall -Werror -g -c swish.c
@@ -6964,7 +7300,10 @@ gcc -Wall -Werror -g -c swish_funcs.c
 gcc -Wall -Werror -g -o swish swish.o string_vector.o job_list.o swish_funcs.o
 gcc -Wall -Werror -g -o slow_write test_cases/resources/slow_write.c
 ```
-- `Bash` -- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\ncd\npwd\nexit\n' | ./swish 2>/dev/null; echo EXITCODE=\$?"`
+- `Bash`
+```bash
+wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\ncd\npwd\nexit\n' | ./swish 2>/dev/null; echo EXITCODE=\$?"
+```
 ```
 hello
 12
@@ -6973,8 +7312,11 @@ hello
 @> @> @> @> @> /home/anant_gupta
 @> EXITCODE=0
 ```
-- `Bash` -- `diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1 | grep -v "\.o$\|slow_write\b\|swish$\|out\.txt\|__barecd"
-echo "=== confirmed: only swish.c/swish_funcs.c differ from the original, scope intact ==="`
+- `Bash`
+```bash
+diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1 | grep -v "\.o$\|slow_write\b\|swish$\|out\.txt\|__barecd"
+echo "=== confirmed: only swish.c/swish_funcs.c differ from the original, scope intact ==="
+```
 ```
 Files 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original/swish.c' and 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/swish.c' differ
 Files 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original/swish_funcs.c' and 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code/swish_funcs.c' differ
@@ -6984,100 +7326,103 @@ Files 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
 ```diff
 - updated: 2026-10-01
-tags:
-  - moc
-notes:
-  - "[[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment|Project - 1 Assignment]]"
-next: "Run make zip inside the real course Docker container and submit to Gradescope before 11:59pm 2026-10-02"
----
+- tags:
+-   - moc
+- notes:
+-   - "[[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment|Project - 1 Assignment]]"
+- next: "Run make zip inside the real course Docker container and submit to Gradescope before 11:59pm 2026-10-02"
+- ---
 + updated: 2026-10-02
-tags:
-  - moc
-notes:
-  - "[[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment|Project - 1 Assignment]]"
-next: "Run the Final Submission Checklist below inside the real course Docker container, then submit to Gradescope before 11:59pm 2026-10-02"
----
++ tags:
++   - moc
++ notes:
++   - "[[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment|Project - 1 Assignment]]"
++ next: "Run the Final Submission Checklist below inside the real course Docker container, then submit to Gradescope before 11:59pm 2026-10-02"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Board.md`
-```diff
+````diff
 - ## Verification Notes
-Built clean under `-Wall -Werror` (WSL2 Ubuntu 24.04, gcc 13.3.0) and all 32 provided test cases replayed against the real compiled binary over a real pty, matching expected output — `testius` itself wasn't available in this environment, so verification used a hand-written `pty`-based Python harness instead. Not yet run inside the actual course Docker container or against the real Gradescope autograder; "Passing locally" means this specific build and test replay, not a Gradescope confirmation. Full mechanism-level writeup: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
+- Built clean under `-Wall -Werror` (WSL2 Ubuntu 24.04, gcc 13.3.0) and all 32 provided test cases replayed against the real compiled binary over a real pty, matching expected output — `testius` itself wasn't available in this environment, so verification used a hand-written `pty`-based Python harness instead. Not yet run inside the actual course Docker container or against the real Gradescope autograder; "Passing locally" means this specific build and test replay, not a Gradescope confirmation. Full mechanism-level writeup: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
 + ## Verification Notes
-Built clean under `-Wall -Werror` (WSL2 Ubuntu 24.04, gcc 13.3.0) and all 32 provided test cases replayed against the real compiled binary over a real pty, matching expected output — `testius` itself wasn't available in this environment, so verification used a hand-written `pty`-based Python harness instead. Not yet run inside the actual course Docker container or against the real Gradescope autograder; "Passing locally" means this specific build and test replay, not a Gradescope confirmation. Full mechanism-level writeup: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
-**Independent audit (2026-10-02):** diffed the full working tree against the untouched `proj1-original` baseline — confirmed only `swish.c`/`swish_funcs.c` differ, only inside the marked TODO regions, every professor TODO comment survives word-for-word (only re-wrapped where re-indentation forced it), `job_list.*`/`string_vector.*`/`swish_funcs.h`/`Makefile` byte-identical to original. Independently rebuilt from scratch (clean, zero warnings) and re-ran the core flows (pwd/cd/redirection/append/bare-`cd`-to-`$HOME`) directly, not just via the harness. One real but low-risk edge case found and **deliberately left unfixed per explicit decision**: typing a bare `&` with no command is undefined behavior (`strvec_take` frees the string `first_token` still points at, `execvp(NULL, ...)` follows in the child) — confirmed via code trace and reproduced without a visible crash (classic UAF-on-recently-freed-tiny-allocation behavior). Not present in any of the 32 real test inputs; not worth the risk of a last-minute change this close to the deadline.
-**Style pass (2026-10-02):** rewrote the comment density in both edited files to match the professor's own voice, verified directly against his real lecture code (`lecture03-code/mini_shell.c`, `lecture04-code/fork_io.c`, `lecture05-code/block_sigint.c` and `ls_redirection.c`, `lecture07-code/dir_size.c`, `lecture08-code/single_pipe.c`) rather than guessed — his real pattern is near-comment-free, one short line only where genuinely non-obvious, never multi-line reasoning. Trimmed four spots that had explained *why* instead of stating the fact tersely; rebuilt and re-ran the smoke tests afterward to confirm zero behavior change from the comment-only edit.
-## Final Submission Checklist
-Run these inside the **real course Docker container** (this vault's own verification so far used a local WSL copy, not the container the autograder actually uses):
-```bash
-cd ~/csci4061-fa26/proj1-code   # adjust if your checkout path differs
-make clean
-make                             # confirm zero warnings/errors under -Wall -Werror
-make test                        # real testius run — confirm all cases pass in the actual container
-```
-Then manually re-check the two gaps the assignment itself says aren't covered by the provided tests:
-```bash
-./swish
-cd
-pwd                               # should print your real $HOME, not the shell's prior cwd
-exit
-```
-```bash
-./swish
-echo first > check.txt
-echo second >> check.txt
-cat check.txt                     # should show "first" then "second", not just "second"
-exit
-```
-Then package and eyeball before uploading:
-```bash
-make zip                          # runs clean + clean-tests automatically first
-unzip -l proj1-code.zip           # confirm swish.c/swish_funcs.c are present, nothing bloated
-```
-Upload `proj1-code.zip` to Gradescope, confirm the autograder score, then sign up for the individual oral exam slot.
-```
++ Built clean under `-Wall -Werror` (WSL2 Ubuntu 24.04, gcc 13.3.0) and all 32 provided test cases replayed against the real compiled binary over a real pty, matching expected output — `testius` itself wasn't available in this environment, so verification used a hand-written `pty`-based Python harness instead. Not yet run inside the actual course Docker container or against the real Gradescope autograder; "Passing locally" means this specific build and test replay, not a Gradescope confirmation. Full mechanism-level writeup: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
++ **Independent audit (2026-10-02):** diffed the full working tree against the untouched `proj1-original` baseline — confirmed only `swish.c`/`swish_funcs.c` differ, only inside the marked TODO regions, every professor TODO comment survives word-for-word (only re-wrapped where re-indentation forced it), `job_list.*`/`string_vector.*`/`swish_funcs.h`/`Makefile` byte-identical to original. Independently rebuilt from scratch (clean, zero warnings) and re-ran the core flows (pwd/cd/redirection/append/bare-`cd`-to-`$HOME`) directly, not just via the harness. One real but low-risk edge case found and **deliberately left unfixed per explicit decision**: typing a bare `&` with no command is undefined behavior (`strvec_take` frees the string `first_token` still points at, `execvp(NULL, ...)` follows in the child) — confirmed via code trace and reproduced without a visible crash (classic UAF-on-recently-freed-tiny-allocation behavior). Not present in any of the 32 real test inputs; not worth the risk of a last-minute change this close to the deadline.
++ **Style pass (2026-10-02):** rewrote the comment density in both edited files to match the professor's own voice, verified directly against his real lecture code (`lecture03-code/mini_shell.c`, `lecture04-code/fork_io.c`, `lecture05-code/block_sigint.c` and `ls_redirection.c`, `lecture07-code/dir_size.c`, `lecture08-code/single_pipe.c`) rather than guessed — his real pattern is near-comment-free, one short line only where genuinely non-obvious, never multi-line reasoning. Trimmed four spots that had explained *why* instead of stating the fact tersely; rebuilt and re-ran the smoke tests afterward to confirm zero behavior change from the comment-only edit.
++ ## Final Submission Checklist
++ Run these inside the **real course Docker container** (this vault's own verification so far used a local WSL copy, not the container the autograder actually uses):
++ ```bash
++ cd ~/csci4061-fa26/proj1-code   # adjust if your checkout path differs
++ make clean
++ make                             # confirm zero warnings/errors under -Wall -Werror
++ make test                        # real testius run — confirm all cases pass in the actual container
++ ```
++ Then manually re-check the two gaps the assignment itself says aren't covered by the provided tests:
++ ```bash
++ ./swish
++ cd
++ pwd                               # should print your real $HOME, not the shell's prior cwd
++ exit
++ ```
++ ```bash
++ ./swish
++ echo first > check.txt
++ echo second >> check.txt
++ cat check.txt                     # should show "first" then "second", not just "second"
++ exit
++ ```
++ Then package and eyeball before uploading:
++ ```bash
++ make zip                          # runs clean + clean-tests automatically first
++ unzip -l proj1-code.zip           # confirm swish.c/swish_funcs.c are present, nothing bloated
++ ```
++ Upload `proj1-code.zip` to Gradescope, confirm the autograder score, then sign up for the individual oral exam slot.
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 ```diff
 - - **2026-10-02:** Directly checked both of the assignment's own named Hidden Tests gaps rather than trusting the provided suite: bare `cd` lands in `$HOME`, and `>>` appends onto existing content rather than truncating it (verified with `echo first > f`, `echo second >> f`, `cat f` showing both lines over a real pty).
-- Full implementation record with per-task mechanism detail: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
+- - Full implementation record with per-task mechanism detail: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
 + - **2026-10-02:** Directly checked both of the assignment's own named Hidden Tests gaps rather than trusting the provided suite: bare `cd` lands in `$HOME`, and `>>` appends onto existing content rather than truncating it (verified with `echo first > f`, `echo second >> f`, `cat f` showing both lines over a real pty).
-- **2026-10-02:** Independent audit pass — diffed the full tree against the untouched `proj1-original` baseline (not just trusted the earlier self-report), confirmed scope discipline held, rebuilt from scratch and re-ran core behaviors directly. Found one real but low-risk edge case (bare `&` with no command triggers a use-after-free via `strvec_take()` freeing the string `first_token` still points at) — not present in any of the 32 real test inputs, and deliberately left unfixed per explicit decision rather than risk a change this close to the deadline.
-- **2026-10-02:** Style pass — read the professor's own lecture code (`mini_shell.c`, `fork_io.c`, `block_sigint.c`, `ls_redirection.c`, `dir_size.c`, `single_pipe.c`) directly to confirm his real commenting density (near-comment-free, one short line only where genuinely non-obvious) and trimmed four spots that had explained reasoning in multiple lines instead. Rebuilt and re-ran the smoke tests afterward — zero behavior change, confirmed by direct re-test, not assumed.
-- Full implementation record with per-task mechanism detail: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
++ - **2026-10-02:** Independent audit pass — diffed the full tree against the untouched `proj1-original` baseline (not just trusted the earlier self-report), confirmed scope discipline held, rebuilt from scratch and re-ran core behaviors directly. Found one real but low-risk edge case (bare `&` with no command triggers a use-after-free via `strvec_take()` freeing the string `first_token` still points at) — not present in any of the 32 real test inputs, and deliberately left unfixed per explicit decision rather than risk a change this close to the deadline.
++ - **2026-10-02:** Style pass — read the professor's own lecture code (`mini_shell.c`, `fork_io.c`, `block_sigint.c`, `ls_redirection.c`, `dir_size.c`, `single_pipe.c`) directly to confirm his real commenting density (near-comment-free, one short line only where genuinely non-obvious) and trimmed four spots that had explained reasoning in multiple lines instead. Rebuilt and re-ran the smoke tests afterward — zero behavior change, confirmed by direct re-test, not assumed.
++ - Full implementation record with per-task mechanism detail: [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]].
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Assignment.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Code.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects\Project - 1 Code.md`
 ```diff
 - ## Next Action
-Run `make zip` inside the actual course Docker container (this WSL copy is a correctness check, not the submission environment the autograder uses) and submit to Gradescope before the 11:59pm 2026-10-02 deadline, then sign up for the oral exam slot.
-
-## Open Questions
-- [ ] Confirm the real course container's `testius` run matches this manual verification exactly — it should, since the binary and the test replay logic are the same, but the container's `gcc`/`glibc` version could in principle differ from this WSL2 Ubuntu 24.04 copy.
-- [ ] Decide whether to keep the `getenv()`-driven `cd` NULL-`HOME` guard as-is or ask whether the TAs expect a specific behavior here, since the assignment doesn't name this exact edge case.
-
-## Log
-- **2026-10-02:** Implemented all seven tasks in `swish_funcs.c` (`tokenize`, `run_command`, `resume_job`, `await_background_job`, `await_all_background_jobs`) and `swish.c` (`pwd`/`cd` builtins, the combined fork/exec/wait/job-control `else` branch). Added `#include <stdlib.h>` to `swish.c` for `getenv()`. Built clean under `-Wall -Werror` via WSL2 gcc 13.3.0. Replayed all 32 provided test cases over a real pty with a custom Python harness (no `testius` available in this environment) — all matched. Directly verified both assignment-named hidden-test gaps (`cd` with no arg → `$HOME`, `>>` append-not-truncate) and a multi-second stop/background/wait-for sequence confirming `SIGCONT` resumes in place. Nothing run against Gradescope; no `make zip` created.
+- Run `make zip` inside the actual course Docker container (this WSL copy is a correctness check, not the submission environment the autograder uses) and submit to Gradescope before the 11:59pm 2026-10-02 deadline, then sign up for the oral exam slot.
+- 
+- ## Open Questions
+- - [ ] Confirm the real course container's `testius` run matches this manual verification exactly — it should, since the binary and the test replay logic are the same, but the container's `gcc`/`glibc` version could in principle differ from this WSL2 Ubuntu 24.04 copy.
+- - [ ] Decide whether to keep the `getenv()`-driven `cd` NULL-`HOME` guard as-is or ask whether the TAs expect a specific behavior here, since the assignment doesn't name this exact edge case.
+- 
+- ## Log
+- - **2026-10-02:** Implemented all seven tasks in `swish_funcs.c` (`tokenize`, `run_command`, `resume_job`, `await_background_job`, `await_all_background_jobs`) and `swish.c` (`pwd`/`cd` builtins, the combined fork/exec/wait/job-control `else` branch). Added `#include <stdlib.h>` to `swish.c` for `getenv()`. Built clean under `-Wall -Werror` via WSL2 gcc 13.3.0. Replayed all 32 provided test cases over a real pty with a custom Python harness (no `testius` available in this environment) — all matched. Directly verified both assignment-named hidden-test gaps (`cd` with no arg → `$HOME`, `>>` append-not-truncate) and a multi-second stop/background/wait-for sequence confirming `SIGCONT` resumes in place. Nothing run against Gradescope; no `make zip` created.
 + ## Independent Audit
-A second pass diffed the whole working tree against the untouched `proj1-original` baseline rather than trusting the implementation session's own report: confirmed only `swish.c`/`swish_funcs.c` differ, only inside marked TODO regions, `job_list.*`/`string_vector.*`/`swish_funcs.h`/`Makefile` byte-identical, every professor TODO comment intact word-for-word. Independently rebuilt from a clean checkout and re-ran the core flows directly (not just via the implementation's own harness). Found one real, low-risk defect: **typing a bare `&` with no command is undefined behavior.** `main()`'s `else` branch captures `first_token = strvec_get(&tokens, 0)` before checking for a trailing `&`; if the input is `&` alone, `strvec_take(&tokens, 0)` frees that exact string (`string_vector.c`'s own implementation frees every element from the given index onward), leaving `first_token` dangling right before it's passed to `job_list_add()` in the parent, while the forked child calls `execvp(NULL, args)`. Reproduced via direct test — no visible crash, consistent with a use-after-free on a tiny, just-freed allocation nothing has overwritten yet. Not present in any of the 32 real test inputs. **Left unfixed, per explicit decision** — not worth a change this close to the deadline for an input no real test or normal usage would ever produce.
-
-## Style Pass
-Read the professor's own code directly rather than guessing at his voice — `lecture03-code/mini_shell.c`, `lecture04-code/fork_io.c`, `lecture05-code/block_sigint.c` and `ls_redirection.c`, `lecture07-code/dir_size.c`, `lecture08-code/single_pipe.c`. His real pattern: almost no comments at all; where one exists, it's a single short line stating a fact ("fork has failed, no child created", "exec does not return on success"), never multiple lines explaining reasoning. Four spots in the implementation had drifted into that explaining-why style (the `fork()`-failure branch, the `run_command()`-failure branch, and two "Simplifying assumption" comments in `run_command()`'s redirection logic) — trimmed each to one short factual line, matching his real examples closely enough to cite them directly. The professor's own original TODO comments were never touched. Rebuilt and re-ran the same smoke tests afterward (`pwd`/`cd`/redirection/append/bare-`cd`) to confirm the comment-only edit changed nothing behaviorally — it didn't.
-
-## Next Action
-Run the Final Submission Checklist in [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board|Project - 1 Board]] inside the **actual course Docker container** (this WSL copy is a correctness check, not the submission environment the autograder uses), then submit to Gradescope before the 11:59pm 2026-10-02 deadline and sign up for the oral exam slot.
-
-## Open Questions
-- [ ] Confirm the real course container's `testius` run matches this manual verification exactly — it should, since the binary and the test replay logic are the same, but the container's `gcc`/`glibc` version could in principle differ from this WSL2 Ubuntu 24.04 copy.
-- [ ] Decide whether to keep the `getenv()`-driven `cd` NULL-`HOME` guard as-is or ask whether the TAs expect a specific behavior here, since the assignment doesn't name this exact edge case.
-- [ ] Bare-`&` use-after-free (see Independent Audit above) — left unfixed by explicit decision; revisit only if the oral exam or a TA raises it.
-
-## Log
-- **2026-10-02:** Implemented all seven tasks in `swish_funcs.c` (`tokenize`, `run_command`, `resume_job`, `await_background_job`, `await_all_background_jobs`) and `swish.c` (`pwd`/`cd` builtins, the combined fork/exec/wait/job-control `else` branch). Added `#include <stdlib.h>` to `swish.c` for `getenv()`. Built clean under `-Wall -Werror` via WSL2 gcc 13.3.0. Replayed all 32 provided test cases over a real pty with a custom Python harness (no `testius` available in this environment) — all matched. Directly verified both assignment-named hidden-test gaps (`cd` with no arg → `$HOME`, `>>` append-not-truncate) and a multi-second stop/background/wait-for sequence confirming `SIGCONT` resumes in place. Nothing run against Gradescope; no `make zip` created.
-- **2026-10-02:** Independent audit — diffed against `proj1-original`, rebuilt from scratch, re-ran core behaviors directly, found and documented the bare-`&` use-after-free (left unfixed by decision).
-- **2026-10-02:** Style pass — read the professor's own lecture code directly, trimmed four over-explained comments down to his real one-line-fact style, rebuilt and re-confirmed zero behavior change.
++ A second pass diffed the whole working tree against the untouched `proj1-original` baseline rather than trusting the implementation session's own report: confirmed only `swish.c`/`swish_funcs.c` differ, only inside marked TODO regions, `job_list.*`/`string_vector.*`/`swish_funcs.h`/`Makefile` byte-identical, every professor TODO comment intact word-for-word. Independently rebuilt from a clean checkout and re-ran the core flows directly (not just via the implementation's own harness). Found one real, low-risk defect: **typing a bare `&` with no command is undefined behavior.** `main()`'s `else` branch captures `first_token = strvec_get(&tokens, 0)` before checking for a trailing `&`; if the input is `&` alone, `strvec_take(&tokens, 0)` frees that exact string (`string_vector.c`'s own implementation frees every element from the given index onward), leaving `first_token` dangling right before it's passed to `job_list_add()` in the parent, while the forked child calls `execvp(NULL, args)`. Reproduced via direct test — no visible crash, consistent with a use-after-free on a tiny, just-freed allocation nothing has overwritten yet. Not present in any of the 32 real test inputs. **Left unfixed, per explicit decision** — not worth a change this close to the deadline for an input no real test or normal usage would ever produce.
++ 
++ ## Style Pass
++ Read the professor's own code directly rather than guessing at his voice — `lecture03-code/mini_shell.c`, `lecture04-code/fork_io.c`, `lecture05-code/block_sigint.c` and `ls_redirection.c`, `lecture07-code/dir_size.c`, `lecture08-code/single_pipe.c`. His real pattern: almost no comments at all; where one exists, it's a single short line stating a fact ("fork has failed, no child created", "exec does not return on success"), never multiple lines explaining reasoning. Four spots in the implementation had drifted into that explaining-why style (the `fork()`-failure branch, the `run_command()`-failure branch, and two "Simplifying assumption" comments in `run_command()`'s redirection logic) — trimmed each to one short factual line, matching his real examples closely enough to cite them directly. The professor's own original TODO comments were never touched. Rebuilt and re-ran the same smoke tests afterward (`pwd`/`cd`/redirection/append/bare-`cd`) to confirm the comment-only edit changed nothing behaviorally — it didn't.
++ 
++ ## Next Action
++ Run the Final Submission Checklist in [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board|Project - 1 Board]] inside the **actual course Docker container** (this WSL copy is a correctness check, not the submission environment the autograder uses), then submit to Gradescope before the 11:59pm 2026-10-02 deadline and sign up for the oral exam slot.
++ 
++ ## Open Questions
++ - [ ] Confirm the real course container's `testius` run matches this manual verification exactly — it should, since the binary and the test replay logic are the same, but the container's `gcc`/`glibc` version could in principle differ from this WSL2 Ubuntu 24.04 copy.
++ - [ ] Decide whether to keep the `getenv()`-driven `cd` NULL-`HOME` guard as-is or ask whether the TAs expect a specific behavior here, since the assignment doesn't name this exact edge case.
++ - [ ] Bare-`&` use-after-free (see Independent Audit above) — left unfixed by explicit decision; revisit only if the oral exam or a TA raises it.
++ 
++ ## Log
++ - **2026-10-02:** Implemented all seven tasks in `swish_funcs.c` (`tokenize`, `run_command`, `resume_job`, `await_background_job`, `await_all_background_jobs`) and `swish.c` (`pwd`/`cd` builtins, the combined fork/exec/wait/job-control `else` branch). Added `#include <stdlib.h>` to `swish.c` for `getenv()`. Built clean under `-Wall -Werror` via WSL2 gcc 13.3.0. Replayed all 32 provided test cases over a real pty with a custom Python harness (no `testius` available in this environment) — all matched. Directly verified both assignment-named hidden-test gaps (`cd` with no arg → `$HOME`, `>>` append-not-truncate) and a multi-second stop/background/wait-for sequence confirming `SIGCONT` resumes in place. Nothing run against Gradescope; no `make zip` created.
++ - **2026-10-02:** Independent audit — diffed against `proj1-original`, rebuilt from scratch, re-ran core behaviors directly, found and documented the bare-`&` use-after-free (left unfixed by decision).
++ - **2026-10-02:** Style pass — read the professor's own lecture code directly, trimmed four over-explained comments down to his real one-line-fact style, rebuilt and re-confirmed zero behavior change.
 ```
-- `Bash` -- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-grep -n "^\s*//" swish.c swish_funcs.c`
+- `Bash`
+```bash
+cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
+grep -n "^\s*//" swish.c swish_funcs.c
+```
 ```
 swish.c:19:    // Task 4: Set up shell to ignore SIGTTIN, SIGTTOU when put in background
 swish.c:20:    // You should adapt this code for use in run_command().
@@ -7220,683 +7565,90 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Concept Template.md`
 
 **Files deleted (heuristic, from Bash commands):**
-- `rm -f "$TEMP/apue_full.txt" "$TEMP/w4prompt.txt" "$TEMP/w5prompt.txt"
-echo "cleaned temp extraction files"
-`
+- `rm -f "$TEMP/apue_full.txt" "$TEMP/w4prompt.txt" "$TEMP/w5prompt.txt" echo "cleaned temp extraction files" `
 
 **Commands run:**
-- `echo "=== CSCI 4061 top level ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" 2>&1
-echo "=== CSCI 4061 Weeks ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weeks" 2>&1
-echo "=== CSCI 4061 Concepts ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts" 2>&1
-echo "=== CSCI 4061 Lecture ==="; ls -R "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" 2>&1 | head -100
-`
-- `echo "=== Weekly folder ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly" 2>&1
-echo "=== Concepts/Weekly (dup?) ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Weekly" 2>&1
-echo "=== Concepts/Labs ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Labs" 2>&1
-echo "=== Concepts/Projects ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Projects" 2>&1
-echo "=== C Refresher (current) ==="; ls -R "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher" 2>&1
-echo "=== Labs top ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs" 2>&1
-echo "=== Projects top ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects" 2>&1
-echo "=== Textbook (notes) top ==="; ls -R "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook" 2>&1 | head -80
-`
-- `echo "=== sync-conflict files remaining in CSCI 4061 ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" -iname "*sync-conflict*" -o -iname "*~syncthing~*" 2>&1
-echo "=== CSCI 2021 (20_Progress, if any) ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree" -maxdepth 1 -iname "*2021*" 2>&1
-echo "=== CSCI 2021 in 40_Resources ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2021" -maxdepth 2 2>&1
-echo "=== CSCI 2033 Concepts target ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2033" -maxdepth 2 2>&1
-`
-- `echo "=== CSCI 2021 source (areas, classes) top ==="
-find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021" -maxdepth 2 2>&1
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
-echo "=== Board diff (conflict vs canonical) ==="
-diff "CSCI 4061 Board.md" "CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
-echo "=== exit code $? ==="
-echo "=== Chapter 3 diff ==="
-diff "Textbook/Chapter - 3.md" "Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"
-echo "=== exit code $? ==="
-echo "=== Weekly Board tmp sizes ==="
-ls -la "Weekly/"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
-echo "=== Weekly Board.md (canonical) head ==="
-head -20 "Weekly/Weekly Board.md"
-echo "=== tmp file 1 ==="
-diff "Weekly/Weekly Board.md" "Weekly/~syncthing~Weekly Board.md.tmp"
-echo "exit=$?"
-echo "=== tmp file 2 (conflict) ==="
-diff "Weekly/Weekly Board.md" "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp"
-echo "exit=$?"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
-wc -c "Weekly/~syncthing~Weekly Board.md.tmp" "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp" "Weekly/Weekly Board.md"
-file "Weekly/~syncthing~Weekly Board.md.tmp" 2>&1 || true
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061"
-rm "CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "Weekly/~syncthing~Weekly Board.md.tmp"
-rm "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp"
-echo "deleted junk sync files"
-ls -la "Concepts/Weekly" "Concepts/Labs" "Concepts/Projects" 2>&1
-`
-- `echo "=== CSCI 4061 source top-level (look for lab materials) ==="
-find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -maxdepth 2 2>&1
-`
-- `echo "=== 30_Order top ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order" -maxdepth 2 2>&1
-`
-- `echo "=== Workflows/Courses ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses" -maxdepth 3 2>&1
-echo "=== Standards/Courses ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses" -maxdepth 2 2>&1
-echo "=== Templates/Classes ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes" -maxdepth 2 2>&1
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher"
-ls -la
-echo "=== frontmatter spot-check ==="
-for f in *.md; do echo "--- $f ---"; head -20 "$f"; echo; done
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== git status summary ==="
-git status --short | head -80
-echo "=== count ==="
-git status --short | wc -l
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== check gitignore for CSCI 4061 ==="
-git check-ignore -v "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" 2>&1
-echo "=== direct status on that path ==="
-git status --short -- "20_Progress/Degree/CSCI 4061" 2>&1
-echo "=== does git see it as a repo path at all? ==="
-git ls-files -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" 2>&1
-echo "=== is there a nested .git ==="
-find "20_Progress/Degree/CSCI 4061" -maxdepth 1 -iname ".git*" 2>&1
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-git log --oneline -15
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-grep -rl "Documents\\\\Jarvis\\\\20_Progress\\\\Documents" "20_Progress/Degree/CSCI 4061" 2>/dev/null
-echo "---"
-grep -rln "Progress/Degree/CSCI 4061/Concepts/C Refresher/C Refresher" "20_Progress/Degree/CSCI 4061" 2>/dev/null
-echo "done - empty output above means no duplication artifacts found"
-`
-- `grep -n "^15\.[0-9]" "$TEMP/apue_full.txt" 2>/dev/null | head -40
-echo "---"
-grep -n "Interprocess Communication" "$TEMP/apue_full.txt" | head -10
-`
+- `echo "=== CSCI 4061 top level ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" 2>&1 echo "=== CSCI 4061 Weeks ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weeks" 2>&1 echo "=== CSCI 4061 Concepts ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts" 2>&1 echo "=== CSCI 4061 Lecture ==="; ls -R "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture" 2>&1 | head -100 `
+- `echo "=== Weekly folder ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Weekly" 2>&1 echo "=== Concepts/Weekly (dup?) ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Weekly" 2>&1 echo "=== Concepts/Labs ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Labs" 2>&1 echo "=== Concepts/Projects ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\Projects" 2>&1 echo "=== C Refresher (current) ==="; ls -R "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher" 2>&1 echo "=== Labs top ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Labs" 2>&1 echo "=== Projects top ==="; ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Projects" 2>&1 echo "=== Textbook (notes) top ==="; ls -R "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Textbook" 2>&1 | head -80 `
+- `echo "=== sync-conflict files remaining in CSCI 4061 ===" find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" -iname "*sync-conflict*" -o -iname "*~syncthing~*" 2>&1 echo "=== CSCI 2021 (20_Progress, if any) ===" find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree" -maxdepth 1 -iname "*2021*" 2>&1 echo "=== CSCI 2021 in 40_Resources ===" find "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2021" -maxdepth 2 2>&1 echo "=== CSCI 2033 Concepts target ===" find "D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Previous Classes\CSCI\CSCI 2033" -maxdepth 2 2>&1 `
+- `echo "=== CSCI 2021 source (areas, classes) top ===" find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 2021" -maxdepth 2 2>&1 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" echo "=== Board diff (conflict vs canonical) ===" diff "CSCI 4061 Board.md" "CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" echo "=== exit code $? ===" echo "=== Chapter 3 diff ===" diff "Textbook/Chapter - 3.md" "Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" echo "=== exit code $? ===" echo "=== Weekly Board tmp sizes ===" ls -la "Weekly/" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" echo "=== Weekly Board.md (canonical) head ===" head -20 "Weekly/Weekly Board.md" echo "=== tmp file 1 ===" diff "Weekly/Weekly Board.md" "Weekly/~syncthing~Weekly Board.md.tmp" echo "exit=$?" echo "=== tmp file 2 (conflict) ===" diff "Weekly/Weekly Board.md" "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp" echo "exit=$?" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" wc -c "Weekly/~syncthing~Weekly Board.md.tmp" "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp" "Weekly/Weekly Board.md" file "Weekly/~syncthing~Weekly Board.md.tmp" 2>&1 || true `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061" rm "CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" rm "Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" rm "Weekly/~syncthing~Weekly Board.md.tmp" rm "Weekly/~syncthing~Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md.tmp" echo "deleted junk sync files" ls -la "Concepts/Weekly" "Concepts/Labs" "Concepts/Projects" 2>&1 `
+- `echo "=== CSCI 4061 source top-level (look for lab materials) ===" find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061" -maxdepth 2 2>&1 `
+- `echo "=== 30_Order top ===" find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order" -maxdepth 2 2>&1 `
+- `echo "=== Workflows/Courses ===" find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses" -maxdepth 3 2>&1 echo "=== Standards/Courses ===" find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses" -maxdepth 2 2>&1 echo "=== Templates/Classes ===" find "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes" -maxdepth 2 2>&1 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\Concepts\C Refresher" ls -la echo "=== frontmatter spot-check ===" for f in *.md; do echo "--- $f ---"; head -20 "$f"; echo; done `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== git status summary ===" git status --short | head -80 echo "=== count ===" git status --short | wc -l `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== check gitignore for CSCI 4061 ===" git check-ignore -v "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" 2>&1 echo "=== direct status on that path ===" git status --short -- "20_Progress/Degree/CSCI 4061" 2>&1 echo "=== does git see it as a repo path at all? ===" git ls-files -- "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" 2>&1 echo "=== is there a nested .git ===" find "20_Progress/Degree/CSCI 4061" -maxdepth 1 -iname ".git*" 2>&1 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" git log --oneline -15 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" grep -rl "Documents\\\\Jarvis\\\\20_Progress\\\\Documents" "20_Progress/Degree/CSCI 4061" 2>/dev/null echo "---" grep -rln "Progress/Degree/CSCI 4061/Concepts/C Refresher/C Refresher" "20_Progress/Degree/CSCI 4061" 2>/dev/null echo "done - empty output above means no duplication artifacts found" `
+- `grep -n "^15\.[0-9]" "$TEMP/apue_full.txt" 2>/dev/null | head -40 echo "---" grep -n "Interprocess Communication" "$TEMP/apue_full.txt" | head -10 `
 - `sed -n '27560,27990p' "$TEMP/apue_full.txt"`
 - `sed -n '29538,29905p' "$TEMP/apue_full.txt"`
-- `echo "=== Week 4-8 transcripts ==="
-ls -la "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Transcripts\Week 4 - 8" 2>&1
-echo "=== Lecture/Week - 4 folder (slides) ==="
-ls -la "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4" 2>&1
-echo "=== csci4061-fa26 Lecture code folder ==="
-find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture" -maxdepth 2 2>&1
-`
-- `cat << 'EOF' > "$TEMP/w4prompt.txt"
-You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so course AI-use policy on essays/coding does not apply, but you must still never invent facts beyond the attached sources.
-
-SOURCES AND PRIORITY
-1. PRIMARY, load-bearing source: Stevens & Rago, Advanced Programming in the UNIX Environment, 3rd ed., Chapter 15 — "Interprocess Communication", Sections 15.1-15.2 only (pp. 533-540). The note's structure and depth come from these two sections, in the book's own order. Do not cover 15.3+ (popen/pclose onward) — that is a later week's reading.
-2. SECONDARY, emphasis source: Lec08.pdf (Oct 1 lecture, "pipes"). Use only to decide what to expand, which function names/examples the professor used verbatim, what's NOT yet covered, and whether the professor pulled in content from a later section (flag explicitly, don't fold into 15.1-15.2's note).
-
-SCOPE
-15.1: the three-way IPC chapter split, half-duplex vs full-duplex pipes, Figure 15.1's IPC-type table. 15.2: pipe() signature and its two limitations (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, the read-returns-0 / SIGPIPE-EPIPE close rules, PIPE_BUF, the parent-to-child pipe example (Fig 15.5), the exec-a-pager-via-dup2 example (Fig 15.6), and the TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplementation using pipes (Fig 15.7-15.8) — explicitly note this is the same synchronization API Chapter 8/10 built with signals, now rebuilt with pipes. Find the book's own figure numbers yourself from the uploaded PDF.
-
-STRUCTURE — output exactly these headings in this order, nothing added or removed:
-# Chapter - 15 — Interprocess Communication
-## Chapter Summary
-One sentence claim with exactly one ==highlighted== phrase, then "*Mechanism:*" explaining how the claim works.
-## Key Concepts
-Every named term, **bolded** on first use, one line each: what it means and why it matters.
-## Full Reading Notes
-One ### subheading per numbered subsection (15.1, 15.2), book's own titles verbatim. Every distinct claim, example, and piece of reasoning must appear — reproduce named examples, function signatures, and code excerpts in full as fenced code, don't compress into "etc."
-## Worked Example
-One end-to-end example tying 15.1-15.2 together (the pager-via-pipe example is the natural choice).
-## Connections
-- Lecture: what Lec08 emphasized, which function names/examples appeared on slides vs. only in the book, whether the lecture pulled in later-section content (name it).
-- Textbook: "(pending next chapter)".
-## Open Questions
-3-5 "- [ ] ..." genuine self-test prompts, not busywork.
-## Flashcards
-5-8 cards, "Question::Answer #cards/csci4061" one per line.
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero blank lines between consecutive list items/sections.
-- ==highlight==: exactly one per major ## heading, the single most important definitional claim in that section.
-- **bold**: named concepts/functions on first introduction only.
-- *label:* italics for sub-category intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — say the actual mechanism.
-- No sentence pasteable into a generic study-guide site unchanged.
-- Cite page numbers for direct definitions or close paraphrases, in parentheses.
-
-OUTPUT CONTRACT
-Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
-
-Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
-EOF
-wc -c "$TEMP/w4prompt.txt"
-`
-- `cat << 'EOF' > "$TEMP/w4prompt.txt"
-You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, course AI-use policy on essays/coding does not apply, but never invent facts beyond the attached sources.
-
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, Advanced Programming in the UNIX Environment, 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Note structure/depth comes from these two sections, book's own order. Do NOT cover 15.3+ (popen onward) — later week's reading.
-2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which function names/examples the professor used verbatim, what's not yet covered, and whether the professor pulled in later-section content (flag explicitly, don't fold into this note).
-
-SCOPE
-15.1: three-way IPC chapter split, half-duplex vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limitations (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0 / SIGPIPE-EPIPE close rules, PIPE_BUF, the parent-to-child pipe example, the exec-a-pager-via-dup2 example, and the TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplementation using pipes — note this is the same sync API Ch 8/10 built with signals, now rebuilt with pipes. Find the book's own figure numbers from the uploaded PDF.
-
-STRUCTURE — exactly these headings, in order, nothing added/removed:
-# Chapter - 15 — Interprocess Communication
-## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it.
-## Key Concepts — every named term, **bolded** first use, one line each: meaning + why it matters.
-## Full Reading Notes — one ### per subsection (15.1, 15.2), book's own titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc."
-## Worked Example — one end-to-end example tying 15.1-15.2 together (pager-via-pipe is the natural pick).
-## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in (name it). Textbook: "(pending next chapter)".
-## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts.
-## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between consecutive list items/sections.
-- ==highlight==: exactly one per major ## heading.
-- **bold**: named concepts/functions on first introduction only.
-- *label:* italics for sub-category intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the actual mechanism.
-- No sentence pasteable into a generic study-guide site unchanged.
-- Cite page numbers for direct definitions/close paraphrases, in parentheses.
-
-OUTPUT CONTRACT
-Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
-
-Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
-EOF
-wc -c "$TEMP/w4prompt.txt"
-`
-- `cat << 'EOF' > "$TEMP/w4prompt.txt"
-You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so AI-use policy on essays/coding does not apply, but never invent facts beyond the attached sources.
-
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Structure/depth from these two sections, book's own order. Do NOT cover 15.3+ (popen onward) — later week.
-2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which names/examples the professor used verbatim, what's not yet covered, and whether the professor pulled in later-section content (flag it, don't fold in).
-
-SCOPE
-15.1: three-way IPC chapter split, half- vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limits (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0/SIGPIPE-EPIPE close rules, PIPE_BUF, parent-to-child pipe example, exec-a-pager-via-dup2 example, and TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplemented with pipes — note this is Ch 8/10's signal-based sync API, rebuilt with pipes. Get figure numbers from the uploaded PDF.
-
-STRUCTURE — exactly these headings, in order:
-# Chapter - 15 — Interprocess Communication
-## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it.
-## Key Concepts — every named term, **bolded** first use: meaning + why it matters.
-## Full Reading Notes — one ### per subsection (15.1, 15.2), book's titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc."
-## Worked Example — one example tying 15.1-15.2 together (pager-via-pipe is the natural pick).
-## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in. Textbook: "(pending next chapter)".
-## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts.
-## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- ==highlight==: exactly one per major ## heading.
-- **bold**: named concepts/functions on first introduction only.
-- *label:* italics for sub-category intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the mechanism.
-- No sentence pasteable into a generic study-guide site unchanged.
-- Cite page numbers for direct definitions/close paraphrases, in parentheses.
-
-OUTPUT CONTRACT
-Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
-
-Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
-EOF
-wc -c "$TEMP/w4prompt.txt"
-`
-- `cat << 'EOF' > "$TEMP/w4prompt.txt"
-You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only — not graded work, so AI-use policy doesn't apply, but never invent facts beyond the attached sources.
-
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Structure/depth from these two sections, book's order. Do NOT cover 15.3+ (popen onward) — later week.
-2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which names/examples the professor used verbatim, what's uncovered, and whether later-section content got pulled in (flag it, don't fold in).
-
-SCOPE
-15.1: three-way IPC chapter split, half- vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limits (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0/SIGPIPE-EPIPE close rules, PIPE_BUF, parent-to-child pipe example, exec-a-pager-via-dup2 example, TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplemented with pipes — note this is Ch 8/10's signal-based sync API, rebuilt with pipes. Get figure numbers from the PDF.
-
-STRUCTURE — exactly these headings, in order:
-# Chapter - 15 — Interprocess Communication
-## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it.
-## Key Concepts — every named term, **bolded** first use: meaning + why it matters.
-## Full Reading Notes — one ### per subsection (15.1, 15.2), book's titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc."
-## Worked Example — one example tying 15.1-15.2 together (pager-via-pipe is the natural pick).
-## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in. Textbook: "(pending next chapter)".
-## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts.
-## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- ==highlight==: exactly one per major ## heading.
-- **bold**: named concepts/functions on first introduction only.
-- *label:* italics for sub-category intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the mechanism.
-- No sentence pasteable into a generic study-guide site unchanged.
-- Cite page numbers for direct definitions/close paraphrases, in parentheses.
-
-OUTPUT CONTRACT
-Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.
-
-Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response.
-EOF
-wc -c "$TEMP/w4prompt.txt"
-`
-- `python3 - << 'PYEOF' 2>/dev/null || perl -e '
-open(F,"<","$ENV{TEMP}/w4prompt.txt"); local $/; my $t=<F>; close F;
-$t =~ s/ for personal study only — not graded work, so AI-use policy doesn.t apply,/ for personal study only,/;
-$t =~ s/\. Structure\/depth from these two sections, book.s order\./\./;
-$t =~ s/ \(flag it, don.t fold in\)//;
-open(G,">","$ENV{TEMP}/w4prompt.txt"); print G $t; close G;
-'
-wc -c "$TEMP/w4prompt.txt"
-`
-- `wc -c "$TEMP/w4prompt.txt"
-head -c 200 "$TEMP/w4prompt.txt"`
+- `echo "=== Week 4-8 transcripts ===" ls -la "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Transcripts\Week 4 - 8" 2>&1 echo "=== Lecture/Week - 4 folder (slides) ===" ls -la "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4" 2>&1 echo "=== csci4061-fa26 Lecture code folder ===" find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Lecture" -maxdepth 2 2>&1 `
+- ````cat << 'EOF' > "$TEMP/w4prompt.txt" You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so course AI-use policy on essays/coding does not apply, but you must still never invent facts beyond the attached sources.  SOURCES AND PRIORITY 1. PRIMARY, load-bearing source: Stevens & Rago, Advanced Programming in the UNIX Environment, 3rd ed., Chapter 15 — "Interprocess Communication", Sections 15.1-15.2 only (pp. 533-540). The note's structure and depth come from these two sections, in the book's own order. Do not cover 15.3+ (popen/pclose onward) — that is a later week's reading. 2. SECONDARY, emphasis source: Lec08.pdf (Oct 1 lecture, "pipes"). Use only to decide what to expand, which function names/examples the professor used verbatim, what's NOT yet covered, and whether the professor pulled in content from a later section (flag explicitly, don't fold into 15.1-15.2's note).  SCOPE 15.1: the three-way IPC chapter split, half-duplex vs full-duplex pipes, Figure 15.1's IPC-type table. 15.2: pipe() signature and its two limitations (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, the read-returns-0 / SIGPIPE-EPIPE close rules, PIPE_BUF, the parent-to-child pipe example (Fig 15.5), the exec-a-pager-via-dup2 example (Fig 15.6), and the TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplementation using pipes (Fig 15.7-15.8) — explicitly note this is the same synchronization API Chapter 8/10 built with signals, now rebuilt with pipes. Find the book's own figure numbers yourself from the uploaded PDF.  STRUCTURE — output exactly these headings in this order, nothing added or removed: # Chapter - 15 — Interprocess Communication ## Chapter Summary One sentence claim with exactly one ==highlighted== phrase, then "*Mechanism:*" explaining how the claim works. ## Key Concepts Every named term, **bolded** on first use, one line each: what it means and why it matters. ## Full Reading Notes One ### subheading per numbered subsection (15.1, 15.2), book's own titles verbatim. Every distinct claim, example, and piece of reasoning must appear — reproduce named examples, function signatures, and code excerpts in full as fenced code, don't compress into "etc." ## Worked Example One end-to-end example tying 15.1-15.2 together (the pager-via-pipe example is the natural choice). ## Connections - Lecture: what Lec08 emphasized, which function names/examples appeared on slides vs. only in the book, whether the lecture pulled in later-section content (name it). - Textbook: "(pending next chapter)". ## Open Questions 3-5 "- [ ] ..." genuine self-test prompts, not busywork. ## Flashcards 5-8 cards, "Question::Answer #cards/csci4061" one per line.  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero blank lines between consecutive list items/sections. - ==highlight==: exactly one per major ## heading, the single most important definitional claim in that section. - **bold**: named concepts/functions on first introduction only. - *label:* italics for sub-category intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — say the actual mechanism. - No sentence pasteable into a generic study-guide site unchanged. - Cite page numbers for direct definitions or close paraphrases, in parentheses.  OUTPUT CONTRACT Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.  Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response. EOF wc -c "$TEMP/w4prompt.txt" ````
+- ````cat << 'EOF' > "$TEMP/w4prompt.txt" You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, course AI-use policy on essays/coding does not apply, but never invent facts beyond the attached sources.  SOURCES AND PRIORITY 1. PRIMARY: Stevens & Rago, Advanced Programming in the UNIX Environment, 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Note structure/depth comes from these two sections, book's own order. Do NOT cover 15.3+ (popen onward) — later week's reading. 2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which function names/examples the professor used verbatim, what's not yet covered, and whether the professor pulled in later-section content (flag explicitly, don't fold into this note).  SCOPE 15.1: three-way IPC chapter split, half-duplex vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limitations (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0 / SIGPIPE-EPIPE close rules, PIPE_BUF, the parent-to-child pipe example, the exec-a-pager-via-dup2 example, and the TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplementation using pipes — note this is the same sync API Ch 8/10 built with signals, now rebuilt with pipes. Find the book's own figure numbers from the uploaded PDF.  STRUCTURE — exactly these headings, in order, nothing added/removed: # Chapter - 15 — Interprocess Communication ## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it. ## Key Concepts — every named term, **bolded** first use, one line each: meaning + why it matters. ## Full Reading Notes — one ### per subsection (15.1, 15.2), book's own titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc." ## Worked Example — one end-to-end example tying 15.1-15.2 together (pager-via-pipe is the natural pick). ## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in (name it). Textbook: "(pending next chapter)". ## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts. ## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero between consecutive list items/sections. - ==highlight==: exactly one per major ## heading. - **bold**: named concepts/functions on first introduction only. - *label:* italics for sub-category intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the actual mechanism. - No sentence pasteable into a generic study-guide site unchanged. - Cite page numbers for direct definitions/close paraphrases, in parentheses.  OUTPUT CONTRACT Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.  Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response. EOF wc -c "$TEMP/w4prompt.txt" ````
+- ````cat << 'EOF' > "$TEMP/w4prompt.txt" You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so AI-use policy on essays/coding does not apply, but never invent facts beyond the attached sources.  SOURCES AND PRIORITY 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Structure/depth from these two sections, book's own order. Do NOT cover 15.3+ (popen onward) — later week. 2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which names/examples the professor used verbatim, what's not yet covered, and whether the professor pulled in later-section content (flag it, don't fold in).  SCOPE 15.1: three-way IPC chapter split, half- vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limits (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0/SIGPIPE-EPIPE close rules, PIPE_BUF, parent-to-child pipe example, exec-a-pager-via-dup2 example, and TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplemented with pipes — note this is Ch 8/10's signal-based sync API, rebuilt with pipes. Get figure numbers from the uploaded PDF.  STRUCTURE — exactly these headings, in order: # Chapter - 15 — Interprocess Communication ## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it. ## Key Concepts — every named term, **bolded** first use: meaning + why it matters. ## Full Reading Notes — one ### per subsection (15.1, 15.2), book's titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc." ## Worked Example — one example tying 15.1-15.2 together (pager-via-pipe is the natural pick). ## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in. Textbook: "(pending next chapter)". ## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts. ## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero between list items/sections. - ==highlight==: exactly one per major ## heading. - **bold**: named concepts/functions on first introduction only. - *label:* italics for sub-category intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the mechanism. - No sentence pasteable into a generic study-guide site unchanged. - Cite page numbers for direct definitions/close paraphrases, in parentheses.  OUTPUT CONTRACT Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.  Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response. EOF wc -c "$TEMP/w4prompt.txt" ````
+- ````cat << 'EOF' > "$TEMP/w4prompt.txt" You are producing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only — not graded work, so AI-use policy doesn't apply, but never invent facts beyond the attached sources.  SOURCES AND PRIORITY 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Sections 15.1-15.2 ONLY (pp. 533-540). Structure/depth from these two sections, book's order. Do NOT cover 15.3+ (popen onward) — later week. 2. SECONDARY: Lec08.pdf (Oct 1, "pipes"). Use only to pick what to expand, which names/examples the professor used verbatim, what's uncovered, and whether later-section content got pulled in (flag it, don't fold in).  SCOPE 15.1: three-way IPC chapter split, half- vs full-duplex pipes, Fig 15.1's IPC-type table. 15.2: pipe() signature + its two limits (half-duplex, common-ancestor-only), fstat/S_ISFIFO on a pipe fd, read-returns-0/SIGPIPE-EPIPE close rules, PIPE_BUF, parent-to-child pipe example, exec-a-pager-via-dup2 example, TELL_WAIT/TELL_PARENT/TELL_CHILD/WAIT_PARENT/WAIT_CHILD reimplemented with pipes — note this is Ch 8/10's signal-based sync API, rebuilt with pipes. Get figure numbers from the PDF.  STRUCTURE — exactly these headings, in order: # Chapter - 15 — Interprocess Communication ## Chapter Summary — one ==highlighted== claim, then *Mechanism:* explaining it. ## Key Concepts — every named term, **bolded** first use: meaning + why it matters. ## Full Reading Notes — one ### per subsection (15.1, 15.2), book's titles. Every claim/example/reasoning must appear; reproduce signatures/code in full as fenced code, no "etc." ## Worked Example — one example tying 15.1-15.2 together (pager-via-pipe is the natural pick). ## Connections — Lecture: what Lec08 emphasized, slide-vs-book-only names, any later-section pull-in. Textbook: "(pending next chapter)". ## Open Questions — 3-5 "- [ ] ..." genuine self-test prompts. ## Flashcards — 5-8 cards, "Question::Answer #cards/csci4061" one per line.  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero between list items/sections. - ==highlight==: exactly one per major ## heading. - **bold**: named concepts/functions on first introduction only. - *label:* italics for sub-category intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey") — state the mechanism. - No sentence pasteable into a generic study-guide site unchanged. - Cite page numbers for direct definitions/close paraphrases, in parentheses.  OUTPUT CONTRACT Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted on copy into Obsidian. No commentary before or after the code block.  Before answering, silently verify: both subsections have their own ### heading; every bolded term is defined; exactly one highlight per ## section; the code block is the entire response. EOF wc -c "$TEMP/w4prompt.txt" ````
+- `python3 - << 'PYEOF' 2>/dev/null || perl -e ' open(F,"<","$ENV{TEMP}/w4prompt.txt"); local $/; my $t=<F>; close F; $t =~ s/ for personal study only — not graded work, so AI-use policy doesn.t apply,/ for personal study only,/; $t =~ s/\. Structure\/depth from these two sections, book.s order\./\./; $t =~ s/ \(flag it, don.t fold in\)//; open(G,">","$ENV{TEMP}/w4prompt.txt"); print G $t; close G; ' wc -c "$TEMP/w4prompt.txt" `
+- `wc -c "$TEMP/w4prompt.txt" head -c 200 "$TEMP/w4prompt.txt"`
 - `cat "$TEMP/w4prompt.txt"`
-- `cat << 'EOF' > "$TEMP/w5prompt.txt"
-You are extending an already-landed Obsidian study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this prompt covers only the NEW section being added to an existing Chapter 15 note.
-
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward) — later week. Do NOT re-cover 15.1-15.2.
-2. CONTINUITY: the already-landed `Chapter - 15.md` note (15.1-15.2, Pipes) — uploaded so terminology, heading style, and ==highlight==/flashcard conventions match exactly. Do not repeat its content; just match its voice.
-
-SCOPE
-shmget (key/size/flag, the shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris-only SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY semantics, the recommended addr=0 case), shmdt, the memory-layout worked example (Fig 15.31-15.32: array/malloc/shared-memory/stack address picture), the /dev/zero memory-mapped-IPC example (Fig 15.33, with TELL_WAIT-family sync), the anonymous-mapping (MAP_ANON) variant, and the closing contrast of XSI shared memory vs. mmap-based shared memory. Get real figure numbers from the PDF.
-
-OUTPUT — exactly these pieces, each labeled, nothing else:
-### 15.9 Shared Memory
-A ### subsection in the exact style of the landed note's 15.1/15.2 subsections — every claim/example/struct/signature from 15.9 present, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions.
-NEW KEY CONCEPTS
-Every new named term from 15.9, **bolded** first use, one line each — same format as the landed note's existing Key Concepts list, ready to append to it.
-UPDATED WORKED EXAMPLE (optional)
-Only if the /dev/zero or shmat/shmdt example makes a better end-to-end Worked Example than the existing pager-via-pipe one — otherwise write "(keep existing)".
-NEW FLASHCARDS
-3-5 new cards, "Question::Answer #cards/csci4061", testing 15.9's mechanisms (e.g. XSI shared memory vs. mmap, why shmdt doesn't remove the segment) — not labels.
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- Exactly one ==highlight== total across the new 15.9 subsection (the single most important definitional claim in 15.9).
-- **bold** named concepts/functions on first introduction only; *label:* italics for intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey").
-- No sentence pasteable into a generic study-guide site unchanged.
-
-OUTPUT CONTRACT
-Return the four labeled pieces above as a single fenced Markdown code block. After pasting into Obsidian: insert "### 15.9 Shared Memory" right after the existing "### 15.2 Pipes" block in Full Reading Notes, append NEW KEY CONCEPTS to the existing Key Concepts list, and append NEW FLASHCARDS to the existing Flashcards list. No commentary before or after the code block.
-
-Before answering, silently verify: no 15.1/15.2 content was regenerated; exactly one highlight in the new subsection; every bolded term is defined; the code block is the entire response.
-EOF
-wc -c "$TEMP/w5prompt.txt"
-`
-- `cat << 'EOF' > "$TEMP/w5prompt.txt"
-You are extending an already-landed Obsidian study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
-
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15, Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward) — later week. Do NOT re-cover 15.1-15.2.
-2. CONTINUITY: the already-landed `Chapter - 15.md` (15.1-15.2, Pipes) — uploaded so terminology, heading style, and ==highlight==/flashcard conventions match exactly. Don't repeat its content; match its voice.
-
-SCOPE
-shmget (key/size/flag, shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris-only SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY, the recommended addr=0 case), shmdt, the memory-layout example (array/malloc/shared-memory/stack address picture), the /dev/zero memory-mapped-IPC example (with TELL_WAIT-family sync), the anonymous-mapping (MAP_ANON) variant, and the closing XSI-shared-memory-vs-mmap contrast. Get real figure numbers from the PDF.
-
-OUTPUT — exactly these labeled pieces, nothing else:
-### 15.9 Shared Memory
-A ### subsection in the exact style of the landed note's 15.1/15.2 subsections — every claim/example/struct/signature from 15.9 present, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions.
-NEW KEY CONCEPTS
-Every new term from 15.9, **bolded** first use, one line each — same format as the landed note's Key Concepts list, ready to append.
-UPDATED WORKED EXAMPLE (optional)
-Only if /dev/zero or shmat/shmdt makes a better end-to-end example than the existing pager-via-pipe one — else write "(keep existing)".
-NEW FLASHCARDS
-3-5 cards, "Question::Answer #cards/csci4061", testing 15.9's mechanisms (e.g. XSI shared memory vs. mmap, why shmdt doesn't remove the segment) — not labels.
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- Exactly one ==highlight== total, the single most important definitional claim in 15.9.
-- **bold** named concepts/functions on first introduction only; *label:* italics for intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey").
-- No sentence pasteable into a generic study-guide site unchanged.
-
-OUTPUT CONTRACT
-Return the four labeled pieces as a single fenced Markdown code block. After pasting into Obsidian: insert "### 15.9 Shared Memory" right after "### 15.2 Pipes" in Full Reading Notes, append NEW KEY CONCEPTS to the existing list, append NEW FLASHCARDS to the existing list. No commentary before or after the code block.
-
-Before answering, silently verify: no 15.1/15.2 content was regenerated; exactly one highlight; every bolded term is defined; the code block is the entire response.
-EOF
-wc -c "$TEMP/w5prompt.txt"
-`
-- `cat << 'EOF' > "$TEMP/w5prompt.txt"
-You are extending an already-landed Obsidian study note, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.
-
-SOURCES AND PRIORITY
-1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15, Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward). Do NOT re-cover 15.1-15.2.
-2. CONTINUITY: the already-landed `Chapter - 15.md` (15.1-15.2, Pipes) — uploaded so terminology/heading style/==highlight==/flashcard conventions match. Don't repeat its content; match its voice.
-
-SCOPE
-shmget (key/size/flag, shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY, recommended addr=0), shmdt, the memory-layout example (array/malloc/shm/stack addresses), the /dev/zero memory-mapped-IPC example (with TELL_WAIT sync), the anonymous-mapping (MAP_ANON) variant, and the closing XSI-shm-vs-mmap contrast. Get real figure numbers from the PDF.
-
-OUTPUT — exactly these labeled pieces, nothing else:
-### 15.9 Shared Memory
-A ### subsection matching the landed note's 15.1/15.2 style — every claim/example/struct/signature from 15.9, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions.
-NEW KEY CONCEPTS
-Every new term, **bolded** first use, one line each — same format as the landed Key Concepts list, ready to append.
-UPDATED WORKED EXAMPLE (optional)
-Only if /dev/zero or shmat/shmdt beats the existing pager-via-pipe example — else "(keep existing)".
-NEW FLASHCARDS
-3-5 cards, "Question::Answer #cards/csci4061", testing mechanisms (e.g. XSI shm vs. mmap, why shmdt doesn't remove the segment).
-
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first content line, zero between list items/sections.
-- Exactly one ==highlight==, the single most important claim in 15.9.
-- **bold** named concepts/functions first use only; *label:* italics for intros like *Mechanism:*.
-- No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey").
-- No sentence pasteable into a generic study-guide site unchanged.
-
-OUTPUT CONTRACT
-Return the four labeled pieces as one fenced Markdown code block. After pasting: insert "### 15.9 Shared Memory" right after "### 15.2 Pipes" in Full Reading Notes, append NEW KEY CONCEPTS and NEW FLASHCARDS to their existing lists. No commentary before/after the code block.
-
-Before answering, silently verify: no 15.1/15.2 content regenerated; exactly one highlight; every bolded term defined; the code block is the entire response.
-EOF
-wc -c "$TEMP/w5prompt.txt"
-`
+- ``cat << 'EOF' > "$TEMP/w5prompt.txt" You are extending an already-landed Obsidian study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this prompt covers only the NEW section being added to an existing Chapter 15 note.  SOURCES AND PRIORITY 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15 "Interprocess Communication", Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward) — later week. Do NOT re-cover 15.1-15.2. 2. CONTINUITY: the already-landed `Chapter - 15.md` note (15.1-15.2, Pipes) — uploaded so terminology, heading style, and ==highlight==/flashcard conventions match exactly. Do not repeat its content; just match its voice.  SCOPE shmget (key/size/flag, the shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris-only SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY semantics, the recommended addr=0 case), shmdt, the memory-layout worked example (Fig 15.31-15.32: array/malloc/shared-memory/stack address picture), the /dev/zero memory-mapped-IPC example (Fig 15.33, with TELL_WAIT-family sync), the anonymous-mapping (MAP_ANON) variant, and the closing contrast of XSI shared memory vs. mmap-based shared memory. Get real figure numbers from the PDF.  OUTPUT — exactly these pieces, each labeled, nothing else: ### 15.9 Shared Memory A ### subsection in the exact style of the landed note's 15.1/15.2 subsections — every claim/example/struct/signature from 15.9 present, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions. NEW KEY CONCEPTS Every new named term from 15.9, **bolded** first use, one line each — same format as the landed note's existing Key Concepts list, ready to append to it. UPDATED WORKED EXAMPLE (optional) Only if the /dev/zero or shmat/shmdt example makes a better end-to-end Worked Example than the existing pager-via-pipe one — otherwise write "(keep existing)". NEW FLASHCARDS 3-5 new cards, "Question::Answer #cards/csci4061", testing 15.9's mechanisms (e.g. XSI shared memory vs. mmap, why shmdt doesn't remove the segment) — not labels.  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero between list items/sections. - Exactly one ==highlight== total across the new 15.9 subsection (the single most important definitional claim in 15.9). - **bold** named concepts/functions on first introduction only; *label:* italics for intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey"). - No sentence pasteable into a generic study-guide site unchanged.  OUTPUT CONTRACT Return the four labeled pieces above as a single fenced Markdown code block. After pasting into Obsidian: insert "### 15.9 Shared Memory" right after the existing "### 15.2 Pipes" block in Full Reading Notes, append NEW KEY CONCEPTS to the existing Key Concepts list, and append NEW FLASHCARDS to the existing Flashcards list. No commentary before or after the code block.  Before answering, silently verify: no 15.1/15.2 content was regenerated; exactly one highlight in the new subsection; every bolded term is defined; the code block is the entire response. EOF wc -c "$TEMP/w5prompt.txt" ``
+- ``cat << 'EOF' > "$TEMP/w5prompt.txt" You are extending an already-landed Obsidian study note for a university course, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.  SOURCES AND PRIORITY 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15, Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward) — later week. Do NOT re-cover 15.1-15.2. 2. CONTINUITY: the already-landed `Chapter - 15.md` (15.1-15.2, Pipes) — uploaded so terminology, heading style, and ==highlight==/flashcard conventions match exactly. Don't repeat its content; match its voice.  SCOPE shmget (key/size/flag, shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris-only SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY, the recommended addr=0 case), shmdt, the memory-layout example (array/malloc/shared-memory/stack address picture), the /dev/zero memory-mapped-IPC example (with TELL_WAIT-family sync), the anonymous-mapping (MAP_ANON) variant, and the closing XSI-shared-memory-vs-mmap contrast. Get real figure numbers from the PDF.  OUTPUT — exactly these labeled pieces, nothing else: ### 15.9 Shared Memory A ### subsection in the exact style of the landed note's 15.1/15.2 subsections — every claim/example/struct/signature from 15.9 present, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions. NEW KEY CONCEPTS Every new term from 15.9, **bolded** first use, one line each — same format as the landed note's Key Concepts list, ready to append. UPDATED WORKED EXAMPLE (optional) Only if /dev/zero or shmat/shmdt makes a better end-to-end example than the existing pager-via-pipe one — else write "(keep existing)". NEW FLASHCARDS 3-5 cards, "Question::Answer #cards/csci4061", testing 15.9's mechanisms (e.g. XSI shared memory vs. mmap, why shmdt doesn't remove the segment) — not labels.  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero between list items/sections. - Exactly one ==highlight== total, the single most important definitional claim in 15.9. - **bold** named concepts/functions on first introduction only; *label:* italics for intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey"). - No sentence pasteable into a generic study-guide site unchanged.  OUTPUT CONTRACT Return the four labeled pieces as a single fenced Markdown code block. After pasting into Obsidian: insert "### 15.9 Shared Memory" right after "### 15.2 Pipes" in Full Reading Notes, append NEW KEY CONCEPTS to the existing list, append NEW FLASHCARDS to the existing list. No commentary before or after the code block.  Before answering, silently verify: no 15.1/15.2 content was regenerated; exactly one highlight; every bolded term is defined; the code block is the entire response. EOF wc -c "$TEMP/w5prompt.txt" ``
+- ``cat << 'EOF' > "$TEMP/w5prompt.txt" You are extending an already-landed Obsidian study note, in Obsidian Markdown, for personal study only, but never invent facts beyond the attached sources. Do not regenerate the whole note — this covers only the NEW section being added to an existing Chapter 15 note.  SOURCES AND PRIORITY 1. PRIMARY: Stevens & Rago, APUE 3rd ed., Chapter 15, Section 15.9 ONLY (pp. 571-579, "Shared Memory"). Do NOT cover 15.10+ (POSIX Semaphores onward). Do NOT re-cover 15.1-15.2. 2. CONTINUITY: the already-landed `Chapter - 15.md` (15.1-15.2, Pipes) — uploaded so terminology/heading style/==highlight==/flashcard conventions match. Don't repeat its content; match its voice.  SCOPE shmget (key/size/flag, shmid_ds struct, permission/creation rules), shmctl (IPC_STAT/IPC_SET/IPC_RMID, Linux/Solaris SHM_LOCK/SHM_UNLOCK), shmat (addr/SHM_RND/SHM_RDONLY, recommended addr=0), shmdt, the memory-layout example (array/malloc/shm/stack addresses), the /dev/zero memory-mapped-IPC example (with TELL_WAIT sync), the anonymous-mapping (MAP_ANON) variant, and the closing XSI-shm-vs-mmap contrast. Get real figure numbers from the PDF.  OUTPUT — exactly these labeled pieces, nothing else: ### 15.9 Shared Memory A ### subsection matching the landed note's 15.1/15.2 style — every claim/example/struct/signature from 15.9, code reproduced in full as fenced blocks, no "etc." Cite page numbers for direct definitions. NEW KEY CONCEPTS Every new term, **bolded** first use, one line each — same format as the landed Key Concepts list, ready to append. UPDATED WORKED EXAMPLE (optional) Only if /dev/zero or shmat/shmdt beats the existing pager-via-pipe example — else "(keep existing)". NEW FLASHCARDS 3-5 cards, "Question::Answer #cards/csci4061", testing mechanisms (e.g. XSI shm vs. mmap, why shmdt doesn't remove the segment).  FORMATTING RULES (violating these is a failure, not a style choice) - Zero blank lines between a heading and its first content line, zero between list items/sections. - Exactly one ==highlight==, the single most important claim in 15.9. - **bold** named concepts/functions first use only; *label:* italics for intros like *Mechanism:*. - No marketing/filler language ("transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey"). - No sentence pasteable into a generic study-guide site unchanged.  OUTPUT CONTRACT Return the four labeled pieces as one fenced Markdown code block. After pasting: insert "### 15.9 Shared Memory" right after "### 15.2 Pipes" in Full Reading Notes, append NEW KEY CONCEPTS and NEW FLASHCARDS to their existing lists. No commentary before/after the code block.  Before answering, silently verify: no 15.1/15.2 content regenerated; exactly one highlight; every bolded term defined; the code block is the entire response. EOF wc -c "$TEMP/w5prompt.txt" ``
 - `cat "$TEMP/w5prompt.txt"`
-- `echo "=== mineru on PATH? ==="
-command -v mineru 2>&1
-echo "=== pip mineru? ==="
-pip show mineru 2>&1 | head -5
-pip show magic-pdf 2>&1 | head -5
-echo "=== conda/python envs with mineru ==="
-where mineru 2>&1
-echo "=== check common install locations ==="
-find "C:\Users\anant" -maxdepth 4 -iname "*mineru*" 2>/dev/null | head -20
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== ALL sync-conflict / syncthing temp files in CSCI 4061 folder ==="
-find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1
-echo "=== count ==="
-find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1 | wc -l
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-for f in "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" "20_Progress/Degree/CSCI 4061/Preparation.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"; do
-  echo "=== $f ==="
-  git log --oneline -- "$f" | head -8
-  echo
-done
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== 70fdbb4f (14:03) files touched ==="
-git show --stat 70fdbb4f | head -30
-echo "=== c595ff1f (13:18) files touched ==="
-git show --stat c595ff1f | head -30
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== Lab-3 @ c595ff1f (13:18) - line count and first 5 lines ==="
-git show c595ff1f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | wc -l
-git show c595ff1f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -5
-echo "=== Lab-3 @ 70fdbb4f (14:03) - line count and first 5 lines ==="
-git show 70fdbb4f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | wc -l
-git show 70fdbb4f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -5
-echo "=== Lab-3 current working tree - line count and first 5 lines ==="
-wc -l "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md"
-head -5 "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md"
-echo "=== HEAD (latest commit) ==="
-git log -1 --oneline
-git show HEAD:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" 2>&1 | wc -l
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== 836aa2d5 full info ==="
-git show --stat 836aa2d5 | head -20
-echo "=== parents ==="
-git log -1 --format="%H %P" 836aa2d5
-echo "=== commit log around it ==="
-git log --oneline -8
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== current contents of Concepts/Projects ==="
-ls -la "20_Progress/Degree/CSCI 4061/Concepts/Projects" 2>&1
-echo "=== git log for anything ever inside that path ==="
-git log --all --full-history --oneline -- "20_Progress/Degree/CSCI 4061/Concepts/Projects/*" 2>&1
-echo "=== does Projects/Project - 1 Assignment.md (real folder, not Concepts/) have content? ==="
-wc -l "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" 2>&1
-echo "=== any file anywhere in vault with Project-1-like content, modified recently ==="
-git log --all --oneline --diff-filter=A -- "**/Project*1*" 2>&1 | head -20
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== current Projects/ folder listing ==="
-ls -la "20_Progress/Degree/CSCI 4061/Projects" 2>&1
-echo "=== git log on exact Project-1-Assignment path ==="
-git log --oneline -- "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" 2>&1
-echo "=== git log on exact Project-1-Board path ==="
-git log --oneline -- "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" 2>&1
-echo "=== whole CSCI 4061 folder current listing (top 2 levels) ==="
-find "20_Progress/Degree/CSCI 4061" -maxdepth 2 2>&1
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== Obsidian .trash folder ==="
-find .trash -iname "*project*1*" 2>&1 | head -20
-find .trash -maxdepth 2 2>&1 | head -30
-echo "=== Syncthing versions folder ==="
-find . -maxdepth 2 -iname ".stversions" 2>&1
-find . -iname "*stversions*" -maxdepth 1 2>&1
-echo "=== search whole D: drive quickly for stversions ==="
-find "D:\_Anant" -maxdepth 3 -iname "*stversions*" 2>&1
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*roject*" 2>&1
-echo "---"
-find ".stversions" -ipath "*CSCI 4061*Project*" 2>&1
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-wc -l ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md" ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-mkdir -p "20_Progress/Degree/CSCI 4061/Projects"
-cp ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"
-cp ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md"
-echo "=== restored, verify ==="
-wc -l "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-find ".stversions/20_Progress/Degree/CSCI 4061" -type f | sort
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-for f in ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Preparation~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Textbook Map~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 1~20261001-230154.md" \
-  ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md"; do
-  echo "--- $f : $(wc -l < "$f") lines ---"
-done
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-for pair in \
-  "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md|20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" \
-  "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md|20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" \
-  "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md|20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md" \
-  "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md|20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md" \
-  "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md|20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" \
-  "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md|20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md" \
-  ; do
-  a="${pair%%|*}"; b="${pair##*|}"
-  echo "=== $b ==="
-  diff -q "$a" "$b" && echo "IDENTICAL" || wc -l "$a" "$b"
-done
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== Chapter-1: stversions vs sync-conflict ==="
-diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" | head -30
-echo "=== Chapter-7: stversions vs sync-conflict ==="
-diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md" | head -30
-echo "=== Week-1: stversions vs sync-conflict ==="
-diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== Textbook Map: stversions vs sync-conflict ==="
-diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Textbook Map~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md"
-echo "=== Weekly Board: stversions vs sync-conflict ==="
-diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md"
-echo "=== CSCI 4061 Board: stversions vs sync-conflict ==="
-diff ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== current Concepts Board ==="
-cat "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md"
-echo "=== current Lab-2 vs archived ==="
-diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-# Files where my own last-session edit (stversions 230154) is correct and canonical
-cp ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
-cp ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
-cp ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
-cp ".stversions/20_Progress/Degree/CSCI 4061/Preparation~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Preparation.md"
-cp ".stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md"
-# Lab 3: the dev-container-verified version supersedes my own rewrite
-cp ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md"
-# Files where the sync-conflict copy is richer/more accurate than my own edit
-cp "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
-cp "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md"
-cp "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
-echo "=== restored. verifying line counts ==="
-wc -l "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Preparation.md" "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== Week-2 current ==="
-wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md"
-head -3 "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md"
-echo "=== Week-3 current ==="
-wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md"
-head -3 "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md"
-echo "=== diff vs archived 9/29 21:08 snapshot (sanity check, should be same or richer) ==="
-diff -q "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 2~20260929-210843.md"
-diff -q "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 3~20260929-210843.md"
-echo "=== Week-4 current vs archived 9/29 (should differ a LOT since real content landed since) ==="
-wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 4~20260929-210843.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 2~20260929-210843.md" | head -20
-echo "---"
-diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 3~20260929-210843.md" | head -20
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-rm "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md"
-rm "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md"
-echo "=== verify none remain ==="
-find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1
-echo "=== Chapter - 3.md still intact? (its conflict partner deleted) ==="
-wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"
-`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== full CSCI 4061 folder tree, final state ==="
-find "20_Progress/Degree/CSCI 4061" -type f | sort
-echo "=== sanity: any remaining conflict/temp files anywhere in vault touching 4061? ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis" \( -iname "*4061*sync-conflict*" -o -iname "*sync-conflict*4061*" \) 2>&1
-echo "=== sanity: Chapter 4/8/10 still rich (untouched by this issue) ==="
-wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
-`
+- `echo "=== mineru on PATH? ===" command -v mineru 2>&1 echo "=== pip mineru? ===" pip show mineru 2>&1 | head -5 pip show magic-pdf 2>&1 | head -5 echo "=== conda/python envs with mineru ===" where mineru 2>&1 echo "=== check common install locations ===" find "C:\Users\anant" -maxdepth 4 -iname "*mineru*" 2>/dev/null | head -20 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== ALL sync-conflict / syncthing temp files in CSCI 4061 folder ===" find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1 echo "=== count ===" find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1 | wc -l `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" for f in "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" "20_Progress/Degree/CSCI 4061/Preparation.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"; do   echo "=== $f ==="   git log --oneline -- "$f" | head -8   echo done `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== 70fdbb4f (14:03) files touched ===" git show --stat 70fdbb4f | head -30 echo "=== c595ff1f (13:18) files touched ===" git show --stat c595ff1f | head -30 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== Lab-3 @ c595ff1f (13:18) - line count and first 5 lines ===" git show c595ff1f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | wc -l git show c595ff1f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -5 echo "=== Lab-3 @ 70fdbb4f (14:03) - line count and first 5 lines ===" git show 70fdbb4f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | wc -l git show 70fdbb4f:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" | head -5 echo "=== Lab-3 current working tree - line count and first 5 lines ===" wc -l "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" head -5 "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" echo "=== HEAD (latest commit) ===" git log -1 --oneline git show HEAD:"20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" 2>&1 | wc -l `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== 836aa2d5 full info ===" git show --stat 836aa2d5 | head -20 echo "=== parents ===" git log -1 --format="%H %P" 836aa2d5 echo "=== commit log around it ===" git log --oneline -8 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== current contents of Concepts/Projects ===" ls -la "20_Progress/Degree/CSCI 4061/Concepts/Projects" 2>&1 echo "=== git log for anything ever inside that path ===" git log --all --full-history --oneline -- "20_Progress/Degree/CSCI 4061/Concepts/Projects/*" 2>&1 echo "=== does Projects/Project - 1 Assignment.md (real folder, not Concepts/) have content? ===" wc -l "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" 2>&1 echo "=== any file anywhere in vault with Project-1-like content, modified recently ===" git log --all --oneline --diff-filter=A -- "**/Project*1*" 2>&1 | head -20 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== current Projects/ folder listing ===" ls -la "20_Progress/Degree/CSCI 4061/Projects" 2>&1 echo "=== git log on exact Project-1-Assignment path ===" git log --oneline -- "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" 2>&1 echo "=== git log on exact Project-1-Board path ===" git log --oneline -- "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" 2>&1 echo "=== whole CSCI 4061 folder current listing (top 2 levels) ===" find "20_Progress/Degree/CSCI 4061" -maxdepth 2 2>&1 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== Obsidian .trash folder ===" find .trash -iname "*project*1*" 2>&1 | head -20 find .trash -maxdepth 2 2>&1 | head -30 echo "=== Syncthing versions folder ===" find . -maxdepth 2 -iname ".stversions" 2>&1 find . -iname "*stversions*" -maxdepth 1 2>&1 echo "=== search whole D: drive quickly for stversions ===" find "D:\_Anant" -maxdepth 3 -iname "*stversions*" 2>&1 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" find ".stversions/20_Progress/Degree/CSCI 4061" -iname "*roject*" 2>&1 echo "---" find ".stversions" -ipath "*CSCI 4061*Project*" 2>&1 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" wc -l ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md" ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" mkdir -p "20_Progress/Degree/CSCI 4061/Projects" cp ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" cp ".stversions/20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" echo "=== restored, verify ===" wc -l "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" find ".stversions/20_Progress/Degree/CSCI 4061" -type f | sort `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" for f in ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Preparation~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Textbook Map~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 1~20261001-230154.md" \   ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md"; do   echo "--- $f : $(wc -l < "$f") lines ---" done `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" for pair in \   "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md|20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" \   "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md|20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" \   "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md|20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md" \   "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md|20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md" \   "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md|20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" \   "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md|20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md" \   ; do   a="${pair%%|*}"; b="${pair##*|}"   echo "=== $b ==="   diff -q "$a" "$b" && echo "IDENTICAL" || wc -l "$a" "$b" done `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== Chapter-1: stversions vs sync-conflict ===" diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" | head -30 echo "=== Chapter-7: stversions vs sync-conflict ===" diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md" | head -30 echo "=== Week-1: stversions vs sync-conflict ===" diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== Textbook Map: stversions vs sync-conflict ===" diff ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Textbook Map~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md" echo "=== Weekly Board: stversions vs sync-conflict ===" diff ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Weekly Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md" echo "=== CSCI 4061 Board: stversions vs sync-conflict ===" diff ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== current Concepts Board ===" cat "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md" echo "=== current Lab-2 vs archived ===" diff "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 2~20261001-230154.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" # Files where my own last-session edit (stversions 230154) is correct and canonical cp ".stversions/20_Progress/Degree/CSCI 4061/CSCI 4061 Board~20261001-230154.md" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" cp ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" cp ".stversions/20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" cp ".stversions/20_Progress/Degree/CSCI 4061/Preparation~20261001-230154.md" "20_Progress/Degree/CSCI 4061/Preparation.md" cp ".stversions/20_Progress/Degree/CSCI 4061/Concepts/Concepts Board~20261001-230200.md" "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md" # Lab 3: the dev-container-verified version supersedes my own rewrite cp ".stversions/20_Progress/Degree/CSCI 4061/Labs/Lab - 3~20261001-130359.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" # Files where the sync-conflict copy is richer/more accurate than my own edit cp "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md" cp "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" cp "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" echo "=== restored. verifying line counts ===" wc -l "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md" "20_Progress/Degree/CSCI 4061/Preparation.md" "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md" "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md" "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md" "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md" "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== Week-2 current ===" wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" head -3 "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" echo "=== Week-3 current ===" wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" head -3 "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" echo "=== diff vs archived 9/29 21:08 snapshot (sanity check, should be same or richer) ===" diff -q "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 2~20260929-210843.md" diff -q "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 3~20260929-210843.md" echo "=== Week-4 current vs archived 9/29 (should differ a LOT since real content landed since) ===" wc -l "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 4~20260929-210843.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 2~20260929-210843.md" | head -20 echo "---" diff "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md" ".stversions/20_Progress/Degree/CSCI 4061/Weekly/Week - 3~20260929-210843.md" | head -20 `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" rm "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.sync-conflict-20260929-172611-2D4OE4D.md" rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.sync-conflict-20260929-172611-2D4OE4D.md" rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md" rm "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md" rm "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md" rm "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md" rm "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md" echo "=== verify none remain ===" find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1 echo "=== Chapter - 3.md still intact? (its conflict partner deleted) ===" wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md" `
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== full CSCI 4061 folder tree, final state ===" find "20_Progress/Degree/CSCI 4061" -type f | sort echo "=== sanity: any remaining conflict/temp files anywhere in vault touching 4061? ===" find "D:\_Anant\20_Progress\Documents\Jarvis" \( -iname "*4061*sync-conflict*" -o -iname "*sync-conflict*4061*" \) 2>&1 echo "=== sanity: Chapter 4/8/10 still rich (untouched by this issue) ===" wc -l "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md" "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md" `
 - `mineru --help 2>&1 | head -60`
-- `mineru parse --help 2>&1 | head -40
-echo "======"
-mineru read --help 2>&1 | head -30
-echo "======"
-mineru search --help 2>&1 | head -20
-`
+- `mineru parse --help 2>&1 | head -40 echo "======" mineru read --help 2>&1 | head -30 echo "======" mineru search --help 2>&1 | head -20 `
 - `mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec07.pdf" --tier flash --pages all 2>&1 | head -60`
-- `rm -f "$TEMP/apue_full.txt" "$TEMP/w4prompt.txt" "$TEMP/w5prompt.txt"
-echo "cleaned temp extraction files"
-`
+- `rm -f "$TEMP/apue_full.txt" "$TEMP/w4prompt.txt" "$TEMP/w5prompt.txt" echo "cleaned temp extraction files" `
 - `mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec07.pdf" --tier flash --pages all 2>&1`
 - `mineru parse "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Lecture\Week - 4\Lec08.pdf" --tier flash --pages all 2>&1`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-echo "=== any new conflict/temp files? ==="
-find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1
-echo "=== CSCI 4061 Board current - does my edit survive? ==="
-grep -n "^next:" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
-echo "=== full folder listing, final ==="
-find "20_Progress/Degree/CSCI 4061" -type f | sort | wc -l
-echo "=== git status, uncommitted working tree changes ==="
-git status --short "20_Progress/Degree/CSCI 4061" "30_Order/Templates/Classes/Concept Template.md" "30_Order/Standards/Courses/Concept Standard.md" "20_Progress/Degree/Repetitive Things.md" 2>&1 | head -40
-`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" echo "=== any new conflict/temp files? ===" find "20_Progress/Degree/CSCI 4061" \( -iname "*sync-conflict*" -o -iname "*~syncthing~*" \) 2>&1 echo "=== CSCI 4061 Board current - does my edit survive? ===" grep -n "^next:" "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md" echo "=== full folder listing, final ===" find "20_Progress/Degree/CSCI 4061" -type f | sort | wc -l echo "=== git status, uncommitted working tree changes ===" git status --short "20_Progress/Degree/CSCI 4061" "30_Order/Templates/Classes/Concept Template.md" "30_Order/Standards/Courses/Concept Standard.md" "20_Progress/Degree/Repetitive Things.md" 2>&1 | head -40 `
 - `find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" -type f 2>&1`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-find . -iname "Pasted image 20261002170339.png" 2>&1`
-- `echo "=== recursive diff of entire original vs worked directory ==="
-diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1
-`
-- `echo "=== stray test_cases file check ==="
-cat "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\__barecd.txt" 2>&1
-echo "---"
-cat "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\out.txt" 2>&1
-echo "=== Makefile zip target (does it sweep in test_cases/ or only swish.c/swish_funcs.c?) ==="
-grep -n -A5 "^zip" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile"
-`
-- `grep -n -A5 "^clean-tests" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile"
-echo "=== test_swish.json - is __barecd.txt referenced by any real test? ==="
-grep -n "barecd" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1
-`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" find . -iname "Pasted image 20261002170339.png" 2>&1`
+- `echo "=== recursive diff of entire original vs worked directory ===" diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1 `
+- `echo "=== stray test_cases file check ===" cat "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\__barecd.txt" 2>&1 echo "---" cat "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\out.txt" 2>&1 echo "=== Makefile zip target (does it sweep in test_cases/ or only swish.c/swish_funcs.c?) ===" grep -n -A5 "^zip" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile" `
+- `grep -n -A5 "^clean-tests" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\Makefile" echo "=== test_swish.json - is __barecd.txt referenced by any real test? ===" grep -n "barecd" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1 `
 - `diff -u "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original\swish.c" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish.c"`
 - `diff -u "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original\swish_funcs.c" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\swish_funcs.c"`
-- `grep -c '"&"' "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1
-echo "---checking if any test's input is literally just &---"
-grep -rn "^&$" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\" 2>&1
-echo "=== WSL available? ==="
-wsl.exe --status 2>&1 | head -5
-which gcc 2>&1
-`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-grep -l '^&$' test_cases/input/*.txt 2>&1
-echo "exit=$?"
-echo "=== gcc check ==="
-command -v gcc 2>&1
-wsl.exe -e bash -lc "gcc --version" 2>&1 | head -3
-`
+- `grep -c '"&"' "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\test_swish.json" 2>&1 echo "---checking if any test's input is literally just &---" grep -rn "^&$" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code\test_cases\input\" 2>&1 echo "=== WSL available? ===" wsl.exe --status 2>&1 | head -5 which gcc 2>&1 `
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" grep -l '^&$' test_cases/input/*.txt 2>&1 echo "exit=$?" echo "=== gcc check ===" command -v gcc 2>&1 wsl.exe -e bash -lc "gcc --version" 2>&1 | head -3 `
 - `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && make clean && make 2>&1"`
 - `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && cat Makefile | head -45 && echo '---testius check---' && command -v testius; which python3; python3 --version"`
 - `wsl.exe -e bash -lc "pip3 show testius 2>&1; pip3 install testius 2>&1 | tail -5"`
-- `cd "/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code" 2>/dev/null
-wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\nexit\n' | ./swish; echo EXITCODE=\$?"`
+- `cd "/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code" 2>/dev/null wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\nexit\n' | ./swish; echo EXITCODE=\$?"`
 - `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf '&\necho after\nexit\n' | ./swish; echo EXITCODE=\$?"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-find . -maxdepth 2 -iname "*.py" -o -iname "*harness*" -o -iname "*verify*" 2>&1
-echo "=== check whole proj1-code and proj1-original parents for any stray harness script ==="
-find .. -maxdepth 2 -newer Makefile -type f 2>&1 | grep -v "\.o$\|proj1-code/\|proj1-original/"
-`
-- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && echo HOME=\$HOME && printf 'cd\npwd\nexit\n' | ./swish"
-echo "=== append test ==="
-wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/appendtest.txt && printf 'echo first > /tmp/appendtest.txt\necho second >> /tmp/appendtest.txt\ncat /tmp/appendtest.txt\nexit\n' | ./swish"`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis"
-grep -n -A10 "^## Work Log" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects"
-ls -la --time-style=full-iso "proj1-cod_for_Team_peoject" 2>&1 | head -3
-stat -c '%y %n' "proj1-cod_for_Team_peoject/swish.c" 2>&1
-echo "=== diff that folder's swish.c against the ORIGINAL (untouched) baseline, to see if it's pristine or modified ==="
-diff -q "proj1-original/swish.c" "proj1-cod_for_Team_peoject/swish.c" 2>&1
-`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects"
-diff -q "proj1-code/swish.c" "proj1-cod_for_Team_peoject/swish.c" 2>&1
-diff -q "proj1-code/swish_funcs.c" "proj1-cod_for_Team_peoject/swish_funcs.c" 2>&1
-echo "exit=$?"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" find . -maxdepth 2 -iname "*.py" -o -iname "*harness*" -o -iname "*verify*" 2>&1 echo "=== check whole proj1-code and proj1-original parents for any stray harness script ===" find .. -maxdepth 2 -newer Makefile -type f 2>&1 | grep -v "\.o$\|proj1-code/\|proj1-original/" `
+- `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && echo HOME=\$HOME && printf 'cd\npwd\nexit\n' | ./swish" echo "=== append test ===" wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && rm -f /tmp/appendtest.txt && printf 'echo first > /tmp/appendtest.txt\necho second >> /tmp/appendtest.txt\ncat /tmp/appendtest.txt\nexit\n' | ./swish"`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" grep -n -A10 "^## Work Log" "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects" ls -la --time-style=full-iso "proj1-cod_for_Team_peoject" 2>&1 | head -3 stat -c '%y %n' "proj1-cod_for_Team_peoject/swish.c" 2>&1 echo "=== diff that folder's swish.c against the ORIGINAL (untouched) baseline, to see if it's pristine or modified ===" diff -q "proj1-original/swish.c" "proj1-cod_for_Team_peoject/swish.c" 2>&1 `
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects" diff -q "proj1-code/swish.c" "proj1-cod_for_Team_peoject/swish.c" 2>&1 diff -q "proj1-code/swish_funcs.c" "proj1-cod_for_Team_peoject/swish_funcs.c" 2>&1 echo "exit=$?"`
 - `wsl.exe -e bash -lc "cd '/mnt/d/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code' && printf 'pwd\ncd /tmp\npwd\necho hello\nls -l > /tmp/swishtest_out.txt\nwc -l < /tmp/swishtest_out.txt\ncd\npwd\nexit\n' | ./swish 2>/dev/null; echo EXITCODE=\$?"`
-- `diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1 | grep -v "\.o$\|slow_write\b\|swish$\|out\.txt\|__barecd"
-echo "=== confirmed: only swish.c/swish_funcs.c differ from the original, scope intact ==="`
-- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code"
-grep -n "^\s*//" swish.c swish_funcs.c`
-
+- `diff -rq "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-original" "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" 2>&1 | grep -v "\.o$\|slow_write\b\|swish$\|out\.txt\|__barecd" echo "=== confirmed: only swish.c/swish_funcs.c differ from the original, scope intact ==="`
+- `cd "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj1-code" grep -n "^\s*//" swish.c swish_funcs.c`
 

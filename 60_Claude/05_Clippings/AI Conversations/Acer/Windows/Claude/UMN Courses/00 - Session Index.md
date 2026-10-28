@@ -1,5 +1,7 @@
-﻿---
-type: index
+---
+type: generated
+generator: claude-session-exporter
+gen_kind: index
 ---
 
 ```dataview
@@ -11,7 +13,7 @@ TABLE WITHOUT ID
   duration_minutes AS "Duration (min)",
   tokens.total AS "Tokens",
   cost_usd AS "Cost ($)"
-FROM "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/csci4061-fa26"
+FROM "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/UMN Courses"
 WHERE type = "input"
 SORT started_at DESC
 ```

@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "converge-jarvis-instruction-layer"
 started_at: 2026-10-15T16:55:40
 ended_at: 2026-10-15T18:42:26
-exported_at: 2026-10-17T21:06:44
+exported_at: 2026-10-28T16:15:19
 duration_minutes: 106.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 33d4247a-4479-4fa5-ab1a-9e666ace5520
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-15
+updated: 2026-10-28
 turn_count: 12
 tools_used:
   Agent: 5
@@ -28,12 +31,12 @@ tools_used:
   ToolSearch: 2
   Write: 24
 tokens:
-  input: 460
-  output: 395438
-  cache_creation: 1311455
-  cache_read: 53896131
-  total: 55603484
-cost_usd: null
+  input: 182
+  output: 135870
+  cache_creation: 472678
+  cache_read: 21515489
+  total: 22124219
+cost_usd: 5.813995
 model:
   - "claude-sonnet-5"
   - "claude-sonnet-5-5"
@@ -116,11 +119,14 @@ I'm mid-audit on the vault's top-tier AI instruction layer — cross-checking wh
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 60_Claude/07_AI_Information ===" && find "60_Claude/07_AI_Information" -maxdepth 3 -type f -name "*.md" 2>/dev/null
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 60_Claude/07_AI_Information ===" && find "60_Claude/07_AI_Information" -maxdepth 3 -type f -name "*.md" 2>/dev/null
 echo "=== 40_Resources/Obsidian ===" && find "40_Resources/Obsidian" -maxdepth 2 -type f -name "*.md" 2>/dev/null
 echo "=== 40_Resources/CS/AI ===" && find "40_Resources/CS/AI" -maxdepth 3 -type f -name "*.md" 2>/dev/null
 echo "=== 30_Order ===" && find "30_Order" -maxdepth 3 -type f -name "*.md" 2>/dev/null
-echo "=== root ===" && ls -la | head -30`
+echo "=== root ===" && ls -la | head -30
+```
 ```
 === 60_Claude/07_AI_Information ===
 60_Claude/07_AI_Information/AI Conversation - Summaries/[REDACTED] — Summary.md
@@ -365,11 +371,14 @@ drwxr-xr-x 1 anant 197609     0 Sep 25 16:15 Tracker
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\Vault Map.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\Vault Rules — Complete AI Ruleset.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\00_How This Folder Works.md`
-- `Agent` -- `{"subagent_type":"fork","description":"Survey remaining top-tier AI instruction files","prompt":"You are forked mid-task. The user wants a full audit-and-redesign pass over the top-tier AI-instructional layer of this Obsidian vault (Jarvis), so that every \"how to use Jarvis\" note an AI agent would skim on a cold start is concise, non-duplicated, correctly interlinked, and enforces the 30_Order template/standard system strictly.\n\nI (the main thread) have already read in full: `Jarvis OS — North Star.md` (60_Claude/07_AI_Information/), `AI_CONTEXT.md` (same folder), `Vault Map.md` (same folder), `Vault Rules — Complete AI Ruleset.md` (same folder, now titled \"Vault Rules — Operational Reference\" — appears already demoted per North Star\u0027s own audit), `30_Order/00_How This Folder Works.md`, plus root `CLAUDE.md` and `AGENTS.md` (both already shrunk to one-screen contracts per North Star Move 1).\n\nKey fact: the North Star file (Part 4) already contains a table of verdicts for the OLD instruction layer: keep/merge/cut/demote decisions for Vault Map, AI_CONTEXT, Vault Rules, Jarvis Writing and Formatting, Agent Operating Guide, Vault Operating System, Claude Pro Workflow, etc. Some of these verdicts already look partially executed (Vault Rules has been demoted and retitled; AGENTS/CLAUDE already shrunk). I need to find out, for the REST of the stack, what state things are actually in now versus what North Star prescribed, and survey files North Star never even mentioned.\n\nYour job: read the following files in full and report back findings. Do NOT just summarize — I need enough concrete detail (exact claims of \"authority\", exact overlaps, exact stale dates/references, exact length) that I can make real edit decisions without re-reading most of these myself.\n\nFiles to read (all under D:\\_Anant\\20_Progress\\Documents\\Jarvis\\):\n1. 60_Claude/07_AI_Information/How to Use Claude/Agent Operating Guide.md\n2. 60_Claude/07_AI_Information/How to Use Claude/Claude OS.md\n3. 60_Claude/07_AI_Information/How to Use Claude/What Graphify Does.md\n4. 60_Claude/07_AI_Information/How to Write in This Vault.md\n5. 60_Claude/07_AI_Information/Jarvis Writing and Formatting.md\n6. 60_Claude/07_AI_Information/Why We Write Notes.md\n7. 60_Claude/07_AI_Information/How Notes Were Actually Written.md\n8. 60_Claude/07_AI_Information/North Star — Execution Prompt.md\n9. 60_Claude/07_AI_Information/Plugins.md\n10. 40_Resources/Obsidian/Jarvis Vault Architecture.md\n11. 40_Resources/Obsidian/Vault Operating System.md\n12. 40_Resources/Obsidian/Jarvis Enrichment Engine.md\n13. 40_Resources/Obsidian/MCP-Hub-Index.md\n14. 40_Resources/Obsidian/Second Brain.md\n15. 40_Resources/Obsidian/Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build).md\n16. 40_Resources/CS/AI/Token Optimization/Claude Pro Workflow.md\n17. 40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md\n18. 40_Resources/CS/AI/Workflows/AI Workflow.md\n19. HUMAN_WRITING.md (vault root)\n20. 30_Order/Standards/AI Loop/Orchestration.md\n21. 30_Order/Standards/AI Loop/Conversations.md\n22. 30_Order/Standards/AI Loop/Knowledge Noting.md\n23. 30_Order/Standards/AI Loop/Memory Management.md\n24. 30_Order/Standards/AI Loop/Per Project Review.md\n25. 30_Order/Standards/AI Loop/Review System.md\n26. 30_Order/Standards/AI Loop/Tool Calls.md\n27. 30_Order/Workflows/00_Workflows Index.md\n\nFor each file report, in compact form:\n- Path, frontmatter type/status/created/updated, line count\n- One or two sentences on what it actually contains / claims to own\n- Any explicit \"authority\" / \"canonical\" / \"this is the single source\" claims\n- Any cold-start read-order prescription it gives (exact sequence if present)\n- Overlap: name specific other files in this list (or the five I already read) that restate the same rule/content\n- Staleness: references to things that may not exist anymore (old plan names, dead links, dates far in the past vs today 2026-10-15), or content that contradicts the North Star\u0027s already-stated verdicts\n- Whether it is well-interlinked (wikilinks to the right authority files) or orphaned/disconnected\n\nAlso flag: does `30_Order/Standards/AI Loop/*` duplicate anything in the 07_AI_Information folder (this is the likely biggest hidden overlap — the North Star didn\u0027t audit 30_Order/Standards/AI Loop/ at all)?\n\nEnd with a short prioritized list: which of these files should be killed/merged/pointer-ified, which are genuinely load-bearing and unique, and which are stale enough to flag for deletion outright. Keep your final report under 1200 words — I need the facts, not polish."}`
+- `Agent` -- ``{"subagent_type":"fork","description":"Survey remaining top-tier AI instruction files","prompt":"You are forked mid-task. The user wants a full audit-and-redesign pass over the top-tier AI-instructional layer of this Obsidian vault (Jarvis), so that every \"how to use Jarvis\" note an AI agent would skim on a cold start is concise, non-duplicated, correctly interlinked, and enforces the 30_Order template/standard system strictly.\n\nI (the main thread) have already read in full: `Jarvis OS — North Star.md` (60_Claude/07_AI_Information/), `AI_CONTEXT.md` (same folder), `Vault Map.md` (same folder), `Vault Rules — Complete AI Ruleset.md` (same folder, now titled \"Vault Rules — Operational Reference\" — appears already demoted per North Star\u0027s own audit), `30_Order/00_How This Folder Works.md`, plus root `CLAUDE.md` and `AGENTS.md` (both already shrunk to one-screen contracts per North Star Move 1).\n\nKey fact: the North Star file (Part 4) already contains a table of verdicts for the OLD instruction layer: keep/merge/cut/demote decisions for Vault Map, AI_CONTEXT, Vault Rules, Jarvis Writing and Formatting, Agent Operating Guide, Vault Operating System, Claude Pro Workflow, etc. Some of these verdicts already look partially executed (Vault Rules has been demoted and retitled; AGENTS/CLAUDE already shrunk). I need to find out, for the REST of the stack, what state things are actually in now versus what North Star prescribed, and survey files North Star never even mentioned.\n\nYour job: read the following files in full and report back findings. Do NOT just summarize — I need enough concrete detail (exact claims of \"authority\", exact overlaps, exact stale dates/references, exact length) that I can make real edit decisions without re-reading most of these myself.\n\nFiles to read (all under D:\\_Anant\\20_Progress\\Documents\\Jarvis\\):\n1. 60_Claude/07_AI_Information/How to Use Claude/Agent Operating Guide.md\n2. 60_Claude/07_AI_Information/How to Use Claude/Claude OS.md\n3. 60_Claude/07_AI_Information/How to Use Claude/What Graphify Does.md\n4. 60_Claude/07_AI_Information/How to Write in This Vault.md\n5. 60_Claude/07_AI_Information/Jarvis Writing and Formatting.md\n6. 60_Claude/07_AI_Information/Why We Write Notes.md\n7. 60_Claude/07_AI_Information/How Notes Were Actually Written.md\n8. 60_Claude/07_AI_Information/North Star — Execution Prompt.md\n9. 60_Claude/07_AI_Information/Plugins.md\n10. 40_Resources/Obsidian/Jarvis Vault Architecture.md\n11. 40_Resources/Obsidian/Vault Operating System.md\n12. 40_Resources/Obsidian/Jarvis Enrichment Engine.md\n13. 40_Resources/Obsidian/MCP-Hub-Index.md\n14. 40_Resources/Obsidian/Second Brain.md\n15. 40_Resources/Obsidian/Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build).md\n16. 40_Resources/CS/AI/Token Optimization/Claude Pro Workflow.md\n17. 40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md\n18. 40_Resources/CS/AI/Workflows/AI Workflow.md\n19. HUMAN_WRITING.md (vault root)\n20. 30_Order/Standards/AI Loop/Orchestration.md\n21. 30_Order/Standards/AI Loop/Conversations.md\n22. 30_Order/Standards/AI Loop/Knowledge Noting.md\n23. 30_Order/Standards/AI Loop/Memory Management.md\n24. 30_Order/Standards/AI Loop/Per Project Review.md\n25. 30_Order/Standards/AI Loop/Review System.md\n26. 30_Order/Standards/AI Loop/Tool Calls.md\n27. 30_Order/Workflows/00_Workflows Index.md\n\nFor each file report, in compact form:\n- Path, frontmatter type/status/created/updated, line count\n- One or two sentences on what it actually contains / claims to own\n- Any explicit \"authority\" / \"canonical\" / \"this is the single source\" claims\n- Any cold-start read-order prescription it gives (exact sequence if present)\n- Overlap: name specific other files in this list (or the five I already read) that restate the same rule/content\n- Staleness: references to things that may not exist anymore (old plan names, dead links, dates far in the past vs today 2026-10-15), or content that contradicts the North Star\u0027s already-stated verdicts\n- Whether it is well-interlinked (wikilinks to the right authority files) or orphaned/disconnected\n\nAlso flag: does `30_Order/Standards/AI Loop/*` duplicate anything in the 07_AI_Information folder (this is the likely biggest hidden overlap — the North Star didn\u0027t audit 30_Order/Standards/AI Loop/ at all)?\n\nEnd with a short prioritized list: which of these files should be killed/merged/pointer-ified, which are genuinely load-bearing and unique, and which are stale enough to flag for deletion outright. Keep your final report under 1200 words — I need the facts, not polish."}``
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\00_Workflows Index.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 10_Areas top level ===" && ls "10_Areas" && echo "=== check for hub notes ===" && find "10_Areas" -maxdepth 1 -name "*.md" && echo "=== 20_Progress top ===" && ls "20_Progress" && echo "=== dashboard head ===" && head -40 "00_Dashboard.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 10_Areas top level ===" && ls "10_Areas" && echo "=== check for hub notes ===" && find "10_Areas" -maxdepth 1 -name "*.md" && echo "=== 20_Progress top ===" && ls "20_Progress" && echo "=== dashboard head ===" && head -40 "00_Dashboard.md"
 ```
+````
 === 10_Areas top level ===
 AI
 Career
@@ -428,7 +437,7 @@ notes:
 Number of Columns: 2
 Largest Column: left
 Border: off
-```
+````
 - `ListAgents` -- `{}`
 - `ToolSearch` -- `{"query":"select:SendMessage","max_results":3}`
 - `SendMessage` -- `{"to":"a4825f3ba99c3cc21","summary":"Actually perform the file survey now","message":"You stopped early and only replied with a status placeholder (\"survey running in background, I\u0027ll report back\") without actually reading any files (0 tool uses recorded). There is no separate background process — you ARE the one who needs to read these files and produce the report, right now, in this turn, using your Read tool.\n\nPlease actually execute the task now: Read each of the 27 files listed in my original prompt in full, and produce the real structured findings report (per-file: path, frontmatter, line count, what it contains/claims, authority claims, cold-start read-order prescriptions, overlaps with named files, staleness, interlink quality), ending with the prioritized kill/merge/keep list — all under 1200 words. Do not say you\u0027ll report back later; give me the actual findings in your response now.","type":"message","recipient":"a4825f3ba99c3cc21","recipient_kind":"agent","content":"You stopped early and only replied with a status …"}`
@@ -504,7 +513,10 @@ Three research agents are now mapping existing conversation/memory, orchestratio
 - `EnterPlanMode` -- `{}`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\MCP-Hub-Index.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\How to Use Claude\Claude OS.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Career ---" && ls "10_Areas/Career" && echo "--- Life ---" && ls "10_Areas/Life" && echo "--- Trading ---" && ls "10_Areas/Trading" && echo "--- UMN ---" && ls "10_Areas/UMN" | head -10 && echo "--- Notes ---" && ls "10_Areas/Notes" 2>/dev/null | head -10`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Career ---" && ls "10_Areas/Career" && echo "--- Life ---" && ls "10_Areas/Life" && echo "--- Trading ---" && ls "10_Areas/Trading" && echo "--- UMN ---" && ls "10_Areas/UMN" | head -10 && echo "--- Notes ---" && ls "10_Areas/Notes" 2>/dev/null | head -10
+```
 ```
 --- Career ---
 Certifications
@@ -531,7 +543,10 @@ F'25
 Files
 PDFs
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- mcp-hub skill? ---" && find .claude/skills -iname "*mcp-hub*" 2>/dev/null && echo "--- 20_Progress/AI dir ---" && ls "20_Progress/AI" 2>/dev/null && echo "--- AI Loop file sizes ---" && ls -la "30_Order/Standards/AI Loop/" && echo "--- How to Use Claude dir ---" && ls "60_Claude/07_AI_Information/How to Use Claude"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- mcp-hub skill? ---" && find .claude/skills -iname "*mcp-hub*" 2>/dev/null && echo "--- 20_Progress/AI dir ---" && ls "20_Progress/AI" 2>/dev/null && echo "--- AI Loop file sizes ---" && ls -la "30_Order/Standards/AI Loop/" && echo "--- How to Use Claude dir ---" && ls "60_Claude/07_AI_Information/How to Use Claude"
+```
 ```
 --- mcp-hub skill? ---
 .claude/skills/mcp-hub
@@ -560,10 +575,10 @@ Agent Operating Guide.md
 Claude OS.md
 What Graphify Does.md
 ```
-- `AskUserQuestion` -- `{"questions":[{"question":"30_Order/Standards/AI Loop/ has 7 empty standards files (Orchestration, Conversations, Knowledge Noting, Memory Management, Per Project Review, Review System, Tool Calls) — named exactly like the \"AI orchestration for knowledge gain\" system you described, but with zero content, which already violates 30_Order\u0027s own \"never leave a named-but-empty Standard\" rule. What should happen to them in this pass?","header":"AI Loop standards","multiSelect":false,"options":[{"label":"Delete now, design later (Recommended)","description":"Remove the 7 empty files as pure debt. Note in 00_How This Folder Works that an \u0027AI Loop\u0027 standards set is a deliberate future addition, to be designed in the dedicated lower-tier pass you mentioned — not invented hastily inside this top-tier cleanup."},{"label":"Leave them, just flag as TODO","description":"Keep the empty files as placeholders but add a one-line note in 30_Order\u0027s index flagging them as reserved-but-unwritten, so the Write Contract violation is at least visible and intentional."},{"label":"Draft real content now","description":"Treat this as in-scope for the current pass and have me write all 7 Standards (each needing a Gold Standard Example, matching Template, and cross-links) now. This is a substantial content-design task on top of the top-tier cleanup, not a quick fix."}]},{"question":"`Claude OS.md` currently sits in `60_Claude/07_AI_Information/How to Use Claude/` but its actual content is a cross-project tooling registry (agents/skills/hooks/MCP servers across Jarvis, CausalOps, Cursor, Kiro, Codex), not vault orientation — and it\u0027s 3+ months stale (dated 2026-07-03). Its companion dashboard/canvas already lives in `20_Progress/AI/`. What should happen to it?","header":"Claude OS.md placement","multiSelect":false,"options":[{"label":"Move to 20_Progress/AI/ (Recommended)","description":"Relocate next to its companion Claude OS Dashboard.md/.canvas, add a \u0027last verified 2026-07-03, re-verify before trusting\u0027 banner, and leave How to Use Claude/ holding only genuine vault-operating instructions."},{"label":"Leave in place, just add a staleness banner","description":"Don\u0027t move the file — only add a note flagging it as a dated snapshot, not living truth. Keeps the file where it is in case something already links to that exact path."},{"label":"Skip entirely","description":"Leave it untouched; it\u0027s out of scope for this pass."}]}]}`
-- `Agent` -- `{"subagent_type":"Explore","description":"Map existing Conversations/Knowledge/Memory content","prompt":"In the Obsidian vault at D:\\_Anant\\20_Progress\\Documents\\Jarvis, I need to find all EXISTING content (already written, already practiced) that relates to three themes, because I\u0027m about to write three empty Standards files (30_Order/Standards/AI Loop/Conversations.md, Knowledge Noting.md, Memory Management.md) and the content must be grounded in what the vault already does, not invented.\n\nSearch thoroughly (medium-thorough breadth) and report back, for EACH of the three themes, concrete findings:\n\n**1. Conversations** — how AI conversations (with Claude, ChatGPT, Cursor, etc.) get captured/summarized in this vault.\n- Read `30_Order/Workflows/Ingestion/Conversation Capture.md` in full and report its exact steps/fields.\n- List files under `60_Claude/07_AI_Information/AI Conversation - Summaries/` (there\u0027s a README.md and several dated summary notes plus a Claude Code subfolder) — read the README and 1-2 real example summary notes to see the actual frontmatter/structure used in practice.\n- Check if there\u0027s a \"Brief Standard\" or similar under `30_Order/Standards/Ingestion/` that already covers transcript-to-brief work (there\u0027s a `Brief Standard.md` and workflow `Transcript to Brief.md`) — read both, report their frontmatter schema and structure.\n\n**2. Knowledge Noting** — how raw knowledge becomes durable notes (the capture→distill pipeline).\n- Read `30_Order/Standards/Enrich/Evergreen Standard.md`, `30_Order/Standards/Enrich/Source Summary Standard.md` in full.\n- Read `30_Order/Workflows/Ingestion/Capture to Summary.md` (actual filename may be `Ingestion/Capture to Summary.md` or similar — check `30_Order/Workflows/` listing) and `Enrichment/Summary to Distilled.md`.\n- Report whether these already fully cover \"how AI takes notes on knowledge\" or if there\u0027s a gap only a new \"Knowledge Noting\" standard would fill.\n\n**3. Memory Management** — how continuity/memory persists across sessions.\n- Read the \"Continuity Protocol\" section in `60_Claude/07_AI_Information/AI_CONTEXT.md` (already read by me, but you re-verify current content).\n- Read `60_Claude/07_AI_Information/Session Logs/log.md` — just the last ~40 lines (tail) to see the actual format being used in practice, not a template.\n- Check `30_Order/Standards/Log Standard.md` in full — does it already cover session-log format?\n- Search for any mention of \"CPR\" / \"compress preserve resume\" pattern in the vault (`40_Resources/CS/AI/CPR - Compress Preserve Resume.md`) — read it, report its core mechanism in 3-4 sentences.\n- Check whether `jarvis-memory` MCP server (`30_Order/System/jarvis-memory/README.md`) has any documented \"memory management\" contract worth citing.\n\nFor each of the 3 themes, end with a one-paragraph verdict: **\"a dedicated Standard here would duplicate X (cite the file) unless scoped narrowly to Y\"** or **\"no existing Standard covers this — a new one is genuinely needed, and here\u0027s the real-practice material to ground it in (cite the files/examples).\"**\n\nKeep the full report under 900 words — I need citable facts (file paths, exact frontmatter fields, exact structure), not a general restatement."}`
-- `Agent` -- `{"subagent_type":"Explore","description":"Map existing Orchestration/Tool Calls content","prompt":"In the Obsidian vault at D:\\_Anant\\20_Progress\\Documents\\Jarvis, I need to find all EXISTING content (already written, already practiced) that relates to two themes, because I\u0027m about to write two empty Standards files (30_Order/Standards/AI Loop/Orchestration.md and Tool Calls.md) and the content must be grounded in what the vault already does, not invented.\n\nSearch thoroughly and report back, for EACH theme, concrete findings:\n\n**1. Tool Calls** — how an AI agent should choose which tool to use for a given situation.\n- Read `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` in full (it may now be titled \"Vault Rules — Operational Reference\" — read whatever is actually there) — it has a \"Tool Selection\" section with tables for Reading Files / Writing Files / MCP Filesystem Tools / Subagents. Quote the exact tables.\n- This looks like a near-exact duplicate of what a \"Tool Calls\" standard would contain. Confirm this by comparing structure, and report whether the right move is \"move this section verbatim into the new Standard and leave Vault Rules pointing at it\" or \"they\u0027re different enough to coexist.\"\n\n**2. Orchestration** — how multiple agents/subagents/skills coordinate on a task.\n- Read `60_Claude/07_AI_Information/Jarvis OS — North Star.md` Part 5.2 (\"The agent / subagent standard\") — already summarized to me, but re-read and quote its exact rules about subagent file shape, frontmatter, tool allowlists.\n- Read `60_Claude/07_AI_Information/Vault Map.md`\u0027s \"Workflow Chooser\" section (Dataview/Tasks/Kanban/Excalidraw/Spaced Repetition/Templater — when to use each).\n- List the `.claude/agents/*.md` files in this vault (there should be ~8-9: anti-slop-editor, career-operator, daily-operator, human-operator, ingestion, learning-agent, note-to-actions, professor, research-distiller, vault-curator) and read 2-3 of them to see their actual frontmatter pattern (name/description/tools) — report the pattern.\n- Check `60_Claude/07_AI_Information/How to Use Claude/Claude OS.md` for its agent roster table (5 agents: research-distiller, anti-slop-editor, vault-curator, learning-agent, career-operator) — note this may be stale/outdated vs the actual `.claude/agents/` folder contents; report the discrepancy if any (e.g. agent count mismatch).\n- Report whether there\u0027s an existing standard for \"when does a task warrant spawning a subagent vs. doing it inline\" (North Star Part 6 rule 5 touches this) — quote it.\n\nEnd each theme with a one-paragraph verdict: **\"a dedicated Standard here would duplicate X (cite file) unless scoped as Y\"** or **\"no existing Standard covers this — here\u0027s the real material to ground a new one in.\"**\n\nKeep the full report under 700 words — cite exact file paths and quote short exact passages, not paraphrases."}`
-- `Agent` -- `{"subagent_type":"Explore","description":"Map existing Review/Per-Project-Review content","prompt":"In the Obsidian vault at D:\\_Anant\\20_Progress\\Documents\\Jarvis, I need to find all EXISTING content (already written, already practiced) that relates to two themes, because I\u0027m about to write two empty Standards files (30_Order/Standards/AI Loop/Per Project Review.md and Review System.md) and the content must be grounded in what the vault already does, not invented.\n\nSearch thoroughly and report back, for EACH theme, concrete findings:\n\n**1. Review System** — general review cadence (daily/weekly/monthly/quarterly) across the vault.\n- Read `30_Order/Standards/Enrich/Review Standard.md` in full.\n- Read `30_Order/Templates/AI Use/AI Weekly Review Template.md` and `AI Monthly Review Template.md` in full — report their exact frontmatter and headings.\n- Read `30_Order/Workflows/Ingestion/Plan Review Cadence.md` in full.\n- Check the `weekly-review` skill (search `.claude/skills/` for it) and the `closing-day` / `starting-day` skills (`/closeday`, `/startday`) briefly — what do they already automate for review cadence? Just report the gist (don\u0027t need full file dumps for these two).\n- Report whether these fully cover \"how review works in this vault\" already, or if there\u0027s a real gap (e.g., nothing yet ties multiple review layers — daily/weekly/monthly/project — into one coherent system) that a \"Review System\" standard would uniquely fill.\n\n**2. Per Project Review** — reviewing a specific active project/internship/course/research thread.\n- Read `30_Order/Standards/Internship/Internship Loop Review Standard.md` in full.\n- Read `30_Order/Standards/Project Standard.md` in full.\n- Check `20_Progress/UROP/BOOM Board.md` and `20_Progress/Projects/Projects Board.md` briefly (just enough to see if they already encode a per-project review cadence, e.g. a status/health column or review date field) — report what you find in 2-3 sentences each.\n- Report whether \"per project review\" is already fully specified by Internship Loop Review Standard + Project Standard (meaning a new Standard would be scoped narrowly, e.g. generalizing the internship-specific pattern to ALL project types: UROP, coursework, trading, personal builds), or whether it\u0027s a genuine gap.\n\nEnd each theme with a one-paragraph verdict: **\"a dedicated Standard here would duplicate X (cite file) unless scoped as Y\"** or **\"no existing Standard covers this — here\u0027s the real material to ground a new one in.\"**\n\nKeep the full report under 700 words — cite exact file paths and quote short exact passages, not paraphrases."}`
+- `AskUserQuestion` -- ``{"questions":[{"question":"30_Order/Standards/AI Loop/ has 7 empty standards files (Orchestration, Conversations, Knowledge Noting, Memory Management, Per Project Review, Review System, Tool Calls) — named exactly like the \"AI orchestration for knowledge gain\" system you described, but with zero content, which already violates 30_Order\u0027s own \"never leave a named-but-empty Standard\" rule. What should happen to them in this pass?","header":"AI Loop standards","multiSelect":false,"options":[{"label":"Delete now, design later (Recommended)","description":"Remove the 7 empty files as pure debt. Note in 00_How This Folder Works that an \u0027AI Loop\u0027 standards set is a deliberate future addition, to be designed in the dedicated lower-tier pass you mentioned — not invented hastily inside this top-tier cleanup."},{"label":"Leave them, just flag as TODO","description":"Keep the empty files as placeholders but add a one-line note in 30_Order\u0027s index flagging them as reserved-but-unwritten, so the Write Contract violation is at least visible and intentional."},{"label":"Draft real content now","description":"Treat this as in-scope for the current pass and have me write all 7 Standards (each needing a Gold Standard Example, matching Template, and cross-links) now. This is a substantial content-design task on top of the top-tier cleanup, not a quick fix."}]},{"question":"`Claude OS.md` currently sits in `60_Claude/07_AI_Information/How to Use Claude/` but its actual content is a cross-project tooling registry (agents/skills/hooks/MCP servers across Jarvis, CausalOps, Cursor, Kiro, Codex), not vault orientation — and it\u0027s 3+ months stale (dated 2026-07-03). Its companion dashboard/canvas already lives in `20_Progress/AI/`. What should happen to it?","header":"Claude OS.md placement","multiSelect":false,"options":[{"label":"Move to 20_Progress/AI/ (Recommended)","description":"Relocate next to its companion Claude OS Dashboard.md/.canvas, add a \u0027last verified 2026-07-03, re-verify before trusting\u0027 banner, and leave How to Use Claude/ holding only genuine vault-operating instructions."},{"label":"Leave in place, just add a staleness banner","description":"Don\u0027t move the file — only add a note flagging it as a dated snapshot, not living truth. Keeps the file where it is in case something already links to that exact path."},{"label":"Skip entirely","description":"Leave it untouched; it\u0027s out of scope for this pass."}]}]}``
+- `Agent` -- ``{"subagent_type":"Explore","description":"Map existing Conversations/Knowledge/Memory content","prompt":"In the Obsidian vault at D:\\_Anant\\20_Progress\\Documents\\Jarvis, I need to find all EXISTING content (already written, already practiced) that relates to three themes, because I\u0027m about to write three empty Standards files (30_Order/Standards/AI Loop/Conversations.md, Knowledge Noting.md, Memory Management.md) and the content must be grounded in what the vault already does, not invented.\n\nSearch thoroughly (medium-thorough breadth) and report back, for EACH of the three themes, concrete findings:\n\n**1. Conversations** — how AI conversations (with Claude, ChatGPT, Cursor, etc.) get captured/summarized in this vault.\n- Read `30_Order/Workflows/Ingestion/Conversation Capture.md` in full and report its exact steps/fields.\n- List files under `60_Claude/07_AI_Information/AI Conversation - Summaries/` (there\u0027s a README.md and several dated summary notes plus a Claude Code subfolder) — read the README and 1-2 real example summary notes to see the actual frontmatter/structure used in practice.\n- Check if there\u0027s a \"Brief Standard\" or similar under `30_Order/Standards/Ingestion/` that already covers transcript-to-brief work (there\u0027s a `Brief Standard.md` and workflow `Transcript to Brief.md`) — read both, report their frontmatter schema and structure.\n\n**2. Knowledge Noting** — how raw knowledge becomes durable notes (the capture→distill pipeline).\n- Read `30_Order/Standards/Enrich/Evergreen Standard.md`, `30_Order/Standards/Enrich/Source Summary Standard.md` in full.\n- Read `30_Order/Workflows/Ingestion/Capture to Summary.md` (actual filename may be `Ingestion/Capture to Summary.md` or similar — check `30_Order/Workflows/` listing) and `Enrichment/Summary to Distilled.md`.\n- Report whether these already fully cover \"how AI takes notes on knowledge\" or if there\u0027s a gap only a new \"Knowledge Noting\" standard would fill.\n\n**3. Memory Management** — how continuity/memory persists across sessions.\n- Read the \"Continuity Protocol\" section in `60_Claude/07_AI_Information/AI_CONTEXT.md` (already read by me, but you re-verify current content).\n- Read `60_Claude/07_AI_Information/Session Logs/log.md` — just the last ~40 lines (tail) to see the actual format being used in practice, not a template.\n- Check `30_Order/Standards/Log Standard.md` in full — does it already cover session-log format?\n- Search for any mention of \"CPR\" / \"compress preserve resume\" pattern in the vault (`40_Resources/CS/AI/CPR - Compress Preserve Resume.md`) — read it, report its core mechanism in 3-4 sentences.\n- Check whether `jarvis-memory` MCP server (`30_Order/System/jarvis-memory/README.md`) has any documented \"memory management\" contract worth citing.\n\nFor each of the 3 themes, end with a one-paragraph verdict: **\"a dedicated Standard here would duplicate X (cite the file) unless scoped narrowly to Y\"** or **\"no existing Standard covers this — a new one is genuinely needed, and here\u0027s the real-practice material to ground it in (cite the files/examples).\"**\n\nKeep the full report under 900 words — I need citable facts (file paths, exact frontmatter fields, exact structure), not a general restatement."}``
+- `Agent` -- ``{"subagent_type":"Explore","description":"Map existing Orchestration/Tool Calls content","prompt":"In the Obsidian vault at D:\\_Anant\\20_Progress\\Documents\\Jarvis, I need to find all EXISTING content (already written, already practiced) that relates to two themes, because I\u0027m about to write two empty Standards files (30_Order/Standards/AI Loop/Orchestration.md and Tool Calls.md) and the content must be grounded in what the vault already does, not invented.\n\nSearch thoroughly and report back, for EACH theme, concrete findings:\n\n**1. Tool Calls** — how an AI agent should choose which tool to use for a given situation.\n- Read `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` in full (it may now be titled \"Vault Rules — Operational Reference\" — read whatever is actually there) — it has a \"Tool Selection\" section with tables for Reading Files / Writing Files / MCP Filesystem Tools / Subagents. Quote the exact tables.\n- This looks like a near-exact duplicate of what a \"Tool Calls\" standard would contain. Confirm this by comparing structure, and report whether the right move is \"move this section verbatim into the new Standard and leave Vault Rules pointing at it\" or \"they\u0027re different enough to coexist.\"\n\n**2. Orchestration** — how multiple agents/subagents/skills coordinate on a task.\n- Read `60_Claude/07_AI_Information/Jarvis OS — North Star.md` Part 5.2 (\"The agent / subagent standard\") — already summarized to me, but re-read and quote its exact rules about subagent file shape, frontmatter, tool allowlists.\n- Read `60_Claude/07_AI_Information/Vault Map.md`\u0027s \"Workflow Chooser\" section (Dataview/Tasks/Kanban/Excalidraw/Spaced Repetition/Templater — when to use each).\n- List the `.claude/agents/*.md` files in this vault (there should be ~8-9: anti-slop-editor, career-operator, daily-operator, human-operator, ingestion, learning-agent, note-to-actions, professor, research-distiller, vault-curator) and read 2-3 of them to see their actual frontmatter pattern (name/description/tools) — report the pattern.\n- Check `60_Claude/07_AI_Information/How to Use Claude/Claude OS.md` for its agent roster table (5 agents: research-distiller, anti-slop-editor, vault-curator, learning-agent, career-operator) — note this may be stale/outdated vs the actual `.claude/agents/` folder contents; report the discrepancy if any (e.g. agent count mismatch).\n- Report whether there\u0027s an existing standard for \"when does a task warrant spawning a subagent vs. doing it inline\" (North Star Part 6 rule 5 touches this) — quote it.\n\nEnd each theme with a one-paragraph verdict: **\"a dedicated Standard here would duplicate X (cite file) unless scoped as Y\"** or **\"no existing Standard covers this — here\u0027s the real material to ground a new one in.\"**\n\nKeep the full report under 700 words — cite exact file paths and quote short exact passages, not paraphrases."}``
+- `Agent` -- ``{"subagent_type":"Explore","description":"Map existing Review/Per-Project-Review content","prompt":"In the Obsidian vault at D:\\_Anant\\20_Progress\\Documents\\Jarvis, I need to find all EXISTING content (already written, already practiced) that relates to two themes, because I\u0027m about to write two empty Standards files (30_Order/Standards/AI Loop/Per Project Review.md and Review System.md) and the content must be grounded in what the vault already does, not invented.\n\nSearch thoroughly and report back, for EACH theme, concrete findings:\n\n**1. Review System** — general review cadence (daily/weekly/monthly/quarterly) across the vault.\n- Read `30_Order/Standards/Enrich/Review Standard.md` in full.\n- Read `30_Order/Templates/AI Use/AI Weekly Review Template.md` and `AI Monthly Review Template.md` in full — report their exact frontmatter and headings.\n- Read `30_Order/Workflows/Ingestion/Plan Review Cadence.md` in full.\n- Check the `weekly-review` skill (search `.claude/skills/` for it) and the `closing-day` / `starting-day` skills (`/closeday`, `/startday`) briefly — what do they already automate for review cadence? Just report the gist (don\u0027t need full file dumps for these two).\n- Report whether these fully cover \"how review works in this vault\" already, or if there\u0027s a real gap (e.g., nothing yet ties multiple review layers — daily/weekly/monthly/project — into one coherent system) that a \"Review System\" standard would uniquely fill.\n\n**2. Per Project Review** — reviewing a specific active project/internship/course/research thread.\n- Read `30_Order/Standards/Internship/Internship Loop Review Standard.md` in full.\n- Read `30_Order/Standards/Project Standard.md` in full.\n- Check `20_Progress/UROP/BOOM Board.md` and `20_Progress/Projects/Projects Board.md` briefly (just enough to see if they already encode a per-project review cadence, e.g. a status/health column or review date field) — report what you find in 2-3 sentences each.\n- Report whether \"per project review\" is already fully specified by Internship Loop Review Standard + Project Standard (meaning a new Standard would be scoped narrowly, e.g. generalizing the internship-specific pattern to ALL project types: UROP, coursework, trading, personal builds), or whether it\u0027s a genuine gap.\n\nEnd each theme with a one-paragraph verdict: **\"a dedicated Standard here would duplicate X (cite file) unless scoped as Y\"** or **\"no existing Standard covers this — here\u0027s the real material to ground a new one in.\"**\n\nKeep the full report under 700 words — cite exact file paths and quote short exact passages, not paraphrases."}``
 
 ## You
 
@@ -796,7 +811,10 @@ I finished the top-tier cleanup and wrote the AI Loop and Toolkit set. 14 empty 
 
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Log Standard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Enrich\Review Standard.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "60_Claude"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "60_Claude"
+```
 ```
 00_Inbox
 05_Clippings
@@ -808,7 +826,10 @@ I finished the top-tier cleanup and wrote the AI Loop and Toolkit set. 14 empty 
 44_Indexes
 Claude Board.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find "60_Claude" -maxdepth 2 -type d && echo "--- search for Outputs anywhere ---" && find . -maxdepth 4 -iname "*outputs*" -not -path "./.git/*" -not -path "./50_Archive/*" 2>/dev/null`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && find "60_Claude" -maxdepth 2 -type d && echo "--- search for Outputs anywhere ---" && find . -maxdepth 4 -iname "*outputs*" -not -path "./.git/*" -not -path "./50_Archive/*" 2>/dev/null
+```
 ```
 60_Claude
 60_Claude/00_Inbox
@@ -908,7 +929,7 @@ All seven follow the existing `Log Standard.md` / `Review Standard.md` shape exa
 - Confirm `AGENTS.md`, `CLAUDE.md`, and North Star's own inbound links to `Vault Map`/`AI_CONTEXT`/`MCP-Hub-Index` still resolve (they will, since Batch 1 keeps both filenames alive as either the merged file or a stub).
 
 ```
-- `ExitPlanMode` -- `{"plan":"# Jarvis top-tier AI-instruction layer — convergence pass\n\n## Context\n\n`Jarvis OS — North Star.md` already diagnosed this vault\u0027s instruction layer in June 2026 (four files claiming authority, four contradictory cold-start read orders, duplicated rules) and prescribed fixes. Checking against that diagnosis now (Oct 2026) shows **partial convergence**: `Vault Operating System.md` and `Agent Operating Guide.md` were correctly demoted to thin pointers. But the contradiction problem North Star called the core disease is still live: `Vault Map.md`, `AI_CONTEXT.md`, and `MCP-Hub-Index.md` each still prescribe a *different* cold-start read order, and `MCP-Hub-Index.md`\u0027s is built on folder paths that no longer exist (`60_Claude/7_AI_Information`, `10_Session_Logs`, `30_Source_Summaries`, `45_Outputs`, `60_Indexes`, `10_UMN`). `Jarvis Vault Architecture.md` (the placement authority) is accurate in its live sections but still carries ~80 lines of May-2026-dated \"open questions\"/\"build order\" narrative, some now resolved, some not — presented as if still current. Several files elsewhere reference a `60_Claude/35_Outputs/` folder that was verified (via `find`) not to exist anywhere in the vault.\n\nSeparately, `30_Order/Standards/AI Loop/` holds 7 named-but-empty Standards files (`Orchestration`, `Conversations`, `Knowledge Noting`, `Memory Management`, `Per Project Review`, `Review System`, `Tool Calls`) — a live violation of `30_Order/00_How This Folder Works.md`\u0027s own rule against empty-but-named files. You confirmed these were deliberately reserved for exactly the AI-orchestration/knowledge-loop system this task is about, and that they must be grounded in **what the vault already practices**, not invented — three research passes (below) mapped each of the 7 against real existing content, confirming several would duplicate existing Standards unless narrowly scoped, and identifying the exact material to build each from.\n\nNet effect of this plan: one coherent, non-contradictory cold-start sequence; a placement authority that states only what\u0027s currently true; dead paths fixed everywhere they were found; and all 7 AI Loop standards filled with real, grounded content instead of being empty or invented.\n\n## Batch 1 — Collapse the cold-start contradiction\n\n- **`AI_CONTEXT.md`** becomes the one merged orientation + live-state file (this is what North Star Part 4 already specified — AI_CONTEXT as the merge target). Fold in from `Vault Map.md`: the six-layer table, \"How to write a note\" steps, \"Conventions in one place,\" \"Never do this\" list, and the Workflow Chooser *minus* the AI-orchestration parts that move to `Orchestration.md` (Batch 5) — keep only the plugin-choice guidance (Dataview/Tasks/Kanban/Excalidraw/Spaced Repetition/Templater). Keep AI_CONTEXT\u0027s existing Live State Sources / Domain Entry Points / Continuity Protocol sections, trimming the Continuity Protocol\u0027s substance into `Memory Management.md` (Batch 5) and leaving one pointer line here.\n- **`Vault Map.md`** becomes a thin redirect stub (same shape as `Agent Operating Guide.md`) so inbound links (`AGENTS.md`, North Star) keep resolving.\n- **`MCP-Hub-Index.md`** gets gutted to a short stub for MCP-only/external agents: point at `AI_CONTEXT.md` (orientation+live-state) and `Jarvis Vault Architecture.md` (placement), state plainly that no separate read order exists for MCP-only agents, and keep the one genuinely unique line — the pointer to the `/mcp-hub` companion skill (`.claude/skills/mcp-hub/mcp-hub.md`, confirmed to exist). This removes the fourth contradictory read-order and every stale path in one move.\n- **`Vault Operating System.md`** line 16 still says \"This note is the canonical operating contract for Jarvis\" directly above line 18\u0027s already-correct narrowed claim (\"the canonical property/field schema\"). Delete line 16 — a leftover authority claim from before this file was demoted.\n\n## Batch 2 — Trim `Jarvis Vault Architecture.md`\n\nKeep: the six-layer table, the Write Contract, the routing table, and the per-folder job/belongs/doesn\u0027t-belong/who-writes/workflow contracts — all current and load-bearing.\n\nReplace the dated material with one short, honestly-labeled status note (verified today, not asserted):\n- The \"two possible homes for coursework\" open question is resolved — `10_Areas/UMN/` no longer exists; coursework lives under `10_Areas/Notes/`.\n- `30_Order/Workflows/` now exists (Build order Step 2, done) and `Vault Map`/`AI_CONTEXT` orientation exists (Step 3, done, see Batch 1).\n- `10_Areas` identity-hub gap is **still partly open**: `Trading/` has a hub-shaped note (`Stocks Trading AI Hub.md`); `Career/`, `Life/`, `UMN`-successor `Notes/` do not have a single canonical hub note yet. State this as still-open, not resolved — do not fabricate hub notes as part of this pass.\n- Fix the `60_Claude` subfolder contracts table: remove the `35_Outputs/` row (confirmed via `find` not to exist anywhere in the vault) and confirm the `30_Reviews/` row matches its real subfolders (`AI/`, `Internship Loop/`, `Monthly/`, `Ops Reports/`, `Weekly Synthesis/`).\n- Cut the \"Build order\" and \"What is still messy\" sections down to this single status paragraph; drop the rest as noise per North Star\u0027s \"deletion is part of writing\" rule.\n\n## Batch 3 — Fix confirmed dead/stale references\n\n- **`AGENTS.md`** routing table: the \"reusable output artifact\" row points at `60_Claude/35_Outputs/`, a folder that does not exist. Replace with `60_Claude/40_Project_Briefs/` and an honest one-clause note that no dedicated Outputs folder currently exists.\n- **`40_Resources/CS/AI/Token Optimization/Claude Pro Workflow.md`**: fix `60_Claude/7_AI_Information` → `60_Claude/07_AI_Information` (the one stale path in an otherwise-current file).\n- **`30_Order/Workflows/Ingestion/Conversation Capture.md`**: fix the internal inconsistency where session-log path is given once correctly (`07_AI_Information/Session Logs/log.md`) and once as the stale `10_Session_Logs` — make both say the correct path.\n\n## Batch 4 — Move and banner stale/misplaced notes\n\n- **Move** `60_Claude/07_AI_Information/How to Use Claude/Claude OS.md` → `20_Progress/AI/Claude OS.md` (next to its existing companions `Claude OS Dashboard.md`/`.canvas`), per your answer. While moving: fix its agent roster table from the stale 5-agent list to the real 11 agents in `.claude/agents/` (`anti-slop-editor`, `career-operator`, `daily-operator`, `human-operator`, `ingestion`, `learning-agent`, `llm-council`, `note-to-actions`, `professor`, `research-distiller`, `vault-curator`), and add a one-line \"last verified 2026-07-03 — counts above re-verified 2026-10-15, re-check skill/hook rows before trusting\" banner.\n- **Banner, don\u0027t move** (writing to `50_Archive/` is off-limits to AI per `AGENTS.md`\u0027s hard rule — archiving is your call to make later): add a one-line \"Superseded — see [[Claude Pro Workflow]] and [[Jarvis OS — North Star]] for current guidance\" note atop `40_Resources/CS/AI/Workflows/AI Workflow.md` (2026-03, GPT-tool-era plan) and atop `40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md` (2026-05-28 point-in-time action list) — including fixing their own stale-path mentions while touching them.\n\n## Batch 5 — Fill the 7 AI Loop Standards\n\nAll seven follow the existing `Log Standard.md` / `Review Standard.md` shape exactly (the two best current examples of this kind of cross-cutting Standard): frontmatter (`type: evergreen, status: sprout, tags: [system, standards]`), an opening `==one-line core discipline==`, a paragraph naming what neighboring Standard it must not be confused with, `## Maps To` / `## Used By Workflow` only where a real Template/Workflow exists or is being created, the per-rule body, `\u003e [!WARNING]` callouts for the specific failure modes found, `## Done Conditions`, and `## Gold Standard Example` (stated honestly as \"none yet\" where nothing qualifies). Scopes below are narrowed specifically to avoid duplicating what the three research passes found already exists:\n\n1. **`Tool Calls.md`** — relocate the four Tool Selection tables (Reading Files / Writing Files / MCP Filesystem Tools / Subagents) verbatim from `Vault Rules — Operational Reference.md`; delete them there, leave a one-line pointer. No Maps To/Workflow — a pure reference standard, same shape as `Log Standard.md`.\n2. **`Orchestration.md`** — consolidate: North Star Part 5.2\u0027s subagent file-shape rule (frontmatter `name`/`description`/`tools`/`model`), the spawn-vs-inline threshold bullets (moved out of Vault Rules, pointer left behind), and the real 11-agent roster with trigger/tools pattern. Gold Standard Example: `.claude/agents/anti-slop-editor.md` (North Star\u0027s own citation). Explicitly out of scope: plugin/tool-type choice (Dataview vs. Tasks vs. Kanban) — that stays in `AI_CONTEXT.md`\u0027s Workflow Chooser (Batch 1); this file is agent/skill coordination only.\n3. **`Memory Management.md`** — absorb `AI_CONTEXT.md`\u0027s 4-bullet Continuity Protocol as the base contract; extend with `Log Standard.md`\u0027s mechanism-naming discipline (cited, not duplicated) and a real citation of current `Session Logs/log.md` entry format; state an explicit, honest verdict on the CPR compress/preserve/resume pattern (`40_Resources/CS/AI/CPR - Compress Preserve Resume.md`) — adopt the compress-long-sessions idea narrowly, note it is not fully promoted even in its source repo, don\u0027t claim it as settled practice.\n4. **`Conversations.md`** — merge `60_Claude/07_AI_Information/AI Conversation - Summaries/README.md`\u0027s de facto spec (the one actually followed by real summary notes, including its informally-added `tools_used`/`tokens_total`/`cost_usd`/`source_os` fields — promote these to official) with `Conversation Capture.md`\u0027s three-layer pipeline. **New Template**: `30_Order/Templates/AI Use/AI Conversation Summary Template.md` (promoting the README\u0027s implicit shape into a real template — none exists today). Used By Workflow: `[[Conversation Capture]]`. Retire the README to a pointer at the new Standard, same demotion pattern used elsewhere.\n5. **`Knowledge Noting.md`** — scoped deliberately narrow: only the *decision layer* between `Source Summary Standard.md` and `Evergreen Standard.md` (when raw material warrants a summary at all vs. skipping straight to a distilled note; agent note-taking cadence while reading a source) — both existing Standards already fully specify final note shape, so this file must not restate their per-heading content. No new Template.\n6. **`Per Project Review.md`** — generalizes `Internship Loop Review Standard.md`\u0027s proven pattern (Weekly/Monthly split, Sources Reviewed, Immediate Actions / Decided Fixes / Open Questions, Carryover Escalation) to any `type: project` note from `Project Standard.md`, since neither `BOOM Board.md` nor `Projects Board.md` currently encodes a review cadence. **New Template**: `30_Order/Templates/Capability/Per Project Review Template.md`. **New Workflow**: a short `30_Order/Workflows/Enrichment/Per Project Review.md`, since a real repeated process is evident but not yet written down.\n7. **`Review System.md`** — the meta-layer tying the others together: a `## Review Layers Map` table showing how daily (`/startday`/`/closeday`), weekly/monthly (`weekly-review` skill + `Review Standard.md`), plan-specific (`Plan Review Cadence.md`), and now project-specific (`Per Project Review.md`, above) cadences nest and escalate — generalizing the Carryover Escalation idea already proven in `Internship Loop Review Standard.md`. No Maps To of its own; it is the index/contract above the concrete review Standards, the same relationship North Star has to Architecture.\n\n## Verification\n\n- After Batch 1–4: grep the vault for the dead strings `35_Outputs`, `7_AI_Information` (missing leading zero), `10_Session_Logs`, `30_Source_Summaries`, `10_UMN`, `60_Indexes`, `45_Outputs`, `50_Reviews` outside of `50_Archive/` and quoted-history contexts — zero hits expected once Batches 1–4 land.\n- After Batch 5: open `30_Order/00_How This Folder Works.md`\u0027s own checklist against each new Standard — every one either names its Template/Workflow under `## Maps To`/`## Used By Workflow` or explicitly has neither (matching `Log Standard.md`\u0027s precedent); none left empty.\n- Spot-check that no sentence is now true in two files at once (North Star\u0027s own test from Part 4): specifically confirm the Tool Selection tables, the subagent spawn-threshold bullets, and the Continuity Protocol bullets each exist in exactly one place after the moves.\n- Confirm `AGENTS.md`, `CLAUDE.md`, and North Star\u0027s own inbound links to `Vault Map`/`AI_CONTEXT`/`MCP-Hub-Index` still resolve (they will, since Batch 1 keeps both filenames alive as either the merged file or a stub).\n","planFilePath":"C:\\Users\\anant\\.claude\\plans\\graceful-wishing-gadget.md"}`
+- `ExitPlanMode` -- ``{"plan":"# Jarvis top-tier AI-instruction layer — convergence pass\n\n## Context\n\n`Jarvis OS — North Star.md` already diagnosed this vault\u0027s instruction layer in June 2026 (four files claiming authority, four contradictory cold-start read orders, duplicated rules) and prescribed fixes. Checking against that diagnosis now (Oct 2026) shows **partial convergence**: `Vault Operating System.md` and `Agent Operating Guide.md` were correctly demoted to thin pointers. But the contradiction problem North Star called the core disease is still live: `Vault Map.md`, `AI_CONTEXT.md`, and `MCP-Hub-Index.md` each still prescribe a *different* cold-start read order, and `MCP-Hub-Index.md`\u0027s is built on folder paths that no longer exist (`60_Claude/7_AI_Information`, `10_Session_Logs`, `30_Source_Summaries`, `45_Outputs`, `60_Indexes`, `10_UMN`). `Jarvis Vault Architecture.md` (the placement authority) is accurate in its live sections but still carries ~80 lines of May-2026-dated \"open questions\"/\"build order\" narrative, some now resolved, some not — presented as if still current. Several files elsewhere reference a `60_Claude/35_Outputs/` folder that was verified (via `find`) not to exist anywhere in the vault.\n\nSeparately, `30_Order/Standards/AI Loop/` holds 7 named-but-empty Standards files (`Orchestration`, `Conversations`, `Knowledge Noting`, `Memory Management`, `Per Project Review`, `Review System`, `Tool Calls`) — a live violation of `30_Order/00_How This Folder Works.md`\u0027s own rule against empty-but-named files. You confirmed these were deliberately reserved for exactly the AI-orchestration/knowledge-loop system this task is about, and that they must be grounded in **what the vault already practices**, not invented — three research passes (below) mapped each of the 7 against real existing content, confirming several would duplicate existing Standards unless narrowly scoped, and identifying the exact material to build each from.\n\nNet effect of this plan: one coherent, non-contradictory cold-start sequence; a placement authority that states only what\u0027s currently true; dead paths fixed everywhere they were found; and all 7 AI Loop standards filled with real, grounded content instead of being empty or invented.\n\n## Batch 1 — Collapse the cold-start contradiction\n\n- **`AI_CONTEXT.md`** becomes the one merged orientation + live-state file (this is what North Star Part 4 already specified — AI_CONTEXT as the merge target). Fold in from `Vault Map.md`: the six-layer table, \"How to write a note\" steps, \"Conventions in one place,\" \"Never do this\" list, and the Workflow Chooser *minus* the AI-orchestration parts that move to `Orchestration.md` (Batch 5) — keep only the plugin-choice guidance (Dataview/Tasks/Kanban/Excalidraw/Spaced Repetition/Templater). Keep AI_CONTEXT\u0027s existing Live State Sources / Domain Entry Points / Continuity Protocol sections, trimming the Continuity Protocol\u0027s substance into `Memory Management.md` (Batch 5) and leaving one pointer line here.\n- **`Vault Map.md`** becomes a thin redirect stub (same shape as `Agent Operating Guide.md`) so inbound links (`AGENTS.md`, North Star) keep resolving.\n- **`MCP-Hub-Index.md`** gets gutted to a short stub for MCP-only/external agents: point at `AI_CONTEXT.md` (orientation+live-state) and `Jarvis Vault Architecture.md` (placement), state plainly that no separate read order exists for MCP-only agents, and keep the one genuinely unique line — the pointer to the `/mcp-hub` companion skill (`.claude/skills/mcp-hub/mcp-hub.md`, confirmed to exist). This removes the fourth contradictory read-order and every stale path in one move.\n- **`Vault Operating System.md`** line 16 still says \"This note is the canonical operating contract for Jarvis\" directly above line 18\u0027s already-correct narrowed claim (\"the canonical property/field schema\"). Delete line 16 — a leftover authority claim from before this file was demoted.\n\n## Batch 2 — Trim `Jarvis Vault Architecture.md`\n\nKeep: the six-layer table, the Write Contract, the routing table, and the per-folder job/belongs/doesn\u0027t-belong/who-writes/workflow contracts — all current and load-bearing.\n\nReplace the dated material with one short, honestly-labeled status note (verified today, not asserted):\n- The \"two possible homes for coursework\" open question is resolved — `10_Areas/UMN/` no longer exists; coursework lives under `10_Areas/Notes/`.\n- `30_Order/Workflows/` now exists (Build order Step 2, done) and `Vault Map`/`AI_CONTEXT` orientation exists (Step 3, done, see Batch 1).\n- `10_Areas` identity-hub gap is **still partly open**: `Trading/` has a hub-shaped note (`Stocks Trading AI Hub.md`); `Career/`, `Life/`, `UMN`-successor `Notes/` do not have a single canonical hub note yet. State this as still-open, not resolved — do not fabricate hub notes as part of this pass.\n- Fix the `60_Claude` subfolder contracts table: remove the `35_Outputs/` row (confirmed via `find` not to exist anywhere in the vault) and confirm the `30_Reviews/` row matches its real subfolders (`AI/`, `Internship Loop/`, `Monthly/`, `Ops Reports/`, `Weekly Synthesis/`).\n- Cut the \"Build order\" and \"What is still messy\" sections down to this single status paragraph; drop the rest as noise per North Star\u0027s \"deletion is part of writing\" rule.\n\n## Batch 3 — Fix confirmed dead/stale references\n\n- **`AGENTS.md`** routing table: the \"reusable output artifact\" row points at `60_Claude/35_Outputs/`, a folder that does not exist. Replace with `60_Claude/40_Project_Briefs/` and an honest one-clause note that no dedicated Outputs folder currently exists.\n- **`40_Resources/CS/AI/Token Optimization/Claude Pro Workflow.md`**: fix `60_Claude/7_AI_Information` → `60_Claude/07_AI_Information` (the one stale path in an otherwise-current file).\n- **`30_Order/Workflows/Ingestion/Conversation Capture.md`**: fix the internal inconsistency where session-log path is given once correctly (`07_AI_Information/Session Logs/log.md`) and once as the stale `10_Session_Logs` — make both say the correct path.\n\n## Batch 4 — Move and banner stale/misplaced notes\n\n- **Move** `60_Claude/07_AI_Information/How to Use Claude/Claude OS.md` → `20_Progress/AI/Claude OS.md` (next to its existing companions `Claude OS Dashboard.md`/`.canvas`), per your answer. While moving: fix its agent roster table from the stale 5-agent list to the real 11 agents in `.claude/agents/` (`anti-slop-editor`, `career-operator`, `daily-operator`, `human-operator`, `ingestion`, `learning-agent`, `llm-council`, `note-to-actions`, `professor`, `research-distiller`, `vault-curator`), and add a one-line \"last verified 2026-07-03 — counts above re-verified 2026-10-15, re-check skill/hook rows before trusting\" banner.\n- **Banner, don\u0027t move** (writing to `50_Archive/` is off-limits to AI per `AGENTS.md`\u0027s hard rule — archiving is your call to make later): add a one-line \"Superseded — see [[Claude Pro Workflow]] and [[Jarvis OS — North Star]] for current guidance\" note atop `40_Resources/CS/AI/Workflows/AI Workflow.md` (2026-03, GPT-tool-era plan) and atop `40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md` (2026-05-28 point-in-time action list) — including fixing their own stale-path mentions while touching them.\n\n## Batch 5 — Fill the 7 AI Loop Standards\n\nAll seven follow the existing `Log Standard.md` / `Review Standard.md` shape exactly (the two best current examples of this kind of cross-cutting Standard): frontmatter (`type: evergreen, status: sprout, tags: [system, standards]`), an opening `==one-line core discipline==`, a paragraph naming what neighboring Standard it must not be confused with, `## Maps To` / `## Used By Workflow` only where a real Template/Workflow exists or is being created, the per-rule body, `\u003e [!WARNING]` callouts for the specific failure modes found, `## Done Conditions`, and `## Gold Standard Example` (stated honestly as \"none yet\" where nothing qualifies). Scopes below are narrowed specifically to avoid duplicating what the three research passes found already exists:\n\n1. **`Tool Calls.md`** — relocate the four Tool Selection tables (Reading Files / Writing Files / MCP Filesystem Tools / Subagents) verbatim from `Vault Rules — Operational Reference.md`; delete them there, leave a one-line pointer. No Maps To/Workflow — a pure reference standard, same shape as `Log Standard.md`.\n2. **`Orchestration.md`** — consolidate: North Star Part 5.2\u0027s subagent file-shape rule (frontmatter `name`/`description`/`tools`/`model`), the spawn-vs-inline threshold bullets (moved out of Vault Rules, pointer left behind), and the real 11-agent roster with trigger/tools pattern. Gold Standard Example: `.claude/agents/anti-slop-editor.md` (North Star\u0027s own citation). Explicitly out of scope: plugin/tool-type choice (Dataview vs. Tasks vs. Kanban) — that stays in `AI_CONTEXT.md`\u0027s Workflow Chooser (Batch 1); this file is agent/skill coordination only.\n3. **`Memory Management.md`** — absorb `AI_CONTEXT.md`\u0027s 4-bullet Continuity Protocol as the base contract; extend with `Log Standard.md`\u0027s mechanism-naming discipline (cited, not duplicated) and a real citation of current `Session Logs/log.md` entry format; state an explicit, honest verdict on the CPR compress/preserve/resume pattern (`40_Resources/CS/AI/CPR - Compress Preserve Resume.md`) — adopt the compress-long-sessions idea narrowly, note it is not fully promoted even in its source repo, don\u0027t claim it as settled practice.\n4. **`Conversations.md`** — merge `60_Claude/07_AI_Information/AI Conversation - Summaries/README.md`\u0027s de facto spec (the one actually followed by real summary notes, including its informally-added `tools_used`/`tokens_total`/`cost_usd`/`source_os` fields — promote these to official) with `Conversation Capture.md`\u0027s three-layer pipeline. **New Template**: `30_Order/Templates/AI Use/AI Conversation Summary Template.md` (promoting the README\u0027s implicit shape into a real template — none exists today). Used By Workflow: `[[Conversation Capture]]`. Retire the README to a pointer at the new Standard, same demotion pattern used elsewhere.\n5. **`Knowledge Noting.md`** — scoped deliberately narrow: only the *decision layer* between `Source Summary Standard.md` and `Evergreen Standard.md` (when raw material warrants a summary at all vs. skipping straight to a distilled note; agent note-taking cadence while reading a source) — both existing Standards already fully specify final note shape, so this file must not restate their per-heading content. No new Template.\n6. **`Per Project Review.md`** — generalizes `Internship Loop Review Standard.md`\u0027s proven pattern (Weekly/Monthly split, Sources Reviewed, Immediate Actions / Decided Fixes / Open Questions, Carryover Escalation) to any `type: project` note from `Project Standard.md`, since neither `BOOM Board.md` nor `Projects Board.md` currently encodes a review cadence. **New Template**: `30_Order/Templates/Capability/Per Project Review Template.md`. **New Workflow**: a short `30_Order/Workflows/Enrichment/Per Project Review.md`, since a real repeated process is evident but not yet written down.\n7. **`Review System.md`** — the meta-layer tying the others together: a `## Review Layers Map` table showing how daily (`/startday`/`/closeday`), weekly/monthly (`weekly-review` skill + `Review Standard.md`), plan-specific (`Plan Review Cadence.md`), and now project-specific (`Per Project Review.md`, above) cadences nest and escalate — generalizing the Carryover Escalation idea already proven in `Internship Loop Review Standard.md`. No Maps To of its own; it is the index/contract above the concrete review Standards, the same relationship North Star has to Architecture.\n\n## Verification\n\n- After Batch 1–4: grep the vault for the dead strings `35_Outputs`, `7_AI_Information` (missing leading zero), `10_Session_Logs`, `30_Source_Summaries`, `10_UMN`, `60_Indexes`, `45_Outputs`, `50_Reviews` outside of `50_Archive/` and quoted-history contexts — zero hits expected once Batches 1–4 land.\n- After Batch 5: open `30_Order/00_How This Folder Works.md`\u0027s own checklist against each new Standard — every one either names its Template/Workflow under `## Maps To`/`## Used By Workflow` or explicitly has neither (matching `Log Standard.md`\u0027s precedent); none left empty.\n- Spot-check that no sentence is now true in two files at once (North Star\u0027s own test from Part 4): specifically confirm the Tool Selection tables, the subagent spawn-threshold bullets, and the Continuity Protocol bullets each exist in exactly one place after the moves.\n- Confirm `AGENTS.md`, `CLAUDE.md`, and North Star\u0027s own inbound links to `Vault Map`/`AI_CONTEXT`/`MCP-Hub-Index` still resolve (they will, since Batch 1 keeps both filenames alive as either the merged file or a stub).\n","planFilePath":"C:\\Users\\anant\\.claude\\plans\\graceful-wishing-gadget.md"}``
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\AI_CONTEXT.md`
 ```
 ---
@@ -1061,7 +1082,9 @@ Session-to-session memory practice (what must survive a context reset, when to l
 
 ```
 - `Grep` -- pattern `—` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\AI_CONTEXT.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && python - <<'EOF'
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && python - <<'EOF'
 import re
 p="60_Claude/07_AI_Information/AI_CONTEXT.md"
 s=open(p,encoding="utf-8").read()
@@ -1079,7 +1102,8 @@ s=s.replace("this file: do not store","this file. Do not store").replace("this f
 s=s.replace("(this layer: agent map + memory)","(this layer, agent map and memory)")
 open(p,"w",encoding="utf-8").write(s)
 EOF
-grep -n "—" 60_Claude/07_AI_Information/AI_CONTEXT.md`
+grep -n "—" 60_Claude/07_AI_Information/AI_CONTEXT.md
+```
 ```
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 11:  - "[[Jarvis OS — North Star]]"
@@ -1312,13 +1336,16 @@ This file previously carried its own folder map and read order, built on folder 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Vault Operating System.md`
 ```diff
 - This note is the canonical operating contract for Jarvis as an AI second brain.
-## What this vault is for
-This note is the **canonical property/field schema** for Jarvis. Read before creating or restructuring notes.
+- ## What this vault is for
+- This note is the **canonical property/field schema** for Jarvis. Read before creating or restructuring notes.
 + ## What this note is for
-This note is the **canonical property/field schema** for Jarvis. Read before creating or restructuring notes.
++ This note is the **canonical property/field schema** for Jarvis. Read before creating or restructuring notes.
 ```
 - `Grep` -- pattern `10_UMN|35_Outputs|50_Reviews|45_Outputs|10_Session_Logs|30_Source_Summaries|60_Indexes|[^0]7_AI_Information` path `D:\_Anant\20_Progress\Documents\Jarvis`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -rEc "10_UMN|35_Outputs|50_Reviews|45_Outputs|10_Session_Logs|30_Source_Summaries|60_Indexes|[^0]7_AI_Information" --include="*.md" --include="*.mdc" --include="*.json" --include="*.ps1" --include="*.py" --exclude-dir=50_Archive --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules . 2>/dev/null | grep -v ":0$" | sort -t: -k2 -nr | head -50`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -rEc "10_UMN|35_Outputs|50_Reviews|45_Outputs|10_Session_Logs|30_Source_Summaries|60_Indexes|[^0]7_AI_Information" --include="*.md" --include="*.mdc" --include="*.json" --include="*.ps1" --include="*.py" --exclude-dir=50_Archive --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules . 2>/dev/null | grep -v ":0$" | sort -t: -k2 -nr | head -50
+```
 ```
 ./60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md:66
 ./60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md:65
@@ -1372,7 +1399,7 @@ This note is the **canonical property/field schema** for Jarvis. Read before cre
 ./60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis/09-19 Cross-laptop sync Build 3 audit.md:8
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
-```
+````
 ---
 type: evergreen
 status: tree
@@ -1585,8 +1612,11 @@ Verified against the current folder tree, not carried over from the May 2026 ver
 - [[AI_CONTEXT]]: orientation and live-state manifest for every tool.
 - [[Jarvis OS — North Star]]: strategy and the reasons behind this structure.
 
+````
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 40_Resources && echo --- && grep -nE "10_UMN|35_Outputs|50_Reviews" 00_Dashboard.md AGENTS.md CLAUDE.md HUMAN_WRITING.md 2>/dev/null; echo "--- Claude Pro Workflow path refs ---"; grep -rn "Obsidian/Claude Pro Workflow" --include="*.md" . 2>/dev/null | grep -v "50_Archive\|05_Clippings\|Session Logs" | head
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 40_Resources && echo --- && grep -nE "10_UMN|35_Outputs|50_Reviews" 00_Dashboard.md AGENTS.md CLAUDE.md HUMAN_WRITING.md 2>/dev/null; echo "--- Claude Pro Workflow path refs ---"; grep -rn "Obsidian/Claude Pro Workflow" --include="*.md" . 2>/dev/null | grep -v "50_Archive\|05_Clippings\|Session Logs" | head`
 ```
 CS
 Capability
@@ -1608,7 +1638,10 @@ AGENTS.md:60:| Daily / weekly / monthly review | `60_Claude/50_Reviews/` |  |
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\AGENTS.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\CLAUDE.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls .claude .claude/skills .claude/agents .claude/rules .claude/commands 2>/dev/null; echo ---; sed -n 1,30p "30_Order/Templates/Frontmatter/For Everything.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls .claude .claude/skills .claude/agents .claude/rules .claude/commands 2>/dev/null; echo ---; sed -n 1,30p "30_Order/Templates/Frontmatter/For Everything.md"
+```
 ```
 .claude:
 GITHUB_WORKFLOW.md
@@ -1702,14 +1735,20 @@ tags:
 next:
 ---
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis/.claude/rules" && for f in what-to-read.md how-to-write.md claude-directions.md interlinking.md; do echo "=================== $f ($(wc -l < $f) lines)"; cat "$f"; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis/.claude/rules" && for f in what-to-read.md how-to-write.md claude-directions.md interlinking.md; do echo "=================== $f ($(wc -l < $f) lines)"; cat "$f"; done
+```
 ```
 =================== what-to-read.md (0 lines)
 =================== how-to-write.md (0 lines)
 =================== claude-directions.md (0 lines)
 =================== interlinking.md (0 lines)
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && pwd && wc -c .claude/rules/*.md`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && pwd && wc -c .claude/rules/*.md
+```
 ```
 /d/_Anant/20_Progress/Documents/Jarvis
   0 .claude/rules/claude-directions.md
@@ -1833,74 +1872,74 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\CLAUDE.md`
-```diff
+````diff
 - 5. **Read `HUMAN_WRITING.md` and `30_Order/` before writing** — `HUMAN_WRITING` governs voice; `30_Order/Templates/` and `30_Order/Workflows/` govern how each note type is shaped and filed. See [[40_Resources/Obsidian/Jarvis Vault Architecture]] for where each note goes.
-6. **Use `60_Claude/07_AI_Information/AI_CONTEXT.md` for continuity** — read the manifest, dashboard, and session log before assuming current project state. The wikilink `[[AI_CONTEXT]]` resolves to the same file.
-7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
-
-6. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
-
-### Note Creation Conventions
-
-When creating new notes, use this frontmatter template:
-
-```yaml
----
-type: evergreen      # or: input, concept, project, thought, brainstorm
-status: sprout       # seed → sprout → tree (maturity)
-created: YYYY-MM-DD
-tags:
-  - evergreen
-notes:
-  - "[[Related Note 1]]"
-  - "[[Related Note 2]]"
-next: "[[Next Action]]"  # optional
----
-```
-
-**Type guide:**
-- `evergreen` — Distilled, reusable knowledge (`60_Claude/20_Distilled_Notes/`, `40_Resources/`)
-- `input` — Raw captures, source summaries (`60_Claude/05_Clippings/`, `60_Claude/10_Source_Summaries/`); transcripts and briefs also use `input` — see [[Brief Standard]]
-- `concept` — Course concepts, definitions (`10_Areas/UMN/`, `40_Resources/CS/`)
-- `project` — Active work with outcomes (`20_Progress/`)
-- `thought` / `brainstorm` — Inbox-style captures (`00_Inbox/`)
-- `index` — MOC / content map for a folder (see [[MOC Standard]]) — prose Map + Status + Dataview, not a bare link list
-- `action` — Link-dense map of concrete next steps derived from a brief or note (see [[Action Standard]]); statements only, no checkboxes
-
-### Output Destinations
-See the routing table in [[AGENTS.md]] → Write Contract → "Where does this note go?".
-
-### Ingestion Workflow (05_Clippings → 60_Claude)
-Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.claude/skills/ingest-clipping.md`.
+- 6. **Use `60_Claude/07_AI_Information/AI_CONTEXT.md` for continuity** — read the manifest, dashboard, and session log before assuming current project state. The wikilink `[[AI_CONTEXT]]` resolves to the same file.
+- 7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
+- 
+- 6. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
+- 
+- ### Note Creation Conventions
+- 
+- When creating new notes, use this frontmatter template:
+- 
+- ```yaml
+- ---
+- type: evergreen      # or: input, concept, project, thought, brainstorm
+- status: sprout       # seed → sprout → tree (maturity)
+- created: YYYY-MM-DD
+- tags:
+-   - evergreen
+- notes:
+-   - "[[Related Note 1]]"
+-   - "[[Related Note 2]]"
+- next: "[[Next Action]]"  # optional
+- ---
+- ```
+- 
+- **Type guide:**
+- - `evergreen` — Distilled, reusable knowledge (`60_Claude/20_Distilled_Notes/`, `40_Resources/`)
+- - `input` — Raw captures, source summaries (`60_Claude/05_Clippings/`, `60_Claude/10_Source_Summaries/`); transcripts and briefs also use `input` — see [[Brief Standard]]
+- - `concept` — Course concepts, definitions (`10_Areas/UMN/`, `40_Resources/CS/`)
+- - `project` — Active work with outcomes (`20_Progress/`)
+- - `thought` / `brainstorm` — Inbox-style captures (`00_Inbox/`)
+- - `index` — MOC / content map for a folder (see [[MOC Standard]]) — prose Map + Status + Dataview, not a bare link list
+- - `action` — Link-dense map of concrete next steps derived from a brief or note (see [[Action Standard]]); statements only, no checkboxes
+- 
+- ### Output Destinations
+- See the routing table in [[AGENTS.md]] → Write Contract → "Where does this note go?".
+- 
+- ### Ingestion Workflow (05_Clippings → 60_Claude)
+- Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.claude/skills/ingest-clipping.md`.
 + 5. **Follow `30_Order/` strictly before writing** — every note starts from a Template in `30_Order/Templates/`, is shaped by its Standard in `30_Order/Standards/`, and follows its Workflow in `30_Order/Workflows/`. No frontmatter or headings outside them. If the note type has no template, say so and design one first; see [[AGENTS.md]] → "The 30_Order rule". `HUMAN_WRITING` governs voice.
-6. **Use [[AI_CONTEXT]] for continuity** — read its cold-start order, then the dashboard and session log tail, before assuming current project state.
-7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
-8. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
-
-### Note Creation Conventions
-
-Frontmatter comes from the template, never from memory. Templates live in `30_Order/Templates/` (frontmatter-only starters in `Frontmatter/`: `For Evergreen`, `For Inputs`, `For Progress`, `For Classes`, `For Thoughts`, `For Brainstorm`, `For Transcript`, `For AI`, `For Everything`). Property meanings: [[40_Resources/Obsidian/Vault Operating System]]. Note-type to folder to standard mapping: the routing table in [[AGENTS.md]].
-
-### Which tool for which task
-
-| Task | Use |
-| --- | --- |
-| Open or close the day | `/startday`, `/closeday` |
-| Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |
-| Distill a note, map next steps | `/distill-note`, `/note-to-actions` |
-| Fix AI-sounding prose | `/remove-ai-slop`, agent `anti-slop-editor` |
-| Review a week or vault health | `/weekly-review`, `/ops health-check`, agent `vault-curator` |
-| Drill a concept | agent `learning-agent` |
-| Decide something with real stakes | `/llm-council`, `/challenge`, `/strategy` |
-
-Agent and tool selection rules: [[Orchestration]] and [[Tool Calls]].
-
-### Output Destinations
-See the routing table in [[AGENTS.md]] → Write Contract → "Where does this note go?".
-
-### Ingestion Workflow (05_Clippings → 60_Claude)
-Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.claude/skills/ingesting-clipping/`.
-```
++ 6. **Use [[AI_CONTEXT]] for continuity** — read its cold-start order, then the dashboard and session log tail, before assuming current project state.
++ 7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
++ 8. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
++ 
++ ### Note Creation Conventions
++ 
++ Frontmatter comes from the template, never from memory. Templates live in `30_Order/Templates/` (frontmatter-only starters in `Frontmatter/`: `For Evergreen`, `For Inputs`, `For Progress`, `For Classes`, `For Thoughts`, `For Brainstorm`, `For Transcript`, `For AI`, `For Everything`). Property meanings: [[40_Resources/Obsidian/Vault Operating System]]. Note-type to folder to standard mapping: the routing table in [[AGENTS.md]].
++ 
++ ### Which tool for which task
++ 
++ | Task | Use |
++ | --- | --- |
++ | Open or close the day | `/startday`, `/closeday` |
++ | Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |
++ | Distill a note, map next steps | `/distill-note`, `/note-to-actions` |
++ | Fix AI-sounding prose | `/remove-ai-slop`, agent `anti-slop-editor` |
++ | Review a week or vault health | `/weekly-review`, `/ops health-check`, agent `vault-curator` |
++ | Drill a concept | agent `learning-agent` |
++ | Decide something with real stakes | `/llm-council`, `/challenge`, `/strategy` |
++ 
++ Agent and tool selection rules: [[Orchestration]] and [[Tool Calls]].
++ 
++ ### Output Destinations
++ See the routing table in [[AGENTS.md]] → Write Contract → "Where does this note go?".
++ 
++ ### Ingestion Workflow (05_Clippings → 60_Claude)
++ Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.claude/skills/ingesting-clipping/`.
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\CLAUDE.md`
 ```diff
 - updated: 2026-05-26
@@ -1908,7 +1947,10 @@ Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.
 ```
 - `Grep` -- pattern `7_AI_Information|10_Session_Logs` path `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\AI`
 - `Grep` -- pattern `10_Session_Logs|7_AI_Information|Session Logs` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Ingestion\Conversation Capture.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -nE "(^|[^0])7_AI_Information|10_Session_Logs|30_Source_Summaries|60_Indexes|45_Outputs|10_UMN" "40_Resources/CS/AI/Token Optimization/Claude Pro Workflow.md" "40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" "40_Resources/CS/AI/Workflows/AI Workflow.md" | cut -c1-200; echo ---; find 30_Order -name "Conversation Capture.md"; `
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -nE "(^|[^0])7_AI_Information|10_Session_Logs|30_Source_Summaries|60_Indexes|45_Outputs|10_UMN" "40_Resources/CS/AI/Token Optimization/Claude Pro Workflow.md" "40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" "40_Resources/CS/AI/Workflows/AI Workflow.md" | cut -c1-200; echo ---; find 30_Order -name "Conversation Capture.md"; 
+```
 ```
 40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md:96:60_Claude/30_Source_Summaries/AI Conversations/
 40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md:99:Create these two folders. At the end of any significant session, ask Claude: `Summarize this session as a conversation note
@@ -1922,7 +1964,10 @@ Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.
 ---
 30_Order/Workflows/Toolkit/Conversation Capture.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 30_Order/Workflows 30_Order/Workflows/Toolkit 30_Order/Templates 30_Order/Standards && grep -nE "Session_Logs|Session Logs|7_AI" "30_Order/Workflows/Toolkit/Conversation Capture.md" | cut -c1-220`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 30_Order/Workflows 30_Order/Workflows/Toolkit 30_Order/Templates 30_Order/Standards && grep -nE "Session_Logs|Session Logs|7_AI" "30_Order/Workflows/Toolkit/Conversation Capture.md" | cut -c1-220
+```
 ```
 30_Order/Standards:
 AI Loop
@@ -1961,7 +2006,10 @@ Graphify Folders.md
 Maintaining Logs.md
 Tools Tracking.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short | head -40; echo ---; find 30_Order/Templates/"AI Toolkit" 30_Order/Workflows/Toolkit "30_Order/Standards/AI Loop" -type f -printf "%TY-%Tm-%Td %TH:%TM  %s  %p\n" | sort; echo ---; ls -la --time-style=long-iso 30_Order/Templates/ | head -20; git log --oneline -8 -- 30_Order`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && git status --short | head -40; echo ---; find 30_Order/Templates/"AI Toolkit" 30_Order/Workflows/Toolkit "30_Order/Standards/AI Loop" -type f -printf "%TY-%Tm-%Td %TH:%TM  %s  %p\n" | sort; echo ---; ls -la --time-style=long-iso 30_Order/Templates/ | head -20; git log --oneline -8 -- 30_Order
+```
 ```
  M AGENTS.md
  M CLAUDE.md
@@ -2009,7 +2057,10 @@ c8b4e0ea Auto-sync: 2026-10-10 15:48,  7 files changed, 2482 insertions(+), 1367
 aaf56a08 Auto-sync: 2026-10-09 23:48,  7 files changed, 14 insertions(+), 1529 deletions(-)
 ```
 - `Grep` -- pattern `How to Use Claude/Claude OS|\[\[Claude OS(\||\]\])` path `D:\_Anant\20_Progress\Documents\Jarvis`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && mv "60_Claude/07_AI_Information/How to Use Claude/Claude OS.md" "20_Progress/AI/Claude OS.md" && ls "20_Progress/AI" "60_Claude/07_AI_Information/How to Use Claude" && for f in .claude/agents/*.md; do echo "== $f"; sed -n 1,12p "$f" | grep -E "^(name|tools|model):" ; done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && mv "60_Claude/07_AI_Information/How to Use Claude/Claude OS.md" "20_Progress/AI/Claude OS.md" && ls "20_Progress/AI" "60_Claude/07_AI_Information/How to Use Claude" && for f in .claude/agents/*.md; do echo "== $f"; sed -n 1,12p "$f" | grep -E "^(name|tools|model):" ; done
+```
 ```
 20_Progress/AI:
 Claude Code
@@ -2061,31 +2112,34 @@ tools:
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\AI\Claude OS.md`
 ```diff
 - ### Agents (5 — all with name/description/tools/model frontmatter as of 2026-07-03)
-
-| Agent | Trigger | Tools beyond Read/Glob/Grep/Edit/Write |
-|-------|---------|-----------------------------------------|
-| research-distiller | Deep ingestion: PDFs, web, transcripts, GitHub repos | Bash, WebFetch |
-| anti-slop-editor | De-slopping any note per HUMAN_WRITING | — |
-| vault-curator | Vault-wide health: links, duplicates, frontmatter, Write Contract | — |
-| learning-agent | Overdue drills, enrichment, spaced repetition | — |
-| career-operator | Internship/resume/portfolio/mentorship briefs | — |
+- 
+- | Agent | Trigger | Tools beyond Read/Glob/Grep/Edit/Write |
+- |-------|---------|-----------------------------------------|
+- | research-distiller | Deep ingestion: PDFs, web, transcripts, GitHub repos | Bash, WebFetch |
+- | anti-slop-editor | De-slopping any note per HUMAN_WRITING | — |
+- | vault-curator | Vault-wide health: links, duplicates, frontmatter, Write Contract | — |
+- | learning-agent | Overdue drills, enrichment, spaced repetition | — |
+- | career-operator | Internship/resume/portfolio/mentorship briefs | — |
 + ### Agents (11)
-
-The current roster, triggers, and tool allowlists live in one place: [[Orchestration]]. The 2026-07-03 version of this note listed only 5 agents; the folder `.claude/agents/` now holds 11.
++ 
++ The current roster, triggers, and tool allowlists live in one place: [[Orchestration]]. The 2026-07-03 version of this note listed only 5 agents; the folder `.claude/agents/` now holds 11.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\AI\Claude OS.md`
 ```diff
 - # Claude OS — Agentic Setup Registry
-
-All skills,
+- 
+- All skills,
 + # Claude OS — Agentic Setup Registry
-
-> [!WARNING]
-> Written 2026-07-03 and moved here from `07_AI_Information/How to Use Claude/` on 2026-10-15, because it is a tooling registry, not vault orientation. The agent roster was corrected on 2026-10-15. Skill, hook, and MCP counts below were not re-verified. Check them against `.claude/` before trusting a number.
-
-All skills,
++ 
++ > [!WARNING]
++ > Written 2026-07-03 and moved here from `07_AI_Information/How to Use Claude/` on 2026-10-15, because it is a tooling registry, not vault orientation. The agent roster was corrected on 2026-10-15. Skill, hook, and MCP counts below were not re-verified. Check them against `.claude/` before trusting a number.
++ 
++ All skills,
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's/^updated: 2026-07-03$/updated: 2026-10-15/' "20_Progress/AI/Claude OS.md" && sed -n 1,16p "20_Progress/AI/Claude OS.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's/^updated: 2026-07-03$/updated: 2026-10-15/' "20_Progress/AI/Claude OS.md" && sed -n 1,16p "20_Progress/AI/Claude OS.md"
+```
 ```
 ---
 type: dashboard
@@ -2108,27 +2162,33 @@ next: "Act on the High rows of the marketplace evaluation; adopt /emerge and /ch
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\AI\Workflows\AI Workflow.md`
 ```diff
 - # AI Workflow Implementation Plan
-Based on your
+- Based on your
 + # AI Workflow Implementation Plan
-> [!WARNING]
-> Superseded. This is a March 2026 ChatGPT-era plan and its tool hierarchy and budget no longer apply. Current guidance: [[Claude Pro Workflow]] for Claude usage and [[Jarvis OS — North Star]] for the system. Do not read this on a cold start. Archiving it is the owner's call.
-
-Based on your
++ > [!WARNING]
++ > Superseded. This is a March 2026 ChatGPT-era plan and its tool hierarchy and budget no longer apply. Current guidance: [[Claude Pro Workflow]] for Claude usage and [[Jarvis OS — North Star]] for the system. Do not read this on a cold start. Archiving it is the owner's call.
++ 
++ Based on your
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\AI\Token Optimization\Claude Optimization Master Setup.md`
 ```diff
 - > Full vault audit + external link analysis done 2026-05-28 via Cowork session. This note replaces scattered AI Workflow docs as the canonical Claude setup guide.
 + > [!WARNING]
-> Dated snapshot from 2026-05-28, not a standing instruction. It no longer claims to be the canonical Claude setup guide: living guidance is in [[Claude Pro Workflow]], [[Orchestration]], and [[Jarvis OS — North Star]]. Several checklist items below may already be done or dropped. Folder names in this note were corrected to the current tree on 2026-10-15.
-
-Full vault audit and external link analysis done 2026-05-28 via a Cowork session.
++ > Dated snapshot from 2026-05-28, not a standing instruction. It no longer claims to be the canonical Claude setup guide: living guidance is in [[Claude Pro Workflow]], [[Orchestration]], and [[Jarvis OS — North Star]]. Several checklist items below may already be done or dropped. Folder names in this note were corrected to the current tree on 2026-10-15.
++ 
++ Full vault audit and external link analysis done 2026-05-28 via a Cowork session.
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && f="40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && sed -i -e 's#60_Claude/7_AI_Information#60_Claude/07_AI_Information#g' -e 's#60_Claude/10_Session_Logs/log.md#60_Claude/07_AI_Information/Session Logs/log.md#g' -e 's#60_Claude/30_Source_Summaries#60_Claude/10_Source_Summaries#g' -e 's#60_Claude/60_Indexes#60_Claude/44_Indexes#g' "$f" && grep -nE "(^|[^0])7_AI_Information|10_Session_Logs|30_Source_Summaries|60_Indexes" "$f" | head; sed -i 's/^updated: 2026-05-28$/updated: 2026-10-15/' "$f"; echo done`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && f="40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && sed -i -e 's#60_Claude/7_AI_Information#60_Claude/07_AI_Information#g' -e 's#60_Claude/10_Session_Logs/log.md#60_Claude/07_AI_Information/Session Logs/log.md#g' -e 's#60_Claude/30_Source_Summaries#60_Claude/10_Source_Summaries#g' -e 's#60_Claude/60_Indexes#60_Claude/44_Indexes#g' "$f" && grep -nE "(^|[^0])7_AI_Information|10_Session_Logs|30_Source_Summaries|60_Indexes" "$f" | head; sed -i 's/^updated: 2026-05-28$/updated: 2026-10-15/' "$f"; echo done
+```
 ```
 102:Create these two folders. At the end of any significant session, ask Claude: `Summarize this session as a conversation note. Include: decisions made, things tried, open questions, related notes.` Save output to `30_Source_Summaries/AI Conversations/YYYY-MM-DD-topic.md`.
 done
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#`30_Source_Summaries/AI Conversations/#`10_Source_Summaries/AI Conversations/#' "40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && find 30_Order -type f -size 0 | sort; echo ---; ls "20_Progress/Projects/AI Use" "20_Progress/Projects/AI Use/Claude Kit" "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/AI/Toolkit" 2>&1 | head -40`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#`30_Source_Summaries/AI Conversations/#`10_Source_Summaries/AI Conversations/#' "40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && find 30_Order -type f -size 0 | sort; echo ---; ls "20_Progress/Projects/AI Use" "20_Progress/Projects/AI Use/Claude Kit" "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/AI/Toolkit" 2>&1 | head -40
+```
 ```
 30_Order/Standards/AI Loop/Conversations.md
 30_Order/Standards/AI Loop/Graphify Notes.md
@@ -2326,7 +2386,10 @@ Counts and tool lists drift. The folder `.claude/agents/` is the truth; fix this
 `.claude/agents/anti-slop-editor.md`: one role, a trigger sentence, a minimal tool list, and a short rule list the agent can follow without asking.
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && tail -n 6 "60_Claude/07_AI_Information/Session Logs/log.md" | cut -c1-400; echo; grep -nE "^## \[" "60_Claude/07_AI_Information/Session Logs/log.md" | tail -3; grep -cE "^## \[" "60_Claude/07_AI_Information/Session Logs/log.md"; wc -l "60_Claude/07_AI_Information/Session Logs/log.md"; sed -n 1,14p "40_Resources/CS/AI/CPR - Compress Preserve Resume.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && tail -n 6 "60_Claude/07_AI_Information/Session Logs/log.md" | cut -c1-400; echo; grep -nE "^## \[" "60_Claude/07_AI_Information/Session Logs/log.md" | tail -3; grep -cE "^## \[" "60_Claude/07_AI_Information/Session Logs/log.md"; wc -l "60_Claude/07_AI_Information/Session Logs/log.md"; sed -n 1,14p "40_Resources/CS/AI/CPR - Compress Preserve Resume.md"
+```
 ```
 2026-10-15 - Acer visit: ran Build 5b and the Build 2 SSH items on gupta-builds. Golden WSL configs applied (changed=13 same=21 fails=0), tmux 3.8, pnpm 12.4.2 and the rest of the toolkit upgraded with checksums, `.bashrc` hooks guarded, and the Acer's weekly clean fixed because it deleted the Corepack pin in ~/.cache/node. Old 36 MB swap.vhdx moved to D:\Backup\Quarantine. Tailscale SSH checks pa
 
@@ -2408,7 +2471,10 @@ None yet reviewed against this Standard. A candidate is the `[2026-10-02] write 
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Toolkit\Conversation Capture.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\AI Conversation - Summaries\README.md`
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis/60_Claude/07_AI_Information/AI Conversation - Summaries" && f="Claude Code/2026-08-19-claude-code-second-brain-claudekit-jarvis-notes-sync — Summary.md" && sed -n 1,30p "$f" | cut -c1-200; grep -n "^## " "$f"; echo ====; sed -n 1,20p "2026-07-05-cursor-mcp-failure-resolution-plan — Summary.md" | cut -c1-160`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis/60_Claude/07_AI_Information/AI Conversation - Summaries" && f="Claude Code/2026-08-19-claude-code-second-brain-claudekit-jarvis-notes-sync — Summary.md" && sed -n 1,30p "$f" | cut -c1-200; grep -n "^## " "$f"; echo ====; sed -n 1,20p "2026-07-05-cursor-mcp-failure-resolution-plan — Summary.md" | cut -c1-160
+```
 ```
 ---
 type: input
@@ -2472,7 +2538,10 @@ notes: []
 ## What Was Decided
 - Root cause of jarvis/the-plan MCP failures on WSL: Streamable HTTP SSE session conflict (HTTP 409) after ~15 min idle, not wrong ports or API keys.
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat "30_Order/Templates/AI Toolkit/AI Weekly Review Template.md"; echo =====; sed -n 1,25p "30_Order/Templates/Frontmatter/For Inputs.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat "30_Order/Templates/AI Toolkit/AI Weekly Review Template.md"; echo =====; sed -n 1,25p "30_Order/Templates/Frontmatter/For Inputs.md"
+```
 ```
 ---
 type: evergreen
@@ -2620,71 +2689,74 @@ Wikilinks to the project, concepts, and logs the conversation touched.
 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Toolkit\Conversation Capture.md`
-```diff
+````diff
 - **Moves:** raw transcript → `60_Claude/05_Clippings/AI Conversations/` → summary in `60_Claude/10_Source_Summaries/` (and, once built, the `jarvis-memory` registry under `30_Order/System/`)
-
-## The three layers
-
-Raw conversation is not knowledge yet. Store it in three layers and only promote the durable parts:
-
-1. **Raw archive** — the transcript, untouched, in `05_Clippings/AI Conversations/`.
-2. **Summary** — a short distillation in `10_Source_Summaries/`, using the structure below.
-3. **Promotion** — only durable decisions become concept notes, project updates, outputs, or `next:` actions. The transcript itself never becomes a durable note.
-
-## Summary structure
-
-```markdown
-## What Was Decided
-## What Changed
-## Important Context
-## Source Claims
-## Inferred Claims
-## Open Questions
-## Follow-Up Actions
-## Related Notes
-## Should Be Promoted?
-```
-
-## Steps
-
-1. Save the raw transcript to `05_Clippings/AI Conversations/`. Do not edit it.
-2. Write the summary in `10_Source_Summaries/` using the structure above. Keep it short — the value is the decisions, not the back-and-forth.
+- 
+- ## The three layers
+- 
+- Raw conversation is not knowledge yet. Store it in three layers and only promote the durable parts:
+- 
+- 1. **Raw archive** — the transcript, untouched, in `05_Clippings/AI Conversations/`.
+- 2. **Summary** — a short distillation in `10_Source_Summaries/`, using the structure below.
+- 3. **Promotion** — only durable decisions become concept notes, project updates, outputs, or `next:` actions. The transcript itself never becomes a durable note.
+- 
+- ## Summary structure
+- 
+- ```markdown
+- ## What Was Decided
+- ## What Changed
+- ## Important Context
+- ## Source Claims
+- ## Inferred Claims
+- ## Open Questions
+- ## Follow-Up Actions
+- ## Related Notes
+- ## Should Be Promoted?
+- ```
+- 
+- ## Steps
+- 
+- 1. Save the raw transcript to `05_Clippings/AI Conversations/`. Do not edit it.
+- 2. Write the summary in `10_Source_Summaries/` using the structure above. Keep it short — the value is the decisions, not the back-and-forth.
 + **Moves:** raw transcript → `60_Claude/05_Clippings/AI Conversations/` → summary in `60_Claude/07_AI_Information/AI Conversation - Summaries/` (and the `jarvis-memory` registry under `30_Order/System/` indexes both).
-
-**Serves Standard:** [[Conversations]]. **Template:** [[AI Conversation]].
-
-## The three layers
-
-Raw conversation is not knowledge yet. Store it in three layers and only promote the durable parts:
-
-1. **Raw archive** — the transcript, untouched, in `05_Clippings/AI Conversations/`.
-2. **Summary** — a short distillation in `AI Conversation - Summaries/`, shaped by the [[AI Conversation]] template and the [[Conversations]] Standard.
-3. **Promotion** — only durable decisions become concept notes, project updates, outputs, or `next:` actions. The transcript itself never becomes a durable note.
-
-## Steps
-
-1. Save the raw transcript to `05_Clippings/AI Conversations/`. Do not edit it.
-2. Write the summary in `AI Conversation - Summaries/` from the [[AI Conversation]] template. Keep it short: the value is the decisions, not the back-and-forth.
-```
++ 
++ **Serves Standard:** [[Conversations]]. **Template:** [[AI Conversation]].
++ 
++ ## The three layers
++ 
++ Raw conversation is not knowledge yet. Store it in three layers and only promote the durable parts:
++ 
++ 1. **Raw archive** — the transcript, untouched, in `05_Clippings/AI Conversations/`.
++ 2. **Summary** — a short distillation in `AI Conversation - Summaries/`, shaped by the [[AI Conversation]] template and the [[Conversations]] Standard.
++ 3. **Promotion** — only durable decisions become concept notes, project updates, outputs, or `next:` actions. The transcript itself never becomes a durable note.
++ 
++ ## Steps
++ 
++ 1. Save the raw transcript to `05_Clippings/AI Conversations/`. Do not edit it.
++ 2. Write the summary in `AI Conversation - Summaries/` from the [[AI Conversation]] template. Keep it short: the value is the decisions, not the back-and-forth.
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Toolkit\Conversation Capture.md`
-```diff
+````diff
 - ## Frontmatter to set (on the summary)
-
-```yaml
-type: input
-status: sprout
-source_app: <claude-code|codex|cursor|kiro|chatgpt|claude-web|ollama|other>
-source_status: mixed
-```
-
-## Done when
+- 
+- ```yaml
+- type: input
+- status: sprout
+- source_app: <claude-code|codex|cursor|kiro|chatgpt|claude-web|ollama|other>
+- source_status: mixed
+- ```
+- 
+- ## Done when
 + ## Frontmatter
-
-Comes from the [[AI Conversation]] template. Do not write it from memory.
-
-## Done when
++ 
++ Comes from the [[AI Conversation]] template. Do not write it from memory.
++ 
++ ## Done when
+````
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's/^updated: 2026-05-31$/updated: 2026-10-15/' "30_Order/Workflows/Toolkit/Conversation Capture.md" && git diff --stat -- "30_Order/Workflows/Toolkit/Conversation Capture.md" | tail -1
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's/^updated: 2026-05-31$/updated: 2026-10-15/' "30_Order/Workflows/Toolkit/Conversation Capture.md" && git diff --stat -- "30_Order/Workflows/Toolkit/Conversation Capture.md" | tail -1`
 ```
  1 file changed, 8 insertions(+), 25 deletions(-)
 ```
@@ -2717,7 +2789,10 @@ The spec that used to be written here now lives in `30_Order`, so there is one c
 - **The capture process:** [[Conversation Capture]]
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -n 1,40p "30_Order/Standards/Enrich/Source Summary Standard.md" | cut -c1-260; echo =====; sed -n 1,30p "30_Order/Standards/Enrich/Evergreen Standard.md" | cut -c1-260; echo ====; sed -n 1,25p "30_Order/Standards/Internship/Internship Loop Review Standard.md" | cut -c1-300`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -n 1,40p "30_Order/Standards/Enrich/Source Summary Standard.md" | cut -c1-260; echo =====; sed -n 1,30p "30_Order/Standards/Enrich/Evergreen Standard.md" | cut -c1-260; echo ====; sed -n 1,25p "30_Order/Standards/Internship/Internship Loop Review Standard.md" | cut -c1-300
+```
 ```
 ---
 type: evergreen
@@ -2864,7 +2939,10 @@ Ask in this order and stop at the first yes.
 None yet for the decision itself. For the finished shapes, see the examples named in [[Source Summary Standard]] (`Quant Foundations (PDF)`) and [[Evergreen Standard]] (`BOOM`).
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find 60_Claude/05_Clippings -type f -name "*.md" | wc -l; grep -n "^### Flashcards" "30_Order/Standards/Enrich/Source Summary Standard.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && find 60_Claude/05_Clippings -type f -name "*.md" | wc -l; grep -n "^### Flashcards" "30_Order/Standards/Enrich/Source Summary Standard.md"
+```
 ```
 740
 65:### Flashcards
@@ -2874,7 +2952,10 @@ None yet for the decision itself. For the finished shapes, see the examples name
 - The vault already holds hundreds of clippings; a summary
 + `05_Clippings/` holds about 740 Markdown files as of 2026-10-15; a summary
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat "30_Order/Standards/Project Standard.md" | cut -c1-420; echo; echo =======; grep -n "^## \|^### " "30_Order/Standards/Internship/Internship Loop Review Standard.md"; grep -n -i -A3 "carryover escalation" "30_Order/Standards/Internship/Internship Loop Review Standard.md" | head -30 | cut -c1-420`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat "30_Order/Standards/Project Standard.md" | cut -c1-420; echo; echo =======; grep -n "^## \|^### " "30_Order/Standards/Internship/Internship Loop Review Standard.md"; grep -n -i -A3 "carryover escalation" "30_Order/Standards/Internship/Internship Loop Review Standard.md" | head -30 | cut -c1-420
+```
 ```
 ---
 type: evergreen
@@ -3099,7 +3180,10 @@ A project review's unresolved items surface in the vault's weekly review. A week
 None for the system as a whole. For one layer, see the Gold Standard Example in [[Review Standard]].
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 30_Order/Templates/Capability; ls "60_Claude/30_Reviews/Internship Loop" "60_Claude/30_Reviews/AI/Scheduled" 2>&1 | head; ls "10_Areas/Life/Enumerate"; ls 20_Progress/AI/Claude\ Code | head -30`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 30_Order/Templates/Capability; ls "60_Claude/30_Reviews/Internship Loop" "60_Claude/30_Reviews/AI/Scheduled" 2>&1 | head; ls "10_Areas/Life/Enumerate"; ls 20_Progress/AI/Claude\ Code | head -30
+```
 ```
 Action Template.md
 Brief Template.md
@@ -3136,7 +3220,10 @@ Write Log.md
 internship-research-loop
 second-brain-claudekit
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for n in "Review System" "Tool Calls" "Orchestration" "Memory Management" "Conversations" "Knowledge Noting" "Per Project Review" "Logs" "Graphify Notes" "AI Conversation" "Conversation Capture" "Log Standard" "Review Standard" "Plan Review Cadence" "Daily Workflow Standard" "Project Standard"; do echo "== $n"; find . -name "$n.md" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./.stversions/*" 2>/dev/null; done; sed -n 1,12p "60_Claude/30_Reviews/Internship Loop/Review System.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for n in "Review System" "Tool Calls" "Orchestration" "Memory Management" "Conversations" "Knowledge Noting" "Per Project Review" "Logs" "Graphify Notes" "AI Conversation" "Conversation Capture" "Log Standard" "Review Standard" "Plan Review Cadence" "Daily Workflow Standard" "Project Standard"; do echo "== $n"; find . -name "$n.md" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./.stversions/*" 2>/dev/null; done; sed -n 1,12p "60_Claude/30_Reviews/Internship Loop/Review System.md"
+```
 ```
 == Review System
 ./10_Areas/AI/Setup/Review System.md
@@ -3176,10 +3263,13 @@ second-brain-claudekit
 ./30_Order/Standards/Courses/Project Standard.md
 ./30_Order/Standards/Project Standard.md
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && RS='[[30_Order/Standards/AI Loop/Review System|Review System]]' && PS='[[30_Order/Standards/Project Standard|Project Standard]]' && \
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && RS='[[30_Order/Standards/AI Loop/Review System|Review System]]' && PS='[[30_Order/Standards/Project Standard|Project Standard]]' && \
 sed -i "s#\[\[Review System\]\]#$RS#g" "30_Order/Standards/AI Loop/Tool Calls.md" "30_Order/Standards/AI Loop/Per Project Review.md" AGENTS.md && \
 sed -i "s#\[\[Project Standard\]\]#$PS#g" "30_Order/Standards/AI Loop/Per Project Review.md" AGENTS.md && \
-grep -n "Review System\|Project Standard" AGENTS.md "30_Order/Standards/AI Loop/Per Project Review.md" "30_Order/Standards/AI Loop/Tool Calls.md" | cut -c1-200`
+grep -n "Review System\|Project Standard" AGENTS.md "30_Order/Standards/AI Loop/Per Project Review.md" "30_Order/Standards/AI Loop/Tool Calls.md" | cut -c1-200
+```
 ```
 AGENTS.md:66:| Active project, internship, research, mentorship work | `20_Progress/` under the matching project | [[30_Order/Standards/Project Standard|Project Standard]] |
 AGENTS.md:71:| Daily, weekly, monthly review | `10_Areas/Life/Enumerate/` (Periodic Notes) or `60_Claude/30_Reviews/` | [[30_Order/Standards/AI Loop/Review System|Review System]] |
@@ -3188,7 +3278,10 @@ AGENTS.md:71:| Daily, weekly, monthly review | `10_Areas/Life/Enumerate/` (Perio
 30_Order/Standards/AI Loop/Per Project Review.md:18:This is the content standard for reviewing a single `type: project` note in `20_Progress/` (UROP, coursework builds, trading, personal builds). It b
 30_Order/Standards/AI Loop/Tool Calls.md:45:None yet. This Standard is a relocation of rules that were already in use, and no session has been reviewed against it. When a review ([[30_Order/Standards/
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== Tool log"; sed -n 1,40p "60_Claude/30_Reviews/AI/Toolkit/Tool log.md" | cut -c1-300; echo "=== Claude Kit Log head"; sed -n 1,22p "20_Progress/Projects/AI Use/Claude Kit/Log.md" | cut -c1-260; echo "=== sync scripts"; ls 30_Order/System/sync-workflow/scripts 2>/dev/null | head -20`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== Tool log"; sed -n 1,40p "60_Claude/30_Reviews/AI/Toolkit/Tool log.md" | cut -c1-300; echo "=== Claude Kit Log head"; sed -n 1,22p "20_Progress/Projects/AI Use/Claude Kit/Log.md" | cut -c1-260; echo "=== sync scripts"; ls 30_Order/System/sync-workflow/scripts 2>/dev/null | head -20
+```
 ```
 === Tool log
 ---
@@ -3252,8 +3345,11 @@ check-syncthing-status-silent.vbs
 check-syncthing-status.ps1
 rotate-sync-logs.ps1
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "60_Claude/40_Project_Briefs/TradingView" | head -12; echo ---; sed -n 1,12p "60_Claude/40_Project_Briefs/TradingView/GRAPH_REPORT.md" | cut -c1-220; echo --- ; ls "60_Claude/40_Project_Briefs/TradingView/Communities" 2>/dev/null | head -3; ls "60_Claude/40_Project_Briefs/TradingView/Nodes" 2>/dev/null | head -3; echo ---; sed -n 1,30p "40_Resources/CS/AI/Workflows/Claude Code/Graphify Workflow.md" | cut -c1-260; echo ---; ls 60_Claude/40_Project_Briefs | head -20; find . -name "How to use Graphify.md" -not -path "./.git/*" | head`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "60_Claude/40_Project_Briefs/TradingView" | head -12; echo ---; sed -n 1,12p "60_Claude/40_Project_Briefs/TradingView/GRAPH_REPORT.md" | cut -c1-220; echo --- ; ls "60_Claude/40_Project_Briefs/TradingView/Communities" 2>/dev/null | head -3; ls "60_Claude/40_Project_Briefs/TradingView/Nodes" 2>/dev/null | head -3; echo ---; sed -n 1,30p "40_Resources/CS/AI/Workflows/Claude Code/Graphify Workflow.md" | cut -c1-260; echo ---; ls 60_Claude/40_Project_Briefs | head -20; find . -name "How to use Graphify.md" -not -path "./.git/*" | head
 ```
+````
 00 Overview.md
 Communities
 GRAPH_REPORT.md
@@ -3321,8 +3417,11 @@ Internship
 Portfolio
 TradingView
 ./60_Claude/40_Project_Briefs/How to use Graphify.md
+````
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && f="60_Claude/40_Project_Briefs/How to use Graphify.md" && sed -n 1,16p "$f" | cut -c1-300; grep -n "^## \|^### " "$f"; grep -n -i "health\|three numbers\|3 numbers\|manifest\|--obsidian-dir\|never.*edit\|hand-edit" "$f" | head -20 | cut -c1-300; echo ---; cat "60_Claude/40_Project_Briefs/Internship/.graphify_obsidian_manifest.json" 2>/dev/null | head -c 400
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && f="60_Claude/40_Project_Briefs/How to use Graphify.md" && sed -n 1,16p "$f" | cut -c1-300; grep -n "^## \|^### " "$f"; grep -n -i "health\|three numbers\|3 numbers\|manifest\|--obsidian-dir\|never.*edit\|hand-edit" "$f" | head -20 | cut -c1-300; echo ---; cat "60_Claude/40_Project_Briefs/Internship/.graphify_obsidian_manifest.json" 2>/dev/null | head -c 400`
 ```
 ---
 type: evergreen
@@ -3363,8 +3462,11 @@ next: "Apply this exact procedure to the next codebase that needs mapping; updat
     "(text, tags) for every '- ' line carrying at least one skill tag..md",
     ".increase_indent().md",
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -n '29p;38,44p;46,52p' "60_Claude/40_Project_Briefs/How to use Graphify.md"`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -n '29p;38,44p;46,52p' "60_Claude/40_Project_Briefs/How to use Graphify.md"
 ```
+````
 4. **Decide the Obsidian target.** If this vault (Jarvis) should mirror the graph, the convention this vault uses is `60_Claude/40_Project_Briefs/<RepoName>/`, passed as `/graphify . --obsidian --obsidian-dir "<path to that folder>"` in the same build pass. This folder becomes graphify-owned — it will never overwrite a pre-existing note there, but treat it as a generated mirror, not a place to hand-write notes.
 ## The One Rule That Matters Most
 | Change type | Propagates automatically once hooks are installed? |
@@ -3380,7 +3482,7 @@ python3 -c "import json; print(len(json.load(open('<vault-target>/.graphify_obsi
 python3 -c "import json; print(len(json.load(open('graphify-out/graph.json'))['nodes']))"
 ```
 If the vault itself is a git repo (check `git -C <vault-root> rev-parse --is-inside-work-tree` — don't assume "no `.git`" from a truncated directory listing), it's a safety net for exactly this kind of cleanup: `git status` shows deletions before they're permanent, `git show <commit>:<path>` confirms a file's origin (a real `graphify/EXTRACTED` tag settles "is this debris or content" definitively), and committing the cleanup deliberately beats letting an unrelated auto-commit finalize an unreviewed batch.
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\AI Loop\Graphify Notes.md`
 ```
 ---
@@ -3498,7 +3600,10 @@ The commands and the three-pass pipeline are in [[How to use Graphify]] and [[Gr
 - Any count gap is written down, not ignored.
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis/20_Progress/AI/Claude Code" && ls -la .claude_windows .claude_wsl 2>&1 | grep -i "sync-log"; head -3 .claude_windows/Sync-Log.md | cut -c1-200; sed -n 1,12p "Write Log.md" | cut -c1-160; grep -n "param\|Archive\|MaxLines\|MaxKB\|threshold" "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" | head -10`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis/20_Progress/AI/Claude Code" && ls -la .claude_windows .claude_wsl 2>&1 | grep -i "sync-log"; head -3 .claude_windows/Sync-Log.md | cut -c1-200; sed -n 1,12p "Write Log.md" | cut -c1-160; grep -n "param\|Archive\|MaxLines\|MaxKB\|threshold" "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" | head -10
+```
 ```
 -rw-r--r-- 1 anant 197609 458624 Sep 19 13:37 [REDACTED].md
 -rw-r--r-- 1 anant 197609  36619 Sep 20 20:49 Sync-Log.md
@@ -3646,7 +3751,10 @@ Keep the AI-toolkit logs fed, rotated, and honest.
 - No log was edited after the fact.
 
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find . -name "The Qualification Pipeline.md" -not -path "./.git/*"; sed -n 1,30p "20_Progress/Projects/AI Use/Claude Kit/Tool Map.md" | cut -c1-280`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && find . -name "The Qualification Pipeline.md" -not -path "./.git/*"; sed -n 1,30p "20_Progress/Projects/AI Use/Claude Kit/Tool Map.md" | cut -c1-280
+```
 ```
 ./20_Progress/Projects/AI Use/Claude Kit/Source of Truth/The Qualification Pipeline.md
 ---
@@ -3715,16 +3823,18 @@ Keep the Tool Map true whenever a tool moves through the Claude Kit pipeline.
 ```diff
 - | Create a plan, or keep an existing one wired into daily/weekly execution | [[Plan Review Cadence]] |
 + | Create a plan, or keep an existing one wired into daily/weekly execution | [[Plan Review Cadence]] |
-| Add or health-check a Graphify mirror of a repo | [[Graphify Folders]] |
-| Keep the AI-toolkit logs fed, rotated, and honest | [[Maintaining Logs]] |
-| Update the Claude Kit Tool Map when a tool changes pipeline stage | [[Tools Tracking]] |
++ | Add or health-check a Graphify mirror of a repo | [[Graphify Folders]] |
++ | Keep the AI-toolkit logs fed, rotated, and honest | [[Maintaining Logs]] |
++ | Update the Claude Kit Tool Map when a tool changes pipeline stage | [[Tools Tracking]] |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\00_How This Folder Works.md`
 ```diff
 - `Standards/Internship/` — the career/application pipeline.
 + `Standards/Internship/` — the career/application pipeline. `Standards/AI Loop/` — how AI agents operate in the vault: tool selection ([[Tool Calls]]), subagent and skill coordination ([[Orchestration]]), session memory ([[Memory Management]]), conversation capture ([[Conversations]]), the raw-to-knowledge decision ([[Knowledge Noting]]), review layers ([[30_Order/Standards/AI Loop/Review System|Review System]], [[Per Project Review]]), toolkit logs ([[30_Order/Standards/AI Loop/Logs|Logs]]), and Graphify mirrors ([[30_Order/Standards/AI Loop/Graphify Notes|Graphify Notes]]). Its workflows are in `Workflows/Toolkit/` and its templates in `Templates/AI Toolkit/`. Behavior standards (Tool Calls, Orchestration, Memory Management, Knowledge Noting, Review System) have no template, the same as [[Log Standard]].
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat > /tmp/chk.sh <<'EOF'
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat > /tmp/chk.sh <<'EOF'
 files=(
 "AGENTS.md" "CLAUDE.md"
 "60_Claude/07_AI_Information/AI_CONTEXT.md" "60_Claude/07_AI_Information/Vault Map.md"
@@ -3751,7 +3861,8 @@ for f in "${files[@]}"; do
   done
 done
 EOF
-bash /tmp/chk.sh 2>&1 | head -60`
+bash /tmp/chk.sh 2>&1 | head -60
+```
 ```
 AMBIG(12) [AGENTS.md] -> CLAUDE
 AMBIG(8) [CLAUDE.md] -> AGENTS
@@ -3769,7 +3880,10 @@ DEAD  [30_Order/Templates/AI Toolkit/Tool Logs.md] -> raw session note
 AMBIG(12) [30_Order/Standards/AI Loop/Orchestration.md] -> CLAUDE
 AMBIG(8) [30_Order/Standards/AI Loop/Tool Calls.md] -> AGENTS
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#\[\[Plugins\]\]#[[60_Claude/07_AI_Information/Plugins|Plugins]]#' 60_Claude/07_AI_Information/AI_CONTEXT.md && grep -n "Plugins" 60_Claude/07_AI_Information/AI_CONTEXT.md | head -3; echo ---dead-path sweep in instruction layer; grep -rnE "35_Outputs|50_Reviews|10_UMN|10_Session_Logs|30_Source_Summaries|60_Indexes|45_Outputs|(^|[^0])7_AI_Information|Templates/Metadata|AI Use/(AI Weekly|AI Monthly|Clipping|Deep)" AGENTS.md CLAUDE.md HUMAN_WRITING.md 60_Claude/07_AI_Information/*.md 40_Resources/Obsidian/*.md 30_Order/Standards 30_Order/Workflows 30_Order/Templates 30_Order/00_How\ This\ Folder\ Works.md 2>/dev/null | grep -v "Jarvis OS — North Star\|North Star — Execution\|Fable Prompt\|Convergence\|Portfolio Option" | cut -c1-180`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#\[\[Plugins\]\]#[[60_Claude/07_AI_Information/Plugins|Plugins]]#' 60_Claude/07_AI_Information/AI_CONTEXT.md && grep -n "Plugins" 60_Claude/07_AI_Information/AI_CONTEXT.md | head -3; echo ---dead-path sweep in instruction layer; grep -rnE "35_Outputs|50_Reviews|10_UMN|10_Session_Logs|30_Source_Summaries|60_Indexes|45_Outputs|(^|[^0])7_AI_Information|Templates/Metadata|AI Use/(AI Weekly|AI Monthly|Clipping|Deep)" AGENTS.md CLAUDE.md HUMAN_WRITING.md 60_Claude/07_AI_Information/*.md 40_Resources/Obsidian/*.md 30_Order/Standards 30_Order/Workflows 30_Order/Templates 30_Order/00_How\ This\ Folder\ Works.md 2>/dev/null | grep -v "Jarvis OS — North Star\|North Star — Execution\|Fable Prompt\|Convergence\|Portfolio Option" | cut -c1-180
+```
 ```
 74:The AI operating and memory layer: how agents read this vault and what has happened before. The **map** is this file, [[Jarvis Writing and Formatting]], and [[60_Claude/07_AI_Information/Plugins|Plugins]]. The **memory** is `Session Logs/log.md` and `AI Conversation - Summaries/`. It points at `30_Order` for the writing rules and does not duplicate them.
 ---dead-path sweep in instruction layer
@@ -3791,8 +3905,11 @@ AMBIG(8) [30_Order/Standards/AI Loop/Tool Calls.md] -> AGENTS
 30_Order/Workflows/Enrichment/Output with Provenance.md:30:2. Write the artifact in `35_Outputs/` using the output template.
 30_Order/Workflows/Enrichment/Output with Provenance.md:33:5. Link it into `35_Outputs/Output Index.md` so it is findable when you need it.
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#30_Order/Templates/Metadata/For#30_Order/Templates/Frontmatter/For#g' "30_Order/Standards/Enrich/Evergreen Standard.md" "30_Order/Standards/Project Standard.md" && sed -n '148,180p;492,496p' 60_Claude/07_AI_Information/Plugins.md | cut -c1-230; sed -n 28,36p "30_Order/Workflows/00_Workflows Index.md"; ls 30_Order/Templates/Enumerate`
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#30_Order/Templates/Metadata/For#30_Order/Templates/Frontmatter/For#g' "30_Order/Standards/Enrich/Evergreen Standard.md" "30_Order/Standards/Project Standard.md" && sed -n '148,180p;492,496p' 60_Claude/07_AI_Information/Plugins.md | cut -c1-230; sed -n 28,36p "30_Order/Workflows/00_Workflows Index.md"; ls 30_Order/Templates/Enumerate
 ```
+````
 - Templates folder: `30_Order/Templates`.
 - Trigger on file creation is enabled.
 - System commands are disabled.
@@ -3843,8 +3960,11 @@ Better Month.md
 Better Today.md
 Better Weekly.md
 Better Year.md
+````
+- `Bash`
+```bash
+cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in 30_Order/Standards/AI\ Loop/*.md 30_Order/Templates/AI\ Toolkit/{AI\ Conversation,Graphify\ Notes,Tool\ Logs}.md 30_Order/Workflows/Toolkit/{Graphify\ Folders,Maintaining\ Logs,Tools\ Tracking}.md 60_Claude/07_AI_Information/AI_CONTEXT.md AGENTS.md "40_Resources/Obsidian/Jarvis Vault Architecture.md" 40_Resources/Obsidian/MCP-Hub-Index.md; do sed -E 's/\[\[[^]]*\]\]//g; s/`[^`]*`//g' "$f" | grep -n "—" | sed "s#^#$f: #" | cut -c1-160; done; echo; echo "--- empty files remaining in 30_Order:"; find 30_Order -type f -size 0 | sort
 ```
-- `Bash` -- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in 30_Order/Standards/AI\ Loop/*.md 30_Order/Templates/AI\ Toolkit/{AI\ Conversation,Graphify\ Notes,Tool\ Logs}.md 30_Order/Workflows/Toolkit/{Graphify\ Folders,Maintaining\ Logs,Tools\ Tracking}.md 60_Claude/07_AI_Information/AI_CONTEXT.md AGENTS.md "40_Resources/Obsidian/Jarvis Vault Architecture.md" 40_Resources/Obsidian/MCP-Hub-Index.md; do sed -E 's/\[\[[^]]*\]\]//g; s/`[^`]*`//g' "$f" | grep -n "—" | sed "s#^#$f: #" | cut -c1-160; done; echo; echo "--- empty files remaining in 30_Order:"; find 30_Order -type f -size 0 | sort`
 ```
 --- empty files remaining in 30_Order:
 30_Order/Standards/Decoration Standard.md
@@ -3904,35 +4024,13 @@ Better Year.md
 _None detected_
 
 **Commands run:**
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 60_Claude/07_AI_Information ===" && find "60_Claude/07_AI_Information" -maxdepth 3 -type f -name "*.md" 2>/dev/null
-echo "=== 40_Resources/Obsidian ===" && find "40_Resources/Obsidian" -maxdepth 2 -type f -name "*.md" 2>/dev/null
-echo "=== 40_Resources/CS/AI ===" && find "40_Resources/CS/AI" -maxdepth 3 -type f -name "*.md" 2>/dev/null
-echo "=== 30_Order ===" && find "30_Order" -maxdepth 3 -type f -name "*.md" 2>/dev/null
-echo "=== root ===" && ls -la | head -30`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 60_Claude/07_AI_Information ===" && find "60_Claude/07_AI_Information" -maxdepth 3 -type f -name "*.md" 2>/dev/null echo "=== 40_Resources/Obsidian ===" && find "40_Resources/Obsidian" -maxdepth 2 -type f -name "*.md" 2>/dev/null echo "=== 40_Resources/CS/AI ===" && find "40_Resources/CS/AI" -maxdepth 3 -type f -name "*.md" 2>/dev/null echo "=== 30_Order ===" && find "30_Order" -maxdepth 3 -type f -name "*.md" 2>/dev/null echo "=== root ===" && ls -la | head -30`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== 10_Areas top level ===" && ls "10_Areas" && echo "=== check for hub notes ===" && find "10_Areas" -maxdepth 1 -name "*.md" && echo "=== 20_Progress top ===" && ls "20_Progress" && echo "=== dashboard head ===" && head -40 "00_Dashboard.md"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- Career ---" && ls "10_Areas/Career" && echo "--- Life ---" && ls "10_Areas/Life" && echo "--- Trading ---" && ls "10_Areas/Trading" && echo "--- UMN ---" && ls "10_Areas/UMN" | head -10 && echo "--- Notes ---" && ls "10_Areas/Notes" 2>/dev/null | head -10`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "--- mcp-hub skill? ---" && find .claude/skills -iname "*mcp-hub*" 2>/dev/null && echo "--- 20_Progress/AI dir ---" && ls "20_Progress/AI" 2>/dev/null && echo "--- AI Loop file sizes ---" && ls -la "30_Order/Standards/AI Loop/" && echo "--- How to Use Claude dir ---" && ls "60_Claude/07_AI_Information/How to Use Claude"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "60_Claude"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find "60_Claude" -maxdepth 2 -type d && echo "--- search for Outputs anywhere ---" && find . -maxdepth 4 -iname "*outputs*" -not -path "./.git/*" -not -path "./50_Archive/*" 2>/dev/null`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && python - <<'EOF'
-import re
-p="60_Claude/07_AI_Information/AI_CONTEXT.md"
-s=open(p,encoding="utf-8").read()
-parts=re.split(r'(\[\[.*?\]\])',s)
-out=[]
-for x in parts:
-    if x.startswith("[["): out.append(x)
-    else: out.append(x.replace(" — ",": "))
-s="".join(out)
-s=s.replace("# AI Context Manifest: Orientation + Live State","# AI Context Manifest, Orientation and Live State")
-s=s.replace("in one file: it keeps Claude","in one file. It keeps Claude")
-s=s.replace("instead — that","instead. That").replace("instead: that","instead. That")
-s=s.replace("## Workflow Chooser: which plugin fits the job","## Workflow Chooser (which plugin fits the job)")
-s=s.replace("this file: do not store","this file. Do not store").replace("this file specifically: do not","this file specifically. Do not")
-s=s.replace("(this layer: agent map + memory)","(this layer, agent map and memory)")
-open(p,"w",encoding="utf-8").write(s)
-EOF
-grep -n "—" 60_Claude/07_AI_Information/AI_CONTEXT.md`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && python - <<'EOF' import re p="60_Claude/07_AI_Information/AI_CONTEXT.md" s=open(p,encoding="utf-8").read() parts=re.split(r'(\[\[.*?\]\])',s) out=[] for x in parts:     if x.startswith("[["): out.append(x)     else: out.append(x.replace(" — ",": ")) s="".join(out) s=s.replace("# AI Context Manifest: Orientation + Live State","# AI Context Manifest, Orientation and Live State") s=s.replace("in one file: it keeps Claude","in one file. It keeps Claude") s=s.replace("instead — that","instead. That").replace("instead: that","instead. That") s=s.replace("## Workflow Chooser: which plugin fits the job","## Workflow Chooser (which plugin fits the job)") s=s.replace("this file: do not store","this file. Do not store").replace("this file specifically: do not","this file specifically. Do not") s=s.replace("(this layer: agent map + memory)","(this layer, agent map and memory)") open(p,"w",encoding="utf-8").write(s) EOF grep -n "—" 60_Claude/07_AI_Information/AI_CONTEXT.md`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && grep -rEc "10_UMN|35_Outputs|50_Reviews|45_Outputs|10_Session_Logs|30_Source_Summaries|60_Indexes|[^0]7_AI_Information" --include="*.md" --include="*.mdc" --include="*.json" --include="*.ps1" --include="*.py" --exclude-dir=50_Archive --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules . 2>/dev/null | grep -v ":0$" | sort -t: -k2 -nr | head -50`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 40_Resources && echo --- && grep -nE "10_UMN|35_Outputs|50_Reviews" 00_Dashboard.md AGENTS.md CLAUDE.md HUMAN_WRITING.md 2>/dev/null; echo "--- Claude Pro Workflow path refs ---"; grep -rn "Obsidian/Claude Pro Workflow" --include="*.md" . 2>/dev/null | grep -v "50_Archive\|05_Clippings\|Session Logs" | head`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls .claude .claude/skills .claude/agents .claude/rules .claude/commands 2>/dev/null; echo ---; sed -n 1,30p "30_Order/Templates/Frontmatter/For Everything.md"`
@@ -3944,7 +4042,7 @@ grep -n "—" 60_Claude/07_AI_Information/AI_CONTEXT.md`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && mv "60_Claude/07_AI_Information/How to Use Claude/Claude OS.md" "20_Progress/AI/Claude OS.md" && ls "20_Progress/AI" "60_Claude/07_AI_Information/How to Use Claude" && for f in .claude/agents/*.md; do echo "== $f"; sed -n 1,12p "$f" | grep -E "^(name|tools|model):" ; done`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's/^updated: 2026-07-03$/updated: 2026-10-15/' "20_Progress/AI/Claude OS.md" && sed -n 1,16p "20_Progress/AI/Claude OS.md"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && f="40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && sed -i -e 's#60_Claude/7_AI_Information#60_Claude/07_AI_Information#g' -e 's#60_Claude/10_Session_Logs/log.md#60_Claude/07_AI_Information/Session Logs/log.md#g' -e 's#60_Claude/30_Source_Summaries#60_Claude/10_Source_Summaries#g' -e 's#60_Claude/60_Indexes#60_Claude/44_Indexes#g' "$f" && grep -nE "(^|[^0])7_AI_Information|10_Session_Logs|30_Source_Summaries|60_Indexes" "$f" | head; sed -i 's/^updated: 2026-05-28$/updated: 2026-10-15/' "$f"; echo done`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#`30_Source_Summaries/AI Conversations/#`10_Source_Summaries/AI Conversations/#' "40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && find 30_Order -type f -size 0 | sort; echo ---; ls "20_Progress/Projects/AI Use" "20_Progress/Projects/AI Use/Claude Kit" "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/AI/Toolkit" 2>&1 | head -40`
+- ``cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#`30_Source_Summaries/AI Conversations/#`10_Source_Summaries/AI Conversations/#' "40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md" && find 30_Order -type f -size 0 | sort; echo ---; ls "20_Progress/Projects/AI Use" "20_Progress/Projects/AI Use/Claude Kit" "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/AI/Toolkit" 2>&1 | head -40``
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && tail -n 6 "60_Claude/07_AI_Information/Session Logs/log.md" | cut -c1-400; echo; grep -nE "^## \[" "60_Claude/07_AI_Information/Session Logs/log.md" | tail -3; grep -cE "^## \[" "60_Claude/07_AI_Information/Session Logs/log.md"; wc -l "60_Claude/07_AI_Information/Session Logs/log.md"; sed -n 1,14p "40_Resources/CS/AI/CPR - Compress Preserve Resume.md"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis/60_Claude/07_AI_Information/AI Conversation - Summaries" && f="Claude Code/2026-08-19-claude-code-second-brain-claudekit-jarvis-notes-sync — Summary.md" && sed -n 1,30p "$f" | cut -c1-200; grep -n "^## " "$f"; echo ====; sed -n 1,20p "2026-07-05-cursor-mcp-failure-resolution-plan — Summary.md" | cut -c1-160`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat "30_Order/Templates/AI Toolkit/AI Weekly Review Template.md"; echo =====; sed -n 1,25p "30_Order/Templates/Frontmatter/For Inputs.md"`
@@ -3954,46 +4052,15 @@ grep -n "—" 60_Claude/07_AI_Information/AI_CONTEXT.md`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat "30_Order/Standards/Project Standard.md" | cut -c1-420; echo; echo =======; grep -n "^## \|^### " "30_Order/Standards/Internship/Internship Loop Review Standard.md"; grep -n -i -A3 "carryover escalation" "30_Order/Standards/Internship/Internship Loop Review Standard.md" | head -30 | cut -c1-420`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls 30_Order/Templates/Capability; ls "60_Claude/30_Reviews/Internship Loop" "60_Claude/30_Reviews/AI/Scheduled" 2>&1 | head; ls "10_Areas/Life/Enumerate"; ls 20_Progress/AI/Claude\ Code | head -30`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for n in "Review System" "Tool Calls" "Orchestration" "Memory Management" "Conversations" "Knowledge Noting" "Per Project Review" "Logs" "Graphify Notes" "AI Conversation" "Conversation Capture" "Log Standard" "Review Standard" "Plan Review Cadence" "Daily Workflow Standard" "Project Standard"; do echo "== $n"; find . -name "$n.md" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./.stversions/*" 2>/dev/null; done; sed -n 1,12p "60_Claude/30_Reviews/Internship Loop/Review System.md"`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && RS='[[30_Order/Standards/AI Loop/Review System|Review System]]' && PS='[[30_Order/Standards/Project Standard|Project Standard]]' && \
-sed -i "s#\[\[Review System\]\]#$RS#g" "30_Order/Standards/AI Loop/Tool Calls.md" "30_Order/Standards/AI Loop/Per Project Review.md" AGENTS.md && \
-sed -i "s#\[\[Project Standard\]\]#$PS#g" "30_Order/Standards/AI Loop/Per Project Review.md" AGENTS.md && \
-grep -n "Review System\|Project Standard" AGENTS.md "30_Order/Standards/AI Loop/Per Project Review.md" "30_Order/Standards/AI Loop/Tool Calls.md" | cut -c1-200`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && RS='[[30_Order/Standards/AI Loop/Review System|Review System]]' && PS='[[30_Order/Standards/Project Standard|Project Standard]]' && \ sed -i "s#\[\[Review System\]\]#$RS#g" "30_Order/Standards/AI Loop/Tool Calls.md" "30_Order/Standards/AI Loop/Per Project Review.md" AGENTS.md && \ sed -i "s#\[\[Project Standard\]\]#$PS#g" "30_Order/Standards/AI Loop/Per Project Review.md" AGENTS.md && \ grep -n "Review System\|Project Standard" AGENTS.md "30_Order/Standards/AI Loop/Per Project Review.md" "30_Order/Standards/AI Loop/Tool Calls.md" | cut -c1-200`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && echo "=== Tool log"; sed -n 1,40p "60_Claude/30_Reviews/AI/Toolkit/Tool log.md" | cut -c1-300; echo "=== Claude Kit Log head"; sed -n 1,22p "20_Progress/Projects/AI Use/Claude Kit/Log.md" | cut -c1-260; echo "=== sync scripts"; ls 30_Order/System/sync-workflow/scripts 2>/dev/null | head -20`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && ls "60_Claude/40_Project_Briefs/TradingView" | head -12; echo ---; sed -n 1,12p "60_Claude/40_Project_Briefs/TradingView/GRAPH_REPORT.md" | cut -c1-220; echo --- ; ls "60_Claude/40_Project_Briefs/TradingView/Communities" 2>/dev/null | head -3; ls "60_Claude/40_Project_Briefs/TradingView/Nodes" 2>/dev/null | head -3; echo ---; sed -n 1,30p "40_Resources/CS/AI/Workflows/Claude Code/Graphify Workflow.md" | cut -c1-260; echo ---; ls 60_Claude/40_Project_Briefs | head -20; find . -name "How to use Graphify.md" -not -path "./.git/*" | head`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && f="60_Claude/40_Project_Briefs/How to use Graphify.md" && sed -n 1,16p "$f" | cut -c1-300; grep -n "^## \|^### " "$f"; grep -n -i "health\|three numbers\|3 numbers\|manifest\|--obsidian-dir\|never.*edit\|hand-edit" "$f" | head -20 | cut -c1-300; echo ---; cat "60_Claude/40_Project_Briefs/Internship/.graphify_obsidian_manifest.json" 2>/dev/null | head -c 400`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -n '29p;38,44p;46,52p' "60_Claude/40_Project_Briefs/How to use Graphify.md"`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis/20_Progress/AI/Claude Code" && ls -la .claude_windows .claude_wsl 2>&1 | grep -i "sync-log"; head -3 .claude_windows/Sync-Log.md | cut -c1-200; sed -n 1,12p "Write Log.md" | cut -c1-160; grep -n "param\|Archive\|MaxLines\|MaxKB\|threshold" "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" | head -10`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && find . -name "The Qualification Pipeline.md" -not -path "./.git/*"; sed -n 1,30p "20_Progress/Projects/AI Use/Claude Kit/Tool Map.md" | cut -c1-280`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat > /tmp/chk.sh <<'EOF'
-files=(
-"AGENTS.md" "CLAUDE.md"
-"60_Claude/07_AI_Information/AI_CONTEXT.md" "60_Claude/07_AI_Information/Vault Map.md"
-"60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md"
-"60_Claude/07_AI_Information/AI Conversation - Summaries/README.md"
-"40_Resources/Obsidian/Jarvis Vault Architecture.md" "40_Resources/Obsidian/MCP-Hub-Index.md"
-"40_Resources/Obsidian/Vault Operating System.md"
-"20_Progress/AI/Claude OS.md"
-"30_Order/00_How This Folder Works.md" "30_Order/Workflows/00_Workflows Index.md"
-"30_Order/Workflows/Toolkit/Conversation Capture.md" "30_Order/Workflows/Toolkit/Graphify Folders.md"
-"30_Order/Workflows/Toolkit/Maintaining Logs.md" "30_Order/Workflows/Toolkit/Tools Tracking.md"
-"30_Order/Templates/AI Toolkit/AI Conversation.md" "30_Order/Templates/AI Toolkit/Graphify Notes.md" "30_Order/Templates/AI Toolkit/Tool Logs.md"
-)
-for f in 30_Order/Standards/AI\ Loop/*.md; do files+=("$f"); done
-for f in "${files[@]}"; do
-  [ -s "$f" ] || { echo "EMPTY/MISSING: $f"; continue; }
-  grep -o '\[\[[^]]*\]\]' "$f" | sed 's/^\[\[//; s/\]\]$//; s/|.*//; s/#.*//' | sort -u | while read -r l; do
-    [ -z "$l" ] && continue
-    case "$l" in *"<"*) continue;; esac
-    b="${l##*/}"; b="${b%.md}"
-    n=$(find . \( -name "$b.md" -o -name "$b.canvas" \) -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./.stversions/*" 2>/dev/null | wc -l)
-    if [ "$n" -eq 0 ]; then echo "DEAD  [$f] -> $l"; 
-    elif [ "$n" -gt 1 ] && [[ "$l" != */* ]]; then echo "AMBIG($n) [$f] -> $l"; fi
-  done
-done
-EOF
-bash /tmp/chk.sh 2>&1 | head -60`
+- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && cat > /tmp/chk.sh <<'EOF' files=( "AGENTS.md" "CLAUDE.md" "60_Claude/07_AI_Information/AI_CONTEXT.md" "60_Claude/07_AI_Information/Vault Map.md" "60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md" "60_Claude/07_AI_Information/AI Conversation - Summaries/README.md" "40_Resources/Obsidian/Jarvis Vault Architecture.md" "40_Resources/Obsidian/MCP-Hub-Index.md" "40_Resources/Obsidian/Vault Operating System.md" "20_Progress/AI/Claude OS.md" "30_Order/00_How This Folder Works.md" "30_Order/Workflows/00_Workflows Index.md" "30_Order/Workflows/Toolkit/Conversation Capture.md" "30_Order/Workflows/Toolkit/Graphify Folders.md" "30_Order/Workflows/Toolkit/Maintaining Logs.md" "30_Order/Workflows/Toolkit/Tools Tracking.md" "30_Order/Templates/AI Toolkit/AI Conversation.md" "30_Order/Templates/AI Toolkit/Graphify Notes.md" "30_Order/Templates/AI Toolkit/Tool Logs.md" ) for f in 30_Order/Standards/AI\ Loop/*.md; do files+=("$f"); done for f in "${files[@]}"; do   [ -s "$f" ] || { echo "EMPTY/MISSING: $f"; continue; }   grep -o '\[\[[^]]*\]\]' "$f" | sed 's/^\[\[//; s/\]\]$//; s/|.*//; s/#.*//' | sort -u | while read -r l; do     [ -z "$l" ] && continue     case "$l" in *"<"*) continue;; esac     b="${l##*/}"; b="${b%.md}"     n=$(find . \( -name "$b.md" -o -name "$b.canvas" \) -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./.stversions/*" 2>/dev/null | wc -l)     if [ "$n" -eq 0 ]; then echo "DEAD  [$f] -> $l";      elif [ "$n" -gt 1 ] && [[ "$l" != */* ]]; then echo "AMBIG($n) [$f] -> $l"; fi   done done EOF bash /tmp/chk.sh 2>&1 | head -60`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#\[\[Plugins\]\]#[[60_Claude/07_AI_Information/Plugins|Plugins]]#' 60_Claude/07_AI_Information/AI_CONTEXT.md && grep -n "Plugins" 60_Claude/07_AI_Information/AI_CONTEXT.md | head -3; echo ---dead-path sweep in instruction layer; grep -rnE "35_Outputs|50_Reviews|10_UMN|10_Session_Logs|30_Source_Summaries|60_Indexes|45_Outputs|(^|[^0])7_AI_Information|Templates/Metadata|AI Use/(AI Weekly|AI Monthly|Clipping|Deep)" AGENTS.md CLAUDE.md HUMAN_WRITING.md 60_Claude/07_AI_Information/*.md 40_Resources/Obsidian/*.md 30_Order/Standards 30_Order/Workflows 30_Order/Templates 30_Order/00_How\ This\ Folder\ Works.md 2>/dev/null | grep -v "Jarvis OS — North Star\|North Star — Execution\|Fable Prompt\|Convergence\|Portfolio Option" | cut -c1-180`
 - `cd "D:\_Anant\20_Progress\Documents\Jarvis" && sed -i 's#30_Order/Templates/Metadata/For#30_Order/Templates/Frontmatter/For#g' "30_Order/Standards/Enrich/Evergreen Standard.md" "30_Order/Standards/Project Standard.md" && sed -n '148,180p;492,496p' 60_Claude/07_AI_Information/Plugins.md | cut -c1-230; sed -n 28,36p "30_Order/Workflows/00_Workflows Index.md"; ls 30_Order/Templates/Enumerate`
-- `cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in 30_Order/Standards/AI\ Loop/*.md 30_Order/Templates/AI\ Toolkit/{AI\ Conversation,Graphify\ Notes,Tool\ Logs}.md 30_Order/Workflows/Toolkit/{Graphify\ Folders,Maintaining\ Logs,Tools\ Tracking}.md 60_Claude/07_AI_Information/AI_CONTEXT.md AGENTS.md "40_Resources/Obsidian/Jarvis Vault Architecture.md" 40_Resources/Obsidian/MCP-Hub-Index.md; do sed -E 's/\[\[[^]]*\]\]//g; s/`[^`]*`//g' "$f" | grep -n "—" | sed "s#^#$f: #" | cut -c1-160; done; echo; echo "--- empty files remaining in 30_Order:"; find 30_Order -type f -size 0 | sort`
-
+- ``cd "D:\_Anant\20_Progress\Documents\Jarvis" && for f in 30_Order/Standards/AI\ Loop/*.md 30_Order/Templates/AI\ Toolkit/{AI\ Conversation,Graphify\ Notes,Tool\ Logs}.md 30_Order/Workflows/Toolkit/{Graphify\ Folders,Maintaining\ Logs,Tools\ Tracking}.md 60_Claude/07_AI_Information/AI_CONTEXT.md AGENTS.md "40_Resources/Obsidian/Jarvis Vault Architecture.md" 40_Resources/Obsidian/MCP-Hub-Index.md; do sed -E 's/\[\[[^]]*\]\]//g; s/`[^`]*`//g' "$f" | grep -n "—" | sed "s#^#$f: #" | cut -c1-160; done; echo; echo "--- empty files remaining in 30_Order:"; find 30_Order -type f -size 0 | sort``
 

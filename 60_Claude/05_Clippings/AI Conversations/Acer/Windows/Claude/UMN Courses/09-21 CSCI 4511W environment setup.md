@@ -8,7 +8,7 @@ started_at: 2026-09-21T13:14:30
 ended_at: 2026-09-21T13:59:00
 exported_at: 2026-10-17T21:06:40
 duration_minutes: 44.5
-project: Code
+project: UMN Courses
 cwd: 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Pratice Problems\Code'
 session_id: b37a8bc5-f4d4-406d-bcd1-b7e14ebb884d
 status: raw

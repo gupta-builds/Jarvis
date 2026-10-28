@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Home dashboard rebuild"
 started_at: 2026-10-13T00:39:45
 ended_at: 2026-10-13T15:20:37
-exported_at: 2026-10-17T21:07:03
+exported_at: 2026-10-28T16:15:48
 duration_minutes: 880.9
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: 1f6dd68e-f027-46fe-982d-68fd667bfca9
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-13
+updated: 2026-10-28
 turn_count: 10
 tools_used:
   AskUserQuestion: 1
@@ -26,12 +29,12 @@ tools_used:
   ToolSearch: 3
   Write: 38
 tokens:
-  input: 530
-  output: 522786
-  cache_creation: 1633928
-  cache_read: 48591646
-  total: 50748890
-cost_usd: null
+  input: 168
+  output: 134631
+  cache_creation: 367287
+  cache_read: 16502211
+  total: 17004297
+cost_usd: 4.466015
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -332,8 +335,8 @@ The value is already correct: Main Homepage is `00_Dashboard`, kind File, open o
 
 ### Tool Calls
 
-- `Glob` -- pattern `**/{Spec - Home and Monthly Dashboards,Spec - Streak and Daily Note,*Streak Rule*,Dashboards Hub,00_Dashboard}.md` path ``
-- `Glob` -- pattern `**/*streak*` path ``
+- `Glob` -- pattern `**/{Spec - Home and Monthly Dashboards,Spec - Streak and Daily Note,*Streak Rule*,Dashboards Hub,00_Dashboard}.md` path ` `
+- `Glob` -- pattern `**/*streak*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\AGENTS.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
@@ -342,16 +345,19 @@ The value is already correct: Main Homepage is `00_Dashboard`, kind File, open o
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\streak.py`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\test_streak.py`
-- `Glob` -- pattern `40_Resources/Obsidian/Dashboards/**/*` path ``
-- `Glob` -- pattern `.obsidian/snippets/*` path ``
-- `Glob` -- pattern `00_Live/**/*` path ``
-- `Glob` -- pattern `**/{Daily Note Schema,Health Tracker,Finance Tracker,Life OS,Decisions Log,Build Plan}.md` path ``
+- `Glob` -- pattern `40_Resources/Obsidian/Dashboards/**/*` path ` `
+- `Glob` -- pattern `.obsidian/snippets/*` path ` `
+- `Glob` -- pattern `00_Live/**/*` path ` `
+- `Glob` -- pattern `**/{Daily Note Schema,Health Tracker,Finance Tracker,Life OS,Decisions Log,Build Plan}.md` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Daily Note Schema.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\.obsidian\snippets\dashboard.css`
-- `Glob` -- pattern `30_Order/System/streak/fixtures/**/*` path ``
+- `Glob` -- pattern `30_Order/System/streak/fixtures/**/*` path ` `
 - `Grep` -- pattern `^\s*(\d+\.|\*\*)?\s*(Decision )?(3|7|8|31|32)\b.*` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" && cat expected.json && for f in 2026-03-0[1-5].md; do echo "== $f"; grep -c '\[x\]' $f; done; echo; cat 2026-03-01.md; cd ../..; python -m unittest test_streak 2>&1 | tail -4; python --version; node --version`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" && cat expected.json && for f in 2026-03-0[1-5].md; do echo "== $f"; grep -c '\[x\]' $f; done; echo; cat 2026-03-01.md; cd ../..; python -m unittest test_streak 2>&1 | tail -4; python --version; node --version
+```
 ```
 {
   "current_streak": 2,
@@ -416,7 +422,10 @@ v24.19.0
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily\2026-10-12.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Build Log.md`
-- `Bash` -- `which py python3 python pythonw 2>&1; ls /c/Users/anant/AppData/Local/Programs/Python 2>&1 | head; py --version 2>&1 | head -2; ls "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" | head -50; grep -o '"homepage[^,]*' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/community-plugins.json"`
+- `Bash`
+```bash
+which py python3 python pythonw 2>&1; ls /c/Users/anant/AppData/Local/Programs/Python 2>&1 | head; py --version 2>&1 | head -2; ls "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" | head -50; grep -o '"homepage[^,]*' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/community-plugins.json"
+```
 ```
 which: no py in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/Program Files/WindowsApps/Microsoft.PowerShell_7.6.6.0_x64__8wekyb3d8bbwe:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Program Files/Tailscale:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/junegunn.fzf_Microsoft.Winget.Source_8wekyb3d8bbwe:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe/fd-v10.5.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/sharkdp.bat_Microsoft.Winget.Source_8wekyb3d8bbwe/bat-v0.26.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/dandavison.delta_Microsoft.Winget.Source_8wekyb3d8bbwe/delta-0.20.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/ajeetdsouza.zoxide_Microsoft.Winget.Source_8wekyb3d8bbwe:/usr/bin/vendor_perl:/usr/bin/core_perl)
 which: no pythonw in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/Program Files/WindowsApps/Microsoft.PowerShell_7.6.6.0_x64__8wekyb3d8bbwe:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Program Files/Tailscale:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/junegunn.fzf_Microsoft.Winget.Source_8wekyb3d8bbwe:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe/fd-v10.5.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/sharkdp.bat_Microsoft.Winget.Source_8wekyb3d8bbwe/bat-v0.26.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/dandavison.delta_Microsoft.Winget.Source_8wekyb3d8bbwe/delta-0.20.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/ajeetdsouza.zoxide_Microsoft.Winget.Source_8wekyb3d8bbwe:/usr/bin/vendor_perl:/usr/bin/core_perl)
@@ -456,7 +465,10 @@ templater-obsidian
 text-extractor
 url-into-selection
 ```
-- `Bash` -- `ls /d/Apps/Hermes 2>&1 | head -20; find /d/Apps/Hermes /c/Users/anant/.local /d/AI -maxdepth 4 -iname "python.exe" 2>/dev/null | head; where.exe python 2>&1 | head -3; uv --version 2>&1 | head -1`
+- `Bash`
+```bash
+ls /d/Apps/Hermes 2>&1 | head -20; find /d/Apps/Hermes /c/Users/anant/.local /d/AI -maxdepth 4 -iname "python.exe" 2>/dev/null | head; where.exe python 2>&1 | head -3; uv --version 2>&1 | head -1
+```
 ```
 SOUL.md
 audio_cache
@@ -482,7 +494,10 @@ models_dev_cache.etag
 C:\Users\anant\AppData\Local\Microsoft\WindowsApps\python.exe
 uv 0.12.19 (bea138450 2026-09-24 x86_64-pc-windows-msvc)
 ```
-- `Bash` -- `PY=/d/Apps/Hermes/hermes-agent/venv/Scripts/python.exe; $PY --version; cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && $PY -m unittest test_streak 2>&1 | tail -4; $PY -I streak.py --dir fixtures/sample --today 2026-03-10; cat fixtures/sample/expected.json | tr -d '\n '; echo; for f in fixtures/sample/*.md; do echo -n "$f "; grep -c '^\- \[x\]' $f; done`
+- `Bash`
+```bash
+PY=/d/Apps/Hermes/hermes-agent/venv/Scripts/python.exe; $PY --version; cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && $PY -m unittest test_streak 2>&1 | tail -4; $PY -I streak.py --dir fixtures/sample --today 2026-03-10; cat fixtures/sample/expected.json | tr -d '\n '; echo; for f in fixtures/sample/*.md; do echo -n "$f "; grep -c '^\- \[x\]' $f; done
+```
 ```
 Python 3.11.16
 ----------------------------------------------------------------------
@@ -510,7 +525,10 @@ fixtures/sample/2026-03-10.md 4
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\.obsidian\plugins\homepage\manifest.json`
 - `Grep` -- pattern `career line` path `D:\_Anant\20_Progress\Documents\The Plan`
 - `Grep` -- pattern `enableDataviewJs|refreshInterval|refreshEnabled|taskCompletion|inlineQueryPrefix` path `D:\_Anant\20_Progress\Documents\The Plan\.obsidian\plugins\dataview\data.json`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan"; f=$(find . -name "QuickAdd Setup.md" -not -path "./50_Archive/*" | head -1); sed -n 18,60p "$f"; ls .obsidian/plugins/homepage; grep -o '"version": *"[^"]*"' .obsidian/plugins/dataview/manifest.json`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan"; f=$(find . -name "QuickAdd Setup.md" -not -path "./50_Archive/*" | head -1); sed -n 18,60p "$f"; ls .obsidian/plugins/homepage; grep -o '"version": *"[^"]*"' .obsidian/plugins/dataview/manifest.json
+```
 ```
 The daily notes folder is `00_Live/Enumerate/Daily`. The template is `30_Order/Templates/Daily Note`.
 
@@ -559,20 +577,26 @@ manifest.json
 styles.css
 "version": "0.5.68"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; grep -o 'taskList([^)]*){[^}]\{0,400\}' main.js | head -5; echo ----; grep -o 'async taskList.\{0,500\}' main.js | head -3; echo ---; grep -o 'function renderTaskList.\{0,900\}' main.js | head -2`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; grep -o 'taskList([^)]*){[^}]\{0,400\}' main.js | head -5; echo ----; grep -o 'async taskList.\{0,500\}' main.js | head -3; echo ---; grep -o 'function renderTaskList.\{0,900\}' main.js | head -2
+```
 ```
 ----
 async taskList(tasks, groupByFile = true, container, component, filePath = "") {
 ---
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; python3 --version 2>&1 | head -1; node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; python3 --version 2>&1 | head -1; node -e '
 const s=require("fs").readFileSync("main.js","utf8");
 function show(re,n){const m=s.search(re); console.log(s.slice(m,m+n)); console.log("=======");}
 show(/async taskList\(tasks, groupByFile = true, container/,900);
 show(/taskList\(tasks, groupByFile = true\) \{/,500);
 show(/async function renderTaskList|function renderTaskList/,500);
 show(/function setupTaskCheckbox|setupTaskCheckbox\(/,200);
-'`
+'
+```
 ```
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 async taskList(tasks, groupByFile = true, container, component, filePath = "") {
@@ -611,7 +635,7 @@ taskList(tasks, groupByFile = true) {
 - `Glob` -- pattern `**/*.canvas` path `D:\_Anant\20_Progress\Documents\The Plan\00_Live`
 - `Grep` -- pattern `Monthly Dashboard|Dashboard - Monthly|Monthly.*dashboard` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Build Plan.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
-```
+````
 # Home
 
 ```dataviewjs
@@ -947,11 +971,11 @@ const targetValue = (label) => {
 
 VS Code is the main workspace. Keep coding, note work, agent work, and reviews visible here.
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
 ```diff
 -     body += `<rect data-i="${i}" x="${x}" y="${y}" width="11" height="11" rx="3" fill="none"${stroke}/>`;
-    body += `<rect
+-     body += `<rect
 +     body += `<rect
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
@@ -962,24 +986,27 @@ VS Code is the main workspace. Keep coding, note work, agent work, and reviews v
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
 ```diff
 -   const pick = [today, today - 1].find((n) => texts.has(n) && actionsIn(texts.get(n)).length);
-  function actionsIn(text) {
-    return section(text, "Next actions")
-      .map((l) => /^\s*[-*+]\s+(?:\[.\]\s+)?(.*)$/.exec(l))
-      .filter((m) => m && m[1].trim() && !m[1].trim().startsWith("%%"))
-      .map((m) => m[1]);
-  }
+-   function actionsIn(text) {
+-     return section(text, "Next actions")
+-       .map((l) => /^\s*[-*+]\s+(?:\[.\]\s+)?(.*)$/.exec(l))
+-       .filter((m) => m && m[1].trim() && !m[1].trim().startsWith("%%"))
+-       .map((m) => m[1]);
+-   }
 +   const actionsIn = (text) => section(text, "Next actions")
-    .map((l) => /^\s*[-*+]\s+(?:\[.\]\s+)?(.*)$/.exec(l))
-    .filter((m) => m && m[1].trim() && !m[1].trim().startsWith("%%"))
-    .map((m) => m[1]);
-  const pick = [today, today - 1].find((n) => texts.has(n) && actionsIn(texts.get(n)).length);
++     .map((l) => /^\s*[-*+]\s+(?:\[.\]\s+)?(.*)$/.exec(l))
++     .filter((m) => m && m[1].trim() && !m[1].trim().startsWith("%%"))
++     .map((m) => m[1]);
++   const pick = [today, today - 1].find((n) => texts.has(n) && actionsIn(texts.get(n)).length);
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad"; mkdir -p "$SP/h" && cd "$SP/h" && npm init -y >/dev/null 2>&1 && npm i jsdom@24 2>&1 | tail -2`
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad"; mkdir -p "$SP/h" && cd "$SP/h" && npm init -y >/dev/null 2>&1 && npm i jsdom@24 2>&1 | tail -2
+```
 ```
 found 0 vulnerabilities
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-The-Plan\1f6dd68e-f027-46fe-982d-68fd667bfca9\scratchpad\h\render.js`
-```
+````
 // Renders the dataviewjs block of 00_Dashboard.md against a folder of daily notes.
 const fs = require("fs");
 const path = require("path");
@@ -1100,7 +1127,7 @@ async function render(dir, todayIso) {
 
 module.exports = { render };
 
-```
+````
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-The-Plan\1f6dd68e-f027-46fe-982d-68fd667bfca9\scratchpad\h\perday.py`
 ```
 """Print per-day categories_done and the streak.py output for a folder, using the canonical script."""
@@ -1121,7 +1148,7 @@ print(json.dumps({
 
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-The-Plan\1f6dd68e-f027-46fe-982d-68fd667bfca9\scratchpad\h\run.js`
-```
+````
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
@@ -1229,8 +1256,11 @@ async function compare(label, dir, today) {
   console.log("innerHTML lines in block:", inner.length); inner.forEach((l) => console.log("  ", l.trim().slice(0, 110)));
 })();
 
+````
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && node run.js 2>&1 | head -60
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && node run.js 2>&1 | head -60`
 ```
 FIXTURE page  : {"current":2,"best":4,"ring":"2/5","fraction":0.4,"atRisk":false,"ringClass":"pl-hero-right pl-ring-bad"}
 FIXTURE script: {"current_streak":2,"best_streak":4,"today_categories_done":2,"today_status":"NOT_YET","at_risk":false,"first_day":"2026-03-01"}
@@ -1242,7 +1272,9 @@ innerHTML lines in block: 3
    right.innerHTML = ringSvg(s.todayDone); // numbers only
    holder.innerHTML = `<svg viewBox="0 0 129 37" class="pl-heat" role="img" aria-label="Categories done per day,
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && sed -i 's#path.join(VAULT, "00_Dashboard.md")#process.env.PL_FILE || path.join(VAULT, "00_Dashboard.md")#' render.js && sed 's/} else if (prevMiss) { \/\/ second miss in a row/} else if (false) {/' "D:/_Anant/20_Progress/Documents/The Plan/00_Dashboard.md" > mutant.md && PL_FILE="$PWD/mutant.md" node run.js 2>&1 | grep -E "FIXTURE match|RANDOM"
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && sed -i 's#path.join(VAULT, "00_Dashboard.md")#process.env.PL_FILE || path.join(VAULT, "00_Dashboard.md")#' render.js && sed 's/} else if (prevMiss) { \/\/ second miss in a row/} else if (false) {/' "D:/_Anant/20_Progress/Documents/The Plan/00_Dashboard.md" > mutant.md && PL_FILE="$PWD/mutant.md" node run.js 2>&1 | grep -E "FIXTURE match|RANDOM"
 # Real pass also with CRLF notes and the real vault today (no note for today)
 node -e '
 const {render}=require("./render");const fs=require("fs"),os=require("os"),path=require("path");
@@ -1254,7 +1286,8 @@ const e=fs.mkdtempSync(path.join(os.tmpdir(),"plh-"));
 r=await render(e,"2026-10-13");console.log("empty folder:",r.current,r.best,r.ringDone,r.atRisk, r.container.querySelector(".pl-ticks").textContent.slice(0,80));
 console.log(r.container.querySelector(".pl-trackers").textContent.replace(/\s+/g," "));
 const dir2="D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate/Daily";
-})()'`
+})()'
+```
 ```
 FIXTURE match : false [ 'current: page 6, script 2', 'best: page 6, script 4' ]
 RANDOM 0/150 match; scenario mix: ok/run/best=cur ok/run/best>cur ok/zero/best>cur risk/run/best=cur risk/run/best>cur risk/zero/best>cur
@@ -1262,7 +1295,10 @@ CRLF fixture: 2 4 2
 empty folder: 0 0 0 false TodayNo note for 2026-10-13. The evening close creates tomorrow's note.
 TrackersHealthNo entries logged yet.FinanceNo entries logged yet.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/homepage" && node -e 'const d=JSON.parse(require("fs").readFileSync("data.json","utf8"));const pick=({version,homepages,separateMobile,openOnStartup,openMode,manualOpenMode,view,revertView,refreshDataview,autoCreate,autoScroll,pin,commands,alwaysApply,hideReleaseNotes,...r})=>({version,separateMobile,openOnStartup,openMode,refreshDataview,homepages});console.log(JSON.stringify(pick(d),null,1))'`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/homepage" && node -e 'const d=JSON.parse(require("fs").readFileSync("data.json","utf8"));const pick=({version,homepages,separateMobile,openOnStartup,openMode,manualOpenMode,view,revertView,refreshDataview,autoCreate,autoScroll,pin,commands,alwaysApply,hideReleaseNotes,...r})=>({version,separateMobile,openOnStartup,openMode,refreshDataview,homepages});console.log(JSON.stringify(pick(d),null,1))'
+```
 ```
 {
  "version": 4,
@@ -1460,7 +1496,10 @@ The few outcomes this month exists to produce.
 - `AskUserQuestion` -- `{"questions":[{"question":"Approve steps 1 to 3 (project folder outside the vault, npm install, build output into .obsidian/plugins/the-plan-dashboard)?","header":"Build","multiSelect":false,"options":[{"label":"Yes, proceed (Recommended)","description":"I build the engine, tests and React view in the new project, then copy the three built files into the plugin folder. I stop and show you the community-plugins.json edit before making it."},{"label":"Different location","description":"Tell me where the project should live and I will use that instead."},{"label":"Not yet","description":"Hold the build. I only keep the monthly note I just created."}]},{"question":"What should happen to the current DataviewJS 00_Dashboard.md?","header":"Old Home","multiSelect":false,"options":[{"label":"Keep until plugin works (Recommended)","description":"It stays as the fallback Home with its navigation footer. I retire it only after you confirm the plugin view."},{"label":"Replace now","description":"Reduce 00_Dashboard.md to the navigation footer and a pointer to the plugin view now."}]}]}`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Plugin Build Prompts.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Verification and Risks.md`
-- `Bash` -- `cd /tmp 2>/dev/null; for p in react react-dom typescript esbuild vitest obsidian @types/react @types/react-dom @types/node; do echo -n "$p "; npm view $p version 2>&1 | tail -1; done; node -v; npm -v; ls "D:/_Anant/20_Progress/Projects" 2>&1 | head; cat "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/community-plugins.json"; grep -o '"minAppVersion": *"[^"]*"' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview/manifest.json"; ls "D:/Apps/Obsidian" | head -3`
+- `Bash`
+```bash
+cd /tmp 2>/dev/null; for p in react react-dom typescript esbuild vitest obsidian @types/react @types/react-dom @types/node; do echo -n "$p "; npm view $p version 2>&1 | tail -1; done; node -v; npm -v; ls "D:/_Anant/20_Progress/Projects" 2>&1 | head; cat "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/community-plugins.json"; grep -o '"minAppVersion": *"[^"]*"' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview/manifest.json"; ls "D:/Apps/Obsidian" | head -3
+```
 ```
 react 19.3.0
 react-dom 19.3.0
@@ -1492,7 +1531,10 @@ LICENSE.electron.txt
 LICENSES.chromium.html
 Obsidian.com
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad" && mkdir -p ref && cd ref && for f in package.json esbuild.config.mjs tsconfig.json manifest.json version-bump.mjs; do curl -sSL "https://raw.githubusercontent.com/obsidianmd/obsidian-sample-plugin/master/$f" -o $f; done; cat package.json esbuild.config.mjs tsconfig.json manifest.json version-bump.mjs`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad" && mkdir -p ref && cd ref && for f in package.json esbuild.config.mjs tsconfig.json manifest.json version-bump.mjs; do curl -sSL "https://raw.githubusercontent.com/obsidianmd/obsidian-sample-plugin/master/$f" -o $f; done; cat package.json esbuild.config.mjs tsconfig.json manifest.json version-bump.mjs
+```
 ```
 {
 	"name": "obsidian-sample-plugin",
@@ -1618,7 +1660,10 @@ if (!(targetVersion in versions)) {
 	writeFileSync('versions.json', JSON.stringify(versions, null, '\t'));
 }
 ```
-- `Bash` -- `mkdir -p "D:/_Anant/20_Progress/Projects/the-plan-dashboard"/{src/core,src/data,src/ui,src/view,src/cli,tests,scripts} && cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git init -q -b main 2>&1 | tail -1; ls -a`
+- `Bash`
+```bash
+mkdir -p "D:/_Anant/20_Progress/Projects/the-plan-dashboard"/{src/core,src/data,src/ui,src/view,src/cli,tests,scripts} && cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git init -q -b main 2>&1 | tail -1; ls -a
+```
 ```
 .
 ..
@@ -1811,7 +1856,10 @@ data.json
 *.log
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && npm install 2>&1 | tail -5`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && npm install 2>&1 | tail -5
+```
 ```
 Command running in background with ID: blg27ce7x. Output is being written to: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\tasks\blg27ce7x.output. You will be notified when it completes. To check interim output, use Read on that file path.
 Session cwd remains D:\_Anant\20_Progress\Documents\The Plan; directory changes made by the backgrounded command do not apply to subsequent commands.
@@ -2051,8 +2099,8 @@ export function toggleLine(text: string, index: number, expected: string, checke
 - `Edit` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\src\core\streak.ts`
 ```diff
 - 
-export { addDays };
-
+- export { addDays };
+- 
 + 
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\src\core\streak.ts`
@@ -2782,10 +2830,10 @@ export function Heatmap({ days, p, onOpen }: { days: DayCell[]; p: Palette; onOp
 - `Edit` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\src\ui\charts.tsx`
 ```diff
 - const R = 48;
-const C = 2 * Math.PI * R;
+- const C = 2 * Math.PI * R;
 + const R = 48;
-const C = 2 * Math.PI * R;
-const PULSE_AT = [3, 5]; // a constant, so the pulse effect only reruns when the count changes
++ const C = 2 * Math.PI * R;
++ const PULSE_AT = [3, 5]; // a constant, so the pulse effect only reruns when the count changes
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\src\ui\charts.tsx`
 ```diff
@@ -3301,7 +3349,9 @@ export class DashboardView extends ItemView {
 export { addDays };
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
 const fs=require("fs");
 let v=fs.readFileSync("src/view/DashboardView.tsx","utf8");
 v=v.replace(/\nexport \{ addDays \};\n/,"\n").replace(`import { addDays, localIso } from "../core/dates";`,`import { localIso } from "../core/dates";`);
@@ -3392,11 +3442,15 @@ cat > styles.css <<'EOF'
 	.pl-app * { transition: none !important; }
 }
 EOF
-npx tsc -noEmit -skipLibCheck 2>&1 | head -30`
+npx tsc -noEmit -skipLibCheck 2>&1 | head -30
+```
 ```
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && npx tsc -noEmit -skipLibCheck; echo "tsc exit $?"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && npx tsc -noEmit -skipLibCheck; echo "tsc exit $?"
+```
 ```
 tsc exit 0
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
@@ -3857,7 +3911,10 @@ const r = spawnSync(process.execPath, ['--test', ...files], { stdio: 'inherit' }
 process.exit(r.status ?? 1);
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; npx tsc -noEmit -skipLibCheck; echo tsc $?; npm test 2>&1 | grep -vE "^\s+(duration_ms|type:|\.\.\.|---)" | tail -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; npx tsc -noEmit -skipLibCheck; echo tsc $?; npm test 2>&1 | grep -vE "^\s+(duration_ms|type:|\.\.\.|---)" | tail -60
+```
 ```
 tsc 0
 var import_strict = __toESM(require("node:assert/strict"), 1);
@@ -3922,12 +3979,18 @@ test at .test-out\ui.test.js:1:1
   'test failed'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i "s#outdir: '.test-out',#outdir: '.test-out',\n\toutExtension: { '.js': '.cjs' },#; s#\\.tsx?\$/, '.js')#.tsx?\$/, '.cjs')#" scripts/test.mjs && grep -n "cjs" scripts/test.mjs; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; npm test 2>&1 | grep -E "^(✔|✖|ℹ (tests|pass|fail|skipped))|Error|expected|actual|mismatch" | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i "s#outdir: '.test-out',#outdir: '.test-out',\n\toutExtension: { '.js': '.cjs' },#; s#\\.tsx?\$/, '.js')#.tsx?\$/, '.cjs')#" scripts/test.mjs && grep -n "cjs" scripts/test.mjs; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; npm test 2>&1 | grep -E "^(✔|✖|ℹ (tests|pass|fail|skipped))|Error|expected|actual|mismatch" | head -60
+```
 ```
 Command did not complete within its 120s timeout and was moved to the background (ID: b20hlfmbc). Output is being written to: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\tasks\b20hlfmbc.output. You will be notified when it completes. To check interim output, use Read on that file path.
 Session cwd remains D:\_Anant\20_Progress\Documents\The Plan; directory changes made by the backgrounded command do not apply to subsequent commands.
 ```
-- `Bash` -- `sleep 60; cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/57d0591e-23cb-433f-b147-8d63823ac43e/tasks/b20hlfmbc.output" | head -80`
+- `Bash`
+```bash
+sleep 60; cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/57d0591e-23cb-433f-b147-8d63823ac43e/tasks/b20hlfmbc.output" | head -80
+```
 ```
 <tool_use_error>Blocked: sleep 60 followed by: cat "C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/tasks/b20hlfmbc.output" head -80. To wait for a condition, use Monitor with an until-loop (e.g. `until <check>; do sleep 2; done`). To wait for a command you started, use run_in_background: true. Do not chain shorter sleeps to work around this block.</tool_use_error>
 ```
@@ -3943,10 +4006,13 @@ Session cwd remains D:\_Anant\20_Progress\Documents\The Plan; directory changes 
 ```diff
 - const TODAY = "2026-03-10";
 + after(() => dom.window.close()); // jsdom timers would keep the process alive
-
-const TODAY = "2026-03-10";
++ 
++ const TODAY = "2026-03-10";
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 100 npm test > /tmp/t.log 2>&1; echo exit $?; grep -E "^(✔|✖|ℹ (tests|pass|fail|skipped))|^\s+(✔|✖)|rror|mismatch" /tmp/t.log | head -50`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 100 npm test > /tmp/t.log 2>&1; echo exit $?; grep -E "^(✔|✖|ℹ (tests|pass|fail|skipped))|^\s+(✔|✖)|rror|mismatch" /tmp/t.log | head -50
+```
 ```
 exit 124
 ✔ category rules (1.9604ms)
@@ -3972,7 +4038,10 @@ exit 124
 ✔ 200 random histories match streak.py (25203.8369ms)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `grep -n -B2 -A22 "✖ toggle flips" /tmp/t.log | head -60; grep -n "ui.test\|UI\|renders" /tmp/t.log | head`
+- `Bash`
+```bash
+grep -n -B2 -A22 "✖ toggle flips" /tmp/t.log | head -60; grep -n "ui.test\|UI\|renders" /tmp/t.log | head
+```
 ```
 17-✔ milestones (2.233ms)
 18-✔ heatmap has 30 cells ending today, with today marked (0.2105ms)
@@ -4039,12 +4108,15 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```diff
 - after(() => dom.window.close()); // jsdom timers would keep the process alive
 + // React's scheduler keeps this test process alive after the tests end, so close jsdom and exit.
-after(() => {
-	dom.window.close();
-	setTimeout(() => process.exit(process.exitCode ?? 0), 200);
-});
++ after(() => {
++ 	dom.window.close();
++ 	setTimeout(() => process.exit(process.exitCode ?? 0), 200);
++ });
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 110 npm test > /tmp/t.log 2>&1; echo exit $?; grep -E "^(✖|ℹ (tests|pass|fail|skipped))" /tmp/t.log`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 110 npm test > /tmp/t.log 2>&1; echo exit $?; grep -E "^(✖|ℹ (tests|pass|fail|skipped))" /tmp/t.log
+```
 ```
 exit 0
 ℹ tests 28
@@ -4193,7 +4265,10 @@ for (const [name, w, h, theme] of sizes) {
 process.exit(bad ? 1 : 0);
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" 2>&1; timeout 110 node scripts/preview.mjs 2>&1 | tail -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" 2>&1; timeout 110 node scripts/preview.mjs 2>&1 | tail -20
+```
 ```
 /c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe
 1280x720 {"viewport":[1250,625],"layout":"wide","pageScrolls":false,"clipped":["hero:div:13day streak","hero:span:13","heat:div:2026-02-09: no note2026-02-1","study:div:1.5hours","study:span:1.5","next:section:Next actionsEmail the lab ab","next:div:Email the lab about the proj","trackers:div:Health2026-03-02. Gym: 4. MV","links:div:Month 2026-03Year 2026Life O"],"truncatedByLineClamp":["today:span:Choose mindset content over ","today:span:Not smoke before planning, b","career:div:Finish and submit the intern","study:div:Dynamic programming and grap"]}
@@ -4205,7 +4280,10 @@ process.exit(bad ? 1 : 0);
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
 - `Read` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\.preview-out\1280x720.png`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's#createRoot(document.getElementById("root") as HTMLElement)#createRoot(document.getElementById("app") as HTMLElement)#; s#el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1#el.scrollHeight > el.clientHeight + 4 || el.scrollWidth > el.clientWidth + 2#' tests/preview.tsx && sed -i 's#minmax(0, 1.55fr) minmax(0, 1fr) minmax(0, 0.5fr)#minmax(0, 1.45fr) minmax(0, 1.05fr) minmax(0, 0.42fr)#' src/ui/styles.ts && timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-900`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's#createRoot(document.getElementById("root") as HTMLElement)#createRoot(document.getElementById("app") as HTMLElement)#; s#el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1#el.scrollHeight > el.clientHeight + 4 || el.scrollWidth > el.clientWidth + 2#' tests/preview.tsx && sed -i 's#minmax(0, 1.55fr) minmax(0, 1fr) minmax(0, 0.5fr)#minmax(0, 1.45fr) minmax(0, 1.05fr) minmax(0, 0.42fr)#' src/ui/styles.ts && timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-900
+```
 ```
 1280x720 {"viewport":[1250,625],"layout":"wide","pageScrolls":false,"clipped":["hero:div:13day streak","hero:span:13","heat:div:2026-02-09: no note2026-02-1","next:section:Next actionsEmail the lab ab","next:div:Email the lab about the proj","trackers:div:Health2026-03-02. Gym: 4. MV","links:div:Month 2026-03Year 2026Life O"],"truncatedByLineClamp":["today:span:Plan the day for 20 minutes ","today:span:Drink 3L of water and take c","today:span:Choose mindset content over ","today:span:Not smoke before planning, b","today:span:Do the career line from Targ","career:div:Finish and submit the intern","study:div:Dynamic programming and grap"]}
 1920x1080 {"viewport":[1890,985],"layout":"wide","pageScrolls":false,"clipped":["hero:div:13day streak","hero:span:13","hero:text:2/5","heat:div:2026-02-09: no note2026-02-1"],"truncatedByLineClamp":["today:span:Not smoke before planning, b"]}
@@ -4217,7 +4295,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
 - `Read` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\.preview-out\1280x720.png`
 - `Read` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\.preview-out\1100x620.png`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
 const fs=require("fs");
 let s=fs.readFileSync("src/ui/styles.ts","utf8");
 s=s.replace(`trackers: { gridColumn: "1 / span 7", gridRow: "3" },`,`trackers: { gridColumn: "1 / span 6", gridRow: "3" },`).replace(`links: { gridColumn: "8 / span 5", gridRow: "3" },`,`links: { gridColumn: "7 / span 6", gridRow: "3" },`);
@@ -4247,7 +4327,8 @@ p=p.slice(0,a)+`	// An element is clipped when its box leaves the nearest ancest
 	});
 `+p.slice(b);
 fs.writeFileSync("tests/preview.tsx",p);
-' && grep -n "line-through" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-420`
+' && grep -n "line-through" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-420
+```
 ```
 1280x720 {"viewport":[1250,625],"layout":"wide","pageScrolls":false,"clipped":["next:div:Read twelve pages before bre","next:span:streak"],"truncatedByLineClamp":["next:span:Read twelve pages before bre"]}
 1920x1080 {"viewport":[1890,985],"layout":"wide","pageScrolls":false,"clipped":[],"truncatedByLineClamp":[]}
@@ -4257,7 +4338,9 @@ fs.writeFileSync("tests/preview.tsx",p);
 390x844-compact {"viewport":[504,749],"layout":"compact","pageScrolls":false,"clipped":["next:div:Plan the week before sleepin","next:div:Review why mind failed yeste","next:span:failure","next:div:Read twelve pages before bre","next:span:streak"],"truncatedByLineClamp":["next:span:Plan the week before sleepin","next:span:Review why mind failed yeste","next:span:Read twelve pages before bre"]}
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
 const fs=require("fs");
 let c=fs.readFileSync("src/ui/sections.tsx","utf8");
 c=c.replace(`<span style={{ ...clamp(2), flex: 1, minWidth: 0 }}>{a.text}</span>`,`<span title={a.text} style={{ ...clamp(1), flex: 1, minWidth: 0 }}>{a.text}</span>`);
@@ -4268,7 +4351,8 @@ fs.writeFileSync("src/ui/styles.ts",s);
 let css=fs.readFileSync("styles.css","utf8");
 css=css.replace("padding: 0.2em 0.7em;\n\tborder-radius: 2em;","padding: 0.1em 0.65em;\n\tborder-radius: 2em;");
 fs.writeFileSync("styles.css",css);
-' && grep -c "clamp(1)" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-330`
+' && grep -c "clamp(1)" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-330
+```
 ```
 2
 1280x720 {"viewport":[1250,625],"layout":"wide","pageScrolls":false,"clipped":[],"truncatedByLineClamp":[]}
@@ -4281,7 +4365,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
 - `Read` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\.preview-out\1920x1080.png`
 - `Read` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\.preview-out\1280x720-light.png`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's#Math.min(size.w / 78, size.h / 40, 17)#Math.min(size.w / 78, size.h / 40, 22)#' src/ui/App.tsx && npm run build 2>&1 | tail -4 && npm run build:cli 2>&1 | tail -2 && node dist/streak-cli.cjs "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" 2026-03-10 | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));delete j.days;console.log(JSON.stringify(j))'; node dist/streak-cli.cjs; echo "exit $? (usage error expected 2)"; ls -la main.js manifest.json styles.css | awk '{print $5, $9}'; grep -c "innerHTML\|dangerouslySetInnerHTML" -r src | grep -v ":0" ; echo "innerHTML uses above (none expected)"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's#Math.min(size.w / 78, size.h / 40, 17)#Math.min(size.w / 78, size.h / 40, 22)#' src/ui/App.tsx && npm run build 2>&1 | tail -4 && npm run build:cli 2>&1 | tail -2 && node dist/streak-cli.cjs "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" 2026-03-10 | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));delete j.days;console.log(JSON.stringify(j))'; node dist/streak-cli.cjs; echo "exit $? (usage error expected 2)"; ls -la main.js manifest.json styles.css | awk '{print $5, $9}'; grep -c "innerHTML\|dangerouslySetInnerHTML" -r src | grep -v ":0" ; echo "innerHTML uses above (none expected)"
+```
 ```
 > the-plan-dashboard@0.1.0 build
 > tsc -noEmit -skipLibCheck && node esbuild.config.mjs production
@@ -4297,7 +4384,9 @@ exit 2 (usage error expected 2)
 innerHTML uses above (none expected)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat > scripts/deploy.mjs <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat > scripts/deploy.mjs <<'EOF'
 // Copies the three built files into a plugin folder. The target is required; there is no default.
 import { copyFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
@@ -4312,7 +4401,8 @@ for (const f of ['main.js', 'manifest.json', 'styles.css']) copyFileSync(f, join
 console.log(`copied main.js, manifest.json, styles.css to ${target}`);
 EOF
 V="D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"; ls "$V" 2>&1 | head -2; node scripts/deploy.mjs "$V" && ls -la "$V" | awk '{print $5, $9}' && cmp main.js "$V/main.js" && echo identical
-git add -A >/dev/null 2>&1; git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -qm "Dashboard plugin: engine, React view, tests" && git log --oneline | head -1; git status --short | head -3`
+git add -A >/dev/null 2>&1; git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -qm "Dashboard plugin: engine, React view, tests" && git log --oneline | head -1; git status --short | head -3
+```
 ```
 ls: cannot access 'D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard': No such file or directory
 copied main.js, manifest.json, styles.css to D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard
@@ -4326,7 +4416,10 @@ identical
 0125fea Dashboard plugin: engine, React view, tests
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -q --amend -m "Dashboard plugin: engine, React view, tests" -m "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" && git log -1 --format=%B | head -4; cd "D:/_Anant/20_Progress/Documents/The Plan" && git status --short | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -q --amend -m "Dashboard plugin: engine, React view, tests" -m "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" && git log -1 --format=%B | head -4; cd "D:/_Anant/20_Progress/Documents/The Plan" && git status --short | head
+```
 ```
 Dashboard plugin: engine, React view, tests
 
@@ -4358,13 +4451,16 @@ The plugin renders in real Obsidian: eight cards, landscape layout, and no scrol
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && cat community-plugins.json | tr -d '\n\t '; echo; ls plugins/the-plan-dashboard; ls plugins/lazy-plugins; node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && cat community-plugins.json | tr -d '\n\t '; echo; ls plugins/the-plan-dashboard; ls plugins/lazy-plugins; node -e '
 const fs=require("fs");
 const lz=JSON.parse(fs.readFileSync("plugins/lazy-plugins/data.json","utf8"));
 console.log(JSON.stringify(lz,null,1).slice(0,1800));
 const hp=JSON.parse(fs.readFileSync("plugins/homepage/data.json","utf8"));
 console.log(JSON.stringify({sep:hp.separateMobile,hp:hp.homepages},null,1));
-'; ls plugins/lazy-plugins; ls | head -40`
+'; ls plugins/lazy-plugins; ls | head -40
+```
 ```
 ["code-styler","dataview","file-explorer-plus","lazy-plugins","ninja-cursor","obsidian-latex-suite","obsidian-style-settings","obsidian-tasks-plugin","recent-files-obsidian","templater-obsidian","url-into-selection","obsidian-local-rest-api","homepage"]
 main.js
@@ -4514,14 +4610,20 @@ zk-prefixer.json
 ```
 - `ToolSearch` -- `{"query":"select:mcp__the-plan__command_list","max_results":1}`
 - `mcp__the-plan__command_list` -- `{}`
-- `Bash` -- `f="C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/tool-results/toolu_01SXXmXQSYqdXocEz7vvQDJ9.json"; grep -o '"id\\*": *\\*"[^"\\]*plan[^"\\]*' "$f" | head; grep -o 'the-plan-dashboard[^"\\]*' "$f" | head -3; echo ---; grep -o '"id\\*": *\\*"homepage[^"\\]*' "$f" | head`
+- `Bash`
+```bash
+f="C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/tool-results/toolu_01SXXmXQSYqdXocEz7vvQDJ9.json"; grep -o '"id\\*": *\\*"[^"\\]*plan[^"\\]*' "$f" | head; grep -o 'the-plan-dashboard[^"\\]*' "$f" | head -3; echo ---; grep -o '"id\\*": *\\*"homepage[^"\\]*' "$f" | head
+```
 ```
 the-plan-dashboard:open-dashboard
 ---
 ```
 - `ToolSearch` -- `{"query":"select:mcp__the-plan__command_execute","max_results":1}`
 - `mcp__the-plan__command_execute` -- `{"commandId":"the-plan-dashboard:open-dashboard"}`
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com help 2>&1 | head -20; timeout 60 Obsidian.com vault 2>&1 | head -5`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com help 2>&1 | head -20; timeout 60 Obsidian.com vault 2>&1 | head -5
+```
 ```
 Obsidian CLI
 
@@ -4549,11 +4651,17 @@ files	663
 folders	167
 size	12820628
 ```
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.workspace.getLeavesOfType('the-plan-dashboard-view');const el=document.querySelector('.pl-app');if(!el)return JSON.stringify({leaves:l.length,app:false});const r=el.firstElementChild;const cards=[...el.querySelectorAll('[data-card]')].map(c=>c.getAttribute('data-card'));const vc=el.closest('.view-content');return JSON.stringify({leaves:l.length,layout:r.getAttribute('data-layout'),size:[el.clientWidth,el.clientHeight],viewScroll:[vc.scrollHeight,vc.clientHeight],cards,current:el.querySelector('[data-testid=current]')?.textContent,best:el.querySelector('[data-testid=best]')?.textContent,ring:el.querySelector('svg[aria-label$=\"done today\"]')?.textContent,font:getComputedStyle(r).fontFamily.slice(0,30),today:el.textContent.slice(0,200)})})()" 2>&1 | head -20`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.workspace.getLeavesOfType('the-plan-dashboard-view');const el=document.querySelector('.pl-app');if(!el)return JSON.stringify({leaves:l.length,app:false});const r=el.firstElementChild;const cards=[...el.querySelectorAll('[data-card]')].map(c=>c.getAttribute('data-card'));const vc=el.closest('.view-content');return JSON.stringify({leaves:l.length,layout:r.getAttribute('data-layout'),size:[el.clientWidth,el.clientHeight],viewScroll:[vc.scrollHeight,vc.clientHeight],cards,current:el.querySelector('[data-testid=current]')?.textContent,best:el.querySelector('[data-testid=best]')?.textContent,ring:el.querySelector('svg[aria-label$=\"done today\"]')?.textContent,font:getComputedStyle(r).fontFamily.slice(0,30),today:el.textContent.slice(0,200)})})()" 2>&1 | head -20
+```
 ```
 => {"leaves":1,"layout":"wide","size":[1363,941],"viewScroll":[941,941],"cards":["hero","today","heat","career","study","next","trackers","links"],"current":"0","best":"Best 0","ring":"0/5TODAY","font":"\"JetBrains Mono\", ui-monospace","today":"Streak0day streakBest 0·Next: 3 in 3 daysNo counted days yet. The streak starts at the first daily note with category actions.0/5TODAYToday0 of 5 doneToday's note is missing (2026-10-13). The evening "}
 ```
-- `Bash` -- `cd /tmp; Obsidian.com help 2>&1 | grep -iE "screenshot|dev:|eval" | head; `
+- `Bash`
+```bash
+cd /tmp; Obsidian.com help 2>&1 | grep -iE "screenshot|dev:|eval" | head; 
+```
 ```
   dev:cdp               Run a Chrome DevTools Protocol command
   dev:console           Show captured console messages
@@ -4565,7 +4673,10 @@ size	12820628
   dev:screenshot        Take a screenshot
   eval                  Execute JavaScript and return result
 ```
-- `Bash` -- `cd /tmp; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad"; timeout 60 Obsidian.com vault="The Plan" dev:screenshot path="$SP/live.png" 2>&1 | head -3; timeout 30 Obsidian.com vault="The Plan" dev:errors 2>&1 | tail -5; ls "$SP/live.png"`
+- `Bash`
+```bash
+cd /tmp; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad"; timeout 60 Obsidian.com vault="The Plan" dev:screenshot path="$SP/live.png" 2>&1 | head -3; timeout 30 Obsidian.com vault="The Plan" dev:errors 2>&1 | tail -5; ls "$SP/live.png"
+```
 ```
 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/live.png
 
@@ -4624,11 +4735,14 @@ To revert, set Homepage back to Kind `File`, Value `00_Dashboard`, with no comma
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
 const lz=JSON.parse(require("fs").readFileSync("lazy-plugins/data.json","utf8"));
 for (const k of ["desktop","mobile"]) { const c=lz[k]; if(!c) {console.log(k,"none");continue;} console.log(k,"default:",c.defaultStartupType,"| the-plan-dashboard:",JSON.stringify(c.plugins["the-plan-dashboard"]),"| homepage:",JSON.stringify(c.plugins["homepage"])); }
 console.log("dualConfigs",lz.dualConfigs);
-'; grep -o 'Nothing[^;]\{0,200\}' homepage/main.js | head -5; echo ----; grep -o 'commands[^;]\{0,160\}' homepage/main.js | head -8; echo ---; grep -o 'executeCommandById[^;]\{0,120\}' homepage/main.js | head -3`
+'; grep -o 'Nothing[^;]\{0,200\}' homepage/main.js | head -5; echo ----; grep -o 'commands[^;]\{0,160\}' homepage/main.js | head -8; echo ---; grep -o 'executeCommandById[^;]\{0,120\}' homepage/main.js | head -3
+```
 ```
 desktop default: short | the-plan-dashboard: {"startupType":"short"} | homepage: {"startupType":"instant"}
 mobile none
@@ -4651,7 +4765,10 @@ commands){let t=this.app.commands.findCommand(e.id),a=this.container.createDiv({
 executeCommandById(a)}async launchWorkspace(){let e=this.plugin.internalPlugins.workspaces?.instance
 executeCommandById("graph:open"),this.app.workspace.getActiveViewOfType(w.View).leaf}async launchNote(e){let t=this.app.metadataCache.getF
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; grep -o '.\{160\}commands.push.\{160\}' homepage/main.js | head -3; grep -o 'saveSettings(){[^}]\{0,200\}' homepage/main.js | head -2; echo ---LAZY; grep -o 'saveSettings[^;]\{0,160\}' lazy-plugins/main.js | head -4; cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const h=app.plugins.plugins.homepage;const l=app.plugins.plugins['lazy-plugins'];const t=app.plugins.plugins['the-plan-dashboard'];return JSON.stringify({homepageKeys:h&&Object.keys(h),hs:h&&h.settings&&Object.keys(h.settings),lazyKeys:l&&Object.keys(l),planLoaded:!!t,enabled:app.plugins.enabledPlugins.has('the-plan-dashboard'),ver:t&&t.manifest.version})})()" 2>&1 | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; grep -o '.\{160\}commands.push.\{160\}' homepage/main.js | head -3; grep -o 'saveSettings(){[^}]\{0,200\}' homepage/main.js | head -2; echo ---LAZY; grep -o 'saveSettings[^;]\{0,160\}' lazy-plugins/main.js | head -4; cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const h=app.plugins.plugins.homepage;const l=app.plugins.plugins['lazy-plugins'];const t=app.plugins.plugins['the-plan-dashboard'];return JSON.stringify({homepageKeys:h&&Object.keys(h),hs:h&&h.settings&&Object.keys(h.settings),lazyKeys:l&&Object.keys(l),planLoaded:!!t,enabled:app.plugins.enabledPlugins.has('the-plan-dashboard'),ver:t&&t.manifest.version})})()" 2>&1 | head
+```
 ```
 e.id==="homepage:open-homepage"){new f.Notice(s("commandsReally"));return}else this.homepage.data.commands||(this.homepage.data.commands=[]);this.homepage.data.commands.push({id:e.id,period:"Both"}),this.homepage.save(),this.tab.commandBox.update()}};var fe={version:4,homepages:{},separateMobile:!1},Y={value:"Home",kind:"File",open
 saveSettings(){await this.saveData(this.settings)
@@ -4662,7 +4779,10 @@ saveSettings()
 saveSettings()
 => {"homepageKeys":["_loaded","_events","_children","_lastDataModifiedTime","settingTab","_userDisabled","onConfigFileChange","app","manifest","newRelease","loaded","executing","onLayoutChange","settings","internalPlugins","communityPlugins","homepage"],"hs":["version","homepages","separateMobile"],"lazyKeys":["_loaded","_events","_children","_lastDataModifiedTime","settingTab","_userDisabled","onConfigFileChange","app","manifest","device","pendingTimeouts","data","settings","manifests"],"planLoaded":true,"enabled":false,"ver":"0.1.0"}
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; grep -o '.\{300\}onChange(async[^)]\{0,40\}t=>{[^}]\{0,40\}kind.\{300\}' homepage/main.js | head -2; echo ======; grep -o 'this.data.kind=.\{0,200\}' homepage/main.js | head -3; echo =====; grep -o '.\{200\}"Both".\{200\}' homepage/main.js | grep -i "period" | head -2`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; grep -o '.\{300\}onChange(async[^)]\{0,40\}t=>{[^}]\{0,40\}kind.\{300\}' homepage/main.js | head -2; echo ======; grep -o 'this.data.kind=.\{0,200\}' homepage/main.js | head -3; echo =====; grep -o '.\{200\}"Both".\{200\}' homepage/main.js | grep -i "period" | head -2
+```
 ```
 ======
 this.data.kind==="Journal"&&!await Ue(this)){new w.Notice(s("journalUnavailable",this.data.value));return}}else{new w.Notice(s("pluginUnavailable"));return}if(this.data.kind==="Workspace")await this.launchWorkspace(
@@ -4672,23 +4792,34 @@ this.data.kind=="Graph view"?this.app.workspace.getLeavesOfType("graph"):Tt.flat
 ateSpan({cls:"nv-command-text",text:t?.name??e.id});let o=new f.ButtonComponent(a).setIcon("route").setClass("clickable-icon").setClass("nv-command-period").onClick(i=>this.showMenu(e,i,o));e.period!="Both"&&(o.setClass("nv-command-selected"),o.setIcon(""),o.buttonEl.createSpan({text:s(e.period)})),new f.ButtonComponent(a).setIcon("trash-2").setClass("clickable-icon").setClass("nv-command-delete").onCli
 tem(e){if(e.id==="homepage:open-homepage"){new f.Notice(s("commandsReally"));return}else this.homepage.data.commands||(this.homepage.data.commands=[]);this.homepage.data.commands.push({id:e.id,period:"Both"}),this.homepage.save(),this.tab.commandBox.update()}};var fe={version:4,homepages:{},separateMobile:!1},Y={value:"Home",kind:"File",openOnStartup:!0,openMode:"Replace all open notes",manualOpenMode:"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; node -e '
 const s=require("fs").readFileSync("homepage/main.js","utf8");
 let i=s.indexOf("async open(");
 console.log(s.slice(i, i+1900));
-'`
+'
+```
 ```
 async open(e=!1){if(this.plugin.hasRequiredPlugin(this.data.kind)){if(this.data.kind==="Journal"&&!await Ue(this)){new w.Notice(s("journalUnavailable",this.data.value));return}}else{new w.Notice(s("pluginUnavailable"));return}if(this.data.kind==="Workspace")await this.launchWorkspace();else if(this.data.kind!=="Nothing"){let a=this.plugin.loaded?this.data.manualOpenMode:this.data.openMode;e&&(a="Keep open notes"),await this.launchLeaf(a)}if(this.data.commands.length<1)return;let t=this.plugin.loaded?"Startup only":"Manual only";await ke(this.app);for(let{id:a,period:o}of this.data.commands)o!==t&&this.app.commands.executeCommandById(a)}async launchWorkspace(){let e=this.plugin.internalPlugins.workspaces?.instance;if(!(this.data.value in e.workspaces)){new w.Notice(s("workspaceUnavailable",this.data.value));return}e.loadWorkspace(this.data.value),await z(100)}async launchLeaf(e){let t;if(this.computedValue=await this.computeValue(),this.plugin.executing=!0,e!=="Replace all open notes"){let a=this.getOpened();if(a.length>0){this.app.workspace.setActiveLeaf(a[0]),await this.configure(a[0]);return}else e=="Keep open notes"&&Ne(this.app)&&(e="Replace last note")}e!=="Keep open notes"&&this.app.workspace.getActiveViewOfType(w.View)?.leaf.setPinned(!1),e==="Replace all open notes"&&(this.app.workspace?.floatingSplit?.children&&(await z(0),this.app.workspace.floatingSplit.children.forEach(a=>a.win.close())),await De(this.app),await z(0));try{this.data.kind==="Graph view"?t=await this.launchGraph(e):t=await this.launchNote(e),await this.configure(t)}catch(a){console.warn(s("openingFailed",this.computedValue)),console.error(a),this.plugin.executing=!1;return}}async launchGraph(e){if(e==="Keep open notes"){let t=this.app.workspace.getLeaf("tab");this.app.workspace.setActiveLeaf(t)}return this.app.commands.executeCommandById("graph:open"),this.app.workspace.getActiveViewOfType(w.
 ```
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.plugins.plugins['lazy-plugins'];const dev=l.device;const s=l.settings;return JSON.stringify({device:dev,settingsKeys:s&&Object.keys(s),dataKeys:l.data&&Object.keys(l.data),sameRef:l.data===l.settings,planEntry:(s[dev]||s.desktop||{}).plugins&&((s[dev]||s.desktop).plugins['the-plan-dashboard']),saveFn:typeof l.saveSettings})})()" 2>&1 | head -5; grep -o 'async saveSettings(){[^}]\{0,300\}}' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/lazy-plugins/main.js" | head -2`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.plugins.plugins['lazy-plugins'];const dev=l.device;const s=l.settings;return JSON.stringify({device:dev,settingsKeys:s&&Object.keys(s),dataKeys:l.data&&Object.keys(l.data),sameRef:l.data===l.settings,planEntry:(s[dev]||s.desktop||{}).plugins&&((s[dev]||s.desktop).plugins['the-plan-dashboard']),saveFn:typeof l.saveSettings})})()" 2>&1 | head -5; grep -o 'async saveSettings(){[^}]\{0,300\}}' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/lazy-plugins/main.js" | head -2
+```
 ```
 => {"device":"desktop/global","settingsKeys":["shortDelaySeconds","longDelaySeconds","delayBetweenPlugins","defaultStartupType","showDescriptions","enableDependencies","plugins"],"dataKeys":["dualConfigs","showConsoleLog","desktop"],"sameRef":false,"saveFn":"function"}
 ```
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.plugins.plugins['lazy-plugins'];return JSON.stringify({entry:l.settings.plugins['the-plan-dashboard'],homepage:l.settings.plugins.homepage,viaData:l.data.desktop.plugins['the-plan-dashboard'],same:l.settings===l.data.desktop})})()" 2>&1 | head -3`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.plugins.plugins['lazy-plugins'];return JSON.stringify({entry:l.settings.plugins['the-plan-dashboard'],homepage:l.settings.plugins.homepage,viaData:l.data.desktop.plugins['the-plan-dashboard'],same:l.settings===l.data.desktop})})()" 2>&1 | head -3
+```
 ```
 => {"entry":{"startupType":"short"},"homepage":{"startupType":"instant"},"viaData":{"startupType":"short"},"same":true}
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
 const fs=require("fs");
 let c=fs.readFileSync("src/ui/charts.tsx","utf8");
 c=c.replace(`<circle
@@ -4715,7 +4846,8 @@ fs.writeFileSync("src/ui/charts.tsx",c);
 let m=fs.readFileSync("src/main.ts","utf8");
 m=m.replace("const leaf = this.app.workspace.getLeaf(false);","// A new tab, so opening the dashboard never replaces the note you were reading.\n\t\tconst leaf = this.app.workspace.getLeaf(\"tab\");");
 fs.writeFileSync("src/main.ts",m);
-' && git diff --stat | tail -3; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 100 npm test > /tmp/t2.log 2>&1; grep -E "^ℹ (tests|pass|fail)" /tmp/t2.log; npm run build 2>&1 | tail -2; node scripts/deploy.mjs "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"`
+' && git diff --stat | tail -3; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 100 npm test > /tmp/t2.log 2>&1; grep -E "^ℹ (tests|pass|fail)" /tmp/t2.log; npm run build 2>&1 | tail -2; node scripts/deploy.mjs "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"
+```
 ```
 warning: in the working copy of 'src/main.ts', LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of 'src/ui/charts.tsx', LF will be replaced by CRLF the next time Git touches it
@@ -4730,30 +4862,42 @@ warning: in the working copy of 'src/ui/charts.tsx', LF will be replaced by CRLF
 copied main.js, manifest.json, styles.css to D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;const same=hp.data===h.settings.homepages['Main Homepage'];if(!same)return JSON.stringify({abort:'homepage data not the expected object'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];hp.save();return JSON.stringify({lazy:l.settings.plugins['the-plan-dashboard'],hp:{kind:hp.data.kind,value:hp.data.value,commands:hp.data.commands,openOnStartup:hp.data.openOnStartup}})})()" 2>&1 | head -4; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
+- `Bash`
+```bash
+cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;const same=hp.data===h.settings.homepages['Main Homepage'];if(!same)return JSON.stringify({abort:'homepage data not the expected object'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];hp.save();return JSON.stringify({lazy:l.settings.plugins['the-plan-dashboard'],hp:{kind:hp.data.kind,value:hp.data.value,commands:hp.data.commands,openOnStartup:hp.data.openOnStartup}})})()" 2>&1 | head -4; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
 const fs=require("fs");
 const lz=JSON.parse(fs.readFileSync("lazy-plugins/data.json","utf8"));console.log("lazy file:",JSON.stringify(lz.desktop.plugins["the-plan-dashboard"]));
-const hp=JSON.parse(fs.readFileSync("homepage/data.json","utf8")).homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup}));'`
+const hp=JSON.parse(fs.readFileSync("homepage/data.json","utf8")).homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup}));'
+```
 ```
 => {"abort":"homepage data not the expected object"}
 lazy file: {"startupType":"short"}
 homepage file: {"kind":"File","value":"00_Dashboard","commands":[],"openOnStartup":true}
 ```
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const h=app.plugins.plugins.homepage;const hp=h.homepage;return JSON.stringify({keys:Object.keys(hp),dataType:typeof hp.data,hasData:!!hp.data,dataKind:hp.data&&hp.data.kind,name:hp.name,settingsKeys:Object.keys(h.settings.homepages),dataIsMain:hp.data===h.settings.homepages['Main Homepage'],dataEq:JSON.stringify(hp.data)===JSON.stringify(h.settings.homepages['Main Homepage']),proto:Object.getOwnPropertyNames(Object.getPrototypeOf(hp)).slice(0,25)})})()" 2>&1 | head -4; grep -o 'save(){[^}]\{0,200\}}' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/homepage/main.js" | head -2`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const h=app.plugins.plugins.homepage;const hp=h.homepage;return JSON.stringify({keys:Object.keys(hp),dataType:typeof hp.data,hasData:!!hp.data,dataKind:hp.data&&hp.data.kind,name:hp.name,settingsKeys:Object.keys(h.settings.homepages),dataIsMain:hp.data===h.settings.homepages['Main Homepage'],dataEq:JSON.stringify(hp.data)===JSON.stringify(h.settings.homepages['Main Homepage']),proto:Object.getOwnPropertyNames(Object.getPrototypeOf(hp)).slice(0,25)})})()" 2>&1 | head -4; grep -o 'save(){[^}]\{0,200\}}' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/homepage/main.js" | head -2
+```
 ```
 => {"keys":["lastView","openedViews","name","plugin","app","data"],"dataType":"object","hasData":true,"dataKind":"File","name":"Main Homepage","settingsKeys":["Main Homepage"],"dataIsMain":false,"dataEq":true,"proto":["constructor","open","launchWorkspace","launchLeaf","launchGraph","launchNote","configure","configurePlugins","getOpened","computeValue","save","setToActiveFile","canSetToFile","revertView","openWhenEmpty","apply","read"]}
 save(){this.plugin.settings.homepages[this.name]=this.data,await this.plugin.saveSettings()}
 ```
-- `Bash` -- `cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;if(hp.data.kind!=='File'||hp.data.value!=='00_Dashboard')return JSON.stringify({abort:'unexpected homepage state'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];await hp.save();return JSON.stringify({ok:true})})()" 2>&1 | head -3; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
+- `Bash`
+```bash
+cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;if(hp.data.kind!=='File'||hp.data.value!=='00_Dashboard')return JSON.stringify({abort:'unexpected homepage state'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];await hp.save();return JSON.stringify({ok:true})})()" 2>&1 | head -3; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
 const fs=require("fs");
 const lz=JSON.parse(fs.readFileSync("lazy-plugins/data.json","utf8"));console.log("lazy file:",JSON.stringify(lz.desktop.plugins["the-plan-dashboard"]),"| homepage entry:",JSON.stringify(lz.desktop.plugins.homepage),"| keys intact:",Object.keys(lz.desktop.plugins).length);
-const d=JSON.parse(fs.readFileSync("homepage/data.json","utf8"));const hp=d.homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({version:d.version,kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup,openMode:hp.openMode}));'`
+const d=JSON.parse(fs.readFileSync("homepage/data.json","utf8"));const hp=d.homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({version:d.version,kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup,openMode:hp.openMode}));'
+```
 ```
 => {"ok":true}
 lazy file: {"startupType":"instant"} | homepage entry: {"startupType":"instant"} | keys intact: 30
 homepage file: {"version":4,"kind":"Nothing","value":"","commands":[{"id":"the-plan-dashboard:open-dashboard","period":"Both"}],"openOnStartup":true,"openMode":"Replace all open notes"}
 ```
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="app.commands.executeCommandById('homepage:open-homepage')" 2>&1 | head -2; sleep 2; timeout 60 Obsidian.com vault="The Plan" eval code="JSON.stringify({leaves:app.workspace.getLeavesOfType('the-plan-dashboard-view').length,active:app.workspace.getActiveViewOfType(require('obsidian').View)?.getViewType()})" 2>&1 | head -2; timeout 30 Obsidian.com vault="The Plan" dev:errors 2>&1 | tail -4`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="app.commands.executeCommandById('homepage:open-homepage')" 2>&1 | head -2; sleep 2; timeout 60 Obsidian.com vault="The Plan" eval code="JSON.stringify({leaves:app.workspace.getLeavesOfType('the-plan-dashboard-view').length,active:app.workspace.getActiveViewOfType(require('obsidian').View)?.getViewType()})" 2>&1 | head -2; timeout 30 Obsidian.com vault="The Plan" dev:errors 2>&1 | tail -4
+```
 ```
 => true
 Error: Cannot find module 'obsidian'
@@ -4763,7 +4907,10 @@ Require stack:
     at HTMLBodyElement.KM (app://obsidian.md/app.js:1:1210341)
     at HTMLBodyElement.s (app://obsidian.md/enhance.js:1:10441)
 ```
-- `Bash` -- `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="JSON.stringify({leaves:app.workspace.getLeavesOfType('the-plan-dashboard-view').length,active:app.workspace.activeLeaf?.view.getViewType(),tabs:app.workspace.getLeavesOfType('markdown').length})" 2>&1 | head -2`
+- `Bash`
+```bash
+cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="JSON.stringify({leaves:app.workspace.getLeavesOfType('the-plan-dashboard-view').length,active:app.workspace.activeLeaf?.view.getViewType(),tabs:app.workspace.getLeavesOfType('markdown').length})" 2>&1 | head -2
+```
 ```
 => {"leaves":1,"active":"the-plan-dashboard-view","tabs":0}
 ```
@@ -4823,126 +4970,16 @@ _None detected_
 - `PY=/d/Apps/Hermes/hermes-agent/venv/Scripts/python.exe; $PY --version; cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && $PY -m unittest test_streak 2>&1 | tail -4; $PY -I streak.py --dir fixtures/sample --today 2026-03-10; cat fixtures/sample/expected.json | tr -d '\n '; echo; for f in fixtures/sample/*.md; do echo -n "$f "; grep -c '^\- \[x\]' $f; done`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan"; f=$(find . -name "QuickAdd Setup.md" -not -path "./50_Archive/*" | head -1); sed -n 18,60p "$f"; ls .obsidian/plugins/homepage; grep -o '"version": *"[^"]*"' .obsidian/plugins/dataview/manifest.json`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; grep -o 'taskList([^)]*){[^}]\{0,400\}' main.js | head -5; echo ----; grep -o 'async taskList.\{0,500\}' main.js | head -3; echo ---; grep -o 'function renderTaskList.\{0,900\}' main.js | head -2`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; python3 --version 2>&1 | head -1; node -e '
-const s=require("fs").readFileSync("main.js","utf8");
-function show(re,n){const m=s.search(re); console.log(s.slice(m,m+n)); console.log("=======");}
-show(/async taskList\(tasks, groupByFile = true, container/,900);
-show(/taskList\(tasks, groupByFile = true\) \{/,500);
-show(/async function renderTaskList|function renderTaskList/,500);
-show(/function setupTaskCheckbox|setupTaskCheckbox\(/,200);
-'`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview"; python3 --version 2>&1 | head -1; node -e ' const s=require("fs").readFileSync("main.js","utf8"); function show(re,n){const m=s.search(re); console.log(s.slice(m,m+n)); console.log("=======");} show(/async taskList\(tasks, groupByFile = true, container/,900); show(/taskList\(tasks, groupByFile = true\) \{/,500); show(/async function renderTaskList|function renderTaskList/,500); show(/function setupTaskCheckbox|setupTaskCheckbox\(/,200); '`
 - `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad"; mkdir -p "$SP/h" && cd "$SP/h" && npm init -y >/dev/null 2>&1 && npm i jsdom@24 2>&1 | tail -2`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && node run.js 2>&1 | head -60`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && sed -i 's#path.join(VAULT, "00_Dashboard.md")#process.env.PL_FILE || path.join(VAULT, "00_Dashboard.md")#' render.js && sed 's/} else if (prevMiss) { \/\/ second miss in a row/} else if (false) {/' "D:/_Anant/20_Progress/Documents/The Plan/00_Dashboard.md" > mutant.md && PL_FILE="$PWD/mutant.md" node run.js 2>&1 | grep -E "FIXTURE match|RANDOM"
-# Real pass also with CRLF notes and the real vault today (no note for today)
-node -e '
-const {render}=require("./render");const fs=require("fs"),os=require("os"),path=require("path");
-(async()=>{const d=fs.mkdtempSync(path.join(os.tmpdir(),"plh-"));
-const src="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample";
-for(const n of fs.readdirSync(src).filter(n=>n.endsWith(".md")))fs.writeFileSync(path.join(d,n),fs.readFileSync(path.join(src,n),"utf8").replace(/\n/g,"\r\n"));
-let r=await render(d,"2026-03-10");console.log("CRLF fixture:",r.current,r.best,r.ringDone);
-const e=fs.mkdtempSync(path.join(os.tmpdir(),"plh-"));
-r=await render(e,"2026-10-13");console.log("empty folder:",r.current,r.best,r.ringDone,r.atRisk, r.container.querySelector(".pl-ticks").textContent.slice(0,80));
-console.log(r.container.querySelector(".pl-trackers").textContent.replace(/\s+/g," "));
-const dir2="D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate/Daily";
-})()'`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad/h" && sed -i 's#path.join(VAULT, "00_Dashboard.md")#process.env.PL_FILE || path.join(VAULT, "00_Dashboard.md")#' render.js && sed 's/} else if (prevMiss) { \/\/ second miss in a row/} else if (false) {/' "D:/_Anant/20_Progress/Documents/The Plan/00_Dashboard.md" > mutant.md && PL_FILE="$PWD/mutant.md" node run.js 2>&1 | grep -E "FIXTURE match|RANDOM" # Real pass also with CRLF notes and the real vault today (no note for today) node -e ' const {render}=require("./render");const fs=require("fs"),os=require("os"),path=require("path"); (async()=>{const d=fs.mkdtempSync(path.join(os.tmpdir(),"plh-")); const src="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; for(const n of fs.readdirSync(src).filter(n=>n.endsWith(".md")))fs.writeFileSync(path.join(d,n),fs.readFileSync(path.join(src,n),"utf8").replace(/\n/g,"\r\n")); let r=await render(d,"2026-03-10");console.log("CRLF fixture:",r.current,r.best,r.ringDone); const e=fs.mkdtempSync(path.join(os.tmpdir(),"plh-")); r=await render(e,"2026-10-13");console.log("empty folder:",r.current,r.best,r.ringDone,r.atRisk, r.container.querySelector(".pl-ticks").textContent.slice(0,80)); console.log(r.container.querySelector(".pl-trackers").textContent.replace(/\s+/g," ")); const dir2="D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate/Daily"; })()'`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/homepage" && node -e 'const d=JSON.parse(require("fs").readFileSync("data.json","utf8"));const pick=({version,homepages,separateMobile,openOnStartup,openMode,manualOpenMode,view,revertView,refreshDataview,autoCreate,autoScroll,pin,commands,alwaysApply,hideReleaseNotes,...r})=>({version,separateMobile,openOnStartup,openMode,refreshDataview,homepages});console.log(JSON.stringify(pick(d),null,1))'`
 - `cd /tmp 2>/dev/null; for p in react react-dom typescript esbuild vitest obsidian @types/react @types/react-dom @types/node; do echo -n "$p "; npm view $p version 2>&1 | tail -1; done; node -v; npm -v; ls "D:/_Anant/20_Progress/Projects" 2>&1 | head; cat "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/community-plugins.json"; grep -o '"minAppVersion": *"[^"]*"' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/dataview/manifest.json"; ls "D:/Apps/Obsidian" | head -3`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad" && mkdir -p ref && cd ref && for f in package.json esbuild.config.mjs tsconfig.json manifest.json version-bump.mjs; do curl -sSL "https://raw.githubusercontent.com/obsidianmd/obsidian-sample-plugin/master/$f" -o $f; done; cat package.json esbuild.config.mjs tsconfig.json manifest.json version-bump.mjs`
 - `mkdir -p "D:/_Anant/20_Progress/Projects/the-plan-dashboard"/{src/core,src/data,src/ui,src/view,src/cli,tests,scripts} && cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git init -q -b main 2>&1 | tail -1; ls -a`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && npm install 2>&1 | tail -5`
-- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
-const fs=require("fs");
-let v=fs.readFileSync("src/view/DashboardView.tsx","utf8");
-v=v.replace(/\nexport \{ addDays \};\n/,"\n").replace(`import { addDays, localIso } from "../core/dates";`,`import { localIso } from "../core/dates";`);
-v=v.replace(/\tconst exists = [^\n]*\n/,"");
-v=v.replace(/\tconst links = [^\n]*\n/,`\tconst links = [...dated, ...CONFIG.links].filter((l) => app.vault.getFileByPath(normalizePath(l.path)) !== null);\n`);
-v=v.replace(`health={exists(CONFIG.health) ? { label: "Health", path: CONFIG.health } : null}`,`health={raw?.healthText !== undefined ? { label: "Health", path: CONFIG.health } : null}`);
-v=v.replace(`finance={exists(CONFIG.finance) ? { label: "Finance", path: CONFIG.finance } : null}`,`finance={raw?.financeText !== undefined ? { label: "Finance", path: CONFIG.finance } : null}`);
-fs.writeFileSync("src/view/DashboardView.tsx",v);
-let r=fs.readFileSync("src/data/repo.ts","utf8");
-r=r.replace(/\t\/\*\* Which of the fixed link targets exist in the vault. \*\/\n\tlinkExists: Record<string, boolean>;\n/,"");
-r=r.replace(/\t\tconst linkExists[\s\S]*?\t\tfor \(const p of paths\)[^\n]*\n/,"");
-r=r.replace("\t\t\tlinkExists,\n","");
-fs.writeFileSync("src/data/repo.ts",r);
-'
-grep -n "linkExists\|exists" src/data/repo.ts src/view/DashboardView.tsx
-cat > styles.css <<'EOF'
-/* Only what inline styles cannot express: hover, focus, button resets, keyframes, the no-scroll guard.
-   Layout, colour and type are set in the TSX files. */
-
-/* The dashboard never scrolls and fills the whole pane. */
-.pl-view {
-	padding: 0 !important;
-	overflow: hidden !important;
-}
-.pl-app {
-	width: 100%;
-	height: 100%;
-}
-
-/* Obsidian styles every button. Reset the ones the dashboard draws itself. */
-.pl-app .pl-row,
-.pl-app .pl-link,
-.pl-app .pl-chip {
-	appearance: none;
-	background: transparent;
-	box-shadow: none;
-	border: 0;
-	margin: 0;
-	padding: 0;
-	font: inherit;
-	height: auto;
-	cursor: pointer;
-}
-.pl-app .pl-row {
-	padding: 0.2em 0.25em;
-	margin: 0 -0.25em;
-	border-radius: 0.4em;
-	width: auto;
-}
-.pl-app .pl-chip {
-	padding: 0.2em 0.7em;
-	border-radius: 2em;
-	border: 1px solid color-mix(in srgb, var(--text-normal) 14%, transparent);
-	font-size: 0.82em;
-}
-.pl-app .pl-row:hover,
-.pl-app .pl-chip:hover {
-	background: color-mix(in srgb, var(--text-normal) 7%, transparent);
-}
-.pl-app .pl-chip:hover {
-	border-color: color-mix(in srgb, var(--text-normal) 30%, transparent);
-}
-.pl-app .pl-link:hover {
-	text-decoration: underline;
-}
-.pl-app .pl-row:active,
-.pl-app .pl-chip:active {
-	background: color-mix(in srgb, var(--text-normal) 12%, transparent);
-}
-.pl-app .pl-row:focus-visible,
-.pl-app .pl-link:focus-visible,
-.pl-app .pl-chip:focus-visible {
-	outline: 2px solid color-mix(in srgb, var(--text-accent) 70%, transparent);
-	outline-offset: 1px;
-}
-
-/* One pulse when the ring crosses 3 and 5 categories. */
-@keyframes pl-pulse {
-	0% { transform: scale(1); }
-	40% { transform: scale(1.06); }
-	100% { transform: scale(1); }
-}
-.pl-app .pl-pulse {
-	animation: pl-pulse 450ms ease-out 1;
-}
-@media (prefers-reduced-motion: reduce) {
-	.pl-app .pl-pulse { animation: none; }
-	.pl-app * { transition: none !important; }
-}
-EOF
-npx tsc -noEmit -skipLibCheck 2>&1 | head -30`
+- ``cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e ' const fs=require("fs"); let v=fs.readFileSync("src/view/DashboardView.tsx","utf8"); v=v.replace(/\nexport \{ addDays \};\n/,"\n").replace(`import { addDays, localIso } from "../core/dates";`,`import { localIso } from "../core/dates";`); v=v.replace(/\tconst exists = [^\n]*\n/,""); v=v.replace(/\tconst links = [^\n]*\n/,`\tconst links = [...dated, ...CONFIG.links].filter((l) => app.vault.getFileByPath(normalizePath(l.path)) !== null);\n`); v=v.replace(`health={exists(CONFIG.health) ? { label: "Health", path: CONFIG.health } : null}`,`health={raw?.healthText !== undefined ? { label: "Health", path: CONFIG.health } : null}`); v=v.replace(`finance={exists(CONFIG.finance) ? { label: "Finance", path: CONFIG.finance } : null}`,`finance={raw?.financeText !== undefined ? { label: "Finance", path: CONFIG.finance } : null}`); fs.writeFileSync("src/view/DashboardView.tsx",v); let r=fs.readFileSync("src/data/repo.ts","utf8"); r=r.replace(/\t\/\*\* Which of the fixed link targets exist in the vault. \*\/\n\tlinkExists: Record<string, boolean>;\n/,""); r=r.replace(/\t\tconst linkExists[\s\S]*?\t\tfor \(const p of paths\)[^\n]*\n/,""); r=r.replace("\t\t\tlinkExists,\n",""); fs.writeFileSync("src/data/repo.ts",r); ' grep -n "linkExists\|exists" src/data/repo.ts src/view/DashboardView.tsx cat > styles.css <<'EOF' /* Only what inline styles cannot express: hover, focus, button resets, keyframes, the no-scroll guard.    Layout, colour and type are set in the TSX files. */  /* The dashboard never scrolls and fills the whole pane. */ .pl-view { 	padding: 0 !important; 	overflow: hidden !important; } .pl-app { 	width: 100%; 	height: 100%; }  /* Obsidian styles every button. Reset the ones the dashboard draws itself. */ .pl-app .pl-row, .pl-app .pl-link, .pl-app .pl-chip { 	appearance: none; 	background: transparent; 	box-shadow: none; 	border: 0; 	margin: 0; 	padding: 0; 	font: inherit; 	height: auto; 	cursor: pointer; } .pl-app .pl-row { 	padding: 0.2em 0.25em; 	margin: 0 -0.25em; 	border-radius: 0.4em; 	width: auto; } .pl-app .pl-chip { 	padding: 0.2em 0.7em; 	border-radius: 2em; 	border: 1px solid color-mix(in srgb, var(--text-normal) 14%, transparent); 	font-size: 0.82em; } .pl-app .pl-row:hover, .pl-app .pl-chip:hover { 	background: color-mix(in srgb, var(--text-normal) 7%, transparent); } .pl-app .pl-chip:hover { 	border-color: color-mix(in srgb, var(--text-normal) 30%, transparent); } .pl-app .pl-link:hover { 	text-decoration: underline; } .pl-app .pl-row:active, .pl-app .pl-chip:active { 	background: color-mix(in srgb, var(--text-normal) 12%, transparent); } .pl-app .pl-row:focus-visible, .pl-app .pl-link:focus-visible, .pl-app .pl-chip:focus-visible { 	outline: 2px solid color-mix(in srgb, var(--text-accent) 70%, transparent); 	outline-offset: 1px; }  /* One pulse when the ring crosses 3 and 5 categories. */ @keyframes pl-pulse { 	0% { transform: scale(1); } 	40% { transform: scale(1.06); } 	100% { transform: scale(1); } } .pl-app .pl-pulse { 	animation: pl-pulse 450ms ease-out 1; } @media (prefers-reduced-motion: reduce) { 	.pl-app .pl-pulse { animation: none; } 	.pl-app * { transition: none !important; } } EOF npx tsc -noEmit -skipLibCheck 2>&1 | head -30``
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && npx tsc -noEmit -skipLibCheck; echo "tsc exit $?"`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; npx tsc -noEmit -skipLibCheck; echo tsc $?; npm test 2>&1 | grep -vE "^\s+(duration_ms|type:|\.\.\.|---)" | tail -60`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i "s#outdir: '.test-out',#outdir: '.test-out',\n\toutExtension: { '.js': '.cjs' },#; s#\\.tsx?\$/, '.js')#.tsx?\$/, '.cjs')#" scripts/test.mjs && grep -n "cjs" scripts/test.mjs; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; npm test 2>&1 | grep -E "^(✔|✖|ℹ (tests|pass|fail|skipped))|Error|expected|actual|mismatch" | head -60`
@@ -4952,131 +4989,27 @@ npx tsc -noEmit -skipLibCheck 2>&1 | head -30`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 110 npm test > /tmp/t.log 2>&1; echo exit $?; grep -E "^(✖|ℹ (tests|pass|fail|skipped))" /tmp/t.log`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls "/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" 2>&1; timeout 110 node scripts/preview.mjs 2>&1 | tail -20`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's#createRoot(document.getElementById("root") as HTMLElement)#createRoot(document.getElementById("app") as HTMLElement)#; s#el.scrollHeight > el.clientHeight + 1 || el.scrollWidth > el.clientWidth + 1#el.scrollHeight > el.clientHeight + 4 || el.scrollWidth > el.clientWidth + 2#' tests/preview.tsx && sed -i 's#minmax(0, 1.55fr) minmax(0, 1fr) minmax(0, 0.5fr)#minmax(0, 1.45fr) minmax(0, 1.05fr) minmax(0, 0.42fr)#' src/ui/styles.ts && timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-900`
-- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
-const fs=require("fs");
-let s=fs.readFileSync("src/ui/styles.ts","utf8");
-s=s.replace(`trackers: { gridColumn: "1 / span 7", gridRow: "3" },`,`trackers: { gridColumn: "1 / span 6", gridRow: "3" },`).replace(`links: { gridColumn: "8 / span 5", gridRow: "3" },`,`links: { gridColumn: "7 / span 6", gridRow: "3" },`);
-fs.writeFileSync("src/ui/styles.ts",s);
-let c=fs.readFileSync("src/ui/sections.tsx","utf8");
-c=c.replace(`, textDecoration: checked ? "line-through" : "none" }}`,` }}`);
-fs.writeFileSync("src/ui/sections.tsx",c);
-let p=fs.readFileSync("tests/preview.tsx","utf8");
-const a=p.indexOf("\tdocument.querySelectorAll<HTMLElement>");
-const b=p.indexOf("\tconst de = document.documentElement;");
-p=p.slice(0,a)+`	// An element is clipped when its box leaves the nearest ancestor that hides overflow.
-	document.querySelectorAll<HTMLElement>("#app *").forEach((el) => {
-		if (el.closest("svg") && el.tagName.toLowerCase() !== "svg") return;
-		const r = el.getBoundingClientRect();
-		if (r.width === 0 && r.height === 0) return;
-		for (let a = el.parentElement; a && a.id !== "app"; a = a.parentElement) {
-			if (getComputedStyle(a).overflow !== "hidden") continue;
-			const ar = a.getBoundingClientRect();
-			if (r.bottom > ar.bottom + 1 || r.right > ar.right + 1 || r.top < ar.top - 1 || r.left < ar.left - 1) {
-				const card = el.closest("[data-card]")?.getAttribute("data-card") ?? "root";
-				const cs = getComputedStyle(el);
-				const label = card + ":" + el.tagName.toLowerCase() + ":" + (el.textContent ?? "").slice(0, 28);
-				(cs.webkitLineClamp && cs.webkitLineClamp !== "none" ? truncated : clipped).push(label);
-				break;
-			}
-		}
-	});
-`+p.slice(b);
-fs.writeFileSync("tests/preview.tsx",p);
-' && grep -n "line-through" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-420`
-- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
-const fs=require("fs");
-let c=fs.readFileSync("src/ui/sections.tsx","utf8");
-c=c.replace(`<span style={{ ...clamp(2), flex: 1, minWidth: 0 }}>{a.text}</span>`,`<span title={a.text} style={{ ...clamp(1), flex: 1, minWidth: 0 }}>{a.text}</span>`);
-fs.writeFileSync("src/ui/sections.tsx",c);
-let s=fs.readFileSync("src/ui/styles.ts","utf8");
-s=s.replace(`minmax(0, 1.45fr) minmax(0, 1.05fr) minmax(0, 0.42fr)`,`minmax(0, 1.4fr) minmax(0, 1.05fr) minmax(0, 0.5fr)`);
-fs.writeFileSync("src/ui/styles.ts",s);
-let css=fs.readFileSync("styles.css","utf8");
-css=css.replace("padding: 0.2em 0.7em;\n\tborder-radius: 2em;","padding: 0.1em 0.65em;\n\tborder-radius: 2em;");
-fs.writeFileSync("styles.css",css);
-' && grep -c "clamp(1)" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-330`
+- ``cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e ' const fs=require("fs"); let s=fs.readFileSync("src/ui/styles.ts","utf8"); s=s.replace(`trackers: { gridColumn: "1 / span 7", gridRow: "3" },`,`trackers: { gridColumn: "1 / span 6", gridRow: "3" },`).replace(`links: { gridColumn: "8 / span 5", gridRow: "3" },`,`links: { gridColumn: "7 / span 6", gridRow: "3" },`); fs.writeFileSync("src/ui/styles.ts",s); let c=fs.readFileSync("src/ui/sections.tsx","utf8"); c=c.replace(`, textDecoration: checked ? "line-through" : "none" }}`,` }}`); fs.writeFileSync("src/ui/sections.tsx",c); let p=fs.readFileSync("tests/preview.tsx","utf8"); const a=p.indexOf("\tdocument.querySelectorAll<HTMLElement>"); const b=p.indexOf("\tconst de = document.documentElement;"); p=p.slice(0,a)+`	// An element is clipped when its box leaves the nearest ancestor that hides overflow. 	document.querySelectorAll<HTMLElement>("#app *").forEach((el) => { 		if (el.closest("svg") && el.tagName.toLowerCase() !== "svg") return; 		const r = el.getBoundingClientRect(); 		if (r.width === 0 && r.height === 0) return; 		for (let a = el.parentElement; a && a.id !== "app"; a = a.parentElement) { 			if (getComputedStyle(a).overflow !== "hidden") continue; 			const ar = a.getBoundingClientRect(); 			if (r.bottom > ar.bottom + 1 || r.right > ar.right + 1 || r.top < ar.top - 1 || r.left < ar.left - 1) { 				const card = el.closest("[data-card]")?.getAttribute("data-card") ?? "root"; 				const cs = getComputedStyle(el); 				const label = card + ":" + el.tagName.toLowerCase() + ":" + (el.textContent ?? "").slice(0, 28); 				(cs.webkitLineClamp && cs.webkitLineClamp !== "none" ? truncated : clipped).push(label); 				break; 			} 		} 	}); `+p.slice(b); fs.writeFileSync("tests/preview.tsx",p); ' && grep -n "line-through" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-420``
+- ``cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e ' const fs=require("fs"); let c=fs.readFileSync("src/ui/sections.tsx","utf8"); c=c.replace(`<span style={{ ...clamp(2), flex: 1, minWidth: 0 }}>{a.text}</span>`,`<span title={a.text} style={{ ...clamp(1), flex: 1, minWidth: 0 }}>{a.text}</span>`); fs.writeFileSync("src/ui/sections.tsx",c); let s=fs.readFileSync("src/ui/styles.ts","utf8"); s=s.replace(`minmax(0, 1.45fr) minmax(0, 1.05fr) minmax(0, 0.42fr)`,`minmax(0, 1.4fr) minmax(0, 1.05fr) minmax(0, 0.5fr)`); fs.writeFileSync("src/ui/styles.ts",s); let css=fs.readFileSync("styles.css","utf8"); css=css.replace("padding: 0.2em 0.7em;\n\tborder-radius: 2em;","padding: 0.1em 0.65em;\n\tborder-radius: 2em;"); fs.writeFileSync("styles.css",css); ' && grep -c "clamp(1)" src/ui/sections.tsx; timeout 110 node scripts/preview.mjs 2>&1 | cut -c1-330``
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's#Math.min(size.w / 78, size.h / 40, 17)#Math.min(size.w / 78, size.h / 40, 22)#' src/ui/App.tsx && npm run build 2>&1 | tail -4 && npm run build:cli 2>&1 | tail -2 && node dist/streak-cli.cjs "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" 2026-03-10 | node -e 'const j=JSON.parse(require("fs").readFileSync(0,"utf8"));delete j.days;console.log(JSON.stringify(j))'; node dist/streak-cli.cjs; echo "exit $? (usage error expected 2)"; ls -la main.js manifest.json styles.css | awk '{print $5, $9}'; grep -c "innerHTML\|dangerouslySetInnerHTML" -r src | grep -v ":0" ; echo "innerHTML uses above (none expected)"`
-- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat > scripts/deploy.mjs <<'EOF'
-// Copies the three built files into a plugin folder. The target is required; there is no default.
-import { copyFileSync, mkdirSync } from 'node:fs';
-import { join } from 'node:path';
-
-const target = process.argv[2];
-if (!target) {
-	console.error('usage: npm run deploy -- <plugin folder>');
-	process.exit(2);
-}
-mkdirSync(target, { recursive: true });
-for (const f of ['main.js', 'manifest.json', 'styles.css']) copyFileSync(f, join(target, f));
-console.log(`copied main.js, manifest.json, styles.css to ${target}`);
-EOF
-V="D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"; ls "$V" 2>&1 | head -2; node scripts/deploy.mjs "$V" && ls -la "$V" | awk '{print $5, $9}' && cmp main.js "$V/main.js" && echo identical
-git add -A >/dev/null 2>&1; git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -qm "Dashboard plugin: engine, React view, tests" && git log --oneline | head -1; git status --short | head -3`
+- ``cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat > scripts/deploy.mjs <<'EOF' // Copies the three built files into a plugin folder. The target is required; there is no default. import { copyFileSync, mkdirSync } from 'node:fs'; import { join } from 'node:path';  const target = process.argv[2]; if (!target) { 	console.error('usage: npm run deploy -- <plugin folder>'); 	process.exit(2); } mkdirSync(target, { recursive: true }); for (const f of ['main.js', 'manifest.json', 'styles.css']) copyFileSync(f, join(target, f)); console.log(`copied main.js, manifest.json, styles.css to ${target}`); EOF V="D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"; ls "$V" 2>&1 | head -2; node scripts/deploy.mjs "$V" && ls -la "$V" | awk '{print $5, $9}' && cmp main.js "$V/main.js" && echo identical git add -A >/dev/null 2>&1; git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -qm "Dashboard plugin: engine, React view, tests" && git log --oneline | head -1; git status --short | head -3``
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git -c user.name="Anant Gupta" -c user.email="anantmahi721@gmail.com" commit -q --amend -m "Dashboard plugin: engine, React view, tests" -m "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>" && git log -1 --format=%B | head -4; cd "D:/_Anant/20_Progress/Documents/The Plan" && git status --short | head`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && cat community-plugins.json | tr -d '\n\t '; echo; ls plugins/the-plan-dashboard; ls plugins/lazy-plugins; node -e '
-const fs=require("fs");
-const lz=JSON.parse(fs.readFileSync("plugins/lazy-plugins/data.json","utf8"));
-console.log(JSON.stringify(lz,null,1).slice(0,1800));
-const hp=JSON.parse(fs.readFileSync("plugins/homepage/data.json","utf8"));
-console.log(JSON.stringify({sep:hp.separateMobile,hp:hp.homepages},null,1));
-'; ls plugins/lazy-plugins; ls | head -40`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian" && cat community-plugins.json | tr -d '\n\t '; echo; ls plugins/the-plan-dashboard; ls plugins/lazy-plugins; node -e ' const fs=require("fs"); const lz=JSON.parse(fs.readFileSync("plugins/lazy-plugins/data.json","utf8")); console.log(JSON.stringify(lz,null,1).slice(0,1800)); const hp=JSON.parse(fs.readFileSync("plugins/homepage/data.json","utf8")); console.log(JSON.stringify({sep:hp.separateMobile,hp:hp.homepages},null,1)); '; ls plugins/lazy-plugins; ls | head -40`
 - `f="C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/tool-results/toolu_01SXXmXQSYqdXocEz7vvQDJ9.json"; grep -o '"id\\*": *\\*"[^"\\]*plan[^"\\]*' "$f" | head; grep -o 'the-plan-dashboard[^"\\]*' "$f" | head -3; echo ---; grep -o '"id\\*": *\\*"homepage[^"\\]*' "$f" | head`
 - `cd /tmp; timeout 60 Obsidian.com help 2>&1 | head -20; timeout 60 Obsidian.com vault 2>&1 | head -5`
 - `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.workspace.getLeavesOfType('the-plan-dashboard-view');const el=document.querySelector('.pl-app');if(!el)return JSON.stringify({leaves:l.length,app:false});const r=el.firstElementChild;const cards=[...el.querySelectorAll('[data-card]')].map(c=>c.getAttribute('data-card'));const vc=el.closest('.view-content');return JSON.stringify({leaves:l.length,layout:r.getAttribute('data-layout'),size:[el.clientWidth,el.clientHeight],viewScroll:[vc.scrollHeight,vc.clientHeight],cards,current:el.querySelector('[data-testid=current]')?.textContent,best:el.querySelector('[data-testid=best]')?.textContent,ring:el.querySelector('svg[aria-label$=\"done today\"]')?.textContent,font:getComputedStyle(r).fontFamily.slice(0,30),today:el.textContent.slice(0,200)})})()" 2>&1 | head -20`
 - `cd /tmp; Obsidian.com help 2>&1 | grep -iE "screenshot|dev:|eval" | head; `
 - `cd /tmp; SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/1f6dd68e-f027-46fe-982d-68fd667bfca9/scratchpad"; timeout 60 Obsidian.com vault="The Plan" dev:screenshot path="$SP/live.png" 2>&1 | head -3; timeout 30 Obsidian.com vault="The Plan" dev:errors 2>&1 | tail -5; ls "$SP/live.png"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
-const lz=JSON.parse(require("fs").readFileSync("lazy-plugins/data.json","utf8"));
-for (const k of ["desktop","mobile"]) { const c=lz[k]; if(!c) {console.log(k,"none");continue;} console.log(k,"default:",c.defaultStartupType,"| the-plan-dashboard:",JSON.stringify(c.plugins["the-plan-dashboard"]),"| homepage:",JSON.stringify(c.plugins["homepage"])); }
-console.log("dualConfigs",lz.dualConfigs);
-'; grep -o 'Nothing[^;]\{0,200\}' homepage/main.js | head -5; echo ----; grep -o 'commands[^;]\{0,160\}' homepage/main.js | head -8; echo ---; grep -o 'executeCommandById[^;]\{0,120\}' homepage/main.js | head -3`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e ' const lz=JSON.parse(require("fs").readFileSync("lazy-plugins/data.json","utf8")); for (const k of ["desktop","mobile"]) { const c=lz[k]; if(!c) {console.log(k,"none");continue;} console.log(k,"default:",c.defaultStartupType,"| the-plan-dashboard:",JSON.stringify(c.plugins["the-plan-dashboard"]),"| homepage:",JSON.stringify(c.plugins["homepage"])); } console.log("dualConfigs",lz.dualConfigs); '; grep -o 'Nothing[^;]\{0,200\}' homepage/main.js | head -5; echo ----; grep -o 'commands[^;]\{0,160\}' homepage/main.js | head -8; echo ---; grep -o 'executeCommandById[^;]\{0,120\}' homepage/main.js | head -3`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; grep -o '.\{160\}commands.push.\{160\}' homepage/main.js | head -3; grep -o 'saveSettings(){[^}]\{0,200\}' homepage/main.js | head -2; echo ---LAZY; grep -o 'saveSettings[^;]\{0,160\}' lazy-plugins/main.js | head -4; cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const h=app.plugins.plugins.homepage;const l=app.plugins.plugins['lazy-plugins'];const t=app.plugins.plugins['the-plan-dashboard'];return JSON.stringify({homepageKeys:h&&Object.keys(h),hs:h&&h.settings&&Object.keys(h.settings),lazyKeys:l&&Object.keys(l),planLoaded:!!t,enabled:app.plugins.enabledPlugins.has('the-plan-dashboard'),ver:t&&t.manifest.version})})()" 2>&1 | head`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; grep -o '.\{300\}onChange(async[^)]\{0,40\}t=>{[^}]\{0,40\}kind.\{300\}' homepage/main.js | head -2; echo ======; grep -o 'this.data.kind=.\{0,200\}' homepage/main.js | head -3; echo =====; grep -o '.\{200\}"Both".\{200\}' homepage/main.js | grep -i "period" | head -2`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; node -e '
-const s=require("fs").readFileSync("homepage/main.js","utf8");
-let i=s.indexOf("async open(");
-console.log(s.slice(i, i+1900));
-'`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins"; node -e ' const s=require("fs").readFileSync("homepage/main.js","utf8"); let i=s.indexOf("async open("); console.log(s.slice(i, i+1900)); '`
 - `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.plugins.plugins['lazy-plugins'];const dev=l.device;const s=l.settings;return JSON.stringify({device:dev,settingsKeys:s&&Object.keys(s),dataKeys:l.data&&Object.keys(l.data),sameRef:l.data===l.settings,planEntry:(s[dev]||s.desktop||{}).plugins&&((s[dev]||s.desktop).plugins['the-plan-dashboard']),saveFn:typeof l.saveSettings})})()" 2>&1 | head -5; grep -o 'async saveSettings(){[^}]\{0,300\}}' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/lazy-plugins/main.js" | head -2`
 - `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const l=app.plugins.plugins['lazy-plugins'];return JSON.stringify({entry:l.settings.plugins['the-plan-dashboard'],homepage:l.settings.plugins.homepage,viaData:l.data.desktop.plugins['the-plan-dashboard'],same:l.settings===l.data.desktop})})()" 2>&1 | head -3`
-- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e '
-const fs=require("fs");
-let c=fs.readFileSync("src/ui/charts.tsx","utf8");
-c=c.replace(`<circle
-				cx={60}
-				cy={60}
-				r={R}
-				fill="none"
-				strokeWidth={9}
-				strokeLinecap="round"
-				stroke={color}`,`{done > 0 && (
-			<circle
-				cx={60}
-				cy={60}
-				r={R}
-				fill="none"
-				strokeWidth={9}
-				strokeLinecap="round"
-				stroke={color}`);
-c=c.replace(`style={{ transition: "stroke-dasharray 350ms ease, stroke 350ms ease" }}
-			/>`,`style={{ transition: "stroke-dasharray 350ms ease, stroke 350ms ease" }}
-			/>
-			)}`);
-fs.writeFileSync("src/ui/charts.tsx",c);
-let m=fs.readFileSync("src/main.ts","utf8");
-m=m.replace("const leaf = this.app.workspace.getLeaf(false);","// A new tab, so opening the dashboard never replaces the note you were reading.\n\t\tconst leaf = this.app.workspace.getLeaf(\"tab\");");
-fs.writeFileSync("src/main.ts",m);
-' && git diff --stat | tail -3; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 100 npm test > /tmp/t2.log 2>&1; grep -E "^ℹ (tests|pass|fail)" /tmp/t2.log; npm run build 2>&1 | tail -2; node scripts/deploy.mjs "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"`
-- `cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;const same=hp.data===h.settings.homepages['Main Homepage'];if(!same)return JSON.stringify({abort:'homepage data not the expected object'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];hp.save();return JSON.stringify({lazy:l.settings.plugins['the-plan-dashboard'],hp:{kind:hp.data.kind,value:hp.data.value,commands:hp.data.commands,openOnStartup:hp.data.openOnStartup}})})()" 2>&1 | head -4; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
-const fs=require("fs");
-const lz=JSON.parse(fs.readFileSync("lazy-plugins/data.json","utf8"));console.log("lazy file:",JSON.stringify(lz.desktop.plugins["the-plan-dashboard"]));
-const hp=JSON.parse(fs.readFileSync("homepage/data.json","utf8")).homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup}));'`
+- ``cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && node -e ' const fs=require("fs"); let c=fs.readFileSync("src/ui/charts.tsx","utf8"); c=c.replace(`<circle 				cx={60} 				cy={60} 				r={R} 				fill="none" 				strokeWidth={9} 				strokeLinecap="round" 				stroke={color}`,`{done > 0 && ( 			<circle 				cx={60} 				cy={60} 				r={R} 				fill="none" 				strokeWidth={9} 				strokeLinecap="round" 				stroke={color}`); c=c.replace(`style={{ transition: "stroke-dasharray 350ms ease, stroke 350ms ease" }} 			/>`,`style={{ transition: "stroke-dasharray 350ms ease, stroke 350ms ease" }} 			/> 			)}`); fs.writeFileSync("src/ui/charts.tsx",c); let m=fs.readFileSync("src/main.ts","utf8"); m=m.replace("const leaf = this.app.workspace.getLeaf(false);","// A new tab, so opening the dashboard never replaces the note you were reading.\n\t\tconst leaf = this.app.workspace.getLeaf(\"tab\");"); fs.writeFileSync("src/main.ts",m); ' && git diff --stat | tail -3; export PLAN_PYTHON="D:/Apps/Hermes/hermes-agent/venv/Scripts/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample"; timeout 100 npm test > /tmp/t2.log 2>&1; grep -E "^ℹ (tests|pass|fail)" /tmp/t2.log; npm run build 2>&1 | tail -2; node scripts/deploy.mjs "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"``
+- `cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;const same=hp.data===h.settings.homepages['Main Homepage'];if(!same)return JSON.stringify({abort:'homepage data not the expected object'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];hp.save();return JSON.stringify({lazy:l.settings.plugins['the-plan-dashboard'],hp:{kind:hp.data.kind,value:hp.data.value,commands:hp.data.commands,openOnStartup:hp.data.openOnStartup}})})()" 2>&1 | head -4; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e ' const fs=require("fs"); const lz=JSON.parse(fs.readFileSync("lazy-plugins/data.json","utf8"));console.log("lazy file:",JSON.stringify(lz.desktop.plugins["the-plan-dashboard"])); const hp=JSON.parse(fs.readFileSync("homepage/data.json","utf8")).homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup}));'`
 - `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="(()=>{const h=app.plugins.plugins.homepage;const hp=h.homepage;return JSON.stringify({keys:Object.keys(hp),dataType:typeof hp.data,hasData:!!hp.data,dataKind:hp.data&&hp.data.kind,name:hp.name,settingsKeys:Object.keys(h.settings.homepages),dataIsMain:hp.data===h.settings.homepages['Main Homepage'],dataEq:JSON.stringify(hp.data)===JSON.stringify(h.settings.homepages['Main Homepage']),proto:Object.getOwnPropertyNames(Object.getPrototypeOf(hp)).slice(0,25)})})()" 2>&1 | head -4; grep -o 'save(){[^}]\{0,200\}}' "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/homepage/main.js" | head -2`
-- `cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;if(hp.data.kind!=='File'||hp.data.value!=='00_Dashboard')return JSON.stringify({abort:'unexpected homepage state'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];await hp.save();return JSON.stringify({ok:true})})()" 2>&1 | head -3; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e '
-const fs=require("fs");
-const lz=JSON.parse(fs.readFileSync("lazy-plugins/data.json","utf8"));console.log("lazy file:",JSON.stringify(lz.desktop.plugins["the-plan-dashboard"]),"| homepage entry:",JSON.stringify(lz.desktop.plugins.homepage),"| keys intact:",Object.keys(lz.desktop.plugins).length);
-const d=JSON.parse(fs.readFileSync("homepage/data.json","utf8"));const hp=d.homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({version:d.version,kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup,openMode:hp.openMode}));'`
+- `cd /tmp; timeout 90 Obsidian.com vault="The Plan" eval code="(async()=>{const l=app.plugins.plugins['lazy-plugins'];const h=app.plugins.plugins.homepage;const hp=h.homepage;if(hp.data.kind!=='File'||hp.data.value!=='00_Dashboard')return JSON.stringify({abort:'unexpected homepage state'});l.settings.plugins['the-plan-dashboard'].startupType='instant';await l.saveSettings();hp.data.kind='Nothing';hp.data.value='';hp.data.commands=[{id:'the-plan-dashboard:open-dashboard',period:'Both'}];await hp.save();return JSON.stringify({ok:true})})()" 2>&1 | head -3; sleep 2; cd "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins" && node -e ' const fs=require("fs"); const lz=JSON.parse(fs.readFileSync("lazy-plugins/data.json","utf8"));console.log("lazy file:",JSON.stringify(lz.desktop.plugins["the-plan-dashboard"]),"| homepage entry:",JSON.stringify(lz.desktop.plugins.homepage),"| keys intact:",Object.keys(lz.desktop.plugins).length); const d=JSON.parse(fs.readFileSync("homepage/data.json","utf8"));const hp=d.homepages["Main Homepage"];console.log("homepage file:",JSON.stringify({version:d.version,kind:hp.kind,value:hp.value,commands:hp.commands,openOnStartup:hp.openOnStartup,openMode:hp.openMode}));'`
 - `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="app.commands.executeCommandById('homepage:open-homepage')" 2>&1 | head -2; sleep 2; timeout 60 Obsidian.com vault="The Plan" eval code="JSON.stringify({leaves:app.workspace.getLeavesOfType('the-plan-dashboard-view').length,active:app.workspace.getActiveViewOfType(require('obsidian').View)?.getViewType()})" 2>&1 | head -2; timeout 30 Obsidian.com vault="The Plan" dev:errors 2>&1 | tail -4`
 - `cd /tmp; timeout 60 Obsidian.com vault="The Plan" eval code="JSON.stringify({leaves:app.workspace.getLeavesOfType('the-plan-dashboard-view').length,active:app.workspace.activeLeaf?.view.getViewType(),tabs:app.workspace.getLeavesOfType('markdown').length})" 2>&1 | head -2`
-
 

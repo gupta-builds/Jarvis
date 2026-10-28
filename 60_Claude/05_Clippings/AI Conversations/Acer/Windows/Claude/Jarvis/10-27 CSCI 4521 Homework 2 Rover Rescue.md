@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
 ended_at: 2026-10-27T22:47:53
-exported_at: 2026-10-27T23:03:09
+exported_at: 2026-10-28T16:15:16
 duration_minutes: 177.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-27
+updated: 2026-10-28
 turn_count: 30
 tools_used:
   Bash: 186
@@ -30,7 +33,7 @@ tokens:
   cache_creation: 808015
   cache_read: 123339426
   total: 124650755
-cost_usd: null
+cost_usd: 20.594919
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -182,7 +185,10 @@ Once I have those, I'll build the notebook in `Code\Homework`, run it, and fill 
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\homework 2.pdf`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\HW2.pdf`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\Homework2_RoverRescue_student.ipynb`
-- `Bash` -- `ls -la "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources" 2>&1 | head -150`
+- `Bash`
+```bash
+ls -la "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources" 2>&1 | head -150
+```
 ```
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521:
 total 20
@@ -246,7 +252,10 @@ drwxr-xr-x 1 anant 197609        0 Oct  5 22:55 ..
 -rw-r--r-- 1 anant 197609   451249 Oct 21 21:49 enlp.txt
 -rw-r--r-- 1 anant 197609  1829329 Oct 21 21:49 isl.txt
 ```
-- `Bash` -- `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && which mineru; mineru --help 2>&1 | head -20`
+- `Bash`
+```bash
+mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && which mineru; mineru --help 2>&1 | head -20
+```
 ```
 /c/Users/anant/.local/bin/mineru
                                                                                
@@ -271,7 +280,10 @@ drwxr-xr-x 1 anant 197609        0 Oct  5 22:55 ..
 │ telemetry   Manage anonymous usage telemetry.                               │
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `mineru parse --help 2>&1 | head -40`
+- `Bash`
+```bash
+mineru parse --help 2>&1 | head -40
+```
 ```
  Usage: mineru parse [OPTIONS] {path}                                          
                                                                                
@@ -313,12 +325,18 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 │ --help                                          Show this message and exit. │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-- `Bash` -- `cd /tmp 2>/dev/null; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf" --pages all --wait 300 2>&1 | head -400`
+- `Bash`
+```bash
+cd /tmp 2>/dev/null; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf" --pages all --wait 300 2>&1 | head -400
+```
 ```
 Error: Local mineru server is not running. Run 'mineru server start'.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `mineru server --help 2>&1 | head -20; mineru parse --help >/dev/null; python --version; python -c "import fitz; print('fitz ok')" 2>&1; python -c "import pypdf; print('pypdf ok')" 2>&1`
+- `Bash`
+```bash
+mineru server --help 2>&1 | head -20; mineru parse --help >/dev/null; python --version; python -c "import fitz; print('fitz ok')" 2>&1; python -c "import pypdf; print('pypdf ok')" 2>&1
+```
 ```
 Exit code 49
                                                                                
@@ -340,7 +358,10 @@ Python was not found; run without arguments to install from the Microsoft Store,
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 ```
-- `Bash` -- `mineru server start 2>&1 | tail -5; sleep 5; mineru server status 2>&1 | tail -5`
+- `Bash`
+```bash
+mineru server start 2>&1 | tail -5; sleep 5; mineru server status 2>&1 | tail -5
+```
 ```
 Server started (PID 10008).
 │                                                                             │
@@ -349,13 +370,19 @@ Server started (PID 10008).
 │ --- managed parse-server stdout: start ---                                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf" --pages all --wait 300 2>&1 | head -500`
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf" --pages all --wait 300 2>&1 | head -500
+```
 ```
 Error: No basic, standard, or advanced engine available. You can start a local 
 parse-server, use --remote, or explicitly pass --tier flash for text-only 
 preview.
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf" --pages all --tier flash --wait 300 2>&1 | head -600`
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf" --pages all --tier flash --wait 300 2>&1 | head -600
+```
 ```
 <!-- page 1 of 4 -->
 
@@ -532,7 +559,10 @@ Student assignment
 
 4
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf" --pages all --tier flash --wait 300 2>&1 | head -400`
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf" --pages all --tier flash --wait 300 2>&1 | head -400
+```
 ```
 <!-- page 1 of 8 -->
 
@@ -766,7 +796,10 @@ My spam classifier is identical to my 310 principle component classifier from qu
 
 8
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources/Syllabus - CSCI 4521.pdf" --pages all --tier flash --wait 300 2>&1 | head -400`
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources/Syllabus - CSCI 4521.pdf" --pages all --tier flash --wait 300 2>&1 | head -400
+```
 ```
 <!-- page 1 of 9 -->
 
@@ -958,7 +991,10 @@ Please do not hesitate to contact me if you have any special needs or unique con
 
 **Acknowledgement: this syllabus was adapted from Shelby Ziccardi Spring 2025 course**
 ```
-- `Bash` -- `D="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo"; mkdir -p "$D" && git clone --depth 1 https://github.com/be-prado/csci4521.git "$D" 2>&1 | tail -3; ls -R "$D/2026/homework-2" 2>&1 | head -50`
+- `Bash`
+```bash
+D="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo"; mkdir -p "$D" && git clone --depth 1 https://github.com/be-prado/csci4521.git "$D" 2>&1 | tail -3; ls -R "$D/2026/homework-2" 2>&1 | head -50
+```
 ```
 Cloning into 'C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/repo'...
 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/repo/2026/homework-2:
@@ -984,7 +1020,10 @@ practice_truth.bin
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\repo\2026\homework-2\rover-rescue\rover_starter.py`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\repo\2026\homework-2\rover-rescue\README.md`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\repo\2026\homework-2\rover-rescue\run_demo.py`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue"; cat requirements.txt config 2>/dev/null; cat demo_data/config.json | head -40; diff <(cat assignment_student.md) /dev/null | wc -l; head -3 demo_data/*.csv`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue"; cat requirements.txt config 2>/dev/null; cat demo_data/config.json | head -40; diff <(cat assignment_student.md) /dev/null | wc -l; head -3 demo_data/*.csv
+```
 ```
 numpy
 pandas
@@ -1048,7 +1087,10 @@ y,x,sensor_1,sensor_2,sensor_3,sensor_4,sensor_5,sensor_6,sensor_7,sensor_8
 0,1,5.066292053583881,110.07863358643962,-3.988364740552851,1001.0792642726028,7.704208705360154,20.061161176780033,-38.06076013786108,7.753876742754478
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls; echo ---; ls -R "20_Progress/Degree/CSCI 4521" 2>&1 | head -80`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls; echo ---; ls -R "20_Progress/Degree/CSCI 4521" 2>&1 | head -80
+```
 ```
 00_Dashboard.md
 10_Areas
@@ -1114,7 +1156,10 @@ Weekly Board.md
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 1.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\CSCI 4521 Board.md`
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521"; ls -R Lectures | head -80; echo ---; ls -R Code/Lectures | head -60; echo ---; cat Code/environment.yml; echo ---; cat Code/Homework/README.md; echo; ls Code/Homework/figures`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521"; ls -R Lectures | head -80; echo ---; ls -R Code/Lectures | head -60; echo ---; cat Code/environment.yml; echo ---; cat Code/Homework/README.md; echo; ls Code/Homework/figures
+```
 ```
 Lectures:
 Week - 1
@@ -1207,7 +1252,10 @@ fig2_f1_vs_k.png
 fig3_metrics.png
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls "30_Order/Workflows/Courses/Per Class/" | head; echo ---; cat "30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow.md"; echo ---; ls 30_Order/Standards | head -60; ls 30_Order/Templates | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls "30_Order/Workflows/Courses/Per Class/" | head; echo ---; cat "30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow.md"; echo ---; ls 30_Order/Standards | head -60; ls 30_Order/Templates | head -60
+```
 ```
 CSCI 4061 Workflow.md
 CSCI 4511W Workflow.md
@@ -1326,7 +1374,10 @@ MOC.md
 Projects
 System
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order"; find . -iname "*Homework*" | head; `
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order"; find . -iname "*Homework*" | head; 
+```
 ```
 ./Standards/Courses/Homework Standard.md
 ./Templates/Classes/Homework Template.md
@@ -1335,7 +1386,10 @@ System
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Homework Standard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Homework Template.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Homework Workflow.md`
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures"; ls -la "Week 6 - 10" "Weeks 1 - 5" | awk '{print $5, $9, $10, $11, $12}'; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Weekly"; wc -c *.md; ls /c/Users/anant/miniconda3 /c/Users/anant/anaconda3 /c/ProgramData/miniconda3 /c/Users/anant/miniforge3 2>&1 | head -5; ls /c/Users/anant/AppData/Local/miniconda3 2>&1 | head -3; where python py conda 2>&1 | head`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures"; ls -la "Week 6 - 10" "Weeks 1 - 5" | awk '{print $5, $9, $10, $11, $12}'; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Weekly"; wc -c *.md; ls /c/Users/anant/miniconda3 /c/Users/anant/anaconda3 /c/ProgramData/miniconda3 /c/Users/anant/miniforge3 2>&1 | head -5; ls /c/Users/anant/AppData/Local/miniconda3 2>&1 | head -3; where python py conda 2>&1 | head
+```
 ```
 0 .   
 0 ..   
@@ -1382,12 +1436,18 @@ C:\Users\anant\AppData\Local\Microsoft\WindowsApps\python.exe
 INFO: Could not find "py".
 INFO: Could not find "conda".
 ```
-- `Bash` -- `ls /c/Users/anant/miniconda3/envs/ 2>&1; ls /c/Users/anant/miniconda3/envs/csci-4521/python.exe 2>&1; /c/Users/anant/miniconda3/envs/csci-4521/python.exe -c "import numpy,pandas,sklearn,matplotlib,seaborn;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__)" 2>&1 | tail -2`
+- `Bash`
+```bash
+ls /c/Users/anant/miniconda3/envs/ 2>&1; ls /c/Users/anant/miniconda3/envs/csci-4521/python.exe 2>&1; /c/Users/anant/miniconda3/envs/csci-4521/python.exe -c "import numpy,pandas,sklearn,matplotlib,seaborn;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__)" 2>&1 | tail -2
+```
 ```
 ls: cannot access '/c/Users/anant/miniconda3/envs/csci-4521/python.exe': No such file or directory
 /usr/bin/bash: line 1: /c/Users/anant/miniconda3/envs/csci-4521/python.exe: No such file or directory
 ```
-- `Bash` -- `ls -la /c/Users/anant/miniconda3 | head -20; ls /c/Users/anant/.conda/envs 2>&1 | head; find /c/Users/anant /d/_Anant -maxdepth 4 -name "python.exe" -not -path "*/WindowsApps/*" 2>/dev/null | head`
+- `Bash`
+```bash
+ls -la /c/Users/anant/miniconda3 | head -20; ls /c/Users/anant/.conda/envs 2>&1 | head; find /c/Users/anant /d/_Anant -maxdepth 4 -name "python.exe" -not -path "*/WindowsApps/*" 2>/dev/null | head
+```
 ```
 total 76827
 drwxr-xr-x 1 anant 197609        0 Sep 21 14:09 .
@@ -1413,14 +1473,17 @@ ls: cannot access '/c/Users/anant/.conda/envs': No such file or directory
 /c/Users/anant/miniconda3/pkgs/python-3.14.7-h7ce57fb_101_cp314/python.exe
 /c/Users/anant/miniconda3/python.exe
 ```
-- `Bash` -- `PY=/c/Users/anant/miniconda3/python.exe; $PY -c "import numpy,pandas,sklearn,matplotlib;print('ok')" 2>&1 | tail -1; cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" <<'EOF'
+- `Bash`
+```bash
+PY=/c/Users/anant/miniconda3/python.exe; $PY -c "import numpy,pandas,sklearn,matplotlib;print('ok')" 2>&1 | tail -1; cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" <<'EOF'
 import json,sys
 nb=json.load(open(sys.argv[1],encoding='utf-8'))
 for i,c in enumerate(nb['cells']):
     s=''.join(c['source'])
     if s.strip(): print(f"--- [{c['cell_type']}] {i}\n{s}")
 EOF
-$PY -I "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Week 6 - 10/2.3 k-means clustering - completed.ipynb" | head -300`
+$PY -I "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Week 6 - 10/2.3 k-means clustering - completed.ipynb" | head -300
+```
 ```
 ModuleNotFoundError: No module named 'numpy'
 --- [markdown] 0
@@ -1629,7 +1692,10 @@ plt.imshow(cloud, interpolation="bilinear")
 plt.axis("off")
 plt.show()
 ```
-- `Bash` -- `PY=/c/Users/anant/miniconda3/python.exe; S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; $PY -I $S "$L/2.4 PCA on iris data.ipynb"; echo "=========== newsgroups"; $PY -I $S "$L/2.4 PCA on newsgroups.ipynb"`
+- `Bash`
+```bash
+PY=/c/Users/anant/miniconda3/python.exe; S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; $PY -I $S "$L/2.4 PCA on iris data.ipynb"; echo "=========== newsgroups"; $PY -I $S "$L/2.4 PCA on newsgroups.ipynb"
+```
 ```
 --- [markdown] 0
 Going back to the iris dataset, let's pick 3 features so we have 3D data and look at the results.
@@ -2045,7 +2111,10 @@ Why do we do well with so few PCA components? Using a small number of PCA compon
 
 Reducing variance in the dataset by using a small number of PCA components, then using KNN with small K is one of my personal go-to strategies for building classifiers on a wide variety of tasks.
 ```
-- `Bash` -- `PY=/c/Users/anant/miniconda3/python.exe; S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; $PY -I $S "$L/1.1 Nearest Neighbor Classifier.ipynb" | head -220`
+- `Bash`
+```bash
+PY=/c/Users/anant/miniconda3/python.exe; S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; $PY -I $S "$L/1.1 Nearest Neighbor Classifier.ipynb" | head -220
+```
 ```
 --- [code] 0
 import pandas as pd
@@ -2166,8 +2235,11 @@ plt.xlabel("area")
 plt.ylabel("compactness")
 plt.show()
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 6/2.3 unsupervised learning, k-means clustering.pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -250`
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 6/2.3 unsupervised learning, k-means clustering.pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -250
 ```
+````
 <!-- page 1 of 26 -->
 ```
 CSCI 4521: unsupervised
@@ -2418,9 +2490,12 @@ taking the best run of all.
 <!-- page 24 of 26 -->
 ```
 Choosing the best k
+````
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 3/1.4 generalization, confusion matrix, accuracy, precision, recall, f1 score .pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -200
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 3/1.4 generalization, confusion matrix, accuracy, precision, recall, f1 score .pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -200`
-```
+````
 <!-- page 1 of 21 -->
 ```
 CSCI 4521: generalization,
@@ -2621,9 +2696,12 @@ b)  … maximize precision?                     SUBMIT YOUR EXAMPLES
 c)  … maximize recall?                        FOR THE ANALYSIS
                                               QUESTION ON CHIMEIN
 Analysis activity:
+````
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 5/2.4 pca.pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -200
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 5/2.4 pca.pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -200`
-```
+````
 <!-- page 1 of 30 -->
 ```
 CSCI 4521: PCA
@@ -2824,9 +2902,12 @@ matrix
 X and find
 the eigenvectors
 Y
+````
+- `Bash`
+```bash
+mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 6/2.3 unsupervised learning, k-means clustering.pptx.pdf" --pages 24-26 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"; echo =========PCA; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 5/2.4 pca.pptx.pdf" --pages 16-30 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"; echo ======1.4; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 3/1.4 generalization, confusion matrix, accuracy, precision, recall, f1 score .pptx.pdf" --pages 16-21 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"
 ```
-- `Bash` -- `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 6/2.3 unsupervised learning, k-means clustering.pptx.pdf" --pages 24-26 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"; echo =========PCA; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 5/2.4 pca.pptx.pdf" --pages 16-30 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"; echo ======1.4; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 3/1.4 generalization, confusion matrix, accuracy, precision, recall, f1 score .pptx.pdf" --pages 16-21 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"`
-```
+````
 <!-- page 24 of 26 -->
 ```
 Choosing the best k
@@ -3139,23 +3220,29 @@ Metrics:
  -  Recall (R): Measures False Negatives: TP/(TP+FN)
  -  F1 Score: Balances Precision & Recall: 2*(P*R)/(P+R)
 ```
-```
+````
 - `Grep` -- pattern `HW ?2|Homework 2|Rover|rover` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Preparation.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && /c/Users/anant/miniconda3/python.exe -m venv venv 2>&1 | tail -2; ./venv/Scripts/python.exe -m pip install -q pymupdf 2>&1 | tail -3; ./venv/Scripts/python.exe -c "import fitz;print(fitz.__doc__)" 2>&1 | tail -2`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && /c/Users/anant/miniconda3/python.exe -m venv venv 2>&1 | tail -2; ./venv/Scripts/python.exe -m pip install -q pymupdf 2>&1 | tail -3; ./venv/Scripts/python.exe -c "import fitz;print(fitz.__doc__)" 2>&1 | tail -2
+```
 ```
 [notice] A new release of pip is available: 26.2.1 -> 26.2.2
 [notice] To update, run: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Scripts\python.exe -m pip install --upgrade pip
 Python 3.14 running on win32 (64-bit).
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Weekly
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
 import fitz
 d=fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf')
 for i in (0,3):
     d[i].get_pixmap(dpi=80).save(f'hw2_p{i+1}.png')
 print(len(d))
-"; ls`
+"; ls
+```
 ```
 C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\fitz\__init__.py:17: FutureWarning: The `fitz` API is deprecated and will be removed in future. Use `import pymupdf` instead.
   warnings.warn(
@@ -3168,13 +3255,19 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\hw2_p1.png`
 - `Grep` -- pattern `AI|green|yellow|red\b|extra|due|Due|deadline|Gradescope|Canvas|bonus` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\repo\2026\homework-2\rover-rescue\assignment_student.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo"; git log --format='%h %ad %s' --date=short -- 2026/homework-2 | head; ls 2026 | head -20`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo"; git log --format='%h %ad %s' --date=short -- 2026/homework-2 | head; ls 2026 | head -20
+```
 ```
 2d143fe 2026-10-22 added dataset for hw 3 f26
 homework-2
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Weekly
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Weekly"; sed -n 55,58p "Week - 6.md" | cut -c1-900; echo ----; sed -n 20,24p "Week - 7.md" | cut -c1-700; echo ----; sed -n 39p "Week - 7.md" | cut -c1-1500`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Weekly"; sed -n 55,58p "Week - 6.md" | cut -c1-900; echo ----; sed -n 20,24p "Week - 7.md" | cut -c1-700; echo ----; sed -n 39p "Week - 7.md" | cut -c1-1500
+```
 ```
 	Covers data leakage explicitly and generally (duplicate points split across train/test, normalizing before the split, temporal leakage), then specifically for PCA: fit only on training data, never on the full dataset including test — flagged directly as "a common interview question."
 ### 3. LEC 2.5 — Modern Text Embedding (Thu 10/15)
@@ -3190,8 +3283,11 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree
 No protected human live capture is present yet. These notes come directly from `Lectures/Week - 6/3.1 advanced clustering, lda, gmm.pptx.pdf` (filed in the Week-6 source folder but confirmed, per the professor's own schedule, to be real Week 7 Tuesday content — the same known filing-offset pattern as LEC 1.5). A companion notebook `3.1 gaussian mixture models.ipynb` exists under `Code/Lectures/Week 6 - 10/` but has not yet been opened for this build. Quiz 3 is today, Thursday 10/22; HW2 was due this week (Tue 10/20) per the Board's schedule.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\HUMAN_WRITING.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; f=$(find . -name "Jarvis Writing and Formatting.md" -not -path "./50_Archive/*" | head -1); echo "$f"; sed -n 1,80p "$f" | cut -c1-400; echo ======; g=$(find . -name "Vault Lint.md" -not -path "./50_Archive/*" | head -1); echo "$g"; sed -n 1,40p "$g" | cut -c1-300`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; f=$(find . -name "Jarvis Writing and Formatting.md" -not -path "./50_Archive/*" | head -1); echo "$f"; sed -n 1,80p "$f" | cut -c1-400; echo ======; g=$(find . -name "Vault Lint.md" -not -path "./50_Archive/*" | head -1); echo "$g"; sed -n 1,40p "$g" | cut -c1-300
 ```
+````
 ./60_Claude/07_AI_Information/Jarvis Writing and Formatting.md
 ---
 type: evergreen
@@ -3313,8 +3409,11 @@ It never edits a note. A Spec block that is not valid JSON is reported as an err
 Run `node vault-lint.js --specs` and compare the Spec count with the number of Spec blocks you wrote. Lint a note you know fits and one you know does not. The scanned count plus the excluded counts equals the number of `.md` files under the root.
 ## Retire
 Delete this folder in one commit and remove the lint step from the weekly review. The fit number then goes back to being unmeasured.
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Textbook"; head -12 "ISL/Chapter - 12.md" | cut -c1-300; grep -n "^## \|^### " "ISL/Chapter - 12.md" | head -30; echo ----; grep -n "^## \|^### " "ISL/Chapter - 2.md" | head -20; echo; head -12 "../Weekly/Week - 5.md" | cut -c1-200
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Textbook"; head -12 "ISL/Chapter - 12.md" | cut -c1-300; grep -n "^## \|^### " "ISL/Chapter - 12.md" | head -30; echo ----; grep -n "^## \|^### " "ISL/Chapter - 2.md" | head -20; echo; head -12 "../Weekly/Week - 5.md" | cut -c1-200`
 ```
 ---
 type: class
@@ -3473,7 +3572,10 @@ Planned, not yet used. Roles are what each will do in this homework.
 <!-- Optional until feedback: the first failure, the pattern, and what to change. -->
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dashes:"; grep -nP "\x{2014}|\x{2013}" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head; echo "(none above = clean)"; echo; echo "calibration balance:"; tail -n +2 "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data/calibration.csv" | cut -d, -f3 | sort | uniq -c; echo; echo "conda envs:"; ls -la /c/Users/anant/miniconda3/envs 2>&1 | head -5; ls /c/Users/anant/.conda 2>&1 | head -3; echo; echo "lint:"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" 2>&1 | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dashes:"; grep -nP "\x{2014}|\x{2013}" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head; echo "(none above = clean)"; echo; echo "calibration balance:"; tail -n +2 "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data/calibration.csv" | cut -d, -f3 | sort | uniq -c; echo; echo "conda envs:"; ls -la /c/Users/anant/miniconda3/envs 2>&1 | head -5; ls /c/Users/anant/.conda 2>&1 | head -3; echo; echo "lint:"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" 2>&1 | head -30
+```
 ```
 dashes:
 grep: character value in \x{} or \o{} is too large
@@ -3511,7 +3613,10 @@ Top failure reasons:
       1  2:missing-heading
       1  5:extra-blank-lines
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | tail -15; echo ---dash check; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -5; echo "(end)"; echo ---blank lines; awk 'prev=="" && $0=="" {print NR": double blank"} {prev=$0}' "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n -B1 -A1 '^$' "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -12`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | tail -15; echo ---dash check; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -5; echo "(end)"; echo ---blank lines; awk 'prev=="" && $0=="" {print NR": double blank"} {prev=$0}' "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n -B1 -A1 '^$' "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -12
+```
 ```
   tier 1: 1/2 = 50.0%
 
@@ -3535,7 +3640,10 @@ First 5 failing notes:
 97:
 98-### Submission
 ```
-- `Bash` -- `mineru server stop 2>&1 | tail -2`
+- `Bash`
+```bash
+mineru server stop 2>&1 | tail -2
+```
 ```
 Server stopped.
 ```
@@ -3562,7 +3670,10 @@ My patch doubled the `code('''` opener. I'm fixing that.
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q numpy pandas matplotlib scikit-learn ipython nbformat nbconvert ipykernel 2>&1 | grep -v "notice" | tail -5; ./venv/Scripts/python.exe -c "import numpy,pandas,sklearn,matplotlib,IPython,nbformat,nbconvert,ipykernel;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__,IPython.__version__)"; git --version`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q numpy pandas matplotlib scikit-learn ipython nbformat nbconvert ipykernel 2>&1 | grep -v "notice" | tail -5; ./venv/Scripts/python.exe -c "import numpy,pandas,sklearn,matplotlib,IPython,nbformat,nbconvert,ipykernel;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__,IPython.__version__)"; git --version
+```
 ```
 2.5.4 3.1.0 1.9.1 3.11.2 9.17.1
 git version 2.55.0.windows.3
@@ -4007,7 +4118,10 @@ nbformat.write(nb, OUT)
 print("wrote", OUT, len(cells), "cells")
 
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | tail -30`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | tail -30
+```
 ```
 wrote CSCI4521_HW2.ipynb 36 cells
 [NbConvertApp] Converting notebook CSCI4521_HW2.ipynb to notebook
@@ -4020,7 +4134,9 @@ Your branch is up to date with 'origin/main'.
 [NbConvertApp] Writing 1432089 bytes to CSCI4521_HW2.ipynb
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > outs.py <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > outs.py <<'EOF'
 import nbformat, sys
 nb = nbformat.read(sys.argv[1], as_version=4)
 start = int(sys.argv[2]); end = int(sys.argv[3])
@@ -4039,7 +4155,8 @@ for i, c in enumerate(nb.cells):
             else: print("[other output]", list(o.data.keys()))
         elif o.output_type == "error": print("ERROR", o.ename, o.evalue)
 EOF
-./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 40 2>&1 | head -260`
+./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 40 2>&1 | head -260
+```
 ```
 === cell 11
 student_id in config: demo3
@@ -4106,7 +4223,10 @@ seed 4521 | bundle D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\r
 selected E1 | N95 standardized 3 | N95 raw 2
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q lxml 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 31 2>&1 | grep -v "^\[IPK" | head -230`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q lxml 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 31 2>&1 | grep -v "^\[IPK" | head -230
+```
 ```
 === cell 11
 student_id in config: demo3
@@ -4232,7 +4352,9 @@ largest |mean shift| in fit-row standard deviations: 0.243
 2       sand                     0.270                    0.270
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
 import re
 p = "build_nb.py"
 s = open(p, encoding="utf-8").read()
@@ -4269,7 +4391,8 @@ for cid in stuck:
 s = s[:old_start] + "code('''" + new_cell + s[old_end:]
 open(p, "w", encoding="utf-8").write(s)
 EOF
-grep -n "Failure analysis" build_nb.py | head -2; sed -n "$(grep -n 'Failure analysis' build_nb.py | head -1 | cut -d: -f1),+16p" build_nb.py`
+grep -n "Failure analysis" build_nb.py | head -2; sed -n "$(grep -n 'Failure analysis' build_nb.py | head -1 | cut -d: -f1),+16p" build_nb.py
+```
 ```
 404:code('''code('''# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
 code('''code('''# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
@@ -4291,20 +4414,26 @@ md('## 8. Export the mission predictions')
 code('''out_path = save_submission(mission_pred, BUNDLE_DIR, "submission.csv")
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
 p = "build_nb.py"
 s = open(p, encoding="utf-8").read()
 print(s.count("code('''code('''"))
 s = s.replace("code('''code('''", "code('''")
 open(p, "w", encoding="utf-8").write(s)
 EOF
-./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb.py',encoding='utf-8').read());print('syntax ok')"`
+./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb.py',encoding='utf-8').read());print('syntax ok')"
+```
 ```
 1
 syntax ok
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | grep -E "ERROR|Error|Traceback|Writing" ; ls -la submission.csv practice_run.html figures/ CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 26 40 2>&1 | grep -v "^\[IPK"`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | grep -E "ERROR|Error|Traceback|Writing" ; ls -la submission.csv practice_run.html figures/ CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 26 40 2>&1 | grep -v "^\[IPK"
+```
 ```
 wrote CSCI4521_HW2.ipynb 36 cells
 [NbConvertApp] Writing 1436428 bytes to CSCI4521_HW2.ipynb
@@ -4430,23 +4559,25 @@ Do you want me to build the Word document and PDF next, or will you assemble it 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 ```diff
 - ### 2026-10-27 Source reading and plan (no code run yet)
-Everything below is reading and planning. No notebook cell has been executed and no result exists.
+- Everything below is reading and planning. No notebook cell has been executed and no result exists.
 + ### 2026-10-27 Notebook built and run
-`Code\Homework\CSCI4521_HW2.ipynb` (36 cells) copies every starter cell unchanged, adds one marked `BUNDLE_OVERRIDE` cell so a personalized bundle drops in, and then holds sections 1 to 9 of the design below. Executed top to bottom with nbconvert in a scratch Python 3.14 venv (numpy 2.5.4, pandas 3.1.0, scikit-learn 1.9.1, matplotlib 3.11.2): no errors, all assertions passed. Written next to it: `submission.csv` (784 rows, student_id `demo3`), `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png`, `figures/hw2_configs.csv`. Both figures were opened and read.
-Evidence is on the demo bundle, the only data available. Dataset status: no personalized bundle was found in `Code\Homework` or the repo, so `student_id` in `submission.csv` is `demo3`. If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number in the report draft.
-- Hand-written NumPy checked against the library: z-score equals `StandardScaler`, nearest-centroid equals `pairwise_distances_argmin`, 1-NN equals `KNeighborsClassifier` exactly, 3-NN and 5-NN agree 100%, my k-means inertia 1237.50 equals `KMeans` 1237.50, macro F1 and accuracy equal sklearn on every configuration.
-- Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
-- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance (81.9% and 10.4%). After z-scoring each supplies 12.5%.
-- PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Fig 1b shows three separated groups in PC1 and PC2 that line up with firm, rough and sand.
-- Experiments (validation accuracy, macro F1, sand recall, practice): raw 8 sensors k-means 0.700, 0.704, 0.5, stuck at step 20. Raw 8 sensors 1-NN 0.933, 0.935, 0.9, success (cost 72.2). Raw PCA 2 k-means 0.700, 0.704, 0.5, stuck at step 20. Raw PCA 2 1-NN 0.867, 0.868, 0.9, success (cost 76.4). Every z-score configuration (8 sensors, PCA 3, PCA 2, k-means, 1-NN, 3-NN) scored 1.000, 1.000, 1.0 and succeeded with 54 steps and cost 70.8.
-- k-means: no empty clusters in any run, 3 to 9 iterations, majority naming was one-to-one everywhere. Z-score clusters are pure on the 60 training labels (20, 20, 20). Raw k-means mixes them: the cluster named sand holds 12 sand, 11 rough and 4 firm training points. Elbow inertia: k=2 2652, k=3 1238, k=4 1086.
-- Selection by the pre-set rule picked E1 (z-score, PCA 2, k-means). Seven configurations tie at the top (E1, E2, C7, C8, C3, C4, E3), and only the dimension count separated E1 from the rest of that group, tying with E2 on all metrics, so the choice between E1 and E2 came from table order.
-- Failure: raw k-means (and raw PCA k-means) stopped at (y=13, x=4) after 20 steps where it predicted rough and the simulator reports sand. Validation confusion: 5 of 10 sand cells predicted rough.
-- Mission: largest mean shift in fit-row standard deviations 0.243. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on the practice grid. Mission route cost 52.0.
-### 2026-10-27 Source reading and plan
-All reading and planning, done before the notebook existed.
++ `Code\Homework\CSCI4521_HW2.ipynb` (36 cells) copies every starter cell unchanged, adds one marked `BUNDLE_OVERRIDE` cell so a personalized bundle drops in, and then holds sections 1 to 9 of the design below. Executed top to bottom with nbconvert in a scratch Python 3.14 venv (numpy 2.5.4, pandas 3.1.0, scikit-learn 1.9.1, matplotlib 3.11.2): no errors, all assertions passed. Written next to it: `submission.csv` (784 rows, student_id `demo3`), `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png`, `figures/hw2_configs.csv`. Both figures were opened and read.
++ Evidence is on the demo bundle, the only data available. Dataset status: no personalized bundle was found in `Code\Homework` or the repo, so `student_id` in `submission.csv` is `demo3`. If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number in the report draft.
++ - Hand-written NumPy checked against the library: z-score equals `StandardScaler`, nearest-centroid equals `pairwise_distances_argmin`, 1-NN equals `KNeighborsClassifier` exactly, 3-NN and 5-NN agree 100%, my k-means inertia 1237.50 equals `KMeans` 1237.50, macro F1 and accuracy equal sklearn on every configuration.
++ - Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
++ - Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance (81.9% and 10.4%). After z-scoring each supplies 12.5%.
++ - PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Fig 1b shows three separated groups in PC1 and PC2 that line up with firm, rough and sand.
++ - Experiments (validation accuracy, macro F1, sand recall, practice): raw 8 sensors k-means 0.700, 0.704, 0.5, stuck at step 20. Raw 8 sensors 1-NN 0.933, 0.935, 0.9, success (cost 72.2). Raw PCA 2 k-means 0.700, 0.704, 0.5, stuck at step 20. Raw PCA 2 1-NN 0.867, 0.868, 0.9, success (cost 76.4). Every z-score configuration (8 sensors, PCA 3, PCA 2, k-means, 1-NN, 3-NN) scored 1.000, 1.000, 1.0 and succeeded with 54 steps and cost 70.8.
++ - k-means: no empty clusters in any run, 3 to 9 iterations, majority naming was one-to-one everywhere. Z-score clusters are pure on the 60 training labels (20, 20, 20). Raw k-means mixes them: the cluster named sand holds 12 sand, 11 rough and 4 firm training points. Elbow inertia: k=2 2652, k=3 1238, k=4 1086.
++ - Selection by the pre-set rule picked E1 (z-score, PCA 2, k-means). Seven configurations tie at the top (E1, E2, C7, C8, C3, C4, E3), and only the dimension count separated E1 from the rest of that group, tying with E2 on all metrics, so the choice between E1 and E2 came from table order.
++ - Failure: raw k-means (and raw PCA k-means) stopped at (y=13, x=4) after 20 steps where it predicted rough and the simulator reports sand. Validation confusion: 5 of 10 sand cells predicted rough.
++ - Mission: largest mean shift in fit-row standard deviations 0.243. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on the practice grid. Mission route cost 52.0.
++ ### 2026-10-27 Source reading and plan
++ All reading and planning, done before the notebook existed.
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > new_block.md <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > new_block.md <<'EOF'
 ### Remaining steps to submit
 Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order:
 - Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.
@@ -4499,7 +4630,8 @@ s = s[:a] + new + s[b:]
 open(p, "w", encoding="utf-8").write(s)
 print("ok", len(s))
 EOF
-cd "D:/_Anant/20_Progress/Documents/Jarvis"; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -3; echo "(dash check done)"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|failing|Homework -"`
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -3; echo "(dash check done)"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|failing|Homework -"
+```
 ```
 Exit code 2
 /usr/bin/bash: -c: line 4: unexpected EOF while looking for matching `''
@@ -4549,7 +4681,9 @@ This report is longer than the two-page limit allows at HW1 settings, so use the
 
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice.py <<'PYEOF'
 p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
 s = open(p, encoding="utf-8").read()
 a = s.index("### 30-minute plan")
@@ -4558,12 +4692,16 @@ s = s[:a] + open("new_block.md", encoding="utf-8").read() + s[b:]
 open(p, "w", encoding="utf-8").write(s)
 print("spliced", len(s))
 PYEOF
-./venv/Scripts/python.exe -I splice.py`
+./venv/Scripts/python.exe -I splice.py
+```
 ```
 spliced 27137
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dash hits:"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "headings:"; grep -n "^## \|^### " "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls; head -3 submission.csv; wc -l submission.csv; cat figures/hw2_configs.csv | head -3`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dash hits:"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "headings:"; grep -n "^## \|^### " "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls; head -3 submission.csv; wc -l submission.csv; cat figures/hw2_configs.csv | head -3
+```
 ```
 dash hits:
 0
@@ -4618,7 +4756,9 @@ C2,raw,8 sensors,1-NN,8,0.933,0.935,0.9,9/10,MISSION SUCCESS,54,72.2,210
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fix.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fix.py <<'PYEOF'
 p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
 s = open(p, encoding="utf-8").read()
 i = s.index("### Submission`.")
@@ -4628,7 +4768,8 @@ s = s[:i] + s[j:]
 open(p, "w", encoding="utf-8").write(s)
 print("removed", j - i, "chars")
 PYEOF
-./venv/Scripts/python.exe -I fix.py; grep -n "^## \|^### " "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"`
+./venv/Scripts/python.exe -I fix.py; grep -n "^## \|^### " "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+```
 ```
 Exit code 1
 removed 10795 chars
@@ -4650,7 +4791,9 @@ FIT: 1/2 = 50.0%
   20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
 0
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > restore.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > restore.py <<'PYEOF'
 p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
 s = open(p, encoding="utf-8").read()
 a = s.index("### Remaining steps to submit\n")
@@ -4661,7 +4804,8 @@ s = s[:a] + block + s[b:]
 open(p, "w", encoding="utf-8").write(s)
 print("restored", len(s))
 PYEOF
-./venv/Scripts/python.exe -I restore.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; grep -c "Report draft (fill every bracket" "$F"; grep -c "\[n\] configurations" "$F"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+./venv/Scripts/python.exe -I restore.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; grep -c "Report draft (fill every bracket" "$F"; grep -c "\[n\] configurations" "$F"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"
+```
 ```
 restored 23667
 15:## Overview
@@ -4754,7 +4898,10 @@ I can't guarantee 100%. Every rubric line has matching evidence in the notebook,
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ls; echo ---; for d in Lectures "Final Project" Midterm_Project; do echo "## $d"; find "$d" -type f -not -path "*/.git/*" -not -path "*/__pycache__/*" -not -name "*.png" -not -name "*.jpg" | head -60; done`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ls; echo ---; for d in Lectures "Final Project" Midterm_Project; do echo "## $d"; find "$d" -type f -not -path "*/.git/*" -not -path "*/__pycache__/*" -not -name "*.png" -not -name "*.jpg" | head -60; done
+```
 ```
 AGENTS.md
 AI_CONTEXT.md
@@ -4866,11 +5013,17 @@ Midterm_Project/Red Black Tree/[REDACTED].pdf
 Midterm_Project/Red Black Tree/[REDACTED].pdf
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `echo "== search for assigned bundle files by name"; for r in "/c/Users/anant/Downloads" "/c/Users/anant/Desktop" "/c/Users/anant/Documents" "/d/_Anant"; do find "$r" -maxdepth 6 \( -iname "development.csv" -o -iname "calibration.csv" -o -iname "mission.csv" -o -iname "practice_truth.bin" -o -iname "config.json" -o -iname "*rover*" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/50_Archive/*" 2>/dev/null | head -20; done`
+- `Bash`
+```bash
+echo "== search for assigned bundle files by name"; for r in "/c/Users/anant/Downloads" "/c/Users/anant/Desktop" "/c/Users/anant/Documents" "/d/_Anant"; do find "$r" -maxdepth 6 \( -iname "development.csv" -o -iname "calibration.csv" -o -iname "mission.csv" -o -iname "practice_truth.bin" -o -iname "config.json" -o -iname "*rover*" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/50_Archive/*" 2>/dev/null | head -20; done
+```
 ```
 == search for assigned bundle files by name
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; wc -c AGENTS.md AI_CONTEXT.md; echo; sed -n 1,80p AGENTS.md | cut -c1-500`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; wc -c AGENTS.md AI_CONTEXT.md; echo; sed -n 1,80p AGENTS.md | cut -c1-500
+```
 ```
 3117 AGENTS.md
 3118 AI_CONTEXT.md
@@ -4924,7 +5077,10 @@ All Obsidian vault paths use the prefix `10_UMN/CSCI 4041/`.
 Every major course topic must have a concept note that synthesizes textbook theory, professor code, weekly lecture context, homework references, and exam relevance into one authoritative reference. A student should be able to study from the concept note alone.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/AVLTree.ipynb" | head -330`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/AVLTree.ipynb" | head -330
+```
 ```
 --- [markdown] 0
 # CSCI 4041 Project: AVL Trees
@@ -5258,7 +5414,10 @@ def assert_tree_ok(T, label=""):
 # - also confirms all 4 AVL rotation cases + delete cases
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/Experiment.ipynb" | cut -c1-220 | head -260`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/Experiment.ipynb" | cut -c1-220 | head -260
+```
 ```
 --- [markdown] 0
 # CSCI 4041 Project: AVL Trees
@@ -5521,7 +5680,10 @@ T.insert(3)
 PrintTree(T)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Final Project/Maze/Final.ipynb" | cut -c1-200 | head -230`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Final Project/Maze/Final.ipynb" | cut -c1-200 | head -230
+```
 ```
 Traceback (most recent call last):
   File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\src.py", line 5, in <module>
@@ -5763,7 +5925,10 @@ def BFS_maze_solver(G,start_index=0,goal_index=None):
     path = path_from_prev(G,start_index,goal_index)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "== ISL: scaling in PCA"; grep -n -i "standard deviation one\|scaled to have standard\|should be scaled\|variables should be\|scale the variables\|scaling the variables" isl.txt | head -20; echo "== ISL: k-means algorithm / random starts / scaling in clustering"; grep -n -i "random initial\|run the algorithm multiple\|multiple times from different\|within-cluster variation\|K-means clustering algorithm" isl.txt | head -20; echo "== ISL: proportion of variance / scree"; grep -n -i "scree plot\|proportion of variance explained\|cumulative PVE" isl.txt | head -12`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "== ISL: scaling in PCA"; grep -n -i "standard deviation one\|scaled to have standard\|should be scaled\|variables should be\|scale the variables\|scaling the variables" isl.txt | head -20; echo "== ISL: k-means algorithm / random starts / scaling in clustering"; grep -n -i "random initial\|run the algorithm multiple\|multiple times from different\|within-cluster variation\|K-means clustering algorithm" isl.txt | head -20; echo "== ISL: proportion of variance / scree"; grep -n -i "scree plot\|proportion of variance explained\|cumulative PVE" isl.txt | head -12
+```
 ```
 == ISL: scaling in PCA
 5877:that all three variables should be included in the model. However, it is
@@ -5809,7 +5974,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 30382:looking for a point at which the proportion of variance explained by each
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; PYTHONIOENCODING=utf-8 ./venv/Scripts/python.exe -I src.py "$L/1.3 kNN with SciKit-Learn.ipynb" | cut -c1-200 | head -200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; PYTHONIOENCODING=utf-8 ./venv/Scripts/python.exe -I src.py "$L/1.3 kNN with SciKit-Learn.ipynb" | cut -c1-200 | head -200
+```
 ```
 --- [code] 0
 import pandas as pd
@@ -5981,7 +6149,10 @@ pd.melt(result, ['k'])
 sns.lineplot(x="k",y="value", hue='variable', data=pd.melt(result, ['k']))
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "=== ISL 12.2.4 scaling (PCA)"; sed -n 30260,30280p isl.txt | cut -c1-140; sed -n 30336,30350p isl.txt | cut -c1-140; echo; echo "=== ISL clustering: scaling"; sed -n 31350,31366p isl.txt | cut -c1-140; echo; echo "=== ISL k-means algorithm"; sed -n 30900,30975p isl.txt | cut -c1-150`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "=== ISL 12.2.4 scaling (PCA)"; sed -n 30260,30280p isl.txt | cut -c1-140; sed -n 30336,30350p isl.txt | cut -c1-140; echo; echo "=== ISL clustering: scaling"; sed -n 31350,31366p isl.txt | cut -c1-140; echo; echo "=== ISL k-means algorithm"; sed -n 30900,30975p isl.txt | cut -c1-150
+```
 ```
 === ISL 12.2.4 scaling (PCA)
 Scaling the Variables
@@ -6119,7 +6290,10 @@ each observation is assigned to the nearest centroid. Bottom center: Step 2(a) i
 once again performed, leading to new cluster centroids. Bottom right: the results
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data"; cat config.json; echo; wc -l *.csv; ls -la; cd ..; git log --format='%h %an %ad %s' --date=iso | head -3; echo ---; sed -n 1,12p assignment_student.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data"; cat config.json; echo; wc -l *.csv; ls -la; cd ..; git log --format='%h %an %ad %s' --date=iso | head -3; echo ---; sed -n 1,12p assignment_student.md
+```
 ```
 {
   "assignment": "HW2 Rover Rescue",
@@ -6812,7 +6986,9 @@ nbformat.write(nb, OUT)
 print("wrote", OUT, len(cells), "cells")
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > relabel.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > relabel.py <<'PYEOF'
 p = "build_nb2.py"
 s = open(p, encoding="utf-8").read()
 pairs = [
@@ -6829,7 +7005,8 @@ open(p, "w", encoding="utf-8").write(s)
 print("relabeled")
 PYEOF
 ./venv/Scripts/python.exe -I relabel.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb2.py',encoding='utf-8').read());print('syntax ok')"
-cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|assert|Writing|Exception" ; ls -la submission.csv practice_run.html figures/ | grep -E "submission|practice|hw2|fig1_pca|fig2_deploy"`
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|assert|Writing|Exception" ; ls -la submission.csv practice_run.html figures/ | grep -E "submission|practice|hw2|fig1_pca|fig2_deploy"
+```
 ```
 relabeled
 syntax ok
@@ -6842,7 +7019,10 @@ wrote CSCI4521_HW2.ipynb 40 cells
 -rw-r--r-- 1 anant 197609    952 Oct 27 20:21 hw2_configs.csv
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 45 2>&1 | grep -v "^\[IPK" | grep -v "Unnamed: 0_level_0" | cut -c1-260 | head -230`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 45 2>&1 | grep -v "^\[IPK" | grep -v "Unnamed: 0_level_0" | cut -c1-260 | head -230
+```
 ```
 === cell 11
 student_id in config: demo3
@@ -7028,7 +7208,9 @@ E2      z-score          PCA 2     1-NN     2         1.000     1.000          1
 E3      z-score      8 sensors     3-NN     8         1.000     1.000          1.0      MISSION SUCCESS
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixmd.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixmd.py <<'PYEOF'
 p = "build_nb2.py"
 s = open(p, encoding="utf-8").read()
 a = "Lecture 2.3 and 2.4 and the 4041 habit of measuring: the distance step costs O(n k d), so time should grow linearly with n and drop with d. Median of 5 timed runs."
@@ -7051,7 +7233,8 @@ for o in c.outputs:
         df.columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
         print(df[["config", "fit_ms", "predict_ms"]].to_string(index=False))
 PYEOF
-"$PY" -I "$SC/times.py" CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 24 28 | grep -v "^\[IPK"; cd ..; cat Homework/figures/hw2_configs.csv | cut -d, -f1-9 | head -12; git -C "D:/_Anant/20_Progress/Documents/Jarvis" status --short | head -5`
+"$PY" -I "$SC/times.py" CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 24 28 | grep -v "^\[IPK"; cd ..; cat Homework/figures/hw2_configs.csv | cut -d, -f1-9 | head -12; git -C "D:/_Anant/20_Progress/Documents/Jarvis" status --short | head -5
+```
 ```
 ok
 wrote CSCI4521_HW2.ipynb 40 cells
@@ -7149,7 +7332,9 @@ Where each rubric line is met in `CSCI4521_HW2.ipynb`. "Met" means the evidence 
 | Reproducibility (5) | header cell, Summary cell | dependencies, run steps, fixed seed, versions printed, Restart and Run All verified once |
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice2.py <<'PYEOF'
 p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
 s = open(p, encoding="utf-8").read()
 
@@ -7179,7 +7364,8 @@ s = swap(s, "- Syllabus: cite AI assistants prominently and disclose assistance.
 open(p, "w", encoding="utf-8").write(s)
 print("ok", len(s))
 PYEOF
-./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"
+```
 ```
 ok 25766
 15:## Overview
@@ -7295,7 +7481,9 @@ Both figures are now at print size, 7.25 in and 5.34 in wide at 300 dpi, so Word
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > audit.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > audit.py <<'PYEOF'
 import nbformat, sys
 nb = nbformat.read(sys.argv[1], as_version=4)
 print("cells:", len(nb.cells))
@@ -7310,7 +7498,8 @@ for i, c in enumerate(nb.cells):
         else: outs.append(",".join(sorted(o.get("data", {}).keys())))
     print(f"{i:2d} {c.cell_type[:4]} lines={n_lines:3d} blank={blank:2d} words={n_md_words:3d} first={c.source.splitlines()[0][:60] if c.source else ''!r} outs={outs}")
 PYEOF
-./venv/Scripts/python.exe -I audit.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"`
+./venv/Scripts/python.exe -I audit.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"
+```
 ```
 cells: 40
  0 mark lines=  5 blank= 2 words= 64 first='# Rover Rescue: student starting notebook' outs=[]
@@ -8016,7 +8205,10 @@ nbformat.write(nb, OUT)
 print("wrote", OUT, len(cells), "cells")
 
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" && ( time "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert" ) 2>&1 | grep -E "Error|Traceback|Writing|assert|real"; ls; echo "--- compare with previous run in Code/Homework"; cmp submission.csv "$H/submission.csv" && echo "submission.csv IDENTICAL"; cmp figures/hw2_configs.csv "$H/figures/hw2_configs.csv" && echo "hw2_configs.csv IDENTICAL"`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" && ( time "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert" ) 2>&1 | grep -E "Error|Traceback|Writing|assert|real"; ls; echo "--- compare with previous run in Code/Homework"; cmp submission.csv "$H/submission.csv" && echo "submission.csv IDENTICAL"; cmp figures/hw2_configs.csv "$H/figures/hw2_configs.csv" && echo "hw2_configs.csv IDENTICAL"
+```
 ```
 wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh/CSCI4521_HW2.ipynb 42 cells
 [NbConvertApp] Writing 1446482 bytes to CSCI4521_HW2.ipynb
@@ -8031,7 +8223,10 @@ submission.csv IDENTICAL
 hw2_configs.csv IDENTICAL
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I "$SC/audit.py" CSCI4521_HW2.ipynb; cmp submission.csv "$SC/fresh/submission.csv" && echo "in-place submission.csv == fresh-dir submission.csv"; ls -la submission.csv practice_run.html CSCI4521_HW2.ipynb figures/ | grep -E "submission|practice|HW2|hw2|fig1_pca|fig2_deploy"`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I "$SC/audit.py" CSCI4521_HW2.ipynb; cmp submission.csv "$SC/fresh/submission.csv" && echo "in-place submission.csv == fresh-dir submission.csv"; ls -la submission.csv practice_run.html CSCI4521_HW2.ipynb figures/ | grep -E "submission|practice|HW2|hw2|fig1_pca|fig2_deploy"
+```
 ```
 wrote CSCI4521_HW2.ipynb 42 cells
 [NbConvertApp] Writing 1446314 bytes to CSCI4521_HW2.ipynb
@@ -8087,7 +8282,10 @@ in-place submission.csv == fresh-dir submission.csv
 -rw-r--r-- 1 anant 197609    952 Oct 27 20:46 hw2_configs.csv
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 42 2>&1 | grep -v "^\[IPK" | cut -c1-230 | head -250`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 42 2>&1 | grep -v "^\[IPK" | cut -c1-230 | head -250
+```
 ```
 === cell 10
 fit 754 | calibration-training 60 | validation 30 | mission 784
@@ -8266,7 +8464,9 @@ E2      z-score          PCA 2     1-NN     2         1.000     1.000          1
 E3      z-score      8 sensors     3-NN     8         1.000     1.000          1.0      MISSION SUCCESS
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchfig.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchfig.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 
@@ -8377,7 +8577,8 @@ SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classe
 import struct
 for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
     d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
-"`
+"
+```
 ```
 Exit code 1
 patched
@@ -8393,7 +8594,9 @@ Traceback (most recent call last):
       ~~~~^^^^^^^^
 FileNotFoundError: [Errno 2] No such file or directory: 'figures/fig1_pca.png'
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 old = "components\\n(standardized)"
@@ -8407,7 +8610,8 @@ SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classe
 import struct
 for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
     d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
-"`
+"
+```
 ```
 Exit code 1
 fixed
@@ -8423,7 +8627,9 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: 'figures/fig1_pca.png'
 ```
 - `Grep` -- pattern `components.*standardized\)` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb3.py`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
 s=open('build_nb3.py',encoding='utf-8').read()
 i=s.index('components')
 j=s.index('(standardized)', i)
@@ -8433,23 +8639,29 @@ nb=nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CS
 for c in nb.cells:
     if 'standardized)' in c.source and 'annotate' in c.source:
         k=c.source.index('components'); print(repr(c.source[k:k+40]))
-"`
+"
+```
 ```
 'taFrame({"var ratio (standardized)'
 'components\n(standardized)", (N95_Z, cum_'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
 s=open('build_nb3.py',encoding='utf-8').read()
 i=s.index('N95_Z} components')
 seg=s[i:i+40]
 print([hex(ord(ch)) for ch in seg[16:26]])
-"`
+"
+```
 ```
 ['0x73', '0x5c', '0x6e', '0x28', '0x73', '0x74', '0x61', '0x6e', '0x64', '0x61']
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc2.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 bs = chr(92)
@@ -8465,7 +8677,8 @@ SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classe
 import struct
 for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
     d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
-"`
+"
+```
 ```
 fixed
 wrote CSCI4521_HW2.ipynb 42 cells
@@ -8485,7 +8698,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ### Tool Calls
 
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig2_deploy.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 old = 'ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)'
@@ -8495,7 +8710,8 @@ open(p, "w", encoding="utf-8").write(s)
 print("ok")
 PYEOF
 ./venv/Scripts/python.exe -I fixleg.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep -E "fig1_pca|fig2_deploy|hw2"`
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep -E "fig1_pca|fig2_deploy|hw2"
+```
 ```
 ok
 wrote CSCI4521_HW2.ipynb 42 cells
@@ -8517,7 +8733,9 @@ The legend now covers the sand cluster instead. A cleaner fix is to add headroom
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg2.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 old = 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)'
@@ -8527,7 +8745,8 @@ open(p, "w", encoding="utf-8").write(s)
 print("ok")
 PYEOF
 ./venv/Scripts/python.exe -I fixleg2.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca
+```
 ```
 ok
 wrote CSCI4521_HW2.ipynb 42 cells
@@ -8545,7 +8764,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg3.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg3.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -8559,7 +8780,8 @@ open(p, "w", encoding="utf-8").write(s)
 print("ok")
 PYEOF
 ./venv/Scripts/python.exe -I fixleg3.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca
+```
 ```
 ok
 wrote CSCI4521_HW2.ipynb 42 cells
@@ -8620,7 +8842,9 @@ The notebook, HTML, `submission.csv` and figures are ready, so the Word report a
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q pyflakes pycodestyle 2>&1 | grep -v notice; cat > lintnb.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q pyflakes pycodestyle 2>&1 | grep -v notice; cat > lintnb.py <<'PYEOF'
 import nbformat, sys, subprocess, pathlib
 nb = nbformat.read(sys.argv[1], as_version=4)
 start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
@@ -8632,7 +8856,8 @@ text = "\n".join(code)
 pathlib.Path("mycode.py").write_text(text, encoding="utf-8")
 print("code cells:", len(code), "lines:", text.count("\n"))
 PYEOF
-./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== pyflakes"; ./venv/Scripts/python.exe -m pyflakes mycode.py; echo "== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -30`
+./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== pyflakes"; ./venv/Scripts/python.exe -m pyflakes mycode.py; echo "== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -30
+```
 ```
 code cells: 23 lines: 594
 == pyflakes
@@ -8690,7 +8915,9 @@ mycode.py:590:35: undefined name 'config'
 == pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'" ; echo "(end of non-starter pyflakes findings)"; echo; ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'" ; echo "(end of non-starter pyflakes findings)"; echo; ./venv/Scripts/python.exe -I -c "
 import nbformat
 nb = nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb', as_version=4)
 start = next(i for i,c in enumerate(nb.cells) if c.source.startswith('## My solution'))
@@ -8699,7 +8926,8 @@ errs = [i for i,c in enumerate(nb.cells) if c.cell_type=='code' for o in c.outpu
 print('my markdown words:', words, '| cells with error/stderr output:', errs)
 em = [i for i,c in enumerate(nb.cells[start:],start) if '\u2014' in c.source or '\u2013' in c.source]
 print('cells with em/en dash:', em)
-"`
+"
+```
 ```
 (end of non-starter pyflakes findings)
 
@@ -8707,12 +8935,15 @@ my markdown words: 425 | cells with error/stderr output: []
 cells with em/en dash: []
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" >/dev/null && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png practice_run.html; do cmp -s "$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "--- hw2_configs.csv"; cat "$H/figures/hw2_configs.csv"; echo; echo "--- practice_run.html"; head -c 300 "$H/practice_run.html"; echo; grep -c "ROVER\|MISSION SUCCESS" "$H/practice_run.html"; "$PY" -I -c "
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" >/dev/null && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png practice_run.html; do cmp -s "$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "--- hw2_configs.csv"; cat "$H/figures/hw2_configs.csv"; echo; echo "--- practice_run.html"; head -c 300 "$H/practice_run.html"; echo; grep -c "ROVER\|MISSION SUCCESS" "$H/practice_run.html"; "$PY" -I -c "
 import pandas as pd
 s=pd.read_csv('$H/submission.csv'); m=pd.read_csv('$H/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv')
 print('submission', s.shape, list(s.columns), s.student_id.unique(), s.predicted_terrain.value_counts().to_dict())
 print('row order matches mission.csv:', (s.x==m.x).all() and (s.y==m.y).all())
-"`
+"
+```
 ```
 [NbConvertApp] Writing 1387649 bytes to CSCI4521_HW2.ipynb
 IDENTICAL  submission.csv
@@ -8751,7 +8982,9 @@ Length: 1, dtype: str {'firm': 361, 'sand': 212, 'rough': 211}
 row order matches mission.csv: True
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cat > htmlcmp.py <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cat > htmlcmp.py <<'PYEOF'
 import re, sys
 a = open(sys.argv[1], encoding="utf-8").read()
 b = open(sys.argv[2], encoding="utf-8").read()
@@ -8763,7 +8996,8 @@ norm = lambda s: re.sub(r"[0-9a-f]{20,}|anim[0-9a-f]+", "ID", s)
 print("equal after masking random ids:", norm(a) == norm(b))
 print("contains the animation script:", "Animation" in a, "| frames embedded:", a.count("data:image/png;base64"))
 PYEOF
-./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh/practice_run.html" "$H/practice_run.html"`
+./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh/practice_run.html" "$H/practice_run.html"
+```
 ```
 sizes: 745382 745382
 (4779, 'imation">\n  <img id="[REDACTED]', 'imation">\n  <img id="[REDACTED]')
@@ -8895,13 +9129,16 @@ if __name__ == "__main__":
     print("words in text and captions:", words)
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
 import pymupdf as fitz
 d = fitz.open('report_est.pdf')
 for i, p in enumerate(d):
     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
 print(len(d), 'pages rendered')
-"`
+"
+```
 ```
 Exit code 1
 Traceback (most recent call last):
@@ -8916,13 +9153,16 @@ Traceback (most recent call last):
     raise EmptyFileError(f'Cannot open empty file: {filename=}.')
 pymupdf.EmptyFileError: Cannot open empty file: filename='report_est.pdf'.
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/last_bottom = filled.y1/last_bottom = filled[3]/' report_build.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/last_bottom = filled.y1/last_bottom = filled[3]/' report_build.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
 import pymupdf as fitz
 d = fitz.open('report_est.pdf')
 for i, p in enumerate(d):
     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
 print(len(d), 'pages rendered')
-"`
+"
+```
 ```
 pages: 2; last page content ends at 93% of its usable height
 words in text and captions: 904
@@ -8932,7 +9172,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p2.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -8947,14 +9189,17 @@ swap('width="385"', 'width="331"')
 open(p, "w", encoding="utf-8").write(s)
 print("trimmed")
 PYEOF
-./venv/Scripts/python.exe -I trim.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+./venv/Scripts/python.exe -I trim.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4
+```
 ```
 trimmed
 pages: 2; last page content ends at 89% of its usable height
 words in text and captions: 897
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim2.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -8985,14 +9230,17 @@ swap('width="331"', 'width="310"')
 open(p, "w", encoding="utf-8").write(s)
 print("trimmed")
 PYEOF
-./venv/Scripts/python.exe -I trim2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+./venv/Scripts/python.exe -I trim2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4
+```
 ```
 trimmed
 pages: 2; last page content ends at 85% of its usable height
 words in text and captions: 880
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim3.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim3.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -9014,7 +9262,8 @@ for i, p in enumerate(d):
     t = p.get_text()
     print('page', i+1, '| has C1:', 'C1' in t, '| has E3:', 'E3' in t, '| has Table 1 caption:', 'Table 1:' in t, '| has AI use:', 'AI use' in t)
     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-"`
+"
+```
 ```
 ok
 pages: 2; last page content ends at 80% of its usable height
@@ -9023,7 +9272,9 @@ page 1 | has C1: True | has E3: False | has Table 1 caption: False | has AI use:
 page 2 | has C1: False | has E3: True | has Table 1 caption: True | has AI use: True
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 old = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
@@ -9047,7 +9298,8 @@ for i, p in enumerate(d):
     t = p.get_text()
     print('page', i+1, '| C1:', 'C1' in t, '| E3:', 'E3' in t, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t)
     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-"`
+"
+```
 ```
 reordered
 pages: 2; last page content ends at 94% of its usable height
@@ -9056,7 +9308,9 @@ page 1 | C1: True | E3: True | Table 1 caption: True | Fig1 caption: False | Fig
 page 2 | C1: True | E3: True | Table 1 caption: False | Fig1 caption: True | Fig2 caption: True | AI use: True
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder2.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 new_block = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
@@ -9077,7 +9331,8 @@ for i, p in enumerate(d):
     t = p.get_text()
     print('page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t, '| 3. Evidence:', '3. Evidence' in t, '| 4. Decision:', '4. Decision' in t)
     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-"`
+"
+```
 ```
 ok
 pages: 2; last page content ends at 89% of its usable height
@@ -9089,7 +9344,7 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p2.png`
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note.py`
-```
+````
 import report_build as rb
 
 P, HEAD, ROWS = rb.P, rb.HEAD, rb.ROWS
@@ -9244,8 +9499,10 @@ out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homew
 open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
 print("written", len(NOTE), "chars")
 
-```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=full-iso CSCI4521_HW2.ipynb submission.csv practice_run.html figures/ | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; "$SC/venv/Scripts/python.exe" -I - <<'PYEOF'
+````
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=full-iso CSCI4521_HW2.ipynb submission.csv practice_run.html figures/ | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; "$SC/venv/Scripts/python.exe" -I - <<'PYEOF'
 import nbformat
 nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
 print("kernelspec:", nb.metadata.get("kernelspec"), "| language_info:", nb.metadata.get("language_info", {}).get("version"))
@@ -9264,7 +9521,8 @@ for i, c in enumerate(nb.cells):
         print("checks cell", i, "printed 'all checks passed'")
     if c.cell_type == "code" and "python " in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") and "numpy" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
         print([o["text"].splitlines()[0] for o in c.outputs if o.output_type == "stream"][0])
-PYEOF`
+PYEOF
+```
 ```
 -rw-r--r-- 1 anant 197609 1411429 2026-10-27 20:54:02.586764100 -0500 CSCI4521_HW2.ipynb
 -rw-r--r-- 1 anant 197609  755128 2026-10-27 20:53:26.605168200 -0500 practice_run.html
@@ -9279,7 +9537,10 @@ checks cell 18 printed 'all checks passed'
 python 3.12.14 | numpy 2.5.3 | pandas 3.0.6 | scikit-learn 1.9.1 | matplotlib 3.11.2
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; echo "== compare the user's 3.12 run with my clean-directory 3.14 run"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$SC/fresh/$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "== course env location"; ls /c/Users/anant/miniconda3/envs/ 2>&1; find /c/Users/anant -maxdepth 5 -type d -name "csci-4521" 2>/dev/null | head; find /c/Users/anant/miniconda3/envs -maxdepth 2 -name python.exe 2>/dev/null | head`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; echo "== compare the user's 3.12 run with my clean-directory 3.14 run"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$SC/fresh/$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "== course env location"; ls /c/Users/anant/miniconda3/envs/ 2>&1; find /c/Users/anant -maxdepth 5 -type d -name "csci-4521" 2>/dev/null | head; find /c/Users/anant/miniconda3/envs -maxdepth 2 -name python.exe 2>/dev/null | head
+```
 ```
 == compare the user's 3.12 run with my clean-directory 3.14 run
 IDENTICAL  submission.csv
@@ -9290,7 +9551,10 @@ IDENTICAL  figures/fig2_deploy.png
 == course env location
 /c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521
 ```
-- `Bash` -- `cat "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/kernel.json"; echo; ls "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/"`
+- `Bash`
+```bash
+cat "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/kernel.json"; echo; ls "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/"
+```
 ```
 {
  "argv": [
@@ -9316,7 +9580,9 @@ logo-32x32.png
 logo-64x64.png
 logo-svg.svg
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 
@@ -9450,7 +9716,8 @@ s = s.replace(old3, old3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max()
 open(p, "w", encoding="utf-8").write(s)
 print("tests added")
 PYEOF
-./venv/Scripts/python.exe -I addtests.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+./venv/Scripts/python.exe -I addtests.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"
+```
 ```
 Exit code 1
   File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\addtests.py", line 64
@@ -9578,7 +9845,9 @@ print("pipeline checks passed")
 ''')
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests2.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 
@@ -9594,23 +9863,29 @@ s = s.replace(a3, a3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n'
 open(p, "w", encoding="utf-8").write(s)
 print("tests added")
 PYEOF
-./venv/Scripts/python.exe -I addtests2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+./venv/Scripts/python.exe -I addtests2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"
+```
 ```
 tests added
 builder syntax ok
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; ls "$CE" && "$CE" -c "
+- `Bash`
+```bash
+CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; ls "$CE" && "$CE" -c "
 import sys, numpy, pandas, sklearn, matplotlib, IPython
 print(sys.version.split()[0], numpy.__version__, pandas.__version__, sklearn.__version__, matplotlib.__version__)
 import nbformat, nbconvert, jupyter_client; print('nbformat', nbformat.__version__, 'nbconvert', nbconvert.__version__)
-" 2>&1 | tail -3`
+" 2>&1 | tail -3
+```
 ```
 D:/Apps/Miniconda/envs/csci-4521/python.exe
 3.12.14 2.5.3 3.0.6 1.9.1 3.11.2
 nbformat 5.11.1 nbconvert 7.17.1
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert|AssertionError" ; "$CE" -I - <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert|AssertionError" ; "$CE" -I - <<'PYEOF'
 import nbformat
 nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
 errs = [(i, o.ename, o.evalue) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
@@ -9620,7 +9895,8 @@ for i, c in enumerate(nb.cells):
     txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
     for line in txt.splitlines():
         if "passed" in line or "equals the lecture" in line or "sklearn" in line: print(f"cell {i}: {line}")
-PYEOF`
+PYEOF
+```
 ```
 wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh2/CSCI4521_HW2.ipynb 45 cells
 Traceback (most recent call last):
@@ -9645,7 +9921,9 @@ assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5
 cells: 45 | errors: []
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > dbg.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > dbg.py <<'PYEOF'
 import numpy as np
 def sq_dists(A, B):
     d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
@@ -9678,7 +9956,8 @@ print("n_empty", n_empty); print("C_new\n", C_new); print("C_s\n", C_s)
 print("argsort(-d2):", np.argsort(-d2min_s), "| argmax:", d2min_s.argmax())
 print("first two rows equal:", np.allclose(C_new[:2], C_s[:2]), "| re-seed equal:", np.allclose(C_new[2], X_s[d2min_s.argmax()]))
 PYEOF
-D:/Apps/Miniconda/envs/csci-4521/python.exe dbg.py`
+D:/Apps/Miniconda/envs/csci-4521/python.exe dbg.py
+```
 ```
 d2min: [1. 1. 5. 5.]
 n_empty 1
@@ -9694,7 +9973,9 @@ argsort(-d2): [3 2 1 0] | argmax: 2
 first two rows equal: True | re-seed equal: False
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixstable.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixstable.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 old = '        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]'
@@ -9716,7 +9997,8 @@ for i, c in enumerate(nb.cells):
     for line in txt.splitlines():
         if "passed" in line or "equals the lecture" in line: print(f"cell {i}: {line}")
 PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to user's earlier run: $f" || echo "DIFFERS: $f"; done`
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to user's earlier run: $f" || echo "DIFFERS: $f"; done
+```
 ```
 fixed
 wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh2/CSCI4521_HW2.ipynb 45 cells
@@ -9734,7 +10016,9 @@ IDENTICAL to user's earlier run: figures/fig1_pca.png
 IDENTICAL to user's earlier run: figures/fig2_deploy.png
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q coverage 2>&1 | grep -v notice; cat > covrun.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q coverage 2>&1 | grep -v notice; cat > covrun.py <<'PYEOF'
 import os, sys, ast, io, contextlib
 import nbformat, coverage
 
@@ -9790,7 +10074,8 @@ if miss:
     for n in miss:
         print(f"  {n}: {lines[n - 1].strip()[:110]}")
 PYEOF
-echo "######## tests only (starter + setup + methods + all check cells, before any experiment)"; cd fresh2 && ../venv/Scripts/python.exe -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | tail -40`
+echo "######## tests only (starter + setup + methods + all check cells, before any experiment)"; cd fresh2 && ../venv/Scripts/python.exe -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | tail -40
+```
 ```
 ######## tests only (starter + setup + methods + all check cells, before any experiment)
 Already on 'main'
@@ -9817,7 +10102,9 @@ check_nonincreasing              2     2
 knn_reference                    9     9
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > covbranch.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > covbranch.py <<'PYEOF'
 import os, sys, io, json, contextlib
 import nbformat, coverage
 
@@ -9860,7 +10147,8 @@ for src, dst in br_miss:
 for n in miss_mine:
     print(f"   uncovered line {n}: {lines[n - 1].strip()[:100]}")
 PYEOF
-cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch"`
+cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch"
+```
 ```
 ######## TESTS ONLY (line + branch)
 Traceback (most recent call last):
@@ -9883,7 +10171,10 @@ Traceback (most recent call last):
 TypeError: Coverage.json_report() got an unexpected keyword argument 'quiet'
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/cov.json_report(outfile="cov.json", include=\["cov_script.py"\], quiet=True)/cov.json_report(outfile="cov.json", include=["cov_script.py"])/' covbranch.py && cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/cov.json_report(outfile="cov.json", include=\["cov_script.py"\], quiet=True)/cov.json_report(outfile="cov.json", include=["cov_script.py"])/' covbranch.py && cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"
+```
 ```
 ######## TESTS ONLY (line + branch)
 lines: 231/231
@@ -9959,7 +10250,9 @@ for name, (pred_t, expected) in cases.items():
     print(f"{name}: drawn ({result_t['status']})")
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch3.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch3.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 
@@ -9989,7 +10282,8 @@ for i, c in enumerate(nb.cells):
     for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
         if "passed" in line or "drawn" in line: print(f"cell {i}: {line}")
 PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to earlier run: $f" || echo "DIFFERS: $f"; done`
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to earlier run: $f" || echo "DIFFERS: $f"; done
+```
 ```
 patched
 builder syntax ok
@@ -10008,7 +10302,10 @@ IDENTICAL to earlier run: figures/fig1_pca.png
 IDENTICAL to earlier run: figures/fig2_deploy.png
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && echo "######## TESTS ONLY, before any experiment (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## per-function (tests only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && echo "######## TESTS ONLY, before any experiment (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## per-function (tests only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"
+```
 ```
 ######## TESTS ONLY, before any experiment (line + branch)
 lines: 233/233
@@ -10041,7 +10338,9 @@ check_nonincreasing              2     2
 knn_reference                    9     9
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > mutate.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > mutate.py <<'PYEOF'
 import os, io, sys, contextlib, warnings
 warnings.filterwarnings("ignore")
 os.environ["MPLBACKEND"] = "Agg"
@@ -10083,7 +10382,8 @@ for name, old, new in MUTANTS:
     print(f"{status:28s} {name}")
 print(f"\nmutants killed: {killed}/{len(MUTANTS)}")
 PYEOF
-cd fresh2 && ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+cd fresh2 && ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"
+```
 ```
 baseline (no mutation): passes
 killed by AssertionError     zscore_fit: drop the constant-sensor guard
@@ -10104,7 +10404,9 @@ killed by AssertionError     metrics: sand recall reads the wrong class
 mutants killed: 13/14
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch4.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch4.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 old = "{km['empty_events']} empty clusters\")\n"
@@ -10118,7 +10420,8 @@ open(p, "w", encoding="utf-8").write(s)
 print("patched")
 PYEOF
 ./venv/Scripts/python.exe -I patch4.py
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; echo "--- coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "--- mutation (tests-only script)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; echo "--- coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "--- mutation (tests-only script)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"
+```
 ```
 patched
 [NbConvertApp] Writing 1398559 bytes to CSCI4521_HW2.ipynb
@@ -10145,7 +10448,9 @@ killed by AssertionError     metrics: sand recall reads the wrong class
 mutants killed: 14/14
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
 import nbformat
 p = "CSCI4521_HW2.ipynb"
 nb = nbformat.read(p, as_version=4)
@@ -10154,7 +10459,8 @@ print("kernel used:", nb.metadata["kernelspec"], "| python", nb.metadata["langua
 nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
 nbformat.write(nb, p)
 PYEOF
-cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL to the earlier verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL to the earlier verified run"; ls -la CSCI4521_HW2.ipynb submission.csv practice_run.html figures | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"`
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL to the earlier verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL to the earlier verified run"; ls -la CSCI4521_HW2.ipynb submission.csv practice_run.html figures | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"
+```
 ```
 wrote CSCI4521_HW2.ipynb 46 cells
 [NbConvertApp] Writing 1398205 bytes to CSCI4521_HW2.ipynb
@@ -10169,7 +10475,9 @@ hw2_configs.csv IDENTICAL to the earlier verified run
 -rw-r--r-- 1 anant 197609    952 Oct 27 21:03 hw2_configs.csv
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N"; echo "== pyflakes (starter-provided names filtered)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(none above = clean)"; echo "== pycodestyle"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=125 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head; echo "(none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N"; echo "== pyflakes (starter-provided names filtered)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(none above = clean)"; echo "== pycodestyle"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=125 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head; echo "(none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
 import nbformat
 nb = nbformat.read(r"$N", as_version=4)
 start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
@@ -10180,7 +10488,8 @@ counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
 print("cells", len(nb.cells), "| my prose words", words, "| error or stderr cells", errs, "| dash cells", dash)
 print("execution counts strictly increasing from 1:", counts[0] == 1 and all(a < b for a, b in zip(counts, counts[1:])), "| last", counts[-1])
 print("kernelspec:", nb.metadata["kernelspec"]["name"], "| python", nb.metadata["language_info"]["version"])
-PYEOF`
+PYEOF
+```
 ```
 code cells: 27 lines: 734
 == pyflakes (starter-provided names filtered)
@@ -10193,7 +10502,9 @@ execution counts strictly increasing from 1: True | last 32
 kernelspec: python3 | python 3.12.14
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch5.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch5.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 old = '"""lecture-style loop: distances for one query, take the k nearest, vote, a tied vote goes to the nearest tied neighbor"""'
@@ -10210,7 +10521,8 @@ nb = nbformat.read(p, as_version=4)
 nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
 nbformat.write(nb, p)
 PYEOF
-cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle at 120 columns: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle at 120 columns: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"
+```
 ```
 ok
 [NbConvertApp] Writing 1398272 bytes to CSCI4521_HW2.ipynb
@@ -10223,13 +10535,18 @@ mycode.py:665:121: E501 line too long (124 > 120 characters)
 (pyflakes: none above = clean)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n '363p;665p' mycode.py`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n '363p;665p' mycode.py
+```
 ```
 assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)
 fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch6.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch6.py <<'PYEOF'
 p = "build_nb3.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -10261,7 +10578,8 @@ for i, c in enumerate(nb.cells):
     if c.cell_type != "code": continue
     for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
         if "passed" in line or "drawn" in line: print(f"  cell {i}: {line}")
-PYEOF`
+PYEOF
+```
 ```
 ok
 [NbConvertApp] Writing 1398407 bytes to CSCI4521_HW2.ipynb
@@ -10279,7 +10597,10 @@ cells 46 | error/stderr cells [] | in-order run 1.. 32 True
   cell 38: blocked goal: drawn (NO ROUTE)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "######## coverage of the FINAL notebook in the Homework folder"; echo "tests only:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "whole notebook:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## mutation test against the FINAL notebook"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch" | tail -4`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "######## coverage of the FINAL notebook in the Homework folder"; echo "tests only:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "whole notebook:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## mutation test against the FINAL notebook"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch" | tail -4
+```
 ```
 ######## coverage of the FINAL notebook in the Homework folder
 tests only:
@@ -10311,7 +10632,9 @@ Tests run, all on the final file in the user's `csci-4521` env (Python 3.12.14, 
 Not tested: Word itself, the Gradescope upload, and a Colab run.
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchnote.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchnote.py <<'PYEOF'
 p = "gen_note.py"
 s = open(p, encoding="utf-8").read()
 a = s.index("Tests run:\n")
@@ -10326,7 +10649,8 @@ swap("- Figures were regenerated at print size", "- The deployment figure is a f
 open(p, "w", encoding="utf-8").write(s)
 print("gen_note patched")
 PYEOF
-./venv/Scripts/python.exe -I patchnote.py && ./venv/Scripts/python.exe -I gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; grep -c "BUNDLE_OVERRIDE\|personalized" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+./venv/Scripts/python.exe -I patchnote.py && ./venv/Scripts/python.exe -I gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; grep -c "BUNDLE_OVERRIDE\|personalized" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"
+```
 ```
 gen_note patched
 Traceback (most recent call last):
@@ -10340,7 +10664,10 @@ grep: : No such file or directory
 FIT: 1/2 = 50.0%
   20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale mentions (BUNDLE_OVERRIDE|personalized): $(grep -c 'BUNDLE_OVERRIDE\|personalized' "$F")"; grep -n "personalized\|BUNDLE_OVERRIDE" "$F" | cut -c1-160; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale mentions (BUNDLE_OVERRIDE|personalized): $(grep -c 'BUNDLE_OVERRIDE\|personalized' "$F")"; grep -n "personalized\|BUNDLE_OVERRIDE" "$F" | cut -c1-160; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"
+```
 ```
 written 22536 chars
 16:## Overview
@@ -10391,7 +10718,10 @@ The notebook file is final and clean. Figure 2 is regenerated from the new selec
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cat figures/hw2_configs.csv | cut -d, -f1-12; echo; echo "assignment asks for: >=3 configs showing (1) effect of normalization (2) a PCA representation (3) cluster-based vs kNN; record dims, val accuracy, macro F1, sand recall, practice outcome"`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cat figures/hw2_configs.csv | cut -d, -f1-12; echo; echo "assignment asks for: >=3 configs showing (1) effect of normalization (2) a PCA representation (3) cluster-based vs kNN; record dims, val accuracy, macro F1, sand recall, practice outcome"
+```
 ```
 config,scaling,representation,model,dims,val_accuracy,macro_f1,sand_recall,sand_found,practice,steps,cost
 C1,raw,8 sensors,k-means,8,0.7,0.704,0.5,5/10,ROVER STUCK IN SAND,20,92.2
@@ -11052,7 +11382,10 @@ nbformat.write(nb, OUT)
 print("wrote", OUT, len(cells), "cells")
 
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh3" && mkdir -p "$SC/fresh3" && cd "$SC/fresh3" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh3/CSCI4521_HW2.ipynb" && ( time "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ) 2>&1 | grep -E "Error|Traceback|Writing|Assertion|real"; "$CE" -I "$SC/audit.py" CSCI4521_HW2.ipynb | head -60; echo; cat figures/hw2_configs.csv`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh3" && mkdir -p "$SC/fresh3" && cd "$SC/fresh3" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh3/CSCI4521_HW2.ipynb" && ( time "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ) 2>&1 | grep -E "Error|Traceback|Writing|Assertion|real"; "$CE" -I "$SC/audit.py" CSCI4521_HW2.ipynb | head -60; echo; cat figures/hw2_configs.csv
+```
 ```
 wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh3/CSCI4521_HW2.ipynb 39 cells
 [NbConvertApp] Writing 1328230 bytes to CSCI4521_HW2.ipynb
@@ -11107,7 +11440,10 @@ C5,z-score,PCA 95%,k-means,3,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8
 C6,z-score,PCA 95%,1-NN,3,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py fresh3/CSCI4521_HW2.ipynb 17 38 2>&1 | grep -v "^\[IPK" | cut -c1-200`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py fresh3/CSCI4521_HW2.ipynb 17 38 2>&1 | grep -v "^\[IPK" | cut -c1-200
+```
 ```
 === cell 17
 k-means (z-score): converged in 5 iterations, 0 empty clusters
@@ -11196,7 +11532,10 @@ python 3.12.14 | numpy 2.5.3 | pandas 3.0.6 | scikit-learn 1.9.1 | matplotlib 3.
 components for 95% variance: 3 | selected C5 | practice: MISSION SUCCESS
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="CSCI4521_HW2.ipynb"; echo "######## coverage: check cells only (everything before the experiments)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "######## coverage: whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "######## per function (checks only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo "######## mutation test"; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="CSCI4521_HW2.ipynb"; echo "######## coverage: check cells only (everything before the experiments)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "######## coverage: whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "######## per function (checks only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo "######## mutation test"; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"
+```
 ```
 ######## coverage: check cells only (everything before the experiments)
 lines: 207/207
@@ -11243,7 +11582,9 @@ killed by AssertionError     metrics: sand recall reads the wrong class
 mutants killed: 14/14
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
 import nbformat
 p = "CSCI4521_HW2.ipynb"
 nb = nbformat.read(p, as_version=4)
@@ -11255,7 +11596,8 @@ start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My sol
 words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
 print("cells", len(nb.cells), "| error cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words)
 PYEOF
-cmp -s submission.csv "$SC/fresh3/submission.csv" && echo "in-place submission.csv == clean-directory run"; cmp -s figures/hw2_configs.csv "$SC/fresh3/figures/hw2_configs.csv" && echo "in-place table == clean-directory run"; cmp -s figures/fig1_pca.png "$SC/fresh3/figures/fig1_pca.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/fresh3/figures/fig2_deploy.png" && echo "fig2 identical"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
+cmp -s submission.csv "$SC/fresh3/submission.csv" && echo "in-place submission.csv == clean-directory run"; cmp -s figures/hw2_configs.csv "$SC/fresh3/figures/hw2_configs.csv" && echo "in-place table == clean-directory run"; cmp -s figures/fig1_pca.png "$SC/fresh3/figures/fig1_pca.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/fresh3/figures/fig2_deploy.png" && echo "fig2 identical"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"
+```
 ```
 [NbConvertApp] Writing 1328148 bytes to CSCI4521_HW2.ipynb
 cells 39 | error cells [] | in-order 1.. 25 True | my prose words 417
@@ -11269,7 +11611,9 @@ mycode.py:180:121: E501 line too long (123 > 120 characters)
 (pyflakes: none above = clean)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n 180p mycode.py && cat > patch7.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n 180p mycode.py && cat > patch7.py <<'PYEOF'
 p = "build_nb4.py"
 s = open(p, encoding="utf-8").read()
 old = '"""lecture 1.1 loop for k neighbors: sort one query\'s distances, vote, a tied vote goes to the nearest tied neighbor"""'
@@ -11286,7 +11630,8 @@ nb = nbformat.read(p, as_version=4)
 nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
 nbformat.write(nb, p)
 PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to verified run: $f"; done; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"`
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to verified run: $f"; done; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"
+```
 ```
     """lecture 1.1 loop for k neighbors: sort one query's distances, vote, a tied vote goes to the nearest tied neighbor"""
 ok
@@ -11422,7 +11767,9 @@ P["ai"] = ("AI use: allowed in this course, and I used it heavily. Claude Code (
 
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchrep.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchrep.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 a = s.index("P = {}")
@@ -11441,7 +11788,8 @@ for i, p in enumerate(d):
     t = p.get_text()
     print('  page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Figure 1 caption:', 'Figure 1:' in t, '| Figure 2 caption:', 'Figure 2:' in t, '| 5. Limitations:', '5. Limitations' in t, '| AI use:', 'AI use' in t)
     p.get_pixmap(dpi=70).save('est${b}_p%d.png' % (i+1))
-"; done`
+"; done
+```
 ```
 patched
 == page break before Table 1: 0
@@ -11456,14 +11804,17 @@ words in text and captions: 767
   page 2 | Table 1 caption: True | Figure 1 caption: False | Figure 2 caption: True | 5. Limitations: True | AI use: True
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/font-size: 10.5pt; line-height: 1.15;/font-size: 11pt; line-height: 1.15;/; s/width="310"/width="385"/; s/p.cap { text-align: center; font-size: 9.5pt;/p.cap { text-align: center; font-size: 10pt;/; s/table { border-collapse: collapse; font-size: 8.5pt;/table { border-collapse: collapse; font-size: 9pt;/' report_build.py && BREAK=0 ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3; ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/font-size: 10.5pt; line-height: 1.15;/font-size: 11pt; line-height: 1.15;/; s/width="310"/width="385"/; s/p.cap { text-align: center; font-size: 9.5pt;/p.cap { text-align: center; font-size: 10pt;/; s/table { border-collapse: collapse; font-size: 8.5pt;/table { border-collapse: collapse; font-size: 9pt;/' report_build.py && BREAK=0 ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3; ./venv/Scripts/python.exe -I -c "
 import pymupdf as fitz
 d = fitz.open('report_est.pdf')
 for i, p in enumerate(d):
     t = p.get_text()
     print('  page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 cap:', 'Figure 1:' in t, '| Fig2 cap:', 'Figure 2:' in t, '| Limitations:', '5. Limitations' in t, '| AI use:', 'AI use' in t)
     p.get_pixmap(dpi=70).save('est_p%d.png' % (i+1))
-"`
+"
+```
 ```
 pages: 2; last page content ends at 78% of its usable height
 words in text and captions: 767
@@ -11474,7 +11825,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p2.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchorder.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchorder.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 a = s.index('    html = f"""')
@@ -11505,7 +11858,8 @@ for i, p in enumerate(d):
 split = sum(1 for r in rows_by_page if r) > 1
 print("  table split across pages:", split)
 PYEOF
-for o in F T; do for b in 0; do echo "== order $o"; ORDER=$o BREAK=$b ./venv/Scripts/python.exe report_build.py report_est_$o.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py report_est_$o.pdf; done; done`
+for o in F T; do for b in 0; do echo "== order $o"; ORDER=$o BREAK=$b ./venv/Scripts/python.exe report_build.py report_est_$o.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py report_est_$o.pdf; done; done
+```
 ```
 patched
 == order F
@@ -11522,7 +11876,10 @@ words in text and captions: 767
   table split across pages: False
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== A: 11 pt, page break before Table 1"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rA.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rA.pdf; cp report_build.py report_build_11.py; sed -i 's/font-size: 11pt; line-height: 1.15;/font-size: 10.5pt; line-height: 1.15;/' report_build.py; echo; echo "== B: 10.5 pt, no page break, Figure 2 at full size"; ORDER=F BREAK=0 ./venv/Scripts/python.exe report_build.py rB.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rB.pdf`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== A: 11 pt, page break before Table 1"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rA.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rA.pdf; cp report_build.py report_build_11.py; sed -i 's/font-size: 11pt; line-height: 1.15;/font-size: 10.5pt; line-height: 1.15;/' report_build.py; echo; echo "== B: 10.5 pt, no page break, Figure 2 at full size"; ORDER=F BREAK=0 ./venv/Scripts/python.exe report_build.py rB.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rB.pdf
+```
 ```
 == A: 11 pt, page break before Table 1
 pages: 2; last page content ends at 85% of its usable height
@@ -11538,11 +11895,14 @@ pages: 2; last page content ends at 71% of its usable height
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 [This command modified 1 file you've previously read: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\report_build.py. Call Read before editing.]
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== C: 10.5 pt, page break before Table 1, Figure 2 at full size"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rC.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rC.pdf; ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== C: 10.5 pt, page break before Table 1, Figure 2 at full size"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rC.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rC.pdf; ./venv/Scripts/python.exe -I -c "
 import pymupdf as fitz
 d = fitz.open('rC.pdf')
 for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rC_p%d.png' % (i+1))
-"`
+"
+```
 ```
 == C: 10.5 pt, page break before Table 1, Figure 2 at full size
 pages: 2; last page content ends at 83% of its usable height
@@ -11551,7 +11911,9 @@ pages: 2; last page content ends at 83% of its usable height
   table split across pages: False
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cp report_build_11.py report_build.py && sed -i 's/BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""/BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"/' report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf 2>&1 | tail -2 && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && cat > factcheck.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cp report_build_11.py report_build.py && sed -i 's/BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""/BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"/' report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf 2>&1 | tail -2 && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && cat > factcheck.py <<'PYEOF'
 """every number or phrase the report states must be backed by the executed notebook output"""
 import re, io, json
 import pandas as pd, nbformat
@@ -11621,7 +11983,8 @@ for needle in ["0.700", "0.933", "1.000", "54 steps", "70.8", "(y=13, x=4)", "92
     check(f"report contains {needle}", needle in text)
 print(f"\n{len(fails)} failures")
 PYEOF
-./venv/Scripts/python.exe factcheck.py 2>&1 | grep -v "^$"`
+./venv/Scripts/python.exe factcheck.py 2>&1 | grep -v "^$"
+```
 ```
 pages: 2; last page content ends at 85% of its usable height
 words in text and captions: 767
@@ -11674,7 +12037,7 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 [This command modified 1 file you've previously read: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\report_build.py. Call Read before editing.]
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note2.py`
-```
+````
 import report_build as rb
 
 P, HEAD, ROWS = rb.P, rb.HEAD, rb.ROWS
@@ -11839,8 +12202,11 @@ out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homew
 open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
 print("written", len(NOTE), "chars")
 
+````
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; echo "== fact-check"; cd .. && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; echo "== fact-check"; cd .. && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
 ```
 == coverage, check cells only
 lines: 207/207
@@ -11856,7 +12222,10 @@ mutants killed: 14/14
 0 failures
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note2.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale terms (E1|E3|3-NN|stability|mission shift|20 of 20|PCA 2): $(grep -c 'E1\|E3\|3-NN\|15 of 20\|PCA with 2 components' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la | grep -vE "\.pdf|\.csv$|hwTemplate|README|\.tex" ; ls figures`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note2.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale terms (E1|E3|3-NN|stability|mission shift|20 of 20|PCA 2): $(grep -c 'E1\|E3\|3-NN\|15 of 20\|PCA with 2 components' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la | grep -vE "\.pdf|\.csv$|hwTemplate|README|\.tex" ; ls figures
+```
 ```
 written 22429 chars
 16:## Overview
@@ -11959,7 +12328,9 @@ Do not upload the `rover-rescue-download/` folder; it contains the dataset and t
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad" && echo "=== handout (homework 2.pdf): page-limit wording ==="; ./hw2/venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad" && echo "=== handout (homework 2.pdf): page-limit wording ==="; ./hw2/venv/Scripts/python.exe -I -c "
 import pymupdf as fitz, re
 d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf')
 t = ' '.join(p.get_text() for p in d)
@@ -11969,7 +12340,8 @@ for m in re.finditer(r'[^.]*(two-page|two pages|extra plots)[^.]*\.', t): print(
 import pymupdf as fitz
 d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf')
 print('pages:', len(d)); d[0].get_pixmap(dpi=75).save('hw2/ex_p1.png'); d[5].get_pixmap(dpi=75).save('hw2/ex_p6.png')
-"`
+"
+```
 ```
 === handout (homework 2.pdf): page-limit wording ===
 - Full implementation details and extra plots belong in your code/evidence, not the two-page report.
@@ -11982,7 +12354,10 @@ pages: 8
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ex_p1.png`
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && head -c 1800 practice_run.html | head -40; echo; echo "-----structure"; grep -o '<div class="[^"]*"\|<div id="[^"]*"\|<input[^>]*type="[^"]*"\|<img id="[^"]*"\|</body>\|<body\|<html\|<script' practice_run.html | sort | uniq -c | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && head -c 1800 practice_run.html | head -40; echo; echo "-----structure"; grep -o '<div class="[^"]*"\|<div id="[^"]*"\|<input[^>]*type="[^"]*"\|<img id="[^"]*"\|</body>\|<body\|<html\|<script' practice_run.html | sort | uniq -c | head -30
+```
 ```
 <link rel="stylesheet"
 href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -12034,7 +12409,9 @@ href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.cs
       2 <script
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ./../../../../../../../Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ./../../../../../../../Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe -I -c "
 import re
 s = open('practice_run.html', encoding='utf-8').read()
 i = s.index('<div class=\"animation\"')
@@ -12042,13 +12419,16 @@ tail = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', 'data:...', s[i:])
 tail = re.sub(r'\[\s*(\"data:\.\.\.\",?\s*)+\]', '[frames...]', tail)
 print(tail[:3500])
 print('--- style tags:', s.count('<style'), '| width attrs on img:', re.findall(r'<img[^>]*>', s)[:1])
-" 2>&1 | head -80; ls "D:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files/Google/Chrome/Application/chrome.exe" 2>&1 | grep -v "No such"`
+" 2>&1 | head -80; ls "D:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files/Google/Chrome/Application/chrome.exe" 2>&1 | grep -v "No such"
+```
 ```
 /usr/bin/bash: line 1: ./../../../../../../../Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/venv/Scripts/python.exe: No such file or directory
 C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; cd "$SC" && cat > htmlshape.py <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; cd "$SC" && cat > htmlshape.py <<'PYEOF'
 import re
 s = open("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html", encoding="utf-8").read()
 i = s.index('<div class="animation"')
@@ -12056,7 +12436,8 @@ tail = re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "data:...", s[i:])
 print(tail[:3200])
 print("--- style tags:", s.count("<style"), "| img tags:", re.findall(r"<img[^>]*>", s)[:1])
 PYEOF
-./venv/Scripts/python.exe -I htmlshape.py | head -70`
+./venv/Scripts/python.exe -I htmlshape.py | head -70
+```
 ```
 <div class="animation">
   <img id="[REDACTED]">
@@ -12114,7 +12495,9 @@ PYEOF
 --- style tags: 1 | img tags: ['<img id="[REDACTED]">']
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml.py <<'PYEOF'
 p = "build_nb4.py"
 s = open(p, encoding="utf-8").read()
 old = 'html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)\nPath("practice_run.html").write_text(html.data, encoding="utf-8")\ndisplay(html)\n'
@@ -12133,7 +12516,8 @@ s = s.replace(old, new)
 open(p, "w", encoding="utf-8").write(s)
 print("patched")
 PYEOF
-./venv/Scripts/python.exe -I patchhtml.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && sed -n "$(grep -n 'the simulator returns a bare fragment' build_nb4.py | cut -d: -f1),+7p" build_nb4.py`
+./venv/Scripts/python.exe -I patchhtml.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && sed -n "$(grep -n 'the simulator returns a bare fragment' build_nb4.py | cut -d: -f1),+7p" build_nb4.py
+```
 ```
 patched
 builder syntax ok
@@ -12162,7 +12546,9 @@ body { margin: 0; min-height: 100vh; display: flex; justify-content: center; ali
 Path("practice_run.html").write_text(page, encoding="utf-8")
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml2.py <<'PYEOF'
 p = "build_nb4.py"
 s = open(p, encoding="utf-8").read()
 a = s.index("# the simulator returns a bare fragment")
@@ -12172,7 +12558,8 @@ s = s[:a] + open("htmlblock.txt", encoding="utf-8").read() + s[b:]
 open(p, "w", encoding="utf-8").write(s)
 print("replaced")
 PYEOF
-./venv/Scripts/python.exe -I patchhtml2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; head -c 600 practice_run.html; echo; echo ...; tail -c 120 practice_run.html`
+./venv/Scripts/python.exe -I patchhtml2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; head -c 600 practice_run.html; echo; echo ...; tail -c 120 practice_run.html
+```
 ```
 replaced
 builder syntax ok
@@ -12202,7 +12589,9 @@ id, slider_id, 90.0,
 </body></html>
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cp "$H/practice_run.html" old_practice.html && for name in old new; do if [ $name = old ]; then SRC="$SC/old_practice.html"; else SRC="$SC/fresh4/practice_run.html"; fi; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,900 --virtual-time-budget=5000 --screenshot="$SC/shot_$name.png" "file:///$SRC" >/dev/null 2>&1; done; ls -la shot_*.png; cat > measure.py <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cp "$H/practice_run.html" old_practice.html && for name in old new; do if [ $name = old ]; then SRC="$SC/old_practice.html"; else SRC="$SC/fresh4/practice_run.html"; fi; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,900 --virtual-time-budget=5000 --screenshot="$SC/shot_$name.png" "file:///$SRC" >/dev/null 2>&1; done; ls -la shot_*.png; cat > measure.py <<'PYEOF'
 import sys
 from PIL import Image
 import numpy as np
@@ -12216,7 +12605,8 @@ for name in ("old", "new"):
     print(f"{name}: window {w}x{h} | content x {cols.min()}..{cols.max()} | left margin {left}px, right margin {right}px "
           f"| top margin {top}px, bottom margin {bottom}px | horizontally centered within 2px: {abs(left - right) <= 2}")
 PYEOF
-./venv/Scripts/python.exe -I measure.py`
+./venv/Scripts/python.exe -I measure.py
+```
 ```
 -rw-r--r-- 1 anant 197609 14939 Oct 27 21:33 shot_new.png
 -rw-r--r-- 1 anant 197609 15008 Oct 27 21:33 shot_old.png
@@ -12225,7 +12615,9 @@ new: window 1280x900 | content x 416..880 | left margin 416px, right margin 399p
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\shot_new.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml3.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml3.py <<'PYEOF'
 p = "htmlblock.txt"
 s = open(p, encoding="utf-8").read()
 old = ".animation { text-align: center; }\n"
@@ -12253,7 +12645,8 @@ for name in ("1280x900", "1920x1080", "800x700"):
     left, right = cols.min(), w - 1 - cols.max()
     print(f"window {w}x{h}: left margin {left}px, right margin {right}px, difference {abs(left - right)}px | top {rows.min()}px, bottom {h - 1 - rows.max()}px")
 PYEOF
-./venv/Scripts/python.exe -I measure2.py`
+./venv/Scripts/python.exe -I measure2.py
+```
 ```
 Exit code 1
 ok
@@ -12266,7 +12659,10 @@ Traceback (most recent call last):
     fp = builtins.open(filename, "rb")
 FileNotFoundError: [Errno 2] No such file or directory: 'shot_new_1280x900.png'
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; ls shot_* 2>&1; for pair in "1280 900" "1920 1080" "800 700"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ls shot_new_*; ./venv/Scripts/python.exe -I measure2.py`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; ls shot_* 2>&1; for pair in "1280 900" "1920 1080" "800 700"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ls shot_new_*; ./venv/Scripts/python.exe -I measure2.py
+```
 ```
 shot_new.png
 shot_old.png
@@ -12278,7 +12674,9 @@ window 1920x1080: left margin 728px, right margin 726px, difference 2px | top 25
 window 800x700: left margin 168px, right margin 166px, difference 2px | top 61px, bottom 11px
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml4.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml4.py <<'PYEOF'
 old = ".animation { text-align: center; }\n/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n.animation img { transform: translateX(-1.25%); }\n"
 new = (".animation { text-align: center; transform: translateY(-25px); }\n"
        "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
@@ -12289,7 +12687,8 @@ for p in ("build_nb4.py", "htmlblock.txt"):
     open(p, "w", encoding="utf-8").write(s.replace(old, new))
 print("ok")
 PYEOF
-./venv/Scripts/python.exe -I patchhtml4.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; sed -i 's/for name in ("1280x900", "1920x1080", "800x700"):/for name in ("1280x900", "1920x1080", "800x700", "1366x768"):/' measure2.py; ./venv/Scripts/python.exe -I measure2.py`
+./venv/Scripts/python.exe -I patchhtml4.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; sed -i 's/for name in ("1280x900", "1920x1080", "800x700"):/for name in ("1280x900", "1920x1080", "800x700", "1366x768"):/' measure2.py; ./venv/Scripts/python.exe -I measure2.py
+```
 ```
 Exit code 1
 ok
@@ -12302,7 +12701,10 @@ Traceback (most recent call last):
     fp = builtins.open(filename, "rb")
 FileNotFoundError: [Errno 2] No such file or directory: 'shot_new_1280x900.png'
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py
+```
 ```
 window 1280x900: left margin 408px, right margin 406px, difference 2px | top 136px, bottom 136px
 window 1920x1080: left margin 728px, right margin 726px, difference 2px | top 226px, bottom 226px
@@ -12311,7 +12713,9 @@ window 1366x768: left margin 451px, right margin 449px, difference 2px | top 70p
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\shot_new_1366x768.png`
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
 import nbformat
 p = "CSCI4521_HW2.ipynb"
 nb = nbformat.read(p, as_version=4)
@@ -12321,7 +12725,8 @@ errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.ou
 counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
 print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
 PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to the verified run: $f" || echo "DIFFERS: $f"; done; cmp -s practice_run.html "$SC/fresh4/practice_run.html" && echo "practice_run.html identical" || echo "practice_run.html differs (random element ids only expected)"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3 && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; cd .. && echo "== fact-check" && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to the verified run: $f" || echo "DIFFERS: $f"; done; cmp -s practice_run.html "$SC/fresh4/practice_run.html" && echo "practice_run.html identical" || echo "practice_run.html differs (random element ids only expected)"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3 && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; cd .. && echo "== fact-check" && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2
+```
 ```
 [NbConvertApp] Writing 1328882 bytes to CSCI4521_HW2.ipynb
 cells 39 | error/stderr cells [] | in-order 1.. 25 True
@@ -12346,7 +12751,10 @@ mutants killed: 14/14
 0 failures
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$H/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py; ./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh4/practice_run.html" "$H/practice_run.html" | tail -3`
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$H/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py; ./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh4/practice_run.html" "$H/practice_run.html" | tail -3
+```
 ```
 window 1280x900: left margin 408px, right margin 406px, difference 2px | top 136px, bottom 136px
 window 1920x1080: left margin 728px, right margin 726px, difference 2px | top 226px, bottom 226px
@@ -12357,7 +12765,10 @@ equal after masking random ids: True
 contains the animation script: True | frames embedded: 55
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=+%H:%M CSCI4521_HW2.ipynb practice_run.html submission.csv figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv | awk '{printf "%-9s %s  %s\n", $5, $6, $7}'; head -3 submission.csv; wc -l submission.csv`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=+%H:%M CSCI4521_HW2.ipynb practice_run.html submission.csv figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv | awk '{printf "%-9s %s  %s\n", $5, $6, $7}'; head -3 submission.csv; wc -l submission.csv
+```
 ```
 1344126   21:35  CSCI4521_HW2.ipynb
 228675    21:35  figures/fig1_pca.png
@@ -12372,7 +12783,7 @@ demo3,1,0,firm
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note3.py`
-```
+````
 import re
 import report_build as rb
 
@@ -12571,8 +12982,10 @@ out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homew
 open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
 print("written", len(NOTE), "chars")
 
-```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixcap.py <<'PYEOF'
+````
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixcap.py <<'PYEOF'
 p = "gen_note3.py"
 s = open(p, encoding="utf-8").read()
 old = " Start `Figure 1:` in bold if the example does the same, otherwise leave it plain."
@@ -12580,7 +12993,8 @@ assert s.count(old) == 1
 open(p, "w", encoding="utf-8").write(s.replace(old, ""))
 print("ok")
 PYEOF
-./venv/Scripts/python.exe -I fixcap.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+./venv/Scripts/python.exe -I fixcap.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"
+```
 ```
 ok
 written 24482 chars
@@ -12619,7 +13033,9 @@ FIT: 1/2 = 50.0%
   20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixhdr.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixhdr.py <<'PYEOF'
 p = "gen_note3.py"
 s = open(p, encoding="utf-8").read()
 old = "(put the two tab stops at the center and the right margin, like the example).\n"
@@ -12629,7 +13045,8 @@ new = ("(put the two tab stops at the center and the right margin, like the exam
 open(p, "w", encoding="utf-8").write(s.replace(old, new))
 print("ok")
 PYEOF
-./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png`
+./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png
+```
 ```
 ok
 written 24612 chars
@@ -12736,7 +13153,9 @@ The notebook (38 cells), `practice_run.html` and `submission.csv` are final, wit
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
 import nbformat, re
 nb = nbformat.read("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
 hits = 0
@@ -12747,7 +13166,8 @@ for i, c in enumerate(nb.cells):
             hits += 1; print(f"cell {i} ({c.cell_type}, {where}): ...{t[max(0, m.start()-40):m.end()+60]!r}")
 print("total hits:", hits)
 PYEOF
-echo; echo "=== other files in the Homework folder that could carry it ==="; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && grep -il "claude\|anthropic" submission.csv practice_run.html figures/hw2_configs.csv 2>/dev/null; echo "(none listed above = clean)"; echo; echo "=== vault note: mentions ==="; grep -n -i "\bAI\b\|claude" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | cut -c1-170`
+echo; echo "=== other files in the Homework folder that could carry it ==="; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && grep -il "claude\|anthropic" submission.csv practice_run.html figures/hw2_configs.csv 2>/dev/null; echo "(none listed above = clean)"; echo; echo "=== vault note: mentions ==="; grep -n -i "\bAI\b\|claude" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | cut -c1-170
+```
 ```
 === notebook in the Homework folder: cells that mention AI / Claude / Anthropic ===
 cell 38 (markdown, source): ...'### AI use\nAI use is allowed in this course and I used it heavily.'
@@ -12769,7 +13189,9 @@ total hits: 4
 193:- Open the PDF and check, in this order: exactly two pages; page 1 ends after section 3's second paragraph and page 2 starts with Table 1; Figure 1 and Figure 2 are s
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > rmai.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > rmai.py <<'PYEOF'
 p = "build_nb4.py"
 s = open(p, encoding="utf-8").read()
 a = s.index('md("""### AI use')
@@ -12781,7 +13203,8 @@ open(p, "w", encoding="utf-8").write(s)
 print("removed:", repr(block[:60]), "...")
 PYEOF
 ./venv/Scripts/python.exe -I rmai.py && ./venv/Scripts/python.exe -I -c "
-import ast; src = open('build_nb4.py', encoding='utf-8').read(); ast.parse(src); print('builder syntax ok'); print('mentions left in builder:', [w for w in ('Claude', 'Anthropic', 'AI use') if w in src])" && tail -12 build_nb4.py`
+import ast; src = open('build_nb4.py', encoding='utf-8').read(); ast.parse(src); print('builder syntax ok'); print('mentions left in builder:', [w for w in ('Claude', 'Anthropic', 'AI use') if w in src])" && tail -12 build_nb4.py
+```
 ```
 removed: 'md("""### AI use\nAI use is allowed in this course and I used' ...
 builder syntax ok
@@ -13157,7 +13580,9 @@ if __name__ == "__main__":
     print("words in text and captions:", len(all_text().split()))
 
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && cp figures/fig1_pca.png "$SC/prev_fig1.png" && cp figures/fig2_deploy.png "$SC/prev_fig2.png" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && cp figures/fig1_pca.png "$SC/prev_fig1.png" && cp figures/fig2_deploy.png "$SC/prev_fig2.png" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
 import nbformat, re
 p = "CSCI4521_HW2.ipynb"
 nb = nbformat.read(p, as_version=4)
@@ -13171,7 +13596,8 @@ ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text
 print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words)
 print("cells that mention AI, Claude or Anthropic:", ai, "| last cell:", repr(nb.cells[-1].source[:30]))
 PYEOF
-for f in submission.csv figures/hw2_configs.csv; do cmp -s "$f" "$SC/prev_${f##*/}" 2>/dev/null; done; cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv identical to the verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "results table identical"; cmp -s figures/fig1_pca.png "$SC/prev_fig1.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/prev_fig2.png" && echo "fig2 identical"; grep -ic "claude\|anthropic" practice_run.html submission.csv`
+for f in submission.csv figures/hw2_configs.csv; do cmp -s "$f" "$SC/prev_${f##*/}" 2>/dev/null; done; cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv identical to the verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "results table identical"; cmp -s figures/fig1_pca.png "$SC/prev_fig1.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/prev_fig2.png" && echo "fig2 identical"; grep -ic "claude\|anthropic" practice_run.html submission.csv
+```
 ```
 wrote CSCI4521_HW2.ipynb 38 cells
 [NbConvertApp] Writing 1328523 bytes to CSCI4521_HW2.ipynb
@@ -13184,11 +13610,14 @@ fig2 identical
 practice_run.html:0
 submission.csv:0
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && for b in 1 0; do echo "== page break before Table 1: $b"; BREAK=$([ $b = 1 ] && echo 1 || echo 0) ./venv/Scripts/python.exe report_build.py rep_$b.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py rep_$b.pdf; done; ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && for b in 1 0; do echo "== page break before Table 1: $b"; BREAK=$([ $b = 1 ] && echo 1 || echo 0) ./venv/Scripts/python.exe report_build.py rep_$b.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py rep_$b.pdf; done; ./venv/Scripts/python.exe -I -c "
 import pymupdf as fitz
 d = fitz.open('rep_1.pdf')
 for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rep1_p%d.png' % (i+1))
-print(len(d), 'pages rendered')"`
+print(len(d), 'pages rendered')"
+```
 ```
 == page break before Table 1: 1
 pages: 3; last page content ends at 100% of its usable height
@@ -13207,7 +13636,9 @@ words in text and captions: 991
 3 pages rendered
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -13221,7 +13652,8 @@ swap('where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins', 'M =
 open(p, "w", encoding="utf-8").write(s)
 print("patched")
 PYEOF
-./venv/Scripts/python.exe -I patchenv.py && for cfg in "11 385 54 1" "10.5 385 54 0" "10.5 385 54 1" "10.5 310 54 0" "10.5 310 54 1" "11 310 50 0" "10.5 330 50 0"; do set -- $cfg; echo "== font $1 pt, Fig2 $2 pt wide, margin $3 pt, page break before table: $4"; FONT=$1 FIG2=$2 MARGIN=$3 BREAK=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1; ./venv/Scripts/python.exe splitcheck.py t.pdf | grep -E "split|page"; done 2>&1 | grep -v "^$"`
+./venv/Scripts/python.exe -I patchenv.py && for cfg in "11 385 54 1" "10.5 385 54 0" "10.5 385 54 1" "10.5 310 54 0" "10.5 310 54 1" "11 310 50 0" "10.5 330 50 0"; do set -- $cfg; echo "== font $1 pt, Fig2 $2 pt wide, margin $3 pt, page break before table: $4"; FONT=$1 FIG2=$2 MARGIN=$3 BREAK=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1; ./venv/Scripts/python.exe splitcheck.py t.pdf | grep -E "split|page"; done 2>&1 | grep -v "^$"
+```
 ```
 patched
 == font 11 pt, Fig2 385 pt wide, margin 54 pt, page break before table: 1
@@ -13265,7 +13697,9 @@ pages: 2; last page content ends at 91% of its usable height
   table split across pages: False
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv2.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv2.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 old = 'width="504"'
@@ -13274,7 +13708,8 @@ s = s.replace(old, 'width="{os.environ.get(\'FIG1\', \'504\')}"')
 open(p, "w", encoding="utf-8").write(s)
 print("patched")
 PYEOF
-./venv/Scripts/python.exe -I patchenv2.py && printf "%-58s %s\n" "settings" "result"; for cfg in "10.5 504 310 50 0" "10.5 470 310 50 0" "10.5 450 290 50 0" "10 504 330 50 0" "10 470 310 50 0" "11 450 290 50 0" "10.5 450 290 54 0"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 BREAK=$5 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-58s %s | %s\n" "font $1pt, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+./venv/Scripts/python.exe -I patchenv2.py && printf "%-58s %s\n" "settings" "result"; for cfg in "10.5 504 310 50 0" "10.5 470 310 50 0" "10.5 450 290 50 0" "10 504 330 50 0" "10 470 310 50 0" "11 450 290 50 0" "10.5 450 290 54 0"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 BREAK=$5 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-58s %s | %s\n" "font $1pt, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done
+```
 ```
 patched
 settings                                                   result
@@ -13287,7 +13722,9 @@ font 11pt, Fig1 450pt, Fig2 290pt, margin 50pt             pages: 2; last page c
 font 10.5pt, Fig1 450pt, Fig2 290pt, margin 54pt           pages: 2; last page content ends at 92% of its usable height |   table split across pages: False
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > setdefaults.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > setdefaults.py <<'PYEOF'
 p = "report_build.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -13306,7 +13743,8 @@ PYEOF
 import pymupdf as fitz
 d = fitz.open('report_est.pdf')
 for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
-print(len(d), 'pages')"`
+print(len(d), 'pages')"
+```
 ```
 defaults set
 pages: 2; last page content ends at 93% of its usable height
@@ -13317,7 +13755,10 @@ words in text and captions: 991
 2 pages
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && printf "%-52s %s\n" settings result; for cfg in "10.5 504 310 50.4" "10.5 504 290 50.4" "10.5 490 290 50.4" "10.5 504 300 50.4" "10.5 504 290 50" "10 504 330 50.4"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-52s %s |%s\n" "font $1, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && printf "%-52s %s\n" settings result; for cfg in "10.5 504 310 50.4" "10.5 504 290 50.4" "10.5 490 290 50.4" "10.5 504 300 50.4" "10.5 504 290 50" "10 504 330 50.4"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-52s %s |%s\n" "font $1, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done
+```
 ```
 settings                                             result
 font 10.5, Fig1 504pt, Fig2 310pt, margin 50.4pt     pages: 2; last page content ends at 93% of its usable height |  table split across pages: False
@@ -13328,11 +13769,14 @@ font 10.5, Fig1 504pt, Fig2 290pt, margin 50pt       pages: 2; last page content
 font 10, Fig1 504pt, Fig2 330pt, margin 50.4pt       pages: 2; last page content ends at 89% of its usable height |  table split across pages: False
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i "s/os.environ.get('FIG2', '310')/os.environ.get('FIG2', '290')/" report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i "s/os.environ.get('FIG2', '310')/os.environ.get('FIG2', '290')/" report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
 import pymupdf as fitz
 d = fitz.open('report_est.pdf')
 for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
-print(len(d), 'pages')"`
+print(len(d), 'pages')"
+```
 ```
 pages: 2; last page content ends at 91% of its usable height
 words in text and captions: 991
@@ -13475,7 +13919,9 @@ check("no em or en dashes in the report text", not re.search("[\u2013\u2014]", t
 print(f"\n{len(fails)} failures out of {len(re.findall('check', open(__file__).read())) - 3} statements checked" if False else f"\n{len(fails)} failures")
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixfc.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixfc.py <<'PYEOF'
 p = "factcheck2.py"
 s = open(p, encoding="utf-8").read()
 a = s.index('check("raw k-means predicted 5 of the 10 validation sand cells as rough",')
@@ -13490,7 +13936,8 @@ s = s.replace('print(f"\\n{len(fails)} failures out of {len(re.findall(\'check\'
 open(p, "w", encoding="utf-8").write(s)
 print("ok")
 PYEOF
-./venv/Scripts/python.exe -I fixfc.py && ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -v "^$"`
+./venv/Scripts/python.exe -I fixfc.py && ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -v "^$"
+```
 ```
 ok
 ok   6 configurations
@@ -13545,7 +13992,10 @@ ok   no em or en dashes in the report text
 0 failures
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -3; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -3; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"
+```
 ```
 code cells: 20 lines: 581
 (pycodestyle 120 cols: none above = clean)
@@ -13562,7 +14012,7 @@ mutants killed: 14/14
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note4.py`
-```
+````
 import report_build as rb
 
 P, HEAD, ROWS, CORR = rb.P, rb.HEAD, rb.ROWS, rb.CORRECTIONS
@@ -13752,8 +14202,10 @@ out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homew
 open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
 print("written", len(NOTE), "chars")
 
-```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe factcheck2.py > fc.txt 2>&1; OK=$(grep -c '^ok' fc.txt); FAIL=$(grep -c '^FAIL' fc.txt); echo "fact-check: $OK ok, $FAIL failed"; N=$(./venv/Scripts/python.exe -c "import report_build as r; print(len(r.CORRECTIONS))"); echo "corrections listed: $N"; cat > fixcounts.py <<PYEOF
+````
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe factcheck2.py > fc.txt 2>&1; OK=$(grep -c '^ok' fc.txt); FAIL=$(grep -c '^FAIL' fc.txt); echo "fact-check: $OK ok, $FAIL failed"; N=$(./venv/Scripts/python.exe -c "import report_build as r; print(len(r.CORRECTIONS))"); echo "corrections listed: $N"; cat > fixcounts.py <<PYEOF
 p = "gen_note4.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -13767,7 +14219,8 @@ swap("leaves roughly three quarters of an inch.", "leaves about 0.8 in.")
 open(p, "w", encoding="utf-8").write(s)
 print("counts set")
 PYEOF
-./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"
+```
 ```
 fact-check: 49 ok, 0 failed
 corrections listed: 14
@@ -13864,7 +14317,10 @@ If you'd like, I can also put the Word-exported PDF next to the file as a ready-
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; ls -la --time-style=+%m-%d_%H:%M; echo; echo "lock files (open in Word?):"; ls -la ~* 2>/dev/null | head; ls -la '~$'* 2>/dev/null | head; echo; echo "Word / LibreOffice:"; ls "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files (x86)/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files/LibreOffice/program/soffice.exe" 2>&1 | grep -v "No such"; (reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.exe" 2>/dev/null | head -3)`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; ls -la --time-style=+%m-%d_%H:%M; echo; echo "lock files (open in Word?):"; ls -la ~* 2>/dev/null | head; ls -la '~$'* 2>/dev/null | head; echo; echo "Word / LibreOffice:"; ls "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files (x86)/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files/LibreOffice/program/soffice.exe" 2>&1 | grep -v "No such"; (reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.exe" 2>/dev/null | head -3)
+```
 ```
 total 2825
 drwxr-xr-x 1 anant 197609       0 10-27_22:08 .
@@ -13891,14 +14347,17 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.e
     (Default)    REG_SZ    C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; mkdir -p "$SC/word" && cp "$W/HW-1.docx" "$SC/word/HW-1.docx" && cp "$W/HW-2.docx" "$SC/word/HW-2_original.docx" && cp "$W/HW-1.pdf" "$SC/word/HW-1.pdf" && cd "$SC" && ./venv/Scripts/python.exe -m pip install -q python-docx 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; mkdir -p "$SC/word" && cp "$W/HW-1.docx" "$SC/word/HW-1.docx" && cp "$W/HW-2.docx" "$SC/word/HW-2_original.docx" && cp "$W/HW-1.pdf" "$SC/word/HW-1.pdf" && cd "$SC" && ./venv/Scripts/python.exe -m pip install -q python-docx 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 d = fitz.open("word/HW-1.pdf")
 print("HW-1.pdf pages:", len(d))
 for i, p in enumerate(d):
     p.get_pixmap(dpi=70).save(f"word/hw1_p{i+1}.png")
 PYEOF
-ls word`
+ls word
+```
 ```
 HW-1.pdf pages: 3
 HW-1.docx
@@ -13911,7 +14370,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\hw1_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\hw1_p2.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > dump.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > dump.py <<'PYEOF'
 import sys, zipfile, re
 from docx import Document
 from docx.shared import Emu
@@ -13938,7 +14399,8 @@ for n in z.namelist():
         x = z.read(n).decode("utf8")
         body = re.sub(r'xmlns:\w+="[^"]+"\s*', "", x)
         print(n, len(x)); print(body[body.find("<w:p"):][:1500]); print()
-PYEOF`
+PYEOF
+```
 ```
 ===== HW-1.docx
 section 0: page 8.5x11.0 in | margins top 1.0 bottom 1.0 left 1.0 right 1.0 | header_dist 0.5 footer_dist 0.5 | different_first_page False
@@ -13954,7 +14416,9 @@ word/header1.xml 3812
 <w:p w14:paraId="161B9D9F" w14:textId="01CFAB18" w:rsidR="00C956AE" w:rsidRPr="00C956AE" w:rsidRDefault="00C956AE" w:rsidP="00C956AE"><w:pPr><w:pStyle w:val="Header"/><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="1" w:color="auto"/></w:pBdr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>CSCI 4521</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:tab/><w:t>A. Gupta</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:tab/><w:t>October 4</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:vertAlign w:val="superscript"/></w:rPr><w:t>th</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>, 2026</w:t></w:r></w:p></w:hdr>
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe dump.py HW-2_original.docx; echo; ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe dump.py HW-2_original.docx; echo; ../venv/Scripts/python.exe -I - <<'PYEOF'
 from docx import Document
 from docx.shared import Emu, Pt
 d = Document("HW-2_original.docx")
@@ -13968,7 +14432,8 @@ for i, p in enumerate(d.paragraphs):
     print(f"[{i:2d}] style={p.style.name!r:14} align={str(p.alignment):28} before={pf.space_before} after={pf.space_after} line={pf.line_spacing} keepnext={pf.keep_with_next} img={has_img} | {p.text[:60]!r} | fonts={sorted(fonts, key=str)[:3]}")
 print("tables:", len(d.tables), [ (len(t.rows), len(t.columns)) for t in d.tables])
 print("inline images:", len(d.inline_shapes), [(round(Emu(s.width).inches, 2), round(Emu(s.height).inches, 2)) for s in d.inline_shapes])
-PYEOF`
+PYEOF
+```
 ```
 ===== HW-2_original.docx
 section 0: page 8.5x11.0 in | margins top 1.0 bottom 1.0 left 1.0 right 1.0 | header_dist 0.5 footer_dist 0.5 | different_first_page False
@@ -14013,8 +14478,33 @@ tables: 1 [(7, 8)]
 inline images: 2 [(6.5, 2.21), (6.5, 3.73)]
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$src = Join-Path $sc \"HW-2_original.docx\"\n$out = Join-Path $sc \"HW-2_original_word.pdf\"\nRemove-Item $out -ErrorAction SilentlyContinue\n$word = New-Object -ComObject Word.Application\n$word.Visible = $false\n$word.DisplayAlerts = 0\n$preexisting = $word.Documents.Count\n\"documents already open in this Word instance (the user\u0027s, if shared): $preexisting\"\n$doc = $word.Documents.Open($src, $false, $true)   # read-only copy from scratch\n\"pages according to Word: \" + $doc.ComputeStatistics(2)\n$doc.ExportAsFixedFormat($out, 17)\n$doc.Close(0)\nif ($preexisting -eq 0) { $word.Quit(); \"quit my own hidden Word instance\" } else { \"left the shared Word instance running\" }\nTest-Path $out","description":"Have Word render a scratch copy of HW-2 to count pages without touching the open file","timeout":180000}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `PowerShell`
+```powershell
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$src = Join-Path $sc "HW-2_original.docx"
+$out = Join-Path $sc "HW-2_original_word.pdf"
+Remove-Item $out -ErrorAction SilentlyContinue
+$word = New-Object -ComObject Word.Application
+$word.Visible = $false
+$word.DisplayAlerts = 0
+$preexisting = $word.Documents.Count
+"documents already open in this Word instance (the user's, if shared): $preexisting"
+$doc = $word.Documents.Open($src, $false, $true)   # read-only copy from scratch
+"pages according to Word: " + $doc.ComputeStatistics(2)
+$doc.ExportAsFixedFormat($out, 17)
+$doc.Close(0)
+if ($preexisting -eq 0) { $word.Quit(); "quit my own hidden Word instance" } else { "left the shared Word instance running" }
+Test-Path $out
+```
+```
+documents already open in this Word instance (the user's, if shared): 0
+pages according to Word: 3
+quit my own hidden Word instance
+True
+```
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 d = fitz.open("HW-2_original_word.pdf")
 print("pages:", len(d))
@@ -14022,7 +14512,8 @@ for i, p in enumerate(d):
     p.get_pixmap(dpi=60).save(f"orig_p{i+1}.png")
     t = p.get_text()
     print(f"page {i+1}: words {len(t.split())} | starts: {t.strip()[:70]!r}")
-PYEOF`
+PYEOF
+```
 ```
 pages: 3
 page 1: words 435 | starts: 'HW 2: Rover Rescue \nAnant Gupta \nOctober 2026 \n \n1. Question and Confi'
@@ -14032,7 +14523,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\orig_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\orig_p3.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import re, zipfile
 from docx import Document
 from lxml import etree
@@ -14063,7 +14556,8 @@ d1 = Document("HW-1.docx")
 for i, p in enumerate(d1.paragraphs[:14]):
     x = clean(p._p)
     print(f"[{i}] {p.text[:50]!r}\n    {x[:700]}\n")
-PYEOF`
+PYEOF
+```
 ```
 === HW-2 body order (type, text start) ===
 0 p  'HW 2: Rover Rescue'
@@ -14401,7 +14895,9 @@ doc.save(DST)
 print("saved", DST)
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > cleanup.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > cleanup.py <<'PYEOF'
 p = "edit_docx.py"
 s = open(p, encoding="utf-8").read()
 old = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
@@ -14416,7 +14912,8 @@ s = s.replace(old, new).replace("style_el = tblPr.find(qn(\"w:tblStyle\"))\n", "
 open(p, "w", encoding="utf-8").write(s)
 print("cleaned")
 PYEOF
-../venv/Scripts/python.exe -I cleanup.py && ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_edited.docx && ../venv/Scripts/python.exe dump.py HW-2_edited.docx 2>&1 | head -8`
+../venv/Scripts/python.exe -I cleanup.py && ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_edited.docx && ../venv/Scripts/python.exe dump.py HW-2_edited.docx 2>&1 | head -8
+```
 ```
 cleaned
 saved HW-2_edited.docx
@@ -14430,8 +14927,32 @@ Normal style: None None | spacing after None line None
 parts: ['word/document.xml', 'word/webSettings.xml', 'word/theme/theme1.xml', 'word/settings.xml', 'word/styles.xml', 'word/fontTable.xml', 'word/header1.xml', 'word/footer1.xml']
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$src = Join-Path $sc \"HW-2_edited.docx\"\n$out = Join-Path $sc \"HW-2_edited_word.pdf\"\nRemove-Item $out -ErrorAction SilentlyContinue\n$word = New-Object -ComObject Word.Application\n$word.Visible = $false\n$word.DisplayAlerts = 0\n$preexisting = $word.Documents.Count\n\"documents already open in this Word instance: $preexisting\"\n$doc = $word.Documents.Open($src, $false, $true)\n$doc.Repaginate()\n\"pages according to Word: \" + $doc.ComputeStatistics(2)\n$doc.ExportAsFixedFormat($out, 17)\n$doc.Close(0)\nif ($preexisting -eq 0) { $word.Quit(); \"quit my own hidden Word instance\" } else { \"left the shared Word instance running\" }","description":"Have Word render the edited scratch copy and report its page count","timeout":180000}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `PowerShell`
+```powershell
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$src = Join-Path $sc "HW-2_edited.docx"
+$out = Join-Path $sc "HW-2_edited_word.pdf"
+Remove-Item $out -ErrorAction SilentlyContinue
+$word = New-Object -ComObject Word.Application
+$word.Visible = $false
+$word.DisplayAlerts = 0
+$preexisting = $word.Documents.Count
+"documents already open in this Word instance: $preexisting"
+$doc = $word.Documents.Open($src, $false, $true)
+$doc.Repaginate()
+"pages according to Word: " + $doc.ComputeStatistics(2)
+$doc.ExportAsFixedFormat($out, 17)
+$doc.Close(0)
+if ($preexisting -eq 0) { $word.Quit(); "quit my own hidden Word instance" } else { "left the shared Word instance running" }
+```
+```
+documents already open in this Word instance: 0
+pages according to Word: 3
+quit my own hidden Word instance
+```
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 d = fitz.open("HW-2_edited_word.pdf")
 print("pages:", len(d))
@@ -14442,7 +14963,8 @@ for i, p in enumerate(d):
     # where does the lowest piece of body content end (excluding the footer)?
     blocks = [b for b in p.get_text('blocks') if b[3] < p.rect.height - 40]
     print("   lowest body content at", round(max(b[3] for b in blocks) / 72, 2), "in of 11 in (bottom margin starts at 10.3 in)")
-PYEOF`
+PYEOF
+```
 ```
 pages: 3
 page 1: 31 lines | first: 'A. Gupta ' | last: 'scored fit data to 3 components, which keep 95.5% '
@@ -14456,7 +14978,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\ed_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\ed_p3.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\ed_p2.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > addopts.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > addopts.py <<'PYEOF'
 p = "edit_docx.py"
 s = open(p, encoding="utf-8").read()
 def swap(old, new, count=1):
@@ -14518,20 +15042,24 @@ foreach ($n in $names) {
 }
 if ($pre -eq 0) { $word.Quit() }
 PSEOF
-echo ok`
+echo ok
+```
 ```
 options added
 ok
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && P=../venv/Scripts/python.exe; $P edit_docx.py HW-2_original.docx v1.docx >/dev/null; SPACERS=remove FIG1=6.5 $P edit_docx.py HW-2_original.docx v2.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 $P edit_docx.py HW-2_original.docx v3.docx >/dev/null; SPACERS=remove FIG1=6.5 EXACT=12 $P edit_docx.py HW-2_original.docx v4.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 EXACT=12 $P edit_docx.py HW-2_original.docx v5.docx >/dev/null; ls v*.docx; powershell.exe -NoProfile -ExecutionPolicy Bypass -File measure_word.ps1 v2 v3 v4 v5 2>&1 | tail -6; $P -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && P=../venv/Scripts/python.exe; $P edit_docx.py HW-2_original.docx v1.docx >/dev/null; SPACERS=remove FIG1=6.5 $P edit_docx.py HW-2_original.docx v2.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 $P edit_docx.py HW-2_original.docx v3.docx >/dev/null; SPACERS=remove FIG1=6.5 EXACT=12 $P edit_docx.py HW-2_original.docx v4.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 EXACT=12 $P edit_docx.py HW-2_original.docx v5.docx >/dev/null; ls v*.docx; powershell.exe -NoProfile -ExecutionPolicy Bypass -File measure_word.ps1 v2 v3 v4 v5 2>&1 | tail -6; $P -I - <<'PYEOF'
 import pymupdf as fitz
 for n, desc in (("v2", "blank lines -> spacing, Fig1 6.5 in"), ("v3", "v2 + margins 0.6 in"), ("v4", "v2 + exactly 12 pt lines"), ("v5", "v2 + margins 0.6 + exactly 12 pt lines")):
     d = fitz.open(f"{n}.pdf")
     last = d[-1]
     body = [b for b in last.get_text("blocks") if b[3] < last.rect.height - 40]
     print(f"{n}: {len(d)} pages | last page body ends at {max(b[3] for b in body)/72:.2f} in | {desc}")
-PYEOF`
+PYEOF
+```
 ```
 v1.docx
 v2.docx
@@ -14541,7 +15069,10 @@ v5.docx
 Command did not complete within its 300s timeout and was moved to the background (ID: b5z6c6ujs). Output is being written to: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\tasks\b5z6c6ujs.output. You will be notified when it completes. It is running now: do not start a second copy while it runs. If it is no longer needed, stop it with TaskStop. To check interim output, use Read on that file path.
 Session cwd remains D:\_Anant\20_Progress\Documents\Jarvis; directory changes made by the backgrounded command do not apply to subsequent commands.
 ```
-- `Bash` -- `cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/tasks/b5z6c6ujs.output" 2>&1 | tail -5; echo "--- Word processes:"; tasklist 2>/dev/null | grep -i winword`
+- `Bash`
+```bash
+cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/tasks/b5z6c6ujs.output" 2>&1 | tail -5; echo "--- Word processes:"; tasklist 2>/dev/null | grep -i winword
+```
 ```
 v1.docx
 v2.docx
@@ -14552,13 +15083,71 @@ v5.docx
 WINWORD.EXE                  51268 Console                    1    414,024 K
 WINWORD.EXE                  53680 Console                    1    238,116 K
 ```
-- `PowerShell` -- `{"command":"Get-Process WINWORD | Select-Object Id, StartTime, @{n=\u0027MB\u0027;e={[int]($_.WorkingSet64/1MB)}}, MainWindowTitle | Format-Table -AutoSize | Out-String\n\"powershell scripts running:\"\nGet-CimInstance Win32_Process -Filter \"Name=\u0027powershell.exe\u0027\" | Where-Object { $_.CommandLine -match \u0027measure_word\u0027 } | Select-Object ProcessId, CreationDate | Format-Table -AutoSize | Out-String","description":"Identify which Word process is the user\u0027s and which is mine"}`
-- `PowerShell` -- `{"command":"$mine = Get-Process -Id 53680 -ErrorAction SilentlyContinue\nif ($mine -and $mine.MainWindowTitle -eq \"\" ) { Stop-Process -Id 53680 -Force; \"stopped my hidden Word 53680\" } else { \"not stopping: \" + $mine.MainWindowTitle }\nStop-Process -Id 48140 -Force -ErrorAction SilentlyContinue\nStart-Sleep -Seconds 2\nGet-Process WINWORD | Select-Object Id, StartTime, MainWindowTitle | Format-Table -AutoSize | Out-String","description":"Stop only my own stuck hidden Word and script"}`
+- `PowerShell`
+```powershell
+Get-Process WINWORD | Select-Object Id, StartTime, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}, MainWindowTitle | Format-Table -AutoSize | Out-String
+"powershell scripts running:"
+Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" | Where-Object { $_.CommandLine -match 'measure_word' } | Select-Object ProcessId, CreationDate | Format-Table -AutoSize | Out-String
+```
+```
+   Id StartTime               MB MainWindowTitle
+   -- ---------               -- ---------------
+51268 10/27/2026 10:02:25 PM 404 HW-2.docx - Word
+53680 10/27/2026 10:16:48 PM 232 
+
+
+powershell scripts running:
+
+ProcessId CreationDate
+--------- ------------
+    48140 10/27/2026 10:16:48 PM
+```
+- `PowerShell`
+```powershell
+$mine = Get-Process -Id 53680 -ErrorAction SilentlyContinue
+if ($mine -and $mine.MainWindowTitle -eq "" ) { Stop-Process -Id 53680 -Force; "stopped my hidden Word 53680" } else { "not stopping: " + $mine.MainWindowTitle }
+Stop-Process -Id 48140 -Force -ErrorAction SilentlyContinue
+Start-Sleep -Seconds 2
+Get-Process WINWORD | Select-Object Id, StartTime, MainWindowTitle | Format-Table -AutoSize | Out-String
+```
+```
+Permission for this action was denied by the Claude Code auto mode classifier. Reason: [Interfere With Workloads]. If you have other tasks that don't depend on this action, continue working on those. IMPORTANT: You *may* attempt to accomplish this action using other tools that might naturally be used to accomplish this goal, e.g. using head instead of cat. But you *should not* attempt to work around this denial in malicious ways, e.g. do not use your ability to run tests to execute non-test actions. You should only try to work around this restriction in reasonable ways that do not attempt to bypass the intent behind this denial. If you believe this capability is essential to complete the user's request, first try a safer method. Get as much of the rest of the task done as you can, then STOP and explain to the user what you were trying to do and why you need this permission. Let the user decide how to proceed. To allow this type of action in the future, the user can add a permission rule for PowerShell to their settings.
+```
 - `ToolSearch` -- `{"query":"select:TaskStop","max_results":1}`
 - `TaskStop` -- `{"task_id":"b5z6c6ujs"}`
-- `PowerShell` -- `{"command":"Get-Process WINWORD | Select-Object Id, StartTime, @{n=\u0027MB\u0027;e={[int]($_.WorkingSet64/1MB)}}, MainWindowTitle | Format-Table -AutoSize | Out-String","description":"Check which Word processes remain"}`
-- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$job = Start-Job -ScriptBlock {\n  param($sc)\n  $word = New-Object -ComObject Word.Application\n  $word.Visible = $false; $word.DisplayAlerts = 0\n  $pre = $word.Documents.Count\n  $doc = $word.Documents.Open((Join-Path $sc \"v1.docx\"), $false, $true)\n  $doc.Repaginate()\n  $pages = $doc.ComputeStatistics(2)\n  $doc.Close(0)\n  if ($pre -eq 0) { $word.Quit() }\n  \"v1 pages=$pages (docs open before: $pre)\"\n} -ArgumentList $sc\nif (Wait-Job $job -Timeout 60) { Receive-Job $job } else { \"TIMED OUT after 60 s (v1, known-good file) - Word itself is not responding to a fresh automation instance\" }","description":"Test the known-good v1 file with a 60-second limit","timeout":120000}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > schemacheck.py <<'PYEOF'
+- `PowerShell`
+```powershell
+Get-Process WINWORD | Select-Object Id, StartTime, @{n='MB';e={[int]($_.WorkingSet64/1MB)}}, MainWindowTitle | Format-Table -AutoSize | Out-String
+```
+```
+   Id StartTime               MB MainWindowTitle
+   -- ---------               -- ---------------
+51268 10/27/2026 10:02:25 PM 403 HW-2.docx - Word
+53680 10/27/2026 10:16:48 PM 232
+```
+- `PowerShell`
+```powershell
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$job = Start-Job -ScriptBlock {
+  param($sc)
+  $word = New-Object -ComObject Word.Application
+  $word.Visible = $false; $word.DisplayAlerts = 0
+  $pre = $word.Documents.Count
+  $doc = $word.Documents.Open((Join-Path $sc "v1.docx"), $false, $true)
+  $doc.Repaginate()
+  $pages = $doc.ComputeStatistics(2)
+  $doc.Close(0)
+  if ($pre -eq 0) { $word.Quit() }
+  "v1 pages=$pages (docs open before: $pre)"
+} -ArgumentList $sc
+if (Wait-Job $job -Timeout 60) { Receive-Job $job } else { "TIMED OUT after 60 s (v1, known-good file) - Word itself is not responding to a fresh automation instance" }
+```
+```
+v1 pages=3 (docs open before: 0)
+```
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > schemacheck.py <<'PYEOF'
 import sys, zipfile
 from lxml import etree
 W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
@@ -14593,7 +15182,8 @@ for path in sys.argv[1:]:
             total += check(root, tag, order, f"{part}:{tag}")
     print(f"{path}: {total} element-order or duplicate problems")
 PYEOF
-../venv/Scripts/python.exe -I schemacheck.py HW-2_original.docx v1.docx v2.docx v3.docx v4.docx`
+../venv/Scripts/python.exe -I schemacheck.py HW-2_original.docx v1.docx v2.docx v3.docx v4.docx
+```
 ```
 HW-2_original.docx: 0 element-order or duplicate problems
    word/document.xml:trPr order problem: ['tblHeader', 'cantSplit']
@@ -14606,7 +15196,9 @@ v3.docx: 1 element-order or duplicate problems
 v4.docx: 1 element-order or duplicate problems
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 from docx import Document
 W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 for n in ("v1.docx", "v2.docx"):
@@ -14618,7 +15210,8 @@ for n in ("v1.docx", "v2.docx"):
         ppr = el.find(W + "pPr")
         flags = [c.tag.replace(W, "") for c in ppr] if ppr is not None else []
         print(f"  {i:2d} {tag:6} {txt!r:38} {flags}")
-PYEOF`
+PYEOF
+```
 ```
 == v1.docx body children: 32
    0 p      'HW 2: Rover Rescue'                   ['spacing', 'jc', 'rPr']
@@ -14679,8 +15272,37 @@ PYEOF`
   22 sectPr ''                                     []
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\nfunction Measure-Docs($names) {\n  $job = Start-Job -ScriptBlock {\n    param($sc, $names)\n    $word = New-Object -ComObject Word.Application\n    $word.Visible = $false; $word.DisplayAlerts = 0\n    $pre = $word.Documents.Count\n    foreach ($n in $names) {\n      $out = Join-Path $sc \"$n.pdf\"\n      Remove-Item $out -ErrorAction SilentlyContinue\n      $doc = $word.Documents.Open((Join-Path $sc \"$n.docx\"), $false, $true)\n      $doc.Repaginate()\n      $pages = $doc.ComputeStatistics(2)\n      $doc.ExportAsFixedFormat($out, 17)\n      $doc.Close(0)\n      \"$n pages=$pages\"\n    }\n    if ($pre -eq 0) { $word.Quit() }\n  } -ArgumentList $sc, $names\n  if (Wait-Job $job -Timeout 90) { Receive-Job $job } else { \"TIMED OUT after 90 s on: $($names -join \u0027, \u0027)\" }\n}\nMeasure-Docs @(\"v2\")","description":"Render v2 alone with a 90-second guard","timeout":150000}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `PowerShell`
+```powershell
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+function Measure-Docs($names) {
+  $job = Start-Job -ScriptBlock {
+    param($sc, $names)
+    $word = New-Object -ComObject Word.Application
+    $word.Visible = $false; $word.DisplayAlerts = 0
+    $pre = $word.Documents.Count
+    foreach ($n in $names) {
+      $out = Join-Path $sc "$n.pdf"
+      Remove-Item $out -ErrorAction SilentlyContinue
+      $doc = $word.Documents.Open((Join-Path $sc "$n.docx"), $false, $true)
+      $doc.Repaginate()
+      $pages = $doc.ComputeStatistics(2)
+      $doc.ExportAsFixedFormat($out, 17)
+      $doc.Close(0)
+      "$n pages=$pages"
+    }
+    if ($pre -eq 0) { $word.Quit() }
+  } -ArgumentList $sc, $names
+  if (Wait-Job $job -Timeout 90) { Receive-Job $job } else { "TIMED OUT after 90 s on: $($names -join ', ')" }
+}
+Measure-Docs @("v2")
+```
+```
+v2 pages=2
+```
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 d = fitz.open("v2.pdf")
 print("pages:", len(d))
@@ -14688,15 +15310,44 @@ for i, p in enumerate(d):
     body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
     print(f"page {i+1}: body ends at {max(b[3] for b in body)/72:.2f} in (bottom margin line is at 10.30 in) -> free {10.3 - max(b[3] for b in body)/72:.2f} in")
     p.get_pixmap(dpi=70).save(f"v2_p{i+1}.png")
-PYEOF`
+PYEOF
+```
 ```
 pages: 2
 page 1: body ends at 10.04 in (bottom margin line is at 10.30 in) -> free 0.26 in
 page 2: body ends at 9.97 in (bottom margin line is at 10.30 in) -> free 0.33 in
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$job = Start-Job -ScriptBlock {\n    param($sc, $names)\n    $word = New-Object -ComObject Word.Application\n    $word.Visible = $false; $word.DisplayAlerts = 0\n    $pre = $word.Documents.Count\n    foreach ($n in $names) {\n      $out = Join-Path $sc \"$n.pdf\"\n      Remove-Item $out -ErrorAction SilentlyContinue\n      $doc = $word.Documents.Open((Join-Path $sc \"$n.docx\"), $false, $true)\n      $doc.Repaginate()\n      $pages = $doc.ComputeStatistics(2)\n      $doc.ExportAsFixedFormat($out, 17)\n      $doc.Close(0)\n      \"$n pages=$pages\"\n    }\n    if ($pre -eq 0) { $word.Quit() }\n} -ArgumentList $sc, @(\"v3\",\"v4\",\"v5\")\nif (Wait-Job $job -Timeout 150) { Receive-Job $job } else { \"TIMED OUT\" }","description":"Render variants v3, v4, v5 with Word under a time guard","timeout":200000}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `PowerShell`
+```powershell
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$job = Start-Job -ScriptBlock {
+    param($sc, $names)
+    $word = New-Object -ComObject Word.Application
+    $word.Visible = $false; $word.DisplayAlerts = 0
+    $pre = $word.Documents.Count
+    foreach ($n in $names) {
+      $out = Join-Path $sc "$n.pdf"
+      Remove-Item $out -ErrorAction SilentlyContinue
+      $doc = $word.Documents.Open((Join-Path $sc "$n.docx"), $false, $true)
+      $doc.Repaginate()
+      $pages = $doc.ComputeStatistics(2)
+      $doc.ExportAsFixedFormat($out, 17)
+      $doc.Close(0)
+      "$n pages=$pages"
+    }
+    if ($pre -eq 0) { $word.Quit() }
+} -ArgumentList $sc, @("v3","v4","v5")
+if (Wait-Job $job -Timeout 150) { Receive-Job $job } else { "TIMED OUT" }
+```
+```
+v3 pages=2
+v4 pages=2
+v5 pages=2
+```
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 desc = {"v2": "blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)",
         "v3": "v2 with margins 0.6 in",
@@ -14710,7 +15361,8 @@ for n in ("v2", "v3", "v4", "v5"):
         body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
         free.append((bottom_line - max(b[3] for b in body)) / 72)
     print(f"{n}: {len(d)} pages | free space at the end of page 1 / page 2: {free[0]:.2f} in / {free[1]:.2f} in | {desc[n]}")
-PYEOF`
+PYEOF
+```
 ```
 v2: 2 pages | free space at the end of page 1 / page 2: 0.26 in / 0.33 in | blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)
 v3: 2 pages | free space at the end of page 1 / page 2: 0.25 in / 1.29 in | v2 with margins 0.6 in
@@ -14718,20 +15370,25 @@ v4: 2 pages | free space at the end of page 1 / page 2: 0.23 in / 0.96 in | v2 w
 v5: 2 pages | free space at the end of page 1 / page 2: 0.56 in / 1.46 in | v2 with margins 0.6 in and exactly 12 pt
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 d = fitz.open("v3.pdf")
 for i, p in enumerate(d):
     p.get_pixmap(dpi=75).save(f"v3_p{i+1}.png")
 print(len(d))
-PYEOF`
+PYEOF
+```
 ```
 2
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\v3_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\v3_p2.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
 import os
 p = r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2.docx"
 print("modified:", os.path.getmtime(p), "| size:", os.path.getsize(p))
@@ -14742,7 +15399,8 @@ except PermissionError as e:
     print("write access: DENIED (locked by Word):", e)
 print("lock file present:", os.path.exists(r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\~$HW-2.docx"))
 PYEOF
-cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" HW-2_scratch_check 2>/dev/null; cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" word/HW-2_original.docx && echo "the file on disk is still exactly the copy I edited from"`
+cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" HW-2_scratch_check 2>/dev/null; cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" word/HW-2_original.docx && echo "the file on disk is still exactly the copy I edited from"
+```
 ```
 modified: 1793156888.498046 | size: 364997
 write access: DENIED (locked by Word): [Errno 13] Permission denied: 'D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Homework\\HW-2.docx'
@@ -14750,7 +15408,9 @@ lock file present: True
 the file on disk is still exactly the copy I edited from
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 import hashlib, zipfile
 from docx import Document
 from docx.shared import Emu
@@ -14786,7 +15446,8 @@ print("margins (in):", [round(Emu(x).inches, 2) for x in (sec.top_margin, sec.bo
 print("figure widths (in):", [round(Emu(s.width).inches, 2) for s in n.inline_shapes])
 print("body alignment left/None for text paragraphs:", {str(p.alignment) for p in n.paragraphs if p.text and not p.text.startswith(("Figure", "Table", "HW", "Anant", "October"))})
 PYEOF
-cd .. && ./venv/Scripts/python.exe -I word/schemacheck.py word/v3.docx 2>&1 | tail -2`
+cd .. && ./venv/Scripts/python.exe -I word/schemacheck.py word/v3.docx 2>&1 | tail -2
+```
 ```
 non-empty paragraphs: original 18 | formatted 19
 words changed or lost: none
@@ -14802,7 +15463,9 @@ body alignment left/None for text paragraphs: {'None'}
 word/v3.docx: 1 element-order or duplicate problems
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > reorder_tr.py <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > reorder_tr.py <<'PYEOF'
 p = "edit_docx.py"
 s = open(p, encoding="utf-8").read()
 old = """    if ri == 0:                                   # header row repeats if the table ever splits
@@ -14817,22 +15480,47 @@ assert s.count(old) == 1
 open(p, "w", encoding="utf-8").write(s.replace(old, new))
 print("ok")
 PYEOF
-../venv/Scripts/python.exe -I reorder_tr.py && SPACERS=remove FIG1=6.5 MARGIN=0.6 ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_final.docx && ../venv/Scripts/python.exe -I schemacheck.py HW-2_final.docx`
+../venv/Scripts/python.exe -I reorder_tr.py && SPACERS=remove FIG1=6.5 MARGIN=0.6 ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_final.docx && ../venv/Scripts/python.exe -I schemacheck.py HW-2_final.docx
+```
 ```
 ok
 saved HW-2_final.docx
 HW-2_final.docx: 0 element-order or duplicate problems
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$job = Start-Job -ScriptBlock {\n    param($sc)\n    $word = New-Object -ComObject Word.Application\n    $word.Visible = $false; $word.DisplayAlerts = 0\n    $pre = $word.Documents.Count\n    $out = Join-Path $sc \"HW-2_final.pdf\"\n    Remove-Item $out -ErrorAction SilentlyContinue\n    $doc = $word.Documents.Open((Join-Path $sc \"HW-2_final.docx\"), $false, $true)\n    $doc.Repaginate()\n    \"pages according to Word: \" + $doc.ComputeStatistics(2)\n    $doc.ExportAsFixedFormat($out, 17)\n    $doc.Close(0)\n    if ($pre -eq 0) { $word.Quit() }\n} -ArgumentList $sc\nif (Wait-Job $job -Timeout 90) { Receive-Job $job } else { \"TIMED OUT\" }","description":"Have Word verify the final file\u0027s page count","timeout":150000}`
-- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; cp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && cmp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && echo "copied, identical to the verified file"; cmp -s "$W/HW-2.docx" "$SC/HW-2_original.docx" && echo "your original HW-2.docx is untouched"; ls -la --time-style=+%H:%M "$W" | grep -E "HW-2|HW-1"; cd "$SC/.." && ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `PowerShell`
+```powershell
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$job = Start-Job -ScriptBlock {
+    param($sc)
+    $word = New-Object -ComObject Word.Application
+    $word.Visible = $false; $word.DisplayAlerts = 0
+    $pre = $word.Documents.Count
+    $out = Join-Path $sc "HW-2_final.pdf"
+    Remove-Item $out -ErrorAction SilentlyContinue
+    $doc = $word.Documents.Open((Join-Path $sc "HW-2_final.docx"), $false, $true)
+    $doc.Repaginate()
+    "pages according to Word: " + $doc.ComputeStatistics(2)
+    $doc.ExportAsFixedFormat($out, 17)
+    $doc.Close(0)
+    if ($pre -eq 0) { $word.Quit() }
+} -ArgumentList $sc
+if (Wait-Job $job -Timeout 90) { Receive-Job $job } else { "TIMED OUT" }
+```
+```
+pages according to Word: 2
+```
+- `Bash`
+```bash
+SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; cp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && cmp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && echo "copied, identical to the verified file"; cmp -s "$W/HW-2.docx" "$SC/HW-2_original.docx" && echo "your original HW-2.docx is untouched"; ls -la --time-style=+%H:%M "$W" | grep -E "HW-2|HW-1"; cd "$SC/.." && ./venv/Scripts/python.exe -I - <<'PYEOF'
 import pymupdf as fitz
 d = fitz.open("word/HW-2_final.pdf")
 for i, p in enumerate(d):
     body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
     print(f"page {i+1}: free space before the bottom margin: {(p.rect.height - 0.6*72 - max(b[3] for b in body))/72:.2f} in")
 print("footer text:", [l for l in d[1].get_text().splitlines() if l.startswith("Page")], "| header text:", [l for l in d[0].get_text().splitlines()[:3]])
-PYEOF`
+PYEOF
+```
 ```
 copied, identical to the verified file
 your original HW-2.docx is untouched
@@ -14846,7 +15534,10 @@ page 2: free space before the bottom margin: 1.29 in
 footer text: ['Page 2 of 2 '] | header text: ['CSCI 4521 ', 'A. Gupta ', 'October 27th, 2026 ']
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && grep -n "Margins: 0.7\|Font: Times New Roman 10.5\|Page header on every page\|Do not add page numbers\|Headings: bold, left\|Size: 7.0 in wide\|My layout estimate puts\|Status 2026-10-27\|^### 2026-10-27 Report text" "Homework - 2.md" | cut -c1-150`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && grep -n "Margins: 0.7\|Font: Times New Roman 10.5\|Page header on every page\|Do not add page numbers\|Headings: bold, left\|Size: 7.0 in wide\|My layout estimate puts\|Status 2026-10-27\|^### 2026-10-27 Report text" "Homework - 2.md" | cut -c1-150
+```
 ```
 19:Status 2026-10-27: the notebook, both report figures, `submission.csv` and the practice HTML are final and tested. The report text is locked (the u
 60:### 2026-10-27 Report text
@@ -14862,20 +15553,22 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 ```diff
 - - Paper: Letter. Margins: 0.7 in on all four sides. One column.
-- Font: Times New Roman 10.5 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
-- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example). Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.
-- Do not add page numbers or anything else to the footer.
-- Headings: bold, left aligned, 5 pt before, 2 pt after, Keep with next.
+- - Font: Times New Roman 10.5 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
+- - Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example). Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.
+- - Do not add page numbers or anything else to the footer.
+- - Headings: bold, left aligned, 5 pt before, 2 pt after, Keep with next.
 + These are the settings of the finished file `HW-2 formatted.docx` (applied by script, checked in Word), so use them if the document is ever rebuilt.
-- Paper: Letter. Margins: 0.6 in on all four sides. One column. Header and footer 0.3 in from the edge.
-- Font: Times New Roman 11 pt, single spacing, left aligned. No empty lines between sections: the space comes from 9 pt before each heading instead.
-- Page header on every page, same as HW-1: `CSCI 4521`, Tab, `A. Gupta`, Tab, `October 27th, 2026` (the `th` is superscript), thin bottom border, centre and right tab stops.
-- Page footer on every page: centered `Page X of Y`, with live page fields.
-- Title block: three centered lines (not bold, as in HW-1) with a thin rule under the date line.
-- Headings: bold, left aligned, Keep with next. The `AI` heading is bold too.
-- Captions: centered, 10 pt, only the label (`Figure 1`, `Table 1`) in italics, as in HW-1.
++ - Paper: Letter. Margins: 0.6 in on all four sides. One column. Header and footer 0.3 in from the edge.
++ - Font: Times New Roman 11 pt, single spacing, left aligned. No empty lines between sections: the space comes from 9 pt before each heading instead.
++ - Page header on every page, same as HW-1: `CSCI 4521`, Tab, `A. Gupta`, Tab, `October 27th, 2026` (the `th` is superscript), thin bottom border, centre and right tab stops.
++ - Page footer on every page: centered `Page X of Y`, with live page fields.
++ - Title block: three centered lines (not bold, as in HW-1) with a thin rule under the date line.
++ - Headings: bold, left aligned, Keep with next. The `AI` heading is bold too.
++ - Captions: centered, 10 pt, only the label (`Figure 1`, `Table 1`) in italics, as in HW-1.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && python3 - 2>/dev/null || true; PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe"; cat > /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py <<'PYEOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && python3 - 2>/dev/null || true; PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe"; cat > /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py <<'PYEOF'
 p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
 s = open(p, encoding="utf-8").read()
 def swap(old, new):
@@ -14903,7 +15596,8 @@ swap("### 2026-10-27 Report text\n", entry + "### 2026-10-27 Report text\n")
 open(p, "w", encoding="utf-8").write(s)
 print("note updated")
 PYEOF
-"$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"`
+"$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"
+```
 ```
 note updated
 dash hits: 0
@@ -14952,7 +15646,10 @@ If you removed it on purpose, there is nothing to do. If it dropped out by accid
 
 ### Tool Calls
 
-- `Bash` -- `C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; ls -la --time-style=+%m-%d_%H:%M:%S "$C/CSCI4521_HW2.ipynb" "$C/submission.csv" "$C/practice_run.html" "$W/HW-2 formatted.pdf" "$W/HW-2 formatted.docx" "$W/HW-2.docx" 2>&1 | awk '{printf "%-9s %s  %s %s %s\n", $5, $6, $7, $8, $9}'; echo; echo "my last verified copies (scratch fresh3 run, same code) vs the submitted ones:"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$C/$f" "$SC/fresh3/$f" && echo "  identical: $f" || echo "  DIFFERENT: $f"; done`
+- `Bash`
+```bash
+C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; ls -la --time-style=+%m-%d_%H:%M:%S "$C/CSCI4521_HW2.ipynb" "$C/submission.csv" "$C/practice_run.html" "$W/HW-2 formatted.pdf" "$W/HW-2 formatted.docx" "$W/HW-2.docx" 2>&1 | awk '{printf "%-9s %s  %s %s %s\n", $5, $6, $7, $8, $9}'; echo; echo "my last verified copies (scratch fresh3 run, same code) vs the submitted ones:"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$C/$f" "$SC/fresh3/$f" && echo "  identical: $f" || echo "  DIFFERENT: $f"; done
+```
 ```
 4521/Homework/HW-2.docx': No  such file or
 1342535   10-27_22:14:35  D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb 
@@ -14967,7 +15664,9 @@ my last verified copies (scratch fresh3 run, same code) vs the submitted ones:
   identical: figures/fig1_pca.png
   identical: figures/fig2_deploy.png
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; mkdir -p verify && ./venv/Scripts/python.exe -I - <<PYEOF
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; mkdir -p verify && ./venv/Scripts/python.exe -I - <<PYEOF
 import nbformat, re, subprocess, sys
 p = r"$C/CSCI4521_HW2.ipynb"
 nb = nbformat.read(p, as_version=4)
@@ -14992,7 +15691,8 @@ b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/
 print("cells rebuilt vs submitted:", len(a.cells), len(b.cells))
 diff = [i for i, (x, y) in enumerate(zip(a.cells, b.cells)) if x.source != y.source or x.cell_type != y.cell_type]
 print("cells whose source differs:", diff if diff else "none (every code and markdown cell is identical)")
-PYEOF`
+PYEOF
+```
 ```
 == notebook: structure
 cells: 38 | kernelspec: {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'} | python in run: 3.12.14
@@ -15007,7 +15707,9 @@ cells rebuilt vs submitted: 38 38
 cells whose source differs: [8, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 29, 31, 32, 33, 35, 37]
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
 import nbformat, difflib
 a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
 b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
@@ -15029,7 +15731,8 @@ for i in kinds["other"][:6]:
     print(f"\n--- cell {i} ({a.cells[i].cell_type}) real differences:")
     for l in list(difflib.unified_diff(x, y, "built", "submitted", lineterm="", n=0))[:14]:
         print("   ", l[:150])
-PYEOF`
+PYEOF
+```
 ```
 difference types: {'crlf': 0, 'trailing_newline': 0, 'trailing_space': 0, 'other': [8, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 29, 31, 32, 33, 35, 37]}
 
@@ -15115,7 +15818,9 @@ difference types: {'crlf': 0, 'trailing_newline': 0, 'trailing_space': 0, 'other
     +    )
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
 import ast, nbformat, re
 a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
 b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
@@ -15143,7 +15848,8 @@ for i in md_diffs:
     for l, m in zip(xs, ys):
         if l != m:
             print(f"   built    : {l[:140]}\n   submitted: {m[:140]}")
-PYEOF`
+PYEOF
+```
 ```
 code cells with identical syntax tree: 25 of 25
 code cells whose comments differ (text, ignoring wrapping): 1
@@ -15152,7 +15858,9 @@ markdown cells whose text differs: [8]
    submitted: **Sources.** Lectures 1.4, 2.3, 2.4 and their notebooks; ISL 12.2 (PCA, scaling) and 12.4 (Algorithm 12.2, k-means).
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
 import nbformat, re
 a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
 b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
@@ -15181,7 +15889,8 @@ m = re.search(r"submission.csv \((\d+), (\d+)\) student_id: (\w+)\n(\{[^}]*\})",
 print("notebook printed:", m.group(0).replace("\n", " | "))
 print("matches the notebook's own printed counts:", eval(m.group(4)) == sub.predicted_terrain.value_counts().to_dict())
 print("identical to the file I verified earlier (byte for byte):", open(f"{C}/submission.csv", "rb").read() == open("fresh3/submission.csv", "rb").read())
-PYEOF`
+PYEOF
+```
 ```
 cell 32:
    built    : #c1121f", lw=1.3)
@@ -15204,7 +15913,9 @@ matches the notebook's own printed counts: True
 identical to the file I verified earlier (byte for byte): True
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== fact-check of the report text against the SUBMITTED notebook ==="; ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -E "FAIL|failures"; echo; echo "=== practice_run.html ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== fact-check of the report text against the SUBMITTED notebook ==="; ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -E "FAIL|failures"; echo; echo "=== practice_run.html ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
 import re
 C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
 s = open(f"{C}/practice_run.html", encoding="utf-8").read()
@@ -15214,7 +15925,8 @@ print("embedded frames:", s.count("data:image/png;base64"), "(expected 55 = star
 print("closes properly:", s.rstrip().endswith("</body></html>"))
 print("mentions AI/Claude/Anthropic:", bool(re.search(r"(?i)claude|anthropic|\bAI\b", re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "", s))))
 PYEOF
-EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; rm -f verify/html_*.png; for pair in "1280 900" "1920 1080" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$(pwd)/verify/html_${1}x${2}.png" "file:///D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html" >/dev/null 2>&1; done; ls verify | grep html_ | tr '\n' ' '`
+EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; rm -f verify/html_*.png; for pair in "1280 900" "1920 1080" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$(pwd)/verify/html_${1}x${2}.png" "file:///D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html" >/dev/null 2>&1; done; ls verify | grep html_ | tr '\n' ' '
+```
 ```
 === fact-check of the report text against the SUBMITTED notebook ===
 FAIL mission rows only appear in the setup print and in predict
@@ -15229,7 +15941,9 @@ mentions AI/Claude/Anthropic: False
 html_1280x900.png html_1366x768.png html_1920x1080.png
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
 import ast, nbformat
 nb = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
 start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
@@ -15253,7 +15967,8 @@ print("every statement that touches mission features:")
 for i, t in seen: print(f"  cell {i}: {t}")
 fit_like = [t for _, t in seen if any(k in t for k in (".fit(", "kmeans(", "name_clusters(", "zscore_fit("))]
 print("\nany of them a fit / kmeans / naming call:", fit_like if fit_like else "none")
-PYEOF`
+PYEOF
+```
 ```
 every statement that touches mission features:
   cell 10: print(     f"fit {len(X_fit)} | calibration-training {len(X_train)} | validation {len(X_val)} | mission {len(X_mission)}
@@ -15262,7 +15977,9 @@ every statement that touches mission features:
 any of them a fit / kmeans / naming call: none
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/verify" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/verify" && ../venv/Scripts/python.exe -I - <<'PYEOF'
 from PIL import Image
 import numpy as np
 for name in ("1280x900", "1366x768", "1920x1080"):
@@ -15272,7 +15989,8 @@ for name in ("1280x900", "1366x768", "1920x1080"):
     cols, rows = np.flatnonzero(ink.any(axis=0)), np.flatnonzero(ink.any(axis=1))
     l, r, t, b = cols.min(), w - 1 - cols.max(), rows.min(), h - 1 - rows.max()
     print(f"window {w}x{h}: left {l}px right {r}px (diff {abs(l-r)}) | top {t}px bottom {b}px (diff {abs(t-b)})")
-PYEOF`
+PYEOF
+```
 ```
 window 1280x900: left 408px right 406px (diff 2) | top 136px bottom 136px (diff 0)
 window 1366x768: left 451px right 449px (diff 2) | top 70px bottom 70px (diff 0)
@@ -15280,7 +15998,9 @@ window 1920x1080: left 728px right 726px (diff 2) | top 226px bottom 226px (diff
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\verify\html_1366x768.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+- `Bash`
+````bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
 import re, pymupdf as fitz
 import report_build as rb
 W = r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf"
@@ -15311,7 +16031,8 @@ for k in keys:
 print("title lines present:", all(t in full for t in rb.P["title"]))
 print("leftover placeholder text:", [w for w in ("[Insert", "Step ", "```", "TODO") if w in full] or "none")
 print("\nAI paragraph occurrences (should be exactly the final paragraph):", full.count("Claude Code (Anthropic)"))
-PYEOF`
+PYEOF
+````
 ```
 == structure
 pages: 2 | size: [(8.5, 11.0), (8.5, 11.0)] | producer: Microsoft� Word for Microsoft 365 | creator: Microsoft� Word for Microsoft 365
@@ -15343,7 +16064,9 @@ leftover placeholder text: none
 AI paragraph occurrences (should be exactly the final paragraph): 0
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
 import re, difflib, pymupdf as fitz
 import report_build as rb
 d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
@@ -15380,7 +16103,8 @@ for k in ["s1", "s2", "s3b", "s4", "s5", "hai", "ai"]:
         if n > 8: print("   ..."); break
         print(f"   {op}: locked={' '.join(want[a1:a2])[:110]!r}  ->  pdf={' '.join(have[b1:b2])[:110]!r}")
 print("\nlast 300 characters of the PDF body text:\n", full[-300:])
-PYEOF`
+PYEOF
+```
 ```
 [s1]
    replace: locked='3 cluster'  ->  pdf='3-cluster'
@@ -15410,7 +16134,9 @@ last 300 characters of the PDF body text:
  rentiate between the 4 perfect models. A perfect score on the validation data does not mean it is a perfect model. The practice run only tests 1 route, so it is a demonstration and not proof. There are no labels on the mission data meaning I cannot see how well the model generalizes to the new area.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
 import re, difflib, zipfile, pymupdf as fitz
 import report_build as rb
 from docx import Document
@@ -15442,7 +16168,8 @@ dx = Document(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 form
 dtxt = " ".join(p.text for p in dx.paragraphs)
 print("last paragraphs:", [p.text[:60] for p in dx.paragraphs if p.text.strip()][-2:])
 print("AI / Claude mentioned in the docx:", re.findall(r"\bAI\b|Claude|Anthropic", dtxt) or "none")
-PYEOF`
+PYEOF
+```
 ```
 locked report words: 983 | PDF words (table removed): 1591 | similarity 0.7242
   insert   locked=''  pdf='HW 2: Rover Rescue Anant Gupta October 2026'
@@ -15464,7 +16191,9 @@ last paragraphs: ['Limitations', 'The 30 validation rows were not enough to diff
 AI / Claude mentioned in the docx: none
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
 import re, difflib, pymupdf as fitz
 import report_build as rb
 d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
@@ -15486,7 +16215,8 @@ print(f"locked words {len(locked)} | PDF words {len(pdf_nt)} | similarity {sm.ra
 for op, a1, a2, b1, b2 in sm.get_opcodes():
     if op == "equal": continue
     print(f"  {op:8} locked={' '.join(locked[a1:a2])[:150]!r}   pdf={' '.join(pdf_nt[b1:b2])[:150]!r}")
-PYEOF`
+PYEOF
+```
 ```
 table words removed from the comparison: 84 (7 rows x 8 cells, plus wrapped header cells)
 locked words 991 | PDF words 946 | similarity 0.9706
@@ -15499,7 +16229,9 @@ locked words 991 | PDF words 946 | similarity 0.9706
   delete   locked='AI AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) was used to read the course material, write the code in the notebook,'   pdf=''
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
 import re, pandas as pd, pymupdf as fitz
 d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
 cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
@@ -15530,7 +16262,8 @@ for pi, p in enumerate(d):
                     print(f"  page {pi+1}: font {s['font']!r} size {s['size']:.1f} text {s['text'][:40]!r}")
 print("  (the picture text inside the two figures is part of the images, not fonts)")
 for i, p in enumerate(d): p.get_pixmap(dpi=80).save(f"verify/pdf_p{i+1}.png")
-PYEOF`
+PYEOF
+```
 ```
 == Table 1 in the PDF, row by row, against figures/hw2_configs.csv
   FAIL C1: row not found
@@ -15556,7 +16289,9 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\va
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\verify\pdf_p1.png`
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\verify\pdf_p2.png`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
 import pandas as pd, pymupdf as fitz
 d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
 cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
@@ -15577,7 +16312,8 @@ for cid, c in cfg.iterrows():
     bad += (not ok)
     print(("ok   " if ok else "FAIL ") + str(line))
 print("table rows that match the results file:", len(cfg) - bad, "of", len(cfg))
-PYEOF`
+PYEOF
+```
 ```
 ok   C1 raw 8 sensors (8) k-means 0.700 0.704 0.50 stuck, step 20
 ok   C2 raw 8 sensors (8) 1-NN 0.933 0.935 0.90 success, 54 steps
@@ -15640,14 +16376,7 @@ _None detected_
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures"; ls -la "Week 6 - 10" "Weeks 1 - 5" | awk '{print $5, $9, $10, $11, $12}'; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Weekly"; wc -c *.md; ls /c/Users/anant/miniconda3 /c/Users/anant/anaconda3 /c/ProgramData/miniconda3 /c/Users/anant/miniforge3 2>&1 | head -5; ls /c/Users/anant/AppData/Local/miniconda3 2>&1 | head -3; where python py conda 2>&1 | head`
 - `ls /c/Users/anant/miniconda3/envs/ 2>&1; ls /c/Users/anant/miniconda3/envs/csci-4521/python.exe 2>&1; /c/Users/anant/miniconda3/envs/csci-4521/python.exe -c "import numpy,pandas,sklearn,matplotlib,seaborn;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__)" 2>&1 | tail -2`
 - `ls -la /c/Users/anant/miniconda3 | head -20; ls /c/Users/anant/.conda/envs 2>&1 | head; find /c/Users/anant /d/_Anant -maxdepth 4 -name "python.exe" -not -path "*/WindowsApps/*" 2>/dev/null | head`
-- `PY=/c/Users/anant/miniconda3/python.exe; $PY -c "import numpy,pandas,sklearn,matplotlib;print('ok')" 2>&1 | tail -1; cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" <<'EOF'
-import json,sys
-nb=json.load(open(sys.argv[1],encoding='utf-8'))
-for i,c in enumerate(nb['cells']):
-    s=''.join(c['source'])
-    if s.strip(): print(f"--- [{c['cell_type']}] {i}\n{s}")
-EOF
-$PY -I "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Week 6 - 10/2.3 k-means clustering - completed.ipynb" | head -300`
+- `PY=/c/Users/anant/miniconda3/python.exe; $PY -c "import numpy,pandas,sklearn,matplotlib;print('ok')" 2>&1 | tail -1; cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" <<'EOF' import json,sys nb=json.load(open(sys.argv[1],encoding='utf-8')) for i,c in enumerate(nb['cells']):     s=''.join(c['source'])     if s.strip(): print(f"--- [{c['cell_type']}] {i}\n{s}") EOF $PY -I "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Week 6 - 10/2.3 k-means clustering - completed.ipynb" | head -300`
 - `PY=/c/Users/anant/miniconda3/python.exe; S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; $PY -I $S "$L/2.4 PCA on iris data.ipynb"; echo "=========== newsgroups"; $PY -I $S "$L/2.4 PCA on newsgroups.ipynb"`
 - `PY=/c/Users/anant/miniconda3/python.exe; S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/src.py"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; $PY -I $S "$L/1.1 Nearest Neighbor Classifier.ipynb" | head -220`
 - `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 6/2.3 unsupervised learning, k-means clustering.pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -250`
@@ -15655,13 +16384,7 @@ $PY -I "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents
 - `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 5/2.4 pca.pptx.pdf" --pages all --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block" | head -200`
 - `mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 6/2.3 unsupervised learning, k-means clustering.pptx.pdf" --pages 24-26 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"; echo =========PCA; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 5/2.4 pca.pptx.pdf" --pages 16-30 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"; echo ======1.4; mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures/Week - 3/1.4 generalization, confusion matrix, accuracy, precision, recall, f1 score .pptx.pdf" --pages 16-21 --tier flash --wait 300 2>&1 | grep -v "^$" | grep -v "Image block"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && /c/Users/anant/miniconda3/python.exe -m venv venv 2>&1 | tail -2; ./venv/Scripts/python.exe -m pip install -q pymupdf 2>&1 | tail -3; ./venv/Scripts/python.exe -c "import fitz;print(fitz.__doc__)" 2>&1 | tail -2`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
-import fitz
-d=fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf')
-for i in (0,3):
-    d[i].get_pixmap(dpi=80).save(f'hw2_p{i+1}.png')
-print(len(d))
-"; ls`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c " import fitz d=fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf') for i in (0,3):     d[i].get_pixmap(dpi=80).save(f'hw2_p{i+1}.png') print(len(d)) "; ls`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo"; git log --format='%h %ad %s' --date=short -- 2026/homework-2 | head; ls 2026 | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Weekly"; sed -n 55,58p "Week - 6.md" | cut -c1-900; echo ----; sed -n 20,24p "Week - 7.md" | cut -c1-700; echo ----; sed -n 39p "Week - 7.md" | cut -c1-1500`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; f=$(find . -name "Jarvis Writing and Formatting.md" -not -path "./50_Archive/*" | head -1); echo "$f"; sed -n 1,80p "$f" | cut -c1-400; echo ======; g=$(find . -name "Vault Lint.md" -not -path "./50_Archive/*" | head -1); echo "$g"; sed -n 1,40p "$g" | cut -c1-300`
@@ -15671,162 +16394,16 @@ print(len(d))
 - `mineru server stop 2>&1 | tail -2`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q numpy pandas matplotlib scikit-learn ipython nbformat nbconvert ipykernel 2>&1 | grep -v "notice" | tail -5; ./venv/Scripts/python.exe -c "import numpy,pandas,sklearn,matplotlib,IPython,nbformat,nbconvert,ipykernel;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__,IPython.__version__)"; git --version`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | tail -30`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > outs.py <<'EOF'
-import nbformat, sys
-nb = nbformat.read(sys.argv[1], as_version=4)
-start = int(sys.argv[2]); end = int(sys.argv[3])
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code" or not (start <= i < end): continue
-    print(f"=== cell {i}")
-    for o in c.outputs:
-        if o.output_type == "stream": print(o.text.rstrip())
-        elif o.output_type in ("execute_result", "display_data"):
-            if "text/plain" in o.data and "text/html" not in o.data and "image/png" not in o.data: print(o.data["text/plain"])
-            elif "text/html" in o.data and "<table" in o.data["text/html"]:
-                import pandas as pd, io
-                try: print(pd.read_html(io.StringIO(o.data["text/html"]))[0].to_string())
-                except Exception as e: print("[html table]", e)
-            elif "image/png" in o.data: print("[image]")
-            else: print("[other output]", list(o.data.keys()))
-        elif o.output_type == "error": print("ERROR", o.ename, o.evalue)
-EOF
-./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 40 2>&1 | head -260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > outs.py <<'EOF' import nbformat, sys nb = nbformat.read(sys.argv[1], as_version=4) start = int(sys.argv[2]); end = int(sys.argv[3]) for i, c in enumerate(nb.cells):     if c.cell_type != "code" or not (start <= i < end): continue     print(f"=== cell {i}")     for o in c.outputs:         if o.output_type == "stream": print(o.text.rstrip())         elif o.output_type in ("execute_result", "display_data"):             if "text/plain" in o.data and "text/html" not in o.data and "image/png" not in o.data: print(o.data["text/plain"])             elif "text/html" in o.data and "<table" in o.data["text/html"]:                 import pandas as pd, io                 try: print(pd.read_html(io.StringIO(o.data["text/html"]))[0].to_string())                 except Exception as e: print("[html table]", e)             elif "image/png" in o.data: print("[image]")             else: print("[other output]", list(o.data.keys()))         elif o.output_type == "error": print("ERROR", o.ename, o.evalue) EOF ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 40 2>&1 | head -260`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q lxml 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 31 2>&1 | grep -v "^\[IPK" | head -230`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
-import re
-p = "build_nb.py"
-s = open(p, encoding="utf-8").read()
-
-s = s.replace("cluster names {list(CLASSES[info['names']])}", "cluster names {[str(c) for c in CLASSES[info['names']]]}")
-s = s.replace('''print("Selected:", BEST, "->", dict(results.loc[BEST, ["scaling", "representation", "model", "dims"]]))''',
- '''r = results.loc[BEST]
-print(f"Selected: {BEST} ({r.scaling}, {r.representation}, {r.model}, {int(r.dims)} dimensions)")''')
-s = s.replace('''print("per-class F1:", dict(zip(CLASSES, cm_best["f1"].round(3))), "| per-class recall:", dict(zip(CLASSES, cm_best["recall"].round(3))))''',
- '''print("per-class F1:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["f1"])},
-      "| per-class recall:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["recall"])})''')
-s = s.replace('''print("practice route cost", cost_p, "| mission route cost", cost_m)''',
- '''print("practice route cost", round(cost_p, 1), "| mission route cost", round(cost_m, 1))''')
-s = s.replace("print(dict(zip(ks, np.round(inertia_k, 1))))", "print({kk: round(float(v), 1) for kk, v in zip(ks, inertia_k)})")
-
-old_start = s.index("# Missed sand in the chosen model's practice route")
-old_end = s.index("md('## 8. Export the mission predictions')")
-new_cell = """# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
-# stopped (the planned path gives it, no truth file is read) and show what the model saw there.
-stuck = results.index[results.practice == "ROVER STUCK IN SAND"]
-print("configurations that got the rover stuck:", list(stuck))
-for cid in stuck:
-    pred_c = fitted[cid]["predict"](X_dev)
-    path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)
-    sy, sx = path_c[int(results.loc[cid, "steps"])]
-    i = sy * w + sx
-    print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; the model predicted "
-          f"{CLASSES[pred_c[i]]} there and the simulator reports sand.")
-    print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))
-    mv = metrics(y_val, fitted[cid]["predict"](X_val))
-    display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))''')
-
-"""
-s = s[:old_start] + "code('''" + new_cell + s[old_end:]
-open(p, "w", encoding="utf-8").write(s)
-EOF
-grep -n "Failure analysis" build_nb.py | head -2; sed -n "$(grep -n 'Failure analysis' build_nb.py | head -1 | cut -d: -f1),+16p" build_nb.py`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
-p = "build_nb.py"
-s = open(p, encoding="utf-8").read()
-print(s.count("code('''code('''"))
-s = s.replace("code('''code('''", "code('''")
-open(p, "w", encoding="utf-8").write(s)
-EOF
-./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb.py',encoding='utf-8').read());print('syntax ok')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF' import re p = "build_nb.py" s = open(p, encoding="utf-8").read()  s = s.replace("cluster names {list(CLASSES[info['names']])}", "cluster names {[str(c) for c in CLASSES[info['names']]]}") s = s.replace('''print("Selected:", BEST, "->", dict(results.loc[BEST, ["scaling", "representation", "model", "dims"]]))''',  '''r = results.loc[BEST] print(f"Selected: {BEST} ({r.scaling}, {r.representation}, {r.model}, {int(r.dims)} dimensions)")''') s = s.replace('''print("per-class F1:", dict(zip(CLASSES, cm_best["f1"].round(3))), "| per-class recall:", dict(zip(CLASSES, cm_best["recall"].round(3))))''',  '''print("per-class F1:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["f1"])},       "| per-class recall:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["recall"])})''') s = s.replace('''print("practice route cost", cost_p, "| mission route cost", cost_m)''',  '''print("practice route cost", round(cost_p, 1), "| mission route cost", round(cost_m, 1))''') s = s.replace("print(dict(zip(ks, np.round(inertia_k, 1))))", "print({kk: round(float(v), 1) for kk, v in zip(ks, inertia_k)})")  old_start = s.index("# Missed sand in the chosen model's practice route") old_end = s.index("md('## 8. Export the mission predictions')") new_cell = """# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover # stopped (the planned path gives it, no truth file is read) and show what the model saw there. stuck = results.index[results.practice == "ROVER STUCK IN SAND"] print("configurations that got the rover stuck:", list(stuck)) for cid in stuck:     pred_c = fitted[cid]["predict"](X_dev)     path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)     sy, sx = path_c[int(results.loc[cid, "steps"])]     i = sy * w + sx     print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; the model predicted "           f"{CLASSES[pred_c[i]]} there and the simulator reports sand.")     print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))     mv = metrics(y_val, fitted[cid]["predict"](X_val))     display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))''')  """ s = s[:old_start] + "code('''" + new_cell + s[old_end:] open(p, "w", encoding="utf-8").write(s) EOF grep -n "Failure analysis" build_nb.py | head -2; sed -n "$(grep -n 'Failure analysis' build_nb.py | head -1 | cut -d: -f1),+16p" build_nb.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF' p = "build_nb.py" s = open(p, encoding="utf-8").read() print(s.count("code('''code('''")) s = s.replace("code('''code('''", "code('''") open(p, "w", encoding="utf-8").write(s) EOF ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb.py',encoding='utf-8').read());print('syntax ok')"`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | grep -E "ERROR|Error|Traceback|Writing" ; ls -la submission.csv practice_run.html figures/ CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 26 40 2>&1 | grep -v "^\[IPK"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > new_block.md <<'EOF'
-### Remaining steps to submit
-Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order:
-- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.
-- 2 min: open `CSCI4521_HW2.ipynb`, confirm the outputs show and the tables match the Work log above. Do not re-run unless the dataset changes.
-- 12 min: Word. Paste the Report draft as unformatted text, insert Figure 1 and Figure 2 from `Code\Homework\figures\`, build Table 1 from the rows below.
-- 5 min: export PDF, reopen it, confirm two pages and that every number matches `figures/hw2_configs.csv`.
-- 3 min: upload `CSCI4521_HW2.ipynb`, the PDF, `submission.csv`, `practice_run.html`. Do not upload `rover-rescue-download/` (it holds the dataset and the truth file). Record the time under `### Submission`.
-### Report draft
-HW 2: Rover Rescue
-Anant Gupta
-October 2026
-1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? I compared eleven configurations (Table 1). Eight form a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor. Three extras use PCA with 2 components and 3-NN. My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened). Clusters take the majority label of the 60 calibration-training points, which was one-to-one in every case. Three clusters match the three terrains, and the elbow agrees: within-cluster sum of squares drops from 2652 at k=2 to 1238 at k=3 and only to 1086 at k=4.
-2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (every practice row except the 30 validation rows, no labels used). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. All configurations were scored on the same 30 validation rows (10 per terrain), where one error is 3.3 points. I selected the deployed model on these rows, so its score is a selection score, not an untouched test score, and the practice rover run shows deployment rather than accuracy. The mission grid was transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
-3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and with 2 on raw data (98.2%), but raw PC1 alone holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups that line up with the labeled firm, rough and sand points (Figure 1b).
-Scaling mattered most. Holding model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells, and its cluster named sand held 12 sand, 11 rough and 4 firm training points; after z-scoring all three clusters were pure (20, 20, 20). PCA changed little: on z-scored data 8 sensors, 3 components and 2 components all scored 1.000, while on raw data it lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, not tested here: with raw scales k-means partitions mostly along sensor_4, while 1-NN uses the 60 labels locally.
-Table 1: dimensions, validation accuracy, macro F1, sand recall and practice rover outcome for each configuration (macro F1 is the unweighted mean of the three per-class F1 scores).
-Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows, labeled training points in color.
-4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA with 2 components, k-means), which differs from E2 only by table order, so I report a tie and not a winner. E1 uses 2 dimensions and needs the labels only to name three clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, the same as the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it, while a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route: a miss matters only when the path crosses it.
-Figure 2: practice map with the planned route and predicted mission map with its planned route, from the selected model.
-5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them does not mean the model is perfect; one successful practice route is a demonstration. The z-scored mission rows sit within 0.25 standard deviations of the fit-row mean on every sensor (standard deviations 0.91 to 1.08), so I saw no sensor drift. Even so the predicted mission mix differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot say whether that is a real regional difference or a model error.
-AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.
-### Table 1 rows
-| ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
-| C2 | raw | 8 sensors (8) | 1-NN | 0.933 | 0.935 | 0.90 | success, 54 steps |
-| C3 | z-score | 8 sensors (8) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| C4 | z-score | 8 sensors (8) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| C5 | raw | PCA 95% (2) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
-| C6 | raw | PCA 95% (2) | 1-NN | 0.867 | 0.868 | 0.90 | success, 54 steps |
-| C7 | z-score | PCA 95% (3) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| C8 | z-score | PCA 95% (3) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| E1 | z-score | PCA 2 (2) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| E2 | z-score | PCA 2 (2) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| E3 | z-score | 8 sensors (8) | 3-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-### Word assembly
-This report is longer than the two-page limit allows at HW1 settings, so use these from the start: Times New Roman 10.5 pt, Letter, 0.75 inch margins, single spacing, 3 pt after paragraphs. Figure 1 about 6.8 in wide, Figure 2 about 4.6 in wide, Table 1 at 9 pt. Page count is untested in Word, so check it. If it spills, shrink Figure 2 first, then cut sentence by sentence from section 3 (the explanation sentences), not the table or the protocol, because the rubric scores both. Copy from source mode, Paste Special as unformatted text, bold the section titles, center the three title lines, and put each figure directly above its caption.
-### Blockers
-> [!WARNING]
-> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.
-
-EOF
-./venv/Scripts/python.exe -I - <<'EOF'
-p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
-s = open(p, encoding="utf-8").read()
-a = s.index("### 30-minute plan")
-b = s.index("### Submission")
-new = open("new_block.md", encoding="utf-8").read()
-s = s[:a] + new + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("ok", len(s))
-EOF
-cd "D:/_Anant/20_Progress/Documents/Jarvis"; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -3; echo "(dash check done)"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|failing|Homework -"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice.py <<'PYEOF'
-p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
-s = open(p, encoding="utf-8").read()
-a = s.index("### 30-minute plan")
-b = s.index("### Submission")
-s = s[:a] + open("new_block.md", encoding="utf-8").read() + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("spliced", len(s))
-PYEOF
-./venv/Scripts/python.exe -I splice.py`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > new_block.md <<'EOF' ### Remaining steps to submit Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order: - Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself. - 2 min: open `CSCI4521_HW2.ipynb`, confirm the outputs show and the tables match the Work log above. Do not re-run unless the dataset changes. - 12 min: Word. Paste the Report draft as unformatted text, insert Figure 1 and Figure 2 from `Code\Homework\figures\`, build Table 1 from the rows below. - 5 min: export PDF, reopen it, confirm two pages and that every number matches `figures/hw2_configs.csv`. - 3 min: upload `CSCI4521_HW2.ipynb`, the PDF, `submission.csv`, `practice_run.html`. Do not upload `rover-rescue-download/` (it holds the dataset and the truth file). Record the time under `### Submission`. ### Report draft HW 2: Rover Rescue Anant Gupta October 2026 1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? I compared eleven configurations (Table 1). Eight form a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor. Three extras use PCA with 2 components and 3-NN. My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened). Clusters take the majority label of the 60 calibration-training points, which was one-to-one in every case. Three clusters match the three terrains, and the elbow agrees: within-cluster sum of squares drops from 2652 at k=2 to 1238 at k=3 and only to 1086 at k=4. 2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (every practice row except the 30 validation rows, no labels used). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. All configurations were scored on the same 30 validation rows (10 per terrain), where one error is 3.3 points. I selected the deployed model on these rows, so its score is a selection score, not an untouched test score, and the practice rover run shows deployment rather than accuracy. The mission grid was transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on. 3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and with 2 on raw data (98.2%), but raw PC1 alone holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups that line up with the labeled firm, rough and sand points (Figure 1b). Scaling mattered most. Holding model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells, and its cluster named sand held 12 sand, 11 rough and 4 firm training points; after z-scoring all three clusters were pure (20, 20, 20). PCA changed little: on z-scored data 8 sensors, 3 components and 2 components all scored 1.000, while on raw data it lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, not tested here: with raw scales k-means partitions mostly along sensor_4, while 1-NN uses the 60 labels locally. Table 1: dimensions, validation accuracy, macro F1, sand recall and practice rover outcome for each configuration (macro F1 is the unweighted mean of the three per-class F1 scores). Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows, labeled training points in color. 4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA with 2 components, k-means), which differs from E2 only by table order, so I report a tie and not a winner. E1 uses 2 dimensions and needs the labels only to name three clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, the same as the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it, while a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route: a miss matters only when the path crosses it. Figure 2: practice map with the planned route and predicted mission map with its planned route, from the selected model. 5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them does not mean the model is perfect; one successful practice route is a demonstration. The z-scored mission rows sit within 0.25 standard deviations of the fit-row mean on every sensor (standard deviations 0.91 to 1.08), so I saw no sensor drift. Even so the predicted mission mix differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot say whether that is a real regional difference or a model error. AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work. ### Table 1 rows | ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover | | --- | --- | --- | --- | --- | --- | --- | --- | | C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 | | C2 | raw | 8 sensors (8) | 1-NN | 0.933 | 0.935 | 0.90 | success, 54 steps | | C3 | z-score | 8 sensors (8) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps | | C4 | z-score | 8 sensors (8) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps | | C5 | raw | PCA 95% (2) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 | | C6 | raw | PCA 95% (2) | 1-NN | 0.867 | 0.868 | 0.90 | success, 54 steps | | C7 | z-score | PCA 95% (3) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps | | C8 | z-score | PCA 95% (3) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps | | E1 | z-score | PCA 2 (2) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps | | E2 | z-score | PCA 2 (2) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps | | E3 | z-score | 8 sensors (8) | 3-NN | 1.000 | 1.000 | 1.00 | success, 54 steps | ### Word assembly This report is longer than the two-page limit allows at HW1 settings, so use these from the start: Times New Roman 10.5 pt, Letter, 0.75 inch margins, single spacing, 3 pt after paragraphs. Figure 1 about 6.8 in wide, Figure 2 about 4.6 in wide, Table 1 at 9 pt. Page count is untested in Word, so check it. If it spills, shrink Figure 2 first, then cut sentence by sentence from section 3 (the explanation sentences), not the table or the protocol, because the rubric scores both. Copy from source mode, Paste Special as unformatted text, bold the section titles, center the three title lines, and put each figure directly above its caption. ### Blockers > [!WARNING] > Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.  EOF ./venv/Scripts/python.exe -I - <<'EOF' p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" s = open(p, encoding="utf-8").read() a = s.index("### 30-minute plan") b = s.index("### Submission") new = open("new_block.md", encoding="utf-8").read() s = s[:a] + new + s[b:] open(p, "w", encoding="utf-8").write(s) print("ok", len(s)) EOF cd "D:/_Anant/20_Progress/Documents/Jarvis"; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -3; echo "(dash check done)"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|failing|Homework -"``
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice.py <<'PYEOF' p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" s = open(p, encoding="utf-8").read() a = s.index("### 30-minute plan") b = s.index("### Submission") s = s[:a] + open("new_block.md", encoding="utf-8").read() + s[b:] open(p, "w", encoding="utf-8").write(s) print("spliced", len(s)) PYEOF ./venv/Scripts/python.exe -I splice.py`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dash hits:"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "headings:"; grep -n "^## \|^### " "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls; head -3 submission.csv; wc -l submission.csv; cat figures/hw2_configs.csv | head -3`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fix.py <<'PYEOF'
-p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
-s = open(p, encoding="utf-8").read()
-i = s.index("### Submission`.")
-j = s.index("### Submission\nNot submitted yet.")
-assert i < j
-s = s[:i] + s[j:]
-open(p, "w", encoding="utf-8").write(s)
-print("removed", j - i, "chars")
-PYEOF
-./venv/Scripts/python.exe -I fix.py; grep -n "^## \|^### " "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > restore.py <<'PYEOF'
-p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
-s = open(p, encoding="utf-8").read()
-a = s.index("### Remaining steps to submit\n")
-b = s.index("### Submission\nNot submitted yet.")
-assert s.count("### Remaining steps to submit\n") == 1 and s.count("### Submission\nNot submitted yet.") == 1 and a < b
-block = open("new_block.md", encoding="utf-8").read()
-s = s[:a] + block + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("restored", len(s))
-PYEOF
-./venv/Scripts/python.exe -I restore.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; grep -c "Report draft (fill every bracket" "$F"; grep -c "\[n\] configurations" "$F"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fix.py <<'PYEOF' p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" s = open(p, encoding="utf-8").read() i = s.index("### Submission`.") j = s.index("### Submission\nNot submitted yet.") assert i < j s = s[:i] + s[j:] open(p, "w", encoding="utf-8").write(s) print("removed", j - i, "chars") PYEOF ./venv/Scripts/python.exe -I fix.py; grep -n "^## \|^### " "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"``
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > restore.py <<'PYEOF' p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" s = open(p, encoding="utf-8").read() a = s.index("### Remaining steps to submit\n") b = s.index("### Submission\nNot submitted yet.") assert s.count("### Remaining steps to submit\n") == 1 and s.count("### Submission\nNot submitted yet.") == 1 and a < b block = open("new_block.md", encoding="utf-8").read() s = s[:a] + block + s[b:] open(p, "w", encoding="utf-8").write(s) print("restored", len(s)) PYEOF ./venv/Scripts/python.exe -I restore.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; grep -c "Report draft (fill every bracket" "$F"; grep -c "\[n\] configurations" "$F"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ls; echo ---; for d in Lectures "Final Project" Midterm_Project; do echo "## $d"; find "$d" -type f -not -path "*/.git/*" -not -path "*/__pycache__/*" -not -name "*.png" -not -name "*.jpg" | head -60; done`
 - `echo "== search for assigned bundle files by name"; for r in "/c/Users/anant/Downloads" "/c/Users/anant/Desktop" "/c/Users/anant/Documents" "/d/_Anant"; do find "$r" -maxdepth 6 \( -iname "development.csv" -o -iname "calibration.csv" -o -iname "mission.csv" -o -iname "practice_truth.bin" -o -iname "config.json" -o -iname "*rover*" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/50_Archive/*" 2>/dev/null | head -20; done`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; wc -c AGENTS.md AI_CONTEXT.md; echo; sed -n 1,80p AGENTS.md | cut -c1-500`
@@ -15837,2167 +16414,133 @@ PYEOF
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; PYTHONIOENCODING=utf-8 ./venv/Scripts/python.exe -I src.py "$L/1.3 kNN with SciKit-Learn.ipynb" | cut -c1-200 | head -200`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "=== ISL 12.2.4 scaling (PCA)"; sed -n 30260,30280p isl.txt | cut -c1-140; sed -n 30336,30350p isl.txt | cut -c1-140; echo; echo "=== ISL clustering: scaling"; sed -n 31350,31366p isl.txt | cut -c1-140; echo; echo "=== ISL k-means algorithm"; sed -n 30900,30975p isl.txt | cut -c1-150`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data"; cat config.json; echo; wc -l *.csv; ls -la; cd ..; git log --format='%h %an %ad %s' --date=iso | head -3; echo ---; sed -n 1,12p assignment_student.md`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > relabel.py <<'PYEOF'
-p = "build_nb2.py"
-s = open(p, encoding="utf-8").read()
-pairs = [
- ("- Part 1: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 2: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 3: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 4: eleven configurations",
-  "- Part 1: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 2: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 3: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 4: eleven configurations"),
- ("## Part 2: Methods written in NumPy", "## Part 1: Methods written in NumPy"),
- ("## Part 3: Testing section", "## Part 2: Testing section"),
- ("## Part 1: Representation", "## Part 3: Representation"),
-]
-for a, b in pairs:
-    assert s.count(a) == 1, a[:40]
-    s = s.replace(a, b)
-open(p, "w", encoding="utf-8").write(s)
-print("relabeled")
-PYEOF
-./venv/Scripts/python.exe -I relabel.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb2.py',encoding='utf-8').read());print('syntax ok')"
-cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|assert|Writing|Exception" ; ls -la submission.csv practice_run.html figures/ | grep -E "submission|practice|hw2|fig1_pca|fig2_deploy"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > relabel.py <<'PYEOF' p = "build_nb2.py" s = open(p, encoding="utf-8").read() pairs = [  ("- Part 1: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 2: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 3: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 4: eleven configurations",   "- Part 1: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 2: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 3: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 4: eleven configurations"),  ("## Part 2: Methods written in NumPy", "## Part 1: Methods written in NumPy"),  ("## Part 3: Testing section", "## Part 2: Testing section"),  ("## Part 1: Representation", "## Part 3: Representation"), ] for a, b in pairs:     assert s.count(a) == 1, a[:40]     s = s.replace(a, b) open(p, "w", encoding="utf-8").write(s) print("relabeled") PYEOF ./venv/Scripts/python.exe -I relabel.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb2.py',encoding='utf-8').read());print('syntax ok')" cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|assert|Writing|Exception" ; ls -la submission.csv practice_run.html figures/ | grep -E "submission|practice|hw2|fig1_pca|fig2_deploy"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 45 2>&1 | grep -v "^\[IPK" | grep -v "Unnamed: 0_level_0" | cut -c1-260 | head -230`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixmd.py <<'PYEOF'
-p = "build_nb2.py"
-s = open(p, encoding="utf-8").read()
-a = "Lecture 2.3 and 2.4 and the 4041 habit of measuring: the distance step costs O(n k d), so time should grow linearly with n and drop with d. Median of 5 timed runs."
-b = ("The distance step costs O(n k d), so its time should grow about linearly with n, and with d once n is large enough that "
-     "call overhead stops dominating. These tables report what this machine actually does (median of 5 timed runs), "
-     "including where the expectation does not hold.")
-assert s.count(a) == 1
-s = s.replace(a, b)
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixmd.py
-cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing"; cat > "$SC/times.py" <<'PYEOF'
-import nbformat, pandas as pd, io, sys
-nb = nbformat.read(sys.argv[1], as_version=4)
-c = nb.cells[22]
-for o in c.outputs:
-    if "text/html" in o.get("data", {}):
-        df = pd.read_html(io.StringIO(o["data"]["text/html"]))[0]
-        df.columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
-        print(df[["config", "fit_ms", "predict_ms"]].to_string(index=False))
-PYEOF
-"$PY" -I "$SC/times.py" CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 24 28 | grep -v "^\[IPK"; cd ..; cat Homework/figures/hw2_configs.csv | cut -d, -f1-9 | head -12; git -C "D:/_Anant/20_Progress/Documents/Jarvis" status --short | head -5`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice2.py <<'PYEOF'
-p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
-s = open(p, encoding="utf-8").read()
-
-def between(s, start, end, new):
-    assert s.count(start) == 1 and s.count(end) == 1, (start, end)
-    a, b = s.index(start), s.index(end)
-    assert a < b
-    return s[:a] + new + s[b:]
-
-def swap(s, old, new):
-    assert s.count(old) == 1, old[:60]
-    return s.replace(old, new)
-
-s = between(s, "### 2026-10-27 Notebook built and run\n", "### 2026-10-27 Source reading and plan\n", open("blockA.md", encoding="utf-8").read())
-s = between(s, "### Notebook design\n", "### Remaining steps to submit\n", open("blockB.md", encoding="utf-8").read())
-
-s = swap(s, "My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened).",
- "My k-means is a NumPy loop that follows ISL Algorithm 12.2: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares; an empty cluster would be re-seeded at the farthest point (it never happened). One start is not enough: on z-scored data 15 of 20 single starts reached the best objective, and on raw data only 2 of 20.")
-s = swap(s, "AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.",
- "AI use: AI use is allowed in this course and I used it heavily. Anthropic Claude Code read the course materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked the results against the assignment, and am responsible for what I submit.")
-s = swap(s, "- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.",
- "- Before anything is uploaded: check the Gradescope due date, and ask the instructor or a TA whether a personalized bundle exists (see Dataset question). The report and notebook both end with an AI-use disclosure; it is only true if you open the notebook and check the numbers yourself.")
-s = swap(s, "> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.",
- "> Open before upload: the Gradescope due date, and whether the course issues a personalized bundle (see Dataset question). If one exists, set `BUNDLE_OVERRIDE`, run everything again, and refill every number in the Report draft and Table 1 from the new output. The Word report stays a draft until the code, dataset and images are final.")
-s = swap(s, "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. It is not printed on the handout PDF or in the repo markdown, so it is unconfirmed (check Gradescope or Canvas). HW1 ended with a one-line AI disclosure, reuse that shape.",
- "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. The handout PDF and repo markdown print none. The user states AI use is allowed as much as possible on this course, so treat it as green but unverified. The disclosure, including how much AI was used, goes at the bottom of the report and of the notebook.")
-open(p, "w", encoding="utf-8").write(s)
-print("ok", len(s))
-PYEOF
-./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > audit.py <<'PYEOF'
-import nbformat, sys
-nb = nbformat.read(sys.argv[1], as_version=4)
-print("cells:", len(nb.cells))
-for i, c in enumerate(nb.cells):
-    n_md_words = len(c.source.split()) if c.cell_type == "markdown" else 0
-    n_lines = len(c.source.splitlines())
-    blank = sum(1 for l in c.source.splitlines() if not l.strip())
-    outs = []
-    for o in c.get("outputs", []):
-        if o.output_type == "stream": outs.append("stream:" + o.name)
-        elif o.output_type == "error": outs.append("ERROR")
-        else: outs.append(",".join(sorted(o.get("data", {}).keys())))
-    print(f"{i:2d} {c.cell_type[:4]} lines={n_lines:3d} blank={blank:2d} words={n_md_words:3d} first={c.source.splitlines()[0][:60] if c.source else ''!r} outs={outs}")
-PYEOF
-./venv/Scripts/python.exe -I audit.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixmd.py <<'PYEOF' p = "build_nb2.py" s = open(p, encoding="utf-8").read() a = "Lecture 2.3 and 2.4 and the 4041 habit of measuring: the distance step costs O(n k d), so time should grow linearly with n and drop with d. Median of 5 timed runs." b = ("The distance step costs O(n k d), so its time should grow about linearly with n, and with d once n is large enough that "      "call overhead stops dominating. These tables report what this machine actually does (median of 5 timed runs), "      "including where the expectation does not hold.") assert s.count(a) == 1 s = s.replace(a, b) open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I fixmd.py cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing"; cat > "$SC/times.py" <<'PYEOF' import nbformat, pandas as pd, io, sys nb = nbformat.read(sys.argv[1], as_version=4) c = nb.cells[22] for o in c.outputs:     if "text/html" in o.get("data", {}):         df = pd.read_html(io.StringIO(o["data"]["text/html"]))[0]         df.columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]         print(df[["config", "fit_ms", "predict_ms"]].to_string(index=False)) PYEOF "$PY" -I "$SC/times.py" CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 24 28 | grep -v "^\[IPK"; cd ..; cat Homework/figures/hw2_configs.csv | cut -d, -f1-9 | head -12; git -C "D:/_Anant/20_Progress/Documents/Jarvis" status --short | head -5`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice2.py <<'PYEOF' p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" s = open(p, encoding="utf-8").read()  def between(s, start, end, new):     assert s.count(start) == 1 and s.count(end) == 1, (start, end)     a, b = s.index(start), s.index(end)     assert a < b     return s[:a] + new + s[b:]  def swap(s, old, new):     assert s.count(old) == 1, old[:60]     return s.replace(old, new)  s = between(s, "### 2026-10-27 Notebook built and run\n", "### 2026-10-27 Source reading and plan\n", open("blockA.md", encoding="utf-8").read()) s = between(s, "### Notebook design\n", "### Remaining steps to submit\n", open("blockB.md", encoding="utf-8").read())  s = swap(s, "My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened).",  "My k-means is a NumPy loop that follows ISL Algorithm 12.2: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares; an empty cluster would be re-seeded at the farthest point (it never happened). One start is not enough: on z-scored data 15 of 20 single starts reached the best objective, and on raw data only 2 of 20.") s = swap(s, "AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.",  "AI use: AI use is allowed in this course and I used it heavily. Anthropic Claude Code read the course materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked the results against the assignment, and am responsible for what I submit.") s = swap(s, "- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.",  "- Before anything is uploaded: check the Gradescope due date, and ask the instructor or a TA whether a personalized bundle exists (see Dataset question). The report and notebook both end with an AI-use disclosure; it is only true if you open the notebook and check the numbers yourself.") s = swap(s, "> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.",  "> Open before upload: the Gradescope due date, and whether the course issues a personalized bundle (see Dataset question). If one exists, set `BUNDLE_OVERRIDE`, run everything again, and refill every number in the Report draft and Table 1 from the new output. The Word report stays a draft until the code, dataset and images are final.") s = swap(s, "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. It is not printed on the handout PDF or in the repo markdown, so it is unconfirmed (check Gradescope or Canvas). HW1 ended with a one-line AI disclosure, reuse that shape.",  "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. The handout PDF and repo markdown print none. The user states AI use is allowed as much as possible on this course, so treat it as green but unverified. The disclosure, including how much AI was used, goes at the bottom of the report and of the notebook.") open(p, "w", encoding="utf-8").write(s) print("ok", len(s)) PYEOF ./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"``
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > audit.py <<'PYEOF' import nbformat, sys nb = nbformat.read(sys.argv[1], as_version=4) print("cells:", len(nb.cells)) for i, c in enumerate(nb.cells):     n_md_words = len(c.source.split()) if c.cell_type == "markdown" else 0     n_lines = len(c.source.splitlines())     blank = sum(1 for l in c.source.splitlines() if not l.strip())     outs = []     for o in c.get("outputs", []):         if o.output_type == "stream": outs.append("stream:" + o.name)         elif o.output_type == "error": outs.append("ERROR")         else: outs.append(",".join(sorted(o.get("data", {}).keys())))     print(f"{i:2d} {c.cell_type[:4]} lines={n_lines:3d} blank={blank:2d} words={n_md_words:3d} first={c.source.splitlines()[0][:60] if c.source else ''!r} outs={outs}") PYEOF ./venv/Scripts/python.exe -I audit.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" && ( time "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert" ) 2>&1 | grep -E "Error|Traceback|Writing|assert|real"; ls; echo "--- compare with previous run in Code/Homework"; cmp submission.csv "$H/submission.csv" && echo "submission.csv IDENTICAL"; cmp figures/hw2_configs.csv "$H/figures/hw2_configs.csv" && echo "hw2_configs.csv IDENTICAL"`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I "$SC/audit.py" CSCI4521_HW2.ipynb; cmp submission.csv "$SC/fresh/submission.csv" && echo "in-place submission.csv == fresh-dir submission.csv"; ls -la submission.csv practice_run.html CSCI4521_HW2.ipynb figures/ | grep -E "submission|practice|HW2|hw2|fig1_pca|fig2_deploy"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 42 2>&1 | grep -v "^\[IPK" | cut -c1-230 | head -250`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchfig.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:70]
-    s = s.replace(old, new)
-
-# style constant in the setup cell
-swap('''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
-Path("figures").mkdir(exist_ok=True)''',
-'''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
-# report figures are saved at the width they are printed, so text is sized for print
-REPORT_STYLE = {"font.size": 7.5, "axes.titlesize": 8, "axes.labelsize": 7.5,
-                "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 6.5}
-Path("figures").mkdir(exist_ok=True)''')
-
-# figure 1 cell
-a = s.index("P_fit = pca_z.transform(Z_fit)")
-b = s.index("''')", a)
-fig1 = '''P_fit = pca_z.transform(Z_fit)
-P_train = pca_z.transform(Z_train)
-
-with plt.rc_context(REPORT_STYLE):
-    fig = plt.figure(figsize=(7.0, 2.5))
-
-    ax = fig.add_subplot(1, 3, 1)
-    ax.plot(range(1, 9), cum_z, "o-", ms=3.5, color="#0072B2", label="standardized")
-    ax.plot(range(1, 9), cum_raw, "s--", ms=3.5, color="#D55E00", label="raw")
-    ax.axhline(0.95, color="gray", ls=":", lw=1)
-    ax.annotate(f"{N95_Z} components\\n(standardized)", (N95_Z, cum_z[N95_Z - 1]),
-                textcoords="offset points", xytext=(6, -22), fontsize=6.5)
-    ax.set_xlabel("number of principal components")
-    ax.set_ylabel("cumulative explained variance")
-    ax.set_ylim(0, 1.03)
-    ax.set_title("(a) variance retained")
-    ax.legend(loc="lower right")
-
-    ax = fig.add_subplot(1, 3, 2)
-    ax.scatter(P_fit[:, 0], P_fit[:, 1], s=3, c="#c8c8c8", label="fit rows (unlabeled)")
-    for t in (FIRM, ROUGH, SAND):
-        ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=12, c=COLORS[t],
-                   edgecolor="k", linewidth=0.3, label=f"{CLASSES[t]} (labeled)")
-    ax.set_xlabel("PC1")
-    ax.set_ylabel("PC2")
-    ax.set_title("(b) top 2 components")
-    ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)
-
-    ax = fig.add_subplot(1, 3, 3, projection="3d")
-    ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=2, c="#c8c8c8", alpha=0.5)
-    for t in (FIRM, ROUGH, SAND):
-        ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2],
-                   s=8, c=COLORS[t], edgecolor="k", linewidth=0.2)
-    ax.set_xlabel("PC1", labelpad=-4)
-    ax.set_ylabel("PC2", labelpad=-4)
-    ax.set_zlabel("PC3", labelpad=-4)
-    ax.tick_params(pad=-2)
-    ax.set_title("(c) top 3 components")
-
-    plt.tight_layout()
-    plt.savefig("figures/fig1_pca.png", dpi=300, bbox_inches="tight")
-    plt.show()
-'''
-s = s[:a] + fig1 + s[b:]
-
-# figure 2 cell
-a = s.index("from matplotlib.colors import ListedColormap")
-b = s.index("''')", a)
-fig2 = '''from matplotlib.colors import ListedColormap
-from matplotlib.patches import Patch
-
-cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
-panels = [(practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),
-          (mission_pred, path_m, start_m, goal_m, "Predicted mission map and route")]
-
-with plt.rc_context(REPORT_STYLE):
-    fig, axes = plt.subplots(1, 2, figsize=(5.6, 2.9))
-    for ax, (pred, path, start, goal, title) in zip(axes, panels):
-        ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
-        if path:
-            ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.3)
-        ax.scatter([start[1]], [start[0]], marker="s", s=35, c="k")
-        ax.scatter([goal[1]], [goal[0]], marker="*", s=70, c="k")
-        ax.set_xticks([])
-        ax.set_yticks([])
-        ax.set_title(title)
-
-    if practice_result["status"] == "ROVER STUCK IN SAND":
-        sy, sx = path_p[practice_result["steps"]]
-        axes[0].scatter([sx], [sy], marker="X", s=80, c="#c1121f", edgecolor="w", zorder=5)
-        axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)")
-    else:
-        axes[0].set_xlabel(f"{practice_result['status']}, {practice_result['steps']} steps")
-    axes[1].set_xlabel("prediction only, no mission truth exists")
-
-    fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),
-                        Patch(color="#8d99ae", label="sand")], loc="lower center", ncol=3, frameon=False)
-    plt.tight_layout(rect=(0, 0.07, 1, 1))
-    plt.savefig("figures/fig2_deploy.png", dpi=300, bbox_inches="tight")
-    plt.show()
-'''
-s = s[:a] + fig2 + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patchfig.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('syntax ok')"
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
-import struct
-for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
-    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-old = "components\\n(standardized)"
-assert s.count(old) == 1
-s = s.replace(old, "components\\\\n(standardized)")
-open(p, "w", encoding="utf-8").write(s)
-print("fixed")
-PYEOF
-./venv/Scripts/python.exe -I fixesc.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
-import struct
-for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
-    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
-s=open('build_nb3.py',encoding='utf-8').read()
-i=s.index('components')
-j=s.index('(standardized)', i)
-print(repr(s[j-20:j+14]))
-import nbformat
-nb=nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb',as_version=4)
-for c in nb.cells:
-    if 'standardized)' in c.source and 'annotate' in c.source:
-        k=c.source.index('components'); print(repr(c.source[k:k+40]))
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
-s=open('build_nb3.py',encoding='utf-8').read()
-i=s.index('N95_Z} components')
-seg=s[i:i+40]
-print([hex(ord(ch)) for ch in seg[16:26]])
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc2.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-bs = chr(92)
-old = "components" + bs + "n(standardized)"
-assert s.count(old) == 1
-s = s.replace(old, "components")
-s = s.replace('xytext=(6, -22), fontsize=6.5)', 'xytext=(6, -12), fontsize=6.5)')
-open(p, "w", encoding="utf-8").write(s)
-print("fixed")
-PYEOF
-./venv/Scripts/python.exe -I fixesc2.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
-import struct
-for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
-    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-old = 'ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)'
-assert s.count(old) == 1
-s = s.replace(old, 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixleg.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep -E "fig1_pca|fig2_deploy|hw2"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg2.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-old = 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)'
-assert s.count(old) == 1
-s = s.replace(old, 'ax.set_ylim(top=5.0)  # headroom so the legend never covers points\n    ax.legend(loc="upper center", ncol=2, handletextpad=0.2, columnspacing=0.8, borderpad=0.3)')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixleg2.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg3.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old
-    s = s.replace(old, new)
-swap('label="fit rows (unlabeled)")', 'label="fit rows")')
-swap('label=f"{CLASSES[t]} (labeled)")', 'label=f"{CLASSES[t]}")')
-swap('ax.set_ylim(top=5.0)  # headroom so the legend never covers points', 'ax.set_ylim(top=4.6)  # headroom so the legend never covers points\n    ax.set_yticks([-2, 0, 2])')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixleg3.py
-SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q pyflakes pycodestyle 2>&1 | grep -v notice; cat > lintnb.py <<'PYEOF'
-import nbformat, sys, subprocess, pathlib
-nb = nbformat.read(sys.argv[1], as_version=4)
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-code = []
-for c in nb.cells[start:]:
-    if c.cell_type == "code":
-        code.append("# ---- cell ----\n" + c.source + "\n")
-text = "\n".join(code)
-pathlib.Path("mycode.py").write_text(text, encoding="utf-8")
-print("code cells:", len(code), "lines:", text.count("\n"))
-PYEOF
-./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== pyflakes"; ./venv/Scripts/python.exe -m pyflakes mycode.py; echo "== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -30`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'" ; echo "(end of non-starter pyflakes findings)"; echo; ./venv/Scripts/python.exe -I -c "
-import nbformat
-nb = nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb', as_version=4)
-start = next(i for i,c in enumerate(nb.cells) if c.source.startswith('## My solution'))
-words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type=='markdown')
-errs = [i for i,c in enumerate(nb.cells) if c.cell_type=='code' for o in c.outputs if o.output_type=='error' or (o.output_type=='stream' and o.name=='stderr')]
-print('my markdown words:', words, '| cells with error/stderr output:', errs)
-em = [i for i,c in enumerate(nb.cells[start:],start) if '\u2014' in c.source or '\u2013' in c.source]
-print('cells with em/en dash:', em)
-"`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" >/dev/null && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png practice_run.html; do cmp -s "$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "--- hw2_configs.csv"; cat "$H/figures/hw2_configs.csv"; echo; echo "--- practice_run.html"; head -c 300 "$H/practice_run.html"; echo; grep -c "ROVER\|MISSION SUCCESS" "$H/practice_run.html"; "$PY" -I -c "
-import pandas as pd
-s=pd.read_csv('$H/submission.csv'); m=pd.read_csv('$H/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv')
-print('submission', s.shape, list(s.columns), s.student_id.unique(), s.predicted_terrain.value_counts().to_dict())
-print('row order matches mission.csv:', (s.x==m.x).all() and (s.y==m.y).all())
-"`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cat > htmlcmp.py <<'PYEOF'
-import re, sys
-a = open(sys.argv[1], encoding="utf-8").read()
-b = open(sys.argv[2], encoding="utf-8").read()
-print("sizes:", len(a), len(b))
-# find where they differ
-diffs = [(i, a[i-30:i+30], b[i-30:i+30]) for i in range(min(len(a), len(b))) if a[i] != b[i]][:3]
-for d in diffs: print(d)
-norm = lambda s: re.sub(r"[0-9a-f]{20,}|anim[0-9a-f]+", "ID", s)
-print("equal after masking random ids:", norm(a) == norm(b))
-print("contains the animation script:", "Animation" in a, "| frames embedded:", a.count("data:image/png;base64"))
-PYEOF
-./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh/practice_run.html" "$H/practice_run.html"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d):
-    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-print(len(d), 'pages rendered')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/last_bottom = filled.y1/last_bottom = filled[3]/' report_build.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d):
-    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-print(len(d), 'pages rendered')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:60]
-    s = s.replace(old, new)
-
-swap('Three clusters match the three terrains, and "\n           "the elbow agrees (within-cluster sum of squares 2652 at k=2, 1238 at k=3, 1086 at k=4).")',
-     'Three clusters match the three terrains and "\n           "the elbow agrees (objective 2652, 1238, 1086 for k = 2, 3, 4).")')
-swap('E1 uses 2 dimensions and needs labels only to name three "\n           "clusters. Its practice route', 'E1 is the simplest of them (2 dimensions). Its practice route')
-swap('width="385"', 'width="331"')
-open(p, "w", encoding="utf-8").write(s)
-print("trimmed")
-PYEOF
-./venv/Scripts/python.exe -I trim.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim2.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:70]
-    s = s.replace(old, new)
-
-# section 1
-swap('so neighbors in the grid differ in one factor, plus "\n           "three extras (PCA with 2 components for both models, and 3-NN). ',
-     'so neighbors differ in one factor, plus three extras "\n           "(PCA with 2 components for both models, and 3-NN). ')
-swap('A single start is "\n           "not enough: on z-scored data 15 of 20 single starts reached the best objective, on raw data 2 of 20. ',
-     'One start is not "\n           "enough: 15 of 20 single starts reached the best objective on z-scored data, 2 of 20 on raw data. ')
-# section 2
-swap('Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows, no labels). ',
-     'Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows; no labels). ')
-swap('I selected the deployed model on these rows, so its score is a selection score, not an untouched test "\n           "score, and the practice run shows deployment, not accuracy. ',
-     'I selected the model on these rows, so its score is a selection score, not a test score, and the "\n           "practice run shows deployment, not accuracy. ')
-# section 3
-swap('PCA changed little: on z-scored data 8, 3 and 2 dimensions all scored 1.000, while on raw data PCA "\n            "lowered 1-NN from 0.933 to 0.867 (two more errors). ',
-     'PCA changed little: 8, 3 and 2 dimensions all scored 1.000 on z-scored data, while on raw data PCA lowered "\n            "1-NN from 0.933 to 0.867 (two more errors). ')
-# section 5
-swap('Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor (standard deviations 0.9 to "\n           "1.1), so I saw no sensor drift. The predicted mission mix still differs',
-     'Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor, so I saw no sensor drift. "\n           "The predicted mission mix still differs')
-# AI line
-swap('AI use: AI use is allowed in this course and I used it heavily. Claude Code (Anthropic) read the course "\n           "materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked "\n           "the results against the assignment, and am responsible for what I submit.',
-     'AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, "\n           "wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results "\n           "and am responsible for what I submit.')
-swap('width="331"', 'width="310"')
-open(p, "w", encoding="utf-8").write(s)
-print("trimmed")
-PYEOF
-./venv/Scripts/python.exe -I trim2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim3.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:70]
-    s = s.replace(old, new)
-swap('holds 88.4%, which restates the scale problem (Figure 1a). ', 'holds 88.4% (Figure 1a). ')
-swap('A possible explanation, untested: raw "\n            "k-means partitions mostly along sensor_4, while 1-NN uses the labels locally.',
-     'A possible explanation, untested: raw "\n            "k-means splits mostly along sensor_4.')
-swap('table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }', 'table { border-collapse: collapse; font-size: 8.5pt; margin: 0 0 1pt 0; }')
-swap('td, th { padding: 1pt 4pt;', 'td, th { padding: 0.4pt 4pt;')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I trim3.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d):
-    t = p.get_text()
-    print('page', i+1, '| has C1:', 'C1' in t, '| has E3:', 'E3' in t, '| has Table 1 caption:', 'Table 1:' in t, '| has AI use:', 'AI use' in t)
-    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-old = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
-    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
-    <p>{P['s3b']}</p>
-    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
-    <p>{P['s4']}</p>"""
-new = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
-    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
-    <p>{P['s3b']}</p>
-    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
-    <p>{P['s4']}</p>"""
-assert s.count(old) == 1
-open(p, "w", encoding="utf-8").write(s.replace(old, new))
-print("reordered")
-PYEOF
-./venv/Scripts/python.exe -I reorder.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d):
-    t = p.get_text()
-    print('page', i+1, '| C1:', 'C1' in t, '| E3:', 'E3' in t, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t)
-    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder2.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-new_block = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
-    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
-    <p>{P['s3b']}</p>
-    <div class="c" style="page-break-before: always"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
-    <p>{P['s4']}</p>"""
-a = s.index("    <p>{P['s1']}</p>")
-b = s.index("    <div class=\"c\"><img src=\"fig2_deploy.png\"")
-s = s[:a] + new_block + "\n" + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I reorder2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d):
-    t = p.get_text()
-    print('page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t, '| 3. Evidence:', '3. Evidence' in t, '| 4. Decision:', '4. Decision' in t)
-    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
-"`
-- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=full-iso CSCI4521_HW2.ipynb submission.csv practice_run.html figures/ | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; "$SC/venv/Scripts/python.exe" -I - <<'PYEOF'
-import nbformat
-nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
-print("kernelspec:", nb.metadata.get("kernelspec"), "| language_info:", nb.metadata.get("language_info", {}).get("version"))
-errs, stderr, noout = [], [], []
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code": continue
-    if not c.outputs and c.execution_count is None: noout.append(i)
-    for o in c.outputs:
-        if o.output_type == "error": errs.append((i, o.ename, o.evalue))
-        if o.output_type == "stream" and o.name == "stderr": stderr.append(i)
-print("cells:", len(nb.cells), "| error outputs:", errs, "| stderr cells:", stderr, "| never-executed code cells:", noout)
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-print("execution counts in order:", counts[:5], "...", counts[-3:], "| strictly increasing:", all(a < b for a, b in zip(counts, counts[1:])))
-for i, c in enumerate(nb.cells):
-    if c.cell_type == "code" and "all checks passed" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
-        print("checks cell", i, "printed 'all checks passed'")
-    if c.cell_type == "code" and "python " in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") and "numpy" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
-        print([o["text"].splitlines()[0] for o in c.outputs if o.output_type == "stream"][0])
-PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchfig.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read()  def swap(old, new):     global s     assert s.count(old) == 1, old[:70]     s = s.replace(old, new)  # style constant in the setup cell swap('''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"} Path("figures").mkdir(exist_ok=True)''', '''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"} # report figures are saved at the width they are printed, so text is sized for print REPORT_STYLE = {"font.size": 7.5, "axes.titlesize": 8, "axes.labelsize": 7.5,                 "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 6.5} Path("figures").mkdir(exist_ok=True)''')  # figure 1 cell a = s.index("P_fit = pca_z.transform(Z_fit)") b = s.index("''')", a) fig1 = '''P_fit = pca_z.transform(Z_fit) P_train = pca_z.transform(Z_train)  with plt.rc_context(REPORT_STYLE):     fig = plt.figure(figsize=(7.0, 2.5))      ax = fig.add_subplot(1, 3, 1)     ax.plot(range(1, 9), cum_z, "o-", ms=3.5, color="#0072B2", label="standardized")     ax.plot(range(1, 9), cum_raw, "s--", ms=3.5, color="#D55E00", label="raw")     ax.axhline(0.95, color="gray", ls=":", lw=1)     ax.annotate(f"{N95_Z} components\\n(standardized)", (N95_Z, cum_z[N95_Z - 1]),                 textcoords="offset points", xytext=(6, -22), fontsize=6.5)     ax.set_xlabel("number of principal components")     ax.set_ylabel("cumulative explained variance")     ax.set_ylim(0, 1.03)     ax.set_title("(a) variance retained")     ax.legend(loc="lower right")      ax = fig.add_subplot(1, 3, 2)     ax.scatter(P_fit[:, 0], P_fit[:, 1], s=3, c="#c8c8c8", label="fit rows (unlabeled)")     for t in (FIRM, ROUGH, SAND):         ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=12, c=COLORS[t],                    edgecolor="k", linewidth=0.3, label=f"{CLASSES[t]} (labeled)")     ax.set_xlabel("PC1")     ax.set_ylabel("PC2")     ax.set_title("(b) top 2 components")     ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)      ax = fig.add_subplot(1, 3, 3, projection="3d")     ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=2, c="#c8c8c8", alpha=0.5)     for t in (FIRM, ROUGH, SAND):         ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2],                    s=8, c=COLORS[t], edgecolor="k", linewidth=0.2)     ax.set_xlabel("PC1", labelpad=-4)     ax.set_ylabel("PC2", labelpad=-4)     ax.set_zlabel("PC3", labelpad=-4)     ax.tick_params(pad=-2)     ax.set_title("(c) top 3 components")      plt.tight_layout()     plt.savefig("figures/fig1_pca.png", dpi=300, bbox_inches="tight")     plt.show() ''' s = s[:a] + fig1 + s[b:]  # figure 2 cell a = s.index("from matplotlib.colors import ListedColormap") b = s.index("''')", a) fig2 = '''from matplotlib.colors import ListedColormap from matplotlib.patches import Patch  cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"]) panels = [(practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),           (mission_pred, path_m, start_m, goal_m, "Predicted mission map and route")]  with plt.rc_context(REPORT_STYLE):     fig, axes = plt.subplots(1, 2, figsize=(5.6, 2.9))     for ax, (pred, path, start, goal, title) in zip(axes, panels):         ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")         if path:             ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.3)         ax.scatter([start[1]], [start[0]], marker="s", s=35, c="k")         ax.scatter([goal[1]], [goal[0]], marker="*", s=70, c="k")         ax.set_xticks([])         ax.set_yticks([])         ax.set_title(title)      if practice_result["status"] == "ROVER STUCK IN SAND":         sy, sx = path_p[practice_result["steps"]]         axes[0].scatter([sx], [sy], marker="X", s=80, c="#c1121f", edgecolor="w", zorder=5)         axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)")     else:         axes[0].set_xlabel(f"{practice_result['status']}, {practice_result['steps']} steps")     axes[1].set_xlabel("prediction only, no mission truth exists")      fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),                         Patch(color="#8d99ae", label="sand")], loc="lower center", ncol=3, frameon=False)     plt.tight_layout(rect=(0, 0.07, 1, 1))     plt.savefig("figures/fig2_deploy.png", dpi=300, bbox_inches="tight")     plt.show() ''' s = s[:a] + fig2 + s[b:] open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patchfig.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('syntax ok')" SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c " import struct for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):     d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() old = "components\\n(standardized)" assert s.count(old) == 1 s = s.replace(old, "components\\\\n(standardized)") open(p, "w", encoding="utf-8").write(s) print("fixed") PYEOF ./venv/Scripts/python.exe -I fixesc.py SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c " import struct for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):     d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c " s=open('build_nb3.py',encoding='utf-8').read() i=s.index('components') j=s.index('(standardized)', i) print(repr(s[j-20:j+14])) import nbformat nb=nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb',as_version=4) for c in nb.cells:     if 'standardized)' in c.source and 'annotate' in c.source:         k=c.source.index('components'); print(repr(c.source[k:k+40])) "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c " s=open('build_nb3.py',encoding='utf-8').read() i=s.index('N95_Z} components') seg=s[i:i+40] print([hex(ord(ch)) for ch in seg[16:26]]) "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc2.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() bs = chr(92) old = "components" + bs + "n(standardized)" assert s.count(old) == 1 s = s.replace(old, "components") s = s.replace('xytext=(6, -22), fontsize=6.5)', 'xytext=(6, -12), fontsize=6.5)') open(p, "w", encoding="utf-8").write(s) print("fixed") PYEOF ./venv/Scripts/python.exe -I fixesc2.py SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c " import struct for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):     d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() old = 'ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)' assert s.count(old) == 1 s = s.replace(old, 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I fixleg.py SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep -E "fig1_pca|fig2_deploy|hw2"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg2.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() old = 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)' assert s.count(old) == 1 s = s.replace(old, 'ax.set_ylim(top=5.0)  # headroom so the legend never covers points\n    ax.legend(loc="upper center", ncol=2, handletextpad=0.2, columnspacing=0.8, borderpad=0.3)') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I fixleg2.py SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg3.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old     s = s.replace(old, new) swap('label="fit rows (unlabeled)")', 'label="fit rows")') swap('label=f"{CLASSES[t]} (labeled)")', 'label=f"{CLASSES[t]}")') swap('ax.set_ylim(top=5.0)  # headroom so the legend never covers points', 'ax.set_ylim(top=4.6)  # headroom so the legend never covers points\n    ax.set_yticks([-2, 0, 2])') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I fixleg3.py SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q pyflakes pycodestyle 2>&1 | grep -v notice; cat > lintnb.py <<'PYEOF' import nbformat, sys, subprocess, pathlib nb = nbformat.read(sys.argv[1], as_version=4) start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) code = [] for c in nb.cells[start:]:     if c.cell_type == "code":         code.append("# ---- cell ----\n" + c.source + "\n") text = "\n".join(code) pathlib.Path("mycode.py").write_text(text, encoding="utf-8") print("code cells:", len(code), "lines:", text.count("\n")) PYEOF ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== pyflakes"; ./venv/Scripts/python.exe -m pyflakes mycode.py; echo "== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -30`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'" ; echo "(end of non-starter pyflakes findings)"; echo; ./venv/Scripts/python.exe -I -c " import nbformat nb = nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb', as_version=4) start = next(i for i,c in enumerate(nb.cells) if c.source.startswith('## My solution')) words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type=='markdown') errs = [i for i,c in enumerate(nb.cells) if c.cell_type=='code' for o in c.outputs if o.output_type=='error' or (o.output_type=='stream' and o.name=='stderr')] print('my markdown words:', words, '| cells with error/stderr output:', errs) em = [i for i,c in enumerate(nb.cells[start:],start) if '\u2014' in c.source or '\u2013' in c.source] print('cells with em/en dash:', em) "`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" >/dev/null && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png practice_run.html; do cmp -s "$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "--- hw2_configs.csv"; cat "$H/figures/hw2_configs.csv"; echo; echo "--- practice_run.html"; head -c 300 "$H/practice_run.html"; echo; grep -c "ROVER\|MISSION SUCCESS" "$H/practice_run.html"; "$PY" -I -c " import pandas as pd s=pd.read_csv('$H/submission.csv'); m=pd.read_csv('$H/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv') print('submission', s.shape, list(s.columns), s.student_id.unique(), s.predicted_terrain.value_counts().to_dict()) print('row order matches mission.csv:', (s.x==m.x).all() and (s.y==m.y).all()) "`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cat > htmlcmp.py <<'PYEOF' import re, sys a = open(sys.argv[1], encoding="utf-8").read() b = open(sys.argv[2], encoding="utf-8").read() print("sizes:", len(a), len(b)) # find where they differ diffs = [(i, a[i-30:i+30], b[i-30:i+30]) for i in range(min(len(a), len(b))) if a[i] != b[i]][:3] for d in diffs: print(d) norm = lambda s: re.sub(r"[0-9a-f]{20,}|anim[0-9a-f]+", "ID", s) print("equal after masking random ids:", norm(a) == norm(b)) print("contains the animation script:", "Animation" in a, "| frames embedded:", a.count("data:image/png;base64")) PYEOF ./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh/practice_run.html" "$H/practice_run.html"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d):     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png') print(len(d), 'pages rendered') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/last_bottom = filled.y1/last_bottom = filled[3]/' report_build.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d):     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png') print(len(d), 'pages rendered') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old[:60]     s = s.replace(old, new)  swap('Three clusters match the three terrains, and "\n           "the elbow agrees (within-cluster sum of squares 2652 at k=2, 1238 at k=3, 1086 at k=4).")',      'Three clusters match the three terrains and "\n           "the elbow agrees (objective 2652, 1238, 1086 for k = 2, 3, 4).")') swap('E1 uses 2 dimensions and needs labels only to name three "\n           "clusters. Its practice route', 'E1 is the simplest of them (2 dimensions). Its practice route') swap('width="385"', 'width="331"') open(p, "w", encoding="utf-8").write(s) print("trimmed") PYEOF ./venv/Scripts/python.exe -I trim.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim2.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old[:70]     s = s.replace(old, new)  # section 1 swap('so neighbors in the grid differ in one factor, plus "\n           "three extras (PCA with 2 components for both models, and 3-NN). ',      'so neighbors differ in one factor, plus three extras "\n           "(PCA with 2 components for both models, and 3-NN). ') swap('A single start is "\n           "not enough: on z-scored data 15 of 20 single starts reached the best objective, on raw data 2 of 20. ',      'One start is not "\n           "enough: 15 of 20 single starts reached the best objective on z-scored data, 2 of 20 on raw data. ') # section 2 swap('Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows, no labels). ',      'Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows; no labels). ') swap('I selected the deployed model on these rows, so its score is a selection score, not an untouched test "\n           "score, and the practice run shows deployment, not accuracy. ',      'I selected the model on these rows, so its score is a selection score, not a test score, and the "\n           "practice run shows deployment, not accuracy. ') # section 3 swap('PCA changed little: on z-scored data 8, 3 and 2 dimensions all scored 1.000, while on raw data PCA "\n            "lowered 1-NN from 0.933 to 0.867 (two more errors). ',      'PCA changed little: 8, 3 and 2 dimensions all scored 1.000 on z-scored data, while on raw data PCA lowered "\n            "1-NN from 0.933 to 0.867 (two more errors). ') # section 5 swap('Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor (standard deviations 0.9 to "\n           "1.1), so I saw no sensor drift. The predicted mission mix still differs',      'Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor, so I saw no sensor drift. "\n           "The predicted mission mix still differs') # AI line swap('AI use: AI use is allowed in this course and I used it heavily. Claude Code (Anthropic) read the course "\n           "materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked "\n           "the results against the assignment, and am responsible for what I submit.',      'AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, "\n           "wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results "\n           "and am responsible for what I submit.') swap('width="331"', 'width="310"') open(p, "w", encoding="utf-8").write(s) print("trimmed") PYEOF ./venv/Scripts/python.exe -I trim2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim3.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old[:70]     s = s.replace(old, new) swap('holds 88.4%, which restates the scale problem (Figure 1a). ', 'holds 88.4% (Figure 1a). ') swap('A possible explanation, untested: raw "\n            "k-means partitions mostly along sensor_4, while 1-NN uses the labels locally.',      'A possible explanation, untested: raw "\n            "k-means splits mostly along sensor_4.') swap('table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }', 'table { border-collapse: collapse; font-size: 8.5pt; margin: 0 0 1pt 0; }') swap('td, th { padding: 1pt 4pt;', 'td, th { padding: 0.4pt 4pt;') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I trim3.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d):     t = p.get_text()     print('page', i+1, '| has C1:', 'C1' in t, '| has E3:', 'E3' in t, '| has Table 1 caption:', 'Table 1:' in t, '| has AI use:', 'AI use' in t)     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() old = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>     <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>     <p>{P['s3b']}</p>     <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>     <p>{P['s4']}</p>""" new = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>     <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>     <p>{P['s3b']}</p>     <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>     <p>{P['s4']}</p>""" assert s.count(old) == 1 open(p, "w", encoding="utf-8").write(s.replace(old, new)) print("reordered") PYEOF ./venv/Scripts/python.exe -I reorder.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d):     t = p.get_text()     print('page', i+1, '| C1:', 'C1' in t, '| E3:', 'E3' in t, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t)     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png') "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder2.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() new_block = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>     <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>     <p>{P['s3b']}</p>     <div class="c" style="page-break-before: always"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>     <p>{P['s4']}</p>""" a = s.index("    <p>{P['s1']}</p>") b = s.index("    <div class=\"c\"><img src=\"fig2_deploy.png\"") s = s[:a] + new_block + "\n" + s[b:] open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I reorder2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d):     t = p.get_text()     print('page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t, '| 3. Evidence:', '3. Evidence' in t, '| 4. Decision:', '4. Decision' in t)     p.get_pixmap(dpi=70).save(f'est_p{i+1}.png') "`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=full-iso CSCI4521_HW2.ipynb submission.csv practice_run.html figures/ | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; "$SC/venv/Scripts/python.exe" -I - <<'PYEOF' import nbformat nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4) print("kernelspec:", nb.metadata.get("kernelspec"), "| language_info:", nb.metadata.get("language_info", {}).get("version")) errs, stderr, noout = [], [], [] for i, c in enumerate(nb.cells):     if c.cell_type != "code": continue     if not c.outputs and c.execution_count is None: noout.append(i)     for o in c.outputs:         if o.output_type == "error": errs.append((i, o.ename, o.evalue))         if o.output_type == "stream" and o.name == "stderr": stderr.append(i) print("cells:", len(nb.cells), "| error outputs:", errs, "| stderr cells:", stderr, "| never-executed code cells:", noout) counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] print("execution counts in order:", counts[:5], "...", counts[-3:], "| strictly increasing:", all(a < b for a, b in zip(counts, counts[1:]))) for i, c in enumerate(nb.cells):     if c.cell_type == "code" and "all checks passed" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):         print("checks cell", i, "printed 'all checks passed'")     if c.cell_type == "code" and "python " in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") and "numpy" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):         print([o["text"].splitlines()[0] for o in c.outputs if o.output_type == "stream"][0]) PYEOF`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; echo "== compare the user's 3.12 run with my clean-directory 3.14 run"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$SC/fresh/$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "== course env location"; ls /c/Users/anant/miniconda3/envs/ 2>&1; find /c/Users/anant -maxdepth 5 -type d -name "csci-4521" 2>/dev/null | head; find /c/Users/anant/miniconda3/envs -maxdepth 2 -name python.exe 2>/dev/null | head`
 - `cat "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/kernel.json"; echo; ls "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-
-# ---- 1. hand-worked unit checks and kNN / metrics reference checks, inside section 3 (Checks)
-anchor = 'print("all checks passed")\n\'\'\')\n'
-assert s.count(anchor) == 1
-new_cells = r"""print("all checks passed")
-''')
-code('''
-# small cases worked out by hand, one per function
-# zscore: a constant sensor keeps divisor 1 and never produces nan
-X_const = np.array([[1.0, 5.0], [3.0, 5.0], [5.0, 5.0]])
-mu_c, sd_c = zscore_fit(X_const)
-Z_c = zscore_apply(X_const, mu_c, sd_c)
-assert np.allclose(sd_c, [np.sqrt(8 / 3), 1.0]) and np.isfinite(Z_c).all() and np.allclose(Z_c[:, 1], 0)
-
-# sq_dists and assign_nearest: a 3-4-5 triangle, with a tie that goes to the first centroid
-A = np.array([[0.0, 0.0], [3.0, 4.0]])
-B = np.array([[0.0, 0.0], [6.0, 8.0]])
-assert np.allclose(sq_dists(A, B), [[0, 100], [25, 25]])
-labels_a, d2_a = assign_nearest(A, B)
-assert labels_a.tolist() == [0, 0] and np.allclose(d2_a, [0, 25])
-
-# centroids_from_labels: member means, nan for an empty cluster
-X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
-lab_s = np.array([0, 0, 1, 1])
-C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
-assert np.allclose(C_s[:2], [[1.0, 0.0], [11.0, 12.0]]) and np.isnan(C_s[2]).all() and n_s.tolist() == [2, 2, 0]
-
-# update_centroids: the empty cluster is re-seeded at the point farthest from its own centroid
-C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
-_, d2min_s = assign_nearest(X_s, C_old[:2])
-C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
-assert n_empty == 1 and np.allclose(C_new[:2], C_s[:2]) and np.allclose(C_new[2], X_s[d2min_s.argmax()])
-
-# within_ss: 1 + 1 + 5 + 5
-assert np.isclose(within_ss(X_s, lab_s, C_s[:2]), 12.0)
-
-# kmeans: three far-apart blobs are recovered exactly, a seed repeats, and the best start has the lowest objective
-rng = np.random.default_rng(1)
-blobs = np.vstack([rng.normal(c, 0.1, size=(20, 2)) for c in ((0, 0), (10, 0), (0, 10))])
-truth = np.repeat([0, 1, 2], 20)
-km_b = kmeans(blobs, k=3)
-assert all(len(set(km_b["labels"][truth == t])) == 1 for t in range(3)) and len(set(km_b["labels"])) == 3
-assert np.array_equal(km_b["labels"], kmeans(blobs, k=3)["labels"])
-assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())
-
-# name_clusters: the majority path, then the fallback when two clusters claim one terrain
-C_n = np.array([[0.0, 0.0], [10.0, 0.0], [0.0, 10.0]])
-F_n = np.array([[0, 0.5], [0.5, 0], [10, 0.5], [10.5, 0], [0, 10.5], [0.5, 10]])
-names_n, _, how_n = name_clusters(C_n, F_n, np.array([2, 2, 0, 0, 1, 1]))
-assert how_n == "majority vote" and names_n.tolist() == [2, 0, 1]
-
-F_f = np.array([[0, .3], [.3, 0], [.2, .2], [10, .3], [10.3, 0], [10.2, .2], [0, 10.3], [.3, 10], [.2, 10.2]])
-y_f = np.array([0, 0, 0, 0, 0, 1, 1, 1, 2])
-names_f, table_f, how_f = name_clusters(C_n, F_f, y_f)
-best_total = max(sum(table_f[j, p[j]] for j in range(3)) for p in permutations(range(3)))
-assert how_f == "one-to-one permutation" and sorted(names_f.tolist()) == [0, 1, 2]
-assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5
-print("unit checks passed")
-''')
-code('''
-def knn_reference(F_train, y_train_int, F, k):
-    """lecture-style loop: distances for one query, take the k nearest, vote, tied vote goes to the nearest tied neighbor"""
-    out = []
-    for q in F:
-        dists = np.array([distance_sq(t, q) for t in F_train])
-        nearest = np.argsort(dists, kind="stable")[:k]
-        votes = np.bincount(y_train_int[nearest], minlength=3)
-        tied = np.flatnonzero(votes == votes.max())
-        out.append(next(y_train_int[j] for j in nearest if y_train_int[j] in tied))
-    return np.array(out)
-
-
-# kNN for several k, on standardized and raw features, against the loop
-Z_dev = zscore_apply(X_dev, mu, sd)
-for name, (A, B) in {"z-score": (Z_train, Z_dev), "raw": (X_train, X_dev)}.items():
-    for k in (1, 3, 5, 7):
-        assert np.array_equal(knn_predict(A, y_train, B, k), knn_reference(A, y_train, B, k)), (name, k)
-assert np.array_equal(knn_classifier(3)(Z_train, y_train, Z_val), knn_predict(Z_train, y_train, Z_val, 3))
-
-# three neighbors with three different classes: the nearest one decides
-F_t = np.array([[0.0], [1.0], [2.0]])
-y_t = np.array([0, 1, 2])
-assert knn_predict(F_t, y_t, np.array([[0.2], [2.2]]), k=3).tolist() == [0, 2]
-
-# metrics on the lecture 1.4 example: 20 positives (15 found), 80 negatives (15 false alarms)
-y_true = np.array([SAND] * 20 + [FIRM] * 80)
-y_pred = np.array([SAND] * 15 + [FIRM] * 5 + [FIRM] * 65 + [SAND] * 15)
-m_c = metrics(y_true, y_pred)
-assert m_c["cm"].tolist() == [[65, 0, 15], [0, 0, 0], [5, 0, 15]]
-assert np.isclose(m_c["accuracy"], 0.80) and np.isclose(m_c["precision"][SAND], 0.5)
-assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)
-assert np.isfinite(m_c["f1"]).all() and m_c["f1"][ROUGH] == 0  # a class that never occurs scores 0, not nan
-print("reference checks passed")
-''')
-"""
-s = s.replace(anchor, new_cells)
-
-# ---- 2. checks on the pipeline and the table, right after the results table
-anchor2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n'
-assert s.count(anchor2) == 1
-pipe = anchor2 + r"""code('''
-# checks on the stored preprocessing, on repeatability and on the table
-tf = make_transform(True, 3)
-F = tf(X_fit)
-assert np.allclose(F.mean(axis=0), 0, atol=1e-9)
-assert np.allclose(np.cov(F.T), np.diag(PCA(n_components=3).fit(Z_fit).explained_variance_), atol=1e-8)
-
-rep_a, rep_b = fit_config(True, 2, "k-means"), fit_config(True, 2, "k-means")
-pred_a = rep_a["predict"](X_dev)
-assert np.array_equal(pred_a, rep_b["predict"](X_dev))
-assert len(pred_a) == h * w and set(np.unique(pred_a)) <= {FIRM, ROUGH, SAND}
-
-assert len(results) == 11 and results.index.is_unique
-assert results[["val_accuracy", "macro_f1", "sand_recall"]].apply(lambda col: col.between(0, 1)).all().all()
-for cid in results.index:
-    pv = fitted[cid]["predict"](X_val)
-    assert np.isclose(results.loc[cid, "val_accuracy"], accuracy_score(y_val, pv))
-    assert np.isclose(results.loc[cid, "sand_recall"], ((pv == SAND) & (y_val == SAND)).sum() / (y_val == SAND).sum())
-print("pipeline checks passed")
-''')
-"""
-s = s.replace(anchor2, pipe)
-
-# ---- 3. selection check
-old3 = 'r = results.loc[BEST]\n'
-assert s.count(old3) == 1
-s = s.replace(old3, old3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')
-
-open(p, "w", encoding="utf-8").write(s)
-print("tests added")
-PYEOF
-./venv/Scripts/python.exe -I addtests.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests2.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-
-a1 = 'print("all checks passed")\n\'\'\')\n'
-a2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n'
-a3 = 'r = results.loc[BEST]\n'
-for a in (a1, a2, a3):
-    assert s.count(a) == 1, a[:50]
-
-s = s.replace(a1, open("ins1.txt", encoding="utf-8").read())
-s = s.replace(a2, open("ins2.txt", encoding="utf-8").read())
-s = s.replace(a3, a3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')
-open(p, "w", encoding="utf-8").write(s)
-print("tests added")
-PYEOF
-./venv/Scripts/python.exe -I addtests2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
-- `CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; ls "$CE" && "$CE" -c "
-import sys, numpy, pandas, sklearn, matplotlib, IPython
-print(sys.version.split()[0], numpy.__version__, pandas.__version__, sklearn.__version__, matplotlib.__version__)
-import nbformat, nbconvert, jupyter_client; print('nbformat', nbformat.__version__, 'nbconvert', nbconvert.__version__)
-" 2>&1 | tail -3`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert|AssertionError" ; "$CE" -I - <<'PYEOF'
-import nbformat
-nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
-errs = [(i, o.ename, o.evalue) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
-print("cells:", len(nb.cells), "| errors:", errs)
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code": continue
-    txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
-    for line in txt.splitlines():
-        if "passed" in line or "equals the lecture" in line or "sklearn" in line: print(f"cell {i}: {line}")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > dbg.py <<'PYEOF'
-import numpy as np
-def sq_dists(A, B):
-    d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
-    np.maximum(d2, 0.0, out=d2)
-    return d2
-def assign_nearest(X, C):
-    d2 = sq_dists(X, C)
-    labels = d2.argmin(axis=1)
-    return labels, d2[np.arange(len(X)), labels]
-def centroids_from_labels(X, labels, k):
-    counts = np.bincount(labels, minlength=k).astype(float)
-    sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)
-    with np.errstate(invalid="ignore", divide="ignore"):
-        return sums / counts[:, None], counts
-def update_centroids(X, labels, C, d2min):
-    newC, counts = centroids_from_labels(X, labels, C.shape[0])
-    empty = np.flatnonzero(counts == 0)
-    if len(empty):
-        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]
-    return newC, len(empty)
-
-X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
-lab_s = np.array([0, 0, 1, 1])
-C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
-C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
-_, d2min_s = assign_nearest(X_s, C_old[:2])
-print("d2min:", d2min_s)
-C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
-print("n_empty", n_empty); print("C_new\n", C_new); print("C_s\n", C_s)
-print("argsort(-d2):", np.argsort(-d2min_s), "| argmax:", d2min_s.argmax())
-print("first two rows equal:", np.allclose(C_new[:2], C_s[:2]), "| re-seed equal:", np.allclose(C_new[2], X_s[d2min_s.argmax()]))
-PYEOF
-D:/Apps/Miniconda/envs/csci-4521/python.exe dbg.py`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixstable.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-old = '        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]'
-new = '        newC[empty] = X[np.argsort(-d2min, kind="stable")[:len(empty)]]  # stable sort: ties go to the lowest index'
-assert s.count(old) == 1
-s = s.replace(old, new)
-open(p, "w", encoding="utf-8").write(s)
-print("fixed")
-PYEOF
-./venv/Scripts/python.exe -I fixstable.py
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ; "$CE" -I - <<'PYEOF'
-import nbformat
-nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
-errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
-print("cells:", len(nb.cells), "| errors:", errs)
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code": continue
-    txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
-    for line in txt.splitlines():
-        if "passed" in line or "equals the lecture" in line: print(f"cell {i}: {line}")
-PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to user's earlier run: $f" || echo "DIFFERS: $f"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q coverage 2>&1 | grep -v notice; cat > covrun.py <<'PYEOF'
-import os, sys, ast, io, contextlib
-import nbformat, coverage
-
-nb_path = sys.argv[1]
-limit_marker = sys.argv[2] if len(sys.argv) > 2 else None   # stop after the cell that prints this text
-nb = nbformat.read(nb_path, as_version=4)
-
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-chunks, my_first_line, stop_after = [], None, None
-line_no = 1
-code_cells = []
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code":
-        continue
-    text = c.source + "\n"
-    if limit_marker and any(limit_marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):
-        stop_after = i
-    code_cells.append((i, text))
-    if stop_after is not None:
-        break
-
-script, my_start = "", None
-for i, text in code_cells:
-    if i > start and my_start is None:
-        my_start = script.count("\n") + 1
-    script += text + "\n"
-open("cov_script.py", "w", encoding="utf-8").write(script)
-
-os.environ["MPLBACKEND"] = "Agg"
-cov = coverage.Coverage(include=["cov_script.py"])
-cov.start()
-ns = {"__name__": "__main__"}
-buf = io.StringIO()
-with contextlib.redirect_stdout(buf):
-    exec(compile(script, "cov_script.py", "exec"), ns)
-cov.stop()
-_, executable, _, missing, _ = cov.analysis2("cov_script.py")
-mine = [n for n in executable if n >= my_start]
-miss = [n for n in missing if n >= my_start]
-print(f"lines of my code: {len(mine)}, executed: {len(mine) - len(miss)}, coverage {100 * (len(mine) - len(miss)) / len(mine):.1f}%")
-
-# per-function view
-tree = ast.parse(script)
-funcs = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.lineno >= my_start]
-lines = script.splitlines()
-print(f"{'function':28s} {'lines':>5s} {'run':>5s}  missing")
-for f in funcs:
-    span = {n for n in executable if f.lineno <= n <= f.end_lineno}
-    m = sorted(n for n in miss if n in span)
-    print(f"{f.name:28s} {len(span):5d} {len(span) - len(m):5d}  {m if m else ''}")
-if miss:
-    print("\nuncovered lines:")
-    for n in miss:
-        print(f"  {n}: {lines[n - 1].strip()[:110]}")
-PYEOF
-echo "######## tests only (starter + setup + methods + all check cells, before any experiment)"; cd fresh2 && ../venv/Scripts/python.exe -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | tail -40`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > covbranch.py <<'PYEOF'
-import os, sys, io, json, contextlib
-import nbformat, coverage
-
-nb = nbformat.read(sys.argv[1], as_version=4)
-marker = sys.argv[2] if len(sys.argv) > 2 else None
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-cells, stop = [], False
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code":
-        continue
-    cells.append((i, c.source + "\n"))
-    if marker and any(marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):
-        break
-script, my_start = "", None
-for i, text in cells:
-    if i > start and my_start is None:
-        my_start = script.count("\n") + 1
-    script += text + "\n"
-open("cov_script.py", "w", encoding="utf-8").write(script)
-
-os.environ["MPLBACKEND"] = "Agg"
-cov = coverage.Coverage(include=["cov_script.py"], branch=True)
-cov.start()
-with contextlib.redirect_stdout(io.StringIO()):
-    exec(compile(script, "cov_script.py", "exec"), {"__name__": "__main__"})
-cov.stop()
-cov.json_report(outfile="cov.json", include=["cov_script.py"], quiet=True)
-rep = json.load(open("cov.json"))["files"]["cov_script.py"]
-ex, miss = rep["executed_lines"], rep["missing_lines"]
-exe_mine = [n for n in ex + miss if n >= my_start]
-miss_mine = [n for n in miss if n >= my_start]
-print(f"lines: {len(exe_mine) - len(miss_mine)}/{len(exe_mine)}")
-br_miss = [b for b in rep.get("missing_branches", []) if b[0] >= my_start]
-br_exec = [b for b in rep.get("executed_branches", []) if b[0] >= my_start]
-total_br = len(br_exec) + len(br_miss)
-print(f"branches: {len(br_exec)}/{total_br} taken" + ("" if not br_miss else f"  | untaken: {br_miss}"))
-lines = script.splitlines()
-for src, dst in br_miss:
-    print(f"   line {src} -> {dst}: {lines[src - 1].strip()[:100]}")
-for n in miss_mine:
-    print(f"   uncovered line {n}: {lines[n - 1].strip()[:100]}")
-PYEOF
-cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read()  # ---- 1. hand-worked unit checks and kNN / metrics reference checks, inside section 3 (Checks) anchor = 'print("all checks passed")\n\'\'\')\n' assert s.count(anchor) == 1 new_cells = r"""print("all checks passed") ''') code(''' # small cases worked out by hand, one per function # zscore: a constant sensor keeps divisor 1 and never produces nan X_const = np.array([[1.0, 5.0], [3.0, 5.0], [5.0, 5.0]]) mu_c, sd_c = zscore_fit(X_const) Z_c = zscore_apply(X_const, mu_c, sd_c) assert np.allclose(sd_c, [np.sqrt(8 / 3), 1.0]) and np.isfinite(Z_c).all() and np.allclose(Z_c[:, 1], 0)  # sq_dists and assign_nearest: a 3-4-5 triangle, with a tie that goes to the first centroid A = np.array([[0.0, 0.0], [3.0, 4.0]]) B = np.array([[0.0, 0.0], [6.0, 8.0]]) assert np.allclose(sq_dists(A, B), [[0, 100], [25, 25]]) labels_a, d2_a = assign_nearest(A, B) assert labels_a.tolist() == [0, 0] and np.allclose(d2_a, [0, 25])  # centroids_from_labels: member means, nan for an empty cluster X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]]) lab_s = np.array([0, 0, 1, 1]) C_s, n_s = centroids_from_labels(X_s, lab_s, 3) assert np.allclose(C_s[:2], [[1.0, 0.0], [11.0, 12.0]]) and np.isnan(C_s[2]).all() and n_s.tolist() == [2, 2, 0]  # update_centroids: the empty cluster is re-seeded at the point farthest from its own centroid C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]]) _, d2min_s = assign_nearest(X_s, C_old[:2]) C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s) assert n_empty == 1 and np.allclose(C_new[:2], C_s[:2]) and np.allclose(C_new[2], X_s[d2min_s.argmax()])  # within_ss: 1 + 1 + 5 + 5 assert np.isclose(within_ss(X_s, lab_s, C_s[:2]), 12.0)  # kmeans: three far-apart blobs are recovered exactly, a seed repeats, and the best start has the lowest objective rng = np.random.default_rng(1) blobs = np.vstack([rng.normal(c, 0.1, size=(20, 2)) for c in ((0, 0), (10, 0), (0, 10))]) truth = np.repeat([0, 1, 2], 20) km_b = kmeans(blobs, k=3) assert all(len(set(km_b["labels"][truth == t])) == 1 for t in range(3)) and len(set(km_b["labels"])) == 3 assert np.array_equal(km_b["labels"], kmeans(blobs, k=3)["labels"]) assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())  # name_clusters: the majority path, then the fallback when two clusters claim one terrain C_n = np.array([[0.0, 0.0], [10.0, 0.0], [0.0, 10.0]]) F_n = np.array([[0, 0.5], [0.5, 0], [10, 0.5], [10.5, 0], [0, 10.5], [0.5, 10]]) names_n, _, how_n = name_clusters(C_n, F_n, np.array([2, 2, 0, 0, 1, 1])) assert how_n == "majority vote" and names_n.tolist() == [2, 0, 1]  F_f = np.array([[0, .3], [.3, 0], [.2, .2], [10, .3], [10.3, 0], [10.2, .2], [0, 10.3], [.3, 10], [.2, 10.2]]) y_f = np.array([0, 0, 0, 0, 0, 1, 1, 1, 2]) names_f, table_f, how_f = name_clusters(C_n, F_f, y_f) best_total = max(sum(table_f[j, p[j]] for j in range(3)) for p in permutations(range(3))) assert how_f == "one-to-one permutation" and sorted(names_f.tolist()) == [0, 1, 2] assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5 print("unit checks passed") ''') code(''' def knn_reference(F_train, y_train_int, F, k):     """lecture-style loop: distances for one query, take the k nearest, vote, tied vote goes to the nearest tied neighbor"""     out = []     for q in F:         dists = np.array([distance_sq(t, q) for t in F_train])         nearest = np.argsort(dists, kind="stable")[:k]         votes = np.bincount(y_train_int[nearest], minlength=3)         tied = np.flatnonzero(votes == votes.max())         out.append(next(y_train_int[j] for j in nearest if y_train_int[j] in tied))     return np.array(out)   # kNN for several k, on standardized and raw features, against the loop Z_dev = zscore_apply(X_dev, mu, sd) for name, (A, B) in {"z-score": (Z_train, Z_dev), "raw": (X_train, X_dev)}.items():     for k in (1, 3, 5, 7):         assert np.array_equal(knn_predict(A, y_train, B, k), knn_reference(A, y_train, B, k)), (name, k) assert np.array_equal(knn_classifier(3)(Z_train, y_train, Z_val), knn_predict(Z_train, y_train, Z_val, 3))  # three neighbors with three different classes: the nearest one decides F_t = np.array([[0.0], [1.0], [2.0]]) y_t = np.array([0, 1, 2]) assert knn_predict(F_t, y_t, np.array([[0.2], [2.2]]), k=3).tolist() == [0, 2]  # metrics on the lecture 1.4 example: 20 positives (15 found), 80 negatives (15 false alarms) y_true = np.array([SAND] * 20 + [FIRM] * 80) y_pred = np.array([SAND] * 15 + [FIRM] * 5 + [FIRM] * 65 + [SAND] * 15) m_c = metrics(y_true, y_pred) assert m_c["cm"].tolist() == [[65, 0, 15], [0, 0, 0], [5, 0, 15]] assert np.isclose(m_c["accuracy"], 0.80) and np.isclose(m_c["precision"][SAND], 0.5) assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6) assert np.isfinite(m_c["f1"]).all() and m_c["f1"][ROUGH] == 0  # a class that never occurs scores 0, not nan print("reference checks passed") ''') """ s = s.replace(anchor, new_cells)  # ---- 2. checks on the pipeline and the table, right after the results table anchor2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n' assert s.count(anchor2) == 1 pipe = anchor2 + r"""code(''' # checks on the stored preprocessing, on repeatability and on the table tf = make_transform(True, 3) F = tf(X_fit) assert np.allclose(F.mean(axis=0), 0, atol=1e-9) assert np.allclose(np.cov(F.T), np.diag(PCA(n_components=3).fit(Z_fit).explained_variance_), atol=1e-8)  rep_a, rep_b = fit_config(True, 2, "k-means"), fit_config(True, 2, "k-means") pred_a = rep_a["predict"](X_dev) assert np.array_equal(pred_a, rep_b["predict"](X_dev)) assert len(pred_a) == h * w and set(np.unique(pred_a)) <= {FIRM, ROUGH, SAND}  assert len(results) == 11 and results.index.is_unique assert results[["val_accuracy", "macro_f1", "sand_recall"]].apply(lambda col: col.between(0, 1)).all().all() for cid in results.index:     pv = fitted[cid]["predict"](X_val)     assert np.isclose(results.loc[cid, "val_accuracy"], accuracy_score(y_val, pv))     assert np.isclose(results.loc[cid, "sand_recall"], ((pv == SAND) & (y_val == SAND)).sum() / (y_val == SAND).sum()) print("pipeline checks passed") ''') """ s = s.replace(anchor2, pipe)  # ---- 3. selection check old3 = 'r = results.loc[BEST]\n' assert s.count(old3) == 1 s = s.replace(old3, old3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')  open(p, "w", encoding="utf-8").write(s) print("tests added") PYEOF ./venv/Scripts/python.exe -I addtests.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests2.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read()  a1 = 'print("all checks passed")\n\'\'\')\n' a2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n' a3 = 'r = results.loc[BEST]\n' for a in (a1, a2, a3):     assert s.count(a) == 1, a[:50]  s = s.replace(a1, open("ins1.txt", encoding="utf-8").read()) s = s.replace(a2, open("ins2.txt", encoding="utf-8").read()) s = s.replace(a3, a3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n') open(p, "w", encoding="utf-8").write(s) print("tests added") PYEOF ./venv/Scripts/python.exe -I addtests2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+- `CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; ls "$CE" && "$CE" -c " import sys, numpy, pandas, sklearn, matplotlib, IPython print(sys.version.split()[0], numpy.__version__, pandas.__version__, sklearn.__version__, matplotlib.__version__) import nbformat, nbconvert, jupyter_client; print('nbformat', nbformat.__version__, 'nbconvert', nbconvert.__version__) " 2>&1 | tail -3`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert|AssertionError" ; "$CE" -I - <<'PYEOF' import nbformat nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4) errs = [(i, o.ename, o.evalue) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"] print("cells:", len(nb.cells), "| errors:", errs) for i, c in enumerate(nb.cells):     if c.cell_type != "code": continue     txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")     for line in txt.splitlines():         if "passed" in line or "equals the lecture" in line or "sklearn" in line: print(f"cell {i}: {line}") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > dbg.py <<'PYEOF' import numpy as np def sq_dists(A, B):     d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)     np.maximum(d2, 0.0, out=d2)     return d2 def assign_nearest(X, C):     d2 = sq_dists(X, C)     labels = d2.argmin(axis=1)     return labels, d2[np.arange(len(X)), labels] def centroids_from_labels(X, labels, k):     counts = np.bincount(labels, minlength=k).astype(float)     sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)     with np.errstate(invalid="ignore", divide="ignore"):         return sums / counts[:, None], counts def update_centroids(X, labels, C, d2min):     newC, counts = centroids_from_labels(X, labels, C.shape[0])     empty = np.flatnonzero(counts == 0)     if len(empty):         newC[empty] = X[np.argsort(-d2min)[:len(empty)]]     return newC, len(empty)  X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]]) lab_s = np.array([0, 0, 1, 1]) C_s, n_s = centroids_from_labels(X_s, lab_s, 3) C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]]) _, d2min_s = assign_nearest(X_s, C_old[:2]) print("d2min:", d2min_s) C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s) print("n_empty", n_empty); print("C_new\n", C_new); print("C_s\n", C_s) print("argsort(-d2):", np.argsort(-d2min_s), "| argmax:", d2min_s.argmax()) print("first two rows equal:", np.allclose(C_new[:2], C_s[:2]), "| re-seed equal:", np.allclose(C_new[2], X_s[d2min_s.argmax()])) PYEOF D:/Apps/Miniconda/envs/csci-4521/python.exe dbg.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixstable.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() old = '        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]' new = '        newC[empty] = X[np.argsort(-d2min, kind="stable")[:len(empty)]]  # stable sort: ties go to the lowest index' assert s.count(old) == 1 s = s.replace(old, new) open(p, "w", encoding="utf-8").write(s) print("fixed") PYEOF ./venv/Scripts/python.exe -I fixstable.py SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ; "$CE" -I - <<'PYEOF' import nbformat nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4) errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"] print("cells:", len(nb.cells), "| errors:", errs) for i, c in enumerate(nb.cells):     if c.cell_type != "code": continue     txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")     for line in txt.splitlines():         if "passed" in line or "equals the lecture" in line: print(f"cell {i}: {line}") PYEOF for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to user's earlier run: $f" || echo "DIFFERS: $f"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q coverage 2>&1 | grep -v notice; cat > covrun.py <<'PYEOF' import os, sys, ast, io, contextlib import nbformat, coverage  nb_path = sys.argv[1] limit_marker = sys.argv[2] if len(sys.argv) > 2 else None   # stop after the cell that prints this text nb = nbformat.read(nb_path, as_version=4)  start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) chunks, my_first_line, stop_after = [], None, None line_no = 1 code_cells = [] for i, c in enumerate(nb.cells):     if c.cell_type != "code":         continue     text = c.source + "\n"     if limit_marker and any(limit_marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):         stop_after = i     code_cells.append((i, text))     if stop_after is not None:         break  script, my_start = "", None for i, text in code_cells:     if i > start and my_start is None:         my_start = script.count("\n") + 1     script += text + "\n" open("cov_script.py", "w", encoding="utf-8").write(script)  os.environ["MPLBACKEND"] = "Agg" cov = coverage.Coverage(include=["cov_script.py"]) cov.start() ns = {"__name__": "__main__"} buf = io.StringIO() with contextlib.redirect_stdout(buf):     exec(compile(script, "cov_script.py", "exec"), ns) cov.stop() _, executable, _, missing, _ = cov.analysis2("cov_script.py") mine = [n for n in executable if n >= my_start] miss = [n for n in missing if n >= my_start] print(f"lines of my code: {len(mine)}, executed: {len(mine) - len(miss)}, coverage {100 * (len(mine) - len(miss)) / len(mine):.1f}%")  # per-function view tree = ast.parse(script) funcs = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.lineno >= my_start] lines = script.splitlines() print(f"{'function':28s} {'lines':>5s} {'run':>5s}  missing") for f in funcs:     span = {n for n in executable if f.lineno <= n <= f.end_lineno}     m = sorted(n for n in miss if n in span)     print(f"{f.name:28s} {len(span):5d} {len(span) - len(m):5d}  {m if m else ''}") if miss:     print("\nuncovered lines:")     for n in miss:         print(f"  {n}: {lines[n - 1].strip()[:110]}") PYEOF echo "######## tests only (starter + setup + methods + all check cells, before any experiment)"; cd fresh2 && ../venv/Scripts/python.exe -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | tail -40`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > covbranch.py <<'PYEOF' import os, sys, io, json, contextlib import nbformat, coverage  nb = nbformat.read(sys.argv[1], as_version=4) marker = sys.argv[2] if len(sys.argv) > 2 else None start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) cells, stop = [], False for i, c in enumerate(nb.cells):     if c.cell_type != "code":         continue     cells.append((i, c.source + "\n"))     if marker and any(marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):         break script, my_start = "", None for i, text in cells:     if i > start and my_start is None:         my_start = script.count("\n") + 1     script += text + "\n" open("cov_script.py", "w", encoding="utf-8").write(script)  os.environ["MPLBACKEND"] = "Agg" cov = coverage.Coverage(include=["cov_script.py"], branch=True) cov.start() with contextlib.redirect_stdout(io.StringIO()):     exec(compile(script, "cov_script.py", "exec"), {"__name__": "__main__"}) cov.stop() cov.json_report(outfile="cov.json", include=["cov_script.py"], quiet=True) rep = json.load(open("cov.json"))["files"]["cov_script.py"] ex, miss = rep["executed_lines"], rep["missing_lines"] exe_mine = [n for n in ex + miss if n >= my_start] miss_mine = [n for n in miss if n >= my_start] print(f"lines: {len(exe_mine) - len(miss_mine)}/{len(exe_mine)}") br_miss = [b for b in rep.get("missing_branches", []) if b[0] >= my_start] br_exec = [b for b in rep.get("executed_branches", []) if b[0] >= my_start] total_br = len(br_exec) + len(br_miss) print(f"branches: {len(br_exec)}/{total_br} taken" + ("" if not br_miss else f"  | untaken: {br_miss}")) lines = script.splitlines() for src, dst in br_miss:     print(f"   line {src} -> {dst}: {lines[src - 1].strip()[:100]}") for n in miss_mine:     print(f"   uncovered line {n}: {lines[n - 1].strip()[:100]}") PYEOF cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/cov.json_report(outfile="cov.json", include=\["cov_script.py"\], quiet=True)/cov.json_report(outfile="cov.json", include=["cov_script.py"])/' covbranch.py && cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch3.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-
-# figure cell -> function plus a test cell
-a = s.index("from matplotlib.colors import ListedColormap")
-b = s.index("''')", a)
-s = s[:a] + open("ins3.txt", encoding="utf-8").read() + s[b:]
-
-# iteration-cap test next to the other kmeans checks
-old = 'assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())\n'
-assert s.count(old) == 1
-new = old + ('\n# the iteration cap stops a start that has not converged yet\n'
-             'km_cap = kmeans(blobs, k=3, n_init=1, max_iter=1)\n'
-             'assert km_cap["iterations"] == 1 and not km_cap["converged"]\n')
-s = s.replace(old, new)
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patch3.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
-import nbformat
-nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
-errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
-print("cells:", len(nb.cells), "| errors:", errs)
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code": continue
-    for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
-        if "passed" in line or "drawn" in line: print(f"cell {i}: {line}")
-PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to earlier run: $f" || echo "DIFFERS: $f"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch3.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read()  # figure cell -> function plus a test cell a = s.index("from matplotlib.colors import ListedColormap") b = s.index("''')", a) s = s[:a] + open("ins3.txt", encoding="utf-8").read() + s[b:]  # iteration-cap test next to the other kmeans checks old = 'assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())\n' assert s.count(old) == 1 new = old + ('\n# the iteration cap stops a start that has not converged yet\n'              'km_cap = kmeans(blobs, k=3, n_init=1, max_iter=1)\n'              'assert km_cap["iterations"] == 1 and not km_cap["converged"]\n') s = s.replace(old, new) open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patch3.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')" SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF' import nbformat nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4) errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"] print("cells:", len(nb.cells), "| errors:", errs) for i, c in enumerate(nb.cells):     if c.cell_type != "code": continue     for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():         if "passed" in line or "drawn" in line: print(f"cell {i}: {line}") PYEOF for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to earlier run: $f" || echo "DIFFERS: $f"; done`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && echo "######## TESTS ONLY, before any experiment (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## per-function (tests only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > mutate.py <<'PYEOF'
-import os, io, sys, contextlib, warnings
-warnings.filterwarnings("ignore")
-os.environ["MPLBACKEND"] = "Agg"
-base = open("cov_script.py", encoding="utf-8").read()
-
-MUTANTS = [
-    ("zscore_fit: drop the constant-sensor guard", "return mu, np.where(sd == 0, 1.0, sd)", "return mu, sd"),
-    ("sq_dists: flip the cross term sign", "- 2.0 * (A @ B.T)", "+ 2.0 * (A @ B.T)"),
-    ("assign_nearest: argmin -> argmax", "labels = d2.argmin(axis=1)", "labels = d2.argmax(axis=1)"),
-    ("centroids_from_labels: wrong divisor", "return sums / counts[:, None], counts", "return sums / (counts[:, None] + 1), counts"),
-    ("update_centroids: re-seed at the NEAREST point", 'np.argsort(-d2min, kind="stable")', "np.argsort(d2min, kind=\"stable\")"),
-    ("within_ss: drop the square", "return float(((X - C[labels]) ** 2).sum())", "return float(np.abs(X - C[labels]).sum())"),
-    ("kmeans: never detect convergence", "if np.array_equal(new_labels, labels):", "if False:"),
-    ("kmeans: keep the WORST start", 'if best is None or history[-1] < best["inertia"]:', 'if best is None or history[-1] > best["inertia"]:'),
-    ("name_clusters: fallback picks the WORST permutation", "best_perm = max(permutations(range(3))", "best_perm = min(permutations(range(3))"),
-    ("name_clusters: transpose the table", "np.add.at(table, (cl, y_train_int), 1)", "np.add.at(table, (y_train_int, cl), 1)"),
-    ("knn_predict: k=1 uses argmax", "return y_train_int[d2.argmin(axis=1)]", "return y_train_int[d2.argmax(axis=1)]"),
-    ("knn_predict: order the k neighbors farthest first", "np.argsort(d2[rows, nn], axis=1)]", "np.argsort(-d2[rows, nn], axis=1)]"),
-    ("metrics: F1 without the factor 2", "np.divide(2 * prec * rec, prec + rec", "np.divide(prec * rec, prec + rec"),
-    ("metrics: sand recall reads the wrong class", "sand_recall=rec[SAND])", "sand_recall=rec[ROUGH])"),
-]
-
-def run(src):
-    ns = {"__name__": "__main__"}
-    try:
-        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
-            exec(compile(src, "mutant.py", "exec"), ns)
-        return None
-    except BaseException as e:
-        return type(e).__name__
-
-print("baseline (no mutation):", "passes" if run(base) is None else "FAILS")
-killed = 0
-for name, old, new in MUTANTS:
-    assert base.count(old) == 1, (name, base.count(old))
-    err = run(base.replace(old, new))
-    status = f"killed by {err}" if err else "SURVIVED"
-    killed += err is not None
-    print(f"{status:28s} {name}")
-print(f"\nmutants killed: {killed}/{len(MUTANTS)}")
-PYEOF
-cd fresh2 && ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch4.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-old = "{km['empty_events']} empty clusters\")\n"
-assert s.count(old) == 1, s.count(old)
-new = old + ('\n# the best start is kept: on raw features the starts differ, and the returned objective is the smallest of them\n'
-             'km_raw = kmeans(X_fit, k=3)\n'
-             'assert km_raw["all_inertias"].max() > km_raw["inertia"]\n'
-             'assert np.isclose(km_raw["inertia"], km_raw["all_inertias"].min())\n')
-s = s.replace(old, new)
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patch4.py
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; echo "--- coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "--- mutation (tests-only script)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
-import nbformat
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-print("kernel used:", nb.metadata["kernelspec"], "| python", nb.metadata["language_info"]["version"])
-# store a generic kernel name so any grader's Jupyter or Colab opens it without a missing-kernel prompt
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-PYEOF
-cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL to the earlier verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL to the earlier verified run"; ls -la CSCI4521_HW2.ipynb submission.csv practice_run.html figures | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N"; echo "== pyflakes (starter-provided names filtered)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(none above = clean)"; echo "== pycodestyle"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=125 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head; echo "(none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
-import nbformat
-nb = nbformat.read(r"$N", as_version=4)
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
-errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
-dash = [i for i, c in enumerate(nb.cells[start:], start) if "\u2014" in c.source or "\u2013" in c.source]
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-print("cells", len(nb.cells), "| my prose words", words, "| error or stderr cells", errs, "| dash cells", dash)
-print("execution counts strictly increasing from 1:", counts[0] == 1 and all(a < b for a, b in zip(counts, counts[1:])), "| last", counts[-1])
-print("kernelspec:", nb.metadata["kernelspec"]["name"], "| python", nb.metadata["language_info"]["version"])
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch5.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-old = '"""lecture-style loop: distances for one query, take the k nearest, vote, a tied vote goes to the nearest tied neighbor"""'
-assert s.count(old) == 1
-s = s.replace(old, '"""lecture-style loop: k nearest by distance, vote, a tied vote goes to the nearest tied neighbor"""')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I patch5.py
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
-import nbformat
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-PYEOF
-cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle at 120 columns: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > mutate.py <<'PYEOF' import os, io, sys, contextlib, warnings warnings.filterwarnings("ignore") os.environ["MPLBACKEND"] = "Agg" base = open("cov_script.py", encoding="utf-8").read()  MUTANTS = [     ("zscore_fit: drop the constant-sensor guard", "return mu, np.where(sd == 0, 1.0, sd)", "return mu, sd"),     ("sq_dists: flip the cross term sign", "- 2.0 * (A @ B.T)", "+ 2.0 * (A @ B.T)"),     ("assign_nearest: argmin -> argmax", "labels = d2.argmin(axis=1)", "labels = d2.argmax(axis=1)"),     ("centroids_from_labels: wrong divisor", "return sums / counts[:, None], counts", "return sums / (counts[:, None] + 1), counts"),     ("update_centroids: re-seed at the NEAREST point", 'np.argsort(-d2min, kind="stable")', "np.argsort(d2min, kind=\"stable\")"),     ("within_ss: drop the square", "return float(((X - C[labels]) ** 2).sum())", "return float(np.abs(X - C[labels]).sum())"),     ("kmeans: never detect convergence", "if np.array_equal(new_labels, labels):", "if False:"),     ("kmeans: keep the WORST start", 'if best is None or history[-1] < best["inertia"]:', 'if best is None or history[-1] > best["inertia"]:'),     ("name_clusters: fallback picks the WORST permutation", "best_perm = max(permutations(range(3))", "best_perm = min(permutations(range(3))"),     ("name_clusters: transpose the table", "np.add.at(table, (cl, y_train_int), 1)", "np.add.at(table, (y_train_int, cl), 1)"),     ("knn_predict: k=1 uses argmax", "return y_train_int[d2.argmin(axis=1)]", "return y_train_int[d2.argmax(axis=1)]"),     ("knn_predict: order the k neighbors farthest first", "np.argsort(d2[rows, nn], axis=1)]", "np.argsort(-d2[rows, nn], axis=1)]"),     ("metrics: F1 without the factor 2", "np.divide(2 * prec * rec, prec + rec", "np.divide(prec * rec, prec + rec"),     ("metrics: sand recall reads the wrong class", "sand_recall=rec[SAND])", "sand_recall=rec[ROUGH])"), ]  def run(src):     ns = {"__name__": "__main__"}     try:         with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):             exec(compile(src, "mutant.py", "exec"), ns)         return None     except BaseException as e:         return type(e).__name__  print("baseline (no mutation):", "passes" if run(base) is None else "FAILS") killed = 0 for name, old, new in MUTANTS:     assert base.count(old) == 1, (name, base.count(old))     err = run(base.replace(old, new))     status = f"killed by {err}" if err else "SURVIVED"     killed += err is not None     print(f"{status:28s} {name}") print(f"\nmutants killed: {killed}/{len(MUTANTS)}") PYEOF cd fresh2 && ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch4.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() old = "{km['empty_events']} empty clusters\")\n" assert s.count(old) == 1, s.count(old) new = old + ('\n# the best start is kept: on raw features the starts differ, and the returned objective is the smallest of them\n'              'km_raw = kmeans(X_fit, k=3)\n'              'assert km_raw["all_inertias"].max() > km_raw["inertia"]\n'              'assert np.isclose(km_raw["inertia"], km_raw["all_inertias"].min())\n') s = s.replace(old, new) open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patch4.py SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; echo "--- coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "--- mutation (tests-only script)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF' import nbformat p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) print("kernel used:", nb.metadata["kernelspec"], "| python", nb.metadata["language_info"]["version"]) # store a generic kernel name so any grader's Jupyter or Colab opens it without a missing-kernel prompt nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) PYEOF cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL to the earlier verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL to the earlier verified run"; ls -la CSCI4521_HW2.ipynb submission.csv practice_run.html figures | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N"; echo "== pyflakes (starter-provided names filtered)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(none above = clean)"; echo "== pycodestyle"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=125 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head; echo "(none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF import nbformat nb = nbformat.read(r"$N", as_version=4) start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown") errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")] dash = [i for i, c in enumerate(nb.cells[start:], start) if "\u2014" in c.source or "\u2013" in c.source] counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] print("cells", len(nb.cells), "| my prose words", words, "| error or stderr cells", errs, "| dash cells", dash) print("execution counts strictly increasing from 1:", counts[0] == 1 and all(a < b for a, b in zip(counts, counts[1:])), "| last", counts[-1]) print("kernelspec:", nb.metadata["kernelspec"]["name"], "| python", nb.metadata["language_info"]["version"]) PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch5.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() old = '"""lecture-style loop: distances for one query, take the k nearest, vote, a tied vote goes to the nearest tied neighbor"""' assert s.count(old) == 1 s = s.replace(old, '"""lecture-style loop: k nearest by distance, vote, a tied vote goes to the nearest tied neighbor"""') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I patch5.py SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF' import nbformat p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) PYEOF cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle at 120 columns: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n '363p;665p' mycode.py`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch6.py <<'PYEOF'
-p = "build_nb3.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:60]
-    s = s.replace(old, new)
-swap('assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)',
-     'assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75)\nassert np.isclose(m_c["f1"][SAND], 0.6)')
-swap('fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")',
-     'fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m,\n                            save_as="figures/fig2_deploy.png")')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I patch6.py
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
-import nbformat
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-PYEOF
-cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
-import nbformat
-nb = nbformat.read(r"$N", as_version=4)
-errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order run 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
-for i, c in enumerate(nb.cells):
-    if c.cell_type != "code": continue
-    for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
-        if "passed" in line or "drawn" in line: print(f"  cell {i}: {line}")
-PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch6.py <<'PYEOF' p = "build_nb3.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old[:60]     s = s.replace(old, new) swap('assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)',      'assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75)\nassert np.isclose(m_c["f1"][SAND], 0.6)') swap('fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")',      'fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m,\n                            save_as="figures/fig2_deploy.png")') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I patch6.py SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF' import nbformat p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) PYEOF cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF import nbformat nb = nbformat.read(r"$N", as_version=4) errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")] counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order run 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:]))) for i, c in enumerate(nb.cells):     if c.cell_type != "code": continue     for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():         if "passed" in line or "drawn" in line: print(f"  cell {i}: {line}") PYEOF`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "######## coverage of the FINAL notebook in the Homework folder"; echo "tests only:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "whole notebook:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## mutation test against the FINAL notebook"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch" | tail -4`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchnote.py <<'PYEOF'
-p = "gen_note.py"
-s = open(p, encoding="utf-8").read()
-a = s.index("Tests run:\n")
-b = s.index("Evidence (demo bundle, the confirmed dataset):")
-s = s[:a] + open("tests_block.txt", encoding="utf-8").read() + s[b:]
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:60]
-    s = s.replace(old, new)
-swap("has 42 cells: the starter cells unchanged", "has 46 cells: the starter cells unchanged")
-swap("- Figures were regenerated at print size", "- The deployment figure is a function so the checks can draw a stuck rover and a blocked goal. The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.\n- Figures were regenerated at print size")
-open(p, "w", encoding="utf-8").write(s)
-print("gen_note patched")
-PYEOF
-./venv/Scripts/python.exe -I patchnote.py && ./venv/Scripts/python.exe -I gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; grep -c "BUNDLE_OVERRIDE\|personalized" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchnote.py <<'PYEOF' p = "gen_note.py" s = open(p, encoding="utf-8").read() a = s.index("Tests run:\n") b = s.index("Evidence (demo bundle, the confirmed dataset):") s = s[:a] + open("tests_block.txt", encoding="utf-8").read() + s[b:] def swap(old, new):     global s     assert s.count(old) == 1, old[:60]     s = s.replace(old, new) swap("has 42 cells: the starter cells unchanged", "has 46 cells: the starter cells unchanged") swap("- Figures were regenerated at print size", "- The deployment figure is a function so the checks can draw a stuck rover and a blocked goal. The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.\n- Figures were regenerated at print size") open(p, "w", encoding="utf-8").write(s) print("gen_note patched") PYEOF ./venv/Scripts/python.exe -I patchnote.py && ./venv/Scripts/python.exe -I gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; grep -c "BUNDLE_OVERRIDE\|personalized" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"``
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale mentions (BUNDLE_OVERRIDE|personalized): $(grep -c 'BUNDLE_OVERRIDE\|personalized' "$F")"; grep -n "personalized\|BUNDLE_OVERRIDE" "$F" | cut -c1-160; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cat figures/hw2_configs.csv | cut -d, -f1-12; echo; echo "assignment asks for: >=3 configs showing (1) effect of normalization (2) a PCA representation (3) cluster-based vs kNN; record dims, val accuracy, macro F1, sand recall, practice outcome"`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh3" && mkdir -p "$SC/fresh3" && cd "$SC/fresh3" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh3/CSCI4521_HW2.ipynb" && ( time "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ) 2>&1 | grep -E "Error|Traceback|Writing|Assertion|real"; "$CE" -I "$SC/audit.py" CSCI4521_HW2.ipynb | head -60; echo; cat figures/hw2_configs.csv`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py fresh3/CSCI4521_HW2.ipynb 17 38 2>&1 | grep -v "^\[IPK" | cut -c1-200`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="CSCI4521_HW2.ipynb"; echo "######## coverage: check cells only (everything before the experiments)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "######## coverage: whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "######## per function (checks only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo "######## mutation test"; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
-import nbformat
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stderr")]
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
-print("cells", len(nb.cells), "| error cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words)
-PYEOF
-cmp -s submission.csv "$SC/fresh3/submission.csv" && echo "in-place submission.csv == clean-directory run"; cmp -s figures/hw2_configs.csv "$SC/fresh3/figures/hw2_configs.csv" && echo "in-place table == clean-directory run"; cmp -s figures/fig1_pca.png "$SC/fresh3/figures/fig1_pca.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/fresh3/figures/fig2_deploy.png" && echo "fig2 identical"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n 180p mycode.py && cat > patch7.py <<'PYEOF'
-p = "build_nb4.py"
-s = open(p, encoding="utf-8").read()
-old = '"""lecture 1.1 loop for k neighbors: sort one query\'s distances, vote, a tied vote goes to the nearest tied neighbor"""'
-assert s.count(old) == 1
-s = s.replace(old, '"""lecture 1.1 loop for k neighbors: sort the distances, vote, a tied vote goes to the nearest tied neighbor"""')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I patch7.py
-SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
-import nbformat
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to verified run: $f"; done; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchrep.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-a = s.index("P = {}")
-b = s.index("def table_rows():")
-s = s[:a] + open("p_block.txt", encoding="utf-8").read() + s[b:]
-# page break becomes switchable so both layouts can be measured
-s = s.replace('<div class="c" style="page-break-before: always"><table', '<div class="c" style="{BRK}"><table')
-s = s.replace('    rows_html = "".join(', '    import os\n    BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""\n    rows_html = "".join(', 1)
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patchrep.py && for b in 0 1; do echo "== page break before Table 1: $b"; BREAK=$b ./venv/Scripts/python.exe -I report_build.py report_est_$b.pdf 2>&1 | tail -3; ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est_$b.pdf')
-for i, p in enumerate(d):
-    t = p.get_text()
-    print('  page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Figure 1 caption:', 'Figure 1:' in t, '| Figure 2 caption:', 'Figure 2:' in t, '| 5. Limitations:', '5. Limitations' in t, '| AI use:', 'AI use' in t)
-    p.get_pixmap(dpi=70).save('est${b}_p%d.png' % (i+1))
-"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/font-size: 10.5pt; line-height: 1.15;/font-size: 11pt; line-height: 1.15;/; s/width="310"/width="385"/; s/p.cap { text-align: center; font-size: 9.5pt;/p.cap { text-align: center; font-size: 10pt;/; s/table { border-collapse: collapse; font-size: 8.5pt;/table { border-collapse: collapse; font-size: 9pt;/' report_build.py && BREAK=0 ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3; ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d):
-    t = p.get_text()
-    print('  page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 cap:', 'Figure 1:' in t, '| Fig2 cap:', 'Figure 2:' in t, '| Limitations:', '5. Limitations' in t, '| AI use:', 'AI use' in t)
-    p.get_pixmap(dpi=70).save('est_p%d.png' % (i+1))
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchorder.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-a = s.index('    html = f"""')
-b = s.index('    story = fitz.Story')
-new = '''    FIG1 = f"""<div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>"""
-    TAB = f"""<div class="c" style="{BRK}"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>"""
-    FIG2 = f"""<div class="c"><img src="fig2_deploy.png" width="385"></div><p class="cap">{P['f2cap']}</p>"""
-    TITLE = """<p class="t">HW 2: Rover Rescue</p><p class="t">Anant Gupta</p><p class="t" style="margin-bottom:4pt">October 2026</p>"""
-    if os.environ.get("ORDER") == "T":     # table directly after the first evidence paragraph
-        body = f"<p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>{TAB}<p>{P['s3b']}</p>{FIG1}<p>{P['s4']}</p>{FIG2}"
-    else:                                   # figure 1 first, table after the second evidence paragraph
-        body = f"<p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>{FIG1}<p>{P['s3b']}</p>{TAB}<p>{P['s4']}</p>{FIG2}"
-    html = TITLE + body + f"<p>{P['s5']}</p><p>{P['ai']}</p>"
-'''
-s = s[:a] + new + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patchorder.py && cat > splitcheck.py <<'PYEOF'
-import sys, re, pymupdf as fitz
-d = fitz.open(sys.argv[1])
-rows_by_page = []
-for i, p in enumerate(d):
-    lines = [l.strip() for l in p.get_text().splitlines()]
-    rows_by_page.append(sorted(l for l in lines if re.fullmatch(r"C[1-6]", l)))
-    caps = [k for k in ("Table 1:", "Figure 1:", "Figure 2:", "5. Limitations", "AI use") if k in p.get_text()]
-    print(f"  page {i + 1}: table rows {rows_by_page[-1]} | has {caps}")
-split = sum(1 for r in rows_by_page if r) > 1
-print("  table split across pages:", split)
-PYEOF
-for o in F T; do for b in 0; do echo "== order $o"; ORDER=$o BREAK=$b ./venv/Scripts/python.exe report_build.py report_est_$o.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py report_est_$o.pdf; done; done`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF' import nbformat p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stderr")] counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown") print("cells", len(nb.cells), "| error cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words) PYEOF cmp -s submission.csv "$SC/fresh3/submission.csv" && echo "in-place submission.csv == clean-directory run"; cmp -s figures/hw2_configs.csv "$SC/fresh3/figures/hw2_configs.csv" && echo "in-place table == clean-directory run"; cmp -s figures/fig1_pca.png "$SC/fresh3/figures/fig1_pca.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/fresh3/figures/fig2_deploy.png" && echo "fig2 identical"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n 180p mycode.py && cat > patch7.py <<'PYEOF' p = "build_nb4.py" s = open(p, encoding="utf-8").read() old = '"""lecture 1.1 loop for k neighbors: sort one query\'s distances, vote, a tied vote goes to the nearest tied neighbor"""' assert s.count(old) == 1 s = s.replace(old, '"""lecture 1.1 loop for k neighbors: sort the distances, vote, a tied vote goes to the nearest tied neighbor"""') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I patch7.py SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF' import nbformat p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) PYEOF for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to verified run: $f"; done; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchrep.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() a = s.index("P = {}") b = s.index("def table_rows():") s = s[:a] + open("p_block.txt", encoding="utf-8").read() + s[b:] # page break becomes switchable so both layouts can be measured s = s.replace('<div class="c" style="page-break-before: always"><table', '<div class="c" style="{BRK}"><table') s = s.replace('    rows_html = "".join(', '    import os\n    BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""\n    rows_html = "".join(', 1) open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patchrep.py && for b in 0 1; do echo "== page break before Table 1: $b"; BREAK=$b ./venv/Scripts/python.exe -I report_build.py report_est_$b.pdf 2>&1 | tail -3; ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est_$b.pdf') for i, p in enumerate(d):     t = p.get_text()     print('  page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Figure 1 caption:', 'Figure 1:' in t, '| Figure 2 caption:', 'Figure 2:' in t, '| 5. Limitations:', '5. Limitations' in t, '| AI use:', 'AI use' in t)     p.get_pixmap(dpi=70).save('est${b}_p%d.png' % (i+1)) "; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/font-size: 10.5pt; line-height: 1.15;/font-size: 11pt; line-height: 1.15;/; s/width="310"/width="385"/; s/p.cap { text-align: center; font-size: 9.5pt;/p.cap { text-align: center; font-size: 10pt;/; s/table { border-collapse: collapse; font-size: 8.5pt;/table { border-collapse: collapse; font-size: 9pt;/' report_build.py && BREAK=0 ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3; ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d):     t = p.get_text()     print('  page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 cap:', 'Figure 1:' in t, '| Fig2 cap:', 'Figure 2:' in t, '| Limitations:', '5. Limitations' in t, '| AI use:', 'AI use' in t)     p.get_pixmap(dpi=70).save('est_p%d.png' % (i+1)) "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchorder.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() a = s.index('    html = f"""') b = s.index('    story = fitz.Story') new = '''    FIG1 = f"""<div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>"""     TAB = f"""<div class="c" style="{BRK}"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>"""     FIG2 = f"""<div class="c"><img src="fig2_deploy.png" width="385"></div><p class="cap">{P['f2cap']}</p>"""     TITLE = """<p class="t">HW 2: Rover Rescue</p><p class="t">Anant Gupta</p><p class="t" style="margin-bottom:4pt">October 2026</p>"""     if os.environ.get("ORDER") == "T":     # table directly after the first evidence paragraph         body = f"<p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>{TAB}<p>{P['s3b']}</p>{FIG1}<p>{P['s4']}</p>{FIG2}"     else:                                   # figure 1 first, table after the second evidence paragraph         body = f"<p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>{FIG1}<p>{P['s3b']}</p>{TAB}<p>{P['s4']}</p>{FIG2}"     html = TITLE + body + f"<p>{P['s5']}</p><p>{P['ai']}</p>" ''' s = s[:a] + new + s[b:] open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patchorder.py && cat > splitcheck.py <<'PYEOF' import sys, re, pymupdf as fitz d = fitz.open(sys.argv[1]) rows_by_page = [] for i, p in enumerate(d):     lines = [l.strip() for l in p.get_text().splitlines()]     rows_by_page.append(sorted(l for l in lines if re.fullmatch(r"C[1-6]", l)))     caps = [k for k in ("Table 1:", "Figure 1:", "Figure 2:", "5. Limitations", "AI use") if k in p.get_text()]     print(f"  page {i + 1}: table rows {rows_by_page[-1]} | has {caps}") split = sum(1 for r in rows_by_page if r) > 1 print("  table split across pages:", split) PYEOF for o in F T; do for b in 0; do echo "== order $o"; ORDER=$o BREAK=$b ./venv/Scripts/python.exe report_build.py report_est_$o.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py report_est_$o.pdf; done; done`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== A: 11 pt, page break before Table 1"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rA.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rA.pdf; cp report_build.py report_build_11.py; sed -i 's/font-size: 11pt; line-height: 1.15;/font-size: 10.5pt; line-height: 1.15;/' report_build.py; echo; echo "== B: 10.5 pt, no page break, Figure 2 at full size"; ORDER=F BREAK=0 ./venv/Scripts/python.exe report_build.py rB.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rB.pdf`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== C: 10.5 pt, page break before Table 1, Figure 2 at full size"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rC.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rC.pdf; ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('rC.pdf')
-for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rC_p%d.png' % (i+1))
-"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cp report_build_11.py report_build.py && sed -i 's/BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""/BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"/' report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf 2>&1 | tail -2 && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && cat > factcheck.py <<'PYEOF'
-"""every number or phrase the report states must be backed by the executed notebook output"""
-import re, io, json
-import pandas as pd, nbformat
-import report_build as rb
-
-H = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
-nb = nbformat.read(f"{H}/CSCI4521_HW2.ipynb", as_version=4)
-out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
-                for c in nb.cells if c.cell_type == "code")
-htmls = [o["data"]["text/html"] for c in nb.cells if c.cell_type == "code" for o in c.outputs
-         if o.output_type in ("display_data", "execute_result") and "text/html" in o.get("data", {}) and "<table" in o["data"]["text/html"]]
-tables = [pd.read_html(io.StringIO(h))[0] for h in htmls]
-cfg = pd.read_csv(f"{H}/figures/hw2_configs.csv").set_index("config")
-text = " ".join(rb.P.values())
-fails = []
-
-def check(name, ok):
-    print(("ok   " if ok else "FAIL ") + name)
-    if not ok: fails.append(name)
-
-def has(s): return s in out
-
-# scale analysis and PCA
-check("std range 0.040 to 52.4, factor 1,320", has("largest std / smallest std = 1,320 (sensor_4 vs sensor_6)"))
-check("sensors 4 and 2 supply 92.3%", has("top two sensors supply 92.27%") and "sensor_4', 'sensor_2'" in out)
-check("95% needs 3 components, cumulative 95.5%", has("components for at least 95% variance: 3 of 8 (cumulative 0.9546)"))
-pca = next(t for t in tables if "variance ratio" in " ".join(map(str, t.columns)))
-check("first two components hold 91.1%", abs(pca.iloc[1, -1] - 0.9112) < 5e-5)
-sc = next(t for t in tables if "share of raw squared distance (%)" in " ".join(map(str, t.columns)))
-check("sensor_6 std 0.040 and sensor_4 std 52.4", abs(sc["std"].min() - 0.040) < 5e-4 and abs(sc["std"].max() - 52.446) < 5e-3)
-
-# split sizes
-check("754 fit, 60 training, 30 validation", has("fit 754 | calibration-training 60 | validation 30 | mission 784"))
-check("20 per terrain training, 10 per terrain validation", cfg.shape[0] == 6 and int(round(1 / 3 * 30)) == 10)
-check("one error is 3.3 points", abs(100 / 30 - 3.33) < 0.01)
-
-# experiments
-check("raw k-means 0.700, raw 1-NN 0.933, z-scored all 1.000",
-      cfg.loc["C1", "val_accuracy"] == 0.7 and cfg.loc["C2", "val_accuracy"] == 0.933 and (cfg.loc[["C3", "C4", "C5", "C6"], "val_accuracy"] == 1.0).all())
-check("raw k-means found 5 of 10 sand cells", cfg.loc["C1", "sand_found"] == "5/10")
-check("raw 1-NN missed 1 of 10 sand cells and reached the goal", cfg.loc["C2", "sand_found"] == "9/10" and cfg.loc["C2", "practice"] == "MISSION SUCCESS")
-check("raw k-means stuck at step 20", cfg.loc["C1", "practice"] == "ROVER STUCK IN SAND" and cfg.loc["C1", "steps"] == 20)
-check("(y=13, x=4) and predicted rough", has("C1: stopped at (y=13, x=4) after 20 steps; predicted rough there"))
-check("cluster named sand held 12 sand, 11 rough, 4 firm", bool(re.search(r"cluster 2\s+4\s+11\s+12", " ".join(map(str, tables[0].values.tolist()))) or True) and "C1 (raw, 8 sensors)" in out)
-raw_tab = next(t for t in tables if t.shape == (3, 4) and t.iloc[:, 1:].values.tolist() == [[0, 8, 7], [16, 1, 1], [4, 11, 12]])
-check("raw cluster table matches (4 firm, 11 rough, 12 sand in the sand-named cluster)", raw_tab is not None)
-z_tabs = [t for t in tables if t.shape == (3, 4) and sorted(map(tuple, t.iloc[:, 1:].values.tolist())) == [(0, 0, 20), (0, 20, 0), (20, 0, 0)]]
-check("z-scored cluster tables are pure (20, 20, 20)", len(z_tabs) == 2)
-check("all z-scored configs: 54 steps, cost 70.8, success", (cfg.loc[["C3", "C4", "C5", "C6"], "steps"] == 54).all() and (cfg.loc[["C3", "C4", "C5", "C6"], "cost"] == 70.8).all())
-check("no empty clusters, one-to-one majority naming", out.count("0 empty clusters") >= 5 and out.count("majority vote") == 3 and "permutation" not in out)
-check("elbow 2652, 1238, 1086", has("{2: 2652.2, 3: 1237.5, 4: 1085.7, 5: 939.1}"))
-
-# selection and deployment
-check("selected C5 (z-score, PCA 95%, k-means, 3 dimensions)", has("selected C5: z-score, PCA 95%, k-means, 3 dimensions"))
-check("four-way tie C3 C4 C5 C6, C5 and C6 tie on dimensions", has("sharing the top macro F1: ['C5', 'C6', 'C3', 'C4']") and has("also tied on dimensions: ['C5', 'C6']"))
-check("practice: success, 54 steps, cost 70.8", has("'steps': 54, 'predicted_cost': 70.8"))
-check("mission route exists", has("Predicted mission map and route: route cost 52.0"))
-check("submission is 784 rows, student_id demo3", has("submission.csv (784, 4) student_id: demo3"))
-
-# table matches the CSV and the rows the report prints
-for r in rb.ROWS:
-    c = cfg.loc[r[0]]
-    check(f"Table 1 row {r[0]}", r[4] == f"{c.val_accuracy:.3f}" and r[5] == f"{c.macro_f1:.3f}" and r[6] == f"{c.sand_recall:.2f}" and str(int(c.steps)) in r[7])
-
-# claims in the text that name numbers must appear in the checks above
-for needle in ["0.700", "0.933", "1.000", "54 steps", "70.8", "(y=13, x=4)", "92.3%", "95.5%", "91.1%", "1,320", "2652, 1238, 1086"]:
-    check(f"report contains {needle}", needle in text)
-print(f"\n{len(fails)} failures")
-PYEOF
-./venv/Scripts/python.exe factcheck.py 2>&1 | grep -v "^$"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "== C: 10.5 pt, page break before Table 1, Figure 2 at full size"; ORDER=F BREAK=1 ./venv/Scripts/python.exe report_build.py rC.pdf 2>&1 | tail -2 | head -1; ./venv/Scripts/python.exe splitcheck.py rC.pdf; ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('rC.pdf') for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rC_p%d.png' % (i+1)) "`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cp report_build_11.py report_build.py && sed -i 's/BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""/BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"/' report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf 2>&1 | tail -2 && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && cat > factcheck.py <<'PYEOF' """every number or phrase the report states must be backed by the executed notebook output""" import re, io, json import pandas as pd, nbformat import report_build as rb  H = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" nb = nbformat.read(f"{H}/CSCI4521_HW2.ipynb", as_version=4) out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")                 for c in nb.cells if c.cell_type == "code") htmls = [o["data"]["text/html"] for c in nb.cells if c.cell_type == "code" for o in c.outputs          if o.output_type in ("display_data", "execute_result") and "text/html" in o.get("data", {}) and "<table" in o["data"]["text/html"]] tables = [pd.read_html(io.StringIO(h))[0] for h in htmls] cfg = pd.read_csv(f"{H}/figures/hw2_configs.csv").set_index("config") text = " ".join(rb.P.values()) fails = []  def check(name, ok):     print(("ok   " if ok else "FAIL ") + name)     if not ok: fails.append(name)  def has(s): return s in out  # scale analysis and PCA check("std range 0.040 to 52.4, factor 1,320", has("largest std / smallest std = 1,320 (sensor_4 vs sensor_6)")) check("sensors 4 and 2 supply 92.3%", has("top two sensors supply 92.27%") and "sensor_4', 'sensor_2'" in out) check("95% needs 3 components, cumulative 95.5%", has("components for at least 95% variance: 3 of 8 (cumulative 0.9546)")) pca = next(t for t in tables if "variance ratio" in " ".join(map(str, t.columns))) check("first two components hold 91.1%", abs(pca.iloc[1, -1] - 0.9112) < 5e-5) sc = next(t for t in tables if "share of raw squared distance (%)" in " ".join(map(str, t.columns))) check("sensor_6 std 0.040 and sensor_4 std 52.4", abs(sc["std"].min() - 0.040) < 5e-4 and abs(sc["std"].max() - 52.446) < 5e-3)  # split sizes check("754 fit, 60 training, 30 validation", has("fit 754 | calibration-training 60 | validation 30 | mission 784")) check("20 per terrain training, 10 per terrain validation", cfg.shape[0] == 6 and int(round(1 / 3 * 30)) == 10) check("one error is 3.3 points", abs(100 / 30 - 3.33) < 0.01)  # experiments check("raw k-means 0.700, raw 1-NN 0.933, z-scored all 1.000",       cfg.loc["C1", "val_accuracy"] == 0.7 and cfg.loc["C2", "val_accuracy"] == 0.933 and (cfg.loc[["C3", "C4", "C5", "C6"], "val_accuracy"] == 1.0).all()) check("raw k-means found 5 of 10 sand cells", cfg.loc["C1", "sand_found"] == "5/10") check("raw 1-NN missed 1 of 10 sand cells and reached the goal", cfg.loc["C2", "sand_found"] == "9/10" and cfg.loc["C2", "practice"] == "MISSION SUCCESS") check("raw k-means stuck at step 20", cfg.loc["C1", "practice"] == "ROVER STUCK IN SAND" and cfg.loc["C1", "steps"] == 20) check("(y=13, x=4) and predicted rough", has("C1: stopped at (y=13, x=4) after 20 steps; predicted rough there")) check("cluster named sand held 12 sand, 11 rough, 4 firm", bool(re.search(r"cluster 2\s+4\s+11\s+12", " ".join(map(str, tables[0].values.tolist()))) or True) and "C1 (raw, 8 sensors)" in out) raw_tab = next(t for t in tables if t.shape == (3, 4) and t.iloc[:, 1:].values.tolist() == [[0, 8, 7], [16, 1, 1], [4, 11, 12]]) check("raw cluster table matches (4 firm, 11 rough, 12 sand in the sand-named cluster)", raw_tab is not None) z_tabs = [t for t in tables if t.shape == (3, 4) and sorted(map(tuple, t.iloc[:, 1:].values.tolist())) == [(0, 0, 20), (0, 20, 0), (20, 0, 0)]] check("z-scored cluster tables are pure (20, 20, 20)", len(z_tabs) == 2) check("all z-scored configs: 54 steps, cost 70.8, success", (cfg.loc[["C3", "C4", "C5", "C6"], "steps"] == 54).all() and (cfg.loc[["C3", "C4", "C5", "C6"], "cost"] == 70.8).all()) check("no empty clusters, one-to-one majority naming", out.count("0 empty clusters") >= 5 and out.count("majority vote") == 3 and "permutation" not in out) check("elbow 2652, 1238, 1086", has("{2: 2652.2, 3: 1237.5, 4: 1085.7, 5: 939.1}"))  # selection and deployment check("selected C5 (z-score, PCA 95%, k-means, 3 dimensions)", has("selected C5: z-score, PCA 95%, k-means, 3 dimensions")) check("four-way tie C3 C4 C5 C6, C5 and C6 tie on dimensions", has("sharing the top macro F1: ['C5', 'C6', 'C3', 'C4']") and has("also tied on dimensions: ['C5', 'C6']")) check("practice: success, 54 steps, cost 70.8", has("'steps': 54, 'predicted_cost': 70.8")) check("mission route exists", has("Predicted mission map and route: route cost 52.0")) check("submission is 784 rows, student_id demo3", has("submission.csv (784, 4) student_id: demo3"))  # table matches the CSV and the rows the report prints for r in rb.ROWS:     c = cfg.loc[r[0]]     check(f"Table 1 row {r[0]}", r[4] == f"{c.val_accuracy:.3f}" and r[5] == f"{c.macro_f1:.3f}" and r[6] == f"{c.sand_recall:.2f}" and str(int(c.steps)) in r[7])  # claims in the text that name numbers must appear in the checks above for needle in ["0.700", "0.933", "1.000", "54 steps", "70.8", "(y=13, x=4)", "92.3%", "95.5%", "91.1%", "1,320", "2652, 1238, 1086"]:     check(f"report contains {needle}", needle in text) print(f"\n{len(fails)} failures") PYEOF ./venv/Scripts/python.exe factcheck.py 2>&1 | grep -v "^$"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; echo "== fact-check"; cd .. && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note2.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale terms (E1|E3|3-NN|stability|mission shift|20 of 20|PCA 2): $(grep -c 'E1\|E3\|3-NN\|15 of 20\|PCA with 2 components' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la | grep -vE "\.pdf|\.csv$|hwTemplate|README|\.tex" ; ls figures`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad" && echo "=== handout (homework 2.pdf): page-limit wording ==="; ./hw2/venv/Scripts/python.exe -I -c "
-import pymupdf as fitz, re
-d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf')
-t = ' '.join(p.get_text() for p in d)
-t = re.sub(r'\s+', ' ', t)
-for m in re.finditer(r'[^.]*(two-page|two pages|extra plots)[^.]*\.', t): print('-', m.group(0).strip())
-"; echo; echo "=== rubric.md ==="; grep -n -i "page" repo/2026/homework-2/rover-rescue/rubric.md repo/2026/homework-2/rover-rescue/assignment_student.md; echo; echo "=== example report HW2.pdf: pages and page-limit context ==="; ./hw2/venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf')
-print('pages:', len(d)); d[0].get_pixmap(dpi=75).save('hw2/ex_p1.png'); d[5].get_pixmap(dpi=75).save('hw2/ex_p6.png')
-"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad" && echo "=== handout (homework 2.pdf): page-limit wording ==="; ./hw2/venv/Scripts/python.exe -I -c " import pymupdf as fitz, re d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf') t = ' '.join(p.get_text() for p in d) t = re.sub(r'\s+', ' ', t) for m in re.finditer(r'[^.]*(two-page|two pages|extra plots)[^.]*\.', t): print('-', m.group(0).strip()) "; echo; echo "=== rubric.md ==="; grep -n -i "page" repo/2026/homework-2/rover-rescue/rubric.md repo/2026/homework-2/rover-rescue/assignment_student.md; echo; echo "=== example report HW2.pdf: pages and page-limit context ==="; ./hw2/venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf') print('pages:', len(d)); d[0].get_pixmap(dpi=75).save('hw2/ex_p1.png'); d[5].get_pixmap(dpi=75).save('hw2/ex_p6.png') "`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && head -c 1800 practice_run.html | head -40; echo; echo "-----structure"; grep -o '<div class="[^"]*"\|<div id="[^"]*"\|<input[^>]*type="[^"]*"\|<img id="[^"]*"\|</body>\|<body\|<html\|<script' practice_run.html | sort | uniq -c | head -30`
-- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ./../../../../../../../Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe -I -c "
-import re
-s = open('practice_run.html', encoding='utf-8').read()
-i = s.index('<div class=\"animation\"')
-tail = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', 'data:...', s[i:])
-tail = re.sub(r'\[\s*(\"data:\.\.\.\",?\s*)+\]', '[frames...]', tail)
-print(tail[:3500])
-print('--- style tags:', s.count('<style'), '| width attrs on img:', re.findall(r'<img[^>]*>', s)[:1])
-" 2>&1 | head -80; ls "D:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files/Google/Chrome/Application/chrome.exe" 2>&1 | grep -v "No such"`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; cd "$SC" && cat > htmlshape.py <<'PYEOF'
-import re
-s = open("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html", encoding="utf-8").read()
-i = s.index('<div class="animation"')
-tail = re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "data:...", s[i:])
-print(tail[:3200])
-print("--- style tags:", s.count("<style"), "| img tags:", re.findall(r"<img[^>]*>", s)[:1])
-PYEOF
-./venv/Scripts/python.exe -I htmlshape.py | head -70`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml.py <<'PYEOF'
-p = "build_nb4.py"
-s = open(p, encoding="utf-8").read()
-old = 'html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)\nPath("practice_run.html").write_text(html.data, encoding="utf-8")\ndisplay(html)\n'
-assert s.count(old) == 1
-new = '''html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)
-
-# the simulator returns a bare fragment, so wrap it in a page that centers the animation on the screen
-page = ("<!DOCTYPE html>\\n<html lang=\\"en\\"><head><meta charset=\\"utf-8\\">"
-        "<title>Rover Rescue practice run</title>\\n"
-        "<style>body {margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center;}"
-        " .animation {text-align: center;}</style></head>\\n<body>\\n" + html.data + "\\n</body></html>")
-Path("practice_run.html").write_text(page, encoding="utf-8")
-display(html)
-'''
-s = s.replace(old, new)
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patchhtml.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && sed -n "$(grep -n 'the simulator returns a bare fragment' build_nb4.py | cut -d: -f1),+7p" build_nb4.py`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml2.py <<'PYEOF'
-p = "build_nb4.py"
-s = open(p, encoding="utf-8").read()
-a = s.index("# the simulator returns a bare fragment")
-end_marker = 'Path("practice_run.html").write_text(page, encoding="utf-8")\n'
-b = s.index(end_marker, a) + len(end_marker)
-s = s[:a] + open("htmlblock.txt", encoding="utf-8").read() + s[b:]
-open(p, "w", encoding="utf-8").write(s)
-print("replaced")
-PYEOF
-./venv/Scripts/python.exe -I patchhtml2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; head -c 600 practice_run.html; echo; echo ...; tail -c 120 practice_run.html`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cp "$H/practice_run.html" old_practice.html && for name in old new; do if [ $name = old ]; then SRC="$SC/old_practice.html"; else SRC="$SC/fresh4/practice_run.html"; fi; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,900 --virtual-time-budget=5000 --screenshot="$SC/shot_$name.png" "file:///$SRC" >/dev/null 2>&1; done; ls -la shot_*.png; cat > measure.py <<'PYEOF'
-import sys
-from PIL import Image
-import numpy as np
-for name in ("old", "new"):
-    im = np.asarray(Image.open(f"shot_{name}.png").convert("RGB")).astype(int)
-    h, w, _ = im.shape
-    ink = (np.abs(im - 255).sum(axis=2) > 30)          # anything that is not white
-    cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))
-    left, right = cols.min(), w - 1 - cols.max()
-    top, bottom = rows.min(), h - 1 - rows.max()
-    print(f"{name}: window {w}x{h} | content x {cols.min()}..{cols.max()} | left margin {left}px, right margin {right}px "
-          f"| top margin {top}px, bottom margin {bottom}px | horizontally centered within 2px: {abs(left - right) <= 2}")
-PYEOF
-./venv/Scripts/python.exe -I measure.py`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml3.py <<'PYEOF'
-p = "htmlblock.txt"
-s = open(p, encoding="utf-8").read()
-old = ".animation { text-align: center; }\n"
-assert s.count(old) == 1
-new = (".animation { text-align: center; }\n"
-       "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
-       ".animation img { transform: translateX(-1.25%); }\n")
-open(p, "w", encoding="utf-8").write(s.replace(old, new))
-
-b = open("build_nb4.py", encoding="utf-8").read()
-old_b = ".animation { text-align: center; }\n"
-assert b.count(old_b) == 1
-b = b.replace(old_b, new)
-open("build_nb4.py", "w", encoding="utf-8").write(b)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I patchhtml3.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC" && for w in "1280,900" "1920,1080" "800,700"; do "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$w --virtual-time-budget=5000 --screenshot="$SC/shot_new_${w/,/x}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; cat > measure2.py <<'PYEOF'
-from PIL import Image
-import numpy as np
-for name in ("1280x900", "1920x1080", "800x700"):
-    im = np.asarray(Image.open(f"shot_new_{name}.png").convert("RGB")).astype(int)
-    h, w, _ = im.shape
-    ink = (np.abs(im - 255).sum(axis=2) > 30)
-    cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))
-    left, right = cols.min(), w - 1 - cols.max()
-    print(f"window {w}x{h}: left margin {left}px, right margin {right}px, difference {abs(left - right)}px | top {rows.min()}px, bottom {h - 1 - rows.max()}px")
-PYEOF
-./venv/Scripts/python.exe -I measure2.py`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ./../../../../../../../Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe -I -c " import re s = open('practice_run.html', encoding='utf-8').read() i = s.index('<div class=\"animation\"') tail = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', 'data:...', s[i:]) tail = re.sub(r'\[\s*(\"data:\.\.\.\",?\s*)+\]', '[frames...]', tail) print(tail[:3500]) print('--- style tags:', s.count('<style'), '| width attrs on img:', re.findall(r'<img[^>]*>', s)[:1]) " 2>&1 | head -80; ls "D:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files/Google/Chrome/Application/chrome.exe" 2>&1 | grep -v "No such"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; cd "$SC" && cat > htmlshape.py <<'PYEOF' import re s = open("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html", encoding="utf-8").read() i = s.index('<div class="animation"') tail = re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "data:...", s[i:]) print(tail[:3200]) print("--- style tags:", s.count("<style"), "| img tags:", re.findall(r"<img[^>]*>", s)[:1]) PYEOF ./venv/Scripts/python.exe -I htmlshape.py | head -70`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml.py <<'PYEOF' p = "build_nb4.py" s = open(p, encoding="utf-8").read() old = 'html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)\nPath("practice_run.html").write_text(html.data, encoding="utf-8")\ndisplay(html)\n' assert s.count(old) == 1 new = '''html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)  # the simulator returns a bare fragment, so wrap it in a page that centers the animation on the screen page = ("<!DOCTYPE html>\\n<html lang=\\"en\\"><head><meta charset=\\"utf-8\\">"         "<title>Rover Rescue practice run</title>\\n"         "<style>body {margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center;}"         " .animation {text-align: center;}</style></head>\\n<body>\\n" + html.data + "\\n</body></html>") Path("practice_run.html").write_text(page, encoding="utf-8") display(html) ''' s = s.replace(old, new) open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patchhtml.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && sed -n "$(grep -n 'the simulator returns a bare fragment' build_nb4.py | cut -d: -f1),+7p" build_nb4.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml2.py <<'PYEOF' p = "build_nb4.py" s = open(p, encoding="utf-8").read() a = s.index("# the simulator returns a bare fragment") end_marker = 'Path("practice_run.html").write_text(page, encoding="utf-8")\n' b = s.index(end_marker, a) + len(end_marker) s = s[:a] + open("htmlblock.txt", encoding="utf-8").read() + s[b:] open(p, "w", encoding="utf-8").write(s) print("replaced") PYEOF ./venv/Scripts/python.exe -I patchhtml2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; head -c 600 practice_run.html; echo; echo ...; tail -c 120 practice_run.html`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cp "$H/practice_run.html" old_practice.html && for name in old new; do if [ $name = old ]; then SRC="$SC/old_practice.html"; else SRC="$SC/fresh4/practice_run.html"; fi; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,900 --virtual-time-budget=5000 --screenshot="$SC/shot_$name.png" "file:///$SRC" >/dev/null 2>&1; done; ls -la shot_*.png; cat > measure.py <<'PYEOF' import sys from PIL import Image import numpy as np for name in ("old", "new"):     im = np.asarray(Image.open(f"shot_{name}.png").convert("RGB")).astype(int)     h, w, _ = im.shape     ink = (np.abs(im - 255).sum(axis=2) > 30)          # anything that is not white     cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))     left, right = cols.min(), w - 1 - cols.max()     top, bottom = rows.min(), h - 1 - rows.max()     print(f"{name}: window {w}x{h} | content x {cols.min()}..{cols.max()} | left margin {left}px, right margin {right}px "           f"| top margin {top}px, bottom margin {bottom}px | horizontally centered within 2px: {abs(left - right) <= 2}") PYEOF ./venv/Scripts/python.exe -I measure.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml3.py <<'PYEOF' p = "htmlblock.txt" s = open(p, encoding="utf-8").read() old = ".animation { text-align: center; }\n" assert s.count(old) == 1 new = (".animation { text-align: center; }\n"        "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"        ".animation img { transform: translateX(-1.25%); }\n") open(p, "w", encoding="utf-8").write(s.replace(old, new))  b = open("build_nb4.py", encoding="utf-8").read() old_b = ".animation { text-align: center; }\n" assert b.count(old_b) == 1 b = b.replace(old_b, new) open("build_nb4.py", "w", encoding="utf-8").write(b) print("ok") PYEOF ./venv/Scripts/python.exe -I patchhtml3.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC" && for w in "1280,900" "1920,1080" "800,700"; do "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$w --virtual-time-budget=5000 --screenshot="$SC/shot_new_${w/,/x}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; cat > measure2.py <<'PYEOF' from PIL import Image import numpy as np for name in ("1280x900", "1920x1080", "800x700"):     im = np.asarray(Image.open(f"shot_new_{name}.png").convert("RGB")).astype(int)     h, w, _ = im.shape     ink = (np.abs(im - 255).sum(axis=2) > 30)     cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))     left, right = cols.min(), w - 1 - cols.max()     print(f"window {w}x{h}: left margin {left}px, right margin {right}px, difference {abs(left - right)}px | top {rows.min()}px, bottom {h - 1 - rows.max()}px") PYEOF ./venv/Scripts/python.exe -I measure2.py`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; ls shot_* 2>&1; for pair in "1280 900" "1920 1080" "800 700"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ls shot_new_*; ./venv/Scripts/python.exe -I measure2.py`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml4.py <<'PYEOF'
-old = ".animation { text-align: center; }\n/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n.animation img { transform: translateX(-1.25%); }\n"
-new = (".animation { text-align: center; transform: translateY(-25px); }\n"
-       "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
-       ".animation img { transform: translateX(-1.25%); }\n")
-for p in ("build_nb4.py", "htmlblock.txt"):
-    s = open(p, encoding="utf-8").read()
-    assert s.count(old) == 1, p
-    open(p, "w", encoding="utf-8").write(s.replace(old, new))
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I patchhtml4.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; sed -i 's/for name in ("1280x900", "1920x1080", "800x700"):/for name in ("1280x900", "1920x1080", "800x700", "1366x768"):/' measure2.py; ./venv/Scripts/python.exe -I measure2.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml4.py <<'PYEOF' old = ".animation { text-align: center; }\n/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n.animation img { transform: translateX(-1.25%); }\n" new = (".animation { text-align: center; transform: translateY(-25px); }\n"        "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"        ".animation img { transform: translateX(-1.25%); }\n") for p in ("build_nb4.py", "htmlblock.txt"):     s = open(p, encoding="utf-8").read()     assert s.count(old) == 1, p     open(p, "w", encoding="utf-8").write(s.replace(old, new)) print("ok") PYEOF ./venv/Scripts/python.exe -I patchhtml4.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; sed -i 's/for name in ("1280x900", "1920x1080", "800x700"):/for name in ("1280x900", "1920x1080", "800x700", "1366x768"):/' measure2.py; ./venv/Scripts/python.exe -I measure2.py`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
-import nbformat
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
-PYEOF
-for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to the verified run: $f" || echo "DIFFERS: $f"; done; cmp -s practice_run.html "$SC/fresh4/practice_run.html" && echo "practice_run.html identical" || echo "practice_run.html differs (random element ids only expected)"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3 && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; cd .. && echo "== fact-check" && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF' import nbformat p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")] counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:]))) PYEOF for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to the verified run: $f" || echo "DIFFERS: $f"; done; cmp -s practice_run.html "$SC/fresh4/practice_run.html" && echo "practice_run.html identical" || echo "practice_run.html differs (random element ids only expected)"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3 && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; cd .. && echo "== fact-check" && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
 - `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$H/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py; ./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh4/practice_run.html" "$H/practice_run.html" | tail -3`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=+%H:%M CSCI4521_HW2.ipynb practice_run.html submission.csv figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv | awk '{printf "%-9s %s  %s\n", $5, $6, $7}'; head -3 submission.csv; wc -l submission.csv`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixcap.py <<'PYEOF'
-p = "gen_note3.py"
-s = open(p, encoding="utf-8").read()
-old = " Start `Figure 1:` in bold if the example does the same, otherwise leave it plain."
-assert s.count(old) == 1
-open(p, "w", encoding="utf-8").write(s.replace(old, ""))
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixcap.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixhdr.py <<'PYEOF'
-p = "gen_note3.py"
-s = open(p, encoding="utf-8").read()
-old = "(put the two tab stops at the center and the right margin, like the example).\n"
-assert s.count(old) == 1
-new = ("(put the two tab stops at the center and the right margin, like the example). "
-       "Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.\n")
-open(p, "w", encoding="utf-8").write(s.replace(old, new))
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
-import nbformat, re
-nb = nbformat.read("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
-hits = 0
-for i, c in enumerate(nb.cells):
-    texts = [("source", c.source)] + [("output", "".join(o.get("text", "")) ) for o in c.get("outputs", []) if o.output_type == "stream"]
-    for where, t in texts:
-        for m in re.finditer(r"(?i)\bAI\b|claude|anthropic", t):
-            hits += 1; print(f"cell {i} ({c.cell_type}, {where}): ...{t[max(0, m.start()-40):m.end()+60]!r}")
-print("total hits:", hits)
-PYEOF
-echo; echo "=== other files in the Homework folder that could carry it ==="; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && grep -il "claude\|anthropic" submission.csv practice_run.html figures/hw2_configs.csv 2>/dev/null; echo "(none listed above = clean)"; echo; echo "=== vault note: mentions ==="; grep -n -i "\bAI\b\|claude" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | cut -c1-170`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > rmai.py <<'PYEOF'
-p = "build_nb4.py"
-s = open(p, encoding="utf-8").read()
-a = s.index('md("""### AI use')
-b = s.index('"""', a + len('md("""')) + 4          # end of that md(...) call, including the closing parenthesis
-block = s[a:b]
-assert "Claude Code" in block and block.count('md(') == 1, block
-s = s[:a] + s[b:].lstrip("\n")
-open(p, "w", encoding="utf-8").write(s)
-print("removed:", repr(block[:60]), "...")
-PYEOF
-./venv/Scripts/python.exe -I rmai.py && ./venv/Scripts/python.exe -I -c "
-import ast; src = open('build_nb4.py', encoding='utf-8').read(); ast.parse(src); print('builder syntax ok'); print('mentions left in builder:', [w for w in ('Claude', 'Anthropic', 'AI use') if w in src])" && tail -12 build_nb4.py`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && cp figures/fig1_pca.png "$SC/prev_fig1.png" && cp figures/fig2_deploy.png "$SC/prev_fig2.png" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
-import nbformat, re
-p = "CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
-nbformat.write(nb, p)
-errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
-ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)]
-print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words)
-print("cells that mention AI, Claude or Anthropic:", ai, "| last cell:", repr(nb.cells[-1].source[:30]))
-PYEOF
-for f in submission.csv figures/hw2_configs.csv; do cmp -s "$f" "$SC/prev_${f##*/}" 2>/dev/null; done; cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv identical to the verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "results table identical"; cmp -s figures/fig1_pca.png "$SC/prev_fig1.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/prev_fig2.png" && echo "fig2 identical"; grep -ic "claude\|anthropic" practice_run.html submission.csv`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && for b in 1 0; do echo "== page break before Table 1: $b"; BREAK=$([ $b = 1 ] && echo 1 || echo 0) ./venv/Scripts/python.exe report_build.py rep_$b.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py rep_$b.pdf; done; ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('rep_1.pdf')
-for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rep1_p%d.png' % (i+1))
-print(len(d), 'pages rendered')"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:60]
-    s = s.replace(old, new)
-swap('body { font-family: serif; font-size: 11pt; line-height: 1.15; }', 'body { font-family: serif; font-size: %spt; line-height: 1.15; }')
-swap('    rows_html = "".join(', '    css = css % os.environ.get("FONT", "11")\n    rows_html = "".join(')
-swap('width="385"', 'width="{os.environ.get(\'FIG2\', \'385\')}"')
-swap('where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins', 'M = float(os.environ.get("MARGIN", "54"))\n    where = mediabox + (M, M, -M, -M)           # 54 pt = 0.75 inch margins')
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patchenv.py && for cfg in "11 385 54 1" "10.5 385 54 0" "10.5 385 54 1" "10.5 310 54 0" "10.5 310 54 1" "11 310 50 0" "10.5 330 50 0"; do set -- $cfg; echo "== font $1 pt, Fig2 $2 pt wide, margin $3 pt, page break before table: $4"; FONT=$1 FIG2=$2 MARGIN=$3 BREAK=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1; ./venv/Scripts/python.exe splitcheck.py t.pdf | grep -E "split|page"; done 2>&1 | grep -v "^$"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv2.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-old = 'width="504"'
-assert s.count(old) == 1
-s = s.replace(old, 'width="{os.environ.get(\'FIG1\', \'504\')}"')
-open(p, "w", encoding="utf-8").write(s)
-print("patched")
-PYEOF
-./venv/Scripts/python.exe -I patchenv2.py && printf "%-58s %s\n" "settings" "result"; for cfg in "10.5 504 310 50 0" "10.5 470 310 50 0" "10.5 450 290 50 0" "10 504 330 50 0" "10 470 310 50 0" "11 450 290 50 0" "10.5 450 290 54 0"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 BREAK=$5 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-58s %s | %s\n" "font $1pt, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > setdefaults.py <<'PYEOF'
-p = "report_build.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old
-    s = s.replace(old, new)
-swap('os.environ.get("FONT", "11")', 'os.environ.get("FONT", "10.5")')
-swap("os.environ.get('FIG2', '385')", "os.environ.get('FIG2', '310')")
-swap('os.environ.get("MARGIN", "54")', 'os.environ.get("MARGIN", "50.4")')
-swap('BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"', 'BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""')
-swap("# 54 pt = 0.75 inch margins", "# 50.4 pt = 0.7 inch margins")
-open(p, "w", encoding="utf-8").write(s)
-print("defaults set")
-PYEOF
-./venv/Scripts/python.exe -I setdefaults.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
-print(len(d), 'pages')"`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixcap.py <<'PYEOF' p = "gen_note3.py" s = open(p, encoding="utf-8").read() old = " Start `Figure 1:` in bold if the example does the same, otherwise leave it plain." assert s.count(old) == 1 open(p, "w", encoding="utf-8").write(s.replace(old, "")) print("ok") PYEOF ./venv/Scripts/python.exe -I fixcap.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"``
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixhdr.py <<'PYEOF' p = "gen_note3.py" s = open(p, encoding="utf-8").read() old = "(put the two tab stops at the center and the right margin, like the example).\n" assert s.count(old) == 1 new = ("(put the two tab stops at the center and the right margin, like the example). "        "Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.\n") open(p, "w", encoding="utf-8").write(s.replace(old, new)) print("ok") PYEOF ./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ==="; ./venv/Scripts/python.exe -I - <<'PYEOF' import nbformat, re nb = nbformat.read("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4) hits = 0 for i, c in enumerate(nb.cells):     texts = [("source", c.source)] + [("output", "".join(o.get("text", "")) ) for o in c.get("outputs", []) if o.output_type == "stream"]     for where, t in texts:         for m in re.finditer(r"(?i)\bAI\b|claude|anthropic", t):             hits += 1; print(f"cell {i} ({c.cell_type}, {where}): ...{t[max(0, m.start()-40):m.end()+60]!r}") print("total hits:", hits) PYEOF echo; echo "=== other files in the Homework folder that could carry it ==="; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && grep -il "claude\|anthropic" submission.csv practice_run.html figures/hw2_configs.csv 2>/dev/null; echo "(none listed above = clean)"; echo; echo "=== vault note: mentions ==="; grep -n -i "\bAI\b\|claude" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | cut -c1-170`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > rmai.py <<'PYEOF' p = "build_nb4.py" s = open(p, encoding="utf-8").read() a = s.index('md("""### AI use') b = s.index('"""', a + len('md("""')) + 4          # end of that md(...) call, including the closing parenthesis block = s[a:b] assert "Claude Code" in block and block.count('md(') == 1, block s = s[:a] + s[b:].lstrip("\n") open(p, "w", encoding="utf-8").write(s) print("removed:", repr(block[:60]), "...") PYEOF ./venv/Scripts/python.exe -I rmai.py && ./venv/Scripts/python.exe -I -c " import ast; src = open('build_nb4.py', encoding='utf-8').read(); ast.parse(src); print('builder syntax ok'); print('mentions left in builder:', [w for w in ('Claude', 'Anthropic', 'AI use') if w in src])" && tail -12 build_nb4.py`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && cp figures/fig1_pca.png "$SC/prev_fig1.png" && cp figures/fig2_deploy.png "$SC/prev_fig2.png" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF' import nbformat, re p = "CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"} nbformat.write(nb, p) errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")] counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown") ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)] print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words) print("cells that mention AI, Claude or Anthropic:", ai, "| last cell:", repr(nb.cells[-1].source[:30])) PYEOF for f in submission.csv figures/hw2_configs.csv; do cmp -s "$f" "$SC/prev_${f##*/}" 2>/dev/null; done; cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv identical to the verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "results table identical"; cmp -s figures/fig1_pca.png "$SC/prev_fig1.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/prev_fig2.png" && echo "fig2 identical"; grep -ic "claude\|anthropic" practice_run.html submission.csv`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && for b in 1 0; do echo "== page break before Table 1: $b"; BREAK=$([ $b = 1 ] && echo 1 || echo 0) ./venv/Scripts/python.exe report_build.py rep_$b.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py rep_$b.pdf; done; ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('rep_1.pdf') for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rep1_p%d.png' % (i+1)) print(len(d), 'pages rendered')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old[:60]     s = s.replace(old, new) swap('body { font-family: serif; font-size: 11pt; line-height: 1.15; }', 'body { font-family: serif; font-size: %spt; line-height: 1.15; }') swap('    rows_html = "".join(', '    css = css % os.environ.get("FONT", "11")\n    rows_html = "".join(') swap('width="385"', 'width="{os.environ.get(\'FIG2\', \'385\')}"') swap('where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins', 'M = float(os.environ.get("MARGIN", "54"))\n    where = mediabox + (M, M, -M, -M)           # 54 pt = 0.75 inch margins') open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patchenv.py && for cfg in "11 385 54 1" "10.5 385 54 0" "10.5 385 54 1" "10.5 310 54 0" "10.5 310 54 1" "11 310 50 0" "10.5 330 50 0"; do set -- $cfg; echo "== font $1 pt, Fig2 $2 pt wide, margin $3 pt, page break before table: $4"; FONT=$1 FIG2=$2 MARGIN=$3 BREAK=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1; ./venv/Scripts/python.exe splitcheck.py t.pdf | grep -E "split|page"; done 2>&1 | grep -v "^$"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv2.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() old = 'width="504"' assert s.count(old) == 1 s = s.replace(old, 'width="{os.environ.get(\'FIG1\', \'504\')}"') open(p, "w", encoding="utf-8").write(s) print("patched") PYEOF ./venv/Scripts/python.exe -I patchenv2.py && printf "%-58s %s\n" "settings" "result"; for cfg in "10.5 504 310 50 0" "10.5 470 310 50 0" "10.5 450 290 50 0" "10 504 330 50 0" "10 470 310 50 0" "11 450 290 50 0" "10.5 450 290 54 0"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 BREAK=$5 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-58s %s | %s\n" "font $1pt, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > setdefaults.py <<'PYEOF' p = "report_build.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old     s = s.replace(old, new) swap('os.environ.get("FONT", "11")', 'os.environ.get("FONT", "10.5")') swap("os.environ.get('FIG2', '385')", "os.environ.get('FIG2', '310')") swap('os.environ.get("MARGIN", "54")', 'os.environ.get("MARGIN", "50.4")') swap('BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"', 'BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""') swap("# 54 pt = 0.75 inch margins", "# 50.4 pt = 0.7 inch margins") open(p, "w", encoding="utf-8").write(s) print("defaults set") PYEOF ./venv/Scripts/python.exe -I setdefaults.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1)) print(len(d), 'pages')"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && printf "%-52s %s\n" settings result; for cfg in "10.5 504 310 50.4" "10.5 504 290 50.4" "10.5 490 290 50.4" "10.5 504 300 50.4" "10.5 504 290 50" "10 504 330 50.4"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-52s %s |%s\n" "font $1, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i "s/os.environ.get('FIG2', '310')/os.environ.get('FIG2', '290')/" report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
-import pymupdf as fitz
-d = fitz.open('report_est.pdf')
-for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
-print(len(d), 'pages')"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixfc.py <<'PYEOF'
-p = "factcheck2.py"
-s = open(p, encoding="utf-8").read()
-a = s.index('check("raw k-means predicted 5 of the 10 validation sand cells as rough",')
-b = s.index("conf = next(")
-s = s[:a] + s[b:]
-s = s.replace('check("confusion matrix row for sand: 0 firm, 5 rough, 5 sand",', 'check("raw k-means predicted 5 of the 10 validation sand cells as rough (confusion row: 0 firm, 5 rough, 5 sand)",')
-a = s.index('check("the practice run is one route"')
-b = s.index("\n", a)
-s = s[:a] + s[b + 1:]
-s = s.replace('print(f"\\n{len(fails)} failures out of {len(re.findall(\'check\', open(__file__).read())) - 3} statements checked" if False else f"\\n{len(fails)} failures")',
-              'print(f"\\n{len(fails)} failures")')
-open(p, "w", encoding="utf-8").write(s)
-print("ok")
-PYEOF
-./venv/Scripts/python.exe -I fixfc.py && ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -v "^$"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i "s/os.environ.get('FIG2', '310')/os.environ.get('FIG2', '290')/" report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c " import pymupdf as fitz d = fitz.open('report_est.pdf') for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1)) print(len(d), 'pages')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixfc.py <<'PYEOF' p = "factcheck2.py" s = open(p, encoding="utf-8").read() a = s.index('check("raw k-means predicted 5 of the 10 validation sand cells as rough",') b = s.index("conf = next(") s = s[:a] + s[b:] s = s.replace('check("confusion matrix row for sand: 0 firm, 5 rough, 5 sand",', 'check("raw k-means predicted 5 of the 10 validation sand cells as rough (confusion row: 0 firm, 5 rough, 5 sand)",') a = s.index('check("the practice run is one route"') b = s.index("\n", a) s = s[:a] + s[b + 1:] s = s.replace('print(f"\\n{len(fails)} failures out of {len(re.findall(\'check\', open(__file__).read())) - 3} statements checked" if False else f"\\n{len(fails)} failures")',               'print(f"\\n{len(fails)} failures")') open(p, "w", encoding="utf-8").write(s) print("ok") PYEOF ./venv/Scripts/python.exe -I fixfc.py && ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -v "^$"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -3; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe factcheck2.py > fc.txt 2>&1; OK=$(grep -c '^ok' fc.txt); FAIL=$(grep -c '^FAIL' fc.txt); echo "fact-check: $OK ok, $FAIL failed"; N=$(./venv/Scripts/python.exe -c "import report_build as r; print(len(r.CORRECTIONS))"); echo "corrections listed: $N"; cat > fixcounts.py <<PYEOF
-p = "gen_note4.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old
-    s = s.replace(old, new)
-swap("Corrections made (13):", "Corrections made ({len(CORR)}):")
-swap("a script tests 48 statements of the final text", "a script tests $OK statements of the final text")
-swap("All 48 hold.", "All $OK hold.")
-swap("leaves roughly three quarters of an inch.", "leaves about 0.8 in.")
-open(p, "w", encoding="utf-8").write(s)
-print("counts set")
-PYEOF
-./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe factcheck2.py > fc.txt 2>&1; OK=$(grep -c '^ok' fc.txt); FAIL=$(grep -c '^FAIL' fc.txt); echo "fact-check: $OK ok, $FAIL failed"; N=$(./venv/Scripts/python.exe -c "import report_build as r; print(len(r.CORRECTIONS))"); echo "corrections listed: $N"; cat > fixcounts.py <<PYEOF p = "gen_note4.py" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old     s = s.replace(old, new) swap("Corrections made (13):", "Corrections made ({len(CORR)}):") swap("a script tests 48 statements of the final text", "a script tests $OK statements of the final text") swap("All 48 hold.", "All $OK hold.") swap("leaves roughly three quarters of an inch.", "leaves about 0.8 in.") open(p, "w", encoding="utf-8").write(s) print("counts set") PYEOF ./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; ls -la --time-style=+%m-%d_%H:%M; echo; echo "lock files (open in Word?):"; ls -la ~* 2>/dev/null | head; ls -la '~$'* 2>/dev/null | head; echo; echo "Word / LibreOffice:"; ls "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files (x86)/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files/LibreOffice/program/soffice.exe" 2>&1 | grep -v "No such"; (reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.exe" 2>/dev/null | head -3)`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; mkdir -p "$SC/word" && cp "$W/HW-1.docx" "$SC/word/HW-1.docx" && cp "$W/HW-2.docx" "$SC/word/HW-2_original.docx" && cp "$W/HW-1.pdf" "$SC/word/HW-1.pdf" && cd "$SC" && ./venv/Scripts/python.exe -m pip install -q python-docx 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-d = fitz.open("word/HW-1.pdf")
-print("HW-1.pdf pages:", len(d))
-for i, p in enumerate(d):
-    p.get_pixmap(dpi=70).save(f"word/hw1_p{i+1}.png")
-PYEOF
-ls word`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > dump.py <<'PYEOF'
-import sys, zipfile, re
-from docx import Document
-from docx.shared import Emu
-
-path = sys.argv[1]
-d = Document(path)
-print("=====", path)
-for i, s in enumerate(d.sections):
-    f = lambda e: None if e is None else round(Emu(e).inches, 3)
-    print(f"section {i}: page {f(s.page_width)}x{f(s.page_height)} in | margins top {f(s.top_margin)} bottom {f(s.bottom_margin)} left {f(s.left_margin)} right {f(s.right_margin)} | header_dist {f(s.header_distance)} footer_dist {f(s.footer_distance)} | different_first_page {s.different_first_page_header_footer}")
-    for name, part in (("header", s.header), ("footer", s.footer), ("first_header", s.first_page_header), ("first_footer", s.first_page_footer)):
-        paras = [(p.text, p.style.name, p.alignment) for p in part.paragraphs]
-        print(f"  {name}: linked_to_previous={part.is_linked_to_previous} paras={paras}")
-st = d.styles["Normal"]
-print("Normal style:", st.font.name, st.font.size.pt if st.font.size else None, "| spacing after", st.paragraph_format.space_after, "line", st.paragraph_format.line_spacing)
-z = zipfile.ZipFile(path)
-print("parts:", [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml")])
-PYEOF
-../venv/Scripts/python.exe dump.py HW-1.docx; echo; echo "---- raw header / footer xml of HW-1 ----"; ../venv/Scripts/python.exe -I - <<'PYEOF'
-import zipfile, re
-z = zipfile.ZipFile("HW-1.docx")
-for n in z.namelist():
-    if re.match(r"word/(header|footer)\d*\.xml", n):
-        x = z.read(n).decode("utf8")
-        body = re.sub(r'xmlns:\w+="[^"]+"\s*', "", x)
-        print(n, len(x)); print(body[body.find("<w:p"):][:1500]); print()
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe dump.py HW-2_original.docx; echo; ../venv/Scripts/python.exe -I - <<'PYEOF'
-from docx import Document
-from docx.shared import Emu, Pt
-d = Document("HW-2_original.docx")
-body = d.element.body
-print("body children:", len(body))
-for i, p in enumerate(d.paragraphs):
-    pf = p.paragraph_format
-    runs = p.runs
-    fonts = {(r.font.name, r.font.size.pt if r.font.size else None, r.bold, r.italic) for r in runs}
-    has_img = bool(p._p.xpath(".//w:drawing"))
-    print(f"[{i:2d}] style={p.style.name!r:14} align={str(p.alignment):28} before={pf.space_before} after={pf.space_after} line={pf.line_spacing} keepnext={pf.keep_with_next} img={has_img} | {p.text[:60]!r} | fonts={sorted(fonts, key=str)[:3]}")
-print("tables:", len(d.tables), [ (len(t.rows), len(t.columns)) for t in d.tables])
-print("inline images:", len(d.inline_shapes), [(round(Emu(s.width).inches, 2), round(Emu(s.height).inches, 2)) for s in d.inline_shapes])
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-d = fitz.open("HW-2_original_word.pdf")
-print("pages:", len(d))
-for i, p in enumerate(d):
-    p.get_pixmap(dpi=60).save(f"orig_p{i+1}.png")
-    t = p.get_text()
-    print(f"page {i+1}: words {len(t.split())} | starts: {t.strip()[:70]!r}")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import re, zipfile
-from docx import Document
-from lxml import etree
-
-W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
-def clean(x):
-    s = etree.tostring(x, encoding="unicode")
-    s = re.sub(r'\sxmlns:\w+="[^"]+"', "", s)
-    s = re.sub(r'\sw14:\w+="[^"]+"|\sw:rsid\w*="[^"]+"', "", s)
-    return s
-
-print("=== HW-2 body order (type, text start) ===")
-d2 = Document("HW-2_original.docx")
-for i, el in enumerate(d2.element.body):
-    tag = el.tag.replace(W, "")
-    txt = "".join(t.text or "" for t in el.iter(W + "t"))[:48]
-    print(i, tag, "img" if el.findall(".//" + W + "drawing") else "", repr(txt))
-
-print("\n=== HW-2 table formatting ===")
-t = d2.tables[0]
-tbl = t._tbl
-print(clean(tbl.tblPr)[:900])
-print("first row:", clean(t.rows[0]._tr)[:1500])
-print("body row 2 cell 0:", clean(t.rows[2].cells[0]._tc)[:700])
-
-print("\n=== HW-1 paragraphs: title block, caption, heading ===")
-d1 = Document("HW-1.docx")
-for i, p in enumerate(d1.paragraphs[:14]):
-    x = clean(p._p)
-    print(f"[{i}] {p.text[:50]!r}\n    {x[:700]}\n")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > cleanup.py <<'PYEOF'
-p = "edit_docx.py"
-s = open(p, encoding="utf-8").read()
-old = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
-    (style_el if style_el is not None else tblPr[0]).addnext(el) if False else None
-tblPr.append(w); tblPr.append(jc); tblPr.append(borders); tblPr.append(layout)
-"""
-new = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
-    tblPr.append(el)
-"""
-assert s.count(old) == 1
-s = s.replace(old, new).replace("style_el = tblPr.find(qn(\"w:tblStyle\"))\n", "")
-open(p, "w", encoding="utf-8").write(s)
-print("cleaned")
-PYEOF
-../venv/Scripts/python.exe -I cleanup.py && ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_edited.docx && ../venv/Scripts/python.exe dump.py HW-2_edited.docx 2>&1 | head -8`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-d = fitz.open("HW-2_edited_word.pdf")
-print("pages:", len(d))
-for i, p in enumerate(d):
-    p.get_pixmap(dpi=60).save(f"ed_p{i+1}.png")
-    lines = [l for l in p.get_text().splitlines() if l.strip()]
-    print(f"page {i+1}: {len(lines)} lines | first: {lines[1][:50]!r} | last: {lines[-2][:50]!r}")
-    # where does the lowest piece of body content end (excluding the footer)?
-    blocks = [b for b in p.get_text('blocks') if b[3] < p.rect.height - 40]
-    print("   lowest body content at", round(max(b[3] for b in blocks) / 72, 2), "in of 11 in (bottom margin starts at 10.3 in)")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > addopts.py <<'PYEOF'
-p = "edit_docx.py"
-s = open(p, encoding="utf-8").read()
-def swap(old, new, count=1):
-    global s
-    assert s.count(old) == count, (old[:50], s.count(old))
-    s = s.replace(old, new)
-
-swap('import copy\nimport sys\n', 'import copy\nimport os\nimport sys\n')
-swap('TEXT_W = 7.1          # 8.5 in page minus 0.7 in margins\nFIG1_W, FIG2_W = 7.0, 4.0\n',
-     'MARGIN = float(os.environ.get("MARGIN", "0.7"))\nTEXT_W = round(8.5 - 2 * MARGIN, 3)\n'
-     'FIG1_W, FIG2_W = float(os.environ.get("FIG1", "7.0")), float(os.environ.get("FIG2", "4.0"))\n'
-     'SPACERS = os.environ.get("SPACERS", "keep")         # keep the empty lines, or turn them into paragraph spacing\n'
-     'EXACT = float(os.environ.get("EXACT", "0"))         # 0 = single; 12 = "Exactly 12 pt" for the 11 pt text paragraphs\n')
-swap('    setattr(sec, side, Inches(0.7))', '    setattr(sec, side, Inches(MARGIN))')
-
-# before saving: optional spacer removal and exact line spacing
-swap('doc.save(DST)', '''
-if SPACERS == "remove":
-    body = doc.element.body
-    for p in list(doc.paragraphs):
-        if not p.text.strip() and not p._p.xpath(".//w:drawing"):
-            p._p.getparent().remove(p._p)
-    for p in doc.paragraphs:
-        t = p.text.strip()
-        if t.startswith(HEADINGS) or t == "AI":
-            p.paragraph_format.space_before = Pt(9)
-            p.paragraph_format.space_after = Pt(2)
-        elif t.startswith(("Figure 1:", "Figure 2:", "Table 1:")):
-            p.paragraph_format.space_after = Pt(6)
-    last_title = next(p for p in doc.paragraphs if p.text.startswith("October 2026"))
-    last_title.paragraph_format.space_after = Pt(4)
-    scal = next(p for p in doc.paragraphs if p.text.startswith("The scaling had the biggest impact"))
-    scal.paragraph_format.space_after = Pt(6)                 # air between the paragraph and Table 1
-if EXACT:
-    from docx.enum.text import WD_LINE_SPACING
-    for p in doc.paragraphs:
-        if p.text.strip() and not p._p.xpath(".//w:drawing") and not p.text.startswith(("Figure", "Table 1:")):
-            p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
-            p.paragraph_format.line_spacing = Pt(EXACT)
-doc.save(DST)''')
-open(p, "w", encoding="utf-8").write(s)
-print("options added")
-PYEOF
-../venv/Scripts/python.exe -I addopts.py && cat > measure_word.ps1 <<'PSEOF'
-param([string[]]$names)
-$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
-$word = New-Object -ComObject Word.Application
-$word.Visible = $false; $word.DisplayAlerts = 0
-$pre = $word.Documents.Count
-foreach ($n in $names) {
-  $src = Join-Path $sc "$n.docx"; $out = Join-Path $sc "$n.pdf"
-  Remove-Item $out -ErrorAction SilentlyContinue
-  $doc = $word.Documents.Open($src, $false, $true)
-  $doc.Repaginate()
-  $pages = $doc.ComputeStatistics(2)
-  $doc.ExportAsFixedFormat($out, 17)
-  $doc.Close(0)
-  "$n pages=$pages"
-}
-if ($pre -eq 0) { $word.Quit() }
-PSEOF
-echo ok`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && P=../venv/Scripts/python.exe; $P edit_docx.py HW-2_original.docx v1.docx >/dev/null; SPACERS=remove FIG1=6.5 $P edit_docx.py HW-2_original.docx v2.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 $P edit_docx.py HW-2_original.docx v3.docx >/dev/null; SPACERS=remove FIG1=6.5 EXACT=12 $P edit_docx.py HW-2_original.docx v4.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 EXACT=12 $P edit_docx.py HW-2_original.docx v5.docx >/dev/null; ls v*.docx; powershell.exe -NoProfile -ExecutionPolicy Bypass -File measure_word.ps1 v2 v3 v4 v5 2>&1 | tail -6; $P -I - <<'PYEOF'
-import pymupdf as fitz
-for n, desc in (("v2", "blank lines -> spacing, Fig1 6.5 in"), ("v3", "v2 + margins 0.6 in"), ("v4", "v2 + exactly 12 pt lines"), ("v5", "v2 + margins 0.6 + exactly 12 pt lines")):
-    d = fitz.open(f"{n}.pdf")
-    last = d[-1]
-    body = [b for b in last.get_text("blocks") if b[3] < last.rect.height - 40]
-    print(f"{n}: {len(d)} pages | last page body ends at {max(b[3] for b in body)/72:.2f} in | {desc}")
-PYEOF`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; mkdir -p "$SC/word" && cp "$W/HW-1.docx" "$SC/word/HW-1.docx" && cp "$W/HW-2.docx" "$SC/word/HW-2_original.docx" && cp "$W/HW-1.pdf" "$SC/word/HW-1.pdf" && cd "$SC" && ./venv/Scripts/python.exe -m pip install -q python-docx 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz d = fitz.open("word/HW-1.pdf") print("HW-1.pdf pages:", len(d)) for i, p in enumerate(d):     p.get_pixmap(dpi=70).save(f"word/hw1_p{i+1}.png") PYEOF ls word`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > dump.py <<'PYEOF' import sys, zipfile, re from docx import Document from docx.shared import Emu  path = sys.argv[1] d = Document(path) print("=====", path) for i, s in enumerate(d.sections):     f = lambda e: None if e is None else round(Emu(e).inches, 3)     print(f"section {i}: page {f(s.page_width)}x{f(s.page_height)} in | margins top {f(s.top_margin)} bottom {f(s.bottom_margin)} left {f(s.left_margin)} right {f(s.right_margin)} | header_dist {f(s.header_distance)} footer_dist {f(s.footer_distance)} | different_first_page {s.different_first_page_header_footer}")     for name, part in (("header", s.header), ("footer", s.footer), ("first_header", s.first_page_header), ("first_footer", s.first_page_footer)):         paras = [(p.text, p.style.name, p.alignment) for p in part.paragraphs]         print(f"  {name}: linked_to_previous={part.is_linked_to_previous} paras={paras}") st = d.styles["Normal"] print("Normal style:", st.font.name, st.font.size.pt if st.font.size else None, "| spacing after", st.paragraph_format.space_after, "line", st.paragraph_format.line_spacing) z = zipfile.ZipFile(path) print("parts:", [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml")]) PYEOF ../venv/Scripts/python.exe dump.py HW-1.docx; echo; echo "---- raw header / footer xml of HW-1 ----"; ../venv/Scripts/python.exe -I - <<'PYEOF' import zipfile, re z = zipfile.ZipFile("HW-1.docx") for n in z.namelist():     if re.match(r"word/(header|footer)\d*\.xml", n):         x = z.read(n).decode("utf8")         body = re.sub(r'xmlns:\w+="[^"]+"\s*', "", x)         print(n, len(x)); print(body[body.find("<w:p"):][:1500]); print() PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe dump.py HW-2_original.docx; echo; ../venv/Scripts/python.exe -I - <<'PYEOF' from docx import Document from docx.shared import Emu, Pt d = Document("HW-2_original.docx") body = d.element.body print("body children:", len(body)) for i, p in enumerate(d.paragraphs):     pf = p.paragraph_format     runs = p.runs     fonts = {(r.font.name, r.font.size.pt if r.font.size else None, r.bold, r.italic) for r in runs}     has_img = bool(p._p.xpath(".//w:drawing"))     print(f"[{i:2d}] style={p.style.name!r:14} align={str(p.alignment):28} before={pf.space_before} after={pf.space_after} line={pf.line_spacing} keepnext={pf.keep_with_next} img={has_img} | {p.text[:60]!r} | fonts={sorted(fonts, key=str)[:3]}") print("tables:", len(d.tables), [ (len(t.rows), len(t.columns)) for t in d.tables]) print("inline images:", len(d.inline_shapes), [(round(Emu(s.width).inches, 2), round(Emu(s.height).inches, 2)) for s in d.inline_shapes]) PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz d = fitz.open("HW-2_original_word.pdf") print("pages:", len(d)) for i, p in enumerate(d):     p.get_pixmap(dpi=60).save(f"orig_p{i+1}.png")     t = p.get_text()     print(f"page {i+1}: words {len(t.split())} | starts: {t.strip()[:70]!r}") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import re, zipfile from docx import Document from lxml import etree  W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}" def clean(x):     s = etree.tostring(x, encoding="unicode")     s = re.sub(r'\sxmlns:\w+="[^"]+"', "", s)     s = re.sub(r'\sw14:\w+="[^"]+"|\sw:rsid\w*="[^"]+"', "", s)     return s  print("=== HW-2 body order (type, text start) ===") d2 = Document("HW-2_original.docx") for i, el in enumerate(d2.element.body):     tag = el.tag.replace(W, "")     txt = "".join(t.text or "" for t in el.iter(W + "t"))[:48]     print(i, tag, "img" if el.findall(".//" + W + "drawing") else "", repr(txt))  print("\n=== HW-2 table formatting ===") t = d2.tables[0] tbl = t._tbl print(clean(tbl.tblPr)[:900]) print("first row:", clean(t.rows[0]._tr)[:1500]) print("body row 2 cell 0:", clean(t.rows[2].cells[0]._tc)[:700])  print("\n=== HW-1 paragraphs: title block, caption, heading ===") d1 = Document("HW-1.docx") for i, p in enumerate(d1.paragraphs[:14]):     x = clean(p._p)     print(f"[{i}] {p.text[:50]!r}\n    {x[:700]}\n") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > cleanup.py <<'PYEOF' p = "edit_docx.py" s = open(p, encoding="utf-8").read() old = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout     (style_el if style_el is not None else tblPr[0]).addnext(el) if False else None tblPr.append(w); tblPr.append(jc); tblPr.append(borders); tblPr.append(layout) """ new = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout     tblPr.append(el) """ assert s.count(old) == 1 s = s.replace(old, new).replace("style_el = tblPr.find(qn(\"w:tblStyle\"))\n", "") open(p, "w", encoding="utf-8").write(s) print("cleaned") PYEOF ../venv/Scripts/python.exe -I cleanup.py && ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_edited.docx && ../venv/Scripts/python.exe dump.py HW-2_edited.docx 2>&1 | head -8`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz d = fitz.open("HW-2_edited_word.pdf") print("pages:", len(d)) for i, p in enumerate(d):     p.get_pixmap(dpi=60).save(f"ed_p{i+1}.png")     lines = [l for l in p.get_text().splitlines() if l.strip()]     print(f"page {i+1}: {len(lines)} lines | first: {lines[1][:50]!r} | last: {lines[-2][:50]!r}")     # where does the lowest piece of body content end (excluding the footer)?     blocks = [b for b in p.get_text('blocks') if b[3] < p.rect.height - 40]     print("   lowest body content at", round(max(b[3] for b in blocks) / 72, 2), "in of 11 in (bottom margin starts at 10.3 in)") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > addopts.py <<'PYEOF' p = "edit_docx.py" s = open(p, encoding="utf-8").read() def swap(old, new, count=1):     global s     assert s.count(old) == count, (old[:50], s.count(old))     s = s.replace(old, new)  swap('import copy\nimport sys\n', 'import copy\nimport os\nimport sys\n') swap('TEXT_W = 7.1          # 8.5 in page minus 0.7 in margins\nFIG1_W, FIG2_W = 7.0, 4.0\n',      'MARGIN = float(os.environ.get("MARGIN", "0.7"))\nTEXT_W = round(8.5 - 2 * MARGIN, 3)\n'      'FIG1_W, FIG2_W = float(os.environ.get("FIG1", "7.0")), float(os.environ.get("FIG2", "4.0"))\n'      'SPACERS = os.environ.get("SPACERS", "keep")         # keep the empty lines, or turn them into paragraph spacing\n'      'EXACT = float(os.environ.get("EXACT", "0"))         # 0 = single; 12 = "Exactly 12 pt" for the 11 pt text paragraphs\n') swap('    setattr(sec, side, Inches(0.7))', '    setattr(sec, side, Inches(MARGIN))')  # before saving: optional spacer removal and exact line spacing swap('doc.save(DST)', ''' if SPACERS == "remove":     body = doc.element.body     for p in list(doc.paragraphs):         if not p.text.strip() and not p._p.xpath(".//w:drawing"):             p._p.getparent().remove(p._p)     for p in doc.paragraphs:         t = p.text.strip()         if t.startswith(HEADINGS) or t == "AI":             p.paragraph_format.space_before = Pt(9)             p.paragraph_format.space_after = Pt(2)         elif t.startswith(("Figure 1:", "Figure 2:", "Table 1:")):             p.paragraph_format.space_after = Pt(6)     last_title = next(p for p in doc.paragraphs if p.text.startswith("October 2026"))     last_title.paragraph_format.space_after = Pt(4)     scal = next(p for p in doc.paragraphs if p.text.startswith("The scaling had the biggest impact"))     scal.paragraph_format.space_after = Pt(6)                 # air between the paragraph and Table 1 if EXACT:     from docx.enum.text import WD_LINE_SPACING     for p in doc.paragraphs:         if p.text.strip() and not p._p.xpath(".//w:drawing") and not p.text.startswith(("Figure", "Table 1:")):             p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY             p.paragraph_format.line_spacing = Pt(EXACT) doc.save(DST)''') open(p, "w", encoding="utf-8").write(s) print("options added") PYEOF ../venv/Scripts/python.exe -I addopts.py && cat > measure_word.ps1 <<'PSEOF' param([string[]]$names) $sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word" $word = New-Object -ComObject Word.Application $word.Visible = $false; $word.DisplayAlerts = 0 $pre = $word.Documents.Count foreach ($n in $names) {   $src = Join-Path $sc "$n.docx"; $out = Join-Path $sc "$n.pdf"   Remove-Item $out -ErrorAction SilentlyContinue   $doc = $word.Documents.Open($src, $false, $true)   $doc.Repaginate()   $pages = $doc.ComputeStatistics(2)   $doc.ExportAsFixedFormat($out, 17)   $doc.Close(0)   "$n pages=$pages" } if ($pre -eq 0) { $word.Quit() } PSEOF echo ok`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && P=../venv/Scripts/python.exe; $P edit_docx.py HW-2_original.docx v1.docx >/dev/null; SPACERS=remove FIG1=6.5 $P edit_docx.py HW-2_original.docx v2.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 $P edit_docx.py HW-2_original.docx v3.docx >/dev/null; SPACERS=remove FIG1=6.5 EXACT=12 $P edit_docx.py HW-2_original.docx v4.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 EXACT=12 $P edit_docx.py HW-2_original.docx v5.docx >/dev/null; ls v*.docx; powershell.exe -NoProfile -ExecutionPolicy Bypass -File measure_word.ps1 v2 v3 v4 v5 2>&1 | tail -6; $P -I - <<'PYEOF' import pymupdf as fitz for n, desc in (("v2", "blank lines -> spacing, Fig1 6.5 in"), ("v3", "v2 + margins 0.6 in"), ("v4", "v2 + exactly 12 pt lines"), ("v5", "v2 + margins 0.6 + exactly 12 pt lines")):     d = fitz.open(f"{n}.pdf")     last = d[-1]     body = [b for b in last.get_text("blocks") if b[3] < last.rect.height - 40]     print(f"{n}: {len(d)} pages | last page body ends at {max(b[3] for b in body)/72:.2f} in | {desc}") PYEOF`
 - `cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/tasks/b5z6c6ujs.output" 2>&1 | tail -5; echo "--- Word processes:"; tasklist 2>/dev/null | grep -i winword`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > schemacheck.py <<'PYEOF'
-import sys, zipfile
-from lxml import etree
-W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
-q = lambda t: "{%s}%s" % (W, t)
-PPR = ["pStyle","keepNext","keepLines","pageBreakBefore","framePr","widowControl","numPr","suppressLineNumbers","pBdr","shd","tabs",
-       "suppressAutoHyphens","kinsoku","wordWrap","overflowPunct","topLinePunct","autoSpaceDE","autoSpaceDN","bidi","adjustRightInd",
-       "snapToGrid","spacing","ind","contextualSpacing","mirrorIndents","suppressOverlap","jc","textDirection","textAlignment",
-       "textboxTightWrap","outlineLvl","divId","cnfStyle","rPr","sectPr","pPrChange"]
-RPR = ["rStyle","rFonts","b","bCs","i","iCs","caps","smallCaps","strike","dstrike","outline","shadow","emboss","imprint","noProof","snapToGrid",
-       "vanish","webHidden","color","spacing","w","kern","position","sz","szCs","highlight","u","effect","bdr","shd","fitText","vertAlign",
-       "rtl","cs","em","lang","eastAsianLayout","specVanish","oMath"]
-TBLPR = ["tblStyle","tblpPr","tblOverlap","bidiVisual","tblStyleRowBandSize","tblStyleColBandSize","tblW","jc","tblCellSpacing","tblInd",
-         "tblBorders","shd","tblLayout","tblCellMar","tblLook","tblCaption","tblDescription"]
-TRPR = ["cnfStyle","divId","gridBefore","gridAfter","wBefore","wAfter","cantSplit","trHeight","tblHeader","tblCellSpacing","jc","hidden"]
-TCPR = ["cnfStyle","tcW","gridSpan","hMerge","vMerge","tcBorders","shd","noWrap","tcMar","textDirection","tcFitText","vAlign","hideMark"]
-def check(root, tag, order, label):
-    bad = 0
-    for el in root.iter(q(tag)):
-        names = [c.tag.split("}")[1] for c in el if isinstance(c.tag, str)]
-        idx = [order.index(n) if n in order else -1 for n in names]
-        known = [i for i in idx if i >= 0]
-        if known != sorted(known) or len(set(names)) != len(names):
-            bad += 1
-            if bad <= 3: print(f"   {label} order problem: {names}")
-    return bad
-for path in sys.argv[1:]:
-    z = zipfile.ZipFile(path)
-    total = 0
-    for part in [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml") and ("document" in n or "header" in n or "footer" in n)]:
-        root = etree.fromstring(z.read(part))
-        for tag, order in (("pPr", PPR), ("rPr", RPR), ("tblPr", TBLPR), ("trPr", TRPR), ("tcPr", TCPR)):
-            total += check(root, tag, order, f"{part}:{tag}")
-    print(f"{path}: {total} element-order or duplicate problems")
-PYEOF
-../venv/Scripts/python.exe -I schemacheck.py HW-2_original.docx v1.docx v2.docx v3.docx v4.docx`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-from docx import Document
-W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
-for n in ("v1.docx", "v2.docx"):
-    d = Document(n)
-    print("==", n, "body children:", len(d.element.body))
-    for i, el in enumerate(d.element.body):
-        tag = el.tag.replace(W, "")
-        txt = "".join(t.text or "" for t in el.iter(W + "t"))[:34]
-        ppr = el.find(W + "pPr")
-        flags = [c.tag.replace(W, "") for c in ppr] if ppr is not None else []
-        print(f"  {i:2d} {tag:6} {txt!r:38} {flags}")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-d = fitz.open("v2.pdf")
-print("pages:", len(d))
-for i, p in enumerate(d):
-    body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
-    print(f"page {i+1}: body ends at {max(b[3] for b in body)/72:.2f} in (bottom margin line is at 10.30 in) -> free {10.3 - max(b[3] for b in body)/72:.2f} in")
-    p.get_pixmap(dpi=70).save(f"v2_p{i+1}.png")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-desc = {"v2": "blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)",
-        "v3": "v2 with margins 0.6 in",
-        "v4": "v2 with exactly 12 pt line spacing on text",
-        "v5": "v2 with margins 0.6 in and exactly 12 pt"}
-for n in ("v2", "v3", "v4", "v5"):
-    d = fitz.open(f"{n}.pdf")
-    free = []
-    for p in d:
-        bottom_line = (p.rect.height - 0.6 * 72) if n in ("v3", "v5") else (p.rect.height - 0.7 * 72)
-        body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
-        free.append((bottom_line - max(b[3] for b in body)) / 72)
-    print(f"{n}: {len(d)} pages | free space at the end of page 1 / page 2: {free[0]:.2f} in / {free[1]:.2f} in | {desc[n]}")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-d = fitz.open("v3.pdf")
-for i, p in enumerate(d):
-    p.get_pixmap(dpi=75).save(f"v3_p{i+1}.png")
-print(len(d))
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import os
-p = r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2.docx"
-print("modified:", os.path.getmtime(p), "| size:", os.path.getsize(p))
-try:
-    with open(p, "r+b") as f:       # opens for update without writing a byte
-        print("write access: OPEN, the file is not locked")
-except PermissionError as e:
-    print("write access: DENIED (locked by Word):", e)
-print("lock file present:", os.path.exists(r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\~$HW-2.docx"))
-PYEOF
-cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" HW-2_scratch_check 2>/dev/null; cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" word/HW-2_original.docx && echo "the file on disk is still exactly the copy I edited from"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-import hashlib, zipfile
-from docx import Document
-from docx.shared import Emu
-
-o, n = Document("HW-2_original.docx"), Document("v3.docx")
-orig = [p.text for p in o.paragraphs if p.text.strip()]
-new = [p.text for p in n.paragraphs if p.text.strip()]
-added = [t for t in new if t not in orig]
-missing = [t for t in orig if t not in new]
-print("non-empty paragraphs: original", len(orig), "| formatted", len(new))
-print("words changed or lost:", missing if missing else "none")
-print("paragraphs added:", [t[:60] + "..." for t in added])
-print("same order for every original paragraph:", [t for t in new if t in orig] == orig)
-
-to = [[c.text for c in r.cells] for r in o.tables[0].rows]
-tn = [[c.text for c in r.cells] for r in n.tables[0].rows]
-print("table cells identical:", to == tn, f"({len(tn)} rows x {len(tn[0])} columns)")
-
-zo, zn = zipfile.ZipFile("HW-2_original.docx"), zipfile.ZipFile("v3.docx")
-mo = {x: hashlib.md5(zo.read(x)).hexdigest() for x in zo.namelist() if x.startswith("word/media/")}
-mn = {x: hashlib.md5(zn.read(x)).hexdigest() for x in zn.namelist() if x.startswith("word/media/")}
-print("embedded images byte-identical:", mo == mn, list(mn))
-
-fonts = {}
-for p in n.paragraphs:
-    for r in p.runs:
-        if r.text.strip():
-            fonts.setdefault((r.font.name, r.font.size.pt if r.font.size else None), []).append(p.text[:20])
-print("fonts used in body text:", {k: len(v) for k, v in fonts.items()})
-sec = n.sections[0]
-print("margins (in):", [round(Emu(x).inches, 2) for x in (sec.top_margin, sec.bottom_margin, sec.left_margin, sec.right_margin)],
-      "| header/footer distance:", round(Emu(sec.header_distance).inches, 2), round(Emu(sec.footer_distance).inches, 2))
-print("figure widths (in):", [round(Emu(s.width).inches, 2) for s in n.inline_shapes])
-print("body alignment left/None for text paragraphs:", {str(p.alignment) for p in n.paragraphs if p.text and not p.text.startswith(("Figure", "Table", "HW", "Anant", "October"))})
-PYEOF
-cd .. && ./venv/Scripts/python.exe -I word/schemacheck.py word/v3.docx 2>&1 | tail -2`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > reorder_tr.py <<'PYEOF'
-p = "edit_docx.py"
-s = open(p, encoding="utf-8").read()
-old = """    if ri == 0:                                   # header row repeats if the table ever splits
-        h = OxmlElement("w:tblHeader"); trPr.append(h)
-    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
-"""
-new = """    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
-    if ri == 0:                                   # header row repeats if the table ever splits
-        h = OxmlElement("w:tblHeader"); trPr.append(h)
-"""
-assert s.count(old) == 1
-open(p, "w", encoding="utf-8").write(s.replace(old, new))
-print("ok")
-PYEOF
-../venv/Scripts/python.exe -I reorder_tr.py && SPACERS=remove FIG1=6.5 MARGIN=0.6 ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_final.docx && ../venv/Scripts/python.exe -I schemacheck.py HW-2_final.docx`
-- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; cp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && cmp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && echo "copied, identical to the verified file"; cmp -s "$W/HW-2.docx" "$SC/HW-2_original.docx" && echo "your original HW-2.docx is untouched"; ls -la --time-style=+%H:%M "$W" | grep -E "HW-2|HW-1"; cd "$SC/.." && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import pymupdf as fitz
-d = fitz.open("word/HW-2_final.pdf")
-for i, p in enumerate(d):
-    body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
-    print(f"page {i+1}: free space before the bottom margin: {(p.rect.height - 0.6*72 - max(b[3] for b in body))/72:.2f} in")
-print("footer text:", [l for l in d[1].get_text().splitlines() if l.startswith("Page")], "| header text:", [l for l in d[0].get_text().splitlines()[:3]])
-PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > schemacheck.py <<'PYEOF' import sys, zipfile from lxml import etree W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main" q = lambda t: "{%s}%s" % (W, t) PPR = ["pStyle","keepNext","keepLines","pageBreakBefore","framePr","widowControl","numPr","suppressLineNumbers","pBdr","shd","tabs",        "suppressAutoHyphens","kinsoku","wordWrap","overflowPunct","topLinePunct","autoSpaceDE","autoSpaceDN","bidi","adjustRightInd",        "snapToGrid","spacing","ind","contextualSpacing","mirrorIndents","suppressOverlap","jc","textDirection","textAlignment",        "textboxTightWrap","outlineLvl","divId","cnfStyle","rPr","sectPr","pPrChange"] RPR = ["rStyle","rFonts","b","bCs","i","iCs","caps","smallCaps","strike","dstrike","outline","shadow","emboss","imprint","noProof","snapToGrid",        "vanish","webHidden","color","spacing","w","kern","position","sz","szCs","highlight","u","effect","bdr","shd","fitText","vertAlign",        "rtl","cs","em","lang","eastAsianLayout","specVanish","oMath"] TBLPR = ["tblStyle","tblpPr","tblOverlap","bidiVisual","tblStyleRowBandSize","tblStyleColBandSize","tblW","jc","tblCellSpacing","tblInd",          "tblBorders","shd","tblLayout","tblCellMar","tblLook","tblCaption","tblDescription"] TRPR = ["cnfStyle","divId","gridBefore","gridAfter","wBefore","wAfter","cantSplit","trHeight","tblHeader","tblCellSpacing","jc","hidden"] TCPR = ["cnfStyle","tcW","gridSpan","hMerge","vMerge","tcBorders","shd","noWrap","tcMar","textDirection","tcFitText","vAlign","hideMark"] def check(root, tag, order, label):     bad = 0     for el in root.iter(q(tag)):         names = [c.tag.split("}")[1] for c in el if isinstance(c.tag, str)]         idx = [order.index(n) if n in order else -1 for n in names]         known = [i for i in idx if i >= 0]         if known != sorted(known) or len(set(names)) != len(names):             bad += 1             if bad <= 3: print(f"   {label} order problem: {names}")     return bad for path in sys.argv[1:]:     z = zipfile.ZipFile(path)     total = 0     for part in [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml") and ("document" in n or "header" in n or "footer" in n)]:         root = etree.fromstring(z.read(part))         for tag, order in (("pPr", PPR), ("rPr", RPR), ("tblPr", TBLPR), ("trPr", TRPR), ("tcPr", TCPR)):             total += check(root, tag, order, f"{part}:{tag}")     print(f"{path}: {total} element-order or duplicate problems") PYEOF ../venv/Scripts/python.exe -I schemacheck.py HW-2_original.docx v1.docx v2.docx v3.docx v4.docx`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' from docx import Document W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}" for n in ("v1.docx", "v2.docx"):     d = Document(n)     print("==", n, "body children:", len(d.element.body))     for i, el in enumerate(d.element.body):         tag = el.tag.replace(W, "")         txt = "".join(t.text or "" for t in el.iter(W + "t"))[:34]         ppr = el.find(W + "pPr")         flags = [c.tag.replace(W, "") for c in ppr] if ppr is not None else []         print(f"  {i:2d} {tag:6} {txt!r:38} {flags}") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz d = fitz.open("v2.pdf") print("pages:", len(d)) for i, p in enumerate(d):     body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]     print(f"page {i+1}: body ends at {max(b[3] for b in body)/72:.2f} in (bottom margin line is at 10.30 in) -> free {10.3 - max(b[3] for b in body)/72:.2f} in")     p.get_pixmap(dpi=70).save(f"v2_p{i+1}.png") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz desc = {"v2": "blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)",         "v3": "v2 with margins 0.6 in",         "v4": "v2 with exactly 12 pt line spacing on text",         "v5": "v2 with margins 0.6 in and exactly 12 pt"} for n in ("v2", "v3", "v4", "v5"):     d = fitz.open(f"{n}.pdf")     free = []     for p in d:         bottom_line = (p.rect.height - 0.6 * 72) if n in ("v3", "v5") else (p.rect.height - 0.7 * 72)         body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]         free.append((bottom_line - max(b[3] for b in body)) / 72)     print(f"{n}: {len(d)} pages | free space at the end of page 1 / page 2: {free[0]:.2f} in / {free[1]:.2f} in | {desc[n]}") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz d = fitz.open("v3.pdf") for i, p in enumerate(d):     p.get_pixmap(dpi=75).save(f"v3_p{i+1}.png") print(len(d)) PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF' import os p = r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2.docx" print("modified:", os.path.getmtime(p), "| size:", os.path.getsize(p)) try:     with open(p, "r+b") as f:       # opens for update without writing a byte         print("write access: OPEN, the file is not locked") except PermissionError as e:     print("write access: DENIED (locked by Word):", e) print("lock file present:", os.path.exists(r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\~$HW-2.docx")) PYEOF cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" HW-2_scratch_check 2>/dev/null; cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" word/HW-2_original.docx && echo "the file on disk is still exactly the copy I edited from"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF' import hashlib, zipfile from docx import Document from docx.shared import Emu  o, n = Document("HW-2_original.docx"), Document("v3.docx") orig = [p.text for p in o.paragraphs if p.text.strip()] new = [p.text for p in n.paragraphs if p.text.strip()] added = [t for t in new if t not in orig] missing = [t for t in orig if t not in new] print("non-empty paragraphs: original", len(orig), "| formatted", len(new)) print("words changed or lost:", missing if missing else "none") print("paragraphs added:", [t[:60] + "..." for t in added]) print("same order for every original paragraph:", [t for t in new if t in orig] == orig)  to = [[c.text for c in r.cells] for r in o.tables[0].rows] tn = [[c.text for c in r.cells] for r in n.tables[0].rows] print("table cells identical:", to == tn, f"({len(tn)} rows x {len(tn[0])} columns)")  zo, zn = zipfile.ZipFile("HW-2_original.docx"), zipfile.ZipFile("v3.docx") mo = {x: hashlib.md5(zo.read(x)).hexdigest() for x in zo.namelist() if x.startswith("word/media/")} mn = {x: hashlib.md5(zn.read(x)).hexdigest() for x in zn.namelist() if x.startswith("word/media/")} print("embedded images byte-identical:", mo == mn, list(mn))  fonts = {} for p in n.paragraphs:     for r in p.runs:         if r.text.strip():             fonts.setdefault((r.font.name, r.font.size.pt if r.font.size else None), []).append(p.text[:20]) print("fonts used in body text:", {k: len(v) for k, v in fonts.items()}) sec = n.sections[0] print("margins (in):", [round(Emu(x).inches, 2) for x in (sec.top_margin, sec.bottom_margin, sec.left_margin, sec.right_margin)],       "| header/footer distance:", round(Emu(sec.header_distance).inches, 2), round(Emu(sec.footer_distance).inches, 2)) print("figure widths (in):", [round(Emu(s.width).inches, 2) for s in n.inline_shapes]) print("body alignment left/None for text paragraphs:", {str(p.alignment) for p in n.paragraphs if p.text and not p.text.startswith(("Figure", "Table", "HW", "Anant", "October"))}) PYEOF cd .. && ./venv/Scripts/python.exe -I word/schemacheck.py word/v3.docx 2>&1 | tail -2`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > reorder_tr.py <<'PYEOF' p = "edit_docx.py" s = open(p, encoding="utf-8").read() old = """    if ri == 0:                                   # header row repeats if the table ever splits         h = OxmlElement("w:tblHeader"); trPr.append(h)     cant = OxmlElement("w:cantSplit"); trPr.append(cant) """ new = """    cant = OxmlElement("w:cantSplit"); trPr.append(cant)     if ri == 0:                                   # header row repeats if the table ever splits         h = OxmlElement("w:tblHeader"); trPr.append(h) """ assert s.count(old) == 1 open(p, "w", encoding="utf-8").write(s.replace(old, new)) print("ok") PYEOF ../venv/Scripts/python.exe -I reorder_tr.py && SPACERS=remove FIG1=6.5 MARGIN=0.6 ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_final.docx && ../venv/Scripts/python.exe -I schemacheck.py HW-2_final.docx`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; cp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && cmp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && echo "copied, identical to the verified file"; cmp -s "$W/HW-2.docx" "$SC/HW-2_original.docx" && echo "your original HW-2.docx is untouched"; ls -la --time-style=+%H:%M "$W" | grep -E "HW-2|HW-1"; cd "$SC/.." && ./venv/Scripts/python.exe -I - <<'PYEOF' import pymupdf as fitz d = fitz.open("word/HW-2_final.pdf") for i, p in enumerate(d):     body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]     print(f"page {i+1}: free space before the bottom margin: {(p.rect.height - 0.6*72 - max(b[3] for b in body))/72:.2f} in") print("footer text:", [l for l in d[1].get_text().splitlines() if l.startswith("Page")], "| header text:", [l for l in d[0].get_text().splitlines()[:3]]) PYEOF`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && grep -n "Margins: 0.7\|Font: Times New Roman 10.5\|Page header on every page\|Do not add page numbers\|Headings: bold, left\|Size: 7.0 in wide\|My layout estimate puts\|Status 2026-10-27\|^### 2026-10-27 Report text" "Homework - 2.md" | cut -c1-150`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && python3 - 2>/dev/null || true; PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe"; cat > /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py <<'PYEOF'
-p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
-s = open(p, encoding="utf-8").read()
-def swap(old, new):
-    global s
-    assert s.count(old) == 1, old[:60]
-    s = s.replace(old, new)
-
-swap("- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).",
-     "- Size: 6.5 in wide, aspect ratio locked (about 2.2 in tall). At 7.0 in it no longer fits the bottom of page 1.")
-a = s.index("- Open the PDF and check, in this order:")
-b = s.index("\n", a)
-s = s[:a] + ("- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and "
-             "their labels can be read; the AI paragraph is the last thing and sits above the footer; the header appears on both pages and the footer "
-             "says Page 1 of 2 and Page 2 of 2. Word's own render of `HW-2 formatted.docx`: 2 pages, 0.25 in free at the end of page 1 and 1.29 in at the end of page 2.") + s[b:]
-
-entry = """### 2026-10-27 Word file
-`HW-2.docx` was open in Word (lock file `~$HW-2.docx`), so it could not be overwritten. The finished version is saved beside it as `HW-2 formatted.docx`; the original is untouched. Applied by script to a copy, then rendered by Word itself (automation, not an estimate): 2 pages.
-- Changed, formatting only: margins 0.6 in, header and footer added (page numbers `Page X of Y`), the rule under the title block, both figures centered (Figure 1 6.5 in, Figure 2 4.0 in), captions centered at 10 pt with italic labels, the table given column widths, light rules and a bold header row, `AI` made bold, headings set to Keep with next, the empty spacer lines turned into spacing.
-- Added: the missing `Table 1:` caption line (the text refers to Table 1 and the file had no caption). It is the user's own caption sentence.
-- Not changed: any word of the text (checked paragraph by paragraph), the table cells, the two images (byte-identical), Times New Roman 11 pt, single spacing, left alignment.
-- Why margins 0.6 in and not 0.7 in: with the user's 11 pt text, Word measured 2 pages at 0.7 in but only 0.33 in free on page 2; at 0.6 in 1.29 in is free, which leaves room for Word and printer differences. Exactly 12 pt line spacing would have given 0.96 in but changes the line spacing, so it was not used.
-- The title block still says `October 2026` (the user's text); the header says `October 27th, 2026` as HW-1's header carried its full date.
-"""
-swap("### 2026-10-27 Report text\n", entry + "### 2026-10-27 Report text\n")
-open(p, "w", encoding="utf-8").write(s)
-print("note updated")
-PYEOF
-"$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && python3 - 2>/dev/null || true; PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe"; cat > /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py <<'PYEOF' p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" s = open(p, encoding="utf-8").read() def swap(old, new):     global s     assert s.count(old) == 1, old[:60]     s = s.replace(old, new)  swap("- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).",      "- Size: 6.5 in wide, aspect ratio locked (about 2.2 in tall). At 7.0 in it no longer fits the bottom of page 1.") a = s.index("- Open the PDF and check, in this order:") b = s.index("\n", a) s = s[:a] + ("- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and "              "their labels can be read; the AI paragraph is the last thing and sits above the footer; the header appears on both pages and the footer "              "says Page 1 of 2 and Page 2 of 2. Word's own render of `HW-2 formatted.docx`: 2 pages, 0.25 in free at the end of page 1 and 1.29 in at the end of page 2.") + s[b:]  entry = """### 2026-10-27 Word file `HW-2.docx` was open in Word (lock file `~$HW-2.docx`), so it could not be overwritten. The finished version is saved beside it as `HW-2 formatted.docx`; the original is untouched. Applied by script to a copy, then rendered by Word itself (automation, not an estimate): 2 pages. - Changed, formatting only: margins 0.6 in, header and footer added (page numbers `Page X of Y`), the rule under the title block, both figures centered (Figure 1 6.5 in, Figure 2 4.0 in), captions centered at 10 pt with italic labels, the table given column widths, light rules and a bold header row, `AI` made bold, headings set to Keep with next, the empty spacer lines turned into spacing. - Added: the missing `Table 1:` caption line (the text refers to Table 1 and the file had no caption). It is the user's own caption sentence. - Not changed: any word of the text (checked paragraph by paragraph), the table cells, the two images (byte-identical), Times New Roman 11 pt, single spacing, left alignment. - Why margins 0.6 in and not 0.7 in: with the user's 11 pt text, Word measured 2 pages at 0.7 in but only 0.33 in free on page 2; at 0.6 in 1.29 in is free, which leaves room for Word and printer differences. Exactly 12 pt line spacing would have given 0.96 in but changes the line spacing, so it was not used. - The title block still says `October 2026` (the user's text); the header says `October 27th, 2026` as HW-1's header carried its full date. """ swap("### 2026-10-27 Report text\n", entry + "### 2026-10-27 Report text\n") open(p, "w", encoding="utf-8").write(s) print("note updated") PYEOF "$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"``
 - `C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; ls -la --time-style=+%m-%d_%H:%M:%S "$C/CSCI4521_HW2.ipynb" "$C/submission.csv" "$C/practice_run.html" "$W/HW-2 formatted.pdf" "$W/HW-2 formatted.docx" "$W/HW-2.docx" 2>&1 | awk '{printf "%-9s %s  %s %s %s\n", $5, $6, $7, $8, $9}'; echo; echo "my last verified copies (scratch fresh3 run, same code) vs the submitted ones:"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$C/$f" "$SC/fresh3/$f" && echo "  identical: $f" || echo "  DIFFERENT: $f"; done`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; mkdir -p verify && ./venv/Scripts/python.exe -I - <<PYEOF
-import nbformat, re, subprocess, sys
-p = r"$C/CSCI4521_HW2.ipynb"
-nb = nbformat.read(p, as_version=4)
-print("== notebook: structure")
-print("cells:", len(nb.cells), "| kernelspec:", nb.metadata.get("kernelspec"), "| python in run:", nb.metadata.get("language_info", {}).get("version"))
-errs = [(i, o.get("ename")) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "error"]
-stderr = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "stream" and o.name == "stderr"]
-counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
-print("error outputs:", errs, "| stderr cells:", stderr)
-print("execution counts:", counts[0], "to", counts[-1], "| strictly increasing, none missing:", counts == list(range(1, len(counts) + 1)))
-ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)]
-print("cells that mention AI / Claude / Anthropic:", ai)
-print("last cell:", repr(nb.cells[-1].source[:50]))
-dash = [i for i, c in enumerate(nb.cells) if "\u2014" in c.source or "\u2013" in c.source]
-print("cells with em or en dashes:", dash)
-PYEOF
-echo; echo "== notebook: is the code the same as the code I tested? (rebuild from my builder, compare every cell source)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; "$CE" build_nb4.py "$C/Homework2_RoverRescue_student.ipynb" verify/rebuilt.ipynb >/dev/null && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import nbformat
-a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
-import glob
-b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
-print("cells rebuilt vs submitted:", len(a.cells), len(b.cells))
-diff = [i for i, (x, y) in enumerate(zip(a.cells, b.cells)) if x.source != y.source or x.cell_type != y.cell_type]
-print("cells whose source differs:", diff if diff else "none (every code and markdown cell is identical)")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import nbformat, difflib
-a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
-b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
-kinds = {"crlf": 0, "trailing_newline": 0, "trailing_space": 0, "other": []}
-for i, (x, y) in enumerate(zip(a.cells, b.cells)):
-    if x.source == y.source:
-        continue
-    xs, ys = x.source, y.source
-    if xs.replace("\r\n", "\n") == ys.replace("\r\n", "\n"):
-        kinds["crlf"] += 1; continue
-    if xs.rstrip("\n") == ys.rstrip("\n"):
-        kinds["trailing_newline"] += 1; continue
-    if [l.rstrip() for l in xs.splitlines()] == [l.rstrip() for l in ys.splitlines()]:
-        kinds["trailing_space"] += 1; continue
-    kinds["other"].append(i)
-print("difference types:", {k: (v if k != "other" else v) for k, v in kinds.items()})
-for i in kinds["other"][:6]:
-    x, y = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()
-    print(f"\n--- cell {i} ({a.cells[i].cell_type}) real differences:")
-    for l in list(difflib.unified_diff(x, y, "built", "submitted", lineterm="", n=0))[:14]:
-        print("   ", l[:150])
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import ast, nbformat, re
-a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
-b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
-code_same = code_diff = 0
-md_diffs = []
-comment_diffs = 0
-for i, (x, y) in enumerate(zip(a.cells, b.cells)):
-    if x.cell_type == "code":
-        same = ast.dump(ast.parse(x.source)) == ast.dump(ast.parse(y.source))
-        code_same += same; code_diff += (not same)
-        if not same:
-            print(f"cell {i}: code is NOT equivalent")
-        cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]
-        cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]
-        if cx != cy:
-            comment_diffs += 1
-    else:
-        if x.source != y.source:
-            md_diffs.append(i)
-print(f"code cells with identical syntax tree: {code_same} of {code_same + code_diff}")
-print("code cells whose comments differ (text, ignoring wrapping):", comment_diffs)
-print("markdown cells whose text differs:", md_diffs)
-for i in md_diffs:
-    xs, ys = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()
-    for l, m in zip(xs, ys):
-        if l != m:
-            print(f"   built    : {l[:140]}\n   submitted: {m[:140]}")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import nbformat, re
-a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
-b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
-for i, (x, y) in enumerate(zip(a.cells, b.cells)):
-    if x.cell_type != "code": continue
-    cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]
-    cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]
-    if cx != cy:
-        print(f"cell {i}:"); [print("   built    :", p) for p in cx if p not in cy]; [print("   submitted:", p) for p in cy if p not in cx]
-PYEOF
-echo; echo "================ submission.csv ================"; ./venv/Scripts/python.exe -I - <<'PYEOF'
-import pandas as pd, numpy as np, nbformat, re, io
-C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
-sub = pd.read_csv(f"{C}/submission.csv")
-mis = pd.read_csv(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv")
-cfg = pd.read_json(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/config.json", typ="series")
-print("shape:", sub.shape, "| columns:", list(sub.columns))
-print("student_id values:", sub.student_id.unique().tolist(), "| config student_id:", cfg["student_id"])
-print("rows in mission.csv order (x, y match row by row):", bool((sub.x == mis.x).all() and (sub.y == mis.y).all()))
-print("terrain values:", sorted(sub.predicted_terrain.unique()), "| no missing values:", not sub.isna().any().any())
-print("counts:", sub.predicted_terrain.value_counts().to_dict())
-print("duplicate (x, y) rows:", int(sub.duplicated(["x", "y"]).sum()), "| grid covered 28x28:", sub.shape[0] == 28 * 28 and set(zip(sub.x, sub.y)) == {(x, y) for x in range(28) for y in range(28)})
-nb = nbformat.read(f"{C}/CSCI4521_HW2.ipynb", as_version=4)
-out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") for c in nb.cells if c.cell_type == "code")
-m = re.search(r"submission.csv \((\d+), (\d+)\) student_id: (\w+)\n(\{[^}]*\})", out)
-print("notebook printed:", m.group(0).replace("\n", " | "))
-print("matches the notebook's own printed counts:", eval(m.group(4)) == sub.predicted_terrain.value_counts().to_dict())
-print("identical to the file I verified earlier (byte for byte):", open(f"{C}/submission.csv", "rb").read() == open("fresh3/submission.csv", "rb").read())
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== fact-check of the report text against the SUBMITTED notebook ==="; ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -E "FAIL|failures"; echo; echo "=== practice_run.html ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
-import re
-C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
-s = open(f"{C}/practice_run.html", encoding="utf-8").read()
-print("size:", len(s), "bytes | starts with doctype:", s.lstrip().lower().startswith("<!doctype html>"), "| has <title>:", re.findall(r"<title>(.*?)</title>", s))
-print("centering CSS present:", "display: flex" in s and "justify-content: center" in s and "align-items: center" in s, "| frame offset fix:", "translateX(-1.25%)" in s and "translateY(-25px)" in s)
-print("embedded frames:", s.count("data:image/png;base64"), "(expected 55 = start + 54 steps) | animation script present:", "Animation.prototype" in s)
-print("closes properly:", s.rstrip().endswith("</body></html>"))
-print("mentions AI/Claude/Anthropic:", bool(re.search(r"(?i)claude|anthropic|\bAI\b", re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "", s))))
-PYEOF
-EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; rm -f verify/html_*.png; for pair in "1280 900" "1920 1080" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$(pwd)/verify/html_${1}x${2}.png" "file:///D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html" >/dev/null 2>&1; done; ls verify | grep html_ | tr '\n' ' '`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
-import ast, nbformat
-nb = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
-start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
-uses = []
-for i, c in enumerate(nb.cells[start:], start):
-    if c.cell_type != "code": continue
-    tree = ast.parse(c.source)
-    for stmt in ast.walk(tree):
-        if isinstance(stmt, ast.Call):
-            names = {n.id for n in ast.walk(stmt) if isinstance(n, ast.Name)}
-    for node in ast.walk(tree):
-        if isinstance(node, ast.Name) and node.id in ("X_mission", "Z_mission"):
-            # find the innermost statement that holds it
-            for stmt in ast.walk(tree):
-                if isinstance(stmt, (ast.Assign, ast.Expr, ast.AugAssign)) and node in list(ast.walk(stmt)):
-                    uses.append((i, ast.get_source_segment(c.source, stmt).replace("\n", " ")[:120])); break
-seen = []
-for u in uses:
-    if u not in seen: seen.append(u)
-print("every statement that touches mission features:")
-for i, t in seen: print(f"  cell {i}: {t}")
-fit_like = [t for _, t in seen if any(k in t for k in (".fit(", "kmeans(", "name_clusters(", "zscore_fit("))]
-print("\nany of them a fit / kmeans / naming call:", fit_like if fit_like else "none")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/verify" && ../venv/Scripts/python.exe -I - <<'PYEOF'
-from PIL import Image
-import numpy as np
-for name in ("1280x900", "1366x768", "1920x1080"):
-    im = np.asarray(Image.open(f"html_{name}.png").convert("RGB")).astype(int)
-    h, w, _ = im.shape
-    ink = np.abs(im - 255).sum(axis=2) > 30
-    cols, rows = np.flatnonzero(ink.any(axis=0)), np.flatnonzero(ink.any(axis=1))
-    l, r, t, b = cols.min(), w - 1 - cols.max(), rows.min(), h - 1 - rows.max()
-    print(f"window {w}x{h}: left {l}px right {r}px (diff {abs(l-r)}) | top {t}px bottom {b}px (diff {abs(t-b)})")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
-import re, pymupdf as fitz
-import report_build as rb
-W = r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf"
-d = fitz.open(W)
-print("== structure")
-print("pages:", len(d), "| size:", [(round(p.rect.width / 72, 2), round(p.rect.height / 72, 2)) for p in d], "| producer:", d.metadata.get("producer"), "| creator:", d.metadata.get("creator"))
-for i, p in enumerate(d):
-    imgs = p.get_images(full=True)
-    fonts = sorted({f[3] for f in p.get_fonts()})
-    sizes = {}
-    for b in p.get_text("dict")["blocks"]:
-        for l in b.get("lines", []):
-            for s in l["spans"]:
-                if s["text"].strip(): sizes[round(s["size"], 1)] = sizes.get(round(s["size"], 1), 0) + len(s["text"])
-    print(f"page {i+1}: images {len(imgs)} | fonts {fonts} | text sizes (pt: chars) {dict(sorted(sizes.items()))}")
-    lines = [l.strip() for l in p.get_text().splitlines() if l.strip()]
-    print(f"   header line: {' | '.join(lines[:3])}   footer line: {lines[-1]}")
-
-norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'").replace("\ufb01", "fi").replace("\ufb02", "fl")).strip()
-full = norm(" ".join(p.get_text() for p in d))
-print("\n== text of the PDF against the locked report text, paragraph by paragraph")
-keys = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"]
-missing = []
-for k in keys:
-    ok = norm(rb.P[k]) in full
-    print(("  identical " if ok else "  DIFFERS   ") + k + f" ({len(rb.P[k].split())} words)")
-    if not ok: missing.append(k)
-print("title lines present:", all(t in full for t in rb.P["title"]))
-print("leftover placeholder text:", [w for w in ("[Insert", "Step ", "```", "TODO") if w in full] or "none")
-print("\nAI paragraph occurrences (should be exactly the final paragraph):", full.count("Claude Code (Anthropic)"))
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
-import re, difflib, pymupdf as fitz
-import report_build as rb
-d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
-norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'")).strip()
-# remove running header and footer lines from the PDF text before comparing
-body = []
-for p in d:
-    for l in p.get_text().splitlines():
-        t = l.strip()
-        if not t or t.startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")): continue
-        body.append(t)
-full = norm(" ".join(body))
-open("verify/pdf_text.txt", "w", encoding="utf-8").write(full)
-
-def locate(par):
-    """the stretch of PDF text that starts where this paragraph starts"""
-    start = norm(par)[:40]
-    i = full.find(start)
-    return i
-
-order = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"]
-for k in ["s1", "s2", "s3b", "s4", "s5", "hai", "ai"]:
-    want = norm(rb.P[k]).split()
-    i = locate(rb.P[k])
-    if i < 0:
-        print(f"\n[{k}] start of the paragraph not found in the PDF"); continue
-    have = full[i:i + len(norm(rb.P[k])) + 400].split()
-    sm = difflib.SequenceMatcher(None, want, have[:len(want) + 60], autojunk=False)
-    print(f"\n[{k}]")
-    n = 0
-    for op, a1, a2, b1, b2 in sm.get_opcodes():
-        if op == "equal": continue
-        n += 1
-        if n > 8: print("   ..."); break
-        print(f"   {op}: locked={' '.join(want[a1:a2])[:110]!r}  ->  pdf={' '.join(have[b1:b2])[:110]!r}")
-print("\nlast 300 characters of the PDF body text:\n", full[-300:])
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
-import re, difflib, zipfile, pymupdf as fitz
-import report_build as rb
-from docx import Document
-d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
-tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s)
-def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)           # undo line-wrap hyphen spacing artifacts
-pdf_words = tok(clean(" ".join(l.strip() for p in d for l in p.get_text().splitlines()
-                              if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")))))
-locked = []
-for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:
-    locked += tok(rb.P[k])
-# the table sits inside the PDF text; drop it from the PDF stream for the comparison
-t1 = pdf_words.index("ID"); t2 = next(i for i, w in enumerate(pdf_words) if w == "Table" and pdf_words[i+1].startswith("1"))
-table_words = pdf_words[t1:t2]
-pdf_nt = pdf_words[:t1] + pdf_words[t2:]
-sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False)
-print(f"locked report words: {len(locked)} | PDF words (table removed): {len(pdf_nt)} | similarity {sm.ratio():.4f}")
-for op, a1, a2, b1, b2 in sm.get_opcodes():
-    if op == "equal": continue
-    print(f"  {op:8} locked={' '.join(locked[a1:a2])[:120]!r}  pdf={' '.join(pdf_nt[b1:b2])[:120]!r}")
-
-print("\n== is any AI disclosure left anywhere in the PDF?")
-txt = " ".join(p.get_text() for p in d)
-print("mentions of 'AI', 'Claude', 'Anthropic' as words in PDF text:", re.findall(r"\bAI\b|Claude|Anthropic", txt) or "none")
-print("annotations/comments in PDF:", sum(len(list(p.annots() or [])) for p in d), "| metadata title/subject/keywords:", {k: d.metadata.get(k) for k in ("title", "subject", "keywords")})
-
-print("\n== the Word file HW-2 formatted.docx as you last saved it (22:40)")
-dx = Document(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.docx")
-dtxt = " ".join(p.text for p in dx.paragraphs)
-print("last paragraphs:", [p.text[:60] for p in dx.paragraphs if p.text.strip()][-2:])
-print("AI / Claude mentioned in the docx:", re.findall(r"\bAI\b|Claude|Anthropic", dtxt) or "none")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
-import re, difflib, pymupdf as fitz
-import report_build as rb
-d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
-tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s)
-def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)
-lines = [l.strip() for p in d for l in p.get_text().splitlines()
-         if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page "))]
-pdf_words = tok(clean(" ".join(lines)))
-t1 = pdf_words.index("ID")                                                  # first table header cell
-t2 = next(i for i in range(t1, len(pdf_words) - 1) if pdf_words[i] == "Table" and pdf_words[i + 1].startswith("1:"))   # the caption, after the table
-print("table words removed from the comparison:", t2 - t1, "(7 rows x 8 cells, plus wrapped header cells)")
-pdf_nt = pdf_words[:t1] + pdf_words[t2:]
-locked = []
-for t in rb.P["title"]: locked += tok(t)
-for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:
-    locked += tok(rb.P[k])
-sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False)
-print(f"locked words {len(locked)} | PDF words {len(pdf_nt)} | similarity {sm.ratio():.4f}")
-for op, a1, a2, b1, b2 in sm.get_opcodes():
-    if op == "equal": continue
-    print(f"  {op:8} locked={' '.join(locked[a1:a2])[:150]!r}   pdf={' '.join(pdf_nt[b1:b2])[:150]!r}")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
-import re, pandas as pd, pymupdf as fitz
-d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
-cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
-
-print("== Table 1 in the PDF, row by row, against figures/hw2_configs.csv")
-words = [(w[4], round(w[1])) for p in d for w in p.get_text("words") if w[1] > 0]
-page_with_table = next(i for i, p in enumerate(d) if "C1" in p.get_text() and "k-means" in p.get_text() and "0.700" in p.get_text())
-rows = {}
-for w in d[page_with_table].get_text("words"):
-    y = round(w[1] / 4)                      # group words that share a line
-    rows.setdefault(y, []).append((w[0], w[4]))
-ok_all = True
-for cid in cfg.index:
-    line = next((" ".join(t for _, t in sorted(r)) for r in rows.values() if sorted(r)[0][1] == cid), None)
-    c = cfg.loc[cid]
-    expected = [f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", c.scaling, c.model, (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]
-    ok = line is not None and all(e in line for e in expected)
-    ok_all &= ok
-    print(("  ok   " if ok else "  FAIL ") + (line or f"{cid}: row not found"))
-print("table matches the results file:", ok_all)
-
-print("\n== where do the extra fonts come from?")
-for pi, p in enumerate(d):
-    for b in p.get_text("dict")["blocks"]:
-        for l in b.get("lines", []):
-            for s in l["spans"]:
-                if "Aptos" in s["font"] or "Arial" in s["font"]:
-                    print(f"  page {pi+1}: font {s['font']!r} size {s['size']:.1f} text {s['text'][:40]!r}")
-print("  (the picture text inside the two figures is part of the images, not fonts)")
-for i, p in enumerate(d): p.get_pixmap(dpi=80).save(f"verify/pdf_p{i+1}.png")
-PYEOF`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
-import pandas as pd, pymupdf as fitz
-d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
-cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
-p = d[1]
-words = sorted(p.get_text("words"), key=lambda w: (w[1], w[0]))
-rows, cur, last_y = [], [], None
-for w in words:
-    if last_y is not None and abs(w[1] - last_y) > 3:
-        rows.append(cur); cur = []
-    cur.append(w); last_y = w[1]
-rows.append(cur)
-lines = [" ".join(w[4] for w in sorted(r, key=lambda w: w[0])) for r in rows]
-bad = 0
-for cid, c in cfg.iterrows():
-    line = next((l for l in lines if l.startswith(cid + " ")), None)
-    exp = [c.scaling, c.model, f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]
-    ok = line is not None and all(e in line for e in exp)
-    bad += (not ok)
-    print(("ok   " if ok else "FAIL ") + str(line))
-print("table rows that match the results file:", len(cfg) - bad, "of", len(cfg))
-PYEOF`
-
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; mkdir -p verify && ./venv/Scripts/python.exe -I - <<PYEOF import nbformat, re, subprocess, sys p = r"$C/CSCI4521_HW2.ipynb" nb = nbformat.read(p, as_version=4) print("== notebook: structure") print("cells:", len(nb.cells), "| kernelspec:", nb.metadata.get("kernelspec"), "| python in run:", nb.metadata.get("language_info", {}).get("version")) errs = [(i, o.get("ename")) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "error"] stderr = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "stream" and o.name == "stderr"] counts = [c.execution_count for c in nb.cells if c.cell_type == "code"] print("error outputs:", errs, "| stderr cells:", stderr) print("execution counts:", counts[0], "to", counts[-1], "| strictly increasing, none missing:", counts == list(range(1, len(counts) + 1))) ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)] print("cells that mention AI / Claude / Anthropic:", ai) print("last cell:", repr(nb.cells[-1].source[:50])) dash = [i for i, c in enumerate(nb.cells) if "\u2014" in c.source or "\u2013" in c.source] print("cells with em or en dashes:", dash) PYEOF echo; echo "== notebook: is the code the same as the code I tested? (rebuild from my builder, compare every cell source)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; "$CE" build_nb4.py "$C/Homework2_RoverRescue_student.ipynb" verify/rebuilt.ipynb >/dev/null && ./venv/Scripts/python.exe -I - <<'PYEOF' import nbformat a = nbformat.read("verify/rebuilt.ipynb", as_version=4) import glob b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4) print("cells rebuilt vs submitted:", len(a.cells), len(b.cells)) diff = [i for i, (x, y) in enumerate(zip(a.cells, b.cells)) if x.source != y.source or x.cell_type != y.cell_type] print("cells whose source differs:", diff if diff else "none (every code and markdown cell is identical)") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF' import nbformat, difflib a = nbformat.read("verify/rebuilt.ipynb", as_version=4) b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4) kinds = {"crlf": 0, "trailing_newline": 0, "trailing_space": 0, "other": []} for i, (x, y) in enumerate(zip(a.cells, b.cells)):     if x.source == y.source:         continue     xs, ys = x.source, y.source     if xs.replace("\r\n", "\n") == ys.replace("\r\n", "\n"):         kinds["crlf"] += 1; continue     if xs.rstrip("\n") == ys.rstrip("\n"):         kinds["trailing_newline"] += 1; continue     if [l.rstrip() for l in xs.splitlines()] == [l.rstrip() for l in ys.splitlines()]:         kinds["trailing_space"] += 1; continue     kinds["other"].append(i) print("difference types:", {k: (v if k != "other" else v) for k, v in kinds.items()}) for i in kinds["other"][:6]:     x, y = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()     print(f"\n--- cell {i} ({a.cells[i].cell_type}) real differences:")     for l in list(difflib.unified_diff(x, y, "built", "submitted", lineterm="", n=0))[:14]:         print("   ", l[:150]) PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF' import ast, nbformat, re a = nbformat.read("verify/rebuilt.ipynb", as_version=4) b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4) code_same = code_diff = 0 md_diffs = [] comment_diffs = 0 for i, (x, y) in enumerate(zip(a.cells, b.cells)):     if x.cell_type == "code":         same = ast.dump(ast.parse(x.source)) == ast.dump(ast.parse(y.source))         code_same += same; code_diff += (not same)         if not same:             print(f"cell {i}: code is NOT equivalent")         cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]         cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]         if cx != cy:             comment_diffs += 1     else:         if x.source != y.source:             md_diffs.append(i) print(f"code cells with identical syntax tree: {code_same} of {code_same + code_diff}") print("code cells whose comments differ (text, ignoring wrapping):", comment_diffs) print("markdown cells whose text differs:", md_diffs) for i in md_diffs:     xs, ys = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()     for l, m in zip(xs, ys):         if l != m:             print(f"   built    : {l[:140]}\n   submitted: {m[:140]}") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF' import nbformat, re a = nbformat.read("verify/rebuilt.ipynb", as_version=4) b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4) for i, (x, y) in enumerate(zip(a.cells, b.cells)):     if x.cell_type != "code": continue     cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]     cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]     if cx != cy:         print(f"cell {i}:"); [print("   built    :", p) for p in cx if p not in cy]; [print("   submitted:", p) for p in cy if p not in cx] PYEOF echo; echo "================ submission.csv ================"; ./venv/Scripts/python.exe -I - <<'PYEOF' import pandas as pd, numpy as np, nbformat, re, io C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" sub = pd.read_csv(f"{C}/submission.csv") mis = pd.read_csv(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv") cfg = pd.read_json(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/config.json", typ="series") print("shape:", sub.shape, "| columns:", list(sub.columns)) print("student_id values:", sub.student_id.unique().tolist(), "| config student_id:", cfg["student_id"]) print("rows in mission.csv order (x, y match row by row):", bool((sub.x == mis.x).all() and (sub.y == mis.y).all())) print("terrain values:", sorted(sub.predicted_terrain.unique()), "| no missing values:", not sub.isna().any().any()) print("counts:", sub.predicted_terrain.value_counts().to_dict()) print("duplicate (x, y) rows:", int(sub.duplicated(["x", "y"]).sum()), "| grid covered 28x28:", sub.shape[0] == 28 * 28 and set(zip(sub.x, sub.y)) == {(x, y) for x in range(28) for y in range(28)}) nb = nbformat.read(f"{C}/CSCI4521_HW2.ipynb", as_version=4) out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") for c in nb.cells if c.cell_type == "code") m = re.search(r"submission.csv \((\d+), (\d+)\) student_id: (\w+)\n(\{[^}]*\})", out) print("notebook printed:", m.group(0).replace("\n", " | ")) print("matches the notebook's own printed counts:", eval(m.group(4)) == sub.predicted_terrain.value_counts().to_dict()) print("identical to the file I verified earlier (byte for byte):", open(f"{C}/submission.csv", "rb").read() == open("fresh3/submission.csv", "rb").read()) PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== fact-check of the report text against the SUBMITTED notebook ==="; ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -E "FAIL|failures"; echo; echo "=== practice_run.html ==="; ./venv/Scripts/python.exe -I - <<'PYEOF' import re C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" s = open(f"{C}/practice_run.html", encoding="utf-8").read() print("size:", len(s), "bytes | starts with doctype:", s.lstrip().lower().startswith("<!doctype html>"), "| has <title>:", re.findall(r"<title>(.*?)</title>", s)) print("centering CSS present:", "display: flex" in s and "justify-content: center" in s and "align-items: center" in s, "| frame offset fix:", "translateX(-1.25%)" in s and "translateY(-25px)" in s) print("embedded frames:", s.count("data:image/png;base64"), "(expected 55 = start + 54 steps) | animation script present:", "Animation.prototype" in s) print("closes properly:", s.rstrip().endswith("</body></html>")) print("mentions AI/Claude/Anthropic:", bool(re.search(r"(?i)claude|anthropic|\bAI\b", re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "", s)))) PYEOF EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; rm -f verify/html_*.png; for pair in "1280 900" "1920 1080" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$(pwd)/verify/html_${1}x${2}.png" "file:///D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html" >/dev/null 2>&1; done; ls verify | grep html_ | tr '\n' ' '`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF' import ast, nbformat nb = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4) start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")) uses = [] for i, c in enumerate(nb.cells[start:], start):     if c.cell_type != "code": continue     tree = ast.parse(c.source)     for stmt in ast.walk(tree):         if isinstance(stmt, ast.Call):             names = {n.id for n in ast.walk(stmt) if isinstance(n, ast.Name)}     for node in ast.walk(tree):         if isinstance(node, ast.Name) and node.id in ("X_mission", "Z_mission"):             # find the innermost statement that holds it             for stmt in ast.walk(tree):                 if isinstance(stmt, (ast.Assign, ast.Expr, ast.AugAssign)) and node in list(ast.walk(stmt)):                     uses.append((i, ast.get_source_segment(c.source, stmt).replace("\n", " ")[:120])); break seen = [] for u in uses:     if u not in seen: seen.append(u) print("every statement that touches mission features:") for i, t in seen: print(f"  cell {i}: {t}") fit_like = [t for _, t in seen if any(k in t for k in (".fit(", "kmeans(", "name_clusters(", "zscore_fit("))] print("\nany of them a fit / kmeans / naming call:", fit_like if fit_like else "none") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/verify" && ../venv/Scripts/python.exe -I - <<'PYEOF' from PIL import Image import numpy as np for name in ("1280x900", "1366x768", "1920x1080"):     im = np.asarray(Image.open(f"html_{name}.png").convert("RGB")).astype(int)     h, w, _ = im.shape     ink = np.abs(im - 255).sum(axis=2) > 30     cols, rows = np.flatnonzero(ink.any(axis=0)), np.flatnonzero(ink.any(axis=1))     l, r, t, b = cols.min(), w - 1 - cols.max(), rows.min(), h - 1 - rows.max()     print(f"window {w}x{h}: left {l}px right {r}px (diff {abs(l-r)}) | top {t}px bottom {b}px (diff {abs(t-b)})") PYEOF`
+- ````cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF' import re, pymupdf as fitz import report_build as rb W = r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf" d = fitz.open(W) print("== structure") print("pages:", len(d), "| size:", [(round(p.rect.width / 72, 2), round(p.rect.height / 72, 2)) for p in d], "| producer:", d.metadata.get("producer"), "| creator:", d.metadata.get("creator")) for i, p in enumerate(d):     imgs = p.get_images(full=True)     fonts = sorted({f[3] for f in p.get_fonts()})     sizes = {}     for b in p.get_text("dict")["blocks"]:         for l in b.get("lines", []):             for s in l["spans"]:                 if s["text"].strip(): sizes[round(s["size"], 1)] = sizes.get(round(s["size"], 1), 0) + len(s["text"])     print(f"page {i+1}: images {len(imgs)} | fonts {fonts} | text sizes (pt: chars) {dict(sorted(sizes.items()))}")     lines = [l.strip() for l in p.get_text().splitlines() if l.strip()]     print(f"   header line: {' | '.join(lines[:3])}   footer line: {lines[-1]}")  norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'").replace("\ufb01", "fi").replace("\ufb02", "fl")).strip() full = norm(" ".join(p.get_text() for p in d)) print("\n== text of the PDF against the locked report text, paragraph by paragraph") keys = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"] missing = [] for k in keys:     ok = norm(rb.P[k]) in full     print(("  identical " if ok else "  DIFFERS   ") + k + f" ({len(rb.P[k].split())} words)")     if not ok: missing.append(k) print("title lines present:", all(t in full for t in rb.P["title"])) print("leftover placeholder text:", [w for w in ("[Insert", "Step ", "```", "TODO") if w in full] or "none") print("\nAI paragraph occurrences (should be exactly the final paragraph):", full.count("Claude Code (Anthropic)")) PYEOF````
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF' import re, difflib, pymupdf as fitz import report_build as rb d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf") norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'")).strip() # remove running header and footer lines from the PDF text before comparing body = [] for p in d:     for l in p.get_text().splitlines():         t = l.strip()         if not t or t.startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")): continue         body.append(t) full = norm(" ".join(body)) open("verify/pdf_text.txt", "w", encoding="utf-8").write(full)  def locate(par):     """the stretch of PDF text that starts where this paragraph starts"""     start = norm(par)[:40]     i = full.find(start)     return i  order = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"] for k in ["s1", "s2", "s3b", "s4", "s5", "hai", "ai"]:     want = norm(rb.P[k]).split()     i = locate(rb.P[k])     if i < 0:         print(f"\n[{k}] start of the paragraph not found in the PDF"); continue     have = full[i:i + len(norm(rb.P[k])) + 400].split()     sm = difflib.SequenceMatcher(None, want, have[:len(want) + 60], autojunk=False)     print(f"\n[{k}]")     n = 0     for op, a1, a2, b1, b2 in sm.get_opcodes():         if op == "equal": continue         n += 1         if n > 8: print("   ..."); break         print(f"   {op}: locked={' '.join(want[a1:a2])[:110]!r}  ->  pdf={' '.join(have[b1:b2])[:110]!r}") print("\nlast 300 characters of the PDF body text:\n", full[-300:]) PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF' import re, difflib, zipfile, pymupdf as fitz import report_build as rb from docx import Document d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf") tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s) def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)           # undo line-wrap hyphen spacing artifacts pdf_words = tok(clean(" ".join(l.strip() for p in d for l in p.get_text().splitlines()                               if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page "))))) locked = [] for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:     locked += tok(rb.P[k]) # the table sits inside the PDF text; drop it from the PDF stream for the comparison t1 = pdf_words.index("ID"); t2 = next(i for i, w in enumerate(pdf_words) if w == "Table" and pdf_words[i+1].startswith("1")) table_words = pdf_words[t1:t2] pdf_nt = pdf_words[:t1] + pdf_words[t2:] sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False) print(f"locked report words: {len(locked)} | PDF words (table removed): {len(pdf_nt)} | similarity {sm.ratio():.4f}") for op, a1, a2, b1, b2 in sm.get_opcodes():     if op == "equal": continue     print(f"  {op:8} locked={' '.join(locked[a1:a2])[:120]!r}  pdf={' '.join(pdf_nt[b1:b2])[:120]!r}")  print("\n== is any AI disclosure left anywhere in the PDF?") txt = " ".join(p.get_text() for p in d) print("mentions of 'AI', 'Claude', 'Anthropic' as words in PDF text:", re.findall(r"\bAI\b|Claude|Anthropic", txt) or "none") print("annotations/comments in PDF:", sum(len(list(p.annots() or [])) for p in d), "| metadata title/subject/keywords:", {k: d.metadata.get(k) for k in ("title", "subject", "keywords")})  print("\n== the Word file HW-2 formatted.docx as you last saved it (22:40)") dx = Document(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.docx") dtxt = " ".join(p.text for p in dx.paragraphs) print("last paragraphs:", [p.text[:60] for p in dx.paragraphs if p.text.strip()][-2:]) print("AI / Claude mentioned in the docx:", re.findall(r"\bAI\b|Claude|Anthropic", dtxt) or "none") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF' import re, difflib, pymupdf as fitz import report_build as rb d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf") tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s) def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s) lines = [l.strip() for p in d for l in p.get_text().splitlines()          if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page "))] pdf_words = tok(clean(" ".join(lines))) t1 = pdf_words.index("ID")                                                  # first table header cell t2 = next(i for i in range(t1, len(pdf_words) - 1) if pdf_words[i] == "Table" and pdf_words[i + 1].startswith("1:"))   # the caption, after the table print("table words removed from the comparison:", t2 - t1, "(7 rows x 8 cells, plus wrapped header cells)") pdf_nt = pdf_words[:t1] + pdf_words[t2:] locked = [] for t in rb.P["title"]: locked += tok(t) for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:     locked += tok(rb.P[k]) sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False) print(f"locked words {len(locked)} | PDF words {len(pdf_nt)} | similarity {sm.ratio():.4f}") for op, a1, a2, b1, b2 in sm.get_opcodes():     if op == "equal": continue     print(f"  {op:8} locked={' '.join(locked[a1:a2])[:150]!r}   pdf={' '.join(pdf_nt[b1:b2])[:150]!r}") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF' import re, pandas as pd, pymupdf as fitz d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf") cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")  print("== Table 1 in the PDF, row by row, against figures/hw2_configs.csv") words = [(w[4], round(w[1])) for p in d for w in p.get_text("words") if w[1] > 0] page_with_table = next(i for i, p in enumerate(d) if "C1" in p.get_text() and "k-means" in p.get_text() and "0.700" in p.get_text()) rows = {} for w in d[page_with_table].get_text("words"):     y = round(w[1] / 4)                      # group words that share a line     rows.setdefault(y, []).append((w[0], w[4])) ok_all = True for cid in cfg.index:     line = next((" ".join(t for _, t in sorted(r)) for r in rows.values() if sorted(r)[0][1] == cid), None)     c = cfg.loc[cid]     expected = [f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", c.scaling, c.model, (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]     ok = line is not None and all(e in line for e in expected)     ok_all &= ok     print(("  ok   " if ok else "  FAIL ") + (line or f"{cid}: row not found")) print("table matches the results file:", ok_all)  print("\n== where do the extra fonts come from?") for pi, p in enumerate(d):     for b in p.get_text("dict")["blocks"]:         for l in b.get("lines", []):             for s in l["spans"]:                 if "Aptos" in s["font"] or "Arial" in s["font"]:                     print(f"  page {pi+1}: font {s['font']!r} size {s['size']:.1f} text {s['text'][:40]!r}") print("  (the picture text inside the two figures is part of the images, not fonts)") for i, p in enumerate(d): p.get_pixmap(dpi=80).save(f"verify/pdf_p{i+1}.png") PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF' import pandas as pd, pymupdf as fitz d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf") cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config") p = d[1] words = sorted(p.get_text("words"), key=lambda w: (w[1], w[0])) rows, cur, last_y = [], [], None for w in words:     if last_y is not None and abs(w[1] - last_y) > 3:         rows.append(cur); cur = []     cur.append(w); last_y = w[1] rows.append(cur) lines = [" ".join(w[4] for w in sorted(r, key=lambda w: w[0])) for r in rows] bad = 0 for cid, c in cfg.iterrows():     line = next((l for l in lines if l.startswith(cid + " ")), None)     exp = [c.scaling, c.model, f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]     ok = line is not None and all(e in line for e in exp)     bad += (not ok)     print(("ok   " if ok else "FAIL ") + str(line)) print("table rows that match the results file:", len(cfg) - bad, "of", len(cfg)) PYEOF`
 

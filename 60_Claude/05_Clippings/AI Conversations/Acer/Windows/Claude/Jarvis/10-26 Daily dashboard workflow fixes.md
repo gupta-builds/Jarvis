@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Daily dashboard workflow fixes"
 started_at: 2026-10-26T11:56:58
 ended_at: 2026-10-26T14:19:27
-exported_at: 2026-10-28T15:03:06
+exported_at: 2026-10-28T16:15:21
 duration_minutes: 142.5
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 48986477-e188-4f7b-a406-ce4f08ba7f35
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-26
+updated: 2026-10-28
 turn_count: 8
 tools_used:
   Agent: 2
@@ -30,7 +33,7 @@ tokens:
   cache_creation: 374926
   cache_read: 24204240
   total: 24714669
-cost_usd: null
+cost_usd: 5.273638
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -137,14 +140,14 @@ Shall I start with steps 1 to 3 now, since they don't depend on those answers?
 
 ### Tool Calls
 
-- `Glob` -- pattern `**/00_Dashboard.md` path ``
-- `Glob` -- pattern `30_Order/Templates/Enumerate/*` path ``
-- `Glob` -- pattern `.claude/{skills,commands,agents}/**/*{day,daily,Daily}*` path ``
-- `Glob` -- pattern `10_Areas/Life/Enumerate/Daily/2026-10-2*` path ``
+- `Glob` -- pattern `**/00_Dashboard.md` path ` `
+- `Glob` -- pattern `30_Order/Templates/Enumerate/*` path ` `
+- `Glob` -- pattern `.claude/{skills,commands,agents}/**/*{day,daily,Daily}*` path ` `
+- `Glob` -- pattern `10_Areas/Life/Enumerate/Daily/2026-10-2*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Enumerate\Better Today.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Enumerate\Daily\2026-10-26.md`
-- `Grep` -- pattern `win_project|win_career|floor_1|wins_done|habits_done` path ``
+- `Grep` -- pattern `win_project|win_career|floor_1|wins_done|habits_done` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\commands\closeday.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\commands\startday.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\closeday\SKILL.md`
@@ -160,8 +163,39 @@ Shall I start with steps 1 to 3 now, since they don't depend on those answers?
 - `Grep` -- pattern `win_project|win_career|floor_1` path `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Jarvis OS Dashboard.canvas`
 - `Grep` -- pattern `\btoggl\b|toggl track|api\.track\.toggl` path `D:\_Anant\20_Progress\Documents\Jarvis`
 - `Grep` -- pattern `habits_done|wins_done|lc_today|study_today` path `D:\_Anant\20_Progress\Documents\Jarvis\.obsidian\plugins\obsidian-meta-bind-plugin`
-- `PowerShell` -- `{"command":"Get-Command toggl* -ErrorAction SilentlyContinue | Select-Object Name,Source; Get-ChildItem \"$env:LOCALAPPDATA\",\"$env:ProgramFiles\",\"${env:ProgramFiles(x86)}\",\"$env:APPDATA\" -Directory -Filter \"*toggl*\" -ErrorAction SilentlyContinue | Select-Object FullName; (Get-ChildItem Env: | Where-Object Name -match \u0027TOGGL\u0027).Name; Get-ChildItem \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\" -Directory -Force | Select-Object -ExpandProperty Name","description":"Find Toggl install and vault top-level folders"}`
-- `Glob` -- pattern `30_Order/{System,Tools,CLI,Scripts}/**/*` path ``
+- `PowerShell`
+```powershell
+Get-Command toggl* -ErrorAction SilentlyContinue | Select-Object Name,Source; Get-ChildItem "$env:LOCALAPPDATA","$env:ProgramFiles","${env:ProgramFiles(x86)}","$env:APPDATA" -Directory -Filter "*toggl*" -ErrorAction SilentlyContinue | Select-Object FullName; (Get-ChildItem Env: | Where-Object Name -match 'TOGGL').Name; Get-ChildItem "D:\_Anant\20_Progress\Documents\Jarvis" -Directory -Force | Select-Object -ExpandProperty Name
+```
+```
+FullName
+--------
+C:\Users\anant\AppData\Local\@togglfocusdesktop-updater
+C:\Users\anant\AppData\Roaming\Toggl
+__pycache__
+.agents
+.claude
+.codex
+.cursor
+.firecrawl
+.git
+.kiro
+.obsidian
+.opencode
+.stfolder
+.stversions
+.vscode
+10_Areas
+20_Progress
+30_Order
+40_Resources
+50_Archive
+60_Claude
+blobs
+copilot
+Tracker
+```
+- `Glob` -- pattern `30_Order/{System,Tools,CLI,Scripts}/**/*` path ` `
 
 ## You
 
@@ -269,9 +303,75 @@ Three questions block step 5:
 
 ### Tool Calls
 
-- `PowerShell` -- `{"command":"$p=\u0027D:\\_Anant\\20_Progress\\Documents\\The Plan\u0027; foreach($d in \u002730_Order\\Templates\\Daily Dashboard\u0027,\u002740_Resources\\Obsidian\\Dashboards\u0027){ \"== $d\"; Get-ChildItem \"$p\\$d\" -Recurse -File | Select-Object @{n=\u0027path\u0027;e={$_.FullName.Substring($p.Length+1)}},Length | Format-Table -AutoSize -Wrap | Out-String -Width 250 }\n$j=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027; foreach($d in \u002740_Resources\\Obsidian\\Dashboard\u0027,\u002720_Progress\\Projects\\Jarvis \u0026 The Plan\\Builds - Jarvis\u0027){ \"== $d\"; if(Test-Path \"$j\\$d\"){Get-ChildItem \"$j\\$d\" -Recurse -File | Select-Object @{n=\u0027path\u0027;e={$_.FullName.Substring($j.Length+1)}},Length | Format-Table -AutoSize | Out-String -Width 250}else{\u0027MISSING\u0027} }","description":"List dashboard build files in both vaults"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && for f in "Dashboard Build/Dashboard Build Hub.md" "Dashboard Build/Architecture.md" "Dashboard Build/Build Log.md" "Dashboard Build/Build Steps.md" "Dashboard Build/Front End and Visual System.md" "Build Plan.md" "Dashboards Hub.md"; do echo "=================== $f"; cat "$f"; done`
+- `PowerShell`
+```powershell
+$p='D:\_Anant\20_Progress\Documents\The Plan'; foreach($d in '30_Order\Templates\Daily Dashboard','40_Resources\Obsidian\Dashboards'){ "== $d"; Get-ChildItem "$p\$d" -Recurse -File | Select-Object @{n='path';e={$_.FullName.Substring($p.Length+1)}},Length | Format-Table -AutoSize -Wrap | Out-String -Width 250 }
+$j='D:\_Anant\20_Progress\Documents\Jarvis'; foreach($d in '40_Resources\Obsidian\Dashboard','20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis'){ "== $d"; if(Test-Path "$j\$d"){Get-ChildItem "$j\$d" -Recurse -File | Select-Object @{n='path';e={$_.FullName.Substring($j.Length+1)}},Length | Format-Table -AutoSize | Out-String -Width 250}else{'MISSING'} }
 ```
+```
+== 30_Order\Templates\Daily Dashboard
+
+path                                               Length
+----                                               ------
+30_Order\Templates\Daily Dashboard\Better Month.md    536
+30_Order\Templates\Daily Dashboard\Better Today.md   2851
+30_Order\Templates\Daily Dashboard\Better Week.md     603
+30_Order\Templates\Daily Dashboard\Better Year.md     211
+30_Order\Templates\Daily Dashboard\Daily Note.md     1640
+
+
+== 40_Resources\Obsidian\Dashboards
+
+path                                                                                        Length
+----                                                                                        ------
+40_Resources\Obsidian\Dashboards\Audit - Dashboard Stack and Phone Checklist.md               9082
+40_Resources\Obsidian\Dashboards\Build Plan.md                                                3165
+40_Resources\Obsidian\Dashboards\Dashboards Hub.md                                            4524
+40_Resources\Obsidian\Dashboards\Decisions Log.md                                            12897
+40_Resources\Obsidian\Dashboards\Prompts.md                                                  24640
+40_Resources\Obsidian\Dashboards\Research - Jarvis Dashboard Findings.md                      6779
+40_Resources\Obsidian\Dashboards\Spec - AI Loop.md                                            8495
+40_Resources\Obsidian\Dashboards\Spec - Automation Layers.md                                  4303
+40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md                        4745
+40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md                              5976
+40_Resources\Obsidian\Dashboards\Dashboard Build\Architecture.md                              5583
+40_Resources\Obsidian\Dashboards\Dashboard Build\Build Log.md                                 3014
+40_Resources\Obsidian\Dashboards\Dashboard Build\Build Prompts.md                             6923
+40_Resources\Obsidian\Dashboards\Dashboard Build\Build Steps.md                               3407
+40_Resources\Obsidian\Dashboards\Dashboard Build\Dashboard Build Hub.md                       3754
+40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md               5034
+40_Resources\Obsidian\Dashboards\Dashboard Build\Plugin Build Prompts.md                     33543
+40_Resources\Obsidian\Dashboards\Dashboard Build\Private Use and Sharing.md                   3926
+40_Resources\Obsidian\Dashboards\Dashboard Build\Reference - Obsidian API for This Build.md   6774
+40_Resources\Obsidian\Dashboards\Dashboard Build\Research - Obsidian Dashboard Methods.md     8389
+40_Resources\Obsidian\Dashboards\Dashboard Build\Research - Plugin Creation Guide.md         12246
+40_Resources\Obsidian\Dashboards\Dashboard Build\Review - Corrections to Earlier Notes.md     4207
+40_Resources\Obsidian\Dashboards\Dashboard Build\Sonnet 5.5 Prompt Rules.md                   4564
+40_Resources\Obsidian\Dashboards\Dashboard Build\Verification and Risks.md                    4013
+
+
+== 40_Resources\Obsidian\Dashboard
+
+path                                                     Length
+----                                                     ------
+40_Resources\Obsidian\Dashboard\Jarvis Build Overview.md      0
+40_Resources\Obsidian\Dashboard\The Plan Overview.md          0
+
+
+== 20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis
+
+path                                                                                                  Length
+----                                                                                                  ------
+20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis\Builds - Jarvis.md                               2681
+20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis\Jarvis Build History - July to October 2026.md  19310
+20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis\Jarvis Current State - 2026-10-17.md            12977
+20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis\Jarvis Restoration Build Plan.md                16633
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && for f in "Dashboard Build/Dashboard Build Hub.md" "Dashboard Build/Architecture.md" "Dashboard Build/Build Log.md" "Dashboard Build/Build Steps.md" "Dashboard Build/Front End and Visual System.md" "Build Plan.md" "Dashboards Hub.md"; do echo "=================== $f"; cat "$f"; done
+```
+````
 =================== Dashboard Build/Dashboard Build Hub.md
 ---
 type: project
@@ -763,8 +863,11 @@ The markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). The
 6. No unrequested writes. Anything that touches outside systems waits for approval.
 7. Stop at the slice. Mention extras; do not build them.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && for f in "Decisions Log.md" "Spec - Streak and Daily Note.md" "Spec - Home and Monthly Dashboards.md" "Spec - Automation Layers.md" "Spec - AI Loop.md"; do echo "=================== $f"; cat "$f"; done
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && for f in "Decisions Log.md" "Spec - Streak and Daily Note.md" "Spec - Home and Monthly Dashboards.md" "Spec - Automation Layers.md" "Spec - AI Loop.md"; do echo "=================== $f"; cat "$f"; done`
 ```
 <persisted-output>
 Output too large (35.8KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\bduzh15l1.txt
@@ -809,7 +912,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\48986477-e188-4f7b-a406-ce4f08ba7f35\tool-results\bduzh15l1.txt`
 - `Read` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\48986477-e188-4f7b-a406-ce4f08ba7f35\tool-results\bduzh15l1.txt`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md" "40_Resources/Obsidian/Dashboards/Dashboard Build/Review - Corrections to Earlier Notes.md" "40_Resources/Obsidian/Dashboards/Dashboard Build/Private Use and Sharing.md" "40_Resources/Obsidian/Dashboards/Research - Jarvis Dashboard Findings.md" "30_Order/Templates/Daily Dashboard/Better Today.md" "30_Order/Templates/Daily Dashboard/Daily Note.md"; do echo "=================== $f"; cat "$f"; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md" "40_Resources/Obsidian/Dashboards/Dashboard Build/Review - Corrections to Earlier Notes.md" "40_Resources/Obsidian/Dashboards/Dashboard Build/Private Use and Sharing.md" "40_Resources/Obsidian/Dashboards/Research - Jarvis Dashboard Findings.md" "30_Order/Templates/Daily Dashboard/Better Today.md" "30_Order/Templates/Daily Dashboard/Daily Note.md"; do echo "=================== $f"; cat "$f"; done
+```
 ```
 =================== 40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md
 ---
@@ -1191,8 +1297,178 @@ study_hours: 0
 ## Intake
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$p=\u0027D:\\_Anant\\20_Progress\\Documents\\The Plan\u0027; Get-ChildItem \"$p\\30_Order\" -Recurse -File | Where-Object { $_.FullName -notmatch \u0027\\\\node_modules\\\\\u0027 } | ForEach-Object { $_.FullName.Substring($p.Length+1) + \"  [\" + $_.Length + \"]\" } | Select-Object -First 200\n\"--- repo\"; Get-ChildItem \u0027D:\\_Anant\\20_Progress\\Projects\\the-plan-dashboard\u0027 -Force -ErrorAction SilentlyContinue | Where-Object Name -notin \u0027node_modules\u0027,\u0027.git\u0027 | Select-Object Name\n\"--- src\"; Get-ChildItem \u0027D:\\_Anant\\20_Progress\\Projects\\the-plan-dashboard\\src\u0027 -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName.Substring(46) + \" [\" + $_.Length + \"]\" }\n\"--- plugin folder\"; Get-ChildItem \"$p\\.obsidian\\plugins\\the-plan-dashboard\" -ErrorAction SilentlyContinue | Select-Object Name,Length\n\"--- jarvis plan dir\"; Get-ChildItem \"$p\\20_Progress\" -Recurse -Directory -Depth 2 | ForEach-Object { $_.FullName.Substring($p.Length+1) }","description":"Survey The Plan\u0027s 30_Order, plugin repo, and progress dirs"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat package.json manifest.json && echo ---- && cat src/main.ts src/settings.ts src/core/config.ts src/core/model.ts && echo ---- && cat src/view/DashboardView.tsx src/ui/App.tsx src/ui/hooks.ts && git log --oneline 2>/dev/null | head -20`
+- `PowerShell`
+```powershell
+$p='D:\_Anant\20_Progress\Documents\The Plan'; Get-ChildItem "$p\30_Order" -Recurse -File | Where-Object { $_.FullName -notmatch '\\node_modules\\' } | ForEach-Object { $_.FullName.Substring($p.Length+1) + "  [" + $_.Length + "]" } | Select-Object -First 200
+"--- repo"; Get-ChildItem 'D:\_Anant\20_Progress\Projects\the-plan-dashboard' -Force -ErrorAction SilentlyContinue | Where-Object Name -notin 'node_modules','.git' | Select-Object Name
+"--- src"; Get-ChildItem 'D:\_Anant\20_Progress\Projects\the-plan-dashboard\src' -Recurse -File -ErrorAction SilentlyContinue | ForEach-Object { $_.FullName.Substring(46) + " [" + $_.Length + "]" }
+"--- plugin folder"; Get-ChildItem "$p\.obsidian\plugins\the-plan-dashboard" -ErrorAction SilentlyContinue | Select-Object Name,Length
+"--- jarvis plan dir"; Get-ChildItem "$p\20_Progress" -Recurse -Directory -Depth 2 | ForEach-Object { $_.FullName.Substring($p.Length+1) }
+```
+```
+30_Order\Standards\Jarvis Review.md  [9443]
+30_Order\Standards\Naming and Folder Map.md  [5279]
+30_Order\Standards\Note Types and Frontmatter.md  [2271]
+30_Order\Standards\The Plan Vault Architecture.md  [14764]
+30_Order\Standards\Agentic OS\Agent Standard.md  [5234]
+30_Order\Standards\Agentic OS\Agentic OS Standard.md  [9390]
+30_Order\Standards\Agentic OS\Hook Standard.md  [13626]
+30_Order\Standards\Agentic OS\Skill Standard.md  [6180]
+30_Order\Standards\Dashboards\Daily Note Schema.md  [8478]
+30_Order\Standards\Dashboards\Monthly Review.md  [8682]
+30_Order\Standards\Dashboards\Scheduled Review.md  [8088]
+30_Order\Standards\Dashboards\Streak Rule.md  [8438]
+30_Order\Standards\Dashboards\Weekly Review.md  [6741]
+30_Order\Standards\References\Reference - closeday.md  [2736]
+30_Order\Standards\References\Reference - daily-auditor.md  [1432]
+30_Order\Standards\References\Reference - daily-note-validator.md  [1870]
+30_Order\Standards\References\Reference - jarvis-dump.md  [2929]
+30_Order\Standards\References\Reference - monthly-review.md  [2579]
+30_Order\Standards\References\Reference - plan-cli.md  [4395]
+30_Order\Standards\References\Reference - review-analyst.md  [1537]
+30_Order\Standards\References\Reference - secrets-guard.md  [2024]
+30_Order\Standards\References\Reference - skeptic.md  [1156]
+30_Order\Standards\References\Reference - startday.md  [2622]
+30_Order\Standards\References\Reference - streak script.md  [1697]
+30_Order\Standards\References\Reference - the-plan-dashboard.md  [2093]
+30_Order\Standards\References\Reference - vault-curator.md  [2532]
+30_Order\Standards\References\Reference - weekly-review.md  [2423]
+30_Order\Standards\References\Reference - write-guard.md  [2150]
+30_Order\Standards\References\Tool Reference Template.md  [1409]
+30_Order\System\git-sync\plan-git-sync-silent.vbs  [728]
+30_Order\System\git-sync\plan-git-sync.ps1  [11728]
+30_Order\System\git-sync\register-plan-git-sync-task.ps1  [1629]
+30_Order\System\git-sync\logs\plan-git-sync.log  [274780]
+30_Order\System\plan-cli\plan-cli.cjs  [46388]
+30_Order\System\streak\QuickAdd Setup.md  [5258]
+30_Order\System\streak\streak.py  [3698]
+30_Order\System\streak\test_streak.py  [9579]
+30_Order\System\streak\fixtures\sample\2026-03-01.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-02.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-03.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-04.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-05.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-07.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-08.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-09.md  [1171]
+30_Order\System\streak\fixtures\sample\2026-03-10.md  [1171]
+30_Order\System\streak\fixtures\sample\expected.json  [162]
+30_Order\Templates\MOC.md  [685]
+30_Order\Templates\AI\Review.md  [0]
+30_Order\Templates\Classes\Class Board Template.md  [146]
+30_Order\Templates\Classes\Concept Template.md  [355]
+30_Order\Templates\Classes\Discussion Template.md  [211]
+30_Order\Templates\Classes\Exam Sheet Template.md  [122]
+30_Order\Templates\Classes\Homework Template.md  [317]
+30_Order\Templates\Classes\Lab Template.md  [256]
+30_Order\Templates\Classes\Project Template.md  [344]
+30_Order\Templates\Classes\Textbook Template.md  [153]
+30_Order\Templates\Classes\Week Template.md  [413]
+30_Order\Templates\Daily Dashboard\Better Month.md  [536]
+30_Order\Templates\Daily Dashboard\Better Today.md  [2851]
+30_Order\Templates\Daily Dashboard\Better Week.md  [603]
+30_Order\Templates\Daily Dashboard\Better Year.md  [211]
+30_Order\Templates\Daily Dashboard\Daily Note.md  [1640]
+30_Order\Templates\Metadata\For Brainstorm.md  [91]
+30_Order\Templates\Metadata\For Classes.md  [90]
+30_Order\Templates\Metadata\For Evergreen.md  [68]
+30_Order\Templates\Metadata\For Everything.md  [164]
+30_Order\Templates\Metadata\For Inputs.md  [104]
+30_Order\Templates\Metadata\For Progress.md  [86]
+30_Order\Templates\Metadata\For Thoughts.md  [128]
+30_Order\Workflows\Daily Dashboard.md  [8385]
+30_Order\Workflows\Jarvis Move.md  [6364]
+30_Order\Workflows\Run Monthly Review.md  [4587]
+30_Order\Workflows\Run Weekly Review.md  [3891]
+30_Order\Workflows\Agentic OS\Agentic OS.md  [5913]
+30_Order\Workflows\Agentic OS\How to Use Agents.md  [4002]
+30_Order\Workflows\Agentic OS\How to Use Plugins.md  [5177]
+30_Order\Workflows\Agentic OS\How to Use Skills.md  [5313]
+--- repo
+
+Name
+----
+.preview-out
+.test-out
+dist
+scripts
+src
+tests
+.gitignore
+esbuild.config.mjs
+main.js
+manifest.json
+package-lock.json
+package.json
+styles.css
+tsconfig.json
+version-bump.mjs
+versions.json
+--- src
+ard\src\main.ts [2136]
+ard\src\settings.ts [942]
+ard\src\cli\common.ts [1156]
+ard\src\cli\plan-cli.ts [11448]
+ard\src\cli\streak-cli.ts [627]
+ard\src\core\close.ts [3066]
+ard\src\core\config.ts [1925]
+ard\src\core\dates.ts [833]
+ard\src\core\grade.ts [484]
+ard\src\core\jarvis.ts [6128]
+ard\src\core\model.ts [2706]
+ard\src\core\parse.ts [1269]
+ard\src\core\periods.ts [2559]
+ard\src\core\review.ts [7212]
+ard\src\core\sections.ts [2185]
+ard\src\core\streak.ts [2506]
+ard\src\core\tables.ts [1001]
+ard\src\core\toggle.ts [1030]
+ard\src\core\validate.ts [3757]
+ard\src\data\repo.ts [2207]
+ard\src\data\write.ts [780]
+ard\src\hooks\dailyValidator.ts [2089]
+ard\src\hooks\paths.ts [1567]
+ard\src\hooks\secretsGuard.ts [3752]
+ard\src\hooks\types.ts [783]
+ard\src\hooks\writeGuard.ts [3957]
+ard\src\ui\App.tsx [2488]
+ard\src\ui\charts.tsx [2924]
+ard\src\ui\hooks.ts [1802]
+ard\src\ui\sections.tsx [9942]
+ard\src\ui\styles.ts [4051]
+ard\src\view\DashboardView.tsx [3283]
+--- plugin folder
+main.js
+manifest.json
+styles.css
+--- jarvis plan dir
+20_Progress\AI
+20_Progress\Career
+20_Progress\Mentorship Program
+20_Progress\Projects
+20_Progress\UROP
+20_Progress\AI\Claude
+20_Progress\AI\Cursor
+20_Progress\AI\Kiro
+20_Progress\Career\Career Fair
+20_Progress\Career\Entrepreneur
+20_Progress\Career\Internship
+20_Progress\Mentorship Program\Ahnaf
+20_Progress\Mentorship Program\Jesse
+20_Progress\Mentorship Program\Ahnaf\Meetings
+20_Progress\Projects\AI Second Brain
+20_Progress\Projects\CS
+20_Progress\Projects\Extra
+20_Progress\Projects\CS\Hackathons
+20_Progress\UROP\Learning
+20_Progress\UROP\Mocks
+20_Progress\UROP\Presentation Assets
+20_Progress\UROP\Rust
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat package.json manifest.json && echo ---- && cat src/main.ts src/settings.ts src/core/config.ts src/core/model.ts && echo ---- && cat src/view/DashboardView.tsx src/ui/App.tsx src/ui/hooks.ts && git log --oneline 2>/dev/null | head -20
+```
 ```
 {
 	"name": "the-plan-dashboard",
@@ -1686,7 +1962,10 @@ a65a4ba Secrets guard: a bare word is not a file name
 b744ba1 Dashboard plugin: engine, React view, tests
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat src/ui/sections.tsx | head -150 && echo ---- && cat src/ui/styles.ts | head -80 && ls tests scripts dist`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat src/ui/sections.tsx | head -150 && echo ---- && cat src/ui/styles.ts | head -80 && ls tests scripts dist
+```
 ```
 import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import { CATEGORY_LABEL } from "../core/config";
@@ -1943,8 +2222,11 @@ ui.test.tsx
 validate.test.ts
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "30_Order/Workflows/Daily Dashboard.md" "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Standards/References/Reference - the-plan-dashboard.md" "30_Order/Standards/References/Reference - plan-cli.md"; do echo "=================== $f"; cat "$f"; done; echo; grep -n "^#" "40_Resources/Obsidian/Dashboards/Dashboard Build/Plugin Build Prompts.md" | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "30_Order/Workflows/Daily Dashboard.md" "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Standards/References/Reference - the-plan-dashboard.md" "30_Order/Standards/References/Reference - plan-cli.md"; do echo "=================== $f"; cat "$f"; done; echo; grep -n "^#" "40_Resources/Obsidian/Dashboards/Dashboard Build/Plugin Build Prompts.md" | head -60
 ```
+````
 =================== 30_Order/Workflows/Daily Dashboard.md
 ---
 type: evergreen
@@ -2389,8 +2671,11 @@ Reads text only, so a daily note must use the `[cat:: x]` field. It cannot repor
 185:## Prompt 5: Wire, verify and ship
 213:## After the five prompts
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && ls -la && wc -c "10-25 Dashboard plugin build review.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && ls -la && wc -c "10-25 Dashboard plugin build review.md"`
 ```
 total 1973
 drwxr-xr-x 1 anant 197609      0 Oct 25 20:18 .
@@ -2421,7 +2706,10 @@ drwxr-xr-x 1 anant 197609      0 Oct 25 20:18 .exported
 lrwxrwxrwx 1 anant 197609     72 Oct 17 21:07 _raw_jsonl -> /c/Users/anant/.claude/projects/[REDACTED]
 242278 10-25 Dashboard plugin build review.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && head -c 3000 "10-25 Dashboard plugin build review.md"; echo; echo ======; grep -n "^## \|^### " "10-25 Dashboard plugin build review.md" | head -80`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && head -c 3000 "10-25 Dashboard plugin build review.md"; echo; echo ======; grep -n "^## \|^### " "10-25 Dashboard plugin build review.md" | head -80
+```
 ```
 ﻿---
 type: input
@@ -2569,8 +2857,80 @@ Key finding: the built plugin
 2788:## What did not ship
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude\The Plan\10-25 Dashboard plugin build review.md`
-- `PowerShell` -- `{"command":"$p=\u0027D:\\_Anant\\20_Progress\\Documents\\The Plan\u0027; \"--- daily\"; Get-ChildItem \"$p\\00_Live\\Enumerate\\Daily\" -File | Sort-Object LastWriteTime -Descending | Select-Object -First 8 Name,Length,LastWriteTime | Format-Table -AutoSize | Out-String\n\"--- claude\"; Get-ChildItem \"$p\\.claude\" -Recurse -File -Depth 3 | Where-Object FullName -notmatch \u0027node_modules\u0027 | ForEach-Object { $_.FullName.Substring($p.Length+1) }\n\"--- git\"; git -C $p log --oneline -8\n\"--- dashboards dirs\"; Get-ChildItem \"$p\\40_Resources\\Obsidian\\Dashboards\" -Directory | Select-Object Name\n\"--- plans\"; Get-ChildItem \"$p\\00_Live\\Tracking\\Plans\" -Recurse -File | ForEach-Object { $_.FullName.Substring($p.Length+1) }\n\"--- plugin deployed\"; Get-ChildItem \"$p\\.obsidian\\plugins\\the-plan-dashboard\" | Select-Object Name,Length,LastWriteTime\n\"--- ws\"; Get-Content \"$p\\.obsidian\\plugins\\homepage\\data.json\" -ErrorAction SilentlyContinue | Select-String -Pattern \u0027value|kind|command\u0027 | Select-Object -First 5","description":"Check current state of The Plan vault"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls -la Daily; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan" && ls -la; echo; cat "Builds - Jarvis/Builds - Jarvis.md"; echo =====; cat "Builds - Jarvis/Jarvis Current State - 2026-10-17.md"`
+- `PowerShell`
+```powershell
+$p='D:\_Anant\20_Progress\Documents\The Plan'; "--- daily"; Get-ChildItem "$p\00_Live\Enumerate\Daily" -File | Sort-Object LastWriteTime -Descending | Select-Object -First 8 Name,Length,LastWriteTime | Format-Table -AutoSize | Out-String
+"--- claude"; Get-ChildItem "$p\.claude" -Recurse -File -Depth 3 | Where-Object FullName -notmatch 'node_modules' | ForEach-Object { $_.FullName.Substring($p.Length+1) }
+"--- git"; git -C $p log --oneline -8
+"--- dashboards dirs"; Get-ChildItem "$p\40_Resources\Obsidian\Dashboards" -Directory | Select-Object Name
+"--- plans"; Get-ChildItem "$p\00_Live\Tracking\Plans" -Recurse -File | ForEach-Object { $_.FullName.Substring($p.Length+1) }
+"--- plugin deployed"; Get-ChildItem "$p\.obsidian\plugins\the-plan-dashboard" | Select-Object Name,Length,LastWriteTime
+"--- ws"; Get-Content "$p\.obsidian\plugins\homepage\data.json" -ErrorAction SilentlyContinue | Select-String -Pattern 'value|kind|command' | Select-Object -First 5
+```
+```
+--- daily
+
+Name          Length LastWriteTime
+----          ------ -------------
+25-10-2026.md      0 10/25/2026 5:42:58 PM
+19-10-2026.md   4170 10/19/2026 10:52:18 PM
+2025-12-24.md    606 10/13/2026 12:29:19 AM
+2025-12-22.md   1250 10/13/2026 12:29:19 AM
+2026-03-17.md    608 10/13/2026 12:29:19 AM
+2026-10-12.md   2308 10/12/2026 4:27:07 PM
+2026-10-05.md   2997 10/5/2026 4:24:11 PM
+2026-09-26.md   1503 9/26/2026 6:25:08 PM
+
+
+--- claude
+.claude\settings.json
+.claude\agents\career-operator.md
+.claude\agents\research-distiller.md
+.claude\agents\vault-curator.md
+.claude\skills\closeday.md
+.claude\skills\connect-notes.md
+.claude\skills\context.md
+.claude\skills\distill-note.md
+.claude\skills\ingest-clipping.md
+.claude\skills\lint-claude-layer.md
+.claude\skills\organize-csci2033.md
+.claude\skills\today.md
+.claude\skills\trace-topic.md
+.claude\skills\weekly-review.md
+.claude\skills\copilot-fetch-x\SKILL.md
+.claude\skills\copilot-web-fetch\SKILL.md
+.claude\skills\copilot-web-search\SKILL.md
+.claude\skills\copilot-youtube-transcript\SKILL.md
+.claude\skills\openartifacts-publish\SKILL.md
+.claude\skills\openartifacts-publish\themes\research-memo.md
+--- git
+1e990ba auto-sync: 2026-10-26 12:18 | 1 files
+1afcd91 auto-sync: 2026-10-25 20:23 | 4 files
+d381643 auto-sync: 2026-10-25 20:08 | 1 files
+b8a1c14 auto-sync: 2026-10-25 18:53 | 1 files
+96f2547 auto-sync: 2026-10-25 18:38 | 1 files
+0dbb873 auto-sync: 2026-10-25 17:53 | 3 files
+7749fff auto-sync: 2026-10-20 08:38 | 1 files
+ad9056a auto-sync: 2026-10-19 16:53 | 1 files
+--- dashboards dirs
+
+Name
+----
+Daily
+Dashboard Build
+--- plans
+00_Live\Tracking\Plans\Summer Grind.md
+00_Live\Tracking\Plans\Winter Break.md
+--- plugin deployed
+main.js
+manifest.json
+styles.css
+--- ws
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls -la Daily; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan" && ls -la; echo; cat "Builds - Jarvis/Builds - Jarvis.md"; echo =====; cat "Builds - Jarvis/Jarvis Current State - 2026-10-17.md"
+```
 ```
 total 4
 drwxr-xr-x 1 anant 197609 0 Oct 12 20:43 .
@@ -2702,8 +3062,11 @@ Historical anchors are [[Cross-Laptop Sync - Build 12 Findings]], [[Cross-Laptop
 - [ ] Which runtime should each task use, and which paths are portable configuration versus machine-local state?
 - [ ] Which paused workflows should resume first once their own gates pass?
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "=== closeday ref"; cat .claude/skills/closeday/reference.md; echo "=== startday ref"; cat .claude/skills/startday/reference.md; echo "=== diff agents vs claude"; diff -rq .claude/skills/startday .agents/skills/startday; diff -rq .claude/skills/closeday .agents/skills/closeday; echo "=== agent"; cat .claude/agents/daily-operator.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "=== closeday ref"; cat .claude/skills/closeday/reference.md; echo "=== startday ref"; cat .claude/skills/startday/reference.md; echo "=== diff agents vs claude"; diff -rq .claude/skills/startday .agents/skills/startday; diff -rq .claude/skills/closeday .agents/skills/closeday; echo "=== agent"; cat .claude/agents/daily-operator.md
 ```
+````
 === closeday ref
 # closeday — reference
 
@@ -2888,8 +3251,10 @@ Reads task/plan state; does not write vault-wide content (that's `human-operator
 
 ## Status
 Scaffold — purpose and boundaries are real, the day-to-day operating procedure (what exactly `/startday`/`/closeday` should hand off to this agent vs. run inline) is not yet built out. Consult `https://platform.claude.com/llms.txt` before finalizing this agent's own settings/tool list, per `second-brain-claudekit`'s `60_Claude/vault-rules/anthropic-docs-reference.md` convention — that repo is the source of truth for how Claude Code agents should be configured.
-```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && python -c "
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && python -c "
 import json
 t=json.load(open('plugins/templater-obsidian/data.json'))
 print({k:t[k] for k in t if k in ('trigger_on_file_creation','templates_folder','auto_jump_to_cursor','enable_folder_templates','folder_templates','enable_file_templates')})
@@ -2897,7 +3262,8 @@ p=json.load(open('plugins/periodic-notes/data.json'))
 print(json.dumps({k:p[k] for k in ('daily','weekly','monthly') if k in p},indent=1))
 d=json.load(open('plugins/dataview/data.json'))
 print({k:d[k] for k in d if 'avascript' in k or 'nline' in k or 'refresh' in k.lower()})
-" 2>&1 | head -60; grep -n "legacy_match\|optional_headings\|required_keys" ../30_Order/System/vault-lint/vault-lint.js | head -20`
+" 2>&1 | head -60; grep -n "legacy_match\|optional_headings\|required_keys" ../30_Order/System/vault-lint/vault-lint.js | head -20
+```
 ```
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 169:    for (const lm of s.legacy_match || []) {
@@ -2905,7 +3271,9 @@ Python was not found; run without arguments to install from the Microsoft Store,
 383:        for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
 386:        const allowed = new Set([...want, ...(s.optional_headings || []).map(norm)]);
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e "
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e "
 const f=(p)=>JSON.parse(require('fs').readFileSync(p,'utf8'));
 const t=f('.obsidian/plugins/templater-obsidian/data.json');
 console.log('templater',{trigger:t.trigger_on_file_creation,folder:t.templates_folder,folderTemplates:t.enable_folder_templates,ft:t.folder_templates});
@@ -2913,8 +3281,9 @@ const p=f('.obsidian/plugins/periodic-notes/data.json');
 console.log('periodic',JSON.stringify({daily:p.daily,weekly:p.weekly}));
 const d=f('.obsidian/plugins/dataview/data.json');
 console.log('dataview',Object.fromEntries(Object.entries(d).filter(([k])=>/avascript|nline|refresh/i.test(k))));
-"; sed -n 160,180p 30_Order/System/vault-lint/vault-lint.js; sed -n 220,240p 30_Order/System/vault-lint/vault-lint.js; sed -n 375,395p 30_Order/System/vault-lint/vault-lint.js; grep -ln "<% tp" 10_Areas/Life/Enumerate/Daily/*.md`
+"; sed -n 160,180p 30_Order/System/vault-lint/vault-lint.js; sed -n 220,240p 30_Order/System/vault-lint/vault-lint.js; sed -n 375,395p 30_Order/System/vault-lint/vault-lint.js; grep -ln "<% tp" 10_Areas/Life/Enumerate/Daily/*.md
 ```
+````
 templater {
   trigger: undefined,
   folder: '30_Order/Templates',
@@ -3027,9 +3396,12 @@ function legacyMatch(note, rel) {
 10_Areas/Life/Enumerate/Daily/2026-10-01.md
 10_Areas/Life/Enumerate/Daily/2026-10-18.md
 10_Areas/Life/Enumerate/Daily/2026-10-26.md
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 240,300p 30_Order/System/vault-lint/vault-lint.js; echo ====; grep -n "Better Today\|daily" "30_Order/Standards/Note Type Registry.md" 2>/dev/null | head; ls 30_Order/Standards | head -30; for f in 10_Areas/Life/Enumerate/Daily/2026-09-19.md 10_Areas/Life/Enumerate/Daily/2026-10-18.md; do echo "-- $f"; grep -n "<% tp" "$f"; done
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 240,300p 30_Order/System/vault-lint/vault-lint.js; echo ====; grep -n "Better Today\|daily" "30_Order/Standards/Note Type Registry.md" 2>/dev/null | head; ls 30_Order/Standards | head -30; for f in 10_Areas/Life/Enumerate/Daily/2026-09-19.md 10_Areas/Life/Enumerate/Daily/2026-10-18.md; do echo "-- $f"; grep -n "<% tp" "$f"; done`
-```
+````
         if (kt === 'bool' && !/^(true|false)$/.test(e.raw)) add(1, 'bad-bool:' + k);
         if (kt === 'wikilink' && !/^"\[\[.*\]\]"$/.test(e.raw)) add(1, 'bad-wikilink:' + k);
       }
@@ -3115,7 +3487,7 @@ System Component Standard.md
 -- 10_Areas/Life/Enumerate/Daily/2026-10-18.md
 6:created: <% tp.date.now("YYYY-MM-DD") %>
 7:updated: <% tp.date.now("YYYY-MM-DD") %>
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Enumerate\Better Today.md`
 ```
 ---
@@ -3179,7 +3551,7 @@ floors_done: 0
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Operations\Daily Note Standard.md`
-```
+````
 ---
 type: system
 status: sprout
@@ -3299,7 +3671,7 @@ Appended by `/closeday`: a scorecard of the plan's tracks, `Day Status` GREEN or
 ## Gold Standard Example
 None yet: no daily has been closed in this shape. The first daily made from [[Better Today]] and closed with `/closeday` should be named here. The closest in the old shape is [[2026-10-05]], a filled Morning Plan with a named blocker and a deadline callout.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Operations\Daily Close Loop.md`
 ```
 ---
@@ -3446,7 +3818,7 @@ Output the compact block from [reference.md §2](reference.md), including the op
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\startday\reference.md`
-```
+````
 # startday - reference
 
 Loaded on demand from SKILL.md. Contents:
@@ -3554,8 +3926,11 @@ Note updated: [[10_Areas/Life/Enumerate/Daily/YYYY-MM-DD]]
 Dashboard updated: [[00_Dashboard]]
 ```
 
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && sed -n 1,80p 2026-10-12.md; grep -n "Systems" -A12 "../../Plans/Fall 2026/Fall 2026 Plan.md" | head -30
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && sed -n 1,80p 2026-10-12.md; grep -n "Systems" -A12 "../../Plans/Fall 2026/Fall 2026 Plan.md" | head -30`
 ```
 ---
 type: thought
@@ -3652,7 +4027,7 @@ ac_class: false
 116-- **2026-09-07 (later same day)**: Build scope clarified for TradingView (basic UI, self-improving ingestion, market-niche strategy), Portfolio v2→v3/blog, and a new Jarvis automations project (Gmail/GCal/mobile-to-Obsidian) - written up in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]]. Arc dropped from carried-over status.
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\closeday\SKILL.md`
-```
+````
 ---
 name: closing-day
 description: Verifies today's plan from the toggles, the calendar and the weekly Goals, records every broken promise as a Daily Loses line, writes the tracking frontmatter and the scorecard into the daily note, and clears the dashboard focus lines for tomorrow. Use at the end of each working day.
@@ -3757,9 +4132,9 @@ Append the closeday entry to `60_Claude/07_AI_Information/Session Logs/log.md` u
 - Never write to the calendar. A missed block is a Lose and, if the user wants it moved, a separate step under the calendar guide's rules.
 - Steps 4 and 6 touch frontmatter keys only. Step 5 only appends lines.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\closeday\reference.md`
-```
+````
 # closeday - reference
 
 Loaded on demand from SKILL.md. Contents:
@@ -3836,7 +4211,7 @@ Rules:
 - A toggle that was never meant for the day (a rest day) is not a Lose. The user says so in Step 3 and the toggle stays false with no line.
 - A day with no Loses is written as no lines. Say "No promises slipped" in the chat summary only after all three sources were checked.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\commands\startday.md`
 ```
 ---
@@ -3856,14 +4231,17 @@ Read `.claude/skills/closeday/SKILL.md` and execute every step exactly as writte
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\agents\daily-operator.md`
 ```diff
 - ## Status
-Scaffold — purpose and boundaries are real, the day-to-day operating procedure (what exactly `/startday`/`/closeday` should hand off to this agent vs. run inline) is not yet built out. Consult
+- Scaffold — purpose and boundaries are real, the day-to-day operating procedure (what exactly `/startday`/`/closeday` should hand off to this agent vs. run inline) is not yet built out. Consult
 + ## Daily Loses
-Treats an open Lose as the first thing to report, ahead of anything upcoming. A Lose is a task line under `## Daily Loses` in a daily note (`[ ]` open, `[>]` carried, `[x]` made up, `[-]` dropped), with `since` giving its age. Reports the count, the oldest age, and the `from` that produces the most of them. Never writes a `why` or a `fix` for Anant. The rules are in [[Daily Note Standard]] and the loop is [[Daily Close Loop]].
-
-## Status
-The Loses check above is real. The hand-off of `/startday` and `/closeday` steps to this agent (versus running inline) is not yet built out. Consult
++ Treats an open Lose as the first thing to report, ahead of anything upcoming. A Lose is a task line under `## Daily Loses` in a daily note (`[ ]` open, `[>]` carried, `[x]` made up, `[-]` dropped), with `since` giving its age. Reports the count, the oldest age, and the `from` that produces the most of them. Never writes a `why` or a `fix` for Anant. The rules are in [[Daily Note Standard]] and the loop is [[Daily Close Loop]].
++ 
++ ## Status
++ The Loses check above is real. The hand-off of `/startday` and `/closeday` steps to this agent (versus running inline) is not yet built out. Consult
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets" && ls; grep -n "^\.\|^  \.\|^body" dashboard.css | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets" && ls; grep -n "^\.\|^  \.\|^body" dashboard.css | head -60
+```
 ```
 dashboard.css
 headerspace.css
@@ -3910,7 +4288,10 @@ readingview.css
 176:.canvas-node-content-blocker,
 177:.canvas-node:not(.is-focused):not(.is-selected) .canvas-node-container {
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets" && sed -n 44,60p dashboard.css; sed -n 102,123p dashboard.css`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets" && sed -n 44,60p dashboard.css; sed -n 102,123p dashboard.css
+```
 ```
 /* ── Stat tile grid ── */
 .stat-grid {
@@ -3954,216 +4335,219 @@ readingview.css
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
 ```diff
 - updated: 2026-10-09
-tags:
-  - dashboard
-  - daily
-cssclasses:
-  - dashboard
-today_focus: Close the Main Cover Letter.md blocker and send the first
-  real application; CSCI 4061 Midterm 1 is Thursday 10/8
-today_80: Build Main Cover Letter.md's bullet bank for real and move
-  Uber - 2027 SWE Intern from Current/ to Applied/
-today_20: LeetCode/CodePath ≥5 (Google rotation, TIP103 Unit 1), start
-  CSCI 4061 Midterm 1 review (due 10/8), run /closeday
-lc_today: 0
-study_today: 4
-wins_done: 4
-notes:
+- tags:
+-   - dashboard
+-   - daily
+- cssclasses:
+-   - dashboard
+- today_focus: Close the Main Cover Letter.md blocker and send the first
+-   real application; CSCI 4061 Midterm 1 is Thursday 10/8
+- today_80: Build Main Cover Letter.md's bullet bank for real and move
+-   Uber - 2027 SWE Intern from Current/ to Applied/
+- today_20: LeetCode/CodePath ≥5 (Google rotation, TIP103 Unit 1), start
+-   CSCI 4061 Midterm 1 review (due 10/8), run /closeday
+- lc_today: 0
+- study_today: 4
+- wins_done: 4
+- notes:
 + updated: 2026-10-26
-tags:
-  - dashboard
-  - daily
-cssclasses:
-  - dashboard
-today_focus: ""
-today_80: ""
-today_20: ""
-notes:
++ tags:
++   - dashboard
++   - daily
++ cssclasses:
++   - dashboard
++ today_focus: ""
++ today_80: ""
++ today_20: ""
++ notes:
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
-```diff
+````diff
 - ```dataviewjs
-const curr = dv.current();
-const lc = curr.lc_today ?? 0;
-const wins = curr.wins_done ?? 0;
-const study = curr.study_today ?? 0;
-const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
-const winsClass = wins >= 5 ? 'green' : wins >= 3 ? 'yellow' : '';
-const container = dv.el('div', '', {cls: 'stat-grid'});
-container.innerHTML = `
-  <div class="stat-tile ${lcClass}">
-    <div class="stat-label">LeetCode Today</div>
-    <div class="stat-value">${lc}</div>
-    <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target ≥5</div>
-  </div>
-  <div class="stat-tile ${winsClass}">
-    <div class="stat-label">5-Wins</div>
-    <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/5</span></div>
-    <div class="stat-delta ${wins >= 5 ? 'positive' : wins >= 3 ? 'neutral' : 'negative'}">${wins >= 5 ? '✓ GREEN' : wins >= 3 ? 'in progress' : 'behind'}</div>
-  </div>
-  <div class="stat-tile">
-    <div class="stat-label">Study Hours</div>
-    <div class="stat-value">${study}h</div>
-    <div class="stat-delta neutral">today</div>
-  </div>
-`;
-```
+- const curr = dv.current();
+- const lc = curr.lc_today ?? 0;
+- const wins = curr.wins_done ?? 0;
+- const study = curr.study_today ?? 0;
+- const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
+- const winsClass = wins >= 5 ? 'green' : wins >= 3 ? 'yellow' : '';
+- const container = dv.el('div', '', {cls: 'stat-grid'});
+- container.innerHTML = `
+-   <div class="stat-tile ${lcClass}">
+-     <div class="stat-label">LeetCode Today</div>
+-     <div class="stat-value">${lc}</div>
+-     <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target ≥5</div>
+-   </div>
+-   <div class="stat-tile ${winsClass}">
+-     <div class="stat-label">5-Wins</div>
+-     <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/5</span></div>
+-     <div class="stat-delta ${wins >= 5 ? 'positive' : wins >= 3 ? 'neutral' : 'negative'}">${wins >= 5 ? '✓ GREEN' : wins >= 3 ? 'in progress' : 'behind'}</div>
+-   </div>
+-   <div class="stat-tile">
+-     <div class="stat-label">Study Hours</div>
+-     <div class="stat-value">${study}h</div>
+-     <div class="stat-delta neutral">today</div>
+-   </div>
+- `;
+- ```
 + ```dataviewjs
-// Every number here is read from today's daily note. Nothing is stored on this page.
-const DAILY = "10_Areas/Life/Enumerate/Daily";
-const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
-const p = dv.page(`${DAILY}/${todayStr}`);
-const count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);
-const lc = Number(p?.lc_count ?? 0);
-const study = Number(p?.study_today ?? 0);
-const wins = count(["win_project", "win_career", "win_cleanup", "win_review"]);
-const floor = count(["floor_1", "floor_2", "floor_3"]);
-const open = dv.pages(`"${DAILY}"`).file.tasks
-  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses")).length;
-const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
-const winsClass = wins >= 4 ? 'green' : wins >= 2 ? 'yellow' : '';
-const floorClass = floor >= 3 ? 'green' : floor >= 1 ? 'yellow' : '';
-const losesClass = open === 0 ? 'green' : open > 3 ? 'red' : 'yellow';
-const container = dv.el('div', '', {cls: 'stat-grid'});
-container.innerHTML = `
-  <div class="stat-tile ${winsClass}">
-    <div class="stat-label">Wins</div>
-    <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/4</span></div>
-    <div class="stat-delta ${wins >= 4 ? 'positive' : wins >= 2 ? 'neutral' : 'negative'}">${wins >= 4 ? 'all four' : 'toggles ticked'}</div>
-  </div>
-  <div class="stat-tile ${floorClass}">
-    <div class="stat-label">Floor</div>
-    <div class="stat-value">${floor}<span style="font-size:0.85rem;opacity:0.6">/3</span></div>
-    <div class="stat-delta ${floor >= 3 ? 'positive' : floor >= 1 ? 'neutral' : 'negative'}">${floor >= 3 ? 'floor held' : 'toggles ticked'}</div>
-  </div>
-  <div class="stat-tile ${lcClass}">
-    <div class="stat-label">Problems</div>
-    <div class="stat-value">${lc}</div>
-    <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target 5</div>
-  </div>
-  <div class="stat-tile">
-    <div class="stat-label">Study Hours</div>
-    <div class="stat-value">${study}h</div>
-    <div class="stat-delta neutral">today</div>
-  </div>
-  <div class="stat-tile ${losesClass}">
-    <div class="stat-label">Open Loses</div>
-    <div class="stat-value">${open}</div>
-    <div class="stat-delta ${open === 0 ? 'positive' : 'negative'}">${open === 0 ? 'none slipped' : 'not made up'}</div>
-  </div>
-`;
-if (!p) dv.paragraph("No daily note for today yet. Run /startday.");
-```
-```
++ // Every number here is read from today's daily note. Nothing is stored on this page.
++ const DAILY = "10_Areas/Life/Enumerate/Daily";
++ const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
++ const p = dv.page(`${DAILY}/${todayStr}`);
++ const count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);
++ const lc = Number(p?.lc_count ?? 0);
++ const study = Number(p?.study_today ?? 0);
++ const wins = count(["win_project", "win_career", "win_cleanup", "win_review"]);
++ const floor = count(["floor_1", "floor_2", "floor_3"]);
++ const open = dv.pages(`"${DAILY}"`).file.tasks
++   .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses")).length;
++ const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
++ const winsClass = wins >= 4 ? 'green' : wins >= 2 ? 'yellow' : '';
++ const floorClass = floor >= 3 ? 'green' : floor >= 1 ? 'yellow' : '';
++ const losesClass = open === 0 ? 'green' : open > 3 ? 'red' : 'yellow';
++ const container = dv.el('div', '', {cls: 'stat-grid'});
++ container.innerHTML = `
++   <div class="stat-tile ${winsClass}">
++     <div class="stat-label">Wins</div>
++     <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/4</span></div>
++     <div class="stat-delta ${wins >= 4 ? 'positive' : wins >= 2 ? 'neutral' : 'negative'}">${wins >= 4 ? 'all four' : 'toggles ticked'}</div>
++   </div>
++   <div class="stat-tile ${floorClass}">
++     <div class="stat-label">Floor</div>
++     <div class="stat-value">${floor}<span style="font-size:0.85rem;opacity:0.6">/3</span></div>
++     <div class="stat-delta ${floor >= 3 ? 'positive' : floor >= 1 ? 'neutral' : 'negative'}">${floor >= 3 ? 'floor held' : 'toggles ticked'}</div>
++   </div>
++   <div class="stat-tile ${lcClass}">
++     <div class="stat-label">Problems</div>
++     <div class="stat-value">${lc}</div>
++     <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target 5</div>
++   </div>
++   <div class="stat-tile">
++     <div class="stat-label">Study Hours</div>
++     <div class="stat-value">${study}h</div>
++     <div class="stat-delta neutral">today</div>
++   </div>
++   <div class="stat-tile ${losesClass}">
++     <div class="stat-label">Open Loses</div>
++     <div class="stat-value">${open}</div>
++     <div class="stat-delta ${open === 0 ? 'positive' : 'negative'}">${open === 0 ? 'none slipped' : 'not made up'}</div>
++   </div>
++ `;
++ if (!p) dv.paragraph("No daily note for today yet. Run /startday.");
++ ```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
-```diff
+````diff
 - const lcTotal = pages.values.reduce((a,p) => a + (p.lc_count || 0), 0);
-const studyTotal = pages.values.reduce((a,p) => a + (p.study_today || 0), 0);
-const winsTotal = pages.values.reduce((a,p) => a + (p.wins_done || 0), 0);
-const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
-  .where(p => {
-    const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
-    return p.file.ctime >= monday;
-  }).length;
-dv.paragraph(`**LC:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal} · **Clippings this week:** ${clippings}`);
-```
-## Today's Priorities
-```dataview
-TASK
-FROM "10_Areas/Life/Enumerate/Daily"
-WHERE file.day = date(today) AND !completed
-LIMIT 8
-```
+- const studyTotal = pages.values.reduce((a,p) => a + (p.study_today || 0), 0);
+- const winsTotal = pages.values.reduce((a,p) => a + (p.wins_done || 0), 0);
+- const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
+-   .where(p => {
+-     const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
+-     return p.file.ctime >= monday;
+-   }).length;
+- dv.paragraph(`**LC:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal} · **Clippings this week:** ${clippings}`);
+- ```
+- ## Today's Priorities
+- ```dataview
+- TASK
+- FROM "10_Areas/Life/Enumerate/Daily"
+- WHERE file.day = date(today) AND !completed
+- LIMIT 8
+- ```
 + const tick = (p, keys) => keys.filter((k) => p[k] === true).length;
-const WINS = ["win_project", "win_career", "win_cleanup", "win_review"];
-const FLOORS = ["floor_1", "floor_2", "floor_3"];
-const lcTotal = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);
-const studyTotal = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);
-const winsTotal = pages.values.reduce((a,p) => a + tick(p, WINS), 0);
-const floorTotal = pages.values.reduce((a,p) => a + tick(p, FLOORS), 0);
-const days = pages.length;
-const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
-  .where(p => {
-    const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
-    return p.file.ctime >= monday;
-  }).length;
-dv.paragraph(`**Days with a note:** ${days}/7 · **Problems:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal}/${days * 4} · **Floor:** ${floorTotal}/${days * 3} · **Clippings this week:** ${clippings}`);
-```
-## Today's Priorities
-```dataviewjs
-// Open tasks in today's note, leaving out the Loses (they have their own list on the right).
-const t = dv.page(`10_Areas/Life/Enumerate/Daily/${dv.date("today").toFormat("yyyy-MM-dd")}`);
-const tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes("Daily Loses")) : [];
-if (tasks.length) dv.taskList(tasks.slice(0, 8), false);
-else dv.paragraph(t ? "Nothing open in today's note." : "No daily note for today yet.");
-```
-```
++ const WINS = ["win_project", "win_career", "win_cleanup", "win_review"];
++ const FLOORS = ["floor_1", "floor_2", "floor_3"];
++ const lcTotal = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);
++ const studyTotal = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);
++ const winsTotal = pages.values.reduce((a,p) => a + tick(p, WINS), 0);
++ const floorTotal = pages.values.reduce((a,p) => a + tick(p, FLOORS), 0);
++ const days = pages.length;
++ const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
++   .where(p => {
++     const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
++     return p.file.ctime >= monday;
++   }).length;
++ dv.paragraph(`**Days with a note:** ${days}/7 · **Problems:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal}/${days * 4} · **Floor:** ${floorTotal}/${days * 3} · **Clippings this week:** ${clippings}`);
++ ```
++ ## Today's Priorities
++ ```dataviewjs
++ // Open tasks in today's note, leaving out the Loses (they have their own list on the right).
++ const t = dv.page(`10_Areas/Life/Enumerate/Daily/${dv.date("today").toFormat("yyyy-MM-dd")}`);
++ const tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes("Daily Loses")) : [];
++ if (tasks.length) dv.taskList(tasks.slice(0, 8), false);
++ else dv.paragraph(t ? "Nothing open in today's note." : "No daily note for today yet.");
++ ```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
-```diff
+````diff
 - ## Daily Drivers
-```dataviewjs
-const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
-const todayPage = dv.pages('"10_Areas/Life/Enumerate/Daily"')
-  .where(p => p.file.name === todayStr).first();
-const done = (todayPage && Array.isArray(todayPage.habits_done)) ? todayPage.habits_done.length : 0;
-const total = 5;
-const pct = Math.round((done / total) * 100);
-const wrap = dv.el('div', '', {cls: 'progress-wrap'});
-wrap.innerHTML = `
-  <div class="progress-label">${done} / ${total} complete · ${pct}%</div>
-  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-`;
-```
-> [!todo] Habits — check off in today's note
-> - [ ] Move ≥1 company Current/ → Applied/
-> - [ ] LeetCode/CodePath ≥5
-> - [ ] Fall'26 class step (4511W / 4061 / 5304 / 4521 / MGMT 3015)
-> - [ ] Review — run /closeday
-
+- ```dataviewjs
+- const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
+- const todayPage = dv.pages('"10_Areas/Life/Enumerate/Daily"')
+-   .where(p => p.file.name === todayStr).first();
+- const done = (todayPage && Array.isArray(todayPage.habits_done)) ? todayPage.habits_done.length : 0;
+- const total = 5;
+- const pct = Math.round((done / total) * 100);
+- const wrap = dv.el('div', '', {cls: 'progress-wrap'});
+- wrap.innerHTML = `
+-   <div class="progress-label">${done} / ${total} complete · ${pct}%</div>
+-   <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+- `;
+- ```
+- > [!todo] Habits — check off in today's note
+- > - [ ] Move ≥1 company Current/ → Applied/
+- > - [ ] LeetCode/CodePath ≥5
+- > - [ ] Fall'26 class step (4511W / 4061 / 5304 / 4521 / MGMT 3015)
+- > - [ ] Review — run /closeday
+- 
 + ## Wins and Floor
-```dataviewjs
-// The Done toggles in today's note, counted live. Tick them in the note; they are the evidence /closeday uses.
-const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
-const p = dv.page(`10_Areas/Life/Enumerate/Daily/${todayStr}`);
-const bar = (label, keys) => {
-  const done = p ? keys.filter((k) => p[k] === true).length : 0;
-  const pct = Math.round((done / keys.length) * 100);
-  const wrap = dv.el('div', '', {cls: 'progress-wrap'});
-  wrap.innerHTML = `
-    <div class="progress-label">${label}: ${done} / ${keys.length} · ${pct}%</div>
-    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-  `;
-};
-bar("Daily Wins", ["win_project", "win_career", "win_cleanup", "win_review"]);
-bar("Daily Floor", ["floor_1", "floor_2", "floor_3"]);
-```
-## Daily Loses
-```dataviewjs
-// Every promise not yet made up, from every daily note. [x] made up, [>] carried and [-] dropped do not show.
-const DAILY = "10_Areas/Life/Enumerate/Daily";
-const open = dv.pages(`"${DAILY}"`).file.tasks
-  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses"));
-const today = dv.date("today");
-const age = (t) => {
-  const s = t.since ? String(t.since).slice(0, 10) : t.path.split("/").pop().replace(".md", "");
-  const d = dv.date(s);
-  return d ? Math.max(0, Math.floor(today.diff(d, "days").days)) : 0;
-};
-if (open.length === 0) {
-  dv.paragraph("No open Loses.");
-} else {
-  const sorted = open.sort((t) => age(t), "desc");
-  dv.paragraph(`**${sorted.length} open** · oldest ${age(sorted[0])} days`);
-  dv.taskList(sorted.slice(0, 8), false);
-}
-```
-
-```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e "
++ ```dataviewjs
++ // The Done toggles in today's note, counted live. Tick them in the note; they are the evidence /closeday uses.
++ const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
++ const p = dv.page(`10_Areas/Life/Enumerate/Daily/${todayStr}`);
++ const bar = (label, keys) => {
++   const done = p ? keys.filter((k) => p[k] === true).length : 0;
++   const pct = Math.round((done / keys.length) * 100);
++   const wrap = dv.el('div', '', {cls: 'progress-wrap'});
++   wrap.innerHTML = `
++     <div class="progress-label">${label}: ${done} / ${keys.length} · ${pct}%</div>
++     <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
++   `;
++ };
++ bar("Daily Wins", ["win_project", "win_career", "win_cleanup", "win_review"]);
++ bar("Daily Floor", ["floor_1", "floor_2", "floor_3"]);
++ ```
++ ## Daily Loses
++ ```dataviewjs
++ // Every promise not yet made up, from every daily note. [x] made up, [>] carried and [-] dropped do not show.
++ const DAILY = "10_Areas/Life/Enumerate/Daily";
++ const open = dv.pages(`"${DAILY}"`).file.tasks
++   .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses"));
++ const today = dv.date("today");
++ const age = (t) => {
++   const s = t.since ? String(t.since).slice(0, 10) : t.path.split("/").pop().replace(".md", "");
++   const d = dv.date(s);
++   return d ? Math.max(0, Math.floor(today.diff(d, "days").days)) : 0;
++ };
++ if (open.length === 0) {
++   dv.paragraph("No open Loses.");
++ } else {
++   const sorted = open.sort((t) => age(t), "desc");
++   dv.paragraph(`**${sorted.length} open** · oldest ${age(sorted[0])} days`);
++   dv.taskList(sorted.slice(0, 8), false);
++ }
++ ```
++ 
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e "
 const fs=require('fs');const s=fs.readFileSync('00_Dashboard.md','utf8');
 const re=/\`\`\`dataviewjs\n([\s\S]*?)\`\`\`/g;let m,i=0;
 while((m=re.exec(s))){i++;try{new (Object.getPrototypeOf(async function(){}).constructor)('dv',m[1]);console.log('block',i,'syntax ok');}catch(e){console.log('block',i,'ERR',e.message)}}
-"; head -14 00_Dashboard.md`
+"; head -14 00_Dashboard.md
+```
 ```
 block 1 syntax ok
 block 2 syntax ok
@@ -4248,11 +4632,14 @@ floors_done: 0
 **Study hours:** `INPUT[number:study_today]`
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && for f in 2026-09-19 2026-09-21 2026-09-29 2026-10-01 2026-10-18; do node -e "
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && for f in 2026-09-19 2026-09-21 2026-09-29 2026-10-01 2026-10-18; do node -e "
 const fs=require('fs');const f='$f.md';let s=fs.readFileSync(f,'utf8');
 const n=s.replace(/^(created|updated): <% tp\.date\.now\(\"YYYY-MM-DD\"\) %>\r?\$/gm,(m,k)=>k+': $f');
 fs.writeFileSync(f,n);console.log(f,s!==n?'fixed':'unchanged');
-"; done; grep -l "<% tp" *.md || echo "no placeholders left"; git -C ../../../.. diff --stat -- 10_Areas/Life/Enumerate/Daily | tail -8`
+"; done; grep -l "<% tp" *.md || echo "no placeholders left"; git -C ../../../.. diff --stat -- 10_Areas/Life/Enumerate/Daily | tail -8
+```
 ```
 2026-09-19.md fixed
 2026-09-21.md fixed
@@ -4268,8 +4655,11 @@ no placeholders left
  10_Areas/Life/Enumerate/Daily/2026-10-26.md | 24 +++++++++++++-----------
  6 files changed, 19 insertions(+), 17 deletions(-)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,40p "30_Order/System/vault-lint/Vault Lint.md" | head -60; node 30_Order/System/vault-lint/vault-lint.js --help 2>&1 | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,40p "30_Order/System/vault-lint/Vault Lint.md" | head -60; node 30_Order/System/vault-lint/vault-lint.js --help 2>&1 | head -20
 ```
+````
 ---
 type: system
 status: sprout
@@ -4328,8 +4718,11 @@ By family (fit / total, near-fit, failing checks):
   project                          2/90      2.2%  near    0  F1:88 F2:87 F3:6 F5:48 F6:88
   course-week                      0/89      0.0%  near    5  F1:84 F2:57 F3:35 F5:68 F6:83
   machine-runbook                  1/89      1.1%  near    0  F1:88 F2:88 F3:3 F5:68 F6:88
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close\|Better Today" | head -20; echo "--- specs"; node vault-lint.js --specs 2>&1 | grep -i daily; echo "--- daily family"; node vault-lint.js --family daily-note --list 10 2>&1 | head -30
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close\|Better Today" | head -20; echo "--- specs"; node vault-lint.js --specs 2>&1 | grep -i daily; echo "--- daily family"; node vault-lint.js --family daily-note --list 10 2>&1 | head -30`
 ```
 WARN  30_Order/Standards/Operations/Daily Note Standard.md  prose is 890 words (limit 700)
 WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
@@ -4376,12 +4769,18 @@ First 10 failing notes:
   10_Areas/Life/Enumerate/Daily/2026-08-01.md  [daily-note]  6:legacy-shape; 1:missing-key:updated; 1:missing-key:day_state; 1:hash-in-tags; 3:dead-body-links:1; 5:extra-blank-lines:10  DEAD: Summer Courses Ops
   10_Areas/Life/Enumerate/Daily/2026-08-03.md  [daily-note]  6:legacy-shape; 1:missing-key:updated; 1:missing-key:day_state; 1:hash-in-tags; 3:dead-body-links:1; 5:extra-blank-lines:11  DEAD: Summer Courses Ops
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "prose is\|words (limit" vault-lint.js | head; grep -n "function proseWords\|proseWords" vault-lint.js | head -3`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "prose is\|words (limit" vault-lint.js | head; grep -n "function proseWords\|proseWords" vault-lint.js | head -3
+```
 ```
 363:    if (words > 700) add('warn', f.rel, `prose is ${words} words (limit 700)`);
 429:    const words = (prose.match(/\S+/g) || []).length; if (words > 350) add('warn', f.rel, `workflow is ${words} words (limit 350)`);
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 355,364p vault-lint.js; sed -n 422,430p vault-lint.js`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 355,364p vault-lint.js; sed -n 422,430p vault-lint.js
+```
 ```
       if (fam && !isPolicy && s.family !== fam && specs.length === 1) add('error', f.rel, `frontmatter family "${fam}" differs from Spec family "${s.family}"`);
       if (registry && !regText.includes(s.family)) add('warn', f.rel, `family ${s.family} has no row in Note Type Registry`);
@@ -4447,24 +4846,26 @@ Do not fill End of Day from memory. Do not tick a toggle without evidence; write
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Enumerate\Better Today.md`
 ```diff
 - <!-- Fill from the weekly note's Goals and the active plan. Write 80 and 20 as: I will [BEHAVIOR] at [TIME] in [LOCATION]. -->
-*Goal*: ==You get to do==
-### 80 - The One Thing
-- [ ] 
-### 20 - Supporting Work
-- [ ] 
-### Blocks
-<!-- Today's events from the working calendar, one line each: time, then the deliverable. -->
-**Do NOT do today:**
+- *Goal*: ==You get to do==
+- ### 80 - The One Thing
+- - [ ] 
+- ### 20 - Supporting Work
+- - [ ] 
+- ### Blocks
+- <!-- Today's events from the working calendar, one line each: time, then the deliverable. -->
+- **Do NOT do today:**
 + <!-- From the weekly Goals. 80 and 20: I will [BEHAVIOR] at [TIME] in [LOCATION]. Blocks: today's calendar events, time then deliverable. -->
-*Goal*: ==You get to do==
-### 80 - The One Thing
-- [ ] 
-### 20 - Supporting Work
-- [ ] 
-### Blocks
-**Do NOT do today:**
++ *Goal*: ==You get to do==
++ ### 80 - The One Thing
++ - [ ] 
++ ### 20 - Supporting Work
++ - [ ] 
++ ### Blocks
++ **Do NOT do today:**
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF'
 const fs=require('fs');let s=fs.readFileSync('Daily Note Standard.md','utf8');
 const rep=(a,b)=>{ if(!s.includes(a)) throw new Error('missing: '+a.slice(0,50)); s=s.replace(a,b); };
 rep("This is the Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan and carries open Loses forward, `/closeday` counts the toggles and writes the Loses, and the note fits whether or not the day is ever closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].",
@@ -4490,7 +4891,8 @@ rep("Appended by `/closeday`: a scorecard of the plan's tracks, `Day Status` GRE
 "Appended by `/closeday`: a scorecard, `Day Status` GREEN or RED, `What Actually Happened` in two or three honest sentences, a `Friction Fix` when RED, and `Preview Tomorrow`. Never written from memory; an unclosed day stays `planned`.");
 fs.writeFileSync('Daily Note Standard.md',s);
 EOF
-cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close"`
+cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close"
+```
 ```
 WARN  30_Order/Standards/Operations/Daily Note Standard.md  prose is 770 words (limit 700)
 WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
@@ -4499,7 +4901,9 @@ WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Floo
 WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Productivity" has body text beyond a comment
 WARN  30_Order/Workflows/Operations/Daily Close Loop.md  workflow is 398 words (limit 350)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF'
 const fs=require('fs');let s=fs.readFileSync('Daily Note Standard.md','utf8');
 const rep=(a,b)=>{ if(!s.includes(a)) throw new Error('missing: '+a.slice(0,60)); s=s.replace(a,b); };
 rep("==A daily note is the day's plan first and its record second: the plan sections make it fit, and the toggles and Daily Loses keep the record honest.==","==A daily note is the day's plan first and its record second: the toggles and Daily Loses keep the record honest.==");
@@ -4518,12 +4922,15 @@ r2("8. An unclosed day stays `planned`. The next `/startday` carries its Loses. 
 r2("Do not fill End of Day from memory. Do not tick a toggle without evidence; write \"(unverified)\". Do not type `wins_done` or `floors_done`. Do not write a `why` for Anant. Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason. Do not write to the calendar from either skill.","Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence; write \"(unverified)\". Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason.");
 fs.writeFileSync('../../Workflows/Operations/Daily Close Loop.md',w);
 EOF
-cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"`
+cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"
+```
 ```
 WARN  30_Order/Standards/Operations/Daily Note Standard.md  prose is 716 words (limit 700)
 WARN  30_Order/Workflows/Operations/Daily Close Loop.md  workflow is 370 words (limit 350)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
 const fs=require('fs');
 let w=fs.readFileSync('Workflows/Operations/Daily Close Loop.md','utf8');
 const r=(a,b)=>{ if(!w.includes(a)) throw new Error('missing '+a.slice(0,50)); w=w.replace(a,b); };
@@ -4539,7 +4946,8 @@ q("> A heading that names the term (\"Fall Daily Floor\", \"Summer OS Checklist\
 q("> Leaving the template's empty checkbox unfilled. Five dailies are untouched shells.","> Leaving the template's empty checkbox unfilled.");
 fs.writeFileSync('Standards/Operations/Daily Note Standard.md',s);
 EOF
-cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today"; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26.md 2>&1 | head -12`
+cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today"; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26.md 2>&1 | head -12
+```
 ```
 WARN  30_Order/Standards/Operations/Daily Note Standard.md  prose is 703 words (limit 700)
 WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
@@ -4559,7 +4967,9 @@ By family (fit / total, near-fit, failing checks):
 Top failure reasons:
       1  5:extra-blank-lines
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
 const fs=require('fs');
 let w=fs.readFileSync('Workflows/Operations/Daily Close Loop.md','utf8');
 w=w.replace("Do not tick a toggle without evidence; write \"(unverified)\". ","Do not tick a toggle without evidence. ");
@@ -4569,18 +4979,25 @@ s=s.replace("Sources: a weekly Goal or Friday checkpoint not met, a calendar blo
 s=s.replace("The Standard for the note in `10_Areas/Life/Enumerate/Daily/`. ","The Standard for `10_Areas/Life/Enumerate/Daily/` notes. ");
 fs.writeFileSync('Standards/Operations/Daily Note Standard.md',s);
 EOF
-cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo done`
+cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo done
+```
 ```
 WARN  30_Order/Workflows/Operations/Daily Close Loop.md  workflow is 351 words (limit 350)
 done
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -i 's/6\. `\/closeday` (optional) reads/6. `\/closeday` reads/' Workflows/Operations/Daily\ Close\ Loop.md && cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo ok`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -i 's/6\. `\/closeday` (optional) reads/6. `\/closeday` reads/' Workflows/Operations/Daily\ Close\ Loop.md && cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo ok
+```
 ```
 ok
 [This command modified 1 file you've previously read: ..\..\Workflows\Operations\Daily Close Loop.md. Call Read before editing.]
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "dashboard\|startday\|closeday\|homepage\|meta bind\|canvas" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Build History - July to October 2026.md" | head -40; echo ======; sed -n 1,200p "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "dashboard\|startday\|closeday\|homepage\|meta bind\|canvas" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Build History - July to October 2026.md" | head -40; echo ======; sed -n 1,200p "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"
 ```
+````
 64:| Sync 11, October 4 | Replaced competing dashboard writers with per-machine banner files and a stable embed; Acer verification is separate. | Do not restore the old shared-dashboard writer from an obsolete operations section. [[Cross-Laptop Sync - Build 11 Findings]] and [[Cross-Laptop Sync - Build 11 Acer Verification]] |
 ======
 ---
@@ -4783,8 +5200,11 @@ Dataview can render `TASK` queries, but Tasks understands Tasks-specific emoji m
 **Resolved 2026-09-19: not a pending choice.** `60_Claude/44_Indexes/Bases/` holds five real `.base` files (Capability Registry, Knowledge Enrichment Registry, Ops Reports, Output Pipeline, Question Triage), and `core-plugins.json` has `bases: true`. Both are live today. Bases gives filterable, sortable, view-switchable tables over frontmatter with no query language; Dataview gives programmable queries (`FROM`, `WHERE`, grouping, DataviewJS) over the same frontmatter. Use Bases for a fixed registry someone will browse and filter by eye; use Dataview when the view needs logic — computed fields, multi-source joins, or conditional grouping a Bases filter can't express.
 
 ## Meta Bind
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && ls | grep -i "dash\|daily\|template\|tick\|habit\|10" | head -20; for f in "07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md" "07-08 Fix corrupted daily note template and habit tracker.md"; do echo "=========== $f"; wc -c "$f"; grep -n "^## Claude" "$f" | tail -3; done
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && ls | grep -i "dash\|daily\|template\|tick\|habit\|10" | head -20; for f in "07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md" "07-08 Fix corrupted daily note template and habit tracker.md"; do echo "=========== $f"; wc -c "$f"; grep -n "^## Claude" "$f" | tail -3; done`
 ```
 07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md
 07-08 Fix corrupted daily note template and habit tracker.md
@@ -4813,8 +5233,11 @@ Dataview can render `TASK` queries, but Tasks understands Tasks-specific emoji m
 22586 07-08 Fix corrupted daily note template and habit tracker.md
 71:## Claude
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && sed -n 302,420p "07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md" | cut -c1-600; echo "=================== 07-08"; sed -n 71,140p "07-08 Fix corrupted daily note template and habit tracker.md" | cut -c1-700; echo "=================== 07-10"; grep -n "^## Claude" "07-10 Fix untickable checklist in table.md" | tail -2; wc -c "07-10 Fix untickable checklist in table.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && sed -n 302,420p "07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md" | cut -c1-600; echo "=================== 07-08"; sed -n 71,140p "07-08 Fix corrupted daily note template and habit tracker.md" | cut -c1-700; echo "=================== 07-10"; grep -n "^## Claude" "07-10 Fix untickable checklist in table.md" | tail -2; wc -c "07-10 Fix untickable checklist in table.md"
 ```
+````
 ## Claude
 
 I'll start by reading the orientation files in order before making any changes.
@@ -5009,9 +5432,12 @@ type: dashboard
 73:## Claude
 315:## Claude
 23548 07-10 Fix untickable checklist in table.md
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && sed -n 315,345p "07-10 Fix untickable checklist in table.md" | cut -c1-900; echo ===FABLE; head -c 5000 "../../../../../../07_AI_Information/Fable Prompt — Dashboard and Ingestion Pass.md" 2>/dev/null || ls "../../../../../../07_AI_Information" | grep -i fable
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && sed -n 315,345p "07-10 Fix untickable checklist in table.md" | cut -c1-900; echo ===FABLE; head -c 5000 "../../../../../../07_AI_Information/Fable Prompt — Dashboard and Ingestion Pass.md" 2>/dev/null || ls "../../../../../../07_AI_Information" | grep -i fable`
-```
+````
 ## Claude
 
 Now step 2 — session history for carryover items.
@@ -5206,8 +5632,11 @@ container.innerHTML = `
     <div class="stat-label">LeetCode Today</div>
     <div class="stat-value">${lc}</div>
     <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">ta
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -n 1,80p "Audit - Dashboard Stack and Phone Checklist.md" | cut -c1-700; echo ======; grep -n "^#" Prompts.md | head -40; echo =====; sed -n 1,60p "Dashboard Build/Research - Obsidian Dashboard Methods.md" | cut -c1-500
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -n 1,80p "Audit - Dashboard Stack and Phone Checklist.md" | cut -c1-700; echo ======; grep -n "^#" Prompts.md | head -40; echo =====; sed -n 1,60p "Dashboard Build/Research - Obsidian Dashboard Methods.md" | cut -c1-500`
 ```
 ---
 type: project
@@ -5360,7 +5789,10 @@ Not a markdown note, canvas, Kanban or drawing. Opens first on launch via Homepa
 - **Use.** Bases remains good for flat lists such as "lost days this month" on the Monthly page.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && ls Standards/Projects Standards/Operations Templates | head -50; echo; find Standards -name "Reference Standard.md" -o -name "Project Standard.md" -o -name "Spec and Plan Standard.md" | head; `
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && ls Standards/Projects Standards/Operations Templates | head -50; echo; find Standards -name "Reference Standard.md" -o -name "Project Standard.md" -o -name "Spec and Plan Standard.md" | head; 
+```
 ```
 Standards/Operations:
 Daily Note Standard.md
@@ -5391,8 +5823,11 @@ Standards/Enrich/Reference Standard.md
 Standards/Project Standard.md
 Standards/Projects/Spec and Plan Standard.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,80p Standards/Enrich/Reference\ Standard.md | cut -c1-600; echo =======; sed -n 1,70p Standards/Projects/Spec\ and\ Plan\ Standard.md | cut -c1-600; ls Templates/Knowledge Templates/Projects`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,80p Standards/Enrich/Reference\ Standard.md | cut -c1-600; echo =======; sed -n 1,70p Standards/Projects/Spec\ and\ Plan\ Standard.md | cut -c1-600; ls Templates/Knowledge Templates/Projects
 ```
+````
 ---
 type: system
 status: sprout
@@ -5552,8 +5987,11 @@ Project Note Template.md
 Project Plan Template.md
 Project Spec Template.md
 Technical Concept Template.md
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && cat Knowledge/Reference\ Template.md; echo ====; cat Projects/Project\ Spec\ Template.md; ls ../../10_Areas/Life/*.md | head; ls "../../40_Resources/Obsidian" | head -30
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && cat Knowledge/Reference\ Template.md; echo ====; cat Projects/Project\ Spec\ Template.md; ls ../../10_Areas/Life/*.md | head; ls "../../40_Resources/Obsidian" | head -30`
 ```
 ---
 type: reference
@@ -5598,7 +6036,10 @@ Second Brain.md
 Settings
 Vault Operating System.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat esbuild.config.mjs | head -60; echo ====deploy; cat scripts/deploy.mjs | head -40; echo ====preview; head -30 scripts/preview.mjs; echo; ls .preview-out | head; cd "D:/_Anant/20_Progress/Documents/The Plan" && echo ==== && find . -maxdepth 3 \( -name "Monthly Dashboard*" -o -name "Map Canvas*" -o -name "Research - Platform Facts*" -o -name "Life OS*" -o -name "Daily Operating System*" -o -name "Agentic OS*" \) -not -path "./.git/*" | head; ls 00_Live 00_Live/Enumerate 00_Live/Tracking 2>/dev/null | head -40; cat .claude/settings.json | head -40`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat esbuild.config.mjs | head -60; echo ====deploy; cat scripts/deploy.mjs | head -40; echo ====preview; head -30 scripts/preview.mjs; echo; ls .preview-out | head; cd "D:/_Anant/20_Progress/Documents/The Plan" && echo ==== && find . -maxdepth 3 \( -name "Monthly Dashboard*" -o -name "Map Canvas*" -o -name "Research - Platform Facts*" -o -name "Life OS*" -o -name "Daily Operating System*" -o -name "Agentic OS*" \) -not -path "./.git/*" | head; ls 00_Live 00_Live/Enumerate 00_Live/Tracking 2>/dev/null | head -40; cat .claude/settings.json | head -40
+```
 ```
 import esbuild from 'esbuild';
 import process from 'process';
@@ -5766,12 +6207,15 @@ Relationship Log.md
 }
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && for v in "The Plan" "Jarvis"; do echo "== $v"; node -e "
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents" && for v in "The Plan" "Jarvis"; do echo "== $v"; node -e "
 const fs=require('fs');const p='$v/.mcp.json';
 if(!fs.existsSync(p)){console.log('no .mcp.json');process.exit()}
 const j=JSON.parse(fs.readFileSync(p,'utf8'));
 for(const [n,s] of Object.entries(j.mcpServers||{})){console.log(n,{type:s.type||(s.url?'http':'stdio'),command:s.command,hasUrl:!!s.url,envKeys:Object.keys(s.env||{}),headerKeys:Object.keys(s.headers||{}),argCount:(s.args||[]).length});}
-"; done; ls "The Plan" -a | head -30`
+"; done; ls "The Plan" -a | head -30
+```
 ```
 == The Plan
 no .mcp.json
@@ -5812,7 +6256,10 @@ Origin.md
 copilot
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rli "toggl" --include=*.md --include=*.json --include=*.ps1 --include=*.toml . 2>/dev/null | grep -v "node_modules\|/.git/\|plugins/" | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rli "toggl" --include=*.md --include=*.json --include=*.ps1 --include=*.toml . 2>/dev/null | grep -v "node_modules\|/.git/\|plugins/" | head -20
+```
 ```
 ./.copilot/model-catalog-cache.json
 ./.obsidian/command-palette.json
@@ -5836,13 +6283,16 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ./50_Archive/copilot/copilot-conversations/AI_Portfolio_Lab_RAG_Plan@20260428_170944.md
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd ~ && node -e "
+- `Bash`
+```bash
+cd ~ && node -e "
 const fs=require('fs');
 const j=JSON.parse(fs.readFileSync('.claude.json','utf8'));
 const show=(label,m)=>{ if(!m) return; for(const [n,s] of Object.entries(m)) console.log(label,n,{type:s.type||(s.url?'http':'stdio'),command:s.command,url:s.url?new URL(s.url).host:undefined,envKeys:Object.keys(s.env||{}),headerKeys:Object.keys(s.headers||{})}); };
 show('user',j.mcpServers);
 for(const [p,v] of Object.entries(j.projects||{})) if(/The Plan|Jarvis/i.test(p)) show(p,v.mcpServers);
-" 2>&1 | head -30; ls ~/.claude/plugins 2>/dev/null | head; ls "$APPDATA/Toggl" 2>/dev/null | head`
+" 2>&1 | head -30; ls ~/.claude/plugins 2>/dev/null | head; ls "$APPDATA/Toggl" 2>/dev/null | head
+```
 ```
 user jarvis {
   type: 'http',
@@ -5885,7 +6335,10 @@ GrShaderCache
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\HUMAN_WRITING.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -name "Daily Operating System.md" -not -path "./50_Archive/*" | head -2; find . -name "Jarvis Vault Architecture.md" | head -1; sed -n 1,12p "20_Progress/Projects/Jarvis & The Plan/Jarvis.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -name "Daily Operating System.md" -not -path "./50_Archive/*" | head -2; find . -name "Jarvis Vault Architecture.md" | head -1; sed -n 1,12p "20_Progress/Projects/Jarvis & The Plan/Jarvis.md"
+```
 ```
 ./10_Areas/Life/Plans/Summer 2026/Daily Operating System.md
 ./40_Resources/Obsidian/Jarvis Vault Architecture.md
@@ -5902,7 +6355,10 @@ tags:
   - research-engine
 notes:
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && sed -n 150,330p ui/sections.tsx | cut -c1-200; echo ======CHARTS; cat ui/charts.tsx | cut -c1-200; echo =====AREA; sed -n 80,120p ui/styles.ts; echo ====data; cat data/repo.ts data/write.ts core/toggle.ts | cut -c1-200`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && sed -n 150,330p ui/sections.tsx | cut -c1-200; echo ======CHARTS; cat ui/charts.tsx | cut -c1-200; echo =====AREA; sed -n 80,120p ui/styles.ts; echo ====data; cat data/repo.ts data/write.ts core/toggle.ts | cut -c1-200
+```
 ```
 			</div>
 			{cat.rows.length === 0 ? (
@@ -6326,7 +6782,9 @@ export function toggleLine(text: string, index: number, expected: string, checke
 }
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && node -e "
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && node -e "
 const fs=require('fs');
 const h=JSON.parse(fs.readFileSync('plugins/homepage/data.json','utf8'));
 for(const [n,p] of Object.entries(h.homepages)) console.log('homepage',n,p.kind,p.value,'startup',p.openOnStartup,'mode',p.openMode,'commands',JSON.stringify(p.commands));
@@ -6334,7 +6792,8 @@ console.log('separateMobile',h.separateMobile);
 for(const id of ['dataview','obsidian-meta-bind-plugin','multi-column-markdown','homepage','templater-obsidian','periodic-notes','quickadd','obsidian-kanban','calendar']){try{const m=JSON.parse(fs.readFileSync('plugins/'+id+'/manifest.json','utf8'));console.log(id,m.version)}catch(e){console.log(id,'-')}}
 const cp=JSON.parse(fs.readFileSync('community-plugins.json','utf8'));console.log('community-plugins listed',cp.length);
 console.log(JSON.parse(fs.readFileSync('appearance.json','utf8')).enabledCssSnippets);
-"; ls ../10_Areas/*.canvas ../10_Areas/Jarvis* 2>/dev/null; ls ../20_Progress/AI/ | head -5; grep -n "write\|allow" ../30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1 | head -12; sed -n 1,40p ../.claude/settings.json | cut -c1-160`
+"; ls ../10_Areas/*.canvas ../10_Areas/Jarvis* 2>/dev/null; ls ../20_Progress/AI/ | head -5; grep -n "write\|allow" ../30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1 | head -12; sed -n 1,40p ../.claude/settings.json | cut -c1-160
+```
 ```
 homepage Main Homepage File 10_Areas/Jarvis OS Dashboard.canvas startup true mode Replace all open notes commands []
 separateMobile false
@@ -6403,12 +6862,15 @@ Codex
   }
 }
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && node -e "
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && node -e "
 const c=JSON.parse(require('fs').readFileSync('Jarvis OS Dashboard.canvas','utf8'));
 console.log('nodes',c.nodes.length,'edges',(c.edges||[]).length);
 for(const n of c.nodes){console.log('---',n.id,n.type,n.x,n.y,n.width+'x'+n.height);console.log((n.text||n.file||'').slice(0,900));}
-"`
+"
 ```
+````
 nodes 10 edges 0
 --- focus text 0 29 1600x178
 ## TODAY'S FOCUS
@@ -6514,10 +6976,13 @@ const clips = dv.pages('"60_Claude/10_Source_Summaries"').where(p => {
 }).length;
 dv.paragraph(`**LC:** ${lc}/35 · **Study:** ${st}h · **Wins:** ${wn} · **Clippings ingested:** ${clips}`);
 ```
-```
+````
 - `Grep` -- pattern `lc_today|wins_done|habits_done|00_Dashboard#` path `D:\_Anant\20_Progress\Documents\Jarvis`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && rg -n "lc_today|wins_done|habits_done|00_Dashboard#" --glob '!50_Archive/**' --glob '!60_Claude/05_Clippings/**' --glob '!60_Claude/07_AI_Information/Session Logs/**' --glob '!.git/**' --glob '!*.bak*' --glob '!10_Areas/Life/Enumerate/Daily/**' --glob '!.obsidian/plugins/**' --glob '!**/Runs/**' . 2>/dev/null | cut -c1-220 | head -40`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && rg -n "lc_today|wins_done|habits_done|00_Dashboard#" --glob '!50_Archive/**' --glob '!60_Claude/05_Clippings/**' --glob '!60_Claude/07_AI_Information/Session Logs/**' --glob '!.git/**' --glob '!*.bak*' --glob '!10_Areas/Life/Enumerate/Daily/**' --glob '!.obsidian/plugins/**' --glob '!**/Runs/**' . 2>/dev/null | cut -c1-220 | head -40
 ```
+````
 .\10_Areas\AI\Claude Code.md:33:| `/closeday` | Auto-gathers the day, asks one 5-question block, writes `lc_count`/`study_today`/`wins_done`/`habits_done` to the daily note, resets the dashboard (directory skill) |
 .\30_Order\Workflows\Operations\Daily Close Loop.md:30:7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted), the confirmed Loses and End of Day, sets `day_state: closed`, clears the `today_*` f
 .\30_Order\Workflows\Operations\Daily Close Loop.md:33:Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence. Do n
@@ -6539,8 +7004,10 @@ dv.paragraph(`**LC:** ${lc}/35 · **Study:** ${st}h · **Wins:** ${wn} · **Clip
 .\30_Order\Standards\Operations\Daily Note Standard.md:115:- A closed day has `wins_done` and `floors_done` equal to the toggle count, End of Day, and `status: complete`.
 .\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md:40:- **All of them are pure read-and-render.** Each reads numeric/count fields from frontmatter (`lc_today`, `study_today`, `habits_done`, folder page counts) or
 .\20_Progress\AI\Claude OS.md:37:| /closeday | directory (SKILL.md + reference.md) | writes lc_count/study_today/wins_done/habits_done, resets dashboard |
-```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && cp "Jarvis OS Dashboard.canvas" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/48986477-e188-4f7b-a406-ce4f08ba7f35/scratchpad/Jarvis OS Dashboard.canvas.before" && node - <<'EOF'
+````
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && cp "Jarvis OS Dashboard.canvas" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/48986477-e188-4f7b-a406-ce4f08ba7f35/scratchpad/Jarvis OS Dashboard.canvas.before" && node - <<'EOF'
 const fs=require('fs');
 const f='Jarvis OS Dashboard.canvas';
 const raw=fs.readFileSync(f,'utf8');
@@ -6564,7 +7031,8 @@ fs.writeFileSync(f, JSON.stringify(c,null,'\t')+'\n');
 const AF=Object.getPrototypeOf(async function(){}).constructor;
 for(const n of c.nodes){const re=/```dataviewjs\n([\s\S]*?)```/g;let m;while((m=re.exec(n.text||''))){try{new AF('dv',m[1]);console.log(n.id,'ok')}catch(e){console.log(n.id,'ERR',e.message)}}}
 console.log('nodes',c.nodes.length);
-EOF`
+EOF
+````
 ```
 numbers ok
 drivers ok
@@ -6573,7 +7041,10 @@ clippings ok
 thisweek ok
 nodes 10
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 33p "10_Areas/AI/Claude Code.md"; sed -n 37p "20_Progress/AI/Claude OS.md"; grep -n "/startday" "10_Areas/AI/Claude Code.md" "20_Progress/AI/Claude OS.md" | cut -c1-260`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 33p "10_Areas/AI/Claude Code.md"; sed -n 37p "20_Progress/AI/Claude OS.md"; grep -n "/startday" "10_Areas/AI/Claude Code.md" "20_Progress/AI/Claude OS.md" | cut -c1-260
+```
 ```
 | `/closeday` | Auto-gathers the day, asks one 5-question block, writes `lc_count`/`study_today`/`wins_done`/`habits_done` to the daily note, resets the dashboard (directory skill) |
 | /closeday | directory (SKILL.md + reference.md) | writes lc_count/study_today/wins_done/habits_done, resets dashboard |
@@ -6583,7 +7054,9 @@ nodes 10
 20_Progress/AI/Claude OS.md:115:| /today | /startday | Overlap — Jarvis version is stronger (plans + history + dashboard patch) |
 20_Progress/AI/Claude OS.md:128:| **/schedule** | none | **Gap** — builds a schedule from Tasks across the vault; /startday covers the daily case, nothing covers multi-day |
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF'
 const fs=require('fs');
 function sub(f,a,b){let s=fs.readFileSync(f,'utf8');if(!s.includes(a))throw new Error('missing in '+f);fs.writeFileSync(f,s.replace(a,b));console.log('ok',f)}
 sub('10_Areas/AI/Claude Code.md',
@@ -6598,7 +7071,8 @@ sub('20_Progress/AI/Claude OS.md',
 sub('20_Progress/AI/Claude OS.md',
 "| /startday | directory (SKILL.md + reference.md) | patches dashboard focus fields (Step 3b) |",
 "| /startday | directory (SKILL.md + reference.md) | fills the day from weekly Goals and calendar, carries open Loses, patches dashboard focus fields (Step 3b) |");
-EOF`
+EOF
+```
 ```
 ok 10_Areas/AI/Claude Code.md
 ok 10_Areas/AI/Claude Code.md
@@ -6609,8 +7083,8 @@ ok 20_Progress/AI/Claude OS.md
 ```diff
 - This replaces the old unexamined flag; the Risk Register entry below reflects it.
 + This replaces the old unexamined flag; the Risk Register entry below reflects it.
-
-*Update 2026-10-26: the dashboard blocks above no longer read `lc_today`, `study_today` or `habits_done` from `00_Dashboard`. They read today's daily note (`lc_count`, `study_today`, and the `win_*` and `floor_*` toggles counted live) and the open lines under each note's `## Daily Loses`. `.obsidian/plugins/dataview/data.json` also shows `enableInlineDataviewJs: false` today, so the "Inline DataviewJS: enabled" line above no longer matches the file; `dataviewjs` blocks still run.*
++ 
++ *Update 2026-10-26: the dashboard blocks above no longer read `lc_today`, `study_today` or `habits_done` from `00_Dashboard`. They read today's daily note (`lc_count`, `study_today`, and the `win_*` and `floor_*` toggles counted live) and the open lines under each note's `## Daily Loses`. `.obsidian/plugins/dataview/data.json` also shows `enableInlineDataviewJs: false` today, so the "Inline DataviewJS: enabled" line above no longer matches the file; `dataviewjs` blocks still run.*
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Dashboard\The Plan Overview.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Dashboard\Jarvis Build Overview.md`
@@ -6743,7 +7217,7 @@ Obsidian does not render task checkboxes inside table cells. On 2026-07-10 the W
 + Sorted oldest first, with the age from `since`. Ticking in the list should write back to the source line, as Dataview task queries do; not yet confirmed for `dv.taskList` here |
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Dashboard\The Plan\The Plan Dashboard Architecture and Infrastructure.md`
-```
+````
 ---
 type: reference
 status: seed
@@ -6849,9 +7323,12 @@ The write guard, secrets guard and daily-note validator are one program, `plan-c
 | Explore map, month strip, level titles, grade on screen, a "create today" button, a screen-versus-CLI debug command | Not built |
 | Source pushed to a private GitHub repo after approval | No remote |
 
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && wc -c "Monthly Dashboard.md" "Map Canvas.canvas"; sed -n 1,60p "Monthly Dashboard.md" | cut -c1-220; node -e "const c=JSON.parse(require('fs').readFileSync('Map Canvas.canvas','utf8'));console.log('canvas nodes',c.nodes.length,'edges',(c.edges||[]).length);console.log(c.nodes.slice(0,14).map(n=>(n.text||n.file||'').split('\n')[0].slice(0,50)).join(' | '))"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && wc -c "Monthly Dashboard.md" "Map Canvas.canvas"; sed -n 1,60p "Monthly Dashboard.md" | cut -c1-220; node -e "const c=JSON.parse(require('fs').readFileSync('Map Canvas.canvas','utf8'));console.log('canvas nodes',c.nodes.length,'edges',(c.edges||[]).length);console.log(c.nodes.slice(0,14).map(n=>(n.text||n.file||'').split('\n')[0].slice(0,50)).join(' | '))"`
-```
+````
 17719 Monthly Dashboard.md
 12392 Map Canvas.canvas
 30111 total
@@ -6918,7 +7395,7 @@ const sectionLines = (text, name, exact) => {
 canvas nodes 38 edges 34
 # Morning | **Goal:** the morning routine runs without a decis | 30_Order/Standards/Dashboards/Daily Note Schema.md | 00_Live/Tracking/Habits/Habits Stacking.md | # Study | **Goal 1 of 2026:** 4.0 GPA. | 00_Live/Enumerate/Yearly/Resolutions '26.md | 00_Live/Tracking/Plans/Summer Grind.md | # Fitness | **Goal 9 of 2026:** gym 5 days a week, calisthenic | 00_Live/Tracking/Habits/Daily Habit Board.md | 00_Live/Tracking/Habits/Health Tracker.md | # Mind | **Goals 7 and 8 of 2026:** character development,
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\Obsidian\Dashboard\The Plan\The Plan Dashboard UI and What Appears.md`
 ```
 ---
@@ -7010,11 +7487,14 @@ The colour choices came from Anant on 2026-10-12: red, golden orange, and a ligh
 The month strip (`Met 17 · Lost 4 · Forgiven 1` and the top cause), milestone level titles on the number, the letter grade, the Explore map, a "create today's note" button, a banner for notes in the daily folder that are not ISO-named, a screen-versus-CLI debug command, and a "next step" card that names the one command due now. The titles and grade exist in `CONFIG` and the engine, and the screen does not show them. See [[The Plan Dashboard State and Gaps 2026-10-25]].
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && for f in "09-26 Obsidian vault sync across laptops.md" "10-12 Personal vault dashboard and AI workflow design.md" "10-13 Daily note ISO rename.md" "10-13 Daily note template and streak script.md" "10-13 Five Jarvis skills in The Plan.md" "10-13 Home dashboard rebuild.md" "10-13 Platform facts research for Dashboards build.md" "10-14 60_Jarvis zones and CLAUDE.md.md" "10-14 Dashboard stack audit and phone checklist.md" "10-14 Monthly dashboard and Map canvas.md" "10-14 The Plan agents and hooks.md" "10-15 Plan design for The Plan vault.md" "10-25 Dashboard plugin build review.md"; do node -e "
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && for f in "09-26 Obsidian vault sync across laptops.md" "10-12 Personal vault dashboard and AI workflow design.md" "10-13 Daily note ISO rename.md" "10-13 Daily note template and streak script.md" "10-13 Five Jarvis skills in The Plan.md" "10-13 Home dashboard rebuild.md" "10-13 Platform facts research for Dashboards build.md" "10-14 60_Jarvis zones and CLAUDE.md.md" "10-14 Dashboard stack audit and phone checklist.md" "10-14 Monthly dashboard and Map canvas.md" "10-14 The Plan agents and hooks.md" "10-15 Plan design for The Plan vault.md" "10-25 Dashboard plugin build review.md"; do node -e "
 const s=require('fs').readFileSync(process.argv[1],'utf8').slice(0,1500);
 const g=(k)=>{const m=s.match(new RegExp('^'+k+':\\\\s*(.*)$','m'));return m?m[1]:''};
 console.log(process.argv[1].slice(0,52).padEnd(54),g('started_at'),g('duration_minutes')+'m','turns',g('turn_count'),(s.match(/claude-[a-z0-9-]+/)||[''])[0]);
-" "$f"; done`
+" "$f"; done
+```
 ```
 09-26 Obsidian vault sync across laptops.md             2026-09-26T14:24:26  366.7m turns  6 claude-code
 10-12 Personal vault dashboard and AI workflow desig    2026-10-12T18:36:10  4177.8m turns  12 claude-code
@@ -7030,7 +7510,10 @@ console.log(process.argv[1].slice(0,52).padEnd(54),g('started_at'),g('duration_m
 10-15 Plan design for The Plan vault.md                 2026-10-15T16:33:33  3.4m turns  2 claude-code
 10-25 Dashboard plugin build review.md                  2026-10-25T20:12:38  8.5m turns  2 claude-code
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && grep -n "^## You\|^## Claude" "10-15 Plan design for The Plan vault.md" | head; sed -n 36,60p "10-15 Plan design for The Plan vault.md" | cut -c1-700`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && grep -n "^## You\|^## Claude" "10-15 Plan design for The Plan vault.md" | head; sed -n 36,60p "10-15 Plan design for The Plan vault.md" | cut -c1-700
+```
 ```
 94:## You
 152:## Claude
@@ -7060,7 +7543,10 @@ console.log(process.argv[1].slice(0,52).padEnd(54),g('started_at'),g('duration_m
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Monthly\\2026-06.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Monthly\\2026-10.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && sed -n 94,110p "10-15 Plan design for The Plan vault.md" | cut -c1-900; echo ......; sed -n 152,200p "10-15 Plan design for The Plan vault.md" | cut -c1-600`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && sed -n 94,110p "10-15 Plan design for The Plan vault.md" | cut -c1-900; echo ......; sed -n 152,200p "10-15 Plan design for The Plan vault.md" | cut -c1-600
+```
 ```
 ## You
 
@@ -7205,7 +7691,10 @@ For the evidence behind each failure and the ordered fix list, see [[The Plan Da
 - A design session that inventoried 26 Plan items against 18 Jarvis items and ran the engine
 + A design session that inventoried 26 Plan items (P1 to P26) against the matching Jarvis items and ran the engine
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 14,60p Standards/Dashboards/Scheduled\ Review.md | cut -c1-420; echo =========; sed -n 14,50p Standards/Dashboards/Weekly\ Review.md | cut -c1-420; echo ====; sed -n 14,40p Standards/Agentic\ OS/Agentic\ OS\ Standard.md | cut -c1-380`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 14,60p Standards/Dashboards/Scheduled\ Review.md | cut -c1-420; echo =========; sed -n 14,50p Standards/Dashboards/Weekly\ Review.md | cut -c1-420; echo ====; sed -n 14,40p Standards/Agentic\ OS/Agentic\ OS\ Standard.md | cut -c1-380
+```
 ```
   - "[[Daily Note Schema]]"
   - "[[30_Order/Standards/Dashboards/Weekly Review|Weekly Review]]"
@@ -7402,7 +7891,10 @@ A day is MET at 3 of 5 categories and MISS below that or when no note exists. On
 Jarvis counts four wins and three floor rows by toggle, keeps a Loses list, and reads the weekly note and the calendar at `/startday`. The Plan counts categories and keeps a streak with a forgiven miss, and holds the cause of a miss as one word. Neither vault stores a number in a dashboard. Compare [[Jarvis Build Overview]].
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la 30_Order/System/plan-cli/ && node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-26 2>&1 | head -c 600; echo; git log --diff-filter=D --oneline -3 -- ".claude/skills/startday/SKILL.md" | head; git ls-tree -r e10bc90 --name-only 2>/dev/null | grep "^.claude" | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la 30_Order/System/plan-cli/ && node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-26 2>&1 | head -c 600; echo; git log --diff-filter=D --oneline -3 -- ".claude/skills/startday/SKILL.md" | head; git ls-tree -r e10bc90 --name-only 2>/dev/null | grep "^.claude" | head -30
+```
 ```
 total 28
 drwxr-xr-x 1 anant 197609     0 Oct 13 16:03 .
@@ -7515,14 +8007,17 @@ Each step has a gate that must pass before the next.
 - The deployed `main.js` is newer than the last engine build.
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF'
 const fs=require('fs');const f='The Plan Dashboard State and Gaps 2026-10-25.md';let s=fs.readFileSync(f,'utf8');
 const a='("auto: 2026-10-16 21:01 | 133 files", from the second laptop\'s old message format)';
 if(!s.includes(a)) throw new Error('a'); s=s.replace(a,'(message "auto: 2026-10-16 21:01, 133 files", the second laptop\'s old format)');
 const b='| Review 2026-10-25; file dates seen 2026-10-26 |'; if(!s.includes(b)) throw new Error('b'); s=s.replace(b,'| Review 2026-10-25; `plan-cli.cjs` date seen 2026-10-26 |');
 fs.writeFileSync(f,s);
 EOF
-(cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -l --time-style=long-iso .obsidian/plugins/the-plan-dashboard/ | tail -3)`
+(cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -l --time-style=long-iso .obsidian/plugins/the-plan-dashboard/ | tail -3)
+```
 ```
 -rw-r--r-- 1 anant 197609 247154 2026-10-13 19:51 main.js
 -rw-r--r-- 1 anant 197609    233 2026-10-13 14:54 manifest.json
@@ -7596,7 +8091,9 @@ It covers `00_Dashboard.md`, the homepage canvas, the daily note and its templat
 
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\Jarvis & The Plan\Builds - Jarvis\Builds - Jarvis.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" && node - <<'EOF'
 const fs=require('fs');const f='Builds - Jarvis.md';let s=fs.readFileSync(f,'utf8');
 const rep=(a,b)=>{if(!s.includes(a))throw new Error('missing '+a.slice(0,40));s=s.replace(a,b)};
 rep("updated: 2026-10-17","updated: 2026-10-26");
@@ -7605,7 +8102,8 @@ rep("[[Jarvis AI Infrastructure - Concepts and Research]] preserves","[[Jarvis D
 rep("| Immediate next work |","| Daily dashboard and workflow | Rebuilt 2026-10-26: toggles counted, Daily Loses defined, canvas and page read one source. Not yet run on a real day. |\n| Immediate next work |");
 fs.writeFileSync(f,s);
 EOF
-sed -n 1,40p "Builds - Jarvis.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" 2>&1 | head -25; node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -25`
+sed -n 1,40p "Builds - Jarvis.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" 2>&1 | head -25; node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -25
+```
 ```
 ---
 type: index
@@ -7669,7 +8167,10 @@ Top failure reasons:
       7  5:extra-blank-lines
       1  5:unresolved-placeholder
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 300,318p vault-lint.js; node vault-lint.js --path 40_Resources/Obsidian/Dashboard --list 10 2>&1 | grep -i "first 10" -A12 | cut -c1-260`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 300,318p vault-lint.js; node vault-lint.js --path 40_Resources/Obsidian/Dashboard --list 10 2>&1 | grep -i "first 10" -A12 | cut -c1-260
+```
 ```
     }
     if (hr) add(5, 'hr-in-body:' + hr);
@@ -7699,7 +8200,9 @@ First 10 failing notes:
   40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard UI and What Appears.md  [reference-resource]  5:extra-blank-lines:11
   40_Resources/Obsidian/Dashboard/The Plan Overview.md  [reference-resource]  5:extra-blank-lines:7
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF'
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF'
 const fs=require('fs'),path=require('path');
 const files=[
  '40_Resources/Obsidian/Dashboard/Jarvis Build Overview.md',
@@ -7725,7 +8228,8 @@ for(const f of files){
   fs.writeFileSync(f,s);
 }
 EOF
-cd 30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -12; node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 1,12p; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26 2>&1 | grep -A6 "Top failure"`
+cd 30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -12; node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 1,12p; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26 2>&1 | grep -A6 "Top failure"
+````
 ```
 Scanned 7 notes in scope (excluded: 1 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
 FIT: 6/7 = 85.7%
@@ -7752,7 +8256,10 @@ Top failure reasons:
 Top failure reasons:
       1  5:extra-blank-lines
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 40_Resources/Obsidian/Dashboard --list 5 2>&1 | grep -A4 "First"; node vault-lint.js --path 30_Order/Standards/Operations/Daily --list 3 2>&1 | grep -A3 "First"; node vault-lint.js --path 30_Order/Workflows/Operations/Daily --list 3 2>&1 | grep -A3 "First\|FIT"; grep -n "^$" "../../Standards/Operations/Daily Note Standard.md" | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 40_Resources/Obsidian/Dashboard --list 5 2>&1 | grep -A4 "First"; node vault-lint.js --path 30_Order/Standards/Operations/Daily --list 3 2>&1 | grep -A3 "First"; node vault-lint.js --path 30_Order/Workflows/Operations/Daily --list 3 2>&1 | grep -A3 "First\|FIT"; grep -n "^$" "../../Standards/Operations/Daily Note Standard.md" | head
+```
 ```
 First 5 failing notes:
   40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md  [reference-resource]  5:unresolved-placeholder
@@ -7770,24 +8277,30 @@ First 3 failing notes:
 75:
 82:
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "PLACEHOLDER =" vault-lint.js | head -2; grep -n "tp\.\|<%\|\[\[\.\.\.\|TBD\|TODO\|XXX" "../../../40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md" | head; cd ../../Standards/Operations && node - <<'EOF'
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "PLACEHOLDER =" vault-lint.js | head -2; grep -n "tp\.\|<%\|\[\[\.\.\.\|TBD\|TODO\|XXX" "../../../40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md" | head; cd ../../Standards/Operations && node - <<'EOF'
 const fs=require('fs');const f='Daily Note Standard.md';
 let l=fs.readFileSync(f,'utf8').replace(/\r\n/g,'\n').split('\n');
 let fm=0,fence=false;const out=[];
 for(const x of l){ if(x.trim()==='---'&&fm<2){fm++;out.push(x);continue;} if(/^\s*```/.test(x))fence=!fence; if(!fence&&fm>=2&&x.trim()===''&&!/^\s*```/.test(x))continue; out.push(x);}
 fs.writeFileSync(f,out.join('\n').replace(/\n+$/,'\n'));
 EOF
-cd ../../System/vault-lint && node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 2p`
+cd ../../System/vault-lint && node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 2p
+````
 ```
 185:const PLACEHOLDER = /<%|%>|\{\{|\}\}|YYYY-MM-DD|==\s*==|\[\[\s*\]\]/;
 FIT: 1/1 = 100.0%
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF'
 const fs=require('fs');const f='The Plan Dashboard State and Gaps 2026-10-25.md';let s=fs.readFileSync(f,'utf8');
 s=s.replace(/`YYYY-MM-DD`/g,'ISO date format (`2026-10-26`)').replace(/YYYY-MM-DD/g,'ISO date format');
 fs.writeFileSync(f,s);console.log((s.match(/ISO date format/g)||[]).length);
 EOF
-grep -n "ISO date format" "The Plan Dashboard State and Gaps 2026-10-25.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | sed -n 2p; node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today\|Dashboard"`
+grep -n "ISO date format" "The Plan Dashboard State and Gaps 2026-10-25.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | sed -n 2p; node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today\|Dashboard"
+```
 ```
 3
 24:2. **2026-10-19 onward.** Periodic Notes keeps creating daily notes named `DD-MM-YYYY`. The engine reads only ISO date format (`2026-10-26`), and skips the rest without saying so.
@@ -7800,7 +8313,10 @@ WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Floo
 WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Productivity" has body text beyond a comment
 [This command modified 1 file you've previously read: ..\..\..\40_Resources\Obsidian\Dashboard\The Plan\The Plan Dashboard State and Gaps 2026-10-25.md. Call Read before editing.]
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && sed -i 's/is not named ISO date format"/is not an ISO date name"/' "The Plan Dashboard State and Gaps 2026-10-25.md" && grep -c "ISO date name" "The Plan Dashboard State and Gaps 2026-10-25.md"; cd /d 2>/dev/null; cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short | grep -v "60_Claude/05_Clippings" | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && sed -i 's/is not named ISO date format"/is not an ISO date name"/' "The Plan Dashboard State and Gaps 2026-10-25.md" && grep -c "ISO date name" "The Plan Dashboard State and Gaps 2026-10-25.md"; cd /d 2>/dev/null; cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short | grep -v "60_Claude/05_Clippings" | head -30
+```
 ```
 1
  M "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Builds - Jarvis.md"
@@ -7964,118 +8480,23 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && head -c 3000 "10-25 Dashboard plugin build review.md"; echo; echo ======; grep -n "^## \|^### " "10-25 Dashboard plugin build review.md" | head -80`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls -la Daily; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan" && ls -la; echo; cat "Builds - Jarvis/Builds - Jarvis.md"; echo =====; cat "Builds - Jarvis/Jarvis Current State - 2026-10-17.md"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "=== closeday ref"; cat .claude/skills/closeday/reference.md; echo "=== startday ref"; cat .claude/skills/startday/reference.md; echo "=== diff agents vs claude"; diff -rq .claude/skills/startday .agents/skills/startday; diff -rq .claude/skills/closeday .agents/skills/closeday; echo "=== agent"; cat .claude/agents/daily-operator.md`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && python -c "
-import json
-t=json.load(open('plugins/templater-obsidian/data.json'))
-print({k:t[k] for k in t if k in ('trigger_on_file_creation','templates_folder','auto_jump_to_cursor','enable_folder_templates','folder_templates','enable_file_templates')})
-p=json.load(open('plugins/periodic-notes/data.json'))
-print(json.dumps({k:p[k] for k in ('daily','weekly','monthly') if k in p},indent=1))
-d=json.load(open('plugins/dataview/data.json'))
-print({k:d[k] for k in d if 'avascript' in k or 'nline' in k or 'refresh' in k.lower()})
-" 2>&1 | head -60; grep -n "legacy_match\|optional_headings\|required_keys" ../30_Order/System/vault-lint/vault-lint.js | head -20`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e "
-const f=(p)=>JSON.parse(require('fs').readFileSync(p,'utf8'));
-const t=f('.obsidian/plugins/templater-obsidian/data.json');
-console.log('templater',{trigger:t.trigger_on_file_creation,folder:t.templates_folder,folderTemplates:t.enable_folder_templates,ft:t.folder_templates});
-const p=f('.obsidian/plugins/periodic-notes/data.json');
-console.log('periodic',JSON.stringify({daily:p.daily,weekly:p.weekly}));
-const d=f('.obsidian/plugins/dataview/data.json');
-console.log('dataview',Object.fromEntries(Object.entries(d).filter(([k])=>/avascript|nline|refresh/i.test(k))));
-"; sed -n 160,180p 30_Order/System/vault-lint/vault-lint.js; sed -n 220,240p 30_Order/System/vault-lint/vault-lint.js; sed -n 375,395p 30_Order/System/vault-lint/vault-lint.js; grep -ln "<% tp" 10_Areas/Life/Enumerate/Daily/*.md`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && python -c " import json t=json.load(open('plugins/templater-obsidian/data.json')) print({k:t[k] for k in t if k in ('trigger_on_file_creation','templates_folder','auto_jump_to_cursor','enable_folder_templates','folder_templates','enable_file_templates')}) p=json.load(open('plugins/periodic-notes/data.json')) print(json.dumps({k:p[k] for k in ('daily','weekly','monthly') if k in p},indent=1)) d=json.load(open('plugins/dataview/data.json')) print({k:d[k] for k in d if 'avascript' in k or 'nline' in k or 'refresh' in k.lower()}) " 2>&1 | head -60; grep -n "legacy_match\|optional_headings\|required_keys" ../30_Order/System/vault-lint/vault-lint.js | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e " const f=(p)=>JSON.parse(require('fs').readFileSync(p,'utf8')); const t=f('.obsidian/plugins/templater-obsidian/data.json'); console.log('templater',{trigger:t.trigger_on_file_creation,folder:t.templates_folder,folderTemplates:t.enable_folder_templates,ft:t.folder_templates}); const p=f('.obsidian/plugins/periodic-notes/data.json'); console.log('periodic',JSON.stringify({daily:p.daily,weekly:p.weekly})); const d=f('.obsidian/plugins/dataview/data.json'); console.log('dataview',Object.fromEntries(Object.entries(d).filter(([k])=>/avascript|nline|refresh/i.test(k)))); "; sed -n 160,180p 30_Order/System/vault-lint/vault-lint.js; sed -n 220,240p 30_Order/System/vault-lint/vault-lint.js; sed -n 375,395p 30_Order/System/vault-lint/vault-lint.js; grep -ln "<% tp" 10_Areas/Life/Enumerate/Daily/*.md`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 240,300p 30_Order/System/vault-lint/vault-lint.js; echo ====; grep -n "Better Today\|daily" "30_Order/Standards/Note Type Registry.md" 2>/dev/null | head; ls 30_Order/Standards | head -30; for f in 10_Areas/Life/Enumerate/Daily/2026-09-19.md 10_Areas/Life/Enumerate/Daily/2026-10-18.md; do echo "-- $f"; grep -n "<% tp" "$f"; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && sed -n 1,80p 2026-10-12.md; grep -n "Systems" -A12 "../../Plans/Fall 2026/Fall 2026 Plan.md" | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets" && ls; grep -n "^\.\|^  \.\|^body" dashboard.css | head -60`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/snippets" && sed -n 44,60p dashboard.css; sed -n 102,123p dashboard.css`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e "
-const fs=require('fs');const s=fs.readFileSync('00_Dashboard.md','utf8');
-const re=/\`\`\`dataviewjs\n([\s\S]*?)\`\`\`/g;let m,i=0;
-while((m=re.exec(s))){i++;try{new (Object.getPrototypeOf(async function(){}).constructor)('dv',m[1]);console.log('block',i,'syntax ok');}catch(e){console.log('block',i,'ERR',e.message)}}
-"; head -14 00_Dashboard.md`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && for f in 2026-09-19 2026-09-21 2026-09-29 2026-10-01 2026-10-18; do node -e "
-const fs=require('fs');const f='$f.md';let s=fs.readFileSync(f,'utf8');
-const n=s.replace(/^(created|updated): <% tp\.date\.now\(\"YYYY-MM-DD\"\) %>\r?\$/gm,(m,k)=>k+': $f');
-fs.writeFileSync(f,n);console.log(f,s!==n?'fixed':'unchanged');
-"; done; grep -l "<% tp" *.md || echo "no placeholders left"; git -C ../../../.. diff --stat -- 10_Areas/Life/Enumerate/Daily | tail -8`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e " const fs=require('fs');const s=fs.readFileSync('00_Dashboard.md','utf8'); const re=/\`\`\`dataviewjs\n([\s\S]*?)\`\`\`/g;let m,i=0; while((m=re.exec(s))){i++;try{new (Object.getPrototypeOf(async function(){}).constructor)('dv',m[1]);console.log('block',i,'syntax ok');}catch(e){console.log('block',i,'ERR',e.message)}} "; head -14 00_Dashboard.md``
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Enumerate/Daily" && for f in 2026-09-19 2026-09-21 2026-09-29 2026-10-01 2026-10-18; do node -e " const fs=require('fs');const f='$f.md';let s=fs.readFileSync(f,'utf8'); const n=s.replace(/^(created|updated): <% tp\.date\.now\(\"YYYY-MM-DD\"\) %>\r?\$/gm,(m,k)=>k+': $f'); fs.writeFileSync(f,n);console.log(f,s!==n?'fixed':'unchanged'); "; done; grep -l "<% tp" *.md || echo "no placeholders left"; git -C ../../../.. diff --stat -- 10_Areas/Life/Enumerate/Daily | tail -8`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,40p "30_Order/System/vault-lint/Vault Lint.md" | head -60; node 30_Order/System/vault-lint/vault-lint.js --help 2>&1 | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close\|Better Today" | head -20; echo "--- specs"; node vault-lint.js --specs 2>&1 | grep -i daily; echo "--- daily family"; node vault-lint.js --family daily-note --list 10 2>&1 | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "prose is\|words (limit" vault-lint.js | head; grep -n "function proseWords\|proseWords" vault-lint.js | head -3`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 355,364p vault-lint.js; sed -n 422,430p vault-lint.js`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF'
-const fs=require('fs');let s=fs.readFileSync('Daily Note Standard.md','utf8');
-const rep=(a,b)=>{ if(!s.includes(a)) throw new Error('missing: '+a.slice(0,50)); s=s.replace(a,b); };
-rep("This is the Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan and carries open Loses forward, `/closeday` counts the toggles and writes the Loses, and the note fits whether or not the day is ever closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].",
-"The Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan and carries open Loses forward, `/closeday` counts the toggles and writes the Loses, and the note fits even if the day is never closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].");
-rep("A toggle is a Meta Bind input bound to one frontmatter boolean. Flipping it changes that value and nothing else. The value is read in three places, so the toggle is evidence and never decoration:\n- **Dashboard.** `00_Dashboard.md` counts `win_*` out of 4 and `floor_*` out of 3 from today's note, live. It stores no copy of either count.\n- **`/closeday`.** It counts the toggles and writes `wins_done` and `floors_done`. It does not ask for them. Every toggle still `false` at close becomes a Daily Loses line.\n- **Weekly review.** It sums `wins_done` and `floors_done` across the week.\n\n`wins_done` and `floors_done` are snapshots written at close. Nobody types them. A day never closed has them at 0, and the dashboard still shows the live count.",
-"A toggle is a Meta Bind input bound to one frontmatter boolean. It is evidence, and three things read it:\n- **Dashboard.** `00_Dashboard.md` counts `win_*` out of 4 and `floor_*` out of 3 live, and stores no copy.\n- **`/closeday`.** It counts them into `wins_done` and `floors_done`, never asks, and turns every toggle still `false` into a Daily Loses line.\n- **Weekly review.** It sums `wins_done` and `floors_done` across the week.\n\nNobody types the two totals. A day never closed has them at 0 while the dashboard still shows the live count.");
-rep("`type: thought`, `thought_kind: daily`, `status` (`active` while the day runs, `complete` once closed), `day_state` (`planned` or `closed`), `created`, `updated`, `tags: [daily]`. Tracking keys: the toggles `win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1` to `floor_3` (booleans, `false` at creation); `lc_count` and `study_today` (typed numbers); `wins_done` and `floors_done` (numbers written at close).",
-"`type: thought`, `thought_kind: daily`, `status` (`active` while the day runs, `complete` once closed), `day_state` (`planned` or `closed`), `created`, `updated`, `tags: [daily]`. Tracking keys: the toggles `win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1` to `floor_3` (booleans); `lc_count` and `study_today` (typed numbers); `wins_done` and `floors_done` (counted at close).");
-rep("A `created` that still holds `<% tp.date.now(\"YYYY-MM-DD\") %>`. Periodic Notes copies the template, and the placeholder is only resolved when Templater's \"Trigger Templater on new file creation\" is on. When it is off, every date query skips the note. `/startday` resolves any leftover placeholder to the date in the file name.",
-"A `created` that still holds `<% tp.date.now(\"YYYY-MM-DD\") %>`. Periodic Notes copies the template, and Templater resolves the placeholder only when \"Trigger Templater on new file creation\" is on. Otherwise date queries skip the note. `/startday` resolves it to the file name's date.");
-rep("`*Goal*:` one line. Under it, `### 80 - The One Thing` holds one checkbox written as \"I will ... at ... in ...\"; `### 20 - Supporting Work` holds two to four checkboxes; `### Blocks` lists the day's events from the working calendar, one line each (time, then deliverable); `**Do NOT do today:**` is copied from the active plan's anti-drift rules. The 80, the 20 and the Blocks come from the week's Goals in the weekly note and the calendar, not from memory.",
-"`*Goal*:` one line. Under it, `### 80 - The One Thing` holds one checkbox (\"I will ... at ... in ...\"); `### 20 - Supporting Work` holds two to four; `### Blocks` lists the day's calendar events, time then deliverable; `**Do NOT do today:**` is copied from the plan's anti-drift rules. All of it comes from the weekly Goals and the calendar, not memory.");
-rep("Four rows: Project, Career, Cleanup, Review. The target comes from the weekly note's Goals; Done is a toggle. A target is a deliverable (\"CSCI 4061 P2: Part 1 tests pass\"), not a topic.",
-"Four rows: Project, Career, Cleanup, Review. The target comes from the weekly Goals and is a deliverable (\"CSCI 4061 P2: Part 1 tests pass\"), not a topic; Done is a toggle.");
-rep("==The promises not kept, written down the day they slip, until they are made up.== Each is one task line with inline fields:",
-"==Promises not kept, written the day they slip, until made up.== One task line each, with inline fields:");
-rep("Sources, in order of weight: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a win or floor toggle still `false` at close, and an open Lose from an earlier day. A line is never deleted. An empty section means nothing slipped, and `/closeday` says so only after checking the sources.",
-"Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, and an open Lose from an earlier day. A line is never deleted.");
-rep("Work the last session-log entries left open and nothing closed. Broken promises go in Daily Loses, not here.","Work the session log left open. Broken promises go in Daily Loses.");
-rep("Typed inputs bound to `lc_count` and `study_today`. No totals: wins and floors are counted from the toggles. No meals, water, or other health tracking: that belongs in The Plan ([[AGENTS]], golden rule 6).",
-"Inputs bound to `lc_count` and `study_today`, no totals. No meals, water, or health tracking: that belongs in The Plan ([[AGENTS]], golden rule 6).");
-rep("Appended by `/closeday`: a scorecard of the plan's tracks, `Day Status` GREEN or RED, `What Actually Happened` in two or three honest sentences, a `Friction Fix` when RED, and `Preview Tomorrow`. Never written from memory after the day; an unclosed day stays `planned`.",
-"Appended by `/closeday`: a scorecard, `Day Status` GREEN or RED, `What Actually Happened` in two or three honest sentences, a `Friction Fix` when RED, and `Preview Tomorrow`. Never written from memory; an unclosed day stays `planned`.");
-fs.writeFileSync('Daily Note Standard.md',s);
-EOF
-cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close"`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF'
-const fs=require('fs');let s=fs.readFileSync('Daily Note Standard.md','utf8');
-const rep=(a,b)=>{ if(!s.includes(a)) throw new Error('missing: '+a.slice(0,60)); s=s.replace(a,b); };
-rep("==A daily note is the day's plan first and its record second: the plan sections make it fit, and the toggles and Daily Loses keep the record honest.==","==A daily note is the day's plan first and its record second: the toggles and Daily Loses keep the record honest.==");
-rep("- Frontmatter passes the Spec, and `day_state: closed` appears only when End of Day exists.\n- Morning Plan has a filled 80 and at least two 20 items, and Blocks lists the calendar events or says the connector was unavailable.\n- Every open Lose has `since`; every Lose with no `why` says `(unanswered)`.\n- No heading names a term.\n- A closed day has `wins_done` and `floors_done` equal to the toggle count, End of Day appended, and `status: complete`.\n- A day left `planned` is counted in the weekly review, not failed ([[Daily Close Loop]]).",
-"- Frontmatter passes the Spec, and `day_state: closed` appears only when End of Day exists.\n- Morning Plan has a filled 80, at least two 20 items, and Blocks or \"connector unavailable\".\n- Every open Lose has `since`; a missing `why` reads `(unanswered)`.\n- No heading names a term.\n- A closed day has `wins_done` and `floors_done` equal to the toggle count, End of Day, and `status: complete`.\n- A day left `planned` is counted in the weekly review, not failed ([[Daily Close Loop]]).");
-rep("None yet: no daily has been closed in this shape. The first daily made from [[Better Today]] and closed with `/closeday` should be named here. The closest in the old shape is [[2026-10-05]], a filled Morning Plan with a named blocker and a deadline callout.","None yet. Name the first daily made from [[Better Today]] and closed with `/closeday`. The closest old-shape note is [[2026-10-05]].");
-rep("Rows come from the active plan's Systems table, not from the template. Each row has a track, a target, today's topic, and a `floor_n` toggle.","Rows come from the active plan's Systems table, not the template: track, target, topic, and a `floor_n` toggle.");
-rep("The title is the fixed prompt `# Did you get better today?`, which `/startday` patches under.\n","The title is the fixed prompt `# Did you get better today?`.\n");
-fs.writeFileSync('Daily Note Standard.md',s);
-let w=fs.readFileSync('../../Workflows/Operations/Daily Close Loop.md','utf8');
-const r2=(a,b)=>{ if(!w.includes(a)) throw new Error('missing: '+a.slice(0,60)); w=w.replace(a,b); };
-r2("Run the day as plan first and record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap until it is made up.","Plan first, record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap.");
-r2("The day opens with `/startday` or closes with `/closeday`. Closing is optional: an unclosed day still shows live toggle counts and open Loses on the dashboard, which holds no number of its own.","The day opens with `/startday` or closes with `/closeday`. Closing is optional: the dashboard still shows live toggle counts and open Loses, and holds no number of its own.");
-r2("5. Work the day. Tick a toggle only with evidence. Write a Lose the moment a block or promise slips.\n","5. Work the day. Tick a toggle only with evidence. Write a Lose when a promise slips.\n");
-r2("8. An unclosed day stays `planned`. The next `/startday` carries its Loses. `/weekly-review` counts unclosed days, sums the wins and floors, and lists open Loses with their ages.","8. An unclosed day stays `planned` and its Loses carry on. `/weekly-review` counts unclosed days, sums wins and floors, and lists open Loses with ages.");
-r2("Do not fill End of Day from memory. Do not tick a toggle without evidence; write \"(unverified)\". Do not type `wins_done` or `floors_done`. Do not write a `why` for Anant. Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason. Do not write to the calendar from either skill.","Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence; write \"(unverified)\". Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason.");
-fs.writeFileSync('../../Workflows/Operations/Daily Close Loop.md',w);
-EOF
-cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
-const fs=require('fs');
-let w=fs.readFileSync('Workflows/Operations/Daily Close Loop.md','utf8');
-const r=(a,b)=>{ if(!w.includes(a)) throw new Error('missing '+a.slice(0,50)); w=w.replace(a,b); };
-r("2. It reads the weekly Goals, the Fall plan's Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]]). With no connector it writes \"connector unavailable\".","2. It reads the weekly Goals, the Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]]).");
-r("7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted from the toggles), the confirmed Loses and End of Day, sets `day_state: closed` and `status: complete`, clears the `today_*` fields, and logs one session line.","7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted), the confirmed Loses and End of Day, sets `day_state: closed`, clears the `today_*` fields, and logs one line.");
-r("- Today's note has `day_state` matching its body and a real `created` date.\n","- Today's note has a real `created` date and a matching `day_state`.\n");
-fs.writeFileSync('Workflows/Operations/Daily Close Loop.md',w);
-let s=fs.readFileSync('Standards/Operations/Daily Note Standard.md','utf8');
-const q=(a,b)=>{ if(!s.includes(a)) throw new Error('missing '+a.slice(0,50)); s=s.replace(a,b); };
-q("Nobody types the two totals. A day never closed has them at 0 while the dashboard still shows the live count.","Nobody types the two totals. An unclosed day has them at 0 while the dashboard shows the live count.");
-q("The checkbox character is the state:\n","The checkbox mark is the state:\n");
-q("> A heading that names the term (\"Fall Daily Floor\", \"Summer OS Checklist\"). The note then breaks the next term, and a skill that patches by name stops finding it.","> A heading that names the term (\"Fall Daily Floor\"). It breaks next term, and a skill that patches by name stops finding it.");
-q("> Leaving the template's empty checkbox unfilled. Five dailies are untouched shells.","> Leaving the template's empty checkbox unfilled.");
-fs.writeFileSync('Standards/Operations/Daily Note Standard.md',s);
-EOF
-cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today"; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26.md 2>&1 | head -12`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
-const fs=require('fs');
-let w=fs.readFileSync('Workflows/Operations/Daily Close Loop.md','utf8');
-w=w.replace("Do not tick a toggle without evidence; write \"(unverified)\". ","Do not tick a toggle without evidence. ");
-fs.writeFileSync('Workflows/Operations/Daily Close Loop.md',w);
-let s=fs.readFileSync('Standards/Operations/Daily Note Standard.md','utf8');
-s=s.replace("Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, and an open Lose from an earlier day. A line is never deleted.","Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, an open Lose from an earlier day. Lines are never deleted.");
-s=s.replace("The Standard for the note in `10_Areas/Life/Enumerate/Daily/`. ","The Standard for `10_Areas/Life/Enumerate/Daily/` notes. ");
-fs.writeFileSync('Standards/Operations/Daily Note Standard.md',s);
-EOF
-cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo done`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -i 's/6\. `\/closeday` (optional) reads/6. `\/closeday` reads/' Workflows/Operations/Daily\ Close\ Loop.md && cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo ok`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF' const fs=require('fs');let s=fs.readFileSync('Daily Note Standard.md','utf8'); const rep=(a,b)=>{ if(!s.includes(a)) throw new Error('missing: '+a.slice(0,50)); s=s.replace(a,b); }; rep("This is the Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan and carries open Loses forward, `/closeday` counts the toggles and writes the Loses, and the note fits whether or not the day is ever closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].", "The Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan and carries open Loses forward, `/closeday` counts the toggles and writes the Loses, and the note fits even if the day is never closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]]."); rep("A toggle is a Meta Bind input bound to one frontmatter boolean. Flipping it changes that value and nothing else. The value is read in three places, so the toggle is evidence and never decoration:\n- **Dashboard.** `00_Dashboard.md` counts `win_*` out of 4 and `floor_*` out of 3 from today's note, live. It stores no copy of either count.\n- **`/closeday`.** It counts the toggles and writes `wins_done` and `floors_done`. It does not ask for them. Every toggle still `false` at close becomes a Daily Loses line.\n- **Weekly review.** It sums `wins_done` and `floors_done` across the week.\n\n`wins_done` and `floors_done` are snapshots written at close. Nobody types them. A day never closed has them at 0, and the dashboard still shows the live count.", "A toggle is a Meta Bind input bound to one frontmatter boolean. It is evidence, and three things read it:\n- **Dashboard.** `00_Dashboard.md` counts `win_*` out of 4 and `floor_*` out of 3 live, and stores no copy.\n- **`/closeday`.** It counts them into `wins_done` and `floors_done`, never asks, and turns every toggle still `false` into a Daily Loses line.\n- **Weekly review.** It sums `wins_done` and `floors_done` across the week.\n\nNobody types the two totals. A day never closed has them at 0 while the dashboard still shows the live count."); rep("`type: thought`, `thought_kind: daily`, `status` (`active` while the day runs, `complete` once closed), `day_state` (`planned` or `closed`), `created`, `updated`, `tags: [daily]`. Tracking keys: the toggles `win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1` to `floor_3` (booleans, `false` at creation); `lc_count` and `study_today` (typed numbers); `wins_done` and `floors_done` (numbers written at close).", "`type: thought`, `thought_kind: daily`, `status` (`active` while the day runs, `complete` once closed), `day_state` (`planned` or `closed`), `created`, `updated`, `tags: [daily]`. Tracking keys: the toggles `win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1` to `floor_3` (booleans); `lc_count` and `study_today` (typed numbers); `wins_done` and `floors_done` (counted at close)."); rep("A `created` that still holds `<% tp.date.now(\"YYYY-MM-DD\") %>`. Periodic Notes copies the template, and the placeholder is only resolved when Templater's \"Trigger Templater on new file creation\" is on. When it is off, every date query skips the note. `/startday` resolves any leftover placeholder to the date in the file name.", "A `created` that still holds `<% tp.date.now(\"YYYY-MM-DD\") %>`. Periodic Notes copies the template, and Templater resolves the placeholder only when \"Trigger Templater on new file creation\" is on. Otherwise date queries skip the note. `/startday` resolves it to the file name's date."); rep("`*Goal*:` one line. Under it, `### 80 - The One Thing` holds one checkbox written as \"I will ... at ... in ...\"; `### 20 - Supporting Work` holds two to four checkboxes; `### Blocks` lists the day's events from the working calendar, one line each (time, then deliverable); `**Do NOT do today:**` is copied from the active plan's anti-drift rules. The 80, the 20 and the Blocks come from the week's Goals in the weekly note and the calendar, not from memory.", "`*Goal*:` one line. Under it, `### 80 - The One Thing` holds one checkbox (\"I will ... at ... in ...\"); `### 20 - Supporting Work` holds two to four; `### Blocks` lists the day's calendar events, time then deliverable; `**Do NOT do today:**` is copied from the plan's anti-drift rules. All of it comes from the weekly Goals and the calendar, not memory."); rep("Four rows: Project, Career, Cleanup, Review. The target comes from the weekly note's Goals; Done is a toggle. A target is a deliverable (\"CSCI 4061 P2: Part 1 tests pass\"), not a topic.", "Four rows: Project, Career, Cleanup, Review. The target comes from the weekly Goals and is a deliverable (\"CSCI 4061 P2: Part 1 tests pass\"), not a topic; Done is a toggle."); rep("==The promises not kept, written down the day they slip, until they are made up.== Each is one task line with inline fields:", "==Promises not kept, written the day they slip, until made up.== One task line each, with inline fields:"); rep("Sources, in order of weight: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a win or floor toggle still `false` at close, and an open Lose from an earlier day. A line is never deleted. An empty section means nothing slipped, and `/closeday` says so only after checking the sources.", "Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, and an open Lose from an earlier day. A line is never deleted."); rep("Work the last session-log entries left open and nothing closed. Broken promises go in Daily Loses, not here.","Work the session log left open. Broken promises go in Daily Loses."); rep("Typed inputs bound to `lc_count` and `study_today`. No totals: wins and floors are counted from the toggles. No meals, water, or other health tracking: that belongs in The Plan ([[AGENTS]], golden rule 6).", "Inputs bound to `lc_count` and `study_today`, no totals. No meals, water, or health tracking: that belongs in The Plan ([[AGENTS]], golden rule 6)."); rep("Appended by `/closeday`: a scorecard of the plan's tracks, `Day Status` GREEN or RED, `What Actually Happened` in two or three honest sentences, a `Friction Fix` when RED, and `Preview Tomorrow`. Never written from memory after the day; an unclosed day stays `planned`.", "Appended by `/closeday`: a scorecard, `Day Status` GREEN or RED, `What Actually Happened` in two or three honest sentences, a `Friction Fix` when RED, and `Preview Tomorrow`. Never written from memory; an unclosed day stays `planned`."); fs.writeFileSync('Daily Note Standard.md',s); EOF cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "better today\|daily note\|daily close"``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations" && node - <<'EOF' const fs=require('fs');let s=fs.readFileSync('Daily Note Standard.md','utf8'); const rep=(a,b)=>{ if(!s.includes(a)) throw new Error('missing: '+a.slice(0,60)); s=s.replace(a,b); }; rep("==A daily note is the day's plan first and its record second: the plan sections make it fit, and the toggles and Daily Loses keep the record honest.==","==A daily note is the day's plan first and its record second: the toggles and Daily Loses keep the record honest.=="); rep("- Frontmatter passes the Spec, and `day_state: closed` appears only when End of Day exists.\n- Morning Plan has a filled 80 and at least two 20 items, and Blocks lists the calendar events or says the connector was unavailable.\n- Every open Lose has `since`; every Lose with no `why` says `(unanswered)`.\n- No heading names a term.\n- A closed day has `wins_done` and `floors_done` equal to the toggle count, End of Day appended, and `status: complete`.\n- A day left `planned` is counted in the weekly review, not failed ([[Daily Close Loop]]).", "- Frontmatter passes the Spec, and `day_state: closed` appears only when End of Day exists.\n- Morning Plan has a filled 80, at least two 20 items, and Blocks or \"connector unavailable\".\n- Every open Lose has `since`; a missing `why` reads `(unanswered)`.\n- No heading names a term.\n- A closed day has `wins_done` and `floors_done` equal to the toggle count, End of Day, and `status: complete`.\n- A day left `planned` is counted in the weekly review, not failed ([[Daily Close Loop]])."); rep("None yet: no daily has been closed in this shape. The first daily made from [[Better Today]] and closed with `/closeday` should be named here. The closest in the old shape is [[2026-10-05]], a filled Morning Plan with a named blocker and a deadline callout.","None yet. Name the first daily made from [[Better Today]] and closed with `/closeday`. The closest old-shape note is [[2026-10-05]]."); rep("Rows come from the active plan's Systems table, not from the template. Each row has a track, a target, today's topic, and a `floor_n` toggle.","Rows come from the active plan's Systems table, not the template: track, target, topic, and a `floor_n` toggle."); rep("The title is the fixed prompt `# Did you get better today?`, which `/startday` patches under.\n","The title is the fixed prompt `# Did you get better today?`.\n"); fs.writeFileSync('Daily Note Standard.md',s); let w=fs.readFileSync('../../Workflows/Operations/Daily Close Loop.md','utf8'); const r2=(a,b)=>{ if(!w.includes(a)) throw new Error('missing: '+a.slice(0,60)); w=w.replace(a,b); }; r2("Run the day as plan first and record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap until it is made up.","Plan first, record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap."); r2("The day opens with `/startday` or closes with `/closeday`. Closing is optional: an unclosed day still shows live toggle counts and open Loses on the dashboard, which holds no number of its own.","The day opens with `/startday` or closes with `/closeday`. Closing is optional: the dashboard still shows live toggle counts and open Loses, and holds no number of its own."); r2("5. Work the day. Tick a toggle only with evidence. Write a Lose the moment a block or promise slips.\n","5. Work the day. Tick a toggle only with evidence. Write a Lose when a promise slips.\n"); r2("8. An unclosed day stays `planned`. The next `/startday` carries its Loses. `/weekly-review` counts unclosed days, sums the wins and floors, and lists open Loses with their ages.","8. An unclosed day stays `planned` and its Loses carry on. `/weekly-review` counts unclosed days, sums wins and floors, and lists open Loses with ages."); r2("Do not fill End of Day from memory. Do not tick a toggle without evidence; write \"(unverified)\". Do not type `wins_done` or `floors_done`. Do not write a `why` for Anant. Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason. Do not write to the calendar from either skill.","Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence; write \"(unverified)\". Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason."); fs.writeFileSync('../../Workflows/Operations/Daily Close Loop.md',w); EOF cd ../../System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF' const fs=require('fs'); let w=fs.readFileSync('Workflows/Operations/Daily Close Loop.md','utf8'); const r=(a,b)=>{ if(!w.includes(a)) throw new Error('missing '+a.slice(0,50)); w=w.replace(a,b); }; r("2. It reads the weekly Goals, the Fall plan's Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]]). With no connector it writes \"connector unavailable\".","2. It reads the weekly Goals, the Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]])."); r("7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted from the toggles), the confirmed Loses and End of Day, sets `day_state: closed` and `status: complete`, clears the `today_*` fields, and logs one session line.","7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted), the confirmed Loses and End of Day, sets `day_state: closed`, clears the `today_*` fields, and logs one line."); r("- Today's note has `day_state` matching its body and a real `created` date.\n","- Today's note has a real `created` date and a matching `day_state`.\n"); fs.writeFileSync('Workflows/Operations/Daily Close Loop.md',w); let s=fs.readFileSync('Standards/Operations/Daily Note Standard.md','utf8'); const q=(a,b)=>{ if(!s.includes(a)) throw new Error('missing '+a.slice(0,50)); s=s.replace(a,b); }; q("Nobody types the two totals. A day never closed has them at 0 while the dashboard still shows the live count.","Nobody types the two totals. An unclosed day has them at 0 while the dashboard shows the live count."); q("The checkbox character is the state:\n","The checkbox mark is the state:\n"); q("> A heading that names the term (\"Fall Daily Floor\", \"Summer OS Checklist\"). The note then breaks the next term, and a skill that patches by name stops finding it.","> A heading that names the term (\"Fall Daily Floor\"). It breaks next term, and a skill that patches by name stops finding it."); q("> Leaving the template's empty checkbox unfilled. Five dailies are untouched shells.","> Leaving the template's empty checkbox unfilled."); fs.writeFileSync('Standards/Operations/Daily Note Standard.md',s); EOF cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today"; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26.md 2>&1 | head -12``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF' const fs=require('fs'); let w=fs.readFileSync('Workflows/Operations/Daily Close Loop.md','utf8'); w=w.replace("Do not tick a toggle without evidence; write \"(unverified)\". ","Do not tick a toggle without evidence. "); fs.writeFileSync('Workflows/Operations/Daily Close Loop.md',w); let s=fs.readFileSync('Standards/Operations/Daily Note Standard.md','utf8'); s=s.replace("Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, and an open Lose from an earlier day. A line is never deleted.","Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, an open Lose from an earlier day. Lines are never deleted."); s=s.replace("The Standard for the note in `10_Areas/Life/Enumerate/Daily/`. ","The Standard for `10_Areas/Life/Enumerate/Daily/` notes. "); fs.writeFileSync('Standards/Operations/Daily Note Standard.md',s); EOF cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo done``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -i 's/6\. `\/closeday` (optional) reads/6. `\/closeday` reads/' Workflows/Operations/Daily\ Close\ Loop.md && cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close"; echo ok``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "dashboard\|startday\|closeday\|homepage\|meta bind\|canvas" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Build History - July to October 2026.md" | head -40; echo ======; sed -n 1,200p "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && ls | grep -i "dash\|daily\|template\|tick\|habit\|10" | head -20; for f in "07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md" "07-08 Fix corrupted daily note template and habit tracker.md"; do echo "=========== $f"; wc -c "$f"; grep -n "^## Claude" "$f" | tail -3; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis" && sed -n 302,420p "07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map.md" | cut -c1-600; echo "=================== 07-08"; sed -n 71,140p "07-08 Fix corrupted daily note template and habit tracker.md" | cut -c1-700; echo "=================== 07-10"; grep -n "^## Claude" "07-10 Fix untickable checklist in table.md" | tail -2; wc -c "07-10 Fix untickable checklist in table.md"`
@@ -8085,150 +8506,29 @@ cd System/vault-lint && node vault-lint.js --kit 2>&1 | grep -i "daily note\|dai
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,80p Standards/Enrich/Reference\ Standard.md | cut -c1-600; echo =======; sed -n 1,70p Standards/Projects/Spec\ and\ Plan\ Standard.md | cut -c1-600; ls Templates/Knowledge Templates/Projects`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && cat Knowledge/Reference\ Template.md; echo ====; cat Projects/Project\ Spec\ Template.md; ls ../../10_Areas/Life/*.md | head; ls "../../40_Resources/Obsidian" | head -30`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat esbuild.config.mjs | head -60; echo ====deploy; cat scripts/deploy.mjs | head -40; echo ====preview; head -30 scripts/preview.mjs; echo; ls .preview-out | head; cd "D:/_Anant/20_Progress/Documents/The Plan" && echo ==== && find . -maxdepth 3 \( -name "Monthly Dashboard*" -o -name "Map Canvas*" -o -name "Research - Platform Facts*" -o -name "Life OS*" -o -name "Daily Operating System*" -o -name "Agentic OS*" \) -not -path "./.git/*" | head; ls 00_Live 00_Live/Enumerate 00_Live/Tracking 2>/dev/null | head -40; cat .claude/settings.json | head -40`
-- `cd "D:/_Anant/20_Progress/Documents" && for v in "The Plan" "Jarvis"; do echo "== $v"; node -e "
-const fs=require('fs');const p='$v/.mcp.json';
-if(!fs.existsSync(p)){console.log('no .mcp.json');process.exit()}
-const j=JSON.parse(fs.readFileSync(p,'utf8'));
-for(const [n,s] of Object.entries(j.mcpServers||{})){console.log(n,{type:s.type||(s.url?'http':'stdio'),command:s.command,hasUrl:!!s.url,envKeys:Object.keys(s.env||{}),headerKeys:Object.keys(s.headers||{}),argCount:(s.args||[]).length});}
-"; done; ls "The Plan" -a | head -30`
+- `cd "D:/_Anant/20_Progress/Documents" && for v in "The Plan" "Jarvis"; do echo "== $v"; node -e " const fs=require('fs');const p='$v/.mcp.json'; if(!fs.existsSync(p)){console.log('no .mcp.json');process.exit()} const j=JSON.parse(fs.readFileSync(p,'utf8')); for(const [n,s] of Object.entries(j.mcpServers||{})){console.log(n,{type:s.type||(s.url?'http':'stdio'),command:s.command,hasUrl:!!s.url,envKeys:Object.keys(s.env||{}),headerKeys:Object.keys(s.headers||{}),argCount:(s.args||[]).length});} "; done; ls "The Plan" -a | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rli "toggl" --include=*.md --include=*.json --include=*.ps1 --include=*.toml . 2>/dev/null | grep -v "node_modules\|/.git/\|plugins/" | head -20`
-- `cd ~ && node -e "
-const fs=require('fs');
-const j=JSON.parse(fs.readFileSync('.claude.json','utf8'));
-const show=(label,m)=>{ if(!m) return; for(const [n,s] of Object.entries(m)) console.log(label,n,{type:s.type||(s.url?'http':'stdio'),command:s.command,url:s.url?new URL(s.url).host:undefined,envKeys:Object.keys(s.env||{}),headerKeys:Object.keys(s.headers||{})}); };
-show('user',j.mcpServers);
-for(const [p,v] of Object.entries(j.projects||{})) if(/The Plan|Jarvis/i.test(p)) show(p,v.mcpServers);
-" 2>&1 | head -30; ls ~/.claude/plugins 2>/dev/null | head; ls "$APPDATA/Toggl" 2>/dev/null | head`
+- `cd ~ && node -e " const fs=require('fs'); const j=JSON.parse(fs.readFileSync('.claude.json','utf8')); const show=(label,m)=>{ if(!m) return; for(const [n,s] of Object.entries(m)) console.log(label,n,{type:s.type||(s.url?'http':'stdio'),command:s.command,url:s.url?new URL(s.url).host:undefined,envKeys:Object.keys(s.env||{}),headerKeys:Object.keys(s.headers||{})}); }; show('user',j.mcpServers); for(const [p,v] of Object.entries(j.projects||{})) if(/The Plan|Jarvis/i.test(p)) show(p,v.mcpServers); " 2>&1 | head -30; ls ~/.claude/plugins 2>/dev/null | head; ls "$APPDATA/Toggl" 2>/dev/null | head`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -name "Daily Operating System.md" -not -path "./50_Archive/*" | head -2; find . -name "Jarvis Vault Architecture.md" | head -1; sed -n 1,12p "20_Progress/Projects/Jarvis & The Plan/Jarvis.md"`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && sed -n 150,330p ui/sections.tsx | cut -c1-200; echo ======CHARTS; cat ui/charts.tsx | cut -c1-200; echo =====AREA; sed -n 80,120p ui/styles.ts; echo ====data; cat data/repo.ts data/write.ts core/toggle.ts | cut -c1-200`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && node -e "
-const fs=require('fs');
-const h=JSON.parse(fs.readFileSync('plugins/homepage/data.json','utf8'));
-for(const [n,p] of Object.entries(h.homepages)) console.log('homepage',n,p.kind,p.value,'startup',p.openOnStartup,'mode',p.openMode,'commands',JSON.stringify(p.commands));
-console.log('separateMobile',h.separateMobile);
-for(const id of ['dataview','obsidian-meta-bind-plugin','multi-column-markdown','homepage','templater-obsidian','periodic-notes','quickadd','obsidian-kanban','calendar']){try{const m=JSON.parse(fs.readFileSync('plugins/'+id+'/manifest.json','utf8'));console.log(id,m.version)}catch(e){console.log(id,'-')}}
-const cp=JSON.parse(fs.readFileSync('community-plugins.json','utf8'));console.log('community-plugins listed',cp.length);
-console.log(JSON.parse(fs.readFileSync('appearance.json','utf8')).enabledCssSnippets);
-"; ls ../10_Areas/*.canvas ../10_Areas/Jarvis* 2>/dev/null; ls ../20_Progress/AI/ | head -5; grep -n "write\|allow" ../30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1 | head -12; sed -n 1,40p ../.claude/settings.json | cut -c1-160`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && node -e "
-const c=JSON.parse(require('fs').readFileSync('Jarvis OS Dashboard.canvas','utf8'));
-console.log('nodes',c.nodes.length,'edges',(c.edges||[]).length);
-for(const n of c.nodes){console.log('---',n.id,n.type,n.x,n.y,n.width+'x'+n.height);console.log((n.text||n.file||'').slice(0,900));}
-"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && node -e " const fs=require('fs'); const h=JSON.parse(fs.readFileSync('plugins/homepage/data.json','utf8')); for(const [n,p] of Object.entries(h.homepages)) console.log('homepage',n,p.kind,p.value,'startup',p.openOnStartup,'mode',p.openMode,'commands',JSON.stringify(p.commands)); console.log('separateMobile',h.separateMobile); for(const id of ['dataview','obsidian-meta-bind-plugin','multi-column-markdown','homepage','templater-obsidian','periodic-notes','quickadd','obsidian-kanban','calendar']){try{const m=JSON.parse(fs.readFileSync('plugins/'+id+'/manifest.json','utf8'));console.log(id,m.version)}catch(e){console.log(id,'-')}} const cp=JSON.parse(fs.readFileSync('community-plugins.json','utf8'));console.log('community-plugins listed',cp.length); console.log(JSON.parse(fs.readFileSync('appearance.json','utf8')).enabledCssSnippets); "; ls ../10_Areas/*.canvas ../10_Areas/Jarvis* 2>/dev/null; ls ../20_Progress/AI/ | head -5; grep -n "write\|allow" ../30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1 | head -12; sed -n 1,40p ../.claude/settings.json | cut -c1-160`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && node -e " const c=JSON.parse(require('fs').readFileSync('Jarvis OS Dashboard.canvas','utf8')); console.log('nodes',c.nodes.length,'edges',(c.edges||[]).length); for(const n of c.nodes){console.log('---',n.id,n.type,n.x,n.y,n.width+'x'+n.height);console.log((n.text||n.file||'').slice(0,900));} "`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && rg -n "lc_today|wins_done|habits_done|00_Dashboard#" --glob '!50_Archive/**' --glob '!60_Claude/05_Clippings/**' --glob '!60_Claude/07_AI_Information/Session Logs/**' --glob '!.git/**' --glob '!*.bak*' --glob '!10_Areas/Life/Enumerate/Daily/**' --glob '!.obsidian/plugins/**' --glob '!**/Runs/**' . 2>/dev/null | cut -c1-220 | head -40`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && cp "Jarvis OS Dashboard.canvas" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/48986477-e188-4f7b-a406-ce4f08ba7f35/scratchpad/Jarvis OS Dashboard.canvas.before" && node - <<'EOF'
-const fs=require('fs');
-const f='Jarvis OS Dashboard.canvas';
-const raw=fs.readFileSync(f,'utf8');
-const c=JSON.parse(raw);
-const by=Object.fromEntries(c.nodes.map(n=>[n.id,n]));
-const D='10_Areas/Life/Enumerate/Daily';
-
-by.numbers.text = "## TODAY'S NUMBERS\n```dataviewjs\n// Read from today's daily note. Nothing is stored on this canvas or on 00_Dashboard.\nconst DAILY = \""+D+"\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);\nconst lc = Number(p?.lc_count ?? 0);\nconst study = Number(p?.study_today ?? 0);\nconst wins = count([\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nconst floor = count([\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\")).length;\nconst cls = (ok, mid) => ok ? 'green' : mid ? 'yellow' : '';\nconst c = dv.el('div', '', {cls: 'stat-grid'});\nc.innerHTML = `\n  <div class=\"stat-tile ${cls(wins >= 4, wins >= 2)}\"><div class=\"stat-label\">Wins</div><div class=\"stat-value\">${wins}<span style=\"font-size:0.85rem;opacity:0.5\">/4</span></div></div>\n  <div class=\"stat-tile ${cls(floor >= 3, floor >= 1)}\"><div class=\"stat-label\">Floor</div><div class=\"stat-value\">${floor}<span style=\"font-size:0.85rem;opacity:0.5\">/3</span></div></div>\n  <div class=\"stat-tile ${cls(lc >= 5, lc > 0)}\"><div class=\"stat-label\">Problems</div><div class=\"stat-value\">${lc}</div><div class=\"stat-delta ${lc >= 5 ? 'positive' : 'neutral'}\">target 5</div></div>\n  <div class=\"stat-tile\"><div class=\"stat-label\">Study Hours</div><div class=\"stat-value\">${study}h</div></div>\n  <div class=\"stat-tile ${open === 0 ? 'green' : open > 3 ? 'red' : 'yellow'}\"><div class=\"stat-label\">Open Loses</div><div class=\"stat-value\">${open}</div></div>\n`;\nif (!p) dv.paragraph(\"No daily note for today yet. Run /startday.\");\n```";
-
-by.drivers.text = "## WINS, FLOOR AND LOSES\n```dataviewjs\nconst DAILY = \""+D+"\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst bar = (label, keys) => {\n  const done = p ? keys.filter((k) => p[k] === true).length : 0;\n  const pct = Math.round((done / keys.length) * 100);\n  const w = dv.el('div', '', {cls: 'progress-wrap'});\n  w.innerHTML = `<div class=\"progress-label\">${label}: ${done} / ${keys.length} · ${pct}%</div><div class=\"progress-bar-bg\"><div class=\"progress-bar-fill\" style=\"width:${pct}%\"></div></div>`;\n};\nbar(\"Daily Wins\", [\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nbar(\"Daily Floor\", [\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\"));\nconst today = dv.date(\"today\");\nconst age = (t) => {\n  const s = t.since ? String(t.since).slice(0, 10) : t.path.split(\"/\").pop().replace(\".md\", \"\");\n  const d = dv.date(s);\n  return d ? Math.max(0, Math.floor(today.diff(d, \"days\").days)) : 0;\n};\nif (open.length === 0) dv.paragraph(\"No open Loses.\");\nelse {\n  const sorted = open.sort((t) => age(t), \"desc\");\n  dv.paragraph(`**${sorted.length} open Loses** · oldest ${age(sorted[0])} days`);\n  dv.taskList(sorted.slice(0, 4), false);\n}\n```";
-by.drivers.height = 340;
-
-by.thisweek.text = "## THIS WEEK\n```dataviewjs\nconst pages = dv.pages('\"" + D + "\"').where(p => {\n  if (!p.file.day) return false;\n  const today = dv.date(\"today\");\n  const mon = today.minus({days: today.weekday - 1});\n  return p.file.day >= mon && p.file.day <= today;\n});\nconst tick = (p, keys) => keys.filter((k) => p[k] === true).length;\nconst lc = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);\nconst st = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);\nconst wn = pages.values.reduce((a,p) => a + tick(p, [\"win_project\",\"win_career\",\"win_cleanup\",\"win_review\"]), 0);\nconst fl = pages.values.reduce((a,p) => a + tick(p, [\"floor_1\",\"floor_2\",\"floor_3\"]), 0);\nconst clips = dv.pages('\"60_Claude/10_Source_Summaries\"').where(p => {\n  const mon = dv.date(\"today\").minus({days: dv.date(\"today\").weekday - 1});\n  return p.file.ctime >= mon;\n}).length;\ndv.paragraph(`**Notes:** ${pages.length}/7 · **Problems:** ${lc}/35 · **Study:** ${st}h · **Wins:** ${wn}/${pages.length * 4} · **Floor:** ${fl}/${pages.length * 3} · **Clippings ingested:** ${clips}`);\n```";
-
-by.priorities.text = "## TODAY'S PRIORITIES\n```dataviewjs\nconst t = dv.page(`" + D + "/${dv.date(\"today\").toFormat(\"yyyy-MM-dd\")}`);\nconst tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes(\"Daily Loses\")) : [];\nif (tasks.length) dv.taskList(tasks.slice(0, 10), false);\nelse dv.paragraph(t ? \"Nothing open in today's note.\" : \"No daily note for today yet.\");\n```";
-
-// shift the right column down by the 40px the drivers node grew
-by.internship.y += 40; by.clippings.y += 40; by.vaulthealth.y += 40; by.vaulthealth.height = 460;
-fs.writeFileSync(f, JSON.stringify(c,null,'\t')+'\n');
-// syntax check the dataviewjs inside
-const AF=Object.getPrototypeOf(async function(){}).constructor;
-for(const n of c.nodes){const re=/```dataviewjs\n([\s\S]*?)```/g;let m;while((m=re.exec(n.text||''))){try{new AF('dv',m[1]);console.log(n.id,'ok')}catch(e){console.log(n.id,'ERR',e.message)}}}
-console.log('nodes',c.nodes.length);
-EOF`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas" && cp "Jarvis OS Dashboard.canvas" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/48986477-e188-4f7b-a406-ce4f08ba7f35/scratchpad/Jarvis OS Dashboard.canvas.before" && node - <<'EOF' const fs=require('fs'); const f='Jarvis OS Dashboard.canvas'; const raw=fs.readFileSync(f,'utf8'); const c=JSON.parse(raw); const by=Object.fromEntries(c.nodes.map(n=>[n.id,n])); const D='10_Areas/Life/Enumerate/Daily';  by.numbers.text = "## TODAY'S NUMBERS\n```dataviewjs\n// Read from today's daily note. Nothing is stored on this canvas or on 00_Dashboard.\nconst DAILY = \""+D+"\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);\nconst lc = Number(p?.lc_count ?? 0);\nconst study = Number(p?.study_today ?? 0);\nconst wins = count([\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nconst floor = count([\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\")).length;\nconst cls = (ok, mid) => ok ? 'green' : mid ? 'yellow' : '';\nconst c = dv.el('div', '', {cls: 'stat-grid'});\nc.innerHTML = `\n  <div class=\"stat-tile ${cls(wins >= 4, wins >= 2)}\"><div class=\"stat-label\">Wins</div><div class=\"stat-value\">${wins}<span style=\"font-size:0.85rem;opacity:0.5\">/4</span></div></div>\n  <div class=\"stat-tile ${cls(floor >= 3, floor >= 1)}\"><div class=\"stat-label\">Floor</div><div class=\"stat-value\">${floor}<span style=\"font-size:0.85rem;opacity:0.5\">/3</span></div></div>\n  <div class=\"stat-tile ${cls(lc >= 5, lc > 0)}\"><div class=\"stat-label\">Problems</div><div class=\"stat-value\">${lc}</div><div class=\"stat-delta ${lc >= 5 ? 'positive' : 'neutral'}\">target 5</div></div>\n  <div class=\"stat-tile\"><div class=\"stat-label\">Study Hours</div><div class=\"stat-value\">${study}h</div></div>\n  <div class=\"stat-tile ${open === 0 ? 'green' : open > 3 ? 'red' : 'yellow'}\"><div class=\"stat-label\">Open Loses</div><div class=\"stat-value\">${open}</div></div>\n`;\nif (!p) dv.paragraph(\"No daily note for today yet. Run /startday.\");\n```";  by.drivers.text = "## WINS, FLOOR AND LOSES\n```dataviewjs\nconst DAILY = \""+D+"\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst bar = (label, keys) => {\n  const done = p ? keys.filter((k) => p[k] === true).length : 0;\n  const pct = Math.round((done / keys.length) * 100);\n  const w = dv.el('div', '', {cls: 'progress-wrap'});\n  w.innerHTML = `<div class=\"progress-label\">${label}: ${done} / ${keys.length} · ${pct}%</div><div class=\"progress-bar-bg\"><div class=\"progress-bar-fill\" style=\"width:${pct}%\"></div></div>`;\n};\nbar(\"Daily Wins\", [\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nbar(\"Daily Floor\", [\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\"));\nconst today = dv.date(\"today\");\nconst age = (t) => {\n  const s = t.since ? String(t.since).slice(0, 10) : t.path.split(\"/\").pop().replace(\".md\", \"\");\n  const d = dv.date(s);\n  return d ? Math.max(0, Math.floor(today.diff(d, \"days\").days)) : 0;\n};\nif (open.length === 0) dv.paragraph(\"No open Loses.\");\nelse {\n  const sorted = open.sort((t) => age(t), \"desc\");\n  dv.paragraph(`**${sorted.length} open Loses** · oldest ${age(sorted[0])} days`);\n  dv.taskList(sorted.slice(0, 4), false);\n}\n```"; by.drivers.height = 340;  by.thisweek.text = "## THIS WEEK\n```dataviewjs\nconst pages = dv.pages('\"" + D + "\"').where(p => {\n  if (!p.file.day) return false;\n  const today = dv.date(\"today\");\n  const mon = today.minus({days: today.weekday - 1});\n  return p.file.day >= mon && p.file.day <= today;\n});\nconst tick = (p, keys) => keys.filter((k) => p[k] === true).length;\nconst lc = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);\nconst st = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);\nconst wn = pages.values.reduce((a,p) => a + tick(p, [\"win_project\",\"win_career\",\"win_cleanup\",\"win_review\"]), 0);\nconst fl = pages.values.reduce((a,p) => a + tick(p, [\"floor_1\",\"floor_2\",\"floor_3\"]), 0);\nconst clips = dv.pages('\"60_Claude/10_Source_Summaries\"').where(p => {\n  const mon = dv.date(\"today\").minus({days: dv.date(\"today\").weekday - 1});\n  return p.file.ctime >= mon;\n}).length;\ndv.paragraph(`**Notes:** ${pages.length}/7 · **Problems:** ${lc}/35 · **Study:** ${st}h · **Wins:** ${wn}/${pages.length * 4} · **Floor:** ${fl}/${pages.length * 3} · **Clippings ingested:** ${clips}`);\n```";  by.priorities.text = "## TODAY'S PRIORITIES\n```dataviewjs\nconst t = dv.page(`" + D + "/${dv.date(\"today\").toFormat(\"yyyy-MM-dd\")}`);\nconst tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes(\"Daily Loses\")) : [];\nif (tasks.length) dv.taskList(tasks.slice(0, 10), false);\nelse dv.paragraph(t ? \"Nothing open in today's note.\" : \"No daily note for today yet.\");\n```";  // shift the right column down by the 40px the drivers node grew by.internship.y += 40; by.clippings.y += 40; by.vaulthealth.y += 40; by.vaulthealth.height = 460; fs.writeFileSync(f, JSON.stringify(c,null,'\t')+'\n'); // syntax check the dataviewjs inside const AF=Object.getPrototypeOf(async function(){}).constructor; for(const n of c.nodes){const re=/```dataviewjs\n([\s\S]*?)```/g;let m;while((m=re.exec(n.text||''))){try{new AF('dv',m[1]);console.log(n.id,'ok')}catch(e){console.log(n.id,'ERR',e.message)}}} console.log('nodes',c.nodes.length); EOF````
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 33p "10_Areas/AI/Claude Code.md"; sed -n 37p "20_Progress/AI/Claude OS.md"; grep -n "/startday" "10_Areas/AI/Claude Code.md" "20_Progress/AI/Claude OS.md" | cut -c1-260`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF'
-const fs=require('fs');
-function sub(f,a,b){let s=fs.readFileSync(f,'utf8');if(!s.includes(a))throw new Error('missing in '+f);fs.writeFileSync(f,s.replace(a,b));console.log('ok',f)}
-sub('10_Areas/AI/Claude Code.md',
-"| `/startday` | Fills today's daily note from the Summer OS plans + session history, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |",
-"| `/startday` | Fills today's daily note from the weekly Goals, the calendar and the Fall plan, carries open Daily Loses forward, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |");
-sub('10_Areas/AI/Claude Code.md',
-"| `/closeday` | Auto-gathers the day, asks one 5-question block, writes `lc_count`/`study_today`/`wins_done`/`habits_done` to the daily note, resets the dashboard (directory skill) |",
-"| `/closeday` | Counts the toggles, proposes a Daily Loses line for each broken promise, asks one block, writes `lc_count`/`study_today` and the counted `wins_done`/`floors_done`, clears the dashboard focus lines (directory skill) |");
-sub('20_Progress/AI/Claude OS.md',
-"| /closeday | directory (SKILL.md + reference.md) | writes lc_count/study_today/wins_done/habits_done, resets dashboard |",
-"| /closeday | directory (SKILL.md + reference.md) | counts toggles into wins_done/floors_done, writes Loses and lc_count/study_today, clears dashboard focus lines |");
-sub('20_Progress/AI/Claude OS.md',
-"| /startday | directory (SKILL.md + reference.md) | patches dashboard focus fields (Step 3b) |",
-"| /startday | directory (SKILL.md + reference.md) | fills the day from weekly Goals and calendar, carries open Loses, patches dashboard focus fields (Step 3b) |");
-EOF`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF' const fs=require('fs'); function sub(f,a,b){let s=fs.readFileSync(f,'utf8');if(!s.includes(a))throw new Error('missing in '+f);fs.writeFileSync(f,s.replace(a,b));console.log('ok',f)} sub('10_Areas/AI/Claude Code.md', "| `/startday` | Fills today's daily note from the Summer OS plans + session history, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |", "| `/startday` | Fills today's daily note from the weekly Goals, the calendar and the Fall plan, carries open Daily Loses forward, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |"); sub('10_Areas/AI/Claude Code.md', "| `/closeday` | Auto-gathers the day, asks one 5-question block, writes `lc_count`/`study_today`/`wins_done`/`habits_done` to the daily note, resets the dashboard (directory skill) |", "| `/closeday` | Counts the toggles, proposes a Daily Loses line for each broken promise, asks one block, writes `lc_count`/`study_today` and the counted `wins_done`/`floors_done`, clears the dashboard focus lines (directory skill) |"); sub('20_Progress/AI/Claude OS.md', "| /closeday | directory (SKILL.md + reference.md) | writes lc_count/study_today/wins_done/habits_done, resets dashboard |", "| /closeday | directory (SKILL.md + reference.md) | counts toggles into wins_done/floors_done, writes Loses and lc_count/study_today, clears dashboard focus lines |"); sub('20_Progress/AI/Claude OS.md', "| /startday | directory (SKILL.md + reference.md) | patches dashboard focus fields (Step 3b) |", "| /startday | directory (SKILL.md + reference.md) | fills the day from weekly Goals and calendar, carries open Loses, patches dashboard focus fields (Step 3b) |"); EOF``
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && wc -c "Monthly Dashboard.md" "Map Canvas.canvas"; sed -n 1,60p "Monthly Dashboard.md" | cut -c1-220; node -e "const c=JSON.parse(require('fs').readFileSync('Map Canvas.canvas','utf8'));console.log('canvas nodes',c.nodes.length,'edges',(c.edges||[]).length);console.log(c.nodes.slice(0,14).map(n=>(n.text||n.file||'').split('\n')[0].slice(0,50)).join(' | '))"`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && for f in "09-26 Obsidian vault sync across laptops.md" "10-12 Personal vault dashboard and AI workflow design.md" "10-13 Daily note ISO rename.md" "10-13 Daily note template and streak script.md" "10-13 Five Jarvis skills in The Plan.md" "10-13 Home dashboard rebuild.md" "10-13 Platform facts research for Dashboards build.md" "10-14 60_Jarvis zones and CLAUDE.md.md" "10-14 Dashboard stack audit and phone checklist.md" "10-14 Monthly dashboard and Map canvas.md" "10-14 The Plan agents and hooks.md" "10-15 Plan design for The Plan vault.md" "10-25 Dashboard plugin build review.md"; do node -e "
-const s=require('fs').readFileSync(process.argv[1],'utf8').slice(0,1500);
-const g=(k)=>{const m=s.match(new RegExp('^'+k+':\\\\s*(.*)$','m'));return m?m[1]:''};
-console.log(process.argv[1].slice(0,52).padEnd(54),g('started_at'),g('duration_minutes')+'m','turns',g('turn_count'),(s.match(/claude-[a-z0-9-]+/)||[''])[0]);
-" "$f"; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && for f in "09-26 Obsidian vault sync across laptops.md" "10-12 Personal vault dashboard and AI workflow design.md" "10-13 Daily note ISO rename.md" "10-13 Daily note template and streak script.md" "10-13 Five Jarvis skills in The Plan.md" "10-13 Home dashboard rebuild.md" "10-13 Platform facts research for Dashboards build.md" "10-14 60_Jarvis zones and CLAUDE.md.md" "10-14 Dashboard stack audit and phone checklist.md" "10-14 Monthly dashboard and Map canvas.md" "10-14 The Plan agents and hooks.md" "10-15 Plan design for The Plan vault.md" "10-25 Dashboard plugin build review.md"; do node -e " const s=require('fs').readFileSync(process.argv[1],'utf8').slice(0,1500); const g=(k)=>{const m=s.match(new RegExp('^'+k+':\\\\s*(.*)$','m'));return m?m[1]:''}; console.log(process.argv[1].slice(0,52).padEnd(54),g('started_at'),g('duration_minutes')+'m','turns',g('turn_count'),(s.match(/claude-[a-z0-9-]+/)||[''])[0]); " "$f"; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && grep -n "^## You\|^## Claude" "10-15 Plan design for The Plan vault.md" | head; sed -n 36,60p "10-15 Plan design for The Plan vault.md" | cut -c1-700`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan" && sed -n 94,110p "10-15 Plan design for The Plan vault.md" | cut -c1-900; echo ......; sed -n 152,200p "10-15 Plan design for The Plan vault.md" | cut -c1-600`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 14,60p Standards/Dashboards/Scheduled\ Review.md | cut -c1-420; echo =========; sed -n 14,50p Standards/Dashboards/Weekly\ Review.md | cut -c1-420; echo ====; sed -n 14,40p Standards/Agentic\ OS/Agentic\ OS\ Standard.md | cut -c1-380`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la 30_Order/System/plan-cli/ && node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-26 2>&1 | head -c 600; echo; git log --diff-filter=D --oneline -3 -- ".claude/skills/startday/SKILL.md" | head; git ls-tree -r e10bc90 --name-only 2>/dev/null | grep "^.claude" | head -30`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF'
-const fs=require('fs');const f='The Plan Dashboard State and Gaps 2026-10-25.md';let s=fs.readFileSync(f,'utf8');
-const a='("auto: 2026-10-16 21:01 | 133 files", from the second laptop\'s old message format)';
-if(!s.includes(a)) throw new Error('a'); s=s.replace(a,'(message "auto: 2026-10-16 21:01, 133 files", the second laptop\'s old format)');
-const b='| Review 2026-10-25; file dates seen 2026-10-26 |'; if(!s.includes(b)) throw new Error('b'); s=s.replace(b,'| Review 2026-10-25; `plan-cli.cjs` date seen 2026-10-26 |');
-fs.writeFileSync(f,s);
-EOF
-(cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -l --time-style=long-iso .obsidian/plugins/the-plan-dashboard/ | tail -3)`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" && node - <<'EOF'
-const fs=require('fs');const f='Builds - Jarvis.md';let s=fs.readFileSync(f,'utf8');
-const rep=(a,b)=>{if(!s.includes(a))throw new Error('missing '+a.slice(0,40));s=s.replace(a,b)};
-rep("updated: 2026-10-17","updated: 2026-10-26");
-rep("  - '[[Jarvis Restoration Build Plan]]'\n","  - '[[Jarvis Restoration Build Plan]]'\n  - '[[Jarvis Dashboard Build Record]]'\n  - '[[Jarvis Build Overview]]'\n  - '[[The Plan Overview]]'\n");
-rep("[[Jarvis AI Infrastructure - Concepts and Research]] preserves","[[Jarvis Dashboard Build Record]] is the dated record of the daily dashboard, the homepage canvas, the daily note and the `/startday` and `/closeday` skills, including what the 2026-10-26 rebuild found and changed. [[Jarvis Build Overview]] describes that dashboard as it stands, and [[The Plan Overview]] opens the five notes on The Plan's separate, plugin-based dashboard under `40_Resources/Obsidian/Dashboard/`.\n[[Jarvis AI Infrastructure - Concepts and Research]] preserves");
-rep("| Immediate next work |","| Daily dashboard and workflow | Rebuilt 2026-10-26: toggles counted, Daily Loses defined, canvas and page read one source. Not yet run on a real day. |\n| Immediate next work |");
-fs.writeFileSync(f,s);
-EOF
-sed -n 1,40p "Builds - Jarvis.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" 2>&1 | head -25; node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -25`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF' const fs=require('fs');const f='The Plan Dashboard State and Gaps 2026-10-25.md';let s=fs.readFileSync(f,'utf8'); const a='("auto: 2026-10-16 21:01 | 133 files", from the second laptop\'s old message format)'; if(!s.includes(a)) throw new Error('a'); s=s.replace(a,'(message "auto: 2026-10-16 21:01, 133 files", the second laptop\'s old format)'); const b='| Review 2026-10-25; file dates seen 2026-10-26 |'; if(!s.includes(b)) throw new Error('b'); s=s.replace(b,'| Review 2026-10-25; `plan-cli.cjs` date seen 2026-10-26 |'); fs.writeFileSync(f,s); EOF (cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -l --time-style=long-iso .obsidian/plugins/the-plan-dashboard/ | tail -3)``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" && node - <<'EOF' const fs=require('fs');const f='Builds - Jarvis.md';let s=fs.readFileSync(f,'utf8'); const rep=(a,b)=>{if(!s.includes(a))throw new Error('missing '+a.slice(0,40));s=s.replace(a,b)}; rep("updated: 2026-10-17","updated: 2026-10-26"); rep("  - '[[Jarvis Restoration Build Plan]]'\n","  - '[[Jarvis Restoration Build Plan]]'\n  - '[[Jarvis Dashboard Build Record]]'\n  - '[[Jarvis Build Overview]]'\n  - '[[The Plan Overview]]'\n"); rep("[[Jarvis AI Infrastructure - Concepts and Research]] preserves","[[Jarvis Dashboard Build Record]] is the dated record of the daily dashboard, the homepage canvas, the daily note and the `/startday` and `/closeday` skills, including what the 2026-10-26 rebuild found and changed. [[Jarvis Build Overview]] describes that dashboard as it stands, and [[The Plan Overview]] opens the five notes on The Plan's separate, plugin-based dashboard under `40_Resources/Obsidian/Dashboard/`.\n[[Jarvis AI Infrastructure - Concepts and Research]] preserves"); rep("| Immediate next work |","| Daily dashboard and workflow | Rebuilt 2026-10-26: toggles counted, Daily Loses defined, canvas and page read one source. Not yet run on a real day. |\n| Immediate next work |"); fs.writeFileSync(f,s); EOF sed -n 1,40p "Builds - Jarvis.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis" 2>&1 | head -25; node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -25``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 300,318p vault-lint.js; node vault-lint.js --path 40_Resources/Obsidian/Dashboard --list 10 2>&1 | grep -i "first 10" -A12 | cut -c1-260`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF'
-const fs=require('fs'),path=require('path');
-const files=[
- '40_Resources/Obsidian/Dashboard/Jarvis Build Overview.md',
- '40_Resources/Obsidian/Dashboard/The Plan Overview.md',
- '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Architecture and Infrastructure.md',
- '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard UI and What Appears.md',
- '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Build History and Method.md',
- '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Daily Workflow and AI Loop.md',
- '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md',
-];
-for(const f of files){
-  let s=fs.readFileSync(f,'utf8').replace(/\r\n/g,'\n');
-  const lines=s.split('\n');const out=[];let fm=0,inFence=false;
-  for(let i=0;i<lines.length;i++){
-    const l=lines[i];
-    if(l.trim()==='---'&&fm<2){fm++;out.push(l);continue;}
-    if(/^\s*```/.test(l)) inFence=!inFence;
-    if(!inFence && fm>=2 && l.trim()===''&&!/^\s*```/.test(l)) continue;
-    out.push(l);
-  }
-  s=out.join('\n').replace(/\n+$/,'\n');
-  if(f.includes('State and Gaps')) s=s.replace('raw `<% tp.date.now %>` placeholders','raw Templater date placeholders');
-  fs.writeFileSync(f,s);
-}
-EOF
-cd 30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -12; node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 1,12p; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26 2>&1 | grep -A6 "Top failure"`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis" && node - <<'EOF' const fs=require('fs'),path=require('path'); const files=[  '40_Resources/Obsidian/Dashboard/Jarvis Build Overview.md',  '40_Resources/Obsidian/Dashboard/The Plan Overview.md',  '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Architecture and Infrastructure.md',  '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard UI and What Appears.md',  '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Build History and Method.md',  '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Daily Workflow and AI Loop.md',  '40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md', ]; for(const f of files){   let s=fs.readFileSync(f,'utf8').replace(/\r\n/g,'\n');   const lines=s.split('\n');const out=[];let fm=0,inFence=false;   for(let i=0;i<lines.length;i++){     const l=lines[i];     if(l.trim()==='---'&&fm<2){fm++;out.push(l);continue;}     if(/^\s*```/.test(l)) inFence=!inFence;     if(!inFence && fm>=2 && l.trim()===''&&!/^\s*```/.test(l)) continue;     out.push(l);   }   s=out.join('\n').replace(/\n+$/,'\n');   if(f.includes('State and Gaps')) s=s.replace('raw `<% tp.date.now %>` placeholders','raw Templater date placeholders');   fs.writeFileSync(f,s); } EOF cd 30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | head -12; node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 1,12p; node vault-lint.js --path 10_Areas/Life/Enumerate/Daily/2026-10-26 2>&1 | grep -A6 "Top failure"````
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 40_Resources/Obsidian/Dashboard --list 5 2>&1 | grep -A4 "First"; node vault-lint.js --path 30_Order/Standards/Operations/Daily --list 3 2>&1 | grep -A3 "First"; node vault-lint.js --path 30_Order/Workflows/Operations/Daily --list 3 2>&1 | grep -A3 "First\|FIT"; grep -n "^$" "../../Standards/Operations/Daily Note Standard.md" | head`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "PLACEHOLDER =" vault-lint.js | head -2; grep -n "tp\.\|<%\|\[\[\.\.\.\|TBD\|TODO\|XXX" "../../../40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md" | head; cd ../../Standards/Operations && node - <<'EOF'
-const fs=require('fs');const f='Daily Note Standard.md';
-let l=fs.readFileSync(f,'utf8').replace(/\r\n/g,'\n').split('\n');
-let fm=0,fence=false;const out=[];
-for(const x of l){ if(x.trim()==='---'&&fm<2){fm++;out.push(x);continue;} if(/^\s*```/.test(x))fence=!fence; if(!fence&&fm>=2&&x.trim()===''&&!/^\s*```/.test(x))continue; out.push(x);}
-fs.writeFileSync(f,out.join('\n').replace(/\n+$/,'\n'));
-EOF
-cd ../../System/vault-lint && node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 2p`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF'
-const fs=require('fs');const f='The Plan Dashboard State and Gaps 2026-10-25.md';let s=fs.readFileSync(f,'utf8');
-s=s.replace(/`YYYY-MM-DD`/g,'ISO date format (`2026-10-26`)').replace(/YYYY-MM-DD/g,'ISO date format');
-fs.writeFileSync(f,s);console.log((s.match(/ISO date format/g)||[]).length);
-EOF
-grep -n "ISO date format" "The Plan Dashboard State and Gaps 2026-10-25.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | sed -n 2p; node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today\|Dashboard"`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "PLACEHOLDER =" vault-lint.js | head -2; grep -n "tp\.\|<%\|\[\[\.\.\.\|TBD\|TODO\|XXX" "../../../40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md" | head; cd ../../Standards/Operations && node - <<'EOF' const fs=require('fs');const f='Daily Note Standard.md'; let l=fs.readFileSync(f,'utf8').replace(/\r\n/g,'\n').split('\n'); let fm=0,fence=false;const out=[]; for(const x of l){ if(x.trim()==='---'&&fm<2){fm++;out.push(x);continue;} if(/^\s*```/.test(x))fence=!fence; if(!fence&&fm>=2&&x.trim()===''&&!/^\s*```/.test(x))continue; out.push(x);} fs.writeFileSync(f,out.join('\n').replace(/\n+$/,'\n')); EOF cd ../../System/vault-lint && node vault-lint.js --path 30_Order/Standards/Operations/Daily 2>&1 | sed -n 2p````
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && node - <<'EOF' const fs=require('fs');const f='The Plan Dashboard State and Gaps 2026-10-25.md';let s=fs.readFileSync(f,'utf8'); s=s.replace(/`YYYY-MM-DD`/g,'ISO date format (`2026-10-26`)').replace(/YYYY-MM-DD/g,'ISO date format'); fs.writeFileSync(f,s);console.log((s.match(/ISO date format/g)||[]).length); EOF grep -n "ISO date format" "The Plan Dashboard State and Gaps 2026-10-25.md" | cut -c1-200; cd ../../../../30_Order/System/vault-lint && node vault-lint.js --path 40_Resources/Obsidian/Dashboard 2>&1 | sed -n 2p; node vault-lint.js --kit 2>&1 | grep -i "daily note\|daily close\|better today\|Dashboard"``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard/The Plan" && sed -i 's/is not named ISO date format"/is not an ISO date name"/' "The Plan Dashboard State and Gaps 2026-10-25.md" && grep -c "ISO date name" "The Plan Dashboard State and Gaps 2026-10-25.md"; cd /d 2>/dev/null; cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short | grep -v "60_Claude/05_Clippings" | head -30`
-
 

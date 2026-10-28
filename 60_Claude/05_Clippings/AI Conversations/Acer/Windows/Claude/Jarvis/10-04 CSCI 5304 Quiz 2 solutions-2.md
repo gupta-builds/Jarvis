@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 5304 Quiz 2 solutions"
 started_at: 2026-10-04T23:34:44
 ended_at: 2026-10-04T23:50:47
-exported_at: 2026-10-17T21:06:59
+exported_at: 2026-10-28T16:15:41
 duration_minutes: 16
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: d018a5cd-2cbb-4b4d-a6f5-9f6d806d7292
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-04
+updated: 2026-10-28
 turn_count: 4
 tools_used:
   AskUserQuestion: 1
@@ -21,12 +24,12 @@ tools_used:
   Grep: 5
   Read: 12
 tokens:
-  input: 122
-  output: 74553
-  cache_creation: 347192
-  cache_read: 6375591
-  total: 6797458
-cost_usd: 3.40966
+  input: 50
+  output: 31039
+  cache_creation: 121564
+  cache_read: 2774674
+  total: 2927327
+cost_usd: 1.351681
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -89,13 +92,16 @@ The note is written and interlinked. Quick recap of the math I verified against 
 - **(b) No.** Counterexample: $B=\mathrm{diag}(3,2)$, $A=QB$ with $Q$ a 90° rotation. Same singular values ($\{3,2\}$, verified via $A^TA$), but $A$'s eigenvalues are complex ($\pm i\sqrt6$) while $B$'s are real ($3,2$) — so they can't be similar, hence can't be unitarily equivalent.
 - **(c)** Uses the swap matrix $P=\begin{bmatrix}0&1\\1&0\end{bmatrix}$ directly, building the SVD as $A=P\Sigma P^T$ off of part (a)'s own machinery, with no $AA^T$/$A^TA$/eigenvalues.
 
-Each step cites the specific theorem from your [[Lecture - 4]] and [[Lecture - 2 & 3]] notes, and I kept the steps short and boxed so they'll fit the handwriting space on the physical quiz.[[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]]] now links back to the solved quiz under its Takeaways section.
+Each step cites the specific theorem from your [[Lecture - 4]] and [[Lecture - 2 & 3]] notes, and I kept the steps short and boxed so they'll fit the handwriting space on the physical quiz. [[Week - 4]] now links back to the solved quiz under its Takeaways section.
 
 ### Tool Calls
 
 - `Glob` -- pattern `**/CSCI 5304/**` path `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304`
 - `Glob` -- pattern `**/CSCI 5304/**` path `D:\_Anant\20_Progress\Degree`
-- `Bash` -- `ls "D:\_Anant" 2>&1; echo "---"; ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" 2>&1`
+- `Bash`
+```bash
+ls "D:\_Anant" 2>&1; echo "---"; ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" 2>&1
+```
 ```
 00_Inbox
 10_Areas
@@ -115,7 +121,10 @@ README.md
 Textbook & Resources
 environment.yml
 ```
-- `Bash` -- `ls "D:\_Anant\20_Progress" 2>&1; echo "---degree---"; ls "D:\_Anant\20_Progress\Degree" 2>&1`
+- `Bash`
+```bash
+ls "D:\_Anant\20_Progress" 2>&1; echo "---degree---"; ls "D:\_Anant\20_Progress\Degree" 2>&1
+```
 ```
 Exit code 2
 Documents
@@ -123,16 +132,22 @@ Profile
 ---degree---
 ls: cannot access 'D:\_Anant\20_Progress\Degree': No such file or directory
 ```
-- `Glob` -- pattern `20_Progress/**` path ``
+- `Glob` -- pattern `20_Progress/**` path ` `
 - `Glob` -- pattern `**/CSCI 5304*/**` path `D:\_Anant`
-- `Bash` -- `ls -la "D:\_Anant\20_Progress\Degree" 2>&1; echo "---CSCI5304Degree---"; ls -la "D:\_Anant\20_Progress\Degree\CSCI 5304" 2>&1`
+- `Bash`
+```bash
+ls -la "D:\_Anant\20_Progress\Degree" 2>&1; echo "---CSCI5304Degree---"; ls -la "D:\_Anant\20_Progress\Degree\CSCI 5304" 2>&1
+```
 ```
 Exit code 2
 ls: cannot access 'D:\_Anant\20_Progress\Degree': No such file or directory
 ---CSCI5304Degree---
 ls: cannot access 'D:\_Anant\20_Progress\Degree\CSCI 5304': No such file or directory
 ```
-- `Bash` -- `ls -la "D:/_Anant/20_Progress/Degree" 2>&1; echo "---"; ls -la "D:/_Anant/20_Progress/Degree/CSCI 5304" 2>&1`
+- `Bash`
+```bash
+ls -la "D:/_Anant/20_Progress/Degree" 2>&1; echo "---"; ls -la "D:/_Anant/20_Progress/Degree/CSCI 5304" 2>&1
+```
 ```
 Exit code 2
 ls: cannot access 'D:/_Anant/20_Progress/Degree': No such file or directory
@@ -141,7 +156,10 @@ ls: cannot access 'D:/_Anant/20_Progress/Degree/CSCI 5304': No such file or dire
 ```
 - `Glob` -- pattern `20_Progress/Degree/CSCI 5304/*` path `D:\_Anant`
 - `Read` -- `D:\_Anant\20_Progress\Degree\CSCI 5304\Preparation.md`
-- `Bash` -- `find "D:/_Anant/10_Areas/UMN" -iname "*5304*" 2>&1 | head -100`
+- `Bash`
+```bash
+find "D:/_Anant/10_Areas/UMN" -iname "*5304*" 2>&1 | head -100
+```
 ```
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 1933/[REDACTED]/.git/objects/7e/[REDACTED]
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304
@@ -157,11 +175,17 @@ D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/Textbook & Resources/CSCI 5304 Syl
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/Textbook & Resources/CSCI 5304 Textbook (MinerU full extraction).md
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/Textbook & Resources/CSCI 5304 Textbook.pdf
 ```
-- `Bash` -- `find "D:/_Anant/20_Progress" -maxdepth 3 -iname "*degree*" -o -iname "*5304*" 2>&1 | head -50`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress" -maxdepth 3 -iname "*degree*" -o -iname "*5304*" 2>&1 | head -50
+```
 ```
 (Bash completed with no output)
 ```
-- `Bash` -- `find "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304" -not -path "*/.conda/*" -not -path "*/.git/*" | sort`
+- `Bash`
+```bash
+find "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304" -not -path "*/.conda/*" -not -path "*/.git/*" | sort
+```
 ```
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/.conda
@@ -196,7 +220,10 @@ D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/Textbook & Resources/CSCI 5304 Tex
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/Textbook & Resources/CSCI 5304 Textbook.pdf
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 5304/environment.yml
 ```
-- `Bash` -- `find "D:/_Anant" -iname "*week*4*" -not -path "*/.git/*" -not -path "*/.conda/*" 2>&1 | grep -v "node_modules" | head -50`
+- `Bash`
+```bash
+find "D:/_Anant" -iname "*week*4*" -not -path "*/.git/*" -not -path "*/.conda/*" 2>&1 | grep -v "node_modules" | head -50
+```
 ```
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 2033/Notes/Week - 4
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 14
@@ -249,7 +276,10 @@ D:/_Anant/20_Progress/Documents/Jarvis/.stversions/40_Resources/UMN/Previous Cla
 D:/_Anant/20_Progress/Documents/Jarvis/.stversions/40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 7~20261001-230154.md
 D:/_Anant/20_Progress/Documents/Jarvis/.stversions/40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 8~20261001-230154.md
 ```
-- `Bash` -- `find "D:/_Anant" -iname "*CSCI 5304*" -not -path "*/.git/*" -not -path "*/.conda/*" -not -path "*10_Areas*" 2>&1 | head -80`
+- `Bash`
+```bash
+find "D:/_Anant" -iname "*CSCI 5304*" -not -path "*/.git/*" -not -path "*/.conda/*" -not -path "*10_Areas*" 2>&1 | head -80
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/.stversions/20_Progress/Degree/CSCI 5304
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304
@@ -259,7 +289,10 @@ D:/_Anant/99_Archive/Syncthing Conflict Reconciliation 2026-09-28/20_Progress/De
 D:/_Anant/99_Archive/Syncthing Conflict Reconciliation 2026-09-28/20_Progress/Degree/CSCI 5304/CSCI 5304 Board.[REDACTED].md
 D:/_Anant/Desktop/CSCI 5304.lnk
 ```
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304" | sort`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304" | sort
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304
 D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md
@@ -305,85 +338,85 @@ D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304/Weekly/Weekl
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz\Quiz - 2.md`
 ```diff
 - ---
-type: evergreen
-status: sprout
-created:
-  "{ date:YYYY-MM-DD }":
-updated:
-  "{ date:YYYY-MM-DD }":
-tags:
-  - evergreen
-  - question-bank
-track: []
-notes: []
----
-# Quiz - 2
-
-## Open Questions
-
-## Misconceptions
-
-## Oral Exam Prompts
-
-## Debugging Drills
-
-## Build Prompts
-
-## Resolved Learnings
+- type: evergreen
+- status: sprout
+- created:
+-   "{ date:YYYY-MM-DD }":
+- updated:
+-   "{ date:YYYY-MM-DD }":
+- tags:
+-   - evergreen
+-   - question-bank
+- track: []
+- notes: []
+- ---
+- # Quiz - 2
+- 
+- ## Open Questions
+- 
+- ## Misconceptions
+- 
+- ## Oral Exam Prompts
+- 
+- ## Debugging Drills
+- 
+- ## Build Prompts
+- 
+- ## Resolved Learnings
 + ---
-type: evergreen
-status: sprout
-created: 2026-10-04
-updated: 2026-10-04
-tags:
-  - evergreen
-  - question-bank
-  - CSCI5304
-  - Quiz
-track:
-  - "[[CSCI 5304 Board]]"
-  - "[[20_Progress/Degree/CSCI 5304/Weekly/Week - 4|Week - 4]]"
-notes:
-  - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture - 4]]"
-  - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5|Lecture - 5]]"
-  - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3|Lecture - 2 & 3]]"
----
-# Quiz - 2
-Take-home quiz, SVD-focused (per [[20_Progress/Degree/CSCI 5304/Weekly/Week - 4|Week - 4]]'s schedule-anomaly note: announced 9/29, no in-class sitting). Source PDF: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Midterm\Quiz - 2.pdf`. Single question, Exercise 4.4 from Trefethen & Bau - unitary equivalence and singular values. Every step below cites the exact theorem it uses, so you can write the citation on the paper too if there's room.
-
-## Open Questions
-
-## Misconceptions
-
-## Oral Exam Prompts
-
-## Debugging Drills
-
-## Build Prompts
-
-## Resolved Learnings
-### Q1 (Exercise 4.4) - $A,B\in\mathbb{R}^{m\times m}$ unitarily equivalent if $A=QBQ^T$ for orthogonal $Q$.
-#### (a) 4 pts - $A=QBQ^T\Rightarrow$ same singular values
-Let $B=U\Sigma V^T$ be an SVD of $B$ ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture 4]], Thm 4.1 - every matrix has one).
-$$A=QBQ^T=Q(U\Sigma V^T)Q^T=(QU)\,\Sigma\,(QV)^T$$
-$Q,U,V$ orthogonal $\Rightarrow$ $QU$ and $QV$ are orthogonal too: $(QU)^T(QU)=U^TQ^TQU=U^TU=I$ (same for $QV$).
-So $A=U'\Sigma V'^T$ with $U'=QU,\ V'=QV$ both orthogonal - **this is itself a valid SVD of $A$, with the same $\Sigma$**.
-Singular values are unique (Thm 4.1) $\Rightarrow$ $A$ and $B$ have identical singular values. $\blacksquare$
-
-#### (b) 4 pts - same singular values $\Rightarrow$ unitarily equivalent? **No.**
-Counterexample. Let $Q=\begin{bmatrix}0&-1\\1&0\end{bmatrix}$ (90° rotation, orthogonal), $B=\begin{bmatrix}3&0\\0&2\end{bmatrix}$ (eigenvalues $3,2$).
-Let $A=QB=\begin{bmatrix}0&-2\\3&0\end{bmatrix}$.
-*Singular values of $A$:* $A^TA=\begin{bmatrix}9&0\\0&4\end{bmatrix}$ $\Rightarrow$ eigenvalues $9,4$ $\Rightarrow$ $\sigma(A)=\{3,2\}=\sigma(B)$. Same singular values. ✓
-*Eigenvalues of $A$:* char. poly $\lambda^2+6=0\Rightarrow\lambda=\pm i\sqrt6$ - **complex**, while $B$'s eigenvalues are $3,2$ - real.
-If $A=QBQ^T$ for some orthogonal $Q$, then $Q^T=Q^{-1}$ makes $A,B$ similar $\Rightarrow$ identical characteristic polynomials $\Rightarrow$ identical eigenvalues. They don't match (complex vs. real) - contradiction.
-**So $A,B$ share singular values but are not unitarily equivalent. Same $\sigma$'s is strictly weaker than unitary equivalence** - (a) used one SVD with possibly *different* $U,V$ per side; equivalence here forces the *same* $Q$ on both sides.
-
-#### (c) 2 pts - SVD of $A=\begin{bmatrix}2&0\\0&3\end{bmatrix}$ via part (a), target $\Sigma=\begin{bmatrix}3&0\\0&2\end{bmatrix}$
-Use the swap matrix $P=\begin{bmatrix}0&1\\1&0\end{bmatrix}$ (orthogonal: $P^T=P$, $P^2=I$).
-Check $A=P\Sigma P^T$: $P\Sigma=\begin{bmatrix}0&2\\3&0\end{bmatrix}$, then $(P\Sigma)P^T=\begin{bmatrix}0&2\\3&0\end{bmatrix}\begin{bmatrix}0&1\\1&0\end{bmatrix}=\begin{bmatrix}2&0\\0&3\end{bmatrix}=A$. ✓
-So $A$ and $\Sigma$ are unitarily equivalent via $Q=P$. By part (a)'s own construction (with $B=\Sigma$, whose trivial SVD is $\Sigma=I\,\Sigma\,I^T$): $A=(PI)\,\Sigma\,(PI)^T=P\Sigma P^T$ **is itself an SVD of $A$**.
-$$\boxed{A=U\Sigma V^T,\quad U=V=P=\begin{bmatrix}0&1\\1&0\end{bmatrix},\quad \Sigma=\begin{bmatrix}3&0\\0&2\end{bmatrix}}$$
-No $AA^T$, $A^TA$, or eigenvalues computed - only $P$ as a known orthogonal reordering of $A$'s already-diagonal entries.
++ type: evergreen
++ status: sprout
++ created: 2026-10-04
++ updated: 2026-10-04
++ tags:
++   - evergreen
++   - question-bank
++   - CSCI5304
++   - Quiz
++ track:
++   - "[[CSCI 5304 Board]]"
++   - "[[20_Progress/Degree/CSCI 5304/Weekly/Week - 4|Week - 4]]"
++ notes:
++   - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture - 4]]"
++   - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5|Lecture - 5]]"
++   - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3|Lecture - 2 & 3]]"
++ ---
++ # Quiz - 2
++ Take-home quiz, SVD-focused (per [[20_Progress/Degree/CSCI 5304/Weekly/Week - 4|Week - 4]]'s schedule-anomaly note: announced 9/29, no in-class sitting). Source PDF: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Midterm\Quiz - 2.pdf`. Single question, Exercise 4.4 from Trefethen & Bau - unitary equivalence and singular values. Every step below cites the exact theorem it uses, so you can write the citation on the paper too if there's room.
++ 
++ ## Open Questions
++ 
++ ## Misconceptions
++ 
++ ## Oral Exam Prompts
++ 
++ ## Debugging Drills
++ 
++ ## Build Prompts
++ 
++ ## Resolved Learnings
++ ### Q1 (Exercise 4.4) - $A,B\in\mathbb{R}^{m\times m}$ unitarily equivalent if $A=QBQ^T$ for orthogonal $Q$.
++ #### (a) 4 pts - $A=QBQ^T\Rightarrow$ same singular values
++ Let $B=U\Sigma V^T$ be an SVD of $B$ ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture 4]], Thm 4.1 - every matrix has one).
++ $$A=QBQ^T=Q(U\Sigma V^T)Q^T=(QU)\,\Sigma\,(QV)^T$$
++ $Q,U,V$ orthogonal $\Rightarrow$ $QU$ and $QV$ are orthogonal too: $(QU)^T(QU)=U^TQ^TQU=U^TU=I$ (same for $QV$).
++ So $A=U'\Sigma V'^T$ with $U'=QU,\ V'=QV$ both orthogonal - **this is itself a valid SVD of $A$, with the same $\Sigma$**.
++ Singular values are unique (Thm 4.1) $\Rightarrow$ $A$ and $B$ have identical singular values. $\blacksquare$
++ 
++ #### (b) 4 pts - same singular values $\Rightarrow$ unitarily equivalent? **No.**
++ Counterexample. Let $Q=\begin{bmatrix}0&-1\\1&0\end{bmatrix}$ (90° rotation, orthogonal), $B=\begin{bmatrix}3&0\\0&2\end{bmatrix}$ (eigenvalues $3,2$).
++ Let $A=QB=\begin{bmatrix}0&-2\\3&0\end{bmatrix}$.
++ *Singular values of $A$:* $A^TA=\begin{bmatrix}9&0\\0&4\end{bmatrix}$ $\Rightarrow$ eigenvalues $9,4$ $\Rightarrow$ $\sigma(A)=\{3,2\}=\sigma(B)$. Same singular values. ✓
++ *Eigenvalues of $A$:* char. poly $\lambda^2+6=0\Rightarrow\lambda=\pm i\sqrt6$ - **complex**, while $B$'s eigenvalues are $3,2$ - real.
++ If $A=QBQ^T$ for some orthogonal $Q$, then $Q^T=Q^{-1}$ makes $A,B$ similar $\Rightarrow$ identical characteristic polynomials $\Rightarrow$ identical eigenvalues. They don't match (complex vs. real) - contradiction.
++ **So $A,B$ share singular values but are not unitarily equivalent. Same $\sigma$'s is strictly weaker than unitary equivalence** - (a) used one SVD with possibly *different* $U,V$ per side; equivalence here forces the *same* $Q$ on both sides.
++ 
++ #### (c) 2 pts - SVD of $A=\begin{bmatrix}2&0\\0&3\end{bmatrix}$ via part (a), target $\Sigma=\begin{bmatrix}3&0\\0&2\end{bmatrix}$
++ Use the swap matrix $P=\begin{bmatrix}0&1\\1&0\end{bmatrix}$ (orthogonal: $P^T=P$, $P^2=I$).
++ Check $A=P\Sigma P^T$: $P\Sigma=\begin{bmatrix}0&2\\3&0\end{bmatrix}$, then $(P\Sigma)P^T=\begin{bmatrix}0&2\\3&0\end{bmatrix}\begin{bmatrix}0&1\\1&0\end{bmatrix}=\begin{bmatrix}2&0\\0&3\end{bmatrix}=A$. ✓
++ So $A$ and $\Sigma$ are unitarily equivalent via $Q=P$. By part (a)'s own construction (with $B=\Sigma$, whose trivial SVD is $\Sigma=I\,\Sigma\,I^T$): $A=(PI)\,\Sigma\,(PI)^T=P\Sigma P^T$ **is itself an SVD of $A$**.
++ $$\boxed{A=U\Sigma V^T,\quad U=V=P=\begin{bmatrix}0&1\\1&0\end{bmatrix},\quad \Sigma=\begin{bmatrix}3&0\\0&2\end{bmatrix}}$$
++ No $AA^T$, $A^TA$, or eigenvalues computed - only $P$ as a known orthogonal reordering of $A$'s already-diagonal entries.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Weekly\Week - 4.md`
 ```diff
@@ -415,5 +448,4 @@ _None detected_
 - `find "D:/_Anant" -iname "*week*4*" -not -path "*/.git/*" -not -path "*/.conda/*" 2>&1 | grep -v "node_modules" | head -50`
 - `find "D:/_Anant" -iname "*CSCI 5304*" -not -path "*/.git/*" -not -path "*/.conda/*" -not -path "*10_Areas*" 2>&1 | head -80`
 - `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 5304" | sort`
-
 

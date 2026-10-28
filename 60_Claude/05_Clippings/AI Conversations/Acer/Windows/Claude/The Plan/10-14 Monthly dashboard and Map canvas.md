@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Monthly dashboard and Map canvas"
 started_at: 2026-10-14T15:01:04
 ended_at: 2026-10-14T15:19:43
-exported_at: 2026-10-17T21:07:04
+exported_at: 2026-10-28T16:15:50
 duration_minutes: 18.6
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: 7c5cce5a-b83e-4da7-922d-3f021bdc3aba
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-14
+updated: 2026-10-28
 turn_count: 8
 tools_used:
   Bash: 20
@@ -21,12 +24,12 @@ tools_used:
   Skill: 1
   Write: 1
 tokens:
-  input: 138
-  output: 82705
-  cache_creation: 426198
-  cache_read: 6906390
-  total: 7415431
-cost_usd: null
+  input: 56
+  output: 36918
+  cache_creation: 125648
+  cache_read: 3159107
+  total: 3321729
+cost_usd: 1.187795
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -107,16 +110,19 @@ Status: I've read the spec, rules and engine source. Next I'll check which notes
 
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\AGENTS.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
-- `Glob` -- pattern `**/Spec - Home and Monthly Dashboards*` path ``
-- `Glob` -- pattern `**/Streak Rule*` path ``
-- `Glob` -- pattern `00_Live/**/*.md` path ``
+- `Glob` -- pattern `**/Spec - Home and Monthly Dashboards*` path ` `
+- `Glob` -- pattern `**/Streak Rule*` path ` `
+- `Glob` -- pattern `00_Live/**/*.md` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Map.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Tracking\Habits\Finance Tracker.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Tracking\Habits\Health Tracker.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Monthly\2026-10.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls .obsidian/plugins | head -50; ls .obsidian/plugins/the-plan-dashboard 2>/dev/null; ls .obsidian/snippets 2>/dev/null; ls 40_Resources/Obsidian/Dashboards 40_Resources/Obsidian/Dashboards/* | head -60; ls 60_Jarvis | head -30; ls 00_Live/Enumerate/Monthly 00_Live/Enumerate/Daily | head -80`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls .obsidian/plugins | head -50; ls .obsidian/plugins/the-plan-dashboard 2>/dev/null; ls .obsidian/snippets 2>/dev/null; ls 40_Resources/Obsidian/Dashboards 40_Resources/Obsidian/Dashboards/* | head -60; ls 60_Jarvis | head -30; ls 00_Live/Enumerate/Monthly 00_Live/Enumerate/Daily | head -80
+```
 ```
 calendar
 cmdr
@@ -250,7 +256,10 @@ README.md
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Prompts.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Monthly Review.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .obsidian/community-plugins.json; echo; grep -o '"enableDataviewJs"[^,]*\|"enableInlineDataviewJs"[^,]*\|"refreshInterval"[^,]*\|"refreshEnabled"[^,]*' .obsidian/plugins/dataview/data.json; echo ---; ls 60_Jarvis/10_Promoted_Notes; find 60_Jarvis -iname '*snapshot*'; echo ---; node 30_Order/System/plan-cli/plan-cli.cjs review 2026-10 --dir 00_Live/Enumerate/Daily`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .obsidian/community-plugins.json; echo; grep -o '"enableDataviewJs"[^,]*\|"enableInlineDataviewJs"[^,]*\|"refreshInterval"[^,]*\|"refreshEnabled"[^,]*' .obsidian/plugins/dataview/data.json; echo ---; ls 60_Jarvis/10_Promoted_Notes; find 60_Jarvis -iname '*snapshot*'; echo ---; node 30_Order/System/plan-cli/plan-cli.cjs review 2026-10 --dir 00_Live/Enumerate/Daily
+```
 ```
 [
   "code-styler",
@@ -283,9 +292,12 @@ Sync Candidate Queue.md
 {"label":"2026-10","counted":0,"met":0,"percent":null,"grade":null,"missDays":[],"kind":"month","start":"2026-10-01","end":"2026-10-31","today":"2026-10-14","includeToday":false,"partial":true,"firstDay":null,"streak":{"current":0,"best":0,"atRisk":false},"causes":[],"noCause":0,"unknownCauses":[],"costliest":null,"trendPoints":null,"days":[{"date":"2026-10-01","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-02","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-03","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-04","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-05","hasNote":true,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-06","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-07","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-08","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-09","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-10","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-11","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-12","hasNote":true,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-13","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-14","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"today"},{"date":"2026-10-15","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-16","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-17","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-18","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-19","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-20","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-21","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-22","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-23","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-24","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-25","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-26","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-27","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-28","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-29","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-30","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-31","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"}],"previous":{"label":"2026-09","counted":0,"met":0,"percent":null,"grade":null,"missDays":[]},"snapshot":{"matches":[],"line":"requested, not present"},"entry":"### 2026-10\n\n- Days MET: no data\n- Grade: no data\n- Previous month: no data\n- MISS days: none\n- Streak: current 0, best 0 (engine, as of 2026-10-14)\n- Causes: none logged\n- Costliest cause: none\n- Jarvis snapshot: requested, not present"}
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\.obsidian\snippets\dashboard.css`
-- `Glob` -- pattern `30_Order/Standards/Dashboards/Daily Note Schema.md` path ``
+- `Glob` -- pattern `30_Order/Standards/Dashboards/Daily Note Schema.md` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Daily Note Schema.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order/System/streak/fixtures/sample 30_Order/System/plan-cli; cat 30_Order/System/streak/fixtures/sample/2026-03-04.md; echo ----; cat 30_Order/System/streak/fixtures/sample/2026-03-01.md; echo; grep -rl "cat::" 00_Live/Enumerate/Daily | head; grep -rn "cause::" 00_Live 30_Order/System/streak/fixtures | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order/System/streak/fixtures/sample 30_Order/System/plan-cli; cat 30_Order/System/streak/fixtures/sample/2026-03-04.md; echo ----; cat 30_Order/System/streak/fixtures/sample/2026-03-01.md; echo; grep -rl "cat::" 00_Live/Enumerate/Daily | head; grep -rn "cause::" 00_Live 30_Order/System/streak/fixtures | head
+```
 ```
 30_Order/System/plan-cli:
 plan-cli.cjs
@@ -379,7 +391,10 @@ study_hours: 0
 
 ## Intake
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls; ls src src/* | head -60; ls node_modules 2>/dev/null | grep -i -E "^(jsdom|happy-dom|linkedom)$"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls; ls src src/* | head -60; ls node_modules 2>/dev/null | grep -i -E "^(jsdom|happy-dom|linkedom)$"
+```
 ```
 dist
 esbuild.config.mjs
@@ -452,7 +467,10 @@ DashboardView.tsx
 jsdom
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && cat streak.ts review.ts grade.ts parse.ts config.ts`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && cat streak.ts review.ts grade.ts parse.ts config.ts
+```
 ```
 import { CONFIG } from "./config";
 import { toIso, toNum } from "./dates";
@@ -837,7 +855,10 @@ export const CONFIG = {
 } as const;
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && cat close.ts | head -80; cat periods.ts dates.ts; grep -n "today\|include" ../cli/plan-cli.ts | head -40; cd ../.. && git status --short 2>/dev/null | head -3`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && cat close.ts | head -80; cat periods.ts dates.ts; grep -n "today\|include" ../cli/plan-cli.ts | head -40; cd ../.. && git status --short 2>/dev/null | head -3
+```
 ```
 import { CONFIG } from "./config";
 import { section } from "./sections";
@@ -1031,7 +1052,10 @@ export function localIso(d: Date): string {
  M tests/engine.test.ts
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 00_Live 00_Live/Career 00_Live/Career/* 00_Live/Tracking 00_Live/Tracking/* 00_Live/Books | head -80; echo ----; cat "00_Live/Enumerate/Yearly/Resolutions '26.md" | head -60; echo ----; sed -n 1,60p 00_Live/Life\ OS.md; ls 30_Order/Workflows/Agentic\ OS | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 00_Live 00_Live/Career 00_Live/Career/* 00_Live/Tracking 00_Live/Tracking/* 00_Live/Books | head -80; echo ----; cat "00_Live/Enumerate/Yearly/Resolutions '26.md" | head -60; echo ----; sed -n 1,60p 00_Live/Life\ OS.md; ls 30_Order/Workflows/Agentic\ OS | head
+```
 ```
 00_Live/Tracking/Relationship Log.md
 
@@ -1321,7 +1345,10 @@ I built both files and checked them. The Monthly numbers match the engine, but I
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "00_Live/Enumerate/Yearly/Resolutions '26.md" "00_Live/Enumerate/Yearly/2026.md" "00_Live/Tracking/Habits/Habits Stacking.md" "00_Live/Tracking/Habits/Daily Habit Board.md" "00_Live/Tracking/Habits/Health Tracker.md" "00_Live/Tracking/Habits/Finance Tracker.md" "00_Live/Career/Finance/Bank Accounts.md" "00_Live/Career/Finance/Stocks.md" "00_Live/Books/Easy Way to Quit Smoking.md" "00_Live/Health & Life/Heal Your Lungs.md" "00_Live/Books/Essentialism.md" "00_Live/Headway/Headway Analysis.md" "00_Live/Books/Atomic Habits.md" "00_Live/Life OS.md" "00_Live/Tracking/Plans/Summer Grind.md" "00_Live/Tracking/Relationship Log.md" "00_Live/Books/Psycho-Cybernetics.md" "00_Live/Headway/Communication.md" "30_Order/Standards/Dashboards/Streak Rule.md" "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Agentic OS/Agentic OS.md" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md" "00_Live/Monthly Dashboard.md" "00_Live/Map.canvas"; do [ -e "$f" ] && echo "OK  $f" || echo "MISSING $f"; done; ls 00_Live/Career/SWE/AI | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "00_Live/Enumerate/Yearly/Resolutions '26.md" "00_Live/Enumerate/Yearly/2026.md" "00_Live/Tracking/Habits/Habits Stacking.md" "00_Live/Tracking/Habits/Daily Habit Board.md" "00_Live/Tracking/Habits/Health Tracker.md" "00_Live/Tracking/Habits/Finance Tracker.md" "00_Live/Career/Finance/Bank Accounts.md" "00_Live/Career/Finance/Stocks.md" "00_Live/Books/Easy Way to Quit Smoking.md" "00_Live/Health & Life/Heal Your Lungs.md" "00_Live/Books/Essentialism.md" "00_Live/Headway/Headway Analysis.md" "00_Live/Books/Atomic Habits.md" "00_Live/Life OS.md" "00_Live/Tracking/Plans/Summer Grind.md" "00_Live/Tracking/Relationship Log.md" "00_Live/Books/Psycho-Cybernetics.md" "00_Live/Headway/Communication.md" "30_Order/Standards/Dashboards/Streak Rule.md" "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Agentic OS/Agentic OS.md" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md" "00_Live/Monthly Dashboard.md" "00_Live/Map.canvas"; do [ -e "$f" ] && echo "OK  $f" || echo "MISSING $f"; done; ls 00_Live/Career/SWE/AI | head
+```
 ```
 OK  00_Live/Enumerate/Yearly/Resolutions '26.md
 OK  00_Live/Enumerate/Yearly/2026.md
@@ -1348,7 +1375,9 @@ OK  40_Resources/Obsidian/Dashboards/Dashboards Hub.md
 MISSING 00_Live/Monthly Dashboard.md
 MISSING 00_Live/Map.canvas
 ```
-- `Bash` -- `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > mkcanvas.cjs <<'EOF'
+- `Bash`
+```bash
+mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > mkcanvas.cjs <<'EOF'
 const crypto=require('crypto'),fs=require('fs');
 const id=()=>crypto.randomBytes(8).toString('hex');
 const nodes=[],edges=[];
@@ -1394,12 +1423,13 @@ edge(dom.Study,dom.Learning,'bottom','top');
 edge(dom.Systems,dom.Morning,'top','top','daily note rules');
 fs.writeFileSync(process.argv[2],JSON.stringify({nodes,edges},null,'\t'));
 EOF
-node mkcanvas.cjs "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Map.canvas" && echo done`
+node mkcanvas.cjs "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Map.canvas" && echo done
+```
 ```
 done
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Monthly Dashboard.md`
-```
+````
 ---
 type: project
 status: seed
@@ -1773,8 +1803,10 @@ const card = (title) => { const c = el("div", "pl-card", undefined, root); el("d
 }
 ```
 
-```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && python3 --version 2>/dev/null; node -e '
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && python3 --version 2>/dev/null; node -e '
 const fs=require("fs");let s=fs.readFileSync("Monthly Dashboard.md","utf8");
 s=s.replace("display:flex;flex-direction:column;gap:14px}","display:block;margin-bottom:14px}");
 s=s.replace(`const root = el("div", "pl-month", undefined, dv.container);
@@ -1782,11 +1814,14 @@ root.appendChild(css);
 const card = (title) => { const c = el("div", "pl-card", undefined, root); el("div", "pl-title", title, c); return c; };`,
 `dv.container.appendChild(css);
 const card = (title) => { const w = el("div", "pl-month", undefined, dv.container); const c = el("div", "pl-card", undefined, w); el("div", "pl-title", title, c); return c; };`);
-fs.writeFileSync("Monthly Dashboard.md",s);console.log(s.includes("const root"))'`
+fs.writeFileSync("Monthly Dashboard.md",s);console.log(s.includes("const root"))'
+```
 ```
 false
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > harness.cjs <<'EOF'
+- `Bash`
+````bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > harness.cjs <<'EOF'
 // usage: node harness.cjs <dailyDir> <today> <month>  -> prints JSON of what the dashboard rendered
 const fs=require('fs'),path=require('path');
 const {JSDOM}=require('D:/_Anant/20_Progress/Projects/the-plan-dashboard/node_modules/jsdom');
@@ -1820,7 +1855,8 @@ cd "D:/_Anant/20_Progress/Documents/The Plan"
 echo "=== fixture 2026-03 today 2026-03-10 ==="
 node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad/harness.cjs" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" 2026-03-10 | head -40
 echo "=== engine ==="
-node 30_Order/System/plan-cli/plan-cli.cjs review 2026-03 --dir 30_Order/System/streak/fixtures/sample --today 2026-03-10 | node -e 'const r=JSON.parse(require("fs").readFileSync(0));delete r.days;console.log(JSON.stringify(r))'`
+node 30_Order/System/plan-cli/plan-cli.cjs review 2026-03 --dir 30_Order/System/streak/fixtures/sample --today 2026-03-10 | node -e 'const r=JSON.parse(require("fs").readFileSync(0));delete r.days;console.log(JSON.stringify(r))'
+````
 ```
 === fixture 2026-03 today 2026-03-10 ===
 {
@@ -1866,7 +1902,9 @@ node 30_Order/System/plan-cli/plan-cli.cjs review 2026-03 --dir 30_Order/System/
 === engine ===
 {"label":"2026-03","counted":9,"met":6,"percent":67,"grade":"C","missDays":["2026-03-04","2026-03-06","2026-03-07"],"kind":"month","start":"2026-03-01","end":"2026-03-31","today":"2026-03-10","includeToday":false,"partial":true,"firstDay":"2026-03-01","streak":{"current":2,"best":4,"atRisk":false},"causes":[],"noCause":0,"unknownCauses":[],"costliest":null,"trendPoints":null,"previous":{"label":"2026-02","counted":0,"met":0,"percent":null,"grade":null,"missDays":[]},"snapshot":{"matches":[],"line":"requested, not present"},"entry":"### 2026-03\n\n- Days MET: 6 of 9 (67%). 9 days passed\n- Grade: C\n- Previous month: no data\n- MISS days: 2026-03-04, 2026-03-06, 2026-03-07\n- Streak: current 2, best 4 (engine, as of 2026-03-10)\n- Causes: none logged\n- Costliest cause: none\n- Jarvis snapshot: requested, not present"}
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > parity.cjs <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > parity.cjs <<'EOF'
 const fs=require('fs'),path=require('path'),cp=require('child_process');
 const VAULT='D:/_Anant/20_Progress/Documents/The Plan';
 const cats=['morning','study','fitness','mind','career'];const causes=['sleep','no-plan','distracted','energy','other'];
@@ -1899,7 +1937,8 @@ for(let k=0;k<N;k++){
 }
 console.log(bad===0?`ALL ${N} MATCH`:`${bad} MISMATCHES`);
 EOF
-node parity.cjs`
+node parity.cjs
+```
 ```
 ok case 0 2026-10-20 {"grade":"D","met":"11/19","lost":"8","cur":"10","best":"best 10","trend":"+11","causes":"sleep 5|no-plan 5|energy 5|other 5|distracted 4"}
 ok case 1 2026-10-13 {"grade":"D","met":"5/12","lost":"7","cur":"5","best":"best 14","trend":"-8","causes":"no-plan 7|energy 4|sleep 2|other 2"}
@@ -1917,7 +1956,9 @@ ok case 12 2026-10-06 {"grade":"D","met":"2/5","lost":"3","cur":"5","best":"best
 ok case 13 2026-10-09 {"grade":"C","met":"5/8","lost":"3","cur":"5","best":"best 10","trend":"+6","causes":"sleep 2|no-plan 2|energy 1"}
 ALL 14 MATCH
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad"
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad"
 node "$S/harness.cjs" "00_Live/Enumerate/Daily" 2026-10-14 | node -e 'const h=JSON.parse(require("fs").readFileSync(0));console.log(JSON.stringify(h.tiles));console.log(h.cards.join(" | "));h.text.forEach(t=>console.log("-",t.slice(0,200)))'
 echo === canvas
 node -e '
@@ -1932,7 +1973,8 @@ console.log("overlaps",ov);
 const doms=["Morning","Study","Fitness","Mind","Career","Health","Finance","Learning","Systems"];
 console.log("domains",doms.filter(d=>c.nodes.some(n=>n.text==="# "+d)).length+"/9");
 '
-grep -c "—" "00_Live/Monthly Dashboard.md" 00_Live/Map.canvas; git status --short`
+grep -c "—" "00_Live/Monthly Dashboard.md" 00_Live/Map.canvas; git status --short
+```
 ```
 {"Grade":{"v":"-","sub":"no data"},"Days MET":{"v":"-","sub":"13 days passed"},"Lost":{"v":"0","sub":"0 forgiven"},"Streak":{"v":"0","sub":"best 0"},"Trend":{"v":"-","sub":"no previous data"},"Gym sessions":{"v":"-","sub":"no weeks logged"},"Daily notes":{"v":"28","sub":"in the folder"},"First counted":{"v":"-","sub":"none yet"}}
 Month 2026-10 | Failure causes | Month plan and goals | Finance snapshot | Health trend | System overview | Previous months
@@ -1955,7 +1997,10 @@ domains 9/9
  M 60_Jarvis/README.md
 ?? "00_Live/Monthly Dashboard.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git check-ignore -v 00_Live/Map.canvas; ls -la 00_Live/Map.canvas; git diff --stat 60_Jarvis/README.md | tail -1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git check-ignore -v 00_Live/Map.canvas; ls -la 00_Live/Map.canvas; git diff --stat 60_Jarvis/README.md | tail -1
+```
 ```
 .gitignore:3:*	00_Live/Map.canvas
 -rw-r--r-- 1 anant 197609 12392 Oct 14 15:03 00_Live/Map.canvas
@@ -2008,7 +2053,10 @@ The Monthly Dashboard and the Map canvas are still not set as the homepage.
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .gitignore | head -40; echo ---; git diff 60_Jarvis/README.md | head -40; echo ---; cat .obsidian/plugins/homepage/data.json; echo; cat .obsidian/plugins/the-plan-dashboard/manifest.json; ls .obsidian/plugins/the-plan-dashboard; cat .obsidian/plugins/the-plan-dashboard/data.json 2>/dev/null | head -30; cat "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/settings.ts" | head -60; grep -n "onLayoutReady\|addCommand\|Open dashboard\|startup\|openOnStart" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/main.ts"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .gitignore | head -40; echo ---; git diff 60_Jarvis/README.md | head -40; echo ---; cat .obsidian/plugins/homepage/data.json; echo; cat .obsidian/plugins/the-plan-dashboard/manifest.json; ls .obsidian/plugins/the-plan-dashboard; cat .obsidian/plugins/the-plan-dashboard/data.json 2>/dev/null | head -30; cat "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/settings.ts" | head -60; grep -n "onLayoutReady\|addCommand\|Open dashboard\|startup\|openOnStart" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/main.ts"
+```
 ```
 # Markdown-first Obsidian vault
 # Default: ignore everything, then allow directories and markdown notes.
@@ -2131,7 +2179,10 @@ export class PlanSettingTab extends PluginSettingTab {
 15:		this.addCommand({ id: "open-dashboard", name: "Open dashboard", callback: () => void this.openDashboard() });
 19:		this.app.workspace.onLayoutReady(() => {
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,70p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/main.ts"; git log --oneline -3 -- 60_Jarvis/README.md; git status --short; find . -name "*.canvas" -not -path "./.obsidian/*" | head; grep -rn "Homepage\|homepage" 40_Resources/Obsidian/Dashboards/Dashboard\ Build/*.md 30_Order/Workflows/Agentic\ OS/How\ to\ Use\ Plugins.md | head -20; grep -c . .obsidian/community-plugins.json; grep -o '"[a-z-]*"' .obsidian/core-plugins.json | head -0`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,70p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/main.ts"; git log --oneline -3 -- 60_Jarvis/README.md; git status --short; find . -name "*.canvas" -not -path "./.obsidian/*" | head; grep -rn "Homepage\|homepage" 40_Resources/Obsidian/Dashboards/Dashboard\ Build/*.md 30_Order/Workflows/Agentic\ OS/How\ to\ Use\ Plugins.md | head -20; grep -c . .obsidian/community-plugins.json; grep -o '"[a-z-]*"' .obsidian/core-plugins.json | head -0
+```
 ```
 import { Plugin } from "obsidian";
 import { DailyRepo } from "./data/repo";
@@ -2211,7 +2262,10 @@ faf07d8 auto-sync: 2026-10-14 15:08 | 2 files
 40_Resources/Obsidian/Dashboards/Dashboard Build/Research - Obsidian Dashboard Methods.md:67:- **Verified.** "Run any Obsidian command upon opening the homepage". Commands run through `executeCommandById`, with a "Both", "Startup only" or "Manual only" period.
 16
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .obsidian/plugins/lazy-plugins/data.json | head -60; grep -o '"homepage"[^}]*\|"the-plan-dashboard"[^}]*' .obsidian/plugins/lazy-plugins/data.json`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .obsidian/plugins/lazy-plugins/data.json | head -60; grep -o '"homepage"[^}]*\|"the-plan-dashboard"[^}]*' .obsidian/plugins/lazy-plugins/data.json
+```
 ```
 {
   "dualConfigs": true,
@@ -2276,15 +2330,20 @@ faf07d8 auto-sync: 2026-10-14 15:08 | 2 files
 "homepage": {
 "the-plan-dashboard": {
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && node -e '
 const c=JSON.parse(require("fs").readFileSync(".obsidian/plugins/lazy-plugins/data.json","utf8"));
 for(const k of ["desktop","mobile"]) if(c[k]) console.log(k,"default",c[k].defaultStartupType,"homepage",JSON.stringify(c[k].plugins.homepage),"dash",JSON.stringify(c[k].plugins["the-plan-dashboard"]),"dataview",JSON.stringify(c[k].plugins.dataview));
-console.log("dual",c.dualConfigs)'`
+console.log("dual",c.dualConfigs)'
+```
 ```
 desktop default short homepage {"startupType":"instant"} dash {"startupType":"instant"} dataview {"startupType":"instant"}
 dual true
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && mv "00_Live/Map.canvas" "00_Live/Map Canvas.canvas" && node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && mv "00_Live/Map.canvas" "00_Live/Map Canvas.canvas" && node -e '
 const fs=require("fs");
 let g=fs.readFileSync(".gitignore","utf8");
 g=g.replace("!*.md\n","!*.md\n\n# The Map canvas is a deliberate vault file, not editor state.\n!00_Live/Map Canvas.canvas\n");
@@ -2292,7 +2351,8 @@ fs.writeFileSync(".gitignore",g);
 const p="40_Resources/Obsidian/Dashboards/Dashboards Hub.md";let h=fs.readFileSync(p,"utf8");
 h=h.replace("- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]]","- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]], and the [[Monthly Dashboard]] that reads the daily notes\n- **Map:** [[Map Canvas.canvas|Map canvas]] (domains, goals and the notes that own them). Not [[Map]], which is the `00_Live` index.");
 fs.writeFileSync(p,h);'
-git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; git diff --stat; grep -n "Monthly Dashboard\|Map canvas" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"; node -e 'JSON.parse(require("fs").readFileSync("00_Live/Map Canvas.canvas","utf8"));console.log("canvas ok")'`
+git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; git diff --stat; grep -n "Monthly Dashboard\|Map canvas" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"; node -e 'JSON.parse(require("fs").readFileSync("00_Live/Map Canvas.canvas","utf8"));console.log("canvas ok")'
+```
 ```
 .gitignore:3:*	00_Live/Map Canvas.canvas
  M "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"
@@ -2305,11 +2365,14 @@ git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git statu
 71:- **Map:** [[Map Canvas.canvas|Map canvas]] (domains, goals and the notes that own them). Not [[Map]], which is the `00_Live` index.
 canvas ok
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && file .gitignore | head -1; node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && file .gitignore | head -1; node -e '
 const fs=require("fs");let g=fs.readFileSync(".gitignore","utf8");const nl=g.includes("\r\n")?"\r\n":"\n";
 g=g.replace("!*.md"+nl,"!*.md"+nl+nl+"# The Map canvas is a deliberate vault file, not editor state."+nl+"!00_Live/Map Canvas.canvas"+nl);
 fs.writeFileSync(".gitignore",g);'
-git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; sed -n 1,10p .gitignore`
+git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; sed -n 1,10p .gitignore
+```
 ```
 .gitignore: ASCII text, with CRLF line terminators
 .gitignore:8:!00_Live/Map Canvas.canvas	00_Live/Map Canvas.canvas
@@ -2348,168 +2411,16 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && cat close.ts | head -80; cat periods.ts dates.ts; grep -n "today\|include" ../cli/plan-cli.ts | head -40; cd ../.. && git status --short 2>/dev/null | head -3`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 00_Live 00_Live/Career 00_Live/Career/* 00_Live/Tracking 00_Live/Tracking/* 00_Live/Books | head -80; echo ----; cat "00_Live/Enumerate/Yearly/Resolutions '26.md" | head -60; echo ----; sed -n 1,60p 00_Live/Life\ OS.md; ls 30_Order/Workflows/Agentic\ OS | head`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && for f in "00_Live/Enumerate/Yearly/Resolutions '26.md" "00_Live/Enumerate/Yearly/2026.md" "00_Live/Tracking/Habits/Habits Stacking.md" "00_Live/Tracking/Habits/Daily Habit Board.md" "00_Live/Tracking/Habits/Health Tracker.md" "00_Live/Tracking/Habits/Finance Tracker.md" "00_Live/Career/Finance/Bank Accounts.md" "00_Live/Career/Finance/Stocks.md" "00_Live/Books/Easy Way to Quit Smoking.md" "00_Live/Health & Life/Heal Your Lungs.md" "00_Live/Books/Essentialism.md" "00_Live/Headway/Headway Analysis.md" "00_Live/Books/Atomic Habits.md" "00_Live/Life OS.md" "00_Live/Tracking/Plans/Summer Grind.md" "00_Live/Tracking/Relationship Log.md" "00_Live/Books/Psycho-Cybernetics.md" "00_Live/Headway/Communication.md" "30_Order/Standards/Dashboards/Streak Rule.md" "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Agentic OS/Agentic OS.md" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md" "00_Live/Monthly Dashboard.md" "00_Live/Map.canvas"; do [ -e "$f" ] && echo "OK  $f" || echo "MISSING $f"; done; ls 00_Live/Career/SWE/AI | head`
-- `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > mkcanvas.cjs <<'EOF'
-const crypto=require('crypto'),fs=require('fs');
-const id=()=>crypto.randomBytes(8).toString('hex');
-const nodes=[],edges=[];
-const D=[
- ['Morning','4',"**Goal:** the morning routine runs without a decision (move at 8 am, read 12 pages, plan 20 minutes).",
-   ['30_Order/Standards/Dashboards/Daily Note Schema.md','00_Live/Tracking/Habits/Habits Stacking.md']],
- ['Study','5',"**Goal 1 of 2026:** 4.0 GPA.",
-   ['00_Live/Enumerate/Yearly/Resolutions \'26.md','00_Live/Tracking/Plans/Summer Grind.md']],
- ['Fitness','1',"**Goal 9 of 2026:** gym 5 days a week, calisthenics skills.",
-   ['00_Live/Tracking/Habits/Daily Habit Board.md','00_Live/Tracking/Habits/Health Tracker.md']],
- ['Mind','6',"**Goals 7 and 8 of 2026:** character development, stop smoking.",
-   ['00_Live/Books/Easy Way to Quit Smoking.md','00_Live/Books/Psycho-Cybernetics.md']],
- ['Career','3',"**Goal 2 of 2026:** land a strong internship, build at least 3 projects.",
-   ['00_Live/Life OS.md','00_Live/Tracking/Relationship Log.md']],
- ['Health','1',"**Goals 8 and 9 of 2026:** heal the lungs, log a baseline.",
-   ['00_Live/Tracking/Habits/Health Tracker.md','00_Live/Health & Life/Heal Your Lungs.md']],
- ['Finance','2',"**Goal 11 of 2026:** track spending and start investing.",
-   ['00_Live/Tracking/Habits/Finance Tracker.md','00_Live/Career/Finance/Bank Accounts.md','00_Live/Career/Finance/Stocks.md']],
- ['Learning','5',"**Goal 6 of 2026:** learn something new every day, read as a hobby.",
-   ['00_Live/Headway/Headway Analysis.md','00_Live/Books/Essentialism.md','00_Live/Books/Atomic Habits.md']],
- ['Systems','4',"**Goal 3 of 2026:** a second brain that is kept up.",
-   ['40_Resources/Obsidian/Dashboards/Dashboards Hub.md','30_Order/Workflows/Agentic OS/Agentic OS.md','30_Order/Standards/Dashboards/Streak Rule.md']],
-];
-const dom={},fileNode={};
-const mk=(o)=>{const n={id:id(),...o};nodes.push(n);return n.id;};
-const edge=(a,b,fs_,ts,label)=>edges.push({id:id(),fromNode:a,fromSide:fs_,toNode:b,toSide:ts,...(label?{label}:{})});
-D.forEach(([name,color,goal,files],i)=>{
-  const y=i*340;
-  const d=mk({type:'text',x:0,y:y+60,width:200,height:80,text:'# '+name,color});
-  dom[name]=d;
-  const g=mk({type:'text',x:300,y:y+40,width:320,height:120,text:goal});
-  edge(d,g,'right','left','goal');
-  files.forEach((f,j)=>{
-    let fid=fileNode[f];
-    if(!fid){fid=mk({type:'file',file:f,x:760,y:y+j*100-20+ (j?0:0),width:380,height:80});fileNode[f]=fid;}
-    edge(g,fid,'right','left','owned by');
-  });
-});
-// shared file nodes sit at their first domain; later edges point to them
-edge(dom.Fitness,dom.Health,'bottom','top');
-edge(dom.Mind,dom.Health,'bottom','top');
-edge(dom.Study,dom.Learning,'bottom','top');
-edge(dom.Systems,dom.Morning,'top','top','daily note rules');
-fs.writeFileSync(process.argv[2],JSON.stringify({nodes,edges},null,'\t'));
-EOF
-node mkcanvas.cjs "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Map.canvas" && echo done`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && python3 --version 2>/dev/null; node -e '
-const fs=require("fs");let s=fs.readFileSync("Monthly Dashboard.md","utf8");
-s=s.replace("display:flex;flex-direction:column;gap:14px}","display:block;margin-bottom:14px}");
-s=s.replace(`const root = el("div", "pl-month", undefined, dv.container);
-root.appendChild(css);
-const card = (title) => { const c = el("div", "pl-card", undefined, root); el("div", "pl-title", title, c); return c; };`,
-`dv.container.appendChild(css);
-const card = (title) => { const w = el("div", "pl-month", undefined, dv.container); const c = el("div", "pl-card", undefined, w); el("div", "pl-title", title, c); return c; };`);
-fs.writeFileSync("Monthly Dashboard.md",s);console.log(s.includes("const root"))'`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > harness.cjs <<'EOF'
-// usage: node harness.cjs <dailyDir> <today> <month>  -> prints JSON of what the dashboard rendered
-const fs=require('fs'),path=require('path');
-const {JSDOM}=require('D:/_Anant/20_Progress/Projects/the-plan-dashboard/node_modules/jsdom');
-const VAULT='D:/_Anant/20_Progress/Documents/The Plan';
-const [,, dailyDir, today]=process.argv;
-(async()=>{
-const md=fs.readFileSync(VAULT+'/00_Live/Monthly Dashboard.md','utf8');
-let code=/```dataviewjs\n([\s\S]*?)\n```/.exec(md)[1];
-code=code.replace('const DAILY = "00_Live/Enumerate/Daily";','const DAILY = '+JSON.stringify(dailyDir)+';')
- .replace('const TODAY = localIso(new Date());','const TODAY = '+JSON.stringify(today)+';');
-const dom=new JSDOM('<div id=c></div>');const document=dom.window.document;
-const abs=p=>path.isAbsolute(p)?p:path.join(VAULT,p);
-const dv={container:document.getElementById('c'),
- pages:(src)=>{const dir=abs(src.replace(/^"|"$/g,''));if(!fs.existsSync(dir))return[];
-  return fs.readdirSync(dir).filter(f=>f.endsWith('.md')).map(f=>({file:{name:f.slice(0,-3),path:path.join(dir,f)}}));},
- io:{load:async(p)=>{const f=abs(p);return fs.existsSync(f)?fs.readFileSync(f,'utf8'):undefined;}},
- paragraph:()=>{}};
-const AF=Object.getPrototypeOf(async function(){}).constructor;
-await new AF('dv','document',code)(dv,document);
-const out={tiles:{},causes:[],cards:[]};
-for(const t of document.querySelectorAll('.pl-tile'))out.tiles[t.querySelector('.pl-lbl').textContent]={v:t.querySelector('.pl-num').textContent,sub:(t.querySelector('.pl-sub')||{}).textContent};
-const cards=[...document.querySelectorAll('.pl-card')];
-for(const c of cards){const title=c.querySelector('.pl-title').textContent;out.cards.push(title);
- if(title==='Failure causes')for(const r of c.querySelectorAll('.pl-row'))out.causes.push(r.children[0].textContent+' '+r.children[2].textContent);}
-out.cells=[...document.querySelectorAll('.pl-cell')].map(c=>c.getAttribute('title'));
-out.text=cards.map(c=>c.textContent.slice(0,400));
-console.log(JSON.stringify(out,null,1));
-})().catch(e=>{console.error('FAIL',e);process.exit(1)});
-EOF
-cd "D:/_Anant/20_Progress/Documents/The Plan"
-echo "=== fixture 2026-03 today 2026-03-10 ==="
-node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad/harness.cjs" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" 2026-03-10 | head -40
-echo "=== engine ==="
-node 30_Order/System/plan-cli/plan-cli.cjs review 2026-03 --dir 30_Order/System/streak/fixtures/sample --today 2026-03-10 | node -e 'const r=JSON.parse(require("fs").readFileSync(0));delete r.days;console.log(JSON.stringify(r))'`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > parity.cjs <<'EOF'
-const fs=require('fs'),path=require('path'),cp=require('child_process');
-const VAULT='D:/_Anant/20_Progress/Documents/The Plan';
-const cats=['morning','study','fitness','mind','career'];const causes=['sleep','no-plan','distracted','energy','other'];
-let seed=12345;const rnd=()=>(seed=(seed*1103515245+12345)&0x7fffffff)/0x7fffffff;
-const iso=n=>new Date(n*864e5).toISOString().slice(0,10);const num=s=>Math.round(Date.parse(s)/864e5);
-let bad=0;const N=14;
-for(let k=0;k<N;k++){
- const dir=path.join(__dirname,'case'+k);fs.rmSync(dir,{recursive:true,force:true});fs.mkdirSync(dir);
- const start=num('2026-08-20'),today=iso(num('2026-10-01')+Math.floor(rnd()*30));
- const firstReal=start+Math.floor(rnd()*10);
- for(let n=start;n<=num('2026-10-31');n++){
-  if(rnd()<0.2)continue;
-  let body='---\ntype: daily\n---\n';
-  if(n>=firstReal){const full=rnd();
-   for(const c of cats){const p=rnd()<0.6?1:0;body+=`## ${c}\n- [${p?'x':' '}] act a [cat:: ${c}]\n- [${p||rnd()<0.2?'x':' '}] act b [cat:: ${c.toUpperCase()}]\n`;}
-   body+='## Evening close\n';
-   for(const c of cats)if(rnd()<0.3)body+=`- [miss:: ${c}]${rnd()<0.8?` [cause:: ${causes[Math.floor(rnd()*5)]}]`:''}\n`;
-  }
-  fs.writeFileSync(path.join(dir,iso(n)+'.md'),body);
- }
- const eng=JSON.parse(cp.execFileSync('node',[VAULT+'/30_Order/System/plan-cli/plan-cli.cjs','review','2026-10','--dir',dir,'--today',today],{cwd:VAULT}).toString());
- const h=JSON.parse(cp.execFileSync('node',[__dirname+'/harness.cjs',dir,today]).toString());
- const T=h.tiles;
- const exp={grade:eng.grade??'-',met:eng.counted===0?'-':`${eng.met}/${eng.counted}`,lost:String(eng.counted-eng.met),cur:String(eng.streak.current),best:`best ${eng.streak.best}`,
-  trend:eng.trendPoints===null?'-':`${eng.trendPoints>=0?'+':''}${eng.trendPoints}`,
-  causes:eng.causes.map(c=>`${c.cause} ${c.count}`).join('|')};
- const got={grade:T.Grade.v,met:T['Days MET'].v,lost:T.Lost.v,cur:T.Streak.v,best:T.Streak.sub,trend:T.Trend.v,causes:h.causes.join('|')};
- const ok=JSON.stringify(exp)===JSON.stringify(got);if(!ok){bad++;console.log('MISMATCH case',k,today,'\n exp',exp,'\n got',got);}
- else console.log('ok case',k,today,JSON.stringify(got));
-}
-console.log(bad===0?`ALL ${N} MATCH`:`${bad} MISMATCHES`);
-EOF
-node parity.cjs`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad"
-node "$S/harness.cjs" "00_Live/Enumerate/Daily" 2026-10-14 | node -e 'const h=JSON.parse(require("fs").readFileSync(0));console.log(JSON.stringify(h.tiles));console.log(h.cards.join(" | "));h.text.forEach(t=>console.log("-",t.slice(0,200)))'
-echo === canvas
-node -e '
-const fs=require("fs"),c=JSON.parse(fs.readFileSync("00_Live/Map.canvas","utf8"));
-const ids=new Set([...c.nodes,...c.edges].map(x=>x.id));const nid=new Set(c.nodes.map(n=>n.id));
-console.log("nodes",c.nodes.length,"edges",c.edges.length,"unique ids",ids.size===c.nodes.length+c.edges.length);
-console.log("dangling edges",c.edges.filter(e=>!nid.has(e.fromNode)||!nid.has(e.toNode)).length);
-console.log("missing files",c.nodes.filter(n=>n.type==="file"&&!fs.existsSync(n.file)).map(n=>n.file));
-console.log("bad id format",[...ids].filter(i=>!/^[0-9a-f]{16}$/.test(i)).length);
-let ov=0;for(let i=0;i<c.nodes.length;i++)for(let j=i+1;j<c.nodes.length;j++){const a=c.nodes[i],b=c.nodes[j];if(a.x<b.x+b.width&&b.x<a.x+a.width&&a.y<b.y+b.height&&b.y<a.y+a.height)ov++;}
-console.log("overlaps",ov);
-const doms=["Morning","Study","Fitness","Mind","Career","Health","Finance","Learning","Systems"];
-console.log("domains",doms.filter(d=>c.nodes.some(n=>n.text==="# "+d)).length+"/9");
-'
-grep -c "—" "00_Live/Monthly Dashboard.md" 00_Live/Map.canvas; git status --short`
+- `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > mkcanvas.cjs <<'EOF' const crypto=require('crypto'),fs=require('fs'); const id=()=>crypto.randomBytes(8).toString('hex'); const nodes=[],edges=[]; const D=[  ['Morning','4',"**Goal:** the morning routine runs without a decision (move at 8 am, read 12 pages, plan 20 minutes).",    ['30_Order/Standards/Dashboards/Daily Note Schema.md','00_Live/Tracking/Habits/Habits Stacking.md']],  ['Study','5',"**Goal 1 of 2026:** 4.0 GPA.",    ['00_Live/Enumerate/Yearly/Resolutions \'26.md','00_Live/Tracking/Plans/Summer Grind.md']],  ['Fitness','1',"**Goal 9 of 2026:** gym 5 days a week, calisthenics skills.",    ['00_Live/Tracking/Habits/Daily Habit Board.md','00_Live/Tracking/Habits/Health Tracker.md']],  ['Mind','6',"**Goals 7 and 8 of 2026:** character development, stop smoking.",    ['00_Live/Books/Easy Way to Quit Smoking.md','00_Live/Books/Psycho-Cybernetics.md']],  ['Career','3',"**Goal 2 of 2026:** land a strong internship, build at least 3 projects.",    ['00_Live/Life OS.md','00_Live/Tracking/Relationship Log.md']],  ['Health','1',"**Goals 8 and 9 of 2026:** heal the lungs, log a baseline.",    ['00_Live/Tracking/Habits/Health Tracker.md','00_Live/Health & Life/Heal Your Lungs.md']],  ['Finance','2',"**Goal 11 of 2026:** track spending and start investing.",    ['00_Live/Tracking/Habits/Finance Tracker.md','00_Live/Career/Finance/Bank Accounts.md','00_Live/Career/Finance/Stocks.md']],  ['Learning','5',"**Goal 6 of 2026:** learn something new every day, read as a hobby.",    ['00_Live/Headway/Headway Analysis.md','00_Live/Books/Essentialism.md','00_Live/Books/Atomic Habits.md']],  ['Systems','4',"**Goal 3 of 2026:** a second brain that is kept up.",    ['40_Resources/Obsidian/Dashboards/Dashboards Hub.md','30_Order/Workflows/Agentic OS/Agentic OS.md','30_Order/Standards/Dashboards/Streak Rule.md']], ]; const dom={},fileNode={}; const mk=(o)=>{const n={id:id(),...o};nodes.push(n);return n.id;}; const edge=(a,b,fs_,ts,label)=>edges.push({id:id(),fromNode:a,fromSide:fs_,toNode:b,toSide:ts,...(label?{label}:{})}); D.forEach(([name,color,goal,files],i)=>{   const y=i*340;   const d=mk({type:'text',x:0,y:y+60,width:200,height:80,text:'# '+name,color});   dom[name]=d;   const g=mk({type:'text',x:300,y:y+40,width:320,height:120,text:goal});   edge(d,g,'right','left','goal');   files.forEach((f,j)=>{     let fid=fileNode[f];     if(!fid){fid=mk({type:'file',file:f,x:760,y:y+j*100-20+ (j?0:0),width:380,height:80});fileNode[f]=fid;}     edge(g,fid,'right','left','owned by');   }); }); // shared file nodes sit at their first domain; later edges point to them edge(dom.Fitness,dom.Health,'bottom','top'); edge(dom.Mind,dom.Health,'bottom','top'); edge(dom.Study,dom.Learning,'bottom','top'); edge(dom.Systems,dom.Morning,'top','top','daily note rules'); fs.writeFileSync(process.argv[2],JSON.stringify({nodes,edges},null,'\t')); EOF node mkcanvas.cjs "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Map.canvas" && echo done`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live" && python3 --version 2>/dev/null; node -e ' const fs=require("fs");let s=fs.readFileSync("Monthly Dashboard.md","utf8"); s=s.replace("display:flex;flex-direction:column;gap:14px}","display:block;margin-bottom:14px}"); s=s.replace(`const root = el("div", "pl-month", undefined, dv.container); root.appendChild(css); const card = (title) => { const c = el("div", "pl-card", undefined, root); el("div", "pl-title", title, c); return c; };`, `dv.container.appendChild(css); const card = (title) => { const w = el("div", "pl-month", undefined, dv.container); const c = el("div", "pl-card", undefined, w); el("div", "pl-title", title, c); return c; };`); fs.writeFileSync("Monthly Dashboard.md",s);console.log(s.includes("const root"))'``
+- ````cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > harness.cjs <<'EOF' // usage: node harness.cjs <dailyDir> <today> <month>  -> prints JSON of what the dashboard rendered const fs=require('fs'),path=require('path'); const {JSDOM}=require('D:/_Anant/20_Progress/Projects/the-plan-dashboard/node_modules/jsdom'); const VAULT='D:/_Anant/20_Progress/Documents/The Plan'; const [,, dailyDir, today]=process.argv; (async()=>{ const md=fs.readFileSync(VAULT+'/00_Live/Monthly Dashboard.md','utf8'); let code=/```dataviewjs\n([\s\S]*?)\n```/.exec(md)[1]; code=code.replace('const DAILY = "00_Live/Enumerate/Daily";','const DAILY = '+JSON.stringify(dailyDir)+';')  .replace('const TODAY = localIso(new Date());','const TODAY = '+JSON.stringify(today)+';'); const dom=new JSDOM('<div id=c></div>');const document=dom.window.document; const abs=p=>path.isAbsolute(p)?p:path.join(VAULT,p); const dv={container:document.getElementById('c'),  pages:(src)=>{const dir=abs(src.replace(/^"|"$/g,''));if(!fs.existsSync(dir))return[];   return fs.readdirSync(dir).filter(f=>f.endsWith('.md')).map(f=>({file:{name:f.slice(0,-3),path:path.join(dir,f)}}));},  io:{load:async(p)=>{const f=abs(p);return fs.existsSync(f)?fs.readFileSync(f,'utf8'):undefined;}},  paragraph:()=>{}}; const AF=Object.getPrototypeOf(async function(){}).constructor; await new AF('dv','document',code)(dv,document); const out={tiles:{},causes:[],cards:[]}; for(const t of document.querySelectorAll('.pl-tile'))out.tiles[t.querySelector('.pl-lbl').textContent]={v:t.querySelector('.pl-num').textContent,sub:(t.querySelector('.pl-sub')||{}).textContent}; const cards=[...document.querySelectorAll('.pl-card')]; for(const c of cards){const title=c.querySelector('.pl-title').textContent;out.cards.push(title);  if(title==='Failure causes')for(const r of c.querySelectorAll('.pl-row'))out.causes.push(r.children[0].textContent+' '+r.children[2].textContent);} out.cells=[...document.querySelectorAll('.pl-cell')].map(c=>c.getAttribute('title')); out.text=cards.map(c=>c.textContent.slice(0,400)); console.log(JSON.stringify(out,null,1)); })().catch(e=>{console.error('FAIL',e);process.exit(1)}); EOF cd "D:/_Anant/20_Progress/Documents/The Plan" echo "=== fixture 2026-03 today 2026-03-10 ===" node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad/harness.cjs" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" 2026-03-10 | head -40 echo "=== engine ===" node 30_Order/System/plan-cli/plan-cli.cjs review 2026-03 --dir 30_Order/System/streak/fixtures/sample --today 2026-03-10 | node -e 'const r=JSON.parse(require("fs").readFileSync(0));delete r.days;console.log(JSON.stringify(r))'````
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" && cat > parity.cjs <<'EOF' const fs=require('fs'),path=require('path'),cp=require('child_process'); const VAULT='D:/_Anant/20_Progress/Documents/The Plan'; const cats=['morning','study','fitness','mind','career'];const causes=['sleep','no-plan','distracted','energy','other']; let seed=12345;const rnd=()=>(seed=(seed*1103515245+12345)&0x7fffffff)/0x7fffffff; const iso=n=>new Date(n*864e5).toISOString().slice(0,10);const num=s=>Math.round(Date.parse(s)/864e5); let bad=0;const N=14; for(let k=0;k<N;k++){  const dir=path.join(__dirname,'case'+k);fs.rmSync(dir,{recursive:true,force:true});fs.mkdirSync(dir);  const start=num('2026-08-20'),today=iso(num('2026-10-01')+Math.floor(rnd()*30));  const firstReal=start+Math.floor(rnd()*10);  for(let n=start;n<=num('2026-10-31');n++){   if(rnd()<0.2)continue;   let body='---\ntype: daily\n---\n';   if(n>=firstReal){const full=rnd();    for(const c of cats){const p=rnd()<0.6?1:0;body+=`## ${c}\n- [${p?'x':' '}] act a [cat:: ${c}]\n- [${p||rnd()<0.2?'x':' '}] act b [cat:: ${c.toUpperCase()}]\n`;}    body+='## Evening close\n';    for(const c of cats)if(rnd()<0.3)body+=`- [miss:: ${c}]${rnd()<0.8?` [cause:: ${causes[Math.floor(rnd()*5)]}]`:''}\n`;   }   fs.writeFileSync(path.join(dir,iso(n)+'.md'),body);  }  const eng=JSON.parse(cp.execFileSync('node',[VAULT+'/30_Order/System/plan-cli/plan-cli.cjs','review','2026-10','--dir',dir,'--today',today],{cwd:VAULT}).toString());  const h=JSON.parse(cp.execFileSync('node',[__dirname+'/harness.cjs',dir,today]).toString());  const T=h.tiles;  const exp={grade:eng.grade??'-',met:eng.counted===0?'-':`${eng.met}/${eng.counted}`,lost:String(eng.counted-eng.met),cur:String(eng.streak.current),best:`best ${eng.streak.best}`,   trend:eng.trendPoints===null?'-':`${eng.trendPoints>=0?'+':''}${eng.trendPoints}`,   causes:eng.causes.map(c=>`${c.cause} ${c.count}`).join('|')};  const got={grade:T.Grade.v,met:T['Days MET'].v,lost:T.Lost.v,cur:T.Streak.v,best:T.Streak.sub,trend:T.Trend.v,causes:h.causes.join('|')};  const ok=JSON.stringify(exp)===JSON.stringify(got);if(!ok){bad++;console.log('MISMATCH case',k,today,'\n exp',exp,'\n got',got);}  else console.log('ok case',k,today,JSON.stringify(got)); } console.log(bad===0?`ALL ${N} MATCH`:`${bad} MISMATCHES`); EOF node parity.cjs``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/7c5cce5a-b83e-4da7-922d-3f021bdc3aba/scratchpad" node "$S/harness.cjs" "00_Live/Enumerate/Daily" 2026-10-14 | node -e 'const h=JSON.parse(require("fs").readFileSync(0));console.log(JSON.stringify(h.tiles));console.log(h.cards.join(" | "));h.text.forEach(t=>console.log("-",t.slice(0,200)))' echo === canvas node -e ' const fs=require("fs"),c=JSON.parse(fs.readFileSync("00_Live/Map.canvas","utf8")); const ids=new Set([...c.nodes,...c.edges].map(x=>x.id));const nid=new Set(c.nodes.map(n=>n.id)); console.log("nodes",c.nodes.length,"edges",c.edges.length,"unique ids",ids.size===c.nodes.length+c.edges.length); console.log("dangling edges",c.edges.filter(e=>!nid.has(e.fromNode)||!nid.has(e.toNode)).length); console.log("missing files",c.nodes.filter(n=>n.type==="file"&&!fs.existsSync(n.file)).map(n=>n.file)); console.log("bad id format",[...ids].filter(i=>!/^[0-9a-f]{16}$/.test(i)).length); let ov=0;for(let i=0;i<c.nodes.length;i++)for(let j=i+1;j<c.nodes.length;j++){const a=c.nodes[i],b=c.nodes[j];if(a.x<b.x+b.width&&b.x<a.x+a.width&&a.y<b.y+b.height&&b.y<a.y+a.height)ov++;} console.log("overlaps",ov); const doms=["Morning","Study","Fitness","Mind","Career","Health","Finance","Learning","Systems"]; console.log("domains",doms.filter(d=>c.nodes.some(n=>n.text==="# "+d)).length+"/9"); ' grep -c "—" "00_Live/Monthly Dashboard.md" 00_Live/Map.canvas; git status --short`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && git check-ignore -v 00_Live/Map.canvas; ls -la 00_Live/Map.canvas; git diff --stat 60_Jarvis/README.md | tail -1`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .gitignore | head -40; echo ---; git diff 60_Jarvis/README.md | head -40; echo ---; cat .obsidian/plugins/homepage/data.json; echo; cat .obsidian/plugins/the-plan-dashboard/manifest.json; ls .obsidian/plugins/the-plan-dashboard; cat .obsidian/plugins/the-plan-dashboard/data.json 2>/dev/null | head -30; cat "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/settings.ts" | head -60; grep -n "onLayoutReady\|addCommand\|Open dashboard\|startup\|openOnStart" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/main.ts"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,70p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/main.ts"; git log --oneline -3 -- 60_Jarvis/README.md; git status --short; find . -name "*.canvas" -not -path "./.obsidian/*" | head; grep -rn "Homepage\|homepage" 40_Resources/Obsidian/Dashboards/Dashboard\ Build/*.md 30_Order/Workflows/Agentic\ OS/How\ to\ Use\ Plugins.md | head -20; grep -c . .obsidian/community-plugins.json; grep -o '"[a-z-]*"' .obsidian/core-plugins.json | head -0`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat .obsidian/plugins/lazy-plugins/data.json | head -60; grep -o '"homepage"[^}]*\|"the-plan-dashboard"[^}]*' .obsidian/plugins/lazy-plugins/data.json`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && node -e '
-const c=JSON.parse(require("fs").readFileSync(".obsidian/plugins/lazy-plugins/data.json","utf8"));
-for(const k of ["desktop","mobile"]) if(c[k]) console.log(k,"default",c[k].defaultStartupType,"homepage",JSON.stringify(c[k].plugins.homepage),"dash",JSON.stringify(c[k].plugins["the-plan-dashboard"]),"dataview",JSON.stringify(c[k].plugins.dataview));
-console.log("dual",c.dualConfigs)'`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && mv "00_Live/Map.canvas" "00_Live/Map Canvas.canvas" && node -e '
-const fs=require("fs");
-let g=fs.readFileSync(".gitignore","utf8");
-g=g.replace("!*.md\n","!*.md\n\n# The Map canvas is a deliberate vault file, not editor state.\n!00_Live/Map Canvas.canvas\n");
-fs.writeFileSync(".gitignore",g);
-const p="40_Resources/Obsidian/Dashboards/Dashboards Hub.md";let h=fs.readFileSync(p,"utf8");
-h=h.replace("- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]]","- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]], and the [[Monthly Dashboard]] that reads the daily notes\n- **Map:** [[Map Canvas.canvas|Map canvas]] (domains, goals and the notes that own them). Not [[Map]], which is the `00_Live` index.");
-fs.writeFileSync(p,h);'
-git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; git diff --stat; grep -n "Monthly Dashboard\|Map canvas" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"; node -e 'JSON.parse(require("fs").readFileSync("00_Live/Map Canvas.canvas","utf8"));console.log("canvas ok")'`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && file .gitignore | head -1; node -e '
-const fs=require("fs");let g=fs.readFileSync(".gitignore","utf8");const nl=g.includes("\r\n")?"\r\n":"\n";
-g=g.replace("!*.md"+nl,"!*.md"+nl+nl+"# The Map canvas is a deliberate vault file, not editor state."+nl+"!00_Live/Map Canvas.canvas"+nl);
-fs.writeFileSync(".gitignore",g);'
-git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; sed -n 1,10p .gitignore`
-
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && node -e ' const c=JSON.parse(require("fs").readFileSync(".obsidian/plugins/lazy-plugins/data.json","utf8")); for(const k of ["desktop","mobile"]) if(c[k]) console.log(k,"default",c[k].defaultStartupType,"homepage",JSON.stringify(c[k].plugins.homepage),"dash",JSON.stringify(c[k].plugins["the-plan-dashboard"]),"dataview",JSON.stringify(c[k].plugins.dataview)); console.log("dual",c.dualConfigs)'`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan" && mv "00_Live/Map.canvas" "00_Live/Map Canvas.canvas" && node -e ' const fs=require("fs"); let g=fs.readFileSync(".gitignore","utf8"); g=g.replace("!*.md\n","!*.md\n\n# The Map canvas is a deliberate vault file, not editor state.\n!00_Live/Map Canvas.canvas\n"); fs.writeFileSync(".gitignore",g); const p="40_Resources/Obsidian/Dashboards/Dashboards Hub.md";let h=fs.readFileSync(p,"utf8"); h=h.replace("- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]]","- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]], and the [[Monthly Dashboard]] that reads the daily notes\n- **Map:** [[Map Canvas.canvas|Map canvas]] (domains, goals and the notes that own them). Not [[Map]], which is the `00_Live` index."); fs.writeFileSync(p,h);' git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; git diff --stat; grep -n "Monthly Dashboard\|Map canvas" "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"; node -e 'JSON.parse(require("fs").readFileSync("00_Live/Map Canvas.canvas","utf8"));console.log("canvas ok")'``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && file .gitignore | head -1; node -e ' const fs=require("fs");let g=fs.readFileSync(".gitignore","utf8");const nl=g.includes("\r\n")?"\r\n":"\n"; g=g.replace("!*.md"+nl,"!*.md"+nl+nl+"# The Map canvas is a deliberate vault file, not editor state."+nl+"!00_Live/Map Canvas.canvas"+nl); fs.writeFileSync(".gitignore",g);' git check-ignore -v "00_Live/Map Canvas.canvas" || echo "not ignored"; git status --short; sed -n 1,10p .gitignore`
 

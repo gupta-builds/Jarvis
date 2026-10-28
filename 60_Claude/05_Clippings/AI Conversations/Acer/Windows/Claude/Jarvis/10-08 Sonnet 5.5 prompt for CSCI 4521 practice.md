@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Sonnet 5.5 prompt for CSCI 4521 practice"
 started_at: 2026-10-08T12:14:04
 ended_at: 2026-10-08T14:30:55
-exported_at: 2026-10-17T21:06:53
+exported_at: 2026-10-28T16:15:33
 duration_minutes: 136.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 89cb15f6-f87a-4305-92cc-0052096adb65
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-08
+updated: 2026-10-28
 turn_count: 5
 tools_used:
   Agent: 1
@@ -21,12 +24,12 @@ tools_used:
   PowerShell: 1
   Read: 8
 tokens:
-  input: 108
-  output: 71788
-  cache_creation: 572160
-  cache_read: 6598855
-  total: 7242911
-cost_usd: null
+  input: 38
+  output: 29227
+  cache_creation: 180174
+  cache_read: 2512251
+  total: 2721690
+cost_usd: 1.264267
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -212,10 +215,13 @@ I wrote no files, per your global rule.
 
 ### Tool Calls
 
-- `Glob` -- pattern `**/*4521*` path ``
-- `Glob` -- pattern `**/*4521*/**` path ``
+- `Glob` -- pattern `**/*4521*` path ` `
+- `Glob` -- pattern `**/*4521*/**` path ` `
 - `Agent` -- `{"description":"Fetch Sonnet 5.5 prompting guide","subagent_type":"web-fetch","prompt":"Fetch https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED] and return a thorough, faithful digest of the guide: every concrete recommendation about how to write prompts for Claude Sonnet 5.5 (structure, tone, effort, thinking, verbosity, formatting, tool use, agentic behavior, literal instruction following, examples, XML tags, output format control, anything that is new or different versus earlier models). Quote key phrases verbatim where they matter and include any sample prompt snippets. Do not omit sections."}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521" && find . -type f | head -300 && echo ---- && du -sh .`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521" && find . -type f | head -300 && echo ---- && du -sh .
+```
 ```
 ./CSCI 4521 Board.md
 ./Homework/Homework - 1.md
@@ -232,14 +238,17 @@ I wrote no files, per your global rule.
 ----
 120K	.
 ```
-- `Grep` -- pattern `4521` path ``
+- `Grep` -- pattern `4521` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\CSCI 4521 Board.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Weekly\Week - 1 (Prompts).md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Weekly\Week - 1.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Weekly\Week - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Preparation.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 1.md`
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521" 2>&1 && find . -type f -printf '%P\t%s\t%TY-%Tm-%Td\n' | sort`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521" 2>&1 && find . -type f -printf '%P\t%s\t%TY-%Tm-%Td\n' | sort
+```
 ```
 Code/.vscode/settings.json	130	2026-10-05
 Code/Homework/CSCI4521_HW1.ipynb	268188	2026-10-06
@@ -286,9 +295,28 @@ Textbook & Resources/ISL Textbook CSCI 4521.pdf	20053984	2026-09-17
 Textbook & Resources/Syllabus - CSCI 4521.pdf	185312	2026-09-17
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `PowerShell` -- `{"command":"$roots = @(\u0027D:\\_Anant\\Inbox\u0027,\u0027D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\u0027,\u0027C:\\Users\\anant\\Downloads\u0027,\u0027C:\\Users\\anant\\Desktop\u0027,\u0027C:\\Users\\anant\\Pictures\u0027,\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\00_Inbox\u0027); foreach($r in $roots){ if(Test-Path $r){ Write-Output \"== $r\"; Get-ChildItem $r -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -match \u0027\\.(png|jpg|jpeg|webp|heic|gif)$\u0027 -and $_.LastWriteTime -gt (Get-Date).AddDays(-30) } | Select-Object -First 40 FullName,Length,LastWriteTime | Format-Table -AutoSize -Wrap | Out-String -Width 250 } }","description":"Find recent images that could be practice questions"}`
+- `PowerShell`
+```powershell
+$roots = @('D:\_Anant\Inbox','D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521','C:\Users\anant\Downloads','C:\Users\anant\Desktop','C:\Users\anant\Pictures','D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\00_Inbox'); foreach($r in $roots){ if(Test-Path $r){ Write-Output "== $r"; Get-ChildItem $r -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -match '\.(png|jpg|jpeg|webp|heic|gif)$' -and $_.LastWriteTime -gt (Get-Date).AddDays(-30) } | Select-Object -First 40 FullName,Length,LastWriteTime | Format-Table -AutoSize -Wrap | Out-String -Width 250 } }
+```
+```
+== D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521
+
+FullName                                                                              Length LastWriteTime
+--------                                                                              ------ -------------
+D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pairplot.png 186035 10/6/2026 12:38:17 AM
+D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig2_f1_vs_k.png   56659 10/6/2026 12:39:55 AM
+D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig3_metrics.png   31551 10/6/2026 12:39:55 AM
+D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Lectures\Weeks 1 - 5\download.png   66615 9/17/2026 3:45:00 PM
+
+
+== D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\00_Inbox
+```
 - `Grep` -- pattern `practice (question|problem|quiz|exam)s?` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree`
-- `Bash` -- `which python python3 pdftotext pdftoppm tesseract 2>&1; python --version 2>&1; python -c "import fitz; print('pymupdf', fitz.__doc__)" 2>&1 | head -2; python -c "import pypdf; print('pypdf', pypdf.__version__)" 2>&1 | head -2; python -c "import nbformat; print('nbformat ok')" 2>&1 | head -1`
+- `Bash`
+```bash
+which python python3 pdftotext pdftoppm tesseract 2>&1; python --version 2>&1; python -c "import fitz; print('pymupdf', fitz.__doc__)" 2>&1 | head -2; python -c "import pypdf; print('pypdf', pypdf.__version__)" 2>&1 | head -2; python -c "import nbformat; print('nbformat ok')" 2>&1 | head -1
+```
 ```
 which: no pdftoppm in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/usr/bin/vendor_perl:/usr/bin/core_perl)
 which: no tesseract in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/GitHub CLI:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/usr/bin/vendor_perl:/usr/bin/core_perl)
@@ -300,7 +328,10 @@ Python was not found; run without arguments to install from the Microsoft Store,
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/decks"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures"; for f in Week*/*.pdf; do b=$(basename "$f" .pdf | tr ' ,' '__'); pdftotext -layout "$f" "$S/decks/$b.txt" 2>&1; echo "$f -> $(wc -c < "$S/decks/$b.txt") chars, $(pdfinfo "$f" 2>/dev/null | grep Pages)"; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/decks"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Lectures"; for f in Week*/*.pdf; do b=$(basename "$f" .pdf | tr ' ,' '__'); pdftotext -layout "$f" "$S/decks/$b.txt" 2>&1; echo "$f -> $(wc -c < "$S/decks/$b.txt") chars, $(pdfinfo "$f" 2>/dev/null | grep Pages)"; done
+```
 ```
 Week - 1/0.1 course logistics, intro to ML.pptx.pdf -> 16723 chars, 
 Week - 2/1.2 kNN, accuracy, overfitting.pptx.pdf -> 5678 chars, 
@@ -312,7 +343,10 @@ Week - 4/2.2 nlp practice.pptx.pdf -> 3047 chars,
 Week - 5/2.4 pca.pptx.pdf -> 12592 chars,
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/decks"; cd "$S"; for f in 0.1* 1.2* 1.3*; do echo "=================== $f"; sed 's/[[:space:]]\+/ /g' "$f" | grep -v '^ *$'; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/decks"; cd "$S"; for f in 0.1* 1.2* 1.3*; do echo "=================== $f"; sed 's/[[:space:]]\+/ /g' "$f" | grep -v '^ *$'; done
+```
 ```
 =================== 0.[REDACTED].pptx.txt
 Welcome to CSCI 4521!
@@ -1066,7 +1100,10 @@ Model Evaluation
  of the error on data outside of training
  - Generalization: Doing well on data not seen in training
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/decks"; cd "$S"; for f in 1.4* 1.5*; do echo "=================== $f"; sed 's/[[:space:]]\+/ /g' "$f" | grep -v '^ *$'; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/decks"; cd "$S"; for f in 1.4* 1.5*; do echo "=================== $f"; sed 's/[[:space:]]\+/ /g' "$f" | grep -v '^ *$'; done
+```
 ```
 =================== 1.[REDACTED].pptx.txt
 CSCI 4521: generalization,
@@ -1624,7 +1661,10 @@ if the target population is much more broad.
  Types of bias
 ON CHIMEIN, SUBMIT A REAL WORLD EXAMPLE FOR EACH TYPE OF BIAS
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/decks"; cd "$S"; for f in 2.1* 2.2* 2.4*; do echo "=================== $f"; sed 's/[[:space:]]\+/ /g' "$f" | grep -v '^ *$'; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/decks"; cd "$S"; for f in 2.1* 2.2* 2.4*; do echo "=================== $f"; sed 's/[[:space:]]\+/ /g' "$f" | grep -v '^ *$'; done
+```
 ```
 =================== 2.[REDACTED].pptx.txt
 CSCI 4521: unit 2 intro, text data,
@@ -2282,7 +2322,10 @@ Tools
  - pca.explained_variance_ratio_
  - kmeans.inertia_
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/nb"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; for f in *.ipynb "Numpy Introduction"; do b=$(echo "$f" | tr ' ,' '__'); jq -r '.cells[] | "### [" + .cell_type + "]\n" + (.source|join("")) + "\n" + (if .outputs then ((.outputs[]? | if .output_type=="stream" then "-> " + (.text|join("")) elif (.data["text/plain"]? ) then "=> " + (.data["text/plain"]|join("")) elif .output_type=="error" then "ERR " + .ename else "" end) // "") else "" end)' "$f" > "$S/nb/$b.txt" 2>"$S/nb/$b.err"; echo "$f: $(wc -c < "$S/nb/$b.txt") chars; err=$(wc -c < "$S/nb/$b.err")"; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/nb"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; for f in *.ipynb "Numpy Introduction"; do b=$(echo "$f" | tr ' ,' '__'); jq -r '.cells[] | "### [" + .cell_type + "]\n" + (.source|join("")) + "\n" + (if .outputs then ((.outputs[]? | if .output_type=="stream" then "-> " + (.text|join("")) elif (.data["text/plain"]? ) then "=> " + (.data["text/plain"]|join("")) elif .output_type=="error" then "ERR " + .ename else "" end) // "") else "" end)' "$f" > "$S/nb/$b.txt" 2>"$S/nb/$b.err"; echo "$f: $(wc -c < "$S/nb/$b.txt") chars; err=$(wc -c < "$S/nb/$b.err")"; done
+```
 ```
 0.1 intro to colab, pandas, sns.ipynb: 7493 chars; err=0
 1.1 Nearest Neighbor Classifier.ipynb: 6906 chars; err=0
@@ -2297,7 +2340,10 @@ Week 1 - practice - Pandas Tutorial (Dimorphism).ipynb: 20890 chars; err=0
 Numpy Introduction: 10244 chars; err=0
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 1.1* 1.2*; do echo "=================== $f"; cat "$f"; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 1.1* 1.2*; do echo "=================== $f"; cat "$f"; done
+```
 ```
 =================== 1.[REDACTED].ipynb.err
 =================== 1.[REDACTED].ipynb.txt
@@ -2823,7 +2869,10 @@ print(f"Accuracy for train-test split: {train_test_accuracy}")
 
 ### [code]
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 1.3_kNN_with* 2.1*; do echo "=================== $f"; cat "$f"; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 1.3_kNN_with* 2.1*; do echo "=================== $f"; cat "$f"; done
+```
 ```
 =================== 1.3_kNN_with_SciKit-Learn.ipynb.err
 =================== 1.3_kNN_with_SciKit-Learn.ipynb.txt
@@ -3195,7 +3244,10 @@ Thought Experiment - **ANSWER ON CHIME IN**
 ### [code]
 findClosest("a cheesy slice of pizza") #Should this stil return "the cheese"?
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; cat 2.2_text_classification.ipynb.txt | cut -c1-400`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; cat 2.2_text_classification.ipynb.txt | cut -c1-400
+```
 ```
 ### [markdown]
 ## Download and extra the data
@@ -4076,7 +4128,10 @@ rick
 
 ### [code]
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 2.4_PCA_on_iris* 2.4_PCA_on_news*; do echo "=================== $f"; cut -c1-400 "$f"; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 2.4_PCA_on_iris* 2.4_PCA_on_news*; do echo "=================== $f"; cut -c1-400 "$f"; done
+```
 ```
 =================== 2.4_PCA_on_iris_data.ipynb.err
 =================== 2.4_PCA_on_iris_data.ipynb.txt
@@ -4602,7 +4657,10 @@ Why do we do well with so few PCA components? Using a small number of PCA compon
 
 Reducing variance in the dataset by using a small number of PCA components, then using KNN with small K is one of my personal go-to strategies for building classifiers on a wide variety of tasks.
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/books"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; for b in ISL DLB ENLP; do pdftotext -layout "$b Textbook CSCI 4521.pdf" "$S/books/$b.txt" 2>&1 | head -3; echo "$b: $(wc -c < "$S/books/$b.txt") chars; pages=$(grep -c $'\f' "$S/books/$b.txt")"; pdfinfo "$b Textbook CSCI 4521.pdf" 2>/dev/null | grep -E "Title|Pages"; done`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/books"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; for b in ISL DLB ENLP; do pdftotext -layout "$b Textbook CSCI 4521.pdf" "$S/books/$b.txt" 2>&1 | head -3; echo "$b: $(wc -c < "$S/books/$b.txt") chars; pages=$(grep -c $'\f' "$S/books/$b.txt")"; pdfinfo "$b Textbook CSCI 4521.pdf" 2>/dev/null | grep -E "Title|Pages"; done
+```
 ```
 Exit code 1
 Syntax Error: Missing CIDSystemInfo dictionary in Type 0 descendant font
@@ -4614,8 +4672,11 @@ ENLP: 451249 chars; pages=171
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Textbook\Textbook Map.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Weekly\Weekly Board.md`
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
-echo "== ISL"; awk 'BEGIN{RS="\f"} /^[ \t]*(2\.1|2\.2|2\.3|12\.4)[ \t]+[A-Z]/ || /^[ \t]*2\.2\.[123][ \t]+[A-Z]/ || /^[ \t]*12\.4\.[123][ \t]+[A-Z]/ || /^[ \t]*2\.1\.[1-5][ \t]+[A-Z]/ {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[123](\.[0-9])?|12\.4(\.[0-9])?)[ \t]+[A-Z][A-Za-z]/) print "p" NR ": " L[i]}' ISL.txt | head -60`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
+echo "== ISL"; awk 'BEGIN{RS="\f"} /^[ \t]*(2\.1|2\.2|2\.3|12\.4)[ \t]+[A-Z]/ || /^[ \t]*2\.2\.[123][ \t]+[A-Z]/ || /^[ \t]*12\.4\.[123][ \t]+[A-Z]/ || /^[ \t]*2\.1\.[1-5][ \t]+[A-Z]/ {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[123](\.[0-9])?|12\.4(\.[0-9])?)[ \t]+[A-Z][A-Za-z]/) print "p" NR ": " L[i]}' ISL.txt | head -60
+```
 ```
 == ISL
 p27:             2.1 What Is Statistical Learning? 17
@@ -4657,9 +4718,12 @@ p533:                                                                 12.4 Clust
 p535:                                         12.4 Clustering Methods 529
 p537:                                                                   12.4 Clustering Methods 531
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
 echo "== DLB"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[1-8]|3\.[1-3]|5\.[1-8](\.[1-3])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' DLB.txt | head -80
-echo "== ENLP"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(1\.[1-3]|7\.1(\.[12])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' ENLP.txt | head -40; head -c 1500 ENLP.txt`
+echo "== ENLP"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(1\.[1-3]|7\.1(\.[12])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' ENLP.txt | head -40; head -c 1500 ENLP.txt
+```
 ```
 == DLB
 p2: 2.1 Scalars, Vectors, Matrices and Tensors . . . . . . . . . . . . . . . 31
@@ -4781,12 +4845,15 @@ Emily M. Bender and Alex Lascarides
 
   Bayes
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
 awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(3 +Linear Regression|3\.1 +Simple Linear|12\.5 +Lab|12\.4\.1 +K-Means)/ ) print "ISL p" NR ": " L[i]}}' ISL.txt | head
 awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(5\.8\.2|5\.9|5\.10|5\.7\.3) +[A-Z]/ && length(L[i])<100) print "DLB p" NR ": " L[i]}}' DLB.txt | head
 awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(CHAPTER|Chapter) *[0-9]/ || L[i] ~ /^ *(2|7)\.[1-2] +[A-Z]/ ) print "ENLP p" NR ": " L[i]}}' ENLP.txt | head -20
 echo; echo "ENLP page 22 head:"; awk 'BEGIN{RS="\f"} NR==22' ENLP.txt | head -12; echo ...; awk 'BEGIN{RS="\f"} NR==22' ENLP.txt | tail -5
-echo "ENLP page 115 tail:"; awk 'BEGIN{RS="\f"} NR==115' ENLP.txt | tail -4`
+echo "ENLP page 115 tail:"; awk 'BEGIN{RS="\f"} NR==115' ENLP.txt | tail -4
+```
 ```
 ISL p5: 3 Linear Regression                                       69
 ISL p5: 3.1 Simple Linear Regression . . . . . . . . . . . . . . . . . . . 70
@@ -4845,7 +4912,10 @@ ENLP page 115 tail:
 On sentence representations, pt. 1: what can you fit into a single #$!%&% blog post?--https://supernlp.github.io/2018/11/26/
 sentreps/ (last visited on September 2020).
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; grep -n -E "^ *(3\.4 +Marginal|5\.8\.2|3\.[0-9]+ +[A-Z][a-z]+)" DLB.txt | head -20; awk 'BEGIN{RS="\f"} NR>=158 && NR<=166 && /k-means|K-means/ {print "DLB p" NR " mentions k-means"}' DLB.txt; awk 'BEGIN{RS="\f"} NR>=160 && NR<=166 {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /5\.8\.[0-9]|k-means clustering/) print "p" NR ": " L[i]}' DLB.txt | head`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; grep -n -E "^ *(3\.4 +Marginal|5\.8\.2|3\.[0-9]+ +[A-Z][a-z]+)" DLB.txt | head -20; awk 'BEGIN{RS="\f"} NR>=158 && NR<=166 && /k-means|K-means/ {print "DLB p" NR " mentions k-means"}' DLB.txt; awk 'BEGIN{RS="\f"} NR>=160 && NR<=166 {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /5\.8\.[0-9]|k-means clustering/) print "p" NR ": " L[i]}' DLB.txt | head
+```
 ```
 50:3.1 Why Probability? . . . . . . . . . . . . . . . . . . . . . . . . . . . 54
 55:3.2 Random Variables . . . . . . . . . . . . . . . . . . . . . . . . . . 56
@@ -4874,7 +4944,10 @@ p164: Another example of a simple representation learning algorithm is k-means c
 p164: The k-means clustering algorithm divides the training set into k different clusters
 p164:     The one-hot code provided by k-means clustering is an example of a sparse
 ```
-- `Bash` -- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; cut -c1-300 "$S/nb/0.1_intro_to_colab__pandas__sns.ipynb.txt" | head -150; echo =========== HW1; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; pdftotext -layout "homework 1.docx.pdf" - | sed 's/[[:space:]]\+/ /g' | grep -v '^ *$' | head -120`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; cut -c1-300 "$S/nb/0.1_intro_to_colab__pandas__sns.ipynb.txt" | head -150; echo =========== HW1; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; pdftotext -layout "homework 1.docx.pdf" - | sed 's/[[:space:]]\+/ /g' | grep -v '^ *$' | head -120
+```
 ```
 ### [code]
 import pandas as pd
@@ -5139,7 +5212,10 @@ clear explanation? Do I believe the student that this webpage is/isn't likely to
 [EC:] How convincing is the analysis that this would change the webpage's rating?
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code"; cat environment.yml; echo ----; cat Homework/README.md; echo ----; (conda env list 2>&1 | head -8) ; ls "C:/Users/anant" | head -0; where.exe python 2>&1 | head -3`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code"; cat environment.yml; echo ----; cat Homework/README.md; echo ----; (conda env list 2>&1 | head -8) ; ls "C:/Users/anant" | head -0; where.exe python 2>&1 | head -3
+```
 ```
 name: csci-4521
 channels:
@@ -5197,19 +5273,10 @@ _None detected_
 - `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; cat 2.2_text_classification.ipynb.txt | cut -c1-400`
 - `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/nb"; cd "$S"; for f in 2.4_PCA_on_iris* 2.4_PCA_on_news*; do echo "=================== $f"; cut -c1-400 "$f"; done`
 - `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; mkdir -p "$S/books"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; for b in ISL DLB ENLP; do pdftotext -layout "$b Textbook CSCI 4521.pdf" "$S/books/$b.txt" 2>&1 | head -3; echo "$b: $(wc -c < "$S/books/$b.txt") chars; pages=$(grep -c $'\f' "$S/books/$b.txt")"; pdfinfo "$b Textbook CSCI 4521.pdf" 2>/dev/null | grep -E "Title|Pages"; done`
-- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
-echo "== ISL"; awk 'BEGIN{RS="\f"} /^[ \t]*(2\.1|2\.2|2\.3|12\.4)[ \t]+[A-Z]/ || /^[ \t]*2\.2\.[123][ \t]+[A-Z]/ || /^[ \t]*12\.4\.[123][ \t]+[A-Z]/ || /^[ \t]*2\.1\.[1-5][ \t]+[A-Z]/ {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[123](\.[0-9])?|12\.4(\.[0-9])?)[ \t]+[A-Z][A-Za-z]/) print "p" NR ": " L[i]}' ISL.txt | head -60`
-- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
-echo "== DLB"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[1-8]|3\.[1-3]|5\.[1-8](\.[1-3])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' DLB.txt | head -80
-echo "== ENLP"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(1\.[1-3]|7\.1(\.[12])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' ENLP.txt | head -40; head -c 1500 ENLP.txt`
-- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; 
-awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(3 +Linear Regression|3\.1 +Simple Linear|12\.5 +Lab|12\.4\.1 +K-Means)/ ) print "ISL p" NR ": " L[i]}}' ISL.txt | head
-awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(5\.8\.2|5\.9|5\.10|5\.7\.3) +[A-Z]/ && length(L[i])<100) print "DLB p" NR ": " L[i]}}' DLB.txt | head
-awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(CHAPTER|Chapter) *[0-9]/ || L[i] ~ /^ *(2|7)\.[1-2] +[A-Z]/ ) print "ENLP p" NR ": " L[i]}}' ENLP.txt | head -20
-echo; echo "ENLP page 22 head:"; awk 'BEGIN{RS="\f"} NR==22' ENLP.txt | head -12; echo ...; awk 'BEGIN{RS="\f"} NR==22' ENLP.txt | tail -5
-echo "ENLP page 115 tail:"; awk 'BEGIN{RS="\f"} NR==115' ENLP.txt | tail -4`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S";  echo "== ISL"; awk 'BEGIN{RS="\f"} /^[ \t]*(2\.1|2\.2|2\.3|12\.4)[ \t]+[A-Z]/ || /^[ \t]*2\.2\.[123][ \t]+[A-Z]/ || /^[ \t]*12\.4\.[123][ \t]+[A-Z]/ || /^[ \t]*2\.1\.[1-5][ \t]+[A-Z]/ {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[123](\.[0-9])?|12\.4(\.[0-9])?)[ \t]+[A-Z][A-Za-z]/) print "p" NR ": " L[i]}' ISL.txt | head -60`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S";  echo "== DLB"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(2\.[1-8]|3\.[1-3]|5\.[1-8](\.[1-3])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' DLB.txt | head -80 echo "== ENLP"; awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /^[ \t]*(1\.[1-3]|7\.1(\.[12])?)[ \t]+[A-Z][A-Za-z]/ && length(L[i])<110) print "p" NR ": " L[i]}' ENLP.txt | head -40; head -c 1500 ENLP.txt`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S";  awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(3 +Linear Regression|3\.1 +Simple Linear|12\.5 +Lab|12\.4\.1 +K-Means)/ ) print "ISL p" NR ": " L[i]}}' ISL.txt | head awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(5\.8\.2|5\.9|5\.10|5\.7\.3) +[A-Z]/ && length(L[i])<100) print "DLB p" NR ": " L[i]}}' DLB.txt | head awk 'BEGIN{RS="\f"} {n=split($0,L,"\n"); for(i=1;i<=n;i++){ if (L[i] ~ /^[ \t]*(CHAPTER|Chapter) *[0-9]/ || L[i] ~ /^ *(2|7)\.[1-2] +[A-Z]/ ) print "ENLP p" NR ": " L[i]}}' ENLP.txt | head -20 echo; echo "ENLP page 22 head:"; awk 'BEGIN{RS="\f"} NR==22' ENLP.txt | head -12; echo ...; awk 'BEGIN{RS="\f"} NR==22' ENLP.txt | tail -5 echo "ENLP page 115 tail:"; awk 'BEGIN{RS="\f"} NR==115' ENLP.txt | tail -4`
 - `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad/books"; cd "$S"; grep -n -E "^ *(3\.4 +Marginal|5\.8\.2|3\.[0-9]+ +[A-Z][a-z]+)" DLB.txt | head -20; awk 'BEGIN{RS="\f"} NR>=158 && NR<=166 && /k-means|K-means/ {print "DLB p" NR " mentions k-means"}' DLB.txt; awk 'BEGIN{RS="\f"} NR>=160 && NR<=166 {n=split($0,L,"\n"); for(i=1;i<=n;i++) if (L[i] ~ /5\.8\.[0-9]|k-means clustering/) print "p" NR ": " L[i]}' DLB.txt | head`
 - `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/89cb15f6-f87a-4305-92cc-0052096adb65/scratchpad"; cut -c1-300 "$S/nb/0.1_intro_to_colab__pandas__sns.ipynb.txt" | head -150; echo =========== HW1; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; pdftotext -layout "homework 1.docx.pdf" - | sed 's/[[:space:]]\+/ /g' | grep -v '^ *$' | head -120`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code"; cat environment.yml; echo ----; cat Homework/README.md; echo ----; (conda env list 2>&1 | head -8) ; ls "C:/Users/anant" | head -0; where.exe python 2>&1 | head -3`
-
 

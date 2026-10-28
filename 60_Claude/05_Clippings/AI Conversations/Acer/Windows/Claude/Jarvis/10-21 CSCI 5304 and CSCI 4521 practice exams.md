@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 5304 and CSCI 4521 practice exams"
 started_at: 2026-10-21T20:33:31
 ended_at: 2026-10-22T08:27:33
-exported_at: 2026-10-22T11:19:52
+exported_at: 2026-10-28T16:15:20
 duration_minutes: 714
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 386009d6-8935-488f-b28f-dba43cbb7562
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-21
+updated: 2026-10-28
 turn_count: 15
 tools_used:
   Agent: 3
@@ -24,12 +27,12 @@ tools_used:
   ToolSearch: 1
   Write: 1
 tokens:
-  input: 160
-  output: 216432
-  cache_creation: 1873990
-  cache_read: 10728030
-  total: 12818612
-cost_usd: 11.806206
+  input: 56
+  output: 63079
+  cache_creation: 711117
+  cache_read: 3972042
+  total: 4746294
+cost_usd: 4.269778
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -110,7 +113,9 @@ I'll report back once they finish. When the actual practice papers arrive tomorr
 
 ### Tool Calls
 
-- `Bash` -- `echo "--- 30_Order Per Class workflows ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" 2>&1
+- `Bash`
+```bash
+echo "--- 30_Order Per Class workflows ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" 2>&1
 echo "--- CSCI 5304 Workflow exists? ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" | grep -i 5304
 echo "--- CSCI 4521 vault paths check ---"
 ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" 2>&1
@@ -118,7 +123,8 @@ echo "---"
 ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521" 2>&1
 echo "--- vault root check ---"
 ls "D:\_Anant\20_Progress\Documents\Jarvis" 2>&1
-`
+
+```
 ```
 --- 30_Order Per Class workflows ---
 CSCI 4061 Workflow.md
@@ -158,7 +164,9 @@ blobs
 copilot
 wa1_template.tex
 ```
-- `Bash` -- `echo "--- check if Jarvis/10_Areas/UMN/Classes/CSCI exists (nested) ---"
+- `Bash`
+```bash
+echo "--- check if Jarvis/10_Areas/UMN/Classes/CSCI exists (nested) ---"
 ls "D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\UMN\Classes\CSCI" 2>&1
 echo "--- is D:\_Anant\10_Areas a symlink/junction? ---"
 powershell -NoProfile -Command "Get-Item 'D:\_Anant\10_Areas' | Select-Object FullName, LinkType, Target" 2>&1
@@ -166,7 +174,8 @@ echo "--- 20_Progress/Degree/CSCI 5304 and 4521 under Jarvis ---"
 ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304" 2>&1
 echo "---"
 ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521" 2>&1
-`
+
+```
 ```
 --- check if Jarvis/10_Areas/UMN/Classes/CSCI exists (nested) ---
 ls: cannot access 'D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\UMN\Classes\CSCI': No such file or directory
@@ -191,11 +200,14 @@ Preparation.md
 Textbook
 Weekly
 ```
-- `Bash` -- `echo "--- D:\_Anant top level ---"
+- `Bash`
+```bash
+echo "--- D:\_Anant top level ---"
 ls "D:\_Anant" 2>&1
 echo "--- check if D:\_Anant has its own CLAUDE.md / AGENTS.md (different vault) ---"
 ls "D:\_Anant" | grep -i -E "claude|agents|dashboard"
-`
+
+```
 ```
 --- D:\_Anant top level ---
 00_Inbox
@@ -213,12 +225,15 @@ Videos
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class\CSCI 4521 Workflow.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class\CSCI 5304 Workflow.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class\CSCI 4061 Workflow.md`
-- `Bash` -- `echo "=== PLAN VAULT: CSCI 4521 source tree ==="
+- `Bash`
+```bash
+echo "=== PLAN VAULT: CSCI 4521 source tree ==="
 find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521" -maxdepth 3 2>&1
 echo
 echo "=== PLAN VAULT: CSCI 5304 source tree ==="
 find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" -maxdepth 3 2>&1
-`
+
+```
 ```
 === PLAN VAULT: CSCI 4521 source tree ===
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521
@@ -378,12 +393,15 @@ D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304/Textbook & Resources/CSCI 5304 Syl
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304/Textbook & Resources/CSCI 5304 Textbook (MinerU full extraction).md
 D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304/Textbook & Resources/CSCI 5304 Textbook.pdf
 ```
-- `Bash` -- `echo "=== JARVIS: CSCI 4521 tree ==="
+- `Bash`
+```bash
+echo "=== JARVIS: CSCI 4521 tree ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521" -maxdepth 3 2>&1
 echo
 echo "=== JARVIS: CSCI 5304 tree ==="
 find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304" -maxdepth 3 2>&1
-`
+
+```
 ```
 === JARVIS: CSCI 4521 tree ===
 D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521
@@ -439,7 +457,9 @@ D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304/Weekly/Weekl
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Preparation.md`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\README.md`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\README.md`
-- `Bash` -- `echo "=== Courses workflow folder (generic) ==="
+- `Bash`
+```bash
+echo "=== Courses workflow folder (generic) ==="
 ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses"
 echo
 echo "=== Course templates ==="
@@ -447,7 +467,8 @@ ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Courses" 2>&1
 echo
 echo "=== Course standards ==="
 ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses" 2>&1
-`
+
+```
 ```
 === Courses workflow folder (generic) ===
 Board Workflow.md
@@ -581,11 +602,11 @@ Ask the user or verify the live source when: a Canvas date conflicts with the Bo
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\CSCI 4521 Board.md`
 ```diff
 - ## Verification Notes
-Full syllabus text extracted from `Syllabus - CSCI 4521.pdf`
+- Full syllabus text extracted from `Syllabus - CSCI 4521.pdf`
 + ## Course Production Workflow
-Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow|CSCI 4521 Workflow]] - source hierarchy (a real deck or notebook outranks inferred content; the ENLP PDF is actually present locally, correcting this Board's and the Textbook Map's older "unlocated" claim), the weekly rhythm, homework/project routing, concept-note discipline (zero concept notes exist yet), and the quiz-period drill-bank workflow for the biweekly quizzes.
-## Verification Notes
-Full syllabus text extracted from `Syllabus - CSCI 4521.pdf`
++ Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow|CSCI 4521 Workflow]] - source hierarchy (a real deck or notebook outranks inferred content; the ENLP PDF is actually present locally, correcting this Board's and the Textbook Map's older "unlocated" claim), the weekly rhythm, homework/project routing, concept-note discipline (zero concept notes exist yet), and the quiz-period drill-bank workflow for the biweekly quizzes.
++ ## Verification Notes
++ Full syllabus text extracted from `Syllabus - CSCI 4521.pdf`
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\CSCI 4521 Board.md`
 ```diff
@@ -605,12 +626,14 @@ Full syllabus text extracted from `Syllabus - CSCI 4521.pdf`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\CSCI 4521 Board.md`
 ```diff
 - ## Course Production Workflow
-Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow|CSCI 4521 Workflow]] - source hierarchy (a real deck or notebook outranks inferred content; the ENLP PDF is actually present locally, correcting this Board's and the Textbook Map's older "unlocated" claim), the weekly rhythm, homework/project routing, concept-note discipline (zero concept notes exist yet), and the quiz-period drill-bank workflow for the biweekly quizzes.
+- Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow|CSCI 4521 Workflow]] - source hierarchy (a real deck or notebook outranks inferred content; the ENLP PDF is actually present locally, correcting this Board's and the Textbook Map's older "unlocated" claim), the weekly rhythm, homework/project routing, concept-note discipline (zero concept notes exist yet), and the quiz-period drill-bank workflow for the biweekly quizzes.
 + ## Course Production Workflow
-Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow|CSCI 4521 Workflow]] - source hierarchy (a real deck or notebook outranks inferred content), the weekly rhythm, homework/project routing, concept-note discipline (zero concept notes exist yet), and the quiz-period drill-bank workflow for the biweekly quizzes.
++ Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow|CSCI 4521 Workflow]] - source hierarchy (a real deck or notebook outranks inferred content), the weekly rhythm, homework/project routing, concept-note discipline (zero concept notes exist yet), and the quiz-period drill-bank workflow for the biweekly quizzes.
 ```
 - `AskUserQuestion` -- `{"questions":[{"question":"What are the \u0027two or more practice papers\u0027 for CSCI 5304 / CSCI 4521 that we\u0027re about to solve?","header":"Practice papers","multiSelect":false,"options":[{"label":"Already in the source folders","description":"e.g. the Midterm folder\u0027s Quiz-2.pdf/Quiz-3.pdf for 5304, or something in 4521\u0027s Homework/Lectures I should locate and use directly"},{"label":"You\u0027ll paste/attach them here","description":"Not yet in the vault — you\u0027ll provide the actual papers in this conversation or shortly after"},{"label":"I should build drill banks from scratch","description":"Generate practice question sets myself from the landed textbook/lecture content, following the Exam Material Standard"}]},{"question":"Is CSCI 5304\u0027s midterm (vault says Wed 10/21 — today) actually today, or is that date still wrong?","header":"5304 midterm timing","multiSelect":false,"options":[{"label":"It\u0027s today / imminent","description":"Treat 5304 as the top priority right now"},{"label":"Already happened","description":"We\u0027re reviewing/catching up on past material, not racing a clock"},{"label":"That date is wrong","description":"The real midterm is later — not an immediate blocker, confirm separately"}]},{"question":"Both courses have several weeks of lecture content with no landed notes (5304: Weeks 5-8; 4521: Weeks 3-7). How should I prioritize the catch-up build?","header":"Catch-up scope","multiSelect":false,"options":[{"label":"Only the scope the imminent exam covers","description":"Fastest path to being ready for whichever assessment is actually closest — skip weeks outside that scope for now"},{"label":"Full catch-up on both courses first","description":"Land every missing Weekly/Textbook note before touching practice material, even if it takes longer than 24 hours"},{"label":"Build practice material now, backfill only where it blocks a question","description":"Start solving/reviewing practice papers with what\u0027s already landed, and only build a missing note when a specific question needs it"}]}]}`
-- `Bash` -- `echo "=== 5304 Transcripts Week 2&3 ==="
+- `Bash`
+```bash
+echo "=== 5304 Transcripts Week 2&3 ==="
 ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Transcripts\Week 2 & 3"
 echo
 echo "=== 5304 Transcripts Week 4-8 ==="
@@ -631,7 +654,8 @@ except ImportError:
 " 2>/dev/null
 done
 echo "(page count check skipped if no pypdf available; will use Read tool pages param instead)"
-`
+
+```
 ```
 === 5304 Transcripts Week 2&3 ===
 en-CSCI 5304 September 10 Lecture (multi-source).txt
@@ -658,14 +682,14 @@ ls: cannot access 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Week - 
 ```diff
 - > **Resolved 2026-10-18 (anomaly #2 only):** confirmed via live calendar — Midterm Exam is Wednesday, October 21st, matching neither printed-Week-7's Thu 10/15 nor the syllabus text's "Thursday, October 22nd." Table corrected above. Anomalies #1 (Week 5/6 collision) and #3 (Thanksgiving row) remain open.
 + > **Re-resolved 2026-10-21 (anomaly #2, superseding the 2026-10-18 entry below):** the midterm actually happened **Tuesday, October 20th** - confirmed directly by the user, after it was sat. Neither the 2026-10-18 guess (Wednesday 10/21) nor the syllabus text's "Thursday, October 22nd" nor printed-Week-7's Thu 10/15 was correct. The table's Week 8 row above still prints "Wed 10/21 - HW #3 due 11:59 PM; Midterm Exam" - that placement is now known wrong and should be corrected the next time this table is touched; treat Tue 10/20 (the real date Lecture 17, Stability of Back Substitution, was also scheduled) as the actual midterm day until a cleaner table rewrite happens. Anomalies #1 (Week 5/6 collision) and #3 (Thanksgiving row) remain open.
-> **Superseded 2026-10-18 guess (kept for the record):** confirmed via live calendar — Midterm Exam is Wednesday, October 21st. This turned out to be wrong; see the re-resolved entry above.
++ > **Superseded 2026-10-18 guess (kept for the record):** confirmed via live calendar — Midterm Exam is Wednesday, October 21st. This turned out to be wrong; see the re-resolved entry above.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Quiz - 2.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Quiz - 3.md`
-- `Agent` -- `{"subagent_type":"fork","description":"CSCI 5304 Textbook/Weekly catch-up (Lectures 10-17)","prompt":"Build the missing CSCI 5304 Textbook and Weekly notes to catch the course up as far as the real sources support. The midterm already happened Tue 10/20 (just confirmed directly by the user and corrected in the Board) - this is a review/catch-up pass, not a race against today\u0027s date.\n\nScope: `Textbook/Lecture - 10.md` onward (10, 11, 12, 13, 14, 15, 16, 17 - as many as the real sources support, do not invent any without one), and the Weekly notes for every week after Week 4 that a transcript actually covers.\n\nRead first, in this order: `30_Order/Workflows/Courses/Course Production Workflow.md`; `30_Order/Standards/Courses/Textbook Standard.md`; `30_Order/Workflows/Courses/Textbook Workflow.md`; `30_Order/Standards/Courses/Textbook Map Standard.md`; `30_Order/Workflows/Courses/Textbook Map Workflow.md`; `30_Order/Standards/Courses/Weekly Standard.md` (titled \"Weekly Standard\" - confirm exact filename); `30_Order/Workflows/Courses/Weekly Workflow.md`; `30_Order/Standards/Courses/Weekly Board Standard.md`; `30_Order/Workflows/Courses/Weekly Board Workflow.md`; and `30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md` (re-read directly even though you have it in context, it was just slightly updated). Locate the matching Templates folder yourself (likely `30_Order/Templates/Classes/`) and read the Textbook/Week/Weekly Board templates too.\n\nSource hierarchy for this course (already established in this conversation, re-confirm by re-reading the Workflow note): a provided file beats the transcript; the transcript beats nothing. The MinerU textbook extraction at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Textbook \u0026 Resources\\CSCI 5304 Textbook (MinerU full extraction).md` (12,654 lines - grep/search it for the relevant Lecture number\u0027s heading, do not read start to end) is the standard-treatment source, page-cited. Real transcripts live in `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Lecture\\Transcripts\\Week 4 - 8\\`: files dated Sept 29, Oct 1, Oct 6, Oct 8, Oct 13, Oct 20 (one .txt per date). No Oct 15 or Oct 22 transcript exists yet - do not build content for whatever lecture would have fallen there without one; log it as a real, named gap instead.\n\nFigure out the real lecture-number-to-date mapping yourself by reading each transcript\u0027s actual content against the Trefethen \u0026 Bau lecture titles in the Board\u0027s schedule table and the textbook\u0027s own Lecture headings in the MinerU extraction - the Board\u0027s printed Week-row dates are known to run one row \"behind\" from Week 6 onward (three logged anomalies, plus the midterm date itself was just corrected to Tue 10/20). Trust what a transcript actually discusses over which printed \"Week N\" row it nominally sits under; state the real date-to-Lecture-number mapping you used in your final report.\n\nExisting landed notes are your format/rigor gold standard - read `Textbook/Lecture - 8.md` and `Weekly/Week - 4.md` first. Also read `Quiz \u0026 HW/Homework - 2.md`, `Quiz - 2.md`, and `Quiz - 3.md` (all under `20_Progress/Degree/CSCI 5304/Quiz \u0026 HW/`) - these already solved problems using Lecture 10 (Householder) and Lecture 11 (pseudoinverse/least-squares) material, each flagged \"not yet written in this vault, read straight from the MinerU extraction.\" Once you land Lecture 10 and Lecture 11, go back and update those three notes\u0027 \"Concepts used\" sections (and any inline note saying a lecture \"isn\u0027t lectured yet\") to link to the new Lecture notes instead of saying \"not yet written.\" This citation fix is a required part of this task.\n\nAllowed edits: new/repaired files under `20_Progress/Degree/CSCI 5304/Textbook/` and `.../Weekly/`; `Textbook/Textbook Map.md`; `Weekly/Weekly Board.md`; the citation fixes to the three Quiz \u0026 HW notes named above; and one continuity entry in `60_Claude/07_AI_Information/Session Logs/log.md`. Do not touch the Board, Preparation, Homework - 1 (a separate task owns it), or any other course.\n\nDo not fabricate lecture content for a date with no transcript and no provided file - name the gap in the Weekly Board/Textbook Map instead, per the Workflow\u0027s stop-and-ask conditions. Concept-note discipline for this course: at most 2 per week, 1 per lecture, only for genuinely load-bearing material - SVD and Norms were already flagged as the strongest still-uncreated candidates for Weeks 2-3; don\u0027t create a concept note in this build unless something in Lectures 10-17 is clearly more load-bearing than those two, and name which one and why if you do.\n\nReport back tersely: which Lecture/Week notes landed (with the real date each used), which were skipped for lack of a source and why, and the exact citation updates made to the three Quiz \u0026 HW notes."}`
-- `Agent` -- `{"subagent_type":"fork","description":"CSCI 5304 Homework-1 detailed solutions","prompt":"Build `20_Progress/Degree/CSCI 5304/Quiz \u0026 HW/Homework - 1.md` from scratch - CSCI 5304\u0027s Homework 1 has no vault note yet. `Homework - 2.md`, `Quiz - 2.md`, and `Quiz - 3.md` in the same folder do, and are already in your context as the exact quality/format bar to match: same density, same numeric cross-checking (every result verified at least one independent way before being written down), same Excalidraw-diagram pattern for any geometric sub-part, same frontmatter shape.\n\nSource PDF: `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Homework\\Homework - 1.pdf`. Read it in full (use the PDF tool\u0027s `pages` param if it runs long) before writing anything - do not infer its problems from the schedule or from Homework 2\u0027s problem list.\n\nRead first: `30_Order/Standards/Courses/Homework Standard.md` and `30_Order/Workflows/Courses/Homework Workflow.md` (confirm these exact filenames/paths - locate them if slightly off), plus `20_Progress/Degree/CSCI 5304/Quiz \u0026 HW/Homework - 2.md` as your direct structural template (frontmatter, Overview/Requirements/Work log/Concepts used/Post-submit reflection headings, the `- [ ]` checkbox list mirroring the PDF\u0027s own point breakdown).\n\nSolve every problem in full, citing the exact Lecture textbook note it draws from (`20_Progress/Degree/CSCI 5304/Textbook/Lecture - N.md`). Lectures 1-8 are landed now; Lectures 9+ may or may not be landed by the time you run (a separate parallel task is building them) - check `Textbook/` directly before citing, and if a needed Lecture note isn\u0027t there yet, solve straight from the MinerU extraction at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Textbook \u0026 Resources\\CSCI 5304 Textbook (MinerU full extraction).md`, citing it directly and flagging \"Lecture N not yet written in this vault\" exactly like `Homework - 2.md` and `Quiz - 3.md` already do for Householder/pseudoinverse. Verify every numeric result at least one independent way (recompute, cross-check against a known identity) before writing it down.\n\nOnly build Excalidraw diagrams (via the `excalidraw` MCP tools) if Homework 1 genuinely has a geometric/drawing sub-part - don\u0027t add one gratuitously. If you do, follow the exact schema fix already logged in `Homework - 2.md`\u0027s work log (full element schema: id, seed, versionNonce, explicit points arrays, real text width/height) to avoid the rendering bugs already diagnosed there - don\u0027t rediscover that bug from scratch.\n\nAllowed edits: the new `Homework - 1.md` file, any new `.excalidraw` files under `10_Areas/Excalidraw/`, and one continuity entry in `60_Claude/07_AI_Information/Session Logs/log.md`. Do not touch the Board, Preparation, Weekly, or Textbook notes, or any other course - another task is already working on those files in parallel.\n\nReport back tersely: problem count, point total, which Lecture notes you cited (landed or MinerU-direct), and whether any sub-part needed a diagram."}`
-- `Agent` -- `{"subagent_type":"fork","description":"CSCI 4521 Weeks 3-7 catch-up","prompt":"Build the missing CSCI 4521 Textbook and Weekly notes for Weeks 3 through 7 - the course is already at Week 7 content (today is 2026-10-21; Quiz 3, covering through Week 7\u0027s Tuesday lecture, is tomorrow). You just authored `30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow.md` in this same conversation - re-read it directly as your routing contract, along with `20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md` (just corrected - the ENLP textbook is confirmed local, don\u0027t treat it as missing), `Preparation.md`, `Textbook/Textbook Map.md`, and `Weekly/Weekly Board.md`.\n\nRead first: `30_Order/Workflows/Courses/Course Production Workflow.md`; `30_Order/Standards/Courses/Textbook Standard.md`; `30_Order/Workflows/Courses/Textbook Workflow.md`; `30_Order/Standards/Courses/Textbook Map Standard.md`; `30_Order/Workflows/Courses/Textbook Map Workflow.md`; `30_Order/Standards/Courses/Weekly Standard.md`; `30_Order/Workflows/Courses/Weekly Workflow.md`; `30_Order/Standards/Courses/Weekly Board Standard.md`; `30_Order/Workflows/Courses/Weekly Board Workflow.md`; and the matching Templates (likely under `30_Order/Templates/Classes/`) for each. `Weekly/Week - 1 (Prompts).md` in the course folder has a fully-written, already-vetted \"Build 2\" bounded-build spec for Weeks 3-4 (its Source boundary, Allowed edits, and Textbook/Weekly-note-requirement sections are directly usable) - read it and follow its method for Weeks 3-4, then extend the same method yourself for Weeks 5, 6, and 7 (no prior staged prompt exists for those - you are writing the first one).\n\nPer-week reading scope, from the Board\u0027s schedule table: Week 3 continues ISL §2.2 (no new reading). Week 4: DLB §§5.4-5.6, ENLP §§1.1-1.3 and §§7.1.1-7.1.2. Week 5: ISL 12.4, DLB 5.8 intro + 5.8.2, ENLP 1.1-1.3/7.1.1-7.1.2 (repeated). Week 6: \"Linear Algebra Notes\" (named but not locally found - log as a real gap, do not fabricate), ISL 12.2, DLB 2.7/2.8/5.8 intro/5.8.1, ENLP 3.2/6.4. Week 7: ISL 4.4, DLB 5.4.2/5.11.1.\n\nLecture sources: verify the real inventory yourself by listing `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Lectures\\` (decks, organized by Week - N folders, but filing is known to be offset from the Board\u0027s week numbers by one slot in places - e.g. a 2.2 deck sits in the Week - 4 folder) and `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Lectures\\Weeks 1 - 5\\` and `Week 6 - 10\\` for companion notebooks. Do not assume a lecture (especially 2.5 \"modern text embedding\" and 3.1 \"advanced clustering, LDA, GMM\") has a deck or notebook until you\u0027ve actually checked - if genuinely absent, log it as a named source gap in the Weekly Board rather than inventing lecture content from the topic title alone, exactly as the Workflow note\u0027s stop-and-ask conditions require.\n\nTextbook notes: repair/extend the existing canonical notes (`Textbook/ISL/Chapter - 2.md`, `Textbook/DLB/Chapter - 5.md`) rather than duplicating a chapter; create new canonical notes only for genuinely new chapters (ISL Ch. 4, ISL Ch. 12, ENLP Ch. 1, ENLP Ch. 7, ENLP Ch. 3/6 as needed) after verifying the real PDF section boundary in `Textbook \u0026 Resources/`. Weekly notes: create `Weekly/Week - 3.md` through `Week - 7.md` from the Week Template, with live-capture sections left for the user to fill (don\u0027t fabricate lecture emphasis), honest `## Textbook integration`, and the six-part `## Lecture-to-textbook synthesis`.\n\nAllowed edits: files under `20_Progress/Degree/CSCI 4521/Textbook/` and `.../Weekly/` (new or repaired), `Textbook/Textbook Map.md`, `Weekly/Weekly Board.md`, and one continuity entry in `60_Claude/07_AI_Information/Session Logs/log.md`. Do not edit `Weekly/Week - 1 (Prompts).md`, the Board, Preparation, Homework, raw source material, or any other course.\n\nZero concept notes exist for this course - do not create one unless something across Weeks 3-7 has genuinely recurred and earned it (bias-variance and the five bias types were already named as the strongest candidates in the Workflow note; name explicitly if you create one and why).\n\nReport back tersely: which Weekly/Textbook notes landed per week, which lecture sources turned out missing (2.5, 3.1, Linear Algebra Notes - confirm each one way or the other), and the exact Textbook Map / Weekly Board status updates made."}`
+- `Agent` -- ``{"subagent_type":"fork","description":"CSCI 5304 Textbook/Weekly catch-up (Lectures 10-17)","prompt":"Build the missing CSCI 5304 Textbook and Weekly notes to catch the course up as far as the real sources support. The midterm already happened Tue 10/20 (just confirmed directly by the user and corrected in the Board) - this is a review/catch-up pass, not a race against today\u0027s date.\n\nScope: `Textbook/Lecture - 10.md` onward (10, 11, 12, 13, 14, 15, 16, 17 - as many as the real sources support, do not invent any without one), and the Weekly notes for every week after Week 4 that a transcript actually covers.\n\nRead first, in this order: `30_Order/Workflows/Courses/Course Production Workflow.md`; `30_Order/Standards/Courses/Textbook Standard.md`; `30_Order/Workflows/Courses/Textbook Workflow.md`; `30_Order/Standards/Courses/Textbook Map Standard.md`; `30_Order/Workflows/Courses/Textbook Map Workflow.md`; `30_Order/Standards/Courses/Weekly Standard.md` (titled \"Weekly Standard\" - confirm exact filename); `30_Order/Workflows/Courses/Weekly Workflow.md`; `30_Order/Standards/Courses/Weekly Board Standard.md`; `30_Order/Workflows/Courses/Weekly Board Workflow.md`; and `30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md` (re-read directly even though you have it in context, it was just slightly updated). Locate the matching Templates folder yourself (likely `30_Order/Templates/Classes/`) and read the Textbook/Week/Weekly Board templates too.\n\nSource hierarchy for this course (already established in this conversation, re-confirm by re-reading the Workflow note): a provided file beats the transcript; the transcript beats nothing. The MinerU textbook extraction at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Textbook \u0026 Resources\\CSCI 5304 Textbook (MinerU full extraction).md` (12,654 lines - grep/search it for the relevant Lecture number\u0027s heading, do not read start to end) is the standard-treatment source, page-cited. Real transcripts live in `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Lecture\\Transcripts\\Week 4 - 8\\`: files dated Sept 29, Oct 1, Oct 6, Oct 8, Oct 13, Oct 20 (one .txt per date). No Oct 15 or Oct 22 transcript exists yet - do not build content for whatever lecture would have fallen there without one; log it as a real, named gap instead.\n\nFigure out the real lecture-number-to-date mapping yourself by reading each transcript\u0027s actual content against the Trefethen \u0026 Bau lecture titles in the Board\u0027s schedule table and the textbook\u0027s own Lecture headings in the MinerU extraction - the Board\u0027s printed Week-row dates are known to run one row \"behind\" from Week 6 onward (three logged anomalies, plus the midterm date itself was just corrected to Tue 10/20). Trust what a transcript actually discusses over which printed \"Week N\" row it nominally sits under; state the real date-to-Lecture-number mapping you used in your final report.\n\nExisting landed notes are your format/rigor gold standard - read `Textbook/Lecture - 8.md` and `Weekly/Week - 4.md` first. Also read `Quiz \u0026 HW/Homework - 2.md`, `Quiz - 2.md`, and `Quiz - 3.md` (all under `20_Progress/Degree/CSCI 5304/Quiz \u0026 HW/`) - these already solved problems using Lecture 10 (Householder) and Lecture 11 (pseudoinverse/least-squares) material, each flagged \"not yet written in this vault, read straight from the MinerU extraction.\" Once you land Lecture 10 and Lecture 11, go back and update those three notes\u0027 \"Concepts used\" sections (and any inline note saying a lecture \"isn\u0027t lectured yet\") to link to the new Lecture notes instead of saying \"not yet written.\" This citation fix is a required part of this task.\n\nAllowed edits: new/repaired files under `20_Progress/Degree/CSCI 5304/Textbook/` and `.../Weekly/`; `Textbook/Textbook Map.md`; `Weekly/Weekly Board.md`; the citation fixes to the three Quiz \u0026 HW notes named above; and one continuity entry in `60_Claude/07_AI_Information/Session Logs/log.md`. Do not touch the Board, Preparation, Homework - 1 (a separate task owns it), or any other course.\n\nDo not fabricate lecture content for a date with no transcript and no provided file - name the gap in the Weekly Board/Textbook Map instead, per the Workflow\u0027s stop-and-ask conditions. Concept-note discipline for this course: at most 2 per week, 1 per lecture, only for genuinely load-bearing material - SVD and Norms were already flagged as the strongest still-uncreated candidates for Weeks 2-3; don\u0027t create a concept note in this build unless something in Lectures 10-17 is clearly more load-bearing than those two, and name which one and why if you do.\n\nReport back tersely: which Lecture/Week notes landed (with the real date each used), which were skipped for lack of a source and why, and the exact citation updates made to the three Quiz \u0026 HW notes."}``
+- `Agent` -- ``{"subagent_type":"fork","description":"CSCI 5304 Homework-1 detailed solutions","prompt":"Build `20_Progress/Degree/CSCI 5304/Quiz \u0026 HW/Homework - 1.md` from scratch - CSCI 5304\u0027s Homework 1 has no vault note yet. `Homework - 2.md`, `Quiz - 2.md`, and `Quiz - 3.md` in the same folder do, and are already in your context as the exact quality/format bar to match: same density, same numeric cross-checking (every result verified at least one independent way before being written down), same Excalidraw-diagram pattern for any geometric sub-part, same frontmatter shape.\n\nSource PDF: `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Homework\\Homework - 1.pdf`. Read it in full (use the PDF tool\u0027s `pages` param if it runs long) before writing anything - do not infer its problems from the schedule or from Homework 2\u0027s problem list.\n\nRead first: `30_Order/Standards/Courses/Homework Standard.md` and `30_Order/Workflows/Courses/Homework Workflow.md` (confirm these exact filenames/paths - locate them if slightly off), plus `20_Progress/Degree/CSCI 5304/Quiz \u0026 HW/Homework - 2.md` as your direct structural template (frontmatter, Overview/Requirements/Work log/Concepts used/Post-submit reflection headings, the `- [ ]` checkbox list mirroring the PDF\u0027s own point breakdown).\n\nSolve every problem in full, citing the exact Lecture textbook note it draws from (`20_Progress/Degree/CSCI 5304/Textbook/Lecture - N.md`). Lectures 1-8 are landed now; Lectures 9+ may or may not be landed by the time you run (a separate parallel task is building them) - check `Textbook/` directly before citing, and if a needed Lecture note isn\u0027t there yet, solve straight from the MinerU extraction at `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304\\Textbook \u0026 Resources\\CSCI 5304 Textbook (MinerU full extraction).md`, citing it directly and flagging \"Lecture N not yet written in this vault\" exactly like `Homework - 2.md` and `Quiz - 3.md` already do for Householder/pseudoinverse. Verify every numeric result at least one independent way (recompute, cross-check against a known identity) before writing it down.\n\nOnly build Excalidraw diagrams (via the `excalidraw` MCP tools) if Homework 1 genuinely has a geometric/drawing sub-part - don\u0027t add one gratuitously. If you do, follow the exact schema fix already logged in `Homework - 2.md`\u0027s work log (full element schema: id, seed, versionNonce, explicit points arrays, real text width/height) to avoid the rendering bugs already diagnosed there - don\u0027t rediscover that bug from scratch.\n\nAllowed edits: the new `Homework - 1.md` file, any new `.excalidraw` files under `10_Areas/Excalidraw/`, and one continuity entry in `60_Claude/07_AI_Information/Session Logs/log.md`. Do not touch the Board, Preparation, Weekly, or Textbook notes, or any other course - another task is already working on those files in parallel.\n\nReport back tersely: problem count, point total, which Lecture notes you cited (landed or MinerU-direct), and whether any sub-part needed a diagram."}``
+- `Agent` -- ``{"subagent_type":"fork","description":"CSCI 4521 Weeks 3-7 catch-up","prompt":"Build the missing CSCI 4521 Textbook and Weekly notes for Weeks 3 through 7 - the course is already at Week 7 content (today is 2026-10-21; Quiz 3, covering through Week 7\u0027s Tuesday lecture, is tomorrow). You just authored `30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow.md` in this same conversation - re-read it directly as your routing contract, along with `20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md` (just corrected - the ENLP textbook is confirmed local, don\u0027t treat it as missing), `Preparation.md`, `Textbook/Textbook Map.md`, and `Weekly/Weekly Board.md`.\n\nRead first: `30_Order/Workflows/Courses/Course Production Workflow.md`; `30_Order/Standards/Courses/Textbook Standard.md`; `30_Order/Workflows/Courses/Textbook Workflow.md`; `30_Order/Standards/Courses/Textbook Map Standard.md`; `30_Order/Workflows/Courses/Textbook Map Workflow.md`; `30_Order/Standards/Courses/Weekly Standard.md`; `30_Order/Workflows/Courses/Weekly Workflow.md`; `30_Order/Standards/Courses/Weekly Board Standard.md`; `30_Order/Workflows/Courses/Weekly Board Workflow.md`; and the matching Templates (likely under `30_Order/Templates/Classes/`) for each. `Weekly/Week - 1 (Prompts).md` in the course folder has a fully-written, already-vetted \"Build 2\" bounded-build spec for Weeks 3-4 (its Source boundary, Allowed edits, and Textbook/Weekly-note-requirement sections are directly usable) - read it and follow its method for Weeks 3-4, then extend the same method yourself for Weeks 5, 6, and 7 (no prior staged prompt exists for those - you are writing the first one).\n\nPer-week reading scope, from the Board\u0027s schedule table: Week 3 continues ISL §2.2 (no new reading). Week 4: DLB §§5.4-5.6, ENLP §§1.1-1.3 and §§7.1.1-7.1.2. Week 5: ISL 12.4, DLB 5.8 intro + 5.8.2, ENLP 1.1-1.3/7.1.1-7.1.2 (repeated). Week 6: \"Linear Algebra Notes\" (named but not locally found - log as a real gap, do not fabricate), ISL 12.2, DLB 2.7/2.8/5.8 intro/5.8.1, ENLP 3.2/6.4. Week 7: ISL 4.4, DLB 5.4.2/5.11.1.\n\nLecture sources: verify the real inventory yourself by listing `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Lectures\\` (decks, organized by Week - N folders, but filing is known to be offset from the Board\u0027s week numbers by one slot in places - e.g. a 2.2 deck sits in the Week - 4 folder) and `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Lectures\\Weeks 1 - 5\\` and `Week 6 - 10\\` for companion notebooks. Do not assume a lecture (especially 2.5 \"modern text embedding\" and 3.1 \"advanced clustering, LDA, GMM\") has a deck or notebook until you\u0027ve actually checked - if genuinely absent, log it as a named source gap in the Weekly Board rather than inventing lecture content from the topic title alone, exactly as the Workflow note\u0027s stop-and-ask conditions require.\n\nTextbook notes: repair/extend the existing canonical notes (`Textbook/ISL/Chapter - 2.md`, `Textbook/DLB/Chapter - 5.md`) rather than duplicating a chapter; create new canonical notes only for genuinely new chapters (ISL Ch. 4, ISL Ch. 12, ENLP Ch. 1, ENLP Ch. 7, ENLP Ch. 3/6 as needed) after verifying the real PDF section boundary in `Textbook \u0026 Resources/`. Weekly notes: create `Weekly/Week - 3.md` through `Week - 7.md` from the Week Template, with live-capture sections left for the user to fill (don\u0027t fabricate lecture emphasis), honest `## Textbook integration`, and the six-part `## Lecture-to-textbook synthesis`.\n\nAllowed edits: files under `20_Progress/Degree/CSCI 4521/Textbook/` and `.../Weekly/` (new or repaired), `Textbook/Textbook Map.md`, `Weekly/Weekly Board.md`, and one continuity entry in `60_Claude/07_AI_Information/Session Logs/log.md`. Do not edit `Weekly/Week - 1 (Prompts).md`, the Board, Preparation, Homework, raw source material, or any other course.\n\nZero concept notes exist for this course - do not create one unless something across Weeks 3-7 has genuinely recurred and earned it (bias-variance and the five bias types were already named as the strongest candidates in the Workflow note; name explicitly if you create one and why).\n\nReport back tersely: which Weekly/Textbook notes landed per week, which lecture sources turned out missing (2.5, 3.1, Linear Algebra Notes - confirm each one way or the other), and the exact Textbook Map / Weekly Board status updates made."}``
 
 ## You
 
@@ -917,71 +941,11 @@ Swap in specifics once you see the actual paper (e.g. name the exact practice-pa
 _None detected_
 
 **Commands run:**
-- `echo "--- 30_Order Per Class workflows ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" 2>&1
-echo "--- CSCI 5304 Workflow exists? ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" | grep -i 5304
-echo "--- CSCI 4521 vault paths check ---"
-ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" 2>&1
-echo "---"
-ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521" 2>&1
-echo "--- vault root check ---"
-ls "D:\_Anant\20_Progress\Documents\Jarvis" 2>&1
-`
-- `echo "--- check if Jarvis/10_Areas/UMN/Classes/CSCI exists (nested) ---"
-ls "D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\UMN\Classes\CSCI" 2>&1
-echo "--- is D:\_Anant\10_Areas a symlink/junction? ---"
-powershell -NoProfile -Command "Get-Item 'D:\_Anant\10_Areas' | Select-Object FullName, LinkType, Target" 2>&1
-echo "--- 20_Progress/Degree/CSCI 5304 and 4521 under Jarvis ---"
-ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304" 2>&1
-echo "---"
-ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521" 2>&1
-`
-- `echo "--- D:\_Anant top level ---"
-ls "D:\_Anant" 2>&1
-echo "--- check if D:\_Anant has its own CLAUDE.md / AGENTS.md (different vault) ---"
-ls "D:\_Anant" | grep -i -E "claude|agents|dashboard"
-`
-- `echo "=== PLAN VAULT: CSCI 4521 source tree ==="
-find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521" -maxdepth 3 2>&1
-echo
-echo "=== PLAN VAULT: CSCI 5304 source tree ==="
-find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" -maxdepth 3 2>&1
-`
-- `echo "=== JARVIS: CSCI 4521 tree ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521" -maxdepth 3 2>&1
-echo
-echo "=== JARVIS: CSCI 5304 tree ==="
-find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304" -maxdepth 3 2>&1
-`
-- `echo "=== Courses workflow folder (generic) ==="
-ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses"
-echo
-echo "=== Course templates ==="
-ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Courses" 2>&1
-echo
-echo "=== Course standards ==="
-ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses" 2>&1
-`
-- `echo "=== 5304 Transcripts Week 2&3 ==="
-ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Transcripts\Week 2 & 3"
-echo
-echo "=== 5304 Transcripts Week 4-8 ==="
-ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Transcripts\Week 4 - 8"
-echo
-echo "=== 5304 Lecture Week-2 and Week-3 raw folders ==="
-ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Week - 2" 2>&1
-ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Week - 3" 2>&1
-echo
-echo "=== page counts for key PDFs ==="
-for f in "Homework/Homework - 1.pdf" "Homework/Homework - 2.pdf" "Midterm/Quiz - 2.pdf" "Midterm/Quiz - 3.pdf"; do
-  python -c "
-import sys
-try:
-    import PyPDF2
-except ImportError:
-    sys.exit(0)
-" 2>/dev/null
-done
-echo "(page count check skipped if no pypdf available; will use Read tool pages param instead)"
-`
-
+- `echo "--- 30_Order Per Class workflows ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" 2>&1 echo "--- CSCI 5304 Workflow exists? ---"; ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Per Class" | grep -i 5304 echo "--- CSCI 4521 vault paths check ---" ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" 2>&1 echo "---" ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521" 2>&1 echo "--- vault root check ---" ls "D:\_Anant\20_Progress\Documents\Jarvis" 2>&1 `
+- `echo "--- check if Jarvis/10_Areas/UMN/Classes/CSCI exists (nested) ---" ls "D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\UMN\Classes\CSCI" 2>&1 echo "--- is D:\_Anant\10_Areas a symlink/junction? ---" powershell -NoProfile -Command "Get-Item 'D:\_Anant\10_Areas' | Select-Object FullName, LinkType, Target" 2>&1 echo "--- 20_Progress/Degree/CSCI 5304 and 4521 under Jarvis ---" ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304" 2>&1 echo "---" ls "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521" 2>&1 `
+- `echo "--- D:\_Anant top level ---" ls "D:\_Anant" 2>&1 echo "--- check if D:\_Anant has its own CLAUDE.md / AGENTS.md (different vault) ---" ls "D:\_Anant" | grep -i -E "claude|agents|dashboard" `
+- `echo "=== PLAN VAULT: CSCI 4521 source tree ===" find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521" -maxdepth 3 2>&1 echo echo "=== PLAN VAULT: CSCI 5304 source tree ===" find "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304" -maxdepth 3 2>&1 `
+- `echo "=== JARVIS: CSCI 4521 tree ===" find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521" -maxdepth 3 2>&1 echo echo "=== JARVIS: CSCI 5304 tree ===" find "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304" -maxdepth 3 2>&1 `
+- `echo "=== Courses workflow folder (generic) ===" ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses" echo echo "=== Course templates ===" ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Courses" 2>&1 echo echo "=== Course standards ===" ls "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses" 2>&1 `
+- `echo "=== 5304 Transcripts Week 2&3 ===" ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Transcripts\Week 2 & 3" echo echo "=== 5304 Transcripts Week 4-8 ===" ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Transcripts\Week 4 - 8" echo echo "=== 5304 Lecture Week-2 and Week-3 raw folders ===" ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Week - 2" 2>&1 ls "D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Lecture\Week - 3" 2>&1 echo echo "=== page counts for key PDFs ===" for f in "Homework/Homework - 1.pdf" "Homework/Homework - 2.pdf" "Midterm/Quiz - 2.pdf" "Midterm/Quiz - 3.pdf"; do   python -c " import sys try:     import PyPDF2 except ImportError:     sys.exit(0) " 2>/dev/null done echo "(page count check skipped if no pypdf available; will use Read tool pages param instead)" `
 

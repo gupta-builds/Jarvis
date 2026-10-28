@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Jarvis 30_Order systems gap review"
 started_at: 2026-10-15T17:04:54
 ended_at: 2026-10-17T05:05:36
-exported_at: 2026-10-17T21:06:59
+exported_at: 2026-10-28T16:15:40
 duration_minutes: 2160.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: bee23a7b-3c8a-4b8c-a004-81b9658de9e8
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-15
+updated: 2026-10-28
 turn_count: 58
 tools_used:
   Agent: 15
@@ -25,12 +28,12 @@ tools_used:
   ToolSearch: 1
   Write: 25
 tokens:
-  input: 952
-  output: 992278
-  cache_creation: 8479005
-  cache_read: 159750243
-  total: 169222478
-cost_usd: null
+  input: 316
+  output: 268811
+  cache_creation: 2299334
+  cache_read: 54939996
+  total: 57508457
+cost_usd: 17.384422
 model:
   - "claude-sonnet-5"
   - "claude-sonnet-5-5"
@@ -190,7 +193,10 @@ The highest-leverage fix is one controlled vocabulary for `type` and `status`, i
 
 ### Tool Calls
 
-- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" -type f | sort`
+- `Bash`
+```bash
+find "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" -type f | sort
+```
 ```
 D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md
 D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/AI Loop/Conversations.md
@@ -390,14 +396,421 @@ D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Internship/Promotion.m
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/00_Workflows Index.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Jarvis Vault Architecture.md`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\u0027\nGet-ChildItem $root -Recurse -Filter *.md | Where-Object { $_.FullName -notmatch \u0027System\\\\\u0027 } | ForEach-Object {\n  $rel=$_.FullName.Substring($root.Length+1)\n  $lines=Get-Content $_.FullName -TotalCount 40\n  $fm=\u0027NONE\u0027\n  if($lines.Count -gt 0 -and $lines[0] -eq \u0027---\u0027){\n    $end=($lines[1..($lines.Count-1)] | Select-String -Pattern \u0027^---\\s*$\u0027 | Select-Object -First 1)\n    if($end){ $fm=\u0027OK\u0027 } else { $fm=\u0027UNCLOSED\u0027 }\n  }\n  $type=($lines | Select-String -Pattern \u0027^type:\u0027 | Select-Object -First 1).Line\n  $status=($lines | Select-String -Pattern \u0027^status:\u0027 | Select-Object -First 1).Line\n  $created=($lines | Select-String -Pattern \u0027^(created|updated):\u0027 | Select-Object -First 2 | ForEach-Object {$_.Line}) -join \u0027 | \u0027\n  \"{0} || {1} || {2} || {3} || {4}\" -f $rel,$fm,$type,$status,$created\n}","description":"Scan frontmatter presence and key fields in 30_Order notes"}`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\u0027\nGet-ChildItem $root -Recurse -Filter *.md | ForEach-Object {\n  $t=Get-Content $_.FullName -Raw\n  $rel=$_.FullName.Substring($root.Length+1)\n  $maps = if($t -match \u0027(?m)^##\\s+Maps To\u0027){\u0027Y\u0027}else{\u0027-\u0027}\n  $used = if($t -match \u0027(?m)^##\\s+Used By Workflow\u0027){\u0027Y\u0027}else{\u0027-\u0027}\n  $gold = if($t -match \u0027Gold Standard\u0027){\u0027Y\u0027}else{\u0027-\u0027}\n  $words=($t -split \u0027\\s+\u0027).Count\n  \"{0,-62} Maps:{1} Used:{2} Gold:{3} words:{4}\" -f $rel,$maps,$used,$gold,$words\n}\nWrite-Output \u0027--- Templates word counts / empties ---\u0027\n$troot=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\u0027\nGet-ChildItem $troot -Recurse -Filter *.md | ForEach-Object {\n  $t=Get-Content $_.FullName -Raw\n  $words=($t -split \u0027\\s+\u0027).Count\n  $tp = if($t -match \u0027\u003c%\u0027){\u0027tp\u0027}elseif($t -match \u0027\\{\\{date\u0027){\u0027core\u0027}else{\u0027none\u0027}\n  \"{0,-62} words:{1,4} dateSyntax:{2}\" -f $_.FullName.Substring($troot.Length+1),$words,$tp\n}","description":"Check Standards link sections and Template sizes/date syntax"}`
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis\30_Order'
+Get-ChildItem $root -Recurse -Filter *.md | Where-Object { $_.FullName -notmatch 'System\\' } | ForEach-Object {
+  $rel=$_.FullName.Substring($root.Length+1)
+  $lines=Get-Content $_.FullName -TotalCount 40
+  $fm='NONE'
+  if($lines.Count -gt 0 -and $lines[0] -eq '---'){
+    $end=($lines[1..($lines.Count-1)] | Select-String -Pattern '^---\s*$' | Select-Object -First 1)
+    if($end){ $fm='OK' } else { $fm='UNCLOSED' }
+  }
+  $type=($lines | Select-String -Pattern '^type:' | Select-Object -First 1).Line
+  $status=($lines | Select-String -Pattern '^status:' | Select-Object -First 1).Line
+  $created=($lines | Select-String -Pattern '^(created|updated):' | Select-Object -First 2 | ForEach-Object {$_.Line}) -join ' | '
+  "{0} || {1} || {2} || {3} || {4}" -f $rel,$fm,$type,$status,$created
+}
+```
+```
+00_How This Folder Works.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-08
+Standards\Daily Workflow Standard.md || OK || type: evergreen || status: sprout || created: 2026-07-27 | updated: 2026-07-27
+Standards\Decoration Standard.md || NONE ||  ||  || 
+Standards\Editing Standard.md || NONE ||  ||  || 
+Standards\Log Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-20 | updated: 2026-08-20
+Standards\MOC Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-07 | updated: 2026-08-08
+Standards\Project Standard.md || OK || type: evergreen || status: sprout || created: 2026-06-01 | updated: 2026-06-01
+Standards\AI Loop\Conversations.md || NONE ||  ||  || 
+Standards\AI Loop\Knowledge Noting.md || NONE ||  ||  || 
+Standards\AI Loop\Memory Management.md || NONE ||  ||  || 
+Standards\AI Loop\Orchestration.md || NONE ||  ||  || 
+Standards\AI Loop\Per Project Review.md || NONE ||  ||  || 
+Standards\AI Loop\Review System.md || NONE ||  ||  || 
+Standards\AI Loop\Tool Calls.md || NONE ||  ||  || 
+Standards\Courses\Board Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Concept Standard.md || OK || type: evergreen || status: sprout || created: 2026-06-01 | updated: 2026-06-01
+Standards\Courses\Discussion Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Exam Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-08
+Standards\Courses\Homework Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Lab Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-08
+Standards\Courses\Preparation Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Project Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-08
+Standards\Courses\Textbook Map Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Textbook Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Weekly Board Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Standards\Courses\Weekly Standard.md || OK || type: evergreen || status: sprout || created: 2026-06-01 | updated: 2026-06-01
+Standards\Enrich\Evergreen Standard.md || OK || type: evergreen || status: sprout || created: 2026-06-01 | updated: 2026-06-01
+Standards\Enrich\Human Writing Standard.md || NONE ||  ||  || 
+Standards\Enrich\Plugins Usage Standard.md || NONE ||  ||  || 
+Standards\Enrich\Review Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-11 | updated: 2026-08-20
+Standards\Enrich\Source Summary Standard.md || OK || type: evergreen || status: sprout || created: 2026-06-01 | updated: 2026-06-01
+Standards\Enrich\Tracking Standard.md || OK || type: evergreen || status: tree || created: 2026-08-23 | updated: 2026-09-04
+Standards\Ingestion\Action Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-08 | updated: 2026-08-08
+Standards\Ingestion\Brief Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-08 | updated: 2026-08-08
+Standards\Ingestion\Humanized Writing Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-28 | updated: 2026-08-28
+Standards\Ingestion\PDF Extraction Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-29 | updated: 2026-09-29
+Standards\Internship\Applying Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-04 | updated: 2026-09-04
+Standards\Internship\Cover Letter Alteration Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-28 | updated: 2026-08-28
+Standards\Internship\Deadline and Intake Triage Standard.md || OK || type: evergreen || status: sprout || created: 2026-09-04 | updated: 2026-09-04
+Standards\Internship\Internship Loop Review Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-23 | updated: 2026-09-05
+Standards\Internship\Internship Notes Standard.md || OK || type: evergreen || status: sprout || created: 2026-07-29 | updated: 2026-08-23
+Standards\Internship\Internship Tracker Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-23 | updated: 2026-09-04
+Standards\Internship\Resume Alteration Standard.md || OK || type: evergreen || status: sprout || created: 2026-08-28 | updated: 2026-08-28
+Templates\MOC.md || OK || type: evergreen || status: tree || created: 2025-12-26
+Templates\AI Use\AI Monthly Review Template.md || OK || type: evergreen || status: tree || created: | updated:
+Templates\AI Use\AI Weekly Review Template.md || OK || type: evergreen || status: tree || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\AI Use\Clipping Distill Template.md || OK || type: input || status: sprout || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\AI Use\Deep Dive Template.md || OK || type: concept || status: seed || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Capability\Action Template.md || OK || type: action || status: active || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Capability\Brief Template.md || OK || type: input || status: sprout || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Capability\Depth Ladder Template.md || OK || type: evergreen || status: sprout || created: {{date:YYYY-MM-DD}} | updated: {{date:YYYY-MM-DD}}
+Templates\Capability\Field OS Template.md || OK || type: dashboard || status: active || created: {{date:YYYY-MM-DD}} | updated: {{date:YYYY-MM-DD}}
+Templates\Capability\MOC Template.md || OK || type: index || status: sprout || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Capability\Output Template.md || OK || type: output || status: seed || created: {{date:YYYY-MM-DD}} | updated: {{date:YYYY-MM-DD}}
+Templates\Capability\Question Bank Template.md || OK || type: evergreen || status: sprout || created: {{date:YYYY-MM-DD}} | updated: {{date:YYYY-MM-DD}}
+Templates\Capability\Synthesis Template.md || OK || type: evergreen || status: seed || created: {{date:YYYY-MM-DD}} | updated: {{date:YYYY-MM-DD}}
+Templates\Career\List Monthly Log Template.md || OK || type: input || status: active || created: | updated:
+Templates\Career\Plan Template.md || OK || type: plan || status: seed || created: | updated:
+Templates\Career\Internship\Applying Template.md || OK || type: project || status: Preparing || 
+Templates\Career\Internship\Cheat Template.md || OK || type: evergreen || status: sprout || created: | updated:
+Templates\Career\Internship\Contact Template.md || OK || type: contact ||  || 
+Templates\Career\Internship\Cover Letter Template.md || OK || type: project || status: active || created: YYYY-MM-DD | updated: YYYY-MM-DD
+Templates\Career\Internship\Internship Loop Monthly Review Template.md || OK || type: evergreen || status: tree || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Career\Internship\Internship Loop Weekly Review Template.md || OK || type: evergreen || status: tree || created: <% tp.date.now("YYYY-MM-DD") %> | updated: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Career\Internship\Job & Company Template.md || OK ||  ||  || 
+Templates\Career\Internship\LinkedIn Post Template.md || OK || type: output || status: draft || created:
+Templates\Career\Internship\Program Template.md || OK ||  ||  || 
+Templates\Career\Internship\Tracking Template.md || OK || type: tracker ||  || 
+Templates\Classes\Board or Main Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Concept Template.md || OK || type: concept || status: sprout || created: | updated:
+Templates\Classes\Discussion Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Exam Sheet Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Homework Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Lab Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Preparation Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Project Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Textbook Map Template.md || OK || type: index || status: seed || created: | updated:
+Templates\Classes\Textbook Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Week Template.md || OK || type: class || status: seed || created: | updated:
+Templates\Classes\Weekly Board Template.md || OK || type: index || status: seed || created: | updated:
+Templates\Enumerate\Better Month.md || OK || type: thought || status: seed || created: | updated:
+Templates\Enumerate\Better Today.md || OK || type: thought || status: seed || created: <% tp.date.now("YYYY-MM-DD") %>
+Templates\Enumerate\Better Weekly.md || OK || type: thought || status: seed || created:
+Templates\Enumerate\Better Year.md || OK || type: thought || status: seed || created: | updated:
+Templates\Frontmatter\For AI.md || OK || type: ai || status: || created: | updated:
+Templates\Frontmatter\For Brainstorm.md || OK || type: brainstorm || status: || created:
+Templates\Frontmatter\For Classes.md || OK || type: class || status: || created: | updated:
+Templates\Frontmatter\For Evergreen.md || OK || type: evergreen || status: sprout || created: | updated:
+Templates\Frontmatter\For Everything.md || OK || type: "# thought | input | evergreen | class | project | template" || status: "# seed | sprout | tree | paused | archived" || created: | updated:
+Templates\Frontmatter\For Inputs.md || OK || type: input || status: || created:
+Templates\Frontmatter\For Progress.md || OK || type: project || status: active || created: | updated:
+Templates\Frontmatter\For Thoughts.md || OK || type: thought || status: || created:
+Templates\Frontmatter\For Transcript.md || OK || type: input || status: seed || created:
+Workflows\00_Workflows Index.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Courses\Board Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Concept Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Course Production Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Discussion Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Exam Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-20
+Workflows\Courses\Homework Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Lab Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-20
+Workflows\Courses\Preparation Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Projects Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-20
+Workflows\Courses\Textbook Map Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Textbook Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Weekly Board Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-20
+Workflows\Courses\Weekly Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-08 | updated: 2026-09-20
+Workflows\Courses\Per Class\CSCI 4061 Workflow.md || OK || type: evergreen || status: sprout || created: 2026-10-01 | updated: 2026-10-05
+Workflows\Courses\Per Class\CSCI 4511W Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-20 | updated: 2026-09-28
+Workflows\Courses\Per Class\CSCI 5304 Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-28 | updated: 2026-09-28
+Workflows\Courses\Per Class\Technical Interview Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-29 | updated: 2026-10-13
+Workflows\Enrichment\Capture to Summary.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Enrichment\Decoration.md || NONE ||  ||  || 
+Workflows\Enrichment\Enrichment.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Enrichment\Human Content Writer.md || NONE ||  ||  || 
+Workflows\Enrichment\Output with Provenance.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Enrichment\Plugins Usage.md || NONE ||  ||  || 
+Workflows\Enrichment\Researcher.md || NONE ||  ||  || 
+Workflows\Ingestion\Brief to Action.md || OK || type: evergreen || status: tree || created: 2026-08-08 | updated: 2026-08-08
+Workflows\Ingestion\Brief to Progress.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Ingestion\Conversation Capture.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Ingestion\PDF Extraction.md || OK || type: evergreen || status: sprout || created: 2026-09-29 | updated: 2026-09-29
+Workflows\Ingestion\Plan Review Cadence.md || OK || type: evergreen || status: sprout || created: 2026-07-27 | updated: 2026-07-27
+Workflows\Ingestion\Summary to Distilled.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+Workflows\Ingestion\Transcript to Brief.md || OK || type: evergreen || status: tree || created: 2026-08-08 | updated: 2026-08-08
+Workflows\Internship\Application Document Preparation 1.md || OK || type: evergreen || status: tree || created: 2026-08-28 | updated: 2026-09-04
+Workflows\Internship\Application Document Preparation.md || OK || type: evergreen || status: sprout || created: 2026-08-28 | updated: 2026-09-04
+Workflows\Internship\Internship - Design Rationale.md || OK || type: evergreen || status: sprout || created: 2026-07-26
+Workflows\Internship\Internship Pipeline.md || OK || type: evergreen || status: sprout || created: 2026-07-16 | updated: 2026-08-28
+Workflows\Internship\Internship Review System.md || OK || type: evergreen || status: sprout || created: 2026-09-04 | updated: 2026-09-05
+Workflows\Internship\Internship Tracking Workflow.md || OK || type: evergreen || status: sprout || created: 2026-09-04 | updated: 2026-09-04
+Workflows\Internship\Promotion.md || OK || type: evergreen || status: tree || created: 2026-05-31 | updated: 2026-05-31
+```
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards'
+Get-ChildItem $root -Recurse -Filter *.md | ForEach-Object {
+  $t=Get-Content $_.FullName -Raw
+  $rel=$_.FullName.Substring($root.Length+1)
+  $maps = if($t -match '(?m)^##\s+Maps To'){'Y'}else{'-'}
+  $used = if($t -match '(?m)^##\s+Used By Workflow'){'Y'}else{'-'}
+  $gold = if($t -match 'Gold Standard'){'Y'}else{'-'}
+  $words=($t -split '\s+').Count
+  "{0,-62} Maps:{1} Used:{2} Gold:{3} words:{4}" -f $rel,$maps,$used,$gold,$words
+}
+Write-Output '--- Templates word counts / empties ---'
+$troot='D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates'
+Get-ChildItem $troot -Recurse -Filter *.md | ForEach-Object {
+  $t=Get-Content $_.FullName -Raw
+  $words=($t -split '\s+').Count
+  $tp = if($t -match '<%'){'tp'}elseif($t -match '\{\{date'){'core'}else{'none'}
+  "{0,-62} words:{1,4} dateSyntax:{2}" -f $_.FullName.Substring($troot.Length+1),$words,$tp
+}
+```
+```
+Daily Workflow Standard.md                                     Maps:Y Used:Y Gold:Y words:809
+Decoration Standard.md                                         Maps:- Used:- Gold:- words:0
+Editing Standard.md                                            Maps:- Used:- Gold:- words:0
+Log Standard.md                                                Maps:- Used:- Gold:Y words:1175
+MOC Standard.md                                                Maps:Y Used:Y Gold:Y words:620
+Project Standard.md                                            Maps:Y Used:Y Gold:Y words:647
+AI Loop\Conversations.md                                       Maps:- Used:- Gold:- words:0
+AI Loop\Knowledge Noting.md                                    Maps:- Used:- Gold:- words:0
+AI Loop\Memory Management.md                                   Maps:- Used:- Gold:- words:0
+AI Loop\Orchestration.md                                       Maps:- Used:- Gold:- words:0
+AI Loop\Per Project Review.md                                  Maps:- Used:- Gold:- words:0
+AI Loop\Review System.md                                       Maps:- Used:- Gold:- words:0
+AI Loop\Tool Calls.md                                          Maps:- Used:- Gold:- words:0
+Courses\Board Standard.md                                      Maps:- Used:- Gold:- words:715
+Courses\Concept Standard.md                                    Maps:Y Used:Y Gold:Y words:1333
+Courses\Discussion Standard.md                                 Maps:- Used:- Gold:- words:475
+Courses\Exam Standard.md                                       Maps:Y Used:Y Gold:Y words:840
+Courses\Homework Standard.md                                   Maps:- Used:- Gold:- words:760
+Courses\Lab Standard.md                                        Maps:Y Used:Y Gold:Y words:720
+Courses\Preparation Standard.md                                Maps:- Used:- Gold:- words:513
+Courses\Project Standard.md                                    Maps:Y Used:Y Gold:Y words:1037
+Courses\Textbook Map Standard.md                               Maps:- Used:- Gold:- words:453
+Courses\Textbook Standard.md                                   Maps:- Used:- Gold:- words:681
+Courses\Weekly Board Standard.md                               Maps:- Used:- Gold:- words:434
+Courses\Weekly Standard.md                                     Maps:Y Used:Y Gold:Y words:1534
+Enrich\Evergreen Standard.md                                   Maps:Y Used:Y Gold:Y words:768
+Enrich\Human Writing Standard.md                               Maps:- Used:- Gold:- words:0
+Enrich\Plugins Usage Standard.md                               Maps:- Used:- Gold:- words:0
+Enrich\Review Standard.md                                      Maps:Y Used:Y Gold:Y words:899
+Enrich\Source Summary Standard.md                              Maps:Y Used:Y Gold:Y words:1254
+Enrich\Tracking Standard.md                                    Maps:- Used:- Gold:- words:128
+Ingestion\Action Standard.md                                   Maps:Y Used:Y Gold:Y words:500
+Ingestion\Brief Standard.md                                    Maps:Y Used:Y Gold:Y words:694
+Ingestion\Humanized Writing Standard.md                        Maps:- Used:- Gold:- words:510
+Ingestion\PDF Extraction Standard.md                           Maps:- Used:- Gold:Y words:1262
+Internship\Applying Standard.md                                Maps:- Used:- Gold:- words:1189
+Internship\Cover Letter Alteration Standard.md                 Maps:- Used:- Gold:- words:868
+Internship\Deadline and Intake Triage Standard.md              Maps:- Used:- Gold:- words:1290
+Internship\Internship Loop Review Standard.md                  Maps:Y Used:Y Gold:Y words:2637
+Internship\Internship Notes Standard.md                        Maps:- Used:- Gold:- words:3009
+Internship\Internship Tracker Standard.md                      Maps:- Used:- Gold:- words:1287
+Internship\Resume Alteration Standard.md                       Maps:- Used:- Gold:- words:1762
+--- Templates word counts / empties ---
+MOC.md                                                         words:  92 dateSyntax:none
+AI Use\AI Monthly Review Template.md                           words: 194 dateSyntax:tp
+AI Use\AI Weekly Review Template.md                            words: 148 dateSyntax:tp
+AI Use\Clipping Distill Template.md                            words: 292 dateSyntax:tp
+AI Use\Deep Dive Template.md                                   words: 537 dateSyntax:tp
+Capability\Action Template.md                                  words: 147 dateSyntax:tp
+Capability\Brief Template.md                                   words: 252 dateSyntax:tp
+Capability\Depth Ladder Template.md                            words:  46 dateSyntax:tp
+Capability\Field OS Template.md                                words:  48 dateSyntax:tp
+Capability\MOC Template.md                                     words: 294 dateSyntax:tp
+Capability\Output Template.md                                  words:  37 dateSyntax:tp
+Capability\Question Bank Template.md                           words:  42 dateSyntax:tp
+Capability\Synthesis Template.md                               words:  44 dateSyntax:tp
+Career\List Monthly Log Template.md                            words: 138 dateSyntax:none
+Career\Plan Template.md                                        words: 341 dateSyntax:none
+Career\Internship\Applying Template.md                         words: 375 dateSyntax:none
+Career\Internship\Cheat Template.md                            words:  76 dateSyntax:none
+Career\Internship\Contact Template.md                          words: 221 dateSyntax:none
+Career\Internship\Cover Letter Template.md                     words: 550 dateSyntax:none
+Career\Internship\Internship Loop Monthly Review Template.md   words: 469 dateSyntax:tp
+Career\Internship\Internship Loop Weekly Review Template.md    words: 344 dateSyntax:tp
+Career\Internship\Job & Company Template.md                    words: 313 dateSyntax:none
+Career\Internship\LinkedIn Post Template.md                    words:  77 dateSyntax:none
+Career\Internship\Program Template.md                          words: 203 dateSyntax:none
+Career\Internship\Tracking Template.md                         words: 254 dateSyntax:none
+Classes\Board or Main Template.md                              words: 212 dateSyntax:tp
+Classes\Concept Template.md                                    words: 148 dateSyntax:tp
+Classes\Discussion Template.md                                 words:  72 dateSyntax:tp
+Classes\Exam Sheet Template.md                                 words: 135 dateSyntax:tp
+Classes\Homework Template.md                                   words: 117 dateSyntax:tp
+Classes\Lab Template.md                                        words: 115 dateSyntax:tp
+Classes\Preparation Template.md                                words: 106 dateSyntax:tp
+Classes\Project Template.md                                    words: 148 dateSyntax:tp
+Classes\Textbook Map Template.md                               words: 155 dateSyntax:tp
+Classes\Textbook Template.md                                   words: 133 dateSyntax:tp
+Classes\Week Template.md                                       words: 259 dateSyntax:tp
+Classes\Weekly Board Template.md                               words: 132 dateSyntax:tp
+Enumerate\Better Month.md                                      words:  30 dateSyntax:none
+Enumerate\Better Today.md                                      words: 235 dateSyntax:tp
+Enumerate\Better Weekly.md                                     words:  61 dateSyntax:none
+Enumerate\Better Year.md                                       words:  28 dateSyntax:none
+Frontmatter\For AI.md                                          words:  12 dateSyntax:none
+Frontmatter\For Brainstorm.md                                  words:  13 dateSyntax:none
+Frontmatter\For Classes.md                                     words:  14 dateSyntax:none
+Frontmatter\For Evergreen.md                                   words: 340 dateSyntax:tp
+Frontmatter\For Everything.md                                  words:  32 dateSyntax:none
+Frontmatter\For Inputs.md                                      words:  15 dateSyntax:none
+Frontmatter\For Progress.md                                    words: 192 dateSyntax:tp
+Frontmatter\For Thoughts.md                                    words:  19 dateSyntax:none
+Frontmatter\For Transcript.md                                  words:  64 dateSyntax:tp
+```
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/AI Loop/Orchestration.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Editing Standard.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Decoration Standard.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Enrichment/Researcher.md`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027\nWrite-Output \u0027--- EMPTY (0 byte) .md in 30_Order ---\u0027\nGet-ChildItem \"$root\\30_Order\" -Recurse -Filter *.md | Where-Object { $_.Length -eq 0 } | ForEach-Object { $_.FullName.Substring($root.Length+1) }\nWrite-Output \u0027--- Top-level folders ---\u0027\nGet-ChildItem $root -Directory | Where-Object { $_.Name -notmatch \u0027^\\.\u0027 } | ForEach-Object { $_.Name }\nWrite-Output \u0027--- 60_Claude subfolders ---\u0027\nGet-ChildItem \"$root\\60_Claude\" -Directory | ForEach-Object { $n=(Get-ChildItem $_.FullName -Recurse -File -Filter *.md -EA SilentlyContinue | Measure-Object).Count; \"{0} ({1} md)\" -f $_.Name,$n }\nWrite-Output \u0027--- 10_Areas / 20_Progress / 40_Resources ---\u0027\nforeach($d in \u002710_Areas\u0027,\u002720_Progress\u0027,\u002740_Resources\u0027){ Write-Output \"[$d]\"; Get-ChildItem \"$root\\$d\" -Directory | ForEach-Object { $n=(Get-ChildItem $_.FullName -Recurse -File -Filter *.md -EA SilentlyContinue | Measure-Object).Count; \"  {0} ({1} md)\" -f $_.Name,$n } }\nWrite-Output \u0027--- .claude skills/commands/agents ---\u0027\nGet-ChildItem \"$root\\.claude\" -Directory | ForEach-Object { \"[$($_.Name)]\"; Get-ChildItem $_.FullName -Recurse -File | Select-Object -First 80 | ForEach-Object { \"  \" + $_.FullName.Substring($root.Length+9) } }","description":"List empty files, vault folders, and .claude tooling"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && python - <<'EOF'
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'
+Write-Output '--- EMPTY (0 byte) .md in 30_Order ---'
+Get-ChildItem "$root\30_Order" -Recurse -Filter *.md | Where-Object { $_.Length -eq 0 } | ForEach-Object { $_.FullName.Substring($root.Length+1) }
+Write-Output '--- Top-level folders ---'
+Get-ChildItem $root -Directory | Where-Object { $_.Name -notmatch '^\.' } | ForEach-Object { $_.Name }
+Write-Output '--- 60_Claude subfolders ---'
+Get-ChildItem "$root\60_Claude" -Directory | ForEach-Object { $n=(Get-ChildItem $_.FullName -Recurse -File -Filter *.md -EA SilentlyContinue | Measure-Object).Count; "{0} ({1} md)" -f $_.Name,$n }
+Write-Output '--- 10_Areas / 20_Progress / 40_Resources ---'
+foreach($d in '10_Areas','20_Progress','40_Resources'){ Write-Output "[$d]"; Get-ChildItem "$root\$d" -Directory | ForEach-Object { $n=(Get-ChildItem $_.FullName -Recurse -File -Filter *.md -EA SilentlyContinue | Measure-Object).Count; "  {0} ({1} md)" -f $_.Name,$n } }
+Write-Output '--- .claude skills/commands/agents ---'
+Get-ChildItem "$root\.claude" -Directory | ForEach-Object { "[$($_.Name)]"; Get-ChildItem $_.FullName -Recurse -File | Select-Object -First 80 | ForEach-Object { "  " + $_.FullName.Substring($root.Length+9) } }
+```
+```
+--- EMPTY (0 byte) .md in 30_Order ---
+30_Order\Standards\Decoration Standard.md
+30_Order\Standards\Editing Standard.md
+30_Order\Standards\AI Loop\Conversations.md
+30_Order\Standards\AI Loop\Knowledge Noting.md
+30_Order\Standards\AI Loop\Memory Management.md
+30_Order\Standards\AI Loop\Orchestration.md
+30_Order\Standards\AI Loop\Per Project Review.md
+30_Order\Standards\AI Loop\Review System.md
+30_Order\Standards\AI Loop\Tool Calls.md
+30_Order\Standards\Enrich\Human Writing Standard.md
+30_Order\Standards\Enrich\Plugins Usage Standard.md
+30_Order\System\sync-workflow\Sync Alert Banner.md
+30_Order\Workflows\Enrichment\Decoration.md
+30_Order\Workflows\Enrichment\Human Content Writer.md
+30_Order\Workflows\Enrichment\Plugins Usage.md
+30_Order\Workflows\Enrichment\Researcher.md
+--- Top-level folders ---
+__pycache__
+10_Areas
+20_Progress
+30_Order
+40_Resources
+50_Archive
+60_Claude
+blobs
+copilot
+Tracker
+--- 60_Claude subfolders ---
+00_Inbox (33 md)
+05_Clippings (740 md)
+07_AI_Information (31 md)
+10_Source_Summaries (142 md)
+20_Distilled_Notes (26 md)
+30_Reviews (22 md)
+40_Project_Briefs (2506 md)
+44_Indexes (22 md)
+--- 10_Areas / 20_Progress / 40_Resources ---
+[10_Areas]
+  AI (10 md)
+  Career (484 md)
+  Excalidraw (4 md)
+  Life (56 md)
+  Notes (7 md)
+  Trading (1 md)
+[20_Progress]
+  AI (1314 md)
+  Degree (202 md)
+  Internship (46 md)
+  Mentorship Program (23 md)
+  Projects (278 md)
+[40_Resources]
+  Capability (8 md)
+  CS (115 md)
+  Obsidian (33 md)
+  UMN (381 md)
+--- .claude skills/commands/agents ---
+[agents]
+  agents\anti-slop-editor.md
+  agents\career-operator.md
+  agents\daily-operator.md
+  agents\human-operator.md
+  agents\ingestion.md
+  agents\learning-agent.md
+  agents\llm-council.md
+  agents\note-to-actions.md
+  agents\professor.md
+  agents\research-distiller.md
+  agents\vault-curator.md
+[commands]
+  commands\challenge.md
+  commands\closeday.md
+  commands\context.md
+  commands\distill-note.md
+  commands\excalidraw-diagram.md
+  commands\ideas.md
+  commands\ingest-clipping.md
+  commands\llm-council.md
+  commands\note-to-actions.md
+  commands\ops.md
+  commands\remove-ai-slop.md
+  commands\startday.md
+  commands\strategy.md
+  commands\tag-month.md
+  commands\trace-topic.md
+  commands\transcript-to-brief.md
+  commands\weekly-review.md
+[context]
+  context\claudekit.md
+  context\internship-research.md
+  context\MEMORY.md
+  context\workspace-context.md
+[rules]
+  rules\claude-directions.md
+  rules\how-to-write.md
+  rules\human-writing.md
+  rules\interlinking.md
+  rules\what-to-read.md
+[skills]
+  skills\challenge\challenge.md
+  skills\class-csci4041\SKILL.md
+  skills\closeday\reference.md
+  skills\closeday\SKILL.md
+  skills\distill-note\distill-note.md
+  skills\ideas\ideas.md
+  skills\ingesting-clipping\examples.md
+  skills\ingesting-clipping\reference.md
+  skills\ingesting-clipping\SKILL.md
+  skills\ingesting-clipping\scripts\extract_pdf.py
+  skills\llm-council\llm-council.md
+  skills\mcp-hub\excalidraw-diagram.md
+  skills\mcp-hub\mcp-hub.md
+  skills\mentorship\SKILL.md
+  skills\note-to-actions\note-to-actions.md
+  skills\ops\ops-reference.md
+  skills\ops\ops.md
+  skills\plan-it\strategy.md
+  skills\project-career\SKILL.md
+  skills\remove-ai-slop\remove-ai-slop.md
+  skills\startday\reference.md
+  skills\startday\SKILL.md
+  skills\tag-monthly\tag-month.md
+  skills\trace-goal\trace-topic.md
+  skills\transcript-to-brief\transcript-to-brief.md
+  skills\weekly-review\weekly-review.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && python - <<'EOF'
 import re,os,glob
 root='D:/_Anant/20_Progress/Documents/Jarvis'
 names={}
@@ -421,13 +834,168 @@ for dp,dn,fn in os.walk('.'):
                 broken.setdefault(p,set()).add(tgt)
 for p,s in sorted(broken.items()):
     print(p.replace('\\','/'),'->',sorted(s))
-EOF`
+EOF
+```
 ```
 Exit code 49
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 ```
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027\n$files = Get-ChildItem $root -Recurse -File -Filter *.md -EA SilentlyContinue | Where-Object { $_.FullName -notmatch \u0027\\\\(\\.git|\\.obsidian|node_modules|50_Archive|__pycache__|blobs|copilot)\\\\\u0027 }\n\"Total md files scanned: $($files.Count)\"\n$types=@{}; $status=@{}; $nofm=0; $nofmByTop=@{}\nforeach($f in $files){\n  $head = Get-Content $f.FullName -TotalCount 30 -EA SilentlyContinue\n  $top = $f.FullName.Substring($root.Length+1).Split(\u0027\\\u0027)[0]\n  if(-not $head -or $head[0] -ne \u0027---\u0027){ $nofm++; $nofmByTop[$top]=1+[int]$nofmByTop[$top]; continue }\n  $t=($head | Select-String \u0027^type:\\s*(.*)$\u0027 | Select-Object -First 1)\n  $s=($head | Select-String \u0027^status:\\s*(.*)$\u0027 | Select-Object -First 1)\n  $tv = if($t){$t.Matches[0].Groups[1].Value.Trim().Trim(\u0027\"\u0027)}else{\u0027(missing)\u0027}\n  $sv = if($s){$s.Matches[0].Groups[1].Value.Trim().Trim(\u0027\"\u0027)}else{\u0027(missing)\u0027}\n  $types[$tv]=1+[int]$types[$tv]; $status[$sv]=1+[int]$status[$sv]\n}\n\"No frontmatter at all: $nofm\"\n$nofmByTop.GetEnumerator() | Sort-Object Value -Descending | ForEach-Object { \"  {0}: {1}\" -f $_.Key,$_.Value }\n\"--- type census ---\"\n$types.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 45 | ForEach-Object { \"{0,5}  {1}\" -f $_.Value,$_.Key }\n\"--- status census ---\"\n$status.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 40 | ForEach-Object { \"{0,5}  {1}\" -f $_.Value,$_.Key }","description":"Vault-wide census of type and status frontmatter values","timeout":300000}`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027\n$names=@{}\nGet-ChildItem $root -Recurse -File -Filter *.md -EA SilentlyContinue | Where-Object { $_.FullName -notmatch \u0027\\\\(\\.git|\\.obsidian|node_modules|__pycache__)\\\\\u0027 } | ForEach-Object { $names[$_.BaseName.ToLower()]=1 }\n$out=@{}\nGet-ChildItem \"$root\\30_Order\" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch \u0027\\\\System\\\\\u0027 } | ForEach-Object {\n  $rel=$_.FullName.Substring($root.Length+1)\n  $t=Get-Content $_.FullName -Raw\n  if(-not $t){return}\n  foreach($m in [regex]::Matches($t,\u0027\\[\\[([^\\]\\|#]+)\u0027)){\n    $tgt=$m.Groups[1].Value.Trim()\n    $b=($tgt -split \u0027/\u0027)[-1].ToLower(); if($b.EndsWith(\u0027.md\u0027)){$b=$b.Substring(0,$b.Length-3)}\n    if(-not $names.ContainsKey($b)){ if(-not $out.ContainsKey($tgt)){$out[$tgt]=@()}; $out[$tgt]+=$rel }\n  }\n}\n\"Unresolved wikilink targets in 30_Order: $($out.Count)\"\n$out.GetEnumerator() | Sort-Object { $_.Value.Count } -Descending | ForEach-Object { \"{0}  \u003c-  {1} file(s): {2}\" -f $_.Key,($_.Value|Select -Unique).Count,((($_.Value|Select -Unique)|Select -First 2) -join \u0027; \u0027) }","description":"Find unresolved wikilink targets in 30_Order notes","timeout":300000}`
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'
+$files = Get-ChildItem $root -Recurse -File -Filter *.md -EA SilentlyContinue | Where-Object { $_.FullName -notmatch '\\(\.git|\.obsidian|node_modules|50_Archive|__pycache__|blobs|copilot)\\' }
+"Total md files scanned: $($files.Count)"
+$types=@{}; $status=@{}; $nofm=0; $nofmByTop=@{}
+foreach($f in $files){
+  $head = Get-Content $f.FullName -TotalCount 30 -EA SilentlyContinue
+  $top = $f.FullName.Substring($root.Length+1).Split('\')[0]
+  if(-not $head -or $head[0] -ne '---'){ $nofm++; $nofmByTop[$top]=1+[int]$nofmByTop[$top]; continue }
+  $t=($head | Select-String '^type:\s*(.*)$' | Select-Object -First 1)
+  $s=($head | Select-String '^status:\s*(.*)$' | Select-Object -First 1)
+  $tv = if($t){$t.Matches[0].Groups[1].Value.Trim().Trim('"')}else{'(missing)'}
+  $sv = if($s){$s.Matches[0].Groups[1].Value.Trim().Trim('"')}else{'(missing)'}
+  $types[$tv]=1+[int]$types[$tv]; $status[$sv]=1+[int]$status[$sv]
+}
+"No frontmatter at all: $nofm"
+$nofmByTop.GetEnumerator() | Sort-Object Value -Descending | ForEach-Object { "  {0}: {1}" -f $_.Key,$_.Value }
+"--- type census ---"
+$types.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 45 | ForEach-Object { "{0,5}  {1}" -f $_.Value,$_.Key }
+"--- status census ---"
+$status.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 40 | ForEach-Object { "{0,5}  {1}" -f $_.Value,$_.Key }
+```
+```
+Total md files scanned: 6707
+No frontmatter at all: 993
+  20_Progress: 903
+  60_Claude: 22
+  30_Order: 20
+  .claude: 13
+  40_Resources: 11
+  10_Areas: 11
+  .kiro: 6
+  .agents: 4
+  .firecrawl: 3
+--- type census ---
+ 1215  code
+  883  (missing)
+  829  input
+  591  rationale
+  434  document
+  369  class
+  319  evergreen
+  302  concept
+  196  community
+  183  project
+   78  dashboard
+   65  index
+   37  note
+   36  thought
+   32  tracker
+   30  contact
+   18  reference
+   12  brainstorm
+   10  research
+    9  review
+    9  subagent
+    9  subsystem
+    8  output
+    7  plan
+    7  ai
+    4  decision-log
+    4  paper
+    2  session
+    2  runbook
+    2  idea
+    2  summary
+    2  action
+    2  session-recap
+    1  log
+    1  # thought | input | evergreen | class | project | template
+    1  prompt
+    1  codebase-map
+    1  project-brief
+    1  research-dossier
+--- status census ---
+ 3077  (missing)
+  870  sprout
+  615  raw
+  273  unreviewed
+  258  seed
+  199  active
+  108  tree
+   74  removed
+   69  archived
+   60  auto-generated
+   43  complete
+   15  static
+   10  seedling
+    9  
+    4  retired
+    4  dead
+    3  mature
+    3  evergreen
+    3  promoted
+    2  '"archived"'
+    2  reference
+    2  draft
+    1  current
+    1  stale
+    1  pending
+    1  Withdrawn
+    1  completed
+    1  paused
+    1  living
+    1  idle
+    1  Preparing
+    1  in-progress
+    1  # seed | sprout | tree | paused | archived
+```
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'
+$names=@{}
+Get-ChildItem $root -Recurse -File -Filter *.md -EA SilentlyContinue | Where-Object { $_.FullName -notmatch '\\(\.git|\.obsidian|node_modules|__pycache__)\\' } | ForEach-Object { $names[$_.BaseName.ToLower()]=1 }
+$out=@{}
+Get-ChildItem "$root\30_Order" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch '\\System\\' } | ForEach-Object {
+  $rel=$_.FullName.Substring($root.Length+1)
+  $t=Get-Content $_.FullName -Raw
+  if(-not $t){return}
+  foreach($m in [regex]::Matches($t,'\[\[([^\]\|#]+)')){
+    $tgt=$m.Groups[1].Value.Trim()
+    $b=($tgt -split '/')[-1].ToLower(); if($b.EndsWith('.md')){$b=$b.Substring(0,$b.Length-3)}
+    if(-not $names.ContainsKey($b)){ if(-not $out.ContainsKey($tgt)){$out[$tgt]=@()}; $out[$tgt]+=$rel }
+  }
+}
+"Unresolved wikilink targets in 30_Order: $($out.Count)"
+$out.GetEnumerator() | Sort-Object { $_.Value.Count } -Descending | ForEach-Object { "{0}  <-  {1} file(s): {2}" -f $_.Key,($_.Value|Select -Unique).Count,((($_.Value|Select -Unique)|Select -First 2) -join '; ') }
+```
+```
+Unresolved wikilink targets in 30_Order: 24
+  <-  8 file(s): 30_Order\Templates\AI Use\Clipping Distill Template.md; 30_Order\Templates\AI Use\Deep Dive Template.md
+20_Progress/AI/Claude Code/_All-Projects-Sync-Log  <-  3 file(s): 30_Order\Standards\Enrich\Review Standard.md; 30_Order\Templates\AI Use\AI Monthly Review Template.md
+Week Standard  <-  2 file(s): 30_Order\Standards\Courses\Weekly Standard.md; 30_Order\Workflows\Courses\Weekly Workflow.md
+Filename.pdf  <-  2 file(s): 30_Order\Standards\Enrich\Source Summary Standard.md; 30_Order\Templates\AI Use\Clipping Distill Template.md
+Note  <-  2 file(s): 30_Order\Standards\MOC Standard.md; 30_Order\Standards\Courses\Concept Standard.md
+CSCI 2021 Template  <-  1 file(s): 30_Order\Templates\MOC.md
+Quant Foundations.pdf  <-  1 file(s): 30_Order\Standards\Enrich\Source Summary Standard.md
+20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project  <-  1 file(s): 30_Order\Standards\Courses\Project Standard.md
+Better Week  <-  1 file(s): 30_Order\Templates\MOC.md
+<concept or project note>  <-  1 file(s): 30_Order\Workflows\Enrichment\Output with Provenance.md
+Transcript Filename.md  <-  1 file(s): 30_Order\Workflows\Ingestion\Transcript to Brief.md
+Source Brief or Note  <-  1 file(s): 30_Order\Workflows\Ingestion\Brief to Action.md
+Chapter -  <-  1 file(s): 30_Order\Standards\Courses\Weekly Standard.md
+CSCI 2033 Template  <-  1 file(s): 30_Order\Templates\MOC.md
+...  <-  1 file(s): 30_Order\Workflows\Courses\Per Class\CSCI 4061 Workflow.md
+CSCI 2011 Template  <-  1 file(s): 30_Order\Templates\MOC.md
+Concept -  <-  1 file(s): 30_Order\Standards\Courses\Weekly Standard.md
+Job & Company  <-  1 file(s): 30_Order\Templates\Career\Internship\Tracking Template.md
+Lecture - N  <-  1 file(s): 30_Order\Workflows\Courses\Per Class\CSCI 5304 Workflow.md
+Project Workflow  <-  1 file(s): 30_Order\Workflows\Courses\Homework Workflow.md
+Programs/Company - Role  <-  1 file(s): 30_Order\Templates\Career\List Monthly Log Template.md
+2026-07-19  <-  1 file(s): 30_Order\Templates\Capability\Action Template.md
+Week - N+1  <-  1 file(s): 30_Order\Workflows\Courses\Weekly Workflow.md
+30_Order/Templates/Capability/Weekly Synthesis Template  <-  1 file(s): 30_Order\Standards\Enrich\Review Standard.md
+```
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Vault Operating System.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/MOC Standard.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/MOC.md`
@@ -435,11 +1003,418 @@ Python was not found; run without arguments to install from the Microsoft Store,
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Frontmatter/For Everything.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Frontmatter/For Evergreen.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Frontmatter/For Classes.md`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027\n$files = Get-ChildItem $root -Recurse -File -Filter *.md -EA SilentlyContinue | Where-Object { $_.FullName -notmatch \u0027\\\\(\\.git|\\.obsidian|node_modules|50_Archive|__pycache__|blobs|copilot)\\\\\u0027 }\n$by=@{}\nforeach($f in $files){\n  $head = Get-Content $f.FullName -TotalCount 12 -EA SilentlyContinue\n  if(-not $head -or $head[0] -ne \u0027---\u0027){ $tv=\u0027(nofm)\u0027 } else {\n    $t=($head | Select-String \u0027^type:\\s*(.*)$\u0027 | Select-Object -First 1)\n    $tv = if($t){$t.Matches[0].Groups[1].Value.Trim().Trim(\u0027\"\u0027)}else{\u0027(missing)\u0027}\n  }\n  if($tv -in \u0027code\u0027,\u0027rationale\u0027,\u0027document\u0027,\u0027community\u0027,\u0027(nofm)\u0027,\u0027(missing)\u0027,\u0027note\u0027){\n    $rel=$f.FullName.Substring($root.Length+1).Split(\u0027\\\u0027)\n    $loc = if($rel.Count -ge 3){$rel[0]+\u0027\\\u0027+$rel[1]+\u0027\\\u0027+$rel[2]}else{$rel[0]}\n    $k=\"$tv @ $loc\"; $by[$k]=1+[int]$by[$k]\n  }\n}\n$by.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 40 | ForEach-Object { \"{0,5}  {1}\" -f $_.Value,$_.Key }","description":"Locate where undocumented note types and frontmatter-less notes live","timeout":300000}`
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'
+$files = Get-ChildItem $root -Recurse -File -Filter *.md -EA SilentlyContinue | Where-Object { $_.FullName -notmatch '\\(\.git|\.obsidian|node_modules|50_Archive|__pycache__|blobs|copilot)\\' }
+$by=@{}
+foreach($f in $files){
+  $head = Get-Content $f.FullName -TotalCount 12 -EA SilentlyContinue
+  if(-not $head -or $head[0] -ne '---'){ $tv='(nofm)' } else {
+    $t=($head | Select-String '^type:\s*(.*)$' | Select-Object -First 1)
+    $tv = if($t){$t.Matches[0].Groups[1].Value.Trim().Trim('"')}else{'(missing)'}
+  }
+  if($tv -in 'code','rationale','document','community','(nofm)','(missing)','note'){
+    $rel=$f.FullName.Substring($root.Length+1).Split('\')
+    $loc = if($rel.Count -ge 3){$rel[0]+'\'+$rel[1]+'\'+$rel[2]}else{$rel[0]}
+    $k="$tv @ $loc"; $by[$k]=1+[int]$by[$k]
+  }
+}
+$by.GetEnumerator() | Sort-Object Value -Descending | Select-Object -First 40 | ForEach-Object { "{0,5}  {1}" -f $_.Value,$_.Key }
+```
+```
+  743  code @ 60_Claude\40_Project_Briefs\Internship
+  507  (nofm) @ 20_Progress\AI\Claude Code
+  472  code @ 60_Claude\40_Project_Briefs\TradingView
+  384  (missing) @ 10_Areas\Career\Internships
+  359  (nofm) @ 20_Progress\AI\Cursor
+  331  rationale @ 60_Claude\40_Project_Briefs\TradingView
+  306  document @ 60_Claude\40_Project_Briefs\Internship
+  260  rationale @ 60_Claude\40_Project_Briefs\Internship
+  157  (missing) @ 20_Progress\AI\Claude Code
+  128  document @ 60_Claude\40_Project_Briefs\TradingView
+  110  community @ 60_Claude\40_Project_Briefs\TradingView
+   98  (missing) @ 20_Progress\AI\Cursor
+   86  community @ 60_Claude\40_Project_Briefs\Internship
+   72  (missing) @ 20_Progress\AI\Kiro
+   62  (missing) @ 20_Progress\AI\Codex
+   37  note @ 40_Resources\CS\Concepts
+   23  (missing) @ 60_Claude\05_Clippings\Web
+   17  (nofm) @ 20_Progress\Projects\CS
+   17  (nofm) @ 60_Claude\05_Clippings\AI Conversations
+    9  (nofm) @ 40_Resources\CS\Concepts
+    9  (nofm) @ 10_Areas\Career\Internships
+    7  (nofm) @ 30_Order\Standards\AI Loop
+    4  (missing) @ 60_Claude\40_Project_Briefs\CausalOps
+    4  (nofm) @ 20_Progress\Projects\AI Use
+    4  (nofm) @ 30_Order\Workflows\Enrichment
+    4  (nofm) @ 20_Progress\Degree\_Courses
+    4  (missing) @ 60_Claude\07_AI_Information\Session Logs
+    3  (nofm) @ .kiro\specs\pkm-capability-engine
+    3  (nofm) @ .firecrawl
+    3  (nofm) @ 20_Progress\Degree\CSCI 5304
+    3  (nofm) @ .kiro\specs\claude-code-ops-layer
+    2  (nofm) @ 20_Progress\Degree\CSCI 4061
+    2  (nofm) @ 30_Order\Standards\Enrich
+    2  (missing) @ .claude\skills\ops
+    2  (missing) @ .claude\skills\mcp-hub
+    2  (nofm) @ .claude\skills\ingesting-clipping
+    2  (missing) @ .agents\skills\ops
+    2  (nofm) @ .agents\skills\ingesting-clipping
+    2  (nofm) @ 20_Progress\AI\Kiro
+    2  (missing) @ 30_Order\Templates\Career
+```
 - `Grep` -- pattern `AI Loop|Memory Management|Knowledge Noting|Per Project Review|Tool Calls` path `D:/_Anant/20_Progress/Documents/Jarvis`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027\nforeach($d in \u002760_Claude\\07_AI_Information\u0027,\u002760_Claude\\44_Indexes\u0027,\u002760_Claude\\30_Reviews\u0027,\u002760_Claude\\20_Distilled_Notes\u0027){ Write-Output \"[$d]\"; Get-ChildItem \"$root\\$d\" -Recurse -File -Filter *.md | Select-Object -First 40 | ForEach-Object { \"  \" + $_.FullName.Substring($root.Length+$d.Length+2) } }\nWrite-Output \u0027[Tracker]\u0027; Get-ChildItem \"$root\\Tracker\" -Recurse -File | Select-Object -First 10 | ForEach-Object { \"  \" + $_.Name }\nWrite-Output \u0027[10_Areas\\Life]\u0027; Get-ChildItem \"$root\\10_Areas\\Life\" -Directory | ForEach-Object { \"  \" + $_.Name }\nWrite-Output \u0027[40_Resources\\Obsidian]\u0027; Get-ChildItem \"$root\\40_Resources\\Obsidian\" -Recurse -File -Filter *.md | Select-Object -First 40 | ForEach-Object { \"  \" + $_.Name }\nWrite-Output \u0027[20_Progress\\Projects]\u0027; Get-ChildItem \"$root\\20_Progress\\Projects\" -Directory | ForEach-Object { \"  \" + $_.Name }\nWrite-Output \u0027[bases/canvas counts]\u0027; \"base: \" + (Get-ChildItem $root -Recurse -File -Filter *.base -EA SilentlyContinue | Where-Object {$_.FullName -notmatch \u0027\\\\\\.git\\\\\u0027} | Measure-Object).Count; \"canvas: \" + (Get-ChildItem $root -Recurse -File -Filter *.canvas -EA SilentlyContinue | Where-Object {$_.FullName -notmatch \u0027\\\\\\.git\\\\\u0027} | Measure-Object).Count; \"excalidraw: \" + (Get-ChildItem $root -Recurse -File -Filter *.excalidraw.md -EA SilentlyContinue | Measure-Object).Count","description":"List AI info, indexes, reviews, and other vault areas","timeout":200000}`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027\n$o=\"$root\\30_Order\"\n$docs = Get-ChildItem \"$o\\Standards\",\"$o\\Workflows\",\"$o\\00_How This Folder Works.md\" -Recurse -File -Filter *.md | ForEach-Object { [pscustomobject]@{Name=$_.BaseName; Text=(Get-Content $_.FullName -Raw)} }\n$claude = Get-ChildItem \"$root\\.claude\" -Recurse -File -Filter *.md | ForEach-Object { Get-Content $_.FullName -Raw } | Out-String\n\"=== Templates: referenced by any Standard/Workflow? by .claude tooling? ===\"\nGet-ChildItem \"$o\\Templates\" -Recurse -File -Filter *.md | ForEach-Object {\n  $n=$_.BaseName\n  $refs = @($docs | Where-Object { $_.Text -match [regex]::Escape(\"[[$n\") -or $_.Text -match [regex]::Escape(\"Templates/\") -and $_.Text -match [regex]::Escape($n) }) | ForEach-Object {$_.Name}\n  $c = if($claude -match [regex]::Escape($n)){\u0027claude:Y\u0027}else{\u0027claude:-\u0027}\n  \"{0,-48} stdRefs:{1,-3} {2}  {3}\" -f $n,$refs.Count,$c,(($refs|Select -First 2) -join \u0027, \u0027)\n}\n\"=== Standard -\u003e Workflow pairing by name stem ===\"\n$wf = Get-ChildItem \"$o\\Workflows\" -Recurse -File -Filter *.md | ForEach-Object {$_.BaseName}\nGet-ChildItem \"$o\\Standards\" -Recurse -File -Filter *.md | Where-Object {$_.Length -gt 0} | ForEach-Object {\n  $stem = $_.BaseName -replace \u0027 Standard$\u0027,\u0027\u0027\n  $m = $wf | Where-Object { $_ -like \"$stem*\" }\n  \"{0,-40} workflow: {1}\" -f $_.BaseName, $(if($m){$m -join \u0027 | \u0027}else{\u0027NONE\u0027})\n}\n\"=== AGENTS routing targets that do not exist ===\"\nforeach($p in \u002760_Claude\\35_Outputs\u0027,\u002760_Claude\\50_Reviews\u0027,\u002760_Claude\\30_Reviews\u0027,\u002760_Claude\\40_Project_Briefs\u0027,\u002760_Claude\\44_Indexes\u0027,\u002760_Claude\\10_Source_Summaries\u0027,\u002710_Areas\\Excalidraw\u0027){ \"{0,-34} exists={1}\" -f $p,(Test-Path \"$root\\$p\") }\n\"=== Workflows index coverage ===\"\n$idx = Get-Content \"$o\\Workflows\\00_Workflows Index.md\" -Raw\nGet-ChildItem \"$o\\Workflows\" -Recurse -File -Filter *.md | Where-Object {$_.Name -ne \u002700_Workflows Index.md\u0027} | ForEach-Object { if($idx -notmatch [regex]::Escape(\"[[$($_.BaseName)\")){ \"NOT IN INDEX: \" + $_.FullName.Substring($o.Length+1) } }","description":"Map Standards, Templates, Workflows pairing and index coverage","timeout":300000}`
-- `PowerShell` -- `{"command":"$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\40_Project_Briefs\u0027\nGet-ChildItem $root -Directory | ForEach-Object { \"{0}: {1} md\" -f $_.Name,(Get-ChildItem $_.FullName -Recurse -File -Filter *.md | Measure-Object).Count }\n$f = Get-ChildItem \"$root\\Internship\" -Recurse -File -Filter *.md | Where-Object { (Get-Content $_.FullName -TotalCount 5) -match \u0027type: community\u0027 } | Select-Object -First 1\n$f.FullName.Substring($root.Length+1)\nGet-Content $f.FullName -TotalCount 14\nWrite-Output \u0027--- Graphify mention in 30_Order standards? ---\u0027\n(Select-String -Path \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\*\\*.md\",\"D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Workflows\\*\\*.md\" -Pattern \u0027graphify|community|rationale\u0027 -SimpleMatch -EA SilentlyContinue | Measure-Object).Count","description":"Inspect generated graph notes in Project Briefs","timeout":120000}`
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'
+foreach($d in '60_Claude\07_AI_Information','60_Claude\44_Indexes','60_Claude\30_Reviews','60_Claude\20_Distilled_Notes'){ Write-Output "[$d]"; Get-ChildItem "$root\$d" -Recurse -File -Filter *.md | Select-Object -First 40 | ForEach-Object { "  " + $_.FullName.Substring($root.Length+$d.Length+2) } }
+Write-Output '[Tracker]'; Get-ChildItem "$root\Tracker" -Recurse -File | Select-Object -First 10 | ForEach-Object { "  " + $_.Name }
+Write-Output '[10_Areas\Life]'; Get-ChildItem "$root\10_Areas\Life" -Directory | ForEach-Object { "  " + $_.Name }
+Write-Output '[40_Resources\Obsidian]'; Get-ChildItem "$root\40_Resources\Obsidian" -Recurse -File -Filter *.md | Select-Object -First 40 | ForEach-Object { "  " + $_.Name }
+Write-Output '[20_Progress\Projects]'; Get-ChildItem "$root\20_Progress\Projects" -Directory | ForEach-Object { "  " + $_.Name }
+Write-Output '[bases/canvas counts]'; "base: " + (Get-ChildItem $root -Recurse -File -Filter *.base -EA SilentlyContinue | Where-Object {$_.FullName -notmatch '\\\.git\\'} | Measure-Object).Count; "canvas: " + (Get-ChildItem $root -Recurse -File -Filter *.canvas -EA SilentlyContinue | Where-Object {$_.FullName -notmatch '\\\.git\\'} | Measure-Object).Count; "excalidraw: " + (Get-ChildItem $root -Recurse -File -Filter *.excalidraw.md -EA SilentlyContinue | Measure-Object).Count
+```
+```
+[60_Claude\07_AI_Information]
+  AI_CONTEXT.md
+  Fable Prompt — Dashboard and Ingestion Pass.md
+  How Notes Were Actually Written.md
+  How to Write in This Vault.md
+  Jarvis OS — North Star.md
+  Jarvis Writing and Formatting.md
+  North Star — Execution Prompt.md
+  Plugins.md
+  Vault Map.md
+  Vault Rules — Complete AI Ruleset.md
+  Why We Write Notes.md
+  AI Conversation - Summaries\[REDACTED] — Summary.md
+  AI Conversation - Summaries\[REDACTED] — Summary.md
+  AI Conversation - Summaries\[REDACTED] — Summary.md
+  AI Conversation - Summaries\[REDACTED] — Summary.md
+  AI Conversation - Summaries\Cursor Project Brief — Vault OS Upgrade.md
+  AI Conversation - Summaries\Note Writing System — Audit and Roadmap (2026-05-31).md
+  AI Conversation - Summaries\README.md
+  AI Conversation - Summaries\Summaries-to-Create.md
+  AI Conversation - Summaries\WSL Claude Code — Wiring Gap.md
+  AI Conversation - Summaries\Claude Code\[REDACTED] — Summary.md
+  How to Use Claude\Agent Operating Guide.md
+  How to Use Claude\Claude OS.md
+  How to Use Claude\What Graphify Does.md
+  Session Logs\Convergence Worklog 2026-06-11.md
+  Session Logs\log.md
+  Session Logs\Session Logs Board.md
+  Session Logs\CausalOps\HiveMind Claude Setup Prompt.md
+  Session Logs\CausalOps\Memory Layer Implementation Prompt.md
+  Session Logs\CausalOps\[REDACTED].md
+  Session Logs\CausalOps\[REDACTED].md
+[60_Claude\44_Indexes]
+  Capability Dashboard.md
+  Claude Layer Index.md
+  Knowledge Enrichment Dashboard.md
+  Proof Dashboard.md
+  Question Dashboard.md
+  Vault Health Dashboard.md
+  Vault Web Ingestion Index.md
+  Field OS\AI Depth Ladder.md
+  Field OS\AI Field OS.md
+  Field OS\AI Question Bank.md
+  Field OS\Algorithms Depth Ladder.md
+  Field OS\Algorithms Field OS.md
+  Field OS\Algorithms Question Bank.md
+  Field OS\Career Depth Ladder.md
+  Field OS\Career Field OS.md
+  Field OS\Career Question Bank.md
+  Field OS\Systems Depth Ladder.md
+  Field OS\Systems Field OS.md
+  Field OS\Systems Question Bank.md
+  Field OS\Trading Depth Ladder.md
+  Field OS\Trading Field OS.md
+  Field OS\Trading Question Bank.md
+[60_Claude\30_Reviews]
+  50_Reviews Board.md
+  Jarvis Enrichment Phase 1 - 2026-04-24.md
+  North Star Convergence — Change Report 2026-06-11.md
+  Today - 2026-06-03.md
+  Vault-Audit-2026-05-29.md
+  AI\Scheduled\Weekly\AI Tools Weekly Review — 2026-W34.md
+  AI\Toolkit\Tool log.md
+  Internship Loop\Internship Loop Reviews MOC.md
+  Internship Loop\Review System.md
+  Internship Loop\Scheduled\Monthly\Internship Loop Monthly Review — 2026-08.md
+  Internship Loop\Scheduled\Monthly\Internship Loop Monthly Review — 2026-09.md
+  Internship Loop\Scheduled\Weekly\Internship Loop Weekly Review — 2026-W34.md
+  Internship Loop\Scheduled\Weekly\Internship Loop Weekly Review — 2026-W36.md
+  Monthly\Monthly Review — 2026-06.md
+  Ops Reports\Jarvis Ops Report - 2026-04-24 20260424-170132.md
+  Weekly Synthesis\Weekly Synthesis — 2026-W17.md
+  Weekly Synthesis\Weekly Synthesis — 2026-W22.md
+  Weekly Synthesis\Weekly Synthesis — 2026-W39.md
+  Weekly Synthesis\Weekly Synthesis — 2026-W40.md
+  Weekly Synthesis\Weekly Synthesis — 2026-W41.md
+  Weekly Synthesis\Weekly Synthesis Index.md
+  Weekly Synthesis\Logs\Log Review.md
+[60_Claude\20_Distilled_Notes]
+  40_Resources CS AI - Restructure Plan (2026-08-21).md
+  AI-Assisted Trading.md
+  Career Strategy.md
+  Distilled Notes Board.md
+  Index Fund Investing.md
+  Ingestion Pipeline Audit — Clippings, Summaries & Implementation (2026-07-27).md
+  Jarvis Systems Audit - Retrieval, Sync, and Plugins (2026-08-21).md
+  Mentorship and Networking.md
+  Scarcity Imprint — The Hidden Operating System Behind Income Ceilings.md
+  UMN Library Student Job Contacts.md
+  Sources - Plan\_Notes Created From Ingestion.md
+  Sources - Plan\00_Execution.md
+  Sources - Plan\GitHub Ingestion Implementation.md
+  Sources - Plan\Hall of Hacks — Winning Hackathon Patterns Analysis.md
+  Sources - Plan\Hermes Agent — Trading & Alert System (Distilled).md
+  Sources - Plan\Internship Tracking Dashboard — 2027 Calendar, Programs, & Application Pipeline.md
+  Sources - Plan\Maverick Skills Analysis - Cross-Reference with GitHub Repos.md
+  Sources - Plan\PDF's Ingestion Implementation.md
+  Sources - Plan\Trading Resources Integration — TradingView Architecture Roadmap.md
+  Sources - Plan\Video Ingestion Implementation.md
+  Sources - Plan\Web Ingestion Implementation.md
+  Synthesis\Kafka Pipelines vs Agent Tool Orchestration.md
+  Synthesis\Observability in Backend vs Evaluation in AI.md
+  Synthesis\Rust Ownership vs OCaml Immutability.md
+  Synthesis\Synthesis Index.md
+  The Plan\Student Travel Discounts — Survey Note (Staging for The Plan).md
+[Tracker]
+  Embedded Software Engineering Intern - The Toro Company.md
+[10_Areas\Life]
+  Books
+  Enumerate
+  Habits
+  Plans
+  Tracking
+  Truths of Life
+[40_Resources\Obsidian]
+  Jarvis Enrichment Engine.md
+  Jarvis Vault Architecture.md
+  MCP-Hub-Index.md
+  Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build).md
+  Second Brain.md
+  Vault Operating System.md
+  Inbox Dashboard.md
+  Kyle's Second Brain.md
+  Obsidian-Excalidraw Plugin Tutorials.md
+  Plugins.md
+  Tasks Plugin - Review and check your Statuses 2025-12-20 18-37-12.md
+  UMN Dashboard.md
+  00 Plugin Reference Index.md
+  AI Automation and Local Interfaces.md
+  Appearance Code Math and Reading Experience.md
+  Canvas Spatial Maps.md
+  Dataview and Dashboards.md
+  Excalidraw Diagrams and Annotation.md
+  Git Recovery and Vault Safety.md
+  Omnisearch and Retrieval.md
+  Plugin Gaps Recommendations and Verification.md
+  Plugin Inventory and Configuration Map.md
+  QuickAdd Capture Menu.md
+  Search Linking and Navigation.md
+  Spaced Repetition and Learning Loops.md
+  Tasks Kanban and Project Tracking.md
+  Templates Capture and Periodic Notes.md
+  Visual Thinking with Canvas and Excalidraw.md
+  Acer Session Findings — Obsidian OOM Crash.md
+  Dell Handoff — Obsidian OOM Crash Fix.md
+  Appearance Theme and CSS Snippets.md
+  Core Plugins Hotkeys and Defaults.md
+  File Handling and Properties.md
+[20_Progress\Projects]
+  AI Use
+  CS
+  Extra
+  Jarvis & The Plan
+  Research
+[bases/canvas counts]
+base: 5
+canvas: 3
+excalidraw: 3
+```
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'
+$o="$root\30_Order"
+$docs = Get-ChildItem "$o\Standards","$o\Workflows","$o\00_How This Folder Works.md" -Recurse -File -Filter *.md | ForEach-Object { [pscustomobject]@{Name=$_.BaseName; Text=(Get-Content $_.FullName -Raw)} }
+$claude = Get-ChildItem "$root\.claude" -Recurse -File -Filter *.md | ForEach-Object { Get-Content $_.FullName -Raw } | Out-String
+"=== Templates: referenced by any Standard/Workflow? by .claude tooling? ==="
+Get-ChildItem "$o\Templates" -Recurse -File -Filter *.md | ForEach-Object {
+  $n=$_.BaseName
+  $refs = @($docs | Where-Object { $_.Text -match [regex]::Escape("[[$n") -or $_.Text -match [regex]::Escape("Templates/") -and $_.Text -match [regex]::Escape($n) }) | ForEach-Object {$_.Name}
+  $c = if($claude -match [regex]::Escape($n)){'claude:Y'}else{'claude:-'}
+  "{0,-48} stdRefs:{1,-3} {2}  {3}" -f $n,$refs.Count,$c,(($refs|Select -First 2) -join ', ')
+}
+"=== Standard -> Workflow pairing by name stem ==="
+$wf = Get-ChildItem "$o\Workflows" -Recurse -File -Filter *.md | ForEach-Object {$_.BaseName}
+Get-ChildItem "$o\Standards" -Recurse -File -Filter *.md | Where-Object {$_.Length -gt 0} | ForEach-Object {
+  $stem = $_.BaseName -replace ' Standard$',''
+  $m = $wf | Where-Object { $_ -like "$stem*" }
+  "{0,-40} workflow: {1}" -f $_.BaseName, $(if($m){$m -join ' | '}else{'NONE'})
+}
+"=== AGENTS routing targets that do not exist ==="
+foreach($p in '60_Claude\35_Outputs','60_Claude\50_Reviews','60_Claude\30_Reviews','60_Claude\40_Project_Briefs','60_Claude\44_Indexes','60_Claude\10_Source_Summaries','10_Areas\Excalidraw'){ "{0,-34} exists={1}" -f $p,(Test-Path "$root\$p") }
+"=== Workflows index coverage ==="
+$idx = Get-Content "$o\Workflows\00_Workflows Index.md" -Raw
+Get-ChildItem "$o\Workflows" -Recurse -File -Filter *.md | Where-Object {$_.Name -ne '00_Workflows Index.md'} | ForEach-Object { if($idx -notmatch [regex]::Escape("[[$($_.BaseName)")){ "NOT IN INDEX: " + $_.FullName.Substring($o.Length+1) } }
+```
+```
+=== Templates: referenced by any Standard/Workflow? by .claude tooling? ===
+MOC                                              stdRefs:4   claude:-  MOC Standard, Project Standard
+AI Monthly Review Template                       stdRefs:1   claude:-  Review Standard
+AI Weekly Review Template                        stdRefs:1   claude:-  Review Standard
+Clipping Distill Template                        stdRefs:2   claude:Y  Source Summary Standard, Capture to Summary
+Deep Dive Template                               stdRefs:1   claude:Y  Summary to Distilled
+Action Template                                  stdRefs:2   claude:Y  Action Standard, Brief to Action
+Brief Template                                   stdRefs:2   claude:Y  Brief Standard, Transcript to Brief
+Depth Ladder Template                            stdRefs:0   claude:-  
+Field OS Template                                stdRefs:0   claude:-  
+MOC Template                                     stdRefs:1   claude:-  MOC Standard
+Output Template                                  stdRefs:1   claude:Y  Output with Provenance
+Question Bank Template                           stdRefs:0   claude:Y  
+Synthesis Template                               stdRefs:2   claude:-  Review Standard, Summary to Distilled
+List Monthly Log Template                        stdRefs:1   claude:-  Internship Pipeline
+Plan Template                                    stdRefs:2   claude:-  Daily Workflow Standard, Plan Review Cadence
+Applying Template                                stdRefs:3   claude:-  Applying Standard, Application Document Preparation
+Cheat Template                                   stdRefs:1   claude:-  Internship Pipeline
+Contact Template                                 stdRefs:1   claude:-  Internship Pipeline
+Cover Letter Template                            stdRefs:2   claude:-  Cover Letter Alteration Standard, Application Document Preparation
+Internship Loop Monthly Review Template          stdRefs:2   claude:-  Internship Loop Review Standard, Internship Review System
+Internship Loop Weekly Review Template           stdRefs:2   claude:-  Internship Loop Review Standard, Internship Review System
+Job & Company Template                           stdRefs:0   claude:-  
+LinkedIn Post Template                           stdRefs:0   claude:-  
+Program Template                                 stdRefs:1   claude:-  Internship Loop Review Standard
+Tracking Template                                stdRefs:0   claude:-  
+Board or Main Template                           stdRefs:2   claude:-  Board Standard, Board Workflow
+Concept Template                                 stdRefs:4   claude:-  Concept Standard, Concept Workflow
+Discussion Template                              stdRefs:4   claude:-  Discussion Standard, Homework Standard
+Exam Sheet Template                              stdRefs:3   claude:-  Exam Standard, Exam Workflow
+Homework Template                                stdRefs:3   claude:-  Homework Standard, Homework Workflow
+Lab Template                                     stdRefs:3   claude:-  Lab Standard, Lab Workflow
+Preparation Template                             stdRefs:4   claude:-  Preparation Standard, Preparation Workflow
+Project Template                                 stdRefs:6   claude:-  Homework Standard, Project Standard
+Textbook Map Template                            stdRefs:3   claude:-  Textbook Map Standard, Textbook Standard
+Textbook Template                                stdRefs:5   claude:-  Textbook Standard, Textbook Workflow
+Week Template                                    stdRefs:4   claude:-  Weekly Standard, Weekly Workflow
+Weekly Board Template                            stdRefs:2   claude:-  Weekly Board Standard, Weekly Board Workflow
+Better Month                                     stdRefs:0   claude:-  
+Better Today                                     stdRefs:0   claude:Y  
+Better Weekly                                    stdRefs:0   claude:Y  
+Better Year                                      stdRefs:0   claude:-  
+For AI                                           stdRefs:0   claude:-  
+For Brainstorm                                   stdRefs:0   claude:-  
+For Classes                                      stdRefs:0   claude:-  
+For Evergreen                                    stdRefs:1   claude:-  Evergreen Standard
+For Everything                                   stdRefs:0   claude:-  
+For Inputs                                       stdRefs:0   claude:-  
+For Progress                                     stdRefs:1   claude:-  Project Standard
+For Thoughts                                     stdRefs:0   claude:-  
+For Transcript                                   stdRefs:1   claude:Y  Transcript to Brief
+=== Standard -> Workflow pairing by name stem ===
+Daily Workflow Standard                  workflow: NONE
+Log Standard                             workflow: NONE
+MOC Standard                             workflow: NONE
+Project Standard                         workflow: Projects Workflow
+Board Standard                           workflow: Board Workflow
+Concept Standard                         workflow: Concept Workflow
+Discussion Standard                      workflow: Discussion Workflow
+Exam Standard                            workflow: Exam Workflow
+Homework Standard                        workflow: Homework Workflow
+Lab Standard                             workflow: Lab Workflow
+Preparation Standard                     workflow: Preparation Workflow
+Project Standard                         workflow: Projects Workflow
+Textbook Map Standard                    workflow: Textbook Map Workflow
+Textbook Standard                        workflow: Textbook Map Workflow | Textbook Workflow
+Weekly Board Standard                    workflow: Weekly Board Workflow
+Weekly Standard                          workflow: Weekly Board Workflow | Weekly Workflow
+Evergreen Standard                       workflow: NONE
+Review Standard                          workflow: NONE
+Source Summary Standard                  workflow: NONE
+Tracking Standard                        workflow: NONE
+Action Standard                          workflow: NONE
+Brief Standard                           workflow: Brief to Action | Brief to Progress
+Humanized Writing Standard               workflow: NONE
+PDF Extraction Standard                  workflow: PDF Extraction
+Applying Standard                        workflow: NONE
+Cover Letter Alteration Standard         workflow: NONE
+Deadline and Intake Triage Standard      workflow: NONE
+Internship Loop Review Standard          workflow: NONE
+Internship Notes Standard                workflow: NONE
+Internship Tracker Standard              workflow: NONE
+Resume Alteration Standard               workflow: NONE
+=== AGENTS routing targets that do not exist ===
+60_Claude\35_Outputs               exists=False
+60_Claude\50_Reviews               exists=False
+60_Claude\30_Reviews               exists=True
+60_Claude\40_Project_Briefs        exists=True
+60_Claude\44_Indexes               exists=True
+60_Claude\10_Source_Summaries      exists=True
+10_Areas\Excalidraw                exists=True
+=== Workflows index coverage ===
+NOT IN INDEX: Workflows\Courses\Board Workflow.md
+NOT IN INDEX: Workflows\Courses\Concept Workflow.md
+NOT IN INDEX: Workflows\Courses\Course Production Workflow.md
+NOT IN INDEX: Workflows\Courses\Discussion Workflow.md
+NOT IN INDEX: Workflows\Courses\Exam Workflow.md
+NOT IN INDEX: Workflows\Courses\Homework Workflow.md
+NOT IN INDEX: Workflows\Courses\Lab Workflow.md
+NOT IN INDEX: Workflows\Courses\Preparation Workflow.md
+NOT IN INDEX: Workflows\Courses\Projects Workflow.md
+NOT IN INDEX: Workflows\Courses\Textbook Map Workflow.md
+NOT IN INDEX: Workflows\Courses\Textbook Workflow.md
+NOT IN INDEX: Workflows\Courses\Weekly Board Workflow.md
+NOT IN INDEX: Workflows\Courses\Weekly Workflow.md
+NOT IN INDEX: Workflows\Courses\Per Class\CSCI 4061 Workflow.md
+NOT IN INDEX: Workflows\Courses\Per Class\CSCI 4511W Workflow.md
+NOT IN INDEX: Workflows\Courses\Per Class\CSCI 5304 Workflow.md
+NOT IN INDEX: Workflows\Courses\Per Class\Technical Interview Workflow.md
+NOT IN INDEX: Workflows\Enrichment\Decoration.md
+NOT IN INDEX: Workflows\Enrichment\Human Content Writer.md
+NOT IN INDEX: Workflows\Enrichment\Plugins Usage.md
+NOT IN INDEX: Workflows\Enrichment\Researcher.md
+NOT IN INDEX: Workflows\Ingestion\PDF Extraction.md
+NOT IN INDEX: Workflows\Internship\Application Document Preparation 1.md
+NOT IN INDEX: Workflows\Internship\Application Document Preparation.md
+NOT IN INDEX: Workflows\Internship\Internship - Design Rationale.md
+NOT IN INDEX: Workflows\Internship\Internship Review System.md
+NOT IN INDEX: Workflows\Internship\Internship Tracking Workflow.md
+```
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\40_Project_Briefs'
+Get-ChildItem $root -Directory | ForEach-Object { "{0}: {1} md" -f $_.Name,(Get-ChildItem $_.FullName -Recurse -File -Filter *.md | Measure-Object).Count }
+$f = Get-ChildItem "$root\Internship" -Recurse -File -Filter *.md | Where-Object { (Get-Content $_.FullName -TotalCount 5) -match 'type: community' } | Select-Object -First 1
+$f.FullName.Substring($root.Length+1)
+Get-Content $f.FullName -TotalCount 14
+Write-Output '--- Graphify mention in 30_Order standards? ---'
+(Select-String -Path "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\*\*.md","D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\*\*.md" -Pattern 'graphify|community|rationale' -SimpleMatch -EA SilentlyContinue | Measure-Object).Count
+```
+```
+CausalOps: 47 md
+Internship: 1396 md
+Portfolio: 11 md
+TradingView: 1047 md
+Internship\[REDACTED].md
+---
+type: community
+members: 8
+---
+
+# _fake_http_get_only_interndock
+
+**Members:** 8 nodes
+
+## Members
+- [[End-to-end InternDock flows through matches()stage1_reject() and the     norma]] - rationale - tests/test_run_pipeline.py
+- [[Every other source returns empty (in its own real response shape) —     isolates]] - rationale - tests/test_run_pipeline.py
+- [[Same 'absence means off' convention as fetch_page_fn.]] - rationale - tests/test_run_pipeline.py
+- [[_fake_http_get_only_interndock()]] - code - tests/test_run_pipeline.py
+--- Graphify mention in 30_Order standards? ---
+0
+```
 
 ## You
 
@@ -481,7 +1456,10 @@ Once the forks finish, I'll merge their action tables into one master list of fi
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git rev-list --count HEAD && git log --reverse --format='%ad|%an|%s' --date=short | head -3 && git log -1 --format='%ad' --date=short && git log --format='%an' | sort | uniq -c | sort -rn | head && git log --format='%s' | grep -c '^Auto-sync' ; git log --format='%s' | grep -vc '^Auto-sync'; du -sh .git 2>/dev/null; which node python3 python jq 2>&1 | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git rev-list --count HEAD && git log --reverse --format='%ad|%an|%s' --date=short | head -3 && git log -1 --format='%ad' --date=short && git log --format='%an' | sort | uniq -c | sort -rn | head && git log --format='%s' | grep -c '^Auto-sync' ; git log --format='%s' | grep -vc '^Auto-sync'; du -sh .git 2>/dev/null; which node python3 python jq 2>&1 | head
+```
 ```
 1659
 2026-04-23|Anant Gupta|init: AI-powered Obsidian vault with full plugin stack
@@ -500,7 +1478,10 @@ Once the forks finish, I'll merge their action tables into one master list of fi
 /c/Users/anant/AppData/Local/Microsoft/WindowsApps/python
 /c/Users/anant/AppData/Local/Microsoft/WinGet/Links/jq
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git log --all --oneline | wc -l && git branch -a | head && git log --all --format='%ad' --date=short | sort | sed -n '1p;$p' && git count-objects -vH | head -4 && ls -a | head -40 && git remote -v`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git log --all --oneline | wc -l && git branch -a | head && git log --all --format='%ad' --date=short | sort | sed -n '1p;$p' && git count-objects -vH | head -4 && ls -a | head -40 && git remote -v
+```
 ```
 1668
 * infra/cross-laptop-sync
@@ -549,7 +1530,10 @@ wa1_template.tex
 origin	https://github.com/gupta-builds/Jarvis.git (fetch)
 origin	https://github.com/gupta-builds/Jarvis.git (push)
 ```
-- `Bash` -- `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cd "D:/_Anant/20_Progress/Documents/Jarvis" && git -c core.quotepath=false log --reverse --date=short --format='@@%h|%ad|%an|%s' --name-status -M > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/gitlog.txt"; wc -l "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/gitlog.txt"`
+- `Bash`
+```bash
+mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cd "D:/_Anant/20_Progress/Documents/Jarvis" && git -c core.quotepath=false log --reverse --date=short --format='@@%h|%ad|%an|%s' --name-status -M > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/gitlog.txt"; wc -l "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/gitlog.txt"
+```
 ```
 40360 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/gitlog.txt
 ```
@@ -612,7 +1596,10 @@ console.log('live files touched by a non-auto-sync human commit:', humanTouched)
 console.log('commits: manual', manual.length, 'bot', manual.filter(c => c.bot).length);
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node history.js`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node history.js
+```
 ```
 MONTHLY ADDS by area (top 8 each)
 2026-04 | 50_Archive:327  10_UMN:158  60_Claude/30_Source_Summaries:156  .obsidian:106  30_Order/Templates:33  20_Progress/UROP:29  60_Claude/60_Indexes:27  30_Order/Notes:24
@@ -628,12 +1615,15 @@ live files by first author kind { human: 5028, bot: 249, auto: 1750 }
 live files touched by a non-auto-sync human commit: 5424
 commits: manual 874 bot 229
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
 const m=require('./manual-commits.json').filter(c=>!c.bot);
 console.log(m.length);
 let prev='';
 for(const c of m){const mo=c.d.slice(0,7); if(mo!==prev){console.log('\n## '+mo);prev=mo;} console.log(c.d.slice(5)+' '+c.s.slice(0,105));}
-" | head -700`
+" | head -700
+```
 ```
 645
 
@@ -1355,7 +2345,10 @@ Object.entries(cl).sort((a, b) => b[1].n - a[1].n).slice(0, parseInt(process.arg
   console.log(`${String(c.n).padStart(5)} fm${String(Math.round(100 * c.fm / c.n)).padStart(3)}% med${String(med(c.words)).padStart(5)}w hum${String(Math.round(100 * c.human / c.n)).padStart(3)}% | ${k} | T[${top(c.types)}] S[${top(c.st)}] H[${top(c.heads, 1)}]`));
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node census.js 3 80 && echo ---NONMD--- && node -e "const n=require('./nonmd.json');console.log(Object.entries(n).sort((a,b)=>b[1]-a[1]).slice(0,25).map(([k,v])=>v+' '+k).join('\n'))"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node census.js 3 80 && echo ---NONMD--- && node -e "const n=require('./nonmd.json');console.log(Object.entries(n).sort((a,b)=>b[1]-a[1]).slice(0,25).map(([k,v])=>v+' '+k).join('\n'))"
+```
 ```
 md files 6786
  1396 fm100% med   23w hum100% | 60_Claude/40_Project_Briefs/Internship | T[code:743,document:306] S[-:1395,sprout:1] H[Connections:1307]
@@ -1465,12 +2458,15 @@ md files 6786
 10 .claude (none)
 10 40_Resources .lua
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -i "s#auto: /\^Auto-sync/.test(s)#auto: /^(Auto-sync|auto:)/i.test(s)#" history.js && grep -n "auto:" history.js | head -3 && node history.js | tail -6 && node census.js 3 1 >/dev/null && node -e "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -i "s#auto: /\^Auto-sync/.test(s)#auto: /^(Auto-sync|auto:)/i.test(s)#" history.js && grep -n "auto:" history.js | head -3 && node history.js | tail -6 && node census.js 3 1 >/dev/null && node -e "
 const r=require('./census.json');
 const c={};
 for(const x of r){const k=x.path.split('/').slice(0,2).join('/'); c[k]=(c[k]||0)+1;}
 console.log(Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([k,v])=>v+' '+k).join('\n'));
-"`
+"
+```
 ```
 14:    cur = { h, d, a, s, auto: /^(Auto-sync|auto:)/i.test(s), bot: /bot/.test(a) };
 24:  if (!files[p]) files[p] = { first: cur.d, last: cur.d, commits: 0, human: 0, bot: 0, auto: 0, deleted: false, from: null, firstBy: cur.auto ? 'auto' : cur.bot ? 'bot' : 'human' };
@@ -1687,7 +2683,10 @@ console.log('\nUNCLASSIFIED sample', un);
 console.log('total', out.length, 'with-any-issue', out.filter(o => o.issues).length);
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node classify.js`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node classify.js
+```
 ```
 FAMILY SUMMARY
    25  [REDACTED]         ai+human       fm 96% issues  8% med  416w manual  8%  STD[GAP]
@@ -1739,7 +2738,9 @@ FAMILY SUMMARY
 UNCLASSIFIED sample []
 total 6786 with-any-issue 5559
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
 const m=require('./manifest.json');
 const months=['2026-04','2026-05','2026-06','2026-07','2026-08','2026-09','2026-10'];
 const t={};
@@ -1751,7 +2752,8 @@ console.log('\nnotes whose family has NO standard:',g,'/',m.length,'('+Math.roun
 console.log('notes in purely machine-generated families:',mach,'('+Math.round(100*mach/m.length)+'%)');
 const cov=m.filter(o=>!/GAP|meta|violates|\?/.test(o.std)).length; console.log('notes in families that DO have a standard:',cov,'('+Math.round(100*cov/m.length)+'%)');
 const noFm=m.filter(o=>!o.hasFm).length; console.log('no frontmatter:',noFm);
-"`
+"
+```
 ```
 family                            04   05   06   07   08   09   10
 [REDACTED]             0    0   12    8    4    1    0
@@ -1805,12 +2807,12 @@ notes in purely machine-generated families: 4561 (67%)
 notes in families that DO have a standard: 1614 (24%)
 no frontmatter: 1278
 ```
-- `Agent` -- `{"subagent_type":"fork","name":"F1-courses","description":"Bulk-read coursework note families","prompt":"You are fork F1. Families: C1 to C9 (coursework: 40_Resources/UMN/Previous Classes, SAO, The Plan audit; 20_Progress/Degree/*; 10_Areas/Notes). Use scratchpad manifest.json (fields: path, family, type, status, words, heads, first, last, commits, human, issues) as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Read the 12 existing Standards in 30_Order/Standards/Courses plus their Templates and Workflows (incl. Per Class workflows, Course Production Workflow). (2) Read at least 40 real notes, stratified across every C-family, every course folder, oldest and newest, smallest/median/largest, manual-touched vs auto-only; use `git log --follow --format=\u0027%h %ad %s\u0027 -- \u003cpath\u003e` and `git log -p` on ~8 of them to see how they evolved. (3) For each distinct sub-kind of note actually written, record: heading skeleton, typical size, frontmatter keys actually used, who/what creates it (you, an AI session, a prompt, a template), and how closely it follows the existing Standard (list the Standard\u0027s required headings that are missing, and headings actually present that no Standard defines). (4) Check whether my path/name-based family assignment is wrong; give corrected regex-style rules. (5) Identify note kinds being written that NO course Standard covers (e.g. per-course MOCs, definitions, SAO/registration reference, previous-class archive notes, drills).\n\nWrite findings to scratchpad/F1-courses.md with sections: A. What is actually written (table by sub-kind with counts), B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions as an exact table [action: CREATE|EDIT|MERGE|DELETE|KEEP, target file under 30_Order, reason, source evidence notes], E. What could be a script, F. Open questions for the user. No em dashes. Return under 250 words: the 5 most important findings and the path of your file."}`
+- `Agent` -- ``{"subagent_type":"fork","name":"F1-courses","description":"Bulk-read coursework note families","prompt":"You are fork F1. Families: C1 to C9 (coursework: 40_Resources/UMN/Previous Classes, SAO, The Plan audit; 20_Progress/Degree/*; 10_Areas/Notes). Use scratchpad manifest.json (fields: path, family, type, status, words, heads, first, last, commits, human, issues) as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Read the 12 existing Standards in 30_Order/Standards/Courses plus their Templates and Workflows (incl. Per Class workflows, Course Production Workflow). (2) Read at least 40 real notes, stratified across every C-family, every course folder, oldest and newest, smallest/median/largest, manual-touched vs auto-only; use `git log --follow --format=\u0027%h %ad %s\u0027 -- \u003cpath\u003e` and `git log -p` on ~8 of them to see how they evolved. (3) For each distinct sub-kind of note actually written, record: heading skeleton, typical size, frontmatter keys actually used, who/what creates it (you, an AI session, a prompt, a template), and how closely it follows the existing Standard (list the Standard\u0027s required headings that are missing, and headings actually present that no Standard defines). (4) Check whether my path/name-based family assignment is wrong; give corrected regex-style rules. (5) Identify note kinds being written that NO course Standard covers (e.g. per-course MOCs, definitions, SAO/registration reference, previous-class archive notes, drills).\n\nWrite findings to scratchpad/F1-courses.md with sections: A. What is actually written (table by sub-kind with counts), B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions as an exact table [action: CREATE|EDIT|MERGE|DELETE|KEEP, target file under 30_Order, reason, source evidence notes], E. What could be a script, F. Open questions for the user. No em dashes. Return under 250 words: the 5 most important findings and the path of your file."}``
 - `Agent` -- `{"subagent_type":"fork","name":"F2-career","description":"Bulk-read internship and career families","prompt":"You are fork F2. Families: G4 (10_Areas/Career/Internships, 477 posting trackers), I1 (10_Areas/Career other + 20_Progress/Internship), I2 (60_Claude/30_Reviews/Internship Loop), I3 (20_Progress/Mentorship Program), P4 (20_Progress/Projects/Research STAR/interview stories), plus 20_Progress/Internship/Building System, Resumes, Cover Letters, Applying, Preparation, Career Fair. Use scratchpad manifest.json as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Read all 7 Internship Standards, 6 Internship workflows, Career templates in 30_Order, and the internship-related scripts/hooks (30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1, .claude agents career-operator, skill project-career, mentorship) to learn what is automated. (2) Read at least 40 real notes stratified across all these families (oldest/newest, bot vs human, tiny vs large), and use git log --follow / git log -p on ~8 of them, and inspect the \[REDACTED] bot\u0027 commits to see exactly what the bot writes. (3) For each sub-kind: heading skeleton, frontmatter keys actually used vs the Internship Tracker/Notes Standard, who creates it (bot, script, you, AI), whether the Standard is enforced by the guard hook, and which required fields are missing. Quantify how many of the 477 trackers violate the Tracker Standard and how (use manifest + sampling). (4) Identify what career/interview/mentorship content is written that has no Standard (STAR stories, mentorship meetings, contacts, career fair, outreach, LinkedIn posts). (5) Decide which Internship Standards are over-built (3,009-word Notes Standard) vs missing.\n\nWrite to scratchpad/F2-career.md with sections: A. What is actually written, B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions table [CREATE|EDIT|MERGE|DELETE|KEEP, target file, reason, evidence], E. What could be a script, F. Open questions. No em dashes. Return under 250 words with the 5 key findings and the file path."}`
 - `Agent` -- `{"subagent_type":"fork","name":"F3-machine-captures","description":"Bulk-read AI export and capture families","prompt":"You are fork F3. Families: G2 (20_Progress/AI/Claude Code, Cursor, Kiro, Codex, 1,314 notes), G3 (60_Claude/05_Clippings/AI Conversations, 715), G6 (copilot outputs), S2 (05_Clippings Web/other raw), S4 (00_Inbox), A5 (Session Logs prompts), plus the scripts that produce them (30_Order/System/claude-workflow, cursor-workflow, sync-workflow, jarvis-memory, jarvis-cli READMEs and key scripts, the .done sentinel files in 60_Claude). Use scratchpad manifest.json as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Read the READMEs and main scripts to learn exactly what writes each family, on what schedule, to which path, with what frontmatter (or none), and what redaction is done. (2) Read at least 40 real notes stratified across all subfolders/tools/months; for G2 determine what these notes actually ARE (config mirrors? inventories? session records?) and whether they carry value or are noise that pollutes search/Dataview/context. (3) Check 20_Progress/AI against the Write Contract (should machine output live under Execution?). (4) Evaluate the empty AI Loop stubs (Conversations, Knowledge Noting, Memory Management, Orchestration, Per Project Review, Review System, Tool Calls): from what the system really does (hooks, jarvis-memory, session continuity, export pipelines, Conversation Capture workflow, Review Standard, Tracking Standard), state what each AI Loop Standard should actually contain, grounded in existing behavior, plus which are really one document. (5) Recommend an exclusion/handling policy for machine families (index exclusion, frontmatter minimum, retention, location).\n\nWrite to scratchpad/F3-machine-captures.md with sections: A. What is actually written, B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions table [CREATE|EDIT|MERGE|DELETE|KEEP, target file, reason, evidence] including a concrete content outline for each AI Loop Standard, E. What could be a script, F. Open questions. No em dashes. Return under 250 words with the 5 key findings and the file path."}`
 - `Agent` -- `{"subagent_type":"fork","name":"F4-projects-graph","description":"Bulk-read project and graphify families","prompt":"You are fork F4. Families: G1 (60_Claude/40_Project_Briefs/Internship and TradingView graph nodes, 2,443), G5 (40_Resources/CS/Concepts repo README mirrors), P1/P2/P3 (20_Progress/Projects/CS, AI Use, Jarvis \u0026 The Plan, Extra, 60_Claude/40_Project_Briefs/CausalOps and Portfolio, 20_Progress/Internship/Building System plans). Use scratchpad manifest.json as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Determine how G1 is produced (find the graphify tool/config/script; read 07_AI_Information/How to Use Claude/What Graphify Does.md and the commit \u0027Prune 350 orphaned graphify duplicate notes\u0027; check git history for when it was generated and whether it is re-generated), whether the notes are useful, what they cost (search pollution, git size, Dataview), and whether they belong in git/vault at all or should be generated output outside the Brief folder or excluded. (2) Explain what G5 is, who made it (clip/ingest/clone), and whether it is a note or a mirror. (3) Read at least 40 real P-family notes stratified (oldest/newest, project docs vs concept notes vs plans), and use git log --follow on ~8. Record sub-kinds, heading skeletons, frontmatter actually used, how they compare to the Project Standard / Brief Standard / Action Standard / Concept Standard and the Brief to Progress and Brief to Action workflows. (4) Identify what project-level content is written that has no Standard (codebase maps, subsystem docs, build logs, architecture decision records, specs, runbooks, \u0027rationale\u0027 docs) and how the 20_Progress code files (.py/.ts/.xsd, 478 .done files) relate to notes.\n\nWrite to scratchpad/F4-projects-graph.md with sections: A. What is actually written, B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions table [CREATE|EDIT|MERGE|DELETE|KEEP, target file, reason, evidence], E. What could be a script, F. Open questions. No em dashes. Return under 250 words with the 5 key findings and the file path."}`
 - `Agent` -- `{"subagent_type":"fork","name":"F5-knowledge-pipeline","description":"Bulk-read knowledge pipeline families","prompt":"You are fork F5. Families: S1 (60_Claude/10_Source_Summaries, 142), S3 (20_Distilled_Notes, 26 incl. Sources - Plan and Synthesis), R1/R2/R3 (40_Resources CS, Capability, Obsidian, Plugins, UMN excluded), A1 (07_AI_Information operating docs), A3 (44_Indexes incl. Field OS and dashboards), A4 (30_Reviews: Weekly Synthesis, Monthly, Ops Reports, AI Tools weekly), A2 (Session Logs/log.md), plus 00_Dashboard.md and 60_Claude/Claude Board. Use scratchpad manifest.json as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Read the Standards Source Summary, Evergreen, Review, Tracking, Log, Brief, Action, Humanized Writing, PDF Extraction, MOC, plus workflows Capture to Summary, Summary to Distilled, Promotion, Enrichment, Output with Provenance, and the Templates they map to. (2) Read at least 40 real notes stratified across these families (oldest/newest, small/large). Check whether the capture-to-summary-to-distilled-to-promote pipeline actually happened: count how many distilled/promoted/output notes exist vs summaries vs clippings, trace 5 concrete notes through the pipeline using wikilinks/source fields, and quantify where it stalls. (3) Analyse Session Logs/log.md (41k words): is the Log Standard followed, is it still usable, does it need rotation? (4) List the dashboards/indexes (78 dashboard-type notes, Field OS, Bases) and judge whether any Standard defines them. (5) Find which 07_AI_Information docs duplicate each other or CLAUDE.md/AGENTS.md/HUMAN_WRITING/.claude/rules (Vault Map, Vault Rules, How to Write, Why We Write, Agent Operating Guide, Claude OS, Jarvis Writing and Formatting...) and propose a single-source-of-truth structure.\n\nWrite to scratchpad/F5-knowledge-pipeline.md with sections: A. What is actually written, B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions table [CREATE|EDIT|MERGE|DELETE|KEEP, target file, reason, evidence], E. What could be a script, F. Open questions. No em dashes. Return under 250 words with the 5 key findings and the file path."}`
-- `Agent` -- `{"subagent_type":"fork","name":"F6-life-tooling","description":"Bulk-read life, tooling, root, 30_Order meta","prompt":"You are fork F6. Families: L1/L2/L3 (10_Areas/Life Enumerate daily notes, Plans, Habits, Books, Truths of Life, Tracking; 10_Areas/AI, Trading, Excalidraw, Summer Grind, Tracker/), X1/X2 (root contract files and root-level violations: __pycache__, blobs, copilot, Tracker, wa1_template.tex, .opencode, .stfolder), T1/T2 (.claude commands/skills/agents/rules/context, .agents, .codex, .cursor, .kiro, .firecrawl), O4 (30_Order/System), and the 30_Order meta layer itself (O1/O2/O3: Templates and the frontmatter schema). Use scratchpad manifest.json as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Answer \u0027how and where do I actually work\u0027: from the manifest and git timeline, show by week/month where daily activity concentrates (use `git log --name-only` style counts on non-auto-sync commits and on files whose body was edited), which daily/weekly/review notes exist and are filled (read at least 12 Enumerate daily/weekly notes: are the Better Today sections used? are checkboxes completed?), and which templates are actually instantiated in real notes (for each of the 56 templates under 30_Order/Templates, count real notes whose frontmatter/heading skeleton matches; identify never-used templates). (2) Read the Daily Workflow Standard, Plan Review Cadence, Log Standard, and the startday/closeday skills; compare to what daily notes actually contain. (3) Inventory .claude commands/skills/agents/rules/context vs AGENTS.md/CLAUDE.md duplication, dead references, and which of them depend on a Standard or Template that does not exist (e.g. /lint-claude-layer, 35_Outputs, 50_Reviews). Read the hooks in 30_Order/System/claude-workflow/hooks. (4) List every root-level violation and every runtime-state file living in 30_Order/System, with a keep/move/ignore recommendation. (5) Propose one controlled vocabulary for type/status/other properties that fits the notes actually written (use the manifest type/status census), and a single frontmatter spec per family.\n\nWrite to scratchpad/F6-life-tooling.md with sections: A. What is actually written and where you work, B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions table [CREATE|EDIT|MERGE|DELETE|KEEP, target file, reason, evidence], E. What could be a script, F. Open questions. No em dashes. Return under 250 words with the 5 key findings and the file path."}`
+- `Agent` -- ``{"subagent_type":"fork","name":"F6-life-tooling","description":"Bulk-read life, tooling, root, 30_Order meta","prompt":"You are fork F6. Families: L1/L2/L3 (10_Areas/Life Enumerate daily notes, Plans, Habits, Books, Truths of Life, Tracking; 10_Areas/AI, Trading, Excalidraw, Summer Grind, Tracker/), X1/X2 (root contract files and root-level violations: __pycache__, blobs, copilot, Tracker, wa1_template.tex, .opencode, .stfolder), T1/T2 (.claude commands/skills/agents/rules/context, .agents, .codex, .cursor, .kiro, .firecrawl), O4 (30_Order/System), and the 30_Order meta layer itself (O1/O2/O3: Templates and the frontmatter schema). Use scratchpad manifest.json as the file list. READ-ONLY on the vault; write ONLY to the scratchpad.\n\nDo: (1) Answer \u0027how and where do I actually work\u0027: from the manifest and git timeline, show by week/month where daily activity concentrates (use `git log --name-only` style counts on non-auto-sync commits and on files whose body was edited), which daily/weekly/review notes exist and are filled (read at least 12 Enumerate daily/weekly notes: are the Better Today sections used? are checkboxes completed?), and which templates are actually instantiated in real notes (for each of the 56 templates under 30_Order/Templates, count real notes whose frontmatter/heading skeleton matches; identify never-used templates). (2) Read the Daily Workflow Standard, Plan Review Cadence, Log Standard, and the startday/closeday skills; compare to what daily notes actually contain. (3) Inventory .claude commands/skills/agents/rules/context vs AGENTS.md/CLAUDE.md duplication, dead references, and which of them depend on a Standard or Template that does not exist (e.g. /lint-claude-layer, 35_Outputs, 50_Reviews). Read the hooks in 30_Order/System/claude-workflow/hooks. (4) List every root-level violation and every runtime-state file living in 30_Order/System, with a keep/move/ignore recommendation. (5) Propose one controlled vocabulary for type/status/other properties that fits the notes actually written (use the manifest type/status census), and a single frontmatter spec per family.\n\nWrite to scratchpad/F6-life-tooling.md with sections: A. What is actually written and where you work, B. Rules followed vs ignored, C. Reclassification rules, D. Proposed actions table [CREATE|EDIT|MERGE|DELETE|KEEP, target file, reason, evidence], E. What could be a script, F. Open questions. No em dashes. Return under 250 words with the 5 key findings and the file path."}``
 
 ## You
 
@@ -1903,7 +2905,10 @@ While waiting, one correction to my earlier numbers. F3 found that 283 of the 71
 ### Tool Calls
 
 - `ToolSearch` -- `{"query":"select:SendMessage","max_results":1}`
-- `Bash` -- `ls -la "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/" | awk '{print $5, $9}'`
+- `Bash`
+```bash
+ls -la "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/" | awk '{print $5, $9}'
+```
 ```
 0 .
 0 ..
@@ -2038,7 +3043,10 @@ Still running: F2 (career), F4 (projects and graphify), F5 (knowledge pipeline) 
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short -- 30_Order | head -30 && echo --- && git log -3 --format='%h %ad %s' --date=format:'%H:%M' && echo --- && find 30_Order -newermt "$(date -d '-90 minutes' '+%Y-%m-%d %H:%M')" -type f 2>/dev/null | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short -- 30_Order | head -30 && echo --- && git log -3 --format='%h %ad %s' --date=format:'%H:%M' && echo --- && find 30_Order -newermt "$(date -d '-90 minutes' '+%Y-%m-%d %H:%M')" -type f 2>/dev/null | head -20
+```
 ```
 ---
 118a66df 18:03 Auto-sync: 2026-10-15 18:03,  36 files changed, 938 insertions(+), 44 deletions(-)
@@ -2271,7 +3279,10 @@ Tell me where the plan and scripts should live once you've reviewed them. `30_Or
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && wc -c F*.md && for f in F1-courses F2-career F3-machine-captures F4-projects-graph F5-knowledge-pipeline F6-life-tooling; do echo "== $f"; grep -n '^## ' $f.md; done`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && wc -c F*.md && for f in F1-courses F2-career F3-machine-captures F4-projects-graph F5-knowledge-pipeline F6-life-tooling; do echo "== $f"; grep -n '^## ' $f.md; done
+```
 ```
  20577 F1-courses.md
  21656 F2-career.md
@@ -2325,7 +3336,10 @@ Tell me where the plan and scripts should live once you've reviewed them. `30_Or
 126:## F. Open questions for the user
 135:## Controlled vocabulary (proposal)
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F1" && sed -n '73,$p' F1-courses.md && echo "######## F2" && sed -n '75,$p' F2-career.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F1" && sed -n '73,$p' F1-courses.md && echo "######## F2" && sed -n '75,$p' F2-career.md
+```
 ```
 ######## F1
 ## D. Proposed actions
@@ -2424,7 +3438,10 @@ Tell me where the plan and scripts should live once you've reviewed them. `30_Or
 6. Mentor Details'26 describes a different mentor (SymphonyAI) from the Ahnaf program that every other mentorship note covers. Is there a second mentorship, or a new fall match?
 7. 30_Order is changing underneath this audit (working tree shows Templates/AI Use deleted, Templates/AI Toolkit and Workflows/Toolkit added, Career templates renamed to "List Monthly Log.md" and "Tracking.md", AI Loop gained Graphify Notes.md and Logs.md). Pipeline links to `[[List Monthly Log Template]]` and `[[Tracking Template]]` will break unless the rename ripples. Which session owns this?
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F3" && sed -n '90,$p' F3-machine-captures.md && echo "######## F4" && sed -n '98,$p' F4-projects-graph.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F3" && sed -n '90,$p' F3-machine-captures.md && echo "######## F4" && sed -n '98,$p' F4-projects-graph.md
+```
 ```
 ######## F3
 ## D. Proposed actions
@@ -2559,7 +3576,10 @@ Common shape for all: frontmatter `type: evergreen`, `status: sprout`; sections 
 4. Are the October dotfile snapshots (.pre-acer, .bak-*, yazi tree) wanted in git, or should they live outside the vault?
 5. Which note types are meant to be `concept` vs `project`? Today the type is chosen by which template was nearest, not by meaning.
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F5" && sed -n '99,$p' F5-knowledge-pipeline.md && echo "######## F6" && sed -n '93,$p' F6-life-tooling.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F5" && sed -n '99,$p' F5-knowledge-pipeline.md && echo "######## F6" && sed -n '93,$p' F6-life-tooling.md
+```
 ```
 ######## F5
 ## D. Proposed actions
@@ -2683,8 +3703,11 @@ Human or AI authored: `input`, `evergreen`, `concept`, `class`, `project`, `plan
 | O4 source docs | system | tree | `system_kind: spec or runbook` | runtime state has no frontmatter and lives outside the vault tree |
 | G* machine | generated | n/a | `generator`, `gen_kind`, `review_state`, `source` | excluded from AI default context |
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -n '48,72p' F1-courses.md && echo "#### F2" && sed -n '60,74p' F2-career.md && echo "#### F3" && sed -n '75,89p' F3-machine-captures.md && echo "#### F4" && sed -n '86,97p' F4-projects-graph.md && echo "#### F5" && sed -n '74,89p' F5-knowledge-pipeline.md && echo "#### F6" && sed -n '78,92p' F6-life-tooling.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -n '48,72p' F1-courses.md && echo "#### F2" && sed -n '60,74p' F2-career.md && echo "#### F3" && sed -n '75,89p' F3-machine-captures.md && echo "#### F4" && sed -n '86,97p' F4-projects-graph.md && echo "#### F5" && sed -n '74,89p' F5-knowledge-pipeline.md && echo "#### F6" && sed -n '78,92p' F6-life-tooling.md
 ```
+````
 ## C. Reclassification rules (fix to classify.js courseKind)
 
 My rule fails because it keys on filename only. Use input_kind first, then type, then folder, then name.
@@ -2787,8 +3810,10 @@ L1 (31 files) splits four ways, and the rest of Enumerate is not a daily family:
 - Add **X2** members that are not notes: `blobs/` (2 hash files, tracked since 2026-09-29), `copilot/` (54 tracked files, since 2026-09-19; Copilot plugin config, not vault content), `.firecrawl/` (3 clipped pages, belong in 05_Clippings/Web), `wa1_template.tex` (coursework artifact, tracked since 2026-10-02), `.stfolder` (Syncthing marker, tracked), `.opencode/` (32 MB incl. node_modules; tool state), `__pycache__/` (ignored).
 - T1 splits to **T1a-skill** (SKILL.md/reference.md), **T1b-command**, **T1c-agent**, **T1d-rule-context** (the 7 empty files), **T1e-tool-doc** (.claude/README, GITHUB_WORKFLOW). Mirrors in `.agents/skills`, `.opencode/skills`, `copilot/skills`, `copilot/copilot-custom-prompts` -> **T3-tool-mirror** (exclude from schema lint; Claude skills carry their own `name/description` frontmatter and must not be given vault properties).
 - O4 splits into source (scripts, hooks, READMEs, `schema.sql`, `registry.py`, `server.py`, `package.json`, `claude_desktop_config.read-first.example.json`) and **O4r-runtime-state** (see D). `Sync Alert Banner.md` is script-generated (0 bytes at the first scan, 426 bytes later), so it is runtime state embedded in the Dashboard, not an unwritten Standard; the earlier "16 empty files" count should drop to 15.
-```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF'
+````
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF'
 const fs=require('fs');
 // history.js: follow renames (carry first date and counters from old path)
 let h=fs.readFileSync('history.js','utf8');
@@ -2800,7 +3825,8 @@ c=c.replace("let t; try { t = fs.readFileSync(p, 'utf8'); } catch { continue; }"
 c=c.replace("path: rel, bytes: t.length,","path: rel, bom, ik: fm.input_kind || '', course: fm.course || '', bytes: t.length,");
 fs.writeFileSync('census.js',c);
 EOF
-node history.js | tail -5 && node census.js 3 1 | head -2 && node -e "const r=require('./census.json');console.log('BOM files',r.filter(x=>x.bom).length,'no-fm now',r.filter(x=>!x.hasFm).length,'with input_kind',r.filter(x=>x.ik).length)"`
+node history.js | tail -5 && node census.js 3 1 | head -2 && node -e "const r=require('./census.json');console.log('BOM files',r.filter(x=>x.bom).length,'no-fm now',r.filter(x=>!x.hasFm).length,'with input_kind',r.filter(x=>x.ik).length)"
+```
 ```
 Paths ever tracked: 16421 live: 7027 deleted/moved: 9394
 live files by first author kind { human: 1410, auto: 5278, bot: 339 }
@@ -3113,7 +4139,10 @@ console.log('FAMILY ACTIONS', byFA);
 console.log('unclassified', out.filter(o => o.family === 'Z-unclassified').slice(0, 10).map(o => o.path));
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node classify2.js`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node classify2.js
+```
 ```
 families 84 files 6786
  2436 G1-graphify-node               machine       EXCLUDE       iss  0% med   24w
@@ -3223,7 +4252,9 @@ FAMILY ACTIONS {
 }
 unclassified []
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cat > actions.js <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cat > actions.js <<'EOF'
 const fs=require('fs');
 const files={F1:'F1-courses.md',F2:'F2-career.md',F3:'F3-machine-captures.md',F4:'F4-projects-graph.md',F5:'F5-knowledge-pipeline.md',F6:'F6-life-tooling.md'};
 const rows=[];
@@ -3261,7 +4292,8 @@ const by={},by2={};for(const r of rows){by[r.phase]=(by[r.phase]||0)+1; by2[r.ac
 console.log('total actions',rows.length);console.log(by);console.log(by2);
 console.log('needs approval',rows.filter(r=>r.gate==='needs-user-approval').length);
 EOF
-node actions.js`
+node actions.js
+```
 ```
 total actions 125
 {
@@ -3478,7 +4510,84 @@ I'll run the rename and delete requests myself with link-aware moves after wave 
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/HUMAN_WRITING.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/07_AI_Information/Jarvis Writing and Formatting.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Courses/Concept Standard.md`
-- `PowerShell` -- `{"command":"$o=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\u0027\nGet-ChildItem $o -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch \u0027\\\\System\\\\\u0027 } | ForEach-Object {\n  $rel=$_.FullName.Substring($o.Length+1)\n  \"{0,6} {1:MM-dd HH:mm} {2}\" -f $_.Length,$_.LastWriteTime,$rel\n} | Sort-Object { $_.Substring(7,11) } -Descending | Select-Object -First 45\nWrite-Output \u0027--- EMPTY NOW ---\u0027\nGet-ChildItem $o -Recurse -File -Filter *.md | Where-Object { $_.Length -eq 0 } | ForEach-Object { $_.FullName.Substring($o.Length+1) }\nWrite-Output \u0027--- COUNTS ---\u0027\nforeach($d in \u0027Standards\u0027,\u0027Templates\u0027,\u0027Workflows\u0027){ \"{0}: {1}\" -f $d,(Get-ChildItem \"$o\\$d\" -Recurse -File -Filter *.md | Measure-Object).Count }","description":"List recently changed and empty files in 30_Order"}`
+- `PowerShell`
+```powershell
+$o='D:\_Anant\20_Progress\Documents\Jarvis\30_Order'
+Get-ChildItem $o -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch '\\System\\' } | ForEach-Object {
+  $rel=$_.FullName.Substring($o.Length+1)
+  "{0,6} {1:MM-dd HH:mm} {2}" -f $_.Length,$_.LastWriteTime,$rel
+} | Sort-Object { $_.Substring(7,11) } -Descending | Select-Object -First 45
+Write-Output '--- EMPTY NOW ---'
+Get-ChildItem $o -Recurse -File -Filter *.md | Where-Object { $_.Length -eq 0 } | ForEach-Object { $_.FullName.Substring($o.Length+1) }
+Write-Output '--- COUNTS ---'
+foreach($d in 'Standards','Templates','Workflows'){ "{0}: {1}" -f $d,(Get-ChildItem "$o\$d" -Recurse -File -Filter *.md | Measure-Object).Count }
+```
+```
+   164 12-25 16:36 Templates\Frontmatter\For Everything.md
+    91 12-23 20:03 Templates\Frontmatter\For Brainstorm.md
+   128 12-23 20:01 Templates\Frontmatter\For Thoughts.md
+  4043 10-15 18:42 Standards\Project Standard.md
+  5009 10-15 18:42 Standards\Enrich\Evergreen Standard.md
+  3789 10-15 18:40 00_How This Folder Works.md
+  3940 10-15 18:40 Workflows\00_Workflows Index.md
+  1453 10-15 18:40 Workflows\Toolkit\Maintaining Logs.md
+  1204 10-15 18:40 Templates\AI Toolkit\Tool Logs.md
+  3833 10-15 18:40 Standards\AI Loop\Logs.md
+  1672 10-15 18:40 Workflows\Toolkit\Tools Tracking.md
+   888 10-15 18:39 Templates\AI Toolkit\Graphify Notes.md
+  1602 10-15 18:39 Workflows\Toolkit\Graphify Folders.md
+  3274 10-15 18:39 Standards\AI Loop\Graphify Notes.md
+  3771 10-15 18:38 Standards\AI Loop\Per Project Review.md
+  4177 10-15 18:38 Standards\AI Loop\Review System.md
+  2687 10-15 18:38 Standards\AI Loop\Tool Calls.md
+   704 10-15 18:37 Templates\AI Toolkit\AI Conversation.md
+  3345 10-15 18:37 Standards\AI Loop\Knowledge Noting.md
+  3797 10-15 18:37 Standards\AI Loop\Conversations.md
+  2450 10-15 18:37 Workflows\Toolkit\Conversation Capture.md
+  4197 10-15 18:36 Standards\AI Loop\Memory Management.md
+  4008 10-15 18:36 Standards\AI Loop\Orchestration.md
+     0 10-15 17:41 Templates\AI Toolkit\Write Logs.md
+     0 10-15 17:40 Standards\Enrich\Resources.md
+     0 10-15 17:39 Workflows\Toolkit\Files Tracking.md
+     0 10-15 17:38 Templates\Career\Tracking.md
+     0 10-15 17:37 Templates\Frontmatter\For Dashboards.md
+     0 10-15 17:36 Workflows\Ingestion\Conversations Loop.md
+  3759 10-14 23:03 Workflows\Courses\Per Class\Technical Interview Workflow.md
+  1760 10-12 11:03 Templates\Capability\MOC Template.md
+ 15404 10-05 14:14 Workflows\Courses\Per Class\CSCI 4061 Workflow.md
+ 21278 10-04 14:57 Standards\Internship\Internship Notes Standard.md
+   914 10-02 14:33 Templates\Classes\Concept Template.md
+  8776 10-02 14:33 Standards\Courses\Concept Standard.md
+  1866 10-02 00:03 Templates\Enumerate\Better Today.md
+  1439 10-01 23:03 Templates\Classes\Board or Main Template.md
+   827 10-01 23:03 Templates\Classes\Exam Sheet Template.md
+   739 10-01 23:03 Templates\Classes\Homework Template.md
+   937 10-01 23:03 Templates\Classes\Textbook Map Template.md
+   728 10-01 23:03 Templates\Classes\Preparation Template.md
+   987 10-01 23:03 Templates\Classes\Project Template.md
+   882 10-01 23:03 Templates\Classes\Textbook Template.md
+  1620 10-01 23:03 Templates\Classes\Week Template.md
+   810 10-01 23:03 Templates\Classes\Weekly Board Template.md
+--- EMPTY NOW ---
+Standards\Decoration Standard.md
+Standards\Editing Standard.md
+Standards\Enrich\Human Writing Standard.md
+Standards\Enrich\Plugins Usage Standard.md
+Standards\Enrich\Resources.md
+Templates\AI Toolkit\Write Logs.md
+Templates\Career\Tracking.md
+Templates\Frontmatter\For Dashboards.md
+Workflows\Enrichment\Decoration.md
+Workflows\Enrichment\Human Content Writer.md
+Workflows\Enrichment\Plugins Usage.md
+Workflows\Enrichment\Researcher.md
+Workflows\Ingestion\Conversations Loop.md
+Workflows\Toolkit\Files Tracking.md
+--- COUNTS ---
+Standards: 45
+Templates: 56
+Workflows: 44
+```
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/AI Loop/Conversations.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Courses/Concept Workflow.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Classes/Concept Template.md`
@@ -3489,8 +4598,11 @@ I'll run the rename and delete requests myself with link-aware moves after wave 
 - `Grep` -- pattern `Decoration|Researcher|Human Content|Plugins Usage|Editing` path `D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/07_AI_Information`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Enrichment/Enrichment.md`
 - `Grep` -- pattern `Decoration|Researcher|Human Content|Plugins Usage|Editing Standard` path `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git log --diff-filter=A --format='%h %ad %s' --date=short -- "30_Order/Standards/Decoration Standard.md" "30_Order/Workflows/Enrichment/Researcher.md" "30_Order/Standards/Enrich/Human Writing Standard.md" | head; echo ---; sed -n '95,135p' "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-15 Bulk commit with manual and auto sync changes.md" | cut -c1-160`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git log --diff-filter=A --format='%h %ad %s' --date=short -- "30_Order/Standards/Decoration Standard.md" "30_Order/Workflows/Enrichment/Researcher.md" "30_Order/Standards/Enrich/Human Writing Standard.md" | head; echo ---; sed -n '95,135p' "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-15 Bulk commit with manual and auto sync changes.md" | cut -c1-160
 ```
+````
 b4981c6e 2026-09-19 Build 7: catch up Jarvis git history to live vault state on the Acer
 ---
 ?? "20_Progress/AI/Claude Code/internship-research-loop/.claude/skills/generating-cover-letter-docx/"
@@ -3534,13 +4646,48 @@ b4981c6e 2026-09-19 Build 7: catch up Jarvis git history to live vault state on 
 ```
 - `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- .gitignore ---"; cat .gitignore 2>/dev/null; echo "--- .tmp.driveupload ---"; ls -la .t
 ```
-```
+````
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/AI Loop/Logs.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/AI Loop/Per Project Review.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Toolkit/Conversation Capture.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Toolkit/Tools Tracking.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/AI Toolkit/Tool Logs.md`
-- `PowerShell` -- `{"command":"$o=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\u0027\nGet-ChildItem \"$o\\Career\",\"$o\\Frontmatter\",\"$o\\AI Toolkit\",\"$o\\Capability\" -File | ForEach-Object { \"{0,6} {1}\" -f $_.Length, $_.FullName.Substring($o.Length+1) }","description":"List Career, Frontmatter, AI Toolkit, Capability templates with sizes"}`
+- `PowerShell`
+```powershell
+$o='D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates'
+Get-ChildItem "$o\Career","$o\Frontmatter","$o\AI Toolkit","$o\Capability" -File | ForEach-Object { "{0,6} {1}" -f $_.Length, $_.FullName.Substring($o.Length+1) }
+```
+```
+   962 Career\List Monthly Log.md
+  2160 Career\Plan Template.md
+     0 Career\Tracking.md
+    68 Frontmatter\For AI.md
+    91 Frontmatter\For Brainstorm.md
+    90 Frontmatter\For Classes.md
+     0 Frontmatter\For Dashboards.md
+  2227 Frontmatter\For Evergreen.md
+   164 Frontmatter\For Everything.md
+   104 Frontmatter\For Inputs.md
+  1226 Frontmatter\For Progress.md
+   128 Frontmatter\For Thoughts.md
+   452 Frontmatter\For Transcript.md
+   704 AI Toolkit\AI Conversation.md
+  1306 AI Toolkit\AI Monthly Review Template.md
+  1024 AI Toolkit\AI Weekly Review Template.md
+  1924 AI Toolkit\Clipping Distill Template.md
+  3489 AI Toolkit\Deep Dive Template.md
+   888 AI Toolkit\Graphify Notes.md
+  1204 AI Toolkit\Tool Logs.md
+     0 AI Toolkit\Write Logs.md
+   923 Capability\Action Template.md
+  1655 Capability\Brief Template.md
+   322 Capability\Depth Ladder Template.md
+   330 Capability\Field OS Template.md
+  1760 Capability\MOC Template.md
+   250 Capability\Output Template.md
+   299 Capability\Question Bank Template.md
+   301 Capability\Synthesis Template.md
+```
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Frontmatter Standard.md`
 ```
 ---
@@ -3654,7 +4801,7 @@ None. A policy has no instance. Applied in [[Note Kit Standard]] and checked by 
 
 ```
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Note Kit Standard.md`
-```
+````
 ---
 type: system
 status: sprout
@@ -3760,7 +4907,7 @@ No two files in `30_Order` share a name, because wikilinks resolve by name. `X S
 ## Gold Standard Example
 None. A policy has no instance. The first family Standards written under it are the ones in [[Note Type Registry]] marked `built`.
 
-```
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Conformance Standard.md`
 ```
 ---
@@ -3816,12 +4963,15 @@ A `status: tree` note is not exempt. The rule in CLAUDE.md still holds: propose 
 None. A policy has no instance. The first measured run is recorded in the session log when [[Vault Lint]] ships.
 
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
 const m=require('./manifest2.json');
 const pick=(f,pred)=>m.filter(o=>o.family===f&&(!pred||pred(o)));
 const g=pick('G1-graphify-node',o=>o.type==='code'&&o.words>10&&o.words<60)[0];console.log(g.path,g.keys);
 const a=pick('G1-graphify-artifact')[0];console.log(a&&a.path);
-" && head -c 700 "D:/_Anant/20_Progress/Documents/Jarvis/$(node -e "const m=require('./manifest2.json');console.log(m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60)[0].path)")"`
+" && head -c 700 "D:/_Anant/20_Progress/Documents/Jarvis/$(node -e "const m=require('./manifest2.json');console.log(m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60)[0].path)")"
+```
 ```
 60_Claude/40_Project_Briefs/Internship/.increase_indent().md source_file,type,community,location,tags
 60_Claude/40_Project_Briefs/TradingView/GRAPH_REPORT.md
@@ -3843,18 +4993,21 @@ tags:
 
 #graphify/code #graphify/EXTRACTED #community/vault_root
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
 const m=require('./manifest2.json');
 const c=m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60&&/^[A-Za-z]/.test(o.path.split('/').pop())&&o.path.includes('TradingView'))[0];
 console.log(c.path);
 const q=m.filter(o=>o.family==='G1-graphify-node'&&o.type==='community'&&/^[A-Za-z]/.test(o.path.split('/').pop())&&o.path.includes('TradingView'))[0];console.log(q.path);
-"`
+"
+```
 ```
 60_Claude/40_Project_Briefs/TradingView/Nodes/base.py.md
 60_Claude/40_Project_Briefs/TradingView/Communities/Adjusted Close Positivity Rule.md
 ```
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Generated Output Standard.md`
-```
+````
 ---
 type: system
 status: sprout
@@ -3917,9 +5070,9 @@ Fix the generator or its config, then regenerate. Never hand-patch a generated n
 ## Gold Standard Example
 [[60_Claude/40_Project_Briefs/TradingView/Nodes/base.py]]: a graphify node with the tool's own keys. It still carries the old `type: code` and shows what the Legacy Shapes table rewrites.
 
-```
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/System Component Standard.md`
-```
+````
 ---
 type: system
 status: sprout
@@ -3986,7 +5139,7 @@ How to turn it off: unregister the task, remove the hook, delete the files in on
 ## Gold Standard Example
 None yet. The first component record written to this Standard should be named here.
 
-```
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Editing Standard.md`
 ```
 ---
@@ -4039,7 +5192,7 @@ None. A policy has no instance.
 + use a link-aware move (the Obsidian CLI move or the vault move tool), not a text replace.
 ```
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/System/Standard Template.md`
-```
+````
 ---
 type: system
 status: sprout
@@ -4081,7 +5234,7 @@ notes: []
 ## Gold Standard Example
 <!-- A wikilink to an existing note and one sentence on why it qualifies. -->
 
-```
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/System/Workflow Template.md`
 ```
 ---
@@ -4191,7 +5344,7 @@ Do not write a Standard for a family with no notes, repeat a rule from another S
 
 ```
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
-```
+````
 #!/usr/bin/env node
 // Vault Lint: measures how many notes fit their Standard (see 30_Order/Standards/Conformance Standard.md).
 // Usage: node vault-lint.js [--root DIR] [--path PREFIX] [--family ID] [--kit] [--specs] [--json FILE] [--list N]
@@ -4595,7 +5748,7 @@ console.log('\nTop failure reasons:'); Object.entries(reasons).sort((a, b) => b[
 if (LIST_N) { console.log(`\nFirst ${LIST_N} failing notes:`); results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}`)); }
 if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ fit, total: results.length, results }, null, 1));
 
-```
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.config.json`
 ```
 {
@@ -4618,7 +5771,10 @@ if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ fit, total: results.le
 }
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --specs 2>&1 | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --specs 2>&1 | head -60
+```
 ```
 Specs loaded: 5 from 3 Standards. Vocabulary parsed: true
 ERROR  30_Order/Standards/AI Loop/Graphify Notes.md | 30_Order/Templates/AI Toolkit/Graphify Notes.md  duplicate file name (wikilinks cannot tell them apart)
@@ -4684,17 +5840,20 @@ WARN  30_Order/Standards/Courses/Textbook Standard.md  no system_kind (legacy St
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 ```diff
 -       for (const s of specs) {
-        for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
+-         for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
 +       let pair = specs;
-      if (specs.length > 1) {
-        const tk = tn.keys.system_kind ? tn.keys.system_kind.raw : null;
-        pair = specs.filter((s) => s.match && s.match.kind === tk);
-        if (pair.length > 1) pair = pair.filter((s) => !Object.keys(s.match.where || {}).length);
-      }
-      for (const s of pair) {
-        for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
++       if (specs.length > 1) {
++         const tk = tn.keys.system_kind ? tn.keys.system_kind.raw : null;
++         pair = specs.filter((s) => s.match && s.match.kind === tk);
++         if (pair.length > 1) pair = pair.filter((s) => !Object.keys(s.match.where || {}).length);
++       }
++       for (const s of pair) {
++         for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --specs --only System 2>&1 | head -20; echo ======; node vault-lint.js --path 30_Order/Standards/ 2>&1 | head -40`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --specs --only System 2>&1 | head -20; echo ======; node vault-lint.js --path 30_Order/Standards/ 2>&1 | head -40
+```
 ```
 Specs loaded: 5 from 3 Standards. Vocabulary parsed: true
 WARN  30_Order/Standards/AI Loop/Review System.md  no system_kind (legacy Standard)
@@ -4725,7 +5884,10 @@ Top failure reasons:
       3  3:dead-frontmatter-links
       2  2:empty-heading
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/Standards/ --family family-standard --list 5 2>&1 | tail -6; node vault-lint.js --path 30_Order/Standards/ --family policy-standard --list 5 2>&1 | tail -6`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/Standards/ --family family-standard --list 5 2>&1 | tail -6; node vault-lint.js --path 30_Order/Standards/ --family policy-standard --list 5 2>&1 | tail -6
+```
 ```
       2  2:empty-heading
       1  3:dead-body-links
@@ -4743,9 +5905,9 @@ First 5 failing notes:
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 ```diff
 -       const sb = sectionBody(sc, hs, idx).join('\n').replace(/<!--[\s\S]*?-->/g, '').replace(/%%[\s\S]*?%%/g, '').trim();
-      if (!sb) add(2, 'empty-heading:' + w);
+-       if (!sb) add(2, 'empty-heading:' + w);
 +       const sb = sectionBody(sc, hs, idx).map((l) => (l === null ? 'CODE' : l)).join('\n').replace(/<!--[\s\S]*?-->/g, '').replace(/%%[\s\S]*?%%/g, '').trim();
-      if (!sb) add(2, 'empty-heading:' + w);
++       if (!sb) add(2, 'empty-heading:' + w);
 ```
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 ```diff
@@ -4755,34 +5917,34 @@ First 5 failing notes:
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/System Component Standard.md`
 ```diff
 - used_by:
-  - "[[Building a Note Kit]]"
-gold_standard: none
+-   - "[[Building a Note Kit]]"
+- gold_standard: none
 + used_by: []
-gold_standard: none
++ gold_standard: none
 ```
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Note Kit Standard.md`
-```diff
+````diff
 - ```json
-{
-  "family": "workflow",
+- {
+-   "family": "workflow",
 + ```json
-{
-  "family": "system-guide",
-  "tier": 2,
-  "match": {"type": "system", "kind": "guide", "path": "^30_Order/", "where": {}, "where_not": {}},
-  "status": ["seed", "sprout", "tree", "archived"],
-  "required_keys": ["type", "status", "created", "updated", "tags", "system_kind"],
-  "key_types": {"created": "date", "updated": "date", "tags": "list"},
-  "headings": [],
-  "optional_headings": []
-}
-```
-```json
-{
-  "family": "workflow",
-```
++ {
++   "family": "system-guide",
++   "tier": 2,
++   "match": {"type": "system", "kind": "guide", "path": "^30_Order/", "where": {}, "where_not": {}},
++   "status": ["seed", "sprout", "tree", "archived"],
++   "required_keys": ["type", "status", "created", "updated", "tags", "system_kind"],
++   "key_types": {"created": "date", "updated": "date", "tags": "list"},
++   "headings": [],
++   "optional_headings": []
++ }
++ ```
++ ```json
++ {
++   "family": "workflow",
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/Vault Lint.md`
-```
+````
 ---
 type: system
 status: sprout
@@ -4822,7 +5984,7 @@ Run `node vault-lint.js --specs` and compare the Spec count with the number of S
 ## Retire
 Delete this folder in one commit and remove the lint step from the weekly review. The fit number then goes back to being unmeasured.
 
-```
+````
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_Note Type Registry.md`
 ```
 ---
@@ -5032,7 +6194,10 @@ Most notes predate their Standard. Whenever a session opens one, it brings the n
 Follow [[Building a Note Kit]]: Standard first, then Template, then a Workflow only if the process repeats. Register the family, lint it, and create one real note from the Template.
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/ --list 40 2>&1 | grep -v "^  30_Order/Standards/\(Courses\|Internship\|Enrich\|Ingestion\|AI Loop\)" | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/ --list 40 2>&1 | grep -v "^  30_Order/Standards/\(Courses\|Internship\|Enrich\|Ingestion\|AI Loop\)" | head -60
+```
 ```
 Scanned 106 notes in scope (excluded: 0 out of scope, 1468 tier 4, 58 templates). Specs: 6. Vocabulary parsed: true
 FIT: 4/106 = 3.8%
@@ -5067,7 +6232,9 @@ First 40 failing notes:
   30_Order/Standards/Decoration Standard.md  [(unmapped)]  6:unmapped; 1:no-frontmatter
   30_Order/Standards/Generated Output Standard.md  [family-standard]  3:dead-body-links:1
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
 const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8');
 s=s.replace("let dead = 0, deadFm = 0;","let dead = 0, deadFm = 0; const deadNames = [];");
 s=s.replace("if (!resolves(m[1])) { if (s.where.startsWith('fm:')) deadFm++; else if (!s.tc) dead++; }","if (!resolves(m[1])) { if (s.where.startsWith('fm:')) { deadFm++; deadNames.push(m[1]); } else if (!s.tc) { dead++; deadNames.push(m[1]); } }");
@@ -5075,7 +6242,8 @@ s=s.replace("if (deadFm) add(3, 'dead-frontmatter-links:' + deadFm);\n  if (dead
 s=s.replace("results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}`));","results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}${r.dead ? '  DEAD: ' + r.dead.join(' | ') : ''}`));");
 fs.writeFileSync('vault-lint.js',s);
 EOF
-node vault-lint.js --path 30_Order/ --list 200 2>&1 | grep -E "system-guide|policy-standard|family-standard|workflow\]|system-component" | grep -v "^By"`
+node vault-lint.js --path 30_Order/ --list 200 2>&1 | grep -E "system-guide|policy-standard|family-standard|workflow\]|system-component" | grep -v "^By"
+```
 ```
   policy-standard                  2/4      50.0%  near    2  F3:2
   system-guide                     0/2       0.0%  near    2  F3:2
@@ -5089,11 +6257,16 @@ node vault-lint.js --path 30_Order/ --list 200 2>&1 | grep -E "system-guide|poli
   30_Order/Workflows/System/Building a Note Kit.md  [workflow]  3:dead-frontmatter-links:1; 3:dead-body-links:1  DEAD: Note Type Registry
   30_Order/Workflows/System/Conformance on Touch.md  [workflow]  3:dead-body-links:1  DEAD: Note Type Registry
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && mv "00_Note Type Registry.md" "Note Type Registry.md" && cd System/vault-lint && node vault-lint.js --path 30_Order/ --list 300 2>&1 | grep -E "\[(system-guide|policy-standard|family-standard|workflow|system-component)\]" `
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && mv "00_Note Type Registry.md" "Note Type Registry.md" && cd System/vault-lint && node vault-lint.js --path 30_Order/ --list 300 2>&1 | grep -E "\[(system-guide|policy-standard|family-standard|workflow|system-component)\]" 
+```
 ```
   30_Order/Note Type Registry.md  [system-guide]  3:dead-body-links:1  DEAD: Graphify Notes Template
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
 const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8');
 // 1. legacy matcher
 s=s.replace("const specificity =", `function legacyMatch(note, rel) {
@@ -5117,7 +6290,8 @@ const specificity =`);
 s=s.replace("if (!spec) {\n    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;","if (!spec) { const lg = legacyMatch(n, rel); if (lg) { spec = lg; r.legacy = true; r.fails.push('6:legacy-shape'); } }\n  if (!spec) {\n    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;");
 fs.writeFileSync('vault-lint.js',s);
 EOF
-node -e "require('fs').readFileSync('vault-lint.js','utf8')" && node vault-lint.js --specs | tail -2`
+node -e "require('fs').readFileSync('vault-lint.js','utf8')" && node vault-lint.js --specs | tail -2
+```
 ```
 15 errors, 97 warnings
 ```
@@ -5125,7 +6299,7 @@ node -e "require('fs').readFileSync('vault-lint.js','utf8')" && node vault-lint.
 ```diff
 - `match.kind` is the value of the type's `*_kind` key. `where` and `where_not` compare other frontmatter keys. `headings` are `##` titles, required and in order. Key types are `date`, `number`, `list`, `text`, `bool`, `wikilink`.
 + `match.kind` is the value of the type's `*_kind` key. `where` and `where_not` compare other frontmatter keys. `match.path` is the allowed folder: a note of the right type in the wrong folder fails the placement check instead of vanishing as unmapped. `headings` are `##` titles, required and in order. Key types are `date`, `number`, `list`, `text`, `bool`, `wikilink`.
-`legacy_match` is an optional list that recognizes older notes of the family, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape`. That shows how far it is from fit and which upgrade it needs.
++ `legacy_match` is an optional list that recognizes older notes of the family, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape`. That shows how far it is from fit and which upgrade it needs.
 ```
 - `Write` -- `C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/FORK-BRIEF.md`
 ```
@@ -5162,10 +6336,10 @@ Run these from any directory and fix what they report for your files until clean
 Write `C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/K-<your name>.md` with: files written, files changed, rename or delete requests (exact paths and reason), Registry rows to update (full table rows, with links now that files exist, kit state `built`), lint results per family (mapped %, fit %), decisions you made that the user should know, open questions. Then return a summary under 200 words.
 
 ```
-- `Agent` -- `{"subagent_type":"fork","name":"K-courses-core","description":"Build course core kits (wave 1)","prompt":"You are fork K-courses-core. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-courses-core.md.\n\nFamilies: course-concept, course-week, course-textbook, course-textbook-map, course-lab, course-homework.\nFiles (rewrite in place unless noted):\n- Standards/Courses/: Concept Standard, Weekly Standard, Textbook Standard, Textbook Map Standard, Lab Standard, Homework Standard.\n- Templates/Classes/: Concept Template, Week Template, Textbook Template, Textbook Map Template, Lab Template, Homework Template.\n- Workflows/Courses/: Concept Workflow, Weekly Workflow, Textbook Workflow, Textbook Map Workflow, Lab Workflow, Homework Workflow.\nEvidence: scratchpad/F1-courses.md (sections A, B, C, D) and scratchpad/f1scan.json / f1comp.js. Important facts from F1: the Standards describe Fall\u002726 only; 116 older concept notes and 59 older textbook notes use shapes nothing documents (concept: Definition / Mental Model / Complexity / Mini-Test); notes carry `input_kind` (lecture, book, homework, project, exam, board) where the new vocabulary uses `class_kind` (lecture to week, book to textbook); Textbook notes need Full Reading Notes and a Source/Read-from header; Weekly Standard should ban unfilled template bodies. Concept notes live in `20_Progress/Degree/**`, `40_Resources/UMN/Previous Classes/**`, `10_Areas/Notes/**`. Keep the valuable Concept Standard rules (mechanism minimum, provenance, evidence verified) but compress; the YAML-typing incident text already lives in Frontmatter Standard, so remove it. Course-specific Per Class workflows are out of scope. All six families use one shared path regex covering the three folders above, so write it identically in each Spec."}`
-- `Agent` -- `{"subagent_type":"fork","name":"K-career","description":"Build career and internship kits (wave 1)","prompt":"You are fork K-career. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-career.md.\n\nFamilies: internship-dossier, internship-tracker, internship-program, internship-contact, internship-applying, career-fair, interview-prep, mentorship-meeting, resume-alteration, cover-letter, deadline-triage, internship-loop-review (see the Career table in Note Type Registry; job-company and linkedin-post stay `decide`, do not write them).\nFiles: Standards/Internship/* (Applying, Cover Letter Alteration, Deadline and Intake Triage, Internship Loop Review, Internship Notes, Internship Tracker, Resume Alteration) rewritten in place; new Standards/Internship/ Program Standard, Contact Standard, Career Fair Standard, Interview Prep Standard, Mentorship Meeting Standard; Templates/Career/Internship/* (Applying, Cheat, Contact, Cover Letter, Internship Loop Monthly Review, Internship Loop Weekly Review, Program, Tracking Template) and Templates/Career/Tracking.md (currently empty: write it as the current tracker template that supersedes Templates/Career/Internship/Tracking Template.md, and report the old one as a delete request) and Templates/Career/List Monthly Log.md; Workflows/Internship/* (Application Document Preparation, Internship - Design Rationale, Internship Pipeline, Internship Review System, Internship Tracking Workflow; Promotion.md belongs to another fork). New Workflows/Internship/Career Fair Intake.md if a repeated process exists.\nEvidence: scratchpad/F2-career.md (A, B, D), scratchpad/f2-compliance.js, and the guard hook `30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1`, whose required-field lists must match your Specs exactly. Key facts: the 3,009-word Internship Notes Standard is about 85% bot-code spec: write a vault contract of under 700 words for dossiers (frontmatter list in the real field order, `notes:` link, company tag, Viewed/ move, body shape) and tell the coordinator in the result file what to move to the external repo docs; dossiers are bot-written and `type: input, input_kind: job-dossier`, 0 of 356 meet the old Standard; trackers (31), programs (31), contacts (30) are 100% field-compliant but lack `type` for programs; Step 8 references are stale; `missed` result and 2 root-level trackers need defining; Applying has 0 real notes (keep the Standard, mark unexercised). Legacy folders and file names are in F2. Resume/Cover Letter \"How to\" stubs and per-posting Applying notes: follow F2 section D."}`
-- `Agent` -- `{"subagent_type":"fork","name":"K-ops-nav","description":"Build operations and navigation kits (wave 1)","prompt":"You are fork K-ops-nav. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-ops-nav.md.\n\nFamilies: daily-note, periodic-review-note, plan, moc, dashboard, field-os, plus the per-type frontmatter starters.\nFiles:\n- Standards/Daily Workflow Standard.md: rewrite in place as the Plan Standard for `type: plan` (keep the file name; report the rename request to Plan Standard). New Standards/Operations/Daily Note Standard.md and Standards/Operations/Periodic Review Note Standard.md (weekly, monthly, yearly via `thought_kind`), Standards/Operations/Dashboard Standard.md (covers dashboard, board, habit-board, field-os, depth-ladder, question-bank).\n- Standards/MOC Standard.md rewrite in place; Templates/Capability/MOC Template.md rewrite in place; Templates/MOC.md is a stale launcher page: do not edit, report a delete request.\n- Templates/Enumerate/ (Better Today, Better Weekly, Better Month, Better Year) rewrite in place as the Templates of the daily and periodic families. Templates/Career/Plan Template.md as the plan Template.\n- Templates/Capability/ Field OS Template, Depth Ladder Template, Question Bank Template (stubs: bring to contract using the real Field OS notes in 60_Claude/44_Indexes/Field OS/). Templates/Frontmatter/*: all nine starters plus the empty For Dashboards.md: one valid starter per type from the closed vocabulary for ad-hoc notes with no family kit (Inbox only); For Everything and For AI are invalid today.\n- Workflows: Workflows/Ingestion/Plan Review Cadence.md rewrite in place; new Workflows/Operations/Daily Close Loop.md serving the Daily Note Standard (maps to the startday and closeday skills in .claude/skills/, read them and their reference.md).\nEvidence: scratchpad/F6-life-tooling.md (A, B, D, vocabulary and per-family frontmatter spec) and F5 sections on A3 dashboards. USER DECISION: a daily note is plan plus OPTIONAL record: required = the plan sections; End of Day block optional; a `day_state` key (planned or closed) is tracked; a daily note fits without /closeday ever running. F6 found 0 of 23 dailies closed, per-term Fall content hard-coded in Better Today (move term-specific floors to the plan), literal Templater strings in 4 dailies, three generations of Better Today. Read at least 12 real daily/weekly/monthly notes in 10_Areas/Life/Enumerate/ and 8 dashboards/boards in 60_Claude/44_Indexes/ and 10_Areas/Life/Habits/. Dashboards must use Dataview FROM paths that exist today (55 dead ones were found): the Dashboard Standard must state a check for that."}`
-- `Agent` -- `{"subagent_type":"fork","name":"K-ai-loop","description":"Align AI Loop, logs, reviews kits (wave 1)","prompt":"You are fork K-ai-loop. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-ai-loop.md.\n\nFamilies: ai-conversation-export, conversation-summary, log (narrative, row, machine shapes), ai-review, capability-review, audit-report, project-review, graphify-note, tool-tracking.\nFiles:\n- Standards/AI Loop/: Conversations, Tool Calls, Memory Management, Orchestration, Knowledge Noting, Per Project Review, Review System, Logs, Graphify Notes. These were written on 2026-10-15 from vault content and are good; align them to the contract (system_kind, family, tier, maps_to, used_by, gold_standard, Spec where the file is a family Standard, Legacy Shapes, Done Conditions, Gold Standard Example) and remove duplicated rules by pointing at the owner instead of copying. Behaviour Standards with no note family (Tool Calls, Orchestration, Memory Management, Knowledge Noting) are `family: policy`. Do NOT merge or delete files even where F3 recommended merging: keep all nine files, de-duplicate by cross-reference, and list overlaps in the result file.\n- Standards/Log Standard.md (rewrite in place: log family; the header-feeder-order rule and the three shapes; add a `log_shape` scoped key if you need to distinguish shapes), Standards/Enrich/Review Standard.md (ai-review), Standards/Enrich/Tracking Standard.md (128-word redirect stub: rewrite as a short real Standard or report a delete request).\n- New Standards: Standards/Enrich/Capability Review Standard.md (Weekly Synthesis and Monthly in 60_Claude/30_Reviews/), Standards/Enrich/Audit Report Standard.md (one-off audits and change reports in 60_Claude/30_Reviews/ and 60_Claude/20_Distilled_Notes/).\n- Templates/AI Toolkit/: AI Conversation, Tool Logs, Graphify Notes (report a rename request to \"Graphify Notes Template\" because it collides in name with the Standard), Write Logs (currently empty: it is the template for the narrative log shape, which Logs.md says has none yet), AI Weekly Review Template, AI Monthly Review Template. Capability/Synthesis Template for capability-review.\n- Workflows/Toolkit/: Conversation Capture, Maintaining Logs, Tools Tracking, Graphify Folders, Files Tracking (currently empty: the process of keeping a project\u0027s Setup.md file inventory true when files in its tool folder change; read 20_Progress/AI/Claude Code/*/Setup.md), plus Workflows/Ingestion/Conversations Loop.md (currently empty: it must be distinct from Conversation Capture, which is the single-session procedure; make it the recurring cadence that checks capture health, works down Summaries-to-Create, and promotes; ground it in F3: only 10 summaries exist for about 490 sessions). Workflows/Ingestion/Conversation Capture.md was deleted in the working tree earlier and Toolkit/Conversation Capture.md replaced it: check for stale links.\nEvidence: scratchpad/F3-machine-captures.md (A, B, D with the content outlines, F), F5 sections on A4 and A2, and the real notes under 60_Claude/05_Clippings/AI Conversations/, 60_Claude/07_AI_Information/, 60_Claude/30_Reviews/, 20_Progress/Projects/AI Use/Claude Kit/. Note F3\u0027s BOM finding (283 exports start with a byte-order mark): the Conversations Legacy Shapes must list it as a mechanical fix. Session Logs/log.md is 300 KB with mixed order; the Log Standard must not require rewriting it, only a rotation rule for the future."}`
+- `Agent` -- ``{"subagent_type":"fork","name":"K-courses-core","description":"Build course core kits (wave 1)","prompt":"You are fork K-courses-core. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-courses-core.md.\n\nFamilies: course-concept, course-week, course-textbook, course-textbook-map, course-lab, course-homework.\nFiles (rewrite in place unless noted):\n- Standards/Courses/: Concept Standard, Weekly Standard, Textbook Standard, Textbook Map Standard, Lab Standard, Homework Standard.\n- Templates/Classes/: Concept Template, Week Template, Textbook Template, Textbook Map Template, Lab Template, Homework Template.\n- Workflows/Courses/: Concept Workflow, Weekly Workflow, Textbook Workflow, Textbook Map Workflow, Lab Workflow, Homework Workflow.\nEvidence: scratchpad/F1-courses.md (sections A, B, C, D) and scratchpad/f1scan.json / f1comp.js. Important facts from F1: the Standards describe Fall\u002726 only; 116 older concept notes and 59 older textbook notes use shapes nothing documents (concept: Definition / Mental Model / Complexity / Mini-Test); notes carry `input_kind` (lecture, book, homework, project, exam, board) where the new vocabulary uses `class_kind` (lecture to week, book to textbook); Textbook notes need Full Reading Notes and a Source/Read-from header; Weekly Standard should ban unfilled template bodies. Concept notes live in `20_Progress/Degree/**`, `40_Resources/UMN/Previous Classes/**`, `10_Areas/Notes/**`. Keep the valuable Concept Standard rules (mechanism minimum, provenance, evidence verified) but compress; the YAML-typing incident text already lives in Frontmatter Standard, so remove it. Course-specific Per Class workflows are out of scope. All six families use one shared path regex covering the three folders above, so write it identically in each Spec."}``
+- `Agent` -- ``{"subagent_type":"fork","name":"K-career","description":"Build career and internship kits (wave 1)","prompt":"You are fork K-career. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-career.md.\n\nFamilies: internship-dossier, internship-tracker, internship-program, internship-contact, internship-applying, career-fair, interview-prep, mentorship-meeting, resume-alteration, cover-letter, deadline-triage, internship-loop-review (see the Career table in Note Type Registry; job-company and linkedin-post stay `decide`, do not write them).\nFiles: Standards/Internship/* (Applying, Cover Letter Alteration, Deadline and Intake Triage, Internship Loop Review, Internship Notes, Internship Tracker, Resume Alteration) rewritten in place; new Standards/Internship/ Program Standard, Contact Standard, Career Fair Standard, Interview Prep Standard, Mentorship Meeting Standard; Templates/Career/Internship/* (Applying, Cheat, Contact, Cover Letter, Internship Loop Monthly Review, Internship Loop Weekly Review, Program, Tracking Template) and Templates/Career/Tracking.md (currently empty: write it as the current tracker template that supersedes Templates/Career/Internship/Tracking Template.md, and report the old one as a delete request) and Templates/Career/List Monthly Log.md; Workflows/Internship/* (Application Document Preparation, Internship - Design Rationale, Internship Pipeline, Internship Review System, Internship Tracking Workflow; Promotion.md belongs to another fork). New Workflows/Internship/Career Fair Intake.md if a repeated process exists.\nEvidence: scratchpad/F2-career.md (A, B, D), scratchpad/f2-compliance.js, and the guard hook `30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1`, whose required-field lists must match your Specs exactly. Key facts: the 3,009-word Internship Notes Standard is about 85% bot-code spec: write a vault contract of under 700 words for dossiers (frontmatter list in the real field order, `notes:` link, company tag, Viewed/ move, body shape) and tell the coordinator in the result file what to move to the external repo docs; dossiers are bot-written and `type: input, input_kind: job-dossier`, 0 of 356 meet the old Standard; trackers (31), programs (31), contacts (30) are 100% field-compliant but lack `type` for programs; Step 8 references are stale; `missed` result and 2 root-level trackers need defining; Applying has 0 real notes (keep the Standard, mark unexercised). Legacy folders and file names are in F2. Resume/Cover Letter \"How to\" stubs and per-posting Applying notes: follow F2 section D."}``
+- `Agent` -- ``{"subagent_type":"fork","name":"K-ops-nav","description":"Build operations and navigation kits (wave 1)","prompt":"You are fork K-ops-nav. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-ops-nav.md.\n\nFamilies: daily-note, periodic-review-note, plan, moc, dashboard, field-os, plus the per-type frontmatter starters.\nFiles:\n- Standards/Daily Workflow Standard.md: rewrite in place as the Plan Standard for `type: plan` (keep the file name; report the rename request to Plan Standard). New Standards/Operations/Daily Note Standard.md and Standards/Operations/Periodic Review Note Standard.md (weekly, monthly, yearly via `thought_kind`), Standards/Operations/Dashboard Standard.md (covers dashboard, board, habit-board, field-os, depth-ladder, question-bank).\n- Standards/MOC Standard.md rewrite in place; Templates/Capability/MOC Template.md rewrite in place; Templates/MOC.md is a stale launcher page: do not edit, report a delete request.\n- Templates/Enumerate/ (Better Today, Better Weekly, Better Month, Better Year) rewrite in place as the Templates of the daily and periodic families. Templates/Career/Plan Template.md as the plan Template.\n- Templates/Capability/ Field OS Template, Depth Ladder Template, Question Bank Template (stubs: bring to contract using the real Field OS notes in 60_Claude/44_Indexes/Field OS/). Templates/Frontmatter/*: all nine starters plus the empty For Dashboards.md: one valid starter per type from the closed vocabulary for ad-hoc notes with no family kit (Inbox only); For Everything and For AI are invalid today.\n- Workflows: Workflows/Ingestion/Plan Review Cadence.md rewrite in place; new Workflows/Operations/Daily Close Loop.md serving the Daily Note Standard (maps to the startday and closeday skills in .claude/skills/, read them and their reference.md).\nEvidence: scratchpad/F6-life-tooling.md (A, B, D, vocabulary and per-family frontmatter spec) and F5 sections on A3 dashboards. USER DECISION: a daily note is plan plus OPTIONAL record: required = the plan sections; End of Day block optional; a `day_state` key (planned or closed) is tracked; a daily note fits without /closeday ever running. F6 found 0 of 23 dailies closed, per-term Fall content hard-coded in Better Today (move term-specific floors to the plan), literal Templater strings in 4 dailies, three generations of Better Today. Read at least 12 real daily/weekly/monthly notes in 10_Areas/Life/Enumerate/ and 8 dashboards/boards in 60_Claude/44_Indexes/ and 10_Areas/Life/Habits/. Dashboards must use Dataview FROM paths that exist today (55 dead ones were found): the Dashboard Standard must state a check for that."}``
+- `Agent` -- ``{"subagent_type":"fork","name":"K-ai-loop","description":"Align AI Loop, logs, reviews kits (wave 1)","prompt":"You are fork K-ai-loop. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-ai-loop.md.\n\nFamilies: ai-conversation-export, conversation-summary, log (narrative, row, machine shapes), ai-review, capability-review, audit-report, project-review, graphify-note, tool-tracking.\nFiles:\n- Standards/AI Loop/: Conversations, Tool Calls, Memory Management, Orchestration, Knowledge Noting, Per Project Review, Review System, Logs, Graphify Notes. These were written on 2026-10-15 from vault content and are good; align them to the contract (system_kind, family, tier, maps_to, used_by, gold_standard, Spec where the file is a family Standard, Legacy Shapes, Done Conditions, Gold Standard Example) and remove duplicated rules by pointing at the owner instead of copying. Behaviour Standards with no note family (Tool Calls, Orchestration, Memory Management, Knowledge Noting) are `family: policy`. Do NOT merge or delete files even where F3 recommended merging: keep all nine files, de-duplicate by cross-reference, and list overlaps in the result file.\n- Standards/Log Standard.md (rewrite in place: log family; the header-feeder-order rule and the three shapes; add a `log_shape` scoped key if you need to distinguish shapes), Standards/Enrich/Review Standard.md (ai-review), Standards/Enrich/Tracking Standard.md (128-word redirect stub: rewrite as a short real Standard or report a delete request).\n- New Standards: Standards/Enrich/Capability Review Standard.md (Weekly Synthesis and Monthly in 60_Claude/30_Reviews/), Standards/Enrich/Audit Report Standard.md (one-off audits and change reports in 60_Claude/30_Reviews/ and 60_Claude/20_Distilled_Notes/).\n- Templates/AI Toolkit/: AI Conversation, Tool Logs, Graphify Notes (report a rename request to \"Graphify Notes Template\" because it collides in name with the Standard), Write Logs (currently empty: it is the template for the narrative log shape, which Logs.md says has none yet), AI Weekly Review Template, AI Monthly Review Template. Capability/Synthesis Template for capability-review.\n- Workflows/Toolkit/: Conversation Capture, Maintaining Logs, Tools Tracking, Graphify Folders, Files Tracking (currently empty: the process of keeping a project\u0027s Setup.md file inventory true when files in its tool folder change; read 20_Progress/AI/Claude Code/*/Setup.md), plus Workflows/Ingestion/Conversations Loop.md (currently empty: it must be distinct from Conversation Capture, which is the single-session procedure; make it the recurring cadence that checks capture health, works down Summaries-to-Create, and promotes; ground it in F3: only 10 summaries exist for about 490 sessions). Workflows/Ingestion/Conversation Capture.md was deleted in the working tree earlier and Toolkit/Conversation Capture.md replaced it: check for stale links.\nEvidence: scratchpad/F3-machine-captures.md (A, B, D with the content outlines, F), F5 sections on A4 and A2, and the real notes under 60_Claude/05_Clippings/AI Conversations/, 60_Claude/07_AI_Information/, 60_Claude/30_Reviews/, 20_Progress/Projects/AI Use/Claude Kit/. Note F3\u0027s BOM finding (283 exports start with a byte-order mark): the Conversations Legacy Shapes must list it as a mechanical fix. Session Logs/log.md is 300 KB with mixed order; the Log Standard must not require rewriting it, only a rotation rule for the future."}``
 
 ## You
 
@@ -5212,7 +6386,10 @@ Wave 1 is one of four forks done, and K-courses-ctrl and K-projects are now runn
 
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Courses/Concept Standard.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Classes/Concept Template.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only Courses 2>&1 | tail -8; node vault-lint.js --path "20_Progress/Degree/" --list 0 2>&1 | head -22`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only Courses 2>&1 | tail -8; node vault-lint.js --path "20_Progress/Degree/" --list 0 2>&1 | head -22
+```
 ```
 WARN  30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md  legacy Workflow (no system_kind)
 WARN  30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md  legacy Workflow (no system_kind)
@@ -5245,8 +6422,8 @@ Top failure reasons:
     120  1:hash-in-tags
      93  6:legacy-shape
 ```
-- `Agent` -- `{"subagent_type":"fork","name":"K-courses-ctrl","description":"Build course control and assessment kits (wave 2)","prompt":"You are fork K-courses-ctrl. First read scratchpad/FORK-BRIEF.md in full and follow it, then read scratchpad/K-courses-core.md to reuse its conventions exactly (shared course path regex, `class_kind`, `legacy_match` on `input_kind`, quoted `course` wikilink). Result file: scratchpad/K-courses-ctrl.md.\n\nFamilies: course-exam, course-exam-material (new), course-board, course-subboard, course-discussion, course-preparation, course-project, course-control (new), course-track (new), course-audit (new). course-archive stays `decide`.\nFiles:\n- Standards/Courses/: Exam Standard, Board Standard, Weekly Board Standard (rewrite in place as the sub-board Standard; keep the file name and report a rename request), Discussion Standard, Preparation Standard, Project Standard (rewrite in place; report the rename request to Course Project Standard because it collides in name with Standards/Project Standard), plus new Exam Material Standard, Degree Control Standard, Self-Study Track Standard, Degree Audit Standard.\n- Templates/Classes/: Exam Sheet Template, Board or Main Template, Weekly Board Template, Discussion Template, Preparation Template, Project Template; new Exam Material Template, Degree Control Template, Track Template.\n- Workflows/Courses/: Exam, Board, Weekly Board, Discussion, Preparation, Projects, and Course Production Workflow (the hub; keep the dispatch logic), plus new Degree Control Workflow only if F1 shows a repeated process. Workflows/Courses/Per Class/*: these four are course-specific production plans over 350 words by design, so do not rewrite them: only set `system_kind: guide` in their frontmatter so they fit the system-guide family, and list that in the result file.\nEvidence: scratchpad/F1-courses.md (all sections; 45 sub-boards, project trio Assignment/Code/Oral Drills, exam material quizzes and drill banks, the degree control plane: UMN Board, Every Week, Fall\u002726 Syllabus, Course Production Board, Hit or Miss, Repetitive Things; `_Courses` has 83 self-study and certification notes; APAS and The Plan audit notes in 40_Resources/UMN/The Plan). Read the real notes. Textbook Map is already built by K-courses-core; do not touch its files. The moc family claims `type: index` notes, so retype guidance for sub-boards: sub-boards should be `type: class`, `class_kind: subboard`, and say so in Legacy Shapes. Where a family has only 1 to 5 real notes, keep its Standard short."}`
-- `Agent` -- `{"subagent_type":"fork","name":"K-projects","description":"Build project and brief kits (wave 2)","prompt":"You are fork K-projects. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-projects.md.\n\nFamilies: project, project-spec-plan, code-mirror-doc, agent-prompt, machine-runbook, technical-concept, brief, action.\nFiles:\n- Standards/Project Standard.md (root; rewrite in place; this one keeps the name, the course one is being renamed by another fork), new Standards/Projects/ Spec and Plan Standard, Code Mirror Doc Standard, Agent Prompt Standard, Machine Runbook Standard, Technical Concept Standard (concept notes outside courses: 20_Progress/Projects/** and 40_Resources/CS/**; do not duplicate the course Concept Standard, point at it for the shared mechanism rules), Standards/Ingestion/Brief Standard.md and Action Standard.md (rewrite in place).\n- Templates: a full Project template at Templates/Projects/Project Note Template.md (the existing Templates/Frontmatter/For Progress.md is a frontmatter-only starter owned by another fork; do not touch it); new Templates/Projects/ Spec and Plan Template, Code Mirror Template, Agent Prompt Template, Machine Runbook Template; Templates/Capability/Brief Template.md and Action Template.md rewrite in place.\n- Workflows: Workflows/Ingestion/ Brief to Progress, Brief to Action, Transcript to Brief rewrite in place; new Workflows only where a repeated process exists.\nEvidence: scratchpad/F4-projects-graph.md (all sections) and F2 for BOOM/Research. Key facts from F4: of 120 `type: project` notes 78% have `next:` but only about 10% use the old Standard\u0027s headings; 17 distinct status values; 8 active notes lack `next:`; the real practice is dated correction layers and \"verified live\" evidence, which the Standard should describe as a rule (a correction is a new dated entry, the original stays); the New Laptop set (47 notes in 40_Resources/CS/Concepts/New Laptop/) is machine-rebuild runbooks written with the Concept template keys (`course: Life`): machine-runbook is `reference` with `reference_kind: runbook`; CausalOps code-mirror docs (60_Claude/40_Project_Briefs/CausalOps/) are one note per source file with source path, invariants, \"do not touch\" rules; 18 of 47 CausalOps notes carry a BOM and a second frontmatter block (mechanical Legacy Shape); 0 of 63 non-graph Briefs follow the Brief Standard: the Brief Standard is about transcripts of people talking, while the folder holds project plans, so decide with evidence which notes are `brief` and which are `project_kind: plan or spec`; do not touch the graphify families (generated). Read at least 10 real project notes in 20_Progress/Projects/ and 20_Progress/Internship/Building System/ (System - Build Log, Source of Truth are the gold examples F4 names)."}`
+- `Agent` -- ``{"subagent_type":"fork","name":"K-courses-ctrl","description":"Build course control and assessment kits (wave 2)","prompt":"You are fork K-courses-ctrl. First read scratchpad/FORK-BRIEF.md in full and follow it, then read scratchpad/K-courses-core.md to reuse its conventions exactly (shared course path regex, `class_kind`, `legacy_match` on `input_kind`, quoted `course` wikilink). Result file: scratchpad/K-courses-ctrl.md.\n\nFamilies: course-exam, course-exam-material (new), course-board, course-subboard, course-discussion, course-preparation, course-project, course-control (new), course-track (new), course-audit (new). course-archive stays `decide`.\nFiles:\n- Standards/Courses/: Exam Standard, Board Standard, Weekly Board Standard (rewrite in place as the sub-board Standard; keep the file name and report a rename request), Discussion Standard, Preparation Standard, Project Standard (rewrite in place; report the rename request to Course Project Standard because it collides in name with Standards/Project Standard), plus new Exam Material Standard, Degree Control Standard, Self-Study Track Standard, Degree Audit Standard.\n- Templates/Classes/: Exam Sheet Template, Board or Main Template, Weekly Board Template, Discussion Template, Preparation Template, Project Template; new Exam Material Template, Degree Control Template, Track Template.\n- Workflows/Courses/: Exam, Board, Weekly Board, Discussion, Preparation, Projects, and Course Production Workflow (the hub; keep the dispatch logic), plus new Degree Control Workflow only if F1 shows a repeated process. Workflows/Courses/Per Class/*: these four are course-specific production plans over 350 words by design, so do not rewrite them: only set `system_kind: guide` in their frontmatter so they fit the system-guide family, and list that in the result file.\nEvidence: scratchpad/F1-courses.md (all sections; 45 sub-boards, project trio Assignment/Code/Oral Drills, exam material quizzes and drill banks, the degree control plane: UMN Board, Every Week, Fall\u002726 Syllabus, Course Production Board, Hit or Miss, Repetitive Things; `_Courses` has 83 self-study and certification notes; APAS and The Plan audit notes in 40_Resources/UMN/The Plan). Read the real notes. Textbook Map is already built by K-courses-core; do not touch its files. The moc family claims `type: index` notes, so retype guidance for sub-boards: sub-boards should be `type: class`, `class_kind: subboard`, and say so in Legacy Shapes. Where a family has only 1 to 5 real notes, keep its Standard short."}``
+- `Agent` -- ``{"subagent_type":"fork","name":"K-projects","description":"Build project and brief kits (wave 2)","prompt":"You are fork K-projects. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-projects.md.\n\nFamilies: project, project-spec-plan, code-mirror-doc, agent-prompt, machine-runbook, technical-concept, brief, action.\nFiles:\n- Standards/Project Standard.md (root; rewrite in place; this one keeps the name, the course one is being renamed by another fork), new Standards/Projects/ Spec and Plan Standard, Code Mirror Doc Standard, Agent Prompt Standard, Machine Runbook Standard, Technical Concept Standard (concept notes outside courses: 20_Progress/Projects/** and 40_Resources/CS/**; do not duplicate the course Concept Standard, point at it for the shared mechanism rules), Standards/Ingestion/Brief Standard.md and Action Standard.md (rewrite in place).\n- Templates: a full Project template at Templates/Projects/Project Note Template.md (the existing Templates/Frontmatter/For Progress.md is a frontmatter-only starter owned by another fork; do not touch it); new Templates/Projects/ Spec and Plan Template, Code Mirror Template, Agent Prompt Template, Machine Runbook Template; Templates/Capability/Brief Template.md and Action Template.md rewrite in place.\n- Workflows: Workflows/Ingestion/ Brief to Progress, Brief to Action, Transcript to Brief rewrite in place; new Workflows only where a repeated process exists.\nEvidence: scratchpad/F4-projects-graph.md (all sections) and F2 for BOOM/Research. Key facts from F4: of 120 `type: project` notes 78% have `next:` but only about 10% use the old Standard\u0027s headings; 17 distinct status values; 8 active notes lack `next:`; the real practice is dated correction layers and \"verified live\" evidence, which the Standard should describe as a rule (a correction is a new dated entry, the original stays); the New Laptop set (47 notes in 40_Resources/CS/Concepts/New Laptop/) is machine-rebuild runbooks written with the Concept template keys (`course: Life`): machine-runbook is `reference` with `reference_kind: runbook`; CausalOps code-mirror docs (60_Claude/40_Project_Briefs/CausalOps/) are one note per source file with source path, invariants, \"do not touch\" rules; 18 of 47 CausalOps notes carry a BOM and a second frontmatter block (mechanical Legacy Shape); 0 of 63 non-graph Briefs follow the Brief Standard: the Brief Standard is about transcripts of people talking, while the folder holds project plans, so decide with evidence which notes are `brief` and which are `project_kind: plan or spec`; do not touch the graphify families (generated). Read at least 10 real project notes in 20_Progress/Projects/ and 20_Progress/Internship/Building System/ (System - Build Log, Source of Truth are the gold examples F4 names)."}``
 
 ## You
 
@@ -5319,7 +6496,9 @@ Four forks are still running (career, AI Loop, course control, projects). I'm ho
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
 const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8');
 // 1 registry name
 s=s.replace("f.rel === '30_Order/00_Note Type Registry.md'","f.rel === '30_Order/Note Type Registry.md'");
@@ -5341,7 +6520,8 @@ const neu=`      let pair = specs;
 s=s.replace(old,neu);
 fs.writeFileSync('vault-lint.js',s);
 EOF
-node vault-lint.js --specs | tail -1; node vault-lint.js --path 60_Claude/44_Indexes/ --list 3 2>&1 | grep -E "dead-dataview|FIT" | head`
+node vault-lint.js --specs | tail -1; node vault-lint.js --path 60_Claude/44_Indexes/ --list 3 2>&1 | grep -E "dead-dataview|FIT" | head
+````
 ```
 D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\vault-lint.js:279
     }
@@ -5361,31 +6541,37 @@ Node.js v24.19.0
 ```
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
-```diff
+````diff
 -       if (/^s*```dataview(js)?s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }
-      if (/^s*```s*$/.test(l)) { inDv = false; continue; }
-      if (inDv && /^s*FROM/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(//$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/.md$/, ''))) deadFrom.push(m[1]); }
+-       if (/^s*```s*$/.test(l)) { inDv = false; continue; }
+-       if (inDv && /^s*FROM/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(//$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/.md$/, ''))) deadFrom.push(m[1]); }
 +       if (/^\s*```dataview(js)?\s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }
-      if (/^\s*```\s*$/.test(l)) { inDv = false; continue; }
-      if (inDv && /^\s*FROM\b/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(/\/$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/\.md$/, ''))) deadFrom.push(m[1]); }
++       if (/^\s*```\s*$/.test(l)) { inDv = false; continue; }
++       if (inDv && /^\s*FROM\b/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(/\/$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/\.md$/, ''))) deadFrom.push(m[1]); }
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n '276,278p' vault-lint.js | cat -A | cut -c1-200
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n '276,278p' vault-lint.js | cat -A | cut -c1-200`
-```
+````
       if (/^s*```dataview(js)?s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }$
       if (/^s*```s*$/.test(l)) { inDv = false; continue; }$
       if (inDv && /^s*FROM^H/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(//$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/.md$/, ''))) deadFro
-```
+````
 - `Write` -- `C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/dvfix.txt`
-```
+````
       if (/^\s*```dataview(js)?\s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }
       if (/^\s*```\s*$/.test(l)) { inDv = false; continue; }
       if (inDv && /^\s*FROM\b/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(/\/$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/\.md$/, ''))) deadFrom.push(m[1]); }
-```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node -e "
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node -e "
 const fs=require('fs');const f='vault-lint.js';const L=fs.readFileSync(f,'utf8').split('\n');
 const fix=fs.readFileSync('C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/dvfix.txt','utf8').split('\n');
 L.splice(275,3,...fix);fs.writeFileSync(f,L.join('\n'));
-" && grep -c $'\x08' vault-lint.js; node vault-lint.js --specs | tail -1 && node vault-lint.js --path 60_Claude/44_Indexes/ --list 4 2>&1 | grep -E "FIT|dataview" | head -6`
+" && grep -c $'\x08' vault-lint.js; node vault-lint.js --specs | tail -1 && node vault-lint.js --path 60_Claude/44_Indexes/ --list 4 2>&1 | grep -E "FIT|dataview" | head -6
+```
 ```
 0
 22 errors, 58 warnings
@@ -5443,23 +6629,25 @@ The Obsidian CLI is installed (v1.14.4), so link-aware renames are possible once
 
 ### Tool Calls
 
-- `Agent` -- `{"subagent_type":"fork","name":"K-knowledge","description":"Build knowledge pipeline kits (wave 2)","prompt":"You are fork K-knowledge. First read scratchpad/FORK-BRIEF.md in full and follow it, and skim scratchpad/K-ai-loop.md and K-ops-nav.md for conventions already established (they changed the tool; re-read `vault-lint.js` options if needed). Result file: scratchpad/K-knowledge.md.\n\nFamilies: clipping, source-summary, repo-card, pdf-summary, distilled (evergreen, including synthesis and identity-note sub-kinds), reference-resource, output.\nFiles:\n- Standards/Enrich/: Source Summary Standard, Evergreen Standard (rewrite in place), Resources.md (currently EMPTY: write it as the Standard for `type: reference` notes in 40_Resources, keeping the file name; report a rename request to Reference Standard; it must define promotion into the curated hub: one backlinked entry at a time, never a batch of AI distillations, and the reference_kind values), new Standards/Enrich/Output Standard.md, new Standards/Enrich/Repo Evaluation Standard.md (96 GitHub evaluation cards in 60_Claude/10_Source_Summaries/Github Ingestion/ with a stable 5-heading shape and a verdict), Standards/Ingestion/PDF Extraction Standard.md (rewrite in place), new Standards/Ingestion/Clipping Standard.md (raw capture: read-only after capture, minimal frontmatter, tier 2; 60_Claude/05_Clippings/ excluding AI Conversations which another fork owns).\n- Templates: Templates/AI Toolkit/Clipping Distill Template.md and Deep Dive Template.md (rewrite in place; they are the source-summary and distilled templates), Templates/Capability/Output Template.md (rewrite in place), new Templates/Knowledge/Repo Evaluation Template.md and Templates/Knowledge/Reference Template.md. Do not touch Templates/Capability/Synthesis Template.md (owned by K-ai-loop) or Templates/Frontmatter/*.\n- Workflows: Workflows/Enrichment/ Capture to Summary, Enrichment, Output with Provenance; Workflows/Ingestion/ Summary to Distilled and PDF Extraction; Workflows/Internship/Promotion.md (it is the promotion-into-reference workflow); rewrite in place. The Enrichment workflow\u0027s `enrichment_status` and `enrichment_level` keys are dormant (zero notes use them): state that and keep them out of required keys.\nEvidence: scratchpad/F5-knowledge-pipeline.md (all sections; pipeline funnel: 740 clippings to 142 summaries to 26 distilled, about 7 real concepts, no promotion evidence, 5-6 outputs filed outside the missing 35_Outputs; GitHub cards have no Standard; 72 of 99 CS/Concepts notes are infra build logs, not concepts). OUTPUT HOME: an output lives next to the project it serves (Research/BOOM etc.), `type: output` with `output_kind` and `source_concepts`; there is no Outputs folder; write that into the Output Standard and the Output with Provenance workflow, and drop every `35_Outputs` reference. The Source Summary Standard cites a dangling \"Vault Rules Part 9/12\": replace with the Quality Gate in Jarvis Writing and Formatting. Flashcards conflict: the Source Summary Standard ends each summary with flashcards, but the vault rule is cards only after distillation: decide with the evidence in real PDF/Web summaries (Jarvis Writing and Formatting says source notes end with Flashcards) and state one rule. Read at least 12 real summaries/clippings/distilled notes across subfolders and the five real outputs."}`
-- `Agent` -- `{"subagent_type":"fork","name":"K-writing","description":"Build writing and plugin policy kits (wave 2)","prompt":"You are fork K-writing. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-writing.md.\n\nThese are the user\u0027s request to write every empty stub, so you write them even though they are policy-level and have few instances. Ground every sentence in material that already exists in the vault; do not invent rules. They are all `family: policy` Standards and workflows (policies need only Done Conditions and Gold Standard Example headings, no Spec).\nFiles:\n- Standards/Enrich/Human Writing Standard.md (EMPTY): the lintable, checkable counterpart of the root HUMAN_WRITING.md. It must NOT restate voice (HUMAN_WRITING owns voice); it holds the prose check a reviewer or script can run: the suspicious-word list with the accept-if-most-accurate rule, no em dash, sentence-level delete test, honest-uncertainty markers, density rules, what a rewrite must preserve; point to HUMAN_WRITING for the why. Fold in anything unique from Standards/Ingestion/Humanized Writing Standard.md (read it; rewrite that file in place as a short pointer-style policy so the duplication is gone, and report that overlap).\n- Standards/Decoration Standard.md (EMPTY): the formatting-marker and callout rules from Jarvis Writing and Formatting (==highlight==, **bold**, *label:*, callout types, Excalidraw embeds, tables vs Dataview), as the measurable subset: exactly one highlight anchor per major `##` section, when each callout type applies, no decorative stacking, no raw sources inside durable notes; point to Jarvis Writing and Formatting for syntax.\n- Standards/Enrich/Plugins Usage Standard.md (EMPTY): which Obsidian plugin syntax belongs in which note and how to verify it: Dataview for live lists (FROM paths must exist), Tasks for real actions, Spaced Repetition for cards, Kanban for boards, Excalidraw/Canvas for spatial relations, Bases; ground in 40_Resources/Obsidian/Plugins/* (18 docs, start with 00 Plugin Reference Index) and Jarvis Writing and Formatting. State the failure to avoid: 55 dead Dataview FROM paths exist today.\n- Workflows (all EMPTY, write each with the Workflow contract, 350 words max): Workflows/Enrichment/Decoration.md (serves Decoration Standard), Workflows/Enrichment/Human Content Writer.md (serves Human Writing Standard; ground in the agents human-operator and anti-slop-editor and the /remove-ai-slop skill in .claude/), Workflows/Enrichment/Plugins Usage.md (serves Plugins Usage Standard), Workflows/Enrichment/Researcher.md (a vault-first research procedure: search the vault, then external sources via the ingestion path, record sources, label claims vault-grounded / externally-sourced / uncertain, and route the result to a source summary or distilled note; ground in CLAUDE.md Query Behavior, the learning-agent and deep-research skills, and the `source_status` key).\nDo not touch the Enrichment, Capture to Summary, or Output with Provenance workflows (K-knowledge owns them). Because policies have no Spec, make the Done Conditions concrete and checkable, and make each Standard under 700 words. Read HUMAN_WRITING.md, Jarvis Writing and Formatting.md, the plugin docs, and 5 real notes that show the markers used well (the Teams and Team Effectiveness concept note is a good one)."}`
+- `Agent` -- ``{"subagent_type":"fork","name":"K-knowledge","description":"Build knowledge pipeline kits (wave 2)","prompt":"You are fork K-knowledge. First read scratchpad/FORK-BRIEF.md in full and follow it, and skim scratchpad/K-ai-loop.md and K-ops-nav.md for conventions already established (they changed the tool; re-read `vault-lint.js` options if needed). Result file: scratchpad/K-knowledge.md.\n\nFamilies: clipping, source-summary, repo-card, pdf-summary, distilled (evergreen, including synthesis and identity-note sub-kinds), reference-resource, output.\nFiles:\n- Standards/Enrich/: Source Summary Standard, Evergreen Standard (rewrite in place), Resources.md (currently EMPTY: write it as the Standard for `type: reference` notes in 40_Resources, keeping the file name; report a rename request to Reference Standard; it must define promotion into the curated hub: one backlinked entry at a time, never a batch of AI distillations, and the reference_kind values), new Standards/Enrich/Output Standard.md, new Standards/Enrich/Repo Evaluation Standard.md (96 GitHub evaluation cards in 60_Claude/10_Source_Summaries/Github Ingestion/ with a stable 5-heading shape and a verdict), Standards/Ingestion/PDF Extraction Standard.md (rewrite in place), new Standards/Ingestion/Clipping Standard.md (raw capture: read-only after capture, minimal frontmatter, tier 2; 60_Claude/05_Clippings/ excluding AI Conversations which another fork owns).\n- Templates: Templates/AI Toolkit/Clipping Distill Template.md and Deep Dive Template.md (rewrite in place; they are the source-summary and distilled templates), Templates/Capability/Output Template.md (rewrite in place), new Templates/Knowledge/Repo Evaluation Template.md and Templates/Knowledge/Reference Template.md. Do not touch Templates/Capability/Synthesis Template.md (owned by K-ai-loop) or Templates/Frontmatter/*.\n- Workflows: Workflows/Enrichment/ Capture to Summary, Enrichment, Output with Provenance; Workflows/Ingestion/ Summary to Distilled and PDF Extraction; Workflows/Internship/Promotion.md (it is the promotion-into-reference workflow); rewrite in place. The Enrichment workflow\u0027s `enrichment_status` and `enrichment_level` keys are dormant (zero notes use them): state that and keep them out of required keys.\nEvidence: scratchpad/F5-knowledge-pipeline.md (all sections; pipeline funnel: 740 clippings to 142 summaries to 26 distilled, about 7 real concepts, no promotion evidence, 5-6 outputs filed outside the missing 35_Outputs; GitHub cards have no Standard; 72 of 99 CS/Concepts notes are infra build logs, not concepts). OUTPUT HOME: an output lives next to the project it serves (Research/BOOM etc.), `type: output` with `output_kind` and `source_concepts`; there is no Outputs folder; write that into the Output Standard and the Output with Provenance workflow, and drop every `35_Outputs` reference. The Source Summary Standard cites a dangling \"Vault Rules Part 9/12\": replace with the Quality Gate in Jarvis Writing and Formatting. Flashcards conflict: the Source Summary Standard ends each summary with flashcards, but the vault rule is cards only after distillation: decide with the evidence in real PDF/Web summaries (Jarvis Writing and Formatting says source notes end with Flashcards) and state one rule. Read at least 12 real summaries/clippings/distilled notes across subfolders and the five real outputs."}``
+- `Agent` -- ``{"subagent_type":"fork","name":"K-writing","description":"Build writing and plugin policy kits (wave 2)","prompt":"You are fork K-writing. First read scratchpad/FORK-BRIEF.md in full and follow it. Result file: scratchpad/K-writing.md.\n\nThese are the user\u0027s request to write every empty stub, so you write them even though they are policy-level and have few instances. Ground every sentence in material that already exists in the vault; do not invent rules. They are all `family: policy` Standards and workflows (policies need only Done Conditions and Gold Standard Example headings, no Spec).\nFiles:\n- Standards/Enrich/Human Writing Standard.md (EMPTY): the lintable, checkable counterpart of the root HUMAN_WRITING.md. It must NOT restate voice (HUMAN_WRITING owns voice); it holds the prose check a reviewer or script can run: the suspicious-word list with the accept-if-most-accurate rule, no em dash, sentence-level delete test, honest-uncertainty markers, density rules, what a rewrite must preserve; point to HUMAN_WRITING for the why. Fold in anything unique from Standards/Ingestion/Humanized Writing Standard.md (read it; rewrite that file in place as a short pointer-style policy so the duplication is gone, and report that overlap).\n- Standards/Decoration Standard.md (EMPTY): the formatting-marker and callout rules from Jarvis Writing and Formatting (==highlight==, **bold**, *label:*, callout types, Excalidraw embeds, tables vs Dataview), as the measurable subset: exactly one highlight anchor per major `##` section, when each callout type applies, no decorative stacking, no raw sources inside durable notes; point to Jarvis Writing and Formatting for syntax.\n- Standards/Enrich/Plugins Usage Standard.md (EMPTY): which Obsidian plugin syntax belongs in which note and how to verify it: Dataview for live lists (FROM paths must exist), Tasks for real actions, Spaced Repetition for cards, Kanban for boards, Excalidraw/Canvas for spatial relations, Bases; ground in 40_Resources/Obsidian/Plugins/* (18 docs, start with 00 Plugin Reference Index) and Jarvis Writing and Formatting. State the failure to avoid: 55 dead Dataview FROM paths exist today.\n- Workflows (all EMPTY, write each with the Workflow contract, 350 words max): Workflows/Enrichment/Decoration.md (serves Decoration Standard), Workflows/Enrichment/Human Content Writer.md (serves Human Writing Standard; ground in the agents human-operator and anti-slop-editor and the /remove-ai-slop skill in .claude/), Workflows/Enrichment/Plugins Usage.md (serves Plugins Usage Standard), Workflows/Enrichment/Researcher.md (a vault-first research procedure: search the vault, then external sources via the ingestion path, record sources, label claims vault-grounded / externally-sourced / uncertain, and route the result to a source summary or distilled note; ground in CLAUDE.md Query Behavior, the learning-agent and deep-research skills, and the `source_status` key).\nDo not touch the Enrichment, Capture to Summary, or Output with Provenance workflows (K-knowledge owns them). Because policies have no Spec, make the Done Conditions concrete and checkable, and make each Standard under 700 words. Read HUMAN_WRITING.md, Jarvis Writing and Formatting.md, the plugin docs, and 5 real notes that show the markers used well (the Teams and Team Effectiveness concept note is a good one)."}``
 - `Grep` -- pattern `let cand = type|spec = cand\[0\]|if \(!spec\) \{|const tier = r.tier|F2 headings|F5 hygiene|if \(tier !== 3\) \{` path `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
 ```diff
 -   r.pass = r.fails.length === 0;
 +   if (spec && Array.isArray(spec.skip_checks) && spec.skip_checks.length) r.fails = r.fails.filter((f) => !spec.skip_checks.includes(parseInt(f, 10)));
-  r.pass = r.fails.length === 0;
++   r.pass = r.fails.length === 0;
 ```
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Note Kit Standard.md`
 ```diff
 - That shows how far it is from fit and which upgrade it needs.
 + That shows how far it is from fit and which upgrade it needs.
-Two more optional fields: `match.strict_path` (true means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed), and `skip_checks` (check numbers from [[Conformance Standard]] that do not apply, for example `[5]` for raw machine exports whose blank lines the exporter writes). Use `skip_checks` only for machine-written families, and say why in the Standard.
++ Two more optional fields: `match.strict_path` (true means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed), and `skip_checks` (check numbers from [[Conformance Standard]] that do not apply, for example `[5]` for raw machine exports whose blank lines the exporter writes). Use `skip_checks` only for machine-written families, and say why in the Standard.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards" && node - <<'EOF'
 const fs=require('fs');let s=fs.readFileSync('Frontmatter Standard.md','utf8');
 s=s.replace("transcript, brief, conversation, conversation-summary, job-dossier","transcript, brief, ai-conversation, ai-conversation-summary, job-dossier");
 fs.writeFileSync('Frontmatter Standard.md',s);
@@ -5467,14 +6655,18 @@ let r=fs.readFileSync('../Note Type Registry.md','utf8');
 r=r.replace(/input \/ conversation-summary/g,'input / ai-conversation-summary').replace(/input \/ conversation(?! )/g,'input / ai-conversation').replace("input / conversation |","input / ai-conversation |");
 fs.writeFileSync('../Note Type Registry.md',r);
 EOF
-grep -n "ai-conversation" "Frontmatter Standard.md" "../Note Type Registry.md" | cut -c1-140; cd ../System/vault-lint && node vault-lint.js --specs | tail -1`
+grep -n "ai-conversation" "Frontmatter Standard.md" "../Note Type Registry.md" | cut -c1-140; cd ../System/vault-lint && node vault-lint.js --specs | tail -1
+```
 ```
 Frontmatter Standard.md:27:| `input` | Captured or source-derived: a clip, summary, transcript, brief | `input_kind` | clipping, source-summ
 ../Note Type Registry.md:102:| ai-conversation-export | 2 | input / ai-conversation | `60_Claude/05_Clippings/AI Conversations/` | none (scr
 ../Note Type Registry.md:103:| conversation-summary | 1 | input / ai-conversation-summary | `60_Claude/07_AI_Information/AI Conversation - S
 22 errors, 57 warnings
 ```
-- `Bash` -- `cd /tmp 2>/dev/null; (command -v obsidian && timeout 15 obsidian version 2>&1 | head -3) || echo "obsidian CLI not on PATH"; ls "C:/Users/anant/AppData/Local/Programs/Obsidian" 2>/dev/null | head -3; ls "D:/_Anant/20_Progress/Documents/Jarvis/.claude/skills" | head -3`
+- `Bash`
+```bash
+cd /tmp 2>/dev/null; (command -v obsidian && timeout 15 obsidian version 2>&1 | head -3) || echo "obsidian CLI not on PATH"; ls "C:/Users/anant/AppData/Local/Programs/Obsidian" 2>/dev/null | head -3; ls "D:/_Anant/20_Progress/Documents/Jarvis/.claude/skills" | head -3
+```
 ```
 /d/Apps/Obsidian/obsidian
 
@@ -5661,10 +6853,10 @@ Nothing else is safe to change while they're writing, so I'm waiting for their c
 
 ### Tool Calls
 
-- `SendMessage` -- `{"to":"K-courses-ctrl","summary":"Resume course control kit build after limit","message":"The usage limit has reset: continue your course control and assessment build from where you stopped, without redoing finished files.\nCheck which of your assigned files already exist and pass lint, finish the rest (you were on Self-Study Track and Degree Audit), then run the gate from FORK-BRIEF.md. Write scratchpad/K-courses-ctrl.md early with what you have, then refine it. Note the linter gained optional Spec fields: match.strict_path, skip_checks, a `?` key suffix, and a `template` field (see the Note Kit Standard and vault-lint.js). No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-courses-ctrl","recipient_kind":"name","content":"The usage limit has reset: continue your course c…"}`
-- `SendMessage` -- `{"to":"K-projects","summary":"Resume project kit build after limit","message":"The usage limit has reset: continue your project and brief build from where you stopped, without redoing finished files.\nCheck which assigned files already exist and pass lint, finish the rest (you were on the Brief and Action Standards), then run the gate from FORK-BRIEF.md. Write scratchpad/K-projects.md early with what you have, then refine it. The linter gained optional Spec fields: match.strict_path, skip_checks, a `?` key suffix, and a `template` field (see the Note Kit Standard and vault-lint.js). No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-projects","recipient_kind":"name","content":"The usage limit has reset: continue your project …"}`
-- `SendMessage` -- `{"to":"K-knowledge","summary":"Resume knowledge kit build after limit","message":"The usage limit has reset: continue your knowledge pipeline build from where you stopped, without redoing finished files.\nYou were still counting real heading sequences and keys per family. Check which assigned files already exist and pass lint, write the rest, then run the gate from FORK-BRIEF.md. Write scratchpad/K-knowledge.md early with what you have, then refine it. The linter gained optional Spec fields: match.strict_path, skip_checks, a `?` key suffix, and a `template` field (see the Note Kit Standard and vault-lint.js). The Frontmatter Standard now lists `ai-conversation` and `ai-conversation-summary` as input_kind values. No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-knowledge","recipient_kind":"name","content":"The usage limit has reset: continue your knowledg…"}`
-- `SendMessage` -- `{"to":"K-writing","summary":"Resume writing policy kit build after limit","message":"The usage limit has reset: continue your writing, decoration, plugin, and research stubs from where you stopped, without redoing finished files.\nYou were verifying the Dataview dead-path claims for the Plugins Usage Standard; run `node 30_Order/System/vault-lint/vault-lint.js --path 60_Claude/44_Indexes/ --list 5` to see the dead FROM paths the linter now finds, and only cite what you verified. Check which of your assigned files are still empty or fail lint, write the rest, then run the gate from FORK-BRIEF.md. Write scratchpad/K-writing.md early with what you have, then refine it. No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-writing","recipient_kind":"name","content":"The usage limit has reset: continue your writing,…"}`
+- `SendMessage` -- ``{"to":"K-courses-ctrl","summary":"Resume course control kit build after limit","message":"The usage limit has reset: continue your course control and assessment build from where you stopped, without redoing finished files.\nCheck which of your assigned files already exist and pass lint, finish the rest (you were on Self-Study Track and Degree Audit), then run the gate from FORK-BRIEF.md. Write scratchpad/K-courses-ctrl.md early with what you have, then refine it. Note the linter gained optional Spec fields: match.strict_path, skip_checks, a `?` key suffix, and a `template` field (see the Note Kit Standard and vault-lint.js). No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-courses-ctrl","recipient_kind":"name","content":"The usage limit has reset: continue your course c…"}``
+- `SendMessage` -- ``{"to":"K-projects","summary":"Resume project kit build after limit","message":"The usage limit has reset: continue your project and brief build from where you stopped, without redoing finished files.\nCheck which assigned files already exist and pass lint, finish the rest (you were on the Brief and Action Standards), then run the gate from FORK-BRIEF.md. Write scratchpad/K-projects.md early with what you have, then refine it. The linter gained optional Spec fields: match.strict_path, skip_checks, a `?` key suffix, and a `template` field (see the Note Kit Standard and vault-lint.js). No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-projects","recipient_kind":"name","content":"The usage limit has reset: continue your project …"}``
+- `SendMessage` -- ``{"to":"K-knowledge","summary":"Resume knowledge kit build after limit","message":"The usage limit has reset: continue your knowledge pipeline build from where you stopped, without redoing finished files.\nYou were still counting real heading sequences and keys per family. Check which assigned files already exist and pass lint, write the rest, then run the gate from FORK-BRIEF.md. Write scratchpad/K-knowledge.md early with what you have, then refine it. The linter gained optional Spec fields: match.strict_path, skip_checks, a `?` key suffix, and a `template` field (see the Note Kit Standard and vault-lint.js). The Frontmatter Standard now lists `ai-conversation` and `ai-conversation-summary` as input_kind values. No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-knowledge","recipient_kind":"name","content":"The usage limit has reset: continue your knowledg…"}``
+- `SendMessage` -- ``{"to":"K-writing","summary":"Resume writing policy kit build after limit","message":"The usage limit has reset: continue your writing, decoration, plugin, and research stubs from where you stopped, without redoing finished files.\nYou were verifying the Dataview dead-path claims for the Plugins Usage Standard; run `node 30_Order/System/vault-lint/vault-lint.js --path 60_Claude/44_Indexes/ --list 5` to see the dead FROM paths the linter now finds, and only cite what you verified. Check which of your assigned files are still empty or fail lint, write the rest, then run the gate from FORK-BRIEF.md. Write scratchpad/K-writing.md early with what you have, then refine it. No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-writing","recipient_kind":"name","content":"The usage limit has reset: continue your writing,…"}``
 
 ## You
 
@@ -5704,7 +6896,10 @@ Three forks are left: course control, projects and knowledge. I'm waiting on the
 -   let t = raw.split('|')[0].split('#')[0].trim();
 +   let t = raw.split('|')[0].split('#')[0].trim().replace(/\\$/, '');
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 00_Dashboard.md --list 3 2>&1 | grep -E "FIT|DEAD" | head -3; node vault-lint.js --specs | tail -1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 00_Dashboard.md --list 3 2>&1 | grep -E "FIT|DEAD" | head -3; node vault-lint.js --specs | tail -1
+```
 ```
 FIT: 0/1 = 0.0%
   00_Dashboard.md  [dashboard]  1:status-off-vocab:tree; 1:missing-key:dashboard_kind; 3:dead-body-links:1; 5:hr-in-body:1; 5:extra-blank-lines:6  DEAD: 10_Areas/Excalidraw/Claude OS Map|OS Map
@@ -5799,7 +6994,10 @@ Three renames are done and `--kit` shows 0 errors. I'm now waiting only on K-kno
 -   "match": {"type": "index", "kind": null, "path": "", "where": {}, "where_not": {}},
 +   "match": {"type": "index", "kind": null, "path": "^(?!20_Progress/Degree/|40_Resources/UMN/|10_Areas/Notes/)", "strict_path": true, "where": {}, "where_not": {}},
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --family moc --list 0 2>&1 | head -5; node vault-lint.js --path 20_Progress/Degree/ --list 0 2>&1 | sed -n '1,16p'`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --family moc --list 0 2>&1 | head -5; node vault-lint.js --path 20_Progress/Degree/ --list 0 2>&1 | sed -n '1,16p'
+```
 ```
 Scanned 49 notes in scope (excluded: 0 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
 FIT: 5/49 = 10.2%
@@ -5823,7 +7021,10 @@ By family (fit / total, near-fit, failing checks):
   course-subboard                  0/10      0.0%  near    0  F1:10 F2:7 F3:1 F5:1 F6:10
   course-board                     0/8       0.0%  near    0  F1:8 F2:8 F3:2 F5:6 F6:8
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && (timeout 20 obsidian help 2>&1 | grep -iE "move|rename|vault" | head -12); echo ---; timeout 20 obsidian vault 2>&1 | head -5`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && (timeout 20 obsidian help 2>&1 | grep -iE "move|rename|vault" | head -12); echo ---; timeout 20 obsidian vault 2>&1 | head -5
+```
 ```
   vault=<name>          Target a specific vault by name
   aliases               List aliases in the vault
@@ -5844,14 +7045,20 @@ path	D:\_Anant\20_Progress\Documents\Jarvis
 files	5746
 folders	659
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && timeout 20 obsidian help move 2>&1 | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && timeout 20 obsidian help move 2>&1 | head -20
+```
 ```
   move                  Move or rename a file
     file=<name>         - File name
     path=<path>         - File path
     to=<path>           - Destination folder or path (required)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for pair in "30_Order/Templates/AI Toolkit/Graphify Notes.md|30_Order/Templates/AI Toolkit/Graphify Notes Template.md" "30_Order/Standards/Daily Workflow Standard.md|30_Order/Standards/Plan Standard.md" "30_Order/Standards/Courses/Project Standard.md|30_Order/Standards/Courses/Course Project Standard.md"; do from="${pair%%|*}"; to="${pair##*|}"; echo "== $from -> $to"; timeout 40 obsidian move path="$from" to="$to" 2>&1 | head -3; ls "$to" >/dev/null 2>&1 && echo "OK moved" || echo "FAILED"; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && for pair in "30_Order/Templates/AI Toolkit/Graphify Notes.md|30_Order/Templates/AI Toolkit/Graphify Notes Template.md" "30_Order/Standards/Daily Workflow Standard.md|30_Order/Standards/Plan Standard.md" "30_Order/Standards/Courses/Project Standard.md|30_Order/Standards/Courses/Course Project Standard.md"; do from="${pair%%|*}"; to="${pair##*|}"; echo "== $from -> $to"; timeout 40 obsidian move path="$from" to="$to" 2>&1 | head -3; ls "$to" >/dev/null 2>&1 && echo "OK moved" || echo "FAILED"; done
+```
 ```
 == 30_Order/Templates/AI Toolkit/Graphify Notes.md -> 30_Order/Templates/AI Toolkit/Graphify Notes Template.md
 
@@ -5863,7 +7070,10 @@ OK moved
 
 OK moved
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "stale refs to old names (outside scratch):"; grep -rIl --include=*.md -E "\[\[(Daily Workflow Standard|Graphify Notes\]\]|Courses/Project Standard)" 30_Order .claude AGENTS.md CLAUDE.md 40_Resources 60_Claude/07_AI_Information 2>/dev/null | head -20; echo ---; cd 30_Order/System/vault-lint && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors," | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "stale refs to old names (outside scratch):"; grep -rIl --include=*.md -E "\[\[(Daily Workflow Standard|Graphify Notes\]\]|Courses/Project Standard)" 30_Order .claude AGENTS.md CLAUDE.md 40_Resources 60_Claude/07_AI_Information 2>/dev/null | head -20; echo ---; cd 30_Order/System/vault-lint && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors," | head -20
+```
 ```
 stale refs to old names (outside scratch):
 30_Order/00_How This Folder Works.md
@@ -5872,7 +7082,10 @@ stale refs to old names (outside scratch):
 ---
 0 errors, 27 warnings
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -rIn --include=*.md -E "Daily Workflow Standard|Courses/Project Standard" 30_Order AGENTS.md CLAUDE.md .claude 40_Resources/Obsidian 60_Claude/07_AI_Information 2>/dev/null | cut -c1-170 | head -12`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -rIn --include=*.md -E "Daily Workflow Standard|Courses/Project Standard" 30_Order AGENTS.md CLAUDE.md .claude 40_Resources/Obsidian 60_Claude/07_AI_Information 2>/dev/null | cut -c1-170 | head -12
+```
 ```
 30_Order/Note Type Registry.md:43:| course-project | 1 | class / project | same | [[Project Template]] | `30_Order/Standards/Courses/Project Standard` (rename to Course P
 30_Order/Note Type Registry.md:120:Legacy names kept until the rename is done with link-aware moves: Daily Workflow Standard (to become Plan Standard), Courses/Project St
@@ -5943,7 +7156,10 @@ The whole-vault baseline is in: 128 of 5,299 notes fit, which is 2.4%, because n
 
 ### Tool Calls
 
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && for f in K-courses-core K-courses-ctrl K-career K-projects K-knowledge K-ops-nav K-ai-loop K-writing; do echo "######## $f"; grep -n -i "^#.*registry" $f.md | head -3; done; wc -c K-*.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && for f in K-courses-core K-courses-ctrl K-career K-projects K-knowledge K-ops-nav K-ai-loop K-writing; do echo "######## $f"; grep -n -i "^#.*registry" $f.md | head -3; done; wc -c K-*.md
+```
 ```
 ######## K-courses-core
 15:## Registry rows (state built; replace the existing rows)
@@ -5972,7 +7188,9 @@ The whole-vault baseline is in: 128 of 5,299 notes fit, which is 2.4%, because n
   4748 K-writing.md
 176280 total
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
 const fs=require('fs');
 const sec={'K-courses-core':'Registry rows','K-courses-ctrl':'Registry rows','K-career':'Registry rows','K-projects':'Registry rows','K-knowledge':'Registry rows','K-ops-nav':'Registry rows','K-ai-loop':'Registry rows','K-writing':'Registry rows'};
 const all={};
@@ -5984,7 +7202,8 @@ for(const k of Object.keys(sec)){
   rows.forEach(r=>console.log(r.slice(0,230)));
 }
 fs.writeFileSync('registry-rows.json',JSON.stringify(all));
-" | head -150`
+" | head -150
+```
 ```
 === K-courses-core (6 lines)
 | course-concept | 1 | concept | `20_Progress/Degree/`, `40_Resources/UMN/Previous Classes/`, `10_Areas/Notes/` | [[Concept Template]] | [[Concept Standard]] | [[Concept Workflow]] | built |
@@ -6076,7 +7295,10 @@ fs.writeFileSync('registry-rows.json',JSON.stringify(all));
 | (policy) decoration | none | system / standard | `30_Order/Standards/` | none | [[Decoration Standard]] | [[Decoration]] | built |
 | (policy) plugins | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Plugins Usage Standard]] | [[Plugins Usage]] | built |
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls "30_Order/Standards/Enrich/" | head -20; find . -name "Reference Standard.md" -not -path "./.git/*" | head; timeout 40 obsidian move path="30_Order/Standards/Enrich/Resources.md" to="30_Order/Standards/Enrich/Reference Standard.md" 2>&1 | head -2; ls "30_Order/Standards/Enrich/Reference Standard.md" && grep -n "^# " "30_Order/Standards/Enrich/Reference Standard.md" | head -2`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls "30_Order/Standards/Enrich/" | head -20; find . -name "Reference Standard.md" -not -path "./.git/*" | head; timeout 40 obsidian move path="30_Order/Standards/Enrich/Resources.md" to="30_Order/Standards/Enrich/Reference Standard.md" 2>&1 | head -2; ls "30_Order/Standards/Enrich/Reference Standard.md" && grep -n "^# " "30_Order/Standards/Enrich/Reference Standard.md" | head -2
+```
 ```
 Audit Report Standard.md
 Capability Review Standard.md
@@ -6098,7 +7320,9 @@ Tracking Standard.md
 - # Resources
 + # Reference Standard
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF'
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF'
 const fs=require('fs');
 const R=JSON.parse(fs.readFileSync('registry-rows.json','utf8'));
 const REG='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md';
@@ -6145,13 +7369,17 @@ const out=intro+foundation+courses+career+projects+knowledge+ops+ai+tail;
 fs.writeFileSync(REG,out);
 console.log('rows total', (out.match(/^\| [a-z]/gm)||[]).length);
 EOF
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "30_Order/Note Type Registry.md" --list 3 2>&1 | grep -E "FIT|DEAD|Note Type" | head -5`
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "30_Order/Note Type Registry.md" --list 3 2>&1 | grep -E "FIT|DEAD|Note Type" | head -5
+```
 ```
 rows total 77
 FIT: 1/1 = 100.0%
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && grep -n "Summary to Distilled" K-knowledge.md | head; echo; awk '/^## .*Summary to Distilled/{f=1} f' K-knowledge.md | head -60`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && grep -n "Summary to Distilled" K-knowledge.md | head; echo; awk '/^## .*Summary to Distilled/{f=1} f' K-knowledge.md | head -60
 ```
+````
 6:`Workflows/Ingestion/Summary to Distilled.md` could not be written. The harness rejected both Write attempts with "Subagents should return findings as text, not write report files", apparently because the file name contains "Summary". I did not route around it. The file is still the legacy version (it fails lint as unmapped). Full replacement content is in the section at the end of this file.
 32:2. DELETE Templates/Capability/Synthesis Template.md after repointing. It uses `{{date}}`, its headings match no real note, and Synthesis Note Template replaces it. Check inbound links first (Summary to Distilled legacy text, Review Standard history).
 50:| distilled | 1 | evergreen / distilled | `60_Claude/20_Distilled_Notes/` | [[Deep Dive Template]] | [[Evergreen Standard]] | [[Summary to Distilled]] | built |
@@ -6197,7 +7425,7 @@ Do not file an implementation plan or an audit here, and do not copy a source's 
 - It links its summaries and neighbors and names its gaps.
 - After the idea is reused, raise `status` to `tree` and consider [[Promotion]].
 ```
-```
+````
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Ingestion/Summary to Distilled.md`
 - `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Ingestion/Summary to Distilled.md`
 ```
@@ -6236,12 +7464,18 @@ Do not file an implementation plan or an audit here, and do not copy a source's 
 - After the idea is reused, raise `status` to `tree` and consider [[Promotion]].
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors,"; node vault-lint.js --path "30_Order/Workflows/Ingestion/Summary to Distilled.md" --list 2 2>&1 | grep -E "FIT|DEAD|Summary"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors,"; node vault-lint.js --path "30_Order/Workflows/Ingestion/Summary to Distilled.md" --list 2 2>&1 | grep -E "FIT|DEAD|Summary"
+```
 ```
 0 errors, 12 warnings
 FIT: 1/1 = 100.0%
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/ --list 80 2>&1 | grep -vE "^\s+30_Order/Workflows/Courses/Per Class" | head -70`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/ --list 80 2>&1 | grep -vE "^\s+30_Order/Workflows/Courses/Per Class" | head -70
+```
 ```
 Scanned 133 notes in scope (excluded: 0 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
 FIT: 121/133 = 91.0%
@@ -6286,7 +7520,9 @@ First 80 failing notes:
 - | story, bullet, prompt, post, resume, cover-letter |
 + | story, bullet, one-pager, prompt, post, resume, cover-letter |
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
 const fs=require('fs'),path=require('path');
 const fsText=fs.readFileSync('Standards/Frontmatter Standard.md','utf8').split('\n');
 let sec='';const types={},stat={};
@@ -6303,7 +7539,8 @@ const bad=[];
  if(types[ty].k){const kv=g(types[ty].k);if(kv&&types[ty].kinds.length&&!types[ty].kinds.includes(kv))bad.push(rel+' '+types[ty].k+'='+kv);}
  const st=g('status');if(st&&stat[ty]&&stat[ty].length&&!stat[ty].includes(st))bad.push(rel+' status='+st+' (type '+ty+')');}})('Templates');
 console.log(bad.length?bad.join('\n'):'All Template type/kind/status values are in the vocabulary.');
-EOF`
+EOF
+```
 ```
 Exit code 1
 [stdin]:12
@@ -6327,21 +7564,24 @@ Node.js v24.19.0
 ```diff
 -   const wfs = mdFiles.filter((f) => f.rel.startsWith('30_Order/Workflows/') && fs.statSync(f.abs).size > 0);
 +   for (const f of mdFiles.filter((x) => x.rel.startsWith('30_Order/Templates/') && fs.statSync(x.abs).size > 0)) {
-    const tn = parseNote(fs.readFileSync(f.abs, 'utf8'));
-    if (!tn.hasFm) { add('warn', f.rel, 'template has no frontmatter'); continue; }
-    const ty = val(tn, 'type');
-    if (!ty) { add('warn', f.rel, 'template has no type'); continue; }
-    if (!VOCAB.types[ty] && ty !== 'generated') { add('error', f.rel, `template type "${ty}" is not in the vocabulary`); continue; }
-    const kk = VOCAB.types[ty] && VOCAB.types[ty].kindKey;
-    const kv = kk ? val(tn, kk) : undefined;
-    if (kv && VOCAB.types[ty].kinds.length && !VOCAB.types[ty].kinds.includes(kv)) add('error', f.rel, `template ${kk}="${kv}" is not in the vocabulary`);
-    const st = val(tn, 'status'); const okSt = VOCAB.statusByType[ty] || [];
-    if (st && okSt.length && !okSt.includes(st)) add('error', f.rel, `template status "${st}" is not allowed for type ${ty}`);
-    if (/\{\{date/.test(fs.readFileSync(f.abs, 'utf8'))) add('error', f.rel, 'template uses {{date}} (use Templater)');
-  }
-  const wfs = mdFiles.filter((f) => f.rel.startsWith('30_Order/Workflows/') && fs.statSync(f.abs).size > 0);
++     const tn = parseNote(fs.readFileSync(f.abs, 'utf8'));
++     if (!tn.hasFm) { add('warn', f.rel, 'template has no frontmatter'); continue; }
++     const ty = val(tn, 'type');
++     if (!ty) { add('warn', f.rel, 'template has no type'); continue; }
++     if (!VOCAB.types[ty] && ty !== 'generated') { add('error', f.rel, `template type "${ty}" is not in the vocabulary`); continue; }
++     const kk = VOCAB.types[ty] && VOCAB.types[ty].kindKey;
++     const kv = kk ? val(tn, kk) : undefined;
++     if (kv && VOCAB.types[ty].kinds.length && !VOCAB.types[ty].kinds.includes(kv)) add('error', f.rel, `template ${kk}="${kv}" is not in the vocabulary`);
++     const st = val(tn, 'status'); const okSt = VOCAB.statusByType[ty] || [];
++     if (st && okSt.length && !okSt.includes(st)) add('error', f.rel, `template status "${st}" is not allowed for type ${ty}`);
++     if (/\{\{date/.test(fs.readFileSync(f.abs, 'utf8'))) add('error', f.rel, 'template uses {{date}} (use Templater)');
++   }
++   const wfs = mdFiles.filter((f) => f.rel.startsWith('30_Order/Workflows/') && fs.statSync(f.abs).size > 0);
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors," | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors," | head -20
+```
 ```
 ERROR  30_Order/Templates/Capability/Synthesis Template.md  template uses {{date}} (use Templater)
 ERROR  30_Order/Templates/Career/Internship/LinkedIn Post Template.md  template status "draft" is not allowed for type output
@@ -6352,16 +7592,16 @@ ERROR  30_Order/Templates/Career/Internship/LinkedIn Post Template.md  template 
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Capability/Synthesis Template.md`
 ```diff
 - created: {{date:YYYY-MM-DD}}
-updated: {{date:YYYY-MM-DD}}
+- updated: {{date:YYYY-MM-DD}}
 + created: <% tp.date.now("YYYY-MM-DD") %>
-updated: <% tp.date.now("YYYY-MM-DD") %>
++ updated: <% tp.date.now("YYYY-MM-DD") %>
 ```
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/LinkedIn Post Template.md`
 ```diff
 - type: output
-status: draft
+- status: draft
 + type: output
-status: sprout
++ status: sprout
 ```
 - `Write` -- `C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/genindex.js`
 ```
@@ -6427,7 +7667,10 @@ fs.writeFileSync(OUT, o);
 console.log('wrote', Object.entries(groups).map(([k, v]) => k + ':' + v.length).join(' '));
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/genindex.js" && node vault-lint.js --path "30_Order/Workflows/00_Workflows Index.md" --list 3 2>&1 | grep -E "FIT|DEAD|Index"; node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors,"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/genindex.js" && node vault-lint.js --path "30_Order/Workflows/00_Workflows Index.md" --list 3 2>&1 | grep -E "FIT|DEAD|Index"; node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors,"
+```
 ```
 wrote Courses:17 Enrichment:7 Ingestion:7 Internship:8 Operations:1 Projects:1 System:2 Toolkit:5
 FIT: 1/1 = 100.0%
@@ -6437,13 +7680,13 @@ FIT: 1/1 = 100.0%
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/AGENTS.md`
 ```diff
 - - Start from the matching file in `30_Order/Templates/`. Do not write frontmatter or headings that no template defines.
-- Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
-- Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
+- - Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
+- - Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
 + - Find the note type in [[Note Type Registry]]. It names the Template, Standard, and Workflow, and the folder.
-- Start from the matching file in `30_Order/Templates/`. Do not write frontmatter or headings that no template defines. `type` and `status` come only from [[Frontmatter Standard]].
-- Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
-- Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
-- Before saving, run [[Vault Lint]] on the note. When you open an older note for any reason, bring it to its Standard in the same edit ([[Conformance on Touch]]).
++ - Start from the matching file in `30_Order/Templates/`. Do not write frontmatter or headings that no template defines. `type` and `status` come only from [[Frontmatter Standard]].
++ - Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
++ - Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
++ - Before saving, run [[Vault Lint]] on the note. When you open an older note for any reason, bring it to its Standard in the same edit ([[Conformance on Touch]]).
 ```
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/AGENTS.md`
 ```diff
@@ -6453,21 +7696,21 @@ FIT: 1/1 = 100.0%
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/AGENTS.md`
 ```diff
 - | Synthesized project brief | `60_Claude/40_Project_Briefs/` | [[Brief Standard]] |
-| Map of next steps from a brief or note | next to the source note | [[Action Standard]] |
-| Reusable deliverable (story, bullet, prompt) | `60_Claude/40_Project_Briefs/` with `source_concepts:` provenance (no dedicated Outputs folder exists) | |
-| Daily, weekly, monthly review | `10_Areas/Life/Enumerate/` (Periodic Notes) or `60_Claude/30_Reviews/` | [[30_Order/Standards/AI Loop/Review System|Review System]] |
-| Dashboard or index | `60_Claude/44_Indexes/` | [[MOC Standard]] |
+- | Map of next steps from a brief or note | next to the source note | [[Action Standard]] |
+- | Reusable deliverable (story, bullet, prompt) | `60_Claude/40_Project_Briefs/` with `source_concepts:` provenance (no dedicated Outputs folder exists) | |
+- | Daily, weekly, monthly review | `10_Areas/Life/Enumerate/` (Periodic Notes) or `60_Claude/30_Reviews/` | [[30_Order/Standards/AI Loop/Review System|Review System]] |
+- | Dashboard or index | `60_Claude/44_Indexes/` | [[MOC Standard]] |
 + | Summary of a meeting, call, or video (people talking) | `60_Claude/40_Project_Briefs/` or next to the project | [[Brief Standard]] |
-| Project spec or plan | `20_Progress/` next to the project | [[Spec and Plan Standard]] |
-| Map of next steps from a brief or note | next to the source note | [[Action Standard]] |
-| Reusable deliverable (story, bullet, one-pager, prompt) | next to the project it serves, with `source_concepts:` provenance (there is no Outputs folder) | [[Output Standard]] |
-| Daily note | `10_Areas/Life/Enumerate/Daily/` | [[Daily Note Standard]] |
-| Weekly, monthly, or yearly note | `10_Areas/Life/Enumerate/` | [[Periodic Review Note Standard]] |
-| AI tools review, capability review, audit report | `60_Claude/30_Reviews/` | [[Review Standard]], [[Capability Review Standard]], [[Audit Report Standard]] |
-| Standing plan | `10_Areas/Life/Plans/` | [[Plan Standard]] |
-| Map of a folder (MOC) | in the folder it maps | [[MOC Standard]] |
-| Dashboard, board, or Field OS note | `60_Claude/44_Indexes/` | [[Dashboard Standard]] |
-| Anything a tool wrote (graph export, mirror) | its generator's folder, marked `type: generated` | [[Generated Output Standard]] |
++ | Project spec or plan | `20_Progress/` next to the project | [[Spec and Plan Standard]] |
++ | Map of next steps from a brief or note | next to the source note | [[Action Standard]] |
++ | Reusable deliverable (story, bullet, one-pager, prompt) | next to the project it serves, with `source_concepts:` provenance (there is no Outputs folder) | [[Output Standard]] |
++ | Daily note | `10_Areas/Life/Enumerate/Daily/` | [[Daily Note Standard]] |
++ | Weekly, monthly, or yearly note | `10_Areas/Life/Enumerate/` | [[Periodic Review Note Standard]] |
++ | AI tools review, capability review, audit report | `60_Claude/30_Reviews/` | [[Review Standard]], [[Capability Review Standard]], [[Audit Report Standard]] |
++ | Standing plan | `10_Areas/Life/Plans/` | [[Plan Standard]] |
++ | Map of a folder (MOC) | in the folder it maps | [[MOC Standard]] |
++ | Dashboard, board, or Field OS note | `60_Claude/44_Indexes/` | [[Dashboard Standard]] |
++ | Anything a tool wrote (graph export, mirror) | its generator's folder, marked `type: generated` | [[Generated Output Standard]] |
 ```
 - `Grep` -- pattern `Note Creation Conventions|Frontmatter comes from the template` path `D:/_Anant/20_Progress/Documents/Jarvis/CLAUDE.md`
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/CLAUDE.md`
@@ -6475,23 +7718,26 @@ FIT: 1/1 = 100.0%
 - Frontmatter comes from the template, never from memory. Templates live in `30_Order/Templates/` (frontmatter-only starters in `Frontmatter/`: `For Evergreen`, `For Inputs`, `For Progress`, `For Classes`, `For Thoughts`, `For Brainstorm`, `For Transcript`, `For AI`, `For Everything`). Property meanings: [[40_Resources/Obsidian/Vault Operating System]]. Note-type to folder to standard mapping: the routing table in [[AGENTS.md]].
 + Frontmatter comes from the template, never from memory. Find the note type in [[Note Type Registry]]; it names the Template, Standard, and Workflow. `type`, `status`, and every `*_kind` come only from [[Frontmatter Standard]] (17 types, 7 statuses); do not invent a value. The frontmatter-only starters in `30_Order/Templates/Frontmatter/` are for Inbox notes with no family. Property meanings beyond the vocabulary: [[40_Resources/Obsidian/Vault Operating System]]. Folder routing: the table in [[AGENTS.md]]. Check the finished note with [[Vault Lint]], and bring any older note you touch to its Standard ([[Conformance on Touch]]).
 ```
-- `Grep` -- pattern `^## Canonical Properties|\| `type`|\| `status`` path `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Vault Operating System.md`
+- `Grep` -- pattern `` ^## Canonical Properties|\| `type`|\| `status` `` path `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Vault Operating System.md`
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Vault Operating System.md`
 ```diff
 - | `type`                | text    | Note class: `input`, `evergreen`, `concept`, `project`, `thought`, `brainstorm`, `class`, `plan`, `review`, `dashboard`, `index`, `output` |
-| `status`              | text    | State or maturity: `seed`, `sprout`, `tree`, `active`, `paused`, `complete`, `archived`                                                    |
+- | `status`              | text    | State or maturity: `seed`, `sprout`, `tree`, `active`, `paused`, `complete`, `archived`                                                    |
 + | `type`                | text    | Note class. The closed list of 17 values, with their `*_kind` subtypes, lives in [[Frontmatter Standard]]. Do not copy it here.            |
-| `status`              | text    | State or maturity. The allowed values per type live in [[Frontmatter Standard]].                                                           |
++ | `status`              | text    | State or maturity. The allowed values per type live in [[Frontmatter Standard]].                                                           |
 ```
-- `Grep` -- pattern `### 30_Order|30_Order — rules and machinery layer|Belongs:\*\* `Templates/`` path `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Jarvis Vault Architecture.md`
+- `Grep` -- pattern `` ### 30_Order|30_Order — rules and machinery layer|Belongs:\*\* `Templates/` `` path `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Jarvis Vault Architecture.md`
 - `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Jarvis Vault Architecture.md`
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Jarvis Vault Architecture.md`
 ```diff
 - **Workflow:** see [[30_Order/00_How This Folder Works|How This Folder Works]] for the Standard, Template, Workflow split and the rule for adding a new note type.
 + **Workflow:** every note type has a row in [[Note Type Registry]] naming its Template, Standard, Workflow, and folder. [[Frontmatter Standard]] owns the `type` and `status` vocabulary, and [[Vault Lint]] measures how many notes fit their Standard (target 90%). See [[30_Order/00_How This Folder Works|How This Folder Works]] for the split and the rule for adding a note type.
 ```
-- `Agent` -- `{"subagent_type":"fork","name":"K-system","description":"Bring System tooling docs to the component standard","prompt":"You are fork K-system. First read scratchpad/FORK-BRIEF.md (rules of engagement apply: touch only your files, no renames or deletes, no em dashes, no blank lines except after a callout) and Standards/System Component Standard.md plus System/vault-lint/Vault Lint.md (the finished example of the contract). Result file: scratchpad/K-system.md.\n\nTask: bring the documentation of each component under 30_Order/System/ to the System Component Standard (frontmatter with type system, system_kind spec, trigger, owner; the seven headings Purpose, Trigger, Inputs and Outputs, State, Failure Behavior, Verify, Retire). Files, rewritten in place and keeping their file names:\n- System/claude-workflow/README.md and System/claude-workflow/Cowork-Operating-System.md (the second is 54 extra blank lines and 13 horizontal rules: restructure it into the same shape, keeping its real content; if it describes several components, give the README the component record and make Cowork-Operating-System a `system_kind: guide`).\n- System/cursor-workflow/README.md (currently typed `reference`, wrong), System/excalidraw-mcp/README.md, System/jarvis-cli/README.md, System/jarvis-memory/README.md.\n- System/sync-workflow: there is only the script-generated \"Sync Alert Banner.md\" (runtime state, do NOT touch it); if sync-workflow has no README, write one component record for it from its scripts (check-syncthing-status.ps1, rotate-sync-logs.ps1) and name it sync-workflow/README.md.\nFor each component, READ its scripts and verify every claim you write (schedule, paths, state files and which are git-ignored, failure behaviour, how to verify it ran). Do not copy a claim you did not check against the code or a log. Replace machine-specific absolute paths with vault-relative or environment-variable forms in the prose. Preserve useful install and usage content under the right heading; cut changelog narrative. Names must stay unique across 30_Order (wikilinks resolve by name): README.md files already share a name, so the linter\u0027s duplicate check ignores System/; do not add wikilinks to a bare \"README\". Gate: `node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ --list 20` must show every README fitting (system-component family; the sync banner and any runtime files are exempt: report if the linter flags them and propose the config change instead of editing the banner). List runtime-state files that are tracked in git but should not be (do not change ignore files, just report). Return a summary under 200 words."}`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && awk '/[Ll]inter/{f=1} f' K-career.md | head -30; grep -n "'?'\|endsWith('?')\|optional_keys\|\.template\b\|spec.template" "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js" | head`
+- `Agent` -- ``{"subagent_type":"fork","name":"K-system","description":"Bring System tooling docs to the component standard","prompt":"You are fork K-system. First read scratchpad/FORK-BRIEF.md (rules of engagement apply: touch only your files, no renames or deletes, no em dashes, no blank lines except after a callout) and Standards/System Component Standard.md plus System/vault-lint/Vault Lint.md (the finished example of the contract). Result file: scratchpad/K-system.md.\n\nTask: bring the documentation of each component under 30_Order/System/ to the System Component Standard (frontmatter with type system, system_kind spec, trigger, owner; the seven headings Purpose, Trigger, Inputs and Outputs, State, Failure Behavior, Verify, Retire). Files, rewritten in place and keeping their file names:\n- System/claude-workflow/README.md and System/claude-workflow/Cowork-Operating-System.md (the second is 54 extra blank lines and 13 horizontal rules: restructure it into the same shape, keeping its real content; if it describes several components, give the README the component record and make Cowork-Operating-System a `system_kind: guide`).\n- System/cursor-workflow/README.md (currently typed `reference`, wrong), System/excalidraw-mcp/README.md, System/jarvis-cli/README.md, System/jarvis-memory/README.md.\n- System/sync-workflow: there is only the script-generated \"Sync Alert Banner.md\" (runtime state, do NOT touch it); if sync-workflow has no README, write one component record for it from its scripts (check-syncthing-status.ps1, rotate-sync-logs.ps1) and name it sync-workflow/README.md.\nFor each component, READ its scripts and verify every claim you write (schedule, paths, state files and which are git-ignored, failure behaviour, how to verify it ran). Do not copy a claim you did not check against the code or a log. Replace machine-specific absolute paths with vault-relative or environment-variable forms in the prose. Preserve useful install and usage content under the right heading; cut changelog narrative. Names must stay unique across 30_Order (wikilinks resolve by name): README.md files already share a name, so the linter\u0027s duplicate check ignores System/; do not add wikilinks to a bare \"README\". Gate: `node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ --list 20` must show every README fitting (system-component family; the sync banner and any runtime files are exempt: report if the linter flags them and propose the config change instead of editing the banner). List runtime-state files that are tracked in git but should not be (do not change ignore files, just report). Return a summary under 200 words."}``
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && awk '/[Ll]inter/{f=1} f' K-career.md | head -30; grep -n "'?'\|endsWith('?')\|optional_keys\|\.template\b\|spec.template" "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js" | head
+```
 ```
 228:        const e = n.keys[k]; const kt0 = (spec.key_types || {})[k] || ''; const opt = kt0.endsWith('?'); const kt = opt ? kt0.slice(0, -1) : kt0;
 235:        const opt = kt0.endsWith('?'); const kt = opt ? kt0.slice(0, -1) : kt0;
@@ -6504,7 +7750,10 @@ FIT: 1/1 = 100.0%
 - Use `skip_checks` only for machine-written families, and say why in the Standard.
 + Use `skip_checks` only for machine-written families, and say why in the Standard. A `?` after a key type (`"date?"`) means the key must exist but may be blank; if filled, it must be valid. `template` names the Template file a Spec belongs to, for a Standard that holds several Specs.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only "Note Kit" 2>&1 | tail -4`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only "Note Kit" 2>&1 | tail -4
+```
 ```
 Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
 WARN  30_Order/Standards/Note Kit Standard.md  prose is 877 words (limit 700)
@@ -6515,33 +7764,39 @@ WARN  30_Order/Standards/Note Kit Standard.md  prose is 877 words (limit 700)
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Note Kit Standard.md`
 ```diff
 - `match.kind` is the value of the type's `*_kind` key. `where` and `where_not` compare other frontmatter keys. `match.path` is the allowed folder: a note of the right type in the wrong folder fails the placement check instead of vanishing as unmapped. `headings` are `##` titles, required and in order. Key types are `date`, `number`, `list`, `text`, `bool`, `wikilink`.
-`legacy_match` is an optional list that recognizes older notes of the family, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape`. That shows how far it is from fit and which upgrade it needs.
-Two more optional fields: `match.strict_path` (true means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed), and `skip_checks` (check numbers from [[Conformance Standard]] that do not apply, for example `[5]` for raw machine exports whose blank lines the exporter writes). Use `skip_checks` only for machine-written families, and say why in the Standard. A `?` after a key type (`"date?"`) means the key must exist but may be blank; if filled, it must be valid. `template` names the Template file a Spec belongs to, for a Standard that holds several Specs.
+- `legacy_match` is an optional list that recognizes older notes of the family, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape`. That shows how far it is from fit and which upgrade it needs.
+- Two more optional fields: `match.strict_path` (true means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed), and `skip_checks` (check numbers from [[Conformance Standard]] that do not apply, for example `[5]` for raw machine exports whose blank lines the exporter writes). Use `skip_checks` only for machine-written families, and say why in the Standard. A `?` after a key type (`"date?"`) means the key must exist but may be blank; if filled, it must be valid. `template` names the Template file a Spec belongs to, for a Standard that holds several Specs.
 + | Field | Meaning |
-|---|---|
-| `match.kind` | Value of the type's `*_kind` key |
-| `match.where`, `match.where_not` | Equality tests on other frontmatter keys |
-| `match.path` | Allowed folder (regex). A note of the right type in the wrong folder fails placement instead of vanishing as unmapped |
-| `match.strict_path` | `true` means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed |
-| `headings` | `##` titles, required and in order |
-| `key_types` | `date`, `number`, `list`, `text`, `bool`, `wikilink`; a `?` suffix (`"date?"`) means the key must exist but may be blank |
-| `legacy_match` | Optional list recognizing older notes, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape` |
-| `skip_checks` | Check numbers from [[Conformance Standard]] that do not apply, such as `[5]` for raw machine exports. Machine-written families only; say why in the Standard |
-| `template` | The Template file a Spec belongs to, when a Standard holds several Specs |
++ |---|---|
++ | `match.kind` | Value of the type's `*_kind` key |
++ | `match.where`, `match.where_not` | Equality tests on other frontmatter keys |
++ | `match.path` | Allowed folder (regex). A note of the right type in the wrong folder fails placement instead of vanishing as unmapped |
++ | `match.strict_path` | `true` means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed |
++ | `headings` | `##` titles, required and in order |
++ | `key_types` | `date`, `number`, `list`, `text`, `bool`, `wikilink`; a `?` suffix (`"date?"`) means the key must exist but may be blank |
++ | `legacy_match` | Optional list recognizing older notes, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape` |
++ | `skip_checks` | Check numbers from [[Conformance Standard]] that do not apply, such as `[5]` for raw machine exports. Machine-written families only; say why in the Standard |
++ | `template` | The Template file a Spec belongs to, when a Standard holds several Specs |
 ```
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Note Kit Standard.md`
 ```diff
 - This is the standard for the files in `30_Order` themselves. It exists because the first generation of Standards was written after the notes (39 of 46 in September), described only the newest notes, and left 74% of the vault without a Standard. A kit that cannot be measured, or cannot upgrade an old note, is not finished.
 + This is the standard for the files in `30_Order` themselves. The first generation of Standards was written after the notes, described only the newest ones, and left most of the vault without a Standard. A kit that cannot be measured, or cannot upgrade an old note, is not finished.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only "Note Kit" 2>&1 | tail -3; node vault-lint.js --path "30_Order/Standards/Note Kit Standard.md" 2>&1 | grep FIT`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only "Note Kit" 2>&1 | tail -3; node vault-lint.js --path "30_Order/Standards/Note Kit Standard.md" 2>&1 | grep FIT
+```
 ```
 Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
 
 0 errors, 12 warnings
 FIT: 1/1 = 100.0%
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --json "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/baseline.json" 2>&1 | head -75`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --json "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/baseline.json" 2>&1 | head -75
+```
 ```
 Scanned 5299 notes in scope (excluded: 0 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
 FIT: 128/5299 = 2.4%
@@ -6646,7 +7901,7 @@ K-system is resumed and is checking its remaining System docs against the lint. 
 
 ### Tool Calls
 
-- `SendMessage` -- `{"to":"K-system","summary":"Resume System component docs after limit","message":"The usage limit has reset: continue bringing the 30_Order/System component docs to the System Component Standard from where you stopped, without redoing finished files.\nYou were fixing a Verify line whose log wording you had not checked: find the real wording in the script or log. Check which assigned files still fail `node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ --list 20`, finish those, and write scratchpad/K-system.md early with what you have. No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-system","recipient_kind":"name","content":"The usage limit has reset: continue bringing the …"}`
+- `SendMessage` -- ``{"to":"K-system","summary":"Resume System component docs after limit","message":"The usage limit has reset: continue bringing the 30_Order/System component docs to the System Component Standard from where you stopped, without redoing finished files.\nYou were fixing a Verify line whose log wording you had not checked: find the real wording in the script or log. Check which assigned files still fail `node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ --list 20`, finish those, and write scratchpad/K-system.md early with what you have. No em dashes. Finish with a summary under 200 words.","type":"message","recipient":"K-system","recipient_kind":"name","content":"The usage limit has reset: continue bringing the …"}``
 
 ## You
 
@@ -6727,12 +7982,15 @@ Not yet verified: I couldn't run Dataview, so the Field OS queries (which use `t
 - `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.config.json`
 ```diff
 -     "^__pycache__/"
-  ],
+-   ],
 +     "^__pycache__/",
-    "^30_Order/System/sync-workflow/Sync Alert Banner\\.md$"
-  ],
++     "^30_Order/System/sync-workflow/Sync Alert Banner\\.md$"
++   ],
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -3; node vault-lint.js --path 30_Order/ --list 20 2>&1 | head -30; cd ../../.. && echo "--- empty files left in 30_Order:" && find 30_Order -name "*.md" -size 0 | head; echo "--- file counts:"; for d in Standards Templates Workflows; do echo "$d: $(find 30_Order/$d -name '*.md' | wc -l)"; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -3; node vault-lint.js --path 30_Order/ --list 20 2>&1 | head -30; cd ../../.. && echo "--- empty files left in 30_Order:" && find 30_Order -name "*.md" -size 0 | head; echo "--- file counts:"; for d in Standards Templates Workflows; do echo "$d: $(find 30_Order/$d -name '*.md' | wc -l)"; done
+```
 ```
 WARN  30_Order/Workflows/Toolkit/Graphify Folders.md  serves does not point back to Generated Output Standard
 
@@ -6813,62 +8071,16 @@ _None detected_
 
 **Commands run:**
 - `find "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" -type f | sort`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && python - <<'EOF'
-import re,os,glob
-root='D:/_Anant/20_Progress/Documents/Jarvis'
-names={}
-for dp,dn,fn in os.walk(root):
-    if any(p in dp for p in ('.git','.obsidian','node_modules','50_Archive')): continue
-    for f in fn:
-        if f.endswith('.md'):
-            names.setdefault(f[:-3].lower(),[]).append(os.path.join(dp,f))
-broken={}
-for dp,dn,fn in os.walk('.'):
-    if 'System' in dp: continue
-    for f in fn:
-        if not f.endswith('.md'): continue
-        p=os.path.join(dp,f)
-        t=open(p,encoding='utf-8',errors='ignore').read()
-        for m in re.finditer(r'\[\[([^\]\|#]+)',t):
-            tgt=m.group(1).strip()
-            base=tgt.split('/')[-1].lower()
-            if base.endswith('.md'): base=base[:-3]
-            if base not in names:
-                broken.setdefault(p,set()).add(tgt)
-for p,s in sorted(broken.items()):
-    print(p.replace('\\','/'),'->',sorted(s))
-EOF`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && python - <<'EOF' import re,os,glob root='D:/_Anant/20_Progress/Documents/Jarvis' names={} for dp,dn,fn in os.walk(root):     if any(p in dp for p in ('.git','.obsidian','node_modules','50_Archive')): continue     for f in fn:         if f.endswith('.md'):             names.setdefault(f[:-3].lower(),[]).append(os.path.join(dp,f)) broken={} for dp,dn,fn in os.walk('.'):     if 'System' in dp: continue     for f in fn:         if not f.endswith('.md'): continue         p=os.path.join(dp,f)         t=open(p,encoding='utf-8',errors='ignore').read()         for m in re.finditer(r'\[\[([^\]\|#]+)',t):             tgt=m.group(1).strip()             base=tgt.split('/')[-1].lower()             if base.endswith('.md'): base=base[:-3]             if base not in names:                 broken.setdefault(p,set()).add(tgt) for p,s in sorted(broken.items()):     print(p.replace('\\','/'),'->',sorted(s)) EOF`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git rev-list --count HEAD && git log --reverse --format='%ad|%an|%s' --date=short | head -3 && git log -1 --format='%ad' --date=short && git log --format='%an' | sort | uniq -c | sort -rn | head && git log --format='%s' | grep -c '^Auto-sync' ; git log --format='%s' | grep -vc '^Auto-sync'; du -sh .git 2>/dev/null; which node python3 python jq 2>&1 | head`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git log --all --oneline | wc -l && git branch -a | head && git log --all --format='%ad' --date=short | sort | sed -n '1p;$p' && git count-objects -vH | head -4 && ls -a | head -40 && git remote -v`
 - `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cd "D:/_Anant/20_Progress/Documents/Jarvis" && git -c core.quotepath=false log --reverse --date=short --format='@@%h|%ad|%an|%s' --name-status -M > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/gitlog.txt"; wc -l "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/gitlog.txt"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node history.js`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
-const m=require('./manual-commits.json').filter(c=>!c.bot);
-console.log(m.length);
-let prev='';
-for(const c of m){const mo=c.d.slice(0,7); if(mo!==prev){console.log('\n## '+mo);prev=mo;} console.log(c.d.slice(5)+' '+c.s.slice(0,105));}
-" | head -700`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e " const m=require('./manual-commits.json').filter(c=>!c.bot); console.log(m.length); let prev=''; for(const c of m){const mo=c.d.slice(0,7); if(mo!==prev){console.log('\n## '+mo);prev=mo;} console.log(c.d.slice(5)+' '+c.s.slice(0,105));} " | head -700`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node census.js 3 80 && echo ---NONMD--- && node -e "const n=require('./nonmd.json');console.log(Object.entries(n).sort((a,b)=>b[1]-a[1]).slice(0,25).map(([k,v])=>v+' '+k).join('\n'))"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -i "s#auto: /\^Auto-sync/.test(s)#auto: /^(Auto-sync|auto:)/i.test(s)#" history.js && grep -n "auto:" history.js | head -3 && node history.js | tail -6 && node census.js 3 1 >/dev/null && node -e "
-const r=require('./census.json');
-const c={};
-for(const x of r){const k=x.path.split('/').slice(0,2).join('/'); c[k]=(c[k]||0)+1;}
-console.log(Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([k,v])=>v+' '+k).join('\n'));
-"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -i "s#auto: /\^Auto-sync/.test(s)#auto: /^(Auto-sync|auto:)/i.test(s)#" history.js && grep -n "auto:" history.js | head -3 && node history.js | tail -6 && node census.js 3 1 >/dev/null && node -e " const r=require('./census.json'); const c={}; for(const x of r){const k=x.path.split('/').slice(0,2).join('/'); c[k]=(c[k]||0)+1;} console.log(Object.entries(c).sort((a,b)=>b[1]-a[1]).map(([k,v])=>v+' '+k).join('\n')); "`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node classify.js`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
-const m=require('./manifest.json');
-const months=['2026-04','2026-05','2026-06','2026-07','2026-08','2026-09','2026-10'];
-const t={};
-for(const o of m){ if(!o.first) continue; const k=o.family; t[k]=t[k]||{}; const mo=o.first.slice(0,7); t[k][mo]=(t[k][mo]||0)+1; }
-console.log('family'.padEnd(34)+months.map(x=>x.slice(5)).join('   '));
-for(const k of Object.keys(t).sort()) console.log(k.padEnd(34)+months.map(x=>String(t[k][x]||0).padStart(4)).join(' '));
-const g=m.filter(o=>/GAP/.test(o.std)).length, mach=m.filter(o=>/^(machine)$/.test(o.origin)).length;
-console.log('\nnotes whose family has NO standard:',g,'/',m.length,'('+Math.round(100*g/m.length)+'%)');
-console.log('notes in purely machine-generated families:',mach,'('+Math.round(100*mach/m.length)+'%)');
-const cov=m.filter(o=>!/GAP|meta|violates|\?/.test(o.std)).length; console.log('notes in families that DO have a standard:',cov,'('+Math.round(100*cov/m.length)+'%)');
-const noFm=m.filter(o=>!o.hasFm).length; console.log('no frontmatter:',noFm);
-"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e " const m=require('./manifest.json'); const months=['2026-04','2026-05','2026-06','2026-07','2026-08','2026-09','2026-10']; const t={}; for(const o of m){ if(!o.first) continue; const k=o.family; t[k]=t[k]||{}; const mo=o.first.slice(0,7); t[k][mo]=(t[k][mo]||0)+1; } console.log('family'.padEnd(34)+months.map(x=>x.slice(5)).join('   ')); for(const k of Object.keys(t).sort()) console.log(k.padEnd(34)+months.map(x=>String(t[k][x]||0).padStart(4)).join(' ')); const g=m.filter(o=>/GAP/.test(o.std)).length, mach=m.filter(o=>/^(machine)$/.test(o.origin)).length; console.log('\nnotes whose family has NO standard:',g,'/',m.length,'('+Math.round(100*g/m.length)+'%)'); console.log('notes in purely machine-generated families:',mach,'('+Math.round(100*mach/m.length)+'%)'); const cov=m.filter(o=>!/GAP|meta|violates|\?/.test(o.std)).length; console.log('notes in families that DO have a standard:',cov,'('+Math.round(100*cov/m.length)+'%)'); const noFm=m.filter(o=>!o.hasFm).length; console.log('no frontmatter:',noFm); "`
 - `ls -la "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/" | awk '{print $5, $9}'`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short -- 30_Order | head -30 && echo --- && git log -3 --format='%h %ad %s' --date=format:'%H:%M' && echo --- && find 30_Order -newermt "$(date -d '-90 minutes' '+%Y-%m-%d %H:%M')" -type f 2>/dev/null | head -20`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && wc -c F*.md && for f in F1-courses F2-career F3-machine-captures F4-projects-graph F5-knowledge-pipeline F6-life-tooling; do echo "== $f"; grep -n '^## ' $f.md; done`
@@ -6876,150 +8088,24 @@ const noFm=m.filter(o=>!o.hasFm).length; console.log('no frontmatter:',noFm);
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F3" && sed -n '90,$p' F3-machine-captures.md && echo "######## F4" && sed -n '98,$p' F4-projects-graph.md`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && echo "######## F5" && sed -n '99,$p' F5-knowledge-pipeline.md && echo "######## F6" && sed -n '93,$p' F6-life-tooling.md`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && sed -n '48,72p' F1-courses.md && echo "#### F2" && sed -n '60,74p' F2-career.md && echo "#### F3" && sed -n '75,89p' F3-machine-captures.md && echo "#### F4" && sed -n '86,97p' F4-projects-graph.md && echo "#### F5" && sed -n '74,89p' F5-knowledge-pipeline.md && echo "#### F6" && sed -n '78,92p' F6-life-tooling.md`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF'
-const fs=require('fs');
-// history.js: follow renames (carry first date and counters from old path)
-let h=fs.readFileSync('history.js','utf8');
-h=h.replace("  if (!files[p]) files[p] = {", "  if (st === 'R' && files[from] && !files[p]) { const o = files[from]; files[p] = { first: o.first, last: cur.d, commits: o.commits, human: o.human, bot: o.bot, auto: o.auto, deleted: false, from, firstBy: o.firstBy }; }\n  if (!files[p]) files[p] = {");
-fs.writeFileSync('history.js',h);
-// census.js: strip BOM, keep input_kind and a few keys
-let c=fs.readFileSync('census.js','utf8');
-c=c.replace("let t; try { t = fs.readFileSync(p, 'utf8'); } catch { continue; }","let t; try { t = fs.readFileSync(p, 'utf8'); } catch { continue; }\n    const bom = t.charCodeAt(0) === 0xFEFF; if (bom) t = t.slice(1);");
-c=c.replace("path: rel, bytes: t.length,","path: rel, bom, ik: fm.input_kind || '', course: fm.course || '', bytes: t.length,");
-fs.writeFileSync('census.js',c);
-EOF
-node history.js | tail -5 && node census.js 3 1 | head -2 && node -e "const r=require('./census.json');console.log('BOM files',r.filter(x=>x.bom).length,'no-fm now',r.filter(x=>!x.hasFm).length,'with input_kind',r.filter(x=>x.ik).length)"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF' const fs=require('fs'); // history.js: follow renames (carry first date and counters from old path) let h=fs.readFileSync('history.js','utf8'); h=h.replace("  if (!files[p]) files[p] = {", "  if (st === 'R' && files[from] && !files[p]) { const o = files[from]; files[p] = { first: o.first, last: cur.d, commits: o.commits, human: o.human, bot: o.bot, auto: o.auto, deleted: false, from, firstBy: o.firstBy }; }\n  if (!files[p]) files[p] = {"); fs.writeFileSync('history.js',h); // census.js: strip BOM, keep input_kind and a few keys let c=fs.readFileSync('census.js','utf8'); c=c.replace("let t; try { t = fs.readFileSync(p, 'utf8'); } catch { continue; }","let t; try { t = fs.readFileSync(p, 'utf8'); } catch { continue; }\n    const bom = t.charCodeAt(0) === 0xFEFF; if (bom) t = t.slice(1);"); c=c.replace("path: rel, bytes: t.length,","path: rel, bom, ik: fm.input_kind || '', course: fm.course || '', bytes: t.length,"); fs.writeFileSync('census.js',c); EOF node history.js | tail -5 && node census.js 3 1 | head -2 && node -e "const r=require('./census.json');console.log('BOM files',r.filter(x=>x.bom).length,'no-fm now',r.filter(x=>!x.hasFm).length,'with input_kind',r.filter(x=>x.ik).length)"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node classify2.js`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cat > actions.js <<'EOF'
-const fs=require('fs');
-const files={F1:'F1-courses.md',F2:'F2-career.md',F3:'F3-machine-captures.md',F4:'F4-projects-graph.md',F5:'F5-knowledge-pipeline.md',F6:'F6-life-tooling.md'};
-const rows=[];
-for(const [k,f] of Object.entries(files)){
-  const L=fs.readFileSync(f,'utf8').split('\n');
-  let inD=false, n=0;
-  for(const l of L){
-    if(/^## D\./.test(l)){inD=true;continue;}
-    if(inD && (/^## /.test(l) || /^### Content/.test(l))) break;
-    if(!inD || !l.startsWith('|')) continue;
-    const c=l.split('|').slice(1,-1).map(s=>s.trim());
-    if(c.length<3 || /^-+$/.test(c[0].replace(/\s/g,'')) || c[0]==='Action') continue;
-    n++;
-    rows.push({id:`${k}-${String(n).padStart(2,'0')}`, src:k, action:c[0], target:c[1], reason:c[2], evidence:c[3]||''});
-  }
-}
-const phase=(r)=>{
-  const a=r.action.toUpperCase(), t=r.target;
-  if(/^KEEP/.test(a)) return 'P0-keep';
-  if(/DECIDE/.test(a)) return 'P0-decision';
-  if(/script|\.js|classify|history\.js|lint|normali/i.test(t) ) return 'P1-script';
-  if(/^(DELETE|MOVE|MERGE)/.test(a) && !/Standards\/|Workflows\/|Templates\//.test(t)) return 'P2-relocate-delete-vault-notes';
-  if(/\.gitignore|\.stignore|userIgnore|app\.json/i.test(t)) return 'P2-ignore-rules';
-  if(/Templates\//.test(t)) return 'P4-templates';
-  if(/Workflows\/|Workflows Index|00_Workflows/.test(t)) return 'P5-workflows-index';
-  if(/Standards\/|Standard\.md|schema|Vault Operating System/.test(t)) return 'P3-standards';
-  if(/\.claude|AGENTS|CLAUDE|Architecture|skill|agent/i.test(t)) return 'P6-tooling-and-contract-refs';
-  return 'P2-vault-note-edits';
-};
-for(const r of rows){ r.phase=phase(r); r.gate = /approval|after diff|DELETE|MERGE|MOVE|relocate/i.test(r.action+r.reason) ? 'needs-user-approval' : 'safe-reversible'; if(/30_Order|Standards\/|Templates\/|Workflows\//.test(r.target)) r.freeze='30_Order concurrent edits: re-read tree first'; else r.freeze=''; r.status='proposed'; }
-const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
-const cols=['id','src','phase','action','target','reason','evidence','gate','freeze','status'];
-fs.writeFileSync('actions.csv',cols.join(',')+'\n'+rows.map(r=>cols.map(c=>esc(r[c])).join(',')).join('\n'));
-const by={},by2={};for(const r of rows){by[r.phase]=(by[r.phase]||0)+1; by2[r.action.split(' ')[0].replace(/[()]/g,'')]=(by2[r.action.split(' ')[0].replace(/[()]/g,'')]||0)+1;}
-console.log('total actions',rows.length);console.log(by);console.log(by2);
-console.log('needs approval',rows.filter(r=>r.gate==='needs-user-approval').length);
-EOF
-node actions.js`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && cat > actions.js <<'EOF' const fs=require('fs'); const files={F1:'F1-courses.md',F2:'F2-career.md',F3:'F3-machine-captures.md',F4:'F4-projects-graph.md',F5:'F5-knowledge-pipeline.md',F6:'F6-life-tooling.md'}; const rows=[]; for(const [k,f] of Object.entries(files)){   const L=fs.readFileSync(f,'utf8').split('\n');   let inD=false, n=0;   for(const l of L){     if(/^## D\./.test(l)){inD=true;continue;}     if(inD && (/^## /.test(l) || /^### Content/.test(l))) break;     if(!inD || !l.startsWith('|')) continue;     const c=l.split('|').slice(1,-1).map(s=>s.trim());     if(c.length<3 || /^-+$/.test(c[0].replace(/\s/g,'')) || c[0]==='Action') continue;     n++;     rows.push({id:`${k}-${String(n).padStart(2,'0')}`, src:k, action:c[0], target:c[1], reason:c[2], evidence:c[3]||''});   } } const phase=(r)=>{   const a=r.action.toUpperCase(), t=r.target;   if(/^KEEP/.test(a)) return 'P0-keep';   if(/DECIDE/.test(a)) return 'P0-decision';   if(/script|\.js|classify|history\.js|lint|normali/i.test(t) ) return 'P1-script';   if(/^(DELETE|MOVE|MERGE)/.test(a) && !/Standards\/|Workflows\/|Templates\//.test(t)) return 'P2-relocate-delete-vault-notes';   if(/\.gitignore|\.stignore|userIgnore|app\.json/i.test(t)) return 'P2-ignore-rules';   if(/Templates\//.test(t)) return 'P4-templates';   if(/Workflows\/|Workflows Index|00_Workflows/.test(t)) return 'P5-workflows-index';   if(/Standards\/|Standard\.md|schema|Vault Operating System/.test(t)) return 'P3-standards';   if(/\.claude|AGENTS|CLAUDE|Architecture|skill|agent/i.test(t)) return 'P6-tooling-and-contract-refs';   return 'P2-vault-note-edits'; }; for(const r of rows){ r.phase=phase(r); r.gate = /approval|after diff|DELETE|MERGE|MOVE|relocate/i.test(r.action+r.reason) ? 'needs-user-approval' : 'safe-reversible'; if(/30_Order|Standards\/|Templates\/|Workflows\//.test(r.target)) r.freeze='30_Order concurrent edits: re-read tree first'; else r.freeze=''; r.status='proposed'; } const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"'; const cols=['id','src','phase','action','target','reason','evidence','gate','freeze','status']; fs.writeFileSync('actions.csv',cols.join(',')+'\n'+rows.map(r=>cols.map(c=>esc(r[c])).join(',')).join('\n')); const by={},by2={};for(const r of rows){by[r.phase]=(by[r.phase]||0)+1; by2[r.action.split(' ')[0].replace(/[()]/g,'')]=(by2[r.action.split(' ')[0].replace(/[()]/g,'')]||0)+1;} console.log('total actions',rows.length);console.log(by);console.log(by2); console.log('needs approval',rows.filter(r=>r.gate==='needs-user-approval').length); EOF node actions.js``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git log --diff-filter=A --format='%h %ad %s' --date=short -- "30_Order/Standards/Decoration Standard.md" "30_Order/Workflows/Enrichment/Researcher.md" "30_Order/Standards/Enrich/Human Writing Standard.md" | head; echo ---; sed -n '95,135p' "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-15 Bulk commit with manual and auto sync changes.md" | cut -c1-160`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
-const m=require('./manifest2.json');
-const pick=(f,pred)=>m.filter(o=>o.family===f&&(!pred||pred(o)));
-const g=pick('G1-graphify-node',o=>o.type==='code'&&o.words>10&&o.words<60)[0];console.log(g.path,g.keys);
-const a=pick('G1-graphify-artifact')[0];console.log(a&&a.path);
-" && head -c 700 "D:/_Anant/20_Progress/Documents/Jarvis/$(node -e "const m=require('./manifest2.json');console.log(m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60)[0].path)")"`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
-const m=require('./manifest2.json');
-const c=m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60&&/^[A-Za-z]/.test(o.path.split('/').pop())&&o.path.includes('TradingView'))[0];
-console.log(c.path);
-const q=m.filter(o=>o.family==='G1-graphify-node'&&o.type==='community'&&/^[A-Za-z]/.test(o.path.split('/').pop())&&o.path.includes('TradingView'))[0];console.log(q.path);
-"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e " const m=require('./manifest2.json'); const pick=(f,pred)=>m.filter(o=>o.family===f&&(!pred||pred(o))); const g=pick('G1-graphify-node',o=>o.type==='code'&&o.words>10&&o.words<60)[0];console.log(g.path,g.keys); const a=pick('G1-graphify-artifact')[0];console.log(a&&a.path); " && head -c 700 "D:/_Anant/20_Progress/Documents/Jarvis/$(node -e "const m=require('./manifest2.json');console.log(m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60)[0].path)")"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e " const m=require('./manifest2.json'); const c=m.filter(o=>o.family==='G1-graphify-node'&&o.type==='code'&&o.words>10&&o.words<60&&/^[A-Za-z]/.test(o.path.split('/').pop())&&o.path.includes('TradingView'))[0]; console.log(c.path); const q=m.filter(o=>o.family==='G1-graphify-node'&&o.type==='community'&&/^[A-Za-z]/.test(o.path.split('/').pop())&&o.path.includes('TradingView'))[0];console.log(q.path); "`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --specs 2>&1 | head -60`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --specs --only System 2>&1 | head -20; echo ======; node vault-lint.js --path 30_Order/Standards/ 2>&1 | head -40`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/Standards/ --family family-standard --list 5 2>&1 | tail -6; node vault-lint.js --path 30_Order/Standards/ --family policy-standard --list 5 2>&1 | tail -6`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/ --list 40 2>&1 | grep -v "^  30_Order/Standards/\(Courses\|Internship\|Enrich\|Ingestion\|AI Loop\)" | head -60`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
-const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8');
-s=s.replace("let dead = 0, deadFm = 0;","let dead = 0, deadFm = 0; const deadNames = [];");
-s=s.replace("if (!resolves(m[1])) { if (s.where.startsWith('fm:')) deadFm++; else if (!s.tc) dead++; }","if (!resolves(m[1])) { if (s.where.startsWith('fm:')) { deadFm++; deadNames.push(m[1]); } else if (!s.tc) { dead++; deadNames.push(m[1]); } }");
-s=s.replace("if (deadFm) add(3, 'dead-frontmatter-links:' + deadFm);\n  if (dead) add(3, 'dead-body-links:' + dead);","if (deadFm) add(3, 'dead-frontmatter-links:' + deadFm);\n  if (dead) add(3, 'dead-body-links:' + dead);\n  if (deadNames.length) r.dead = [...new Set(deadNames)].slice(0, 6);");
-s=s.replace("results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}`));","results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}${r.dead ? '  DEAD: ' + r.dead.join(' | ') : ''}`));");
-fs.writeFileSync('vault-lint.js',s);
-EOF
-node vault-lint.js --path 30_Order/ --list 200 2>&1 | grep -E "system-guide|policy-standard|family-standard|workflow\]|system-component" | grep -v "^By"`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF' const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8'); s=s.replace("let dead = 0, deadFm = 0;","let dead = 0, deadFm = 0; const deadNames = [];"); s=s.replace("if (!resolves(m[1])) { if (s.where.startsWith('fm:')) deadFm++; else if (!s.tc) dead++; }","if (!resolves(m[1])) { if (s.where.startsWith('fm:')) { deadFm++; deadNames.push(m[1]); } else if (!s.tc) { dead++; deadNames.push(m[1]); } }"); s=s.replace("if (deadFm) add(3, 'dead-frontmatter-links:' + deadFm);\n  if (dead) add(3, 'dead-body-links:' + dead);","if (deadFm) add(3, 'dead-frontmatter-links:' + deadFm);\n  if (dead) add(3, 'dead-body-links:' + dead);\n  if (deadNames.length) r.dead = [...new Set(deadNames)].slice(0, 6);"); s=s.replace("results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}`));","results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}${r.dead ? '  DEAD: ' + r.dead.join(' | ') : ''}`));"); fs.writeFileSync('vault-lint.js',s); EOF node vault-lint.js --path 30_Order/ --list 200 2>&1 | grep -E "system-guide|policy-standard|family-standard|workflow\]|system-component" | grep -v "^By"``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && mv "00_Note Type Registry.md" "Note Type Registry.md" && cd System/vault-lint && node vault-lint.js --path 30_Order/ --list 300 2>&1 | grep -E "\[(system-guide|policy-standard|family-standard|workflow|system-component)\]" `
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
-const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8');
-// 1. legacy matcher
-s=s.replace("const specificity =", `function legacyMatch(note, rel) {
-  let best = null, bestScore = -1;
-  for (const s of SPECS) {
-    for (const lm of s.legacy_match || []) {
-      if (lm.type && lm.type !== val(note, 'type')) continue;
-      if (lm.path && !new RegExp(lm.path).test(rel)) continue;
-      let ok = true;
-      for (const [k, v] of Object.entries(lm.where || {})) { const x = val(note, k); if (v === '*' ? x === undefined : x !== v) ok = false; }
-      for (const k of lm.absent || []) if (note.keys[k]) ok = false;
-      if (!ok) continue;
-      const sc = (lm.path ? lm.path.length : 0) + Object.keys(lm.where || {}).length * 50 + (lm.type ? 5 : 0);
-      if (sc > bestScore) { best = s; bestScore = sc; }
-    }
-  }
-  return best;
-}
-const specificity =`);
-// 2. use it when unmapped
-s=s.replace("if (!spec) {\n    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;","if (!spec) { const lg = legacyMatch(n, rel); if (lg) { spec = lg; r.legacy = true; r.fails.push('6:legacy-shape'); } }\n  if (!spec) {\n    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;");
-fs.writeFileSync('vault-lint.js',s);
-EOF
-node -e "require('fs').readFileSync('vault-lint.js','utf8')" && node vault-lint.js --specs | tail -2`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF' const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8'); // 1. legacy matcher s=s.replace("const specificity =", `function legacyMatch(note, rel) {   let best = null, bestScore = -1;   for (const s of SPECS) {     for (const lm of s.legacy_match || []) {       if (lm.type && lm.type !== val(note, 'type')) continue;       if (lm.path && !new RegExp(lm.path).test(rel)) continue;       let ok = true;       for (const [k, v] of Object.entries(lm.where || {})) { const x = val(note, k); if (v === '*' ? x === undefined : x !== v) ok = false; }       for (const k of lm.absent || []) if (note.keys[k]) ok = false;       if (!ok) continue;       const sc = (lm.path ? lm.path.length : 0) + Object.keys(lm.where || {}).length * 50 + (lm.type ? 5 : 0);       if (sc > bestScore) { best = s; bestScore = sc; }     }   }   return best; } const specificity =`); // 2. use it when unmapped s=s.replace("if (!spec) {\n    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;","if (!spec) { const lg = legacyMatch(n, rel); if (lg) { spec = lg; r.legacy = true; r.fails.push('6:legacy-shape'); } }\n  if (!spec) {\n    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;"); fs.writeFileSync('vault-lint.js',s); EOF node -e "require('fs').readFileSync('vault-lint.js','utf8')" && node vault-lint.js --specs | tail -2``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only Courses 2>&1 | tail -8; node vault-lint.js --path "20_Progress/Degree/" --list 0 2>&1 | head -22`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF'
-const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8');
-// 1 registry name
-s=s.replace("f.rel === '30_Order/00_Note Type Registry.md'","f.rel === '30_Order/Note Type Registry.md'");
-// 2 dir set + dataview FROM check
-s=s.replace("const mdFiles = files.filter(","const dirSet = new Set(); for (const f of files) { const sg = f.rel.split('/'); for (let k = 1; k < sg.length; k++) dirSet.add(sg.slice(0, k).join('/').toLowerCase()); }\nconst mdFiles = files.filter(");
-s=s.replace("  // F4 placement","  // dead dataview FROM paths\n  { let inDv = false; const deadFrom = [];\n    for (const l of body) {\n      if (/^\\s*```dataview(js)?\\s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }\n      if (/^\\s*```\\s*$/.test(l)) { inDv = false; continue; }\n      if (inDv && /^\\s*FROM\\b/i.test(l)) for (const m of l.matchAll(/\"([^\"]+)\"/g)) { const p = m[1].replace(/\\/$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/\\.md$/, ''))) deadFrom.push(m[1]); }\n    }\n    if (deadFrom.length) { add(3, 'dead-dataview-from:' + deadFrom.length); r.dead = (r.dead || []).concat(deadFrom.slice(0, 3)); } }\n  // F4 placement");
-// 3 any-of template pairing
-const old=s.slice(s.indexOf("      let pair = specs;"), s.indexOf("      for (const s of pair) {"));
-const neu=`      let pair = specs;
-      if (specs.length > 1) {
-        const ty = tn.keys.type ? tn.keys.type.raw : null;
-        const kk = ty && VOCAB.types[ty] ? VOCAB.types[ty].kindKey : null;
-        const tk = kk && tn.keys[kk] ? tn.keys[kk].raw : (tn.keys.system_kind ? tn.keys.system_kind.raw : null);
-        pair = specs.filter((s) => s.match && s.match.kind === tk);
-        if (pair.length > 1) pair = pair.filter((s) => !Object.keys(s.match.where || {}).length);
-        if (!pair.length) pair = specs;
-      }
-`;
-s=s.replace(old,neu);
-fs.writeFileSync('vault-lint.js',s);
-EOF
-node vault-lint.js --specs | tail -1; node vault-lint.js --path 60_Claude/44_Indexes/ --list 3 2>&1 | grep -E "dead-dataview|FIT" | head`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node - <<'EOF' const fs=require('fs');let s=fs.readFileSync('vault-lint.js','utf8'); // 1 registry name s=s.replace("f.rel === '30_Order/00_Note Type Registry.md'","f.rel === '30_Order/Note Type Registry.md'"); // 2 dir set + dataview FROM check s=s.replace("const mdFiles = files.filter(","const dirSet = new Set(); for (const f of files) { const sg = f.rel.split('/'); for (let k = 1; k < sg.length; k++) dirSet.add(sg.slice(0, k).join('/').toLowerCase()); }\nconst mdFiles = files.filter("); s=s.replace("  // F4 placement","  // dead dataview FROM paths\n  { let inDv = false; const deadFrom = [];\n    for (const l of body) {\n      if (/^\\s*```dataview(js)?\\s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }\n      if (/^\\s*```\\s*$/.test(l)) { inDv = false; continue; }\n      if (inDv && /^\\s*FROM\\b/i.test(l)) for (const m of l.matchAll(/\"([^\"]+)\"/g)) { const p = m[1].replace(/\\/$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/\\.md$/, ''))) deadFrom.push(m[1]); }\n    }\n    if (deadFrom.length) { add(3, 'dead-dataview-from:' + deadFrom.length); r.dead = (r.dead || []).concat(deadFrom.slice(0, 3)); } }\n  // F4 placement"); // 3 any-of template pairing const old=s.slice(s.indexOf("      let pair = specs;"), s.indexOf("      for (const s of pair) {")); const neu=`      let pair = specs;       if (specs.length > 1) {         const ty = tn.keys.type ? tn.keys.type.raw : null;         const kk = ty && VOCAB.types[ty] ? VOCAB.types[ty].kindKey : null;         const tk = kk && tn.keys[kk] ? tn.keys[kk].raw : (tn.keys.system_kind ? tn.keys.system_kind.raw : null);         pair = specs.filter((s) => s.match && s.match.kind === tk);         if (pair.length > 1) pair = pair.filter((s) => !Object.keys(s.match.where || {}).length);         if (!pair.length) pair = specs;       } `; s=s.replace(old,neu); fs.writeFileSync('vault-lint.js',s); EOF node vault-lint.js --specs | tail -1; node vault-lint.js --path 60_Claude/44_Indexes/ --list 3 2>&1 | grep -E "dead-dataview|FIT" | head````
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n '276,278p' vault-lint.js | cat -A | cut -c1-200`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node -e "
-const fs=require('fs');const f='vault-lint.js';const L=fs.readFileSync(f,'utf8').split('\n');
-const fix=fs.readFileSync('C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/dvfix.txt','utf8').split('\n');
-L.splice(275,3,...fix);fs.writeFileSync(f,L.join('\n'));
-" && grep -c $'\x08' vault-lint.js; node vault-lint.js --specs | tail -1 && node vault-lint.js --path 60_Claude/44_Indexes/ --list 4 2>&1 | grep -E "FIT|dataview" | head -6`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards" && node - <<'EOF'
-const fs=require('fs');let s=fs.readFileSync('Frontmatter Standard.md','utf8');
-s=s.replace("transcript, brief, conversation, conversation-summary, job-dossier","transcript, brief, ai-conversation, ai-conversation-summary, job-dossier");
-fs.writeFileSync('Frontmatter Standard.md',s);
-let r=fs.readFileSync('../Note Type Registry.md','utf8');
-r=r.replace(/input \/ conversation-summary/g,'input / ai-conversation-summary').replace(/input \/ conversation(?! )/g,'input / ai-conversation').replace("input / conversation |","input / ai-conversation |");
-fs.writeFileSync('../Note Type Registry.md',r);
-EOF
-grep -n "ai-conversation" "Frontmatter Standard.md" "../Note Type Registry.md" | cut -c1-140; cd ../System/vault-lint && node vault-lint.js --specs | tail -1`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node -e " const fs=require('fs');const f='vault-lint.js';const L=fs.readFileSync(f,'utf8').split('\n'); const fix=fs.readFileSync('C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/dvfix.txt','utf8').split('\n'); L.splice(275,3,...fix);fs.writeFileSync(f,L.join('\n')); " && grep -c $'\x08' vault-lint.js; node vault-lint.js --specs | tail -1 && node vault-lint.js --path 60_Claude/44_Indexes/ --list 4 2>&1 | grep -E "FIT|dataview" | head -6`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards" && node - <<'EOF' const fs=require('fs');let s=fs.readFileSync('Frontmatter Standard.md','utf8'); s=s.replace("transcript, brief, conversation, conversation-summary, job-dossier","transcript, brief, ai-conversation, ai-conversation-summary, job-dossier"); fs.writeFileSync('Frontmatter Standard.md',s); let r=fs.readFileSync('../Note Type Registry.md','utf8'); r=r.replace(/input \/ conversation-summary/g,'input / ai-conversation-summary').replace(/input \/ conversation(?! )/g,'input / ai-conversation').replace("input / conversation |","input / ai-conversation |"); fs.writeFileSync('../Note Type Registry.md',r); EOF grep -n "ai-conversation" "Frontmatter Standard.md" "../Note Type Registry.md" | cut -c1-140; cd ../System/vault-lint && node vault-lint.js --specs | tail -1`
 - `cd /tmp 2>/dev/null; (command -v obsidian && timeout 15 obsidian version 2>&1 | head -3) || echo "obsidian CLI not on PATH"; ls "C:/Users/anant/AppData/Local/Programs/Obsidian" 2>/dev/null | head -3; ls "D:/_Anant/20_Progress/Documents/Jarvis/.claude/skills" | head -3`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 00_Dashboard.md --list 3 2>&1 | grep -E "FIT|DEAD" | head -3; node vault-lint.js --specs | tail -1`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --family moc --list 0 2>&1 | head -5; node vault-lint.js --path 20_Progress/Degree/ --list 0 2>&1 | sed -n '1,16p'`
@@ -7029,89 +8115,13 @@ grep -n "ai-conversation" "Frontmatter Standard.md" "../Note Type Registry.md" |
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "stale refs to old names (outside scratch):"; grep -rIl --include=*.md -E "\[\[(Daily Workflow Standard|Graphify Notes\]\]|Courses/Project Standard)" 30_Order .claude AGENTS.md CLAUDE.md 40_Resources 60_Claude/07_AI_Information 2>/dev/null | head -20; echo ---; cd 30_Order/System/vault-lint && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors," | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -rIn --include=*.md -E "Daily Workflow Standard|Courses/Project Standard" 30_Order AGENTS.md CLAUDE.md .claude 40_Resources/Obsidian 60_Claude/07_AI_Information 2>/dev/null | cut -c1-170 | head -12`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && for f in K-courses-core K-courses-ctrl K-career K-projects K-knowledge K-ops-nav K-ai-loop K-writing; do echo "######## $f"; grep -n -i "^#.*registry" $f.md | head -3; done; wc -c K-*.md`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e "
-const fs=require('fs');
-const sec={'K-courses-core':'Registry rows','K-courses-ctrl':'Registry rows','K-career':'Registry rows','K-projects':'Registry rows','K-knowledge':'Registry rows','K-ops-nav':'Registry rows','K-ai-loop':'Registry rows','K-writing':'Registry rows'};
-const all={};
-for(const k of Object.keys(sec)){
-  const L=fs.readFileSync(k+'.md','utf8').split('\n');let on=false;const rows=[];
-  for(const l of L){ if(/^## .*[Rr]egistry/.test(l)){on=true;continue;} if(on&&/^## /.test(l))break; if(on&&l.startsWith('|')) rows.push(l);} 
-  all[k]=rows;
-  console.log('=== '+k+' ('+rows.length+' lines)');
-  rows.forEach(r=>console.log(r.slice(0,230)));
-}
-fs.writeFileSync('registry-rows.json',JSON.stringify(all));
-" | head -150`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node -e " const fs=require('fs'); const sec={'K-courses-core':'Registry rows','K-courses-ctrl':'Registry rows','K-career':'Registry rows','K-projects':'Registry rows','K-knowledge':'Registry rows','K-ops-nav':'Registry rows','K-ai-loop':'Registry rows','K-writing':'Registry rows'}; const all={}; for(const k of Object.keys(sec)){   const L=fs.readFileSync(k+'.md','utf8').split('\n');let on=false;const rows=[];   for(const l of L){ if(/^## .*[Rr]egistry/.test(l)){on=true;continue;} if(on&&/^## /.test(l))break; if(on&&l.startsWith('|')) rows.push(l);}    all[k]=rows;   console.log('=== '+k+' ('+rows.length+' lines)');   rows.forEach(r=>console.log(r.slice(0,230))); } fs.writeFileSync('registry-rows.json',JSON.stringify(all)); " | head -150`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls "30_Order/Standards/Enrich/" | head -20; find . -name "Reference Standard.md" -not -path "./.git/*" | head; timeout 40 obsidian move path="30_Order/Standards/Enrich/Resources.md" to="30_Order/Standards/Enrich/Reference Standard.md" 2>&1 | head -2; ls "30_Order/Standards/Enrich/Reference Standard.md" && grep -n "^# " "30_Order/Standards/Enrich/Reference Standard.md" | head -2`
-- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF'
-const fs=require('fs');
-const R=JSON.parse(fs.readFileSync('registry-rows.json','utf8'));
-const REG='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md';
-const old=fs.readFileSync(REG,'utf8');
-const rows=(k)=>R[k].filter(l=>!/^\|\s*Family\s*\|/.test(l)&&!/^\|\s*-/.test(l));
-const fix=(l)=>l
- .replace(/`30_Order\/Standards\/Courses\/Project Standard` \(rename to Course Project Standard\)/,'[[Course Project Standard]]')
- .replace(/\[\[Daily Workflow Standard\]\] \(rename to Plan Standard\)/,'[[Plan Standard]]')
- .replace(/\[\[Resources\]\] \(rename to Reference Standard\)/,'[[Reference Standard]]')
- .replace(/\[\[30_Order\/Templates\/AI Toolkit\/Graphify Notes\|Graphify Notes Template\]\] \(after rename\)/,'[[Graphify Notes Template]]')
- .replace(/\[\[30_Order\/Standards\/AI Loop\/Graphify Notes\|Graphify Notes\]\]/,'[[Graphify Notes]]')
- .replace(/built \(tier is 2\)/,'built')
- .replace(/\| course-project-companion \(new row\)/,'| course-project-companion');
-const head='| Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |\n|---|---|---|---|---|---|---|---|\n';
-const tbl=(arr)=>head+arr.map(fix).join('\n')+'\n';
-const cut=old.indexOf('## Foundation');
-const t4=old.indexOf('## Tier 4 and out of scope');
-const intro=old.slice(0,cut);
-const foundation=`## Foundation
-`+head+`| family-standard, policy-standard | 1 | system / standard | \`30_Order/Standards/\` | [[Standard Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built |
-| workflow | 1 | system / workflow | \`30_Order/Workflows/\` | [[Workflow Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built |
-| system-guide | 2 | system / guide | \`30_Order/\` | none | [[Note Kit Standard]] | none | built |
-| system-component | 2 | system / spec | \`30_Order/System/\` | none | [[System Component Standard]] | none | built |
-| generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built |
-| (policies) vocabulary, fit, editing | none | system / standard | \`30_Order/Standards/\` | none | [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]] | [[Conformance on Touch]] | built |
-`+rows('K-writing').map(fix).join('\n')+`
-`;
-const courses=`## Courses
-`+tbl([...rows('K-courses-core'),...rows('K-courses-ctrl'),'| course-archive | 1 | class | `40_Resources/UMN/Previous Classes/` | none | Legacy Shapes of the course Standards | none | decide |']);
-const career=`## Career
-`+tbl([...rows('K-career'),'| job-company | 1 | reference / company | none yet | [[Job & Company Template]] | none until a first note exists | none | decide |','| linkedin-post | 1 | output / post | none yet | [[LinkedIn Post Template]] | none until a first note exists | none | decide |','| cheat | 1 | project | `20_Progress/Internship/` | [[Cheat Template]] | none until a decision | none | decide |']);
-const projects=`## Projects
-`+tbl(rows('K-projects'));
-const knowledge=`## Knowledge
-`+tbl(rows('K-knowledge'));
-const ops=`## Operations and navigation
-`+tbl(rows('K-ops-nav'));
-const ai=`## AI operations
-`+tbl(rows('K-ai-loop'));
-const tail=old.slice(t4).replace(/## Aliases[\s\S]*$/,`## Aliases
-Names kept for legacy reasons. Weekly Board Standard also governs course sub-boards. Internship Notes Standard governs dossiers. Better Today, Better Weekly, Better Month and Better Year are the daily and periodic Templates. Humanized Writing Standard is a short internship-specific pointer to Human Writing Standard.
-`);
-const out=intro+foundation+courses+career+projects+knowledge+ops+ai+tail;
-fs.writeFileSync(REG,out);
-console.log('rows total', (out.match(/^\| [a-z]/gm)||[]).length);
-EOF
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "30_Order/Note Type Registry.md" --list 3 2>&1 | grep -E "FIT|DEAD|Note Type" | head -5`
+- ``cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && node - <<'EOF' const fs=require('fs'); const R=JSON.parse(fs.readFileSync('registry-rows.json','utf8')); const REG='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md'; const old=fs.readFileSync(REG,'utf8'); const rows=(k)=>R[k].filter(l=>!/^\|\s*Family\s*\|/.test(l)&&!/^\|\s*-/.test(l)); const fix=(l)=>l  .replace(/`30_Order\/Standards\/Courses\/Project Standard` \(rename to Course Project Standard\)/,'[[Course Project Standard]]')  .replace(/\[\[Daily Workflow Standard\]\] \(rename to Plan Standard\)/,'[[Plan Standard]]')  .replace(/\[\[Resources\]\] \(rename to Reference Standard\)/,'[[Reference Standard]]')  .replace(/\[\[30_Order\/Templates\/AI Toolkit\/Graphify Notes\|Graphify Notes Template\]\] \(after rename\)/,'[[Graphify Notes Template]]')  .replace(/\[\[30_Order\/Standards\/AI Loop\/Graphify Notes\|Graphify Notes\]\]/,'[[Graphify Notes]]')  .replace(/built \(tier is 2\)/,'built')  .replace(/\| course-project-companion \(new row\)/,'| course-project-companion'); const head='| Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |\n|---|---|---|---|---|---|---|---|\n'; const tbl=(arr)=>head+arr.map(fix).join('\n')+'\n'; const cut=old.indexOf('## Foundation'); const t4=old.indexOf('## Tier 4 and out of scope'); const intro=old.slice(0,cut); const foundation=`## Foundation `+head+`| family-standard, policy-standard | 1 | system / standard | \`30_Order/Standards/\` | [[Standard Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built | | workflow | 1 | system / workflow | \`30_Order/Workflows/\` | [[Workflow Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built | | system-guide | 2 | system / guide | \`30_Order/\` | none | [[Note Kit Standard]] | none | built | | system-component | 2 | system / spec | \`30_Order/System/\` | none | [[System Component Standard]] | none | built | | generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built | | (policies) vocabulary, fit, editing | none | system / standard | \`30_Order/Standards/\` | none | [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]] | [[Conformance on Touch]] | built | `+rows('K-writing').map(fix).join('\n')+` `; const courses=`## Courses `+tbl([...rows('K-courses-core'),...rows('K-courses-ctrl'),'| course-archive | 1 | class | `40_Resources/UMN/Previous Classes/` | none | Legacy Shapes of the course Standards | none | decide |']); const career=`## Career `+tbl([...rows('K-career'),'| job-company | 1 | reference / company | none yet | [[Job & Company Template]] | none until a first note exists | none | decide |','| linkedin-post | 1 | output / post | none yet | [[LinkedIn Post Template]] | none until a first note exists | none | decide |','| cheat | 1 | project | `20_Progress/Internship/` | [[Cheat Template]] | none until a decision | none | decide |']); const projects=`## Projects `+tbl(rows('K-projects')); const knowledge=`## Knowledge `+tbl(rows('K-knowledge')); const ops=`## Operations and navigation `+tbl(rows('K-ops-nav')); const ai=`## AI operations `+tbl(rows('K-ai-loop')); const tail=old.slice(t4).replace(/## Aliases[\s\S]*$/,`## Aliases Names kept for legacy reasons. Weekly Board Standard also governs course sub-boards. Internship Notes Standard governs dossiers. Better Today, Better Weekly, Better Month and Better Year are the daily and periodic Templates. Humanized Writing Standard is a short internship-specific pointer to Human Writing Standard. `); const out=intro+foundation+courses+career+projects+knowledge+ops+ai+tail; fs.writeFileSync(REG,out); console.log('rows total', (out.match(/^\| [a-z]/gm)||[]).length); EOF cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "30_Order/Note Type Registry.md" --list 3 2>&1 | grep -E "FIT|DEAD|Note Type" | head -5``
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && grep -n "Summary to Distilled" K-knowledge.md | head; echo; awk '/^## .*Summary to Distilled/{f=1} f' K-knowledge.md | head -60`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors,"; node vault-lint.js --path "30_Order/Workflows/Ingestion/Summary to Distilled.md" --list 2 2>&1 | grep -E "FIT|DEAD|Summary"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path 30_Order/ --list 80 2>&1 | grep -vE "^\s+30_Order/Workflows/Courses/Per Class" | head -70`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF'
-const fs=require('fs'),path=require('path');
-const fsText=fs.readFileSync('Standards/Frontmatter Standard.md','utf8').split('\n');
-let sec='';const types={},stat={};
-for(const l of fsText){if(/^##\s+/.test(l)){sec=l.replace(/^##\s+/,'').trim();continue;}
- if(!l.startsWith('|')||/^\|\s*-/.test(l))continue;const c=l.split('|').slice(1,-1).map(s=>s.trim());
- if(sec==='type'&&c[0].startsWith('`')){types[c[0].replace(/`/g,'')]={k:/none/i.test(c[2])?null:c[2].replace(/`/g,''),kinds:/^none$/i.test(c[3])?[]:c[3].split(',').map(s=>s.trim())};}
- if(sec==='status'&&c[0].startsWith('`')){const ts=(c[0].match(/`([^`]+)`/g)||[]).map(s=>s.replace(/`/g,''));for(const t of ts)stat[t]=/no .?status/i.test(c[1])?[]:c[1].split(',').map(s=>s.trim());}}
-const bad=[];
-(function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);if(e.isDirectory()){walk(p);continue;}if(!e.name.endsWith('.md'))continue;
- const t=fs.readFileSync(p,'utf8').replace(/^\uFEFF/,'');if(!t.startsWith('---'))continue;const m=t.match(/^---\r?\n([\s\S]*?)\r?\n---/);if(!m)continue;
- const g=(k)=>{const r=m[1].match(new RegExp('^'+k+':[ \\t]*(.*)$','m'));return r?r[1].trim().replace(/^["\']|["\']$/g,''):undefined;};
- const ty=g('type');if(!ty)continue;const rel=p.replace(/\\/g,'/');
- if(!types[ty]){bad.push(rel+' type='+ty);continue;}
- if(types[ty].k){const kv=g(types[ty].k);if(kv&&types[ty].kinds.length&&!types[ty].kinds.includes(kv))bad.push(rel+' '+types[ty].k+'='+kv);}
- const st=g('status');if(st&&stat[ty]&&stat[ty].length&&!stat[ty].includes(st))bad.push(rel+' status='+st+' (type '+ty+')');}})('Templates');
-console.log(bad.length?bad.join('\n'):'All Template type/kind/status values are in the vocabulary.');
-EOF`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node - <<'EOF' const fs=require('fs'),path=require('path'); const fsText=fs.readFileSync('Standards/Frontmatter Standard.md','utf8').split('\n'); let sec='';const types={},stat={}; for(const l of fsText){if(/^##\s+/.test(l)){sec=l.replace(/^##\s+/,'').trim();continue;}  if(!l.startsWith('|')||/^\|\s*-/.test(l))continue;const c=l.split('|').slice(1,-1).map(s=>s.trim());  if(sec==='type'&&c[0].startsWith('`')){types[c[0].replace(/`/g,'')]={k:/none/i.test(c[2])?null:c[2].replace(/`/g,''),kinds:/^none$/i.test(c[3])?[]:c[3].split(',').map(s=>s.trim())};}  if(sec==='status'&&c[0].startsWith('`')){const ts=(c[0].match(/`([^`]+)`/g)||[]).map(s=>s.replace(/`/g,''));for(const t of ts)stat[t]=/no .?status/i.test(c[1])?[]:c[1].split(',').map(s=>s.trim());}} const bad=[]; (function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){const p=path.join(d,e.name);if(e.isDirectory()){walk(p);continue;}if(!e.name.endsWith('.md'))continue;  const t=fs.readFileSync(p,'utf8').replace(/^\uFEFF/,'');if(!t.startsWith('---'))continue;const m=t.match(/^---\r?\n([\s\S]*?)\r?\n---/);if(!m)continue;  const g=(k)=>{const r=m[1].match(new RegExp('^'+k+':[ \\t]*(.*)$','m'));return r?r[1].trim().replace(/^["\']|["\']$/g,''):undefined;};  const ty=g('type');if(!ty)continue;const rel=p.replace(/\\/g,'/');  if(!types[ty]){bad.push(rel+' type='+ty);continue;}  if(types[ty].k){const kv=g(types[ty].k);if(kv&&types[ty].kinds.length&&!types[ty].kinds.includes(kv))bad.push(rel+' '+types[ty].k+'='+kv);}  const st=g('status');if(st&&stat[ty]&&stat[ty].length&&!stat[ty].includes(st))bad.push(rel+' status='+st+' (type '+ty+')');}})('Templates'); console.log(bad.length?bad.join('\n'):'All Template type/kind/status values are in the vocabulary.'); EOF``
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors," | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/genindex.js" && node vault-lint.js --path "30_Order/Workflows/00_Workflows Index.md" --list 3 2>&1 | grep -E "FIT|DEAD|Index"; node vault-lint.js --kit 2>&1 | grep -E "^ERROR|errors,"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad" && awk '/[Ll]inter/{f=1} f' K-career.md | head -30; grep -n "'?'\|endsWith('?')\|optional_keys\|\.template\b\|spec.template" "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js" | head`
@@ -7119,5 +8129,4 @@ EOF`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit --only "Note Kit" 2>&1 | tail -3; node vault-lint.js --path "30_Order/Standards/Note Kit Standard.md" 2>&1 | grep FIT`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --json "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/bee23a7b-3c8a-4b8c-a004-81b9658de9e8/scratchpad/baseline.json" 2>&1 | head -75`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -3; node vault-lint.js --path 30_Order/ --list 20 2>&1 | head -30; cd ../../.. && echo "--- empty files left in 30_Order:" && find 30_Order -name "*.md" -size 0 | head; echo "--- file counts:"; for d in Standards Templates Workflows; do echo "$d: $(find 30_Order/$d -name '*.md' | wc -l)"; done`
-
 

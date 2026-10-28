@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Plan design for The Plan vault"
 started_at: 2026-10-15T16:33:33
 ended_at: 2026-10-15T16:36:58
-exported_at: 2026-10-25T19:03:03
+exported_at: 2026-10-28T16:15:47
 duration_minutes: 3.4
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: 1cfe88df-3f9e-4ac3-9ff8-bf241e69d1f6
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-15
+updated: 2026-10-28
 turn_count: 2
 tools_used:
   Bash: 7
@@ -25,7 +28,7 @@ tokens:
   cache_creation: 161482
   cache_read: 2271349
   total: 2458095
-cost_usd: null
+cost_usd: 1.125399
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -267,8 +270,8 @@ I listed P22 to P26 from a directory listing only, because they are outside the 
 
 ### Tool Calls
 
-- `Glob` -- pattern `40_Resources/Obsidian/Dashboards/*.md` path ``
-- `Glob` -- pattern `30_Order/{Standards/Dashboards,Workflows}/**/*.md` path ``
+- `Glob` -- pattern `40_Resources/Obsidian/Dashboards/*.md` path ` `
+- `Glob` -- pattern `30_Order/{Standards/Dashboards,Workflows}/**/*.md` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
@@ -279,12 +282,203 @@ I listed P22 to P26 from a directory listing only, because they are outside the 
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Daily Dashboard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Jarvis Move.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Agentic OS\Agentic OS.md`
-- `Glob` -- pattern `00_Live/**/*.md` path ``
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-ChildItem 00_Live -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch \u0027Enumerate\\\\Daily\u0027 } | Sort-Object LastWriteTime -Descending | ForEach-Object { \u0027{0:yyyy-MM-dd} {1,6} {2}\u0027 -f $_.LastWriteTime,$_.Length,$_.FullName.Substring(40) }; \u0027--- daily\u0027; Get-ChildItem 00_Live\\Enumerate\\Daily -File | Sort-Object Name | Select-Object -Last 14 | ForEach-Object { \u0027{0:yyyy-MM-dd} {1,6} {2}\u0027 -f $_.LastWriteTime,$_.Length,$_.Name }"}`
-- `PowerShell` -- `{"command":"$j=\"D:\\_Anant\\20_Progress\\Documents\\Jarvis\"; Test-Path $j; Get-ChildItem $j -Directory | Select-Object Name; foreach($p in \u002710_Areas\u0027,\u002720_Progress\u0027,\u002730_Order\u0027){ \"--- $p\"; if(Test-Path \"$j\\$p\"){ Get-ChildItem \"$j\\$p\" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch \u002750_Archive|\\.stversions|05_Clippings\u0027 } | ForEach-Object { \u0027{0:yyyy-MM-dd} {1,6} {2}\u0027 -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($j.Length+1) } } }"}`
-- `PowerShell` -- `{"command":"$j=\"D:\\_Anant\\20_Progress\\Documents\\Jarvis\"; foreach($p in \u002710_Areas\\Life\u0027,\u002710_Areas\\Career\u0027,\u002720_Progress\u0027,\u002730_Order\u0027){ \"--- $p\"; if(Test-Path \"$j\\$p\"){ Get-ChildItem \"$j\\$p\" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch \u002750_Archive|\\.stversions|05_Clippings|Each One|Contacts\u0027 } | ForEach-Object { \u0027{0:yyyy-MM-dd} {1,6} {2}\u0027 -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($j.Length+1) } } else {\u0027MISSING\u0027} } | Select-Object -First 400"}`
-- `PowerShell` -- `{"command":"$j=\"D:\\_Anant\\20_Progress\\Documents\\Jarvis\"; $out=foreach($p in \u002710_Areas\\Life\u0027,\u002710_Areas\\Career\u0027,\u002720_Progress\u0027,\u002730_Order\u0027){ \"--- $p\"; if(Test-Path \"$j\\$p\"){ Get-ChildItem \"$j\\$p\" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch \u002750_Archive|\\.stversions|05_Clippings|Each One|Contacts\u0027 } | ForEach-Object { \u0027{0:yyyy-MM-dd} {1,6} {2}\u0027 -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($j.Length+1) } } else {\u0027MISSING\u0027} }; $out | Select-Object -First 400"}`
-- `Bash` -- `grep -v -E 'Enumerate\\Daily|Internships\\|AI\\|Hackathon' "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan/1cfe88df-3f9e-4ac3-9ff8-bf241e69d1f6/tool-results/b29n27t71.txt" | head -300`
+- `Glob` -- pattern `00_Live/**/*.md` path ` `
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; Get-ChildItem 00_Live -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch 'Enumerate\\Daily' } | Sort-Object LastWriteTime -Descending | ForEach-Object { '{0:yyyy-MM-dd} {1,6} {2}' -f $_.LastWriteTime,$_.Length,$_.FullName.Substring(40) }; '--- daily'; Get-ChildItem 00_Live\Enumerate\Daily -File | Sort-Object Name | Select-Object -Last 14 | ForEach-Object { '{0:yyyy-MM-dd} {1,6} {2}' -f $_.LastWriteTime,$_.Length,$_.Name }
+```
+```
+2026-10-14  17719 \00_Live\Monthly Dashboard.md
+2026-10-14    731 \00_Live\Enumerate\Enumerate Board.md
+2026-10-13    316 \00_Live\Enumerate\Monthly\2026-10.md
+2026-10-13    491 \00_Live\Enumerate\Weekly\2025-W52.md
+2026-10-08   7305 \00_Live\Books\Psycho-Cybernetics.md
+2026-10-05      0 \00_Live\Tracking\Finance\September 2026.md
+2026-10-04  11254 \00_Live\Health & Life\Lease - The Standard\Lease - Pricing & Payments.md
+2026-09-23    512 \00_Live\Tracking\Meals\Groceries List.md
+2026-09-03   1384 \00_Live\Headway\Better.md
+2026-09-01  38499 \00_Live\Books\Essentialism.md
+2026-08-29  19526 \00_Live\Tracking\Plans\Summer Grind.md
+2026-08-22    262 \00_Live\Headway\Questions to Ask Yourself.md
+2026-08-10   2182 \00_Live\Headway\Bits and pieces\Make Today Count.md
+2026-08-07  33649 \00_Live\Health & Life\Lease - The Standard\Lease - Important Details & Hidden Gaps.md
+2026-08-07    296 \00_Live\Health & Life\Lease - The Standard\Messages.md
+2026-07-17  12210 \00_Live\Health & Life\Lease - The Standard\Lease - My Rights.md
+2026-07-17  27812 \00_Live\Health & Life\Lease - The Standard\Conversation.md
+2026-07-07    741 \00_Live\Map.md
+2026-07-07    303 \00_Live\Health & Life\Heal Your Lungs.md
+2026-07-04  17948 \00_Live\Life OS.md
+2026-07-03   1032 \00_Live\Tracking\Relationship Log.md
+2026-07-03   1159 \00_Live\Tracking\Habits\Finance Tracker.md
+2026-07-03   1055 \00_Live\Tracking\Habits\Health Tracker.md
+2026-07-01   1828 \00_Live\Enumerate\Monthly\2026-06.md
+2026-07-01  85203 \00_Live\Books\Easy Way to Quit Smoking.md
+2026-06-13    803 \00_Live\Enumerate\Weekly\2026-W24.md
+2026-06-03    942 \00_Live\Tracking\Habits\Daily Habit Board.md
+2026-06-02  41003 \00_Live\Books\Atomic Habits.md
+2026-05-21   1665 \00_Live\Headway\Bits and pieces\Re-Program Myself.md
+2026-05-19  13634 \00_Live\Headway\Bits and pieces\DRIV.md
+2026-05-12  11449 \00_Live\Tracking\Plans\Winter Break.md
+2026-05-08   1035 \00_Live\Headway\Bits and pieces\Speaking Skills.md
+2026-04-06   1606 \00_Live\Enumerate\Weekly\2026-W15.md
+2026-03-31    415 \00_Live\Tracking\Habits\Habits Stacking.md
+2026-03-31      0 \00_Live\Tracking\Habits\Habits Scorecard.md
+2026-03-22    958 \00_Live\Enumerate\Weekly\2026-W13.md
+2026-03-22   4764 \00_Live\Tracking\Habits\Habits.md
+2026-03-22    453 \00_Live\Enumerate\Weekly\2026-W12.md
+2026-03-17    240 \00_Live\Enumerate\Monthly\2026-03.md
+2026-03-16   2826 \00_Live\Enumerate\Yearly\Resolutions '26.md
+2026-03-16   2608 \00_Live\Career\Finance\Bank Accounts.md
+2026-03-16    783 \00_Live\Career\Finance\Stocks.md
+2026-03-05   6706 \00_Live\Headway\Headway Analysis.md
+2026-03-02    403 \00_Live\Enumerate\Weekly\2026-W10.md
+2026-02-26   9028 \00_Live\Headway\Communication.md
+2026-02-25  10805 \00_Live\Headway\Hack Your Brain.md
+2026-02-18   2565 \00_Live\Enumerate\Yearly\2025 Review.md
+2026-02-04   2175 \00_Live\Enumerate\Monthly\2026-01.md
+2026-01-24   2882 \00_Live\Headway\Self awareness.md
+2026-01-02    497 \00_Live\Enumerate\Yearly\Resolutions '25.md
+2026-01-01   3876 \00_Live\Enumerate\Yearly\2025.md
+2025-12-25    275 \00_Live\Enumerate\Monthly\2025-12.md
+2025-12-24    880 \00_Live\Headway\Bits and pieces\Seven Step Method.md
+2025-12-24   2131 \00_Live\Headway\Bits and pieces\What do you want.md
+2025-12-24   2131 \00_Live\Headway\Bits and pieces\Hard Truths.md
+2025-12-24      0 \00_Live\Enumerate\Yearly\2026.md
+--- daily
+2026-04-16   1650 2026-04-16.md
+2026-04-17   1944 2026-04-17.md
+2026-05-09   2009 2026-05-09.md
+2026-05-21   1873 2026-05-22.md
+2026-05-23   1918 2026-05-24.md
+2026-06-01   1503 2026-06-01.md
+2026-06-03   5084 2026-06-04.md
+2026-06-11   1503 2026-06-11.md
+2026-06-13   1813 2026-06-13.md
+2026-06-30   1503 2026-07-01.md
+2026-07-08   1503 2026-07-08.md
+2026-09-26   1503 2026-09-26.md
+2026-10-05   2997 2026-10-05.md
+2026-10-12   2308 2026-10-12.md
+```
+- `PowerShell`
+```powershell
+$j="D:\_Anant\20_Progress\Documents\Jarvis"; Test-Path $j; Get-ChildItem $j -Directory | Select-Object Name; foreach($p in '10_Areas','20_Progress','30_Order'){ "--- $p"; if(Test-Path "$j\$p"){ Get-ChildItem "$j\$p" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch '50_Archive|\.stversions|05_Clippings' } | ForEach-Object { '{0:yyyy-MM-dd} {1,6} {2}' -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($j.Length+1) } } }
+```
+```
+<persisted-output>
+Output too large (251.9KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\bz782u7d8.txt
+
+Preview (first 2KB):
+True
+
+Name
+----
+__pycache__
+.agents
+.claude
+.codex
+.cursor
+.firecrawl
+.kiro
+.obsidian
+.opencode
+.vscode
+10_Areas
+20_Progress
+30_Order
+40_Resources
+50_Archive
+60_Claude
+blobs
+copilot
+Tracker
+--- 10_Areas
+2026-08-10  15774 10_Areas\Summer Grind.md
+2026-09-26      0 10_Areas\AI\Antigravity.md
+2026-08-19   9747 10_Areas\AI\Claude Code.md
+2026-10-07   7999 10_Areas\AI\Codex.md
+2026-07-03   5660 10_Areas\AI\Cursor.md
+2026-07-03   4652 10_Areas\AI\Kiro.md
+2026-10-08      0 10_Areas\AI\Setup\Conversation Map.md
+2026-08-21  21380 10_Areas\AI\Setup\Folder Map.md
+2026-09-26  17296 10_Areas\AI\Setup\Gaps.md
+2026-08-20  10005 10_Areas\AI\Setup\Notes Map.md
+2026-09-26  10899 10_Areas\AI\Setup\Review System.md
+2026-08-21  15689 10_Areas\Career\Engineer Edge Roadmap.md
+2025-12-25    201 10_Areas\Career\Freelancing.md
+2026-06-24    317 10_Areas\Career\Useful Links.md
+2026-08-21   5180 10_Areas\Career\Certifications\Certifications Strategy.md
+2026-07-07    954 10_Areas\Career\Finance\Finance Scope.md
+2026-07-29   7747 10_Areas\Career\Hackathon\Hackathons.md
+2026-09-04   3746 10_Areas\Career\Internships\Internships Hub.md
+2026-07-26   4515 10_Areas\Career\Internships\Links & Interlinks.md
+2026-09-04   2195 10_Areas\Career\Internships\README.md
+2026-02-22   7234 10_Areas\Career\Internships\Cheats\LinkedIn Premium.md
+2026-07-29   6307 10_Areas\Career\Internships\Cheats\Resume Tailoring, LinkedIn Search & Outreach Discovery.md
+2026-09-04   1155 10_Areas\Career\Internships\Contacts\Contacts MOC.md
+2026-09-04   2804 10_Areas\Career\Internships\Contacts\Mimic.md
+2026-07-26      0 10_Areas\Career\Internships\Contacts\Networking Strategies.md
+2026-09-04   5484 10_Areas\Career\Internships\Contacts\Outreach Discovery & Automation Status.md
+2026-09-24   5113 10_Areas\Career\Internships\Contacts\Each One\Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md
+...
+</persisted-output>
+```
+- `PowerShell`
+```powershell
+$j="D:\_Anant\20_Progress\Documents\Jarvis"; foreach($p in '10_Areas\Life','10_Areas\Career','20_Progress','30_Order'){ "--- $p"; if(Test-Path "$j\$p"){ Get-ChildItem "$j\$p" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch '50_Archive|\.stversions|05_Clippings|Each One|Contacts' } | ForEach-Object { '{0:yyyy-MM-dd} {1,6} {2}' -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($j.Length+1) } } else {'MISSING'} } | Select-Object -First 400
+```
+```
+Exit code 1
+Invoke-Expression: An empty pipe element is not allowed.
+```
+- `PowerShell`
+```powershell
+$j="D:\_Anant\20_Progress\Documents\Jarvis"; $out=foreach($p in '10_Areas\Life','10_Areas\Career','20_Progress','30_Order'){ "--- $p"; if(Test-Path "$j\$p"){ Get-ChildItem "$j\$p" -Recurse -File -Filter *.md | Where-Object { $_.FullName -notmatch '50_Archive|\.stversions|05_Clippings|Each One|Contacts' } | ForEach-Object { '{0:yyyy-MM-dd} {1,6} {2}' -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($j.Length+1) } } else {'MISSING'} }; $out | Select-Object -First 400
+```
+```
+<persisted-output>
+Output too large (47.3KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\b29n27t71.txt
+
+Preview (first 2KB):
+--- 10_Areas\Life
+2026-06-11    804 10_Areas\Life\Enumerate\Enumerate Board.md
+2026-06-13   2826 10_Areas\Life\Enumerate\Daily\2026-06-13.md
+2026-06-14   2741 10_Areas\Life\Enumerate\Daily\2026-06-14.md
+2026-07-27   3009 10_Areas\Life\Enumerate\Daily\2026-06-15.md
+2026-07-27   3227 10_Areas\Life\Enumerate\Daily\2026-06-16.md
+2026-07-27   3473 10_Areas\Life\Enumerate\Daily\2026-07-05.md
+2026-07-08   3008 10_Areas\Life\Enumerate\Daily\2026-07-08.md
+2026-07-09   2979 10_Areas\Life\Enumerate\Daily\2026-07-09.md
+2026-07-10   3794 10_Areas\Life\Enumerate\Daily\2026-07-10.md
+2026-08-01   3095 10_Areas\Life\Enumerate\Daily\2026-08-01.md
+2026-08-02   3917 10_Areas\Life\Enumerate\Daily\2026-08-03.md
+2026-08-07   3499 10_Areas\Life\Enumerate\Daily\2026-08-07.md
+2026-08-08   3885 10_Areas\Life\Enumerate\Daily\2026-08-08.md
+2026-08-09   3114 10_Areas\Life\Enumerate\Daily\2026-08-10.md
+2026-09-07   3646 10_Areas\Life\Enumerate\Daily\2026-09-07.md
+2026-09-08   3620 10_Areas\Life\Enumerate\Daily\2026-09-08.md
+2026-09-15   4290 10_Areas\Life\Enumerate\Daily\2026-09-15.md
+2026-09-19   1866 10_Areas\Life\Enumerate\Daily\2026-09-19.md
+2026-09-26   1866 10_Areas\Life\Enumerate\Daily\2026-09-21.md
+2026-09-28   4143 10_Areas\Life\Enumerate\Daily\2026-09-28.md
+2026-09-29   4530 10_Areas\Life\Enumerate\Daily\2026-09-29.md
+2026-10-01   1866 10_Areas\Life\Enumerate\Daily\2026-10-01.md
+2026-10-06   3762 10_Areas\Life\Enumerate\Daily\2026-10-05.md
+2026-10-12   1840 10_Areas\Life\Enumerate\Daily\2026-10-12.md
+2026-06-30    270 10_Areas\Life\Enumerate\Monthly\2026-06.md
+2026-06-30    411 10_Areas\Life\Enumerate\Weekly\2026-W27.md
+2026-09-26   2047 10_Areas\Life\Enumerate\Weekly\2026-W39.md
+2026-10-04   1562 10_Areas\Life\Enumerate\Weekly\2026-W40.md
+2026-10-12   4628 10_Areas\Life\Enumerate\Weekly\2026-W41.md
+2026-07-07    217 10_Areas\Life\Enumerate\Yearly\2026.md
+2026-07-07   2124 10_Areas\Life\Enumerate\Yearly\Resolutions'26.md
+...
+</persisted-output>
+```
+- `Bash`
+```bash
+grep -v -E 'Enumerate\\Daily|Internships\\|AI\\|Hackathon' "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-The-Plan/1cfe88df-3f9e-4ac3-9ff8-bf241e69d1f6/tool-results/b29n27t71.txt" | head -300
+```
 ```
 <persisted-output>
 Output too large (34.8KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\bdyhtpe0m.txt
@@ -327,7 +521,10 @@ Preview (first 2KB):
 </persisted-output>
 ```
 - `Glob` -- pattern `10_Areas/Life/{Plans,Habits,Health,Finance,Relationships}/**/*.md` path `D:\_Anant\20_Progress\Documents\Jarvis`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls 10_Areas/Life 10_Areas/Career 20_Progress 30_Order 2>&1 | head -80`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls 10_Areas/Life 10_Areas/Career 20_Progress 30_Order 2>&1 | head -80
+```
 ```
 10_Areas/Career:
 Certifications
@@ -378,7 +575,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Plans\2025\Winter Break.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Summer Grind.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\00_How This Folder Works.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; for d in 20_Progress/Internship 20_Progress/Degree 20_Progress/Mentorship\ Program 20_Progress/Projects 20_Progress/AI 10_Areas/Career/Mentors 10_Areas/Career/Certifications 10_Areas/Life/Tracking 10_Areas/Life/Habits 10_Areas/Life/Books "10_Areas/Life/Truths of Life"; do echo "=== $d"; find "$d" -maxdepth 2 -not -name '*.png' | head -40 | while read f; do if [ -f "$f" ]; then echo "$(date -r "$f" +%F) $f"; else echo "[dir] $f"; fi; done; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; for d in 20_Progress/Internship 20_Progress/Degree 20_Progress/Mentorship\ Program 20_Progress/Projects 20_Progress/AI 10_Areas/Career/Mentors 10_Areas/Career/Certifications 10_Areas/Life/Tracking 10_Areas/Life/Habits 10_Areas/Life/Books "10_Areas/Life/Truths of Life"; do echo "=== $d"; find "$d" -maxdepth 2 -not -name '*.png' | head -40 | while read f; do if [ -f "$f" ]; then echo "$(date -r "$f" +%F) $f"; else echo "[dir] $f"; fi; done; done
+```
 ```
 === 20_Progress/Internship
 [dir] 20_Progress/Internship
@@ -604,11 +804,17 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Headway\Better.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Tracking\Plans\Winter Break.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Monthly Dashboard.md`
-- `Bash` -- `node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-15`
+- `Bash`
+```bash
+node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-15
+```
 ```
 {"current_streak":0,"best_streak":0,"today_categories_done":0,"today_status":"NOT_YET","at_risk":false,"first_day":null,"days":[{"date":"2026-09-16","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-17","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-18","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-19","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-20","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-21","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-22","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-23","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-24","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-25","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-26","has_note":true,"categories":0,"forgiven":false},{"date":"2026-09-27","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-28","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-29","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-30","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-01","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-02","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-03","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-04","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-05","has_note":true,"categories":0,"forgiven":false},{"date":"2026-10-06","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-07","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-08","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-09","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-10","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-11","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-12","has_note":true,"categories":0,"forgiven":false},{"date":"2026-10-13","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-14","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-15","has_note":false,"categories":0,"forgiven":false}]}
 ```
-- `Bash` -- `node 30_Order/System/plan-cli/plan-cli.cjs review month --dir 00_Live/Enumerate/Daily`
+- `Bash`
+```bash
+node 30_Order/System/plan-cli/plan-cli.cjs review month --dir 00_Live/Enumerate/Daily
+```
 ```
 {"label":"2026-10","counted":0,"met":0,"percent":null,"grade":null,"missDays":[],"kind":"month","start":"2026-10-01","end":"2026-10-31","today":"2026-10-15","includeToday":false,"partial":true,"firstDay":null,"streak":{"current":0,"best":0,"atRisk":false},"causes":[],"noCause":0,"unknownCauses":[],"costliest":null,"trendPoints":null,"days":[{"date":"2026-10-01","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-02","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-03","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-04","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-05","hasNote":true,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-06","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-07","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-08","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-09","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-10","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-11","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-12","hasNote":true,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-13","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-14","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"before-first-day"},{"date":"2026-10-15","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"today"},{"date":"2026-10-16","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-17","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-18","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-19","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-20","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-21","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-22","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-23","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-24","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-25","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-26","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-27","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-28","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-29","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-30","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"},{"date":"2026-10-31","hasNote":false,"categories":0,"status":"NOT_COUNTED","why":"future"}],"previous":{"label":"2026-09","counted":0,"met":0,"percent":null,"grade":null,"missDays":[]},"snapshot":{"matches":[],"line":"requested, not present"},"entry":"### 2026-10\n\n- Days MET: no data\n- Grade: no data\n- Previous month: no data\n- MISS days: none\n- Streak: current 0, best 0 (engine, as of 2026-10-15)\n- Causes: none logged\n- Costliest cause: none\n- Jarvis snapshot: requested, not present"}
 ```
@@ -616,7 +822,10 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Enumerate\Daily\2026-10-12.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Habits\Habit Tracker Board.md`
 - `Grep` -- pattern `^(status|type|created):` path `D:\_Anant\20_Progress\Documents\The Plan\00_Live`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan"; ls; echo ---; ls 20_Progress 20_Progress/* 2>&1 | head -40; echo ---; ls 60_Jarvis 60_Jarvis/10_Promoted_Notes 2>&1 | head -30; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls "20_Progress/Projects/Research/BOOM" "20_Progress/Projects/Research/Healthcare" | head; head -20 "10_Areas/Career/Certifications/Certifications Strategy.md"; head -14 "10_Areas/Career/Engineer Edge Roadmap.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan"; ls; echo ---; ls 20_Progress 20_Progress/* 2>&1 | head -40; echo ---; ls 60_Jarvis 60_Jarvis/10_Promoted_Notes 2>&1 | head -30; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls "20_Progress/Projects/Research/BOOM" "20_Progress/Projects/Research/Healthcare" | head; head -20 "10_Areas/Career/Certifications/Certifications Strategy.md"; head -14 "10_Areas/Career/Engineer Edge Roadmap.md"
+```
 ```
 00_Live
 10_UMN
@@ -738,7 +947,10 @@ tags:
   - "#progress"
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan"; for f in "20_Progress/Career" "20_Progress/UROP" "20_Progress/Mentorship Program" "20_Progress/Projects/Projects Board.md" "20_Progress/20_Progress Board.md" "10_UMN"; do echo "== $f"; find "$f" -maxdepth 2 -name '*.md' -printf '%TY-%Tm-%Td %p\n' 2>/dev/null | sort -r | head -8; done; ls 10_UMN`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan"; for f in "20_Progress/Career" "20_Progress/UROP" "20_Progress/Mentorship Program" "20_Progress/Projects/Projects Board.md" "20_Progress/20_Progress Board.md" "10_UMN"; do echo "== $f"; find "$f" -maxdepth 2 -name '*.md' -printf '%TY-%Tm-%Td %p\n' 2>/dev/null | sort -r | head -8; done; ls 10_UMN
+```
 ```
 == 20_Progress/Career
 2026-09-23 20_Progress/Career/Career Fair/Internships.md
@@ -809,5 +1021,4 @@ _None detected_
 - `node 30_Order/System/plan-cli/plan-cli.cjs review month --dir 00_Live/Enumerate/Daily`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan"; ls; echo ---; ls 20_Progress 20_Progress/* 2>&1 | head -40; echo ---; ls 60_Jarvis 60_Jarvis/10_Promoted_Notes 2>&1 | head -30; echo; cd "D:/_Anant/20_Progress/Documents/Jarvis"; ls "20_Progress/Projects/Research/BOOM" "20_Progress/Projects/Research/Healthcare" | head; head -20 "10_Areas/Career/Certifications/Certifications Strategy.md"; head -14 "10_Areas/Career/Engineer Edge Roadmap.md"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan"; for f in "20_Progress/Career" "20_Progress/UROP" "20_Progress/Mentorship Program" "20_Progress/Projects/Projects Board.md" "20_Progress/20_Progress Board.md" "10_UMN"; do echo "== $f"; find "$f" -maxdepth 2 -name '*.md' -printf '%TY-%Tm-%Td %p\n' 2>/dev/null | sort -r | head -8; done; ls 10_UMN`
-
 

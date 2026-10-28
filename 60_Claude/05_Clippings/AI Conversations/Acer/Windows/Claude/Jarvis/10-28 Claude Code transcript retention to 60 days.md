@@ -6,7 +6,7 @@ source_os: windows
 title: "Claude Code transcript retention to 60 days"
 started_at: 2026-10-28T15:11:54
 ended_at: 2026-10-28T15:16:13
-exported_at: 2026-10-28T15:33:03
+exported_at: 2026-10-28T16:15:21
 duration_minutes: 4.3
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

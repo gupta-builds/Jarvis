@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Old Laptop Rebuild remote-SSH decision and failure audit"
 started_at: 2026-10-04T15:26:20
 ended_at: 2026-10-04T15:37:36
-exported_at: 2026-10-17T21:06:45
+exported_at: 2026-10-28T16:15:21
 duration_minutes: 11.3
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 5969fca1-f5d5-4a66-9c19-00fc2846d129
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-04
+updated: 2026-10-28
 turn_count: 2
 tools_used:
   Glob: 5
@@ -19,12 +22,12 @@ tools_used:
   ToolSearch: 1
   WebSearch: 4
 tokens:
-  input: 62
-  output: 58335
-  cache_creation: 440135
-  cache_read: 2784023
-  total: 3282555
-cost_usd: 2.900819
+  input: 16
+  output: 20366
+  cache_creation: 104484
+  cache_read: 764499
+  total: 889365
+cost_usd: 0.774528
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -182,5 +185,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

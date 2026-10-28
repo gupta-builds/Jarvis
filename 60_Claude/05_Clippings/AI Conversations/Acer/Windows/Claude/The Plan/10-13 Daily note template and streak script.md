@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Daily note template and streak script"
 started_at: 2026-10-13T00:26:43
 ended_at: 2026-10-14T11:55:24
-exported_at: 2026-10-17T21:07:06
+exported_at: 2026-10-28T16:15:53
 duration_minutes: 2128.7
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: ffc15af2-1115-4604-8d96-503f2cdbccd1
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-13
+updated: 2026-10-28
 turn_count: 8
 tools_used:
   AskUserQuestion: 1
@@ -25,12 +28,12 @@ tools_used:
   Read: 64
   Write: 19
 tokens:
-  input: 710
-  output: 447758
-  cache_creation: 1738824
-  cache_read: 53209457
-  total: 55396749
-cost_usd: null
+  input: 248
+  output: 140060
+  cache_creation: 477468
+  cache_read: 18966709
+  total: 19584485
+cost_usd: 5.207639
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -210,7 +213,10 @@ The template, streak script, tests and QuickAdd instructions are built, and all 
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Daily Note Schema.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Streak Rule.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order 30_Order/Templates 30_Order/System 2>&1; python --version`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order 30_Order/Templates 30_Order/System 2>&1; python --version
+```
 ```
 Exit code 49
 30_Order:
@@ -229,12 +235,101 @@ Metadata
 Previous Templates
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-Command py,python,python3 -ErrorAction SilentlyContinue | Select Name,Source; Get-ChildItem 30_Order\\Templates -Recurse -Depth 1 | Select -First 40 FullName; Get-ChildItem 30_Order\\System\\git-sync | Select Name; Test-Path 00_Live\\Enumerate\\Daily; Get-ChildItem 00_Live\\Enumerate\\Daily -ErrorAction SilentlyContinue | Select -First 8 Name"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; Get-Command py,python,python3 -ErrorAction SilentlyContinue | Select Name,Source; Get-ChildItem 30_Order\Templates -Recurse -Depth 1 | Select -First 40 FullName; Get-ChildItem 30_Order\System\git-sync | Select Name; Test-Path 00_Live\Enumerate\Daily; Get-ChildItem 00_Live\Enumerate\Daily -ErrorAction SilentlyContinue | Select -First 8 Name
+```
+```
+Name                            Source
+----                            ------
+python.exe                      C:\Users\anant\AppData\Local\Microsoft\WindowsApps\python.exe
+python3.exe                     C:\Users\anant\AppData\Local\Microsoft\WindowsApps\python3.exe
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+                                
+logs                            
+plan-git-sync-silent.vbs        
+plan-git-sync.ps1               
+register-plan-git-sync-task.ps1 
+True
+01-03-2026.md                   
+01-06-2026.md                   
+01-07-2026.md                   
+04-06-2026.md                   
+05-04-2026.md                   
+05-10-2026.md                   
+06-04-2026.md                   
+07-04-2026.md
+```
 - `Grep` -- pattern `Decision (3|7|8|31|32)\b|^\|? ?(3|7|8|31|32) ?\||Templater|QuickAdd|templater|user script` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Prompts.md`
-- `PowerShell` -- `{"command":"Get-Command py -ErrorAction SilentlyContinue | Select Source; Get-ChildItem \"$env:LOCALAPPDATA\\Programs\\Python\",\"C:\\Python*\",\"C:\\Program Files\\Python*\" -ErrorAction SilentlyContinue | Select FullName; (Get-ChildItem \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Daily\" | Measure).Count; Get-ChildItem \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Daily\" | ? {$_.Name -match \u0027^\\d{4}-\u0027} | Select Name; Get-ChildItem \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\Templates\\Metadata\" | Select Name"}`
-- `PowerShell` -- `{"command":"python --version 2\u003e\u00261 | Select -First 2; Get-Command uv,conda,node,pipx -ErrorAction SilentlyContinue | Select Name,Source; Get-ChildItem C:\\Users\\anant\\AppData\\Local\\Programs,C:\\ProgramData -Filter \"python*\" -ErrorAction SilentlyContinue | Select FullName; where.exe python.exe 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"uv python list --only-installed 2\u003e\u00261"}`
+- `PowerShell`
+```powershell
+Get-Command py -ErrorAction SilentlyContinue | Select Source; Get-ChildItem "$env:LOCALAPPDATA\Programs\Python","C:\Python*","C:\Program Files\Python*" -ErrorAction SilentlyContinue | Select FullName; (Get-ChildItem "D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily" | Measure).Count; Get-ChildItem "D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily" | ? {$_.Name -match '^\d{4}-'} | Select Name; Get-ChildItem "D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Metadata" | Select Name
+```
+```
+28
+
+Name
+----
+For Brainstorm.md
+For Classes.md
+For Evergreen.md
+For Everything.md
+For Inputs.md
+For Progress.md
+For Thoughts.md
+```
+- `PowerShell`
+```powershell
+python --version 2>&1 | Select -First 2; Get-Command uv,conda,node,pipx -ErrorAction SilentlyContinue | Select Name,Source; Get-ChildItem C:\Users\anant\AppData\Local\Programs,C:\ProgramData -Filter "python*" -ErrorAction SilentlyContinue | Select FullName; where.exe python.exe 2>&1
+```
+```
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+
+C:\Users\anant\AppData\Local\Microsoft\WindowsApps\python.exe
+Name     Source
+----     ------
+uv.exe   C:\Users\anant\.local\bin\uv.exe
+node.exe C:\Program Files\nodejs\node.exe
+```
+- `PowerShell`
+```powershell
+uv python list --only-installed 2>&1
+```
+```
+cpython-3.14.7-windows-x86_64-none     C:\Users\anant\AppData\Roaming\uv\python\cpython-3.14.7-windows-x86_64-none\python.exe
+cpython-3.14.7-windows-x86_64-none     C:\Users\anant\.local\bin\python3.14.exe
+cpython-3.14.7-windows-x86_64-none     C:\Users\anant\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\python.exe
+cpython-3.12.14-windows-x86_64-none    C:\Users\anant\AppData\Roaming\uv\python\cpython-3.12.14-windows-x86_64-none\python.exe
+cpython-3.12.14-windows-x86_64-none    C:\Users\anant\.local\bin\python3.12.exe
+cpython-3.12.14-windows-x86_64-none    C:\Users\anant\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\python.exe
+```
 - `mcp__claude_ai_Context7__resolve-library-id` -- `{"query":"QuickAdd Obsidian capture choice insert after date format","libraryName":"QuickAdd"}`
 - `mcp__claude_ai_Context7__query-docs` -- `{"libraryId":"/websites/quickadd_obsidian_guide","query":"Capture choice: capture to file path with date offset like tomorrow, create file if it doesn\u0027t exist from template, insert after heading, VALUE and VDATE format syntax, input prompt"}`
 - `mcp__claude_ai_Context7__query-docs` -- `{"libraryId":"/websites/quickadd_obsidian_guide","query":"format syntax {{DATE+1}} date offset, {{VALUE:name}}, {{VDATE}}, {{FIELD}}; capture \"use selection as value\" settings, create file with given template, insert after \"create line if not found\""}`
@@ -575,7 +670,9 @@ if __name__ == "__main__":
     unittest.main()
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/gen.py" <<'EOF'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/gen.py" <<'EOF'
 import sys, json
 from pathlib import Path
 sys.path.insert(0, ".")
@@ -594,7 +691,8 @@ for k, v in notes.items():
 exp = {"current_streak": 2, "best_streak": 4, "today_categories_done": 2, "today_status": "NOT_YET", "at_risk": False, "first_day": "2026-03-01"}
 (out / "expected.json").write_text(json.dumps(exp, indent=2) + "\n", encoding="utf-8")
 EOF
-uv run --python 3.14 python -I -c "import sys; sys.path.insert(0,'.'); exec(open(r'$S/gen.py').read())" && ls fixtures/sample`
+uv run --python 3.14 python -I -c "import sys; sys.path.insert(0,'.'); exec(open(r'$S/gen.py').read())" && ls fixtures/sample
+```
 ```
 2026-03-01.md
 2026-03-02.md
@@ -656,9 +754,89 @@ study_hours: 0
 
 
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\System\\streak\"; uv run --python 3.14 python -I -m unittest test_streak -v 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\System\\streak\"; uv run --python 3.14 python -m unittest test_streak -v 2\u003e\u00261"}`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\System\\streak\"; uv run --python 3.14 python -I streak.py --dir fixtures/sample --today 2026-03-10; Get-Content fixtures/sample/expected.json -Raw; uv run --python 3.14 python -c \"\nimport sys; sys.path.insert(0,\u0027.\u0027)\nimport streak\nt=open(r\u0027../../Templates/Daily Note.md\u0027,encoding=\u0027utf-8\u0027).read()\na=streak.parse_note(t); print({k:len(v) for k,v in a.items()}, streak.categories_done(a))\na=streak.parse_note(t.replace(\u0027- [ ]\u0027,\u0027- [x]\u0027)); print(streak.categories_done(a))\nprint(\u0027emdash\u0027 , \u0027\\u2014\u0027 in t)\"; uv run --python 3.14 python -I streak.py --today 2026-10-13"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak"; uv run --python 3.14 python -I -m unittest test_streak -v 2>&1
+```
+```
+Exit code 1
+test_streak (unittest.loader._FailedTest.test_streak) ... ERROR
+
+======================================================================
+ERROR: test_streak (unittest.loader._FailedTest.test_streak)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_streak
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\Lib\unittest\loader.py", line 141, in loadTestsFromName
+    module = __import__(module_name)
+ModuleNotFoundError: No module named 'test_streak'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+
+FAILED (errors=1)
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak"; uv run --python 3.14 python -m unittest test_streak -v 2>&1
+```
+```
+test_empty_category_is_not_done (test_streak.CategoryRules.test_empty_category_is_not_done) ... ok
+test_five_categories (test_streak.CategoryRules.test_five_categories) ... ok
+test_line_without_cat_field_is_ignored (test_streak.CategoryRules.test_line_without_cat_field_is_ignored) ... ok
+test_next_action_lines_do_not_count (test_streak.CategoryRules.test_next_action_lines_do_not_count) ... ok
+test_partial_category_is_not_done (test_streak.CategoryRules.test_partial_category_is_not_done) ... ok
+test_rewording_does_not_change_count (test_streak.CategoryRules.test_rewording_does_not_change_count) ... ok
+test_three_categories_met (test_streak.CategoryRules.test_three_categories_met) ... ok
+test_two_categories_not_met (test_streak.CategoryRules.test_two_categories_not_met) ... ok
+test_cli_matches_hand_computed_numbers (test_streak.HandComputedFixtures.test_cli_matches_hand_computed_numbers) ... ok
+test_missing_folder_is_an_error (test_streak.HandComputedFixtures.test_missing_folder_is_an_error) ... ok
+test_at_risk_when_yesterday_missed_and_today_not_met (test_streak.StreakAlgorithm.test_at_risk_when_yesterday_missed_and_today_not_met) ... ok
+test_best_streak_greater_than_current (test_streak.StreakAlgorithm.test_best_streak_greater_than_current) ... ok
+test_missing_note_counts_as_miss (test_streak.StreakAlgorithm.test_missing_note_counts_as_miss) ... ok
+test_no_notes_at_all (test_streak.StreakAlgorithm.test_no_notes_at_all) ... ok
+test_non_iso_and_future_notes_are_ignored (test_streak.StreakAlgorithm.test_non_iso_and_future_notes_are_ignored) ... ok
+test_not_at_risk_once_today_is_met (test_streak.StreakAlgorithm.test_not_at_risk_once_today_is_met) ... ok
+test_notes_before_first_template_day_do_not_count (test_streak.StreakAlgorithm.test_notes_before_first_template_day_do_not_count) ... ok
+test_one_forgiven_miss (test_streak.StreakAlgorithm.test_one_forgiven_miss) ... ok
+test_third_miss_after_break_is_a_new_forgiven_miss (test_streak.StreakAlgorithm.test_third_miss_after_break_is_a_new_forgiven_miss) ... ok
+test_today_met_adds_one (test_streak.StreakAlgorithm.test_today_met_adds_one) ... ok
+test_today_not_yet_met_is_not_a_miss (test_streak.StreakAlgorithm.test_today_not_yet_met_is_not_a_miss) ... ok
+test_two_misses_in_a_row (test_streak.StreakAlgorithm.test_two_misses_in_a_row) ... ok
+test_two_missing_notes_in_a_row_break_the_run (test_streak.StreakAlgorithm.test_two_missing_notes_in_a_row_break_the_run) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.239s
+
+OK
+```
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak"; uv run --python 3.14 python -I streak.py --dir fixtures/sample --today 2026-03-10; Get-Content fixtures/sample/expected.json -Raw; uv run --python 3.14 python -c "
+import sys; sys.path.insert(0,'.')
+import streak
+t=open(r'../../Templates/Daily Note.md',encoding='utf-8').read()
+a=streak.parse_note(t); print({k:len(v) for k,v in a.items()}, streak.categories_done(a))
+a=streak.parse_note(t.replace('- [ ]','- [x]')); print(streak.categories_done(a))
+print('emdash' , '\u2014' in t)"; uv run --python 3.14 python -I streak.py --today 2026-10-13
+```
+```
+{"current_streak": 2, "best_streak": 4, "today_categories_done": 2, "today_status": "NOT_YET", "at_risk": false, "first_day": "2026-03-01"}
+{
+  "current_streak": 2,
+  "best_streak": 4,
+  "today_categories_done": 2,
+  "today_status": "NOT_YET",
+  "at_risk": false,
+  "first_day": "2026-03-01"
+}
+
+{'morning': 3, 'study': 1, 'fitness': 2, 'mind': 2, 'career': 1} 0
+5
+emdash False
+{"current_streak": 0, "best_streak": 0, "today_categories_done": 0, "today_status": "NOT_YET", "at_risk": false, "first_day": null}
+```
 - `mcp__claude_ai_Context7__query-docs` -- `{"libraryId":"/websites/quickadd_obsidian_guide","query":"{{VALUE:option1,option2}} suggester list in format syntax; {{VDATE:name,format}}; {{DATE+1}}"}`
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\QuickAdd Setup.md`
 ```
@@ -726,28 +904,126 @@ Test: run the choice with `morning` and `sleep`, open today's note, and confirm 
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\QuickAdd Setup.md`
 ```diff
 - 6. Turn on Write to the bottom of the file off, and turn on Insert after. Set the heading to `- Career line:`. This inserts the typed text on the line after the label, which gives two lines. To keep it on one line, set Insert after to `## Targets` instead and set the Capture Format to `- Career line: {{VALUE}}`. Then delete the empty `- Career line: ` placeholder in the template if you want a single line (a change to the template needs a separate decision).
-7. Set the Capture Format to `- Career line: {{VALUE}}`.
-8. Turn on Task off, and leave Open the file off.
-
-Recommended simple version: use Insert after `## Targets`, Capture Format `- Career line: {{VALUE}}`, and accept that the template's empty `- Career line: ` placeholder remains below it. If that placeholder bothers you, ask for the template to drop it.
-
-Test:
+- 7. Set the Capture Format to `- Career line: {{VALUE}}`.
+- 8. Turn on Task off, and leave Open the file off.
+- 
+- Recommended simple version: use Insert after `## Targets`, Capture Format `- Career line: {{VALUE}}`, and accept that the template's empty `- Career line: ` placeholder remains below it. If that placeholder bothers you, ask for the template to drop it.
+- 
+- Test:
 + 6. Turn on Insert after, and set the heading to `## Targets`.
-7. Set the Capture Format to `- Career line: {{VALUE}}`.
-8. Leave Task and Open the file off.
-
-The template's Targets section holds only the study topic line for this reason. The career line is added by this choice, so a note made by hand has no career line until you type one.
-
-Test:
++ 7. Set the Capture Format to `- Career line: {{VALUE}}`.
++ 8. Leave Task and Open the file off.
++ 
++ The template's Targets section holds only the study topic line for this reason. The career line is added by this choice, so a note made by hand has no career line until you type one.
++ 
++ Test:
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Note.md`
 ```diff
 - - Career line: 
-- Study topic: 
+- - Study topic: 
 + %% The QuickAdd choice "Set tomorrow's career line" inserts the career line directly under this heading. %%
-- Study topic: 
++ - Study topic: 
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\System\\streak\"; uv run --python 3.14 python -m unittest test_streak 2\u003e\u00261 | Select -Last 4; Remove-Item -Recurse -Force __pycache__; Select-String -Path *.py,*.md,..\\..\\Templates\\\"Daily Note.md\" -Pattern \"$([char]0x2014)\" | Measure | % Count; Get-ChildItem -Recurse -File | Select -Expand FullName | % { $_.Replace((Get-Location).Path,\u0027\u0027) }; git -C ..\\..\\.. status --short"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak"; uv run --python 3.14 python -m unittest test_streak 2>&1 | Select -Last 4; Remove-Item -Recurse -Force __pycache__; Select-String -Path *.py,*.md,..\..\Templates\"Daily Note.md" -Pattern "$([char]0x2014)" | Measure | % Count; Get-ChildItem -Recurse -File | Select -Expand FullName | % { $_.Replace((Get-Location).Path,'') }; git -C ..\..\.. status --short
+```
+```
+----------------------------------------------------------------------
+Ran 23 tests in 0.297s
+
+OK
+0
+\QuickAdd Setup.md
+\streak.py
+\test_streak.py
+\fixtures\sample\2026-03-01.md
+\fixtures\sample\2026-03-02.md
+\fixtures\sample\2026-03-03.md
+\fixtures\sample\2026-03-04.md
+\fixtures\sample\2026-03-05.md
+\fixtures\sample\2026-03-07.md
+\fixtures\sample\2026-03-08.md
+\fixtures\sample\2026-03-09.md
+\fixtures\sample\2026-03-10.md
+\fixtures\sample\expected.json
+ D 00_Live/Enumerate/Daily/01-03-2026.md
+ D 00_Live/Enumerate/Daily/01-06-2026.md
+ D 00_Live/Enumerate/Daily/01-07-2026.md
+ D 00_Live/Enumerate/Daily/04-06-2026.md
+ D 00_Live/Enumerate/Daily/05-04-2026.md
+ D 00_Live/Enumerate/Daily/05-10-2026.md
+ D 00_Live/Enumerate/Daily/06-04-2026.md
+ D 00_Live/Enumerate/Daily/07-04-2026.md
+ D 00_Live/Enumerate/Daily/08-04-2026.md
+ D 00_Live/Enumerate/Daily/08-07-2026.md
+ D 00_Live/Enumerate/Daily/09-05-2026.md
+ D 00_Live/Enumerate/Daily/10-04-2026.md
+ D 00_Live/Enumerate/Daily/11-06-2026.md
+ D 00_Live/Enumerate/Daily/12-10-2026.md
+ D 00_Live/Enumerate/Daily/13-06-2026.md
+ D 00_Live/Enumerate/Daily/16-04-2026.md
+ D 00_Live/Enumerate/Daily/17-03-2026.md
+ D 00_Live/Enumerate/Daily/17-04-2026.md
+ D 00_Live/Enumerate/Daily/19-03-2026.md
+ D 00_Live/Enumerate/Daily/20-03-2026.md
+ D 00_Live/Enumerate/Daily/21-03-2026.md
+ D 00_Live/Enumerate/Daily/22-05-2026.md
+ D "00_Live/Enumerate/Daily/22-12-2025 and before.md"
+ D 00_Live/Enumerate/Daily/23-03-2026.md
+ D 00_Live/Enumerate/Daily/24-05-2026.md
+ D 00_Live/Enumerate/Daily/24-12-2025.md
+ D 00_Live/Enumerate/Daily/25-03-2026.md
+ D 00_Live/Enumerate/Daily/26-09-2026.md
+ M "00_Live/Enumerate/Enumerate Board.md"
+ D 00_Live/Enumerate/Monthly/01-2026.md
+ D 00_Live/Enumerate/Monthly/03-2026.md
+ D 00_Live/Enumerate/Monthly/06-2026.md
+ D 00_Live/Enumerate/Monthly/12-2025.md
+ M 00_Live/Enumerate/Weekly/2025-W52.md
+ M "30_Order/Standards/The Plan Vault Architecture.md"
+ M 50_Archive/copilot/copilot-conversations/Mentorship_Program_Goal_Planning@20260330_114034.md
+?? 00_Live/Enumerate/Daily/2025-12-22.md
+?? 00_Live/Enumerate/Daily/2025-12-24.md
+?? 00_Live/Enumerate/Daily/2026-03-01.md
+?? 00_Live/Enumerate/Daily/2026-03-17.md
+?? 00_Live/Enumerate/Daily/2026-03-19.md
+?? 00_Live/Enumerate/Daily/2026-03-20.md
+?? 00_Live/Enumerate/Daily/2026-03-21.md
+?? 00_Live/Enumerate/Daily/2026-03-23.md
+?? 00_Live/Enumerate/Daily/2026-03-25.md
+?? 00_Live/Enumerate/Daily/2026-04-05.md
+?? 00_Live/Enumerate/Daily/2026-04-06.md
+?? 00_Live/Enumerate/Daily/2026-04-07.md
+?? 00_Live/Enumerate/Daily/2026-04-08.md
+?? 00_Live/Enumerate/Daily/2026-04-10.md
+?? 00_Live/Enumerate/Daily/2026-04-16.md
+?? 00_Live/Enumerate/Daily/2026-04-17.md
+?? 00_Live/Enumerate/Daily/2026-05-09.md
+?? 00_Live/Enumerate/Daily/2026-05-22.md
+?? 00_Live/Enumerate/Daily/2026-05-24.md
+?? 00_Live/Enumerate/Daily/2026-06-01.md
+?? 00_Live/Enumerate/Daily/2026-06-04.md
+?? 00_Live/Enumerate/Daily/2026-06-11.md
+?? 00_Live/Enumerate/Daily/2026-06-13.md
+?? 00_Live/Enumerate/Daily/2026-07-01.md
+?? 00_Live/Enumerate/Daily/2026-07-08.md
+?? 00_Live/Enumerate/Daily/2026-09-26.md
+?? 00_Live/Enumerate/Daily/2026-10-05.md
+?? 00_Live/Enumerate/Daily/2026-10-12.md
+?? 00_Live/Enumerate/Monthly/2025-12.md
+?? 00_Live/Enumerate/Monthly/2026-01.md
+?? 00_Live/Enumerate/Monthly/2026-03.md
+?? 00_Live/Enumerate/Monthly/2026-06.md
+?? "30_Order/Standards/Daily Note Schema.md"
+?? "30_Order/Standards/Naming and Folder Map.md"
+?? "30_Order/Standards/Note Types and Frontmatter.md"
+?? 30_Order/Standards/References/
+?? "30_Order/Standards/Streak Rule.md"
+?? 30_Order/System/streak/
+?? "30_Order/Templates/Daily Note.md"
+```
 
 ## You
 
@@ -833,7 +1109,92 @@ I couldn't write these to `Decisions Log`, since it's outside the paths you name
 
 ### Tool Calls
 
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-ChildItem 30_Order -Recurse -File | ? { $_.FullName -notmatch \u0027Previous Templates|Headway|Classes|git-sync\\\\logs|fixtures\u0027 } | % { \"{0}`t{1}`t{2}\" -f $_.FullName.Substring(40), $_.Length, $_.LastWriteTime.ToString(\u0027MM-dd HH:mm\u0027) }; \"----\"; Get-ChildItem 40_Resources\\Obsidian\\Dashboards -Recurse -File | % { \"{0}`t{1}\" -f $_.FullName.Substring(60), $_.Length }; git status --short 30_Order | Select -First 60"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; Get-ChildItem 30_Order -Recurse -File | ? { $_.FullName -notmatch 'Previous Templates|Headway|Classes|git-sync\\logs|fixtures' } | % { "{0}`t{1}`t{2}" -f $_.FullName.Substring(40), $_.Length, $_.LastWriteTime.ToString('MM-dd HH:mm') }; "----"; Get-ChildItem 40_Resources\Obsidian\Dashboards -Recurse -File | % { "{0}`t{1}" -f $_.FullName.Substring(60), $_.Length }; git status --short 30_Order | Select -First 60
+```
+```
+\30_Order\Standards\Jarvis Review.md	0	10-13 15:25
+\30_Order\Standards\Naming and Folder Map.md	1976	10-13 00:36
+\30_Order\Standards\Note Types and Frontmatter.md	2271	10-13 00:26
+\30_Order\Standards\The Plan Vault Architecture.md	13640	10-13 00:29
+\30_Order\Standards\Dashboards\Daily Note Schema.md	2518	10-13 00:26
+\30_Order\Standards\Dashboards\Monthly Review.md	0	10-13 15:24
+\30_Order\Standards\Dashboards\Scheduled Review.md	0	10-13 15:24
+\30_Order\Standards\Dashboards\Streak Rule.md	2316	10-13 00:26
+\30_Order\Standards\Dashboards\Weekly Review.md	0	10-13 15:24
+\30_Order\Standards\References\Reference - closeday.md	2291	10-13 14:58
+\30_Order\Standards\References\Reference - jarvis-dump.md	2356	10-13 14:58
+\30_Order\Standards\References\Reference - monthly-review.md	2233	10-13 14:58
+\30_Order\Standards\References\Reference - startday.md	2314	10-13 14:58
+\30_Order\Standards\References\Reference - weekly-review.md	2027	10-13 14:58
+\30_Order\Standards\References\Tool Reference Template.md	1409	10-13 00:26
+\30_Order\System\git-sync\plan-git-sync-silent.vbs	728	09-26 16:20
+\30_Order\System\git-sync\plan-git-sync.ps1	11728	09-26 16:20
+\30_Order\System\git-sync\register-plan-git-sync-task.ps1	1629	09-26 16:20
+\30_Order\System\streak\QuickAdd Setup.md	4079	10-13 00:29
+\30_Order\System\streak\streak.py	3723	10-13 00:28
+\30_Order\System\streak\test_streak.py	9277	10-13 00:28
+\30_Order\System\streak\__pycache__\streak.cpython-311.pyc	6879	10-13 00:50
+\30_Order\System\streak\__pycache__\streak.cpython-314.pyc	6257	10-13 14:56
+\30_Order\System\streak\__pycache__\test_streak.cpython-311.pyc	19247	10-13 00:50
+\30_Order\System\streak\__pycache__\test_streak.cpython-314.pyc	17897	10-13 14:56
+\30_Order\Templates\MOC.md	685	04-08 17:03
+\30_Order\Templates\Daily Dashboard\Better Month.md	240	12-24 02:41
+\30_Order\Templates\Daily Dashboard\Better Today.md	1503	04-21 09:12
+\30_Order\Templates\Daily Dashboard\Better Week.md	403	12-24 14:17
+\30_Order\Templates\Daily Dashboard\Better Year.md	174	12-24 02:32
+\30_Order\Templates\Daily Dashboard\Daily Note.md	1640	10-13 00:29
+\30_Order\Templates\Metadata\For Brainstorm.md	91	12-23 20:03
+\30_Order\Templates\Metadata\For Evergreen.md	68	12-23 20:01
+\30_Order\Templates\Metadata\For Everything.md	164	12-25 16:36
+\30_Order\Templates\Metadata\For Inputs.md	104	01-24 01:18
+\30_Order\Templates\Metadata\For Progress.md	86	12-23 20:01
+\30_Order\Templates\Metadata\For Thoughts.md	128	12-23 20:01
+\30_Order\Workflows\Daily Dashboard.md	0	10-13 15:25
+\30_Order\Workflows\Jarvis Move.md	0	10-13 15:25
+\30_Order\Workflows\Monthly Review.md	0	10-13 15:29
+\30_Order\Workflows\Weekly Review.md	0	10-13 15:28
+----
+an\Dashboards\Build Plan.md	3165
+an\Dashboards\Dashboards Hub.md	2653
+an\Dashboards\Decisions Log.md	6947
+an\Dashboards\Prompts.md	18664
+an\Dashboards\Research - Jarvis Dashboard Findings.md	6779
+an\Dashboards\Research - Platform Facts.md	40441
+an\Dashboards\Spec - AI Loop.md	7205
+an\Dashboards\Spec - Automation Layers.md	4303
+an\Dashboards\Spec - Home and Monthly Dashboards.md	4745
+an\Dashboards\Spec - Streak and Daily Note.md	5897
+an\Dashboards\Dashboard Build\Architecture.md	5583
+an\Dashboards\Dashboard Build\Build Log.md	1188
+an\Dashboards\Dashboard Build\Build Prompts.md	6923
+an\Dashboards\Dashboard Build\Build Steps.md	3407
+an\Dashboards\Dashboard Build\Dashboard Build Hub.md	3754
+an\Dashboards\Dashboard Build\Front End and Visual System.md	5034
+an\Dashboards\Dashboard Build\Plugin Build Prompts.md	33543
+an\Dashboards\Dashboard Build\Private Use and Sharing.md	3926
+an\Dashboards\Dashboard Build\Reference - Obsidian API for This Build.md	6774
+an\Dashboards\Dashboard Build\Research - Obsidian Dashboard Methods.md	8389
+an\Dashboards\Dashboard Build\Research - Plugin Creation Guide.md	12246
+an\Dashboards\Dashboard Build\Review - Corrections to Earlier Notes.md	4207
+an\Dashboards\Dashboard Build\Sonnet 5.5 Prompt Rules.md	4564
+an\Dashboards\Dashboard Build\Verification and Risks.md	3895
+ D "30_Order/Standards/Daily Note Schema.md"
+ D "30_Order/Standards/Streak Rule.md"
+ D "30_Order/Templates/Daily Note.md"
+ D "30_Order/Templates/Headway Templates/Better Month.md"
+ D "30_Order/Templates/Headway Templates/Better Today.md"
+ D "30_Order/Templates/Headway Templates/Better Week.md"
+ D "30_Order/Templates/Headway Templates/Better Year.md"
+ D "30_Order/Templates/Previous Templates/CSCI 2011 Template.md"
+ D "30_Order/Templates/Previous Templates/CSCI 2021 Template.md"
+ D "30_Order/Templates/Previous Templates/CSCI 2033 Template.md"
+?? 30_Order/Standards/Dashboards/
+?? "30_Order/Standards/Jarvis Review.md"
+?? "30_Order/Templates/Daily Dashboard/"
+?? 30_Order/Workflows/
+```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - AI Loop.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Automation Layers.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
@@ -846,7 +1207,78 @@ I couldn't write these to `Decisions Log`, since it's outside the paths you name
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Daily Note Schema.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Today.md`
 - `Grep` -- pattern `Workflows|Jarvis Move|Scheduled Review|Jarvis Review|Daily Dashboard|Monthly Review|Weekly Review` path `D:\_Anant\20_Progress\Documents\The Plan`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\"; Get-ChildItem .claude -Recurse -File | ? { $_.FullName -notmatch \u0027copilot-|json-canvas|obsidian-|openartifacts\u0027 } | % { \"{0}`t{1}\" -f $_.FullName.Substring(48), $_.Length }; Get-ChildItem 60_Jarvis -Recurse -Depth 2 | % { $_.FullName.Substring(48) } | Select -First 60; Get-ChildItem 30_Order -Directory | % Name; ls 30_Order\\Templates | % Name"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan"; Get-ChildItem .claude -Recurse -File | ? { $_.FullName -notmatch 'copilot-|json-canvas|obsidian-|openartifacts' } | % { "{0}`t{1}" -f $_.FullName.Substring(48), $_.Length }; Get-ChildItem 60_Jarvis -Recurse -Depth 2 | % { $_.FullName.Substring(48) } | Select -First 60; Get-ChildItem 30_Order -Directory | % Name; ls 30_Order\Templates | % Name
+```
+```
+\agents\career-operator.md	3614
+\agents\research-distiller.md	4629
+\agents\vault-curator.md	3465
+\skills\closeday\reference.md	2726
+\skills\closeday\SKILL.md	3469
+\skills\jarvis-dump\reference.md	3177
+\skills\jarvis-dump\SKILL.md	3116
+\skills\monthly-review\reference.md	2431
+\skills\monthly-review\SKILL.md	2961
+\skills\startday\reference.md	1820
+\skills\startday\SKILL.md	2725
+\skills\weekly-review\reference.md	2452
+\skills\weekly-review\SKILL.md	2884
+is\00_Control_Center
+is\01_Prompt_Library
+is\10_Promoted_Notes
+is\20_Decisions
+is\30_AI_Information
+is\40_Archive
+is\50_Reviews
+is\60_Jarvis Board.md
+is\AI_CONTEXT.md
+is\00_Control_Center\Jarvis Control Center.md
+is\00_Control_Center\Jarvis Operating Rules.md
+is\00_Control_Center\Jarvis System Status.md
+is\01_Prompt_Library\Chat Gpt Prompts.md
+is\01_Prompt_Library\CoWork Prompt — Map The Plan Structure.md
+is\01_Prompt_Library\Output Index.md
+is\01_Prompt_Library\Plan-First Coding Prompt.md
+is\01_Prompt_Library\Prompts Index.md
+is\01_Prompt_Library\Vault Enrichment Prompt.md
+is\10_Promoted_Notes\Promoted From Jarvis Index.md
+is\10_Promoted_Notes\Promotion Criteria.md
+is\10_Promoted_Notes\Sync Candidate Queue.md
+is\20_Decisions\Evidence and Audits
+is\20_Decisions\Rollback and Snapshots
+is\20_Decisions\Jarvis Architectural Decision Register.md
+is\20_Decisions\Jarvis Capability Register.md
+is\20_Decisions\Evidence and Audits\Enrichment Quality Dashboard.md
+is\20_Decisions\Evidence and Audits\Jarvis Grounding & Provenance Dashboard.md
+is\20_Decisions\Rollback and Snapshots\Jarvis Snapshot Register.md
+is\30_AI_Information\Evidence and Audits
+is\30_AI_Information\Rollback and Snapshots
+is\30_AI_Information\Session Logs
+is\30_AI_Information\Codex Operating Guide.md
+is\30_AI_Information\README.md
+is\30_AI_Information\Session Logs\Changes log
+is\30_AI_Information\Session Logs\README.md
+is\40_Archive\00_Clippings
+is\40_Archive\Operational-History
+is\50_Reviews\Agentic OS
+is\50_Reviews\Dashboard
+is\50_Reviews\Jarvis
+is\50_Reviews\Monthly
+is\50_Reviews\Weekly
+is\50_Reviews\Agentic OS\Ops Reports
+is\50_Reviews\Jarvis\Project Brief Reviews
+is\50_Reviews\Jarvis\Jarvis Ops Health Review.md
+Standards
+System
+Templates
+Workflows
+Classes
+Daily Dashboard
+Metadata
+MOC.md
+```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\.claude\skills\weekly-review\SKILL.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\.claude\skills\weekly-review\reference.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\.claude\skills\monthly-review\SKILL.md`
@@ -865,8 +1297,52 @@ I couldn't write these to `Decisions Log`, since it's outside the paths you name
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Weekly\2026-W15.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Monthly\2026-10.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Research - Jarvis Dashboard Findings.md`
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\Jarvis\" -ErrorAction Stop; Get-ChildItem 30_Order -Recurse -Depth 2 -Directory | % FullName | Select -First 30; Get-ChildItem 30_Order\\Workflows -ErrorAction SilentlyContinue | % { \"{0} {1}\" -f $_.Name,$_.Length }; Get-ChildItem -Recurse -File -Include \"*Scheduled Review*\",\"*Jarvis Review*\",\"*Jarvis Move*\",\"*Daily Dashboard*\" -ErrorAction SilentlyContinue | % FullName | Select -First 20"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --oneline -5 -- 30_Order/Workflows 30_Order/Standards/Dashboards | cat; git log -3 --format='%h %s' | cat; grep -rn "Scheduled\|scheduled" --include=*.md 40_Resources/Obsidian/Dashboards 60_Jarvis/00_Control_Center 60_Jarvis/30_AI_Information .claude/skills 2>/dev/null | head -20`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\Jarvis" -ErrorAction Stop; Get-ChildItem 30_Order -Recurse -Depth 2 -Directory | % FullName | Select -First 30; Get-ChildItem 30_Order\Workflows -ErrorAction SilentlyContinue | % { "{0} {1}" -f $_.Name,$_.Length }; Get-ChildItem -Recurse -File -Include "*Scheduled Review*","*Jarvis Review*","*Jarvis Move*","*Daily Dashboard*" -ErrorAction SilentlyContinue | % FullName | Select -First 20
+```
+```
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\AI Loop
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Enrich
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Internship
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\excalidraw-mcp
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-memory
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\_retired-2026-07-31
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\logs
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\logs
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\scripts
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\AI Use
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Capability
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Career
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Enumerate
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Frontmatter
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Career\Internship
+D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses
+Courses 1
+Enrichment 1
+Ingestion 1
+Internship 1
+00_Workflows Index.md 3697
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --oneline -5 -- 30_Order/Workflows 30_Order/Standards/Dashboards | cat; git log -3 --format='%h %s' | cat; grep -rn "Scheduled\|scheduled" --include=*.md 40_Resources/Obsidian/Dashboards 60_Jarvis/00_Control_Center 60_Jarvis/30_AI_Information .claude/skills 2>/dev/null | head -20
+```
 ```
 95409ca auto-sync: 2026-10-13 15:23 | 23 files
 c973f1c auto-sync: 2026-10-13 15:08 | 15 files
@@ -903,7 +1379,7 @@ d215733 auto-sync: 2026-10-13 14:53 | 1 files
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Daily Note.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -1054,7 +1530,7 @@ Ring colours are Decision 31. Heatmap shading is Decision 33: one green ramp, wi
 - Level titles for the five milestones.
 - Whether a letter grade exists for weeks and months. See [[Weekly Review]].
 
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 ```diff
 - [[Weekly Review]]
@@ -1066,7 +1542,7 @@ Ring colours are Decision 31. Heatmap shading is Decision 33: one green ramp, wi
 + [[30_Order/Standards/Dashboards/Monthly Review|Monthly Review]]
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Daily Note Schema.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -1266,9 +1742,9 @@ Morning is not done because one action is open. The other sections are cut for l
 - Exact action wording, times, locations and identity phrases.
 - Whether the 80/20 lines in older notes become Targets or are retired. The legacy template is described in [[Better Today]].
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Weekly Review.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -1391,9 +1867,9 @@ The Weekly note keeps Anant's own sections, which the review never touches: Summ
 - Whether weeks get a letter grade, and the scale. Until then the grade is percent only.
 - Whether a scheduled run may write an entry. See [[Scheduled Review]].
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Monthly Review.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -1520,7 +1996,7 @@ The review does not write daily notes, frontmatter, any other part of the Monthl
 - Who produces the Jarvis snapshot: `jarvis-dump` on request or Jarvis's own monthly step.
 - Whether a scheduled run may write an entry. See [[Scheduled Review]].
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
 ```
 ---
@@ -1751,8 +2227,11 @@ Proposed: one note per batch in `60_Jarvis/50_Reviews/Jarvis/`, listing each row
 - The dead path in the index's Dataview block.
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,40p 00_Dashboard.md | cut -c1-160; grep -n "streak.py\|Streak\|streak" 00_Dashboard.md | head -12; git log --oneline -3 -- 00_Dashboard.md | cat`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,40p 00_Dashboard.md | cut -c1-160; grep -n "streak.py\|Streak\|streak" 00_Dashboard.md | head -12; git log --oneline -3 -- 00_Dashboard.md | cat
 ```
+````
 # Home
 
 ```dataviewjs
@@ -1801,7 +2280,7 @@ function compute(notes, today) {
 307:    ["30_Order/Standards/Streak Rule.md", "Streak Rule"],
 567a4c2 auto-sync: 2026-10-13 01:08 | 1 files
 7b9e720 auto: 2026-06-02 15:03 | 17 files
-```
+````
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Daily Dashboard.md`
 ```
@@ -1939,7 +2418,7 @@ The skills run on the laptop in Claude Code. The phone can tick actions, run the
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Weekly Review.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -2020,9 +2499,9 @@ The numbers in this example are illustrative.
 
 Nothing else is needed. The [[30_Order/Workflows/Monthly Review|Monthly Review workflow]] reads these entries for the month.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Monthly Review.md`
-```
+````
 ---
 type: evergreen
 status: sprout
@@ -2102,7 +2581,7 @@ The numbers in this example are illustrative.
 
 The frozen monthly recap, the next month's plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Jarvis Move.md`
 ```
 ---
@@ -2306,12 +2785,12 @@ next:
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Today.md`
 ```diff
 - next:
----
-# Did you get better today? 
+- ---
+- # Did you get better today? 
 + next:
----
-%% Superseded by [[Daily Note]], which the streak, the dashboard and the daily skills read. Kept so old links and the MOC template still resolve. Do not use for new days. %%
-# Did you get better today? 
++ ---
++ %% Superseded by [[Daily Note]], which the streak, the dashboard and the daily skills read. Kept so old links and the MOC template still resolve. Do not use for new days. %%
++ # Did you get better today? 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\QuickAdd Setup.md`
 ```
@@ -2433,9 +2912,9 @@ A choice appears in the command palette. The link form `obsidian://quickadd?vaul
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
 ```diff
 -     ["30_Order/Standards/Streak Rule.md", "Streak Rule"],
-    ["30_Order/Standards/Daily Note Schema.md", "Daily Note Schema"],
+-     ["30_Order/Standards/Daily Note Schema.md", "Daily Note Schema"],
 +     ["30_Order/Standards/Dashboards/Streak Rule.md", "Streak Rule"],
-    ["30_Order/Standards/Dashboards/Daily Note Schema.md", "Daily Note Schema"],
++     ["30_Order/Standards/Dashboards/Daily Note Schema.md", "Daily Note Schema"],
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Naming and Folder Map.md`
 ```diff
@@ -2445,44 +2924,46 @@ A choice appears in the command palette. The link form `obsidian://quickadd?vaul
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Naming and Folder Map.md`
 ```diff
 - ## Placement rules
-
-- There is no inbox folder. If placement is unclear, ask instead of inventing a location.
-- Standards are in `30_Order/Standards`. Tool reference notes are in `30_Order/Standards/References`.
+- 
+- - There is no inbox folder. If placement is unclear, ask instead of inventing a location.
+- - Standards are in `30_Order/Standards`. Tool reference notes are in `30_Order/Standards/References`.
 + ## `30_Order` layout
-
-Standards say what is true, workflows say what to do, templates give the skeleton, and `System` holds the tools. A rule is stated once, in a standard, and the other notes link to it.
-
-| Folder | Holds | Notes |
-|---|---|---|
-| `Standards/` | Rules that apply across the vault | [[Note Types and Frontmatter]], this note, [[The Plan Vault Architecture]], [[Jarvis Review]] |
-| `Standards/Dashboards/` | Rules for the daily dashboard and its reviews | [[Daily Note Schema]], [[Streak Rule]], and the Weekly Review, Monthly Review and Scheduled Review standards |
-| `Standards/References/` | One reference note per tool | [[Tool Reference Template]] and `Reference - <Tool>` notes |
-| `Workflows/` | Step-by-step procedures a person or an assistant follows | [[Daily Dashboard]], Weekly Review, Monthly Review, [[Jarvis Move]] |
-| `Templates/Daily Dashboard/` | Skeletons for the daily dashboard notes | [[Daily Note]], [[Better Today]], [[Better Week]], [[Better Month]], [[Better Year]] |
-| `Templates/Metadata/` | Frontmatter skeletons by note type | `For Everything` is the base |
-| `Templates/Classes/` | Coursework skeletons | |
-| `System/streak/` | The streak script, its tests and fixtures, and the QuickAdd instructions | [[QuickAdd Setup]] |
-| `System/git-sync/` | The git auto-sync task scripts | Git owns this folder, Obsidian Sync owns the notes |
-
-Two names exist twice on purpose: Weekly Review and Monthly Review are each a standard in `Standards/Dashboards/` and a workflow in `Workflows/`. Link them by path, for example `[[30_Order/Workflows/Weekly Review|Weekly Review workflow]]`, because a bare link is ambiguous.
-
-## Placement rules
-
-- There is no inbox folder. If placement is unclear, ask instead of inventing a location.
-- Standards are in `30_Order/Standards`. Dashboard standards are in `30_Order/Standards/Dashboards`. Tool reference notes are in `30_Order/Standards/References`.
-- Procedures go in `30_Order/Workflows`. A procedure never restates a standard. It links to it.
-- Templates for the daily dashboard notes are in `30_Order/Templates/Daily Dashboard`. Keep their file names, because other notes link to them.
++ 
++ Standards say what is true, workflows say what to do, templates give the skeleton, and `System` holds the tools. A rule is stated once, in a standard, and the other notes link to it.
++ 
++ | Folder | Holds | Notes |
++ |---|---|---|
++ | `Standards/` | Rules that apply across the vault | [[Note Types and Frontmatter]], this note, [[The Plan Vault Architecture]], [[Jarvis Review]] |
++ | `Standards/Dashboards/` | Rules for the daily dashboard and its reviews | [[Daily Note Schema]], [[Streak Rule]], and the Weekly Review, Monthly Review and Scheduled Review standards |
++ | `Standards/References/` | One reference note per tool | [[Tool Reference Template]] and `Reference - <Tool>` notes |
++ | `Workflows/` | Step-by-step procedures a person or an assistant follows | [[Daily Dashboard]], Weekly Review, Monthly Review, [[Jarvis Move]] |
++ | `Templates/Daily Dashboard/` | Skeletons for the daily dashboard notes | [[Daily Note]], [[Better Today]], [[Better Week]], [[Better Month]], [[Better Year]] |
++ | `Templates/Metadata/` | Frontmatter skeletons by note type | `For Everything` is the base |
++ | `Templates/Classes/` | Coursework skeletons | |
++ | `System/streak/` | The streak script, its tests and fixtures, and the QuickAdd instructions | [[QuickAdd Setup]] |
++ | `System/git-sync/` | The git auto-sync task scripts | Git owns this folder, Obsidian Sync owns the notes |
++ 
++ Two names exist twice on purpose: Weekly Review and Monthly Review are each a standard in `Standards/Dashboards/` and a workflow in `Workflows/`. Link them by path, for example `[[30_Order/Workflows/Weekly Review|Weekly Review workflow]]`, because a bare link is ambiguous.
++ 
++ ## Placement rules
++ 
++ - There is no inbox folder. If placement is unclear, ask instead of inventing a location.
++ - Standards are in `30_Order/Standards`. Dashboard standards are in `30_Order/Standards/Dashboards`. Tool reference notes are in `30_Order/Standards/References`.
++ - Procedures go in `30_Order/Workflows`. A procedure never restates a standard. It links to it.
++ - Templates for the daily dashboard notes are in `30_Order/Templates/Daily Dashboard`. Keep their file names, because other notes link to them.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Naming and Folder Map.md`
 ```diff
 -   - "[[Daily Note Schema]]"
-next:
+- next:
 +   - "[[Daily Note Schema]]"
-  - "[[Daily Dashboard]]"
-  - "[[Jarvis Review]]"
-next:
++   - "[[Daily Dashboard]]"
++   - "[[Jarvis Review]]"
++ next:
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/check.py" <<'EOF'
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/check.py" <<'EOF'
 import re, sys
 from pathlib import Path
 root = Path(".")
@@ -2531,7 +3012,8 @@ for f in files:
             elif len(hits) > 1: print("AMBIGUOUS", f, tgt, hits); bad += 1
 print("problems:", bad)
 EOF
-uv run --python 3.14 python -I "$S/check.py"`
+uv run --python 3.14 python -I "$S/check.py"
+````
 ```
 FM ORDER 30_Order/Templates/Daily Dashboard/Better Today.md ['type', 'thought_kind', 'status']
 FM ORDER 30_Order/Templates/Daily Dashboard/Better Week.md ['type', 'thought_kind', 'status']
@@ -2539,11 +3021,50 @@ FM ORDER 30_Order/Templates/Daily Dashboard/Better Month.md ['type', 'thought_ki
 FM ORDER 30_Order/Templates/Daily Dashboard/Better Year.md ['type', 'thought_kind', 'status']
 problems: 4
 ```
-- `PowerShell` -- `{"command":"cd \"D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\System\\streak\"; $env:PYTHONDONTWRITEBYTECODE=\u00271\u0027; uv run --python 3.14 python -m unittest test_streak 2\u003e\u00261 | Select -Last 4; uv run --python 3.14 python -c \"\nimport sys; sys.path.insert(0,\u0027.\u0027)\nimport streak\nt=open(r\u0027../../Templates/Daily Dashboard/Daily Note.md\u0027,encoding=\u0027utf-8\u0027).read()\na=streak.parse_note(t); print({k:len(v) for k,v in a.items()}, streak.categories_done(a), streak.categories_done(streak.parse_note(t.replace(\u0027- [ ]\u0027,\u0027- [x]\u0027))))\nimport re\nprint(\u0027headings\u0027, re.findall(r\u0027^## .*\u0027, t, re.M))\"; cd ..\\..\\..; git status --short 30_Order .claude 00_Dashboard.md | Select -First 40"}`
+- `PowerShell`
+```powershell
+cd "D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak"; $env:PYTHONDONTWRITEBYTECODE='1'; uv run --python 3.14 python -m unittest test_streak 2>&1 | Select -Last 4; uv run --python 3.14 python -c "
+import sys; sys.path.insert(0,'.')
+import streak
+t=open(r'../../Templates/Daily Dashboard/Daily Note.md',encoding='utf-8').read()
+a=streak.parse_note(t); print({k:len(v) for k,v in a.items()}, streak.categories_done(a), streak.categories_done(streak.parse_note(t.replace('- [ ]','- [x]'))))
+import re
+print('headings', re.findall(r'^## .*', t, re.M))"; cd ..\..\..; git status --short 30_Order .claude 00_Dashboard.md | Select -First 40
+```
+```
+----------------------------------------------------------------------
+Ran 23 tests in 0.218s
+
+OK
+{'morning': 3, 'study': 1, 'fitness': 2, 'mind': 2, 'career': 1} 0 5
+headings ['## Targets', '## Morning', '## Study', '## Fitness', '## Mind', '## Career', '## Evening close', '## Next actions', '## Intake']
+ M .claude/skills/closeday/SKILL.md
+ M .claude/skills/closeday/reference.md
+ M .claude/skills/startday/SKILL.md
+ M 00_Dashboard.md
+ M "30_Order/Standards/Dashboards/Daily Note Schema.md"
+ M "30_Order/Standards/Dashboards/Monthly Review.md"
+ M "30_Order/Standards/Dashboards/Scheduled Review.md"
+ M "30_Order/Standards/Dashboards/Streak Rule.md"
+ M "30_Order/Standards/Dashboards/Weekly Review.md"
+ M "30_Order/Standards/Jarvis Review.md"
+ M "30_Order/Standards/Naming and Folder Map.md"
+ M "30_Order/Standards/References/Reference - closeday.md"
+ M "30_Order/Standards/References/Reference - startday.md"
+ M "30_Order/System/streak/QuickAdd Setup.md"
+ M "30_Order/Templates/Daily Dashboard/Better Month.md"
+ M "30_Order/Templates/Daily Dashboard/Better Today.md"
+ M "30_Order/Templates/Daily Dashboard/Better Week.md"
+ M "30_Order/Templates/Daily Dashboard/Better Year.md"
+ M "30_Order/Workflows/Daily Dashboard.md"
+ M "30_Order/Workflows/Jarvis Move.md"
+ M "30_Order/Workflows/Monthly Review.md"
+ M "30_Order/Workflows/Weekly Review.md"
+```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Daily Note Schema.md`
 ```diff
 - - Do not store a streak number, score or grade in a daily note.
-- Do not put two categories on one line.
+- - Do not put two categories on one line.
 + - Do not store a streak number, score or grade in a daily note.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
@@ -2817,7 +3338,10 @@ I made all the changes you listed. The streak script and engine tests pass, and 
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Dashboard.md`
 - `Grep` -- pattern `best` path `D:\_Anant\20_Progress\Projects\the-plan-dashboard`
 - `Grep` -- pattern `best` path `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls && git status --short | head -20 && ls src src/core test 2>/dev/null`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls && git status --short | head -20 && ls src src/core test 2>/dev/null
+```
 ```
 Exit code 2
 dist
@@ -2864,7 +3388,10 @@ validate.ts
 - `Read` -- `D:\_Anant\20_Progress\Projects\the-plan-dashboard\src\core\streak.ts`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 - `Grep` -- pattern `00_Dashboard` path `D:\_Anant\20_Progress\Documents\The Plan`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -a && ls .obsidian/plugins | head -50 && cat "D:/_Anant/20_Progress/Projects/the-plan-dashboard/package.json" | head -40`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -a && ls .obsidian/plugins | head -50 && cat "D:/_Anant/20_Progress/Projects/the-plan-dashboard/package.json" | head -40
+```
 ```
 .
 ..
@@ -2958,7 +3485,10 @@ url-into-selection
 }
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIl "00_Dashboard" .claude .codex .obsidian .opencode .copilot copilot --include=* 2>/dev/null | grep -v -i "copilot/.*data.json" | head; echo ---; grep -o '"homepage\|"value": *"[^"]*"\|"kind": *"[^"]*"' .obsidian/plugins/homepage/data.json | head; echo ---; ls .obsidian/plugins/the-plan-dashboard; grep -n "homepage\|Home" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core/config.ts" | head -20; ls "30_Order/System/plan-cli"; ls -a 30_Order/System/streak`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIl "00_Dashboard" .claude .codex .obsidian .opencode .copilot copilot --include=* 2>/dev/null | grep -v -i "copilot/.*data.json" | head; echo ---; grep -o '"homepage\|"value": *"[^"]*"\|"kind": *"[^"]*"' .obsidian/plugins/homepage/data.json | head; echo ---; ls .obsidian/plugins/the-plan-dashboard; grep -n "homepage\|Home" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core/config.ts" | head -20; ls "30_Order/System/plan-cli"; ls -a 30_Order/System/streak
+```
 ```
 .obsidian/plugins/file-explorer-plus/data.json
 .obsidian/plugins/recent-edits/data.json
@@ -2982,7 +3512,10 @@ QuickAdd Setup.md
 streak.py
 test_streak.py
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "00_Dashboard" .obsidian/plugins/file-explorer-plus/data.json | head -3; grep -rn "\[\[00_Dashboard\|\[\[AI_CONTEXT\|Dashboard\.plan\|Open dashboard" --include=*.md . 2>/dev/null | grep -v "^./50_Archive" | head -30; sed -n 1,40p 60_Jarvis/AI_CONTEXT.md; sed -n 1,40p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core/config.ts"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "00_Dashboard" .obsidian/plugins/file-explorer-plus/data.json | head -3; grep -rn "\[\[00_Dashboard\|\[\[AI_CONTEXT\|Dashboard\.plan\|Open dashboard" --include=*.md . 2>/dev/null | grep -v "^./50_Archive" | head -30; sed -n 1,40p 60_Jarvis/AI_CONTEXT.md; sed -n 1,40p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core/config.ts"
+```
 ```
 277:        "pattern": "00_Dashboard.md",
 ./00_Dashboard.md:317:- [[AI_CONTEXT]]
@@ -3082,7 +3615,10 @@ export const CONFIG = {
 		{ label: "Life OS", path: "00_Live/Life OS.md" },
 ```
 - `Glob` -- pattern `**/*.plan` path `D:\_Anant\20_Progress\Documents\The Plan`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "Dashboard\|dashboard" 30_Order/Workflows/Daily\ Dashboard.md | head -30; ls 00_Live 00_Live/Enumerate; ls 00_Live/Enumerate/Monthly; cat "30_Order/Workflows/Agentic OS/How to Use Plugins.md" | sed -n 40,65p`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "Dashboard\|dashboard" 30_Order/Workflows/Daily\ Dashboard.md | head -30; ls 00_Live 00_Live/Enumerate; ls 00_Live/Enumerate/Monthly; cat "30_Order/Workflows/Agentic OS/How to Use Plugins.md" | sed -n 40,65p
+```
 ```
 19:  - "[[Spec - Home and Monthly Dashboards]]"
 20:  - "[[Dashboards Hub]]"
@@ -3139,7 +3675,10 @@ The deployed build in the vault predates the engine changes of 2026-10-13. Its "
 
 Turn on both community-plugin toggles in Sync settings on the phone, then force-quit after the first sync. A plugin that arrives through Sync may be installed and disabled until someone enables it. Quick actions that call QuickAdd need Obsidian open. None of this has been tested.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && grep -n "best" streak.py test_streak.py; echo ---; sed -n 25,100p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests/engine.test.ts"; cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git status --short | head; git log --oneline | head -3; cat scripts/deploy-cli.mjs | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && grep -n "best" streak.py test_streak.py; echo ---; sed -n 25,100p "D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests/engine.test.ts"; cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git status --short | head; git log --oneline | head -3; cat scripts/deploy-cli.mjs | head -30
+```
 ```
 streak.py:5:current_streak, best_streak, today_categories_done, today_status, at_risk,
 streak.py:67:    best = 0
@@ -3253,7 +3792,10 @@ copyFileSync('dist/plan-cli.cjs', join(target, 'plan-cli.cjs'));
 console.log(`copied plan-cli.cjs to ${target}`);
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && sed -n 55,95p streak.py; sed -n 100,195p test_streak.py`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && sed -n 55,95p streak.py; sed -n 100,195p test_streak.py
+```
 ```
         except ValueError:
             continue
@@ -3392,7 +3934,10 @@ class HandComputedFixtures(unittest.TestCase):
     """fixtures/sample holds nine notes whose result was worked out by hand
     (see fixtures/sample/expected.json and the table in the QuickAdd Setup note)."""
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && python3 --version 2>/dev/null; sed -i 's|"best_streak": max(best, run + (1 if today_met else 0)),|"best_streak": best,|' streak.py && sed -n 86,90p streak.py && sed -n 1,20p streak.py`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && python3 --version 2>/dev/null; sed -i 's|"best_streak": max(best, run + (1 if today_met else 0)),|"best_streak": best,|' streak.py && sed -n 86,90p streak.py && sed -n 1,20p streak.py
+```
 ```
     return {
         "current_streak": run + (1 if today_met else 0),
@@ -3420,7 +3965,10 @@ from pathlib import Path
 CATEGORIES = ("morning", "study", "fitness", "mind", "career")
 THRESHOLD = 3
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && sed -i 's|30_Order/Standards/Streak Rule.md|30_Order/Standards/Dashboards/Streak Rule.md|' streak.py && python - 2>/dev/null; powershell -NoProfile -Command "\$p='test_streak.py'; \$t=[IO.File]::ReadAllText(\$p); \$old='        self.assertEqual(out[\"current_streak\"], 3)\n        self.assertEqual(out[\"best_streak\"], 3)\n        self.assertEqual(out[\"today_status\"], \"MET\")'; \$t=\$t.Replace(\$old.Replace('\n',[Environment]::NewLine), 'X'); [IO.File]::WriteAllText('NUL',''); Write-Output (\$t -match 'X')"; grep -n "best_streak\"\], 3" test_streak.py; file test_streak.py`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && sed -i 's|30_Order/Standards/Streak Rule.md|30_Order/Standards/Dashboards/Streak Rule.md|' streak.py && python - 2>/dev/null; powershell -NoProfile -Command "\$p='test_streak.py'; \$t=[IO.File]::ReadAllText(\$p); \$old='        self.assertEqual(out[\"current_streak\"], 3)\n        self.assertEqual(out[\"best_streak\"], 3)\n        self.assertEqual(out[\"today_status\"], \"MET\")'; \$t=\$t.Replace(\$old.Replace('\n',[Environment]::NewLine), 'X'); [IO.File]::WriteAllText('NUL',''); Write-Output (\$t -match 'X')"; grep -n "best_streak\"\], 3" test_streak.py; file test_streak.py
+```
 ```
 Exception calling "WriteAllText" with "2" argument(s): "FileStream was asked to open a device that was not a file. For 
 support for devices like 'com1:' or 'lpt1:', call CreateFile, then use the FileStream constructors that take an OS 
@@ -3438,24 +3986,27 @@ test_streak.py: Python script, ASCII text executable
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\test_streak.py`
 ```diff
 -         self.assertEqual(out["current_streak"], 3)
-        self.assertEqual(out["best_streak"], 3)
-        self.assertEqual(out["today_status"], "MET")
+-         self.assertEqual(out["best_streak"], 3)
+-         self.assertEqual(out["today_status"], "MET")
 +         self.assertEqual(out["current_streak"], 3)
-        # The spec counts only closed days in best, so today joins best tomorrow.
-        self.assertEqual(out["best_streak"], 2)
-        self.assertEqual(out["today_status"], "MET")
++         # The spec counts only closed days in best, so today joins best tomorrow.
++         self.assertEqual(out["best_streak"], 2)
++         self.assertEqual(out["today_status"], "MET")
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\System\streak\test_streak.py`
 ```diff
 -     def test_notes_before_first_template_day_do_not_count(self):
 +     def test_first_met_day_leaves_best_at_zero_until_it_closes(self):
-        out = self.run_days({0: MET}, self.TODAY)
-        self.assertEqual(out["current_streak"], 1)
-        self.assertEqual(out["best_streak"], 0)
-
-    def test_notes_before_first_template_day_do_not_count(self):
++         out = self.run_days({0: MET}, self.TODAY)
++         self.assertEqual(out["current_streak"], 1)
++         self.assertEqual(out["best_streak"], 0)
++ 
++     def test_notes_before_first_template_day_do_not_count(self):
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python -m unittest test_streak 2>&1 | tail -15`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python -m unittest test_streak 2>&1 | tail -15
+```
 ```
 ........................
 ----------------------------------------------------------------------
@@ -3463,7 +4014,10 @@ Ran 24 tests in 0.215s
 
 OK
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's|best: Math.max(best, current),|best,|' src/core/streak.ts && sed -i 's|milestoneTitles: { 3: "Spark", 7: "Steady", 21: "Habit", 66: "Automatic", 100: "Centurion" }|milestoneTitles: { 3: "The beginning", 7: "Toward 21", 21: "Now it gets hard", 66: "Work pays off", 100: "Consistency, discipline, mindset" }|' src/core/config.ts && git diff --stat && grep -rn "Spark\|Centurion\|Steady" src tests | head; grep -n "python\|PYTHON" tests/parity.test.ts scripts/test.mjs | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's|best: Math.max(best, current),|best,|' src/core/streak.ts && sed -i 's|milestoneTitles: { 3: "Spark", 7: "Steady", 21: "Habit", 66: "Automatic", 100: "Centurion" }|milestoneTitles: { 3: "The beginning", 7: "Toward 21", 21: "Now it gets hard", 66: "Work pays off", 100: "Consistency, discipline, mindset" }|' src/core/config.ts && git diff --stat && grep -rn "Spark\|Centurion\|Steady" src tests | head; grep -n "python\|PYTHON" tests/parity.test.ts scripts/test.mjs | head
+```
 ```
 warning: in the working copy of 'src/core/config.ts', LF will be replaced by CRLF the next time Git touches it
 warning: in the working copy of 'src/core/streak.ts', LF will be replaced by CRLF the next time Git touches it
@@ -3475,7 +4029,10 @@ tests/parity.test.ts:15:const PY = process.env.PLAN_PYTHON;
 tests/parity.test.ts:18:const skip = !PY || !SCRIPT || !existsSync(PY) || !existsSync(SCRIPT) ? "set PLAN_PYTHON and PLAN_STREAK_PY to compare with streak.py" : false;
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's|\tassert.equal(met.current, 3);|\tassert.equal(met.current, 3);\n\tassert.equal(met.best, 2); // today joins best once the day closes|' tests/engine.test.ts && grep -n "met.best" tests/engine.test.ts; PY=$(uv python find 3.14); echo "$PY"; export PLAN_PYTHON="$PY" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PYTHONDONTWRITEBYTECODE=1; npm test 2>&1 | tail -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && sed -i 's|\tassert.equal(met.current, 3);|\tassert.equal(met.current, 3);\n\tassert.equal(met.best, 2); // today joins best once the day closes|' tests/engine.test.ts && grep -n "met.best" tests/engine.test.ts; PY=$(uv python find 3.14); echo "$PY"; export PLAN_PYTHON="$PY" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PYTHONDONTWRITEBYTECODE=1; npm test 2>&1 | tail -30
+```
 ```
 63:	assert.equal(met.best, 2); // today joins best once the day closes
 C:\Users\anant\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\python.exe
@@ -3511,18 +4068,27 @@ C:\Users\anant\AppData\Roaming\uv\python\cpython-3.14-windows-x86_64-none\python
 ℹ duration_ms 63839.2212
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="C:/Users/anant/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PYTHONDONTWRITEBYTECODE=1; npm test 2>&1 | grep -i "skip\|parity\|✖" | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="C:/Users/anant/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PYTHONDONTWRITEBYTECODE=1; npm test 2>&1 | grep -i "skip\|parity\|✖" | head
+```
 ```
 ﹣ hand-computed fixture folder matches streak.py (0.6043ms) # SKIP
 ℹ skipped 1
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && grep -n "skip\|process.env" tests/parity.test.ts | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && grep -n "skip\|process.env" tests/parity.test.ts | head
+```
 ```
 PreToolUse:Bash hook error: The command names a secret-bearing file (process.env). Secrets are never read or printed.
 ```
 - `Grep` -- pattern `skip|FIXTURE` path `D:\_Anant\20_Progress\Projects\the-plan-dashboard\tests\parity.test.ts`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="C:/Users/anant/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" PYTHONDONTWRITEBYTECODE=1; npm test 2>&1 | grep -E "^ℹ (tests|pass|fail|skipped)|✖|fixture"; npm run build:cli 2>&1 | tail -3; npm run deploy:cli -- "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/plan-cli" 2>&1 | tail -2; cd "D:/_Anant/20_Progress/Documents/The Plan" && node 30_Order/System/plan-cli/plan-cli.cjs streak 30_Order/System/streak/fixtures/sample 2026-03-10`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && export PLAN_PYTHON="C:/Users/anant/AppData/Roaming/uv/python/cpython-3.14-windows-x86_64-none/python.exe" PLAN_STREAK_PY="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/streak.py" PLAN_STREAK_FIXTURES="D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak/fixtures/sample" PYTHONDONTWRITEBYTECODE=1; npm test 2>&1 | grep -E "^ℹ (tests|pass|fail|skipped)|✖|fixture"; npm run build:cli 2>&1 | tail -3; npm run deploy:cli -- "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/plan-cli" 2>&1 | tail -2; cd "D:/_Anant/20_Progress/Documents/The Plan" && node 30_Order/System/plan-cli/plan-cli.cjs streak 30_Order/System/streak/fixtures/sample 2026-03-10
+```
 ```
 ✔ streak prints the fixture numbers (133.7965ms)
 ✔ hand-computed fixture folder matches streak.py (77.376ms)
@@ -3538,7 +4104,7 @@ Done in 5ms
 copied plan-cli.cjs to D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/plan-cli
 {"current_streak":2,"best_streak":4,"today_categories_done":2,"today_status":"NOT_YET","at_risk":false,"first_day":"2026-03-01","days":[{"date":"2026-02-09","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-10","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-11","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-12","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-13","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-14","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-15","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-16","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-17","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-18","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-19","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-20","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-21","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-22","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-23","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-24","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-25","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-26","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-27","has_note":false,"categories":0,"forgiven":false},{"date":"2026-02-28","has_note":false,"categories":0,"forgiven":false},{"date":"2026-03-01","has_note":true,"categories":3,"forgiven":false},{"date":"2026-03-02","has_note":true,"categories":5,"forgiven":false},{"date":"2026-03-03","has_note":true,"categories":3,"forgiven":false},{"date":"2026-03-04","has_note":true,"categories":2,"forgiven":true},{"date":"2026-03-05","has_note":true,"categories":3,"forgiven":false},{"date":"2026-03-06","has_note":false,"categories":0,"forgiven":false},{"date":"2026-03-07","has_note":true,"categories":1,"forgiven":false},{"date":"2026-03-08","has_note":true,"categories":3,"forgiven":false},{"date":"2026-03-09","has_note":true,"categories":4,"forgiven":false},{"date":"2026-03-10","has_note":true,"categories":2,"forgiven":false}]}
 ```
-- `Grep` -- pattern `never below|max\(best|clamp|Difference from the spec|at least `current_streak`|Spark|Centurion|Steady|Automatic` path `D:\_Anant\20_Progress\Documents\The Plan`
+- `Grep` -- pattern ``never below|max\(best|clamp|Difference from the spec|at least `current_streak`|Spark|Centurion|Steady|Automatic`` path `D:\_Anant\20_Progress\Documents\The Plan`
 - `Grep` -- pattern `best` path `D:\_Anant\20_Progress\Documents\The Plan\30_Order`
 - `Grep` -- pattern `best streak|Best streak|best_streak|Spark` path `D:\_Anant\20_Progress\Documents\The Plan`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
@@ -3549,14 +4115,17 @@ copied plan-cli.cjs to D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 ```diff
 - ### Difference from the spec
-
-The spec algorithm never counts today in `best`. On a first MET day that returns `current 1, best 0`. The script returns `best = max(best, current)` so best is never below current. The result differs from the spec only when today is MET and extends the longest run. This is recorded here so the engine copies the script and not the pseudocode. The engine does: `best` is never below `current`.
+- 
+- The spec algorithm never counts today in `best`. On a first MET day that returns `current 1, best 0`. The script returns `best = max(best, current)` so best is never below current. The result differs from the spec only when today is MET and extends the longest run. This is recorded here so the engine copies the script and not the pseudocode. The engine does: `best` is never below `current`.
 + ### Best and today
-
-The spec algorithm never counts today in `best`, so on a first MET day the result is `current 1, best 0`. On 2026-10-14 the script, the engine and the dashboard plugin were changed to follow the spec exactly. Earlier they returned `max(best, current)`. The pseudocode above, the script and the engine now agree, and the parity test between the script and the engine passes. The deployed dashboard plugin build still holds the older rule until it is next built and installed.
++ 
++ The spec algorithm never counts today in `best`, so on a first MET day the result is `current 1, best 0`. On 2026-10-14 the script, the engine and the dashboard plugin were changed to follow the spec exactly. Earlier they returned `max(best, current)`. The pseudocode above, the script and the engine now agree, and the parity test between the script and the engine passes. The deployed dashboard plugin build still holds the older rule until it is next built and installed.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards" && sed -n 73,80p "Streak Rule.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards" && sed -n 73,80p "Streak Rule.md"
 ```
+````
 ```
 
 ### Best and today
@@ -3564,7 +4133,7 @@ The spec algorithm never counts today in `best`, so on a first MET day the resul
 The spec algorithm never counts today in `best`, so on a first MET day the result is `current 1, best 0`. On 2026-10-14 the script, the engine and the dashboard plugin were changed to follow the spec exactly. Earlier they returned `max(best, current)`. The pseudocode above, the script and the engine now agree, and the parity test between the script and the engine passes. The deployed dashboard plugin build still holds the older rule until it is next built and installed.
 
 ## Script contract
-```
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 ```diff
 - | `best_streak` | Longest run, at least `current_streak` |
@@ -3578,32 +4147,32 @@ The spec algorithm never counts today in `best`, so on a first MET day the resul
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 ```diff
 - 3, 7, 21, 66 and 100 days (Decision 13). Each has a level title (Decision 41):
-
-| Days | Title |
-|---|---|
-| 3 | Spark |
-| 7 | Steady |
-| 21 | Habit |
-| 66 | Automatic |
-| 100 | Centurion |
-
-The titles are stored in the engine config (`milestoneTitles`). The dashboard shows the next milestone number and not yet its title.
+- 
+- | Days | Title |
+- |---|---|
+- | 3 | Spark |
+- | 7 | Steady |
+- | 21 | Habit |
+- | 66 | Automatic |
+- | 100 | Centurion |
+- 
+- The titles are stored in the engine config (`milestoneTitles`). The dashboard shows the next milestone number and not yet its title.
 + 3, 7, 21, 66 and 100 days (Decision 13). Each has a level title (Decision 41), worded from Anant's own lines:
-
-| Days | Title | Meaning |
-|---|---|---|
-| 3 | The beginning | This is the beginning. |
-| 7 | Toward 21 | It takes 21 days for a habit to stick. |
-| 21 | Now it gets hard | The hard part begins now. |
-| 66 | Work pays off | The work pays off. |
-| 100 | Consistency, discipline, mindset | Welcome to consistency, discipline and the state of mind. |
-
-The titles are stored in the engine config (`milestoneTitles`). The dashboard shows the next milestone number and not yet its title.
++ 
++ | Days | Title | Meaning |
++ |---|---|---|
++ | 3 | The beginning | This is the beginning. |
++ | 7 | Toward 21 | It takes 21 days for a habit to stick. |
++ | 21 | Now it gets hard | The hard part begins now. |
++ | 66 | Work pays off | The work pays off. |
++ | 100 | Consistency, discipline, mindset | Welcome to consistency, discipline and the state of mind. |
++ 
++ The titles are stored in the engine config (`milestoneTitles`). The dashboard shows the next milestone number and not yet its title.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
 ```diff
 - - Whether the level titles below suit Anant. They are defaults (Decision 41), held in the engine config, and the dashboard does not show them yet.
-- Whether the grade bands suit how the weeks go. See [[30_Order/Standards/Dashboards/Weekly Review|Weekly Review]].
+- - Whether the grade bands suit how the weeks go. See [[30_Order/Standards/Dashboards/Weekly Review|Weekly Review]].
 + - Showing the level titles on the dashboard. They are confirmed (Decision 41) and held in the engine config, and the dashboard does not show them yet.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Streak Rule.md`
@@ -3613,7 +4182,10 @@ The titles are stored in the engine config (`milestoneTitles`). The dashboard sh
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Monthly Review.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Monthly Review.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Weekly Review workflow\|Monthly Review workflow" --exclude-dir=.git --exclude-dir=50_Archive --exclude-dir=node_modules . | cut -c1-220; echo ---BARE; grep -rIn "\[\[Weekly Review\]\]\|\[\[Monthly Review\]\]\|\[\[Weekly Review|\|\[\[Monthly Review|" --exclude-dir=.git --exclude-dir=50_Archive . | cut -c1-200`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Weekly Review workflow\|Monthly Review workflow" --exclude-dir=.git --exclude-dir=50_Archive --exclude-dir=node_modules . | cut -c1-220; echo ---BARE; grep -rIn "\[\[Weekly Review\]\]\|\[\[Monthly Review\]\]\|\[\[Weekly Review|\|\[\[Monthly Review|" --exclude-dir=.git --exclude-dir=50_Archive . | cut -c1-200
+```
 ```
 ./.claude/skills/monthly-review/SKILL.md:11:Usage: `/monthly-review` for the current month, or `/monthly-review 2026-09`. Formats and edge cases are in [reference.md](reference.md). The tool record is [[Reference - month
 ./.claude/skills/weekly-review/SKILL.md:11:Usage: `/weekly-review` for the current ISO week, or `/weekly-review 2026-W15`. Formats and edge cases are in [reference.md](reference.md). The tool record is [[Reference - week
@@ -3641,16 +4213,25 @@ The titles are stored in the engine config (`milestoneTitles`). The dashboard sh
 ./30_Order/Workflows/Weekly Review.md:80:Nothing else is needed. The [[30_Order/Workflows/Monthly Review|Monthly Review workflow]] reads these entries for the month.
 ---BARE
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "Workflows/" .claude/skills/monthly-review/SKILL.md .claude/skills/weekly-review/SKILL.md | cut -c1-400`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "Workflows/" .claude/skills/monthly-review/SKILL.md .claude/skills/weekly-review/SKILL.md | cut -c1-400
+```
 ```
 .claude/skills/monthly-review/SKILL.md:11:Usage: `/monthly-review` for the current month, or `/monthly-review 2026-09`. Formats and edge cases are in [reference.md](reference.md). The tool record is [[Reference - monthly-review]]. The routine is the [[30_Order/Workflows/Monthly Review|Monthly Review workflow]], and the measures are defined in the [[30_Order/Standards/Dashboards/Monthly Review|Mont
 .claude/skills/weekly-review/SKILL.md:11:Usage: `/weekly-review` for the current ISO week, or `/weekly-review 2026-W15`. Formats and edge cases are in [reference.md](reference.md). The tool record is [[Reference - weekly-review]]. The routine is the [[30_Order/Workflows/Weekly Review|Weekly Review workflow]], and the measures are defined in the [[30_Order/Standards/Dashboards/Weekly Review|Weekly
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git mv "30_Order/Workflows/Weekly Review.md" "30_Order/Workflows/Run Weekly Review.md" && git mv "30_Order/Workflows/Monthly Review.md" "30_Order/Workflows/Run Monthly Review.md" && FILES=$(grep -rIl "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md . --exclude-dir=.git --exclude-dir=50_Archive --exclude-dir=.obsidian) && echo "$FILES" && for f in $FILES; do sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g' "$f"; done; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md . --exclude-dir=.git --exclude-dir=50_Archive | cut -c1-260; git status --short | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git mv "30_Order/Workflows/Weekly Review.md" "30_Order/Workflows/Run Weekly Review.md" && git mv "30_Order/Workflows/Monthly Review.md" "30_Order/Workflows/Run Monthly Review.md" && FILES=$(grep -rIl "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md . --exclude-dir=.git --exclude-dir=50_Archive --exclude-dir=.obsidian) && echo "$FILES" && for f in $FILES; do sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g' "$f"; done; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md . --exclude-dir=.git --exclude-dir=50_Archive | cut -c1-260; git status --short | head -30
+```
 ```
 PreToolUse:Bash hook error: 50_Archive is never read or written.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git mv "30_Order/Workflows/Weekly Review.md" "30_Order/Workflows/Run Weekly Review.md" && git mv "30_Order/Workflows/Monthly Review.md" "30_Order/Workflows/Run Monthly Review.md" && FILES=$(grep -rIl "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live 20_Progress 10_UMN AGENTS.md CLAUDE.md) && echo "$FILES" && for f in $FILES; do sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g' "$f"; done; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | cut -c1-260`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git mv "30_Order/Workflows/Weekly Review.md" "30_Order/Workflows/Run Weekly Review.md" && git mv "30_Order/Workflows/Monthly Review.md" "30_Order/Workflows/Run Monthly Review.md" && FILES=$(grep -rIl "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live 20_Progress 10_UMN AGENTS.md CLAUDE.md) && echo "$FILES" && for f in $FILES; do sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g' "$f"; done; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | cut -c1-260
+```
 ```
 30_Order/Standards/Dashboards/Monthly Review.md
 30_Order/Standards/Dashboards/Weekly Review.md
@@ -3700,7 +4281,10 @@ sed: can't read Review.md: No such file or directory
 30_Order/Workflows/Run Weekly Review.md:15:  - "[[30_Order/Workflows/Monthly Review|Monthly Review workflow]]"
 30_Order/Workflows/Run Weekly Review.md:80:Nothing else is needed. The [[30_Order/Workflows/Monthly Review|Monthly Review workflow]] reads these entries for the month.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIlZ "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | xargs -0 sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g'; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | cut -c1-400; ls 30_Order/Workflows; git status --short | head`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIlZ "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | xargs -0 sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g'; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | cut -c1-400; ls 30_Order/Workflows; git status --short | head
+```
 ```
 Agentic OS
 Daily Dashboard.md
@@ -3718,7 +4302,10 @@ Run Weekly Review.md
  M "30_Order/Workflows/Daily Dashboard.md"
  M "30_Order/Workflows/Jarvis Move.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 66p "Standards/Naming and Folder Map.md"; sed -n 43p "Standards/Naming and Folder Map.md"; head -25 "Workflows/Run Weekly Review.md" | grep -n "^# "; grep -n "^# " "Workflows/Run Monthly Review.md"; grep -n "Run Weekly\|Run Monthly" "Workflows/Agentic OS/Agentic OS.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 66p "Standards/Naming and Folder Map.md"; sed -n 43p "Standards/Naming and Folder Map.md"; head -25 "Workflows/Run Weekly Review.md" | grep -n "^# "; grep -n "^# " "Workflows/Run Monthly Review.md"; grep -n "Run Weekly\|Run Monthly" "Workflows/Agentic OS/Agentic OS.md"
+```
 ```
 Two names exist twice on purpose: Weekly Review and Monthly Review are each a standard in `Standards/Dashboards/` and a workflow in `Workflows/`. Link them by path, for example `[[Run Weekly Review]]`, because a bare link is ambiguous.
 | `Workflows/` | Step-by-step procedures a person or an assistant follows | [[Daily Dashboard]], Weekly Review, Monthly Review, [[Jarvis Move]] |
@@ -3729,14 +4316,19 @@ Two names exist twice on purpose: Weekly Review and Monthly Review are each a st
 59:| End of week | `/weekly-review` | One Review Log entry in the Weekly note | [[Run Weekly Review]] |
 60:| 1st of the month | `/monthly-review` | One Review Log entry in the Monthly note | [[Run Monthly Review]] |
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '20s/^# Weekly Review/# Run Weekly Review/' "Workflows/Run Weekly Review.md" && sed -i '21s/^# Monthly Review/# Run Monthly Review/' "Workflows/Run Monthly Review.md" && sed -i '43s/Weekly Review, Monthly Review, /[[Run Weekly Review]], [[Run Monthly Review]], /' "Standards/Naming and Folder Map.md" && sed -i '66s/.*/Weekly Review and Monthly Review are standards in `Standards\/Dashboards\/`. Their procedures in `Workflows\/` are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no two notes share a name and a bare link always resolves. Give a new procedure a name that differs from the standard it follows./' "Standards/Naming and Folder Map.md" && sed -n 20p "Workflows/Run Weekly Review.md"; sed -n 21p "Workflows/Run Monthly Review.md"; sed -n 43p "Standards/Naming and Folder Map.md"; sed -n 66p "Standards/Naming and Folder Map.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '20s/^# Weekly Review/# Run Weekly Review/' "Workflows/Run Weekly Review.md" && sed -i '21s/^# Monthly Review/# Run Monthly Review/' "Workflows/Run Monthly Review.md" && sed -i '43s/Weekly Review, Monthly Review, /[[Run Weekly Review]], [[Run Monthly Review]], /' "Standards/Naming and Folder Map.md" && sed -i '66s/.*/Weekly Review and Monthly Review are standards in `Standards\/Dashboards\/`. Their procedures in `Workflows\/` are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no two notes share a name and a bare link always resolves. Give a new procedure a name that differs from the standard it follows./' "Standards/Naming and Folder Map.md" && sed -n 20p "Workflows/Run Weekly Review.md"; sed -n 21p "Workflows/Run Monthly Review.md"; sed -n 43p "Standards/Naming and Folder Map.md"; sed -n 66p "Standards/Naming and Folder Map.md"
+```
 ```
 # Run Weekly Review
 # Run Monthly Review
 | `Workflows/` | Step-by-step procedures a person or an assistant follows | [[Daily Dashboard]], [[Run Weekly Review]], [[Run Monthly Review]], [[Jarvis Move]] |
 Weekly Review and Monthly Review are standards in `Standards/Dashboards/`. Their procedures in `Workflows/` are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no two notes share a name and a bare link always resolves. Give a new procedure a name that differs from the standard it follows.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && python3 -c 1 2>/dev/null; node -e '
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && python3 -c 1 2>/dev/null; node -e '
 const fs=require("fs");
 function rep(p,a,b){let t=fs.readFileSync(p,"utf8");const crlf=t.includes("\r\n");if(crlf)t=t.replace(/\r\n/g,"\n");if(!t.includes(a)){console.log("MISSING in "+p+": "+a.slice(0,50));return;}t=t.replace(a,()=>b);if(crlf)t=t.replace(/\n/g,"\r\n");fs.writeFileSync(p,t);}
 const S="Standards/Dashboards/Monthly Review.md";
@@ -3750,7 +4342,8 @@ rep(W,"## Not yet built\n\nThe frozen monthly recap, the next month\u0027s plan 
 "## The frozen month\n\nThe month you just reviewed stays in `00_Live/Enumerate` with its Review Log, and is archived only when a new year begins ([[30_Order/Standards/Dashboards/Monthly Review|Monthly Review standard]], Decision 46). Starting the new month does not move or delete the old one.\n\n## Not yet built\n\nThe rearranging of a frozen month\u0027s daily notes, the next month\u0027s plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.");
 rep(W,"7. **Fill your own sections.** The review never writes your Summary, Month plan and goals, Productivity, Good habits, Bad habits, Fixes or Next Move. Fill them from the numbers. Write next month\u0027s plan in the next Monthly note.\n8. **Record decisions.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.",
 "7. **Learn.** The review never writes your Summary, Productivity, Good habits, Bad habits or Fixes. Fill them from the numbers.\n8. **Improve.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.\n9. **Plan ahead.** Start the new month\u0027s note from [[Better Month]] and write its plan and goals. The previous 30 days are not carried into it.");
-'`
+'
+```
 ```
 Exit code 2
 /usr/bin/bash: eval: line 12: syntax error near unexpected token `('
@@ -3759,27 +4352,27 @@ Exit code 2
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Monthly Review.md`
 ```diff
 - ## Frozen recap and the archive
-
-The Monthly layer is meant to produce a frozen recap with static values, so history survives ([[Spec - Automation Layers]]). The recommended archive is that recap, with daily notes staying in `00_Live/Enumerate/Daily`, because the streak needs every daily note and `50_Archive` is never read or written. This is Proposed in [[Decisions Log]] and not confirmed. The recap does not exist yet, and its name and layout are not decided. Nothing moves a daily note.
+- 
+- The Monthly layer is meant to produce a frozen recap with static values, so history survives ([[Spec - Automation Layers]]). The recommended archive is that recap, with daily notes staying in `00_Live/Enumerate/Daily`, because the streak needs every daily note and `50_Archive` is never read or written. This is Proposed in [[Decisions Log]] and not confirmed. The recap does not exist yet, and its name and layout are not decided. Nothing moves a daily note.
 + ## The 1st and the frozen month
-
-Every 1st is a reset for planning and not for the record (Decision 46 in [[Decisions Log]]). On the 1st, in this order:
-
-1. **Learn.** Run the monthly review for the month that ended. The Review Log entry is the record of what happened.
-2. **Improve.** Decide what changes. A change to an action, a cause tag or a threshold goes through [[Decisions Log]] first.
-3. **Plan ahead.** Start the new month from [[Better Month]], with a new plan and goals. The previous 30 days are not carried into it.
-
-The finished month is **frozen in place**. It stays inside `00_Live/Enumerate`, with its Monthly note and Review Log, and it is not archived until a new year begins. At the turn of the year the finished year is the unit to archive, by Anant's own move, because nothing here writes `50_Archive`.
-
-The daily notes of a finished month may be rearranged inside `00_Live/Enumerate`. The location is not decided, and it must wait for an engine change. The engine, the streak, the heatmap and rule 2 of the validator read only files directly inside `00_Live/Enumerate/Daily`, and the streak needs the days on both sides of a month boundary. Moving a daily note into another folder today would count its days as MISS. Nothing moves a daily note until the new location is decided and the engine accepts it.
++ 
++ Every 1st is a reset for planning and not for the record (Decision 46 in [[Decisions Log]]). On the 1st, in this order:
++ 
++ 1. **Learn.** Run the monthly review for the month that ended. The Review Log entry is the record of what happened.
++ 2. **Improve.** Decide what changes. A change to an action, a cause tag or a threshold goes through [[Decisions Log]] first.
++ 3. **Plan ahead.** Start the new month from [[Better Month]], with a new plan and goals. The previous 30 days are not carried into it.
++ 
++ The finished month is **frozen in place**. It stays inside `00_Live/Enumerate`, with its Monthly note and Review Log, and it is not archived until a new year begins. At the turn of the year the finished year is the unit to archive, by Anant's own move, because nothing here writes `50_Archive`.
++ 
++ The daily notes of a finished month may be rearranged inside `00_Live/Enumerate`. The location is not decided, and it must wait for an engine change. The engine, the streak, the heatmap and rule 2 of the validator read only files directly inside `00_Live/Enumerate/Daily`, and the streak needs the days on both sides of a month boundary. Moving a daily note into another folder today would count its days as MISS. Nothing moves a daily note until the new location is decided and the engine accepts it.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Monthly Review.md`
 ```diff
 - - The name, location and layout of the frozen recap, and confirmation that daily notes stay in place.
-- Whether a scheduled run may write an entry. Decision 40 says no review runs unattended. See [[Scheduled Review]].
+- - Whether a scheduled run may write an entry. Decision 40 says no review runs unattended. See [[Scheduled Review]].
 + - Where inside `00_Live/Enumerate` the daily notes of a frozen month are rearranged, and the engine change that goes with it. Until then they stay in `Daily/`.
-- Who moves a finished year to `50_Archive`, and when. Not built.
-- The settings of the unattended monthly run, which are fixed after the process is proven. See [[Scheduled Review]].
++ - Who moves a finished year to `50_Archive`, and when. Not built.
++ - The settings of the unattended monthly run, which are fixed after the process is proven. See [[Scheduled Review]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Monthly Review.md`
 ```diff
@@ -3789,32 +4382,32 @@ The daily notes of a finished month may be rearranged inside `00_Live/Enumerate`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Run Monthly Review.md`
 ```diff
 - 7. **Fill your own sections.** The review never writes your Summary, Month plan and goals, Productivity, Good habits, Bad habits, Fixes or Next Move. Fill them from the numbers. Write next month's plan in the next Monthly note.
-8. **Record decisions.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.
+- 8. **Record decisions.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.
 + 7. **Learn.** The review never writes your Summary, Productivity, Good habits, Bad habits or Fixes. Fill them from the numbers.
-8. **Improve.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.
-9. **Plan ahead.** Start the new month's note from [[Better Month]] and write its plan and goals. The previous 30 days are not carried into it.
++ 8. **Improve.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.
++ 9. **Plan ahead.** Start the new month's note from [[Better Month]] and write its plan and goals. The previous 30 days are not carried into it.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Workflows\Run Monthly Review.md`
 ```diff
 - ## Not yet built
-
-The frozen monthly recap, the next month's plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.
+- 
+- The frozen monthly recap, the next month's plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.
 + ## The frozen month
-
-The month you just reviewed stays in `00_Live/Enumerate` with its Review Log, and is archived only when a new year begins ([[30_Order/Standards/Dashboards/Monthly Review|Monthly Review standard]], Decision 46). Starting the new month does not move or delete the old one.
-
-## Not yet built
-
-The rearranging of a frozen month's daily notes, the next month's plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.
++ 
++ The month you just reviewed stays in `00_Live/Enumerate` with its Review Log, and is archived only when a new year begins ([[30_Order/Standards/Dashboards/Monthly Review|Monthly Review standard]], Decision 46). Starting the new month does not move or delete the old one.
++ 
++ ## Not yet built
++ 
++ The rearranging of a frozen month's daily notes, the next month's plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
 ```diff
 - Everything in the Run column below is manual today. No scheduled task, routine or reminder exists for any of these reviews, and none is authorised. The automation layers are not built ([[Spec - Automation Layers]], Decision 30).
 + ## Unattended run
-
-An unattended run is a scheduled task that fires by itself at a set time and starts the work with no human present. Nobody says yes or no to it. It is meant for a repetitive, clearly defined, detailed process, and for now that means **reviews only**: the weekly review and the monthly review (Decision 40). The daily close, the Jarvis move and every other write stay manual.
-
-The direction is decided and the build is not. Everything in the Run column below is manual today. No scheduled task, routine or reminder exists for any of these reviews. The reviews will be designed in detail, and their times and settings fixed, only after the manual process has run and been proven to work. From that point they are set to run from the day they are switched on. The automation layers are not built ([[Spec - Automation Layers]], Decision 30).
++ 
++ An unattended run is a scheduled task that fires by itself at a set time and starts the work with no human present. Nobody says yes or no to it. It is meant for a repetitive, clearly defined, detailed process, and for now that means **reviews only**: the weekly review and the monthly review (Decision 40). The daily close, the Jarvis move and every other write stay manual.
++ 
++ The direction is decided and the build is not. Everything in the Run column below is manual today. No scheduled task, routine or reminder exists for any of these reviews. The reviews will be designed in detail, and their times and settings fixed, only after the manual process has run and been proven to work. From that point they are set to run from the day they are switched on. The automation layers are not built ([[Spec - Automation Layers]], Decision 30).
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
 ```diff
@@ -3824,28 +4417,28 @@ The direction is decided and the build is not. Everything in the Run column belo
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
 ```diff
 - Nothing below is built. A review may be scheduled only after all of these are decided and recorded in [[Decisions Log]].
-
-| Condition | Why |
-|---|---|
-| The five skills have been run by hand and dry-run | [[Spec - Automation Layers]], prerequisite 2 |
-| Anant decides which reviews may run unattended | A weekly or monthly entry is a write into a note |
-| Anant gives a standing approval for exactly those writes | The skills ask for a yes before each write, and an unattended run cannot wait for one. Without a standing approval an unattended run can only produce a dry-run report. |
+- 
+- | Condition | Why |
+- |---|---|
+- | The five skills have been run by hand and dry-run | [[Spec - Automation Layers]], prerequisite 2 |
+- | Anant decides which reviews may run unattended | A weekly or monthly entry is a write into a note |
+- | Anant gives a standing approval for exactly those writes | The skills ask for a yes before each write, and an unattended run cannot wait for one. Without a standing approval an unattended run can only produce a dry-run report. |
 + Nothing below is built. A review is scheduled only after all of these are met and recorded in [[Decisions Log]].
-
-| Condition | Why |
-|---|---|
-| The reviews have been run by hand and with dry-run until the process is proven to work | [[Spec - Automation Layers]], prerequisite 2. The detailed design waits for this. |
-| The times and details of each review are set | They are set from the proven process, not guessed beforehand. |
-| The write is limited to the review's own entry | An unattended run has no yes to wait for, so its writes must be only what the standard names: one entry under `## Review Log`. A broader write is not allowed. |
-| The skills are changed so that the run needs no yes | The skills ask for a yes before each write. That is the behaviour of a manual run and is replaced only for the scheduled reviews. |
++ 
++ | Condition | Why |
++ |---|---|
++ | The reviews have been run by hand and with dry-run until the process is proven to work | [[Spec - Automation Layers]], prerequisite 2. The detailed design waits for this. |
++ | The times and details of each review are set | They are set from the proven process, not guessed beforehand. |
++ | The write is limited to the review's own entry | An unattended run has no yes to wait for, so its writes must be only what the standard names: one entry under `## Review Log`. A broader write is not allowed. |
++ | The skills are changed so that the run needs no yes | The skills ask for a yes before each write. That is the behaviour of a manual run and is replaced only for the scheduled reviews. |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
 ```diff
 - - Which reviews, if any, may run unattended, and the standing approval that covers them. Decision 40: none for now.
-- The runner, if the engine-only report above is wanted.
+- - The runner, if the engine-only report above is wanted.
 + - The final times and settings of the weekly and monthly unattended runs. Set after the process is proven.
-- The runner for those runs.
-- The engine-only report above, if it is wanted before then.
++ - The runner for those runs.
++ - The engine-only report above, if it is wanted before then.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Scheduled Review.md`
 ```diff
@@ -3858,8 +4451,8 @@ The direction is decided and the build is not. Everything in the Run column belo
 ```diff
 - Jarvis is the working system. The Plan is the trusted planning
 + This is the base version of the review. It is accepted as it stands and will be modified later, once the process has run and been proven to work (Decision 38). Treat the six checks and the outcomes as the working rule until then, and expect the detail to change.
-
-Jarvis is the working system. The Plan is the trusted planning
++ 
++ Jarvis is the working system. The Plan is the trusted planning
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Jarvis Review.md`
 ```diff
@@ -3867,7 +4460,10 @@ Jarvis is the working system. The Plan is the trusted planning
 + - The detailed design of the review, after the process is proven. The outcomes, the reject destination, the `reviewed` key, the `unreviewed` exception and the review note location are confirmed as the base in Decision 38.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\Dashboards\Weekly Review.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 35p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 124p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 103p "Workflows/Agentic OS/Agentic OS.md"; grep -n "Jarvis Review\|Jarvis Move" "Workflows/Jarvis Move.md" | head -5; sed -n 1,30p "Workflows/Jarvis Move.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 35p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 124p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 103p "Workflows/Agentic OS/Agentic OS.md"; grep -n "Jarvis Review\|Jarvis Move" "Workflows/Jarvis Move.md" | head -5; sed -n 1,30p "Workflows/Jarvis Move.md"
+```
 ```
 4. **Approval before writing.** A skill shows the exact write (path, heading, lines) and waits for a yes. Nothing runs unattended ([[Scheduled Review]]).
 - Scheduled and unattended runs are not built and not authorised ([[Scheduled Review]]).
@@ -3908,7 +4504,10 @@ Jarvis owns work. The Plan owns personal growth and trusted memory. Only reviewe
 
 1. Copy, never move. Jarvis is not modified by any tool.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '133s/.*/- The settings of the unattended weekly run, which are fixed after the process is proven. See [[Scheduled Review]]./' "Standards/Dashboards/Weekly Review.md" && sed -i '35s/Nothing runs unattended (\[\[Scheduled Review\]\])\./A manual run never writes without a yes. The weekly and monthly reviews are intended to run unattended later, under the conditions in [[Scheduled Review]]./' "Standards/Agentic OS/Agentic OS Standard.md" && sed -i '124s/.*/- Scheduled and unattended runs are not built and not authorised yet. They are intended for the weekly and monthly reviews only, after the process is proven ([[Scheduled Review]])./' "Standards/Agentic OS/Agentic OS Standard.md" && sed -i '103s/the frozen monthly recap, the next-month skeleton/the rearranging of a frozen month, the next-month skeleton/' "Workflows/Agentic OS/Agentic OS.md" && sed -n 133p "Standards/Dashboards/Weekly Review.md"; sed -n 35p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 124p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 103p "Workflows/Agentic OS/Agentic OS.md"; grep -n "recap" -r . --include=*.md | cut -c1-200`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '133s/.*/- The settings of the unattended weekly run, which are fixed after the process is proven. See [[Scheduled Review]]./' "Standards/Dashboards/Weekly Review.md" && sed -i '35s/Nothing runs unattended (\[\[Scheduled Review\]\])\./A manual run never writes without a yes. The weekly and monthly reviews are intended to run unattended later, under the conditions in [[Scheduled Review]]./' "Standards/Agentic OS/Agentic OS Standard.md" && sed -i '124s/.*/- Scheduled and unattended runs are not built and not authorised yet. They are intended for the weekly and monthly reviews only, after the process is proven ([[Scheduled Review]])./' "Standards/Agentic OS/Agentic OS Standard.md" && sed -i '103s/the frozen monthly recap, the next-month skeleton/the rearranging of a frozen month, the next-month skeleton/' "Workflows/Agentic OS/Agentic OS.md" && sed -n 133p "Standards/Dashboards/Weekly Review.md"; sed -n 35p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 124p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 103p "Workflows/Agentic OS/Agentic OS.md"; grep -n "recap" -r . --include=*.md | cut -c1-200
+```
 ```
 - The settings of the unattended weekly run, which are fixed after the process is proven. See [[Scheduled Review]].
 4. **Approval before writing.** A skill shows the exact write (path, heading, lines) and waits for a yes. A manual run never writes without a yes. The weekly and monthly reviews are intended to run unattended later, under the conditions in [[Scheduled Review]].
@@ -3919,11 +4518,14 @@ Scheduled or unattended runs, the rearranging of a frozen month, the next-month 
 ```diff
 - Jarvis owns work. The Plan owns personal growth
 + This is the base version, to be modified in detail once the process has run and been proven ([[Jarvis Review]]).
-
-Jarvis owns work. The Plan owns personal growth
++ 
++ Jarvis owns work. The Plan owns personal growth
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && ls; grep -rn 'FROM "60_Jarvis\|from "60_Jarvis\|60_Jarvis/[0-9][0-9]_[A-Za-z_]*' --include=*.md . 2>/dev/null | grep -i "dataview\|FROM\|WHERE\|from" | cut -c1-260 | head -30; sed -n 20,50p "60_Jarvis Board.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && ls; grep -rn 'FROM "60_Jarvis\|from "60_Jarvis\|60_Jarvis/[0-9][0-9]_[A-Za-z_]*' --include=*.md . 2>/dev/null | grep -i "dataview\|FROM\|WHERE\|from" | cut -c1-260 | head -30; sed -n 20,50p "60_Jarvis Board.md"
 ```
+````
 00_Control_Center
 01_Prompt_Library
 10_Promoted_Notes
@@ -3983,9 +4585,12 @@ SORT file.mtime DESC
 ```
 
 ## Open Architectural Decisions
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && find . -maxdepth 3 -type d | sort; echo; grep -rn "Change_Log\|Evidence_And_Audits\|Rollback_And_Snapshots\|40_Promoted_Notes" --include=*.md . | cut -c1-200; echo; sed -n 20,45p "00_Control_Center/Jarvis System Status.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && find . -maxdepth 3 -type d | sort; echo; grep -rn "Change_Log\|Evidence_And_Audits\|Rollback_And_Snapshots\|40_Promoted_Notes" --include=*.md . | cut -c1-200; echo; sed -n 20,45p "00_Control_Center/Jarvis System Status.md"`
-```
+````
 .
 ./00_Control_Center
 ./01_Prompt_Library
@@ -4045,8 +4650,11 @@ FROM "60_Jarvis/20_Decisions"
 WHERE capability_status
 SORT capability_status ASC
 ```
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && for d in "20_Decisions/Evidence and Audits" "30_AI_Information/Evidence and Audits" "20_Decisions/Rollback and Snapshots" "30_AI_Information/Rollback and Snapshots" "30_AI_Information/Session Logs/Changes log"; do echo "== $d"; ls "$d" | head -8; done; echo; grep -rln "enrichment_status" --include=*.md . | head; grep -rln "promotion_status" --include=*.md . | head; grep -rl "ops" --include=*.md 50_Reviews | head -3; git -C .. log --oneline -3 -- "60_Jarvis/30_AI_Information/Evidence and Audits" | head -3
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && for d in "20_Decisions/Evidence and Audits" "30_AI_Information/Evidence and Audits" "20_Decisions/Rollback and Snapshots" "30_AI_Information/Rollback and Snapshots" "30_AI_Information/Session Logs/Changes log"; do echo "== $d"; ls "$d" | head -8; done; echo; grep -rln "enrichment_status" --include=*.md . | head; grep -rln "promotion_status" --include=*.md . | head; grep -rl "ops" --include=*.md 50_Reviews | head -3; git -C .. log --oneline -3 -- "60_Jarvis/30_AI_Information/Evidence and Audits" | head -3`
 ```
 == 20_Decisions/Evidence and Audits
 Enrichment Quality Dashboard.md
@@ -4072,7 +4680,10 @@ Jarvis Change Log.md
 7dc76ab auto: 2026-07-07 20:45 | 36 files
 e65a6aa auto: 2026-07-07 18:45 | 43 files
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && for f in "60_Jarvis Board.md" "00_Control_Center/Jarvis System Status.md" "20_Decisions/Evidence and Audits/Enrichment Quality Dashboard.md"; do sed -i 's#"60_Jarvis/30_Evidence_And_Audits"#"60_Jarvis/20_Decisions/Evidence and Audits"#g; s#"60_Jarvis/10_Change_Log"#"60_Jarvis/30_AI_Information/Session Logs/Changes log"#g; s#"60_Jarvis/40_Promoted_Notes"#"60_Jarvis/10_Promoted_Notes"#g; s#"60_Jarvis/60_Rollback_And_Snapshots"#"60_Jarvis/20_Decisions/Rollback and Snapshots"#g' "$f"; done; grep -rn "^FROM" --include=*.md . | cut -c1-330; cd .. && git diff --stat -- 60_Jarvis | tail -5`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && for f in "60_Jarvis Board.md" "00_Control_Center/Jarvis System Status.md" "20_Decisions/Evidence and Audits/Enrichment Quality Dashboard.md"; do sed -i 's#"60_Jarvis/30_Evidence_And_Audits"#"60_Jarvis/20_Decisions/Evidence and Audits"#g; s#"60_Jarvis/10_Change_Log"#"60_Jarvis/30_AI_Information/Session Logs/Changes log"#g; s#"60_Jarvis/40_Promoted_Notes"#"60_Jarvis/10_Promoted_Notes"#g; s#"60_Jarvis/60_Rollback_And_Snapshots"#"60_Jarvis/20_Decisions/Rollback and Snapshots"#g' "$f"; done; grep -rn "^FROM" --include=*.md . | cut -c1-330; cd .. && git diff --stat -- 60_Jarvis | tail -5
+```
 ```
 ./00_Control_Center/Jarvis System Status.md:25:FROM "60_Jarvis/20_Decisions/Evidence and Audits"
 ./00_Control_Center/Jarvis System Status.md:33:FROM "60_Jarvis/50_Reviews" OR "60_Jarvis/30_AI_Information/Session Logs/Changes log"
@@ -4096,7 +4707,10 @@ e65a6aa auto: 2026-07-07 18:45 | 43 files
  60_Jarvis/60_Jarvis Board.md                                      | 8 ++++----
  3 files changed, 7 insertions(+), 7 deletions(-)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's#FROM "60_Claude/40_Project_Briefs"#FROM "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews"#' "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/40_Project_Briefs Board.md" && grep -rIhoi --include=*.md 'from "[^"]*"\( or "[^"]*"\)*' 00_Live 10_UMN 20_Progress 30_Order 40_Resources 60_Jarvis *.md | grep -o '"[^"]*"' | tr -d '"' | sort -u | while IFS= read -r p; do if [ -e "$p" ] || [ -e "$p.md" ]; then :; else echo "MISSING: $p"; fi; done`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's#FROM "60_Claude/40_Project_Briefs"#FROM "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews"#' "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/40_Project_Briefs Board.md" && grep -rIhoi --include=*.md 'from "[^"]*"\( or "[^"]*"\)*' 00_Live 10_UMN 20_Progress 30_Order 40_Resources 60_Jarvis *.md | grep -o '"[^"]*"' | tr -d '"' | sort -u | while IFS= read -r p; do if [ -e "$p" ] || [ -e "$p.md" ]; then :; else echo "MISSING: $p"; fi; done
+```
 ```
 MISSING: 00_Inbox
 MISSING: 00_Inbox/Headway/Enumerate/Daily
@@ -4114,7 +4728,10 @@ MISSING: 10_UMN/The Plan
 MISSING: Clippings
 MISSING: very easy
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIn --include=*.md -i '00_Inbox\|"Clippings"\|10_UMN/The Plan\|_Homework"' 00_Live 10_UMN 20_Progress 30_Order 40_Resources *.md | grep -i "from" | cut -c1-240; ls 10_UMN | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIn --include=*.md -i '00_Inbox\|"Clippings"\|10_UMN/The Plan\|_Homework"' 00_Live 10_UMN 20_Progress 30_Order 40_Resources *.md | grep -i "from" | cut -c1-240; ls 10_UMN | head -20
+```
 ```
 00_Live/Enumerate/Enumerate Board.md:14:FROM "00_Inbox/Headway/Enumerate/Yearly"
 00_Live/Enumerate/Enumerate Board.md:21:FROM "00_Inbox/Headway/Enumerate/Monthly"
@@ -4134,8 +4751,11 @@ MGMT
 UMN Board.md
 Weekly Board.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && cat "Enumerate Board.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && cat "Enumerate Board.md"
 ```
+````
 ---
 type: evergreen
 status: sprout
@@ -4174,8 +4794,11 @@ FROM "00_Inbox/Headway/Enumerate/Daily"
 WHERE type = "thought"
 SORT file.mtime ASC
 ```
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && sed -i 's#"00_Inbox/Headway/Enumerate/#"00_Live/Enumerate/#' "Enumerate Board.md" && for d in Yearly Monthly Weekly; do echo "$d:"; grep -h "^type:" $d/*.md | sort | uniq -c; done; echo Daily:; grep -h "^type:" Daily/*.md | sort | uniq -c; grep -n "^FROM" "Enumerate Board.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && sed -i 's#"00_Inbox/Headway/Enumerate/#"00_Live/Enumerate/#' "Enumerate Board.md" && for d in Yearly Monthly Weekly; do echo "$d:"; grep -h "^type:" $d/*.md | sort | uniq -c; done; echo Daily:; grep -h "^type:" Daily/*.md | sort | uniq -c; grep -n "^FROM" "Enumerate Board.md"`
 ```
 Yearly:
       4 type: thought
@@ -4190,8 +4813,11 @@ Daily:
 28:FROM "00_Live/Enumerate/Weekly"
 35:FROM "00_Live/Enumerate/Daily"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && sed -i '/^FROM "00_Live\/Enumerate\/Daily"/{n;s/WHERE type = "thought"/WHERE type = "thought" OR type = "daily"/}' "Enumerate Board.md" && sed -n 32,40p "Enumerate Board.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && sed -i '/^FROM "00_Live\/Enumerate\/Daily"/{n;s/WHERE type = "thought"/WHERE type = "thought" OR type = "daily"/}' "Enumerate Board.md" && sed -n 32,40p "Enumerate Board.md"
 ```
+````
 ## Daily
 ```dataview
 TABLE status, next
@@ -4199,8 +4825,11 @@ FROM "00_Live/Enumerate/Daily"
 WHERE type = "thought" OR type = "daily"
 SORT file.mtime ASC
 ```
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && cat "00_Live/Life OS.md" | cut -c1-400; grep -rn "00_Dashboard" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests" | head; find . -name "Projects Board.md" -o -name "BOOM Board.md" -o -name "Life OS.md" -o -name "Dashboards Hub.md" | grep -v "^./50_"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat "00_Live/Life OS.md" | cut -c1-400; grep -rn "00_Dashboard" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests" | head; find . -name "Projects Board.md" -o -name "BOOM Board.md" -o -name "Life OS.md" -o -name "Dashboards Hub.md" | grep -v "^./50_"`
 ```
 ---
 type: evergreen
@@ -4249,7 +4878,7 @@ What the vault actually knows (from [[Bank Accounts]] and [[Stocks]], both captu
 - **Investing stance:** emergency savings first, then broad index funds / ETFs with automatic recurring buys, held for years — explicitly *not trading*. The Trading domain in this vault ([[Stocks Trading AI Hub]]) is a research/engineering project and a portfolio artifact, **not where savings go** — keeping those two separate is a deliberate rule, not an accident.
 - **Actual numbers (income, monthly spend, savings/investment balances): unknown — the system is designed but no month has been logged.** The design above is only real once [[Finance Tracker]] has a month of actual totals in it.
 ## Relationships and mentors
-The vault's honest state: `10_Areas/Career/Mentors/` is empty, but `20_Progress/Mentorship Program/` holds real structure — an [[Mentor Details]] note, an [[Elevator pitch|elevator pitch]], a [[Mentorship Board|board]], a[[Plan - Ahnaf|plan]]], and dated meeting notes (Hackathons/Summer/Networking, a one-pager, Winter Break). So there *is* an active mentorship relationship with recorded meetings; what's
+The vault's honest state: `10_Areas/Career/Mentors/` is empty, but `20_Progress/Mentorship Program/` holds real structure — an [[Mentor Details]] note, an [[Elevator pitch|elevator pitch]], a [[Mentorship Board|board]], a [[Plan|plan]], and dated meeting notes (Hackathons/Summer/Networking, a one-pager, Winter Break). So there *is* an active mentorship relationship with recorded meetings; what's
 - **What [[Relationship Log]] will contain once populated:** one row per person worth deliberate cadence — role/why-they-matter, cadence, last contact, what's being exchanged (get/give), next touch. A row earns its place only when losing touch would cost something concrete (a recommendation, a door, a collaboration) — it is not a CRM of everyone met.
 - **Cadence model:** a **mentor** gets a scheduled recurring touch (the meeting-notes cadence already in Mentorship Program); a **collaborator** gets contact tied to the shared work; a **recommender** gets a low-frequency but deliberate "still in orbit" touch before it's ever needed. During `/weekly-review`, scan the Last-contact column — anyone past cadence gets a concrete next touch written in
 - **The give/get framing, concretely:** with the current mentor, the *get* is meeting prep and networking/hackathon direction (per the meeting notes); the *give* is a prepared agenda and follow-through on action items, so the relationship stays worth the mentor's time. The failure mode to avoid: only reaching out when you need something.
@@ -4299,16 +4928,19 @@ D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests/hooks.test.ts:21:	assert
 ```diff
 - ## Principles
 + ## Navigation
-
-The markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). The active dashboard is the private plugin view `the-plan-dashboard`, opened with the command "Open dashboard" ([[Reference - the-plan-dashboard]]). The links that page held are kept here.
-
-- **Entry points:** [[AI_CONTEXT]], [[AGENTS]], [[AI AGENT]], [[CLAUDE]], [[60_Jarvis/00_Control_Center/Jarvis Control Center|Jarvis Control Center]]
-- **Boards:** [[20_Progress/Projects/Projects Board|Projects Board]], [[20_Progress/UROP/BOOM Board|BOOM Board]], [[60_Jarvis/60_Jarvis Board|Jarvis Board]]
-- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]]
-
-## Principles
++ 
++ The markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). The active dashboard is the private plugin view `the-plan-dashboard`, opened with the command "Open dashboard" ([[Reference - the-plan-dashboard]]). The links that page held are kept here.
++ 
++ - **Entry points:** [[AI_CONTEXT]], [[AGENTS]], [[AI AGENT]], [[CLAUDE]], [[60_Jarvis/00_Control_Center/Jarvis Control Center|Jarvis Control Center]]
++ - **Boards:** [[20_Progress/Projects/Projects Board|Projects Board]], [[20_Progress/UROP/BOOM Board|BOOM Board]], [[60_Jarvis/60_Jarvis Board|Jarvis Board]]
++ - **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]]
++ 
++ ## Principles
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls "00_Live/Enumerate/Monthly/2026-10.md" "30_Order/Standards/References/Reference - the-plan-dashboard.md" "AI AGENT.md" && sed -i '27s/.*/- [[Dashboards Hub]] is the entry to the active dashboard (the private plugin view) and carries the navigation links. The old `00_Dashboard.md` page was retired on 2026-10-14./' AGENTS.md && sed -n 27p AGENTS.md && sed -i '13s/.*/- Dashboard: [[Dashboards Hub]]./' 60_Jarvis/AI_CONTEXT.md && sed -n 13p 60_Jarvis/AI_CONTEXT.md && sed -i 's/^  - "\[\[00_Dashboard\]\]"$/  - "[[Dashboards Hub]]"/' "60_Jarvis/50_Reviews/Agentic OS/Ops Reports/Jarvis Ops Report - 2026-04-24 20260424-170132.md" "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/Jarvis Multi-Agent PKM Plan.md" && grep -n "Dashboards Hub" 60_Jarvis/50_Reviews -r | cut -c1-160; sed -i '41s/`AGENTS.md` and `00_Dashboard.md`/`AGENTS.md` and `CLAUDE.md`/' "30_Order/Standards/Agentic OS/Hook Standard.md" && sed -n 41p "30_Order/Standards/Agentic OS/Hook Standard.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls "00_Live/Enumerate/Monthly/2026-10.md" "30_Order/Standards/References/Reference - the-plan-dashboard.md" "AI AGENT.md" && sed -i '27s/.*/- [[Dashboards Hub]] is the entry to the active dashboard (the private plugin view) and carries the navigation links. The old `00_Dashboard.md` page was retired on 2026-10-14./' AGENTS.md && sed -n 27p AGENTS.md && sed -i '13s/.*/- Dashboard: [[Dashboards Hub]]./' 60_Jarvis/AI_CONTEXT.md && sed -n 13p 60_Jarvis/AI_CONTEXT.md && sed -i 's/^  - "\[\[00_Dashboard\]\]"$/  - "[[Dashboards Hub]]"/' "60_Jarvis/50_Reviews/Agentic OS/Ops Reports/Jarvis Ops Report - 2026-04-24 20260424-170132.md" "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/Jarvis Multi-Agent PKM Plan.md" && grep -n "Dashboards Hub" 60_Jarvis/50_Reviews -r | cut -c1-160; sed -i '41s/`AGENTS.md` and `00_Dashboard.md`/`AGENTS.md` and `CLAUDE.md`/' "30_Order/Standards/Agentic OS/Hook Standard.md" && sed -n 41p "30_Order/Standards/Agentic OS/Hook Standard.md"
+```
 ```
 00_Live/Enumerate/Monthly/2026-10.md
 30_Order/Standards/References/Reference - the-plan-dashboard.md
@@ -4319,7 +4951,10 @@ AI AGENT.md
 60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/Jarvis Multi-Agent PKM Plan.md:12:  - "[[Dashboards Hub]]"
 1. The target is a new file directly at the vault root. Existing root files such as `AGENTS.md` and `CLAUDE.md` may be edited.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i '43s/.*/| Home | Streak, ring, today'"'"'s ticks, heatmap. The private plugin view is the dashboard ([[Reference - the-plan-dashboard]]). The older markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). | `.obsidian\/plugins\/the-plan-dashboard\/` |/' "30_Order/Workflows/Daily Dashboard.md" && sed -n 43p "30_Order/Workflows/Daily Dashboard.md" && sed -n 40p "40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i '43s/.*/| Home | Streak, ring, today'"'"'s ticks, heatmap. The private plugin view is the dashboard ([[Reference - the-plan-dashboard]]). The older markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). | `.obsidian\/plugins\/the-plan-dashboard\/` |/' "30_Order/Workflows/Daily Dashboard.md" && sed -n 43p "30_Order/Workflows/Daily Dashboard.md" && sed -n 40p "40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md"
+```
 ```
 | Home | Streak, ring, today's ticks, heatmap. The private plugin view is the dashboard ([[Reference - the-plan-dashboard]]). The older markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). | `.obsidian/plugins/the-plan-dashboard/` |
 | Plugin breaks on an Obsidian update | Low to medium | Home blank | Keep the old markdown `00_Dashboard.md` until S6 passes, and keep a one-line "Open dashboard" link in it afterwards |
@@ -4329,7 +4964,10 @@ AI AGENT.md
 - Keep the old markdown `00_Dashboard.md` until S6 passes, and keep a one-line "Open dashboard" link in it afterwards |
 + The old markdown `00_Dashboard.md` was retired on 2026-10-14 at Anant's request, before S6 passed (Decision 47). The fallback is `plan-cli streak` and `plan-cli day`, which read the same notes, and the daily notes stay plain Markdown |
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && rm "00_Dashboard.md" && ls 00_Dashboard.md 2>&1 | head -1; rm -rf 30_Order/System/streak/__pycache__ && ls -a 30_Order/System/streak; git status --short | grep -i "pycache"; grep -n "pycache" .gitignore`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && rm "00_Dashboard.md" && ls 00_Dashboard.md 2>&1 | head -1; rm -rf 30_Order/System/streak/__pycache__ && ls -a 30_Order/System/streak; git status --short | grep -i "pycache"; grep -n "pycache" .gitignore
+```
 ```
 ls: cannot access '00_Dashboard.md': No such file or directory
 .
@@ -4353,27 +4991,30 @@ test_streak.py
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
 - | 40 | Review cadence and automation | The due times in [[Scheduled Review]] are confirmed: weekly after the Sunday close (Monday at the latest), monthly on the 1st. Every review stays manual. No review runs unattended and nothing is scheduled. | An engine-only, read-only report is designed and not built. Revisit with A1. |
-| 41 | Milestone level titles | Spark (3), Steady (7), Habit (21), Automatic (66), Centurion (100) | Defaults chosen in this session. They are in `CONFIG.milestoneTitles` and in [[Streak Rule]]. The dashboard does not show them yet. Change this row and the config together. |
+- | 41 | Milestone level titles | Spark (3), Steady (7), Habit (21), Automatic (66), Centurion (100) | Defaults chosen in this session. They are in `CONFIG.milestoneTitles` and in [[Streak Rule]]. The dashboard does not show them yet. Change this row and the config together. |
 + | 40 | Review cadence and automation (revised 2026-10-14) | Unattended runs are scheduled tasks that fire by themselves at set times with no human yes or no. They are meant for repetitive, clearly defined, detailed processes, and for now for the weekly and monthly reviews only. The reviews are designed in detail, and their times and settings fixed, only after the manual process has run and been proven. The due times in [[Scheduled Review]] (weekly after the Sunday close, monthly on the 1st) are working defaults until then. | Nothing is scheduled and every review is manual today. Writes of an unattended run are limited to the review's own entry. An engine-only, read-only report is designed and not built. |
-| 41 | Milestone level titles (revised 2026-10-14) | The beginning (3), Toward 21 (7), Now it gets hard (21), Work pays off (66), Consistency, discipline, mindset (100) | Worded from Anant's own lines and shortened for the dashboard. They replace the earlier defaults Spark, Steady, Habit, Automatic and Centurion. They are in `CONFIG.milestoneTitles` and in [[Streak Rule]]. The dashboard does not show them yet. Change this row and the config together. |
++ | 41 | Milestone level titles (revised 2026-10-14) | The beginning (3), Toward 21 (7), Now it gets hard (21), Work pays off (66), Consistency, discipline, mindset (100) | Worded from Anant's own lines and shortened for the dashboard. They replace the earlier defaults Spark, Steady, Habit, Automatic and Centurion. They are in `CONFIG.milestoneTitles` and in [[Streak Rule]]. The dashboard does not show them yet. Change this row and the config together. |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
 - ## Proposed, not yet confirmed
 + | 46 | The frozen month (2026-10-14) | A finished month stays inside the same `00_Live/Enumerate` folder and is not archived until a new year begins. Each 1st: learn (the review), improve (decide changes), plan ahead (a new month with a new plan, forgetting the previous 30 days). The daily notes of a finished month may be rearranged inside `Enumerate`. | Replaces the Proposed item "a frozen monthly recap is the archive". Where the daily notes are rearranged is not decided, and the engine reads only `Daily/`, so nothing moves until the engine accepts the new place. See [[30_Order/Standards/Dashboards/Monthly Review|Monthly Review]]. |
-| 47 | `00_Dashboard.md` retired (2026-10-14) | Anant asked for the markdown dashboard to be deleted, because the plugin view is the active dashboard. | The note was deleted. Its links were repointed to [[Dashboards Hub]], which now holds the navigation links. Homepage was already set to "Nothing". |
-| 48 | Best streak follows the spec (2026-10-14) | `best` counts closed days only, as in [[Spec - Streak and Daily Note]]. Today joins it the next day. | `streak.py` and the engine were changed together and the parity tests pass. The earlier `max(best, current)` is removed. The deployed plugin build keeps it until the plugin is next built. See [[Streak Rule]]. |
-| 49 | Workflow names and Dataview paths (2026-10-14) | The review workflows are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no note shares a name with its standard. Dataview queries now point at folders that exist. | Links were rewritten. Fixed: the Jarvis Board, System Status, Enrichment Quality Dashboard, the project briefs board and the Enumerate Board. |
-
-## Proposed, not yet confirmed
++ | 47 | `00_Dashboard.md` retired (2026-10-14) | Anant asked for the markdown dashboard to be deleted, because the plugin view is the active dashboard. | The note was deleted. Its links were repointed to [[Dashboards Hub]], which now holds the navigation links. Homepage was already set to "Nothing". |
++ | 48 | Best streak follows the spec (2026-10-14) | `best` counts closed days only, as in [[Spec - Streak and Daily Note]]. Today joins it the next day. | `streak.py` and the engine were changed together and the parity tests pass. The earlier `max(best, current)` is removed. The deployed plugin build keeps it until the plugin is next built. See [[Streak Rule]]. |
++ | 49 | Workflow names and Dataview paths (2026-10-14) | The review workflows are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no note shares a name with its standard. Dataview queries now point at folders that exist. | Links were rewritten. Fixed: the Jarvis Board, System Status, Enrichment Quality Dashboard, the project briefs board and the Enumerate Board. |
++ 
++ ## Proposed, not yet confirmed
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
 ```diff
 - - Daily notes stay in `00_Live/Enumerate/Daily/` and are never moved to `50_Archive`. A frozen monthly recap is the archive. See [[Spec - Automation Layers]].
-
+- 
 + 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && grep -n "^| 45\|^| 46\|^| 49\|^## Proposed" "Decisions Log.md" | cut -c1-40; sed -n 70,72p "Decisions Log.md" | cut -c1-30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && grep -n "^| 45\|^| 46\|^| 49\|^## Proposed" "Decisions Log.md" | cut -c1-40; sed -n 70,72p "Decisions Log.md" | cut -c1-30
+```
 ```
 69:| 45 | Agents | `daily-auditor`, `rev
 71:| 46 | The frozen month (2026-10-14) 
@@ -4383,7 +5024,10 @@ test_streak.py
 | 46 | The frozen month (2026-
 | 47 | `00_Dashboard.md` retir
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i '70{/^$/d}' "Decisions Log.md" && grep -n "^| 45\|^| 46\|^## Proposed" "Decisions Log.md" | cut -c1-30; sed -n 68,72p "Decisions Log.md" | cut -c1-25; sed -n 74,80p "Decisions Log.md" | cut -c1-60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i '70{/^$/d}' "Decisions Log.md" && grep -n "^| 45\|^| 46\|^## Proposed" "Decisions Log.md" | cut -c1-30; sed -n 68,72p "Decisions Log.md" | cut -c1-25; sed -n 74,80p "Decisions Log.md" | cut -c1-60
+```
 ```
 69:| 45 | Agents | `daily-audi
 70:| 46 | The frozen month (20
@@ -4406,7 +5050,10 @@ test_streak.py
 - Reference algorithm (the script is the canonical implementation; the DataviewJS on Home must match it):
 + Reference algorithm (the script is the canonical implementation; the engine and the dashboard plugin must match it, and today joins `best` only once the day has passed, Decision 48):
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards" && head -20 "The Plan Vault Architecture.md"; grep -n "Templates\|Standards\|Workflows\|Headway Templates\|Previous Templates\|Current standards\|^#" "The Plan Vault Architecture.md" | cut -c1-200`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards" && head -20 "The Plan Vault Architecture.md"; grep -n "Templates\|Standards\|Workflows\|Headway Templates\|Previous Templates\|Current standards\|^#" "The Plan Vault Architecture.md" | cut -c1-200
+```
 ```
 ---
 type: evergreen
@@ -4454,24 +5101,26 @@ Ported pattern from Jarvis's own `40_Resources/Obsidian/Jarvis Vault Architectur
 ```diff
 - **Open:** `Standards/` and `System/` both need populating — this is real content-creation work, not a structural fix, and wasn't attempted this session.
 + **Open:** `Standards/` and `System/` both need populating — this is real content-creation work, not a structural fix, and wasn't attempted this session.
-
-**Update 2026-10-13 and 2026-10-14:** `Standards/` and `System/` are populated, and a fourth folder, `Workflows/`, now holds step-by-step procedures. `Templates/Daily Dashboard/` holds the dashboard note skeletons ([[Daily Note]], [[Better Today]], [[Better Week]], [[Better Month]], [[Better Year]]). The "Headway Templates" and "Previous Templates" named above have moved out of `Templates/`. The full layout is in [[Naming and Folder Map]].
++ 
++ **Update 2026-10-13 and 2026-10-14:** `Standards/` and `System/` are populated, and a fourth folder, `Workflows/`, now holds step-by-step procedures. `Templates/Daily Dashboard/` holds the dashboard note skeletons ([[Daily Note]], [[Better Today]], [[Better Week]], [[Better Month]], [[Better Year]]). The "Headway Templates" and "Previous Templates" named above have moved out of `Templates/`. The full layout is in [[Naming and Folder Map]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Standards\The Plan Vault Architecture.md`
 ```diff
 - - [[Naming and Folder Map]]
-- [[Tool Reference Template]] (in `Standards/References/`)
+- - [[Tool Reference Template]] (in `Standards/References/`)
 + - [[Naming and Folder Map]]
-- [[Jarvis Review]]
-- [[Weekly Review]], [[Monthly Review]] and [[Scheduled Review]] (in `Standards/Dashboards/`)
-- [[Agentic OS Standard]], [[Skill Standard]], [[Agent Standard]] and [[Hook Standard]] (in `Standards/Agentic OS/`)
-- [[Tool Reference Template]] (in `Standards/References/`)
-
-## Current workflows and templates
-
-Procedures are in `30_Order/Workflows/`: [[Daily Dashboard]], [[Run Weekly Review]], [[Run Monthly Review]] and [[Jarvis Move]], and the toolkit procedures in `Workflows/Agentic OS/` starting at [[Agentic OS]]. Dashboard note skeletons are in `30_Order/Templates/Daily Dashboard/`. The streak script, its tests, the QuickAdd instructions ([[QuickAdd Setup]]) and the engine `plan-cli` are in `30_Order/System/`.
++ - [[Jarvis Review]]
++ - [[Weekly Review]], [[Monthly Review]] and [[Scheduled Review]] (in `Standards/Dashboards/`)
++ - [[Agentic OS Standard]], [[Skill Standard]], [[Agent Standard]] and [[Hook Standard]] (in `Standards/Agentic OS/`)
++ - [[Tool Reference Template]] (in `Standards/References/`)
++ 
++ ## Current workflows and templates
++ 
++ Procedures are in `30_Order/Workflows/`: [[Daily Dashboard]], [[Run Weekly Review]], [[Run Monthly Review]] and [[Jarvis Move]], and the toolkit procedures in `Workflows/Agentic OS/` starting at [[Agentic OS]]. Dashboard note skeletons are in `30_Order/Templates/Daily Dashboard/`. The streak script, its tests, the QuickAdd instructions ([[QuickAdd Setup]]) and the engine `plan-cli` are in `30_Order/System/`.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md" && mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" <<'EOF'
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md" && mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" <<'EOF'
 const fs=require("fs"),path=require("path"),cp=require("child_process");
 const root=process.cwd();
 const skip=new Set([".git","50_Archive","node_modules",".obsidian","copilot",".copilot",".opencode"]);
@@ -4492,12 +5141,13 @@ for(const f of changed){const t=fs.readFileSync(f,"utf8");
  }}
 console.log("checked",changed.length,"notes; problems",bad);
 EOF
-node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"`
+node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"
+````
 ```
 PreToolUse:Bash hook error: 50_Archive is never read or written.
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-The-Plan\ffc15af2-1115-4604-8d96-503f2cdbccd1\scratchpad\check.cjs`
-```
+````
 const fs = require("fs"), path = require("path"), cp = require("child_process");
 const root = process.cwd();
 const skip = new Set([".git", "50_Archive", "node_modules", ".obsidian", "copilot", ".copilot", ".opencode"]);
@@ -4539,8 +5189,11 @@ for (const f of changed) {
 }
 console.log("checked", changed.length, "notes; problems", bad);
 
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md"; node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md"; node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"`
 ```
 EM DASH 30_Order/Standards/The Plan Vault Architecture.md
 MISSING 60_Jarvis/50_Reviews/Agentic OS/Ops Reports/Jarvis Ops Report - 2026-04-24 20260424-170132.md -> Vault Health Dashboard
@@ -4556,7 +5209,10 @@ MISSING 60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/Jarvis Multi-Agent PKM
 checked 27 notes; problems 11
 ```
 - `Grep` -- pattern `23 tests|23 of 23|23 unittest|Miniconda` path `D:\_Anant\20_Progress\Documents\The Plan`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '34s/.*/`python -m unittest discover -s 30_Order\/System\/streak -p test_streak.py`, 2026-10-14: 24 of 24 pass, after `best_streak` was changed to follow the spec (Decision 48). The plugin repository'"'"'s parity tests ran it 220 times against random histories and every day of 20 random months through `--today`, and the numbers matched (87 of 87 tests pass)./' "Reference - streak script.md" && sed -n 34p "Reference - streak script.md"; sed -n 20,24p "Reference - streak script.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '34s/.*/`python -m unittest discover -s 30_Order\/System\/streak -p test_streak.py`, 2026-10-14: 24 of 24 pass, after `best_streak` was changed to follow the spec (Decision 48). The plugin repository'"'"'s parity tests ran it 220 times against random histories and every day of 20 random months through `--today`, and the numbers matched (87 of 87 tests pass)./' "Reference - streak script.md" && sed -n 34p "Reference - streak script.md"; sed -n 20,24p "Reference - streak script.md"
+```
 ```
 `python -m unittest discover -s 30_Order/System/streak -p test_streak.py`, 2026-10-14: 24 of 24 pass, after `best_streak` was changed to follow the spec (Decision 48). The plugin repository's parity tests ran it 220 times against random histories and every day of 20 random months through `--today`, and the numbers matched (87 of 87 tests pass).
 ## Version or date checked
@@ -4565,13 +5221,19 @@ Checked 2026-10-13. Python 3.11 compiled files exist. Run with the Miniconda int
 
 ## What it does here
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '22s/.*/Checked 2026-10-14 with Python 3.14 through `uv run --python 3.14 python`. Run it with `PYTHONDONTWRITEBYTECODE=1` so that no `__pycache__` folder appears in the vault. `python` on the path is only the Microsoft Store stub./' "Reference - streak script.md" && sed -n 22p "Reference - streak script.md"; cd "../.."; sed -i '104s/Run the script with the Miniconda interpreter, because `python` on the path is only the Microsoft Store stub on this laptop\./Run it with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`, because `python` on the path is only the Microsoft Store stub on this laptop./' Standards/Dashboards/"Streak Rule.md"; sed -i '94s/using the Miniconda interpreter/with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`/' "Workflows/Agentic OS/Agentic OS.md"; sed -n 94p "Workflows/Agentic OS/Agentic OS.md" | cut -c1-200; sed -n 104p "Standards/Dashboards/Streak Rule.md" | tail -c 200`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '22s/.*/Checked 2026-10-14 with Python 3.14 through `uv run --python 3.14 python`. Run it with `PYTHONDONTWRITEBYTECODE=1` so that no `__pycache__` folder appears in the vault. `python` on the path is only the Microsoft Store stub./' "Reference - streak script.md" && sed -n 22p "Reference - streak script.md"; cd "../.."; sed -i '104s/Run the script with the Miniconda interpreter, because `python` on the path is only the Microsoft Store stub on this laptop\./Run it with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`, because `python` on the path is only the Microsoft Store stub on this laptop./' Standards/Dashboards/"Streak Rule.md"; sed -i '94s/using the Miniconda interpreter/with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`/' "Workflows/Agentic OS/Agentic OS.md"; sed -n 94p "Workflows/Agentic OS/Agentic OS.md" | cut -c1-200; sed -n 104p "Standards/Dashboards/Streak Rule.md" | tail -c 200
+```
 ```
 Checked 2026-10-14 with Python 3.14 through `uv run --python 3.14 python`. Run it with `PYTHONDONTWRITEBYTECODE=1` so that no `__pycache__` folder appears in the vault. `python` on the path is only the Microsoft Store stub.
 | A skill's numbers look wrong | Compare with `python 30_Order/System/streak/streak.py --today <date>` with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`. They must match. If they do not, st
 rrent 2, best 4, 2 categories done, `at_risk` false. Run it with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`, because `python` on the path is only the Microsoft Store stub on this laptop.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" | grep -v "60_Jarvis/50_Reviews\|Vault Architecture"; node 30_Order/System/plan-cli/plan-cli.cjs validate 30_Order/Templates/Daily\ Dashboard/Daily\ Note.md 2>&1 | head -c 400; git status --short | grep -v "^ M\|^R\|^M" ; ls 30_Order/System/streak`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" | grep -v "60_Jarvis/50_Reviews\|Vault Architecture"; node 30_Order/System/plan-cli/plan-cli.cjs validate 30_Order/Templates/Daily\ Dashboard/Daily\ Note.md 2>&1 | head -c 400; git status --short | grep -v "^ M\|^R\|^M" ; ls 30_Order/System/streak
+```
 ```
 checked 28 notes; problems 11
 {"file":"D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Daily Dashboard/Daily Note.md","previous_day_checked":false,"ok":false,"issues":[{"rule":1,"severity":"error","line":null,"message":"File name \"Daily Note.md\" is not an ISO date (YYYY-MM-DD.md)."},{"rule":2,"severity":"error","line":null,"message":"Parent folder is not 00_Live/Enumerate/Daily."}]}
@@ -4581,7 +5243,10 @@ QuickAdd Setup.md
 streak.py
 test_streak.py
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows/Agentic OS" && sed -i '94s/Compare with `python 30_Order\/System\/streak\/streak.py --today <date>` with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`\./Compare with `streak.py --today <date>` in 30_Order\/System\/streak, run as `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python streak.py --today <date>`./' "Agentic OS.md" && sed -n 94p "Agentic OS.md" | cut -c1-260`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows/Agentic OS" && sed -i '94s/Compare with `python 30_Order\/System\/streak\/streak.py --today <date>` with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`\./Compare with `streak.py --today <date>` in 30_Order\/System\/streak, run as `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python streak.py --today <date>`./' "Agentic OS.md" && sed -n 94p "Agentic OS.md" | cut -c1-260
+```
 ```
 | A skill's numbers look wrong | Compare with `streak.py --today <date>` in 30_Order/System/streak, run as `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python streak.py --today <date>`. They must match. If they do not, stop and report it, because the engine
 ```
@@ -4807,78 +5472,10 @@ _None detected_
 
 **Commands run:**
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls 30_Order 30_Order/Templates 30_Order/System 2>&1; python --version`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/gen.py" <<'EOF'
-import sys, json
-from pathlib import Path
-sys.path.insert(0, ".")
-from test_streak import note, MET, FIVE, TWO
-out = Path("fixtures/sample"); out.mkdir(parents=True, exist_ok=True)
-notes = {
- "2026-03-01": MET, "2026-03-02": FIVE, "2026-03-03": MET, "2026-03-04": TWO,
- "2026-03-05": note(done=("study","mind","career")),
- # 2026-03-06 deliberately missing
- "2026-03-07": note(done=("morning",)),
- "2026-03-08": MET, "2026-03-09": note(done=("morning","study","fitness","mind")),
- "2026-03-10": TWO,
-}
-for k, v in notes.items():
-    (out / f"{k}.md").write_text(v.replace("created: 2026-01-01", f"created: {k}"), encoding="utf-8")
-exp = {"current_streak": 2, "best_streak": 4, "today_categories_done": 2, "today_status": "NOT_YET", "at_risk": False, "first_day": "2026-03-01"}
-(out / "expected.json").write_text(json.dumps(exp, indent=2) + "\n", encoding="utf-8")
-EOF
-uv run --python 3.14 python -I -c "import sys; sys.path.insert(0,'.'); exec(open(r'$S/gen.py').read())" && ls fixtures/sample`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/streak" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/gen.py" <<'EOF' import sys, json from pathlib import Path sys.path.insert(0, ".") from test_streak import note, MET, FIVE, TWO out = Path("fixtures/sample"); out.mkdir(parents=True, exist_ok=True) notes = {  "2026-03-01": MET, "2026-03-02": FIVE, "2026-03-03": MET, "2026-03-04": TWO,  "2026-03-05": note(done=("study","mind","career")),  # 2026-03-06 deliberately missing  "2026-03-07": note(done=("morning",)),  "2026-03-08": MET, "2026-03-09": note(done=("morning","study","fitness","mind")),  "2026-03-10": TWO, } for k, v in notes.items():     (out / f"{k}.md").write_text(v.replace("created: 2026-01-01", f"created: {k}"), encoding="utf-8") exp = {"current_streak": 2, "best_streak": 4, "today_categories_done": 2, "today_status": "NOT_YET", "at_risk": False, "first_day": "2026-03-01"} (out / "expected.json").write_text(json.dumps(exp, indent=2) + "\n", encoding="utf-8") EOF uv run --python 3.14 python -I -c "import sys; sys.path.insert(0,'.'); exec(open(r'$S/gen.py').read())" && ls fixtures/sample`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --oneline -5 -- 30_Order/Workflows 30_Order/Standards/Dashboards | cat; git log -3 --format='%h %s' | cat; grep -rn "Scheduled\|scheduled" --include=*.md 40_Resources/Obsidian/Dashboards 60_Jarvis/00_Control_Center 60_Jarvis/30_AI_Information .claude/skills 2>/dev/null | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,40p 00_Dashboard.md | cut -c1-160; grep -n "streak.py\|Streak\|streak" 00_Dashboard.md | head -12; git log --oneline -3 -- 00_Dashboard.md | cat`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/check.py" <<'EOF'
-import re, sys
-from pathlib import Path
-root = Path(".")
-skip = {".git", ".obsidian", "50_Archive", "node_modules"}
-index = {}
-allpaths = set()
-for p in root.rglob("*"):
-    if any(part in skip for part in p.parts) or not p.is_file(): continue
-    rel = p.as_posix()
-    allpaths.add(rel)
-    index.setdefault(p.stem if p.suffix == ".md" else p.name, []).append(rel)
-files = """30_Order/Standards/Dashboards/Daily Note Schema.md
-30_Order/Standards/Dashboards/Streak Rule.md
-30_Order/Standards/Dashboards/Weekly Review.md
-30_Order/Standards/Dashboards/Monthly Review.md
-30_Order/Standards/Dashboards/Scheduled Review.md
-30_Order/Standards/Jarvis Review.md
-30_Order/Standards/Naming and Folder Map.md
-30_Order/Workflows/Daily Dashboard.md
-30_Order/Workflows/Weekly Review.md
-30_Order/Workflows/Monthly Review.md
-30_Order/Workflows/Jarvis Move.md
-30_Order/Templates/Daily Dashboard/Daily Note.md
-30_Order/Templates/Daily Dashboard/Better Today.md
-30_Order/Templates/Daily Dashboard/Better Week.md
-30_Order/Templates/Daily Dashboard/Better Month.md
-30_Order/Templates/Daily Dashboard/Better Year.md
-30_Order/System/streak/QuickAdd Setup.md""".splitlines()
-bad = 0
-for f in files:
-    t = Path(f).read_text(encoding="utf-8")
-    if "\u2014" in t or "\u2013" in t: print("DASH", f); bad += 1
-    fm = re.match(r"---\n(.*?)\n---", t, re.S)
-    keys = [l.split(":")[0] for l in fm.group(1).splitlines() if re.match(r"^[A-Za-z_]+:", l)] if fm else []
-    if keys[:3] != ["type", "status", "created"]: print("FM ORDER", f, keys[:3]); bad += 1
-    body = re.sub(r"```.*?```", "", t, flags=re.S)  # ignore code blocks
-    body = re.sub(r"`[^`]*`", "", body)
-    for m in re.finditer(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]", body):
-        tgt = m.group(1).strip()
-        if "/" in tgt:
-            ok = (tgt + ".md") in allpaths or tgt in allpaths
-            if not ok: print("MISSING PATH", f, tgt); bad += 1
-        else:
-            hits = index.get(tgt, [])
-            if not hits: print("MISSING", f, tgt); bad += 1
-            elif len(hits) > 1: print("AMBIGUOUS", f, tgt, hits); bad += 1
-print("problems:", bad)
-EOF
-uv run --python 3.14 python -I "$S/check.py"`
+- ````cd "D:/_Anant/20_Progress/Documents/The Plan" && S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "$S/check.py" <<'EOF' import re, sys from pathlib import Path root = Path(".") skip = {".git", ".obsidian", "50_Archive", "node_modules"} index = {} allpaths = set() for p in root.rglob("*"):     if any(part in skip for part in p.parts) or not p.is_file(): continue     rel = p.as_posix()     allpaths.add(rel)     index.setdefault(p.stem if p.suffix == ".md" else p.name, []).append(rel) files = """30_Order/Standards/Dashboards/Daily Note Schema.md 30_Order/Standards/Dashboards/Streak Rule.md 30_Order/Standards/Dashboards/Weekly Review.md 30_Order/Standards/Dashboards/Monthly Review.md 30_Order/Standards/Dashboards/Scheduled Review.md 30_Order/Standards/Jarvis Review.md 30_Order/Standards/Naming and Folder Map.md 30_Order/Workflows/Daily Dashboard.md 30_Order/Workflows/Weekly Review.md 30_Order/Workflows/Monthly Review.md 30_Order/Workflows/Jarvis Move.md 30_Order/Templates/Daily Dashboard/Daily Note.md 30_Order/Templates/Daily Dashboard/Better Today.md 30_Order/Templates/Daily Dashboard/Better Week.md 30_Order/Templates/Daily Dashboard/Better Month.md 30_Order/Templates/Daily Dashboard/Better Year.md 30_Order/System/streak/QuickAdd Setup.md""".splitlines() bad = 0 for f in files:     t = Path(f).read_text(encoding="utf-8")     if "\u2014" in t or "\u2013" in t: print("DASH", f); bad += 1     fm = re.match(r"---\n(.*?)\n---", t, re.S)     keys = [l.split(":")[0] for l in fm.group(1).splitlines() if re.match(r"^[A-Za-z_]+:", l)] if fm else []     if keys[:3] != ["type", "status", "created"]: print("FM ORDER", f, keys[:3]); bad += 1     body = re.sub(r"```.*?```", "", t, flags=re.S)  # ignore code blocks     body = re.sub(r"`[^`]*`", "", body)     for m in re.finditer(r"\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]", body):         tgt = m.group(1).strip()         if "/" in tgt:             ok = (tgt + ".md") in allpaths or tgt in allpaths             if not ok: print("MISSING PATH", f, tgt); bad += 1         else:             hits = index.get(tgt, [])             if not hits: print("MISSING", f, tgt); bad += 1             elif len(hits) > 1: print("AMBIGUOUS", f, tgt, hits); bad += 1 print("problems:", bad) EOF uv run --python 3.14 python -I "$S/check.py"````
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls && git status --short | head -20 && ls src src/core test 2>/dev/null`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -a && ls .obsidian/plugins | head -50 && cat "D:/_Anant/20_Progress/Projects/the-plan-dashboard/package.json" | head -40`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIl "00_Dashboard" .claude .codex .obsidian .opencode .copilot copilot --include=* 2>/dev/null | grep -v -i "copilot/.*data.json" | head; echo ---; grep -o '"homepage\|"value": *"[^"]*"\|"kind": *"[^"]*"' .obsidian/plugins/homepage/data.json | head; echo ---; ls .obsidian/plugins/the-plan-dashboard; grep -n "homepage\|Home" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core/config.ts" | head -20; ls "30_Order/System/plan-cli"; ls -a 30_Order/System/streak`
@@ -4901,22 +5498,8 @@ uv run --python 3.14 python -I "$S/check.py"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && git mv "30_Order/Workflows/Weekly Review.md" "30_Order/Workflows/Run Weekly Review.md" && git mv "30_Order/Workflows/Monthly Review.md" "30_Order/Workflows/Run Monthly Review.md" && FILES=$(grep -rIl "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live 20_Progress 10_UMN AGENTS.md CLAUDE.md) && echo "$FILES" && for f in $FILES; do sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g' "$f"; done; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | cut -c1-260`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -rIlZ "Workflows/Weekly Review\|Workflows/Monthly Review" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | xargs -0 sed -i 's#\[\[30_Order/Workflows/Weekly Review|Weekly Review workflow\]\]#[[Run Weekly Review]]#g; s#\[\[30_Order/Workflows/Monthly Review|Monthly Review workflow\]\]#[[Run Monthly Review]]#g'; grep -rIn "Workflows/Weekly Review\|Workflows/Monthly Review\|Review workflow" --include=*.md 30_Order .claude 40_Resources 60_Jarvis 00_Live | cut -c1-400; ls 30_Order/Workflows; git status --short | head`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 66p "Standards/Naming and Folder Map.md"; sed -n 43p "Standards/Naming and Folder Map.md"; head -25 "Workflows/Run Weekly Review.md" | grep -n "^# "; grep -n "^# " "Workflows/Run Monthly Review.md"; grep -n "Run Weekly\|Run Monthly" "Workflows/Agentic OS/Agentic OS.md"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '20s/^# Weekly Review/# Run Weekly Review/' "Workflows/Run Weekly Review.md" && sed -i '21s/^# Monthly Review/# Run Monthly Review/' "Workflows/Run Monthly Review.md" && sed -i '43s/Weekly Review, Monthly Review, /[[Run Weekly Review]], [[Run Monthly Review]], /' "Standards/Naming and Folder Map.md" && sed -i '66s/.*/Weekly Review and Monthly Review are standards in `Standards\/Dashboards\/`. Their procedures in `Workflows\/` are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no two notes share a name and a bare link always resolves. Give a new procedure a name that differs from the standard it follows./' "Standards/Naming and Folder Map.md" && sed -n 20p "Workflows/Run Weekly Review.md"; sed -n 21p "Workflows/Run Monthly Review.md"; sed -n 43p "Standards/Naming and Folder Map.md"; sed -n 66p "Standards/Naming and Folder Map.md"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && python3 -c 1 2>/dev/null; node -e '
-const fs=require("fs");
-function rep(p,a,b){let t=fs.readFileSync(p,"utf8");const crlf=t.includes("\r\n");if(crlf)t=t.replace(/\r\n/g,"\n");if(!t.includes(a)){console.log("MISSING in "+p+": "+a.slice(0,50));return;}t=t.replace(a,()=>b);if(crlf)t=t.replace(/\n/g,"\r\n");fs.writeFileSync(p,t);}
-const S="Standards/Dashboards/Monthly Review.md";
-rep(S,"## Frozen recap and the archive\n\nThe Monthly layer is meant to produce a frozen recap with static values, so history survives ([[Spec - Automation Layers]]). The recommended archive is that recap, with daily notes staying in `00_Live/Enumerate/Daily`, because the streak needs every daily note and `50_Archive` is never read or written. This is Proposed in [[Decisions Log]] and not confirmed. The recap does not exist yet, and its name and layout are not decided. Nothing moves a daily note.",
-"## The 1st and the frozen month\n\nEvery 1st is a reset for planning and not for the record (Decision 46 in [[Decisions Log]]). On the 1st, in this order:\n\n1. **Learn.** Run the monthly review for the month that ended. The Review Log entry is the record of what happened.\n2. **Improve.** Decide what changes. A change to an action, a cause tag or a threshold goes through [[Decisions Log]] first.\n3. **Plan ahead.** Start the new month from [[Better Month]], with a new plan and goals. The previous 30 days are not carried into it.\n\nThe finished month is **frozen in place**. It stays inside `00_Live/Enumerate`, with its Monthly note and Review Log, and it is not archived until a new year begins. At the turn of the year the finished year is the unit to archive, by Anant's own move, because nothing here writes `50_Archive`.\n\nThe daily notes of a finished month may be rearranged inside `00_Live/Enumerate`. The location is not decided, and it must wait for an engine change. The engine, the streak, the heatmap and rule 2 of the validator read only files directly inside `00_Live/Enumerate/Daily`, and the streak needs the days on both sides of a month boundary. Moving a daily note into another folder today would count its days as MISS. Nothing moves a daily note until the new location is decided and the engine accepts it.");
-rep(S,"- The name, location and layout of the frozen recap, and confirmation that daily notes stay in place.\n- Whether a scheduled run may write an entry. Decision 40 says no review runs unattended. See [[Scheduled Review]].",
-"- Where inside `00_Live/Enumerate` the daily notes of a frozen month are rearranged, and the engine change that goes with it. Until then they stay in `Daily/`.\n- Who moves a finished year to `50_Archive`, and when. Not built.\n- The settings of the unattended monthly run, which are fixed after the process is proven. See [[Scheduled Review]].");
-rep(S,"next: \"Decide the frozen recap name and layout, then run /monthly-review with dry-run on a finished month\"","next: \"Run /monthly-review with dry-run on a finished month, then decide where a frozen month\\u0027s daily notes are rearranged\"");
-const W="Workflows/Run Monthly Review.md";
-rep(W,"## Not yet built\n\nThe frozen monthly recap, the next month\u0027s plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.",
-"## The frozen month\n\nThe month you just reviewed stays in `00_Live/Enumerate` with its Review Log, and is archived only when a new year begins ([[30_Order/Standards/Dashboards/Monthly Review|Monthly Review standard]], Decision 46). Starting the new month does not move or delete the old one.\n\n## Not yet built\n\nThe rearranging of a frozen month\u0027s daily notes, the next month\u0027s plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.");
-rep(W,"7. **Fill your own sections.** The review never writes your Summary, Month plan and goals, Productivity, Good habits, Bad habits, Fixes or Next Move. Fill them from the numbers. Write next month\u0027s plan in the next Monthly note.\n8. **Record decisions.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.",
-"7. **Learn.** The review never writes your Summary, Productivity, Good habits, Bad habits or Fixes. Fill them from the numbers.\n8. **Improve.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.\n9. **Plan ahead.** Start the new month\u0027s note from [[Better Month]] and write its plan and goals. The previous 30 days are not carried into it.");
-'`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '20s/^# Weekly Review/# Run Weekly Review/' "Workflows/Run Weekly Review.md" && sed -i '21s/^# Monthly Review/# Run Monthly Review/' "Workflows/Run Monthly Review.md" && sed -i '43s/Weekly Review, Monthly Review, /[[Run Weekly Review]], [[Run Monthly Review]], /' "Standards/Naming and Folder Map.md" && sed -i '66s/.*/Weekly Review and Monthly Review are standards in `Standards\/Dashboards\/`. Their procedures in `Workflows\/` are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no two notes share a name and a bare link always resolves. Give a new procedure a name that differs from the standard it follows./' "Standards/Naming and Folder Map.md" && sed -n 20p "Workflows/Run Weekly Review.md"; sed -n 21p "Workflows/Run Monthly Review.md"; sed -n 43p "Standards/Naming and Folder Map.md"; sed -n 66p "Standards/Naming and Folder Map.md"``
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && python3 -c 1 2>/dev/null; node -e ' const fs=require("fs"); function rep(p,a,b){let t=fs.readFileSync(p,"utf8");const crlf=t.includes("\r\n");if(crlf)t=t.replace(/\r\n/g,"\n");if(!t.includes(a)){console.log("MISSING in "+p+": "+a.slice(0,50));return;}t=t.replace(a,()=>b);if(crlf)t=t.replace(/\n/g,"\r\n");fs.writeFileSync(p,t);} const S="Standards/Dashboards/Monthly Review.md"; rep(S,"## Frozen recap and the archive\n\nThe Monthly layer is meant to produce a frozen recap with static values, so history survives ([[Spec - Automation Layers]]). The recommended archive is that recap, with daily notes staying in `00_Live/Enumerate/Daily`, because the streak needs every daily note and `50_Archive` is never read or written. This is Proposed in [[Decisions Log]] and not confirmed. The recap does not exist yet, and its name and layout are not decided. Nothing moves a daily note.", "## The 1st and the frozen month\n\nEvery 1st is a reset for planning and not for the record (Decision 46 in [[Decisions Log]]). On the 1st, in this order:\n\n1. **Learn.** Run the monthly review for the month that ended. The Review Log entry is the record of what happened.\n2. **Improve.** Decide what changes. A change to an action, a cause tag or a threshold goes through [[Decisions Log]] first.\n3. **Plan ahead.** Start the new month from [[Better Month]], with a new plan and goals. The previous 30 days are not carried into it.\n\nThe finished month is **frozen in place**. It stays inside `00_Live/Enumerate`, with its Monthly note and Review Log, and it is not archived until a new year begins. At the turn of the year the finished year is the unit to archive, by Anant's own move, because nothing here writes `50_Archive`.\n\nThe daily notes of a finished month may be rearranged inside `00_Live/Enumerate`. The location is not decided, and it must wait for an engine change. The engine, the streak, the heatmap and rule 2 of the validator read only files directly inside `00_Live/Enumerate/Daily`, and the streak needs the days on both sides of a month boundary. Moving a daily note into another folder today would count its days as MISS. Nothing moves a daily note until the new location is decided and the engine accepts it."); rep(S,"- The name, location and layout of the frozen recap, and confirmation that daily notes stay in place.\n- Whether a scheduled run may write an entry. Decision 40 says no review runs unattended. See [[Scheduled Review]].", "- Where inside `00_Live/Enumerate` the daily notes of a frozen month are rearranged, and the engine change that goes with it. Until then they stay in `Daily/`.\n- Who moves a finished year to `50_Archive`, and when. Not built.\n- The settings of the unattended monthly run, which are fixed after the process is proven. See [[Scheduled Review]]."); rep(S,"next: \"Decide the frozen recap name and layout, then run /monthly-review with dry-run on a finished month\"","next: \"Run /monthly-review with dry-run on a finished month, then decide where a frozen month\\u0027s daily notes are rearranged\""); const W="Workflows/Run Monthly Review.md"; rep(W,"## Not yet built\n\nThe frozen monthly recap, the next month\u0027s plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them.", "## The frozen month\n\nThe month you just reviewed stays in `00_Live/Enumerate` with its Review Log, and is archived only when a new year begins ([[30_Order/Standards/Dashboards/Monthly Review|Monthly Review standard]], Decision 46). Starting the new month does not move or delete the old one.\n\n## Not yet built\n\nThe rearranging of a frozen month\u0027s daily notes, the next month\u0027s plan skeleton and the unattended 1st-of-month run are part of the Monthly layer in [[Spec - Automation Layers]]. They are not built. Do not expect this review to produce them."); rep(W,"7. **Fill your own sections.** The review never writes your Summary, Month plan and goals, Productivity, Good habits, Bad habits, Fixes or Next Move. Fill them from the numbers. Write next month\u0027s plan in the next Monthly note.\n8. **Record decisions.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.", "7. **Learn.** The review never writes your Summary, Productivity, Good habits, Bad habits or Fixes. Fill them from the numbers.\n8. **Improve.** If the causes show an action that is too hard or an action that should change, record it in [[Decisions Log]] before changing the template.\n9. **Plan ahead.** Start the new month\u0027s note from [[Better Month]] and write its plan and goals. The previous 30 days are not carried into it."); '``
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -n 35p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 124p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 103p "Workflows/Agentic OS/Agentic OS.md"; grep -n "Jarvis Review\|Jarvis Move" "Workflows/Jarvis Move.md" | head -5; sed -n 1,30p "Workflows/Jarvis Move.md"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order" && sed -i '133s/.*/- The settings of the unattended weekly run, which are fixed after the process is proven. See [[Scheduled Review]]./' "Standards/Dashboards/Weekly Review.md" && sed -i '35s/Nothing runs unattended (\[\[Scheduled Review\]\])\./A manual run never writes without a yes. The weekly and monthly reviews are intended to run unattended later, under the conditions in [[Scheduled Review]]./' "Standards/Agentic OS/Agentic OS Standard.md" && sed -i '124s/.*/- Scheduled and unattended runs are not built and not authorised yet. They are intended for the weekly and monthly reviews only, after the process is proven ([[Scheduled Review]])./' "Standards/Agentic OS/Agentic OS Standard.md" && sed -i '103s/the frozen monthly recap, the next-month skeleton/the rearranging of a frozen month, the next-month skeleton/' "Workflows/Agentic OS/Agentic OS.md" && sed -n 133p "Standards/Dashboards/Weekly Review.md"; sed -n 35p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 124p "Standards/Agentic OS/Agentic OS Standard.md"; sed -n 103p "Workflows/Agentic OS/Agentic OS.md"; grep -n "recap" -r . --include=*.md | cut -c1-200`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis" && ls; grep -rn 'FROM "60_Jarvis\|from "60_Jarvis\|60_Jarvis/[0-9][0-9]_[A-Za-z_]*' --include=*.md . 2>/dev/null | grep -i "dataview\|FROM\|WHERE\|from" | cut -c1-260 | head -30; sed -n 20,50p "60_Jarvis Board.md"`
@@ -4929,38 +5512,16 @@ rep(W,"7. **Fill your own sections.** The review never writes your Summary, Mont
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && sed -i 's#"00_Inbox/Headway/Enumerate/#"00_Live/Enumerate/#' "Enumerate Board.md" && for d in Yearly Monthly Weekly; do echo "$d:"; grep -h "^type:" $d/*.md | sort | uniq -c; done; echo Daily:; grep -h "^type:" Daily/*.md | sort | uniq -c; grep -n "^FROM" "Enumerate Board.md"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Enumerate" && sed -i '/^FROM "00_Live\/Enumerate\/Daily"/{n;s/WHERE type = "thought"/WHERE type = "thought" OR type = "daily"/}' "Enumerate Board.md" && sed -n 32,40p "Enumerate Board.md"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat "00_Live/Life OS.md" | cut -c1-400; grep -rn "00_Dashboard" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests" | head; find . -name "Projects Board.md" -o -name "BOOM Board.md" -o -name "Life OS.md" -o -name "Dashboards Hub.md" | grep -v "^./50_"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls "00_Live/Enumerate/Monthly/2026-10.md" "30_Order/Standards/References/Reference - the-plan-dashboard.md" "AI AGENT.md" && sed -i '27s/.*/- [[Dashboards Hub]] is the entry to the active dashboard (the private plugin view) and carries the navigation links. The old `00_Dashboard.md` page was retired on 2026-10-14./' AGENTS.md && sed -n 27p AGENTS.md && sed -i '13s/.*/- Dashboard: [[Dashboards Hub]]./' 60_Jarvis/AI_CONTEXT.md && sed -n 13p 60_Jarvis/AI_CONTEXT.md && sed -i 's/^  - "\[\[00_Dashboard\]\]"$/  - "[[Dashboards Hub]]"/' "60_Jarvis/50_Reviews/Agentic OS/Ops Reports/Jarvis Ops Report - 2026-04-24 20260424-170132.md" "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/Jarvis Multi-Agent PKM Plan.md" && grep -n "Dashboards Hub" 60_Jarvis/50_Reviews -r | cut -c1-160; sed -i '41s/`AGENTS.md` and `00_Dashboard.md`/`AGENTS.md` and `CLAUDE.md`/' "30_Order/Standards/Agentic OS/Hook Standard.md" && sed -n 41p "30_Order/Standards/Agentic OS/Hook Standard.md"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i '43s/.*/| Home | Streak, ring, today'"'"'s ticks, heatmap. The private plugin view is the dashboard ([[Reference - the-plan-dashboard]]). The older markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). | `.obsidian\/plugins\/the-plan-dashboard\/` |/' "30_Order/Workflows/Daily Dashboard.md" && sed -n 43p "30_Order/Workflows/Daily Dashboard.md" && sed -n 40p "40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md"`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan" && ls "00_Live/Enumerate/Monthly/2026-10.md" "30_Order/Standards/References/Reference - the-plan-dashboard.md" "AI AGENT.md" && sed -i '27s/.*/- [[Dashboards Hub]] is the entry to the active dashboard (the private plugin view) and carries the navigation links. The old `00_Dashboard.md` page was retired on 2026-10-14./' AGENTS.md && sed -n 27p AGENTS.md && sed -i '13s/.*/- Dashboard: [[Dashboards Hub]]./' 60_Jarvis/AI_CONTEXT.md && sed -n 13p 60_Jarvis/AI_CONTEXT.md && sed -i 's/^  - "\[\[00_Dashboard\]\]"$/  - "[[Dashboards Hub]]"/' "60_Jarvis/50_Reviews/Agentic OS/Ops Reports/Jarvis Ops Report - 2026-04-24 20260424-170132.md" "60_Jarvis/50_Reviews/Jarvis/Project Brief Reviews/Jarvis Multi-Agent PKM Plan.md" && grep -n "Dashboards Hub" 60_Jarvis/50_Reviews -r | cut -c1-160; sed -i '41s/`AGENTS.md` and `00_Dashboard.md`/`AGENTS.md` and `CLAUDE.md`/' "30_Order/Standards/Agentic OS/Hook Standard.md" && sed -n 41p "30_Order/Standards/Agentic OS/Hook Standard.md"``
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i '43s/.*/| Home | Streak, ring, today'"'"'s ticks, heatmap. The private plugin view is the dashboard ([[Reference - the-plan-dashboard]]). The older markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). | `.obsidian\/plugins\/the-plan-dashboard\/` |/' "30_Order/Workflows/Daily Dashboard.md" && sed -n 43p "30_Order/Workflows/Daily Dashboard.md" && sed -n 40p "40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md"``
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && rm "00_Dashboard.md" && ls 00_Dashboard.md 2>&1 | head -1; rm -rf 30_Order/System/streak/__pycache__ && ls -a 30_Order/System/streak; git status --short | grep -i "pycache"; grep -n "pycache" .gitignore`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && grep -n "^| 45\|^| 46\|^| 49\|^## Proposed" "Decisions Log.md" | cut -c1-40; sed -n 70,72p "Decisions Log.md" | cut -c1-30`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i '70{/^$/d}' "Decisions Log.md" && grep -n "^| 45\|^| 46\|^## Proposed" "Decisions Log.md" | cut -c1-30; sed -n 68,72p "Decisions Log.md" | cut -c1-25; sed -n 74,80p "Decisions Log.md" | cut -c1-60`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards" && head -20 "The Plan Vault Architecture.md"; grep -n "Templates\|Standards\|Workflows\|Headway Templates\|Previous Templates\|Current standards\|^#" "The Plan Vault Architecture.md" | cut -c1-200`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md" && mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" <<'EOF'
-const fs=require("fs"),path=require("path"),cp=require("child_process");
-const root=process.cwd();
-const skip=new Set([".git","50_Archive","node_modules",".obsidian","copilot",".copilot",".opencode"]);
-const all=[];
-(function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(skip.has(e.name))continue;const p=path.join(d,e.name);if(e.isDirectory())walk(p);else all.push(p);}})(root);
-const rel=p=>path.relative(root,p).replace(/\\/g,"/");
-const byBase=new Map(),paths=new Set();
-for(const f of all){const r=rel(f);paths.add(r);paths.add(r.replace(/\.md$/,""));const b=path.basename(f).replace(/\.md$/,"");if(!byBase.has(b))byBase.set(b,[]);byBase.get(b).push(r);}
-const changed=cp.execSync("git status --porcelain",{encoding:"utf8"}).split("\n").filter(Boolean).map(l=>l.slice(3).replace(/^"|"$/g,"").replace(/.* -> /,"")).filter(f=>f.endsWith(".md")&&fs.existsSync(f));
-let bad=0;
-for(const f of changed){const t=fs.readFileSync(f,"utf8");
- if(/\u2014/.test(t)){console.log("EM DASH",f);bad++;}
- const nocode=t.replace(/```[\s\S]*?```/g,"").replace(/`[^`\n]*`/g,"");
- for(const m of nocode.matchAll(/\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]/g)){
-  let tgt=m[1].trim().replace(/\.md$/,"");
-  if(tgt.includes("/")){if(!paths.has(tgt)){console.log("MISSING",f,"->",tgt);bad++;}}
-  else{const c=byBase.get(tgt);if(!c){console.log("MISSING",f,"->",tgt);bad++;}else if(c.length>1){console.log("AMBIGUOUS",f,"->",tgt,c.join(" | "));bad++;}}
- }}
-console.log("checked",changed.length,"notes; problems",bad);
-EOF
-node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md"; node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '34s/.*/`python -m unittest discover -s 30_Order\/System\/streak -p test_streak.py`, 2026-10-14: 24 of 24 pass, after `best_streak` was changed to follow the spec (Decision 48). The plugin repository'"'"'s parity tests ran it 220 times against random histories and every day of 20 random months through `--today`, and the numbers matched (87 of 87 tests pass)./' "Reference - streak script.md" && sed -n 34p "Reference - streak script.md"; sed -n 20,24p "Reference - streak script.md"`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '22s/.*/Checked 2026-10-14 with Python 3.14 through `uv run --python 3.14 python`. Run it with `PYTHONDONTWRITEBYTECODE=1` so that no `__pycache__` folder appears in the vault. `python` on the path is only the Microsoft Store stub./' "Reference - streak script.md" && sed -n 22p "Reference - streak script.md"; cd "../.."; sed -i '104s/Run the script with the Miniconda interpreter, because `python` on the path is only the Microsoft Store stub on this laptop\./Run it with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`, because `python` on the path is only the Microsoft Store stub on this laptop./' Standards/Dashboards/"Streak Rule.md"; sed -i '94s/using the Miniconda interpreter/with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`/' "Workflows/Agentic OS/Agentic OS.md"; sed -n 94p "Workflows/Agentic OS/Agentic OS.md" | cut -c1-200; sed -n 104p "Standards/Dashboards/Streak Rule.md" | tail -c 200`
+- ````cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md" && mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad" && cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" <<'EOF' const fs=require("fs"),path=require("path"),cp=require("child_process"); const root=process.cwd(); const skip=new Set([".git","50_Archive","node_modules",".obsidian","copilot",".copilot",".opencode"]); const all=[]; (function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(skip.has(e.name))continue;const p=path.join(d,e.name);if(e.isDirectory())walk(p);else all.push(p);}})(root); const rel=p=>path.relative(root,p).replace(/\\/g,"/"); const byBase=new Map(),paths=new Set(); for(const f of all){const r=rel(f);paths.add(r);paths.add(r.replace(/\.md$/,""));const b=path.basename(f).replace(/\.md$/,"");if(!byBase.has(b))byBase.set(b,[]);byBase.get(b).push(r);} const changed=cp.execSync("git status --porcelain",{encoding:"utf8"}).split("\n").filter(Boolean).map(l=>l.slice(3).replace(/^"|"$/g,"").replace(/.* -> /,"")).filter(f=>f.endsWith(".md")&&fs.existsSync(f)); let bad=0; for(const f of changed){const t=fs.readFileSync(f,"utf8");  if(/\u2014/.test(t)){console.log("EM DASH",f);bad++;}  const nocode=t.replace(/```[\s\S]*?```/g,"").replace(/`[^`\n]*`/g,"");  for(const m of nocode.matchAll(/\[\[([^\]|#]+)(?:#[^\]|]*)?(?:\|[^\]]*)?\]\]/g)){   let tgt=m[1].trim().replace(/\.md$/,"");   if(tgt.includes("/")){if(!paths.has(tgt)){console.log("MISSING",f,"->",tgt);bad++;}}   else{const c=byBase.get(tgt);if(!c){console.log("MISSING",f,"->",tgt);bad++;}else if(c.length>1){console.log("AMBIGUOUS",f,"->",tgt,c.join(" | "));bad++;}}  }} console.log("checked",changed.length,"notes; problems",bad); EOF node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"````
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's/have moved out of `Templates\/`\./are no longer in `Templates\/`./' "30_Order/Standards/The Plan Vault Architecture.md"; node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs"``
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '34s/.*/`python -m unittest discover -s 30_Order\/System\/streak -p test_streak.py`, 2026-10-14: 24 of 24 pass, after `best_streak` was changed to follow the spec (Decision 48). The plugin repository'"'"'s parity tests ran it 220 times against random histories and every day of 20 random months through `--today`, and the numbers matched (87 of 87 tests pass)./' "Reference - streak script.md" && sed -n 34p "Reference - streak script.md"; sed -n 20,24p "Reference - streak script.md"``
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/References" && sed -i '22s/.*/Checked 2026-10-14 with Python 3.14 through `uv run --python 3.14 python`. Run it with `PYTHONDONTWRITEBYTECODE=1` so that no `__pycache__` folder appears in the vault. `python` on the path is only the Microsoft Store stub./' "Reference - streak script.md" && sed -n 22p "Reference - streak script.md"; cd "../.."; sed -i '104s/Run the script with the Miniconda interpreter, because `python` on the path is only the Microsoft Store stub on this laptop\./Run it with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`, because `python` on the path is only the Microsoft Store stub on this laptop./' Standards/Dashboards/"Streak Rule.md"; sed -i '94s/using the Miniconda interpreter/with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`/' "Workflows/Agentic OS/Agentic OS.md"; sed -n 94p "Workflows/Agentic OS/Agentic OS.md" | cut -c1-200; sed -n 104p "Standards/Dashboards/Streak Rule.md" | tail -c 200``
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-The-Plan/ffc15af2-1115-4604-8d96-503f2cdbccd1/scratchpad/check.cjs" | grep -v "60_Jarvis/50_Reviews\|Vault Architecture"; node 30_Order/System/plan-cli/plan-cli.cjs validate 30_Order/Templates/Daily\ Dashboard/Daily\ Note.md 2>&1 | head -c 400; git status --short | grep -v "^ M\|^R\|^M" ; ls 30_Order/System/streak`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows/Agentic OS" && sed -i '94s/Compare with `python 30_Order\/System\/streak\/streak.py --today <date>` with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`\./Compare with `streak.py --today <date>` in 30_Order\/System\/streak, run as `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python streak.py --today <date>`./' "Agentic OS.md" && sed -n 94p "Agentic OS.md" | cut -c1-260`
-
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows/Agentic OS" && sed -i '94s/Compare with `python 30_Order\/System\/streak\/streak.py --today <date>` with `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python`\./Compare with `streak.py --today <date>` in 30_Order\/System\/streak, run as `PYTHONDONTWRITEBYTECODE=1 uv run --python 3.14 python streak.py --today <date>`./' "Agentic OS.md" && sed -n 94p "Agentic OS.md" | cut -c1-260``
 

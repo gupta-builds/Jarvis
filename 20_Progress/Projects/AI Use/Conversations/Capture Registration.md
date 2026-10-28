@@ -49,6 +49,17 @@ Neither entry carries a `timeout` or `async` key, so `SessionEnd` runs under the
 | `ThePlan-GitSync` | not read | not read | not read | The Plan vault |
 Not registered on the Acer: `Jarvis-Cursor-Session-Export` (the Cursor sweep) and `SecondBrainClaudekit-JarvisSync` (the Unison leg).
 Checks used: `Get-ScheduledTask` with `Get-ScheduledTaskInfo` for the tasks; a read of both settings files for the hooks; `Get-Content` on `jarvis-session-activity.jsonl` for the hook's own trail.
+## Project routing (Acer Windows)
+Which project folder a session lands in comes from its working directory, through one editable file: `30_Order/System/claude-workflow/capture-projects.json`. The exporter reads it on every run. The rules are checked in order and the first match wins. A path under a rule means the folder itself or anything inside it; a path must match whole folder names, so `Jarvis-old` is not inside `Jarvis`. Case is ignored.
+| Order | Project folder | Match | Path |
+|---|---|---|---|
+| 1 | `Jarvis` | under | the vault, `D:\_Anant\20_Progress\Documents\Jarvis` |
+| 2 | `The Plan` | under | `D:\_Anant\20_Progress\Documents\The Plan` |
+| 3 | `UMN Courses` | under | `D:\_Anant\10_Areas\UMN` |
+| 4 | `Home` | exact | `C:\Users\anant` |
+| 5 | `Scratch` | under | `%LOCALAPPDATA%\Temp\claude` |
+A directory no rule matches gets a folder named after its last path segment, so a new place Claude Code is used is recorded without any edit. An empty cwd gives `Unknown`. To add a project, add a rule to the file; put narrower paths above wider ones. If the file is missing or invalid, the exporter uses the built-in Jarvis, The Plan and Home rules and writes one line to `%LOCALAPPDATA%\claude-capture\routing.log`; it never fails the hook. `Scratch` holds Claude Code's own scratch folders, so one-off test runs do not each become a project; the owner is asked to confirm it. A session stays in the folder holding its `.exported` marker, so changing a rule moves only new sessions. Moving old ones is `scripts/reroute-acer-notes.ps1` followed by `export-claude-session.ps1 -BackfillAll -Force`; both are in [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
+`UMN Courses` folds every course into one folder, so its `_raw_jsonl` junction points at one Claude Code transcript folder only and is a partial view of the course transcripts.
 ## Acer, WSL (from Build 5c, 2026-10-17; not re-verified)
 | What | Value |
 |---|---|

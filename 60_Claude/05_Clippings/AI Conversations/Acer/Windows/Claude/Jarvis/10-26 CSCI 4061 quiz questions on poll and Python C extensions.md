@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4061 quiz questions on poll and Python C extensions"
 started_at: 2026-10-26T22:08:20
 ended_at: 2026-10-26T22:15:15
-exported_at: 2026-10-26T22:33:03
+exported_at: 2026-10-28T16:15:31
 duration_minutes: 6.9
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 7e3204f7-59b9-4295-be60-987f1fd22f46
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-26
+updated: 2026-10-28
 turn_count: 4
 tools_used:
   Glob: 1
@@ -23,7 +26,7 @@ tokens:
   cache_creation: 38477
   cache_read: 418343
   total: 460566
-cost_usd: null
+cost_usd: 0.233074
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -466,5 +469,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

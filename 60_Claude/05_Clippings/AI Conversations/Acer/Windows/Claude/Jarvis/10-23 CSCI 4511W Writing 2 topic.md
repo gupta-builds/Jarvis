@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "CSCI 4511W Writing 2 topic"
 started_at: 2026-10-23T13:44:06
 ended_at: 2026-10-23T23:58:15
-exported_at: 2026-10-25T00:08:42
+exported_at: 2026-10-28T16:15:18
 duration_minutes: 614.2
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-23
+updated: 2026-10-28
 turn_count: 25
 tools_used:
   Agent: 4
@@ -30,7 +33,7 @@ tokens:
   cache_creation: 729833
   cache_read: 28110080
   total: 29008327
-cost_usd: null
+cost_usd: 7.412784
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -140,7 +143,7 @@ Sources:
 
 ### Tool Calls
 
-- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/Assignments/Written/**/*` path ``
+- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/Assignments/Written/**/*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 - `ToolSearch` -- `{"query":"select:WebSearch","max_results":1}`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing 1 - Learn the Tools.md`
@@ -150,14 +153,20 @@ Sources:
 - `WebSearch` -- `{"query":"Gomes Selman Kautz Boosting Combinatorial Search Through Randomization AAAI 1998 heavy-tailed restarts","mode":"standard"}`
 - `Agent` -- `{"description":"Read D* Lite paper","subagent_type":"web-fetch","prompt":"Fetch https://cse-robotics.engr.tamu.edu/dshell/cs625/aaai02b.pdf (Koenig and Likhachev, \"D* Lite\", AAAI 2002). Report precisely: (1) the exact venue/pages/year; (2) how the algorithm works: backward search from goal, g and rhs values, local consistency, priority key definition (both components), the km term and why it\u0027s needed, what happens when an edge cost changes (UpdateVertex, ComputeShortestPath); (3) the experimental setup and the actual numbers/results (what it was compared against, metrics like vertex expansions, heap percolates, runtime; grid sizes; which terrain), and any claims about Focussed D*; (4) the proofs/theorems stated; (5) limitations or assumptions (e.g., 8-connected grids, robot sensing radius, consistent heuristics); (6) the paper\u0027s reference list entries (authors, title, venue, year) so I can see which are books, conference papers, journal articles. Be specific and quote numbers."}`
 - `Read` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\tool-results\webfetch-1792781078632-dk3wtl.pdf`
-- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" && python -I -c "import pypdf" 2>&1 | head -1; python -I -c "import fitz" 2>&1 | head -1; which pdftotext`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" && python -I -c "import pypdf" 2>&1 | head -1; python -I -c "import fitz" 2>&1 | head -1; which pdftotext
+```
 ```
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
 /mingw64/bin/pdftotext
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `pdftotext -layout "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad/dstarlite.txt" && wc -l "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad/dstarlite.txt"`
+- `Bash`
+```bash
+pdftotext -layout "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad/dstarlite.txt" && wc -l "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad/dstarlite.txt"
+```
 ```
 654 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/dstarlite.txt
 ```
@@ -238,7 +247,10 @@ Can you get me that template? In Overleaf use Menu > Source, or download the fil
 
 ### Tool Calls
 
-- `Bash` -- `which mineru magic-pdf 2>&1; echo ---; mineru --version 2>&1 | head -3; echo ---; pip list 2>/dev/null | grep -i -E "mineru|magic" ; echo ---; ls ~/.claude/skills 2>/dev/null | head; ls "C:/Users/anant/AppData/Local/Programs" 2>/dev/null | head -30`
+- `Bash`
+```bash
+which mineru magic-pdf 2>&1; echo ---; mineru --version 2>&1 | head -3; echo ---; pip list 2>/dev/null | grep -i -E "mineru|magic" ; echo ---; ls ~/.claude/skills 2>/dev/null | head; ls "C:/Users/anant/AppData/Local/Programs" 2>/dev/null | head -30
+```
 ```
 which: no magic-pdf in (/c/Users/anant/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/anant/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps/Microsoft.[REDACTED]:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR:/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/c/Program Files/starship/bin:/c/Program Files/nodejs:/cmd:/c/Program Files/Tailscale:/c/Program Files/GitHub CLI:/c/Program Files/WSL:/c/Users/anant/.local/bin:/d/Apps/Hermes/bin:/c/Users/anant/AppData/Local/agy/bin:/c/Users/anant/AppData/Local/Programs/Jan/resources/bin:/c/Users/anant/AppData/Local/Microsoft/WindowsApps:/c/Users/anant/AppData/Local/PowerToys/DSCModules:/d/Apps/Microsoft VS Code/bin:/d/Apps/Cursor/resources/app/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.2.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-9.0.1-full_build/bin:/c/Users/anant/AppData/Local/Programs/Cua/cua-driver/bin:/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin:/c/Users/anant/AppData/Local/Programs/Ollama:/c/Users/anant/AppData/Local/Microsoft/WinGet/Links:/c/Users/anant/AppData/Roaming/npm:/d/Apps/Hermes/git/cmd:/d/Apps/Hermes/git/bin:/d/Apps/Hermes/git/usr/bin:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/AI/npm-global:/d/Apps/Obsidian:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/junegunn.fzf_Microsoft.Winget.Source_8wekyb3d8bbwe:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe/fd-v10.5.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/sharkdp.bat_Microsoft.Winget.Source_8wekyb3d8bbwe/bat-v0.26.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/dandavison.delta_Microsoft.Winget.Source_8wekyb3d8bbwe/delta-0.20.[REDACTED]:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/ajeetdsouza.zoxide_Microsoft.Winget.Source_8wekyb3d8bbwe:/c/Users/anant/AppData/Local/Microsoft/WinGet/Packages/pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe:/d/Apps/Microsoft VS Code/bin/copilot-shim:/usr/bin/vendor_perl:/usr/bin/core_perl)
 /c/Users/anant/.local/bin/mineru
@@ -258,11 +270,44 @@ Ollama
 antigravity
 todoist
 ```
-- `PowerShell` -- `{"command":"Get-Command mineru, magic-pdf, pdftotext, uv, pipx -ErrorAction SilentlyContinue | Select-Object Name, Source | Format-Table -AutoSize | Out-String; Get-ChildItem \"$env:USERPROFILE\\.local\\bin\" -ErrorAction SilentlyContinue | Select-Object -First 30 Name","description":"Find mineru and PDF tools on PATH"}`
+- `PowerShell`
+```powershell
+Get-Command mineru, magic-pdf, pdftotext, uv, pipx -ErrorAction SilentlyContinue | Select-Object Name, Source | Format-Table -AutoSize | Out-String; Get-ChildItem "$env:USERPROFILE\.local\bin" -ErrorAction SilentlyContinue | Select-Object -First 30 Name
+```
+```
+Name       Source
+----       ------
+mineru.exe C:\Users\anant\.local\bin\mineru.exe
+uv.exe     C:\Users\anant\.local\bin\uv.exe
+
+
+
+Name
+----
+claude.exe
+claude.exe.old.1792727342133.39308
+mineru-api.exe
+mineru-kit.exe
+mineru-models-download.exe
+mineru-openai-server.exe
+mineru-router.exe
+mineru-webui.exe
+mineru.exe
+python3.12.exe
+python3.13.exe
+python3.14.exe
+rg.exe
+uv.exe
+uvw.exe
+uvx.exe
+```
 - `Grep` -- pattern `mineru` path `D:\_Anant\20_Progress\Documents\Jarvis`
 - `Grep` -- pattern `mineru` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Textbook\Textbook Map.md`
 - `Grep` -- pattern `mineru( |\.exe)[^\n]*(-p|--path|-o|--output)` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md`
-- `Bash` -- `mineru --help 2>&1 | head -40`
+- `Bash`
+```bash
+mineru --help 2>&1 | head -40
+```
 ```
  Usage: mineru [OPTIONS] COMMAND [ARGS]...                                     
                                                                                
@@ -293,7 +338,10 @@ todoist
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Textbook\Textbook Map.md`
-- `Bash` -- `mineru parse --help 2>&1 | head -50; echo ----; mineru read --help 2>&1 | head -30`
+- `Bash`
+```bash
+mineru parse --help 2>&1 | head -50; echo ----; mineru read --help 2>&1 | head -30
+```
 ```
  Usage: mineru parse [OPTIONS] {path}                                          
                                                                                
@@ -362,20 +410,26 @@ todoist
 │ --help                                 Show this message and exit.          │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru parse "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" -p all --wait 300 -o "$SP/dstarlite_mineru.md" 2>&1 | tail -5
-echo ===; wc -l "$SP/dstarlite_mineru.md"`
+echo ===; wc -l "$SP/dstarlite_mineru.md"
+```
 ```
 Exit code 1
 Error: Local mineru server is not running. Run 'mineru server start'.
 ===
 wc: 'C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/dstarlite_mineru.md': No such file or directory
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 D="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/HW"
 mineru parse "$D/How to Cite in LaTeX (Citation Guide).pdf" -p all --wait 300 -o "$SP/cite_guide.md" 2>&1 | tail -3
 mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 -o "$SP/writing1_prompt.md" 2>&1 | tail -3
-wc -l "$SP/cite_guide.md" "$SP/writing1_prompt.md"; ls -la "$D"`
+wc -l "$SP/cite_guide.md" "$SP/writing1_prompt.md"; ls -la "$D"
+```
 ```
 Error: Local mineru server is not running. Run 'mineru server start'.
 Error: Local mineru server is not running. Run 'mineru server start'.
@@ -391,7 +445,10 @@ drwxr-xr-x 1 anant 197609      0 Oct 12 14:52 ..
 -rw-r--r-- 1 anant 197609  97279 Oct  9 22:11 ps2.pdf
 -rw-r--r-- 1 anant 197609    825 Oct  2 12:22 wa1_template.tex
 ```
-- `Bash` -- `mineru server --help 2>&1 | head -25; echo ---; mineru server status 2>&1 | head`
+- `Bash`
+```bash
+mineru server --help 2>&1 | head -25; echo ---; mineru server status 2>&1 | head
+```
 ```
  Usage: mineru server [OPTIONS] COMMAND [ARGS]...                              
                                                                                
@@ -410,7 +467,10 @@ drwxr-xr-x 1 anant 197609      0 Oct 12 14:52 ..
 ---
 Server is not running.
 ```
-- `Bash` -- `mineru server start 2>&1 | tail -5; sleep 5; mineru server status 2>&1 | head -5`
+- `Bash`
+```bash
+mineru server start 2>&1 | tail -5; sleep 5; mineru server status 2>&1 | head -5
+```
 ```
 Server started (PID 4508).
                       MinerU Server                       
@@ -419,12 +479,15 @@ Server started (PID 4508).
 ├───────────────┼────────────────────────────────────────┤
 │ PID           │ 50516                                  │
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 D="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/HW"
 mineru parse "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" -p all --wait 300 -o "$SP/dstarlite_mineru.md" 2>&1 | tail -3
 mineru parse "$D/How to Cite in LaTeX (Citation Guide).pdf" -p all --wait 300 -o "$SP/cite_guide.md" 2>&1 | tail -3
 mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 -o "$SP/writing1_prompt.md" 2>&1 | tail -3
-wc -l "$SP"/*.md; echo; cat "$D/wa1_template.tex"`
+wc -l "$SP"/*.md; echo; cat "$D/wa1_template.tex"
+```
 ```
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\dstarlite_mineru.md
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\cite_guide.md
@@ -486,7 +549,10 @@ Don't forget citations!
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\writing1_prompt.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing 1 - Learn the Tools.md`
 - `Glob` -- pattern `**/*acmtemplate*` path `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`
-- `Bash` -- `ls -la "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/" 2>&1 | head -40`
+- `Bash`
+```bash
+ls -la "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/" 2>&1 | head -40
+```
 ```
 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/:
 total 33972
@@ -506,7 +572,10 @@ drwxr-xr-x 1 anant 197609      0 Oct 12 14:52 HW
 -rw-r--r-- 1 anant 197609 195035 Oct 12 14:46 longquiz1-f24.pdf
 ```
 - `WebSearch` -- `{"query":"Koenig Likhachev \"D* Lite\" Proceedings of the Eighteenth National Conference on Artificial Intelligence AAAI-02 pages 476-483 Edmonton","mode":"extended"}`
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"; ls -la "HW & Exams/HW" Code Code/* 2>&1 | head -50; echo ---; ls Lecture | head -50; echo ---; ls Discussion | head`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"; ls -la "HW & Exams/HW" Code Code/* 2>&1 | head -50; echo ---; ls Lecture | head -50; echo ---; ls Discussion | head
+```
 ```
 Code:
 total 13
@@ -580,10 +649,13 @@ Discussion 7.pdf
 turing.pdf
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/**/*.md` path ``
+- `Glob` -- pattern `20_Progress/Degree/CSCI 4511W/**/*.md` path ` `
 - `Agent` -- `{"description":"Read AAAI official D* Lite page","subagent_type":"web-fetch","prompt":"Fetch these pages and report the exact bibliographic metadata for the paper \"D* Lite\" by Sven Koenig and Maxim Likhachev: (1) https://aaai.org/papers/00476-aaai02-072-d-lite/  (2) https://publications.ri.cmu.edu/d-lite  (3) http://idm-lab.org/bib/abstracts/Koen02i.html . For each, report: exact title, authors in order, venue string, publisher, year, pages, place, DOI if present, official PDF URL, and any BibTeX the page itself shows (quote verbatim). Note any disagreement between the sources (e.g., page range, venue name, publisher AAAI Press/MIT Press). If a page fails, say so and do not guess."}`
 - `Grep` -- pattern `D\*|LPA|Koenig|online search|LRTA|incremental|replan` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W`
-- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"; ls Code/latex-practice "Code/latex-practice"/* 2>&1 | head -20; echo ---; ls "C:/Users/anant/Downloads" 2>/dev/null | grep -i -E "acm|template|writing|overleaf|tex$|\.bib" | head`
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"; ls Code/latex-practice "Code/latex-practice"/* 2>&1 | head -20; echo ---; ls "C:/Users/anant/Downloads" 2>/dev/null | grep -i -E "acm|template|writing|overleaf|tex$|\.bib" | head
+```
 ```
 Code/latex-practice/example.png
 Code/latex-practice/main.tex
@@ -600,18 +672,24 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Code\latex-practice\main.tex`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Code\latex-practice\references.bib`
 - `Grep` -- pattern `Bibliographical and Historical|Historical Notes|Lifelong|Koenig|Stentz|Dijkstra` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Textbook`
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 125-142 --wait 600 -o "$SP/aima_notes.md" 2>&1 | tail -3
-wc -l "$SP/aima_notes.md"; grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Pattern database|real-time|LRTA|incremental" "$SP/aima_notes.md" | head -40`
+wc -l "$SP/aima_notes.md"; grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Pattern database|real-time|LRTA|incremental" "$SP/aima_notes.md" | head -40
+```
 ```
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\aima_notes.md
 254 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/aima_notes.md
 237:## Bibliographical and Historical Notes
 ```
 - `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\aima_notes.md`
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 178-192 --wait 600 -o "$SP/aima_ch3.md" 2>&1 | tail -2
-grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes|Dijkstra|Hart, Nilsson|incremental|replan" "$SP/aima_ch3.md" | cut -c1-200 | head -40; grep -n "<!-- page" "$SP/aima_ch3.md" | head -20`
+grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes|Dijkstra|Hart, Nilsson|incremental|replan" "$SP/aima_ch3.md" | cut -c1-200 | head -40; grep -n "<!-- page" "$SP/aima_ch3.md" | head -20
+```
 ```
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\aima_ch3.md
 1:<!-- page 178 of 2145 -->
@@ -630,8 +708,11 @@ Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratc
 228:<!-- page 191 of 2145 -->
 246:<!-- page 192 of 2145 -->
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-grep -n -E "^#+ " "$SP/aima_ch3.md" | cut -c1-120`
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+grep -n -E "^#+ " "$SP/aima_ch3.md" | cut -c1-120
+```
 ```
 21:## 3.4.3 Depth-first search and the problem of memory
 51:## 3.4.4 Depth-limited and iterative deepening search
@@ -644,11 +725,14 @@ grep -n -E "^#+ " "$SP/aima_ch3.md" | cut -c1-120`
 224:## Straight-line distance
 238:## 3.5.2 $\mathbb { A } ^ { * }$ search
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 206-218 --wait 600 -o "$SP/aima_ch3b.md" 2>&1 | tail -1
 grep -n -E "^#+ |<!-- page" "$SP/aima_ch3b.md" | cut -c1-110
 echo ----
-grep -n -i -o -E ".{80}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{80}" "$SP/aima_ch3b.md" | head`
+grep -n -i -o -E ".{80}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{80}" "$SP/aima_ch3b.md" | head
+```
 ```
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\aima_ch3b.md
 1:<!-- page 206 of 2145 -->
@@ -677,11 +761,14 @@ Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratc
 203:<!-- page 218 of 2145 -->
 ----
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 219-230 --wait 600 -o "$SP/aima_ch3c.md" 2>&1 | tail -1
 grep -n -E "^#+ |<!-- page" "$SP/aima_ch3c.md" | cut -c1-110
 echo ----
-grep -n -i -o -E ".{0,100}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{0,100}" "$SP/aima_ch3c.md" | head`
+grep -n -i -o -E ".{0,100}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{0,100}" "$SP/aima_ch3c.md" | head
+```
 ```
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\aima_ch3c.md
 1:<!-- page 219 of 2145 -->
@@ -711,9 +798,12 @@ Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratc
 179:oints** [**in a 24-million-point graph of the United States, searching less than 0.1% of the graph. Korf (1987) shows how to use subgoals, macro-operators, and abstraction to achieve remarkable**](https:/
 179:0000000000000015574) **of as defining landmarks at various hierarchical levels of abstraction.** [**Korf (1987)**](https://jigsaw.vitalsource.com/books/9780134671932/epub/OPS/xhtml/fileP700101715800000000
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 # strip markdown links to show clean text of the notes section
-sed -n '143,200p' "$SP/aima_ch3c.md" | sed -E 's/\]\(https?:[^)]*\)/]/g; s/\[\*\*/ /g; s/\*\*\]/ /g; s/\*\*//g' | cut -c1-2500`
+sed -n '143,200p' "$SP/aima_ch3c.md" | sed -E 's/\]\(https?:[^)]*\)/]/g; s/\[\*\*/ /g; s/\*\*\]/ /g; s/\*\*//g' | cut -c1-2500
+```
 ```
 <!-- page 227 of 2145 -->
 
@@ -860,7 +950,10 @@ With the deadline today, I'd write the full plan into `Writing - 2.md` now, buil
 
 ### Tool Calls
 
-- `Bash` -- `mineru config --help 2>&1 | head -30; echo ----; mineru config 2>&1 | head -60`
+- `Bash`
+```bash
+mineru config --help 2>&1 | head -30; echo ----; mineru config 2>&1 | head -60
+```
 ```
  Usage: mineru config [OPTIONS] COMMAND [ARGS]...                              
                                                                                
@@ -898,9 +991,12 @@ With the deadline today, I'd write the full plan into `Writing - 2.md` now, buil
 │ parsing-rules  Manage parsing defaults applied to matching paths.           │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-- `Glob` -- pattern `40_Resources/CS/Concepts/New Laptop/**/*` path ``
+- `Glob` -- pattern `40_Resources/CS/Concepts/New Laptop/**/*` path ` `
 - `Grep` -- pattern `acmtemplate|overleaf\.com/read|Overleaf` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W`
-- `Bash` -- `mineru config show 2>&1 | head -60`
+- `Bash`
+```bash
+mineru config show 2>&1 | head -60
+```
 ```
                                     Config                                    
 ┌────────────────────────────────────────┬────────────────────────┬──────────┐
@@ -914,11 +1010,30 @@ With the deadline today, I'd write the full plan into `Writing - 2.md` now, buil
 │ parse_server.remote.url                │ https://mineru.net/api │ default  │
 └────────────────────────────────────────┴────────────────────────┴──────────┘
 ```
-- `Glob` -- pattern `40_Resources/CS/Concepts/New Laptop/*Install*` path ``
+- `Glob` -- pattern `40_Resources/CS/Concepts/New Laptop/*Install*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\VS Code - Install Loop.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Installations.md`
-- `PowerShell` -- `{"command":"$c = @(\"$env:USERPROFILE\\.mineru\",\"$env:LOCALAPPDATA\\mineru\",\"$env:APPDATA\\mineru\",\"$env:USERPROFILE\\.cache\\mineru\",\"$env:LOCALAPPDATA\\MinerU\",\"$env:USERPROFILE\\.local\\share\\mineru\",\"$env:USERPROFILE\\mineru\",\"$env:USERPROFILE\\.config\\mineru\")\nforeach ($p in $c) { if (Test-Path $p) { $s=(Get-ChildItem $p -Recurse -Force -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum; \"{0}  {1:N1} MB\" -f $p, ($s/1MB) } }\n\"--- env ---\"\nGet-ChildItem Env: | Where-Object { $_.Name -match \u0027MINERU|HF_|HUGGING|MODELSCOPE|XDG|TORCH\u0027 } | ForEach-Object { \"$($_.Name)=$($_.Value)\" }\n\"--- recently written dirs on C under profile (last 3h) ---\"\nGet-ChildItem \"$env:USERPROFILE\" -Directory -Force -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-3) } | Select-Object -ExpandProperty FullName","description":"Locate MinerU data directories on C drive"}`
-- `Bash` -- `mineru list --help 2>&1 | head -20; echo ----; mineru show --help 2>&1 | head -15; echo ----; mineru cleanup --help 2>&1 | head -20; echo; mineru server status 2>&1`
+- `PowerShell`
+```powershell
+$c = @("$env:USERPROFILE\.mineru","$env:LOCALAPPDATA\mineru","$env:APPDATA\mineru","$env:USERPROFILE\.cache\mineru","$env:LOCALAPPDATA\MinerU","$env:USERPROFILE\.local\share\mineru","$env:USERPROFILE\mineru","$env:USERPROFILE\.config\mineru")
+foreach ($p in $c) { if (Test-Path $p) { $s=(Get-ChildItem $p -Recurse -Force -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum; "{0}  {1:N1} MB" -f $p, ($s/1MB) } }
+"--- env ---"
+Get-ChildItem Env: | Where-Object { $_.Name -match 'MINERU|HF_|HUGGING|MODELSCOPE|XDG|TORCH' } | ForEach-Object { "$($_.Name)=$($_.Value)" }
+"--- recently written dirs on C under profile (last 3h) ---"
+Get-ChildItem "$env:USERPROFILE" -Directory -Force -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-3) } | Select-Object -ExpandProperty FullName
+```
+```
+C:\Users\anant\.mineru  2,007.2 MB
+--- env ---
+--- recently written dirs on C under profile (last 3h) ---
+C:\Users\anant\.claude
+C:\Users\anant\.codex
+C:\Users\anant\.mineru
+```
+- `Bash`
+```bash
+mineru list --help 2>&1 | head -20; echo ----; mineru show --help 2>&1 | head -15; echo ----; mineru cleanup --help 2>&1 | head -20; echo; mineru server status 2>&1
+```
 ```
  Usage: mineru list [OPTIONS] COMMAND [ARGS]...                                
                                                                                
@@ -1143,7 +1258,10 @@ With the deadline today, I'd write the full plan into `Writing - 2.md` now, buil
 │ --- managed parse-server stdout: start ---                                  │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru" 2>/dev/null && ls; SP=$(ls -d Lib/site-packages 2>/dev/null); echo "site: $SP"; grep -rhoE "MINERU_[A-Z0-9_]+" "$SP/mineru" 2>/dev/null | sort | uniq -c | sort -rn | head -30`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru" 2>/dev/null && ls; SP=$(ls -d Lib/site-packages 2>/dev/null); echo "site: $SP"; grep -rhoE "MINERU_[A-Z0-9_]+" "$SP/mineru" 2>/dev/null | sort | uniq -c | sort -rn | head -30
+```
 ```
 CACHEDIR.TAG
 Lib
@@ -1184,7 +1302,10 @@ site: Lib/site-packages
       1 MINERU_SEAL_OCR_DEBUG_DIR
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `ls -la "C:/Users/anant/.mineru" | head -30; echo ---; du -sh "C:/Users/anant/.mineru"/* 2>/dev/null | sort -rh | head -10; echo ---; ls "D:/_Anant/00_Inbox" 2>&1 | head -20`
+- `Bash`
+```bash
+ls -la "C:/Users/anant/.mineru" | head -30; echo ---; du -sh "C:/Users/anant/.mineru"/* 2>/dev/null | sort -rh | head -10; echo ---; ls "D:/_Anant/00_Inbox" 2>&1 | head -20
+```
 ```
 total 766
 drwxr-xr-x 1 anant 197609      0 Oct 23 14:17 .
@@ -1207,7 +1328,10 @@ drwxr-xr-x 1 anant 197609      0 Sep 29 17:03 models
 ---
 MinerU
 ```
-- `Bash` -- `mineru config set --help 2>&1 | head -20; echo ---; mineru list docs 2>&1 | head -20`
+- `Bash`
+```bash
+mineru config set --help 2>&1 | head -20; echo ---; mineru list docs 2>&1 | head -20
+```
 ```
  Usage: mineru config set [OPTIONS] {key} {value}                              
                                                                                
@@ -1235,7 +1359,10 @@ MinerU
 │ 25e5516 │ pdf  │   371 │ -                                     │
 └─────────┴──────┴───────┴───────────────────────────────────────┘
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; grep -rn "MINERU_HOME\|MINERU_HOME_ENV" --include=*.py . | cut -c1-220 | head -12; echo ----; grep -rn "doclib_data_dir\|data_dir\|\"doclib\"" --include=*.py . | cut -c1-200 | head -15; echo ----; cat "C:/Users/anant/.mineru/config.yaml"; echo ----; ls -la "D:/_Anant/00_Inbox/MinerU" | head; du -sh "D:/_Anant/00_Inbox/MinerU"`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; grep -rn "MINERU_HOME\|MINERU_HOME_ENV" --include=*.py . | cut -c1-220 | head -12; echo ----; grep -rn "doclib_data_dir\|data_dir\|\"doclib\"" --include=*.py . | cut -c1-200 | head -15; echo ----; cat "C:/Users/anant/.mineru/config.yaml"; echo ----; ls -la "D:/_Anant/00_Inbox/MinerU" | head; du -sh "D:/_Anant/00_Inbox/MinerU"
+```
 ```
 ./cli/commands/server.py:566:        mineru_home=os.path.expanduser(os.getenv("MINERU_HOME", "~/.mineru")),
 ./config.py:24:MINERU_HOME_ENV = "MINERU_HOME"
@@ -1267,7 +1394,10 @@ drwxr-xr-x 1 anant 197609 0 Oct 23 14:11 ..
 0	D:/_Anant/00_Inbox/MinerU
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; sed -n 20,60p config.py; echo ......; sed -n 515,545p config.py; echo ......; grep -n "ALLOWED\|_CONFIG_KEYS\|SETTABLE\|def config_set\|def set_" cli/commands/config.py 2>/dev/null | head -20; ls cli/commands`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; sed -n 20,60p config.py; echo ......; sed -n 515,545p config.py; echo ......; grep -n "ALLOWED\|_CONFIG_KEYS\|SETTABLE\|def config_set\|def set_" cli/commands/config.py 2>/dev/null | head -20; ls cli/commands
+```
 ```
 from pydantic_core import to_jsonable_python
 
@@ -1362,7 +1492,10 @@ usage.py
 watch.py
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `cygpath -w "$(which pdftotext)"; ls -la "$(dirname "$(which pdftotext)")/pdftotext.exe" 2>&1 | head -2; cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; sed -n 1,120p cli/commands/config.py | grep -v "^$" | head -90`
+- `Bash`
+```bash
+cygpath -w "$(which pdftotext)"; ls -la "$(dirname "$(which pdftotext)")/pdftotext.exe" 2>&1 | head -2; cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; sed -n 1,120p cli/commands/config.py | grep -v "^$" | head -90
+```
 ```
 C:\Program Files\Git\mingw64\bin\pdftotext.exe
 -rwxr-xr-x 1 anant 197609 1853512 Jul 10 15:25 /mingw64/bin/pdftotext.exe
@@ -1458,11 +1591,14 @@ def parsing_rules_add(
     ctx = CliContext(json_mode=json_mode)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
-- `Bash` -- `mineru server stop 2>&1 | tail -2; sleep 3; mineru server status 2>&1 | head -3
+- `Bash`
+```bash
+mineru server stop 2>&1 | tail -2; sleep 3; mineru server status 2>&1 | head -3
 SRC="C:/Users/anant/.mineru/doclib"; DST="D:/_Anant/00_Inbox/MinerU"
 echo "--- before ---"; du -sh "$SRC"; ls "$SRC"
 cp -r "$SRC/." "$DST/" && echo copied
-echo "--- after ---"; du -sh "$DST"; ls "$DST"`
+echo "--- after ---"; du -sh "$DST"; ls "$DST"
+```
 ```
 Server stopped.
 Server is not running.
@@ -1478,15 +1614,18 @@ parsed
 - `Edit` -- `C:\Users\anant\.mineru\config.yaml`
 ```diff
 - model:
-  source: huggingface
-
+-   source: huggingface
+- 
 + model:
-  source: huggingface
-doclib:
-  data_dir: D:/_Anant/00_Inbox/MinerU
-
++   source: huggingface
++ doclib:
++   data_dir: D:/_Anant/00_Inbox/MinerU
++ 
 ```
-- `Bash` -- `mineru server start 2>&1 | tail -2; sleep 6; mineru server status 2>&1 | sed -n 1,22p`
+- `Bash`
+```bash
+mineru server start 2>&1 | tail -2; sleep 6; mineru server status 2>&1 | sed -n 1,22p
+```
 ```
 Server started (PID 34420).
                       MinerU Server                       
@@ -1512,13 +1651,16 @@ Server started (PID 34420).
 │ Ingest queue  │ 0                                      │
 │ Watches       │ 0                                      │
 ```
-- `Bash` -- `mineru read "doc:5d5bc50/tier:standard/page:1" --limit 300 2>&1 | head -8
+- `Bash`
+```bash
+mineru read "doc:5d5bc50/tier:standard/page:1" --limit 300 2>&1 | head -8
 echo "=== new parses (output suppressed; searching afterwards) ==="
 B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
 for f in "Discussion/Discussion 7.pdf" "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do
   echo "-> $f"; mineru parse "$B/$f" -p all --wait 500 >/dev/null 2>/tmp/err.txt && echo ok || (echo FAIL; head -3 /tmp/err.txt)
 done
-echo "=== D: now holds ==="; du -sh "D:/_Anant/00_Inbox/MinerU"; ls "D:/_Anant/00_Inbox/MinerU/parsed" | wc -l`
+echo "=== D: now holds ==="; du -sh "D:/_Anant/00_Inbox/MinerU"; ls "D:/_Anant/00_Inbox/MinerU/parsed" | wc -l
+```
 ```
 <!-- page 1 of 8 -->
 
@@ -1545,8 +1687,11 @@ FAIL
 1.6M	D:/_Anant/00_Inbox/MinerU
 7
 ```
-- `Bash` -- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Discussion/Discussion 7.pdf" -p 1-2 --wait 300 2>&1 | tail -15; echo "exit=$?"; mineru server status 2>&1 | sed -n 20,40p`
+- `Bash`
+```bash
+B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
+mineru parse "$B/Discussion/Discussion 7.pdf" -p 1-2 --wait 300 2>&1 | tail -15; echo "exit=$?"; mineru server status 2>&1 | sed -n 20,40p
+```
 ```
 ## Game model
 
@@ -1586,12 +1731,15 @@ exit=0
 ├───────┼────────────────────┼───────┤
 │ parse │ engine_unavailable │     1 │
 ```
-- `Bash` -- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
+- `Bash`
+```bash
+B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
 for f in "Discussion/Discussion 7.pdf" "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do
   printf "%s -> " "$f"; mineru parse "$B/$f" -p all --wait 300 >/dev/null 2>/tmp/err.txt && echo ok || (echo FAIL; head -3 /tmp/err.txt)
 done
 echo "=== search ==="
-mineru search "Writing 2 template Overleaf LaTeX report paper" 2>&1 | head -40`
+mineru search "Writing 2 template Overleaf LaTeX report paper" 2>&1 | head -40
+```
 ```
 Discussion/Discussion 7.pdf -> FAIL
  Aborted.
@@ -1604,8 +1752,11 @@ Lecture/CSCI4511W Lecture 11.pdf -> FAIL
 === search ===
 No results found.
 ```
-- `Bash` -- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 >/dev/null | head; echo ---; mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 | tail -5`
+- `Bash`
+```bash
+B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
+mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 >/dev/null | head; echo ---; mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 | tail -5
+```
 ```
  Aborted.
 ---
@@ -1615,12 +1766,15 @@ Week 5, Q2(d), pp. 5–6. Practice 3 keeps branches A and B, x = −5.
 
 M
 ```
-- `Bash` -- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
+- `Bash`
+```bash
+B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
 for f in "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do
   printf "%s -> " "$f"; mineru parse "$B/$f" -p all --wait 300 2>&1 | wc -c
 done
 echo "=== search: template / overleaf / writing ==="
-mineru search "Overleaf template" 2>&1 | head -30; echo ---; mineru search "Writing 2" 2>&1 | head -30; echo ---; mineru search "acmtemplate" 2>&1 | head`
+mineru search "Overleaf template" 2>&1 | head -30; echo ---; mineru search "Writing 2" 2>&1 | head -30; echo ---; mineru search "acmtemplate" 2>&1 | head
+```
 ```
 Discussion/Discussion 6.pdf -> 6474
 Lecture/CSCI4511W Lecture 12.pdf -> 19108
@@ -1661,8 +1815,11 @@ Search results (6 total)
 ---
 No results found.
 ```
-- `Bash` -- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Discussion/Discussion 6.pdf" -p all --wait 300 2>&1`
+- `Bash`
+```bash
+B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
+mineru parse "$B/Discussion/Discussion 6.pdf" -p all --wait 300 2>&1
+```
 ```
 <!-- page 1 of 14 -->
 
@@ -1923,8 +2080,11 @@ Find paper versions and check publication information.
 
 M
 ```
-- `Bash` -- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Lecture/CSCI4511W Lecture 12.pdf" -p all --wait 300 2>&1 | head -30`
+- `Bash`
+```bash
+B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
+mineru parse "$B/Lecture/CSCI4511W Lecture 12.pdf" -p all --wait 300 2>&1 | head -30
+```
 ```
 <!-- page 1 of 42 -->
 
@@ -1957,7 +2117,10 @@ UNIVERSITY OF MINNESOTA
 <!-- page 3 of 42 -->
 ```
 - `Grep` -- pattern `Writing 2|Writing - 2|Writing #2` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W`
-- `Bash` -- `ls "D:/_Anant/00_Inbox/MinerU" "D:/_Anant/00_Inbox/MinerU/parsed" | head -12; du -sh "D:/_Anant/00_Inbox/MinerU"; echo; echo "C: old copy still present (untouched):"; du -sh "C:/Users/anant/.mineru/doclib"; mineru server status 2>&1 | sed -n 6,12p`
+- `Bash`
+```bash
+ls "D:/_Anant/00_Inbox/MinerU" "D:/_Anant/00_Inbox/MinerU/parsed" | head -12; du -sh "D:/_Anant/00_Inbox/MinerU"; echo; echo "C: old copy still present (untouched):"; du -sh "C:/Users/anant/.mineru/doclib"; mineru server status 2>&1 | sed -n 6,12p
+```
 ```
 D:/_Anant/00_Inbox/MinerU:
 parsed
@@ -1983,7 +2146,10 @@ C: old copy still present (untouched):
 │ Data dir      │ D:/_Anant/00_Inbox/MinerU              │
 │ SQLite        │ C:\Users\anant\.mineru\doclib.db       │
 ```
-- `Bash` -- `echo "newest on D:"; find "D:/_Anant/00_Inbox/MinerU" -type f -newermt "2026-10-23 14:20" | wc -l; echo "newest on C: (old store, after the move)"; find "C:/Users/anant/.mineru/doclib" -type f -newermt "2026-10-23 14:20" | wc -l`
+- `Bash`
+```bash
+echo "newest on D:"; find "D:/_Anant/00_Inbox/MinerU" -type f -newermt "2026-10-23 14:20" | wc -l; echo "newest on C: (old store, after the move)"; find "C:/Users/anant/.mineru/doclib" -type f -newermt "2026-10-23 14:20" | wc -l
+```
 ```
 newest on D:
 7
@@ -2060,7 +2226,7 @@ I didn't append to the session log, since your global rule says not to write unl
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\HW & Exams\HW\main.tex`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\HW & Exams\HW\rf1.bib`
 - `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\HW & Exams\HW\wa1_template.tex`
-- `Glob` -- pattern `30_Order/**/*{Class,class,Homework,homework}*` path ``
+- `Glob` -- pattern `30_Order/**/*{Class,class,Homework,homework}*` path ` `
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\HUMAN_WRITING.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Homework Standard.md`
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Homework Template.md`
@@ -2070,265 +2236,268 @@ I didn't append to the session log, since your global rule says not to write unl
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - status: seed
-created: 2026-10-23
-updated: 2026-10-23
-tags:
-  - class
-  - homework
-area:
-next:
----
+- created: 2026-10-23
+- updated: 2026-10-23
+- tags:
+-   - class
+-   - homework
+- area:
+- next:
+- ---
 + status: sprout
-created: 2026-10-23
-updated: 2026-10-23
-tags:
-  - class
-  - homework
-area:
-  - "[[CSCI 4511W Board]]"
-next: "Paste main.tex and citations.bib into a new Overleaf project, compile, run the pre-submit checks, submit the PDF on Canvas (Lectures 11 and 12 say due Friday 2026-10-23; confirm the time on Canvas)"
----
++ created: 2026-10-23
++ updated: 2026-10-23
++ tags:
++   - class
++   - homework
++ area:
++   - "[[CSCI 4511W Board]]"
++ next: "Paste main.tex and citations.bib into a new Overleaf project, compile, run the pre-submit checks, submit the PDF on Canvas (Lectures 11 and 12 say due Friday 2026-10-23; confirm the time on Canvas)"
++ ---
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ## Overview
-<!-- What must be produced, for whom, and why; verified due date only. -->
+- <!-- What must be produced, for whom, and why; verified due date only. -->
 + ## Overview
-A report of about 500 words, written in LaTeX on Overleaf and submitted as a PDF on Canvas, on one of four search papers. I chose [[#The paper|D\* Lite]] (Koenig and Likhachev, AAAI 2002) because it extends the A\* we studied and has both proofs and experiments to judge.
-Due date: Lectures 11 and 12 both announce "Writing 2 due Friday". Lecture 12 is dated Oct 21, 2026, so that Friday is Oct 23, 2026, which is the day this note was written. The time and the Canvas due date are not verified, so `deadline` is left empty.
++ A report of about 500 words, written in LaTeX on Overleaf and submitted as a PDF on Canvas, on one of four search papers. I chose [[#The paper|D\* Lite]] (Koenig and Likhachev, AAAI 2002) because it extends the A\* we studied and has both proofs and experiments to judge.
++ Due date: Lectures 11 and 12 both announce "Writing 2 due Friday". Lecture 12 is dated Oct 21, 2026, so that Friday is Oct 23, 2026, which is the day this note was written. The time and the Canvas due date are not verified, so `deadline` is left empty.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
-```diff
+````diff
 - ## Work log
-<!-- Attempts with evidence, diagnosis, and fix; add a ### Submission when submitted. -->
+- <!-- Attempts with evidence, diagnosis, and fix; add a ### Submission when submitted. -->
 + #### Checklist (derived from the prompt above)
-**Must submit**
-- [ ] One PDF on Canvas, compiled from LaTeX (Overleaf).
-- [ ] About 500 words of prose, references not counted. Longer is allowed.
-- [ ] At least three sections in this order: summary, response, references.
-- [ ] At least four references, each cited in the text, using proper BibTeX types (`@book`, `@inproceedings`, `@article`, `@misc` or `@patent`).
-- [ ] A footnote that briefly states how much Generative AI was used.
-**Must demonstrate**
-- [ ] The summary is in my own words and is not the abstract paraphrased.
-- [ ] The response answers at least 3 of the 4 questions: problem and fit, validation, clarity and reproducibility, most interesting and useful.
-- [ ] Reference formatting follows the course example (`main.tex` and `rf1.bib`).
-**Must not do**
-- [ ] Leave a `[?]` in the PDF (a `\cite` key that does not match the `.bib`).
-- [ ] List a reference that the text never cites.
-**Rubric (10 points):** completeness 6 (summary 2, response 4), citations 2, writing quality 2 (spelling 0.5, grammar and clarity 0.5, structure 0.5, formatting 0.5).
-**Template note:** the prompt links `acmtemplate.tex` (Canvas file 38108172) and an Overleaf project. Neither was readable by my tools, and neither is mentioned in Discussion 6, Discussion 7, Lecture 11 or Lecture 12. The three files below came from the course source folder and are my working template. This is an inference, not a confirmed match for `acmtemplate.tex`.
-- `wa1_template.tex`: the page layout and header from Writing 1 (identical contents to the version used for Writing 1).
-- `main.tex` and `rf1.bib`: the TA's LaTeX tutorial. It uses `\bibliographystyle{acm}` and shows one entry each of `@book`, `@article`, `@inproceedings` and `@misc`, which are the types this prompt lists.
-## Work log
-### The paper
-==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
-| Field | Value |
-| --- | --- |
-| Authors | Sven Koenig (Georgia Institute of Technology), Maxim Likhachev (Carnegie Mellon University) |
-| Venue | Proceedings of the Eighteenth National Conference on Artificial Intelligence (AAAI-02), Edmonton, Alberta, Canada, 2002 |
-| Pages | 476 to 483 |
-| Official page | [aaai.org/papers/00476-aaai02-072-d-lite](https://aaai.org/papers/00476-aaai02-072-d-lite/) |
-| Official PDF | [cdn.aaai.org/AAAI/2002/AAAI02-072.pdf](https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf) |
-| Recognition | 2019 AAAI Classic Paper Honorable Mention ([award page](https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/)) |
-- *Verified:* the AAAI page and the award page were opened. The first page, 476, comes from the page URL. The PDF has 8 pages, which gives 483. Bibliographies in search results list the same range.
-- *Not verified:* publisher and DOI. The CMU Robotics Institute and idm-lab record pages refused the fetch. Neither goes in the `.bib`.
-- *Extraction:* the PDF text was read with `mineru parse`, after `pdftotext` returned garbled math. All claims below were checked against the clean extraction.
-### Why this paper
-- A\* from Chapter 3 ([[Concept - Informed Search]]) is the base, so the paper connects to lecture instead of starting from nothing.
-- It has theorems and experiments, which matches the "Evidence in a search paper" frame from Discussion 6: problem and assumptions, guarantee, experiment, limits.
-- The Rubik's Cube paper is the common pick. D\* Lite gave concrete numbers to critique (three measures, 50 terrains per size, ablations).
-### Claim to location in the paper
-Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
-| Claim in the draft | Where |
-| --- | --- |
-| Robot assumes unseen cells are free, replans on a blocked cell, sees its 8 neighbors | p. 1, Motivation |
-| Conventional replanning can take minutes on large maps | p. 1, Introduction |
-| Only a few goal distances change after one obstacle | p. 1 to 2, Figure 1 and text |
-| `g`, `rhs`, locally consistent | p. 2, Equation 1 |
-| Queue holds exactly the inconsistent cells, two-part key, first part matches A\* `f` | p. 2 to 3, Invariants 2 and 3 |
-| First search expands exactly what A\* expands | p. 3, "The Algorithm" |
-| Each cell expanded at most twice; same order as A\* with suitable tie-breaking | p. 3 to 4, Theorems 1 and 4; p. 6 for D\* Lite |
-| Proofs are in a separate technical report | p. 3, "Analytical Results" |
-| Backward search from the goal | p. 4 to 5, "Search Direction" |
-| Offset `k_m`, recheck on pop, no heap reordering | p. 5, "Heap Reordering"; p. 4 and 5, Figures 3 and 4 |
-| Heuristic must not overestimate and obey a triangle inequality; holds if derived by relaxation | p. 5, "Heap Reordering" |
-| Simulation only; D\* already worked on real robots; three machine-independent measures | p. 6, "Experimental Results" |
-| 50 random terrains per size, density 10 to 40 percent, 95 percent confidence intervals | p. 6, Figure 5 text |
-| Ablations: more than a factor of seven in vertex expansions at best; two small-size exceptions in heap percolates | p. 6 to 7, Figure 6 text |
-| Adaptive resolution: D\* Lite and the no-heuristic variant about equal | p. 7, Figure 7 text |
-| D\* used on real robots including outdoor HMMWVs | p. 1, Introduction |
-| Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
-### Reference plan
-Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
-| Key | Type | Entry | Verified by |
-| --- | --- | --- | --- |
-| `koenig2002dstarlite` | `@inproceedings` | Koenig and Likhachev, D\* Lite, AAAI-02, pp. 476 to 483 | AAAI page and PDF |
-| `hart1968astar` | `@article` | Hart, Nilsson, Raphael, "A Formal Basis for the Heuristic Determination of Minimum Cost Paths", IEEE Trans. Systems Science and Cybernetics 4(2), 100 to 107, 1968 | Cited in the Chapter 3 notes of the textbook; volume, pages and DOI 10.1109/TSSC.1968.300136 matched in a search |
-| `stentz1995focussed` | `@inproceedings` | Stentz, The Focussed D\* Algorithm for Real-Time Replanning, IJCAI, pp. 1652 to 1659, 1995 | D\* Lite's reference list; CMU RI and mlanthology listings |
-| `russell2020aima` | `@book` | Russell and Norvig, Artificial Intelligence: A Modern Approach, 4th ed., Pearson, 2020 | The course textbook |
-| `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
-### How to cite (rules for this document)
-- Put `\cite{key}` after a space and before the period that ends the sentence: `...as shown \cite{key}.` (from the course citation guide).
-- Two sources in one place: `\cite{key1,key2}` with no space after the comma.
-- A key must match the first line of its `.bib` entry exactly, including case. A mismatch prints `[?]` in the PDF.
-- Do not use `\nocite{*}` here. The prompt requires every listed reference to be cited, and an uncited entry would otherwise show up or be silently dropped.
-- Put URLs inside `\url{...}` in `howpublished` (for `@misc`) or `note`. The `xurl` package breaks long URLs across lines and handles `_` and `%` inside `\url{}`. No manual backslashes are needed.
-- `acm` is a classic BibTeX style, so it numbers references `[1]` to `[5]` and sorts them by author. The heading "References" is added automatically.
-- If the course asks for `plainurl` instead, change the one line `\bibliographystyle{acm}` to `\bibliographystyle{plainurl}`. Nothing else changes.
-- Fields the style needs: `@inproceedings` author, title, booktitle, year. `@article` author, title, journal, year. `@book` author, title, publisher, year. `@misc` has no required field.
-### Draft report (main.tex)
-Built from `wa1_template.tex`. Three edits only: the `xurl` line, the title and author, and the body plus the two bibliography lines.
-```latex
-\documentclass{article}
-\usepackage[utf8]{inputenc}
-\usepackage{geometry}
- \geometry{
- letterpaper,
- left=20mm,
- top=20mm,
- }
-\setlength{\headheight}{12.5pt}
- \usepackage{titling}
-\usepackage{xurl}
-
- \title{Writing \#2: D* Lite}
-\author{Anant Gupta}
- 
- \usepackage{fancyhdr}
-\fancypagestyle{plain}{%  the preset of fancyhdr 
-    \fancyhf{} % clear all header and footer fields
-    \fancyhead[L]{\thetitle}
-    \fancyhead[R]{\theauthor}
-}
-\makeatletter
-\def\@maketitle{%
-  \newpage
-  \null
-  \vskip 1em%
-    \begin{center}
-    {\LARGE \@title \par}
-    \vskip 1em
-    \end{center}
-  \par
-  \vskip 1em}
-\makeatother
-
-\begin{document}
-
-\maketitle
-
-\section{Summary}
-
-This report covers ``D* Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map, but it cannot see every wall in advance. It assumes unseen cells are free, plans a shortest path, follows it, and plans again whenever it sees a blocked cell. Rerunning conventional graph search each time can take minutes on large maps, while one new obstacle changes the goal distance of only a few cells \cite{koenig2002dstarlite}. D* Lite recomputes just those cells.
-
-The method extends Lifelong Planning A* (LPA*) \cite{koenig2002dstarlite}, an incremental version of the A* algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead computed from its neighbors. If the two match, the cell is consistent. Only inconsistent cells wait in a priority queue, ordered by a key whose first part corresponds to the A* value $f = g + h$. When an edge cost changes, the cells next to that edge are updated and the queue is processed until the robot's own cell is consistent again. The very first search expands the same cells A* would \cite{koenig2002dstarlite}.
-
-Two changes turn LPA* into D* Lite. First, the search runs backward from the goal, so the stored values are goal distances and stay valid while the robot moves. Second, moving makes the heuristic part of every queued key out of date. Instead of reordering the queue, the algorithm adds a running offset $k_m$ to each new key and rechecks a cell when it is removed from the queue. The result behaves like Stentz's Focussed D* \cite{stentz1995focussed}, but it is shorter and easier to analyze \cite{koenig2002dstarlite}.
-
-The authors state that a search always terminates with a correct path and expands each cell at most twice; the proofs for LPA* are in a separate technical report. In simulation on random eight-connected grids, D* Lite did better than Focussed D* on vertex expansions, heap percolates, and vertex accesses. Against its own variants without incremental search (which is repeated A*) or without the heuristic, it came out ahead on all three measures, with two small-map exceptions that were not statistically significant, and by more than a factor of seven in vertex expansions at best \cite{koenig2002dstarlite}.
-
-\section{Response}
-
-The paper targets replanning on a graph whose edge costs change over time, with navigation in unknown terrain as the main case. It fits when changes are local and a good heuristic exists. The heuristic must never overestimate and must obey a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is also narrow: the robot sees which of its eight neighbors are blocked and then moves at cost one, and the paper does not address noisy sensors or actions that can fail.
-
-Validation is both theoretical and experimental. The theorems support correctness, but the proofs are in a technical report, so I could not check them from the paper alone. The experiments are simulation only, because D* had already worked on real robots. The authors count vertex expansions, heap percolates, and vertex accesses instead of run time. These counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals support the claim that D* Lite is at least as efficient as D* \cite{koenig2002dstarlite}. I would still want wall-clock time, since a count says little about how costly each operation is. One result is easy to miss: on the adaptive-resolution grids, D* Lite and its variant without the heuristic performed about equally, so the heuristic does not always help.
-
-The paper is easy to follow for a reader who knows A*. The pseudocode has numbered lines, and the analysis keeps comparing LPA* with A*, for example by showing that it expands vertices in the same order under suitable tie-breaking, which makes it easy to connect to the textbook treatment of A* \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. Implementing the algorithm from the pseudocode looks feasible, but reproducing the exact numbers does not, because the paper does not describe how the random terrains were generated or where the start and goal cells were placed.
-
-What I found most interesting is how little is added to A*. The first search is plain A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here the question is what to keep when the graph changes. The paper also looks useful beyond theory. It notes that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave D* Lite a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density changes the run-time gap between D* Lite and repeated A*.
-
-\bibliographystyle{acm}
-\bibliography{citations}
-
-\end{document}
-```
-### Reference file (citations.bib)
-A separate file in the Overleaf project. The name must be exactly `citations.bib` because `main.tex` ends with `\bibliography{citations}` (no extension). The course example calls it `rf1.bib`; the name does not matter as long as the two agree.
-```bibtex
-@inproceedings{koenig2002dstarlite,
-  author    = {Sven Koenig and Maxim Likhachev},
-  title     = {{D*} {Lite}},
-  booktitle = {Proceedings of the Eighteenth National Conference on Artificial Intelligence ({AAAI}-02)},
-  pages     = {476--483},
-  year      = {2002},
-  address   = {Edmonton, Alberta, Canada},
-  note      = {\url{https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf}}
-}
-
-@article{hart1968astar,
-  author  = {Peter E. Hart and Nils J. Nilsson and Bertram Raphael},
-  title   = {A Formal Basis for the Heuristic Determination of Minimum Cost Paths},
-  journal = {{IEEE} Transactions on Systems Science and Cybernetics},
-  volume  = {4},
-  number  = {2},
-  pages   = {100--107},
-  year    = {1968}
-}
-
-@inproceedings{stentz1995focussed,
-  author    = {Anthony Stentz},
-  title     = {The Focussed {D*} Algorithm for Real-Time Replanning},
-  booktitle = {Proceedings of the International Joint Conference on Artificial Intelligence ({IJCAI})},
-  pages     = {1652--1659},
-  year      = {1995}
-}
-
-@book{russell2020aima,
-  author    = {Stuart Russell and Peter Norvig},
-  title     = {Artificial Intelligence: A Modern Approach},
-  edition   = {Fourth},
-  publisher = {Pearson},
-  year      = {2020}
-}
-
-@misc{aaaiclassic,
-  author       = {{Association for the Advancement of Artificial Intelligence}},
-  title        = {{AAAI} Classic Paper Award},
-  howpublished = {\url{https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/}},
-  note         = {Accessed October 23, 2026}
-}
-```
-### Overleaf project: exact steps
-1. Open overleaf.com and sign in. Click **New Project**, then **Blank Project**. Name it `Writing 2 - D Star Lite`. Click **Create**.
-2. The file list on the left shows one file, `main.tex`, with sample text. Click it, press `Ctrl+A`, press `Delete`, then paste the full `main.tex` block above.
-3. In the file list, click the **New File** icon (page with a plus). Type the name `citations.bib` exactly, leave the template choice on blank, click **Create**. Click the new file and paste the full `citations.bib` block above.
-4. Click **Menu** (top left). Set **Compiler** to `pdfLaTeX`, **Main document** to `main.tex`. Close the menu.
-5. Click **Recompile**. Overleaf runs BibTeX by itself. If the PDF shows `[?]` or no References, click the arrow beside Recompile and choose **Recompile from scratch**, then recompile once more.
-6. Check the PDF against the pre-submit list below.
-7. Click the **Download PDF** icon (download icon above the preview). Optionally also **Menu**, then **Download Source**, and keep the zip next to the other homework files.
-8. Upload the PDF to the Writing 2 assignment on Canvas and confirm the upload before the due time.
-### Pre-submit checks
-- [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
-- [ ] Sections appear in order: Summary, Response, References.
-- [ ] References lists five entries, each with a number, and the text shows citations as `[1]` to `[5]` style numbers. No `[?]` anywhere.
-- [ ] The footnote shows at the bottom of page 1 and states the real level of AI use. Edit the wording if it is not accurate.
-- [ ] The Logs panel shows no `Citation ... undefined` and no `Undefined control sequence`. Overfull box warnings are fine.
-- [ ] The prose is about 500 words or more (see the count below).
-- [ ] I have read the report and every claim traces to the table above.
-### Checks run in this vault (no LaTeX engine used)
-Scripted lint of the two code blocks, run after writing. See the result lines below.
-### Open items
-- `acmtemplate.tex` from Canvas was never seen. If it turns out to be `acmart` or another class, the preamble and bibliography style change; the reference entries and body text stay the same.
-- Nobody has compiled this. Overleaf is the first real compile.
-- Due time on Canvas is unconfirmed.
-```
++ **Must submit**
++ - [ ] One PDF on Canvas, compiled from LaTeX (Overleaf).
++ - [ ] About 500 words of prose, references not counted. Longer is allowed.
++ - [ ] At least three sections in this order: summary, response, references.
++ - [ ] At least four references, each cited in the text, using proper BibTeX types (`@book`, `@inproceedings`, `@article`, `@misc` or `@patent`).
++ - [ ] A footnote that briefly states how much Generative AI was used.
++ **Must demonstrate**
++ - [ ] The summary is in my own words and is not the abstract paraphrased.
++ - [ ] The response answers at least 3 of the 4 questions: problem and fit, validation, clarity and reproducibility, most interesting and useful.
++ - [ ] Reference formatting follows the course example (`main.tex` and `rf1.bib`).
++ **Must not do**
++ - [ ] Leave a `[?]` in the PDF (a `\cite` key that does not match the `.bib`).
++ - [ ] List a reference that the text never cites.
++ **Rubric (10 points):** completeness 6 (summary 2, response 4), citations 2, writing quality 2 (spelling 0.5, grammar and clarity 0.5, structure 0.5, formatting 0.5).
++ **Template note:** the prompt links `acmtemplate.tex` (Canvas file 38108172) and an Overleaf project. Neither was readable by my tools, and neither is mentioned in Discussion 6, Discussion 7, Lecture 11 or Lecture 12. The three files below came from the course source folder and are my working template. This is an inference, not a confirmed match for `acmtemplate.tex`.
++ - `wa1_template.tex`: the page layout and header from Writing 1 (identical contents to the version used for Writing 1).
++ - `main.tex` and `rf1.bib`: the TA's LaTeX tutorial. It uses `\bibliographystyle{acm}` and shows one entry each of `@book`, `@article`, `@inproceedings` and `@misc`, which are the types this prompt lists.
++ ## Work log
++ ### The paper
++ ==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
++ | Field | Value |
++ | --- | --- |
++ | Authors | Sven Koenig (Georgia Institute of Technology), Maxim Likhachev (Carnegie Mellon University) |
++ | Venue | Proceedings of the Eighteenth National Conference on Artificial Intelligence (AAAI-02), Edmonton, Alberta, Canada, 2002 |
++ | Pages | 476 to 483 |
++ | Official page | [aaai.org/papers/00476-aaai02-072-d-lite](https://aaai.org/papers/00476-aaai02-072-d-lite/) |
++ | Official PDF | [cdn.aaai.org/AAAI/2002/AAAI02-072.pdf](https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf) |
++ | Recognition | 2019 AAAI Classic Paper Honorable Mention ([award page](https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/)) |
++ - *Verified:* the AAAI page and the award page were opened. The first page, 476, comes from the page URL. The PDF has 8 pages, which gives 483. Bibliographies in search results list the same range.
++ - *Not verified:* publisher and DOI. The CMU Robotics Institute and idm-lab record pages refused the fetch. Neither goes in the `.bib`.
++ - *Extraction:* the PDF text was read with `mineru parse`, after `pdftotext` returned garbled math. All claims below were checked against the clean extraction.
++ ### Why this paper
++ - A\* from Chapter 3 ([[Concept - Informed Search]]) is the base, so the paper connects to lecture instead of starting from nothing.
++ - It has theorems and experiments, which matches the "Evidence in a search paper" frame from Discussion 6: problem and assumptions, guarantee, experiment, limits.
++ - The Rubik's Cube paper is the common pick. D\* Lite gave concrete numbers to critique (three measures, 50 terrains per size, ablations).
++ ### Claim to location in the paper
++ Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
++ | Claim in the draft | Where |
++ | --- | --- |
++ | Robot assumes unseen cells are free, replans on a blocked cell, sees its 8 neighbors | p. 1, Motivation |
++ | Conventional replanning can take minutes on large maps | p. 1, Introduction |
++ | Only a few goal distances change after one obstacle | p. 1 to 2, Figure 1 and text |
++ | `g`, `rhs`, locally consistent | p. 2, Equation 1 |
++ | Queue holds exactly the inconsistent cells, two-part key, first part matches A\* `f` | p. 2 to 3, Invariants 2 and 3 |
++ | First search expands exactly what A\* expands | p. 3, "The Algorithm" |
++ | Each cell expanded at most twice; same order as A\* with suitable tie-breaking | p. 3 to 4, Theorems 1 and 4; p. 6 for D\* Lite |
++ | Proofs are in a separate technical report | p. 3, "Analytical Results" |
++ | Backward search from the goal | p. 4 to 5, "Search Direction" |
++ | Offset `k_m`, recheck on pop, no heap reordering | p. 5, "Heap Reordering"; p. 4 and 5, Figures 3 and 4 |
++ | Heuristic must not overestimate and obey a triangle inequality; holds if derived by relaxation | p. 5, "Heap Reordering" |
++ | Simulation only; D\* already worked on real robots; three machine-independent measures | p. 6, "Experimental Results" |
++ | 50 random terrains per size, density 10 to 40 percent, 95 percent confidence intervals | p. 6, Figure 5 text |
++ | Ablations: more than a factor of seven in vertex expansions at best; two small-size exceptions in heap percolates | p. 6 to 7, Figure 6 text |
++ | Adaptive resolution: D\* Lite and the no-heuristic variant about equal | p. 7, Figure 7 text |
++ | D\* used on real robots including outdoor HMMWVs | p. 1, Introduction |
++ | Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
++ ### Reference plan
++ Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
++ | Key | Type | Entry | Verified by |
++ | --- | --- | --- | --- |
++ | `koenig2002dstarlite` | `@inproceedings` | Koenig and Likhachev, D\* Lite, AAAI-02, pp. 476 to 483 | AAAI page and PDF |
++ | `hart1968astar` | `@article` | Hart, Nilsson, Raphael, "A Formal Basis for the Heuristic Determination of Minimum Cost Paths", IEEE Trans. Systems Science and Cybernetics 4(2), 100 to 107, 1968 | Cited in the Chapter 3 notes of the textbook; volume, pages and DOI 10.1109/TSSC.1968.300136 matched in a search |
++ | `stentz1995focussed` | `@inproceedings` | Stentz, The Focussed D\* Algorithm for Real-Time Replanning, IJCAI, pp. 1652 to 1659, 1995 | D\* Lite's reference list; CMU RI and mlanthology listings |
++ | `russell2020aima` | `@book` | Russell and Norvig, Artificial Intelligence: A Modern Approach, 4th ed., Pearson, 2020 | The course textbook |
++ | `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
++ ### How to cite (rules for this document)
++ - Put `\cite{key}` after a space and before the period that ends the sentence: `...as shown \cite{key}.` (from the course citation guide).
++ - Two sources in one place: `\cite{key1,key2}` with no space after the comma.
++ - A key must match the first line of its `.bib` entry exactly, including case. A mismatch prints `[?]` in the PDF.
++ - Do not use `\nocite{*}` here. The prompt requires every listed reference to be cited, and an uncited entry would otherwise show up or be silently dropped.
++ - Put URLs inside `\url{...}` in `howpublished` (for `@misc`) or `note`. The `xurl` package breaks long URLs across lines and handles `_` and `%` inside `\url{}`. No manual backslashes are needed.
++ - `acm` is a classic BibTeX style, so it numbers references `[1]` to `[5]` and sorts them by author. The heading "References" is added automatically.
++ - If the course asks for `plainurl` instead, change the one line `\bibliographystyle{acm}` to `\bibliographystyle{plainurl}`. Nothing else changes.
++ - Fields the style needs: `@inproceedings` author, title, booktitle, year. `@article` author, title, journal, year. `@book` author, title, publisher, year. `@misc` has no required field.
++ ### Draft report (main.tex)
++ Built from `wa1_template.tex`. Three edits only: the `xurl` line, the title and author, and the body plus the two bibliography lines.
++ ```latex
++ \documentclass{article}
++ \usepackage[utf8]{inputenc}
++ \usepackage{geometry}
++  \geometry{
++  letterpaper,
++  left=20mm,
++  top=20mm,
++  }
++ \setlength{\headheight}{12.5pt}
++  \usepackage{titling}
++ \usepackage{xurl}
++ 
++  \title{Writing \#2: D* Lite}
++ \author{Anant Gupta}
++  
++  \usepackage{fancyhdr}
++ \fancypagestyle{plain}{%  the preset of fancyhdr 
++     \fancyhf{} % clear all header and footer fields
++     \fancyhead[L]{\thetitle}
++     \fancyhead[R]{\theauthor}
++ }
++ \makeatletter
++ \def\@maketitle{%
++   \newpage
++   \null
++   \vskip 1em%
++     \begin{center}
++     {\LARGE \@title \par}
++     \vskip 1em
++     \end{center}
++   \par
++   \vskip 1em}
++ \makeatother
++ 
++ \begin{document}
++ 
++ \maketitle
++ 
++ \section{Summary}
++ 
++ This report covers ``D* Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map, but it cannot see every wall in advance. It assumes unseen cells are free, plans a shortest path, follows it, and plans again whenever it sees a blocked cell. Rerunning conventional graph search each time can take minutes on large maps, while one new obstacle changes the goal distance of only a few cells \cite{koenig2002dstarlite}. D* Lite recomputes just those cells.
++ 
++ The method extends Lifelong Planning A* (LPA*) \cite{koenig2002dstarlite}, an incremental version of the A* algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead computed from its neighbors. If the two match, the cell is consistent. Only inconsistent cells wait in a priority queue, ordered by a key whose first part corresponds to the A* value $f = g + h$. When an edge cost changes, the cells next to that edge are updated and the queue is processed until the robot's own cell is consistent again. The very first search expands the same cells A* would \cite{koenig2002dstarlite}.
++ 
++ Two changes turn LPA* into D* Lite. First, the search runs backward from the goal, so the stored values are goal distances and stay valid while the robot moves. Second, moving makes the heuristic part of every queued key out of date. Instead of reordering the queue, the algorithm adds a running offset $k_m$ to each new key and rechecks a cell when it is removed from the queue. The result behaves like Stentz's Focussed D* \cite{stentz1995focussed}, but it is shorter and easier to analyze \cite{koenig2002dstarlite}.
++ 
++ The authors state that a search always terminates with a correct path and expands each cell at most twice; the proofs for LPA* are in a separate technical report. In simulation on random eight-connected grids, D* Lite did better than Focussed D* on vertex expansions, heap percolates, and vertex accesses. Against its own variants without incremental search (which is repeated A*) or without the heuristic, it came out ahead on all three measures, with two small-map exceptions that were not statistically significant, and by more than a factor of seven in vertex expansions at best \cite{koenig2002dstarlite}.
++ 
++ \section{Response}
++ 
++ The paper targets replanning on a graph whose edge costs change over time, with navigation in unknown terrain as the main case. It fits when changes are local and a good heuristic exists. The heuristic must never overestimate and must obey a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is also narrow: the robot sees which of its eight neighbors are blocked and then moves at cost one, and the paper does not address noisy sensors or actions that can fail.
++ 
++ Validation is both theoretical and experimental. The theorems support correctness, but the proofs are in a technical report, so I could not check them from the paper alone. The experiments are simulation only, because D* had already worked on real robots. The authors count vertex expansions, heap percolates, and vertex accesses instead of run time. These counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals support the claim that D* Lite is at least as efficient as D* \cite{koenig2002dstarlite}. I would still want wall-clock time, since a count says little about how costly each operation is. One result is easy to miss: on the adaptive-resolution grids, D* Lite and its variant without the heuristic performed about equally, so the heuristic does not always help.
++ 
++ The paper is easy to follow for a reader who knows A*. The pseudocode has numbered lines, and the analysis keeps comparing LPA* with A*, for example by showing that it expands vertices in the same order under suitable tie-breaking, which makes it easy to connect to the textbook treatment of A* \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. Implementing the algorithm from the pseudocode looks feasible, but reproducing the exact numbers does not, because the paper does not describe how the random terrains were generated or where the start and goal cells were placed.
++ 
++ What I found most interesting is how little is added to A*. The first search is plain A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here the question is what to keep when the graph changes. The paper also looks useful beyond theory. It notes that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave D* Lite a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density changes the run-time gap between D* Lite and repeated A*.
++ 
++ \bibliographystyle{acm}
++ \bibliography{citations}
++ 
++ \end{document}
++ ```
++ ### Reference file (citations.bib)
++ A separate file in the Overleaf project. The name must be exactly `citations.bib` because `main.tex` ends with `\bibliography{citations}` (no extension). The course example calls it `rf1.bib`; the name does not matter as long as the two agree.
++ ```bibtex
++ @inproceedings{koenig2002dstarlite,
++   author    = {Sven Koenig and Maxim Likhachev},
++   title     = {{D*} {Lite}},
++   booktitle = {Proceedings of the Eighteenth National Conference on Artificial Intelligence ({AAAI}-02)},
++   pages     = {476--483},
++   year      = {2002},
++   address   = {Edmonton, Alberta, Canada},
++   note      = {\url{https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf}}
++ }
++ 
++ @article{hart1968astar,
++   author  = {Peter E. Hart and Nils J. Nilsson and Bertram Raphael},
++   title   = {A Formal Basis for the Heuristic Determination of Minimum Cost Paths},
++   journal = {{IEEE} Transactions on Systems Science and Cybernetics},
++   volume  = {4},
++   number  = {2},
++   pages   = {100--107},
++   year    = {1968}
++ }
++ 
++ @inproceedings{stentz1995focussed,
++   author    = {Anthony Stentz},
++   title     = {The Focussed {D*} Algorithm for Real-Time Replanning},
++   booktitle = {Proceedings of the International Joint Conference on Artificial Intelligence ({IJCAI})},
++   pages     = {1652--1659},
++   year      = {1995}
++ }
++ 
++ @book{russell2020aima,
++   author    = {Stuart Russell and Peter Norvig},
++   title     = {Artificial Intelligence: A Modern Approach},
++   edition   = {Fourth},
++   publisher = {Pearson},
++   year      = {2020}
++ }
++ 
++ @misc{aaaiclassic,
++   author       = {{Association for the Advancement of Artificial Intelligence}},
++   title        = {{AAAI} Classic Paper Award},
++   howpublished = {\url{https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/}},
++   note         = {Accessed October 23, 2026}
++ }
++ ```
++ ### Overleaf project: exact steps
++ 1. Open overleaf.com and sign in. Click **New Project**, then **Blank Project**. Name it `Writing 2 - D Star Lite`. Click **Create**.
++ 2. The file list on the left shows one file, `main.tex`, with sample text. Click it, press `Ctrl+A`, press `Delete`, then paste the full `main.tex` block above.
++ 3. In the file list, click the **New File** icon (page with a plus). Type the name `citations.bib` exactly, leave the template choice on blank, click **Create**. Click the new file and paste the full `citations.bib` block above.
++ 4. Click **Menu** (top left). Set **Compiler** to `pdfLaTeX`, **Main document** to `main.tex`. Close the menu.
++ 5. Click **Recompile**. Overleaf runs BibTeX by itself. If the PDF shows `[?]` or no References, click the arrow beside Recompile and choose **Recompile from scratch**, then recompile once more.
++ 6. Check the PDF against the pre-submit list below.
++ 7. Click the **Download PDF** icon (download icon above the preview). Optionally also **Menu**, then **Download Source**, and keep the zip next to the other homework files.
++ 8. Upload the PDF to the Writing 2 assignment on Canvas and confirm the upload before the due time.
++ ### Pre-submit checks
++ - [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
++ - [ ] Sections appear in order: Summary, Response, References.
++ - [ ] References lists five entries, each with a number, and the text shows citations as `[1]` to `[5]` style numbers. No `[?]` anywhere.
++ - [ ] The footnote shows at the bottom of page 1 and states the real level of AI use. Edit the wording if it is not accurate.
++ - [ ] The Logs panel shows no `Citation ... undefined` and no `Undefined control sequence`. Overfull box warnings are fine.
++ - [ ] The prose is about 500 words or more (see the count below).
++ - [ ] I have read the report and every claim traces to the table above.
++ ### Checks run in this vault (no LaTeX engine used)
++ Scripted lint of the two code blocks, run after writing. See the result lines below.
++ ### Open items
++ - `acmtemplate.tex` from Canvas was never seen. If it turns out to be `acmart` or another class, the preamble and bibliography style change; the reference entries and body text stay the same.
++ - Nobody has compiled this. Overleaf is the first real compile.
++ - Due time on Canvas is unconfirmed.
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ## Concepts used
-<!-- Concepts actually used, each with its role. -->
+- <!-- Concepts actually used, each with its role. -->
 + ## Concepts used
-- **A\* and consistent heuristics** ([[Concept - Informed Search]]): D\* Lite's first search is exactly A\*, and the paper requires a consistent heuristic for LPA\*. The response compares both with the textbook version.
-- **Incremental search (LPA\*, D\* Lite)**: the new idea here. `g`, `rhs`, local consistency, and the offset `k_m`. No concept note exists yet; this paper exposes a reusable mechanism, so one is worth creating after submission.
-- **Reading a search paper** (Discussion 6): the problem, guarantee, experiment and limits frame shaped the response section.
-- **BibTeX and LaTeX citing**: `\cite` before the period, one entry per type, `xurl` for URLs, from the course citation guide and the TA example.
++ - **A\* and consistent heuristics** ([[Concept - Informed Search]]): D\* Lite's first search is exactly A\*, and the paper requires a consistent heuristic for LPA\*. The response compares both with the textbook version.
++ - **Incremental search (LPA\*, D\* Lite)**: the new idea here. `g`, `rhs`, local consistency, and the offset `k_m`. No concept note exists yet; this paper exposes a reusable mechanism, so one is worth creating after submission.
++ - **Reading a search paper** (Discussion 6): the problem, guarantee, experiment and limits frame shaped the response section.
++ - **BibTeX and LaTeX citing**: `\cite` before the period, one entry per type, `xurl` for URLs, from the course citation guide and the TA example.
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"; ls -la "$PY" 2>&1; "$PY" --version 2>&1`
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"; ls -la "$PY" 2>&1; "$PY" --version 2>&1
+```
 ```
 -rwxr-xr-x 1 anant 197609 47104 Sep 21 13:16 D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe
 Python 3.12.14
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\lint_writing2.py`
-```
+````
 import re
 import sys
 
@@ -2424,10 +2593,13 @@ check("sections in order Summary, Response", names == ["Summary", "Response"], s
 check("heading 'The paper' exists for the Overview link", "### The paper" in text)
 print("\nALL PASS" if ok else "\nSOME FAILED")
 
-```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+````
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-"$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"`
+"$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+```
 ```
 PASS every cited key exists in citations.bib :: []
 PASS every bib key is cited :: []
@@ -2493,9 +2665,12 @@ ALL PASS
 -  The paper also looks useful beyond theory. It notes that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave D* Lite a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}.
 +  The paper also looks useful beyond theory: it notes that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave D* Lite a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}.
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-"$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | grep -E "FAIL|words|ALL PASS|SOME"`
+"$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | grep -E "FAIL|words|ALL PASS|SOME"
+```
 ```
      prose words (no footnote, no headings, no references): 747
 PASS at least 500 words :: 747
@@ -2504,17 +2679,17 @@ ALL PASS
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ### Checks run in this vault (no LaTeX engine used)
-Scripted lint of the two code blocks, run after writing. See the result lines below.
+- Scripted lint of the two code blocks, run after writing. See the result lines below.
 + ### Checks run in this vault (no LaTeX engine used)
-A script read the two code blocks above on 2026-10-23, using the course environment's Python (`CSCI 4511W\Code\.venv`, nothing installed). 31 checks, all passed. This is a lint, not a compile.
-- Every `\cite` key exists in `citations.bib`, and every `.bib` key is cited. Five entries: `@inproceedings` twice, `@article`, `@book`, `@misc`.
-- Braces balance in both files, `\begin` and `\end` match, `$` signs are even, quotes use ` `` ` and `''`.
-- Both files are plain ASCII (no pasted special characters), and there are no unescaped `&`, `_`, `#` or `%` in the prose.
-- No citation sits after a period. Every `\cite` is followed by a period, comma or semicolon.
-- Title, author, `xurl`, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
-- Sections are in order: Summary, Response, then the generated References.
-- *Word count:* 747 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer. To get closer to 500, cut the second Summary paragraph down to two sentences and the last sentence of the first Response paragraph.
-- *Not checked:* anything that needs a real compile, such as the header look, page breaks, and BibTeX warnings. That happens in Overleaf, step 5.
++ A script read the two code blocks above on 2026-10-23, using the course environment's Python (`CSCI 4511W\Code\.venv`, nothing installed). 31 checks, all passed. This is a lint, not a compile.
++ - Every `\cite` key exists in `citations.bib`, and every `.bib` key is cited. Five entries: `@inproceedings` twice, `@article`, `@book`, `@misc`.
++ - Braces balance in both files, `\begin` and `\end` match, `$` signs are even, quotes use ` `` ` and `''`.
++ - Both files are plain ASCII (no pasted special characters), and there are no unescaped `&`, `_`, `#` or `%` in the prose.
++ - No citation sits after a period. Every `\cite` is followed by a period, comma or semicolon.
++ - Title, author, `xurl`, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
++ - Sections are in order: Summary, Response, then the generated References.
++ - *Word count:* 747 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer. To get closer to 500, cut the second Summary paragraph down to two sentences and the last sentence of the first Response paragraph.
++ - *Not checked:* anything that needs a real compile, such as the header look, page breaks, and BibTeX warnings. That happens in Overleaf, step 5.
 ```
 - `Grep` -- pattern `^#{1,4} ` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
@@ -2522,9 +2697,12 @@ A script read the two code blocks above on 2026-10-23, using the course environm
 - 31 checks, all passed.
 + 29 checks, all passed.
 ```
-- `Glob` -- pattern `**/Vault Lint*` path ``
+- `Glob` -- pattern `**/Vault Lint*` path ` `
 - `Grep` -- pattern `^(command|run|usage|Run)|jarvis-cli|python|node |npm |lint` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\Vault Lint.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 10 2>&1 | head -40`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 10 2>&1 | head -40
+```
 ```
 Scanned 1 notes in scope (excluded: 1 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
 FIT: 0/1 = 0.0%
@@ -2543,7 +2721,7 @@ First 10 failing notes:
 ```
 - `Grep` -- pattern `extra-blank-lines` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\vault-lint.js`
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\strip_blanks.py`
-```
+````
 import re
 import sys
 
@@ -2572,8 +2750,10 @@ if crlf:
 open(path, "wb").write(text.encode("utf-8"))
 print("removed blank lines outside code fences:", removed, "| crlf:", crlf)
 
-```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+````
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"
@@ -2582,7 +2762,8 @@ node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Wri
 echo "=== re-run my lint ==="
 "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
 echo "=== code blocks still contain their blank lines? ==="
-grep -c '^$' "$N"`
+grep -c '^$' "$N"
+```
 ```
 removed blank lines outside code fences: 17 | crlf: False
 Scanned 1 notes in scope (excluded: 1 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
@@ -2696,7 +2877,7 @@ What I found most interesting is how little is added to A*. The first search is 
 
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\swap_body.py`
-```
+````
 import re
 import sys
 
@@ -2713,8 +2894,10 @@ note = note[: m.start(2)] + new_tex + note[m.end(2):]
 open(note_path, "wb").write(note.encode("utf-8"))
 print("replaced", end - start, "chars with", len(body))
 
-```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+````
+- `Bash`
+````bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/swap_body.py" "$N" "$SP/new_body.tex"
@@ -2737,7 +2920,8 @@ EOF
 echo "=== my lint ==="
 "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
 echo "=== vault lint ==="
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p
+````
 ```
 replaced 4907 chars with 5059
 === lost-asterisk scan on the LaTeX body (expect no hits) ===
@@ -2762,7 +2946,10 @@ ALL PASS
 === vault lint ===
 FIT: 0/1 = 0.0%
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | tail -6`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | tail -6
+```
 ```
 Top failure reasons:
       1  5:extra-blank-lines
@@ -2770,7 +2957,9 @@ Top failure reasons:
 First 3 failing notes:
   20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md  [course-homework]  5:extra-blank-lines:3
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I -c "
 import re,sys
@@ -2782,7 +2971,8 @@ for i,l in enumerate(lines,1):
     if not inF and l.strip()=='' and i!=len(lines):
         print('blank outside fence at line',i,'| prev:',lines[i-2][:60],'| next:',lines[i][:60])
 print('total lines',len(lines))
-" "$N"`
+" "$N"
+```
 ```
 blank outside fence at line 75 | prev: ==D\* Lite== is an incremental replanning algorithm for a ro | next: | Field | Value |
 blank outside fence at line 93 | prev: Page numbers are PDF pages of the 8-page AAAI PDF. Use this  | next: | Claim in the draft | Where |
@@ -2794,50 +2984,50 @@ total lines 282
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ### The paper
-==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
-
-| Field | Value |
+- ==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
+- 
+- | Field | Value |
 + ### The paper
-| Field | Value |
++ | Field | Value |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - - *Verified:* the AAAI page and the award page were opened.
 + - *What it is:* ==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
-- *Verified:* the AAAI page and the award page were opened.
++ - *Verified:* the AAAI page and the award page were opened.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ### Claim to location in the paper
-Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
-
-| Claim in the draft | Where |
+- Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
+- 
+- | Claim in the draft | Where |
 + ### Claim to location in the paper
-| Claim in the draft | Where |
++ | Claim in the draft | Where |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - | Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
-### Reference plan
-Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
-
-| Key | Type | Entry | Verified by |
+- ### Reference plan
+- Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
+- 
+- | Key | Type | Entry | Verified by |
 + | Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
-- Page numbers are PDF pages of the 8-page AAAI PDF. Use the table to re-check any sentence in the draft.
-### Reference plan
-| Key | Type | Entry | Verified by |
++ - Page numbers are PDF pages of the 8-page AAAI PDF. Use the table to re-check any sentence in the draft.
++ ### Reference plan
++ | Key | Type | Entry | Verified by |
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - | `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
-### How to cite
+- ### How to cite
 + | `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
-- Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
-### How to cite
++ - Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
++ ### How to cite
 ```
 - `Grep` -- pattern `^### (Pre-submit checks|Checks run|Open items)|Word count:|prose words|747` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\scan_asterisks.py`
-```
+````
 import re
 import sys
 
@@ -2865,13 +3055,16 @@ print("asterisk counts  D*:", len(re.findall(r"D\*", body)),
       " LPA*:", len(re.findall(r"LPA\*", body)))
 print("lost-asterisk hits:", len(hits))
 
-```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+````
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/scan_asterisks.py" "$N"
 echo "=== my lint ==="; "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
-echo "=== vault lint ==="; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+echo "=== vault lint ==="; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p
+```
 ```
 HIT ('\\bA(?![*\\w])', 'y Koenig and Likhachev . A robot must reach a goal ')
 HIT ('\\bA(?![*\\w])', 'orable Mention in 2019 . A follow-up I would test i')
@@ -2888,34 +3081,37 @@ FIT: 1/1 = 100.0%
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ### Pre-submit checks
-- [ ] Header on every page
+- - [ ] Header on every page
 + ### Revision: humanized text merged (2026-10-23)
-The pasted rewrite had lost every asterisk ("D\* Lite" read "D Lite", "A\*" read "A", "LPA\*" read "LPA", "Focussed D\*" read "Focussed D") and the `\section{Summary}` line. All are restored. The `main.tex` body now holds 13 `D*`, 15 `A*` and 3 `LPA*`, and a scan finds no stripped ones.
-Wording that changed the meaning against the paper was corrected. Tone and structure are kept.
-- "changes the goal's distance by only a few cells" became "changes the goal distance of only a few cells". The paper says few cells have a changed goal distance (p. 1 to 2), not that the goal moves a little.
-- "it replans, and may require minutes of rerunning..." was split into two sentences, because the subject of "may require" was wrong.
-- "the edge cost of a cell" became "an edge cost", and "its adjacent cells" became "the affected cells". Costs belong to edges.
-- "invalidates the heuristic" became "makes it out of date". The stored keys stay valid lower bounds on the true keys and are only stale (p. 5).
-- "yields a similar performance to Focussed D\*" became "behaves like". The paper claims the same navigation behavior and efficiency at least as good (p. 1, p. 6), not similar performance.
-- "appropriate when changes are local" became "handles any pattern of cost changes, but reuse should pay off most when few costs change at once". The paper says it assumes nothing about where or how costs change (p. 4). The "should" marks the payoff as my inference.
-- "does not handle noisy sensors" became "does not address". The paper is silent on them.
-- "justify" became "support" in two places, so the claims are not overstated.
-- Grammar: "variant that omit" became "variant without"; "seems plausible, but reproducing... is not" became "looks feasible, but... does not"; and the list "maintaining g, rhs, and carrying" became "keeping g, adding rhs, and carrying".
-### Pre-submit checks
-- [ ] Header on every page
++ The pasted rewrite had lost every asterisk ("D\* Lite" read "D Lite", "A\*" read "A", "LPA\*" read "LPA", "Focussed D\*" read "Focussed D") and the `\section{Summary}` line. All are restored. The `main.tex` body now holds 13 `D*`, 15 `A*` and 3 `LPA*`, and a scan finds no stripped ones.
++ Wording that changed the meaning against the paper was corrected. Tone and structure are kept.
++ - "changes the goal's distance by only a few cells" became "changes the goal distance of only a few cells". The paper says few cells have a changed goal distance (p. 1 to 2), not that the goal moves a little.
++ - "it replans, and may require minutes of rerunning..." was split into two sentences, because the subject of "may require" was wrong.
++ - "the edge cost of a cell" became "an edge cost", and "its adjacent cells" became "the affected cells". Costs belong to edges.
++ - "invalidates the heuristic" became "makes it out of date". The stored keys stay valid lower bounds on the true keys and are only stale (p. 5).
++ - "yields a similar performance to Focussed D\*" became "behaves like". The paper claims the same navigation behavior and efficiency at least as good (p. 1, p. 6), not similar performance.
++ - "appropriate when changes are local" became "handles any pattern of cost changes, but reuse should pay off most when few costs change at once". The paper says it assumes nothing about where or how costs change (p. 4). The "should" marks the payoff as my inference.
++ - "does not handle noisy sensors" became "does not address". The paper is silent on them.
++ - "justify" became "support" in two places, so the claims are not overstated.
++ - Grammar: "variant that omit" became "variant without"; "seems plausible, but reproducing... is not" became "looks feasible, but... does not"; and the list "maintaining g, rhs, and carrying" became "keeping g, adding rhs, and carrying".
++ ### Pre-submit checks
++ - [ ] Header on every page
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - - *Word count:* 747 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer. To get closer to 500, cut the second Summary paragraph down to two sentences and the last sentence of the first Response paragraph.
 + - The scan for lost asterisks and the 29 checks were re-run on the merged text and pass. Vault Lint reports the note at 100% fit.
-- *Word count:* 771 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer, so this is submittable as it stands.
++ - *Word count:* 771 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer, so this is submittable as it stands.
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
 "$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2,2p`
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2,2p
+```
 ```
      prose words (no footnote, no headings, no references): 771
 PASS at least 500 words :: 771
@@ -3036,7 +3232,10 @@ I'll read the compiled PDF with MinerU (text and rendered page images) so I can 
 
 ### Tool Calls
 
-- `Bash` -- `P="D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf"; ls -la "$P"; mineru parse "$P" -p all --wait 300 2>&1 | head -150`
+- `Bash`
+```bash
+P="D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf"; ls -la "$P"; mineru parse "$P" -p all --wait 300 2>&1 | head -150
+```
 ```
 -rw-r--r-- 1 anant 197609 145281 Oct 23 22:41 D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf
 <!-- page 1 of 2 -->
@@ -3087,9 +3286,12 @@ What I found most interesting is how little is added to $\mathrm { A } ^ { * }$ 
 
 2
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru list docs 2>&1 | grep -i -E "Writing|Doc ID|──" | head -8
-mineru show file "D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf" 2>&1 | head -12`
+mineru show file "D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf" 2>&1 | head -12
+```
 ```
 ┌─────────┬──────┬───────┬───────────────────────────────────────┐
 │ Doc ID  │ Type │ Pages │ Title                                 │
@@ -3108,10 +3310,13 @@ mineru show file "D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf" 2>&1 | head -1
 │ Author     │ —                                              │
 │ Tiers      │ flash=done, standard=done                      │
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 mineru read "doc:6d0873f/tier:standard/page:1" -f image -o "$SP/w2_p1.png" 2>&1 | tail -2
 mineru read "doc:6d0873f/tier:standard/page:2" -f image -o "$SP/w2_p2.png" 2>&1 | tail -2
-ls -la "$SP"/w2_p*.png`
+ls -la "$SP"/w2_p*.png
+```
 ```
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\w2_p1.png
 Written to C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\w2_p2.png
@@ -3240,7 +3445,7 @@ Send me the new PDF and I'll re-read it the same way. The full diagnosis is in t
 \end{document}
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\swap_layout.py`
-```
+````
 import re
 import sys
 
@@ -3265,30 +3470,33 @@ note = note.replace(old, new)
 open(note_path, "wb").write(note.encode("utf-8"))
 print("layout swapped; body kept; stentz title protected")
 
-```
+````
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\lint_writing2.py`
 ```diff
 - check("xurl loaded", r"\usepackage{xurl}" in tex)
-check("bib style and file", r"\bibliographystyle{acm}" in tex and r"\bibliography{citations}" in tex)
+- check("bib style and file", r"\bibliographystyle{acm}" in tex and r"\bibliography{citations}" in tex)
 + check("url package loaded (xurl dropped on purpose)", r"\usepackage{url}" in tex and "xurl" not in tex)
-check("bib style and file", r"\bibliographystyle{acm}" in tex and r"\bibliography{citations}" in tex)
-check("12pt article", r"\documentclass[12pt]{article}" in tex)
-check("1in margins on all sides", "margin=1in" in tex and "left=20mm" not in tex)
-check("headheight fits 12pt", r"\setlength{\headheight}{14.5pt}" in tex)
-check("double spacing on", r"\doublespacing" in tex and r"\usepackage{setspace}" in tex)
-check("references single spaced", re.search(r"\\begin\{singlespace\}\s*\\bibliographystyle.*?\\bibliography\{citations\}\s*\\end\{singlespace\}", tex, re.S) is not None)
-check("header and footer on every page (pagestyle fancy + plain)", r"\pagestyle{fancy}" in tex and tex.count(r"\fancyfoot[C]{\thepage}") == 2 and tex.count(r"\fancyhead[L]{\thetitle}") == 2 and tex.count(r"\fancyhead[R]{\theauthor}") == 2)
-check("section label is 'N.' via titlesec", r"\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}" in tex)
-check("References heading numbered 3", r"\renewcommand{\refname}{3. References}" in tex)
-check("title block has author and course", r"\@author" in tex and "CSCI 4511W" in tex)
-check("refname set before bibliography", tex.index(r"\renewcommand{\refname}") < tex.index(r"\bibliographystyle"))
-check("Focussed protected in bib", "{Focussed} {D*}" in bib)
++ check("bib style and file", r"\bibliographystyle{acm}" in tex and r"\bibliography{citations}" in tex)
++ check("12pt article", r"\documentclass[12pt]{article}" in tex)
++ check("1in margins on all sides", "margin=1in" in tex and "left=20mm" not in tex)
++ check("headheight fits 12pt", r"\setlength{\headheight}{14.5pt}" in tex)
++ check("double spacing on", r"\doublespacing" in tex and r"\usepackage{setspace}" in tex)
++ check("references single spaced", re.search(r"\\begin\{singlespace\}\s*\\bibliographystyle.*?\\bibliography\{citations\}\s*\\end\{singlespace\}", tex, re.S) is not None)
++ check("header and footer on every page (pagestyle fancy + plain)", r"\pagestyle{fancy}" in tex and tex.count(r"\fancyfoot[C]{\thepage}") == 2 and tex.count(r"\fancyhead[L]{\thetitle}") == 2 and tex.count(r"\fancyhead[R]{\theauthor}") == 2)
++ check("section label is 'N.' via titlesec", r"\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}" in tex)
++ check("References heading numbered 3", r"\renewcommand{\refname}{3. References}" in tex)
++ check("title block has author and course", r"\@author" in tex and "CSCI 4511W" in tex)
++ check("refname set before bibliography", tex.index(r"\renewcommand{\refname}") < tex.index(r"\bibliographystyle"))
++ check("Focussed protected in bib", "{Focussed} {D*}" in bib)
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/swap_layout.py" "$N" "$SP/new_preamble.tex" "$SP/new_tail.tex"
-"$PY" -I "$SP/lint_writing2.py" "$N"`
+"$PY" -I "$SP/lint_writing2.py" "$N"
+```
 ```
 layout swapped; body kept; stentz title protected
 PASS every cited key exists in citations.bib :: []
@@ -3336,8 +3544,11 @@ PASS heading 'The paper' exists for the Overview link
 
 ALL PASS
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,12p
-cd "D:/_Anant/20_Progress/Documents/Jarvis"; grep -n -E "xurl|Built from|Pre-submit|Header on every page|^- \[ \] (Sections|References lists|The footnote|The Logs|The prose|I have read)" "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | cut -c1-200`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,12p
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; grep -n -E "xurl|Built from|Pre-submit|Header on every page|^- \[ \] (Sections|References lists|The footnote|The Logs|The prose|I have read)" "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | cut -c1-200
+```
 ```
 FIT: 1/1 = 100.0%
 
@@ -3376,44 +3587,47 @@ First 3 failing notes:
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - ### Pre-submit checks
-- [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
-- [ ] Sections appear in order: Summary, Response, References.
+- - [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
+- - [ ] Sections appear in order: Summary, Response, References.
 + ### Layout review of the first compile (2026-10-23)
-I read the compiled PDF (`CSCI_4511W_Writing___2.pdf`, 2 pages) with `mineru parse` for the text and `mineru read -f image` for the rendered pages. Content, citations, footnote and the final period were all correct. The layout was not.
-- *Margins:* left about 0.8 in, right about 1.3 in, bottom about 1.9 in. The template sets only `left=20mm` and `top=20mm`, so geometry derives the rest. Fix: `margin=1in` on all sides, as in Writing 1.
-- *Spacing:* single spaced with no paragraph gap, so the text looked packed. Fix: `\doublespacing` as in Writing 1. The footnote stays single spaced by default, and the reference list is wrapped in `singlespace` so it reads as a list.
-- *Header on page 1 only:* page 2 had a bare page number and no header. Diagnosis (inferred from the output, not tested in isolation): the template redefines the `plain` page style, but article had already activated `plain` before that redefinition, so only page 1, which `\maketitle` forces to `plain`, picked it up. Fix: `\pagestyle{fancy}` plus the same definition for `plain`, so every page has the header.
-- *Footer:* page 1 had no page number, because the template clears the footer. Fix: a centered `\thepage` in both styles. The header also gets a thin rule.
-- *Header height:* raised from 12.5pt to 14.5pt, which 12pt text needs. Writing 1 used the same value.
-- *Headings:* `1 Summary` and `2 Response` now read `1. Summary` and `2. Response`, through `titlesec`. The reference list heading is renamed `3. References` so the three required sections are numbered alike.
-- *Title block:* the title now has the author and `CSCI 4511W` underneath, so page 1 does not open with only a title that repeats the header. The name still comes from `\author`.
-- *URL splitting:* `cdn.aa` and `ai.org` were split mid-word by `xurl`. Fix: the plain `url` package.
-- *Reference title:* the Stentz title printed as "The focussed D\* algorithm". `{Focussed}` is now protected in the `.bib` so it keeps its capital.
-- *Not changed:* the body text, the five references, the citation placement and the footnote.
-- *Not verified:* this layout has not been compiled. It uses only `geometry`, `titling`, `url`, `setspace`, `titlesec` and `fancyhdr`, all part of the Overleaf TeX Live. Page count should land around 4.
-### Pre-submit checks
-- [ ] Header on every page, including page 2 onward: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right, with a thin rule.
-- [ ] A centered page number at the bottom of every page, including page 1.
-- [ ] Margins look equal on all four sides, and the body is double spaced.
-- [ ] Headings read `1. Summary`, `2. Response` and `3. References`, in that order.
++ I read the compiled PDF (`CSCI_4511W_Writing___2.pdf`, 2 pages) with `mineru parse` for the text and `mineru read -f image` for the rendered pages. Content, citations, footnote and the final period were all correct. The layout was not.
++ - *Margins:* left about 0.8 in, right about 1.3 in, bottom about 1.9 in. The template sets only `left=20mm` and `top=20mm`, so geometry derives the rest. Fix: `margin=1in` on all sides, as in Writing 1.
++ - *Spacing:* single spaced with no paragraph gap, so the text looked packed. Fix: `\doublespacing` as in Writing 1. The footnote stays single spaced by default, and the reference list is wrapped in `singlespace` so it reads as a list.
++ - *Header on page 1 only:* page 2 had a bare page number and no header. Diagnosis (inferred from the output, not tested in isolation): the template redefines the `plain` page style, but article had already activated `plain` before that redefinition, so only page 1, which `\maketitle` forces to `plain`, picked it up. Fix: `\pagestyle{fancy}` plus the same definition for `plain`, so every page has the header.
++ - *Footer:* page 1 had no page number, because the template clears the footer. Fix: a centered `\thepage` in both styles. The header also gets a thin rule.
++ - *Header height:* raised from 12.5pt to 14.5pt, which 12pt text needs. Writing 1 used the same value.
++ - *Headings:* `1 Summary` and `2 Response` now read `1. Summary` and `2. Response`, through `titlesec`. The reference list heading is renamed `3. References` so the three required sections are numbered alike.
++ - *Title block:* the title now has the author and `CSCI 4511W` underneath, so page 1 does not open with only a title that repeats the header. The name still comes from `\author`.
++ - *URL splitting:* `cdn.aa` and `ai.org` were split mid-word by `xurl`. Fix: the plain `url` package.
++ - *Reference title:* the Stentz title printed as "The focussed D\* algorithm". `{Focussed}` is now protected in the `.bib` so it keeps its capital.
++ - *Not changed:* the body text, the five references, the citation placement and the footnote.
++ - *Not verified:* this layout has not been compiled. It uses only `geometry`, `titling`, `url`, `setspace`, `titlesec` and `fancyhdr`, all part of the Overleaf TeX Live. Page count should land around 4.
++ ### Pre-submit checks
++ - [ ] Header on every page, including page 2 onward: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right, with a thin rule.
++ - [ ] A centered page number at the bottom of every page, including page 1.
++ - [ ] Margins look equal on all four sides, and the body is double spaced.
++ - [ ] Headings read `1. Summary`, `2. Response` and `3. References`, in that order.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - - Title, author, `xurl`, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
 + - Title, author, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
-- After the layout revision, 12 more checks were added and pass: 12pt article, 1 inch margins on all sides, header height 14.5pt, double spacing on, single-spaced references, header and footer defined for both `fancy` and `plain`, `N.` section labels, `3. References`, author and course in the title block, `url` loaded without `xurl`, and `{Focussed}` protected in the `.bib`.
++ - After the layout revision, 12 more checks were added and pass: 12pt article, 1 inch margins on all sides, header height 14.5pt, double spacing on, single-spaced references, header and footer defined for both `fancy` and `plain`, `N.` section labels, `3. References`, author and course in the title block, `url` loaded without `xurl`, and `{Focussed}` protected in the `.bib`.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - one entry per type, `xurl` for URLs, from
 + one entry per type, `\url{}` for URLs, from
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|ALL PASS|SOME"
 "$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p`
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p
+```
 ```
 ALL PASS
 asterisk counts  D*: 13  A*: 15  LPA*: 3
@@ -3431,19 +3645,25 @@ I'll read the new compile and the Writing 1 PDF in your Downloads folder, text a
 
 ### Tool Calls
 
-- `Bash` -- `ls -la "D:/_Anant/Downloads" | grep -i -E "4511|writing" `
+- `Bash`
+```bash
+ls -la "D:/_Anant/Downloads" | grep -i -E "4511|writing" 
+```
 ```
 -rw-r--r-- 1 anant 197609      91925 Oct 23 22:57 CSCI_4511W_Writing___1.pdf
 -rw-r--r-- 1 anant 197609     138757 Oct 23 22:57 CSCI_4511W_Writing___2 (1).pdf
 -rw-r--r-- 1 anant 197609     145281 Oct 23 22:41 CSCI_4511W_Writing___2.pdf
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 D="D:/_Anant/Downloads"
 mineru parse "$D/CSCI_4511W_Writing___2 (1).pdf" -p all --wait 300 2>&1 | head -80
 echo "=== doc ids ==="
 mineru show file "$D/CSCI_4511W_Writing___2 (1).pdf" 2>&1 | grep -E "Doc ID|Page count"
 mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 2>&1 | wc -c
-mineru show file "$D/CSCI_4511W_Writing___1.pdf" 2>&1 | grep -E "Doc ID|Page count"`
+mineru show file "$D/CSCI_4511W_Writing___1.pdf" 2>&1 | grep -E "Doc ID|Page count"
+```
 ```
 <!-- page 1 of 3 -->
 
@@ -3517,10 +3737,13 @@ What I found most interesting is how little is added to $\mathrm { A } ^ { * }$ 
 │ Doc ID     │ 9e1e5aa                                        │
 │ Page count │ 2                                              │
 ```
-- `Bash` -- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+- `Bash`
+```bash
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 for p in 1 2 3; do mineru read "doc:edae95f/tier:standard/page:$p" -f image -o "$SP/w2b_p$p.png" 2>&1 | tail -0; done
 for p in 1 2; do mineru read "doc:9e1e5aa/tier:standard/page:$p" -f image -o "$SP/w1_p$p.png" 2>&1 | tail -0; done
-ls "$SP"/w2b_p*.png "$SP"/w1_p*.png`
+ls "$SP"/w2b_p*.png "$SP"/w1_p*.png
+```
 ```
 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/w1_p1.png
 C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/w1_p2.png
@@ -3661,7 +3884,7 @@ Send me the new PDF and I'll read it the same way, so we can catch anything else
 \end{document}
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\swap_layout2.py`
-```
+````
 import re
 import sys
 
@@ -3680,40 +3903,43 @@ note = note[: m.start(2)] + new_tex + note[m.end(2):]
 open(note_path, "wb").write(note.encode("utf-8"))
 print("preamble and tail replaced; body untouched")
 
-```
+````
 - `Edit` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\lint_writing2.py`
 ```diff
 - check("12pt article", r"\documentclass[12pt]{article}" in tex)
-check("1in margins on all sides", "margin=1in" in tex and "left=20mm" not in tex)
-check("headheight fits 12pt", r"\setlength{\headheight}{14.5pt}" in tex)
-check("double spacing on", r"\doublespacing" in tex and r"\usepackage{setspace}" in tex)
-check("references single spaced", re.search(r"\\begin\{singlespace\}\s*\\bibliographystyle.*?\\bibliography\{citations\}\s*\\end\{singlespace\}", tex, re.S) is not None)
-check("header and footer on every page (pagestyle fancy + plain)", r"\pagestyle{fancy}" in tex and tex.count(r"\fancyfoot[C]{\thepage}") == 2 and tex.count(r"\fancyhead[L]{\thetitle}") == 2 and tex.count(r"\fancyhead[R]{\theauthor}") == 2)
-check("section label is 'N.' via titlesec", r"\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}" in tex)
-check("References heading numbered 3", r"\renewcommand{\refname}{3. References}" in tex)
-check("title block has author and course", r"\@author" in tex and "CSCI 4511W" in tex)
-check("refname set before bibliography", tex.index(r"\renewcommand{\refname}") < tex.index(r"\bibliographystyle"))
-check("Focussed protected in bib", "{Focussed} {D*}" in bib)
+- check("1in margins on all sides", "margin=1in" in tex and "left=20mm" not in tex)
+- check("headheight fits 12pt", r"\setlength{\headheight}{14.5pt}" in tex)
+- check("double spacing on", r"\doublespacing" in tex and r"\usepackage{setspace}" in tex)
+- check("references single spaced", re.search(r"\\begin\{singlespace\}\s*\\bibliographystyle.*?\\bibliography\{citations\}\s*\\end\{singlespace\}", tex, re.S) is not None)
+- check("header and footer on every page (pagestyle fancy + plain)", r"\pagestyle{fancy}" in tex and tex.count(r"\fancyfoot[C]{\thepage}") == 2 and tex.count(r"\fancyhead[L]{\thetitle}") == 2 and tex.count(r"\fancyhead[R]{\theauthor}") == 2)
+- check("section label is 'N.' via titlesec", r"\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}" in tex)
+- check("References heading numbered 3", r"\renewcommand{\refname}{3. References}" in tex)
+- check("title block has author and course", r"\@author" in tex and "CSCI 4511W" in tex)
+- check("refname set before bibliography", tex.index(r"\renewcommand{\refname}") < tex.index(r"\bibliographystyle"))
+- check("Focussed protected in bib", "{Focussed} {D*}" in bib)
 + check("default 10pt article, as in Writing 1", r"\documentclass{article}" in tex)
-check("1in margins on all sides", "margin=1in" in tex and "left=20mm" not in tex)
-check("headheight is the template value", r"\setlength{\headheight}{12.5pt}" in tex)
-check("single spacing: no setspace, no doublespacing, no singlespace env", not re.search(r"setspace|doublespacing|onehalfspacing|singlespace|setstretch", tex))
-check("titlesec absent (it redefines \\thetitle and broke the header)", "titlesec" not in tex)
-check("header uses \\thetitle and \\theauthor in both styles", tex.count(r"\fancyhead[L]{\thetitle}") == 2 and tex.count(r"\fancyhead[R]{\theauthor}") == 2)
-check("page number footer in both styles", tex.count(r"\fancyfoot[C]{\thepage}") == 2 and r"\pagestyle{fancy}" in tex)
-check("section label is 'N.'", r"\renewcommand{\thesection}{\arabic{section}.}" in tex)
-check("section style redefined with \\large\\bfseries", r"{\normalfont\large\bfseries}}" in tex and r"\renewcommand\section{\@startsection{section}{1}{\z@}" in tex)
-check("References heading numbered 3", r"\renewcommand{\refname}{3. References}" in tex)
-check("title block has author and course", r"\@author" in tex and "CSCI 4511W" in tex)
-check("refname set before bibliography", tex.index(r"\renewcommand{\refname}") < tex.index(r"\bibliographystyle"))
-check("\\makeatletter/\\makeatother paired", tex.count(r"\makeatletter") == 1 and tex.count(r"\makeatother") == 1 and tex.index(r"\renewcommand\section") < tex.index(r"\makeatother"))
-check("Focussed protected in bib", "{Focussed} {D*}" in bib)
++ check("1in margins on all sides", "margin=1in" in tex and "left=20mm" not in tex)
++ check("headheight is the template value", r"\setlength{\headheight}{12.5pt}" in tex)
++ check("single spacing: no setspace, no doublespacing, no singlespace env", not re.search(r"setspace|doublespacing|onehalfspacing|singlespace|setstretch", tex))
++ check("titlesec absent (it redefines \\thetitle and broke the header)", "titlesec" not in tex)
++ check("header uses \\thetitle and \\theauthor in both styles", tex.count(r"\fancyhead[L]{\thetitle}") == 2 and tex.count(r"\fancyhead[R]{\theauthor}") == 2)
++ check("page number footer in both styles", tex.count(r"\fancyfoot[C]{\thepage}") == 2 and r"\pagestyle{fancy}" in tex)
++ check("section label is 'N.'", r"\renewcommand{\thesection}{\arabic{section}.}" in tex)
++ check("section style redefined with \\large\\bfseries", r"{\normalfont\large\bfseries}}" in tex and r"\renewcommand\section{\@startsection{section}{1}{\z@}" in tex)
++ check("References heading numbered 3", r"\renewcommand{\refname}{3. References}" in tex)
++ check("title block has author and course", r"\@author" in tex and "CSCI 4511W" in tex)
++ check("refname set before bibliography", tex.index(r"\renewcommand{\refname}") < tex.index(r"\bibliographystyle"))
++ check("\\makeatletter/\\makeatother paired", tex.count(r"\makeatletter") == 1 and tex.count(r"\makeatother") == 1 and tex.index(r"\renewcommand\section") < tex.index(r"\makeatother"))
++ check("Focussed protected in bib", "{Focussed} {D*}" in bib)
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/swap_layout2.py" "$N" "$SP/new_preamble.tex" "$SP/new_tail.tex"
-"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"`
+"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+```
 ```
 preamble and tail replaced; body untouched
      prose words (no footnote, no headings, no references): 773
@@ -3721,7 +3947,7 @@ PASS at least 500 words :: 773
 ALL PASS
 ```
 - `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\estimate_pages.py`
-```
+````
 import re
 import sys
 import textwrap
@@ -3764,8 +3990,10 @@ for size, pitch in ((10, 12.0), (11, 13.6), (12, 14.5)):
     print(f"{size}pt single: {lines} body lines, total {total:.0f}pt = {total / page_h:.2f} pages (limit 2.00)")
 print("paragraphs:", n_par, " body chars:", total_chars)
 
-```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+````
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/estimate_pages.py" "$N"
@@ -3773,7 +4001,8 @@ echo "--- calibration check: the same model for the 12pt DOUBLE-spaced compile (
 "$PY" -I - <<'EOF'
 # quick calibration: 12pt double, pitch 14.5*1.66
 lines = None
-EOF`
+EOF
+```
 ```
 10pt single: 46 body lines, total 920pt = 1.41 pages (limit 2.00)
 11pt single: 49 body lines, total 1063pt = 1.63 pages (limit 2.00)
@@ -3790,32 +4019,32 @@ paragraphs: 8  body chars: 4437
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - - *Header height:* raised from 12.5pt to 14.5pt, which 12pt text needs. Writing 1 used the same value.
-- *Headings:* `1 Summary` and `2 Response` now read `1. Summary` and `2. Response`, through `titlesec`. The reference list heading is renamed `3. References` so the three required sections are numbered alike.
+- - *Headings:* `1 Summary` and `2 Response` now read `1. Summary` and `2. Response`, through `titlesec`. The reference list heading is renamed `3. References` so the three required sections are numbered alike.
 + - *Header height:* raised to 14.5pt for 12pt text. Replaced in the second review below.
-- *Headings:* `1 Summary` and `2 Response` should read `1. Summary` and `2. Response`, and the reference list `3. References` so the three required sections are numbered alike. The first version used `titlesec`, which broke the header; the second review has the final method.
++ - *Headings:* `1 Summary` and `2 Response` should read `1. Summary` and `2. Response`, and the reference list `3. References` so the three required sections are numbered alike. The first version used `titlesec`, which broke the header; the second review has the final method.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - - *Not verified:* this layout has not been compiled. It uses only `geometry`, `titling`, `url`, `setspace`, `titlesec` and `fancyhdr`, all part of the Overleaf TeX Live. Page count should land around 4.
-### Pre-submit checks
+- ### Pre-submit checks
 + - *Not verified:* this layout had not been compiled when written. See the second review for what happened when it was.
-### Second compile review (2026-10-23)
-I read `CSCI_4511W_Writing___2 (1).pdf` (3 pages) the same way, and the Writing 1 PDF for reference. Writing 1 is the default 10pt `article` class, double spaced, with 1 inch margins; its line pitch of about 19.8pt matches 10pt text at 1.66 spacing.
-- *Length:* 3 pages, caused by my change to 12pt plus double spacing. Fix: back to the default 10pt `article` class and single spacing. The font is the same size as Writing 1, and `setspace` is gone.
-- *Header bug I introduced:* the left header read `1`, `2`, `3` (the page number) instead of `Writing #2: D* Lite`. Cause: `titlesec`, which I added for the `1.` headings, defines its own `\thetitle`, and the template's header uses `\thetitle`. The first compile, without `titlesec`, had the correct title. Fix: `titlesec` removed, and the header keeps the template's `\thetitle` and `\theauthor`.
-- *Headings without `titlesec`:* `\thesection` is redefined to `\arabic{section}.`, and `\section` is redefined with the standard `\@startsection` call at `\large\bfseries`. The unnumbered reference heading takes the same style, and `\refname` is `3. References`.
-- *Header height:* back to the template's 12.5pt, which 10pt text fits.
-- *Reference [5]:* the compiled PDF still printed "The focussed D\*". The Overleaf `citations.bib` did not have the `{Focussed}` brace yet. Paste the current `.bib` block too.
-- *Page estimate:* a line-wrapping model, calibrated on the 12pt compile (55 body lines, which matches the printed pages), gives about 1.4 pages at 10pt single spaced. For comparison it gives about 1.6 at 11pt and about 1.9 at 12pt, which is too close to the limit. The model has some error, so 10pt is the safe choice. It is an estimate, not a compile.
-- *Unchanged:* body text, citations, references, footnote.
-### Pre-submit checks
++ ### Second compile review (2026-10-23)
++ I read `CSCI_4511W_Writing___2 (1).pdf` (3 pages) the same way, and the Writing 1 PDF for reference. Writing 1 is the default 10pt `article` class, double spaced, with 1 inch margins; its line pitch of about 19.8pt matches 10pt text at 1.66 spacing.
++ - *Length:* 3 pages, caused by my change to 12pt plus double spacing. Fix: back to the default 10pt `article` class and single spacing. The font is the same size as Writing 1, and `setspace` is gone.
++ - *Header bug I introduced:* the left header read `1`, `2`, `3` (the page number) instead of `Writing #2: D* Lite`. Cause: `titlesec`, which I added for the `1.` headings, defines its own `\thetitle`, and the template's header uses `\thetitle`. The first compile, without `titlesec`, had the correct title. Fix: `titlesec` removed, and the header keeps the template's `\thetitle` and `\theauthor`.
++ - *Headings without `titlesec`:* `\thesection` is redefined to `\arabic{section}.`, and `\section` is redefined with the standard `\@startsection` call at `\large\bfseries`. The unnumbered reference heading takes the same style, and `\refname` is `3. References`.
++ - *Header height:* back to the template's 12.5pt, which 10pt text fits.
++ - *Reference [5]:* the compiled PDF still printed "The focussed D\*". The Overleaf `citations.bib` did not have the `{Focussed}` brace yet. Paste the current `.bib` block too.
++ - *Page estimate:* a line-wrapping model, calibrated on the 12pt compile (55 body lines, which matches the printed pages), gives about 1.4 pages at 10pt single spaced. For comparison it gives about 1.6 at 11pt and about 1.9 at 12pt, which is too close to the limit. The model has some error, so 10pt is the safe choice. It is an estimate, not a compile.
++ - *Unchanged:* body text, citations, references, footnote.
++ ### Pre-submit checks
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
 - - [ ] Margins look equal on all four sides, and the body is double spaced.
 + - [ ] The left header reads `Writing #2: D* Lite`, not a page number.
-- [ ] Margins look equal on all four sides, and the body is single spaced.
-- [ ] The whole report, including references, fits on two pages.
++ - [ ] Margins look equal on all four sides, and the body is single spaced.
++ - [ ] The whole report, including references, fits on two pages.
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
 ```diff
@@ -3832,12 +4061,15 @@ I read `CSCI_4511W_Writing___2 (1).pdf` (3 pages) the same way, and the Writing 
 - Built from `wa1_template.tex`, with the Writing 1 layout that scored 5/5 (1 inch margins, double spacing, header with title left and author right). Changes after the first compile are listed in the revision entry above.
 + Built from `wa1_template.tex`: the default 10pt article class as in Writing 1, 1 inch margins, single spacing, and the template's header with title on the left and author on the right, now on every page with a page number below. The changes after each compile are in the two layout reviews above.
 ```
-- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+- `Bash`
+```bash
+PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I "$SP/lint_writing2.py" "$N" > "$SP/lint_out.txt"; grep -c "^PASS" "$SP/lint_out.txt"; grep -E "^FAIL|ALL PASS|SOME" "$SP/lint_out.txt"
 "$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p`
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p
+```
 ```
 43
 ALL PASS
@@ -3850,7 +4082,9 @@ FIT: 1/1 = 100.0%
 - - After the second layout revision, 13 more checks were added and pass:
 + - After the layout revisions, the lint has 43 checks in total (14 more than the first 29), and all pass. The added ones cover:
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p
 PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
 N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
 "$PY" -I -c "
@@ -3858,7 +4092,8 @@ import re,sys
 t=open(sys.argv[1],encoding='utf-8').read()
 tex=re.search(r'\`\`\`latex\n(.*?)\n\`\`\`',t,re.S).group(1)
 print(tex.split(r'\begin{document}')[0])
-" "$N"`
+" "$N"
+```
 ```
 FIT: 1/1 = 100.0%
 \documentclass{article}
@@ -4199,46 +4434,20 @@ _None detected_
 - `which mineru magic-pdf 2>&1; echo ---; mineru --version 2>&1 | head -3; echo ---; pip list 2>/dev/null | grep -i -E "mineru|magic" ; echo ---; ls ~/.claude/skills 2>/dev/null | head; ls "C:/Users/anant/AppData/Local/Programs" 2>/dev/null | head -30`
 - `mineru --help 2>&1 | head -40`
 - `mineru parse --help 2>&1 | head -50; echo ----; mineru read --help 2>&1 | head -30`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru parse "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" -p all --wait 300 -o "$SP/dstarlite_mineru.md" 2>&1 | tail -5
-echo ===; wc -l "$SP/dstarlite_mineru.md"`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-D="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/HW"
-mineru parse "$D/How to Cite in LaTeX (Citation Guide).pdf" -p all --wait 300 -o "$SP/cite_guide.md" 2>&1 | tail -3
-mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 -o "$SP/writing1_prompt.md" 2>&1 | tail -3
-wc -l "$SP/cite_guide.md" "$SP/writing1_prompt.md"; ls -la "$D"`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru parse "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" -p all --wait 300 -o "$SP/dstarlite_mineru.md" 2>&1 | tail -5 echo ===; wc -l "$SP/dstarlite_mineru.md"`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" D="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/HW" mineru parse "$D/How to Cite in LaTeX (Citation Guide).pdf" -p all --wait 300 -o "$SP/cite_guide.md" 2>&1 | tail -3 mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 -o "$SP/writing1_prompt.md" 2>&1 | tail -3 wc -l "$SP/cite_guide.md" "$SP/writing1_prompt.md"; ls -la "$D"`
 - `mineru server --help 2>&1 | head -25; echo ---; mineru server status 2>&1 | head`
 - `mineru server start 2>&1 | tail -5; sleep 5; mineru server status 2>&1 | head -5`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-D="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/HW"
-mineru parse "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" -p all --wait 300 -o "$SP/dstarlite_mineru.md" 2>&1 | tail -3
-mineru parse "$D/How to Cite in LaTeX (Citation Guide).pdf" -p all --wait 300 -o "$SP/cite_guide.md" 2>&1 | tail -3
-mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 -o "$SP/writing1_prompt.md" 2>&1 | tail -3
-wc -l "$SP"/*.md; echo; cat "$D/wa1_template.tex"`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" D="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/HW" mineru parse "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/tool-results/webfetch-1792781078632-dk3wtl.pdf" -p all --wait 300 -o "$SP/dstarlite_mineru.md" 2>&1 | tail -3 mineru parse "$D/How to Cite in LaTeX (Citation Guide).pdf" -p all --wait 300 -o "$SP/cite_guide.md" 2>&1 | tail -3 mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 -o "$SP/writing1_prompt.md" 2>&1 | tail -3 wc -l "$SP"/*.md; echo; cat "$D/wa1_template.tex"`
 - `ls -la "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/HW & Exams/" 2>&1 | head -40`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"; ls -la "HW & Exams/HW" Code Code/* 2>&1 | head -50; echo ---; ls Lecture | head -50; echo ---; ls Discussion | head`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"; ls Code/latex-practice "Code/latex-practice"/* 2>&1 | head -20; echo ---; ls "C:/Users/anant/Downloads" 2>/dev/null | grep -i -E "acm|template|writing|overleaf|tex$|\.bib" | head`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 125-142 --wait 600 -o "$SP/aima_notes.md" 2>&1 | tail -3
-wc -l "$SP/aima_notes.md"; grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Pattern database|real-time|LRTA|incremental" "$SP/aima_notes.md" | head -40`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 178-192 --wait 600 -o "$SP/aima_ch3.md" 2>&1 | tail -2
-grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes|Dijkstra|Hart, Nilsson|incremental|replan" "$SP/aima_ch3.md" | cut -c1-200 | head -40; grep -n "<!-- page" "$SP/aima_ch3.md" | head -20`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-grep -n -E "^#+ " "$SP/aima_ch3.md" | cut -c1-120`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 206-218 --wait 600 -o "$SP/aima_ch3b.md" 2>&1 | tail -1
-grep -n -E "^#+ |<!-- page" "$SP/aima_ch3b.md" | cut -c1-110
-echo ----
-grep -n -i -o -E ".{80}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{80}" "$SP/aima_ch3b.md" | head`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 219-230 --wait 600 -o "$SP/aima_ch3c.md" 2>&1 | tail -1
-grep -n -E "^#+ |<!-- page" "$SP/aima_ch3c.md" | cut -c1-110
-echo ----
-grep -n -i -o -E ".{0,100}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{0,100}" "$SP/aima_ch3c.md" | head`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-# strip markdown links to show clean text of the notes section
-sed -n '143,200p' "$SP/aima_ch3c.md" | sed -E 's/\]\(https?:[^)]*\)/]/g; s/\[\*\*/ /g; s/\*\*\]/ /g; s/\*\*//g' | cut -c1-2500`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 125-142 --wait 600 -o "$SP/aima_notes.md" 2>&1 | tail -3 wc -l "$SP/aima_notes.md"; grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Pattern database|real-time|LRTA|incremental" "$SP/aima_notes.md" | head -40`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 178-192 --wait 600 -o "$SP/aima_ch3.md" 2>&1 | tail -2 grep -n -i -E "Bibliographical and Historical|D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes|Dijkstra|Hart, Nilsson|incremental|replan" "$SP/aima_ch3.md" | cut -c1-200 | head -40; grep -n "<!-- page" "$SP/aima_ch3.md" | head -20`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" grep -n -E "^#+ " "$SP/aima_ch3.md" | cut -c1-120`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 206-218 --wait 600 -o "$SP/aima_ch3b.md" 2>&1 | tail -1 grep -n -E "^#+ |<!-- page" "$SP/aima_ch3b.md" | cut -c1-110 echo ---- grep -n -i -o -E ".{80}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{80}" "$SP/aima_ch3b.md" | head`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru parse "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/CSCI 4511W Textbook.pdf" -p 219-230 --wait 600 -o "$SP/aima_ch3c.md" 2>&1 | tail -1 grep -n -E "^#+ |<!-- page" "$SP/aima_ch3c.md" | cut -c1-110 echo ---- grep -n -i -o -E ".{0,100}(D\* Lite|Koenig|Likhachev|Lifelong|Stentz|Korf|Harabor|Gomes).{0,100}" "$SP/aima_ch3c.md" | head`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" # strip markdown links to show clean text of the notes section sed -n '143,200p' "$SP/aima_ch3c.md" | sed -E 's/\]\(https?:[^)]*\)/]/g; s/\[\*\*/ /g; s/\*\*\]/ /g; s/\*\*//g' | cut -c1-2500`
 - `mineru config --help 2>&1 | head -30; echo ----; mineru config 2>&1 | head -60`
 - `mineru config show 2>&1 | head -60`
 - `mineru list --help 2>&1 | head -20; echo ----; mineru show --help 2>&1 | head -15; echo ----; mineru cleanup --help 2>&1 | head -20; echo; mineru server status 2>&1`
@@ -4248,170 +4457,38 @@ sed -n '143,200p' "$SP/aima_ch3c.md" | sed -E 's/\]\(https?:[^)]*\)/]/g; s/\[\*\
 - `cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; grep -rn "MINERU_HOME\|MINERU_HOME_ENV" --include=*.py . | cut -c1-220 | head -12; echo ----; grep -rn "doclib_data_dir\|data_dir\|\"doclib\"" --include=*.py . | cut -c1-200 | head -15; echo ----; cat "C:/Users/anant/.mineru/config.yaml"; echo ----; ls -la "D:/_Anant/00_Inbox/MinerU" | head; du -sh "D:/_Anant/00_Inbox/MinerU"`
 - `cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; sed -n 20,60p config.py; echo ......; sed -n 515,545p config.py; echo ......; grep -n "ALLOWED\|_CONFIG_KEYS\|SETTABLE\|def config_set\|def set_" cli/commands/config.py 2>/dev/null | head -20; ls cli/commands`
 - `cygpath -w "$(which pdftotext)"; ls -la "$(dirname "$(which pdftotext)")/pdftotext.exe" 2>&1 | head -2; cd "C:/Users/anant/AppData/Roaming/uv/tools/mineru/Lib/site-packages/mineru"; sed -n 1,120p cli/commands/config.py | grep -v "^$" | head -90`
-- `mineru server stop 2>&1 | tail -2; sleep 3; mineru server status 2>&1 | head -3
-SRC="C:/Users/anant/.mineru/doclib"; DST="D:/_Anant/00_Inbox/MinerU"
-echo "--- before ---"; du -sh "$SRC"; ls "$SRC"
-cp -r "$SRC/." "$DST/" && echo copied
-echo "--- after ---"; du -sh "$DST"; ls "$DST"`
+- `mineru server stop 2>&1 | tail -2; sleep 3; mineru server status 2>&1 | head -3 SRC="C:/Users/anant/.mineru/doclib"; DST="D:/_Anant/00_Inbox/MinerU" echo "--- before ---"; du -sh "$SRC"; ls "$SRC" cp -r "$SRC/." "$DST/" && echo copied echo "--- after ---"; du -sh "$DST"; ls "$DST"`
 - `mineru server start 2>&1 | tail -2; sleep 6; mineru server status 2>&1 | sed -n 1,22p`
-- `mineru read "doc:5d5bc50/tier:standard/page:1" --limit 300 2>&1 | head -8
-echo "=== new parses (output suppressed; searching afterwards) ==="
-B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-for f in "Discussion/Discussion 7.pdf" "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do
-  echo "-> $f"; mineru parse "$B/$f" -p all --wait 500 >/dev/null 2>/tmp/err.txt && echo ok || (echo FAIL; head -3 /tmp/err.txt)
-done
-echo "=== D: now holds ==="; du -sh "D:/_Anant/00_Inbox/MinerU"; ls "D:/_Anant/00_Inbox/MinerU/parsed" | wc -l`
-- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Discussion/Discussion 7.pdf" -p 1-2 --wait 300 2>&1 | tail -15; echo "exit=$?"; mineru server status 2>&1 | sed -n 20,40p`
-- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-for f in "Discussion/Discussion 7.pdf" "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do
-  printf "%s -> " "$f"; mineru parse "$B/$f" -p all --wait 300 >/dev/null 2>/tmp/err.txt && echo ok || (echo FAIL; head -3 /tmp/err.txt)
-done
-echo "=== search ==="
-mineru search "Writing 2 template Overleaf LaTeX report paper" 2>&1 | head -40`
-- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 >/dev/null | head; echo ---; mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 | tail -5`
-- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-for f in "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do
-  printf "%s -> " "$f"; mineru parse "$B/$f" -p all --wait 300 2>&1 | wc -c
-done
-echo "=== search: template / overleaf / writing ==="
-mineru search "Overleaf template" 2>&1 | head -30; echo ---; mineru search "Writing 2" 2>&1 | head -30; echo ---; mineru search "acmtemplate" 2>&1 | head`
-- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Discussion/Discussion 6.pdf" -p all --wait 300 2>&1`
-- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W"
-mineru parse "$B/Lecture/CSCI4511W Lecture 12.pdf" -p all --wait 300 2>&1 | head -30`
+- `mineru read "doc:5d5bc50/tier:standard/page:1" --limit 300 2>&1 | head -8 echo "=== new parses (output suppressed; searching afterwards) ===" B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" for f in "Discussion/Discussion 7.pdf" "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do   echo "-> $f"; mineru parse "$B/$f" -p all --wait 500 >/dev/null 2>/tmp/err.txt && echo ok || (echo FAIL; head -3 /tmp/err.txt) done echo "=== D: now holds ==="; du -sh "D:/_Anant/00_Inbox/MinerU"; ls "D:/_Anant/00_Inbox/MinerU/parsed" | wc -l`
+- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" mineru parse "$B/Discussion/Discussion 7.pdf" -p 1-2 --wait 300 2>&1 | tail -15; echo "exit=$?"; mineru server status 2>&1 | sed -n 20,40p`
+- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" for f in "Discussion/Discussion 7.pdf" "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do   printf "%s -> " "$f"; mineru parse "$B/$f" -p all --wait 300 >/dev/null 2>/tmp/err.txt && echo ok || (echo FAIL; head -3 /tmp/err.txt) done echo "=== search ===" mineru search "Writing 2 template Overleaf LaTeX report paper" 2>&1 | head -40`
+- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 >/dev/null | head; echo ---; mineru parse "$B/Discussion/Discussion 7.pdf" -p all --wait 300 2>&1 | tail -5`
+- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" for f in "Discussion/Discussion 6.pdf" "Lecture/CSCI4511W Lecture 12.pdf" "Lecture/CSCI4511W Lecture 11.pdf"; do   printf "%s -> " "$f"; mineru parse "$B/$f" -p all --wait 300 2>&1 | wc -c done echo "=== search: template / overleaf / writing ===" mineru search "Overleaf template" 2>&1 | head -30; echo ---; mineru search "Writing 2" 2>&1 | head -30; echo ---; mineru search "acmtemplate" 2>&1 | head`
+- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" mineru parse "$B/Discussion/Discussion 6.pdf" -p all --wait 300 2>&1`
+- `B="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W" mineru parse "$B/Lecture/CSCI4511W Lecture 12.pdf" -p all --wait 300 2>&1 | head -30`
 - `ls "D:/_Anant/00_Inbox/MinerU" "D:/_Anant/00_Inbox/MinerU/parsed" | head -12; du -sh "D:/_Anant/00_Inbox/MinerU"; echo; echo "C: old copy still present (untouched):"; du -sh "C:/Users/anant/.mineru/doclib"; mineru server status 2>&1 | sed -n 6,12p`
 - `echo "newest on D:"; find "D:/_Anant/00_Inbox/MinerU" -type f -newermt "2026-10-23 14:20" | wc -l; echo "newest on C: (old store, after the move)"; find "C:/Users/anant/.mineru/doclib" -type f -newermt "2026-10-23 14:20" | wc -l`
 - `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"; ls -la "$PY" 2>&1; "$PY" --version 2>&1`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-"$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-"$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | grep -E "FAIL|words|ALL PASS|SOME"`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" "$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" "$PY" -I "$SP/lint_writing2.py" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | grep -E "FAIL|words|ALL PASS|SOME"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 10 2>&1 | head -40`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"
-"$PY" -I "$SP/strip_blanks.py" "$N"
-node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 5 2>&1 | head -14
-echo "=== re-run my lint ==="
-"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
-echo "=== code blocks still contain their blank lines? ==="
-grep -c '^$' "$N"`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/swap_body.py" "$N" "$SP/new_body.tex"
-echo "=== lost-asterisk scan on the LaTeX body (expect no hits) ==="
-"$PY" -I - "$N" <<'EOF'
-import re, sys
-t = open(sys.argv[1], encoding="utf-8").read()
-tex = re.search(r"```latex\n(.*?)\n```", t, re.S).group(1)
-body = tex.split(r"\begin{document}", 1)[1]
-prose = re.sub(r"\\(cite|footnote)\{[^}]*\}", "", body)
-prose = re.sub(r"\$[^$]*\$", "", prose)
-hits = []
-for pat in (r"\bD Lite", r"\bLPA(?!\*)\b", r"\bFocussed D(?!\*)\b", r"\bD(?![*\w])", r"\bA(?![*\w])(?! Modern)"):
-    for m in re.finditer(pat, prose):
-        hits.append((pat, prose[max(0, m.start()-25):m.end()+25].replace("\n", " ")))
-for h in hits: print("HIT", h)
-print("asterisk counts  D*:", len(re.findall(r"D\*", body)), " A*:", len(re.findall(r"A\*", body)), " LPA*:", len(re.findall(r"LPA\*", body)))
-print("hits:", len(hits))
-EOF
-echo "=== my lint ==="
-"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
-echo "=== vault lint ==="
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" "$PY" -I "$SP/strip_blanks.py" "$N" node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 5 2>&1 | head -14 echo "=== re-run my lint ===" "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME" echo "=== code blocks still contain their blank lines? ===" grep -c '^$' "$N"`
+- ````PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/swap_body.py" "$N" "$SP/new_body.tex" echo "=== lost-asterisk scan on the LaTeX body (expect no hits) ===" "$PY" -I - "$N" <<'EOF' import re, sys t = open(sys.argv[1], encoding="utf-8").read() tex = re.search(r"```latex\n(.*?)\n```", t, re.S).group(1) body = tex.split(r"\begin{document}", 1)[1] prose = re.sub(r"\\(cite|footnote)\{[^}]*\}", "", body) prose = re.sub(r"\$[^$]*\$", "", prose) hits = [] for pat in (r"\bD Lite", r"\bLPA(?!\*)\b", r"\bFocussed D(?!\*)\b", r"\bD(?![*\w])", r"\bA(?![*\w])(?! Modern)"):     for m in re.finditer(pat, prose):         hits.append((pat, prose[max(0, m.start()-25):m.end()+25].replace("\n", " "))) for h in hits: print("HIT", h) print("asterisk counts  D*:", len(re.findall(r"D\*", body)), " A*:", len(re.findall(r"A\*", body)), " LPA*:", len(re.findall(r"LPA\*", body))) print("hits:", len(hits)) EOF echo "=== my lint ===" "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME" echo "=== vault lint ===" cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p````
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | tail -6`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I -c "
-import re,sys
-lines=open(sys.argv[1],encoding='utf-8').read().split('\n')
-inF=False
-for i,l in enumerate(lines,1):
-    if re.match(r'^\s*\`\`\`',l):
-        inF=not inF; continue
-    if not inF and l.strip()=='' and i!=len(lines):
-        print('blank outside fence at line',i,'| prev:',lines[i-2][:60],'| next:',lines[i][:60])
-print('total lines',len(lines))
-" "$N"`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/scan_asterisks.py" "$N"
-echo "=== my lint ==="; "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
-echo "=== vault lint ==="; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
-"$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2,2p`
+- ``PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I -c " import re,sys lines=open(sys.argv[1],encoding='utf-8').read().split('\n') inF=False for i,l in enumerate(lines,1):     if re.match(r'^\s*\`\`\`',l):         inF=not inF; continue     if not inF and l.strip()=='' and i!=len(lines):         print('blank outside fence at line',i,'| prev:',lines[i-2][:60],'| next:',lines[i][:60]) print('total lines',len(lines)) " "$N"``
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/scan_asterisks.py" "$N" echo "=== my lint ==="; "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME" echo "=== vault lint ==="; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME" "$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2 cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2,2p`
 - `P="D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf"; ls -la "$P"; mineru parse "$P" -p all --wait 300 2>&1 | head -150`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru list docs 2>&1 | grep -i -E "Writing|Doc ID|──" | head -8
-mineru show file "D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf" 2>&1 | head -12`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-mineru read "doc:6d0873f/tier:standard/page:1" -f image -o "$SP/w2_p1.png" 2>&1 | tail -2
-mineru read "doc:6d0873f/tier:standard/page:2" -f image -o "$SP/w2_p2.png" 2>&1 | tail -2
-ls -la "$SP"/w2_p*.png`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/swap_layout.py" "$N" "$SP/new_preamble.tex" "$SP/new_tail.tex"
-"$PY" -I "$SP/lint_writing2.py" "$N"`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,12p
-cd "D:/_Anant/20_Progress/Documents/Jarvis"; grep -n -E "xurl|Built from|Pre-submit|Header on every page|^- \[ \] (Sections|References lists|The footnote|The Logs|The prose|I have read)" "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | cut -c1-200`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|ALL PASS|SOME"
-"$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru list docs 2>&1 | grep -i -E "Writing|Doc ID|──" | head -8 mineru show file "D:/_Anant/Downloads/CSCI_4511W_Writing___2.pdf" 2>&1 | head -12`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" mineru read "doc:6d0873f/tier:standard/page:1" -f image -o "$SP/w2_p1.png" 2>&1 | tail -2 mineru read "doc:6d0873f/tier:standard/page:2" -f image -o "$SP/w2_p2.png" 2>&1 | tail -2 ls -la "$SP"/w2_p*.png`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/swap_layout.py" "$N" "$SP/new_preamble.tex" "$SP/new_tail.tex" "$PY" -I "$SP/lint_writing2.py" "$N"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,12p cd "D:/_Anant/20_Progress/Documents/Jarvis"; grep -n -E "xurl|Built from|Pre-submit|Header on every page|^- \[ \] (Sections|References lists|The footnote|The Logs|The prose|I have read)" "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" | cut -c1-200`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|ALL PASS|SOME" "$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2 cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p`
 - `ls -la "D:/_Anant/Downloads" | grep -i -E "4511|writing" `
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-D="D:/_Anant/Downloads"
-mineru parse "$D/CSCI_4511W_Writing___2 (1).pdf" -p all --wait 300 2>&1 | head -80
-echo "=== doc ids ==="
-mineru show file "$D/CSCI_4511W_Writing___2 (1).pdf" 2>&1 | grep -E "Doc ID|Page count"
-mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 2>&1 | wc -c
-mineru show file "$D/CSCI_4511W_Writing___1.pdf" 2>&1 | grep -E "Doc ID|Page count"`
-- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-for p in 1 2 3; do mineru read "doc:edae95f/tier:standard/page:$p" -f image -o "$SP/w2b_p$p.png" 2>&1 | tail -0; done
-for p in 1 2; do mineru read "doc:9e1e5aa/tier:standard/page:$p" -f image -o "$SP/w1_p$p.png" 2>&1 | tail -0; done
-ls "$SP"/w2b_p*.png "$SP"/w1_p*.png`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/swap_layout2.py" "$N" "$SP/new_preamble.tex" "$SP/new_tail.tex"
-"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/estimate_pages.py" "$N"
-echo "--- calibration check: the same model for the 12pt DOUBLE-spaced compile (real result: body ends about 40 percent down page 3 -> about 2.6 pages) ---"
-"$PY" -I - <<'EOF'
-# quick calibration: 12pt double, pitch 14.5*1.66
-lines = None
-EOF`
-- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I "$SP/lint_writing2.py" "$N" > "$SP/lint_out.txt"; grep -c "^PASS" "$SP/lint_out.txt"; grep -E "^FAIL|ALL PASS|SOME" "$SP/lint_out.txt"
-"$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
-cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p
-PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
-N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
-"$PY" -I -c "
-import re,sys
-t=open(sys.argv[1],encoding='utf-8').read()
-tex=re.search(r'\`\`\`latex\n(.*?)\n\`\`\`',t,re.S).group(1)
-print(tex.split(r'\begin{document}')[0])
-" "$N"`
-
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" D="D:/_Anant/Downloads" mineru parse "$D/CSCI_4511W_Writing___2 (1).pdf" -p all --wait 300 2>&1 | head -80 echo "=== doc ids ===" mineru show file "$D/CSCI_4511W_Writing___2 (1).pdf" 2>&1 | grep -E "Doc ID|Page count" mineru parse "$D/CSCI_4511W_Writing___1.pdf" -p all --wait 300 2>&1 | wc -c mineru show file "$D/CSCI_4511W_Writing___1.pdf" 2>&1 | grep -E "Doc ID|Page count"`
+- `SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" for p in 1 2 3; do mineru read "doc:edae95f/tier:standard/page:$p" -f image -o "$SP/w2b_p$p.png" 2>&1 | tail -0; done for p in 1 2; do mineru read "doc:9e1e5aa/tier:standard/page:$p" -f image -o "$SP/w1_p$p.png" 2>&1 | tail -0; done ls "$SP"/w2b_p*.png "$SP"/w1_p*.png`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/swap_layout2.py" "$N" "$SP/new_preamble.tex" "$SP/new_tail.tex" "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/estimate_pages.py" "$N" echo "--- calibration check: the same model for the 12pt DOUBLE-spaced compile (real result: body ends about 40 percent down page 3 -> about 2.6 pages) ---" "$PY" -I - <<'EOF' # quick calibration: 12pt double, pitch 14.5*1.66 lines = None EOF`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I "$SP/lint_writing2.py" "$N" > "$SP/lint_out.txt"; grep -c "^PASS" "$SP/lint_out.txt"; grep -E "^FAIL|ALL PASS|SOME" "$SP/lint_out.txt" "$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2 cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2p PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe" N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" "$PY" -I -c " import re,sys t=open(sys.argv[1],encoding='utf-8').read() tex=re.search(r'\`\`\`latex\n(.*?)\n\`\`\`',t,re.S).group(1) print(tex.split(r'\begin{document}')[0]) " "$N"``
 

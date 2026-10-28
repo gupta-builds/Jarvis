@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "Valorant fullscreen resolution settings"
 started_at: 2026-10-26T22:17:10
-ended_at: 2026-10-27T23:31:20
-exported_at: 2026-10-27T23:31:21
-duration_minutes: 1514.2
+ended_at: 2026-10-27T23:37:17
+exported_at: 2026-10-27T23:37:17
+duration_minutes: 1520.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: fc64a558-0fb7-49f1-bec9-d00fcd7a2632
 status: raw
-turn_count: 11
+turn_count: 16
 tools_used:
   Agent: 1
   Edit: 3
   Glob: 1
-  Grep: 4
-  PowerShell: 5
+  Grep: 8
+  PowerShell: 7
   Read: 4
   ToolSearch: 1
   WebSearch: 5
 tokens:
-  input: 36
-  output: 13358
-  cache_creation: 126825
-  cache_read: 1101569
-  total: 1241788
+  input: 52
+  output: 17723
+  cache_creation: 143805
+  cache_read: 1763709
+  total: 1925289
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -222,6 +222,55 @@ bLastConfirmedShouldLetterbox=False
 ```
 - `Grep` -- pattern `Letterbox` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Config`
 - `WebSearch` -- `{"query":"Valorant Letterboxing setting video general \"letterboxing\" on off black bars 16:10 resolution","mode":"standard"}`
+
+## You
+
+[Image #4] so that's weird. I hear the background music and everything but this is just frozen over here. I can also move my mouse over at the lobby of valorant. So, the game loaded but the screen is stuck here. I also can hear my mourse click things.
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\images\4.png]
+
+## Claude
+
+The splash now fills the whole screen with no black bars, so the letterbox flag change worked. The freeze is a separate problem. I'll check the game log and what changed.
+
+I reverted the GPU preference to its original value (`GpuPreference=0`, "let Windows decide"). That is my best guess at the cause of the freeze, and I haven't tested it.
+
+**What the log shows**
+- The log repeats `IDXGISwapChain::SetFullscreenState returned 887a0004` (DXGI_ERROR_UNSUPPORTED), 1,600 times in this session. The game asks Windows for exclusive fullscreen and Windows refuses every frame.
+- That explains what you see. The game and audio run and the mouse works, but the screen never updates.
+- Earlier logs don't have these errors. Only this session does, so the cause is one of my two changes (this session's log shows the game on the RTX 5070 Ti).
+- Your splash screen now fills the panel with no bars, so the letterbox flag change did what it was meant to.
+
+**Next steps**
+1. Close the frozen Valorant (Alt+F4, or end it from the Riot client).
+2. Relaunch and check two things: that the lobby renders, and that the black bars are gone in a match or the range.
+
+**If it still freezes:** the letterbox flag is the other suspect. In that case set Display Mode to **Windowed Fullscreen** in Settings, Video, General, instead of Fullscreen. Riot already warns that 16:10 can have problems in true fullscreen. If the lobby is frozen and you can't reach the menu, tell me and I'll set `PreferredFullscreenMode=1` in the config files, with the game closed.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"Get-ChildItem \u0027C:\\Users\\anant\\AppData\\Local\\VALORANT\\Saved\\Logs\u0027 -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 5 Name,LastWriteTime,Length | Format-Table -AutoSize; Get-Process | Where-Object { $_.ProcessName -match \u0027^VALORANT\u0027 } | Select-Object ProcessName,Id,Responding,CPU | Format-Table","description":"List Valorant logs and check process responsiveness"}`
+- `Grep` -- pattern `Error|Warning: .*(D3D|DXGI|Present|Swap|Adapter|Display|Resolution|Fullscreen)|DXGI|Device removed|GPU|Adapter|SetRes|Fullscreen|Letterbox` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Logs\ShooterGame.log`
+- `Grep` -- pattern `LogD3D11RHI: +\d+\. |SetFullscreenState|Chosen|adapter` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Logs\ShooterGame-backup-2026.10.28-04.30.21.log`
+- `Grep` -- pattern `LogD3D11RHI: +\d+\. |Chosen|adapter|Using` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Logs`
+- `Grep` -- pattern `SetFullscreenState` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Logs`
+- `PowerShell` -- `{"command":"$exe = \u0027D:\\Games\\Riot Games\\VALORANT\\live\\ShooterGame\\Binaries\\Win64\\VALORANT-Win64-Shipping.exe\u0027\n$gpu = \u0027HKCU:\\Software\\Microsoft\\DirectX\\UserGpuPreferences\u0027\nSet-ItemProperty -Path $gpu -Name $exe -Value \u0027AppStatus=0;GpuPreference=0;\u0027\n\"now: \" + (Get-ItemProperty $gpu -Name $exe).$exe","description":"Restore Valorant GPU preference to original value"}`
+
+## You
+
+Yup, that did it. Great work.
+
+## Claude
+
+Glad it's working. For the record, here is what ended up changed:
+- **Black bars:** `bShouldLetterbox` and `bLastConfirmedShouldLetterbox` are `False` in all three Valorant config files, with 2560x1600 Fullscreen.
+- **Freeze:** forcing Valorant onto the RTX 5070 Ti made Windows refuse exclusive fullscreen. That is back to "let Windows decide", so leave it there.
+
+If a Valorant update or an account settings sync flips the bars back, check `bShouldLetterbox` first. I haven't saved this anywhere, since you prefer I don't write notes unprompted. If you want it kept, I can add it to your laptop rebuild notes, or you can tell me where it should go.
 
 ## Actions Taken
 

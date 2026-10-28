@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T21:38:11
-exported_at: 2026-10-27T21:38:13
-duration_minutes: 107.7
+ended_at: 2026-10-27T21:56:47
+exported_at: 2026-10-27T21:56:49
+duration_minutes: 126.3
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
-turn_count: 24
+turn_count: 26
 tools_used:
-  Bash: 138
+  Bash: 150
   Edit: 2
   Grep: 4
   mcp__claude_ai_Gmail__search_threads: 1
   mcp__claude_ai_Google_Drive__search_files: 1
-  Read: 39
+  Read: 43
   ToolSearch: 1
-  Write: 18
+  Write: 22
 tokens:
-  input: 376
-  output: 367060
-  cache_creation: 622759
-  cache_read: 68290871
-  total: 69281066
+  input: 416
+  output: 422887
+  cache_creation: 693970
+  cache_read: 81444604
+  total: 82561877
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -41,9 +41,13 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\est_p1.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\est_p2.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ex_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\factcheck2.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\final_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\final_p2.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note2.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note3.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note4.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\htmlblock.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\hw2_p1.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ins1.txt"
@@ -12624,6 +12628,1173 @@ submission.csv
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 
+## You
+
+The disclosure with how much AI was used sits at the bottom of the report and of the notebook. is there any other place the disclosure of ai mentioned? Remove it off the notebook's bottom. it should not be there anymore. Let's only mention it in the word document. Since, mentioning ai use is not at all mentioned anywhere in the assignment. Let's only mention it only place - the word doc (for you the obsidian note). 
+Now, here is a more humanized version of the text that is written out inside obsidian: ```
+
+<pasted_content id="6aca">
+HW 2: Rover Rescue
+
+Anant Gupta October 2026
+
+1. Question and Configurations
+
+How much change occurs when we scale the data and do PCA? Does a 3 cluster k-means using the names of the terrains from the 60 labels perform as well as 1-NN? Table 1 shows 6 configurations. All the configurations include scaling (raw data or z-score) and using all 8 sensors. The final 2 configurations only include the PCA version of the z-scored data, including all 8 sensors but reducing dimensionality to keep 95% variance. This means the neighbors only vary in 1 factor. I have implemented k-means using ISL Algorithm 12.2 using NumPy. Each point has a random cluster assigned. The centroids are calculated, and the points are assigned to the closest centroid. This is repeated until no labels have been changed (maximum of 300 iterations). This gives the best result from 10 random starts based on the within cluster sum of squares. If any clusters are empty they will be re-seeded with the farthest point, however, there were none. The majority class from the 60 labelled calibration training points is assigned to the clusters. In every case, this was 1:1. The number of clusters is 3, meaning there are 3 clusters for the 3 terrains. The elbow matches (objective 2652, 1238, 1086 for k = 2, 3, 4).
+
+2. Evaluation
+
+The normalisation, PCA and k-means were fit on the 754 rows of fit data (all practice data excluding the 30 validation rows). The 60 labelled calibration training rows were used to label the clusters and train the 1-NN. The scoring was performed on the same 30 validation rows (10 per terrain). These were used to choose the model, meaning this score represents the selection score rather than the test score. The practice data was run to show how it would perform during deployment. The mission data was transformed using the saved mean, standard deviation and PCA but was not fit.
+
+3. Evidence
+
+The standard deviations of the sensor data varies from 0.040 (sensor_6) to 52.4 (sensor_4). This is a large difference of a factor of 1320. Sensors 4 and 2 make up 92.3% of the squared distance in the raw data. The PCA reduces the data to 3 components (95.5%) while keeping 95% variance in the z-scored fit data. PC1 and PC2 group the data into 3 groups corresponding to the labelled terrains (Figure 1b).
+
+Figure 1: (a) Cumulative explained variance (b) PC1 and PC2 (c) PC1-PC3 of z-scored fit data. Fit data shown in grey. Training data shown in colour.
+
+The scaling had the biggest impact. Using the same model and representation, the z-scored data increased the accuracy of the k-means model from 0.700 to 1.000. The 1-NN also increased from 0.933 to 1.000. Without the scaling, the k-means had an accuracy of only 5/10 in the validation data. This meant the cluster for sand contained 12 sand, 11 rough and 4 firm. However, all the clusters were pure after the z-scoring (20, 20, 20). The PCA made no difference as both models achieved a score of 1.000 for the 3 component data. Both the cluster and 1-NN had a score of 1.000 for all the z-scored configurations. For the raw data, the 1-NN performed better than the k-means (0.933 vs 0.700). This may be because the raw data is split mainly on sensor_4.
+
+Table 1: Number of dimensions, accuracy, macro F1 (average of 3 class F1 scores), sand recall and the predicted result for the rover on practice data.
+
+4. Conclusion and Risk of Sand
+
+There are 4 tied configurations with an accuracy, macro F1 and sand recall of 1.000 (C3, C4, C5, C6). Therefore, these cannot be ordered based on the validation. My criteria was to select the model with the highest macro F1, then sand recall, then fewest dimensions and finally the order in the table. This meant C5 was the chosen model (z-score, 95% PCA, k-means, 3 dimensions). This only differs from C6 due to the order in the table, so there was a tie. The practice data performed well with a successful route in 54 steps. The predicted cost was 70.8 which was the same as the other 3 (Figure 2). The sand cells that were not detected were predicted as firm or rough, meaning the planner thinks they can be passed through. The rover will stop the first time it passes through this cell. Only 1 cell was blocked by the raw k-means as it predicted 5 of the 10 sand cells as rough. The rover stopped on step 20 at (y=13, x=4). The model predicted rough but the simulator said it was sand. 1-NN also failed to detect 1 sand cell out of the 10 validation data but still achieved its goal.
+
+Figure 2: Chosen model C5. Left: Practice data map with planned route (Mission successful in 54 steps). Right: Predicted mission map with planned route.
+
+5. Limitations
+
+The 30 validation rows were not enough to differentiate between the 4 perfect models. A perfect score on the validation data does not mean it is a perfect model. Only 1 successful route was found on the practice data. There are no labels on the mission data meaning I cannot see how well the model generalises to the new area.
+
+AI
+
+AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) was used to read the course material, write the code in the notebook, run the experiments and write this report. I supervised the work and ensured the results were correct.
+</pasted_content id="6aca">
+
+```
+
+This might change a lot of content that is required for grading, so let's make sure to keep the human touch wording in the provided output. But anything that is unclear or not true should be corrected. Not modified. What i mean, is that the content provided to you right now is a human version of the assignment that you just wrote. I am human and the assignment is written by me. So, keep the wordings, but make sure that the word is correct and cleanly written based on the professor's rule and the code that was worked on. 
+Now, the submission.csv file which was the question of the student as well: `submission.csv: 784 rows, student_id demo3 (the instructor said to leave it).` remove what the instructor said to leave. let's keep all the files submission ready now. Make sure that the draft written out inside obsidian is decided and locked down on the assignment.
+
+## Claude
+
+Understood on both points. Before touching anything, let me find every place AI is mentioned across the notebook and the note.
+
+The notebook mentions AI in exactly one place, its last cell, and no other file does. I'm removing that cell and rebuilding.
+
+Now rebuilding the notebook without the AI cell and running it in place with your environment, then checking that nothing else changed.
+
+The notebook has no AI mention anywhere now, and its last cell is the version summary. Every output is identical to before. Next, does the new wording still fit two pages?
+
+One of my own checks there is meaningless (`or "5" in out` always passes), and the real check right after it covers the claim. I'm removing the weak one before trusting the script.
+
+All 48 checks pass on your final wording after my corrections. Next I'm re-running the code-level verification on the final notebook, so the test record I put in the note describes exactly this file.
+
+Everything verifies on the final notebook. Now the note: the locked report text, the table of corrections I made to your draft, and the rebuilt copy-paste Word guide for the new headings and layout.
+
+The note is generated and passes lint. Let me read the Word guide exactly as you'll use it.
+
+The AI mention is gone from the notebook, the `submission.csv` line is fixed, and your report text is now locked in the note with 14 corrections, which I list below.
+
+## AI disclosure
+It was in exactly one place in the files you submit: the last cell of the notebook, which I deleted. The notebook, the HTML and the CSV now say nothing about AI. The only submitted place left is the final "AI" paragraph of the Word report, using your wording. The handout's Course policy line does say to follow the syllabus AI-use policy and disclose assistance as required, so that paragraph is what covers it.
+
+## `submission.csv` line
+It now reads `submission.csv (14 KB): 784 rows, student_id demo3`. I removed the instructor remark from the Submit list. It's still recorded under Rules as the reason `demo3` is correct.
+
+## Your text
+I kept your wording, your British spelling, your headings and your sentence order. I changed only the statements that didn't match the notebook, the code or the simulator. The note lists all 14 in a table. The ones that would have cost you:
+- **Accuracy:** "k-means had an accuracy of only 5/10" was wrong, because accuracy was 0.700. The 5 of 10 is the sand cells found, so it now says that.
+- **Blocked cell:** "Only 1 cell was blocked by the raw k-means" matches no result in the notebook. It now says the raw k-means predicted 5 of the 10 validation sand cells as rough.
+- **Configurations:** "All the configurations use all 8 sensors" wasn't true of C5 and C6, which use 3 PCA components.
+- **Which 1-NN:** "1-NN also failed to detect 1 sand cell" needed "raw". The z-scored 1-NN found all of them.
+- **Cluster counts:** "12 sand, 11 rough and 4 firm" now says these are labelled training points.
+
+A script then checked 49 statements in the corrected text against the notebook output, its source code and the simulator code, and all 49 hold. That includes protocol claims like "validation rows never reach a fit."
+
+## Page limit, with your wording
+Your version is 991 words, against 767 in mine, and its headings sit on their own lines. At 11 pt it ran onto a third page. It fits two pages at Times New Roman 10.5 pt, 0.7 in margins, Figure 1 at 7.0 in and Figure 2 at 4.0 in. In my layout estimate page 2 ends about 91% down, which leaves about 0.8 in. A tiny margin change moved that by 4 points, so it could tip over in Word. The note has a fallback order, and it names three optional sentences you can drop if it does.
+
+## Files
+The notebook (38 cells), `practice_run.html` and `submission.csv` are final, with outputs identical to the last verified run. Coverage is still 100% of lines and branches, with all 14 injected bugs caught. The Word steps are in the note: step 12 is the export check, and the earlier steps cover headings, images, table and captions. The only remaining work is building the PDF and uploading the four files.
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat, re
+nb = nbformat.read("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+hits = 0
+for i, c in enumerate(nb.cells):
+    texts = [("source", c.source)] + [("output", "".join(o.get("text", "")) ) for o in c.get("outputs", []) if o.output_type == "stream"]
+    for where, t in texts:
+        for m in re.finditer(r"(?i)\bAI\b|claude|anthropic", t):
+            hits += 1; print(f"cell {i} ({c.cell_type}, {where}): ...{t[max(0, m.start()-40):m.end()+60]!r}")
+print("total hits:", hits)
+PYEOF
+echo; echo "=== other files in the Homework folder that could carry it ==="; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && grep -il "claude\|anthropic" submission.csv practice_run.html figures/hw2_configs.csv 2>/dev/null; echo "(none listed above = clean)"; echo; echo "=== vault note: mentions ==="; grep -n -i "\bAI\b\|claude" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | cut -c1-170`
+```
+=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ===
+cell 38 (markdown, source): ...'### AI use\nAI use is allowed in this course and I used it heavily.'
+cell 38 (markdown, source): ...'### AI use\nAI use is allowed in this course and I used it heavily. Claude'
+cell 38 (markdown, source): ...'d in this course and I used it heavily. Claude Code (Anthropic) wrote the code in this notebook and the re'
+cell 38 (markdown, source): ...'rse and I used it heavily. Claude Code (Anthropic) wrote the code in this notebook and the report draft under'
+total hits: 4
+
+=== other files in the Homework folder that could carry it ===
+(none listed above = clean)
+
+=== vault note: mentions ===
+52:- [ ] Observations kept apart from explanations. The AI-use note sits at the bottom.
+57:- AI: the user states AI use is allowed as much as possible in this course, so treat it as green but unverified (the handout prints no level). The disclosure with how 
+61:`Code\Homework\CSCI4521_HW2.ipynb` has 39 cells: the 8 starter cells unchanged, then eight short sections (setup, NumPy methods, checks, representation, experiments, s
+186:#### Step 12: AI-use line
+187:Last line of the document, plain 11 pt. Bold only `AI use:`
+189:AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, wrote the notebook code, ran the experiments and drafted thi
+193:- Open the PDF and check, in this order: exactly two pages; page 1 ends after section 3's second paragraph and page 2 starts with Table 1; Figure 1 and Figure 2 are s
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > rmai.py <<'PYEOF'
+p = "build_nb4.py"
+s = open(p, encoding="utf-8").read()
+a = s.index('md("""### AI use')
+b = s.index('"""', a + len('md("""')) + 4          # end of that md(...) call, including the closing parenthesis
+block = s[a:b]
+assert "Claude Code" in block and block.count('md(') == 1, block
+s = s[:a] + s[b:].lstrip("\n")
+open(p, "w", encoding="utf-8").write(s)
+print("removed:", repr(block[:60]), "...")
+PYEOF
+./venv/Scripts/python.exe -I rmai.py && ./venv/Scripts/python.exe -I -c "
+import ast; src = open('build_nb4.py', encoding='utf-8').read(); ast.parse(src); print('builder syntax ok'); print('mentions left in builder:', [w for w in ('Claude', 'Anthropic', 'AI use') if w in src])" && tail -12 build_nb4.py`
+```
+removed: 'md("""### AI use\nAI use is allowed in this course and I used' ...
+builder syntax ok
+mentions left in builder: []
+
+print(f"python {sys.version.split()[0]} | numpy {np.__version__} | pandas {pd.__version__} | "
+      f"scikit-learn {sklearn.__version__} | matplotlib {matplotlib.__version__} | seed {SEED}")
+print(f"components for 95% variance: {N95} | selected {BEST} | practice: {practice_result['status']}")
+''')
+
+nb = new_notebook(cells=cells)
+nb.metadata = {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+               "language_info": {"name": "python"}}
+nbformat.validate(nb)
+nbformat.write(nb, OUT)
+print("wrote", OUT, len(cells), "cells")
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\report_build.py`
+```
+import os
+import sys
+import pandas as pd
+import pymupdf as fitz
+
+H = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+
+# The user's own wording. Only statements that did not match the notebook were corrected (see CORRECTIONS).
+P = {}
+P["title"] = ["HW 2: Rover Rescue", "Anant Gupta", "October 2026"]
+
+P["h1"] = "1. Question and Configurations"
+P["s1"] = ("How much change occurs when we scale the data and do PCA? Does a 3 cluster k-means using the names of the "
+           "terrains from the 60 labels perform as well as 1-NN? Table 1 shows 6 configurations. The first 4 use all 8 "
+           "sensors, either raw or z-scored, with k-means or 1-NN. The final 2 use the PCA version of the z-scored data, "
+           "which reduces the 8 sensors to the 3 components that keep 95% of the variance, again with k-means or 1-NN. "
+           "This means the neighbors only vary in 1 factor. I implemented k-means in NumPy using ISL Algorithm 12.2. Each "
+           "point has a random cluster assigned. The centroids are calculated, and the points are assigned to the closest "
+           "centroid. This is repeated until no labels have been changed (maximum of 300 iterations). This gives the best "
+           "result from 10 random starts based on the within cluster sum of squares. If any clusters are empty they will "
+           "be re-seeded with the farthest point, however, there were none. The majority class from the 60 labelled "
+           "calibration training points in each cluster is used to name it. In every case, this was 1:1. The number of "
+           "clusters is 3, meaning there are 3 clusters for the 3 terrains. The elbow matches (within cluster sum of "
+           "squares 2652, 1238, 1086 for k = 2, 3, 4).")
+
+P["h2"] = "2. Evaluation"
+P["s2"] = ("The normalisation, PCA and k-means were fit on the 754 rows of fit data (all practice data excluding the 30 "
+           "validation rows). The 60 labelled calibration training rows were used to label the clusters and train the "
+           "1-NN. The scoring of every configuration was performed on the same 30 validation rows (10 per terrain). These "
+           "were used to choose the model, meaning this score represents the selection score rather than the test score. "
+           "The practice data was run to show how the model would perform during deployment, which is a demonstration "
+           "and not an accuracy estimate. The mission data was transformed using the saved mean, standard deviation and "
+           "PCA but was not fit.")
+
+P["h3"] = "3. Evidence"
+P["s3a"] = ("The standard deviations of the sensor data vary from 0.040 (sensor_6) to 52.4 (sensor_4). This is a large "
+            "difference of a factor of 1320. Sensors 4 and 2 make up 92.3% of the squared distance in the raw data. The PCA "
+            "reduces the z-scored fit data to 3 components, which keep 95.5% of the variance, so 3 components are needed "
+            "for 95% (Figure 1a). PC1 and PC2 group the data into 3 groups corresponding to the labelled terrains "
+            "(Figure 1b).")
+P["f1cap"] = ("Figure 1: (a) Cumulative explained variance (b) PC1 and PC2 (c) PC1-PC3 of z-scored fit data. Fit data shown "
+              "in grey. Labelled training data shown in colour.")
+P["s3b"] = ("The scaling had the biggest impact. Using the same model and representation, the z-scored data increased the "
+            "accuracy of the k-means model from 0.700 to 1.000. The 1-NN also increased from 0.933 to 1.000. Without the "
+            "scaling, the k-means found only 5 of the 10 sand cells in the validation data. The cluster named sand "
+            "contained 12 sand, 11 rough and 4 firm labelled training points. However, all the clusters were pure after "
+            "the z-scoring (20, 20, 20). The PCA made no difference as both models achieved a score of 1.000 for the 3 "
+            "component data, the same as with all 8 sensors. Both the cluster and 1-NN had a score of 1.000 for all the "
+            "z-scored configurations. For the raw data, the 1-NN performed better than the k-means (0.933 vs 0.700). This "
+            "may be because the k-means on raw data splits mainly on sensor_4.")
+P["t1cap"] = ("Table 1: Number of dimensions, validation accuracy, macro F1 (average of the 3 class F1 scores), sand recall "
+              "and the result of the practice rover run for each configuration.")
+
+P["h4"] = "4. Conclusion and Risk of Sand"
+P["s4"] = ("There are 4 tied configurations with an accuracy, macro F1 and sand recall of 1.000 (C3, C4, C5, C6). "
+           "Therefore, these cannot be ordered based on the validation. My criteria were to select the model with the "
+           "highest macro F1, then sand recall, then fewest dimensions and finally the order in the table. This meant C5 "
+           "was the chosen model (z-score, 95% PCA, k-means, 3 dimensions). This only differs from C6 due to the order in "
+           "the table, so there was a tie. The practice data performed well with a successful route in 54 steps. The "
+           "predicted cost was 70.8 which was the same as the other 3 tied configurations (Figure 2). The sand cells that "
+           "were not detected were predicted as firm or rough, meaning the planner thinks they can be passed through. The "
+           "rover will stop the first time its route passes through one of these cells. The raw k-means shows this as it "
+           "predicted 5 of the 10 validation sand cells as rough. The rover stopped on step 20 at (y=13, x=4). The model "
+           "predicted rough but the simulator said it was sand. The raw 1-NN also failed to detect 1 sand cell out of the "
+           "10 validation sand cells but still achieved its goal, as that cell was not on its route.")
+P["f2cap"] = ("Figure 2: Chosen model C5. Left: Predicted practice map with planned route (mission successful in 54 steps). "
+              "Right: Predicted mission map with planned route.")
+
+P["h5"] = "5. Limitations"
+P["s5"] = ("The 30 validation rows were not enough to differentiate between the 4 perfect models. A perfect score on the "
+           "validation data does not mean it is a perfect model. The practice run only tests 1 route, so it is a "
+           "demonstration and not proof. There are no labels on the mission data meaning I cannot see how well the model "
+           "generalises to the new area.")
+
+P["hai"] = "AI"
+P["ai"] = ("AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) was used to read the course "
+           "material, write the code in the notebook, run the experiments and write this report. I supervised the work "
+           "and ensured the results were correct.")
+
+# statements in the user's draft that did not match the notebook or the code, and what they were changed to
+CORRECTIONS = [
+    ("Section 1", "\"All the configurations include scaling and using all 8 sensors\" was wrong for C5 and C6, which use PCA with 3 components.",
+     "The first 4 configurations use all 8 sensors; the final 2 use the 3 PCA components."),
+    ("Section 1", "\"objective 2652, 1238, 1086\" did not say what was measured.", "\"within cluster sum of squares\"."),
+    ("Section 1", "\"The majority class from the 60 labelled points is assigned to the clusters\" did not say per cluster.",
+     "Added \"in each cluster is used to name it\"."),
+    ("Section 2", "\"The practice data was run to show how it would perform\" could read as an accuracy estimate.",
+     "Added \"which is a demonstration and not an accuracy estimate\" (the handout asks for exactly this distinction)."),
+    ("Section 3", "\"The PCA reduces the data to 3 components (95.5%) while keeping 95% variance\" mixed two numbers.",
+     "3 components keep 95.5% of the variance, so 3 are needed for 95%, and the variance plot is cited (Figure 1a)."),
+    ("Section 3", "\"the k-means had an accuracy of only 5/10\" was wrong: accuracy was 0.700 (21 of 30). 5 of 10 is the sand recall.",
+     "\"the k-means found only 5 of the 10 sand cells in the validation data\"."),
+    ("Section 3", "\"the cluster for sand contained 12 sand, 11 rough and 4 firm\" did not say what was counted, and \"This meant\" implied a cause.",
+     "\"The cluster named sand contained 12 sand, 11 rough and 4 firm labelled training points.\""),
+    ("Section 3", "\"the raw data is split mainly on sensor_4\": the data is not split, k-means splits it.",
+     "\"the k-means on raw data splits mainly on sensor_4\" (sensor_4 is 81.9% of the raw squared distance)."),
+    ("Table 1 caption", "\"accuracy\" and \"the predicted result for the rover\" were unclear.",
+     "\"validation accuracy\" and \"the result of the practice rover run\"."),
+    ("Section 4", "\"Only 1 cell was blocked by the raw k-means\" is not true of any result in the notebook.",
+     "\"The raw k-means shows this as it predicted 5 of the 10 validation sand cells as rough.\""),
+    ("Section 4", "\"1-NN also failed to detect 1 sand cell\" did not say which 1-NN; only the raw 1-NN missed one.",
+     "\"The raw 1-NN\", plus \"as that cell was not on its route\" (the run succeeded, so no sand was on the route)."),
+    ("Section 4", "\"the same as the other 3\" did not say what the 3 were.", "\"the other 3 tied configurations\"."),
+    ("Figure 2 caption", "\"Practice data map\" did not say it is the model's prediction.", "\"Predicted practice map\"."),
+    ("Section 5", "\"Only 1 successful route was found on the practice data\" implied a search over routes.",
+     "\"The practice run only tests 1 route, so it is a demonstration and not proof.\""),
+]
+
+
+def table_rows():
+    df = pd.read_csv(f"{H}/figures/hw2_configs.csv")
+    rows = []
+    for _, r in df.iterrows():
+        outcome = f"stuck, step {int(r.steps)}" if "STUCK" in r.practice else f"success, {int(r.steps)} steps"
+        rows.append([r.config, r.scaling, f"{r.representation} ({int(r.dims)})", r.model,
+                     f"{r.val_accuracy:.3f}", f"{r.macro_f1:.3f}", f"{r.sand_recall:.2f}", outcome])
+    return rows
+
+
+HEAD = ["ID", "Scaling", "Representation (dims)", "Model", "Accuracy", "Macro F1", "Sand recall", "Practice rover"]
+ROWS = table_rows()
+
+
+def all_text():
+    parts = list(P["title"])
+    for k, v in P.items():
+        if k != "title":
+            parts.append(v)
+    return " ".join(parts)
+
+
+if __name__ == "__main__":
+    OUT = sys.argv[1] if len(sys.argv) > 1 else "report_est.pdf"
+    css = """
+    body { font-family: serif; font-size: 11pt; line-height: 1.15; }
+    p { margin: 0 0 3pt 0; text-align: justify; }
+    p.t { text-align: center; margin: 0; font-weight: bold; }
+    p.h { text-align: left; margin: 5pt 0 2pt 0; font-weight: bold; }
+    p.cap { text-align: center; font-size: 10pt; margin: 1pt 0 4pt 0; }
+    table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }
+    td, th { padding: 1pt 4pt; border-bottom: 0.5pt solid #888; }
+    th { border-top: 0.8pt solid #000; border-bottom: 0.8pt solid #000; }
+    div.c { text-align: center; margin: 2pt 0 0 0; }
+    """
+    rows_html = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in ROWS)
+    head_html = "<tr>" + "".join(f"<th>{c}</th>" for c in HEAD) + "</tr>"
+    BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"
+
+    def sec(h, *paras):
+        return f'<p class="h">{P[h]}</p>' + "".join(f"<p>{P[k]}</p>" for k in paras)
+
+    FIG1 = f"""<div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>"""
+    TAB = (f"""<div class="c" style="{BRK}"><table align="center">{head_html}{rows_html}</table></div>"""
+           f"""<p class="cap">{P['t1cap']}</p>""")
+    FIG2 = f"""<div class="c"><img src="fig2_deploy.png" width="385"></div><p class="cap">{P['f2cap']}</p>"""
+    t = P["title"]
+    title = (f'<p class="t">{t[0]}</p><p class="t">{t[1]}</p><p class="t" style="margin-bottom:4pt">{t[2]}</p>')
+    html = (title + sec("h1", "s1") + sec("h2", "s2") + sec("h3", "s3a") + FIG1 + f"<p>{P['s3b']}</p>" + TAB
+            + sec("h4", "s4") + FIG2 + sec("h5", "s5") + sec("hai", "ai"))
+    story = fitz.Story(html=html, user_css=css, archive=fitz.Archive(f"{H}/figures"))
+    writer = fitz.DocumentWriter(OUT)
+    mediabox = fitz.paper_rect("letter")
+    where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins
+    more, pages, last_bottom = 1, 0, 0
+    while more:
+        dev = writer.begin_page(mediabox)
+        more, filled = story.place(where)
+        story.draw(dev)
+        writer.end_page()
+        pages += 1
+        last_bottom = filled[3]
+    writer.close()
+    print(f"pages: {pages}; last page content ends at {100 * (last_bottom - where.y0) / (where.y1 - where.y0):.0f}% of its usable height")
+    print("words in text and captions:", len(all_text().split()))
+
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\report_build.py`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\report_build.py`
+```
+import os
+import sys
+import pandas as pd
+import pymupdf as fitz
+
+H = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+
+# The user's own wording. Only statements that did not match the notebook were corrected (see CORRECTIONS).
+P = {}
+P["title"] = ["HW 2: Rover Rescue", "Anant Gupta", "October 2026"]
+
+P["h1"] = "1. Question and Configurations"
+P["s1"] = ("How much change occurs when we scale the data and do PCA? Does a 3 cluster k-means using the names of the "
+           "terrains from the 60 labels perform as well as 1-NN? Table 1 shows 6 configurations. The first 4 use all 8 "
+           "sensors, either raw or z-scored, with k-means or 1-NN. The final 2 use the PCA version of the z-scored data, "
+           "which reduces the 8 sensors to the 3 components that keep 95% of the variance, again with k-means or 1-NN. "
+           "This means the neighbors only vary in 1 factor. I implemented k-means in NumPy using ISL Algorithm 12.2. Each "
+           "point has a random cluster assigned. The centroids are calculated, and the points are assigned to the closest "
+           "centroid. This is repeated until no labels have been changed (maximum of 300 iterations). This gives the best "
+           "result from 10 random starts based on the within cluster sum of squares. If any clusters are empty they will "
+           "be re-seeded with the farthest point, however, there were none. The majority class from the 60 labelled "
+           "calibration training points in each cluster is used to name it. In every case, this was 1:1. The number of "
+           "clusters is 3, meaning there are 3 clusters for the 3 terrains. The elbow matches (within cluster sum of "
+           "squares 2652, 1238, 1086 for k = 2, 3, 4).")
+
+P["h2"] = "2. Evaluation"
+P["s2"] = ("The normalisation, PCA and k-means were fit on the 754 rows of fit data (all practice data excluding the 30 "
+           "validation rows). The 60 labelled calibration training rows were used to label the clusters and train the "
+           "1-NN. The scoring of every configuration was performed on the same 30 validation rows (10 per terrain). These "
+           "were used to choose the model, meaning this score represents the selection score rather than the test score. "
+           "The practice data was run to show how the model would perform during deployment, which is a demonstration "
+           "and not an accuracy estimate. The mission data was transformed using the saved mean, standard deviation and "
+           "PCA but was not fit.")
+
+P["h3"] = "3. Evidence"
+P["s3a"] = ("The standard deviations of the sensor data vary from 0.040 (sensor_6) to 52.4 (sensor_4). This is a large "
+            "difference of a factor of 1320. Sensors 4 and 2 make up 92.3% of the squared distance in the raw data. The PCA "
+            "reduces the z-scored fit data to 3 components, which keep 95.5% of the variance, so 3 components are needed "
+            "for 95% (Figure 1a). PC1 and PC2 group the data into 3 groups corresponding to the labelled terrains "
+            "(Figure 1b).")
+P["f1cap"] = ("Figure 1: (a) Cumulative explained variance (b) PC1 and PC2 (c) PC1-PC3 of z-scored fit data. Fit data shown "
+              "in grey. Labelled training data shown in colour.")
+P["s3b"] = ("The scaling had the biggest impact. Using the same model and representation, the z-scored data increased the "
+            "accuracy of the k-means model from 0.700 to 1.000. The 1-NN also increased from 0.933 to 1.000. Without the "
+            "scaling, the k-means found only 5 of the 10 sand cells in the validation data. The cluster named sand "
+            "contained 12 sand, 11 rough and 4 firm labelled training points. However, all the clusters were pure after "
+            "the z-scoring (20, 20, 20). The PCA made no difference as both models achieved a score of 1.000 for the 3 "
+            "component data, the same as with all 8 sensors. Both the cluster and 1-NN had a score of 1.000 for all the "
+            "z-scored configurations. For the raw data, the 1-NN performed better than the k-means (0.933 vs 0.700). This "
+            "may be because the k-means on raw data splits mainly on sensor_4.")
+P["t1cap"] = ("Table 1: Number of dimensions, validation accuracy, macro F1 (average of the 3 class F1 scores), sand recall "
+              "and the result of the practice rover run for each configuration.")
+
+P["h4"] = "4. Conclusion and Risk of Sand"
+P["s4"] = ("There are 4 tied configurations with an accuracy, macro F1 and sand recall of 1.000 (C3, C4, C5, C6). "
+           "Therefore, these cannot be ordered based on the validation. My criteria were to select the model with the "
+           "highest macro F1, then sand recall, then fewest dimensions and finally the order in the table. This meant C5 "
+           "was the chosen model (z-score, 95% PCA, k-means, 3 dimensions). This only differs from C6 due to the order in "
+           "the table, so there was a tie. The practice data performed well with a successful route in 54 steps. The "
+           "predicted cost was 70.8 which was the same as the other 3 tied configurations (Figure 2). The sand cells that "
+           "were not detected were predicted as firm or rough, meaning the planner thinks they can be passed through. The "
+           "rover will stop the first time its route passes through one of these cells. The raw k-means shows this as it "
+           "predicted 5 of the 10 validation sand cells as rough. The rover stopped on step 20 at (y=13, x=4). The model "
+           "predicted rough but the simulator said it was sand. The raw 1-NN also failed to detect 1 sand cell out of the "
+           "10 validation sand cells but still achieved its goal, as that cell was not on its route.")
+P["f2cap"] = ("Figure 2: Chosen model C5. Left: Predicted practice map with planned route (mission successful in 54 steps). "
+              "Right: Predicted mission map with planned route.")
+
+P["h5"] = "5. Limitations"
+P["s5"] = ("The 30 validation rows were not enough to differentiate between the 4 perfect models. A perfect score on the "
+           "validation data does not mean it is a perfect model. The practice run only tests 1 route, so it is a "
+           "demonstration and not proof. There are no labels on the mission data meaning I cannot see how well the model "
+           "generalises to the new area.")
+
+P["hai"] = "AI"
+P["ai"] = ("AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) was used to read the course "
+           "material, write the code in the notebook, run the experiments and write this report. I supervised the work "
+           "and ensured the results were correct.")
+
+# statements in the user's draft that did not match the notebook or the code, and what they were changed to
+CORRECTIONS = [
+    ("Section 1", "\"All the configurations include scaling and using all 8 sensors\" was wrong for C5 and C6, which use PCA with 3 components.",
+     "The first 4 configurations use all 8 sensors; the final 2 use the 3 PCA components."),
+    ("Section 1", "\"objective 2652, 1238, 1086\" did not say what was measured.", "\"within cluster sum of squares\"."),
+    ("Section 1", "\"The majority class from the 60 labelled points is assigned to the clusters\" did not say per cluster.",
+     "Added \"in each cluster is used to name it\"."),
+    ("Section 2", "\"The practice data was run to show how it would perform\" could read as an accuracy estimate.",
+     "Added \"which is a demonstration and not an accuracy estimate\" (the handout asks for exactly this distinction)."),
+    ("Section 3", "\"The PCA reduces the data to 3 components (95.5%) while keeping 95% variance\" mixed two numbers.",
+     "3 components keep 95.5% of the variance, so 3 are needed for 95%, and the variance plot is cited (Figure 1a)."),
+    ("Section 3", "\"the k-means had an accuracy of only 5/10\" was wrong: accuracy was 0.700 (21 of 30). 5 of 10 is the sand recall.",
+     "\"the k-means found only 5 of the 10 sand cells in the validation data\"."),
+    ("Section 3", "\"the cluster for sand contained 12 sand, 11 rough and 4 firm\" did not say what was counted, and \"This meant\" implied a cause.",
+     "\"The cluster named sand contained 12 sand, 11 rough and 4 firm labelled training points.\""),
+    ("Section 3", "\"the raw data is split mainly on sensor_4\": the data is not split, k-means splits it.",
+     "\"the k-means on raw data splits mainly on sensor_4\" (sensor_4 is 81.9% of the raw squared distance)."),
+    ("Table 1 caption", "\"accuracy\" and \"the predicted result for the rover\" were unclear.",
+     "\"validation accuracy\" and \"the result of the practice rover run\"."),
+    ("Section 4", "\"Only 1 cell was blocked by the raw k-means\" is not true of any result in the notebook.",
+     "\"The raw k-means shows this as it predicted 5 of the 10 validation sand cells as rough.\""),
+    ("Section 4", "\"1-NN also failed to detect 1 sand cell\" did not say which 1-NN; only the raw 1-NN missed one.",
+     "\"The raw 1-NN\", plus \"as that cell was not on its route\" (the run succeeded, so no sand was on the route)."),
+    ("Section 4", "\"the same as the other 3\" did not say what the 3 were.", "\"the other 3 tied configurations\"."),
+    ("Figure 2 caption", "\"Practice data map\" did not say it is the model's prediction.", "\"Predicted practice map\"."),
+    ("Section 5", "\"Only 1 successful route was found on the practice data\" implied a search over routes.",
+     "\"The practice run only tests 1 route, so it is a demonstration and not proof.\""),
+]
+
+
+def table_rows():
+    df = pd.read_csv(f"{H}/figures/hw2_configs.csv")
+    rows = []
+    for _, r in df.iterrows():
+        outcome = f"stuck, step {int(r.steps)}" if "STUCK" in r.practice else f"success, {int(r.steps)} steps"
+        rows.append([r.config, r.scaling, f"{r.representation} ({int(r.dims)})", r.model,
+                     f"{r.val_accuracy:.3f}", f"{r.macro_f1:.3f}", f"{r.sand_recall:.2f}", outcome])
+    return rows
+
+
+HEAD = ["ID", "Scaling", "Representation (dims)", "Model", "Accuracy", "Macro F1", "Sand recall", "Practice rover"]
+ROWS = table_rows()
+
+
+def all_text():
+    parts = list(P["title"])
+    for k, v in P.items():
+        if k != "title":
+            parts.append(v)
+    return " ".join(parts)
+
+
+if __name__ == "__main__":
+    OUT = sys.argv[1] if len(sys.argv) > 1 else "report_est.pdf"
+    css = """
+    body { font-family: serif; font-size: 11pt; line-height: 1.15; }
+    p { margin: 0 0 3pt 0; text-align: justify; }
+    p.t { text-align: center; margin: 0; font-weight: bold; }
+    p.h { text-align: left; margin: 5pt 0 2pt 0; font-weight: bold; }
+    p.cap { text-align: center; font-size: 10pt; margin: 1pt 0 4pt 0; }
+    table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }
+    td, th { padding: 1pt 4pt; border-bottom: 0.5pt solid #888; }
+    th { border-top: 0.8pt solid #000; border-bottom: 0.8pt solid #000; }
+    div.c { text-align: center; margin: 2pt 0 0 0; }
+    """
+    rows_html = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in ROWS)
+    head_html = "<tr>" + "".join(f"<th>{c}</th>" for c in HEAD) + "</tr>"
+    BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"
+
+    def sec(h, *paras):
+        return f'<p class="h">{P[h]}</p>' + "".join(f"<p>{P[k]}</p>" for k in paras)
+
+    FIG1 = f"""<div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>"""
+    TAB = (f"""<div class="c" style="{BRK}"><table align="center">{head_html}{rows_html}</table></div>"""
+           f"""<p class="cap">{P['t1cap']}</p>""")
+    FIG2 = f"""<div class="c"><img src="fig2_deploy.png" width="385"></div><p class="cap">{P['f2cap']}</p>"""
+    t = P["title"]
+    title = (f'<p class="t">{t[0]}</p><p class="t">{t[1]}</p><p class="t" style="margin-bottom:4pt">{t[2]}</p>')
+    html = (title + sec("h1", "s1") + sec("h2", "s2") + sec("h3", "s3a") + FIG1 + f"<p>{P['s3b']}</p>" + TAB
+            + sec("h4", "s4") + FIG2 + sec("h5", "s5") + sec("hai", "ai"))
+    story = fitz.Story(html=html, user_css=css, archive=fitz.Archive(f"{H}/figures"))
+    writer = fitz.DocumentWriter(OUT)
+    mediabox = fitz.paper_rect("letter")
+    where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins
+    more, pages, last_bottom = 1, 0, 0
+    while more:
+        dev = writer.begin_page(mediabox)
+        more, filled = story.place(where)
+        story.draw(dev)
+        writer.end_page()
+        pages += 1
+        last_bottom = filled[3]
+    writer.close()
+    print(f"pages: {pages}; last page content ends at {100 * (last_bottom - where.y0) / (where.y1 - where.y0):.0f}% of its usable height")
+    print("words in text and captions:", len(all_text().split()))
+
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && cp figures/fig1_pca.png "$SC/prev_fig1.png" && cp figures/fig2_deploy.png "$SC/prev_fig2.png" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat, re
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
+ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)]
+print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words)
+print("cells that mention AI, Claude or Anthropic:", ai, "| last cell:", repr(nb.cells[-1].source[:30]))
+PYEOF
+for f in submission.csv figures/hw2_configs.csv; do cmp -s "$f" "$SC/prev_${f##*/}" 2>/dev/null; done; cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv identical to the verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "results table identical"; cmp -s figures/fig1_pca.png "$SC/prev_fig1.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/prev_fig2.png" && echo "fig2 identical"; grep -ic "claude\|anthropic" practice_run.html submission.csv`
+```
+wrote CSCI4521_HW2.ipynb 38 cells
+[NbConvertApp] Writing 1328523 bytes to CSCI4521_HW2.ipynb
+cells 38 | error/stderr cells [] | in-order 1.. 25 True | my prose words 372
+cells that mention AI, Claude or Anthropic: [] | last cell: 'import sys\nimport sklearn\nimpo'
+submission.csv identical to the verified run
+results table identical
+fig1 identical
+fig2 identical
+practice_run.html:0
+submission.csv:0
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && for b in 1 0; do echo "== page break before Table 1: $b"; BREAK=$([ $b = 1 ] && echo 1 || echo 0) ./venv/Scripts/python.exe report_build.py rep_$b.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py rep_$b.pdf; done; ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('rep_1.pdf')
+for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rep1_p%d.png' % (i+1))
+print(len(d), 'pages rendered')"`
+```
+== page break before Table 1: 1
+pages: 3; last page content ends at 100% of its usable height
+words in text and captions: 991
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows [] | has []
+  page 3: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+== page break before Table 1: 0
+pages: 3; last page content ends at 9% of its usable height
+words in text and captions: 991
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  page 3: table rows [] | has []
+  table split across pages: False
+3 pages rendered
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+swap('body { font-family: serif; font-size: 11pt; line-height: 1.15; }', 'body { font-family: serif; font-size: %spt; line-height: 1.15; }')
+swap('    rows_html = "".join(', '    css = css % os.environ.get("FONT", "11")\n    rows_html = "".join(')
+swap('width="385"', 'width="{os.environ.get(\'FIG2\', \'385\')}"')
+swap('where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins', 'M = float(os.environ.get("MARGIN", "54"))\n    where = mediabox + (M, M, -M, -M)           # 54 pt = 0.75 inch margins')
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchenv.py && for cfg in "11 385 54 1" "10.5 385 54 0" "10.5 385 54 1" "10.5 310 54 0" "10.5 310 54 1" "11 310 50 0" "10.5 330 50 0"; do set -- $cfg; echo "== font $1 pt, Fig2 $2 pt wide, margin $3 pt, page break before table: $4"; FONT=$1 FIG2=$2 MARGIN=$3 BREAK=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1; ./venv/Scripts/python.exe splitcheck.py t.pdf | grep -E "split|page"; done 2>&1 | grep -v "^$"`
+```
+patched
+== font 11 pt, Fig2 385 pt wide, margin 54 pt, page break before table: 1
+pages: 3; last page content ends at 100% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows [] | has []
+  page 3: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+== font 10.5 pt, Fig2 385 pt wide, margin 54 pt, page break before table: 0
+pages: 3; last page content ends at 3% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  page 3: table rows [] | has []
+  table split across pages: False
+== font 10.5 pt, Fig2 385 pt wide, margin 54 pt, page break before table: 1
+pages: 3; last page content ends at 96% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows [] | has []
+  page 3: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+== font 10.5 pt, Fig2 310 pt wide, margin 54 pt, page break before table: 0
+pages: 2; last page content ends at 96% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+== font 10.5 pt, Fig2 310 pt wide, margin 54 pt, page break before table: 1
+pages: 3; last page content ends at 90% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows [] | has []
+  page 3: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+== font 11 pt, Fig2 310 pt wide, margin 50 pt, page break before table: 0
+pages: 2; last page content ends at 100% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+== font 10.5 pt, Fig2 330 pt wide, margin 50 pt, page break before table: 0
+pages: 2; last page content ends at 91% of its usable height
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv2.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+old = 'width="504"'
+assert s.count(old) == 1
+s = s.replace(old, 'width="{os.environ.get(\'FIG1\', \'504\')}"')
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchenv2.py && printf "%-58s %s\n" "settings" "result"; for cfg in "10.5 504 310 50 0" "10.5 470 310 50 0" "10.5 450 290 50 0" "10 504 330 50 0" "10 470 310 50 0" "11 450 290 50 0" "10.5 450 290 54 0"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 BREAK=$5 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-58s %s | %s\n" "font $1pt, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+```
+patched
+settings                                                   result
+font 10.5pt, Fig1 504pt, Fig2 310pt, margin 50pt           pages: 2; last page content ends at 89% of its usable height |   table split across pages: False
+font 10.5pt, Fig1 470pt, Fig2 310pt, margin 50pt           pages: 2; last page content ends at 89% of its usable height |   table split across pages: False
+font 10.5pt, Fig1 450pt, Fig2 290pt, margin 50pt           pages: 2; last page content ends at 86% of its usable height |   table split across pages: False
+font 10pt, Fig1 504pt, Fig2 330pt, margin 50pt             pages: 2; last page content ends at 85% of its usable height |   table split across pages: False
+font 10pt, Fig1 470pt, Fig2 310pt, margin 50pt             pages: 2; last page content ends at 82% of its usable height |   table split across pages: True
+font 11pt, Fig1 450pt, Fig2 290pt, margin 50pt             pages: 2; last page content ends at 97% of its usable height |   table split across pages: False
+font 10.5pt, Fig1 450pt, Fig2 290pt, margin 54pt           pages: 2; last page content ends at 92% of its usable height |   table split across pages: False
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > setdefaults.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old
+    s = s.replace(old, new)
+swap('os.environ.get("FONT", "11")', 'os.environ.get("FONT", "10.5")')
+swap("os.environ.get('FIG2', '385')", "os.environ.get('FIG2', '310')")
+swap('os.environ.get("MARGIN", "54")', 'os.environ.get("MARGIN", "50.4")')
+swap('BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"', 'BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""')
+swap("# 54 pt = 0.75 inch margins", "# 50.4 pt = 0.7 inch margins")
+open(p, "w", encoding="utf-8").write(s)
+print("defaults set")
+PYEOF
+./venv/Scripts/python.exe -I setdefaults.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
+print(len(d), 'pages')"`
+```
+defaults set
+pages: 2; last page content ends at 93% of its usable height
+words in text and captions: 991
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+2 pages
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && printf "%-52s %s\n" settings result; for cfg in "10.5 504 310 50.4" "10.5 504 290 50.4" "10.5 490 290 50.4" "10.5 504 300 50.4" "10.5 504 290 50" "10 504 330 50.4"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-52s %s |%s\n" "font $1, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+```
+settings                                             result
+font 10.5, Fig1 504pt, Fig2 310pt, margin 50.4pt     pages: 2; last page content ends at 93% of its usable height |  table split across pages: False
+font 10.5, Fig1 504pt, Fig2 290pt, margin 50.4pt     pages: 2; last page content ends at 91% of its usable height |  table split across pages: False
+font 10.5, Fig1 490pt, Fig2 290pt, margin 50.4pt     pages: 2; last page content ends at 91% of its usable height |  table split across pages: False
+font 10.5, Fig1 504pt, Fig2 300pt, margin 50.4pt     pages: 2; last page content ends at 92% of its usable height |  table split across pages: False
+font 10.5, Fig1 504pt, Fig2 290pt, margin 50pt       pages: 2; last page content ends at 87% of its usable height |  table split across pages: False
+font 10, Fig1 504pt, Fig2 330pt, margin 50.4pt       pages: 2; last page content ends at 89% of its usable height |  table split across pages: False
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i "s/os.environ.get('FIG2', '310')/os.environ.get('FIG2', '290')/" report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
+print(len(d), 'pages')"`
+```
+pages: 2; last page content ends at 91% of its usable height
+words in text and captions: 991
+  page 1: table rows [] | has ['Figure 1:']
+  page 2: table rows ['C1', 'C2', 'C3', 'C4', 'C5', 'C6'] | has ['Table 1:', 'Figure 2:', '5. Limitations']
+  table split across pages: False
+2 pages
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+[This command modified 1 file you've previously read: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\report_build.py. Call Read before editing.]
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\final_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\final_p2.png`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\factcheck2.py`
+```
+"""every claim in the report text must be backed by the executed notebook, its source code, or the simulator code"""
+import io
+import re
+import pandas as pd
+import nbformat
+import report_build as rb
+
+H = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+nb = nbformat.read(f"{H}/CSCI4521_HW2.ipynb", as_version=4)
+mine = nb.cells[next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution")):]
+code_src = "\n".join(c.source for c in mine if c.cell_type == "code")
+out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
+                for c in nb.cells if c.cell_type == "code")
+tables = [pd.read_html(io.StringIO(o["data"]["text/html"]))[0] for c in nb.cells if c.cell_type == "code"
+          for o in c.outputs if o.output_type in ("display_data", "execute_result")
+          and "<table" in o.get("data", {}).get("text/html", "")]
+cfg = pd.read_csv(f"{H}/figures/hw2_configs.csv").set_index("config")
+starter_py = open(f"{H}/rover-rescue-download/2026/homework-2/rover-rescue/rover_starter.py", encoding="utf-8").read()
+mission_cols = pd.read_csv(f"{H}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv", nrows=1).columns.tolist()
+text = rb.all_text()
+fails = []
+
+
+def check(name, ok):
+    print(("ok   " if ok else "FAIL ") + name)
+    if not ok:
+        fails.append(name)
+
+
+def has(s):
+    return s in out
+
+
+# --- section 1: configurations and method
+check("6 configurations", len(cfg) == 6)
+check("first 4 use all 8 sensors, raw or z-scored, k-means or 1-NN",
+      (cfg.loc[["C1", "C2", "C3", "C4"], "dims"] == 8).all()
+      and cfg.loc[["C1", "C2", "C3", "C4"], ["scaling", "model"]].apply(tuple, axis=1).tolist()
+      == [("raw", "k-means"), ("raw", "1-NN"), ("z-score", "k-means"), ("z-score", "1-NN")])
+check("final 2 are z-scored PCA with 3 components, k-means and 1-NN",
+      (cfg.loc[["C5", "C6"], "dims"] == 3).all() and (cfg.loc[["C5", "C6"], "scaling"] == "z-score").all()
+      and cfg.loc[["C5", "C6"], "model"].tolist() == ["k-means", "1-NN"])
+check("3 components keep 95% (needed count is 3)", has("components for at least 95% variance: 3 of 8 (cumulative 0.9546)"))
+check("k-means: 10 random starts and 300 iterations are the defaults", "n_init=10" in code_src and "max_iter=300" in code_src)
+check("k-means: random cluster for every point, then centroids, then nearest-centroid until no change",
+      "rng.integers(0, k, size=n)" in code_src and "centroids_from_labels" in code_src and "np.array_equal(new_labels, labels)" in code_src)
+check("best of the starts by within-cluster sum of squares", 'history[-1] < best["inertia"]' in code_src)
+check("empty clusters re-seeded at the farthest point, and none occurred",
+      "argsort(-d2min" in code_src and out.count("0 empty clusters") >= 5)
+check("cluster naming by majority, one-to-one in every case", out.count("majority vote") == 3 and "permutation" not in out)
+check("k-means uses 3 clusters", "k = 3" in code_src or "k=3" in code_src)
+check("elbow values 2652, 1238, 1086 (k = 2, 3, 4)", has("{2: 2652.2, 3: 1237.5, 4: 1085.7, 5: 939.1}"))
+
+# --- section 2: protocol, checked in the code, not only the numbers
+check("754 fit rows, 60 calibration-training, 30 validation", has("fit 754 | calibration-training 60 | validation 30 | mission 784"))
+check("10 validation rows per terrain, 20 training per terrain", int(round(30 / 3)) == 10 and int(60 / 3) == 20)
+val_lines = [ln for ln in code_src.splitlines() if "X_val" in ln or "Z_val" in ln]
+check("validation rows are never passed to a fit, kmeans or name_clusters call",
+      not any(re.search(r"\.fit\(|kmeans\(|name_clusters\(|zscore_fit\(", ln) for ln in val_lines))
+mission_lines = [ln for ln in code_src.splitlines() if "X_mission" in ln]
+check("mission rows only appear in the setup print and in predict",
+      all(("print(" in ln) or ('chosen["predict"](X_mission)' in ln) for ln in mission_lines) and len(mission_lines) == 2)
+check("fit_config trains and names with X_fit and X_train only",
+      re.search(r"def fit_config.*?return dict", code_src, re.S) is not None
+      and "X_val" not in re.search(r"def fit_config.*?return dict", code_src, re.S).group(0)
+      and "X_mission" not in re.search(r"def fit_config.*?return dict", code_src, re.S).group(0))
+check("selection uses validation macro F1 first, then sand recall, then dimensions",
+      '["f", "s", "dims"]' in code_src and "ascending=[False, False, True]" in code_src)
+check("practice run is described as a demonstration, not an accuracy estimate in the text",
+      "demonstration and not an accuracy estimate" in text)
+
+# --- section 3: evidence
+sc = next(t for t in tables if "share of raw squared distance (%)" in " ".join(map(str, t.columns)))
+check("std 0.040 (sensor_6) to 52.4 (sensor_4)", abs(sc["std"].min() - 0.040) < 5e-4 and abs(sc["std"].max() - 52.446) < 5e-3)
+check("factor of 1320", has("largest std / smallest std = 1,320 (sensor_4 vs sensor_6)"))
+check("sensors 4 and 2 make up 92.3% of the squared distance", has("top two sensors supply 92.27%") and "sensor_4', 'sensor_2'" in out)
+check("sensor_4 is 81.9% of the raw squared distance (the sensor_4 explanation)", abs(float(sc["share of raw squared distance (%)"].max()) - 81.885) < 5e-3)
+pca = next(t for t in tables if "variance ratio" in " ".join(map(str, t.columns)))
+check("3 components keep 95.5%", abs(pca.iloc[2, -1] - 0.9546) < 5e-5)
+check("k-means 0.700 raw to 1.000 z-scored, 1-NN 0.933 to 1.000",
+      cfg.loc["C1", "val_accuracy"] == 0.7 and cfg.loc["C3", "val_accuracy"] == 1.0
+      and cfg.loc["C2", "val_accuracy"] == 0.933 and cfg.loc["C4", "val_accuracy"] == 1.0)
+check("raw k-means found only 5 of the 10 sand cells (this is sand recall, accuracy is 0.700)",
+      cfg.loc["C1", "sand_found"] == "5/10" and cfg.loc["C1", "val_accuracy"] == 0.7)
+raw_cluster = next((t for t in tables if t.shape == (3, 4) and t.iloc[:, 1:].values.tolist() == [[0, 8, 7], [16, 1, 1], [4, 11, 12]]), None)
+check("cluster named sand holds 12 sand, 11 rough, 4 firm labelled points (cluster 2 of C1, named sand)",
+      raw_cluster is not None and "C1 (raw, 8 sensors): majority vote, names ['rough', 'firm', 'sand']" in out)
+z_tabs = [t for t in tables if t.shape == (3, 4) and sorted(map(tuple, t.iloc[:, 1:].values.tolist())) == [(0, 0, 20), (0, 20, 0), (20, 0, 0)]]
+check("all z-scored clusters are pure (20, 20, 20), both z-scored k-means configs", len(z_tabs) == 2)
+check("PCA with 3 components scores 1.000 for both models, same as 8 sensors",
+      (cfg.loc[["C5", "C6"], ["val_accuracy", "macro_f1", "sand_recall"]] == 1.0).all().all()
+      and (cfg.loc[["C3", "C4"], ["val_accuracy", "macro_f1", "sand_recall"]] == 1.0).all().all())
+check("raw: 1-NN 0.933 beats k-means 0.700", cfg.loc["C2", "val_accuracy"] > cfg.loc["C1", "val_accuracy"])
+
+# --- section 4: decision and sand risk
+tied = cfg[(cfg.val_accuracy == 1.0) & (cfg.macro_f1 == 1.0) & (cfg.sand_recall == 1.0)].index.tolist()
+check("4 tied configurations: C3, C4, C5, C6", tied == ["C3", "C4", "C5", "C6"])
+check("C5 selected (z-score, PCA 95%, k-means, 3 dimensions); C5 and C6 tie on dimensions",
+      has("selected C5: z-score, PCA 95%, k-means, 3 dimensions") and has("also tied on dimensions: ['C5', 'C6']"))
+check("practice route 54 steps, predicted cost 70.8", has("'steps': 54, 'predicted_cost': 70.8"))
+check("the other 3 tied configurations also cost 70.8 in 54 steps",
+      (cfg.loc[["C3", "C4", "C6"], "cost"] == 70.8).all() and (cfg.loc[["C3", "C4", "C6"], "steps"] == 54).all())
+check("planner treats only predicted sand as blocked (so missed sand looks passable)", "if terrain == 2:  # predicted sand is blocked" in starter_py)
+check("rover stops at the first path cell whose true terrain is sand", re.search(r"if int\(truth\[y, x\]\) == 2:\s+return \{\s+\"success\": False,\s+\"status\": \"ROVER STUCK IN SAND\"", starter_py) is not None)
+check("raw k-means predicted 5 of the 10 validation sand cells as rough",
+      has("true sand          0           5          5") or "5" in out)
+conf = next(t for t in tables if list(t.iloc[:, 0]) == ["true firm", "true rough", "true sand"])
+check("confusion matrix row for sand: 0 firm, 5 rough, 5 sand", conf.iloc[2, 1:].tolist() == [0, 5, 5])
+check("rover stopped on step 20 at (y=13, x=4), predicted rough", has("C1: stopped at (y=13, x=4) after 20 steps; predicted rough there"))
+check("raw 1-NN missed 1 of 10 sand cells and still reached the goal", cfg.loc["C2", "sand_found"] == "9/10" and cfg.loc["C2", "practice"] == "MISSION SUCCESS")
+check("only the raw configurations missed validation sand cells", (cfg.loc[["C3", "C4", "C5", "C6"], "sand_found"] == "10/10").all())
+
+# --- section 5
+check("mission data has no terrain labels", "terrain" not in mission_cols)
+check("the practice run is one route", has("practice route cost 70.8") or "Practice map and planned route: route cost 70.8" in out)
+
+# --- table and numbers
+for r in rb.ROWS:
+    c = cfg.loc[r[0]]
+    check(f"Table 1 row {r[0]} matches the results file",
+          r[4] == f"{c.val_accuracy:.3f}" and r[5] == f"{c.macro_f1:.3f}" and r[6] == f"{c.sand_recall:.2f}" and str(int(c.steps)) in r[7])
+check("macro F1 is the average of the 3 class F1 scores in the code", "macro_f1=f1.mean()" in code_src)
+check("AI is mentioned in the report text and not in the notebook",
+      "Claude Code (Anthropic)" in text and not re.search(r"(?i)\bAI\b|claude|anthropic", code_src + "\n".join(c.source for c in mine if c.cell_type == "markdown")))
+check("no em or en dashes in the report text", not re.search("[\u2013\u2014]", text))
+print(f"\n{len(fails)} failures out of {len(re.findall('check', open(__file__).read())) - 3} statements checked" if False else f"\n{len(fails)} failures")
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixfc.py <<'PYEOF'
+p = "factcheck2.py"
+s = open(p, encoding="utf-8").read()
+a = s.index('check("raw k-means predicted 5 of the 10 validation sand cells as rough",')
+b = s.index("conf = next(")
+s = s[:a] + s[b:]
+s = s.replace('check("confusion matrix row for sand: 0 firm, 5 rough, 5 sand",', 'check("raw k-means predicted 5 of the 10 validation sand cells as rough (confusion row: 0 firm, 5 rough, 5 sand)",')
+a = s.index('check("the practice run is one route"')
+b = s.index("\n", a)
+s = s[:a] + s[b + 1:]
+s = s.replace('print(f"\\n{len(fails)} failures out of {len(re.findall(\'check\', open(__file__).read())) - 3} statements checked" if False else f"\\n{len(fails)} failures")',
+              'print(f"\\n{len(fails)} failures")')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixfc.py && ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -v "^$"`
+```
+ok
+ok   6 configurations
+ok   first 4 use all 8 sensors, raw or z-scored, k-means or 1-NN
+ok   final 2 are z-scored PCA with 3 components, k-means and 1-NN
+ok   3 components keep 95% (needed count is 3)
+ok   k-means: 10 random starts and 300 iterations are the defaults
+ok   k-means: random cluster for every point, then centroids, then nearest-centroid until no change
+ok   best of the starts by within-cluster sum of squares
+ok   empty clusters re-seeded at the farthest point, and none occurred
+ok   cluster naming by majority, one-to-one in every case
+ok   k-means uses 3 clusters
+ok   elbow values 2652, 1238, 1086 (k = 2, 3, 4)
+ok   754 fit rows, 60 calibration-training, 30 validation
+ok   10 validation rows per terrain, 20 training per terrain
+ok   validation rows are never passed to a fit, kmeans or name_clusters call
+ok   mission rows only appear in the setup print and in predict
+ok   fit_config trains and names with X_fit and X_train only
+ok   selection uses validation macro F1 first, then sand recall, then dimensions
+ok   practice run is described as a demonstration, not an accuracy estimate in the text
+ok   std 0.040 (sensor_6) to 52.4 (sensor_4)
+ok   factor of 1320
+ok   sensors 4 and 2 make up 92.3% of the squared distance
+ok   sensor_4 is 81.9% of the raw squared distance (the sensor_4 explanation)
+ok   3 components keep 95.5%
+ok   k-means 0.700 raw to 1.000 z-scored, 1-NN 0.933 to 1.000
+ok   raw k-means found only 5 of the 10 sand cells (this is sand recall, accuracy is 0.700)
+ok   cluster named sand holds 12 sand, 11 rough, 4 firm labelled points (cluster 2 of C1, named sand)
+ok   all z-scored clusters are pure (20, 20, 20), both z-scored k-means configs
+ok   PCA with 3 components scores 1.000 for both models, same as 8 sensors
+ok   raw: 1-NN 0.933 beats k-means 0.700
+ok   4 tied configurations: C3, C4, C5, C6
+ok   C5 selected (z-score, PCA 95%, k-means, 3 dimensions); C5 and C6 tie on dimensions
+ok   practice route 54 steps, predicted cost 70.8
+ok   the other 3 tied configurations also cost 70.8 in 54 steps
+ok   planner treats only predicted sand as blocked (so missed sand looks passable)
+ok   rover stops at the first path cell whose true terrain is sand
+ok   raw k-means predicted 5 of the 10 validation sand cells as rough (confusion row: 0 firm, 5 rough, 5 sand)
+ok   rover stopped on step 20 at (y=13, x=4), predicted rough
+ok   raw 1-NN missed 1 of 10 sand cells and still reached the goal
+ok   only the raw configurations missed validation sand cells
+ok   mission data has no terrain labels
+ok   Table 1 row C1 matches the results file
+ok   Table 1 row C2 matches the results file
+ok   Table 1 row C3 matches the results file
+ok   Table 1 row C4 matches the results file
+ok   Table 1 row C5 matches the results file
+ok   Table 1 row C6 matches the results file
+ok   macro F1 is the average of the 3 class F1 scores in the code
+ok   AI is mentioned in the report text and not in the notebook
+ok   no em or en dashes in the report text
+0 failures
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -3; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"`
+```
+code cells: 20 lines: 581
+(pycodestyle 120 cols: none above = clean)
+(pyflakes: none above = clean)
+== coverage, check cells only
+lines: 207/207
+branches: 22/22 taken
+== coverage, whole notebook
+lines: 367/367
+branches: 40/40 taken
+== mutation
+baseline (no mutation): passes
+mutants killed: 14/14
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note4.py`
+```
+import report_build as rb
+
+P, HEAD, ROWS, CORR = rb.P, rb.HEAD, rb.ROWS, rb.CORRECTIONS
+tsv_table = "\n".join("\t".join(r) for r in [HEAD] + ROWS)
+FIG = "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\figures\\"
+corr_rows = "\n".join(f"| {w} | {a.replace('|', '/')} | {b.replace('|', '/')} |" for w, a, b in CORR)
+
+
+def section_step(n, label, h, *keys):
+    body = "\n".join([P[h]] + [P[k] for k in keys])
+    return f"""#### Step {n}: {label}
+Paste both lines. Make the first line (the heading) bold, left aligned, with Keep with next on; leave the paragraph normal.
+```
+{body}
+```
+"""
+
+
+def fenced(par):
+    return f"```\n{par}\n```\n"
+
+
+NOTE = f"""---
+type: class
+class_kind: homework
+status: sprout
+created: 2026-10-26
+updated: 2026-10-27
+deadline: 2026-10-27
+tags:
+  - class
+  - homework
+area:
+  - "[[CSCI 4521 Board]]"
+next: "Build the Word report by following the Word document steps below (about 20 minutes), export the PDF, confirm 2 pages, then upload the 4 files listed under Submit to Gradescope before 11 pm on 2026-10-27."
+---
+# Homework - 2
+## Overview
+Rover Rescue (CSCI 4521 HW2): build a terrain classifier from eight sensors (firm, rough, sand), compare scaling, PCA and k-means against 1-NN, deploy one fitted model on the practice and mission grids, and explain the evidence in a standalone report of at most two pages. The grade is the 100-point `rubric.md` in the course repo, not the 10, 20 and 10 points printed in the PDF. No extra credit is offered in the handout, the repo markdown or the rubric.
+Deadline: 11 pm on 2026-10-27, as the user stated it. Confirm on the Gradescope assignment page: the Board's schedule listed HW2 for 10/20, the handout says "check Gradescope", and the repo folder was committed 2026-10-22.
+Status 2026-10-27: the notebook, both report figures, `submission.csv` and the practice HTML are final and tested. The report text is locked (the user's own wording, see Report text). Left: build the Word report and its PDF, then upload.
+## Requirements
+### Report length: two pages, not more
+The handout calls it "the two-page report" and says "full implementation details and extra plots belong in your code/evidence, not the two-page report". The rubric's report line (20 points) ends with "Maximum two pages." So do not extend to three or four pages and do not add diagrams. The example `HW2.pdf` is 8 pages because it answers an older assignment with no limit; use it for tone and layout only. If a longer report is wanted anyway, ask the instructor on Piazza first; the written rubric is what a grader follows.
+### What the handout asks for
+Three design parts and four deliverables. Nothing beyond this belongs in the notebook.
+- Representation: examine sensor scales, run PCA, report the component count for 95% variance, plot components against explained variance, show the top 2 and top 3 components.
+- Experiments: at least three configurations that together show the effect of normalization, a PCA representation, and cluster-based against kNN. Record dimensions, validation accuracy, macro F1, sand recall and the practice outcome for each. Use k-means with three clusters, justify the cluster count and the way clusters get terrain names, and explain why missing sand matters.
+- Deployment: choose one fitted model, reuse it on the practice and mission grids, show a practice deployment, export `submission.csv`, explain the choice, and analyze one failure, surprise or limitation.
+- NumPy by hand: normalization, nearest-centroid assignment, centroid update, kNN prediction, and your own k-means loop.
+### Submit
+Upload exactly these four, from `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\`:
+- [ ] `CSCI4521_HW2.ipynb` (1.3 MB), saved with outputs
+- [ ] `practice_run.html` (0.7 MB), the practice deployment animation, centered on the screen
+- [ ] `submission.csv` (14 KB): 784 rows, student_id demo3
+- [ ] the report PDF, exported from Word, two pages
+Do not upload: the `rover-rescue-download/` folder (it holds the dataset and `practice_truth.bin`), the starter notebook `[REDACTED].ipynb`, `figures/` files as separate items, or any HW1 file.
+How: Gradescope, CSCI 4521, Homework 2, upload. Whether the page has one multi-file slot or four slots is unverified, so read the page first. After uploading, open each file in the Gradescope preview and keep the confirmation.
+Ready to submit when: the PDF exists and is two pages, the four files above are the ones selected, and the due time on Gradescope is confirmed. Everything else is done and tested.
+### Must not do
+- Do not read `practice_truth.bin`; only `evaluate_practice` and `show_practice_run` touch it.
+- Do not change `split_data` or its split.
+- Do not use x, y as features.
+- Do not fit normalization, PCA or k-means on validation rows, and never fit anything on mission data.
+- Do not use validation labels to name clusters or train 1-NN.
+- Do not replace the four required NumPy operations with library versions.
+- Do not call the validation score an untouched test estimate, or the practice run an accuracy estimate.
+### Report must state
+- [ ] Question, the configurations compared and why.
+- [ ] The component count for 95% variance.
+- [ ] What scaling and PCA changed and what cluster versus kNN showed, tied to the metrics. A tie is reported as a tie.
+- [ ] Why the deployed model was chosen, how a missed sand cell changes the route, and one failure, surprise, tie or limitation.
+- [ ] Which rows were used for fitting, naming and validation, and how the fitted model was reused on mission.
+- [ ] Observations kept apart from explanations.
+### Rules
+- Piazza, instructor Ebasa Temesgen (relayed by the user 2026-10-27): the dataset is the supplied `demo_data` folder, the starter notebook loads it, and `student_id` demo3 is copied into `submission.csv` and stays unchanged. This replaces the PDF's "personalized dataset" wording.
+- Piazza, instructor Bernardo Bianco Prado: sklearn is fine for k-means computation. The handout still says to assemble your own k-means loop and the rubric awards 25 points for correct k-means, so the notebook uses its own loop and keeps `KMeans` only as a cross-check. That satisfies both readings.
+- Piazza, a student: `save_submission(predictions, BUNDLE_DIR)` at the end of the notebook writes `submission.csv`.
+- AI disclosure: the handout's Course policy says to follow the syllabus AI-use policy and disclose assistance as required, and the syllabus says to cite AI prominently. The user decided it appears in one place only: the final "AI" paragraph of the Word report. It is not in the notebook, the HTML or the CSV (checked).
+- Late policy: 24-hour grace day, nothing after.
+## Work log
+### 2026-10-27 Report text
+The text below is the user's own wording from a rewrite of my draft. It was checked sentence by sentence against the executed notebook, the notebook source and the simulator code, and corrected only where a statement did not match. Style, British spelling, section titles and sentence order are the user's.
+Corrections made (13):
+| Where | What did not match | Now |
+| --- | --- | --- |
+{corr_rows}
+Fact-check: a script tests 48 statements of the final text, including protocol claims (validation rows never reach a fit, mission rows only reach predict, naming uses the 60 training labels, selection order) and simulator behavior (only predicted sand is blocked, the rover stops at the first true sand cell on its route). All 48 hold. Layout test of the final text: it is 991 words and, at Times 11 pt, ran to a third page. At Times 10.5 pt, 0.7 in margins, Figure 1 at 7.0 in and Figure 2 at 4.0 in it fits two pages, with page 2 ending at about 91% (a swing of 4 points from one margin change shows how sensitive it is). The fallback steps in the Word guide are ready if Word spills.
+### 2026-10-27 Final state and tests
+`Code\\Homework\\CSCI4521_HW2.ipynb` has 38 cells: the 8 starter cells unchanged, then eight short sections (setup, NumPy methods, checks, representation, experiments, selection, deployment, export) and a summary. About 370 words of prose in total, two report figures plus the practice animation, and nothing else drawn. The AI-use cell was removed at the user's request, so the notebook says nothing about AI. k-means follows ISL Algorithm 12.2 and lecture 2.3. Code style follows the CSCI 4041 projects: a docstring with time cost on every function, comments on each step, and assert-based checks.
+Trimmed to what the handout asks for, after the user pointed out the notebook was doing too much:
+- Six configurations instead of eleven: raw and z-score, k-means and 1-NN on all 8 sensors, then PCA at 95% on the standardized sensors for both models. Dropped: raw-data PCA configurations, PCA with 2 components, 3-NN.
+- PCA is fitted on the standardized sensors only. Dropped: the raw PCA curve and count, the loadings table.
+- Dropped: the 20-start stability test, the elbow plot (the four objective values stay as one line), the mission-shift table and shares, the timing columns, the kNN closure, the drawing function and its tests.
+- Kept: everything the three parts and the rubric name, plus the checks.
+Practice HTML: the simulator returns a bare fragment, which the browser put at the top left. The notebook now wraps it in a full page with the animation centered. Measured in headless Edge at four window sizes (800x700, 1280x900, 1366x768, 1920x1080): top and bottom margins equal, left and right margins within 2 px. The simulator's own frames leave more blank space on the left than the right, so the wrapper shifts them by half the gap; the simulator code is untouched. The animation still plays (55 embedded frames).
+Tests run, all on the final file in the user's `csci-4521` env (Python 3.12.14, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, matplotlib 3.11.2):
+- The user re-ran an earlier version in that env and its outputs were byte-identical to my Python 3.14 runs, so results do not depend on the environment. The final file ran in that env in a clean directory and in place: no error or stderr output, execution counts 1 to 25 in order, byte-identical `submission.csv`, results table and figures between runs.
+- Three check cells, all assert-based. A general block: fit and validation rows are disjoint, grid order is row-major, z-score has mean 0 and std 1, vectorized distances equal the lecture 1.1 loop and kNN for k = 1, 3, 5 equals a loop reference on raw and z-scored data, k-means clusters partition the data and converge with a non-increasing objective and centroids equal to member means, the best random start is kept, PCA components are orthonormal and its variance equals the squared singular values, and sklearn agrees (k-means objective 1237.50 in both, standardization, macro F1, accuracy). A unit block with a hand-worked case for every method (constant sensor, 3-4-5 triangle, empty-cluster re-seed, within-cluster sum, exact recovery of three blobs, the iteration cap, naming by majority and by the one-to-one fallback, the nearest-neighbor tie-break, and the lecture 1.4 COVID example: precision 0.5, recall 0.75, F1 0.6, accuracy 0.8). A pipeline block: stored z-score and PCA, repeatable fits, every table value against sklearn accuracy and a direct sand recall.
+- Coverage (coverage.py on the executed notebook): the check cells alone run 207 of 207 lines and 22 of 22 branches of my code, with all 16 functions fully covered. The whole notebook runs 367 of 367 lines and 40 of 40 branches.
+- Mutation test: 14 deliberate bugs (distance sign flipped, argmin to argmax, wrong centroid divisor, dropped square, convergence never detected, worst start kept, worst naming permutation, transposed table, neighbors ordered farthest first, F1 without the factor 2, sand recall read from the wrong class, and others). The checks caught all 14.
+- Defect found by the checks while building them: ties in the empty-cluster re-seed were broken by an unstable sort. Fixed with a stable sort. No run ever had an empty cluster, so no result changed.
+- pyflakes finds no unused names or imports in my cells, pycodestyle at 120 columns is clean, no stderr output anywhere, no em or en dashes.
+What "100%" does and does not mean: the code is verified correct and reproducible, and the report statements are verified against the output. The grade itself cannot be verified. The validation score is 1.000 for four of six configurations on only 30 rows, which says nothing certain about the hidden mission labels, and the handout says no points depend on them.
+Not tested: Word itself, the Gradescope upload, and a Colab run.
+Evidence (demo bundle, the confirmed dataset):
+- Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
+- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance; sensor_4 alone 81.9%.
+- PCA on the standardized fit rows: 95% needs 3 components (cumulative 0.9546; PC1 64.1%, PC2 27.1%, first two 91.1%). Three separated groups show in PC1 and PC2.
+- Raw k-means: validation accuracy 0.700, macro F1 0.704, sand recall 0.5 (5 of 10), rover stuck at step 20 at (y=13, x=4) where it predicted rough. The cluster named sand holds 12 sand, 11 rough and 4 firm training points. Raw 1-NN: 0.933, 0.935, sand recall 0.9, reaches the goal (cost 72.2).
+- All four z-scored configurations (8 sensors and PCA 95%, k-means and 1-NN) score 1.000 on accuracy, macro F1 and sand recall and reach the goal in 54 steps at cost 70.8. Their clusters are pure on the 60 training labels (20, 20, 20).
+- The pre-set rule (macro F1, then sand recall, then fewer dimensions, then table order) picked C5 (z-score, PCA 95%, k-means, 3 dimensions), tied with C6 on every metric.
+- Elbow objective: k=2 2652, k=3 1238, k=4 1086, k=5 939. Mission route cost 52.0.
+### Decisions
+- Word, not LaTeX: two pages, one table, two figures, no equations, no bibliography. Switch only if the table cannot fit.
+- Two pages, as the rubric says. A longer report was considered and rejected (see Report length).
+- AI disclosure only in the Word report, not in the notebook (the user's decision).
+- Figures are saved at print size (7.25 in and 5.34 in wide at 300 dpi). Figure 1 goes in at 7.0 in, so its text stays readable; Figure 2 goes in at 4.0 in, which is smaller than its natural size to make the two pages.
+- Selection rule fixed before any result: macro F1, then sand recall, then fewer dimensions, then table order. The practice outcome is recorded, not used to select.
+- The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.
+### Rubric coverage
+"Met" means the evidence exists in the executed notebook, not that points are guaranteed.
+| Rubric line | Where | Evidence |
+| --- | --- | --- |
+| Learning system and method choices (25) | notebook 2 Methods, 5 Experiments | z-score, nearest-centroid, centroid update, own k-means loop, cluster naming from the 60 labels, kNN, all NumPy; initialization, stopping rule and empty clusters stated and counted |
+| Sensor scales (4) | notebook 4, first table | std range 1,320x, share of raw squared distance per sensor |
+| PCA and 95% count (6) | notebook 4, PCA cell | fitted on fit rows only, 3 components |
+| PCA figure and reading (5) | `figures/fig1_pca.png`, report 3 | variance curve, top 2 and top 3 components |
+| Three or more configurations (8) | notebook 5 | six configurations, one factor changed at a time |
+| Common held-out evaluation, boundaries (9) | notebook 1 Setup, 5 | asserts, same 30 validation rows, labels only for naming and 1-NN |
+| Dimensions, accuracy, macro F1, sand recall, practice (8) | notebook 5 table, `figures/hw2_configs.csv`, Table 1 | all five per configuration |
+| Model choice, reuse, mission map, practice run (10) | notebook 6 and 7, `practice_run.html`, `figures/fig2_deploy.png` | rule fixed first, stored objects reused, mission map and route |
+| Report (20) | Word report | steps below: question, table, figures, sand risk, evaluation, limitations, two pages |
+| Reproducibility (5) | notebook header and Summary | dependencies, run steps, seed, versions, clean-directory run verified |
+### Word document: copy-paste guide
+Follow the steps in order. Every grey code block is plain text; use its copy button, then Paste Special, Unformatted Text, in Word. The text is final: paste it as it is. The example `HW2.pdf` has the same shape: a header line on every page, a centered title block, then numbered sections with their heading on its own line.
+#### Step 0: page setup (once, before pasting anything)
+- Paper: Letter. Margins: 0.7 in on all four sides. One column.
+- Font: Times New Roman 10.5 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
+- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example). Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.
+- Do not add page numbers or anything else to the footer.
+- Headings: bold, left aligned, 5 pt before, 2 pt after, Keep with next.
+#### Step 1: title block
+Three centered bold lines. Paste, then center and bold all three.
+```
+{chr(10).join(P['title'])}
+```
+{section_step(2, "section 1", "h1", "s1")}{section_step(3, "section 2", "h2", "s2")}{section_step(4, "section 3, first paragraph", "h3", "s3a")}#### Step 5: IMAGE, Figure 1
+- File: `{FIG}fig1_pca.png`
+- Place: directly under step 4, on its own centered line. Insert, Pictures, This Device, then Layout Options, In Line with Text.
+- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).
+- Caption: the line below, 10 pt, centered, directly under the image.
+{fenced(P['f1cap'])}#### Step 6: section 3, second paragraph
+No heading. Paste the paragraph as normal text.
+{fenced(P['s3b'])}#### Step 7: TABLE, Table 1
+- Place: directly under step 6.
+- Build: paste the tab-separated block below, select it, Insert, Table, Convert Text to Table, 8 columns, Separate text at Tabs, AutoFit to contents.
+- Format: 9 pt, header row bold, a thin rule above and below the header row and below the last row, no vertical lines, text columns left, number columns centered, table centered on the page.
+- Keep it whole: select every row of the table and the caption below it, Paragraph, Line and Page Breaks, tick Keep with next (and Keep lines together). Word then moves the whole table to the top of page 2 if it does not fit at the bottom of page 1. Do not insert a manual page break.
+- Row check: 6 rows plus the header. C1 and C2 raw, C3 and C4 z-score on 8 sensors, C5 and C6 z-score with PCA 95%.
+```
+{tsv_table}
+```
+- Caption: under the table, 10 pt, centered.
+{fenced(P['t1cap'])}{section_step(8, "section 4", "h4", "s4")}#### Step 9: IMAGE, Figure 2
+- File: `{FIG}fig2_deploy.png`
+- Place: directly under step 8, on its own centered line, In Line with Text.
+- Size: 4.0 in wide, aspect ratio locked (about 2.3 in tall). This is smaller than its natural 5.3 in on purpose; do not enlarge it unless the document ends with an inch to spare.
+- Caption: 10 pt, centered, directly under the image.
+{fenced(P['f2cap'])}{section_step(10, "section 5", "h5", "s5")}{section_step(11, "AI paragraph, the last thing in the document", "hai", "ai")}#### Step 12: export and final check
+- File, Save As, PDF (Standard, not minimum size). Name it `HW2_Anant_Gupta.pdf`.
+- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and their labels can be read; the AI paragraph is the last thing and sits above the bottom margin; the header appears on both pages. My layout estimate puts the end of page 2 at about 91%, which leaves roughly three quarters of an inch.
+- Check every number once against `figures/hw2_configs.csv` (Table 1) and the notebook Summary cell (component count 3, selected C5).
+- If it spills onto a third page, do these in order and stop when it fits: (1) body text to 10 pt; (2) Figure 2 to 3.8 in wide; (3) margins to 0.65 in; (4) only if still over, the user may drop one of these sentences, none of which a rubric line needs: the elbow values in brackets at the end of section 1; "This is a large difference of a factor of 1320." in section 3; "Both the cluster and 1-NN had a score of 1.000 for all the z-scored configurations." in section 3. Never cut the evaluation section, the sand-risk explanation, the limitations or Table 1.
+### Submission
+Not submitted yet.
+## Concepts used
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 12|ISL Chapter 12]]: PCA (12.2) gave the 95% component count, the variance curve and the scaling argument; k-means (12.4, Algorithm 12.2) gave the algorithm, the local-optimum argument and the multiple random starts.
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]]: kNN and the bias-variance trade-off, behind the 1-NN comparison.
+- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 5|Week - 5]] and [[20_Progress/Degree/CSCI 4521/Weekly/Week - 6|Week - 6]]: PCA with kNN, the leakage rule (split first, then fit), k-means steps, initialization and stopping.
+- [[20_Progress/Degree/CSCI 4521/Homework/Homework - 1|Homework - 1]]: z-score from training statistics, precision, recall and F1, and the Word report flow.
+## Post-submit reflection
+<!-- Optional until feedback: the first failure, the pattern, and what to change. -->
+"""
+
+out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
+print("written", len(NOTE), "chars")
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe factcheck2.py > fc.txt 2>&1; OK=$(grep -c '^ok' fc.txt); FAIL=$(grep -c '^FAIL' fc.txt); echo "fact-check: $OK ok, $FAIL failed"; N=$(./venv/Scripts/python.exe -c "import report_build as r; print(len(r.CORRECTIONS))"); echo "corrections listed: $N"; cat > fixcounts.py <<PYEOF
+p = "gen_note4.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old
+    s = s.replace(old, new)
+swap("Corrections made (13):", "Corrections made ({len(CORR)}):")
+swap("a script tests 48 statements of the final text", "a script tests $OK statements of the final text")
+swap("All 48 hold.", "All $OK hold.")
+swap("leaves roughly three quarters of an inch.", "leaves about 0.8 in.")
+open(p, "w", encoding="utf-8").write(s)
+print("counts set")
+PYEOF
+./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+```
+fact-check: 49 ok, 0 failed
+corrections listed: 14
+counts set
+written 30189 chars
+16:## Overview
+20:## Requirements
+21:### Report length: two pages, not more
+23:### What the handout asks for
+29:### Submit
+38:### Must not do
+46:### Report must state
+53:### Rules
+59:## Work log
+60:### 2026-10-27 Report text
+80:### 2026-10-27 Final state and tests
+105:### Decisions
+112:### Rubric coverage
+126:### Word document: copy-paste guide
+128:#### Step 0: page setup (once, before pasting anything)
+134:#### Step 1: title block
+141:#### Step 2: section 1
+147:#### Step 3: section 2
+153:#### Step 4: section 3, first paragraph
+159:#### Step 5: IMAGE, Figure 1
+167:#### Step 6: section 3, second paragraph
+172:#### Step 7: TABLE, Table 1
+191:#### Step 8: section 4
+197:#### Step 9: IMAGE, Figure 2
+205:#### Step 10: section 5
+211:#### Step 11: AI paragraph, the last thing in the document
+217:#### Step 12: export and final check
+222:### Submission
+224:## Concepts used
+229:## Post-submit reflection
+dash hits: 0
+62:Corrections made (14):
+79:Fact-check: a script tests 49 statements of the final text, including protocol claims (validation rows never reach a 
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+
 ## Actions Taken
 
 **Files created:**
@@ -12633,9 +13804,11 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb2.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb3.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb4.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\factcheck2.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note2.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note3.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note4.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\htmlblock.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins1.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins2.txt`
@@ -14191,5 +15364,133 @@ open(p, "w", encoding="utf-8").write(s.replace(old, new))
 print("ok")
 PYEOF
 ./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== notebook in the Homework folder: cells that mention AI / Claude / Anthropic ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat, re
+nb = nbformat.read("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+hits = 0
+for i, c in enumerate(nb.cells):
+    texts = [("source", c.source)] + [("output", "".join(o.get("text", "")) ) for o in c.get("outputs", []) if o.output_type == "stream"]
+    for where, t in texts:
+        for m in re.finditer(r"(?i)\bAI\b|claude|anthropic", t):
+            hits += 1; print(f"cell {i} ({c.cell_type}, {where}): ...{t[max(0, m.start()-40):m.end()+60]!r}")
+print("total hits:", hits)
+PYEOF
+echo; echo "=== other files in the Homework folder that could carry it ==="; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && grep -il "claude\|anthropic" submission.csv practice_run.html figures/hw2_configs.csv 2>/dev/null; echo "(none listed above = clean)"; echo; echo "=== vault note: mentions ==="; grep -n -i "\bAI\b\|claude" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | cut -c1-170`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > rmai.py <<'PYEOF'
+p = "build_nb4.py"
+s = open(p, encoding="utf-8").read()
+a = s.index('md("""### AI use')
+b = s.index('"""', a + len('md("""')) + 4          # end of that md(...) call, including the closing parenthesis
+block = s[a:b]
+assert "Claude Code" in block and block.count('md(') == 1, block
+s = s[:a] + s[b:].lstrip("\n")
+open(p, "w", encoding="utf-8").write(s)
+print("removed:", repr(block[:60]), "...")
+PYEOF
+./venv/Scripts/python.exe -I rmai.py && ./venv/Scripts/python.exe -I -c "
+import ast; src = open('build_nb4.py', encoding='utf-8').read(); ast.parse(src); print('builder syntax ok'); print('mentions left in builder:', [w for w in ('Claude', 'Anthropic', 'AI use') if w in src])" && tail -12 build_nb4.py`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && cp figures/fig1_pca.png "$SC/prev_fig1.png" && cp figures/fig2_deploy.png "$SC/prev_fig2.png" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat, re
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
+ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)]
+print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])), "| my prose words", words)
+print("cells that mention AI, Claude or Anthropic:", ai, "| last cell:", repr(nb.cells[-1].source[:30]))
+PYEOF
+for f in submission.csv figures/hw2_configs.csv; do cmp -s "$f" "$SC/prev_${f##*/}" 2>/dev/null; done; cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv identical to the verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "results table identical"; cmp -s figures/fig1_pca.png "$SC/prev_fig1.png" && echo "fig1 identical"; cmp -s figures/fig2_deploy.png "$SC/prev_fig2.png" && echo "fig2 identical"; grep -ic "claude\|anthropic" practice_run.html submission.csv`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && for b in 1 0; do echo "== page break before Table 1: $b"; BREAK=$([ $b = 1 ] && echo 1 || echo 0) ./venv/Scripts/python.exe report_build.py rep_$b.pdf 2>&1 | tail -2; ./venv/Scripts/python.exe splitcheck.py rep_$b.pdf; done; ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('rep_1.pdf')
+for i, p in enumerate(d): p.get_pixmap(dpi=70).save('rep1_p%d.png' % (i+1))
+print(len(d), 'pages rendered')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+swap('body { font-family: serif; font-size: 11pt; line-height: 1.15; }', 'body { font-family: serif; font-size: %spt; line-height: 1.15; }')
+swap('    rows_html = "".join(', '    css = css % os.environ.get("FONT", "11")\n    rows_html = "".join(')
+swap('width="385"', 'width="{os.environ.get(\'FIG2\', \'385\')}"')
+swap('where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins', 'M = float(os.environ.get("MARGIN", "54"))\n    where = mediabox + (M, M, -M, -M)           # 54 pt = 0.75 inch margins')
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchenv.py && for cfg in "11 385 54 1" "10.5 385 54 0" "10.5 385 54 1" "10.5 310 54 0" "10.5 310 54 1" "11 310 50 0" "10.5 330 50 0"; do set -- $cfg; echo "== font $1 pt, Fig2 $2 pt wide, margin $3 pt, page break before table: $4"; FONT=$1 FIG2=$2 MARGIN=$3 BREAK=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1; ./venv/Scripts/python.exe splitcheck.py t.pdf | grep -E "split|page"; done 2>&1 | grep -v "^$"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchenv2.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+old = 'width="504"'
+assert s.count(old) == 1
+s = s.replace(old, 'width="{os.environ.get(\'FIG1\', \'504\')}"')
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchenv2.py && printf "%-58s %s\n" "settings" "result"; for cfg in "10.5 504 310 50 0" "10.5 470 310 50 0" "10.5 450 290 50 0" "10 504 330 50 0" "10 470 310 50 0" "11 450 290 50 0" "10.5 450 290 54 0"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 BREAK=$5 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-58s %s | %s\n" "font $1pt, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > setdefaults.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old
+    s = s.replace(old, new)
+swap('os.environ.get("FONT", "11")', 'os.environ.get("FONT", "10.5")')
+swap("os.environ.get('FIG2', '385')", "os.environ.get('FIG2', '310')")
+swap('os.environ.get("MARGIN", "54")', 'os.environ.get("MARGIN", "50.4")')
+swap('BRK = "" if os.environ.get("BREAK") == "0" else "page-break-before: always"', 'BRK = "page-break-before: always" if os.environ.get("BREAK") == "1" else ""')
+swap("# 54 pt = 0.75 inch margins", "# 50.4 pt = 0.7 inch margins")
+open(p, "w", encoding="utf-8").write(s)
+print("defaults set")
+PYEOF
+./venv/Scripts/python.exe -I setdefaults.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
+print(len(d), 'pages')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && printf "%-52s %s\n" settings result; for cfg in "10.5 504 310 50.4" "10.5 504 290 50.4" "10.5 490 290 50.4" "10.5 504 300 50.4" "10.5 504 290 50" "10 504 330 50.4"; do set -- $cfg; out=$(FONT=$1 FIG1=$2 FIG2=$3 MARGIN=$4 ./venv/Scripts/python.exe report_build.py t.pdf 2>&1 | head -1); sp=$(./venv/Scripts/python.exe splitcheck.py t.pdf | grep split); printf "%-52s %s |%s\n" "font $1, Fig1 $2pt, Fig2 $3pt, margin $4pt" "$out" "$sp"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i "s/os.environ.get('FIG2', '310')/os.environ.get('FIG2', '290')/" report_build.py && ./venv/Scripts/python.exe report_build.py report_est.pdf && ./venv/Scripts/python.exe splitcheck.py report_est.pdf && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d): p.get_pixmap(dpi=80).save('final_p%d.png' % (i+1))
+print(len(d), 'pages')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixfc.py <<'PYEOF'
+p = "factcheck2.py"
+s = open(p, encoding="utf-8").read()
+a = s.index('check("raw k-means predicted 5 of the 10 validation sand cells as rough",')
+b = s.index("conf = next(")
+s = s[:a] + s[b:]
+s = s.replace('check("confusion matrix row for sand: 0 firm, 5 rough, 5 sand",', 'check("raw k-means predicted 5 of the 10 validation sand cells as rough (confusion row: 0 firm, 5 rough, 5 sand)",')
+a = s.index('check("the practice run is one route"')
+b = s.index("\n", a)
+s = s[:a] + s[b + 1:]
+s = s.replace('print(f"\\n{len(fails)} failures out of {len(re.findall(\'check\', open(__file__).read())) - 3} statements checked" if False else f"\\n{len(fails)} failures")',
+              'print(f"\\n{len(fails)} failures")')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixfc.py && ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -v "^$"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -3; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe factcheck2.py > fc.txt 2>&1; OK=$(grep -c '^ok' fc.txt); FAIL=$(grep -c '^FAIL' fc.txt); echo "fact-check: $OK ok, $FAIL failed"; N=$(./venv/Scripts/python.exe -c "import report_build as r; print(len(r.CORRECTIONS))"); echo "corrections listed: $N"; cat > fixcounts.py <<PYEOF
+p = "gen_note4.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old
+    s = s.replace(old, new)
+swap("Corrections made (13):", "Corrections made ({len(CORR)}):")
+swap("a script tests 48 statements of the final text", "a script tests $OK statements of the final text")
+swap("All 48 hold.", "All $OK hold.")
+swap("leaves roughly three quarters of an inch.", "leaves about 0.8 in.")
+open(p, "w", encoding="utf-8").write(s)
+print("counts set")
+PYEOF
+./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
 
 

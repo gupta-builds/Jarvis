@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T21:25:15
-exported_at: 2026-10-27T21:25:16
-duration_minutes: 94.7
+ended_at: 2026-10-27T21:38:11
+exported_at: 2026-10-27T21:38:13
+duration_minutes: 107.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
-turn_count: 22
+turn_count: 24
 tools_used:
-  Bash: 122
+  Bash: 138
   Edit: 2
   Grep: 4
   mcp__claude_ai_Gmail__search_threads: 1
   mcp__claude_ai_Google_Drive__search_files: 1
-  Read: 35
+  Read: 39
   ToolSearch: 1
-  Write: 16
+  Write: 18
 tokens:
-  input: 330
-  output: 333612
-  cache_creation: 575082
-  cache_read: 54431526
-  total: 55340550
+  input: 376
+  output: 367060
+  cache_creation: 622759
+  cache_read: 68290871
+  total: 69281066
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -40,8 +40,11 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\build_nb4.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\est_p1.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\est_p2.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ex_p1.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note2.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note3.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\htmlblock.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\hw2_p1.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ins1.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ins2.txt"
@@ -49,6 +52,8 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\new_block.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\p_block.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\report_build.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\shot_new.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\shot_new_1366x768.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\tests_block.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\README.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rover_starter.py"
@@ -11874,6 +11879,751 @@ hw2_configs.csv
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 ```
 
+## You
+
+The homework 2 need not be fixated to 2 pages since this is a larger assignment, we can add a few more diagrams to it if required and extend it to 3 pages, max 4 pages. Does this suit what the professor says for the assignment? Also refer to this example word submission: `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\HW2.pdf"`. Make no mistakes with the text and the images that need to render. Now, that we have come to this stage. Make sure that each and every single file is ready for submission. Lay out the word inside the obsidian note as easy to copy paste into the word document and the images that need to be on the word document clearly stated on where they need to be and what images. let's also make sure that the code written out is perfectly ready for submission as well now. Another thing to note is that the html file runs but is not exactly centered to the screen. Center align it. Other than are we completely ready for submission once the word document is laid out? We have the 3 out of 4 documents ready now.
+
+## Claude
+
+Short answer on the page limit: no, it doesn't suit the professor's instructions. Let me quote the exact wording first, then deal with the HTML centering and the layout.
+
+The HTML is a bare fragment with no `<html>`, `<body>` or styling, which is why it sits at the top-left. Let me see its markup so I can wrap it properly.
+
+My patch hit the same escaping trap as before. I'll replace that block with one that needs no backslashes at all.
+
+Now the real test: I'll render both the old and new HTML in Edge at a 1280x900 window and measure how far the content sits from the left and right edges.
+
+The new page is much closer, but not exact: 416 px on the left against 399 px on the right, and the content sits slightly low. Let me look at the screenshot to see what's offsetting it.
+
+The screenshot step fails when chained after the notebook run, as it did last time, but works on its own. I'll run it separately.
+
+The HTML is now centered: top and bottom margins are identical, and left and right differ by 2 px (1 px each side) at all four window sizes. A quick look at the actual rendering to confirm:
+
+The animation page is centered and its JavaScript still works, since the frame is loaded by the script. Now I'm applying the final notebook in place, then re-running every verification.
+
+Everything still verifies. Let me confirm the centering on the actual file in your folder, not just my scratch copy.
+
+The note passes lint. Let me proofread the Word guide as it will actually render, since "no mistakes with the text and images" is the point of this step.
+
+The guide reads correctly end to end. One practical gap: the page header must sit in the header margin, otherwise Word pushes the body down and eats into the two-page budget. I'm adding that setting.
+
+No, a 3 or 4 page report does not suit the professor's instructions, so I kept it at two pages. Three of the four files are final, and the fourth is the Word report you build from the note.
+
+## Page limit
+The handout says "Full implementation details and extra plots belong in your code/evidence, not the two-page report." The rubric's 20-point report line ends with "Maximum two pages." The example `HW2.pdf` is 8 pages because it answers an older assignment with no limit. I used it only for layout: a header line on every page, a centered title block with a rule, then numbered sections. If you still want more room, ask the instructor on Piazza first. A grader follows the written rubric.
+
+## Practice HTML
+It sat at the top left because the simulator returns only a fragment. The notebook now wraps it in a full page. I tested it in a real browser (Edge) at four window sizes. Top and bottom margins are identical. Left and right differ by 2 px, against 647 px before. The simulator's frames have uneven blank space, so I compensated in the wrapper's CSS and left the simulator code alone. The animation still plays.
+
+## The three finished files
+- **`CSCI4521_HW2.ipynb`:** 39 cells, runs clean in your `csci-4521` env.
+  - **Tests:** every line (367 of 367) and branch (40 of 40) of my code runs, and all 14 injected bugs are caught.
+  - **Fact-check:** all 41 statements in the report text match the executed output.
+- **`practice_run.html`:** centered, as above.
+- **`submission.csv`:** 784 rows, `student_id` demo3 (the instructor said to leave it).
+
+## Word document, copy-paste guide
+`Homework - 2.md` now has the full guide under "Word document: copy-paste guide". It runs from page setup through steps 1 to 13. The text is in copy-ready blocks with the exact words to bold. The note also covers:
+- **Figure 1:** `figures\fig1_pca.png`, after the first Evidence paragraph, 7.0 in wide, with its caption.
+- **Figure 2:** `figures\fig2_deploy.png`, after the decision paragraph, 5.3 in wide, with its caption.
+- **Table 1:** tab-separated, ready to convert to a table, with format and caption.
+- **Layout:** a page break before Table 1, and a spill-over fallback order. A layout estimate puts it at 2 pages with about an inch to spare.
+
+## Are we ready to submit?
+Yes, once these are done:
+1. Build the PDF and confirm it is two pages. I could not test Word itself.
+2. Check the due time on Gradescope.
+3. Upload exactly these four files: the notebook, `practice_run.html`, `submission.csv` and the PDF.
+
+Do not upload the `rover-rescue-download/` folder; it contains the dataset and the simulator truth file. Gradescope may have one upload slot or four, so read the page before uploading.
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad" && echo "=== handout (homework 2.pdf): page-limit wording ==="; ./hw2/venv/Scripts/python.exe -I -c "
+import pymupdf as fitz, re
+d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf')
+t = ' '.join(p.get_text() for p in d)
+t = re.sub(r'\s+', ' ', t)
+for m in re.finditer(r'[^.]*(two-page|two pages|extra plots)[^.]*\.', t): print('-', m.group(0).strip())
+"; echo; echo "=== rubric.md ==="; grep -n -i "page" repo/2026/homework-2/rover-rescue/rubric.md repo/2026/homework-2/rover-rescue/assignment_student.md; echo; echo "=== example report HW2.pdf: pages and page-limit context ==="; ./hw2/venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf')
+print('pages:', len(d)); d[0].get_pixmap(dpi=75).save('hw2/ex_p1.png'); d[5].get_pixmap(dpi=75).save('hw2/ex_p6.png')
+"`
+```
+=== handout (homework 2.pdf): page-limit wording ===
+- Full implementation details and extra plots belong in your code/evidence, not the two-page report.
+
+=== rubric.md ===
+repo/2026/homework-2/rover-rescue/rubric.md:11:| Clear report | 20 | Focused question and rationale (4), readable table/figure and evidence-based conclusions (8), diagnosis/limitations including sand risk (5), and a clear evaluation/generalization explanation (3). Maximum two pages. |
+
+=== example report HW2.pdf: pages and page-limit context ===
+pages: 8
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ex_p1.png`
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && head -c 1800 practice_run.html | head -40; echo; echo "-----structure"; grep -o '<div class="[^"]*"\|<div id="[^"]*"\|<input[^>]*type="[^"]*"\|<img id="[^"]*"\|</body>\|<body\|<html\|<script' practice_run.html | sort | uniq -c | head -30`
+```
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script language="javascript">
+  function isInternetExplorer() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+  }
+
+  /* Define the Animation class */
+  function Animation(frames, img_id, slider_id, interval, loop_select_id){
+    this.img_id = img_id;
+    this.slider_id = slider_id;
+    this.loop_select_id = loop_select_id;
+    this.interval = interval;
+    this.current_frame = 0;
+    this.direction = 0;
+    this.timer = null;
+    this.frames = new Array(frames.length);
+
+    for (var i=0; i<frames.length; i++)
+    {
+     this.frames[i] = new Image();
+     this.frames[i].src = frames[i];
+    }
+    var slider = document.getElementById(this.slider_id);
+    slider.max = this.frames.length - 1;
+    if (isInternetExplorer()) {
+        // switch from oninput to onchange because IE <= 11 does not conform
+        // with W3C specification. It ignores oninput and onchange behaves
+        // like oninput. In contrast, Microsoft Edge behaves correctly.
+        slider.setAttribute('onchange', slider.getAttribute('oninput'));
+        slider.setAttribute('oninput', null);
+    }
+    this.set_frame(this.current_frame);
+  }
+
+  Animation.prototype.get_loop_state = function(){
+    var button_group = document[this.loop_select_id].state;
+
+-----structure
+      1 <div class="anim-buttons"
+      1 <div class="anim-controls"
+      1 <div class="animation"
+      1 <img id="[REDACTED]"
+      1 <input id="[REDACTED]" type="range"
+      3 <input type="radio"
+      2 <script
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ./../../../../../../../Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe -I -c "
+import re
+s = open('practice_run.html', encoding='utf-8').read()
+i = s.index('<div class=\"animation\"')
+tail = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', 'data:...', s[i:])
+tail = re.sub(r'\[\s*(\"data:\.\.\.\",?\s*)+\]', '[frames...]', tail)
+print(tail[:3500])
+print('--- style tags:', s.count('<style'), '| width attrs on img:', re.findall(r'<img[^>]*>', s)[:1])
+" 2>&1 | head -80; ls "D:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files/Google/Chrome/Application/chrome.exe" 2>&1 | grep -v "No such"`
+```
+/usr/bin/bash: line 1: ./../../../../../../../Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/venv/Scripts/python.exe: No such file or directory
+C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; cd "$SC" && cat > htmlshape.py <<'PYEOF'
+import re
+s = open("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html", encoding="utf-8").read()
+i = s.index('<div class="animation"')
+tail = re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "data:...", s[i:])
+print(tail[:3200])
+print("--- style tags:", s.count("<style"), "| img tags:", re.findall(r"<img[^>]*>", s)[:1])
+PYEOF
+./venv/Scripts/python.exe -I htmlshape.py | head -70`
+```
+<div class="animation">
+  <img id="[REDACTED]">
+  <div class="anim-controls">
+    <input id="[REDACTED]" type="range" class="anim-slider"
+           name="points" min="0" max="1" step="1" value="0"
+           oninput="[REDACTED].set_frame(parseInt(this.value));">
+    <div class="anim-buttons">
+      <button title="Decrease speed" aria-label="Decrease speed" onclick="[REDACTED].slower()">
+          <i class="fa fa-minus"></i></button>
+      <button title="First frame" aria-label="First frame" onclick="[REDACTED].first_frame()">
+        <i class="fa fa-fast-backward"></i></button>
+      <button title="Previous frame" aria-label="Previous frame" onclick="[REDACTED].previous_frame()">
+          <i class="fa fa-step-backward"></i></button>
+      <button title="Play backwards" aria-label="Play backwards" onclick="[REDACTED].reverse_animation()">
+          <i class="fa fa-play fa-flip-horizontal"></i></button>
+      <button title="Pause" aria-label="Pause" onclick="[REDACTED].pause_animation()">
+          <i class="fa fa-pause"></i></button>
+      <button title="Play" aria-label="Play" onclick="[REDACTED].play_animation()">
+          <i class="fa fa-play"></i></button>
+      <button title="Next frame" aria-label="Next frame" onclick="[REDACTED].next_frame()">
+          <i class="fa fa-step-forward"></i></button>
+      <button title="Last frame" aria-label="Last frame" onclick="[REDACTED].last_frame()">
+          <i class="fa fa-fast-forward"></i></button>
+      <button title="Increase speed" aria-label="Increase speed" onclick="[REDACTED].faster()">
+          <i class="fa fa-plus"></i></button>
+    </div>
+    <form title="Repetition mode" aria-label="Repetition mode" action="#n" name="[REDACTED]"
+          class="anim-state">
+      <input type="radio" name="state" value="once" id="[REDACTED]"
+             checked>
+      <label for="[REDACTED]">Once</label>
+      <input type="radio" name="state" value="loop" id="[REDACTED]"
+             >
+      <label for="[REDACTED]">Loop</label>
+      <input type="radio" name="state" value="reflect" id="[REDACTED]"
+             >
+      <label for="[REDACTED]">Reflect</label>
+    </form>
+  </div>
+</div>
+
+
+<script language="javascript">
+  /* Instantiate the Animation class. */
+  /* The IDs given should match those used in the template above. */
+  (function() {
+    var img_id = "[REDACTED]";
+    var slider_id = "[REDACTED]";
+    var loop_select_id = "[REDACTED]";
+    var frames = new Array(55);
+    
+  frames[0] = "data:...\
+[REDACTED]
+--- style tags: 1 | img tags: ['<img id="[REDACTED]">']
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml.py <<'PYEOF'
+p = "build_nb4.py"
+s = open(p, encoding="utf-8").read()
+old = 'html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)\nPath("practice_run.html").write_text(html.data, encoding="utf-8")\ndisplay(html)\n'
+assert s.count(old) == 1
+new = '''html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)
+
+# the simulator returns a bare fragment, so wrap it in a page that centers the animation on the screen
+page = ("<!DOCTYPE html>\\n<html lang=\\"en\\"><head><meta charset=\\"utf-8\\">"
+        "<title>Rover Rescue practice run</title>\\n"
+        "<style>body {margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center;}"
+        " .animation {text-align: center;}</style></head>\\n<body>\\n" + html.data + "\\n</body></html>")
+Path("practice_run.html").write_text(page, encoding="utf-8")
+display(html)
+'''
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && sed -n "$(grep -n 'the simulator returns a bare fragment' build_nb4.py | cut -d: -f1),+7p" build_nb4.py`
+```
+patched
+builder syntax ok
+# the simulator returns a bare fragment, so wrap it in a page that centers the animation on the screen
+page = ("<!DOCTYPE html>
+<html lang=\"en\"><head><meta charset=\"utf-8\">"
+        "<title>Rover Rescue practice run</title>
+"
+        "<style>body {margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center;}"
+        " .animation {text-align: center;}</style></head>
+<body>
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\htmlblock.txt`
+```
+# the simulator returns a bare fragment, so wrap it in a page that centers the animation on the screen
+page = """<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Rover Rescue practice run</title>
+<style>
+body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+.animation { text-align: center; }
+</style></head>
+<body>
+""" + html.data + """
+</body></html>"""
+Path("practice_run.html").write_text(page, encoding="utf-8")
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml2.py <<'PYEOF'
+p = "build_nb4.py"
+s = open(p, encoding="utf-8").read()
+a = s.index("# the simulator returns a bare fragment")
+end_marker = 'Path("practice_run.html").write_text(page, encoding="utf-8")\n'
+b = s.index(end_marker, a) + len(end_marker)
+s = s[:a] + open("htmlblock.txt", encoding="utf-8").read() + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("replaced")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; head -c 600 practice_run.html; echo; echo ...; tail -c 120 practice_run.html`
+```
+replaced
+builder syntax ok
+[NbConvertApp] Writing 1328753 bytes to CSCI4521_HW2.ipynb
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Rover Rescue practice run</title>
+<style>
+body { margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center; }
+.animation { text-align: center; }
+</style></head>
+<body>
+
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script language="javascript">
+  function isInternetExplorer() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.indexOf("MSIE ") > -1 || ua.i
+...
+id, slider_id, 90.0,
+                                 loop_select_id);
+    }, 0);
+  })()
+</script>
+
+</body></html>
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cp "$H/practice_run.html" old_practice.html && for name in old new; do if [ $name = old ]; then SRC="$SC/old_practice.html"; else SRC="$SC/fresh4/practice_run.html"; fi; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,900 --virtual-time-budget=5000 --screenshot="$SC/shot_$name.png" "file:///$SRC" >/dev/null 2>&1; done; ls -la shot_*.png; cat > measure.py <<'PYEOF'
+import sys
+from PIL import Image
+import numpy as np
+for name in ("old", "new"):
+    im = np.asarray(Image.open(f"shot_{name}.png").convert("RGB")).astype(int)
+    h, w, _ = im.shape
+    ink = (np.abs(im - 255).sum(axis=2) > 30)          # anything that is not white
+    cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))
+    left, right = cols.min(), w - 1 - cols.max()
+    top, bottom = rows.min(), h - 1 - rows.max()
+    print(f"{name}: window {w}x{h} | content x {cols.min()}..{cols.max()} | left margin {left}px, right margin {right}px "
+          f"| top margin {top}px, bottom margin {bottom}px | horizontally centered within 2px: {abs(left - right) <= 2}")
+PYEOF
+./venv/Scripts/python.exe -I measure.py`
+```
+-rw-r--r-- 1 anant 197609 14939 Oct 27 21:33 shot_new.png
+-rw-r--r-- 1 anant 197609 15008 Oct 27 21:33 shot_old.png
+old: window 1280x900 | content x 84..548 | left margin 84px, right margin 731px | top margin 58px, bottom margin 221px | horizontally centered within 2px: False
+new: window 1280x900 | content x 416..880 | left margin 416px, right margin 399px | top margin 161px, bottom margin 111px | horizontally centered within 2px: False
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\shot_new.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml3.py <<'PYEOF'
+p = "htmlblock.txt"
+s = open(p, encoding="utf-8").read()
+old = ".animation { text-align: center; }\n"
+assert s.count(old) == 1
+new = (".animation { text-align: center; }\n"
+       "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
+       ".animation img { transform: translateX(-1.25%); }\n")
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+
+b = open("build_nb4.py", encoding="utf-8").read()
+old_b = ".animation { text-align: center; }\n"
+assert b.count(old_b) == 1
+b = b.replace(old_b, new)
+open("build_nb4.py", "w", encoding="utf-8").write(b)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml3.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC" && for w in "1280,900" "1920,1080" "800,700"; do "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$w --virtual-time-budget=5000 --screenshot="$SC/shot_new_${w/,/x}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; cat > measure2.py <<'PYEOF'
+from PIL import Image
+import numpy as np
+for name in ("1280x900", "1920x1080", "800x700"):
+    im = np.asarray(Image.open(f"shot_new_{name}.png").convert("RGB")).astype(int)
+    h, w, _ = im.shape
+    ink = (np.abs(im - 255).sum(axis=2) > 30)
+    cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))
+    left, right = cols.min(), w - 1 - cols.max()
+    print(f"window {w}x{h}: left margin {left}px, right margin {right}px, difference {abs(left - right)}px | top {rows.min()}px, bottom {h - 1 - rows.max()}px")
+PYEOF
+./venv/Scripts/python.exe -I measure2.py`
+```
+Exit code 1
+ok
+[NbConvertApp] Writing 1328934 bytes to CSCI4521_HW2.ipynb
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\measure2.py", line 4, in <module>
+    im = np.asarray(Image.open(f"shot_new_{name}.png").convert("RGB")).astype(int)
+                    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\PIL\Image.py", line 3654, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'shot_new_1280x900.png'
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; ls shot_* 2>&1; for pair in "1280 900" "1920 1080" "800 700"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ls shot_new_*; ./venv/Scripts/python.exe -I measure2.py`
+```
+shot_new.png
+shot_old.png
+shot_new_1280x900.png
+shot_new_1920x1080.png
+shot_new_800x700.png
+window 1280x900: left margin 408px, right margin 406px, difference 2px | top 161px, bottom 111px
+window 1920x1080: left margin 728px, right margin 726px, difference 2px | top 251px, bottom 201px
+window 800x700: left margin 168px, right margin 166px, difference 2px | top 61px, bottom 11px
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml4.py <<'PYEOF'
+old = ".animation { text-align: center; }\n/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n.animation img { transform: translateX(-1.25%); }\n"
+new = (".animation { text-align: center; transform: translateY(-25px); }\n"
+       "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
+       ".animation img { transform: translateX(-1.25%); }\n")
+for p in ("build_nb4.py", "htmlblock.txt"):
+    s = open(p, encoding="utf-8").read()
+    assert s.count(old) == 1, p
+    open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml4.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; sed -i 's/for name in ("1280x900", "1920x1080", "800x700"):/for name in ("1280x900", "1920x1080", "800x700", "1366x768"):/' measure2.py; ./venv/Scripts/python.exe -I measure2.py`
+```
+Exit code 1
+ok
+[NbConvertApp] Writing 1328964 bytes to CSCI4521_HW2.ipynb
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\measure2.py", line 4, in <module>
+    im = np.asarray(Image.open(f"shot_new_{name}.png").convert("RGB")).astype(int)
+                    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\PIL\Image.py", line 3654, in open
+    fp = builtins.open(filename, "rb")
+FileNotFoundError: [Errno 2] No such file or directory: 'shot_new_1280x900.png'
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py`
+```
+window 1280x900: left margin 408px, right margin 406px, difference 2px | top 136px, bottom 136px
+window 1920x1080: left margin 728px, right margin 726px, difference 2px | top 226px, bottom 226px
+window 800x700: left margin 168px, right margin 166px, difference 2px | top 36px, bottom 36px
+window 1366x768: left margin 451px, right margin 449px, difference 2px | top 70px, bottom 70px
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\shot_new_1366x768.png`
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
+PYEOF
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to the verified run: $f" || echo "DIFFERS: $f"; done; cmp -s practice_run.html "$SC/fresh4/practice_run.html" && echo "practice_run.html identical" || echo "practice_run.html differs (random element ids only expected)"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3 && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; cd .. && echo "== fact-check" && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
+```
+[NbConvertApp] Writing 1328882 bytes to CSCI4521_HW2.ipynb
+cells 39 | error/stderr cells [] | in-order 1.. 25 True
+identical to the verified run: submission.csv
+identical to the verified run: figures/hw2_configs.csv
+identical to the verified run: figures/fig1_pca.png
+identical to the verified run: figures/fig2_deploy.png
+practice_run.html differs (random element ids only expected)
+code cells: 20 lines: 581
+(pycodestyle: none above = clean)
+(pyflakes: none above = clean)
+== coverage
+lines: 207/207
+branches: 22/22 taken
+lines: 367/367
+branches: 40/40 taken
+== mutation
+baseline (no mutation): passes
+mutants killed: 14/14
+== fact-check
+
+0 failures
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$H/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py; ./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh4/practice_run.html" "$H/practice_run.html" | tail -3`
+```
+window 1280x900: left margin 408px, right margin 406px, difference 2px | top 136px, bottom 136px
+window 1920x1080: left margin 728px, right margin 726px, difference 2px | top 226px, bottom 226px
+window 800x700: left margin 168px, right margin 166px, difference 2px | top 36px, bottom 36px
+window 1366x768: left margin 451px, right margin 449px, difference 2px | top 70px, bottom 70px
+(5241, 'ation">\n  <img id="[REDACTED]', 'ation">\n  <img id="[REDACTED]')
+equal after masking random ids: True
+contains the animation script: True | frames embedded: 55
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=+%H:%M CSCI4521_HW2.ipynb practice_run.html submission.csv figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv | awk '{printf "%-9s %s  %s\n", $5, $6, $7}'; head -3 submission.csv; wc -l submission.csv`
+```
+1344126   21:35  CSCI4521_HW2.ipynb
+228675    21:35  figures/fig1_pca.png
+38627     21:35  figures/fig2_deploy.png
+538       21:35  figures/hw2_configs.csv
+755613    21:35  practice_run.html
+13796     21:35  submission.csv
+student_id,x,y,predicted_terrain
+demo3,0,0,firm
+demo3,1,0,firm
+785 submission.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note3.py`
+```
+import re
+import report_build as rb
+
+P, HEAD, ROWS = rb.P, rb.HEAD, rb.ROWS
+tsv_table = "\n".join("\t".join(r) for r in [HEAD] + ROWS)
+FIG = "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\figures\\"
+
+
+def split_title(par):
+    """a paragraph that starts with '3. Evidence.' gives the bold run-in title and the whole text"""
+    m = re.match(r"^(\d\. [^.]+\.)", par)
+    return m.group(1) if m else None
+
+
+def text_step(n, label, key):
+    par = P[key]
+    title = split_title(par)
+    bold = f"Bold only these words: `{title}`\n" if title else ""
+    return f"""#### Step {n}: {label}
+{bold}```
+{par}
+```
+"""
+
+
+def caption_step(par):
+    return f"""```
+{par}
+```
+"""
+
+
+NOTE = f"""---
+type: class
+class_kind: homework
+status: sprout
+created: 2026-10-26
+updated: 2026-10-27
+deadline: 2026-10-27
+tags:
+  - class
+  - homework
+area:
+  - "[[CSCI 4521 Board]]"
+next: "Build the Word report by following the Word document steps below (about 20 minutes), export the PDF, confirm 2 pages, then upload the 4 files listed under Submit to Gradescope before 11 pm on 2026-10-27."
+---
+# Homework - 2
+## Overview
+Rover Rescue (CSCI 4521 HW2): build a terrain classifier from eight sensors (firm, rough, sand), compare scaling, PCA and k-means against 1-NN, deploy one fitted model on the practice and mission grids, and explain the evidence in a standalone report of at most two pages. The grade is the 100-point `rubric.md` in the course repo, not the 10, 20 and 10 points printed in the PDF. No extra credit is offered in the handout, the repo markdown or the rubric.
+Deadline: 11 pm on 2026-10-27, as the user stated it. Confirm on the Gradescope assignment page: the Board's schedule listed HW2 for 10/20, the handout says "check Gradescope", and the repo folder was committed 2026-10-22.
+Status 2026-10-27: the notebook, both report figures, `submission.csv` and the practice HTML are final and tested. Left: the Word report and its PDF, then the upload.
+## Requirements
+### Report length: two pages, not more
+The handout calls it "the two-page report" and says "full implementation details and extra plots belong in your code/evidence, not the two-page report". The rubric's report line (20 points) ends with "Maximum two pages." So do not extend to three or four pages and do not add diagrams. The example `HW2.pdf` is 8 pages because it answers an older assignment with no limit; use it for tone and layout only. If a longer report is wanted anyway, ask the instructor on Piazza first; the written rubric is what a grader follows.
+### What the handout asks for
+Three design parts and four deliverables. Nothing beyond this belongs in the notebook.
+- Representation: examine sensor scales, run PCA, report the component count for 95% variance, plot components against explained variance, show the top 2 and top 3 components.
+- Experiments: at least three configurations that together show the effect of normalization, a PCA representation, and cluster-based against kNN. Record dimensions, validation accuracy, macro F1, sand recall and the practice outcome for each. Use k-means with three clusters, justify the cluster count and the way clusters get terrain names, and explain why missing sand matters.
+- Deployment: choose one fitted model, reuse it on the practice and mission grids, show a practice deployment, export `submission.csv`, explain the choice, and analyze one failure, surprise or limitation.
+- NumPy by hand: normalization, nearest-centroid assignment, centroid update, kNN prediction, and your own k-means loop.
+### Submit
+Upload exactly these four, from `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\`:
+- [ ] `CSCI4521_HW2.ipynb` (1.3 MB), saved with outputs
+- [ ] `practice_run.html` (0.7 MB), the practice deployment animation, now centered on the screen
+- [ ] `submission.csv` (14 KB), 784 rows in mission.csv order, `student_id` demo3 (the instructor says to leave it)
+- [ ] the report PDF, exported from Word, two pages
+Do not upload: the `rover-rescue-download/` folder (it holds the dataset and `practice_truth.bin`), the starter notebook `[REDACTED].ipynb`, `figures/` files as separate items, or any HW1 file.
+How: Gradescope, CSCI 4521, Homework 2, upload. Whether the page has one multi-file slot or four slots is unverified, so read the page first. After uploading, open each file in the Gradescope preview and keep the confirmation.
+Ready to submit when: the PDF exists and is two pages, the four files above are the ones selected, and the due time on Gradescope is confirmed. Everything else is done and tested.
+### Must not do
+- Do not read `practice_truth.bin`; only `evaluate_practice` and `show_practice_run` touch it.
+- Do not change `split_data` or its split.
+- Do not use x, y as features.
+- Do not fit normalization, PCA or k-means on validation rows, and never fit anything on mission data.
+- Do not use validation labels to name clusters or train 1-NN.
+- Do not replace the four required NumPy operations with library versions.
+- Do not call the validation score an untouched test estimate, or the practice run an accuracy estimate.
+### Report must state
+- [ ] Question, the configurations compared and why.
+- [ ] The component count for 95% variance.
+- [ ] What scaling and PCA changed and what cluster versus kNN showed, tied to the metrics. A tie is reported as a tie.
+- [ ] Why the deployed model was chosen, how a missed sand cell changes the route, and one failure, surprise, tie or limitation.
+- [ ] Which rows were used for fitting, naming and validation, and how the fitted model was reused on mission.
+- [ ] Observations kept apart from explanations. The AI-use note sits at the bottom.
+### Rules
+- Piazza, instructor Ebasa Temesgen (relayed by the user 2026-10-27): the dataset is the supplied `demo_data` folder, the starter notebook loads it, and `student_id` demo3 is copied into `submission.csv` and stays unchanged. This replaces the PDF's "personalized dataset" wording.
+- Piazza, instructor Bernardo Bianco Prado: sklearn is fine for k-means computation. The handout still says to assemble your own k-means loop and the rubric awards 25 points for correct k-means, so the notebook uses its own loop and keeps `KMeans` only as a cross-check. That satisfies both readings.
+- Piazza, a student: `save_submission(predictions, BUNDLE_DIR)` at the end of the notebook writes `submission.csv`.
+- AI: the user states AI use is allowed as much as possible in this course, so treat it as green but unverified (the handout prints no level). The disclosure with how much AI was used sits at the bottom of the report and of the notebook.
+- Late policy: 24-hour grace day, nothing after.
+## Work log
+### 2026-10-27 Final state and tests
+`Code\\Homework\\CSCI4521_HW2.ipynb` has 39 cells: the 8 starter cells unchanged, then eight short sections (setup, NumPy methods, checks, representation, experiments, selection, deployment, export), a summary and an AI-use note. About 415 words of prose in total, two report figures plus the practice animation, and nothing else drawn. k-means follows ISL Algorithm 12.2 and lecture 2.3. Code style follows the CSCI 4041 projects: a docstring with time cost on every function, comments on each step, and assert-based checks.
+Trimmed to what the handout asks for, after the user pointed out the notebook was doing too much:
+- Six configurations instead of eleven: raw and z-score, k-means and 1-NN on all 8 sensors, then PCA at 95% on the standardized sensors for both models. Dropped: raw-data PCA configurations, PCA with 2 components, 3-NN.
+- PCA is fitted on the standardized sensors only. Dropped: the raw PCA curve and count, the loadings table.
+- Dropped: the 20-start stability test, the elbow plot (the four objective values stay as one line), the mission-shift table and shares, the timing columns, the kNN closure, the drawing function and its tests.
+- Kept: everything the three parts and the rubric name, plus the checks.
+Practice HTML: the simulator returns a bare fragment, which the browser put at the top left. The notebook now wraps it in a full page with the animation centered. Measured in headless Edge at four window sizes (800x700, 1280x900, 1366x768, 1920x1080): top and bottom margins equal, left and right margins within 2 px. The simulator's own frames leave more blank space on the left than the right, so the wrapper shifts them by half the gap; the simulator code is untouched. The animation still plays (55 embedded frames).
+Tests run, all on the final file in the user's `csci-4521` env (Python 3.12.14, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, matplotlib 3.11.2):
+- The user re-ran an earlier version in that env and its outputs were byte-identical to my Python 3.14 runs, so results do not depend on the environment. The final file ran in that env in a clean directory and in place: no error or stderr output, execution counts 1 to 25 in order, byte-identical `submission.csv`, results table and figures between runs.
+- Three check cells, all assert-based. A general block: fit and validation rows are disjoint, grid order is row-major, z-score has mean 0 and std 1, vectorized distances equal the lecture 1.1 loop and kNN for k = 1, 3, 5 equals a loop reference on raw and z-scored data, k-means clusters partition the data and converge with a non-increasing objective and centroids equal to member means, the best random start is kept, PCA components are orthonormal and its variance equals the squared singular values, and sklearn agrees (k-means objective 1237.50 in both, standardization, macro F1, accuracy). A unit block with a hand-worked case for every method (constant sensor, 3-4-5 triangle, empty-cluster re-seed, within-cluster sum, exact recovery of three blobs, the iteration cap, naming by majority and by the one-to-one fallback, the nearest-neighbor tie-break, and the lecture 1.4 COVID example: precision 0.5, recall 0.75, F1 0.6, accuracy 0.8). A pipeline block: stored z-score and PCA, repeatable fits, every table value against sklearn accuracy and a direct sand recall.
+- Coverage (coverage.py on the executed notebook): the check cells alone run 207 of 207 lines and 22 of 22 branches of my code, with all 16 functions fully covered. The whole notebook runs 367 of 367 lines and 40 of 40 branches.
+- Mutation test: 14 deliberate bugs (distance sign flipped, argmin to argmax, wrong centroid divisor, dropped square, convergence never detected, worst start kept, worst naming permutation, transposed table, neighbors ordered farthest first, F1 without the factor 2, sand recall read from the wrong class, and others). The checks caught all 14.
+- Defect found by the checks while building them: ties in the empty-cluster re-seed were broken by an unstable sort. Fixed with a stable sort. No run ever had an empty cluster, so no result changed.
+- Fact-check: a script compares 41 statements of the report (every number in the text, the cluster tables, the elbow values, the selection tie, the practice outcome, each Table 1 row) with the executed notebook output and the results CSV. All 41 match.
+- pyflakes finds no unused names or imports in my cells, pycodestyle at 120 columns is clean, no stderr output anywhere, no em or en dashes.
+- Layout estimate with PyMuPDF (Times 11 pt, 0.75 in margins, the real figure files, page break before Table 1): 2 pages, page 2 ends at about 85% of its height, Table 1 whole on page 2.
+What "100%" does and does not mean: the code is verified correct and reproducible, and the report numbers are verified against the output. The grade itself cannot be verified. The validation score is 1.000 for four of six configurations on only 30 rows, which says nothing certain about the hidden mission labels, and the handout says no points depend on them.
+Not tested: Word itself, the Gradescope upload, and a Colab run.
+Evidence (demo bundle, the confirmed dataset):
+- Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
+- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance.
+- PCA on the standardized fit rows: 95% needs 3 components (cumulative 0.9546; PC1 64.1%, PC2 27.1%, first two 91.1%). Three separated groups show in PC1 and PC2.
+- Raw k-means: validation accuracy 0.700, macro F1 0.704, sand recall 0.5 (5 of 10), rover stuck at step 20 at (y=13, x=4) where it predicted rough. The cluster named sand holds 12 sand, 11 rough and 4 firm training points. Raw 1-NN: 0.933, 0.935, sand recall 0.9, reaches the goal (cost 72.2).
+- All four z-scored configurations (8 sensors and PCA 95%, k-means and 1-NN) score 1.000 on accuracy, macro F1 and sand recall and reach the goal in 54 steps at cost 70.8. Their clusters are pure on the 60 training labels (20, 20, 20).
+- The pre-set rule (macro F1, then sand recall, then fewer dimensions, then table order) picked C5 (z-score, PCA 95%, k-means, 3 dimensions), tied with C6 on every metric.
+- Elbow objective: k=2 2652, k=3 1238, k=4 1086, k=5 939. Mission route cost 52.0.
+### Decisions
+- Word, not LaTeX: two pages, one table, two figures, no equations, no bibliography. Switch only if the table cannot fit.
+- Two pages, as the rubric says. A longer report was considered and rejected (see Report length).
+- Figures are saved at print size (7.25 in and 5.34 in wide at 300 dpi) so that text stays readable when inserted at full width.
+- Selection rule fixed before any result: macro F1, then sand recall, then fewer dimensions, then table order. The practice outcome is recorded, not used to select.
+- The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.
+### Rubric coverage
+"Met" means the evidence exists in the executed notebook, not that points are guaranteed.
+| Rubric line | Where | Evidence |
+| --- | --- | --- |
+| Learning system and method choices (25) | notebook 2 Methods, 5 Experiments | z-score, nearest-centroid, centroid update, own k-means loop, cluster naming from the 60 labels, kNN, all NumPy; initialization, stopping rule and empty clusters stated and counted |
+| Sensor scales (4) | notebook 4, first table | std range 1,320x, share of raw squared distance per sensor |
+| PCA and 95% count (6) | notebook 4, PCA cell | fitted on fit rows only, 3 components |
+| PCA figure and reading (5) | `figures/fig1_pca.png`, report 3 | variance curve, top 2 and top 3 components |
+| Three or more configurations (8) | notebook 5 | six configurations, one factor changed at a time |
+| Common held-out evaluation, boundaries (9) | notebook 1 Setup, 5 | asserts, same 30 validation rows, labels only for naming and 1-NN |
+| Dimensions, accuracy, macro F1, sand recall, practice (8) | notebook 5 table, `figures/hw2_configs.csv`, Table 1 | all five per configuration |
+| Model choice, reuse, mission map, practice run (10) | notebook 6 and 7, `practice_run.html`, `figures/fig2_deploy.png` | rule fixed first, stored objects reused, mission map and route |
+| Report (20) | Word report | steps below: question, table, figures, sand risk, protocol, limitations, two pages |
+| Reproducibility (5) | notebook header and Summary | dependencies, run steps, seed, versions, clean-directory run verified |
+### Word document: copy-paste guide
+Follow the steps in order. Every grey code block is plain text; use its copy button, then Paste Special, Unformatted Text, in Word. Remove nothing from the text. The example `HW2.pdf` has the same shape: a header line on every page, a centered title block with a rule under it, then numbered sections.
+#### Step 0: page setup (once, before pasting anything)
+- Paper: Letter. Margins: 0.75 in on all four sides. One column.
+- Font: Times New Roman 11 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
+- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example).
+- Do not add page numbers or anything else to the footer unless it fits within the two pages.
+#### Step 1: title block
+Three centered bold lines. Paste, then center and bold all three, then add a thin rule under the last line.
+```
+HW 2: Rover Rescue
+Anant Gupta
+October 2026
+```
+{text_step(2, "section 1, question and configurations", "s1")}{text_step(3, "section 2, evaluation protocol", "s2")}{text_step(4, "section 3, first paragraph", "s3a")}#### Step 5: IMAGE, Figure 1
+- File: `{FIG}fig1_pca.png`
+- Place: directly under step 4, on its own centered line. Insert, Pictures, This Device, then Layout Options, In Line with Text.
+- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).
+- Caption: the line below, 10 pt, centered, directly under the image. Start `Figure 1:` in bold if the example does the same, otherwise leave it plain.
+{caption_step(P['f1cap'])}{text_step(6, "section 3, second paragraph", "s3b")}#### Step 7: page break
+Insert, Page Break (Ctrl+Enter), so that Table 1 starts page 2. The page-1 text ends with step 6.
+#### Step 8: TABLE, Table 1
+- Place: first thing on page 2.
+- Build: paste the tab-separated block below, select it, Insert, Table, Convert Text to Table, 8 columns, Separate text at Tabs, AutoFit to contents.
+- Format: 9 pt, header row bold, a thin rule above and below the header row and below the last row, no vertical lines, text columns left, number columns centered, table centered on the page.
+- Row check: 6 rows plus the header. C1 and C2 raw, C3 and C4 z-score on 8 sensors, C5 and C6 z-score with PCA 95%.
+```
+{tsv_table}
+```
+- Caption: under the table, 10 pt, centered.
+{caption_step(P['t1cap'])}{text_step(9, "section 4, decision and sand risk", "s4")}#### Step 10: IMAGE, Figure 2
+- File: `{FIG}fig2_deploy.png`
+- Place: directly under step 9, on its own centered line, In Line with Text.
+- Size: 5.3 in wide, aspect ratio locked (about 3.0 in tall).
+- Caption: 10 pt, centered, directly under the image.
+{caption_step(P['f2cap'])}{text_step(11, "section 5, limitations", "s5")}#### Step 12: AI-use line
+Last line of the document, plain 11 pt. Bold only `AI use:`
+```
+{P['ai']}
+```
+#### Step 13: export and final check
+- File, Save As, PDF (Standard, not minimum size). Name it `HW2_Anant_Gupta.pdf`.
+- Open the PDF and check, in this order: exactly two pages; page 1 ends after section 3's second paragraph and page 2 starts with Table 1; Figure 1 and Figure 2 are sharp and their labels can be read; the AI-use line is the last line and sits above the bottom margin with about an inch to spare; the header appears on both pages.
+- Check every number once against `figures/hw2_configs.csv` (Table 1) and the notebook Summary cell (component count 3, selected C5).
+- If it spills past two pages, do these in order and stop when it fits: Figure 2 to 4.3 in wide, body to 10.5 pt, margins to 0.7 in, delete the elbow numbers from section 1. Never cut the protocol, the sand-risk paragraph, the limitations or Table 1; the rubric scores them.
+### Submission
+Not submitted yet.
+## Concepts used
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 12|ISL Chapter 12]]: PCA (12.2) gave the 95% component count, the variance curve and the scaling argument; k-means (12.4, Algorithm 12.2) gave the algorithm, the local-optimum argument and the multiple random starts.
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]]: kNN and the bias-variance trade-off, behind the 1-NN comparison.
+- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 5|Week - 5]] and [[20_Progress/Degree/CSCI 4521/Weekly/Week - 6|Week - 6]]: PCA with kNN, the leakage rule (split first, then fit), k-means steps, initialization and stopping.
+- [[20_Progress/Degree/CSCI 4521/Homework/Homework - 1|Homework - 1]]: z-score from training statistics, precision, recall and F1, and the Word report flow.
+## Post-submit reflection
+<!-- Optional until feedback: the first failure, the pattern, and what to change. -->
+"""
+
+out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
+print("written", len(NOTE), "chars")
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixcap.py <<'PYEOF'
+p = "gen_note3.py"
+s = open(p, encoding="utf-8").read()
+old = " Start `Figure 1:` in bold if the example does the same, otherwise leave it plain."
+assert s.count(old) == 1
+open(p, "w", encoding="utf-8").write(s.replace(old, ""))
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixcap.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+```
+ok
+written 24482 chars
+16:## Overview
+20:## Requirements
+21:### Report length: two pages, not more
+23:### What the handout asks for
+29:### Submit
+38:### Must not do
+46:### Report must state
+53:### Rules
+59:## Work log
+60:### 2026-10-27 Final state and tests
+87:### Decisions
+93:### Rubric coverage
+107:### Word document: copy-paste guide
+109:#### Step 0: page setup (once, before pasting anything)
+114:#### Step 1: title block
+121:#### Step 2: section 1, question and configurations
+126:#### Step 3: section 2, evaluation protocol
+131:#### Step 4: section 3, first paragraph
+136:#### Step 5: IMAGE, Figure 1
+144:#### Step 6: section 3, second paragraph
+148:#### Step 7: page break
+150:#### Step 8: TABLE, Table 1
+168:#### Step 9: section 4, decision and sand risk
+173:#### Step 10: IMAGE, Figure 2
+181:#### Step 11: section 5, limitations
+186:#### Step 12: AI-use line
+191:#### Step 13: export and final check
+196:### Submission
+198:## Concepts used
+203:## Post-submit reflection
+dash hits: 0
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixhdr.py <<'PYEOF'
+p = "gen_note3.py"
+s = open(p, encoding="utf-8").read()
+old = "(put the two tab stops at the center and the right margin, like the example).\n"
+assert s.count(old) == 1
+new = ("(put the two tab stops at the center and the right margin, like the example). "
+       "Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.\n")
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png`
+```
+ok
+written 24612 chars
+dash hits: 0
+1
+FIT: 1/2 = 50.0%
+CSCI4521_HW2.ipynb
+figures/fig1_pca.png
+figures/fig2_deploy.png
+practice_run.html
+submission.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -11885,6 +12635,8 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb4.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note2.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note3.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\htmlblock.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins1.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins2.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins3.txt`
@@ -13287,5 +14039,157 @@ PYEOF
 ./venv/Scripts/python.exe factcheck.py 2>&1 | grep -v "^$"`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh3" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage, check cells only"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== coverage, whole notebook"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; echo "== fact-check"; cd .. && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note2.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale terms (E1|E3|3-NN|stability|mission shift|20 of 20|PCA 2): $(grep -c 'E1\|E3\|3-NN\|15 of 20\|PCA with 2 components' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la | grep -vE "\.pdf|\.csv$|hwTemplate|README|\.tex" ; ls figures`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad" && echo "=== handout (homework 2.pdf): page-limit wording ==="; ./hw2/venv/Scripts/python.exe -I -c "
+import pymupdf as fitz, re
+d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/homework 2.pdf')
+t = ' '.join(p.get_text() for p in d)
+t = re.sub(r'\s+', ' ', t)
+for m in re.finditer(r'[^.]*(two-page|two pages|extra plots)[^.]*\.', t): print('-', m.group(0).strip())
+"; echo; echo "=== rubric.md ==="; grep -n -i "page" repo/2026/homework-2/rover-rescue/rubric.md repo/2026/homework-2/rover-rescue/assignment_student.md; echo; echo "=== example report HW2.pdf: pages and page-limit context ==="; ./hw2/venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/HW2.pdf')
+print('pages:', len(d)); d[0].get_pixmap(dpi=75).save('hw2/ex_p1.png'); d[5].get_pixmap(dpi=75).save('hw2/ex_p6.png')
+"`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && head -c 1800 practice_run.html | head -40; echo; echo "-----structure"; grep -o '<div class="[^"]*"\|<div id="[^"]*"\|<input[^>]*type="[^"]*"\|<img id="[^"]*"\|</body>\|<body\|<html\|<script' practice_run.html | sort | uniq -c | head -30`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ./../../../../../../../Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe -I -c "
+import re
+s = open('practice_run.html', encoding='utf-8').read()
+i = s.index('<div class=\"animation\"')
+tail = re.sub(r'data:image/png;base64,[A-Za-z0-9+/=]+', 'data:...', s[i:])
+tail = re.sub(r'\[\s*(\"data:\.\.\.\",?\s*)+\]', '[frames...]', tail)
+print(tail[:3500])
+print('--- style tags:', s.count('<style'), '| width attrs on img:', re.findall(r'<img[^>]*>', s)[:1])
+" 2>&1 | head -80; ls "D:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" "C:/Program Files/Google/Chrome/Application/chrome.exe" 2>&1 | grep -v "No such"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; cd "$SC" && cat > htmlshape.py <<'PYEOF'
+import re
+s = open("D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html", encoding="utf-8").read()
+i = s.index('<div class="animation"')
+tail = re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "data:...", s[i:])
+print(tail[:3200])
+print("--- style tags:", s.count("<style"), "| img tags:", re.findall(r"<img[^>]*>", s)[:1])
+PYEOF
+./venv/Scripts/python.exe -I htmlshape.py | head -70`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml.py <<'PYEOF'
+p = "build_nb4.py"
+s = open(p, encoding="utf-8").read()
+old = 'html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)\nPath("practice_run.html").write_text(html.data, encoding="utf-8")\ndisplay(html)\n'
+assert s.count(old) == 1
+new = '''html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)
+
+# the simulator returns a bare fragment, so wrap it in a page that centers the animation on the screen
+page = ("<!DOCTYPE html>\\n<html lang=\\"en\\"><head><meta charset=\\"utf-8\\">"
+        "<title>Rover Rescue practice run</title>\\n"
+        "<style>body {margin: 0; min-height: 100vh; display: flex; justify-content: center; align-items: center;}"
+        " .animation {text-align: center;}</style></head>\\n<body>\\n" + html.data + "\\n</body></html>")
+Path("practice_run.html").write_text(page, encoding="utf-8")
+display(html)
+'''
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && sed -n "$(grep -n 'the simulator returns a bare fragment' build_nb4.py | cut -d: -f1),+7p" build_nb4.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml2.py <<'PYEOF'
+p = "build_nb4.py"
+s = open(p, encoding="utf-8").read()
+a = s.index("# the simulator returns a bare fragment")
+end_marker = 'Path("practice_run.html").write_text(page, encoding="utf-8")\n'
+b = s.index(end_marker, a) + len(end_marker)
+s = s[:a] + open("htmlblock.txt", encoding="utf-8").read() + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("replaced")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb4.py',encoding='utf-8').read());print('builder syntax ok')" && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; head -c 600 practice_run.html; echo; echo ...; tail -c 120 practice_run.html`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cp "$H/practice_run.html" old_practice.html && for name in old new; do if [ $name = old ]; then SRC="$SC/old_practice.html"; else SRC="$SC/fresh4/practice_run.html"; fi; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=1280,900 --virtual-time-budget=5000 --screenshot="$SC/shot_$name.png" "file:///$SRC" >/dev/null 2>&1; done; ls -la shot_*.png; cat > measure.py <<'PYEOF'
+import sys
+from PIL import Image
+import numpy as np
+for name in ("old", "new"):
+    im = np.asarray(Image.open(f"shot_{name}.png").convert("RGB")).astype(int)
+    h, w, _ = im.shape
+    ink = (np.abs(im - 255).sum(axis=2) > 30)          # anything that is not white
+    cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))
+    left, right = cols.min(), w - 1 - cols.max()
+    top, bottom = rows.min(), h - 1 - rows.max()
+    print(f"{name}: window {w}x{h} | content x {cols.min()}..{cols.max()} | left margin {left}px, right margin {right}px "
+          f"| top margin {top}px, bottom margin {bottom}px | horizontally centered within 2px: {abs(left - right) <= 2}")
+PYEOF
+./venv/Scripts/python.exe -I measure.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml3.py <<'PYEOF'
+p = "htmlblock.txt"
+s = open(p, encoding="utf-8").read()
+old = ".animation { text-align: center; }\n"
+assert s.count(old) == 1
+new = (".animation { text-align: center; }\n"
+       "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
+       ".animation img { transform: translateX(-1.25%); }\n")
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+
+b = open("build_nb4.py", encoding="utf-8").read()
+old_b = ".animation { text-align: center; }\n"
+assert b.count(old_b) == 1
+b = b.replace(old_b, new)
+open("build_nb4.py", "w", encoding="utf-8").write(b)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml3.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC" && for w in "1280,900" "1920,1080" "800,700"; do "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$w --virtual-time-budget=5000 --screenshot="$SC/shot_new_${w/,/x}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; cat > measure2.py <<'PYEOF'
+from PIL import Image
+import numpy as np
+for name in ("1280x900", "1920x1080", "800x700"):
+    im = np.asarray(Image.open(f"shot_new_{name}.png").convert("RGB")).astype(int)
+    h, w, _ = im.shape
+    ink = (np.abs(im - 255).sum(axis=2) > 30)
+    cols = np.flatnonzero(ink.any(axis=0)); rows = np.flatnonzero(ink.any(axis=1))
+    left, right = cols.min(), w - 1 - cols.max()
+    print(f"window {w}x{h}: left margin {left}px, right margin {right}px, difference {abs(left - right)}px | top {rows.min()}px, bottom {h - 1 - rows.max()}px")
+PYEOF
+./venv/Scripts/python.exe -I measure2.py`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; ls shot_* 2>&1; for pair in "1280 900" "1920 1080" "800 700"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ls shot_new_*; ./venv/Scripts/python.exe -I measure2.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchhtml4.py <<'PYEOF'
+old = ".animation { text-align: center; }\n/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n.animation img { transform: translateX(-1.25%); }\n"
+new = (".animation { text-align: center; transform: translateY(-25px); }\n"
+       "/* the simulator's frames leave 12.5% of the width on the left and 10% on the right, so shift by half the gap */\n"
+       ".animation img { transform: translateX(-1.25%); }\n")
+for p in ("build_nb4.py", "htmlblock.txt"):
+    s = open(p, encoding="utf-8").read()
+    assert s.count(old) == 1, p
+    open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patchhtml4.py && SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh4" && mkdir -p "$SC/fresh4" && cd "$SC/fresh4" && "$CE" "$SC/build_nb4.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh4/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; sed -i 's/for name in ("1280x900", "1920x1080", "800x700"):/for name in ("1280x900", "1920x1080", "800x700", "1366x768"):/' measure2.py; ./venv/Scripts/python.exe -I measure2.py`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$SC/fresh4/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb4.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
+PYEOF
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$SC/fresh3/$f" && echo "identical to the verified run: $f" || echo "DIFFERS: $f"; done; cmp -s practice_run.html "$SC/fresh4/practice_run.html" && echo "practice_run.html identical" || echo "practice_run.html differs (random element ids only expected)"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; cd fresh3 && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "unit checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "== mutation"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "unit checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -E "baseline|SURVIVED|mutants killed"; cd .. && echo "== fact-check" && ./venv/Scripts/python.exe factcheck.py 2>&1 | tail -2`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC"; rm -f shot_new_*; for pair in "1280 900" "1920 1080" "800 700" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$SC/shot_new_${1}x${2}.png" "file:///$H/practice_run.html" >/dev/null 2>&1; done; ./venv/Scripts/python.exe -I measure2.py; ./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh4/practice_run.html" "$H/practice_run.html" | tail -3`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=+%H:%M CSCI4521_HW2.ipynb practice_run.html submission.csv figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv | awk '{printf "%-9s %s  %s\n", $5, $6, $7}'; head -3 submission.csv; wc -l submission.csv`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixcap.py <<'PYEOF'
+p = "gen_note3.py"
+s = open(p, encoding="utf-8").read()
+old = " Start `Figure 1:` in bold if the example does the same, otherwise leave it plain."
+assert s.count(old) == 1
+open(p, "w", encoding="utf-8").write(s.replace(old, ""))
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixcap.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixhdr.py <<'PYEOF'
+p = "gen_note3.py"
+s = open(p, encoding="utf-8").read()
+old = "(put the two tab stops at the center and the right margin, like the example).\n"
+assert s.count(old) == 1
+new = ("(put the two tab stops at the center and the right margin, like the example). "
+       "Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.\n")
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixhdr.py && ./venv/Scripts/python.exe gen_note3.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -c "Header from Top" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls submission.csv practice_run.html CSCI4521_HW2.ipynb figures/fig1_pca.png figures/fig2_deploy.png`
 
 

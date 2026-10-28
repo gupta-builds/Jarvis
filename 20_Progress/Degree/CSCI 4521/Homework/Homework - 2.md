@@ -10,14 +10,16 @@ tags:
   - homework
 area:
   - "[[CSCI 4521 Board]]"
-next: "Build the Word report from the Report draft (11 pt, page break before Table 1, figures from Code/Homework/figures), export the PDF, confirm 2 pages, then upload the 4 files listed under Submit to Gradescope before 11 pm on 2026-10-27."
+next: "Build the Word report by following the Word document steps below (about 20 minutes), export the PDF, confirm 2 pages, then upload the 4 files listed under Submit to Gradescope before 11 pm on 2026-10-27."
 ---
 # Homework - 2
 ## Overview
 Rover Rescue (CSCI 4521 HW2): build a terrain classifier from eight sensors (firm, rough, sand), compare scaling, PCA and k-means against 1-NN, deploy one fitted model on the practice and mission grids, and explain the evidence in a standalone report of at most two pages. The grade is the 100-point `rubric.md` in the course repo, not the 10, 20 and 10 points printed in the PDF. No extra credit is offered in the handout, the repo markdown or the rubric.
 Deadline: 11 pm on 2026-10-27, as the user stated it. Confirm on the Gradescope assignment page: the Board's schedule listed HW2 for 10/20, the handout says "check Gradescope", and the repo folder was committed 2026-10-22.
-Status 2026-10-27: the notebook, both figures, `submission.csv` and the practice HTML are final and tested. Left: the Word report and its PDF, then the upload.
+Status 2026-10-27: the notebook, both report figures, `submission.csv` and the practice HTML are final and tested. Left: the Word report and its PDF, then the upload.
 ## Requirements
+### Report length: two pages, not more
+The handout calls it "the two-page report" and says "full implementation details and extra plots belong in your code/evidence, not the two-page report". The rubric's report line (20 points) ends with "Maximum two pages." So do not extend to three or four pages and do not add diagrams. The example `HW2.pdf` is 8 pages because it answers an older assignment with no limit; use it for tone and layout only. If a longer report is wanted anyway, ask the instructor on Piazza first; the written rubric is what a grader follows.
 ### What the handout asks for
 Three design parts and four deliverables. Nothing beyond this belongs in the notebook.
 - Representation: examine sensor scales, run PCA, report the component count for 95% variance, plot components against explained variance, show the top 2 and top 3 components.
@@ -26,12 +28,13 @@ Three design parts and four deliverables. Nothing beyond this belongs in the not
 - NumPy by hand: normalization, nearest-centroid assignment, centroid update, kNN prediction, and your own k-means loop.
 ### Submit
 Upload exactly these four, from `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\`:
-- [ ] `CSCI4521_HW2.ipynb`, saved with outputs (code and every figure used in the report)
-- [ ] `practice_run.html`, the practice deployment animation (the same run appears as a static map in Figure 2 of the report)
-- [ ] `submission.csv`, from `save_submission`, 784 rows in mission.csv order, `student_id` demo3 (the instructor says to leave it)
-- [ ] the report PDF (export from Word, two pages at most)
+- [ ] `CSCI4521_HW2.ipynb` (1.3 MB), saved with outputs
+- [ ] `practice_run.html` (0.7 MB), the practice deployment animation, now centered on the screen
+- [ ] `submission.csv` (14 KB), 784 rows in mission.csv order, `student_id` demo3 (the instructor says to leave it)
+- [ ] the report PDF, exported from Word, two pages
 Do not upload: the `rover-rescue-download/` folder (it holds the dataset and `practice_truth.bin`), the starter notebook `Homework2_RoverRescue_student.ipynb`, `figures/` files as separate items, or any HW1 file.
 How: Gradescope, CSCI 4521, Homework 2, upload. Whether the page has one multi-file slot or four slots is unverified, so read the page first. After uploading, open each file in the Gradescope preview and keep the confirmation.
+Ready to submit when: the PDF exists and is two pages, the four files above are the ones selected, and the due time on Gradescope is confirmed. Everything else is done and tested.
 ### Must not do
 - Do not read `practice_truth.bin`; only `evaluate_practice` and `show_practice_run` touch it.
 - Do not change `split_data` or its split.
@@ -61,11 +64,12 @@ Trimmed to what the handout asks for, after the user pointed out the notebook wa
 - PCA is fitted on the standardized sensors only. Dropped: the raw PCA curve and count, the loadings table.
 - Dropped: the 20-start stability test, the elbow plot (the four objective values stay as one line), the mission-shift table and shares, the timing columns, the kNN closure, the drawing function and its tests.
 - Kept: everything the three parts and the rubric name, plus the checks.
+Practice HTML: the simulator returns a bare fragment, which the browser put at the top left. The notebook now wraps it in a full page with the animation centered. Measured in headless Edge at four window sizes (800x700, 1280x900, 1366x768, 1920x1080): top and bottom margins equal, left and right margins within 2 px. The simulator's own frames leave more blank space on the left than the right, so the wrapper shifts them by half the gap; the simulator code is untouched. The animation still plays (55 embedded frames).
 Tests run, all on the final file in the user's `csci-4521` env (Python 3.12.14, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, matplotlib 3.11.2):
-- The user re-ran the earlier 28-cell version in that env and its outputs were byte-identical to my Python 3.14 runs, so results do not depend on the environment. The trimmed final file ran in that env in a clean directory (12.8 seconds) and in place: no error or stderr output, execution counts 1 to 25 in order, and the two runs produced byte-identical `submission.csv`, results table and figures.
+- The user re-ran an earlier version in that env and its outputs were byte-identical to my Python 3.14 runs, so results do not depend on the environment. The final file ran in that env in a clean directory and in place: no error or stderr output, execution counts 1 to 25 in order, byte-identical `submission.csv`, results table and figures between runs.
 - Three check cells, all assert-based. A general block: fit and validation rows are disjoint, grid order is row-major, z-score has mean 0 and std 1, vectorized distances equal the lecture 1.1 loop and kNN for k = 1, 3, 5 equals a loop reference on raw and z-scored data, k-means clusters partition the data and converge with a non-increasing objective and centroids equal to member means, the best random start is kept, PCA components are orthonormal and its variance equals the squared singular values, and sklearn agrees (k-means objective 1237.50 in both, standardization, macro F1, accuracy). A unit block with a hand-worked case for every method (constant sensor, 3-4-5 triangle, empty-cluster re-seed, within-cluster sum, exact recovery of three blobs, the iteration cap, naming by majority and by the one-to-one fallback, the nearest-neighbor tie-break, and the lecture 1.4 COVID example: precision 0.5, recall 0.75, F1 0.6, accuracy 0.8). A pipeline block: stored z-score and PCA, repeatable fits, every table value against sklearn accuracy and a direct sand recall.
-- Coverage (coverage.py on the executed notebook): the check cells alone run 207 of 207 lines and 22 of 22 branches of my code, with all 16 functions fully covered. The whole notebook runs 366 of 366 lines and 40 of 40 branches.
-- Mutation test: 14 deliberate bugs (distance sign flipped, argmin to argmax, wrong centroid divisor, dropped square, convergence never detected, worst start kept, worst naming permutation, transposed table, neighbors ordered farthest first, F1 without the factor 2, sand recall read from the wrong class, and others). The checks caught all 14. An earlier round caught 13; the survivor ("keep the worst random start") exposed a missing check, which the raw-features best-start check now covers.
+- Coverage (coverage.py on the executed notebook): the check cells alone run 207 of 207 lines and 22 of 22 branches of my code, with all 16 functions fully covered. The whole notebook runs 367 of 367 lines and 40 of 40 branches.
+- Mutation test: 14 deliberate bugs (distance sign flipped, argmin to argmax, wrong centroid divisor, dropped square, convergence never detected, worst start kept, worst naming permutation, transposed table, neighbors ordered farthest first, F1 without the factor 2, sand recall read from the wrong class, and others). The checks caught all 14.
 - Defect found by the checks while building them: ties in the empty-cluster re-seed were broken by an unstable sort. Fixed with a stable sort. No run ever had an empty cluster, so no result changed.
 - Fact-check: a script compares 41 statements of the report (every number in the text, the cluster tables, the elbow values, the selection tie, the practice outcome, each Table 1 row) with the executed notebook output and the results CSV. All 41 match.
 - pyflakes finds no unused names or imports in my cells, pycodestyle at 120 columns is clean, no stderr output anywhere, no em or en dashes.
@@ -82,8 +86,8 @@ Evidence (demo bundle, the confirmed dataset):
 - Elbow objective: k=2 2652, k=3 1238, k=4 1086, k=5 939. Mission route cost 52.0.
 ### Decisions
 - Word, not LaTeX: two pages, one table, two figures, no equations, no bibliography. Switch only if the table cannot fit.
+- Two pages, as the rubric says. A longer report was considered and rejected (see Report length).
 - Figures are saved at print size (7.25 in and 5.34 in wide at 300 dpi) so that text stays readable when inserted at full width.
-- The `BUNDLE_OVERRIDE` cell was removed after the Piazza answer.
 - Selection rule fixed before any result: macro F1, then sand recall, then fewer dimensions, then table order. The practice outcome is recorded, not used to select.
 - The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.
 ### Rubric coverage
@@ -98,51 +102,56 @@ Evidence (demo bundle, the confirmed dataset):
 | Common held-out evaluation, boundaries (9) | notebook 1 Setup, 5 | asserts, same 30 validation rows, labels only for naming and 1-NN |
 | Dimensions, accuracy, macro F1, sand recall, practice (8) | notebook 5 table, `figures/hw2_configs.csv`, Table 1 | all five per configuration |
 | Model choice, reuse, mission map, practice run (10) | notebook 6 and 7, `practice_run.html`, `figures/fig2_deploy.png` | rule fixed first, stored objects reused, mission map and route |
-| Report (20) | Word report | draft below: question, table, figures, sand risk, protocol, limitations |
+| Report (20) | Word report | steps below: question, table, figures, sand risk, protocol, limitations, two pages |
 | Reproducibility (5) | notebook header and Summary | dependencies, run steps, seed, versions, clean-directory run verified |
-### Word report layout
-The two-page limit is the one rubric line that cannot be verified until Word runs, so follow these settings from the start.
-- Page: Letter, 0.75 in margins, one column. Times New Roman 11 pt, single spacing, 3 pt after paragraphs, 0 before, body justified.
-- Optional page header (HW1 used one): `CSCI 4521`, tab, `Anant Gupta`, tab, `October 27, 2026`, 9 pt, bottom border.
-- Title block: three centered bold lines, `HW 2: Rover Rescue`, `Anant Gupta`, `October 2026`.
-- Each numbered paragraph starts with its title in bold (`1. Question and configurations.`), then the text in normal weight.
-- Order: title block, sections 1 and 2, section 3 first paragraph, Figure 1, section 3 second paragraph, a page break, Table 1, section 4, Figure 2, section 5, the AI-use line.
-- Figure 1: `figures/fig1_pca.png`, Insert, Pictures, In Line with Text, centered, 7.0 in wide with the aspect ratio locked. Caption below, 10 pt, centered.
-- Figure 2: `figures/fig2_deploy.png`, same way, 5.3 in wide.
-- Table 1: paste the tab-separated block below, Insert, Table, Convert Text to Table with 8 columns. 9 pt, header row bold with a rule above and below, light rule under each row, text columns left, number columns centered, caption below.
-- Copy the text from source mode (Ctrl+E in Obsidian) and use Paste Special, Unformatted Text. Remove the bracketed notes.
-- Export: File, Save As, PDF (Standard). Reopen the PDF and check: two pages, page 2 ends with the AI-use line and about an inch or more of space, text is selectable, both figures are sharp and their labels readable, Table 1 sits whole on page 2.
-- If it spills past two pages, do these in order and stop when it fits: Figure 2 to 4.3 in, body to 10.5 pt, margins to 0.7 in, drop the elbow numbers from section 1. Never cut the protocol, the sand-risk paragraph, the limitations or Table 1; the rubric scores them.
-- Before export, check each number against `figures/hw2_configs.csv` and the notebook Summary cell.
-### Report draft
+### Word document: copy-paste guide
+Follow the steps in order. Every grey code block is plain text; use its copy button, then Paste Special, Unformatted Text, in Word. Remove nothing from the text. The example `HW2.pdf` has the same shape: a header line on every page, a centered title block with a rule under it, then numbered sections.
+#### Step 0: page setup (once, before pasting anything)
+- Paper: Letter. Margins: 0.75 in on all four sides. One column.
+- Font: Times New Roman 11 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
+- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example). Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.
+- Do not add page numbers or anything else to the footer unless it fits within the two pages.
+#### Step 1: title block
+Three centered bold lines. Paste, then center and bold all three, then add a thin rule under the last line.
+```
 HW 2: Rover Rescue
 Anant Gupta
 October 2026
+```
+#### Step 2: section 1, question and configurations
+Bold only these words: `1. Question and configurations.`
+```
 1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? Table 1 compares six configurations: scaling (raw or z-score) and model (k-means or 1-NN) on all 8 sensors, then PCA keeping 95% of the variance on the z-scored sensors for both models, so neighbors differ in one factor. My k-means follows ISL Algorithm 12.2 in NumPy: a random cluster for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares. An empty cluster would be re-seeded at the farthest point; none occurred. Each cluster takes the majority label of the 60 calibration-training points, which was one-to-one every time. Three clusters match the three terrains and the elbow agrees (objective 2652, 1238, 1086 for k = 2, 3, 4).
+```
+#### Step 3: section 2, evaluation protocol
+Bold only these words: `2. Evaluation protocol.`
+```
 2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except the 30 validation rows; no labels). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. Every configuration was scored on the same 30 validation rows (10 per terrain; one error is 3.3 points). I selected the model on these rows, so its score is a selection score, not a test score, and the practice run shows deployment, not accuracy. Mission rows were transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
+```
+#### Step 4: section 3, first paragraph
+Bold only these words: `3. Evidence.`
+```
 3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA on the z-scored fit rows keeps 95% of the variance with 3 components (95.5%; the first two hold 91.1%, Figure 1a). In PC1 and PC2 the data form three groups matching the labeled terrains (Figure 1b).
-[Insert Figure 1 here, 7.0 in wide]
+```
+#### Step 5: IMAGE, Figure 1
+- File: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
+- Place: directly under step 4, on its own centered line. Insert, Pictures, This Device, then Layout Options, In Line with Text.
+- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).
+- Caption: the line below, 10 pt, centered, directly under the image.
+```
 Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows. Gray: fit rows. Color: labeled training points.
+```
+#### Step 6: section 3, second paragraph
+```
 Scaling mattered most. With model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000. Raw k-means found 5 of 10 validation sand cells; its cluster named sand held 12 sand, 11 rough and 4 firm training points, while every z-scored cluster was pure (20, 20, 20). PCA changed nothing here: 3 components scored 1.000 like all 8 sensors, for both models. Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, untested: raw k-means splits mostly along sensor_4.
-[Page break]
-[Insert Table 1 here from the block below]
-Table 1: dimensions, validation accuracy, macro F1 (unweighted mean of the three per-class F1 scores), sand recall and practice rover outcome for each configuration.
-4. Decision and sand risk. Four configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C5, C6), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked C5 (z-score, PCA 95%, k-means, 3 dimensions), which differs from C6 only by table order, so this is a tie and not a win. Its practice route succeeded in 54 steps at predicted cost 70.8, like the other three (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it; a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route.
-[Insert Figure 2 here, 5.3 in wide]
-Figure 2: selected model C5. Left: practice map with the planned route (mission success, 54 steps). Right: predicted mission map with its planned route.
-5. Limitations. Thirty validation rows cannot separate four perfect models, and a perfect score on them is not a perfect model; one successful practice route is a demonstration. The mission map has no labels, so I cannot check how well the model transfers to the new region.
-AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results and am responsible for what I submit.
-### Table 1 rows
-Markdown view:
-| ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
-| C2 | raw | 8 sensors (8) | 1-NN | 0.933 | 0.935 | 0.90 | success, 54 steps |
-| C3 | z-score | 8 sensors (8) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| C4 | z-score | 8 sensors (8) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| C5 | z-score | PCA 95% (3) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
-| C6 | z-score | PCA 95% (3) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-Tab-separated, for Convert Text to Table in Word:
+```
+#### Step 7: page break
+Insert, Page Break (Ctrl+Enter), so that Table 1 starts page 2. The page-1 text ends with step 6.
+#### Step 8: TABLE, Table 1
+- Place: first thing on page 2.
+- Build: paste the tab-separated block below, select it, Insert, Table, Convert Text to Table, 8 columns, Separate text at Tabs, AutoFit to contents.
+- Format: 9 pt, header row bold, a thin rule above and below the header row and below the last row, no vertical lines, text columns left, number columns centered, table centered on the page.
+- Row check: 6 rows plus the header. C1 and C2 raw, C3 and C4 z-score on 8 sensors, C5 and C6 z-score with PCA 95%.
 ```
 ID	Scaling	Representation (dims)	Model	Accuracy	Macro F1	Sand recall	Practice rover
 C1	raw	8 sensors (8)	k-means	0.700	0.704	0.50	stuck, step 20
@@ -152,6 +161,38 @@ C4	z-score	8 sensors (8)	1-NN	1.000	1.000	1.00	success, 54 steps
 C5	z-score	PCA 95% (3)	k-means	1.000	1.000	1.00	success, 54 steps
 C6	z-score	PCA 95% (3)	1-NN	1.000	1.000	1.00	success, 54 steps
 ```
+- Caption: under the table, 10 pt, centered.
+```
+Table 1: dimensions, validation accuracy, macro F1 (unweighted mean of the three per-class F1 scores), sand recall and practice rover outcome for each configuration.
+```
+#### Step 9: section 4, decision and sand risk
+Bold only these words: `4. Decision and sand risk.`
+```
+4. Decision and sand risk. Four configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C5, C6), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked C5 (z-score, PCA 95%, k-means, 3 dimensions), which differs from C6 only by table order, so this is a tie and not a win. Its practice route succeeded in 54 steps at predicted cost 70.8, like the other three (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it; a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route.
+```
+#### Step 10: IMAGE, Figure 2
+- File: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig2_deploy.png`
+- Place: directly under step 9, on its own centered line, In Line with Text.
+- Size: 5.3 in wide, aspect ratio locked (about 3.0 in tall).
+- Caption: 10 pt, centered, directly under the image.
+```
+Figure 2: selected model C5. Left: practice map with the planned route (mission success, 54 steps). Right: predicted mission map with its planned route.
+```
+#### Step 11: section 5, limitations
+Bold only these words: `5. Limitations.`
+```
+5. Limitations. Thirty validation rows cannot separate four perfect models, and a perfect score on them is not a perfect model; one successful practice route is a demonstration. The mission map has no labels, so I cannot check how well the model transfers to the new region.
+```
+#### Step 12: AI-use line
+Last line of the document, plain 11 pt. Bold only `AI use:`
+```
+AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results and am responsible for what I submit.
+```
+#### Step 13: export and final check
+- File, Save As, PDF (Standard, not minimum size). Name it `HW2_Anant_Gupta.pdf`.
+- Open the PDF and check, in this order: exactly two pages; page 1 ends after section 3's second paragraph and page 2 starts with Table 1; Figure 1 and Figure 2 are sharp and their labels can be read; the AI-use line is the last line and sits above the bottom margin with about an inch to spare; the header appears on both pages.
+- Check every number once against `figures/hw2_configs.csv` (Table 1) and the notebook Summary cell (component count 3, selected C5).
+- If it spills past two pages, do these in order and stop when it fits: Figure 2 to 4.3 in wide, body to 10.5 pt, margins to 0.7 in, delete the elbow numbers from section 1. Never cut the protocol, the sand-risk paragraph, the limitations or Table 1; the rubric scores them.
 ### Submission
 Not submitted yet.
 ## Concepts used

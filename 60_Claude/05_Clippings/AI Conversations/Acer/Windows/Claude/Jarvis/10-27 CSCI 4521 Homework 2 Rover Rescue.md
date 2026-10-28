@@ -5,11 +5,11 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T21:56:47
-exported_at: 2026-10-27T21:56:49
+ended_at: 2026-10-27T21:56:49
+exported_at: 2026-10-27T22:03:04
 duration_minutes: 126.3
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
 turn_count: 26

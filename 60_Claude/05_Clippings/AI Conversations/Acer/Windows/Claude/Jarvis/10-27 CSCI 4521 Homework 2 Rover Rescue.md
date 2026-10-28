@@ -5,34 +5,45 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T19:59:11
-exported_at: 2026-10-27T20:03:04
-duration_minutes: 8.7
+ended_at: 2026-10-27T20:27:01
+exported_at: 2026-10-27T20:33:03
+duration_minutes: 36.5
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
-turn_count: 2
+turn_count: 8
 tools_used:
-  Bash: 35
+  Bash: 61
+  Edit: 2
   Grep: 3
-  Read: 16
-  Write: 1
+  mcp__claude_ai_Gmail__search_threads: 1
+  mcp__claude_ai_Google_Drive__search_files: 1
+  Read: 19
+  ToolSearch: 1
+  Write: 6
 tokens:
-  input: 70
-  output: 41587
-  cache_creation: 161979
-  cache_read: 4203828
-  total: 4407464
+  input: 144
+  output: 151392
+  cache_creation: 325508
+  cache_read: 13053110
+  total: 13530154
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\blockA.md"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\blockB.md"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\build_nb.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\build_nb2.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\hw2_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\new_block.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\README.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rover_starter.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rubric.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\run_demo.py"
+  - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\figures\\fig1_pca.png"
+  - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\figures\\fig2_deploy.png"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\homework 2.pdf"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\Homework2_RoverRescue_student.ipynb"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\HW2.pdf"
@@ -3491,9 +3502,3682 @@ First 5 failing notes:
 Server stopped.
 ```
 
+## You
+
+ Dataset. The repo only has demo_data, whose student_id is demo3. save_submission writes that id into every row, so a submission built on it would carry the wrong id. The handout promises a personalized dataset. the dataset is something that we should be concerned about and make it our own to work on. 
+
+The submission date is today at 11 pm. We have sometime to do this, but there are other things at hand. So, I would like to wrap this up as quickly as possible. But also by attaining a 100% on the rubric score. This seems like a clearly defined and laid out assignment. You are required to go through the pdf using mineru, even if you have to run it. Make no mistakes with anything on the provided pdfs. Learn from the homework - 1 and let's lay out the required assignment correctly in a new note(.ipynb) which is copying everything from the starter code. Go ahead and lay out the required work for this assignment now. The dataset and other things that are required to be completed should be done correctly. Let's make sure that each and every single action is done correctly.
+
+## Claude
+
+Understood. I'll work with the dataset we have (`demo_data`), keep the notebook so it can switch to a personalized bundle with one variable, and run it end to end. I'm starting with a runnable environment, since neither a working Python nor the `csci-4521` env exists on this laptop.
+
+The environment works. I'm writing a builder that copies every starter cell unchanged and adds my sections after them, then I'll execute it.
+
+Now I'm building the notebook into your Code folder and running it from scratch.
+
+The notebook ran end to end and every assertion passed, including the checks against sklearn. I'm pulling the actual outputs out to read them.
+
+The tables didn't print because my output reader needs `lxml`. I'm installing it so I can read the real numbers.
+
+My patch doubled the `code('''` opener. I'm fixing that.
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q numpy pandas matplotlib scikit-learn ipython nbformat nbconvert ipykernel 2>&1 | grep -v "notice" | tail -5; ./venv/Scripts/python.exe -c "import numpy,pandas,sklearn,matplotlib,IPython,nbformat,nbconvert,ipykernel;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__,IPython.__version__)"; git --version`
+```
+2.5.4 3.1.0 1.9.1 3.11.2 9.17.1
+git version 2.55.0.windows.3
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb.py`
+```
+import json, sys
+import nbformat
+from nbformat.v4 import new_notebook, new_markdown_cell, new_code_cell
+
+STARTER = sys.argv[1]
+OUT = sys.argv[2]
+
+starter = nbformat.read(STARTER, as_version=4)
+cells = []
+
+# Copy every starter cell, source only (outputs are regenerated by a fresh run).
+for c in starter.cells:
+    src = c.source
+    if src.strip() == "# Your work starts here.":
+        continue
+    if c.cell_type == "markdown":
+        nc = new_markdown_cell(src)
+    else:
+        nc = new_code_cell(src)
+    nc["id"] = c["id"] if "id" in c else nc["id"]
+    cells.append(nc)
+
+# The single addition inside the starter block: an optional override for a personalized bundle.
+override = new_code_cell('''# ADDED: set BUNDLE_OVERRIDE to the folder holding your assigned development.csv, calibration.csv,
+# mission.csv, config.json and practice_truth.bin if it differs from the demo bundle downloaded above.
+# Leave it as None to use the demo bundle. Everything below reads BUNDLE_DIR, so nothing else changes.
+BUNDLE_OVERRIDE = None
+if BUNDLE_OVERRIDE is not None:
+    BUNDLE_DIR = Path(BUNDLE_OVERRIDE)
+print("Data folder in use:", BUNDLE_DIR)''')
+idx = next(i for i, c in enumerate(cells) if "BUNDLE_DIR = repo_dir" in c.source)
+cells.insert(idx + 1, override)
+
+def md(s): cells.append(new_markdown_cell(s))
+def code(s): cells.append(new_code_cell(s))
+
+md('''# My solution: terrain learning for Rover Rescue
+Everything above this line is the supplied starter, unchanged except for the one marked override cell. Everything below is my work.
+
+**How to run.** Python 3.12 with `numpy`, `pandas`, `matplotlib`, `scikit-learn`, `ipython` (the course `requirements.txt`; the first cell installs them if missing). Choose Restart and Run All. The first cell clones the course repo with git and needs internet. The run takes well under a minute and is deterministic (seed 4521). It writes `submission.csv`, `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png` and `figures/hw2_configs.csv` next to the notebook. To use a different data bundle, set `BUNDLE_OVERRIDE` in the marked cell and rerun everything.
+
+**Evaluation protocol.**
+- Fit rows (`fit_indices`, every practice row except the 30 validation rows, no labels): fit the z-score statistics, PCA and k-means.
+- Calibration-training labels (60): name the clusters and train 1-NN or kNN.
+- Validation rows (30): score every configuration on the same rows and select the model. They never fit, name or train anything.
+- Mission rows: transformed with the stored mean, standard deviation and PCA, then predicted. Nothing is ever fitted on mission data or on validation rows after selection.
+- The validation score is used for selection, so it is a selection score and not an untouched test score. The practice rover run demonstrates deployment and is not an accuracy estimate.
+
+**Required NumPy pieces** (written by hand below): z-score normalization, nearest-centroid assignment, centroid update, my own k-means loop, and kNN prediction. Library use is limited to PCA, k-means++ initialization, classification metrics (as cross-checks) and plotting.
+
+**AI use.** Anthropic Claude Code helped write and check this notebook and the report draft. I ran it, checked the numbers, and am responsible for the work.''')
+
+md('## 1. Setup and fitting boundaries')
+code('''import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from itertools import permutations
+from IPython.display import display
+from sklearn.decomposition import PCA
+from sklearn.cluster import kmeans_plusplus
+from rover_starter import _plan, save_submission   # _plan is only read, to draw the planned route
+
+SEED = 4521
+CLASSES = np.array(["firm", "rough", "sand"])
+FIRM, ROUGH, SAND = 0, 1, 2
+TO_INT = {name: i for i, name in enumerate(CLASSES)}
+COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+from pathlib import Path
+Path("figures").mkdir(exist_ok=True)
+
+validation = test      # the starter calls the validation table `test`
+y_train = calibration_train["terrain"].map(TO_INT).to_numpy()
+y_val = validation["terrain"].map(TO_INT).to_numpy()
+X_fit = X_dev[fit_indices]
+X_train = X_dev[train_indices]
+X_val = X_dev[test_indices]
+h, w = config["grid_shape"]
+
+# Boundary checks: features are the 8 sensors only, validation is disjoint from fitting,
+# and the CSV row order is row-major on the grid (the planner indexes pred[y * w + x]).
+assert list(sensor_columns) == [f"sensor_{i}" for i in range(1, 9)]
+assert len(np.intersect1d(fit_indices, test_indices)) == 0
+assert np.isin(train_indices, fit_indices).all()
+assert len(fit_indices) + len(test_indices) == len(development)
+assert (development["y"] * w + development["x"]).tolist() == list(range(h * w))
+assert (mission["y"] * w + mission["x"]).tolist() == list(range(h * w))
+
+print("student_id in config:", config["student_id"])
+print(f"fit rows {len(X_fit)}, calibration-training {len(X_train)}, validation {len(X_val)}, mission {len(X_mission)}")
+display(pd.DataFrame({"calibration-training": np.bincount(y_train, minlength=3),
+                      "validation": np.bincount(y_val, minlength=3)}, index=CLASSES))''')
+
+md('''## 2. Sensor scales
+Squared Euclidean distance adds one term per sensor. For two random fit rows the expected squared distance is `2 * sum(variance_j)`, so sensor j contributes `variance_j / sum(variance)` of it. This is the share a raw-feature k-means or 1-NN gives each sensor.''')
+code('''var = X_fit.var(axis=0)
+scales = pd.DataFrame({"mean": X_fit.mean(axis=0), "std": X_fit.std(axis=0),
+                       "min": X_fit.min(axis=0), "max": X_fit.max(axis=0),
+                       "share of raw squared distance (%)": 100 * var / var.sum()}, index=sensor_columns)
+display(scales.round(3))
+std = X_fit.std(axis=0)
+print(f"largest std / smallest std = {std.max() / std.min():,.0f} "
+      f"({sensor_columns[std.argmax()]} vs {sensor_columns[std.argmin()]})")
+top = np.argsort(-var)[:2]
+print("top two sensors supply", round(100 * var[top].sum() / var.sum(), 2), "% of raw squared distance:",
+      [sensor_columns[i] for i in top])
+print("after z-scoring every sensor supplies", round(100 / len(sensor_columns), 1), "%")''')
+
+md('''## 3. Methods written in NumPy
+- `zscore_fit` and `zscore_apply`: statistics come from the fit rows only (lecture 1.1, 2.4 leakage rule); a sensor with zero spread keeps divisor 1.
+- `assign_nearest`: nearest-centroid assignment by broadcast squared Euclidean distance.
+- `update_centroids`: each centroid becomes the mean of its members. **Empty clusters:** a cluster that loses all points is re-seeded at the point farthest from its current centroid (my own choice, since the lecture and ISL do not cover it). The count of such events is reported.
+- `kmeans`: my own loop. **Initialization:** k-means++ seeds (library, allowed), 10 restarts with different seeds, keep the run with the lowest within-cluster sum of squares (lecture 2.3: k-means only finds a local optimum). **Stopping rule:** stop when no label changes between iterations, or after 300 iterations.
+- `name_clusters`: count the 60 calibration-training labels falling in each cluster and name each cluster by majority. If the majority names are not one-to-one (two clusters claiming one terrain, a cluster with no labeled point, or a tie), take instead the one-to-one assignment (best of the 6 permutations) that matches the most training labels. Validation labels are never used.
+- `knn_predict`: k nearest calibration-training points by squared Euclidean distance, majority vote, a tied vote goes to the class of the nearest tied neighbor.''')
+code('''def zscore_fit(X):
+    mu = X.mean(axis=0)
+    sd = X.std(axis=0)
+    return mu, np.where(sd == 0, 1.0, sd)
+
+def zscore_apply(X, mu, sd):
+    return (X - mu) / sd
+
+def assign_nearest(X, C):
+    d2 = ((X[:, None, :] - C[None, :, :]) ** 2).sum(axis=2)      # (n, k) squared distances
+    return d2.argmin(axis=1), d2.min(axis=1)
+
+def update_centroids(X, labels, C, d2min):
+    newC, empty = C.copy(), 0
+    d2min = d2min.copy()
+    for j in range(C.shape[0]):
+        members = labels == j
+        if members.any():
+            newC[j] = X[members].mean(axis=0)
+        else:                                  # empty cluster: re-seed at the farthest point
+            empty += 1
+            far = d2min.argmax()
+            newC[j] = X[far]
+            d2min[far] = 0.0
+    return newC, empty
+
+def kmeans(X, k=3, n_init=10, max_iter=300, seed=SEED):
+    best, empty_total, inertias = None, 0, []
+    for r in range(n_init):
+        C = kmeans_plusplus(X, n_clusters=k, random_state=seed + r)[0]
+        labels, n_iter = None, 0
+        for n_iter in range(1, max_iter + 1):
+            new_labels, d2min = assign_nearest(X, C)
+            if labels is not None and np.array_equal(new_labels, labels):
+                break                           # no label changed: converged
+            labels = new_labels
+            C, e = update_centroids(X, labels, C, d2min)
+            empty_total += e
+        labels, d2min = assign_nearest(X, C)    # labels consistent with the final centroids
+        inertia = d2min.sum()
+        inertias.append(inertia)
+        if best is None or inertia < best["inertia"]:
+            best = dict(centroids=C, labels=labels, inertia=inertia, iterations=n_iter)
+    best["empty_events"] = empty_total
+    best["all_inertias"] = np.array(inertias)
+    return best
+
+def name_clusters(C, F_train, y_train_int, k=3):
+    cl, _ = assign_nearest(F_train, C)
+    table = np.zeros((k, 3), dtype=int)                  # rows: clusters, columns: terrain
+    np.add.at(table, (cl, y_train_int), 1)
+    majority = table.argmax(axis=1)
+    has_tie = any((row == row.max()).sum() > 1 for row in table)
+    if len(set(majority)) == k and not has_tie and (table.sum(axis=1) > 0).all():
+        return majority, table, "majority vote"
+    best_perm = max(permutations(range(3)), key=lambda p: sum(table[j, p[j]] for j in range(k)))
+    return np.array(best_perm), table, "one-to-one permutation"
+
+def knn_predict(F_train, y_train_int, F, k=1):
+    d2 = ((F[:, None, :] - F_train[None, :, :]) ** 2).sum(axis=2)
+    order = np.argsort(d2, axis=1, kind="stable")[:, :k]
+    out = np.empty(len(F), dtype=int)
+    for i, nn in enumerate(order):
+        votes = np.bincount(y_train_int[nn], minlength=3)
+        tied = np.flatnonzero(votes == votes.max())
+        out[i] = tied[0] if len(tied) == 1 else next(y_train_int[j] for j in nn if y_train_int[j] in tied)
+    return out
+
+def metrics(y_true, y_pred):
+    cm = np.zeros((3, 3), dtype=int)
+    np.add.at(cm, (y_true, y_pred), 1)                   # rows: true, columns: predicted
+    tp = np.diag(cm).astype(float)
+    pred_n, true_n = cm.sum(axis=0), cm.sum(axis=1)
+    prec = np.divide(tp, pred_n, out=np.zeros(3), where=pred_n > 0)
+    rec = np.divide(tp, true_n, out=np.zeros(3), where=true_n > 0)
+    f1 = np.divide(2 * prec * rec, prec + rec, out=np.zeros(3), where=(prec + rec) > 0)
+    return dict(cm=cm, accuracy=tp.sum() / cm.sum(), macro_f1=f1.mean(), f1=f1,
+                recall=rec, sand_recall=rec[SAND])''')
+
+md('''### Check the hand-written pieces against the library
+These cells only verify my NumPy code. The library results are never used for any prediction in the experiments below.''')
+code('''from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.cluster import KMeans
+from sklearn.metrics import pairwise_distances_argmin, f1_score, accuracy_score
+
+mu0, sd0 = zscore_fit(X_fit)
+Zf, Ztr, Zv = (zscore_apply(A, mu0, sd0) for A in (X_fit, X_train, X_val))
+assert np.allclose(Zf, StandardScaler().fit(X_fit).transform(X_fit))
+assert np.array_equal(assign_nearest(Zf, Zf[:3])[0], pairwise_distances_argmin(Zf, Zf[:3]))
+assert np.array_equal(knn_predict(Ztr, y_train, Zv, k=1),
+                      KNeighborsClassifier(n_neighbors=1).fit(Ztr, y_train).predict(Zv))
+for k in (3, 5):
+    agree = (knn_predict(Ztr, y_train, Zv, k) == KNeighborsClassifier(n_neighbors=k).fit(Ztr, y_train).predict(Zv)).mean()
+    print(f"kNN k={k}: agreement with sklearn {agree:.3f} (differences can only come from tie-breaking)")
+mine = kmeans(Zf)
+lib = KMeans(n_clusters=3, init="k-means++", n_init=10, random_state=SEED).fit(Zf)
+print(f"k-means inertia: mine {mine['inertia']:.2f}, sklearn {lib.inertia_:.2f}")
+assert abs(mine["inertia"] - lib.inertia_) / lib.inertia_ < 0.02
+rng = np.random.default_rng(0)
+yt, yp = rng.integers(0, 3, 200), rng.integers(0, 3, 200)
+m = metrics(yt, yp)
+assert np.isclose(m["macro_f1"], f1_score(yt, yp, average="macro", labels=[0, 1, 2], zero_division=0))
+assert np.isclose(m["accuracy"], accuracy_score(yt, yp))
+print("all checks passed")''')
+
+md('''## 4. Representation: PCA
+PCA is fitted on the standardized fit rows (and, for comparison, on the raw fit rows). The component count for 95% variance is the first `m` whose cumulative explained variance ratio reaches 0.95. The 2-D and 3-D plots use the standardized fit rows in gray and the 60 calibration-training points colored by terrain. Validation labels are not plotted.''')
+code('''mu, sd = zscore_fit(X_fit)
+Z_fit = zscore_apply(X_fit, mu, sd)
+pca_z = PCA().fit(Z_fit)
+pca_raw = PCA().fit(X_fit)
+cum_z = np.cumsum(pca_z.explained_variance_ratio_)
+cum_raw = np.cumsum(pca_raw.explained_variance_ratio_)
+N95_Z = int(np.searchsorted(cum_z, 0.95) + 1)
+N95_RAW = int(np.searchsorted(cum_raw, 0.95) + 1)
+print(f"Components for at least 95% variance: standardized data {N95_Z} of 8, raw data {N95_RAW} of 8")
+display(pd.DataFrame({"var ratio (standardized)": pca_z.explained_variance_ratio_, "cumulative (standardized)": cum_z,
+                      "var ratio (raw)": pca_raw.explained_variance_ratio_, "cumulative (raw)": cum_raw},
+                     index=range(1, 9)).round(4))
+print("Loadings of the first three standardized components:")
+display(pd.DataFrame(pca_z.components_[:3].T, index=sensor_columns, columns=["PC1", "PC2", "PC3"]).round(3))''')
+code('''P_fit = pca_z.transform(Z_fit)
+P_train = pca_z.transform(zscore_apply(X_train, mu, sd))
+
+fig = plt.figure(figsize=(11, 3.6))
+ax = fig.add_subplot(1, 3, 1)
+ax.plot(range(1, 9), cum_z, "o-", color="#0072B2", label="standardized")
+ax.plot(range(1, 9), cum_raw, "s--", color="#D55E00", label="raw")
+ax.axhline(0.95, color="gray", ls=":")
+ax.annotate(f"{N95_Z} components (standardized)", (N95_Z, cum_z[N95_Z - 1]), textcoords="offset points",
+            xytext=(6, -14), fontsize=8)
+ax.set_xlabel("number of principal components"); ax.set_ylabel("cumulative explained variance")
+ax.set_ylim(0, 1.03); ax.set_title("(a) variance retained", fontsize=10); ax.legend(fontsize=8, loc="lower right")
+
+ax = fig.add_subplot(1, 3, 2)
+ax.scatter(P_fit[:, 0], P_fit[:, 1], s=6, c="#c8c8c8", label="fit rows (unlabeled)")
+for t in (FIRM, ROUGH, SAND):
+    ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=26, c=COLORS[t], edgecolor="k",
+               linewidth=0.4, label=f"{CLASSES[t]} (labeled)")
+ax.set_xlabel("PC1"); ax.set_ylabel("PC2"); ax.set_title("(b) top 2 components", fontsize=10); ax.legend(fontsize=7)
+
+ax = fig.add_subplot(1, 3, 3, projection="3d")
+ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=4, c="#c8c8c8", alpha=0.5)
+for t in (FIRM, ROUGH, SAND):
+    ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2], s=18, c=COLORS[t],
+               edgecolor="k", linewidth=0.3)
+ax.set_xlabel("PC1"); ax.set_ylabel("PC2"); ax.set_zlabel("PC3"); ax.set_title("(c) top 3 components", fontsize=10)
+plt.tight_layout()
+plt.savefig("figures/fig1_pca.png", dpi=200, bbox_inches="tight")
+plt.show()''')
+
+md('''## 5. Experiments
+A full grid of three controlled factors: **scaling** (raw or z-score), **representation** (all 8 sensors or the PCA components that retain 95% variance for that scaling) and **model** (3-cluster k-means named from calibration-training labels, or 1-NN). Every cell of the grid differs from its neighbors in exactly one factor. Three extra configurations probe PCA with 2 components and 3-NN on standardized data.
+
+Every configuration is fitted on the fit rows, named or trained with the calibration-training labels, scored on the same 30 validation rows, and then used to predict all practice cells for the simulator.''')
+code('''def make_transform(scale, n_pca):
+    mu_, sd_ = zscore_fit(X_fit) if scale else (np.zeros(X_fit.shape[1]), np.ones(X_fit.shape[1]))
+    pca_ = PCA(n_components=n_pca).fit(zscore_apply(X_fit, mu_, sd_)) if n_pca else None
+    def transform(X):
+        Z = zscore_apply(X, mu_, sd_)
+        return pca_.transform(Z) if pca_ is not None else Z
+    return transform
+
+def fit_config(scale, n_pca, model, k=1):
+    transform = make_transform(scale, n_pca)
+    F_fit, F_train = transform(X_fit), transform(X_train)
+    info = {}
+    if model == "k-means":
+        km = kmeans(F_fit, k=3)
+        names, table, how = name_clusters(km["centroids"], F_train, y_train)
+        predict = lambda X: names[assign_nearest(transform(X), km["centroids"])[0]]
+        info = dict(inertia=km["inertia"], iterations=km["iterations"], empty_events=km["empty_events"],
+                    naming=how, table=table, names=names, sizes=np.bincount(km["labels"], minlength=3))
+    else:
+        predict = lambda X: knn_predict(F_train, y_train, transform(X), k)
+    return dict(predict=predict, dims=F_fit.shape[1], info=info)
+
+#            id    scaling   representation   n_pca                          model      k
+GRID = [("C1", "raw",      "8 sensors", None,                         "k-means", 1),
+        ("C2", "raw",      "8 sensors", None,                         "1-NN",    1),
+        ("C3", "z-score",  "8 sensors", None,                         "k-means", 1),
+        ("C4", "z-score",  "8 sensors", None,                         "1-NN",    1),
+        ("C5", "raw",      "PCA 95%",   N95_RAW,                      "k-means", 1),
+        ("C6", "raw",      "PCA 95%",   N95_RAW,                      "1-NN",    1),
+        ("C7", "z-score",  "PCA 95%",   N95_Z,                        "k-means", 1),
+        ("C8", "z-score",  "PCA 95%",   N95_Z,                        "1-NN",    1),
+        ("E1", "z-score",  "PCA 2",     2,                            "k-means", 1),
+        ("E2", "z-score",  "PCA 2",     2,                            "1-NN",    1),
+        ("E3", "z-score",  "8 sensors", None,                         "3-NN",    3)]
+
+fitted, rows = {}, []
+for cid, scaling, rep, n_pca, model, k in GRID:
+    cfg = fit_config(scaling == "z-score", n_pca, "k-means" if model == "k-means" else "knn", k)
+    fitted[cid] = cfg
+    pv = cfg["predict"](X_val)
+    m = metrics(y_val, pv)
+    assert np.isclose(m["macro_f1"], f1_score(y_val, pv, average="macro", labels=[0, 1, 2], zero_division=0))
+    pa = cfg["predict"](X_dev)                       # all practice cells, same fitted model
+    prac = evaluate_practice(CLASSES[pa], BUNDLE_DIR)
+    rows.append(dict(config=cid, scaling=scaling, representation=rep, model=model, dims=cfg["dims"],
+                     val_accuracy=m["accuracy"], macro_f1=m["macro_f1"], sand_recall=m["sand_recall"],
+                     sand_found=f"{m['cm'][SAND, SAND]}/{m['cm'][SAND].sum()}",
+                     practice=prac["status"], steps=prac["steps"], cost=prac["predicted_cost"],
+                     predicted_sand_cells=int((pa == SAND).sum())))
+results = pd.DataFrame(rows).set_index("config")
+results.round(3).to_csv("figures/hw2_configs.csv")
+display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))''')
+code('''# Cluster diagnostics for every k-means configuration: how the 60 labeled training points fall in each cluster.
+for cid, scaling, rep, n_pca, model, k in GRID:
+    info = fitted[cid]["info"]
+    if not info:
+        continue
+    print(f"{cid} ({scaling}, {rep}): naming by {info['naming']}, cluster names {list(CLASSES[info['names']])}, "
+          f"sizes {info['sizes'].tolist()}, iterations {info['iterations']}, "
+          f"empty-cluster events {info['empty_events']}, inertia {info['inertia']:.1f}")
+    display(pd.DataFrame(info["table"], index=[f"cluster {j}" for j in range(3)], columns=CLASSES))''')
+code('''# Supporting evidence for three clusters: within-cluster sum of squares against k (standardized fit rows).
+ks = list(range(2, 9))
+inertia_k = [kmeans(Zf, k=kk, n_init=5)["inertia"] for kk in ks]
+plt.figure(figsize=(4.2, 3))
+plt.plot(ks, inertia_k, "o-"); plt.axvline(3, color="gray", ls=":")
+plt.xlabel("number of clusters k"); plt.ylabel("within-cluster sum of squares"); plt.title("Elbow check", fontsize=10)
+plt.tight_layout(); plt.show()
+print(dict(zip(ks, np.round(inertia_k, 1))))''')
+
+md('''## 6. Model selection
+The rule was fixed before looking at any result: highest validation macro F1, ties broken by higher sand recall (a missed sand cell can strand the rover), then by fewer dimensions, then by the order of the table. The practice rover outcome is recorded for every configuration but is not used to select, because it is not an independent estimate. Selecting among 11 configurations on 30 validation rows is optimistic, so the winning score is a selection score and not a test score.''')
+code('''key = results.assign(f=results.macro_f1.round(10), s=results.sand_recall.round(10))
+ranked = key.sort_values(["f", "s", "dims"], ascending=[False, False, True], kind="stable")
+BEST = ranked.index[0]
+top = ranked[(ranked.f == ranked.f.iloc[0])]
+print("Selected:", BEST, "->", dict(results.loc[BEST, ["scaling", "representation", "model", "dims"]]))
+print("Configurations sharing the top macro F1:", list(top.index))
+print("Of those, also tied on sand recall:", list(top[top.s == top.s.iloc[0]].index),
+      "| also tied on dimensions:", list(top[(top.s == top.s.iloc[0]) & (top.dims == top.dims.iloc[0])].index))
+cm_best = metrics(y_val, fitted[BEST]["predict"](X_val))
+display(pd.DataFrame(cm_best["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))
+print("per-class F1:", dict(zip(CLASSES, cm_best["f1"].round(3))), "| per-class recall:", dict(zip(CLASSES, cm_best["recall"].round(3))))''')
+
+md('''## 7. Deployment
+The selected fitted model is reused as is: no refit on validation or mission rows. Practice cells and mission cells are transformed with the stored statistics and PCA, then predicted.''')
+code('''chosen = fitted[BEST]
+practice_pred = chosen["predict"](X_dev)
+practice_result = evaluate_practice(CLASSES[practice_pred], BUNDLE_DIR)
+print(BEST, practice_result)
+html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)
+Path("practice_run.html").write_text(html.data, encoding="utf-8")
+display(html)''')
+code('''start_p, goal_p = tuple(config["practice_start_yx"]), tuple(config["practice_goal_yx"])
+start_m, goal_m = tuple(config["mission_start_yx"]), tuple(config["mission_goal_yx"])
+mission_pred = chosen["predict"](X_mission)
+path_p, cost_p = _plan(practice_pred, (h, w), start_p, goal_p)
+path_m, cost_m = _plan(mission_pred, (h, w), start_m, goal_m)
+
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
+fig, axes = plt.subplots(1, 2, figsize=(9, 4.4))
+for ax, pred, path, start, goal, title in ((axes[0], practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),
+                                           (axes[1], mission_pred, path_m, start_m, goal_m, "Predicted mission map and planned route")):
+    ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
+    if path:
+        ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.8)
+    ax.scatter([start[1]], [start[0]], marker="s", s=70, c="k"); ax.scatter([goal[1]], [goal[0]], marker="*", s=130, c="k")
+    ax.set_xticks([]); ax.set_yticks([]); ax.set_title(title, fontsize=10)
+if practice_result["status"] == "ROVER STUCK IN SAND":
+    sy, sx = path_p[practice_result["steps"]]
+    axes[0].scatter([sx], [sy], marker="X", s=140, c="#c1121f", edgecolor="w", zorder=5)
+    axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)", fontsize=9)
+else:
+    axes[0].set_xlabel(practice_result["status"] + f", {practice_result['steps']} steps", fontsize=9)
+axes[1].set_xlabel("no truth exists for the mission; this is the prediction only", fontsize=9)
+fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"), Patch(color="#8d99ae", label="sand")],
+           loc="lower center", ncol=3, fontsize=8, frameon=False)
+plt.tight_layout(rect=(0, 0.06, 1, 1))
+plt.savefig("figures/fig2_deploy.png", dpi=200, bbox_inches="tight")
+plt.show()
+print("practice route cost", cost_p, "| mission route cost", cost_m)''')
+code('''# Mission shift check with the stored fit-row statistics (diagnostic only, nothing is refitted).
+shift = pd.DataFrame({"mission mean (z)": zscore_apply(X_mission, mu, sd).mean(axis=0),
+                      "mission std (z)": zscore_apply(X_mission, mu, sd).std(axis=0)}, index=sensor_columns)
+display(shift.round(3))
+print("largest |mean shift| in fit-row standard deviations:", round(float(np.abs(shift["mission mean (z)"]).max()), 3))
+display(pd.DataFrame({"practice predicted share": np.bincount(practice_pred, minlength=3) / len(practice_pred),
+                      "mission predicted share": np.bincount(mission_pred, minlength=3) / len(mission_pred)},
+                     index=CLASSES).round(3))''')
+code('''# Missed sand in the chosen model's practice route, shown without reading the truth file:
+# the simulator reports the step where the rover stopped, and the planned path gives that cell.
+if practice_result["status"] == "ROVER STUCK IN SAND":
+    sy, sx = path_p[practice_result["steps"]]
+    i = sy * w + sx
+    print(f"Rover stopped at (y={sy}, x={sx}); predicted {CLASSES[practice_pred[i]]} there.")
+    print(pd.Series(X_dev[i], index=sensor_columns).round(3).to_string())
+    print("Standardized by the fit-row statistics:")
+    print(pd.Series(zscore_apply(X_dev[i], mu, sd), index=sensor_columns).round(2).to_string())''')
+
+md('## 8. Export the mission predictions')
+code('''out_path = save_submission(mission_pred, BUNDLE_DIR, "submission.csv")
+sub = pd.read_csv(out_path)
+assert list(sub.columns) == ["student_id", "x", "y", "predicted_terrain"]
+assert len(sub) == len(mission) and (sub["x"].to_numpy() == mission["x"].to_numpy()).all() \\
+       and (sub["y"].to_numpy() == mission["y"].to_numpy()).all()
+assert (sub["predicted_terrain"].to_numpy() == CLASSES[mission_pred]).all()
+print(out_path, sub.shape, "student_id:", sub["student_id"].iloc[0])
+print(sub["predicted_terrain"].value_counts().to_dict())
+display(sub.head())''')
+
+md('''## 9. Reproducibility record''')
+code('''import sys, sklearn, matplotlib
+print("python", sys.version.split()[0], "| numpy", np.__version__, "| pandas", pd.__version__,
+      "| scikit-learn", sklearn.__version__, "| matplotlib", matplotlib.__version__)
+print("seed", SEED, "| bundle", BUNDLE_DIR, "| student_id", config["student_id"])
+print("selected", BEST, "| N95 standardized", N95_Z, "| N95 raw", N95_RAW)''')
+
+nb = new_notebook(cells=cells)
+nb.metadata = {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+               "language_info": {"name": "python"}}
+nbformat.validate(nb)
+nbformat.write(nb, OUT)
+print("wrote", OUT, len(cells), "cells")
+
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | tail -30`
+```
+wrote CSCI4521_HW2.ipynb 36 cells
+[NbConvertApp] Converting notebook CSCI4521_HW2.ipynb to notebook
+C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\zmq\_future.py:718: RuntimeWarning: Proactor event loop does not implement add_reader family of methods required for zmq. Registering an additional selector thread for add_reader support via tornado. Use `asyncio.set_event_loop_policy(WindowsSelectorEventLoopPolicy())` to avoid this warning.
+  self._get_loop()
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+Cloning into 'D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\rover-rescue-download'...
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+[NbConvertApp] Writing 1432089 bytes to CSCI4521_HW2.ipynb
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > outs.py <<'EOF'
+import nbformat, sys
+nb = nbformat.read(sys.argv[1], as_version=4)
+start = int(sys.argv[2]); end = int(sys.argv[3])
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code" or not (start <= i < end): continue
+    print(f"=== cell {i}")
+    for o in c.outputs:
+        if o.output_type == "stream": print(o.text.rstrip())
+        elif o.output_type in ("execute_result", "display_data"):
+            if "text/plain" in o.data and "text/html" not in o.data and "image/png" not in o.data: print(o.data["text/plain"])
+            elif "text/html" in o.data and "<table" in o.data["text/html"]:
+                import pandas as pd, io
+                try: print(pd.read_html(io.StringIO(o.data["text/html"]))[0].to_string())
+                except Exception as e: print("[html table]", e)
+            elif "image/png" in o.data: print("[image]")
+            else: print("[other output]", list(o.data.keys()))
+        elif o.output_type == "error": print("ERROR", o.ename, o.evalue)
+EOF
+./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 40 2>&1 | head -260`
+```
+=== cell 11
+student_id in config: demo3
+fit rows 754, calibration-training 60, validation 30, mission 784
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+=== cell 13
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+largest std / smallest std = 1,320 (sensor_4 vs sensor_6)
+top two sensors supply 92.27 % of raw squared distance: ['sensor_4', 'sensor_2']
+after z-scoring every sensor supplies 12.5 %
+=== cell 15
+=== cell 17
+kNN k=3: agreement with sklearn 1.000 (differences can only come from tie-breaking)
+kNN k=5: agreement with sklearn 1.000 (differences can only come from tie-breaking)
+k-means inertia: mine 1237.50, sklearn 1237.50
+all checks passed
+=== cell 19
+Components for at least 95% variance: standardized data 3 of 8, raw data 2 of 8
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+Loadings of the first three standardized components:
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+=== cell 20
+[image]
+=== cell 22
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+=== cell 23
+C1 (raw, 8 sensors): naming by majority vote, cluster names [np.str_('rough'), np.str_('firm'), np.str_('sand')], sizes [263, 209, 282], iterations 8, empty-cluster events 0, inertia 594016.8
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+C3 (z-score, 8 sensors): naming by majority vote, cluster names [np.str_('sand'), np.str_('firm'), np.str_('rough')], sizes [202, 263, 289], iterations 3, empty-cluster events 0, inertia 1237.5
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+C5 (raw, PCA 95%): naming by majority vote, cluster names [np.str_('sand'), np.str_('rough'), np.str_('firm')], sizes [278, 269, 207], iterations 9, empty-cluster events 0, inertia 551196.9
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+C7 (z-score, PCA 95%): naming by majority vote, cluster names [np.str_('sand'), np.str_('firm'), np.str_('rough')], sizes [202, 263, 289], iterations 4, empty-cluster events 0, inertia 963.9
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+E1 (z-score, PCA 2): naming by majority vote, cluster names [np.str_('sand'), np.str_('firm'), np.str_('rough')], sizes [202, 263, 289], iterations 3, empty-cluster events 0, inertia 715.4
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+=== cell 24
+[image]
+{2: np.float64(2652.2), 3: np.float64(1237.5), 4: np.float64(1085.7), 5: np.float64(939.1), 6: np.float64(837.1), 7: np.float64(794.1), 8: np.float64(754.6)}
+=== cell 26
+Selected: E1 -> {'scaling': 'z-score', 'representation': 'PCA 2', 'model': 'k-means', 'dims': np.int64(2)}
+Configurations sharing the top macro F1: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3']
+Of those, also tied on sand recall: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3'] | also tied on dimensions: ['E1', 'E2']
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+per-class F1: {np.str_('firm'): np.float64(1.0), np.str_('rough'): np.float64(1.0), np.str_('sand'): np.float64(1.0)} | per-class recall: {np.str_('firm'): np.float64(1.0), np.str_('rough'): np.float64(1.0), np.str_('sand'): np.float64(1.0)}
+=== cell 28
+E1 {'success': True, 'status': 'MISSION SUCCESS', 'steps': 54, 'predicted_cost': 70.8}
+[other output] ['text/html', 'text/plain']
+=== cell 29
+[image]
+practice route cost 70.79999999999998 | mission route cost 52.0
+=== cell 30
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+largest |mean shift| in fit-row standard deviations: 0.243
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+=== cell 31
+=== cell 33
+submission.csv (784, 4) student_id: demo3
+{'firm': 361, 'sand': 212, 'rough': 211}
+[html table] `Import lxml` failed.  Use pip, conda, or your preferred package management tool to install the lxml package.
+=== cell 35
+python 3.14.7 | numpy 2.5.4 | pandas 3.1.0 | scikit-learn 1.9.1 | matplotlib 3.11.2
+seed 4521 | bundle D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\rover-rescue-download\2026\homework-2\rover-rescue\demo_data | student_id demo3
+selected E1 | N95 standardized 3 | N95 raw 2
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q lxml 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 31 2>&1 | grep -v "^\[IPK" | head -230`
+```
+=== cell 11
+student_id in config: demo3
+fit rows 754, calibration-training 60, validation 30, mission 784
+  Unnamed: 0  calibration-training  validation
+0       firm                    20          10
+1      rough                    20          10
+2       sand                    20          10
+=== cell 13
+  Unnamed: 0     mean     std      min       max  share of raw squared distance (%)
+0   sensor_1    4.959   0.077    4.791     5.124                              0.000
+1   sensor_2   84.746  18.682   37.539   125.946                             10.390
+2   sensor_3   -2.675   0.644   -4.169    -1.528                              0.012
+3   sensor_4  948.868  52.446  827.529  1092.093                             81.885
+4   sensor_5    1.175   4.383   -8.286    10.731                              0.572
+5   sensor_6   19.992   0.040   19.922    20.086                              0.000
+6   sensor_7  -54.412  15.460  -92.122   -29.023                              7.115
+7   sensor_8    8.718   0.928    6.714    11.348                              0.026
+largest std / smallest std = 1,320 (sensor_4 vs sensor_6)
+top two sensors supply 92.27 % of raw squared distance: ['sensor_4', 'sensor_2']
+after z-scoring every sensor supplies 12.5 %
+=== cell 15
+=== cell 17
+kNN k=3: agreement with sklearn 1.000 (differences can only come from tie-breaking)
+kNN k=5: agreement with sklearn 1.000 (differences can only come from tie-breaking)
+k-means inertia: mine 1237.50, sklearn 1237.50
+all checks passed
+=== cell 19
+Components for at least 95% variance: standardized data 3 of 8, raw data 2 of 8
+   Unnamed: 0  var ratio (standardized)  cumulative (standardized)  var ratio (raw)  cumulative (raw)
+0           1                    0.6408                     0.6408           0.8835            0.8835
+1           2                    0.2705                     0.9112           0.0989            0.9824
+2           3                    0.0434                     0.9546           0.0161            0.9985
+3           4                    0.0157                     0.9703           0.0015            1.0000
+4           5                    0.0114                     0.9817           0.0000            1.0000
+5           6                    0.0075                     0.9893           0.0000            1.0000
+6           7                    0.0061                     0.9954           0.0000            1.0000
+7           8                    0.0046                     1.0000           0.0000            1.0000
+Loadings of the first three standardized components:
+  Unnamed: 0    PC1    PC2    PC3
+0   sensor_1 -0.281 -0.503  0.066
+1   sensor_2 -0.275 -0.492 -0.274
+2   sensor_3  0.431  0.002 -0.098
+3   sensor_4 -0.406 -0.043 -0.480
+4   sensor_5 -0.377  0.245  0.583
+5   sensor_6 -0.412 -0.161  0.372
+6   sensor_7 -0.274  0.517 -0.063
+7   sensor_8  0.329 -0.386  0.445
+=== cell 20
+[image]
+=== cell 22
+   Unnamed: 0_level_0            scaling     representation              model               dims       val_accuracy           macro_f1        sand_recall         sand_found             practice               steps                cost predicted_sand_cells
+               config Unnamed: 1_level_1 Unnamed: 2_level_1 Unnamed: 3_level_1 Unnamed: 4_level_1 Unnamed: 5_level_1 Unnamed: 6_level_1 Unnamed: 7_level_1 Unnamed: 8_level_1   Unnamed: 9_level_1 Unnamed: 10_level_1 Unnamed: 11_level_1  Unnamed: 12_level_1
+0                  C1                raw          8 sensors            k-means                  8              0.700              0.704                0.5               5/10  ROVER STUCK IN SAND                  20                92.2                  291
+1                  C2                raw          8 sensors               1-NN                  8              0.933              0.935                0.9               9/10      MISSION SUCCESS                  54                72.2                  210
+2                  C3            z-score          8 sensors            k-means                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+3                  C4            z-score          8 sensors               1-NN                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+4                  C5                raw            PCA 95%            k-means                  2              0.700              0.704                0.5               5/10  ROVER STUCK IN SAND                  20                92.2                  287
+5                  C6                raw            PCA 95%               1-NN                  2              0.867              0.868                0.9               9/10      MISSION SUCCESS                  54                76.4                  207
+6                  C7            z-score            PCA 95%            k-means                  3              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+7                  C8            z-score            PCA 95%               1-NN                  3              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+8                  E1            z-score              PCA 2            k-means                  2              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+9                  E2            z-score              PCA 2               1-NN                  2              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+10                 E3            z-score          8 sensors               3-NN                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212
+=== cell 23
+C1 (raw, 8 sensors): naming by majority vote, cluster names [np.str_('rough'), np.str_('firm'), np.str_('sand')], sizes [263, 209, 282], iterations 8, empty-cluster events 0, inertia 594016.8
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     0      8     7
+1  cluster 1    16      1     1
+2  cluster 2     4     11    12
+C3 (z-score, 8 sensors): naming by majority vote, cluster names [np.str_('sand'), np.str_('firm'), np.str_('rough')], sizes [202, 263, 289], iterations 3, empty-cluster events 0, inertia 1237.5
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     0      0    20
+1  cluster 1    20      0     0
+2  cluster 2     0     20     0
+C5 (raw, PCA 95%): naming by majority vote, cluster names [np.str_('sand'), np.str_('rough'), np.str_('firm')], sizes [278, 269, 207], iterations 9, empty-cluster events 0, inertia 551196.9
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     4     11    12
+1  cluster 1     0      8     7
+2  cluster 2    16      1     1
+C7 (z-score, PCA 95%): naming by majority vote, cluster names [np.str_('sand'), np.str_('firm'), np.str_('rough')], sizes [202, 263, 289], iterations 4, empty-cluster events 0, inertia 963.9
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     0      0    20
+1  cluster 1    20      0     0
+2  cluster 2     0     20     0
+E1 (z-score, PCA 2): naming by majority vote, cluster names [np.str_('sand'), np.str_('firm'), np.str_('rough')], sizes [202, 263, 289], iterations 3, empty-cluster events 0, inertia 715.4
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     0      0    20
+1  cluster 1    20      0     0
+2  cluster 2     0     20     0
+=== cell 24
+[image]
+{2: np.float64(2652.2), 3: np.float64(1237.5), 4: np.float64(1085.7), 5: np.float64(939.1), 6: np.float64(837.1), 7: np.float64(794.1), 8: np.float64(754.6)}
+=== cell 26
+Selected: E1 -> {'scaling': 'z-score', 'representation': 'PCA 2', 'model': 'k-means', 'dims': np.int64(2)}
+Configurations sharing the top macro F1: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3']
+Of those, also tied on sand recall: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3'] | also tied on dimensions: ['E1', 'E2']
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm         10           0          0
+1  true rough          0          10          0
+2   true sand          0           0         10
+per-class F1: {np.str_('firm'): np.float64(1.0), np.str_('rough'): np.float64(1.0), np.str_('sand'): np.float64(1.0)} | per-class recall: {np.str_('firm'): np.float64(1.0), np.str_('rough'): np.float64(1.0), np.str_('sand'): np.float64(1.0)}
+=== cell 28
+E1 {'success': True, 'status': 'MISSION SUCCESS', 'steps': 54, 'predicted_cost': 70.8}
+[other output] ['text/html', 'text/plain']
+=== cell 29
+[image]
+practice route cost 70.79999999999998 | mission route cost 52.0
+=== cell 30
+  Unnamed: 0  mission mean (z)  mission std (z)
+0   sensor_1             0.231            0.933
+1   sensor_2             0.206            0.905
+2   sensor_3            -0.189            1.031
+3   sensor_4             0.172            1.016
+4   sensor_5             0.131            1.082
+5   sensor_6             0.243            1.040
+6   sensor_7             0.022            1.011
+7   sensor_8            -0.053            1.028
+largest |mean shift| in fit-row standard deviations: 0.243
+  Unnamed: 0  practice predicted share  mission predicted share
+0       firm                     0.348                    0.460
+1      rough                     0.381                    0.269
+2       sand                     0.270                    0.270
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
+import re
+p = "build_nb.py"
+s = open(p, encoding="utf-8").read()
+
+s = s.replace("cluster names {list(CLASSES[info['names']])}", "cluster names {[str(c) for c in CLASSES[info['names']]]}")
+s = s.replace('''print("Selected:", BEST, "->", dict(results.loc[BEST, ["scaling", "representation", "model", "dims"]]))''',
+ '''r = results.loc[BEST]
+print(f"Selected: {BEST} ({r.scaling}, {r.representation}, {r.model}, {int(r.dims)} dimensions)")''')
+s = s.replace('''print("per-class F1:", dict(zip(CLASSES, cm_best["f1"].round(3))), "| per-class recall:", dict(zip(CLASSES, cm_best["recall"].round(3))))''',
+ '''print("per-class F1:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["f1"])},
+      "| per-class recall:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["recall"])})''')
+s = s.replace('''print("practice route cost", cost_p, "| mission route cost", cost_m)''',
+ '''print("practice route cost", round(cost_p, 1), "| mission route cost", round(cost_m, 1))''')
+s = s.replace("print(dict(zip(ks, np.round(inertia_k, 1))))", "print({kk: round(float(v), 1) for kk, v in zip(ks, inertia_k)})")
+
+old_start = s.index("# Missed sand in the chosen model's practice route")
+old_end = s.index("md('## 8. Export the mission predictions')")
+new_cell = """# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
+# stopped (the planned path gives it, no truth file is read) and show what the model saw there.
+stuck = results.index[results.practice == "ROVER STUCK IN SAND"]
+print("configurations that got the rover stuck:", list(stuck))
+for cid in stuck:
+    pred_c = fitted[cid]["predict"](X_dev)
+    path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)
+    sy, sx = path_c[int(results.loc[cid, "steps"])]
+    i = sy * w + sx
+    print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; the model predicted "
+          f"{CLASSES[pred_c[i]]} there and the simulator reports sand.")
+    print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))
+    mv = metrics(y_val, fitted[cid]["predict"](X_val))
+    display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))''')
+
+"""
+s = s[:old_start] + "code('''" + new_cell + s[old_end:]
+open(p, "w", encoding="utf-8").write(s)
+EOF
+grep -n "Failure analysis" build_nb.py | head -2; sed -n "$(grep -n 'Failure analysis' build_nb.py | head -1 | cut -d: -f1),+16p" build_nb.py`
+```
+404:code('''code('''# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
+code('''code('''# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
+# stopped (the planned path gives it, no truth file is read) and show what the model saw there.
+stuck = results.index[results.practice == "ROVER STUCK IN SAND"]
+print("configurations that got the rover stuck:", list(stuck))
+for cid in stuck:
+    pred_c = fitted[cid]["predict"](X_dev)
+    path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)
+    sy, sx = path_c[int(results.loc[cid, "steps"])]
+    i = sy * w + sx
+    print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; the model predicted "
+          f"{CLASSES[pred_c[i]]} there and the simulator reports sand.")
+    print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))
+    mv = metrics(y_val, fitted[cid]["predict"](X_val))
+    display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))''')
+
+md('## 8. Export the mission predictions')
+code('''out_path = save_submission(mission_pred, BUNDLE_DIR, "submission.csv")
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
+p = "build_nb.py"
+s = open(p, encoding="utf-8").read()
+print(s.count("code('''code('''"))
+s = s.replace("code('''code('''", "code('''")
+open(p, "w", encoding="utf-8").write(s)
+EOF
+./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb.py',encoding='utf-8').read());print('syntax ok')"`
+```
+1
+syntax ok
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | grep -E "ERROR|Error|Traceback|Writing" ; ls -la submission.csv practice_run.html figures/ CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 26 40 2>&1 | grep -v "^\[IPK"`
+```
+wrote CSCI4521_HW2.ipynb 36 cells
+[NbConvertApp] Writing 1436428 bytes to CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609 1452217 Oct 27 20:11 CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609  755128 Oct 27 20:11 practice_run.html
+-rw-r--r-- 1 anant 197609   13797 Oct 27 20:11 submission.csv
+
+figures/:
+total 556
+drwxr-xr-x 1 anant 197609      0 Oct 27 20:11 .
+drwxr-xr-x 1 anant 197609      0 Oct 27 20:11 ..
+-rw-r--r-- 1 anant 197609 186035 Oct  6 00:38 fig1_pairplot.png
+-rw-r--r-- 1 anant 197609 244081 Oct 27 20:10 fig1_pca.png
+-rw-r--r-- 1 anant 197609  35517 Oct 27 20:11 fig2_deploy.png
+-rw-r--r-- 1 anant 197609  56659 Oct  6 00:39 fig2_f1_vs_k.png
+-rw-r--r-- 1 anant 197609  31551 Oct  6 00:39 fig3_metrics.png
+-rw-r--r-- 1 anant 197609    952 Oct 27 20:10 hw2_configs.csv
+=== cell 26
+Selected: E1 (z-score, PCA 2, k-means, 2 dimensions)
+Configurations sharing the top macro F1: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3']
+Of those, also tied on sand recall: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3'] | also tied on dimensions: ['E1', 'E2']
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm         10           0          0
+1  true rough          0          10          0
+2   true sand          0           0         10
+per-class F1: {'firm': 1.0, 'rough': 1.0, 'sand': 1.0} | per-class recall: {'firm': 1.0, 'rough': 1.0, 'sand': 1.0}
+=== cell 28
+E1 {'success': True, 'status': 'MISSION SUCCESS', 'steps': 54, 'predicted_cost': 70.8}
+[other output] ['text/html', 'text/plain']
+=== cell 29
+[image]
+practice route cost 70.8 | mission route cost 52.0
+=== cell 30
+  Unnamed: 0  mission mean (z)  mission std (z)
+0   sensor_1             0.231            0.933
+1   sensor_2             0.206            0.905
+2   sensor_3            -0.189            1.031
+3   sensor_4             0.172            1.016
+4   sensor_5             0.131            1.082
+5   sensor_6             0.243            1.040
+6   sensor_7             0.022            1.011
+7   sensor_8            -0.053            1.028
+largest |mean shift| in fit-row standard deviations: 0.243
+  Unnamed: 0  practice predicted share  mission predicted share
+0       firm                     0.348                    0.460
+1      rough                     0.381                    0.269
+2       sand                     0.270                    0.270
+=== cell 31
+configurations that got the rover stuck: ['C1', 'C5']
+C1: stopped at (y=13, x=4) after 20 steps; the model predicted rough there and the simulator reports sand.
+   standardized sensors: {'sensor_1': -0.15, 'sensor_2': -0.1, 'sensor_3': 0.87, 'sensor_4': -1.41, 'sensor_5': -1.18, 'sensor_6': -0.71, 'sensor_7': -1.7, 'sensor_8': 1.85}
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm          8           0          2
+1  true rough          0           8          2
+2   true sand          0           5          5
+C5: stopped at (y=13, x=4) after 20 steps; the model predicted rough there and the simulator reports sand.
+   standardized sensors: {'sensor_1': -0.15, 'sensor_2': -0.1, 'sensor_3': 0.87, 'sensor_4': -1.41, 'sensor_5': -1.18, 'sensor_6': -0.71, 'sensor_7': -1.7, 'sensor_8': 1.85}
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm          8           0          2
+1  true rough          0           8          2
+2   true sand          0           5          5
+=== cell 33
+submission.csv (784, 4) student_id: demo3
+{'firm': 361, 'sand': 212, 'rough': 211}
+   Unnamed: 0 student_id  x  y predicted_terrain
+0           0      demo3  0  0              firm
+1           1      demo3  1  0              firm
+2           2      demo3  2  0              firm
+3           3      demo3  3  0              firm
+4           4      demo3  4  0              firm
+=== cell 35
+python 3.14.7 | numpy 2.5.4 | pandas 3.1.0 | scikit-learn 1.9.1 | matplotlib 3.11.2
+seed 4521 | bundle D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\rover-rescue-download\2026\homework-2\rover-rescue\demo_data | student_id demo3
+selected E1 | N95 standardized 3 | N95 raw 2
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig2_deploy.png`
+
+## You
+
+[Image: original 2225x698, displayed at 2000x627. Multiply coordinates by 1.11 to map to original image.]
+
+## Claude
+
+Now I'm replacing the plan and report draft in the note with the filled-in version. Every number comes from the run above, and each claim is labeled as an observation or an explanation.
+
+The shell choked on the two stacked heredocs, and nothing ran. I'm writing the block with the Write tool instead and then splicing it in.
+
+The splice matched a `### Submission` string inside the old plan text, so leftover old lines remain around lines 126 to 143. I'm inspecting and cleaning that up.
+
+The notebook is built, run end to end with no errors, and the vault note has the filled-in report draft with real numbers. I can't promise 100% on the rubric, but every rubric line has matching evidence in the notebook and a place in the report.
+
+## What exists now
+- `Code\Homework\CSCI4521_HW2.ipynb`: all starter cells copied unchanged, plus one marked `BUNDLE_OVERRIDE` cell and my sections, saved with outputs.
+- Next to it: `submission.csv` (784 rows), `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png`, `figures/hw2_configs.csv`. I opened both figures and they read clearly.
+- The k-means loop, kNN, z-score, nearest-centroid assignment and metrics are hand-written NumPy. Each matched the sklearn version when I cross-checked, including identical k-means inertia (1237.50).
+- `Homework - 2.md` now holds the work-log evidence, the report draft, Table 1, Word settings and the remaining steps. It passes Vault Lint, and the only failing note in that folder is the older Homework - 1.
+
+## Results on the demo data
+- **Sensor scales:** standard deviations span a 1,320x range, and sensors 4 and 2 supply 92.3% of raw distance.
+- **PCA:** 95% of the variance needs 3 components after z-scoring and 2 on raw data.
+- **Scaling matters most:** raw k-means found only 5 of 10 validation sand cells, and its rover got stuck at step 20. Every z-scored configuration scores 1.000 and the rover succeeds.
+- **The deployed model is a tie, not a winner:** seven configurations tie at a perfect score on 30 validation rows. My pre-set rule picked E1 (z-score, 2 PCA components, k-means), and the report says it is a tie.
+
+## Needs your attention
+1. **Dataset.** I used the demo bundle, so `submission.csv` carries `student_id: demo3`. I did not edit the config or the id. If your personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill the report numbers. If you meant something else by "make it our own", tell me.
+2. **Due date and AI-use level.** The handout shows neither, so check Gradescope. The report's last line discloses AI use and says you ran and checked the notebook, so open the notebook before you submit.
+3. **Word report not built.** I stopped at the draft. It's longer than two pages at HW1 settings, so the note gives tighter settings (10.5 pt, 0.75 in margins, smaller figures). The page count is untested in Word, so check it.
+4. **Don't upload `rover-rescue-download/`.** The notebook created it in `Code\Homework`, and it holds the dataset and the truth file.
+
+I ran the notebook in a scratch Python 3.14 environment because the `csci-4521` env doesn't exist on this laptop. Colab or the course's Python 3.12 should give the same results, but I haven't run those.
+
+Do you want me to build the Word document and PDF next, or will you assemble it from the note?
+
+### Tool Calls
+
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+```diff
+- next: "Confirm the Gradescope due date and this assignment's AI-use level, get the personalized dataset (the repo only ships demo_data with student_id demo3), then build and run the notebook and fill the report draft below from its output."
++ next: "Build the 2-page Word report from the Report draft below (Table 1 from figures/hw2_configs.csv, Figure 1 and 2 from figures/), export PDF, check 2 pages, then upload the PDF, CSCI4521_HW2.ipynb, submission.csv and practice_run.html to Gradescope before 11 pm on 2026-10-27."
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+```diff
+- ### 2026-10-27 Source reading and plan (no code run yet)
+Everything below is reading and planning. No notebook cell has been executed and no result exists.
++ ### 2026-10-27 Notebook built and run
+`Code\Homework\CSCI4521_HW2.ipynb` (36 cells) copies every starter cell unchanged, adds one marked `BUNDLE_OVERRIDE` cell so a personalized bundle drops in, and then holds sections 1 to 9 of the design below. Executed top to bottom with nbconvert in a scratch Python 3.14 venv (numpy 2.5.4, pandas 3.1.0, scikit-learn 1.9.1, matplotlib 3.11.2): no errors, all assertions passed. Written next to it: `submission.csv` (784 rows, student_id `demo3`), `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png`, `figures/hw2_configs.csv`. Both figures were opened and read.
+Evidence is on the demo bundle, the only data available. Dataset status: no personalized bundle was found in `Code\Homework` or the repo, so `student_id` in `submission.csv` is `demo3`. If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number in the report draft.
+- Hand-written NumPy checked against the library: z-score equals `StandardScaler`, nearest-centroid equals `pairwise_distances_argmin`, 1-NN equals `KNeighborsClassifier` exactly, 3-NN and 5-NN agree 100%, my k-means inertia 1237.50 equals `KMeans` 1237.50, macro F1 and accuracy equal sklearn on every configuration.
+- Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
+- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance (81.9% and 10.4%). After z-scoring each supplies 12.5%.
+- PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Fig 1b shows three separated groups in PC1 and PC2 that line up with firm, rough and sand.
+- Experiments (validation accuracy, macro F1, sand recall, practice): raw 8 sensors k-means 0.700, 0.704, 0.5, stuck at step 20. Raw 8 sensors 1-NN 0.933, 0.935, 0.9, success (cost 72.2). Raw PCA 2 k-means 0.700, 0.704, 0.5, stuck at step 20. Raw PCA 2 1-NN 0.867, 0.868, 0.9, success (cost 76.4). Every z-score configuration (8 sensors, PCA 3, PCA 2, k-means, 1-NN, 3-NN) scored 1.000, 1.000, 1.0 and succeeded with 54 steps and cost 70.8.
+- k-means: no empty clusters in any run, 3 to 9 iterations, majority naming was one-to-one everywhere. Z-score clusters are pure on the 60 training labels (20, 20, 20). Raw k-means mixes them: the cluster named sand holds 12 sand, 11 rough and 4 firm training points. Elbow inertia: k=2 2652, k=3 1238, k=4 1086.
+- Selection by the pre-set rule picked E1 (z-score, PCA 2, k-means). Seven configurations tie at the top (E1, E2, C7, C8, C3, C4, E3), and only the dimension count separated E1 from the rest of that group, tying with E2 on all metrics, so the choice between E1 and E2 came from table order.
+- Failure: raw k-means (and raw PCA k-means) stopped at (y=13, x=4) after 20 steps where it predicted rough and the simulator reports sand. Validation confusion: 5 of 10 sand cells predicted rough.
+- Mission: largest mean shift in fit-row standard deviations 0.243. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on the practice grid. Mission route cost 52.0.
+### 2026-10-27 Source reading and plan
+All reading and planning, done before the notebook existed.
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > new_block.md <<'EOF'
+### Remaining steps to submit
+Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order:
+- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.
+- 2 min: open `CSCI4521_HW2.ipynb`, confirm the outputs show and the tables match the Work log above. Do not re-run unless the dataset changes.
+- 12 min: Word. Paste the Report draft as unformatted text, insert Figure 1 and Figure 2 from `Code\Homework\figures\`, build Table 1 from the rows below.
+- 5 min: export PDF, reopen it, confirm two pages and that every number matches `figures/hw2_configs.csv`.
+- 3 min: upload `CSCI4521_HW2.ipynb`, the PDF, `submission.csv`, `practice_run.html`. Do not upload `rover-rescue-download/` (it holds the dataset and the truth file). Record the time under `### Submission`.
+### Report draft
+HW 2: Rover Rescue
+Anant Gupta
+October 2026
+1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? I compared eleven configurations (Table 1). Eight form a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor. Three extras use PCA with 2 components and 3-NN. My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened). Clusters take the majority label of the 60 calibration-training points, which was one-to-one in every case. Three clusters match the three terrains, and the elbow agrees: within-cluster sum of squares drops from 2652 at k=2 to 1238 at k=3 and only to 1086 at k=4.
+2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (every practice row except the 30 validation rows, no labels used). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. All configurations were scored on the same 30 validation rows (10 per terrain), where one error is 3.3 points. I selected the deployed model on these rows, so its score is a selection score, not an untouched test score, and the practice rover run shows deployment rather than accuracy. The mission grid was transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
+3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and with 2 on raw data (98.2%), but raw PC1 alone holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups that line up with the labeled firm, rough and sand points (Figure 1b).
+Scaling mattered most. Holding model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells, and its cluster named sand held 12 sand, 11 rough and 4 firm training points; after z-scoring all three clusters were pure (20, 20, 20). PCA changed little: on z-scored data 8 sensors, 3 components and 2 components all scored 1.000, while on raw data it lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, not tested here: with raw scales k-means partitions mostly along sensor_4, while 1-NN uses the 60 labels locally.
+Table 1: dimensions, validation accuracy, macro F1, sand recall and practice rover outcome for each configuration (macro F1 is the unweighted mean of the three per-class F1 scores).
+Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows, labeled training points in color.
+4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA with 2 components, k-means), which differs from E2 only by table order, so I report a tie and not a winner. E1 uses 2 dimensions and needs the labels only to name three clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, the same as the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it, while a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route: a miss matters only when the path crosses it.
+Figure 2: practice map with the planned route and predicted mission map with its planned route, from the selected model.
+5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them does not mean the model is perfect; one successful practice route is a demonstration. The z-scored mission rows sit within 0.25 standard deviations of the fit-row mean on every sensor (standard deviations 0.91 to 1.08), so I saw no sensor drift. Even so the predicted mission mix differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot say whether that is a real regional difference or a model error.
+AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.
+### Table 1 rows
+| ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
+| C2 | raw | 8 sensors (8) | 1-NN | 0.933 | 0.935 | 0.90 | success, 54 steps |
+| C3 | z-score | 8 sensors (8) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C4 | z-score | 8 sensors (8) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C5 | raw | PCA 95% (2) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
+| C6 | raw | PCA 95% (2) | 1-NN | 0.867 | 0.868 | 0.90 | success, 54 steps |
+| C7 | z-score | PCA 95% (3) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C8 | z-score | PCA 95% (3) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E1 | z-score | PCA 2 (2) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E2 | z-score | PCA 2 (2) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E3 | z-score | 8 sensors (8) | 3-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+### Word assembly
+This report is longer than the two-page limit allows at HW1 settings, so use these from the start: Times New Roman 10.5 pt, Letter, 0.75 inch margins, single spacing, 3 pt after paragraphs. Figure 1 about 6.8 in wide, Figure 2 about 4.6 in wide, Table 1 at 9 pt. Page count is untested in Word, so check it. If it spills, shrink Figure 2 first, then cut sentence by sentence from section 3 (the explanation sentences), not the table or the protocol, because the rubric scores both. Copy from source mode, Paste Special as unformatted text, bold the section titles, center the three title lines, and put each figure directly above its caption.
+### Blockers
+> [!WARNING]
+> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.
+
+EOF
+./venv/Scripts/python.exe -I - <<'EOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+a = s.index("### 30-minute plan")
+b = s.index("### Submission")
+new = open("new_block.md", encoding="utf-8").read()
+s = s[:a] + new + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("ok", len(s))
+EOF
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -3; echo "(dash check done)"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|failing|Homework -"`
+```
+Exit code 2
+/usr/bin/bash: -c: line 4: unexpected EOF while looking for matching `''
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\new_block.md`
+```
+### Remaining steps to submit
+Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order:
+- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.
+- 2 min: open `CSCI4521_HW2.ipynb`, confirm the outputs show and the tables match the Work log above. Do not re-run unless the dataset changes.
+- 12 min: Word. Paste the Report draft as unformatted text, insert Figure 1 and Figure 2 from `Code\Homework\figures\`, build Table 1 from the rows below.
+- 5 min: export PDF, reopen it, confirm two pages and that every number matches `figures/hw2_configs.csv`.
+- 3 min: upload `CSCI4521_HW2.ipynb`, the PDF, `submission.csv`, `practice_run.html`. Do not upload `rover-rescue-download/` (it holds the dataset and the truth file). Record the time under `### Submission`.
+### Report draft
+HW 2: Rover Rescue
+Anant Gupta
+October 2026
+1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? I compared eleven configurations (Table 1). Eight form a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor. Three extras use PCA with 2 components and 3-NN. My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened). Clusters take the majority label of the 60 calibration-training points, which was one-to-one in every case. Three clusters match the three terrains, and the elbow agrees: within-cluster sum of squares drops from 2652 at k=2 to 1238 at k=3 and only to 1086 at k=4.
+2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (every practice row except the 30 validation rows, no labels used). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. All configurations were scored on the same 30 validation rows (10 per terrain), where one error is 3.3 points. I selected the deployed model on these rows, so its score is a selection score, not an untouched test score, and the practice rover run shows deployment rather than accuracy. The mission grid was transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
+3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and with 2 on raw data (98.2%), but raw PC1 alone holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups that line up with the labeled firm, rough and sand points (Figure 1b).
+Scaling mattered most. Holding model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells, and its cluster named sand held 12 sand, 11 rough and 4 firm training points; after z-scoring all three clusters were pure (20, 20, 20). PCA changed little: on z-scored data 8 sensors, 3 components and 2 components all scored 1.000, while on raw data it lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, not tested here: with raw scales k-means partitions mostly along sensor_4, while 1-NN uses the 60 labels locally.
+Table 1: dimensions, validation accuracy, macro F1, sand recall and practice rover outcome for each configuration (macro F1 is the unweighted mean of the three per-class F1 scores).
+Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows, labeled training points in color.
+4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA with 2 components, k-means), which differs from E2 only by table order, so I report a tie and not a winner. E1 uses 2 dimensions and needs the labels only to name three clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, the same as the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it, while a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route: a miss matters only when the path crosses it.
+Figure 2: practice map with the planned route and predicted mission map with its planned route, from the selected model.
+5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them does not mean the model is perfect; one successful practice route is a demonstration. The z-scored mission rows sit within 0.25 standard deviations of the fit-row mean on every sensor (standard deviations 0.91 to 1.08), so I saw no sensor drift. Even so the predicted mission mix differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot say whether that is a real regional difference or a model error.
+AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.
+### Table 1 rows
+| ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
+| C2 | raw | 8 sensors (8) | 1-NN | 0.933 | 0.935 | 0.90 | success, 54 steps |
+| C3 | z-score | 8 sensors (8) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C4 | z-score | 8 sensors (8) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C5 | raw | PCA 95% (2) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
+| C6 | raw | PCA 95% (2) | 1-NN | 0.867 | 0.868 | 0.90 | success, 54 steps |
+| C7 | z-score | PCA 95% (3) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C8 | z-score | PCA 95% (3) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E1 | z-score | PCA 2 (2) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E2 | z-score | PCA 2 (2) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E3 | z-score | 8 sensors (8) | 3-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+### Word assembly
+This report is longer than the two-page limit allows at HW1 settings, so use these from the start: Times New Roman 10.5 pt, Letter, 0.75 inch margins, single spacing, 3 pt after paragraphs. Figure 1 about 6.8 in wide, Figure 2 about 4.6 in wide, Table 1 at 9 pt. Page count is untested in Word, so check it. If it spills, shrink Figure 2 first, then cut sentence by sentence from section 3 (the explanation sentences), not the table or the protocol, because the rubric scores both. Copy from source mode, Paste Special as unformatted text, bold the section titles, center the three title lines, and put each figure directly above its caption.
+### Blockers
+> [!WARNING]
+> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.
+
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+a = s.index("### 30-minute plan")
+b = s.index("### Submission")
+s = s[:a] + open("new_block.md", encoding="utf-8").read() + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("spliced", len(s))
+PYEOF
+./venv/Scripts/python.exe -I splice.py`
+```
+spliced 27137
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dash hits:"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "headings:"; grep -n "^## \|^### " "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls; head -3 submission.csv; wc -l submission.csv; cat figures/hw2_configs.csv | head -3`
+```
+dash hits:
+0
+headings:
+15:## Overview
+20:## Requirements
+21:### Must submit (Gradescope)
+26:### Must demonstrate (rubric, 100 points)
+33:### Must not do
+42:### Report must state
+49:### Rules
+52:## Work log
+53:### 2026-10-27 Notebook built and run
+65:### 2026-10-27 Source reading and plan
+76:### Notebook design
+85:### Remaining steps to submit
+92:### Report draft
+106:### Table 1 rows
+120:### Word assembly
+122:### Blockers
+126:### Submission`.
+127:### Report draft (fill every bracket from notebook output, nothing from memory)
+138:### Word assembly
+140:### Blockers
+144:### Submission
+146:## Concepts used
+152:## Post-submit reflection
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+
+CSCI4521_HW1.ipynb
+CSCI4521_HW2.ipynb
+HW2.pdf
+[REDACTED].ipynb
+PhiUSIIL_HW1_777.csv
+PhiUSIIL_Phishing_URL_Dataset.csv
+README.md
+figures
+homework 1.docx.pdf
+homework 2.pdf
+hwTemplateML.tex
+practice_run.html
+rover-rescue-download
+submission.csv
+student_id,x,y,predicted_terrain
+demo3,0,0,firm
+demo3,1,0,firm
+785 submission.csv
+config,scaling,representation,model,dims,val_accuracy,macro_f1,sand_recall,sand_found,practice,steps,cost,predicted_sand_cells
+C1,raw,8 sensors,k-means,8,0.7,0.704,0.5,5/10,ROVER STUCK IN SAND,20,92.2,291
+C2,raw,8 sensors,1-NN,8,0.933,0.935,0.9,9/10,MISSION SUCCESS,54,72.2,210
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fix.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+i = s.index("### Submission`.")
+j = s.index("### Submission\nNot submitted yet.")
+assert i < j
+s = s[:i] + s[j:]
+open(p, "w", encoding="utf-8").write(s)
+print("removed", j - i, "chars")
+PYEOF
+./venv/Scripts/python.exe -I fix.py; grep -n "^## \|^### " "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"`
+```
+Exit code 1
+removed 10795 chars
+15:## Overview
+20:## Requirements
+21:### Must submit (Gradescope)
+26:### Must demonstrate (rubric, 100 points)
+33:### Must not do
+42:### Report must state
+49:### Rules
+52:## Work log
+53:### 2026-10-27 Notebook built and run
+65:### 2026-10-27 Source reading and plan
+76:### Notebook design
+85:### Remaining steps to submit
+93:## Concepts used
+99:## Post-submit reflection
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+0
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > restore.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+a = s.index("### Remaining steps to submit\n")
+b = s.index("### Submission\nNot submitted yet.")
+assert s.count("### Remaining steps to submit\n") == 1 and s.count("### Submission\nNot submitted yet.") == 1 and a < b
+block = open("new_block.md", encoding="utf-8").read()
+s = s[:a] + block + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("restored", len(s))
+PYEOF
+./venv/Scripts/python.exe -I restore.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; grep -c "Report draft (fill every bracket" "$F"; grep -c "\[n\] configurations" "$F"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+```
+restored 23667
+15:## Overview
+20:## Requirements
+21:### Must submit (Gradescope)
+26:### Must demonstrate (rubric, 100 points)
+33:### Must not do
+42:### Report must state
+49:### Rules
+52:## Work log
+53:### 2026-10-27 Notebook built and run
+65:### 2026-10-27 Source reading and plan
+76:### Notebook design
+85:### Remaining steps to submit
+92:### Report draft
+106:### Table 1 rows
+120:### Word assembly
+122:### Blockers
+126:### Submission
+128:## Concepts used
+134:## Post-submit reflection
+
+0
+0
+0
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+```
+
+## You
+
+You build the learning
+pipeline yourself.
+You will receive a personalized dataset containing: ... files. These files that are mentioned is what the dataset we are talking about right? Was this dataset personalized to accuracy, time efficiency and 100% accuracy? Was this dataset curated based on success of this assignment? This is the most crucial and time consuming part of the work which needs to be nailed down based on solid research that takes through the lecture slides, textbook material and the material that has already been mentioned to you. Take a lot of time to research and digest the information on how exactly the assignment is supposed to take place if you were the professor solving the assignment as an example for the students. make sure to solve each and every single thing based of the methodologies and things discussed in the class (.ipynb files as well). Something to note is that we have been writing files (code - .ipynb files) based on the notes that were designed for this course: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Lectures`, you are required to follow the implementation methods used in the projects of this course: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Final Project`, `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Midterm_Project`. Because the authenticity used to write this code was excellent and we have been writing python the same way ever since taking this course. I use the files above mentioned as worship material to write out excellent code in python. You are required to write the exact same way for best time complexity and approaches to problems. Think like the professor and solve code extremely well. The examples are right in front of you and already mentioned. 
+
+There are 4 deliverables to this assignment, creating the html file should be easy work and will be done in the last. Now, things that need my attention: 
+
+If your personalized bundle exists, set BUNDLE_OVERRIDE, what do you mean by this exists? Are we not supposed to be creating this? Are we assigned these? Where do i find these? 
+
+AI usage is allowed on this course as much as possible just note it down at the bottom of the page on how much it was used. as a note. The word report is based of the dataset so, let the word still be a draft till the code, dataset and images are finalized. Let's make sure that each and every single thing is done accordingly and correctly based of the assignment as well as the github page. provide me with the steps to take over here to do the assignment correctly for a 100% grade.
+
+## Claude
+
+Let me answer your questions with evidence rather than guesses. First I'll look for a personalized bundle on this machine, and read the CSCI 4041 Lectures, Midterm_Project and Final Project you want me to write like.
+
+No personalized bundle exists anywhere on this machine. Now the 4041 code, starting with the folder's own guide files and the notebooks you wrote (`AVLTree`, `Experiment`, `Final`).
+
+Now the actual ISL passages on scaling and k-means starts, so the report's reasoning comes straight from the textbook.
+
+I'm fixing the part numbering so it reads in order, then building and running it from scratch.
+
+It ran clean on the first try, with every assertion passing. I'm reading all the new outputs, since the k-means initialization changed and the numbers could differ.
+
+Yes, those five files are the dataset. We don't create it, though. The bundle in the repo is the only one I could find, and whether a personalized one exists is still open.
+
+## Your dataset questions
+- **Is that the dataset?** Yes: `development.csv`, `calibration.csv`, `mission.csv`, `config.json` and `practice_truth.bin`. The development and mission files are 28x28 grids of eight-sensor rows. The calibration file has 90 labeled locations, 30 per terrain.
+- **Was it curated for accuracy or a perfect score?** Nothing in the handout, rubric or repo says so.
+  - **What the demo bundle shows:** sensor scales differ by 1,320x, and after z-scoring the three terrains separate cleanly. It makes scaling matter, and it is solvable.
+  - **What the rubric promises:** a stuck rover or imperfect classifier can still earn full credit, and no points depend on hidden mission success.
+- **What I meant by "if it exists":** the instructor issues the bundle. The PDF says "you will receive a personalized dataset". The repo README and `assignment_student.md` say "use `demo_data/`... you do not collect or generate your own data". Those two statements disagree. `demo_data` (student_id `demo3`) is the only bundle available.
+  - **Searches:** I searched this machine, your Gmail and your Drive, and found nothing else.
+  - **What to do:** check the Gradescope assignment page and Canvas. If nothing is there, message the instructor or a TA (private Piazza post or email) and ask whether `demo_data` is the bundle to use. I did not edit the config or the student_id.
+
+## What I changed in the notebook
+I rebuilt `CSCI4521_HW2.ipynb` after reading your 4041 midterm and final projects, the 4521 lecture notebooks and slides, and ISL chapter 12.
+- **k-means is now the professor's algorithm.** It follows ISL Algorithm 12.2 and lecture 2.3 slide 10: random cluster number for every point, then centroids and reassignment until nothing changes, best of 10 random starts. My first build used k-means++, which the handout allows but the course doesn't teach.
+- **Same results either way.** Every headline number came out identical after the switch.
+- **Code in your 4041 style.** Each function has a docstring stating its time and memory cost, with inline comments.
+- **Testing section in the 4041 style.** It checks:
+  - the k-means objective never rises (ISL 12.18)
+  - 1-NN exactly matches the lecture 1.1 loop on all 30 validation rows
+  - PCA matches the singular values
+  - sklearn agrees as a cross-check (k-means objective 1237.50 in both)
+- **Complexity and timing:** a stability test over random starts and a timing check. The honest finding: PCA does not speed things up at this size, so the report must not claim it.
+- **AI use:** noted at the bottom of the notebook, and in the report draft, as heavy use. Please check the wording is true of your own role.
+
+## What the vault note now has
+`Homework - 2.md` has the dataset answer, a rubric-to-notebook map, the updated report draft, and Table 1. The Word report stays a draft until the data is settled.
+
+## Steps to finish
+1. **Now:** settle the dataset question, since it's the one thing that can change the numbers.
+2. **Confirm the notebook:** open `CSCI4521_HW2.ipynb` and Restart and Run All. It needs internet and git, and takes about a minute.
+3. **If a personalized bundle exists:** set `BUNDLE_OVERRIDE`, run everything again, and tell me. I'll refill the report numbers.
+4. **When the data is final:** tell me to build the Word draft and PDF. The two-page count is untested in Word.
+5. **Last:** `practice_run.html` is regenerated by the notebook run.
+6. **Before 11 pm:** confirm the due date on Gradescope. Upload four files: the notebook, the PDF, `submission.csv`, and `practice_run.html`. Don't upload the `rover-rescue-download/` folder (it holds the dataset and the truth file).
+
+I can't guarantee 100%. Every rubric line has matching evidence in the notebook, and the main open risks are the dataset and the report's page count.
+
+### Tool Calls
+
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ls; echo ---; for d in Lectures "Final Project" Midterm_Project; do echo "## $d"; find "$d" -type f -not -path "*/.git/*" -not -path "*/__pycache__/*" -not -name "*.png" -not -name "*.jpg" | head -60; done`
+```
+AGENTS.md
+AI_CONTEXT.md
+DSA Common To Share All.lnk
+Final Project
+Homework
+Lectures
+Midterm_Project
+Technical Interview
+Textbook
+---
+## Lectures
+Lectures/Week - 1 & 2/[REDACTED].ipynb
+Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis.ipynb
+Lectures/Week - 1 & 2/Ch2_Merge_Sort.ipynb
+Lectures/Week - 10/Ch15_GreedyAlgorithms(ActivitySelectionProblem).ipynb
+Lectures/Week - 10/Ch15_GreedyAlgorithms(HuffmanCoding).ipynb
+Lectures/Week - 10/Ch6_Ch12(required_for_Huffman).ipynb
+Lectures/Week - 11/[REDACTED].ipynb
+Lectures/Week - 11/Ch20_Graphs_and_BFS.ipynb
+Lectures/Week - 12/Ch20(Graphs-CodeBase).ipynb
+Lectures/Week - 12/[REDACTED].ipynb
+Lectures/Week - 12/[REDACTED].ipynb
+Lectures/Week - 12/Graph-Examples.ipynb
+Lectures/Week - 13/Ch20(Graphs-CodeBase)-1.ipynb
+Lectures/Week - 13/[REDACTED].ipynb
+Lectures/Week - 13/[REDACTED].ipynb
+Lectures/Week - 14/Ch20(Graphs-CodeBase)-2.ipynb
+Lectures/Week - 14/Ch20(Graphs-CodeBase)-NETWORK.ipynb
+Lectures/Week - 14/Ch24_Maximum_Flow.ipynb
+Lectures/Week - 3/Ch4_Divide_and_Conquer(Examples).ipynb
+Lectures/Week - 3/Ch4_Divide_and_Conquer(Matrix-Multiply).ipynb
+Lectures/Week - 4/Ch10_BinaryTree.ipynb
+Lectures/Week - 4/Ch10_LinkedLists.ipynb
+Lectures/Week - 4/Ch10_Stacks_and_Queues.ipynb
+Lectures/Week - 4/Ch7_QuickSort(AlgorithmicModifcationExamples).ipynb
+Lectures/Week - 4/[REDACTED].ipynb
+Lectures/Week - 4/[REDACTED].ipynb
+Lectures/Week - 4/Ch7_QuickSort.ipynb
+Lectures/Week - 5/Ch12_BinarySearchTree.ipynb
+Lectures/Week - 5/[REDACTED].ipynb
+Lectures/Week - 5/Ch12_Examples.ipynb
+Lectures/Week - 5/Ch6_ArrayTree.ipynb
+Lectures/Week - 5/Ch6_Heaps-PriorityQueue.ipynb
+Lectures/Week - 5/Ch6_Heaps.ipynb
+Lectures/Week - 6/AVL-tree(original).pdf
+Lectures/Week - 6/B-Trees(original).pdf
+Lectures/Week - 6/Ch12_BinarySearchTree.ipynb
+Lectures/Week - 6/[REDACTED].ipynb
+Lectures/Week - 6/Ch18_B-Tree.ipynb
+Lectures/Week - 7/2008-09LLRB(slides).pdf
+Lectures/Week - 7/Left-Leaning_Red-black_Trees(Sedgewick-2008).pdf
+Lectures/Week - 7/LLRB-Tree(Sedgewick)-Construction.ipynb
+Lectures/Week - 8/Ch10_LinkedLists.ipynb
+Lectures/Week - 8/[REDACTED].ipynb
+Lectures/Week - 8/[REDACTED].ipynb
+Lectures/Week - 8/Ch11_ChainHashMap.ipynb
+Lectures/Week - 8/[REDACTED].ipynb
+Lectures/Week - 8/[REDACTED].ipynb
+Lectures/Week - 8/Ch11_ProbeHashMap.ipynb
+Lectures/Week - 9/ch14_DynamicProgramming(Fibonacci).ipynb
+Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack)-Testing.ipynb
+Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack).ipynb
+## Final Project
+Final Project/Heuristic Pathfinding/A_Formal_Basis_for_the_Heuristic_Determination_of_Minimum_Cost_Paths(Astar)-1967-68.pdf
+Final Project/Heuristic Pathfinding/Ch20(Graphs-CodeBase)-HeuristicSearch.ipynb
+Final Project/Heuristic Pathfinding/[REDACTED].pdf
+Final Project/Heuristic Pathfinding/ExperimentswiththeGraphTraverserProgram(Astar)-1966.pdf
+Final Project/Heuristic Pathfinding/Generalized Best-First Search Strategies and the Optimality of Astar-1985.pdf
+Final Project/Heuristic Pathfinding/HeuristicPathfinding-Template.ipynb
+Final Project/Maze/[REDACTED].pdf
+Final Project/Maze/Ch20(Graphs-CodeBase)-MAZE.ipynb
+Final Project/Maze/Experiment.ipynb
+Final Project/Maze/[REDACTED].pdf
+Final Project/Maze/Final.ipynb
+Final Project/Maze/Introduction_part_1.pdf
+Final Project/Maze/Maze-Template.ipynb
+Final Project/Maze/Networks - Winter 1977 - Hadlock - A shortest path algorithm for grid graphs.pdf
+Final Project/Maze/Paper_ Maze Generation and Solving.pdf
+Final Project/Maze/[REDACTED]._Foundation_1952..pdf
+Final Project/Network Flow/A Primal-dual Algorithm for the capacitated Hitchcock Problem.pdf
+Final Project/Network Flow/a-simple-algorithm-for-finding-maximal-network-flows-and-an-application-to-the-hitchcock-problem.pdf
+Final Project/Network Flow/Ch20(Graphs-CodeBase)-NETWORK.ipynb
+Final Project/Network Flow/Distribution-Network-Template.ipynb
+Final Project/Network Flow/[REDACTED].pdf
+Final Project/Network Flow/NetworkFlowTheory_Ford(1956).pdf
+Final Project/Network Flow/OntheMaxFLowMinCutTheoremofNetworks.pdf
+## Midterm_Project
+Midterm_Project/AVL Tree/[REDACTED].pdf
+Midterm_Project/AVL Tree/AVL tree paper.pdf
+Midterm_Project/AVL Tree/AVL-tree(original).pdf
+Midterm_Project/AVL Tree/AVLTree.ipynb
+Midterm_Project/AVL Tree/Ch12_BinarySearchTree.ipynb
+Midterm_Project/AVL Tree/[REDACTED].ipynb
+Midterm_Project/AVL Tree/CSCI 4041 Midterm Project - Balanced Tree Report.pdf
+Midterm_Project/AVL Tree/[REDACTED].pdf
+Midterm_Project/AVL Tree/Experiment.ipynb
+Midterm_Project/Multiway Search Tree/2-3-Trees(first_publication).pdf
+Midterm_Project/Multiway Search Tree/[REDACTED].pdf
+Midterm_Project/Multiway Search Tree/[REDACTED].pdf
+Midterm_Project/Multiway Search Tree/Ch12_MultiWayTree.ipynb
+Midterm_Project/Multiway Search Tree/[REDACTED].pdf
+Midterm_Project/Multiway Search Tree/[REDACTED].pdf
+Midterm_Project/Red Black Tree/A_dichromatic_framework_for_balanced_trees.pdf
+Midterm_Project/Red Black Tree/Ch12_BinarySearchTree.ipynb
+Midterm_Project/Red Black Tree/Ch13_DiChromaticTrees.ipynb
+Midterm_Project/Red Black Tree/Left-Leaning_Red-black_Trees(Sedgewick-2008).pdf
+Midterm_Project/Red Black Tree/[REDACTED].pdf
+Midterm_Project/Red Black Tree/[REDACTED].pdf
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `echo "== search for assigned bundle files by name"; for r in "/c/Users/anant/Downloads" "/c/Users/anant/Desktop" "/c/Users/anant/Documents" "/d/_Anant"; do find "$r" -maxdepth 6 \( -iname "development.csv" -o -iname "calibration.csv" -o -iname "mission.csv" -o -iname "practice_truth.bin" -o -iname "config.json" -o -iname "*rover*" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/50_Archive/*" 2>/dev/null | head -20; done`
+```
+== search for assigned bundle files by name
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; wc -c AGENTS.md AI_CONTEXT.md; echo; sed -n 1,80p AGENTS.md | cut -c1-500`
+```
+3117 AGENTS.md
+3118 AI_CONTEXT.md
+6235 total
+
+# AGENTS.md — CSCI 4041 Workspace
+
+## Purpose
+This workspace contains all professor-provided materials for CSCI 4041 (Data Structures & Algorithms) at UMN. The agent transforms these materials into structured Obsidian vault notes at `10_UMN/CSCI 4041/`.
+
+## Source Hierarchy (strict priority order)
+1. **Textbook** (`Textbook/Introduction to Algorithms - DSA.pdf`) — canonical definitions, theorems, pseudocode, proofs, complexity analysis.
+2. **Professor lecture notebooks** (`Lectures/Week - N/*.ipynb`) — implementation code, lecture emphasis, pedagogical framing.
+3. **Professor PDFs in weekly folders** (`Lectures/Week - N/*.pdf`) — original papers, supplementary theory.
+4. **Homework** (`Homework/Coding/*.ipynb`, `Homework/Paper/*.pdf`) — application, practice, exam-style problems. Referenced, not primary.
+5. **Midterm Project** (`Midterm_Project/`) — AVL, Red-Black, Multiway tree implementations. Referenced from concept notes.
+6. **Final Project** (`Final Project/`) — Maze, Heuristic Pathfinding, Network Flow. Referenced from concept notes.
+7. **Existing vault notes** — style reference and output target. Preserve conventions, improve content.
+8. **Additional Material shortcut** — IGNORE unless explicitly asked.
+
+## Read-Only Sources
+Never modify files in: `Lectures/`, `Homework/`, `Textbook/`, `Final Project/`, `Midterm_Project/`.
+
+## Vault Path Convention
+All Obsidian vault paths use the prefix `10_UMN/CSCI 4041/`.
+- Weekly notes: `10_UMN/CSCI 4041/Week - N.md`
+- Textbook notes: `10_UMN/CSCI 4041/Textbook/Chapter - X.md`
+- Concept notes: `10_UMN/CSCI 4041/Concepts/<Category>/Name.md`
+- Index: `10_UMN/CSCI 4041/Concepts/DSA.md`
+- Board: `10_UMN/CSCI 4041/CSCI 4041 Board.md`
+- Midterm: `10_UMN/CSCI 4041/Midterm Project.md`
+
+## Agent Behavior
+1. Read lecture notebooks (.ipynb) and extract code + markdown content.
+2. Read textbook PDF for chapter summaries (use attached PDF context or textbook steering).
+3. Write notes to the Obsidian vault using MCP tools.
+4. Follow the note templates in `.kiro/steering/csci4041-note-templates.md`.
+5. Follow the task manifest in `.kiro/steering/csci4041-tasks.md`.
+6. Follow the source-file inventory in `.kiro/steering/csci4041-context.md`.
+7. Follow anti-hallucination and verification rules in `.kiro/steering/csci4041-rules.md`.
+
+## Code Handling
+- Copy code exactly from notebooks. Never modify the algorithm logic.
+- Add inline comments explaining each line's purpose.
+- Add explanation paragraphs before and after code blocks.
+- Wrap all code in fenced blocks with `python` language tag.
+- If a notebook builds an algorithm across multiple cells, preserve that progression.
+- If code appears in multiple weeks, explain the relationship rather than blind duplication.
+
+## Concept Notes Are the Ultimate Source of Truth
+Every major course topic must have a concept note that synthesizes textbook theory, professor code, weekly lecture context, homework references, and exam relevance into one authoritative reference. A student should be able to study from the concept note alone.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/AVLTree.ipynb" | head -330`
+```
+--- [markdown] 0
+# CSCI 4041 Project: AVL Trees
+
+This notebook implements an **AVL tree** by extending the professor's Week 6 `balancedtree` scaffold.
+
+## What is included here
+- AVL `insert(k)` and `delete(k)` built on top of the Week 5 BST structure (`p`, `left`, `right`, `key`, `transplant`, successor-based delete)
+- Height maintenance (`height` per node) and rotations from the Week 6 balanced-tree notebook
+- AVL rebalancing logic (balance factor checks + LL/LR/RR/RL rotations)
+- A test section with visual checks (plots) and programmatic checks (BST + AVL invariants)
+
+## Resources used to write/design the code below
+- Professor notebooks:
+  - `Ch12_BinarySearchTree.ipynb` (BST insert/delete, `transplant`, successor delete)
+  - `[REDACTED].ipynb` (rotations, height updates, plotting helpers)
+- AVL original paper PDF (`AVL-tree(original).pdf`)
+- The Art of Computer Programming, Vol. 3 (balanced trees section)
+- Data Structures and Algorithms in Python (Chapter 11.4)
+
+## How to run
+1. Run the two `%%capture %run ...` cells (loads the professor classes + plotting helpers).
+2. Run the AVL class cell.
+3. Run the test cells at the bottom. Each test prints results and (optionally) plots the tree.
+--- [markdown] 1
+### Calling methods files
+
+These cells load the professor's Week 5 and Week 6 notebooks so this file can reuse:
+- BST structure + delete/transplant logic (Week 5)
+- rotations + height maintenance + visualization helpers (Week 6)
+--- [code] 2
+%%capture
+%run Ch12_BinarySearchTree.ipynb
+--- [code] 3
+%%capture
+%run [REDACTED].ipynb
+--- [code] 4
+class avltree(balancedtree):
+    """
+    AVL Tree implementation in the same notebook style as:
+      - Ch12_BinarySearchTree.ipynb (BST structure + transplant + delete cases)
+      - [REDACTED].ipynb (node.height + rotations + upward height updates)
+
+    Key idea used here:
+      - Do the exact same structural BST INSERT / DELETE (same pointer rules as Ch12).
+      - Then walk upward using the parent pointer `p`: update heights, check balance factor, apply rotations when balance is outside [-1, 1]
+    
+    Notes about "heights" in the professor's scaffold:
+      - compute_height(x) returns (left_height, right_height)
+        where each is computed from child.height + 1 (or 0 if missing).
+      - update_height(x) sets x.height = max(left_height, right_height)
+
+    Balance factor we use for AVL:
+      bf(x) = left_height - right_height
+    """
+
+    class node:
+        """(nested) node class for linkedlist"""
+
+        def __init__(self, k=None, parent=None, left_child=None, right_child=None):
+            """constructor for node objects"""
+            self.p = parent
+            self.left = left_child
+            self.right = right_child
+            self.key = k
+            self.height = 0
+
+    def get_balance(self,x):
+        """returns AVL balance factor for node x: left_height - right_height"""
+        if x == None:
+            return 0
+        left_height,right_height = self.compute_height(x)
+        return left_height - right_height
+
+    def rebalance(self,x):
+        """
+        Rebalance at node x if needed.
+
+        Uses the 4 AVL cases (expressed using balance factors):
+          - LL: bf(x) > 1 and bf(x.left) >= 0  -> right_rotate(x)
+          - LR: bf(x) > 1 and bf(x.left) <  0  -> left_rotate(x.left), right_rotate(x)
+          - RR: bf(x) < -1 and bf(x.right)<= 0 -> left_rotate(x)
+          - RL: bf(x) < -1 and bf(x.right)> 0 -> right_rotate(x.right), left_rotate(x)
+
+        Rotations are taken directly from the professor's balancedtree scaffold:
+          - left_rotate(self,x)
+          - right_rotate(self,x)
+        Each rotation already fixes parent pointers and updates heights for the two main nodes.
+        """
+        if x == None:
+            return
+        bf = self.get_balance(x)
+
+        # left heavy
+        if bf > 1:
+            # if left child is right heavy => LR case
+            if x.left != None and self.get_balance(x.left) < 0:
+                self.left_rotate(x.left)
+            self.right_rotate(x)
+            return
+
+        # right heavy
+        if bf < -1:
+            # if right child is left heavy => RL case
+            if x.right != None and self.get_balance(x.right) > 0:
+                self.right_rotate(x.right)
+            self.left_rotate(x)
+            return
+
+    def insert(self,k):
+        """
+        AVL insert: do the exact Ch12 BST insert but using avltree.node (height field exists)
+        - walk upward from the inserted node z: update_height and rebalance
+        This avoids the duplicate-key bug caused by search(root,k).
+        """
+        z = self.node(k)             # keep the exact inserted node (critical)
+        y = None
+        x = self.root
+
+        # standard BST descent (ties go RIGHT)
+        while x != None:
+            y = x
+            if z.key < x.key:
+                x = x.left
+            else:
+                x = x.right
+
+        # attach z under y
+        z.p = y
+        if y == None:
+            self.root = z
+        elif z.key < y.key:
+            y.left = z
+        else:
+            y.right = z
+
+        # AVL upward maintenance
+        x = z
+        while x != None:
+            self.update_height(x)
+            self.rebalance(x)
+            x = x.p
+
+    def delete(self,k):
+        """
+        AVL delete: locate node z with key k (same search loop style as Ch12/Ch13)
+        - perform the exact BST delete cases using transplant and successor. pick a good starting node for upward fixes
+        - walk upward: update_height and rebalance
+        """
+        x = self.root
+        z = None
+        while x != None:
+            z = x
+            if z.key == k:    # we are deleting node z below
+                break
+            elif k < x.key:
+                x = x.left
+            else:
+                x = x.right
+
+        if z == None or z.key != k:
+            return
+
+        # Structural delete (same 3 cases as professor's Ch12/Ch13 delete)
+        # start node for the upward repair pass (set carefully per case)
+        start = None
+
+        # Case 1: z has no left child
+        if z.left == None:
+            start = z.p
+            self.transplant(z,z.right)
+
+        # Case 2: z has no right child
+        elif z.right == None:
+            start = z.p
+            self.transplant(z,z.left)
+
+        # Case 3: z has two children
+        else:
+            y = self.min(z.right)            # successor
+            if y != z.right:
+                # successor is deeper: splice y out, then move it up to z's spot
+                start = y.p                  # y's old parent is definitely affected
+                self.transplant(y,y.right)   # y can only have a right child
+                y.right = z.right
+                y.right.p = y
+            else:
+                # successor is z.right; after transplant(z,y), y becomes in z's position
+                start = y                    # y itself is at the changed position
+
+            self.transplant(z,y)
+            y.left = z.left
+            y.left.p = y
+
+            # y's children changed, so height must be recomputed before moving up
+            self.update_height(y)
+
+            # if successor was z.right, start from y; otherwise start from y's old parent
+            if start == None:
+                start = y
+
+        # Upward repair pass (AVL addition): update heights + rebalance
+        while start != None:
+            self.update_height(start)
+            self.rebalance(start)
+            start = start.p
+--- [markdown] 5
+### Testing section
+
+Run these cells after the AVL class cell. They provide both visual and programmatic checks.
+--- [code] 6
+# Helper checks (used for testing)
+
+def inorder_keys(x):
+    """Return inorder traversal (sorted if BST invariant holds)."""
+    out = []
+    def dfs(n):
+        if n == None:
+            return
+        dfs(n.left)
+        out.append(n.key)
+        dfs(n.right)
+    dfs(x)
+    return out
+
+def is_bst(x, lo=None, hi=None):
+    """
+    Check BST invariant with inclusive bounds.
+    This matches the class behavior used in the notebooks (ties always go right in insert).
+    """
+    if x == None:
+        return True
+    if lo is not None and x.key < lo:
+        return False
+    if hi is not None and x.key > hi:
+        return False
+    # left subtree keys <= x.key, right subtree keys >= x.key
+    return is_bst(x.left, lo, x.key) and is_bst(x.right, x.key, hi)
+
+def expected_height(x):
+    """
+    Height convention used by the professor's Week 6 scaffold:
+    - leaf node has height 0
+    - missing child contributes 0 to compute_height (not -1)
+    - compute_height returns (1 + child.height) when child exists, else 0
+    """
+    if x == None:
+        return None
+    lh = 0
+    rh = 0
+    if x.left != None:
+        lh = 1 + x.left.height
+    if x.right != None:
+        rh = 1 + x.right.height
+    return max(lh, rh)
+
+def check_parent_pointers(x):
+    """Verify child -> parent consistency for the whole tree."""
+    ok = True
+    def dfs(n):
+        nonlocal ok
+        if n == None:
+            return
+        if n.left != None and n.left.p is not n:
+            ok = False
+        if n.right != None and n.right.p is not n:
+            ok = False
+        dfs(n.left)
+        dfs(n.right)
+    dfs(x)
+    return ok
+
+def check_heights(x):
+    """Verify stored node.height matches expected_height computed from children."""
+    ok = True
+    def dfs(n):
+        nonlocal ok
+        if n == None:
+            return
+        exp = expected_height(n)
+        if exp is None:
+            return
+        if n.height != exp:
+            ok = False
+        dfs(n.left)
+        dfs(n.right)
+    dfs(x)
+    return ok
+
+def is_avl(x):
+    """Check AVL balance property using the scaffold's height convention."""
+    ok = True
+    def dfs(n):
+        nonlocal ok
+        if n == None:
+            return
+        lh = 0
+        rh = 0
+        if n.left != None:
+            lh = 1 + n.left.height
+        if n.right != None:
+            rh = 1 + n.right.height
+        if abs(lh - rh) > 1:
+            ok = False
+        dfs(n.left)
+        dfs(n.right)
+    dfs(x)
+    return ok
+
+def assert_tree_ok(T, label=""):
+    """Print a compact status line for invariants."""
+    keys = inorder_keys(T.root)
+    bst_ok = is_bst(T.root)
+    avl_ok = is_avl(T.root)
+    p_ok = check_parent_pointers(T.root)
+    h_ok = check_heights(T.root)
+    sorted_ok = (keys == sorted(keys))
+    print(label)
+    print("root:", None if T.root is None else T.root.key)
+    print("inorder:", keys)
+    print("sorted(inorder) check:", sorted_ok)
+    print("BST invariant:", bst_ok)
+    print("AVL balance:", avl_ok)
+    print("parent pointers:", p_ok)
+    print("stored heights:", h_ok)
+    print("-" * 60)
+
+--- [code] 7
+# QUICK VERIFICATION (keep this)
+# - matches professor's Week 6 demo vibe
+# - also confirms all 4 AVL rotation cases + delete cases
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/Experiment.ipynb" | cut -c1-220 | head -260`
+```
+--- [markdown] 0
+# CSCI 4041 Project: AVL Trees
+
+This notebook implements an **AVL tree** by extending the professor's Week 6 `balancedtree` scaffold.
+
+## What is included here
+- AVL `insert(k)` and `delete(k)` built on top of the Week 5 BST structure (`p`, `left`, `right`, `key`, `transplant`, successor-based delete)
+- Height maintenance (`height` per node) and rotations from the Week 6 balanced-tree notebook
+- AVL rebalancing logic (balance factor checks + LL/LR/RR/RL rotations)
+- A test section with visual checks (plots) and programmatic checks (BST + AVL invariants)
+
+## Resources used to write/design the code below
+- Professor notebooks:
+  - `Ch12_BinarySearchTree.ipynb` (BST insert/delete, `transplant`, successor delete)
+  - `[REDACTED].ipynb` (rotations, height updates, plotting helpers)
+- AVL original paper PDF (`AVL-tree(original).pdf`)
+- The Art of Computer Programming, Vol. 3 (balanced trees section)
+- Data Structures and Algorithms in Python (Chapter 11.4)
+- https://stackoverflow.com/questions/52459129/what-is-the-fastest-way-of-testing-correctness-of-a-sorting-function
+- https://student.cs.uwaterloo.ca/~cs430/CS430-Lecture-13-Slides.pdf
+
+
+## How to run
+1. Run the two `%%capture %run ...` cells (loads the professor classes + plotting helpers).
+2. Run the AVL class cell.
+3. Run the test cells at the bottom. Each test prints results and (optionally) plots the tree.
+--- [code] 1
+%%capture
+%run Ch12_BinarySearchTree.ipynb
+--- [code] 2
+%%capture
+%run [REDACTED].ipynb
+--- [code] 3
+%%capture
+%run AVLTree.ipynb
+--- [markdown] 4
+# Part 1: Test cases for the best, worst, and average case data
+--- [code] 5
+import random
+random.seed(42)
+
+# Count time of rotations
+class count_avltree(avltree):
+    def __init__(self):
+        super().__init__()
+        self.rotation_count = 0
+
+    def left_rotate(self, x):
+        self.rotation_count += 1
+        super().left_rotate(x)
+
+    def right_rotate(self, x):
+        self.rotation_count += 1
+        super().right_rotate(x)
+
+# HELPER � builds insertion sequence from 1->n
+
+def insertion_seq(n):
+    keys = list(range(1, n + 1))
+    result = []
+
+    def pick(arr):
+        if not arr:
+            return
+        mid = len(arr) // 2     # take the mid number and start building the tree from it
+        result.append(arr[mid])
+        pick(arr[:mid])
+        pick(arr[mid + 1:])
+
+    pick(keys)
+    return result
+
+
+# TEST PARAMETERS
+n = 15  # number of keys to insert. You can change it to test
+
+best_seq = insertion_seq(n)
+
+worst_seq_asc  = list(range(1, n + 1))        # [1, 2, 3, ..., 15]
+worst_seq_desc = list(range(n, 0, -1))         # [15, 14, 13, ..., 1]
+
+avg_seq = list(range(1, n + 1))
+random.shuffle(avg_seq)
+--- [markdown] 6
+# Best case
+
+- When you insert the data in an order that keep the tree in order in the first place
+    -> the tree wouldn't have to do any rotation
+--- [code] 7
+T_best = count_avltree()
+for k in best_seq:
+    T_best.insert(k)
+
+print("=" * 50)
+print("BEST CASE (level-order insertion)")
+print("Insertion sequence:", best_seq)
+print("Rotations:", T_best.rotation_count)   # should be 0
+assert_tree_ok(T_best, "[BEST CASE]")
+PrintTree(T_best)
+--- [markdown] 8
+# Worst case
+The insertation is ascending, for example, [1,2,3,4,...,n], that would trigger RR rotations every insertation
+
+The other case is descending, [n, n-1,..., 3, 2,1], would trigger LL rotations every insertation
+--- [code] 9
+worst_case_asc = count_avltree()
+for k in worst_seq_asc:
+    worst_case_asc.insert(k)
+
+print("Rotations:", worst_case_asc.rotation_count)
+assert_tree_ok(worst_case_asc, "[WORST CASE - Ascending]")
+PrintTree(worst_case_asc)
+
+
+
+worst_case_desc = count_avltree()
+for k in worst_seq_desc:
+    worst_case_desc.insert(k)
+
+print("Rotations:", worst_case_desc.rotation_count)
+assert_tree_ok(worst_case_desc, "[WORST CASE - Descending]")
+PrintTree(worst_case_desc)
+
+--- [markdown] 10
+# Average case
+Randomly insert
+--- [code] 11
+avg_case = counted_avltree()
+for k in avg_seq:
+    avg_case.insert(k)
+
+print("Rotations:", avg_case.rotation_count)   # should be between best and worst
+assert_tree_ok(avg_case, "[AVERAGE CASE]")
+PrintTree(avg_case)
+--- [markdown] 12
+# Summary
+Compare the number of rotations each case would need to do
+--- [code] 13
+print("ROTATION SUMMARY")
+print(f"Best case  (level-order):  {T_best.rotation_count} rotations")
+print(f"Worst case (ascending):    {worst_case_asc.rotation_count} rotations")
+print(f"Worst case (descending):   {worst_case_desc.rotation_count} rotations")
+print(f"Average case (shuffled):   {avg_case.rotation_count} rotations")
+--- [markdown] 14
+# Part 2: Demonstrate the various cases of rebalancing used to correct the structure after inserting or deleting items
+There are 4 types of rotations that we normally see:
+- LL (left-left) imbalance: we need to do a single right rotation
+- RR (right-right) imbalance: we need to do a single left rotation
+- LR (left-right) imbalance: we need to left rotate the child, then right rotate the root
+- RL (right-left) imbalance: we need to right rotate the child, then left rotate the root
+
+In this part, each case shown will have both INSERT and DELETE operation for demonstration.
+
+--- [markdown] 15
+Helper: print tree before and after rotation
+--- [code] 16
+class print_rotation(avltree):
+    def left_rotate(self, x):
+        print(f"Left rotate on node {x.key}")
+        print("Tree BEFORE rotation:")
+        PrintTree(self)
+        super().left_rotate(x)
+        print("Tree AFTER rotation:")
+        PrintTree(self)
+
+    def right_rotate(self, x):
+        print(f"Right rotate on node {x.key}")
+        print("Tree BEFORE rotation:")
+        PrintTree(self)
+        super().right_rotate(x)
+        print("Tree AFTER rotation:")
+        PrintTree(self)
+--- [markdown] 17
+# LL case - right rotation
+--- [markdown] 18
+Inserting
+--- [code] 19
+T = print_rotation()
+base = [50, 25, 75, 10, 35, 60, 90]
+for i in base:
+    T.insert(i)
+print("Base tree")
+PrintTree(T)
+
+print("\nInsert 5 (no rotation yet)")
+T.insert(5)
+PrintTree(T)
+
+print("\nInsert 1 � LL rotation")
+T.insert(1)
+assert_tree_ok(T, "INSERT LL")
+--- [markdown] 20
+Deleting
+--- [code] 21
+T = print_rotation()
+base = [50, 25, 75, 10, 35, 60, 90, 5, 15]
+for i in base:
+    T.insert(i)
+print("Base tree:")
+PrintTree(T)
+
+print("\nDeleting 60 (no rotation yet)")
+T.delete(60)
+PrintTree(T)
+
+print("\nDeleting 75 � triggers LL rotation")
+T.delete(75)
+assert_tree_ok(T, "DELETE LL")
+--- [markdown] 22
+# RR case - left rotation
+--- [markdown] 23
+Inserting
+--- [code] 24
+T = print_rotation()
+base = [50, 25, 75, 10, 35, 60, 90]
+for i in base:
+    T.insert(i)
+print("Base tree:")
+PrintTree(T)
+
+print("\nInserting 92 (no rotation yet)")
+T.insert(95)
+PrintTree(T)
+
+print("\nInserting 98 � triggers RR rotation")
+T.insert(99)
+assert_tree_ok(T, "INSERT RR")
+--- [markdown] 25
+Deleting
+--- [code] 26
+T = print_rotation()
+base = [50, 25, 75, 10, 35, 60, 90, 85, 95]
+for i in base:
+    T.insert(i)
+print("Base tree")
+PrintTree(T)
+
+print("\nDeleting 10 (no rotation yet)")
+T.delete(10)
+PrintTree(T)
+
+print("\nDeleting 25 � triggers RR rotation")
+T.delete(25)
+assert_tree_ok(T, "DELETE RR")
+--- [markdown] 27
+# Case 3: LR Rotation - left rotate child, right rotate root
+--- [markdown] 28
+Inserting
+--- [code] 29
+T = print_rotation()
+base = [50, 25, 75, 10, 35, 60, 90]
+for i in base:
+    T.insert(i)
+print("Base tree:")
+PrintTree(T)
+
+print("\nInserting 3 (no rotation yet):")
+T.insert(3)
+PrintTree(T)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Final Project/Maze/Final.ipynb" | cut -c1-200 | head -230`
+```
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\src.py", line 5, in <module>
+    if s.strip(): print(f"--- [{c['cell_type']}] {i}\n{s}")
+                  ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\miniconda3\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 244: character maps to <undefined>
+--- [markdown] 0
+# CSCI 4041 - Maze Graph Algorithms
+
+This notebook is my implementation part of the maze final project. It uses the professor's `graph`, `matrixgraph`, and `PrintGraph` code from the maze graph codebase.
+
+The maze is treated as a graph: cells are vertices, and open passages are edges. Wall pictures are drawn from a second `matrixgraph`, following the idea in `Maze-Template.ipynb`.
+
+--- [code] 1
+%run Ch20(Graphs-CodeBase)-MAZE.ipynb
+--- [markdown] 2
+## Maze Representation
+
+These helpers build the grid graph and keep vertex coordinates in the same simple style as the professor's graph examples. The passage graph uses adjacency lists. The wall drawing later uses a matrix 
+
+--- [code] 3
+import random
+import time
+import statistics
+from collections import deque
+import matplotlib.pyplot as plt
+
+REQUIRED_SIZES = (8,16,32,64)
+
+def cell_index(row,col,n):
+    """return the vertex index for cell (row,col)"""
+    return row*n + col
+
+def cell_coordinates(index,n):
+    """return row and column for a vertex index"""
+    return index//n,index%n
+
+def add_undirected_edge(G,i,j,weight=1):
+    """add edge i--j using the directed add_edge method"""
+    G.add_edge(i,j,weight)
+    G.add_edge(j,i,weight)
+
+def remove_undirected_matrix_edge(G,i,j):
+    """remove edge i--j from a matrixgraph"""
+    G.A[i][j] = 0
+    G.A[j][i] = 0
+
+def has_edge(G,i,j):
+    """check if edge i -> j exists"""
+    if type(G.A[0])==list:
+        return G.A[i][j] != 0
+
+    node = G.A[i]
+    while node.next:
+        node = node.next
+        if node.vertex == j:
+            return True
+    return False
+
+def set_grid_coordinates(G,n):
+    """put vertices at cell-center coordinates"""
+    G.n_side = n
+    for row in range(n):
+        for col in range(n):
+            node = row*n + col
+            G.V[node].name = str(node)
+            G.V[node].x = 4*col + 2
+            G.V[node].y = 4*row + 2
+
+def empty_maze_graph(n):
+    """construct an empty n by n maze graph"""
+    M = graph(n*n)
+    set_grid_coordinates(M,n)
+    return M
+
+def full_grid_graph(n,weighted=False,seed=None):
+    """construct the full grid graph of all possible moves"""
+    if seed != None:
+        random.seed(seed)
+
+    G = graph(n*n)
+    set_grid_coordinates(G,n)
+    for row in range(n):
+        for col in range(n):
+            node = row*n + col
+
+            # right-left
+            if col+1 < n:
+                if weighted:
+                    w = random.randrange(1,n**3 + 1)
+                else:
+                    w = 1
+                add_undirected_edge(G,node,node+1,w)
+
+            # up-down
+            if row+1 < n:
+                if weighted:
+                    w = random.randrange(1,n**3 + 1)
+                else:
+                    w = 1
+                add_undirected_edge(G,node,node+n,w)
+    return G
+
+def reset_vertices(G):
+    """reset fields used by graph algorithms"""
+    for u in G.V:
+        u.color = "White"
+        u.d = float("inf")
+        u.f = None
+        u.prev = None
+        u.key = float("inf")
+
+def path_from_prev(G,start_index=0,goal_index=None):
+    """reconstruct a path using prev pointers"""
+    if goal_index == None:
+        goal_index = G.n - 1
+    s = G.V[start_index]
+    path = []
+    u = G.V[goal_index]
+    while u != None:
+        path.append(u)
+        if u == s:
+            break
+        u = u.prev
+
+    if len(path)==0 or path[-1] != s:
+        return []
+    path.reverse()
+    return path
+--- [markdown] 4
+## Maze Solvers
+
+These follow the Chapter 20 and Chapter 22 style: vertices store `color`, `d`, `prev`, and `key`. BFS gives the shortest path for unit-weight mazes. DFS gives a valid path if the exit is reachable. Di
+
+--- [code] 5
+class maze_minheap:
+    """an adaptable min-heap, following the professor's priority queue style"""
+
+    def __init__(self,n,A=None):
+        if A:
+            self.A = A
+            self.size = n
+            self.build_min_heap()
+        else:
+            self.A = [None for i in range(n)]
+            self.size = 0
+        self.capacity = n
+
+    def left(self,i):
+        return 2*i + 1
+
+    def right(self,i):
+        return 2*i + 2
+
+    def parent(self,i):
+        return (i-1)//2
+
+    def insert(self,x):
+        self.A[self.size] = x
+        self.size += 1
+        self.decrease_key(self.size-1,x.key)
+
+    def extract_min(self):
+        out = self.A[0]
+        self.A[0] = self.A[self.size-1]
+        self.A[self.size-1] = None
+        self.size = self.size - 1
+        if self.size:
+            self.min_heapify(0)
+        return out
+
+    def build_min_heap(self):
+        for i in range(self.size//2,-1,-1):
+            self.min_heapify(i)
+
+    def decrease_key(self,i,k):
+        p = self.parent(i)
+        if p>=0 and self.A[p] > self.A[i]:
+            self.A[i],self.A[p] = self.A[p],self.A[i]
+            self.decrease_key(p,k)
+
+    def min_heapify(self,i):
+        l = self.left(i)
+        r = self.right(i)
+
+        if l < self.size and self.A[l] < self.A[i]:
+            smallest = l
+        else:
+            smallest = i
+
+        if r < self.size and self.A[r] < self.A[smallest]:
+            smallest = r
+
+        if smallest != i:
+            self.A[i],self.A[smallest] = self.A[smallest],self.A[i]
+            self.min_heapify(smallest)
+
+    def __str__(self):
+        return str(self.A)
+
+def BFS_maze_solver(G,start_index=0,goal_index=None):
+    """breadth-first search maze solver"""
+    if goal_index == None:
+        goal_index = G.n - 1
+
+    for u in G.V:
+        u.color = "White"
+        u.d = float("inf")
+        u.prev = None
+    s = G.V[start_index]
+    t = G.V[goal_index]
+    s.color = "Gray"
+    s.d = 0
+    s.prev = None
+
+    Q = deque()
+    Q.append(s)
+    queue_pushes = 1
+    queue_pops = 0
+    visited_count = 1
+
+    while Q:
+        u = Q.popleft()
+        queue_pops += 1
+        if u == t:
+            break
+        for v in G.adj(u):
+            if v.color == "White":
+                v.color = "Gray"
+                v.d = u.d + 1
+                v.prev = u
+                Q.append(v)
+                queue_pushes += 1
+                visited_count += 1
+        u.color = "Black"
+    path = path_from_prev(G,start_index,goal_index)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "== ISL: scaling in PCA"; grep -n -i "standard deviation one\|scaled to have standard\|should be scaled\|variables should be\|scale the variables\|scaling the variables" isl.txt | head -20; echo "== ISL: k-means algorithm / random starts / scaling in clustering"; grep -n -i "random initial\|run the algorithm multiple\|multiple times from different\|within-cluster variation\|K-means clustering algorithm" isl.txt | head -20; echo "== ISL: proportion of variance / scree"; grep -n -i "scree plot\|proportion of variance explained\|cumulative PVE" isl.txt | head -12`
+```
+== ISL: scaling in PCA
+5877:that all three variables should be included in the model. However, it is
+30260:Scaling the Variables
+30267:such as linear regression, in which scaling the variables has no effect. (In
+30273:to have standard deviation one. This is reproduced in the left-hand plot in
+30318:the four variables. In general, scaling the variables to have standard deviation one
+30325:USArrests data set, without scaling the variables to have standard devia-
+30340:we typically scale each variable to have standard deviation one before we
+30344:units. In this case, we might not wish to scale the variables to have stan-
+30348:might choose not to scale the genes to each have standard deviation one.
+30505:so each variable has mean zero and standard deviation one. We then ran-
+31338:also consider whether or not the variables should be scaled to have stan-
+31353:This may not be desirable. If the variables are scaled to have standard de-
+31356:clustering performed. We might also want to scale the variables to have
+31357:standard deviation one if they are measured on different scales; otherwise,
+31360:as no surprise that whether or not it is a good decision to scale the variables
+31363:whether or not to scale the variables before performing clustering applies
+31405:       For instance, maybe the variables should be scaled to have standard
+32136:             To scale the variables before performing hierarchical clustering of the
+32243:          We first perform PCA on the data after scaling the variables (genes) to have
+32244:          standard deviation one, although here one could reasonably argue that it
+== ISL: k-means algorithm / random starts / scaling in clustering
+30853:to which it was assigned using the K-means clustering algorithm. Note that there
+30860:within-cluster variation is as small as possible. The within-cluster variation
+30871:K clusters such that the total within-cluster variation, summed over all K
+30875:actionable we need to define the within-cluster variation. There are many
+30886:words, the within-cluster variation for the kth cluster is the sum of all of
+30961:it is important to run the algorithm multiple times from different random
+32576:             1. This problem involves the K-means clustering algorithm.
+== ISL: proportion of variance / scree
+545:12.2.3 The Proportion of Variance Explained . . . . . . . 510
+30122:12.2.3 The Proportion of Variance Explained
+30140:interested in knowing the proportion of variance explained (PVE) by each
+30178:compute the cumulative PVE of the first M principal components, we can
+30242:FIGURE 12.3. Left: a scree plot depicting the proportion of variance explained
+30245:mulative proportion of variance explained by the four principal components in the
+30248:   In the USArrests data, the first principal component explains 62.0 % of                                                                                      scree plot
+30254:of each principal component, as well as the cumulative PVE, is shown
+30255:in Figure 12.3. The left-hand panel is known as a scree plot, and will be
+30378:to visualize the data by examining a scree plot, such as the one shown
+30381:of the variation in the data. This is done by eyeballing the scree plot, and
+30382:looking for a point at which the proportion of variance explained by each
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; PYTHONIOENCODING=utf-8 ./venv/Scripts/python.exe -I src.py "$L/1.3 kNN with SciKit-Learn.ipynb" | cut -c1-200 | head -200`
+```
+--- [code] 0
+import pandas as pd
+import numpy as np
+--- [code] 1
+# load your data
+df = pd.read_csv("https://raw.githubusercontent.com/be-prado/csci4521/refs/heads/main/Seeds.csv")
+names = list(df.columns) #Save column names
+--- [code] 2
+#Choose which data is features (X) and labels (y)
+X = df[ ['area','compactness'] ].to_numpy()
+y = df['wheat_type'].to_numpy()
+--- [markdown] 3
+Helper functions!
+--- [code] 4
+def train_test_split(X,y,test_percent):
+  numRows = y.size                     #number or rows in the entire dataset
+  splitPoint = int((1-test_percent)*numRows)  #the row index test_size% of the way through
+  p = np.random.permutation(numRows)   #array for shuffling data
+  X = X[p]
+  y = y[p]
+
+  #Training data array
+  X_train = X[:splitPoint]  # training features
+  y_train = y[:splitPoint]  # training labels
+
+  #Testing data array
+  X_test = X[splitPoint:]  # testing features
+  y_test = y[splitPoint:] # testing labels
+
+  return X_train, X_test, y_train, y_test
+--- [code] 5
+def nn_classify_sample(train_features, train_labels, new_feature):
+  dists = np.array([np.sum( (t-new_feature)**2) for t in train_features])
+  nearest = dists.argmin()
+  return train_labels[nearest]
+
+def nn_classify(train_features, train_labels, test_features):
+  num_result = test_features[:,0].size
+  result = np.ones(num_result)
+  for i in range(0,num_result):
+    result[i] = nn_classify_sample(train_features[:,0:2], train_labels, test_features[i])
+  return result
+--- [code] 6
+def accuracy(classify, X_train, y_train, X_test, y_test):
+  pred = classify(X_train, y_train, X_test)
+  correct_pred = (pred == y_test)
+  total_preds = y_test.size
+  return correct_pred.sum()/total_preds
+--- [code] 7
+def avg_accuracy(classifier, X, y, count = 200, split=0.33):
+  acc = 0
+  for _ in range(0,count):
+    X_train, X_test, y_train, y_test = train_test_split(X,y,split)
+    acc += accuracy(classifier, X_train, y_train, X_test, y_test)
+  return acc/count
+--- [markdown] 8
+test our nearest neighbor with our train/test split
+--- [code] 9
+# TODO: create a train/test split where 1/3 of the data is used for testing
+x_train, x_test, y_train, y_test = train_test_split(X, y, 0.33)
+print(x_train.shape)
+print(x_test.shape)
+--- [code] 10
+# TODO: use our helper functions to compute the accuracy of a NN model with the above split
+accuracy(nn_classify, x_train, y_train, x_test, y_test)
+--- [code] 11
+# TODO: put both lines of code in the same block and run multiple times
+# Q: Why does each run have different accuracies each run?
+x_train, x_test, y_train, y_test = train_test_split(X, y, 0.33)
+print(x_train.shape)
+print(x_test.shape)
+accuracy(nn_classify, x_train, y_train, x_test, y_test)
+--- [markdown] 12
+KNN implementation
+--- [code] 13
+from sklearn import neighbors
+from sklearn.neighbors import KNeighborsClassifier
+--- [code] 14
+# TODO: write a function that will use KNN to classify a whole array of test features
+# Hint: use a wrapper function so that it fits within our accuracy helper function!
+def knn_classifier(k):
+  def knn_classify(x_train, y_train, x_test):
+    knn = KNeighborsClassifier(n_neighbors = k)
+    knn.fit(x_train, y_train)
+
+    pred = knn.predict(x_test)
+    return pred
+  return knn_classify
+
+--- [code] 15
+# TODO: test it out with 2, 5, and 10 neighbors
+x_train, x_test, y_train, y_test = train_test_split(X, y, 0.33)
+knn = knn_classifier(2)
+accuracy(knn, x_train, y_train, x_test, y_test)
+--- [code] 16
+knn = knn_classifier(5)
+accuracy(knn, x_train, y_train, x_test, y_test)
+--- [code] 17
+knn = knn_classifier(10)
+accuracy(knn, x_train, y_train, x_test, y_test)
+--- [code] 18
+# TODO: test different amounts of neighbors with the cross-validation
+knn = knn_classifier(2)
+avg_accuracy(knn, X, y, split=0.33)
+--- [markdown] 19
+Finding the best K
+--- [code] 20
+# TODO: find the best performing K testing every third value between 1 - 90
+ks = np.arange(1, 91, 3)
+acc_list = []
+for k in ks:
+  this_knn = knn_classifier(k)
+  acc = avg_accuracy(this_knn, X, y)
+  acc_list.append(acc)
+
+print(acc_list[:5])
+--- [code] 21
+import seaborn as sns
+--- [code] 22
+# TODO: use seaborn to plot a graph of the accuracies vs. ks
+# Hint: use sns.lineplot
+sns.lineplot(x=ks, y=acc_list)
+--- [code] 23
+# If you have named dataframes, seaborn labels them auotmatically
+# .... but this can be a pain sometimes
+# TODO: lets turn our lists into dataframes so seaborn will label them
+ks_df = pd.DataFrame(ks, columns=["k"])
+acc_df = pd.DataFrame(acc_list, columns=["Accuracy"])
+sns.lineplot(x=ks_df.k, y=acc_df.Accuracy)
+--- [code] 24
+# Or we can just use matplotlibs pyplot package to control the labels and titles
+# TODO: try it now!
+# Hint: functions like plt.xlabel, plt.ylabel, and plt.title will be useful
+import matplotlib.pyplot as plt
+fig = sns.lineplot(x = ks, y = acc_list)
+plt.xlabel("k")
+plt.ylabel("Avg Accuracy")
+plt.title("Accuracy for kNN with different k values")
+plt.show(fig)
+--- [code] 25
+# TODO: lets make another graph but this time lets compute the accuracy for both training and testing sets for different Ks
+ks = np.arange(1, 91, 3)
+train_acc_list = []
+test_acc_list = []
+
+for k in ks:
+  this_knn = knn_classifier(k)
+  test_acc = 0
+  train_acc = 0
+  for i in range(0,20):
+    X_train, X_test, y_train, y_test = train_test_split(X,y,0.33)
+    test_acc += accuracy(this_knn, X_train, y_train, X_test, y_test) / 20
+    train_acc += accuracy(this_knn, X_train, y_train, X_train, y_train) / 20
+  test_acc_list.append(test_acc)
+  train_acc_list.append(train_acc)
+
+
+
+--- [code] 26
+# helper for making a graph nicely
+from pylab import rcParams
+sns.set(font_scale=1.2)
+sns.set_style("white") #whitegrid white dark darkgrid
+
+rcParams['figure.figsize'] = 8, 6
+result = pd.DataFrame( {"k":ks,"Train.Acc":train_acc_list,"Test.Acc":test_acc_list} )
+pd.melt(result, ['k'])
+sns.lineplot(x="k",y="value", hue='variable', data=pd.melt(result, ['k']))
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "=== ISL 12.2.4 scaling (PCA)"; sed -n 30260,30280p isl.txt | cut -c1-140; sed -n 30336,30350p isl.txt | cut -c1-140; echo; echo "=== ISL clustering: scaling"; sed -n 31350,31366p isl.txt | cut -c1-140; echo; echo "=== ISL k-means algorithm"; sed -n 30900,30975p isl.txt | cut -c1-150`
+```
+=== ISL 12.2.4 scaling (PCA)
+Scaling the Variables
+
+We have already mentioned that before PCA is performed, the variables
+should be centered to have mean zero. Furthermore, the results obtained
+when we perform PCA will also depend on whether the variables have
+been individually scaled (each multiplied by a different constant). This is in
+contrast to some other supervised and unsupervised learning techniques,
+such as linear regression, in which scaling the variables has no effect. (In
+linear regression, multiplying a variable by a factor of c will simply lead to
+multiplication of the corresponding coefficient estimate by a factor of 1/c,
+and thus will have no substantive effect on the model obtained.)
+
+   For instance, Figure 12.1 was obtained after scaling each of the variables
+to have standard deviation one. This is reproduced in the left-hand plot in
+Figure 12.4. Why does it matter that we scaled the variables? In these data,
+the variables are measured in different units; Murder, Rape, and Assault are
+reported as the number of occurrences per 100, 000 people, and UrbanPop is
+the percentage of the state's population that lives in an urban area. These
+four variables have variances of 18.97, 87.73, 6945.16, and 209.5, respec-
+tively. Consequently, if we perform PCA on the unscaled variables, then
+                                                                                      12.2 Principal Components Analysis 513
+the elements of that variable by 1, 000. Then the variance of the variable
+would be tiny, and so the first principal component loading vector would
+have a very small value for that variable. Because it is undesirable for the
+principal components obtained to depend on an arbitrary choice of scaling,
+we typically scale each variable to have standard deviation one before we
+perform PCA.
+
+   In certain settings, however, the variables may be measured in the same
+units. In this case, we might not wish to scale the variables to have stan-
+dard deviation one before performing PCA. For instance, suppose that the
+variables in a given data set correspond to expression levels for p genes.
+Then since expression is measured in the same "units" for each gene, we
+might choose not to scale the genes to each have standard deviation one.
+514 12. Unsupervised Learning
+
+
+=== ISL clustering: scaling
+computer very rarely. High-frequency purchases like socks therefore tend
+to have a much larger effect on the inter-shopper dissimilarities, and hence
+on the clustering ultimately obtained, than rare purchases like computers.
+This may not be desirable. If the variables are scaled to have standard de-
+viation one before the inter-observation dissimilarities are computed, then
+each variable will in effect be given equal importance in the hierarchical
+clustering performed. We might also want to scale the variables to have
+standard deviation one if they are measured on different scales; otherwise,
+the choice of units (e.g. centimeters versus kilometers) for a particular vari-
+able will greatly affect the dissimilarity measure obtained. It should come
+as no surprise that whether or not it is a good decision to scale the variables
+before computing the dissimilarity measure depends on the application at
+hand. An example is shown in Figure 12.16. We note that the issue of
+whether or not to scale the variables before performing clustering applies
+to K-means clustering as well.
+
+12.4.3 Practical Issues in Clustering
+
+=== ISL k-means algorithm
+
+   Now, we would like to find an algorithm to solve (12.17)--that is, a
+method to partition the observations into K clusters such that the objective
+of (12.17) is minimized. This is in fact a very difficult problem to solve
+precisely, since there are almost Kn ways to partition n observations into K
+clusters. This is a huge number unless K and n are tiny! Fortunately, a very
+simple algorithm can be shown to provide a local optimum--a pretty good
+solution--to the K-means optimization problem (12.17). This approach is
+laid out in Algorithm 12.2.
+
+Algorithm 12.2 K-Means Clustering
+
+   1. Randomly assign a number, from 1 to K, to each of the observations.
+       These serve as initial cluster assignments for the observations.
+
+   2. Iterate until the cluster assignments stop changing:
+
+        (a) For each of the K clusters, compute the cluster centroid. The
+              kth cluster centroid is the vector of the p feature means for the
+              observations in the kth cluster.
+
+        (b) Assign each observation to the cluster whose centroid is closest
+              (where closest is defined using Euclidean distance).
+
+   Algorithm 12.2 is guaranteed to decrease the value of the objective (12.17)
+at each step. To understand why, the following identity is illuminating:
+
+1                     p               p
+
+|Ck| (xij - xi j ) = 2 (xij - x�kj ) ,2     2           (12.18)
+
+               i,i Ck j=1          iCk j=1
+
+where x�kj  =    1       iCk xij is the mean for feature j in cluster Ck.
+               |Ck |
+
+In Step 2(a) the cluster means for each feature are the constants that
+
+minimize the sum-of-squared deviations, and in Step 2(b), reallocating the
+
+observations can only improve (12.18). This means that as the algorithm
+
+is run, the clustering obtained will continually improve until the result no
+
+longer changes; the objective of (12.17) will never increase. When the result
+no longer changes, a local optimum has been reached. Figure 12.8 shows
+
+the progression of the algorithm on the toy example from Figure 12.7.
+
+K-means clustering derives its name from the fact that in Step 2(a), the
+
+cluster centroids are computed as the mean of the observations assigned to
+
+each cluster.
+
+Because the K-means algorithm finds a local rather than a global opti-
+
+mum, the results obtained will depend on the initial (random) cluster as-
+
+signment of each observation in Step 1 of Algorithm 12.2. For this reason,
+
+it is important to run the algorithm multiple times from different random
+524 12. Unsupervised Learning
+
+Data                           Step 1       Iteration 1, Step 2a
+
+Iteration 1, Step 2b  Iteration 2, Step 2a  Final Results
+
+FIGURE 12.8. The progress of the K-means algorithm on the example of
+Figure 12.7 with K=3. Top left: the observations are shown. Top center: in
+Step 1 of the algorithm, each observation is randomly assigned to a cluster. Top
+right: in Step 2(a), the cluster centroids are computed. These are shown as large
+colored disks. Initially the centroids are almost completely overlapping because
+the initial cluster assignments were chosen at random. Bottom left: in Step 2(b),
+each observation is assigned to the nearest centroid. Bottom center: Step 2(a) is
+once again performed, leading to new cluster centroids. Bottom right: the results
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data"; cat config.json; echo; wc -l *.csv; ls -la; cd ..; git log --format='%h %an %ad %s' --date=iso | head -3; echo ---; sed -n 1,12p assignment_student.md`
+```
+{
+  "assignment": "HW2 Rover Rescue",
+  "student_id": "demo3",
+  "grid_shape": [
+    28,
+    28
+  ],
+  "sensor_columns": [
+    "sensor_1",
+    "sensor_2",
+    "sensor_3",
+    "sensor_4",
+    "sensor_5",
+    "sensor_6",
+    "sensor_7",
+    "sensor_8"
+  ],
+  "terrain_names": [
+    "firm",
+    "rough",
+    "sand"
+  ],
+  "practice_start_yx": [
+    26,
+    1
+  ],
+  "practice_goal_yx": [
+    1,
+    26
+  ],
+  "mission_start_yx": [
+    26,
+    1
+  ],
+  "mission_goal_yx": [
+    1,
+    26
+  ],
+  "n_clusters": 3,
+  "assignment_version": 2
+}
+    91 calibration.csv
+   785 development.csv
+   785 mission.csv
+  1661 total
+total 254
+drwxr-xr-x 1 anant 197609      0 Oct 27 19:51 .
+drwxr-xr-x 1 anant 197609      0 Oct 27 19:51 ..
+-rw-r--r-- 1 anant 197609    970 Oct 27 19:51 calibration.csv
+-rw-r--r-- 1 anant 197609    535 Oct 27 19:51 config.json
+-rw-r--r-- 1 anant 197609 120532 Oct 27 19:51 development.csv
+-rw-r--r-- 1 anant 197609 120536 Oct 27 19:51 mission.csv
+-rw-r--r-- 1 anant 197609    330 Oct 27 19:51 practice_truth.bin
+2d143fe be-prado 2026-10-22 14:52:13 -0500 added dataset for hw 3 f26
+---
+# Homework 2 — Rover Rescue
+
+Build a learning system that predicts **firm**, **rough**, or **sand** terrain from eight sensor measurements. The supplied simulator handles movement and path planning. Investigate how your model choices affect predictions and the rover's outcome.
+
+## Getting started
+
+Clone the repository and follow the README to run `run_demo.py`. Everything needed to begin is included: `rover_starter.py`, a small runnable example, requirements, and `demo_data/`. Use that supplied dataset for your experiments; you do not collect or generate your own data. Create your own Colab/Jupyter notebook or Python file for your solution.
+
+## Your investigation
+
+Use standardization, PCA, k-means, and k-nearest-neighbor classification. You may use existing libraries or your own implementations. Use three clusters for the terrain classifier and calibration-training labels to attach terrain names to clusters.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `ToolSearch` -- `{"query":"select:mcp__claude_ai_Gmail__search_threads,mcp__claude_ai_Google_Drive__search_files","max_results":5}`
+- `mcp__claude_ai_Gmail__search_threads` -- `{"query":"(Rover OR \"rover rescue\" OR \"development.csv\" OR \"personalized dataset\" OR \"HW2\" OR \"Homework 2\") (4521 OR bianc072 OR Prado OR Gradescope)","pageSize":10,"view":"THREAD_VIEW_METADATA_ONLY"}`
+- `mcp__claude_ai_Google_Drive__search_files` -- `{"query":"(title contains \u0027rover\u0027 or title contains \u0027development\u0027 or title contains \u0027mission\u0027 or title contains \u0027calibration\u0027) and (mimeType contains \u0027zip\u0027 or mimeType contains \u0027csv\u0027 or mimeType contains \u0027folder\u0027)","pageSize":10,"excludeContentSnippets":true}`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb2.py`
+```
+import sys
+import nbformat
+from nbformat.v4 import new_notebook, new_markdown_cell, new_code_cell
+
+STARTER = sys.argv[1]
+OUT = sys.argv[2]
+
+starter = nbformat.read(STARTER, as_version=4)
+cells = []
+
+# every starter cell is copied unchanged (source only, outputs are regenerated by a fresh run)
+for c in starter.cells:
+    src = c.source
+    if src.strip() == "# Your work starts here.":
+        continue
+    nc = new_markdown_cell(src) if c.cell_type == "markdown" else new_code_cell(src)
+    nc["id"] = c["id"] if "id" in c else nc["id"]
+    cells.append(nc)
+
+override = new_code_cell('''# ADDED: set BUNDLE_OVERRIDE to the folder holding development.csv, calibration.csv, mission.csv,
+# config.json and practice_truth.bin if it is not the bundle downloaded above. None keeps the downloaded bundle.
+# Everything below reads BUNDLE_DIR, so nothing else changes.
+BUNDLE_OVERRIDE = None
+if BUNDLE_OVERRIDE is not None:
+    BUNDLE_DIR = Path(BUNDLE_OVERRIDE)
+print("Data folder in use:", BUNDLE_DIR)''')
+idx = next(i for i, c in enumerate(cells) if "BUNDLE_DIR = repo_dir" in c.source)
+cells.insert(idx + 1, override)
+
+
+def md(s): cells.append(new_markdown_cell(s))
+def code(s): cells.append(new_code_cell(s))
+
+
+md('''# CSCI 4521 Homework 2: Rover Rescue
+Everything above this line is the supplied starter, unchanged except for one marked override cell. Everything below is my work.
+
+This notebook builds a terrain classifier (firm, rough, sand) from eight sensors by extending the tools from lectures 1.1, 2.3 and 2.4 and ISL chapter 12, with every algorithm written out by hand in NumPy.
+
+## What is included here
+- Part 1: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)
+- Part 2: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring
+- Part 3: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)
+- Part 4: eleven configurations on one fixed split (scaling, PCA, k-means versus 1-NN), with fit and predict timings
+- Part 5: model selection by a rule fixed before any result was seen
+- Part 6: deployment on the practice and mission grids, failure analysis, mission shift check
+- Part 7: `submission.csv` export
+
+## Resources used to write/design the code below
+- Lecture 1.1 notebook (`nn_classify_sample`, `distance_sq`, z-score with training statistics): the reference loop my fast kNN must agree with
+- Lecture 1.3 notebook (`knn_classifier(k)` closure with `classify(x_train, y_train, x_test)`, `accuracy(...)`)
+- Lecture 1.4 (confusion matrix, precision, recall, F1)
+- Lecture 2.3 slides 10, 11, 16, 17, 24 and the 2.3 notebook (k-means steps, stopping rule, initialization choices, partition conditions, choosing k)
+- Lecture 2.4 slides 17 to 28 and the 2.4 notebooks (PCA, `explained_variance_ratio_`, cumulative variance plot, 2-D and 3-D views, split before fitting PCA)
+- ISL 12.2 (PCA, scaling the variables, proportion of variance explained), ISL 12.4 Algorithm 12.2 (k-means: random assignment, then centroids and reassignment until nothing changes, several random starts), ISL 12.4.2 (scaling applies to k-means as well)
+
+## How to run
+1. Python 3.12 with `numpy`, `pandas`, `matplotlib`, `scikit-learn`, `ipython` (the course `requirements.txt`; the first cell installs them if missing). The first cell also clones the course repo with git, so it needs internet.
+2. Restart and Run All. The run takes well under a minute and is deterministic (seed 4521).
+3. It writes `submission.csv`, `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png` and `figures/hw2_configs.csv` next to the notebook.
+4. To use a different data bundle, set `BUNDLE_OVERRIDE` in the marked cell and run everything again.
+
+## Evaluation protocol
+- Fit rows (`fit_indices`: every practice row except the 30 validation rows, no labels): z-score statistics, PCA and k-means.
+- Calibration-training labels (60): name the clusters and train 1-NN or kNN.
+- Validation rows (30): every configuration is scored on the same rows and the model is selected on them. They never fit, name or train anything.
+- Mission rows: transformed with the stored mean, standard deviation and PCA, then predicted. Nothing is fitted on mission rows or on validation rows after selection.
+- The validation score is used for selection, so it is a selection score and not an untouched test score. The practice rover run demonstrates deployment and is not an accuracy estimate.''')
+
+md('## Setup and fitting boundaries')
+code('''import time
+import statistics
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from itertools import permutations
+from pathlib import Path
+from IPython.display import display
+from sklearn.decomposition import PCA
+from rover_starter import _plan, save_submission   # _plan is only read, to draw the planned route
+
+SEED = 4521
+CLASSES = np.array(["firm", "rough", "sand"])
+FIRM, ROUGH, SAND = 0, 1, 2
+TO_INT = {name: i for i, name in enumerate(CLASSES)}
+COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+Path("figures").mkdir(exist_ok=True)
+
+validation = test      # the starter calls the validation table `test`
+y_train = calibration_train["terrain"].map(TO_INT).to_numpy()
+y_val = validation["terrain"].map(TO_INT).to_numpy()
+X_fit = X_dev[fit_indices]
+X_train = X_dev[train_indices]
+X_val = X_dev[test_indices]
+h, w = config["grid_shape"]
+
+# boundary checks: features are the 8 sensors only, validation is disjoint from fitting, and the csv row
+# order is row-major on the grid (the planner indexes pred[y * w + x])
+assert list(sensor_columns) == [f"sensor_{i}" for i in range(1, 9)]
+assert len(np.intersect1d(fit_indices, test_indices)) == 0
+assert np.isin(train_indices, fit_indices).all()
+assert len(fit_indices) + len(test_indices) == len(development)
+assert (development["y"] * w + development["x"]).tolist() == list(range(h * w))
+assert (mission["y"] * w + mission["x"]).tolist() == list(range(h * w))
+
+print("student_id in config:", config["student_id"])
+print(f"fit rows {len(X_fit)}, calibration-training {len(X_train)}, validation {len(X_val)}, mission {len(X_mission)}")
+display(pd.DataFrame({"calibration-training": np.bincount(y_train, minlength=3),
+                      "validation": np.bincount(y_val, minlength=3)}, index=CLASSES))''')
+
+md('''## Part 2: Methods written in NumPy
+Notation: n points, d features, k clusters, m query points. Each docstring states time and memory cost.
+- `zscore_fit` and `zscore_apply`: statistics come from the fit rows only (lecture 1.1 and the lecture 2.4 leakage rule). A sensor with zero spread keeps divisor 1.
+- `sq_dists`: all pairwise squared Euclidean distances with one matrix product, using |a-b|^2 = |a|^2 + |b|^2 - 2 a.b. Same O(m n d) time as the lecture's double loop, but the inner work runs in compiled NumPy and memory is O(m n) instead of O(m n d).
+- `assign_nearest` and `update_centroids`: the two steps of ISL Algorithm 12.2. **Empty clusters:** if a cluster loses all its points, its centroid is re-seeded at the point farthest from its own centroid. This is my own choice; neither the lectures nor ISL cover it, and the count of such events is reported.
+- `kmeans`: **Initialization** is Algorithm 12.2 step 1, a random cluster number for every point (at least one point is forced into each cluster), repeated for 10 random starts. **Stopping rule:** stop when no assignment changes (lecture 2.3 slide 11), with a cap of 300 iterations. The start with the lowest within-cluster sum of squares wins, because k-means only reaches a local optimum (lecture 2.3 slide 23, ISL 12.4).
+- `name_clusters`: count the 60 calibration-training labels in each cluster and name each cluster by majority. If the majority names are not one-to-one (two clusters claim one terrain, a cluster has no labeled point, or a tie), take the one-to-one assignment (best of 6 permutations) that matches the most training labels. Validation labels are never used.
+- `knn_predict`: the k nearest calibration-training points by squared distance, majority vote, and a tied vote goes to the class of the nearest tied neighbor. Top-k selection uses `argpartition`, O(m n) instead of the O(m n log n) of a full sort.''')
+code('''def zscore_fit(X):
+    """per-sensor mean and std from the fit rows; a constant sensor keeps divisor 1. O(n d)"""
+    mu = X.mean(axis=0)
+    sd = X.std(axis=0)
+    return mu, np.where(sd == 0, 1.0, sd)
+
+def zscore_apply(X, mu, sd):
+    """standardize any rows with stored statistics. O(n d)"""
+    return (X - mu) / sd
+
+def sq_dists(A, B):
+    """squared euclidean distance from every row of A (m,d) to every row of B (n,d).
+    O(m n d) time, O(m n) memory, one matrix product instead of a python double loop"""
+    d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
+    np.maximum(d2, 0.0, out=d2)           # rounding can leave tiny negatives
+    return d2
+
+def assign_nearest(X, C):
+    """step 2b of algorithm 12.2: index of the nearest centroid for every point, plus that squared distance.
+    O(n k d) time"""
+    d2 = sq_dists(X, C)
+    labels = d2.argmin(axis=1)
+    return labels, d2[np.arange(len(X)), labels]
+
+def centroids_from_labels(X, labels, k):
+    """step 2a of algorithm 12.2: each centroid is the mean of its members. O(n d). empty clusters get nan"""
+    counts = np.bincount(labels, minlength=k).astype(float)
+    sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        return sums / counts[:, None], counts
+
+def update_centroids(X, labels, C, d2min):
+    """centroid update with empty-cluster handling: an empty cluster is re-seeded at the farthest point"""
+    newC, counts = centroids_from_labels(X, labels, C.shape[0])
+    empty = np.flatnonzero(counts == 0)
+    if len(empty):
+        farthest = np.argsort(-d2min)[:len(empty)]
+        newC[empty] = X[farthest]
+    return newC, len(empty)
+
+def within_ss(X, labels, C):
+    """within-cluster sum of squares: the objective k-means decreases (isl 12.17 and 12.18). O(n d)"""
+    return float(((X - C[labels]) ** 2).sum())
+
+def kmeans(X, k=3, n_init=10, max_iter=300, seed=SEED):
+    """isl algorithm 12.2 with random starts.
+    per start: random assignment -> repeat (centroids, nearest-centroid reassignment) until nothing changes.
+    O(n_init * iterations * n k d) time. returns the start with the lowest within-cluster sum of squares"""
+    rng = np.random.default_rng(seed)
+    n = len(X)
+    best, empty_total, dist_evals, all_inertias = None, 0, 0, []
+    for _ in range(n_init):
+        labels = rng.integers(0, k, size=n)                    # step 1: random cluster number for every point
+        labels[rng.choice(n, size=k, replace=False)] = np.arange(k)   # every cluster starts non-empty
+        C, _ = centroids_from_labels(X, labels, k)             # step 2a
+        history = [within_ss(X, labels, C)]
+        converged, it = False, 0
+        for it in range(1, max_iter + 1):
+            new_labels, d2min = assign_nearest(X, C)           # step 2b
+            dist_evals += n * k
+            if np.array_equal(new_labels, labels):             # no assignment changed: local optimum
+                converged = True
+                break
+            labels = new_labels
+            C, e = update_centroids(X, labels, C, d2min)       # step 2a again
+            empty_total += e
+            history.append(within_ss(X, labels, C))
+        all_inertias.append(history[-1])
+        if best is None or history[-1] < best["inertia"]:
+            best = dict(centroids=C, labels=labels, inertia=history[-1], iterations=it,
+                        converged=converged, history=np.array(history))
+    best.update(empty_events=empty_total, distance_evals=dist_evals, all_inertias=np.array(all_inertias))
+    return best
+
+def name_clusters(C, F_train, y_train_int, k=3):
+    """name each cluster from the calibration-training labels only. O(n_train k d + k^2)"""
+    cl, _ = assign_nearest(F_train, C)
+    table = np.zeros((k, 3), dtype=int)                        # rows: clusters, columns: terrain
+    np.add.at(table, (cl, y_train_int), 1)
+    majority = table.argmax(axis=1)
+    has_tie = any((row == row.max()).sum() > 1 for row in table)
+    if len(set(majority)) == k and not has_tie and (table.sum(axis=1) > 0).all():
+        return majority, table, "majority vote"
+    best_perm = max(permutations(range(3)), key=lambda p: sum(table[j, p[j]] for j in range(k)))
+    return np.array(best_perm), table, "one-to-one permutation"
+
+def knn_predict(F_train, y_train_int, F, k=1):
+    """k nearest neighbors by squared distance; a tied vote goes to the nearest tied neighbor.
+    O(m n d) for the distances, O(m n) for the top-k (argpartition), O(m k log k) to order the k"""
+    d2 = sq_dists(F, F_train)
+    if k == 1:
+        return y_train_int[d2.argmin(axis=1)]
+    rows = np.arange(len(F))[:, None]
+    nn = np.argpartition(d2, k - 1, axis=1)[:, :k]            # the k smallest, unordered
+    nn = nn[rows, np.argsort(d2[rows, nn], axis=1)]           # now nearest first
+    votes = y_train_int[nn]                                    # (m, k) neighbor classes, nearest first
+    counts = np.stack([(votes == c).sum(axis=1) for c in range(3)], axis=1)
+    top = counts.max(axis=1)
+    is_top = counts[rows, votes] == top[:, None]               # neighbors whose class has the top count
+    return votes[np.arange(len(F)), is_top.argmax(axis=1)]     # nearest such neighbor decides
+
+def knn_classifier(k):
+    """closure in the lecture 1.3 style: classify(train_features, train_labels, test_features)"""
+    def knn_classify(x_train, y_train_int, x_test):
+        return knn_predict(x_train, y_train_int, x_test, k)
+    return knn_classify
+
+def metrics(y_true, y_pred):
+    """confusion matrix, accuracy, per-class precision, recall, F1 (lecture 1.4) and the macro average. O(n)"""
+    cm = np.zeros((3, 3), dtype=int)
+    np.add.at(cm, (y_true, y_pred), 1)                         # rows: true, columns: predicted
+    tp = np.diag(cm).astype(float)
+    pred_n, true_n = cm.sum(axis=0), cm.sum(axis=1)
+    prec = np.divide(tp, pred_n, out=np.zeros(3), where=pred_n > 0)
+    rec = np.divide(tp, true_n, out=np.zeros(3), where=true_n > 0)
+    f1 = np.divide(2 * prec * rec, prec + rec, out=np.zeros(3), where=(prec + rec) > 0)
+    return dict(cm=cm, accuracy=tp.sum() / cm.sum(), macro_f1=f1.mean(), f1=f1,
+                precision=prec, recall=rec, sand_recall=rec[SAND])''')
+
+md('''## Part 3: Testing section
+Run these cells after the method cell. Checks are programmatic and every one is an `assert`, so a broken method stops the run.
+- the lecture 1.1 loop (`nn_classify_sample`) is the reference that the vectorized kNN must reproduce exactly
+- the k-means objective must never increase across iterations (ISL 12.18), the final centroids must be the means of their members, and the clusters must partition the data (lecture 2.3 slide 17)
+- z-score output must have zero mean and unit std, PCA components must be orthonormal, PCA variance must equal the squared singular values of the centered data (lecture 2.4 slide 12 to 14)
+- the library versions are used only as cross-checks, never for a prediction in the experiments''')
+code('''def distance_sq(p0, p1):
+    """lecture 1.1: squared euclidean distance between two points"""
+    return np.sum((p0 - p1) ** 2)
+
+def nn_classify_sample(training_set, training_labels, new_example):
+    """lecture 1.1: label of the nearest training point, one query at a time"""
+    dists = np.array([distance_sq(t, new_example) for t in training_set])
+    return training_labels[dists.argmin()]
+
+def check_partition(labels, k, n):
+    """every point is in exactly one cluster and every id is in range (lecture 2.3 slide 17)"""
+    return labels.shape == (n,) and labels.min() >= 0 and labels.max() < k
+
+def check_centroids_are_means(X, labels, C):
+    """final centroids equal the mean of their members (algorithm 12.2 step 2a)"""
+    return all(np.allclose(C[j], X[labels == j].mean(axis=0)) for j in range(len(C)) if (labels == j).any())
+
+def check_nonincreasing(history, tol=1e-9):
+    """isl 12.18: the objective never goes up from one iteration to the next"""
+    return bool(np.all(np.diff(history) <= tol * max(1.0, history[0])))
+
+mu0, sd0 = zscore_fit(X_fit)
+Zf, Ztr, Zv = (zscore_apply(A, mu0, sd0) for A in (X_fit, X_train, X_val))
+
+# z-score
+assert np.allclose(Zf.mean(axis=0), 0) and np.allclose(Zf.std(axis=0), 1)
+
+# vectorized distances and kNN against the lecture loop
+assert np.allclose(sq_dists(Zv, Ztr), np.array([[distance_sq(a, b) for b in Ztr] for a in Zv]))
+for name, (A, B) in {"z-score": (Ztr, Zv), "raw": (X_train, X_val)}.items():
+    ref = np.array([nn_classify_sample(A, y_train, q) for q in B])
+    assert np.array_equal(knn_predict(A, y_train, B, k=1), ref), name
+    print(f"1-NN matches the lecture 1.1 loop on all {len(B)} validation rows ({name})")
+
+# k-means invariants, on standardized and raw features
+for name, F in {"z-score": Zf, "raw": X_fit}.items():
+    km = kmeans(F, k=3)
+    assert check_partition(km["labels"], 3, len(F)), name
+    assert km["converged"] and check_nonincreasing(km["history"]), name
+    assert check_centroids_are_means(F, km["labels"], km["centroids"]), name
+    print(f"k-means ({name}): converged in {km['iterations']} iterations, objective {km['history'][0]:.1f} -> "
+          f"{km['inertia']:.1f}, never increased; {km['empty_events']} empty-cluster events")
+
+# PCA invariants against singular values (lecture 2.4)
+pca_check = PCA().fit(Zf)
+assert np.allclose(pca_check.components_ @ pca_check.components_.T, np.eye(8))
+assert np.isclose(pca_check.explained_variance_ratio_.sum(), 1.0)
+s = np.linalg.svd(Zf - Zf.mean(axis=0), compute_uv=False)
+assert np.allclose(s ** 2 / (s ** 2).sum(), pca_check.explained_variance_ratio_)
+
+# library cross-checks (verification only)
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.cluster import KMeans
+from sklearn.metrics import f1_score, accuracy_score
+assert np.allclose(Zf, StandardScaler().fit(X_fit).transform(X_fit))
+for k in (1, 3, 5):
+    ours = knn_classifier(k)(Ztr, y_train, Zv)
+    theirs = KNeighborsClassifier(n_neighbors=k).fit(Ztr, y_train).predict(Zv)
+    print(f"kNN k={k}: agreement with sklearn {(ours == theirs).mean():.3f} (a gap can only come from tie-breaking)")
+    if k == 1:
+        assert np.array_equal(ours, theirs)
+lib = KMeans(n_clusters=3, init="random", n_init=10, random_state=SEED).fit(Zf)   # init="random" is the lecture 2.3 call
+mine = kmeans(Zf)
+print(f"k-means objective: mine {mine['inertia']:.2f}, sklearn {lib.inertia_:.2f}")
+assert abs(mine["inertia"] - lib.inertia_) / lib.inertia_ < 0.02
+rng = np.random.default_rng(0)
+yt, yp = rng.integers(0, 3, 200), rng.integers(0, 3, 200)
+m = metrics(yt, yp)
+assert np.isclose(m["macro_f1"], f1_score(yt, yp, average="macro", labels=[0, 1, 2], zero_division=0))
+assert np.isclose(m["accuracy"], accuracy_score(yt, yp))
+print("all checks passed")''')
+
+md('''## Part 1: Representation
+**Sensor scales.** Squared Euclidean distance adds one term per sensor. For two random fit rows the expected squared distance is `2 * sum(variance_j)`, so sensor j supplies `variance_j / sum(variance)` of it. That is the weight a raw-feature k-means or 1-NN gives each sensor. ISL 12.2 says to scale each variable to standard deviation one when variables are measured in different units, and 12.4.2 says the same question applies to k-means.''')
+code('''var = X_fit.var(axis=0)
+scales = pd.DataFrame({"mean": X_fit.mean(axis=0), "std": X_fit.std(axis=0),
+                       "min": X_fit.min(axis=0), "max": X_fit.max(axis=0),
+                       "share of raw squared distance (%)": 100 * var / var.sum()}, index=sensor_columns)
+display(scales.round(3))
+std = X_fit.std(axis=0)
+print(f"largest std / smallest std = {std.max() / std.min():,.0f} "
+      f"({sensor_columns[std.argmax()]} vs {sensor_columns[std.argmin()]})")
+top2 = np.argsort(-var)[:2]
+print("top two sensors supply", round(100 * var[top2].sum() / var.sum(), 2), "% of raw squared distance:",
+      [sensor_columns[i] for i in top2])
+print("after z-scoring every sensor supplies", round(100 / len(sensor_columns), 1), "%")''')
+md('''**PCA.** Fitted on the fit rows only (split first, then PCA: lecture 2.4 slide 28), on the standardized rows and, for comparison, on the raw rows. The 95% count is the first `m` whose cumulative proportion of variance explained reaches 0.95 (ISL 12.2.3, lecture 2.4 slide 24). The 2-D and 3-D plots show the standardized fit rows in gray and the 60 calibration-training points in color. Validation labels are not plotted.''')
+code('''mu, sd = zscore_fit(X_fit)
+Z_fit = zscore_apply(X_fit, mu, sd)
+pca_z = PCA().fit(Z_fit)
+pca_raw = PCA().fit(X_fit)
+cum_z = np.cumsum(pca_z.explained_variance_ratio_)
+cum_raw = np.cumsum(pca_raw.explained_variance_ratio_)
+N95_Z = int(np.searchsorted(cum_z, 0.95) + 1)
+N95_RAW = int(np.searchsorted(cum_raw, 0.95) + 1)
+print(f"Components for at least 95% variance: standardized data {N95_Z} of 8, raw data {N95_RAW} of 8")
+display(pd.DataFrame({"var ratio (standardized)": pca_z.explained_variance_ratio_, "cumulative (standardized)": cum_z,
+                      "var ratio (raw)": pca_raw.explained_variance_ratio_, "cumulative (raw)": cum_raw},
+                     index=range(1, 9)).round(4))
+print("Loadings of the first three standardized components:")
+display(pd.DataFrame(pca_z.components_[:3].T, index=sensor_columns, columns=["PC1", "PC2", "PC3"]).round(3))''')
+code('''P_fit = pca_z.transform(Z_fit)
+P_train = pca_z.transform(zscore_apply(X_train, mu, sd))
+
+fig = plt.figure(figsize=(11, 3.6))
+ax = fig.add_subplot(1, 3, 1)
+ax.plot(range(1, 9), cum_z, "o-", color="#0072B2", label="standardized")
+ax.plot(range(1, 9), cum_raw, "s--", color="#D55E00", label="raw")
+ax.axhline(0.95, color="gray", ls=":")
+ax.annotate(f"{N95_Z} components (standardized)", (N95_Z, cum_z[N95_Z - 1]), textcoords="offset points",
+            xytext=(6, -14), fontsize=8)
+ax.set_xlabel("number of principal components"); ax.set_ylabel("cumulative explained variance")
+ax.set_ylim(0, 1.03); ax.set_title("(a) variance retained", fontsize=10); ax.legend(fontsize=8, loc="lower right")
+
+ax = fig.add_subplot(1, 3, 2)
+ax.scatter(P_fit[:, 0], P_fit[:, 1], s=6, c="#c8c8c8", label="fit rows (unlabeled)")
+for t in (FIRM, ROUGH, SAND):
+    ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=26, c=COLORS[t], edgecolor="k",
+               linewidth=0.4, label=f"{CLASSES[t]} (labeled)")
+ax.set_xlabel("PC1"); ax.set_ylabel("PC2"); ax.set_title("(b) top 2 components", fontsize=10); ax.legend(fontsize=7)
+
+ax = fig.add_subplot(1, 3, 3, projection="3d")
+ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=4, c="#c8c8c8", alpha=0.5)
+for t in (FIRM, ROUGH, SAND):
+    ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2], s=18, c=COLORS[t],
+               edgecolor="k", linewidth=0.3)
+ax.set_xlabel("PC1"); ax.set_ylabel("PC2"); ax.set_zlabel("PC3"); ax.set_title("(c) top 3 components", fontsize=10)
+plt.tight_layout()
+plt.savefig("figures/fig1_pca.png", dpi=200, bbox_inches="tight")
+plt.show()''')
+
+md('''## Part 4: Experiments
+A full grid of three controlled factors: **scaling** (raw or z-score), **representation** (all 8 sensors or the PCA components that retain 95% variance for that scaling) and **model** (3-cluster k-means named from calibration-training labels, or 1-NN). Neighbors in the grid differ in exactly one factor. Three extra configurations probe PCA with 2 components and 3-NN on standardized data.
+
+Every configuration is fitted on the fit rows, named or trained with the calibration-training labels, scored on the same 30 validation rows, and then used to predict all practice cells for the simulator. Fit and predict times are recorded because lecture 2.4 uses PCA to buy speed.''')
+code('''def make_transform(scale, n_pca):
+    """stored preprocessing: z-score statistics and PCA are fitted on the fit rows only"""
+    mu_, sd_ = zscore_fit(X_fit) if scale else (np.zeros(X_fit.shape[1]), np.ones(X_fit.shape[1]))
+    pca_ = PCA(n_components=n_pca).fit(zscore_apply(X_fit, mu_, sd_)) if n_pca else None
+    def transform(X):
+        Z = zscore_apply(X, mu_, sd_)
+        return pca_.transform(Z) if pca_ is not None else Z
+    return transform
+
+def fit_config(scale, n_pca, model, k=1):
+    """fit one configuration; returns its predict function, dimensions, cluster diagnostics and fit time"""
+    t0 = time.perf_counter()
+    transform = make_transform(scale, n_pca)
+    F_fit, F_train = transform(X_fit), transform(X_train)
+    info = {}
+    if model == "k-means":
+        km = kmeans(F_fit, k=3)
+        names, table, how = name_clusters(km["centroids"], F_train, y_train)
+        def predict(X):
+            return names[assign_nearest(transform(X), km["centroids"])[0]]
+        info = dict(inertia=km["inertia"], iterations=km["iterations"], converged=km["converged"],
+                    empty_events=km["empty_events"], naming=how, table=table, names=names,
+                    sizes=np.bincount(km["labels"], minlength=3), distance_evals=km["distance_evals"])
+    else:
+        classify = knn_classifier(k)
+        def predict(X):
+            return classify(F_train, y_train, transform(X))
+    return dict(predict=predict, dims=F_fit.shape[1], info=info, fit_ms=1000 * (time.perf_counter() - t0))
+
+#            id    scaling   representation  n_pca    model      k
+GRID = [("C1", "raw",     "8 sensors", None,     "k-means", 1),
+        ("C2", "raw",     "8 sensors", None,     "1-NN",    1),
+        ("C3", "z-score", "8 sensors", None,     "k-means", 1),
+        ("C4", "z-score", "8 sensors", None,     "1-NN",    1),
+        ("C5", "raw",     "PCA 95%",   N95_RAW,  "k-means", 1),
+        ("C6", "raw",     "PCA 95%",   N95_RAW,  "1-NN",    1),
+        ("C7", "z-score", "PCA 95%",   N95_Z,    "k-means", 1),
+        ("C8", "z-score", "PCA 95%",   N95_Z,    "1-NN",    1),
+        ("E1", "z-score", "PCA 2",     2,        "k-means", 1),
+        ("E2", "z-score", "PCA 2",     2,        "1-NN",    1),
+        ("E3", "z-score", "8 sensors", None,     "3-NN",    3)]
+
+fitted, rows = {}, []
+for cid, scaling, rep, n_pca, model, k in GRID:
+    cfg = fit_config(scaling == "z-score", n_pca, "k-means" if model == "k-means" else "knn", k)
+    fitted[cid] = cfg
+    t0 = time.perf_counter()
+    pv = cfg["predict"](X_val)
+    pa = cfg["predict"](X_dev)                       # all practice cells, same fitted model
+    predict_ms = 1000 * (time.perf_counter() - t0)
+    m = metrics(y_val, pv)
+    assert np.isclose(m["macro_f1"], f1_score(y_val, pv, average="macro", labels=[0, 1, 2], zero_division=0))
+    prac = evaluate_practice(CLASSES[pa], BUNDLE_DIR)
+    rows.append(dict(config=cid, scaling=scaling, representation=rep, model=model, dims=cfg["dims"],
+                     val_accuracy=m["accuracy"], macro_f1=m["macro_f1"], sand_recall=m["sand_recall"],
+                     sand_found=f"{m['cm'][SAND, SAND]}/{m['cm'][SAND].sum()}",
+                     practice=prac["status"], steps=prac["steps"], cost=prac["predicted_cost"],
+                     predicted_sand_cells=int((pa == SAND).sum()),
+                     fit_ms=round(cfg["fit_ms"], 1), predict_ms=round(predict_ms, 1)))
+results = pd.DataFrame(rows).set_index("config")
+results.drop(columns=["fit_ms", "predict_ms"]).round(3).to_csv("figures/hw2_configs.csv")
+display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))''')
+code('''# cluster diagnostics for every k-means configuration: how the 60 labeled training points fall in each cluster
+for cid, scaling, rep, n_pca, model, k in GRID:
+    info = fitted[cid]["info"]
+    if not info:
+        continue
+    print(f"{cid} ({scaling}, {rep}): naming by {info['naming']}, cluster names {[str(c) for c in CLASSES[info['names']]]}, "
+          f"sizes {info['sizes'].tolist()}, converged {info['converged']} in {info['iterations']} iterations, "
+          f"empty-cluster events {info['empty_events']}, objective {info['inertia']:.1f}, "
+          f"distance evaluations {info['distance_evals']:,}")
+    display(pd.DataFrame(info["table"], index=[f"cluster {j}" for j in range(3)], columns=CLASSES))''')
+code('''# stability across random starts (lecture 2.3 slide 23: different starts can end in different local optima)
+def stability(F_fit, F_train, F_val, n_runs=20):
+    """run k-means once per seed; report how many starts reach the best objective and how many give the same
+    validation predictions after naming"""
+    best = kmeans(F_fit, n_init=10)["inertia"]
+    reached, preds = 0, []
+    for s in range(n_runs):
+        km = kmeans(F_fit, n_init=1, seed=1000 + s)
+        reached += abs(km["inertia"] - best) / best < 1e-6
+        names, _, _ = name_clusters(km["centroids"], F_train, y_train)
+        preds.append(names[assign_nearest(F_val, km["centroids"])[0]])
+    same = sum(np.array_equal(p, preds[0]) for p in preds)
+    return reached, same, n_runs
+
+for name, scale in (("raw 8 sensors", False), ("z-score 8 sensors", True)):
+    tf = make_transform(scale, None)
+    reached, same, n_runs = stability(tf(X_fit), tf(X_train), tf(X_val))
+    print(f"{name}: {reached}/{n_runs} single random starts reach the best objective; "
+          f"{same}/{n_runs} give identical validation predictions to the first start")''')
+code('''# supporting evidence for three clusters: objective against k on standardized fit rows (elbow test, lecture 2.4)
+ks = list(range(2, 9))
+inertia_k = [kmeans(Zf, k=kk, n_init=5)["inertia"] for kk in ks]
+plt.figure(figsize=(4.2, 3))
+plt.plot(ks, inertia_k, "o-"); plt.axvline(3, color="gray", ls=":")
+plt.xlabel("number of clusters k"); plt.ylabel("within-cluster sum of squares"); plt.title("Elbow check", fontsize=10)
+plt.tight_layout(); plt.show()
+print({kk: round(float(v), 1) for kk, v in zip(ks, inertia_k)})''')
+md('''### Cost check
+Lecture 2.3 and 2.4 and the 4041 habit of measuring: the distance step costs O(n k d), so time should grow linearly with n and drop with d. Median of 5 timed runs.''')
+code('''def median_ms(fn, repeats=5):
+    """median wall time of fn in milliseconds"""
+    runs = []
+    for _ in range(repeats):
+        t0 = time.perf_counter()
+        fn()
+        runs.append(1000 * (time.perf_counter() - t0))
+    return statistics.median(runs)
+
+centroids = kmeans(Zf)["centroids"]
+prev, rows_n = None, []
+for rep in (1, 4, 16, 64):                       # tile the fit rows to grow n
+    Xs = np.tile(Zf, (rep, 1))
+    ms = median_ms(lambda: assign_nearest(Xs, centroids))
+    rows_n.append(dict(n=len(Xs), assign_ms=round(ms, 3), ratio_to_previous=None if prev is None else round(ms / prev, 2)))
+    prev = ms
+print("assign_nearest, n grows 4x each row (linear in n would give a ratio near 4):")
+display(pd.DataFrame(rows_n))
+
+rows_d = []
+for d in (8, 3, 2):
+    F = Zf if d == 8 else PCA(n_components=d).fit(Zf).transform(Zf)
+    km = kmeans(F, n_init=1)
+    ms = median_ms(lambda: kmeans(F, n_init=1))
+    rows_d.append(dict(dims=d, kmeans_ms=round(ms, 2), iterations=km["iterations"], ms_per_iteration=round(ms / km["iterations"], 3)))
+print("one k-means start on z-scored fit rows, by number of dimensions:")
+display(pd.DataFrame(rows_d))''')
+
+md('''## Part 5: Model selection
+The rule was fixed before looking at any result: highest validation macro F1, ties broken by higher sand recall (a missed sand cell can strand the rover), then by fewer dimensions, then by the order of the table. The practice rover outcome is recorded for every configuration but is not used to select, because it is not an independent estimate. Selecting among 11 configurations on 30 validation rows is optimistic, so the winning score is a selection score and not a test score.''')
+code('''key = results.assign(f=results.macro_f1.round(10), s=results.sand_recall.round(10))
+ranked = key.sort_values(["f", "s", "dims"], ascending=[False, False, True], kind="stable")
+BEST = ranked.index[0]
+r = results.loc[BEST]
+print(f"Selected: {BEST} ({r.scaling}, {r.representation}, {r.model}, {int(r.dims)} dimensions)")
+top = ranked[ranked.f == ranked.f.iloc[0]]
+print("Configurations sharing the top macro F1:", list(top.index))
+print("Of those, also tied on sand recall:", list(top[top.s == top.s.iloc[0]].index),
+      "| also tied on dimensions:", list(top[(top.s == top.s.iloc[0]) & (top.dims == top.dims.iloc[0])].index))
+cm_best = metrics(y_val, fitted[BEST]["predict"](X_val))
+display(pd.DataFrame(cm_best["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))
+print("per-class F1:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["f1"])},
+      "| per-class recall:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["recall"])})''')
+
+md('''## Part 6: Deployment
+The selected fitted model is reused as is, with no refit on validation or mission rows. Practice and mission cells are transformed with the stored statistics and PCA, then predicted.''')
+code('''chosen = fitted[BEST]
+practice_pred = chosen["predict"](X_dev)
+practice_result = evaluate_practice(CLASSES[practice_pred], BUNDLE_DIR)
+print(BEST, practice_result)
+html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)
+Path("practice_run.html").write_text(html.data, encoding="utf-8")
+display(html)''')
+code('''start_p, goal_p = tuple(config["practice_start_yx"]), tuple(config["practice_goal_yx"])
+start_m, goal_m = tuple(config["mission_start_yx"]), tuple(config["mission_goal_yx"])
+mission_pred = chosen["predict"](X_mission)
+path_p, cost_p = _plan(practice_pred, (h, w), start_p, goal_p)
+path_m, cost_m = _plan(mission_pred, (h, w), start_m, goal_m)
+
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
+fig, axes = plt.subplots(1, 2, figsize=(9, 4.4))
+for ax, pred, path, start, goal, title in ((axes[0], practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),
+                                           (axes[1], mission_pred, path_m, start_m, goal_m, "Predicted mission map and planned route")):
+    ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
+    if path:
+        ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.8)
+    ax.scatter([start[1]], [start[0]], marker="s", s=70, c="k"); ax.scatter([goal[1]], [goal[0]], marker="*", s=130, c="k")
+    ax.set_xticks([]); ax.set_yticks([]); ax.set_title(title, fontsize=10)
+if practice_result["status"] == "ROVER STUCK IN SAND":
+    sy, sx = path_p[practice_result["steps"]]
+    axes[0].scatter([sx], [sy], marker="X", s=140, c="#c1121f", edgecolor="w", zorder=5)
+    axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)", fontsize=9)
+else:
+    axes[0].set_xlabel(practice_result["status"] + f", {practice_result['steps']} steps", fontsize=9)
+axes[1].set_xlabel("no truth exists for the mission; this is the prediction only", fontsize=9)
+fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"), Patch(color="#8d99ae", label="sand")],
+           loc="lower center", ncol=3, fontsize=8, frameon=False)
+plt.tight_layout(rect=(0, 0.06, 1, 1))
+plt.savefig("figures/fig2_deploy.png", dpi=200, bbox_inches="tight")
+plt.show()
+print("practice route cost", round(cost_p, 1), "| mission route cost", round(cost_m, 1))''')
+code('''# mission shift check with the stored fit-row statistics (diagnostic only, nothing is refitted)
+shift = pd.DataFrame({"mission mean (z)": zscore_apply(X_mission, mu, sd).mean(axis=0),
+                      "mission std (z)": zscore_apply(X_mission, mu, sd).std(axis=0)}, index=sensor_columns)
+display(shift.round(3))
+print("largest |mean shift| in fit-row standard deviations:", round(float(np.abs(shift["mission mean (z)"]).max()), 3))
+display(pd.DataFrame({"practice predicted share": np.bincount(practice_pred, minlength=3) / len(practice_pred),
+                      "mission predicted share": np.bincount(mission_pred, minlength=3) / len(mission_pred)},
+                     index=CLASSES).round(3))''')
+code('''# failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
+# stopped (the planned path gives it, no truth file is read) and show what the model saw there
+stuck = results.index[results.practice == "ROVER STUCK IN SAND"]
+print("configurations that got the rover stuck:", list(stuck))
+for cid in stuck:
+    pred_c = fitted[cid]["predict"](X_dev)
+    path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)
+    sy, sx = path_c[int(results.loc[cid, "steps"])]
+    i = sy * w + sx
+    print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; the model predicted "
+          f"{CLASSES[pred_c[i]]} there and the simulator reports sand.")
+    print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))
+    mv = metrics(y_val, fitted[cid]["predict"](X_val))
+    display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))''')
+
+md('## Part 7: Export the mission predictions')
+code('''out_path = save_submission(mission_pred, BUNDLE_DIR, "submission.csv")
+sub = pd.read_csv(out_path)
+assert list(sub.columns) == ["student_id", "x", "y", "predicted_terrain"]
+assert len(sub) == len(mission) and (sub["x"].to_numpy() == mission["x"].to_numpy()).all() \\
+       and (sub["y"].to_numpy() == mission["y"].to_numpy()).all()
+assert (sub["predicted_terrain"].to_numpy() == CLASSES[mission_pred]).all()
+print(out_path, sub.shape, "student_id:", sub["student_id"].iloc[0])
+print(sub["predicted_terrain"].value_counts().to_dict())
+display(sub.head())''')
+
+md('# Summary')
+code('''import sys, sklearn, matplotlib
+print("python", sys.version.split()[0], "| numpy", np.__version__, "| pandas", pd.__version__,
+      "| scikit-learn", sklearn.__version__, "| matplotlib", matplotlib.__version__)
+print("seed", SEED, "| bundle", BUNDLE_DIR, "| student_id", config["student_id"])
+print("components for 95% variance: standardized", N95_Z, "| raw", N95_RAW)
+print("selected", BEST, "| practice:", practice_result["status"], f"({practice_result['steps']} steps)")
+print(results[["scaling", "representation", "model", "dims", "val_accuracy", "macro_f1", "sand_recall", "practice"]]
+      .round(3).to_string())''')
+
+md('''## AI use
+AI use is allowed in this course, and I used it heavily on this assignment. Anthropic Claude Code read the handout, rubric, starter code, lecture slides, lecture notebooks and ISL chapter 12, then wrote every cell of this notebook below the starter, ran it, and drafted the report. The method choices (z-score from fit rows, PCA fitted on fit rows, ISL Algorithm 12.2 k-means with random starts, majority-vote cluster naming, kNN) come from the course materials listed at the top. I did not write the code by hand myself; my part was directing the work, checking the outputs and the assignment requirements, and I am responsible for what I submit.''')
+
+nb = new_notebook(cells=cells)
+nb.metadata = {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+               "language_info": {"name": "python"}}
+nbformat.validate(nb)
+nbformat.write(nb, OUT)
+print("wrote", OUT, len(cells), "cells")
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > relabel.py <<'PYEOF'
+p = "build_nb2.py"
+s = open(p, encoding="utf-8").read()
+pairs = [
+ ("- Part 1: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 2: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 3: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 4: eleven configurations",
+  "- Part 1: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 2: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 3: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 4: eleven configurations"),
+ ("## Part 2: Methods written in NumPy", "## Part 1: Methods written in NumPy"),
+ ("## Part 3: Testing section", "## Part 2: Testing section"),
+ ("## Part 1: Representation", "## Part 3: Representation"),
+]
+for a, b in pairs:
+    assert s.count(a) == 1, a[:40]
+    s = s.replace(a, b)
+open(p, "w", encoding="utf-8").write(s)
+print("relabeled")
+PYEOF
+./venv/Scripts/python.exe -I relabel.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb2.py',encoding='utf-8').read());print('syntax ok')"
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|assert|Writing|Exception" ; ls -la submission.csv practice_run.html figures/ | grep -E "submission|practice|hw2|fig1_pca|fig2_deploy"`
+```
+relabeled
+syntax ok
+wrote CSCI4521_HW2.ipynb 40 cells
+[NbConvertApp] Writing 1459995 bytes to CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609 755128 Oct 27 20:21 practice_run.html
+-rw-r--r-- 1 anant 197609  13797 Oct 27 20:21 submission.csv
+-rw-r--r-- 1 anant 197609 244081 Oct 27 20:21 fig1_pca.png
+-rw-r--r-- 1 anant 197609  35517 Oct 27 20:21 fig2_deploy.png
+-rw-r--r-- 1 anant 197609    952 Oct 27 20:21 hw2_configs.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 45 2>&1 | grep -v "^\[IPK" | grep -v "Unnamed: 0_level_0" | cut -c1-260 | head -230`
+```
+=== cell 11
+student_id in config: demo3
+fit rows 754, calibration-training 60, validation 30, mission 784
+  Unnamed: 0  calibration-training  validation
+0       firm                    20          10
+1      rough                    20          10
+2       sand                    20          10
+=== cell 13
+=== cell 15
+1-NN matches the lecture 1.1 loop on all 30 validation rows (z-score)
+1-NN matches the lecture 1.1 loop on all 30 validation rows (raw)
+k-means (z-score): converged in 5 iterations, objective 6026.3 -> 1237.5, never increased; 0 empty-cluster events
+k-means (raw): converged in 10 iterations, objective 2523037.5 -> 594016.8, never increased; 0 empty-cluster events
+kNN k=1: agreement with sklearn 1.000 (a gap can only come from tie-breaking)
+kNN k=3: agreement with sklearn 1.000 (a gap can only come from tie-breaking)
+kNN k=5: agreement with sklearn 1.000 (a gap can only come from tie-breaking)
+k-means objective: mine 1237.50, sklearn 1237.50
+all checks passed
+=== cell 17
+  Unnamed: 0     mean     std      min       max  share of raw squared distance (%)
+0   sensor_1    4.959   0.077    4.791     5.124                              0.000
+1   sensor_2   84.746  18.682   37.539   125.946                             10.390
+2   sensor_3   -2.675   0.644   -4.169    -1.528                              0.012
+3   sensor_4  948.868  52.446  827.529  1092.093                             81.885
+4   sensor_5    1.175   4.383   -8.286    10.731                              0.572
+5   sensor_6   19.992   0.040   19.922    20.086                              0.000
+6   sensor_7  -54.412  15.460  -92.122   -29.023                              7.115
+7   sensor_8    8.718   0.928    6.714    11.348                              0.026
+largest std / smallest std = 1,320 (sensor_4 vs sensor_6)
+top two sensors supply 92.27 % of raw squared distance: ['sensor_4', 'sensor_2']
+after z-scoring every sensor supplies 12.5 %
+=== cell 19
+Components for at least 95% variance: standardized data 3 of 8, raw data 2 of 8
+   Unnamed: 0  var ratio (standardized)  cumulative (standardized)  var ratio (raw)  cumulative (raw)
+0           1                    0.6408                     0.6408           0.8835            0.8835
+1           2                    0.2705                     0.9112           0.0989            0.9824
+2           3                    0.0434                     0.9546           0.0161            0.9985
+3           4                    0.0157                     0.9703           0.0015            1.0000
+4           5                    0.0114                     0.9817           0.0000            1.0000
+5           6                    0.0075                     0.9893           0.0000            1.0000
+6           7                    0.0061                     0.9954           0.0000            1.0000
+7           8                    0.0046                     1.0000           0.0000            1.0000
+Loadings of the first three standardized components:
+  Unnamed: 0    PC1    PC2    PC3
+0   sensor_1 -0.281 -0.503  0.066
+1   sensor_2 -0.275 -0.492 -0.274
+2   sensor_3  0.431  0.002 -0.098
+3   sensor_4 -0.406 -0.043 -0.480
+4   sensor_5 -0.377  0.245  0.583
+5   sensor_6 -0.412 -0.161  0.372
+6   sensor_7 -0.274  0.517 -0.063
+7   sensor_8  0.329 -0.386  0.445
+=== cell 20
+[image]
+=== cell 22
+               config Unnamed: 1_level_1 Unnamed: 2_level_1 Unnamed: 3_level_1 Unnamed: 4_level_1 Unnamed: 5_level_1 Unnamed: 6_level_1 Unnamed: 7_level_1 Unnamed: 8_level_1   Unnamed: 9_level_1 Unnamed: 10_level_1 Unnamed: 11_level_1  Unnamed: 12_level_1 Unna
+0                  C1                raw          8 sensors            k-means                  8              0.700              0.704                0.5               5/10  ROVER STUCK IN SAND                  20                92.2                  291     
+1                  C2                raw          8 sensors               1-NN                  8              0.933              0.935                0.9               9/10      MISSION SUCCESS                  54                72.2                  210     
+2                  C3            z-score          8 sensors            k-means                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+3                  C4            z-score          8 sensors               1-NN                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+4                  C5                raw            PCA 95%            k-means                  2              0.700              0.704                0.5               5/10  ROVER STUCK IN SAND                  20                92.2                  287     
+5                  C6                raw            PCA 95%               1-NN                  2              0.867              0.868                0.9               9/10      MISSION SUCCESS                  54                76.4                  207     
+6                  C7            z-score            PCA 95%            k-means                  3              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+7                  C8            z-score            PCA 95%               1-NN                  3              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+8                  E1            z-score              PCA 2            k-means                  2              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+9                  E2            z-score              PCA 2               1-NN                  2              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+10                 E3            z-score          8 sensors               3-NN                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                70.8                  212     
+=== cell 23
+C1 (raw, 8 sensors): naming by majority vote, cluster names ['rough', 'firm', 'sand'], sizes [263, 209, 282], converged True in 10 iterations, empty-cluster events 0, objective 594016.8, distance evaluations 269,178
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     0      8     7
+1  cluster 1    16      1     1
+2  cluster 2     4     11    12
+C3 (z-score, 8 sensors): naming by majority vote, cluster names ['firm', 'rough', 'sand'], sizes [263, 289, 202], converged True in 5 iterations, empty-cluster events 0, objective 1237.5, distance evaluations 88,218
+  Unnamed: 0  firm  rough  sand
+0  cluster 0    20      0     0
+1  cluster 1     0     20     0
+2  cluster 2     0      0    20
+C5 (raw, PCA 95%): naming by majority vote, cluster names ['sand', 'firm', 'rough'], sizes [278, 207, 269], converged True in 8 iterations, empty-cluster events 0, objective 551196.9, distance evaluations 278,226
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     4     11    12
+1  cluster 1    16      1     1
+2  cluster 2     0      8     7
+C7 (z-score, PCA 95%): naming by majority vote, cluster names ['firm', 'rough', 'sand'], sizes [263, 289, 202], converged True in 6 iterations, empty-cluster events 0, objective 963.9, distance evaluations 90,480
+  Unnamed: 0  firm  rough  sand
+0  cluster 0    20      0     0
+1  cluster 1     0     20     0
+2  cluster 2     0      0    20
+E1 (z-score, PCA 2): naming by majority vote, cluster names ['firm', 'rough', 'sand'], sizes [263, 289, 202], converged True in 5 iterations, empty-cluster events 0, objective 715.4, distance evaluations 88,218
+  Unnamed: 0  firm  rough  sand
+0  cluster 0    20      0     0
+1  cluster 1     0     20     0
+2  cluster 2     0      0    20
+=== cell 24
+raw 8 sensors: 2/20 single random starts reach the best objective; 20/20 give identical validation predictions to the first start
+z-score 8 sensors: 15/20 single random starts reach the best objective; 15/20 give identical validation predictions to the first start
+=== cell 25
+[image]
+{2: 2652.2, 3: 1237.5, 4: 1085.7, 5: 939.1, 6: 837.1, 7: 801.8, 8: 754.6}
+=== cell 27
+assign_nearest, n grows 4x each row (linear in n would give a ratio near 4):
+   Unnamed: 0      n  assign_ms  ratio_to_previous
+0           0    754      0.030                NaN
+1           1   3016      0.100               3.29
+2           2  12064      0.371               3.69
+3           3  48256      4.887              13.18
+one k-means start on z-scored fit rows, by number of dimensions:
+   Unnamed: 0  dims  kmeans_ms  iterations  ms_per_iteration
+0           0     8       0.38           5             0.076
+1           1     3       0.35           6             0.058
+2           2     2       0.77           5             0.154
+=== cell 29
+Selected: E1 (z-score, PCA 2, k-means, 2 dimensions)
+Configurations sharing the top macro F1: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3']
+Of those, also tied on sand recall: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3'] | also tied on dimensions: ['E1', 'E2']
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm         10           0          0
+1  true rough          0          10          0
+2   true sand          0           0         10
+per-class F1: {'firm': 1.0, 'rough': 1.0, 'sand': 1.0} | per-class recall: {'firm': 1.0, 'rough': 1.0, 'sand': 1.0}
+=== cell 31
+E1 {'success': True, 'status': 'MISSION SUCCESS', 'steps': 54, 'predicted_cost': 70.8}
+[other output] ['text/html', 'text/plain']
+=== cell 32
+[image]
+practice route cost 70.8 | mission route cost 52.0
+=== cell 33
+  Unnamed: 0  mission mean (z)  mission std (z)
+0   sensor_1             0.231            0.933
+1   sensor_2             0.206            0.905
+2   sensor_3            -0.189            1.031
+3   sensor_4             0.172            1.016
+4   sensor_5             0.131            1.082
+5   sensor_6             0.243            1.040
+6   sensor_7             0.022            1.011
+7   sensor_8            -0.053            1.028
+largest |mean shift| in fit-row standard deviations: 0.243
+  Unnamed: 0  practice predicted share  mission predicted share
+0       firm                     0.348                    0.460
+1      rough                     0.381                    0.269
+2       sand                     0.270                    0.270
+=== cell 34
+configurations that got the rover stuck: ['C1', 'C5']
+C1: stopped at (y=13, x=4) after 20 steps; the model predicted rough there and the simulator reports sand.
+   standardized sensors: {'sensor_1': -0.15, 'sensor_2': -0.1, 'sensor_3': 0.87, 'sensor_4': -1.41, 'sensor_5': -1.18, 'sensor_6': -0.71, 'sensor_7': -1.7, 'sensor_8': 1.85}
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm          8           0          2
+1  true rough          0           8          2
+2   true sand          0           5          5
+C5: stopped at (y=13, x=4) after 20 steps; the model predicted rough there and the simulator reports sand.
+   standardized sensors: {'sensor_1': -0.15, 'sensor_2': -0.1, 'sensor_3': 0.87, 'sensor_4': -1.41, 'sensor_5': -1.18, 'sensor_6': -0.71, 'sensor_7': -1.7, 'sensor_8': 1.85}
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm          8           0          2
+1  true rough          0           8          2
+2   true sand          0           5          5
+=== cell 36
+submission.csv (784, 4) student_id: demo3
+{'firm': 361, 'sand': 212, 'rough': 211}
+   Unnamed: 0 student_id  x  y predicted_terrain
+0           0      demo3  0  0              firm
+1           1      demo3  1  0              firm
+2           2      demo3  2  0              firm
+3           3      demo3  3  0              firm
+4           4      demo3  4  0              firm
+=== cell 38
+python 3.14.7 | numpy 2.5.4 | pandas 3.1.0 | scikit-learn 1.9.1 | matplotlib 3.11.2
+seed 4521 | bundle D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\rover-rescue-download\2026\homework-2\rover-rescue\demo_data | student_id demo3
+components for 95% variance: standardized 3 | raw 2
+selected E1 | practice: MISSION SUCCESS (54 steps)
+        scaling representation    model  dims  val_accuracy  macro_f1  sand_recall             practice
+config                                                                                                 
+C1          raw      8 sensors  k-means     8         0.700     0.704          0.5  ROVER STUCK IN SAND
+C2          raw      8 sensors     1-NN     8         0.933     0.935          0.9      MISSION SUCCESS
+C3      z-score      8 sensors  k-means     8         1.000     1.000          1.0      MISSION SUCCESS
+C4      z-score      8 sensors     1-NN     8         1.000     1.000          1.0      MISSION SUCCESS
+C5          raw        PCA 95%  k-means     2         0.700     0.704          0.5  ROVER STUCK IN SAND
+C6          raw        PCA 95%     1-NN     2         0.867     0.868          0.9      MISSION SUCCESS
+C7      z-score        PCA 95%  k-means     3         1.000     1.000          1.0      MISSION SUCCESS
+C8      z-score        PCA 95%     1-NN     3         1.000     1.000          1.0      MISSION SUCCESS
+E1      z-score          PCA 2  k-means     2         1.000     1.000          1.0      MISSION SUCCESS
+E2      z-score          PCA 2     1-NN     2         1.000     1.000          1.0      MISSION SUCCESS
+E3      z-score      8 sensors     3-NN     8         1.000     1.000          1.0      MISSION SUCCESS
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixmd.py <<'PYEOF'
+p = "build_nb2.py"
+s = open(p, encoding="utf-8").read()
+a = "Lecture 2.3 and 2.4 and the 4041 habit of measuring: the distance step costs O(n k d), so time should grow linearly with n and drop with d. Median of 5 timed runs."
+b = ("The distance step costs O(n k d), so its time should grow about linearly with n, and with d once n is large enough that "
+     "call overhead stops dominating. These tables report what this machine actually does (median of 5 timed runs), "
+     "including where the expectation does not hold.")
+assert s.count(a) == 1
+s = s.replace(a, b)
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixmd.py
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing"; cat > "$SC/times.py" <<'PYEOF'
+import nbformat, pandas as pd, io, sys
+nb = nbformat.read(sys.argv[1], as_version=4)
+c = nb.cells[22]
+for o in c.outputs:
+    if "text/html" in o.get("data", {}):
+        df = pd.read_html(io.StringIO(o["data"]["text/html"]))[0]
+        df.columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
+        print(df[["config", "fit_ms", "predict_ms"]].to_string(index=False))
+PYEOF
+"$PY" -I "$SC/times.py" CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 24 28 | grep -v "^\[IPK"; cd ..; cat Homework/figures/hw2_configs.csv | cut -d, -f1-9 | head -12; git -C "D:/_Anant/20_Progress/Documents/Jarvis" status --short | head -5`
+```
+ok
+wrote CSCI4521_HW2.ipynb 40 cells
+[NbConvertApp] Writing 1460197 bytes to CSCI4521_HW2.ipynb
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\times.py", line 8, in <module>
+    print(df[["config", "fit_ms", "predict_ms"]].to_string(index=False))
+          ~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\pandas\core\frame.py", line 4336, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\pandas\core\indexes\base.py", line 6557, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\pandas\core\indexes\base.py", line 6609, in _raise_if_missing
+    raise KeyError(f"{not_found} not in index")
+KeyError: "['config'] not in index"
+=== cell 24
+raw 8 sensors: 2/20 single random starts reach the best objective; 20/20 give identical validation predictions to the first start
+z-score 8 sensors: 15/20 single random starts reach the best objective; 15/20 give identical validation predictions to the first start
+=== cell 25
+[image]
+{2: 2652.2, 3: 1237.5, 4: 1085.7, 5: 939.1, 6: 837.1, 7: 801.8, 8: 754.6}
+=== cell 27
+assign_nearest, n grows 4x each row (linear in n would give a ratio near 4):
+   Unnamed: 0      n  assign_ms  ratio_to_previous
+0           0    754      0.080                NaN
+1           1   3016      0.247               3.08
+2           2  12064      0.957               3.87
+3           3  48256      9.469               9.90
+one k-means start on z-scored fit rows, by number of dimensions:
+   Unnamed: 0  dims  kmeans_ms  iterations  ms_per_iteration
+0           0     8       1.00           5             0.201
+1           1     3       1.49           6             0.249
+2           2     2       1.19           5             0.238
+config,scaling,representation,model,dims,val_accuracy,macro_f1,sand_recall,sand_found
+C1,raw,8 sensors,k-means,8,0.7,0.704,0.5,5/10
+C2,raw,8 sensors,1-NN,8,0.933,0.935,0.9,9/10
+C3,z-score,8 sensors,k-means,8,1.0,1.0,1.0,10/10
+C4,z-score,8 sensors,1-NN,8,1.0,1.0,1.0,10/10
+C5,raw,PCA 95%,k-means,2,0.7,0.704,0.5,5/10
+C6,raw,PCA 95%,1-NN,2,0.867,0.868,0.9,9/10
+C7,z-score,PCA 95%,k-means,3,1.0,1.0,1.0,10/10
+C8,z-score,PCA 95%,1-NN,3,1.0,1.0,1.0,10/10
+E1,z-score,PCA 2,k-means,2,1.0,1.0,1.0,10/10
+E2,z-score,PCA 2,1-NN,2,1.0,1.0,1.0,10/10
+E3,z-score,8 sensors,3-NN,8,1.0,1.0,1.0,10/10
+ M "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+ M "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-27 CSCI 4521 Homework 2 Rover Rescue.md"
+?? "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Code/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Code/10-27 Conda env csci-4521 setup.md"
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\blockA.md`
+```
+### 2026-10-27 Notebook rebuilt in course style and run
+Rebuilt after reading the CSCI 4041 projects and the 4521 lectures, notebooks and ISL chapter 12 in depth. `Code\Homework\CSCI4521_HW2.ipynb` (40 cells) copies every starter cell unchanged, adds one marked `BUNDLE_OVERRIDE` cell, then holds: methods with time and memory cost in each docstring, a testing section, representation, 11 configurations, selection, deployment, export, a summary and an AI-use note. Executed top to bottom with nbconvert in a scratch Python 3.14 venv (numpy 2.5.4, pandas 3.1.0, scikit-learn 1.9.1, matplotlib 3.11.2): no errors, every assert passed. Written next to it: `submission.csv` (784 rows, student_id `demo3`), `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png`, `figures/hw2_configs.csv`. Both figures were opened and read.
+Changes from the first build, and why:
+- k-means now follows ISL Algorithm 12.2 and lecture 2.3 slide 10 literally: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes, best of 10 random starts. The first build used k-means++ seeds, which the handout allows but the course does not teach. No headline result changed with the switch.
+- kNN distances use one matrix product (O(m n d) time, O(m n) memory) and `argpartition` for k above 1 instead of a full sort. 1-NN equals the lecture 1.1 loop on all 30 validation rows, raw and z-scored.
+- Testing section asserts: the k-means objective never rises (ISL 12.18), final centroids are member means, clusters partition the data (lecture 2.3 slide 17), z-score gives mean 0 and std 1, PCA components are orthonormal, PCA variance equals the squared singular values (lecture 2.4). sklearn is only a cross-check: k-means objective 1237.50 in both, kNN agrees at k=1, 3 and 5.
+- Added: stability over 20 single random starts, a cost check, and fit and predict times.
+Evidence (demo bundle, the only data available):
+- Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
+- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance (81.9% and 10.4%). After z-scoring each supplies 12.5%.
+- PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Fig 1b shows three separated groups in PC1 and PC2 that line up with firm, rough and sand.
+- Experiments (validation accuracy, macro F1, sand recall, practice): raw 8 sensors k-means 0.700, 0.704, 0.5, stuck at step 20. Raw 8 sensors 1-NN 0.933, 0.935, 0.9, success (cost 72.2). Raw PCA 2 k-means 0.700, 0.704, 0.5, stuck at step 20. Raw PCA 2 1-NN 0.867, 0.868, 0.9, success (cost 76.4). Every z-score configuration (8 sensors, PCA 3, PCA 2, k-means, 1-NN, 3-NN) scored 1.000, 1.000, 1.0 and succeeded with 54 steps and cost 70.8.
+- k-means: no empty clusters in any run, every run converged (5 to 10 iterations), majority naming was one-to-one everywhere. Z-score clusters are pure on the 60 training labels (20, 20, 20). Raw k-means mixes them: the cluster named sand holds 12 sand, 11 rough and 4 firm training points. Elbow objective: k=2 2652, k=3 1238, k=4 1086.
+- Stability: with one random start, 15 of 20 starts reach the best objective on z-scored 8 sensors and only 2 of 20 on raw 8 sensors. That is why the best of 10 starts is kept. On z-scored data the 5 worse starts also change the validation predictions (15 of 20 identical); on raw data all 20 give identical validation predictions.
+- Cost check (noisy, machine dependent): assign_nearest time grows 3.1x and 3.9x when n grows 4x (n 754, 3016, 12064) and about 10x at n 48256, which is a memory effect and not the linear growth the O(n k d) count predicts. A k-means start takes about 1 ms and shows no speedup from 8 to 3 to 2 dimensions at n 754, because call overhead dominates at this size. Do not claim PCA saves time on this dataset.
+- Selection by the pre-set rule picked E1 (z-score, PCA 2, k-means). Seven configurations tie at the top (E1, E2, C7, C8, C3, C4, E3). Only the dimension count separated E1 from the rest of that group, and E1 ties E2 on every metric, so the choice between them came from table order.
+- Failure: raw k-means (and raw PCA k-means) stopped at (y=13, x=4) after 20 steps where it predicted rough and the simulator reports sand. Validation confusion: 5 of 10 sand cells predicted rough.
+- Mission: largest mean shift in fit-row standard deviations 0.243. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on the practice grid. Mission route cost 52.0.
+### Dataset question
+- The bundle is five files: `development.csv` (784 rows, a 28x28 grid: y, x and eight sensors), `calibration.csv` (90 labeled locations, 30 per terrain), `mission.csv` (784 unlabeled rows), `config.json` (grid, start and goal cells, student_id, assignment_version 2) and `practice_truth.bin` (simulator only).
+- We do not create it. The instructor issues it. The PDF says "You will receive a personalized dataset", while the repo README and `assignment_student.md` say "Use demo_data/ ... you do not collect or generate your own data". The only bundle available is `demo_data` with student_id `demo3`. A search of this machine, Gmail and Drive on 2026-10-27 found no other bundle. Where a personalized one would come from is unknown: check the Gradescope assignment page and Canvas, then ask the instructor or a TA (private Piazza post or email).
+- Nothing in the handout, rubric or repo says the data is tuned for a perfect score. What the demo bundle itself shows: sensor scales differ by 1,320x and the z-scored terrains separate cleanly, so it makes scaling matter and is solvable. The rubric says an imperfect classifier or a stuck rover can earn full credit, and no points depend on hidden mission success.
+
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\blockB.md`
+```
+### Rubric coverage
+Where each rubric line is met in `CSCI4521_HW2.ipynb`. "Met" means the evidence exists in the executed notebook, not that points are guaranteed.
+| Rubric line | Notebook location | Evidence |
+| --- | --- | --- |
+| Learning system and method choices (25) | Part 1 methods, Part 4 | z-score, nearest-centroid, centroid update, k-means loop (ISL 12.2), cluster naming from the 60 labels, kNN, all in NumPy; initialization, stopping rule and empty-cluster handling written in the text and counted in the output |
+| Sensor scales (4) | Part 3 first table | std range 1,320x, share of raw squared distance per sensor |
+| PCA and 95% count (6) | Part 3 PCA cells | fitted on fit rows only, counts 3 (z-score) and 2 (raw), loadings, variance table |
+| PCA figure and reading (5) | `figures/fig1_pca.png` | cumulative variance, top 2 and top 3 components, three groups visible |
+| At least three configurations (8) | Part 4 | 11 configurations, full scaling by PCA by model grid plus extras |
+| Common held-out evaluation and boundaries (9) | Setup cell, Part 4 | asserts for disjoint fit and validation rows, same 30 validation rows for every row of the table, labels used only for naming and 1-NN |
+| Dimensions, accuracy, macro F1, sand recall, practice outcome (8) | Part 4 table, `figures/hw2_configs.csv` | all five recorded per configuration, plus timing |
+| Model choice, reuse, mission map, practice run (10) | Parts 5 and 6, `practice_run.html`, `figures/fig2_deploy.png` | selection rule fixed first, stored objects reused, mission map and route, practice HTML |
+| Report (20) | Word report, still a draft | Report draft below, max two pages, sand risk and limitations included |
+| Reproducibility (5) | header cell, Summary cell | dependencies, run steps, fixed seed, versions printed, Restart and Run All verified once |
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice2.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+
+def between(s, start, end, new):
+    assert s.count(start) == 1 and s.count(end) == 1, (start, end)
+    a, b = s.index(start), s.index(end)
+    assert a < b
+    return s[:a] + new + s[b:]
+
+def swap(s, old, new):
+    assert s.count(old) == 1, old[:60]
+    return s.replace(old, new)
+
+s = between(s, "### 2026-10-27 Notebook built and run\n", "### 2026-10-27 Source reading and plan\n", open("blockA.md", encoding="utf-8").read())
+s = between(s, "### Notebook design\n", "### Remaining steps to submit\n", open("blockB.md", encoding="utf-8").read())
+
+s = swap(s, "My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened).",
+ "My k-means is a NumPy loop that follows ISL Algorithm 12.2: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares; an empty cluster would be re-seeded at the farthest point (it never happened). One start is not enough: on z-scored data 15 of 20 single starts reached the best objective, and on raw data only 2 of 20.")
+s = swap(s, "AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.",
+ "AI use: AI use is allowed in this course and I used it heavily. Anthropic Claude Code read the course materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked the results against the assignment, and am responsible for what I submit.")
+s = swap(s, "- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.",
+ "- Before anything is uploaded: check the Gradescope due date, and ask the instructor or a TA whether a personalized bundle exists (see Dataset question). The report and notebook both end with an AI-use disclosure; it is only true if you open the notebook and check the numbers yourself.")
+s = swap(s, "> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.",
+ "> Open before upload: the Gradescope due date, and whether the course issues a personalized bundle (see Dataset question). If one exists, set `BUNDLE_OVERRIDE`, run everything again, and refill every number in the Report draft and Table 1 from the new output. The Word report stays a draft until the code, dataset and images are final.")
+s = swap(s, "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. It is not printed on the handout PDF or in the repo markdown, so it is unconfirmed (check Gradescope or Canvas). HW1 ended with a one-line AI disclosure, reuse that shape.",
+ "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. The handout PDF and repo markdown print none. The user states AI use is allowed as much as possible on this course, so treat it as green but unverified. The disclosure, including how much AI was used, goes at the bottom of the report and of the notebook.")
+open(p, "w", encoding="utf-8").write(s)
+print("ok", len(s))
+PYEOF
+./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+```
+ok 25766
+15:## Overview
+20:## Requirements
+21:### Must submit (Gradescope)
+26:### Must demonstrate (rubric, 100 points)
+33:### Must not do
+42:### Report must state
+49:### Rules
+52:## Work log
+53:### 2026-10-27 Notebook rebuilt in course style and run
+71:### Dataset question
+75:### 2026-10-27 Source reading and plan
+86:### Rubric coverage
+100:### Remaining steps to submit
+107:### Report draft
+121:### Table 1 rows
+135:### Word assembly
+137:### Blockers
+141:### Submission
+143:## Concepts used
+149:## Post-submit reflection
+
+0
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+```
+
 ## Actions Taken
 
 **Files created:**
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\blockA.md`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\blockB.md`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb2.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\new_block.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 
 **Files modified:**
@@ -3551,5 +7235,247 @@ print(len(d))
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dashes:"; grep -nP "\x{2014}|\x{2013}" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head; echo "(none above = clean)"; echo; echo "calibration balance:"; tail -n +2 "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data/calibration.csv" | cut -d, -f3 | sort | uniq -c; echo; echo "conda envs:"; ls -la /c/Users/anant/miniconda3/envs 2>&1 | head -5; ls /c/Users/anant/.conda 2>&1 | head -3; echo; echo "lint:"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" 2>&1 | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint"; node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | tail -15; echo ---dash check; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -5; echo "(end)"; echo ---blank lines; awk 'prev=="" && $0=="" {print NR": double blank"} {prev=$0}' "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n -B1 -A1 '^$' "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -12`
 - `mineru server stop 2>&1 | tail -2`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q numpy pandas matplotlib scikit-learn ipython nbformat nbconvert ipykernel 2>&1 | grep -v "notice" | tail -5; ./venv/Scripts/python.exe -c "import numpy,pandas,sklearn,matplotlib,IPython,nbformat,nbconvert,ipykernel;print(numpy.__version__,pandas.__version__,sklearn.__version__,matplotlib.__version__,IPython.__version__)"; git --version`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | tail -30`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > outs.py <<'EOF'
+import nbformat, sys
+nb = nbformat.read(sys.argv[1], as_version=4)
+start = int(sys.argv[2]); end = int(sys.argv[3])
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code" or not (start <= i < end): continue
+    print(f"=== cell {i}")
+    for o in c.outputs:
+        if o.output_type == "stream": print(o.text.rstrip())
+        elif o.output_type in ("execute_result", "display_data"):
+            if "text/plain" in o.data and "text/html" not in o.data and "image/png" not in o.data: print(o.data["text/plain"])
+            elif "text/html" in o.data and "<table" in o.data["text/html"]:
+                import pandas as pd, io
+                try: print(pd.read_html(io.StringIO(o.data["text/html"]))[0].to_string())
+                except Exception as e: print("[html table]", e)
+            elif "image/png" in o.data: print("[image]")
+            else: print("[other output]", list(o.data.keys()))
+        elif o.output_type == "error": print("ERROR", o.ename, o.evalue)
+EOF
+./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 40 2>&1 | head -260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q lxml 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 31 2>&1 | grep -v "^\[IPK" | head -230`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
+import re
+p = "build_nb.py"
+s = open(p, encoding="utf-8").read()
+
+s = s.replace("cluster names {list(CLASSES[info['names']])}", "cluster names {[str(c) for c in CLASSES[info['names']]]}")
+s = s.replace('''print("Selected:", BEST, "->", dict(results.loc[BEST, ["scaling", "representation", "model", "dims"]]))''',
+ '''r = results.loc[BEST]
+print(f"Selected: {BEST} ({r.scaling}, {r.representation}, {r.model}, {int(r.dims)} dimensions)")''')
+s = s.replace('''print("per-class F1:", dict(zip(CLASSES, cm_best["f1"].round(3))), "| per-class recall:", dict(zip(CLASSES, cm_best["recall"].round(3))))''',
+ '''print("per-class F1:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["f1"])},
+      "| per-class recall:", {str(c): round(float(v), 3) for c, v in zip(CLASSES, cm_best["recall"])})''')
+s = s.replace('''print("practice route cost", cost_p, "| mission route cost", cost_m)''',
+ '''print("practice route cost", round(cost_p, 1), "| mission route cost", round(cost_m, 1))''')
+s = s.replace("print(dict(zip(ks, np.round(inertia_k, 1))))", "print({kk: round(float(v), 1) for kk, v in zip(ks, inertia_k)})")
+
+old_start = s.index("# Missed sand in the chosen model's practice route")
+old_end = s.index("md('## 8. Export the mission predictions')")
+new_cell = """# Failure analysis: for every configuration whose practice route ended in sand, find the cell where the rover
+# stopped (the planned path gives it, no truth file is read) and show what the model saw there.
+stuck = results.index[results.practice == "ROVER STUCK IN SAND"]
+print("configurations that got the rover stuck:", list(stuck))
+for cid in stuck:
+    pred_c = fitted[cid]["predict"](X_dev)
+    path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)
+    sy, sx = path_c[int(results.loc[cid, "steps"])]
+    i = sy * w + sx
+    print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; the model predicted "
+          f"{CLASSES[pred_c[i]]} there and the simulator reports sand.")
+    print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))
+    mv = metrics(y_val, fitted[cid]["predict"](X_val))
+    display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))''')
+
+"""
+s = s[:old_start] + "code('''" + new_cell + s[old_end:]
+open(p, "w", encoding="utf-8").write(s)
+EOF
+grep -n "Failure analysis" build_nb.py | head -2; sed -n "$(grep -n 'Failure analysis' build_nb.py | head -1 | cut -d: -f1),+16p" build_nb.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'EOF'
+p = "build_nb.py"
+s = open(p, encoding="utf-8").read()
+print(s.count("code('''code('''"))
+s = s.replace("code('''code('''", "code('''")
+open(p, "w", encoding="utf-8").write(s)
+EOF
+./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb.py',encoding='utf-8').read());print('syntax ok')"`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=600 CSCI4521_HW2.ipynb 2>&1 | grep -E "ERROR|Error|Traceback|Writing" ; ls -la submission.csv practice_run.html figures/ CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 26 40 2>&1 | grep -v "^\[IPK"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > new_block.md <<'EOF'
+### Remaining steps to submit
+Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order:
+- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.
+- 2 min: open `CSCI4521_HW2.ipynb`, confirm the outputs show and the tables match the Work log above. Do not re-run unless the dataset changes.
+- 12 min: Word. Paste the Report draft as unformatted text, insert Figure 1 and Figure 2 from `Code\Homework\figures\`, build Table 1 from the rows below.
+- 5 min: export PDF, reopen it, confirm two pages and that every number matches `figures/hw2_configs.csv`.
+- 3 min: upload `CSCI4521_HW2.ipynb`, the PDF, `submission.csv`, `practice_run.html`. Do not upload `rover-rescue-download/` (it holds the dataset and the truth file). Record the time under `### Submission`.
+### Report draft
+HW 2: Rover Rescue
+Anant Gupta
+October 2026
+1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? I compared eleven configurations (Table 1). Eight form a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor. Three extras use PCA with 2 components and 3-NN. My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened). Clusters take the majority label of the 60 calibration-training points, which was one-to-one in every case. Three clusters match the three terrains, and the elbow agrees: within-cluster sum of squares drops from 2652 at k=2 to 1238 at k=3 and only to 1086 at k=4.
+2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (every practice row except the 30 validation rows, no labels used). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. All configurations were scored on the same 30 validation rows (10 per terrain), where one error is 3.3 points. I selected the deployed model on these rows, so its score is a selection score, not an untouched test score, and the practice rover run shows deployment rather than accuracy. The mission grid was transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
+3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and with 2 on raw data (98.2%), but raw PC1 alone holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups that line up with the labeled firm, rough and sand points (Figure 1b).
+Scaling mattered most. Holding model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells, and its cluster named sand held 12 sand, 11 rough and 4 firm training points; after z-scoring all three clusters were pure (20, 20, 20). PCA changed little: on z-scored data 8 sensors, 3 components and 2 components all scored 1.000, while on raw data it lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, not tested here: with raw scales k-means partitions mostly along sensor_4, while 1-NN uses the 60 labels locally.
+Table 1: dimensions, validation accuracy, macro F1, sand recall and practice rover outcome for each configuration (macro F1 is the unweighted mean of the three per-class F1 scores).
+Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows, labeled training points in color.
+4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA with 2 components, k-means), which differs from E2 only by table order, so I report a tie and not a winner. E1 uses 2 dimensions and needs the labels only to name three clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, the same as the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it, while a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route: a miss matters only when the path crosses it.
+Figure 2: practice map with the planned route and predicted mission map with its planned route, from the selected model.
+5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them does not mean the model is perfect; one successful practice route is a demonstration. The z-scored mission rows sit within 0.25 standard deviations of the fit-row mean on every sensor (standard deviations 0.91 to 1.08), so I saw no sensor drift. Even so the predicted mission mix differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot say whether that is a real regional difference or a model error.
+AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.
+### Table 1 rows
+| ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
+| C2 | raw | 8 sensors (8) | 1-NN | 0.933 | 0.935 | 0.90 | success, 54 steps |
+| C3 | z-score | 8 sensors (8) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C4 | z-score | 8 sensors (8) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C5 | raw | PCA 95% (2) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
+| C6 | raw | PCA 95% (2) | 1-NN | 0.867 | 0.868 | 0.90 | success, 54 steps |
+| C7 | z-score | PCA 95% (3) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| C8 | z-score | PCA 95% (3) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E1 | z-score | PCA 2 (2) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E2 | z-score | PCA 2 (2) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+| E3 | z-score | 8 sensors (8) | 3-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
+### Word assembly
+This report is longer than the two-page limit allows at HW1 settings, so use these from the start: Times New Roman 10.5 pt, Letter, 0.75 inch margins, single spacing, 3 pt after paragraphs. Figure 1 about 6.8 in wide, Figure 2 about 4.6 in wide, Table 1 at 9 pt. Page count is untested in Word, so check it. If it spills, shrink Figure 2 first, then cut sentence by sentence from section 3 (the explanation sentences), not the table or the protocol, because the rubric scores both. Copy from source mode, Paste Special as unformatted text, bold the section titles, center the three title lines, and put each figure directly above its caption.
+### Blockers
+> [!WARNING]
+> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.
+
+EOF
+./venv/Scripts/python.exe -I - <<'EOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+a = s.index("### 30-minute plan")
+b = s.index("### Submission")
+new = open("new_block.md", encoding="utf-8").read()
+s = s[:a] + new + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("ok", len(s))
+EOF
+cd "D:/_Anant/20_Progress/Documents/Jarvis"; LC_ALL=C grep -nP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md" | head -3; echo "(dash check done)"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|failing|Homework -"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+a = s.index("### 30-minute plan")
+b = s.index("### Submission")
+s = s[:a] + open("new_block.md", encoding="utf-8").read() + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("spliced", len(s))
+PYEOF
+./venv/Scripts/python.exe -I splice.py`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "dash hits:"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; echo "headings:"; grep -n "^## \|^### " "20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd 30_Order/System/vault-lint && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; echo; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls; head -3 submission.csv; wc -l submission.csv; cat figures/hw2_configs.csv | head -3`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fix.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+i = s.index("### Submission`.")
+j = s.index("### Submission\nNot submitted yet.")
+assert i < j
+s = s[:i] + s[j:]
+open(p, "w", encoding="utf-8").write(s)
+print("removed", j - i, "chars")
+PYEOF
+./venv/Scripts/python.exe -I fix.py; grep -n "^## \|^### " "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "../../../20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > restore.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+a = s.index("### Remaining steps to submit\n")
+b = s.index("### Submission\nNot submitted yet.")
+assert s.count("### Remaining steps to submit\n") == 1 and s.count("### Submission\nNot submitted yet.") == 1 and a < b
+block = open("new_block.md", encoding="utf-8").read()
+s = s[:a] + block + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("restored", len(s))
+PYEOF
+./venv/Scripts/python.exe -I restore.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; grep -c "Report draft (fill every bracket" "$F"; grep -c "\[n\] configurations" "$F"; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ls; echo ---; for d in Lectures "Final Project" Midterm_Project; do echo "## $d"; find "$d" -type f -not -path "*/.git/*" -not -path "*/__pycache__/*" -not -name "*.png" -not -name "*.jpg" | head -60; done`
+- `echo "== search for assigned bundle files by name"; for r in "/c/Users/anant/Downloads" "/c/Users/anant/Desktop" "/c/Users/anant/Documents" "/d/_Anant"; do find "$r" -maxdepth 6 \( -iname "development.csv" -o -iname "calibration.csv" -o -iname "mission.csv" -o -iname "practice_truth.bin" -o -iname "config.json" -o -iname "*rover*" \) -not -path "*/node_modules/*" -not -path "*/.git/*" -not -path "*/50_Archive/*" 2>/dev/null | head -20; done`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; wc -c AGENTS.md AI_CONTEXT.md; echo; sed -n 1,80p AGENTS.md | cut -c1-500`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/AVLTree.ipynb" | head -330`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Midterm_Project/AVL Tree/Experiment.ipynb" | cut -c1-220 | head -260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041"; ./venv/Scripts/python.exe -I src.py "$P/Final Project/Maze/Final.ipynb" | cut -c1-200 | head -230`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "== ISL: scaling in PCA"; grep -n -i "standard deviation one\|scaled to have standard\|should be scaled\|variables should be\|scale the variables\|scaling the variables" isl.txt | head -20; echo "== ISL: k-means algorithm / random starts / scaling in clustering"; grep -n -i "random initial\|run the algorithm multiple\|multiple times from different\|within-cluster variation\|K-means clustering algorithm" isl.txt | head -20; echo "== ISL: proportion of variance / scree"; grep -n -i "scree plot\|proportion of variance explained\|cumulative PVE" isl.txt | head -12`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; L="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Lectures/Weeks 1 - 5"; PYTHONIOENCODING=utf-8 ./venv/Scripts/python.exe -I src.py "$L/1.3 kNN with SciKit-Learn.ipynb" | cut -c1-200 | head -200`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Textbook & Resources"; echo "=== ISL 12.2.4 scaling (PCA)"; sed -n 30260,30280p isl.txt | cut -c1-140; sed -n 30336,30350p isl.txt | cut -c1-140; echo; echo "=== ISL clustering: scaling"; sed -n 31350,31366p isl.txt | cut -c1-140; echo; echo "=== ISL k-means algorithm"; sed -n 30900,30975p isl.txt | cut -c1-150`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/repo/2026/homework-2/rover-rescue/demo_data"; cat config.json; echo; wc -l *.csv; ls -la; cd ..; git log --format='%h %an %ad %s' --date=iso | head -3; echo ---; sed -n 1,12p assignment_student.md`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > relabel.py <<'PYEOF'
+p = "build_nb2.py"
+s = open(p, encoding="utf-8").read()
+pairs = [
+ ("- Part 1: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 2: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 3: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 4: eleven configurations",
+  "- Part 1: the NumPy methods (z-score, nearest-centroid assignment, centroid update, my own k-means loop, cluster naming, kNN) with time complexity stated in each docstring\n- Part 2: a testing section (invariant checks, the lecture's loop as a reference, library cross-checks)\n- Part 3: sensor-scale analysis and PCA (95% component count, variance curve, 2-D and 3-D views)\n- Part 4: eleven configurations"),
+ ("## Part 2: Methods written in NumPy", "## Part 1: Methods written in NumPy"),
+ ("## Part 3: Testing section", "## Part 2: Testing section"),
+ ("## Part 1: Representation", "## Part 3: Representation"),
+]
+for a, b in pairs:
+    assert s.count(a) == 1, a[:40]
+    s = s.replace(a, b)
+open(p, "w", encoding="utf-8").write(s)
+print("relabeled")
+PYEOF
+./venv/Scripts/python.exe -I relabel.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb2.py',encoding='utf-8').read());print('syntax ok')"
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|assert|Writing|Exception" ; ls -la submission.csv practice_run.html figures/ | grep -E "submission|practice|hw2|fig1_pca|fig2_deploy"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 11 45 2>&1 | grep -v "^\[IPK" | grep -v "Unnamed: 0_level_0" | cut -c1-260 | head -230`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixmd.py <<'PYEOF'
+p = "build_nb2.py"
+s = open(p, encoding="utf-8").read()
+a = "Lecture 2.3 and 2.4 and the 4041 habit of measuring: the distance step costs O(n k d), so time should grow linearly with n and drop with d. Median of 5 timed runs."
+b = ("The distance step costs O(n k d), so its time should grow about linearly with n, and with d once n is large enough that "
+     "call overhead stops dominating. These tables report what this machine actually does (median of 5 timed runs), "
+     "including where the expectation does not hold.")
+assert s.count(a) == 1
+s = s.replace(a, b)
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixmd.py
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && PY="$SC/venv/Scripts/python.exe" && "$PY" "$SC/build_nb2.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing"; cat > "$SC/times.py" <<'PYEOF'
+import nbformat, pandas as pd, io, sys
+nb = nbformat.read(sys.argv[1], as_version=4)
+c = nb.cells[22]
+for o in c.outputs:
+    if "text/html" in o.get("data", {}):
+        df = pd.read_html(io.StringIO(o["data"]["text/html"]))[0]
+        df.columns = [col[0] if isinstance(col, tuple) else col for col in df.columns]
+        print(df[["config", "fit_ms", "predict_ms"]].to_string(index=False))
+PYEOF
+"$PY" -I "$SC/times.py" CSCI4521_HW2.ipynb; "$PY" -I "$SC/outs.py" CSCI4521_HW2.ipynb 24 28 | grep -v "^\[IPK"; cd ..; cat Homework/figures/hw2_configs.csv | cut -d, -f1-9 | head -12; git -C "D:/_Anant/20_Progress/Documents/Jarvis" status --short | head -5`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > splice2.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+
+def between(s, start, end, new):
+    assert s.count(start) == 1 and s.count(end) == 1, (start, end)
+    a, b = s.index(start), s.index(end)
+    assert a < b
+    return s[:a] + new + s[b:]
+
+def swap(s, old, new):
+    assert s.count(old) == 1, old[:60]
+    return s.replace(old, new)
+
+s = between(s, "### 2026-10-27 Notebook built and run\n", "### 2026-10-27 Source reading and plan\n", open("blockA.md", encoding="utf-8").read())
+s = between(s, "### Notebook design\n", "### Remaining steps to submit\n", open("blockB.md", encoding="utf-8").read())
+
+s = swap(s, "My k-means is a NumPy loop: k-means++ seeds, 10 restarts keeping the lowest within-cluster sum of squares, stop when no label changes or after 300 iterations, and an empty cluster would be re-seeded at the farthest point (it never happened).",
+ "My k-means is a NumPy loop that follows ISL Algorithm 12.2: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares; an empty cluster would be re-seeded at the farthest point (it never happened). One start is not enough: on z-scored data 15 of 20 single starts reached the best objective, and on raw data only 2 of 20.")
+s = swap(s, "AI use: Anthropic Claude Code helped write and check the notebook and this report. I ran the notebook, checked every number, and am responsible for this work.",
+ "AI use: AI use is allowed in this course and I used it heavily. Anthropic Claude Code read the course materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked the results against the assignment, and am responsible for what I submit.")
+s = swap(s, "- Before anything is uploaded: check the Gradescope due date and this assignment's AI-use level. The report ends with an AI disclosure that is only true if you open the notebook and check the numbers yourself.",
+ "- Before anything is uploaded: check the Gradescope due date, and ask the instructor or a TA whether a personalized bundle exists (see Dataset question). The report and notebook both end with an AI-use disclosure; it is only true if you open the notebook and check the numbers yourself.")
+s = swap(s, "> Two facts only the user can confirm before upload: the Gradescope due date and this assignment's AI-use level. Dataset: only the demo bundle was available (student_id demo3). If a personalized bundle exists, set `BUNDLE_OVERRIDE`, rerun, and refill every number above from the new output.",
+ "> Open before upload: the Gradescope due date, and whether the course issues a personalized bundle (see Dataset question). If one exists, set `BUNDLE_OVERRIDE`, run everything again, and refill every number in the Report draft and Table 1 from the new output. The Word report stays a draft until the code, dataset and images are final.")
+s = swap(s, "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. It is not printed on the handout PDF or in the repo markdown, so it is unconfirmed (check Gradescope or Canvas). HW1 ended with a one-line AI disclosure, reuse that shape.",
+ "- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. The handout PDF and repo markdown print none. The user states AI use is allowed as much as possible on this course, so treat it as green but unverified. The disclosure, including how much AI was used, goes at the bottom of the report and of the notebook.")
+open(p, "w", encoding="utf-8").write(s)
+print("ok", len(s))
+PYEOF
+./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
 
 

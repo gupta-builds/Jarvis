@@ -4,121 +4,127 @@ class_kind: homework
 status: sprout
 created: 2026-10-26
 updated: 2026-10-27
+deadline: 2026-10-27
 tags:
   - class
   - homework
 area:
   - "[[CSCI 4521 Board]]"
-next: "Build the 2-page Word report from the Report draft below (Table 1 from figures/hw2_configs.csv, Figure 1 and 2 from figures/), export PDF, check 2 pages, then upload the PDF, CSCI4521_HW2.ipynb, submission.csv and practice_run.html to Gradescope before 11 pm on 2026-10-27."
+next: "Build the Word report from the Report draft (page break before Table 1, figures from Code/Homework/figures), export the PDF, confirm 2 pages, then upload the 4 files listed under Submit to Gradescope before 11 pm on 2026-10-27."
 ---
 # Homework - 2
 ## Overview
-Rover Rescue: build a terrain classifier from eight sensor readings (firm, rough, sand), compare scaling, PCA and cluster-based versus 1-NN prediction, deploy one fitted model on a practice grid and a mission grid, and explain the evidence in a standalone report of at most two pages. The grade is the 100-point `rubric.md` in the course repo, not the 10, 20 and 10 points printed in the PDF. Submission is on Gradescope (HW1 was Canvas).
-Due date is unverified. The handout says "check Gradescope". The Board's schedule lists HW2 for Tue 10/20, which has passed (the 24-hour grace day ended 10/21). The repo's only commit for this folder is dated 2026-10-22 and is titled "added dataset for hw 3 f26", and the Week 6 note describes an earlier text-clustering HW2. So this may be a replacement or renumbered assignment. Check Gradescope before anything else.
-Extra credit: none in the handout, the repo markdown or the rubric. The rubric says extra experiments earn credit only through stronger evidence. The only way to score higher is a full rubric score.
-Sources read: `Code\Homework\homework 2.pdf` (assignment), `HW2.pdf` (example, a spam-clustering report from Feb 2025, so a style example only), the starter notebook, and the repo `be-prado/csci4521`, `2026/homework-2/rover-rescue` (README, assignment_student.md, rubric.md, rover_starter.py, run_demo.py, demo_data). Course grounding: lectures 1.1, 1.4, 2.3, 2.4 and the 2.3 and 2.4 notebooks.
+Rover Rescue (CSCI 4521 HW2): build a terrain classifier from eight sensors (firm, rough, sand), compare scaling, PCA and k-means against 1-NN, deploy one fitted model on the practice and mission grids, and explain the evidence in a standalone report of at most two pages. The grade is the 100-point `rubric.md` in the course repo, not the 10, 20 and 10 points printed in the PDF. No extra credit is offered in the handout, the repo markdown or the rubric.
+Deadline: 11 pm on 2026-10-27, as the user stated it. Confirm on the Gradescope assignment page: the Board's schedule listed HW2 for 10/20, the handout says "check Gradescope", and the repo folder was committed 2026-10-22.
+Status 2026-10-27: the notebook, both figures, `submission.csv` and the practice HTML are final and tested. Left: the Word report and its PDF, then the upload.
 ## Requirements
-### Must submit (Gradescope)
-- [ ] Notebook `.ipynb`, saved with outputs, containing all code and every figure used in the report. A fresh run on the assigned dataset must reproduce results and predictions.
-- [ ] Practice deployment image or animation (locally: save `show_practice_run(...).data` to an HTML file).
-- [ ] `submission.csv` from `save_submission`, one row per mission row in CSV order. The PDF lists it as a deliverable and `assignment_student.md` calls it optional, so produce it.
-- [ ] Report PDF, standalone, two pages maximum, with a compact comparison table and at least one readable figure.
-### Must demonstrate (rubric, 100 points)
-- [ ] Learning system and method choices (25): z-score normalization, k-means (3 clusters), 1-NN and kNN written in NumPy, calibration-based cluster naming, choices explained (initialization, stopping rule, empty clusters).
-- [ ] Representation (15): sensor-scale analysis (4), PCA fitted correctly with the 95% component count (6), a useful PCA figure with a supported reading (5).
-- [ ] Experiments (25): at least three configurations covering scaling, PCA and cluster versus kNN (8), one common held-out evaluation with correct fit and label boundaries (9), dimensions, accuracy, macro F1, sand recall and practice outcome for every configuration (8).
-- [ ] Deployment (10): evidence-based model choice (4), stored transforms and predictor reused on mission plus a predicted mission map (4), documented practice run (2).
-- [ ] Report (20): focused question (4), table, figure and conclusions (8), diagnosis including sand risk (5), evaluation protocol (3).
-- [ ] Reproducibility (5): dependencies, exact run instructions, fresh run reproduces everything.
+### Submit
+The handout lists four deliverables. Upload exactly these four, from `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\`:
+- [ ] `CSCI4521_HW2.ipynb`, saved with outputs (code and every figure used in the report)
+- [ ] `practice_run.html`, the practice deployment animation (the same run appears as a static map in Figure 2 of the report)
+- [ ] `submission.csv`, from `save_submission`, 784 rows in mission.csv order, `student_id` demo3 (the instructor says to leave it)
+- [ ] the report PDF (export from Word, two pages at most)
+Do not upload: the `rover-rescue-download/` folder (it holds the dataset and `practice_truth.bin`), the starter notebook `Homework2_RoverRescue_student.ipynb`, `figures/` files as separate items, or any HW1 file.
+How: Gradescope, CSCI 4521, Homework 2, upload. Whether the page has one multi-file slot or four slots is unverified, so read the page first. After uploading, open each file in the Gradescope preview and keep the confirmation.
 ### Must not do
 - Do not read `practice_truth.bin`; only `evaluate_practice` and `show_practice_run` touch it.
 - Do not change `split_data` or its split.
 - Do not use x, y as features.
 - Do not fit normalization, PCA or k-means on validation rows, and never fit anything on mission data.
 - Do not use validation labels to name clusters or train 1-NN.
-- Do not replace the four required NumPy operations (normalization, nearest-centroid assignment, centroid update, kNN prediction) with library versions. Allowed from libraries: PCA, k-means initialization, classification metrics, plotting. The rubric says library implementations are eligible, but the PDF is stricter, so follow the PDF.
-- Do not call validation scores an untouched test estimate, and do not call the practice run an accuracy estimate.
-- Do not submit the dataset or truth files.
+- Do not replace the four required NumPy operations (normalization, nearest-centroid assignment, centroid update, kNN prediction) with library versions.
+- Do not call the validation score an untouched test estimate, or the practice run an accuracy estimate.
 ### Report must state
-- [ ] Question, configurations compared and why.
-- [ ] Number of components for 95% variance.
-- [ ] What scaling and PCA changed, what cluster versus kNN showed, tied to the metrics. If methods tie, say so.
-- [ ] Why the deployed model was chosen, how a missed sand cell changes the route or outcome, one failure, surprise, tie or limitation.
+- [ ] Question, the configurations compared and why.
+- [ ] The component count for 95% variance.
+- [ ] What scaling and PCA changed and what cluster versus kNN showed, tied to the metrics. A tie is reported as a tie.
+- [ ] Why the deployed model was chosen, how a missed sand cell changes the route, and one failure, surprise, tie or limitation.
 - [ ] Which rows were used for fitting, naming and validation, and how the fitted model was reused on mission.
-- [ ] Observations kept apart from explanations.
+- [ ] Observations kept apart from explanations. The AI-use note sits at the bottom.
 ### Rules
-- Syllabus: cite AI assistants prominently and disclose assistance. Each assignment is supposed to carry a green, yellow or red AI level. The handout PDF and repo markdown print none. The user states AI use is allowed as much as possible on this course, so treat it as green but unverified. The disclosure, including how much AI was used, goes at the bottom of the report and of the notebook.
+- Piazza, instructor Ebasa Temesgen (relayed by the user 2026-10-27): the dataset is the supplied `demo_data` folder, the starter notebook loads it, and `student_id` demo3 is copied into `submission.csv` and stays unchanged. This replaces the PDF's "personalized dataset" wording.
+- Piazza, instructor Bernardo Bianco Prado: sklearn is fine for k-means computation. The handout still says to assemble your own k-means loop and the rubric awards 25 points for correct k-means, so the notebook uses its own loop and keeps `KMeans` only as a cross-check. That satisfies both readings.
+- Piazza, a student: `save_submission(predictions, BUNDLE_DIR)` at the end of the notebook writes `submission.csv`.
+- AI: the user states AI use is allowed as much as possible in this course, so treat it as green but unverified (the handout prints no level). The disclosure with how much AI was used sits at the bottom of the report and of the notebook.
 - Late policy: 24-hour grace day, nothing after.
 ## Work log
-### 2026-10-27 Notebook rebuilt in course style and run
-Rebuilt after reading the CSCI 4041 projects and the 4521 lectures, notebooks and ISL chapter 12 in depth. `Code\Homework\CSCI4521_HW2.ipynb` (40 cells) copies every starter cell unchanged, adds one marked `BUNDLE_OVERRIDE` cell, then holds: methods with time and memory cost in each docstring, a testing section, representation, 11 configurations, selection, deployment, export, a summary and an AI-use note. Executed top to bottom with nbconvert in a scratch Python 3.14 venv (numpy 2.5.4, pandas 3.1.0, scikit-learn 1.9.1, matplotlib 3.11.2): no errors, every assert passed. Written next to it: `submission.csv` (784 rows, student_id `demo3`), `practice_run.html`, `figures/fig1_pca.png`, `figures/fig2_deploy.png`, `figures/hw2_configs.csv`. Both figures were opened and read.
-Changes from the first build, and why:
-- k-means now follows ISL Algorithm 12.2 and lecture 2.3 slide 10 literally: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes, best of 10 random starts. The first build used k-means++ seeds, which the handout allows but the course does not teach. No headline result changed with the switch.
-- kNN distances use one matrix product (O(m n d) time, O(m n) memory) and `argpartition` for k above 1 instead of a full sort. 1-NN equals the lecture 1.1 loop on all 30 validation rows, raw and z-scored.
-- Testing section asserts: the k-means objective never rises (ISL 12.18), final centroids are member means, clusters partition the data (lecture 2.3 slide 17), z-score gives mean 0 and std 1, PCA components are orthonormal, PCA variance equals the squared singular values (lecture 2.4). sklearn is only a cross-check: k-means objective 1237.50 in both, kNN agrees at k=1, 3 and 5.
-- Added: stability over 20 single random starts, a cost check, and fit and predict times.
-Evidence (demo bundle, the only data available):
+### 2026-10-27 Final state and tests
+`Code\Homework\CSCI4521_HW2.ipynb` has 46 cells: the starter cells unchanged, then eight short sections (setup, NumPy methods, checks, representation, experiments, selection, deployment, export), a summary and an AI-use note. About 425 words of prose in total. k-means follows ISL Algorithm 12.2 and lecture 2.3 (random cluster for every point, centroids and reassignment until nothing changes, best of 10 random starts). Code style follows the CSCI 4041 projects: a docstring with time cost on every function, comments on each step, and assert-based checks.
+Tests run, all on the final file in the user's `csci-4521` env (Python 3.12.14, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, matplotlib 3.11.2):
+- The user re-ran the notebook in that env (Restart and Run All, execution counts 1 to 28 in order, no errors). Its `submission.csv`, results table and both figures were byte-identical to my earlier Python 3.14 runs, so the results do not depend on the environment. After that I added tests and ran the final file in the same env: execution counts 1 to 32 in order, no error or stderr output, outputs unchanged.
+- Check cells, all assert-based. A general block: fit and validation rows are disjoint, grid order is row-major, z-score has mean 0 and std 1, vectorized distances and 1-NN equal the lecture 1.1 loop on raw and z-scored data, k-means clusters partition the data and converge, the objective never rises and centroids equal member means, PCA components are orthonormal and its variance equals the squared singular values, sklearn cross-checks. A unit block with a hand-worked case for every method: constant sensor, 3-4-5 triangle, empty-cluster re-seed, within-cluster sum, exact recovery of three blobs, the iteration cap, the best start being kept, naming by majority and by the one-to-one fallback. A reference block: kNN for k = 1, 3, 5, 7 on raw and z-scored data against a lecture-style loop, the nearest-neighbor tie-break, and metrics on the lecture 1.4 COVID example (precision 0.5, recall 0.75, F1 0.6, accuracy 0.8). A pipeline block: stored z-score and PCA, repeatable fits, every table value against sklearn accuracy and a direct sand recall. A drawing check for a stuck rover and a blocked goal.
+- Coverage (coverage.py on the executed notebook): the check cells alone run 237 of 237 lines and 28 of 28 branches of my code, with all 18 functions fully covered. The whole notebook runs 470 of 470 lines and 58 of 58 branches.
+- Mutation test: 14 deliberate bugs (distance sign flipped, argmin to argmax, wrong centroid divisor, dropped square, convergence never detected, worst start kept, worst naming permutation, transposed table, neighbors ordered farthest first, F1 without the factor 2, sand recall read from the wrong class, and others). The checks caught all 14. The first round caught 13; the survivor, "keep the worst random start", exposed a missing check, and the raw-features best-start check now covers it.
+- Defect found by the new tests: ties in the empty-cluster re-seed were broken by an unstable sort. Fixed with a stable sort. No run ever produced an empty cluster, so no result changed.
+- Clean-directory run (fresh clone, 14 seconds): byte-identical outputs. `practice_run.html` is identical apart from random element ids and holds 55 embedded frames.
+- pyflakes finds no unused names or imports in my cells, pycodestyle at 120 columns is clean, no stderr output anywhere, no em or en dashes.
+- Every number in the report draft was compared with the executed output. One wording fix came out of it (the mission standard deviation range).
+- Layout estimate with PyMuPDF (Times 10.5 pt, 0.75 in margins, the real figure files, page break before Table 1): 2 pages, page 2 ends at about 89% of its height.
+Not tested: Word itself, the Gradescope upload, and a Colab run.
+Evidence (demo bundle, the confirmed dataset):
 - Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
-- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance (81.9% and 10.4%). After z-scoring each supplies 12.5%.
-- PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Fig 1b shows three separated groups in PC1 and PC2 that line up with firm, rough and sand.
-- Experiments (validation accuracy, macro F1, sand recall, practice): raw 8 sensors k-means 0.700, 0.704, 0.5, stuck at step 20. Raw 8 sensors 1-NN 0.933, 0.935, 0.9, success (cost 72.2). Raw PCA 2 k-means 0.700, 0.704, 0.5, stuck at step 20. Raw PCA 2 1-NN 0.867, 0.868, 0.9, success (cost 76.4). Every z-score configuration (8 sensors, PCA 3, PCA 2, k-means, 1-NN, 3-NN) scored 1.000, 1.000, 1.0 and succeeded with 54 steps and cost 70.8.
-- k-means: no empty clusters in any run, every run converged (5 to 10 iterations), majority naming was one-to-one everywhere. Z-score clusters are pure on the 60 training labels (20, 20, 20). Raw k-means mixes them: the cluster named sand holds 12 sand, 11 rough and 4 firm training points. Elbow objective: k=2 2652, k=3 1238, k=4 1086.
-- Stability: with one random start, 15 of 20 starts reach the best objective on z-scored 8 sensors and only 2 of 20 on raw 8 sensors. That is why the best of 10 starts is kept. On z-scored data the 5 worse starts also change the validation predictions (15 of 20 identical); on raw data all 20 give identical validation predictions.
-- Cost check (noisy, machine dependent): assign_nearest time grows 3.1x and 3.9x when n grows 4x (n 754, 3016, 12064) and about 10x at n 48256, which is a memory effect and not the linear growth the O(n k d) count predicts. A k-means start takes about 1 ms and shows no speedup from 8 to 3 to 2 dimensions at n 754, because call overhead dominates at this size. Do not claim PCA saves time on this dataset.
-- Selection by the pre-set rule picked E1 (z-score, PCA 2, k-means). Seven configurations tie at the top (E1, E2, C7, C8, C3, C4, E3). Only the dimension count separated E1 from the rest of that group, and E1 ties E2 on every metric, so the choice between them came from table order.
-- Failure: raw k-means (and raw PCA k-means) stopped at (y=13, x=4) after 20 steps where it predicted rough and the simulator reports sand. Validation confusion: 5 of 10 sand cells predicted rough.
-- Mission: largest mean shift in fit-row standard deviations 0.243. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on the practice grid. Mission route cost 52.0.
-### Dataset question
-- The bundle is five files: `development.csv` (784 rows, a 28x28 grid: y, x and eight sensors), `calibration.csv` (90 labeled locations, 30 per terrain), `mission.csv` (784 unlabeled rows), `config.json` (grid, start and goal cells, student_id, assignment_version 2) and `practice_truth.bin` (simulator only).
-- We do not create it. The instructor issues it. The PDF says "You will receive a personalized dataset", while the repo README and `assignment_student.md` say "Use demo_data/ ... you do not collect or generate your own data". The only bundle available is `demo_data` with student_id `demo3`. A search of this machine, Gmail and Drive on 2026-10-27 found no other bundle. Where a personalized one would come from is unknown: check the Gradescope assignment page and Canvas, then ask the instructor or a TA (private Piazza post or email).
-- Nothing in the handout, rubric or repo says the data is tuned for a perfect score. What the demo bundle itself shows: sensor scales differ by 1,320x and the z-scored terrains separate cleanly, so it makes scaling matter and is solvable. The rubric says an imperfect classifier or a stuck rover can earn full credit, and no points depend on hidden mission success.
-### 2026-10-27 Source reading and plan
-All reading and planning, done before the notebook existed.
-**Findings that change the plan**
-- Dataset: the repo ships only `demo_data` (28x28 grid, 784 rows, `student_id: demo3`). The handout promises a personalized dataset. `save_submission` writes the config's `student_id` into every row, so a submission built on demo data carries the wrong id. Get the personalized bundle first. The starter output in the notebook came from demo data on Colab.
-- Validation is only 30 rows (60 labeled training, stratified, `random_state=0`). One error moves accuracy by 3.3 points and sand recall by roughly 10 points, so ties are likely and the report should say so instead of inventing a winner.
-- The planner blocks predicted sand, charges 1.0 for firm and 2.4 for rough, and the rover is stuck the first time its path crosses true sand. A missed sand cell (false negative) can end the run. A false sand cell only forces a detour, or NO ROUTE if enough of them wall off the goal. This asymmetry is the answer to "why missing sand matters".
-- Lecture 2.3 gives the k-means wording the report must use: random or k-means++ initialization, stop when no label changes or at a maximum iteration count, run several starts and keep the lowest within-cluster variation (`inertia`). Empty-cluster handling is not covered in lecture or ISL, so it is my own choice and the report must say so.
-- Lecture 2.4 gives the leakage rule (split first, fit PCA on training rows only), `explained_variance_ratio_`, and the elbow test. Lecture 1.1 gives z-score with training mean and standard deviation applied to new points.
-- Macro F1 is not defined in the lectures (1.4 defines binary F1 only). Define it in the report as the unweighted mean of the three per-class F1 scores.
-**Decision: Word, not LaTeX.** Two pages, one table, two composite figures, no equations that need typesetting and no bibliography (sources are the course lectures and the AI disclosure). Word reuses the HW1 flow (draft here, Paste Special as unformatted text, PDF export), which took one sitting. LaTeX (Overleaf, `hwTemplateML.tex`) would only help with float placement, and composite matplotlib figures remove that need. Switch to LaTeX only if the table cannot fit two pages in Word.
-**Lessons carried from HW1** (Work log of [[20_Progress/Degree/CSCI 4521/Homework/Homework - 1|Homework - 1]]): the first AI-built version was replaced because it used hidden helper pipelines, plots nobody could trace and a report unlike the sample. This time: explicit NumPy loops in lecture style, every plot visible in the notebook, fixed seed, page count checked before polishing, and the environment settled before coding (the conda env `csci-4521` does not exist on this laptop, so Colab or `conda env create -f environment.yml`).
+- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance. After z-scoring each supplies 12.5%.
+- PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Three separated groups show in PC1 and PC2.
+- Raw k-means and raw PCA k-means: validation accuracy 0.700, macro F1 0.704, sand recall 0.5 (5 of 10), rover stuck at step 20 at (y=13, x=4) where it predicted rough. The cluster named sand holds 12 sand, 11 rough and 4 firm training points.
+- Raw 1-NN 0.933 and raw PCA 1-NN 0.867, both sand recall 0.9 and both reach the goal. Every z-score configuration scores 1.000 on accuracy, macro F1 and sand recall and reaches the goal in 54 steps at cost 70.8.
+- Seven configurations tie at the top. The pre-set rule (macro F1, then sand recall, then fewer dimensions, then table order) picked E1 (z-score, PCA 2, k-means), tied with E2 on every metric.
+- One random start is not enough: 15 of 20 single starts reach the best objective on z-scored data, 2 of 20 on raw data. Elbow objective: k=2 2652, k=3 1238, k=4 1086.
+- Mission: largest mean shift 0.243 fit-row standard deviations. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice. Mission route cost 52.0.
+- PCA does not save time here: a k-means start takes about 1 ms at 8, 3 and 2 dimensions. The report makes no speed claim.
+### Decisions
+- Word, not LaTeX: two pages, one table, two figures, no equations, no bibliography. Switch only if the table cannot fit.
+- The deployment figure is a function so the checks can draw a stuck rover and a blocked goal. The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.
+- Figures were regenerated at print size (7.25 in and 5.34 in wide at 300 dpi) so that text stays readable when inserted at full width. The first versions were 11 and 9 inches wide and would have shrunk to about 5 pt.
+- The `BUNDLE_OVERRIDE` cell was removed after the Piazza answer, and the timing-scaling cell was dropped because its noisy ratios supported no claim.
+- Selection rule fixed before any result: macro F1, then sand recall, then fewer dimensions, then table order. The practice outcome is recorded, not used to select.
 ### Rubric coverage
-Where each rubric line is met in `CSCI4521_HW2.ipynb`. "Met" means the evidence exists in the executed notebook, not that points are guaranteed.
-| Rubric line | Notebook location | Evidence |
+"Met" means the evidence exists in the executed notebook, not that points are guaranteed.
+| Rubric line | Where | Evidence |
 | --- | --- | --- |
-| Learning system and method choices (25) | Part 1 methods, Part 4 | z-score, nearest-centroid, centroid update, k-means loop (ISL 12.2), cluster naming from the 60 labels, kNN, all in NumPy; initialization, stopping rule and empty-cluster handling written in the text and counted in the output |
-| Sensor scales (4) | Part 3 first table | std range 1,320x, share of raw squared distance per sensor |
-| PCA and 95% count (6) | Part 3 PCA cells | fitted on fit rows only, counts 3 (z-score) and 2 (raw), loadings, variance table |
-| PCA figure and reading (5) | `figures/fig1_pca.png` | cumulative variance, top 2 and top 3 components, three groups visible |
-| At least three configurations (8) | Part 4 | 11 configurations, full scaling by PCA by model grid plus extras |
-| Common held-out evaluation and boundaries (9) | Setup cell, Part 4 | asserts for disjoint fit and validation rows, same 30 validation rows for every row of the table, labels used only for naming and 1-NN |
-| Dimensions, accuracy, macro F1, sand recall, practice outcome (8) | Part 4 table, `figures/hw2_configs.csv` | all five recorded per configuration, plus timing |
-| Model choice, reuse, mission map, practice run (10) | Parts 5 and 6, `practice_run.html`, `figures/fig2_deploy.png` | selection rule fixed first, stored objects reused, mission map and route, practice HTML |
-| Report (20) | Word report, still a draft | Report draft below, max two pages, sand risk and limitations included |
-| Reproducibility (5) | header cell, Summary cell | dependencies, run steps, fixed seed, versions printed, Restart and Run All verified once |
-### Remaining steps to submit
-Done already: notebook run with outputs, both figures, `submission.csv`, `practice_run.html`. Left, in order:
-- Before anything is uploaded: check the Gradescope due date, and ask the instructor or a TA whether a personalized bundle exists (see Dataset question). The report and notebook both end with an AI-use disclosure; it is only true if you open the notebook and check the numbers yourself.
-- 2 min: open `CSCI4521_HW2.ipynb`, confirm the outputs show and the tables match the Work log above. Do not re-run unless the dataset changes.
-- 12 min: Word. Paste the Report draft as unformatted text, insert Figure 1 and Figure 2 from `Code\Homework\figures\`, build Table 1 from the rows below.
-- 5 min: export PDF, reopen it, confirm two pages and that every number matches `figures/hw2_configs.csv`.
-- 3 min: upload `CSCI4521_HW2.ipynb`, the PDF, `submission.csv`, `practice_run.html`. Do not upload `rover-rescue-download/` (it holds the dataset and the truth file). Record the time under `### Submission`.
+| Learning system and method choices (25) | notebook 2 Methods, 5 Experiments | z-score, nearest-centroid, centroid update, own k-means loop, cluster naming from the 60 labels, kNN, all NumPy; initialization, stopping rule and empty clusters stated and counted |
+| Sensor scales (4) | notebook 4, first table | std range 1,320x, share of raw squared distance per sensor |
+| PCA and 95% count (6) | notebook 4, PCA table | fitted on fit rows only, 3 (z-score) and 2 (raw) |
+| PCA figure and reading (5) | `figures/fig1_pca.png`, report 3 | variance curve, top 2 and top 3 components |
+| Three or more configurations (8) | notebook 5 | 11 configurations, full grid plus extras |
+| Common held-out evaluation, boundaries (9) | notebook 1 Setup, 5 | asserts, same 30 validation rows, labels only for naming and 1-NN |
+| Dimensions, accuracy, macro F1, sand recall, practice (8) | notebook 5 table, `figures/hw2_configs.csv`, Table 1 | all five per configuration |
+| Model choice, reuse, mission map, practice run (10) | notebook 6 and 7, `practice_run.html`, `figures/fig2_deploy.png` | rule fixed first, stored objects reused, mission map and route |
+| Report (20) | Word report | draft below: question, table, figures, sand risk, protocol, limitations |
+| Reproducibility (5) | notebook header and Summary | dependencies, run steps, seed, versions, clean-directory run verified |
+### Word report layout
+The two-page limit is the one rubric line that cannot be verified until Word runs, so follow these settings from the start.
+- Page: Letter, 0.75 in margins, one column. Times New Roman 10.5 pt, single spacing, 3 pt after paragraphs, 0 before, body justified.
+- Optional page header (HW1 used one): `CSCI 4521`, tab, `Anant Gupta`, tab, `October 27, 2026`, 9 pt, bottom border.
+- Title block: three centered bold lines, `HW 2: Rover Rescue`, `Anant Gupta`, `October 2026`.
+- Each numbered paragraph starts with its title in bold (`1. Question and configurations.`), then the text in normal weight.
+- Order: title block, sections 1 and 2, section 3 first paragraph, Figure 1, section 3 second paragraph, a page break, Table 1, section 4, Figure 2, section 5, the AI-use line.
+- Figure 1: `figures/fig1_pca.png`, Insert, Pictures, In Line with Text, centered, 7.0 in wide with the aspect ratio locked. Caption below, 9.5 pt, centered.
+- Figure 2: `figures/fig2_deploy.png`, same way, 4.3 in wide.
+- Table 1: paste the tab-separated block below, Insert, Table, Convert Text to Table with 8 columns. 8.5 pt, header row bold with a rule above and below, light rule under each row, text columns left, number columns centered, caption below.
+- Copy the text from source mode (Ctrl+E in Obsidian) and use Paste Special, Unformatted Text. Remove the bracketed notes.
+- Export: File, Save As, PDF (Standard). Reopen the PDF and check: two pages, page 2 ends with the AI-use line and about half an inch or more of space, text is selectable, both figures are sharp and their labels readable, Table 1 sits whole on page 2.
+- If it spills past two pages, do these in order and stop when it fits: Figure 2 to 3.8 in, margins to 0.7 in, body to 10 pt, drop the elbow numbers from section 1. Never cut the protocol, the sand-risk paragraph, the limitations or Table 1; the rubric scores them.
+- Before export, check each number against `figures/hw2_configs.csv` and the notebook Summary cell.
 ### Report draft
 HW 2: Rover Rescue
 Anant Gupta
 October 2026
-1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? I compared eleven configurations (Table 1). Eight form a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor. Three extras use PCA with 2 components and 3-NN. My k-means is a NumPy loop that follows ISL Algorithm 12.2: a random cluster number for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares; an empty cluster would be re-seeded at the farthest point (it never happened). One start is not enough: on z-scored data 15 of 20 single starts reached the best objective, and on raw data only 2 of 20. Clusters take the majority label of the 60 calibration-training points, which was one-to-one in every case. Three clusters match the three terrains, and the elbow agrees: within-cluster sum of squares drops from 2652 at k=2 to 1238 at k=3 and only to 1086 at k=4.
-2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (every practice row except the 30 validation rows, no labels used). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. All configurations were scored on the same 30 validation rows (10 per terrain), where one error is 3.3 points. I selected the deployed model on these rows, so its score is a selection score, not an untouched test score, and the practice rover run shows deployment rather than accuracy. The mission grid was transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
-3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and with 2 on raw data (98.2%), but raw PC1 alone holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups that line up with the labeled firm, rough and sand points (Figure 1b).
-Scaling mattered most. Holding model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells, and its cluster named sand held 12 sand, 11 rough and 4 firm training points; after z-scoring all three clusters were pure (20, 20, 20). PCA changed little: on z-scored data 8 sensors, 3 components and 2 components all scored 1.000, while on raw data it lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, not tested here: with raw scales k-means partitions mostly along sensor_4, while 1-NN uses the 60 labels locally.
-Table 1: dimensions, validation accuracy, macro F1, sand recall and practice rover outcome for each configuration (macro F1 is the unweighted mean of the three per-class F1 scores).
-Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows, labeled training points in color.
-4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA with 2 components, k-means), which differs from E2 only by table order, so I report a tie and not a winner. E1 uses 2 dimensions and needs the labels only to name three clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, the same as the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it, while a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route: a miss matters only when the path crosses it.
-Figure 2: practice map with the planned route and predicted mission map with its planned route, from the selected model.
-5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them does not mean the model is perfect; one successful practice route is a demonstration. The z-scored mission rows sit within 0.25 standard deviations of the fit-row mean on every sensor (standard deviations 0.91 to 1.08), so I saw no sensor drift. Even so the predicted mission mix differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot say whether that is a real regional difference or a model error.
-AI use: AI use is allowed in this course and I used it heavily. Anthropic Claude Code read the course materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked the results against the assignment, and am responsible for what I submit.
+1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? Table 1 compares eleven configurations: a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components keeping 95% of the variance) and model (k-means or 1-NN), so neighbors differ in one factor, plus three extras (PCA with 2 components for both models, and 3-NN). My k-means follows ISL Algorithm 12.2 in NumPy: a random cluster for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares. One start is not enough: 15 of 20 single starts reached the best objective on z-scored data, 2 of 20 on raw data. An empty cluster would be re-seeded at the farthest point; none occurred. Each cluster takes the majority label of the 60 calibration-training points, which was one-to-one every time. Three clusters match the three terrains and the elbow agrees (objective 2652, 1238, 1086 for k = 2, 3, 4).
+2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except the 30 validation rows; no labels). The 60 calibration-training labels (20 per terrain) named clusters and trained 1-NN. Every configuration was scored on the same 30 validation rows (10 per terrain; one error is 3.3 points). I selected the model on these rows, so its score is a selection score, not a test score, and the practice run shows deployment, not accuracy. Mission rows were transformed with the stored mean, standard deviation and PCA and then predicted, never fitted on.
+3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps 95% of the variance with 3 components after z-scoring (95.5%) and 2 on raw data (98.2%), but raw PC1 alone holds 88.4% (Figure 1a). In PC1 and PC2 the data form three groups matching the labeled terrains (Figure 1b).
+[Insert Figure 1 here, 7.0 in wide]
+Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows. Gray: fit rows. Color: labeled training points.
+Scaling mattered most. With model and representation fixed, z-scoring raised k-means accuracy from 0.700 to 1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells; its cluster named sand held 12 sand, 11 rough and 4 firm training points, while every z-scored cluster was pure (20, 20, 20). PCA changed little: 8, 3 and 2 dimensions all scored 1.000 on z-scored data, while on raw data PCA lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, untested: raw k-means splits mostly along sensor_4.
+[Page break]
+[Insert Table 1 here from the block below]
+Table 1: dimensions, validation accuracy, macro F1 (unweighted mean of the three per-class F1 scores), sand recall and practice rover outcome for each configuration.
+4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA 2, k-means), which differs from E2 only by table order, so this is a tie and not a win. E1 is the simplest of them (2 dimensions). Its practice route succeeded in 54 steps at predicted cost 70.8, like the other six (Figure 2). A missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the first time its route crosses it; a false sand prediction only blocks a cell and adds a detour. Raw k-means shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet reached the goal, so that cell was not on its route.
+[Insert Figure 2 here, 4.3 in wide]
+Figure 2: selected model E1. Left: practice map with the planned route (mission success, 54 steps). Right: predicted mission map with its planned route.
+5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them is not a perfect model; one successful practice route is a demonstration. Mission rows, z-scored with the fit statistics, sit within 0.25 standard deviations of the fit mean on every sensor, so I saw no sensor drift. The predicted mission mix still differs (firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot tell a real regional difference from a model error.
+AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results and am responsible for what I submit.
 ### Table 1 rows
+Markdown view:
 | ID | Scaling | Representation (dims) | Model | Accuracy | Macro F1 | Sand recall | Practice rover |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | C1 | raw | 8 sensors (8) | k-means | 0.700 | 0.704 | 0.50 | stuck, step 20 |
@@ -132,19 +138,27 @@ AI use: AI use is allowed in this course and I used it heavily. Anthropic Claude
 | E1 | z-score | PCA 2 (2) | k-means | 1.000 | 1.000 | 1.00 | success, 54 steps |
 | E2 | z-score | PCA 2 (2) | 1-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
 | E3 | z-score | 8 sensors (8) | 3-NN | 1.000 | 1.000 | 1.00 | success, 54 steps |
-### Word assembly
-This report is longer than the two-page limit allows at HW1 settings, so use these from the start: Times New Roman 10.5 pt, Letter, 0.75 inch margins, single spacing, 3 pt after paragraphs. Figure 1 about 6.8 in wide, Figure 2 about 4.6 in wide, Table 1 at 9 pt. Page count is untested in Word, so check it. If it spills, shrink Figure 2 first, then cut sentence by sentence from section 3 (the explanation sentences), not the table or the protocol, because the rubric scores both. Copy from source mode, Paste Special as unformatted text, bold the section titles, center the three title lines, and put each figure directly above its caption.
-### Blockers
-> [!WARNING]
-> Open before upload: the Gradescope due date, and whether the course issues a personalized bundle (see Dataset question). If one exists, set `BUNDLE_OVERRIDE`, run everything again, and refill every number in the Report draft and Table 1 from the new output. The Word report stays a draft until the code, dataset and images are final.
-
+Tab-separated, for Convert Text to Table in Word:
+```
+ID	Scaling	Representation (dims)	Model	Accuracy	Macro F1	Sand recall	Practice rover
+C1	raw	8 sensors (8)	k-means	0.700	0.704	0.50	stuck, step 20
+C2	raw	8 sensors (8)	1-NN	0.933	0.935	0.90	success, 54 steps
+C3	z-score	8 sensors (8)	k-means	1.000	1.000	1.00	success, 54 steps
+C4	z-score	8 sensors (8)	1-NN	1.000	1.000	1.00	success, 54 steps
+C5	raw	PCA 95% (2)	k-means	0.700	0.704	0.50	stuck, step 20
+C6	raw	PCA 95% (2)	1-NN	0.867	0.868	0.90	success, 54 steps
+C7	z-score	PCA 95% (3)	k-means	1.000	1.000	1.00	success, 54 steps
+C8	z-score	PCA 95% (3)	1-NN	1.000	1.000	1.00	success, 54 steps
+E1	z-score	PCA 2 (2)	k-means	1.000	1.000	1.00	success, 54 steps
+E2	z-score	PCA 2 (2)	1-NN	1.000	1.000	1.00	success, 54 steps
+E3	z-score	8 sensors (8)	3-NN	1.000	1.000	1.00	success, 54 steps
+```
 ### Submission
 Not submitted yet.
 ## Concepts used
-Planned, not yet used. Roles are what each will do in this homework.
-- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 12|ISL Chapter 12]]: PCA (§12.2) gives the 95% component count and the variance curve, k-means (§12.4) gives the local-optimum and multiple-start argument.
-- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]]: kNN and the bias-variance trade-off, used to explain 1-NN on raw versus reduced features.
-- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 5|Week - 5]] and [[20_Progress/Degree/CSCI 4521/Weekly/Week - 6|Week - 6]]: PCA with kNN, the leakage rule, k-means initialization and stopping choices.
-- [[20_Progress/Degree/CSCI 4521/Homework/Homework - 1|Homework - 1]]: z-score from training statistics, precision, recall and F1 definitions, and the report format.
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 12|ISL Chapter 12]]: PCA (12.2) gave the 95% component count, the variance curve and the scaling argument; k-means (12.4, Algorithm 12.2) gave the algorithm, the local-optimum argument and the multiple random starts.
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]]: kNN and the bias-variance trade-off, behind the 1-NN comparison.
+- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 5|Week - 5]] and [[20_Progress/Degree/CSCI 4521/Weekly/Week - 6|Week - 6]]: PCA with kNN, the leakage rule (split first, then fit), k-means steps, initialization and stopping.
+- [[20_Progress/Degree/CSCI 4521/Homework/Homework - 1|Homework - 1]]: z-score from training statistics, precision, recall and F1, and the Word report flow.
 ## Post-submit reflection
 <!-- Optional until feedback: the first failure, the pattern, and what to change. -->

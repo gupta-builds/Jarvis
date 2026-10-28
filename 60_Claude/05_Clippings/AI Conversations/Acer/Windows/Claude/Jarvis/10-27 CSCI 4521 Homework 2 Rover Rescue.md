@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T20:27:01
-exported_at: 2026-10-27T20:33:03
-duration_minutes: 36.5
+ended_at: 2026-10-27T21:07:07
+exported_at: 2026-10-27T21:07:09
+duration_minutes: 76.6
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
-turn_count: 8
+turn_count: 18
 tools_used:
-  Bash: 61
+  Bash: 108
   Edit: 2
-  Grep: 3
+  Grep: 4
   mcp__claude_ai_Gmail__search_threads: 1
   mcp__claude_ai_Google_Drive__search_files: 1
-  Read: 19
+  Read: 31
   ToolSearch: 1
-  Write: 6
+  Write: 13
 tokens:
-  input: 144
-  output: 151392
-  cache_creation: 325508
-  cache_read: 13053110
-  total: 13530154
+  input: 284
+  output: 277735
+  cache_creation: 505076
+  cache_read: 42282418
+  total: 43065513
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -36,8 +36,17 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\blockB.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\build_nb.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\build_nb2.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\build_nb3.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\est_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\est_p2.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\gen_note.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\hw2_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ins1.txt"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ins2.txt"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\ins3.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\new_block.md"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\report_build.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\tests_block.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\README.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rover_starter.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rubric.md"
@@ -47,6 +56,7 @@ files_touched:
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\homework 2.pdf"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\Homework2_RoverRescue_student.ipynb"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\HW2.pdf"
+  - "D:\\_Anant\\20_Progress\\Documents Jarvis\\20_Progress\\Degree\\CSCI 4521\\Homework\\Homework - 2.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4521\\CSCI 4521 Board.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4521\\Homework\\Homework - 1.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4521\\Homework\\Homework - 2.md"
@@ -7170,6 +7180,3167 @@ FIT: 1/2 = 50.0%
   20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
 ```
 
+## You
+
+
+
+<pasted_content id="6aca">
+Homework 2 Dataset
+Updated 1 week ago by Anonymous Helix
+Endorsed by Instructor (Ebasa Temesgen)
+The homework 2 instructions say that we will receive a personalized dataset. Does this mean every student has a different dataset, and if so, how are we supposed to access ours? Or are we just supposed to use demo_data? The submission.csv file has a student_id column that says demo3, so I wasn't sure if this meant we are supposed to use a different dataset from the provided one.
+1
+59 views
+Students' Answer
+Where students collectively construct a single answer
+
+Instructors' Answer
+Updated 1 week ago by Ebasa Temesgen
+Good question! The dataset mentioned in the instructions refers to the supplied demo_data folder in the GitHub repository, which the starter notebook loads automatically. You do not need a separate dataset.
+
+The demo3 value comes from the dataset’s configuration and is automatically copied into submission.csv. You can leave it unchanged.
+</pasted_content id="6aca">
+
+
+
+
+<pasted_content id="6aca">
+Homework 2 Clarification
+Updated 1 week ago by Derek Wang
+The writeup says the following: "
+
+Implement data normalization, nearest-centroid assignment, centroid updating, and k-nearest-
+neighbor prediction using NumPy. Assemble your own k-means iteration loop. Use calibration-
+training labels to give clusters terrain names.
+
+Student assignment 1
+
+CSCI 4521 / Homework 2 Rover Rescue
+
+You may use library PCA, k-means initialization, classification metrics, and plotting tools. Do not replace
+the required NumPy operations with library implementations."
+
+Just wanted to clarify: does this mean that we aren't, for example, allowed to use the KMeans function from sk.learn clusters to compute clusters?
+
+2
+60 views
+Students' Answer
+Where students collectively construct a single answer
+
+Instructors' Answer
+Updated 5 days ago by Bernardo Bianco Prado
+Sorry for the confusion, sklearn is fine for k means computation.
+</pasted_content id="6aca">
+
+
+
+
+<pasted_content id="6aca">
+HW 2 submissions.csv
+Updated 22 hours ago by Anonymous Scale
+I'm not sure if this was noted somewhere in the homework 2 and I missed it, but I was wondering how do you get the submission.csv file? I could not find the save submission in the starter code, as mentioned in the homework. I might have misunderstood what this meant, too.
+0
+30 views
+Students' Answer
+Updated 10 hours ago by Ethan Vang
+What I did was: 
+
+     from rover_starter import save_submission
+     save_submission(predictions, BUNDLE_DIR)
+at the bottom of the colab, then I clicked files on the left and downloaded it.
+</pasted_content id="6aca">
+
+
+This should be clarifying most of the questions you have.
+
+Now go ahead and read through everything that file procuded, look through the runs in detail. There is a lot of weird spacing around the code now that i notice it. There is almost no gap in the code as well (some gap, not a lot - just a little). There is too much words written down in the middle of the file regarding the project that no one is going to read. Trim that down, make the headers smaller and just reduce the overall wordings that you have written across the file (i am not talking comments or code). The code is written similar to the professor following k means method and the implementation is also from csci 4041. But we just need to make sure that each and every single cell, line of code written is correctly formatted and clean to read and understand. Especially now with the outputs clearly seen. `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\CSCI4521_HW2.ipynb`, go through the file in detail and all the other things that you have written down now. make sure that everything is ready to be laid out on the word document correctly, the code file is locked down. The html is designed, the image is created for the word doc and finally we have the word doc details written down in obsidian. Also stating everything that was required to be completed for the assignment, how to submit it, what files to submit exactly and how to lay out the word document. Let's make sure to have recieved a 100% score based of the github repo as well as the homework designed by the professor on the github repo. Go ahead and test out everything that is written for accuracy since time is not something that really matters here. make sure that each and every single thing is drafted out for perfection. Make everything submission ready after you are sure that each and every single thing has been taken care of. Do not miss a single thing here. This might not finish everything down, but should definitely draft out everything to near perfection and a perfect score. By the next pass, we should have completed the work.
+
+## Claude
+
+The Piazza answers settle two of my open items. `demo_data` is the dataset and `demo3` stays. That also means the `BUNDLE_OVERRIDE` cell I added is unnecessary noise. Next I'm auditing the executed notebook for formatting, warnings and wording, starting with every output stream and markdown cell as it actually renders.
+
+The fresh run works end to end in about 14 seconds, with predictions and results identical to the earlier run. Now I'm running the final version in place in your Code folder.
+
+The `\n` inside the annotation label got turned into a real newline by the builder. It's a one-character escape fix.
+
+Both figures are now at print size, 7.25 in and 5.34 in wide at 300 dpi, so Word can insert them at about 100% with the fonts intact. Let me look at them.
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > audit.py <<'PYEOF'
+import nbformat, sys
+nb = nbformat.read(sys.argv[1], as_version=4)
+print("cells:", len(nb.cells))
+for i, c in enumerate(nb.cells):
+    n_md_words = len(c.source.split()) if c.cell_type == "markdown" else 0
+    n_lines = len(c.source.splitlines())
+    blank = sum(1 for l in c.source.splitlines() if not l.strip())
+    outs = []
+    for o in c.get("outputs", []):
+        if o.output_type == "stream": outs.append("stream:" + o.name)
+        elif o.output_type == "error": outs.append("ERROR")
+        else: outs.append(",".join(sorted(o.get("data", {}).keys())))
+    print(f"{i:2d} {c.cell_type[:4]} lines={n_lines:3d} blank={blank:2d} words={n_md_words:3d} first={c.source.splitlines()[0][:60] if c.source else ''!r} outs={outs}")
+PYEOF
+./venv/Scripts/python.exe -I audit.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"`
+```
+cells: 40
+ 0 mark lines=  5 blank= 2 words= 64 first='# Rover Rescue: student starting notebook' outs=[]
+ 1 code lines= 59 blank= 6 words=  0 first='from pathlib import Path' outs=['stream:stdout']
+ 2 code lines=  7 blank= 0 words=  0 first='# ADDED: set BUNDLE_OVERRIDE to the folder holding developme' outs=['stream:stdout']
+ 3 code lines= 20 blank= 1 words=  0 first='import numpy as np' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+ 4 code lines=  1 blank= 0 words=  0 first='test.head()' outs=['application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+ 5 mark lines=  3 blank= 1 words= 33 first='## Check the simulator' outs=[]
+ 6 code lines=  2 blank= 0 words=  0 first='practice_predictions = np.full(len(development), "firm")' outs=['stream:stdout']
+ 7 code lines=  3 blank= 1 words=  0 first='from IPython.display import display' outs=['text/html,text/plain']
+ 8 mark lines=  3 blank= 1 words= 34 first='## Your project' outs=[]
+ 9 mark lines= 34 blank= 5 words=508 first='# CSCI 4521 Homework 2: Rover Rescue' outs=[]
+10 mark lines=  1 blank= 0 words=  5 first='## Setup and fitting boundaries' outs=[]
+11 code lines= 51 blank= 4 words=  0 first='import time' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+12 mark lines=  8 blank= 0 words=318 first='## Part 1: Methods written in NumPy' outs=[]
+13 code lines=163 blank=24 words=  0 first='def zscore_fit(X):' outs=[]
+14 mark lines=  6 blank= 0 words=125 first='## Part 2: Testing section' outs=[]
+15 code lines= 92 blank=16 words=  0 first='def distance_sq(p0, p1):' outs=['stream:stdout']
+16 mark lines=  2 blank= 0 words= 75 first='## Part 3: Representation' outs=[]
+17 code lines= 25 blank= 0 words=  0 first='var = X_fit.var(axis=0)' outs=['application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout']
+18 mark lines=  1 blank= 0 words= 71 first='**PCA.** Fitted on the fit rows only (split first, then PCA:' outs=[]
+19 code lines= 28 blank= 0 words=  0 first='mu, sd = zscore_fit(X_fit)' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+20 code lines= 57 blank= 3 words=  0 first='P_fit = pca_z.transform(Z_fit)' outs=['image/png,text/plain']
+21 mark lines=  4 blank= 1 words=109 first='## Part 4: Experiments' outs=[]
+22 code lines=113 blank=11 words=  0 first='def make_transform(scale, n_pca):' outs=['text/html,text/plain']
+23 code lines= 16 blank= 0 words=  0 first='# cluster diagnostics for every k-means configuration: how t' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+24 code lines= 22 blank= 2 words=  0 first='# stability across random starts (lecture 2.3 slide 23: diff' outs=['stream:stdout']
+25 code lines= 12 blank= 0 words=  0 first='# supporting evidence for three clusters: objective against ' outs=['image/png,text/plain', 'stream:stdout']
+26 mark lines=  2 blank= 0 words= 52 first='### Cost check' outs=[]
+27 code lines= 41 blank= 3 words=  0 first='def median_ms(fn, repeats=5):' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+28 mark lines=  2 blank= 0 words= 88 first='## Part 5: Model selection' outs=[]
+29 code lines= 31 blank= 0 words=  0 first='key = results.assign(f=results.macro_f1.round(10), s=results' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout']
+30 mark lines=  2 blank= 0 words= 34 first='## Part 6: Deployment' outs=[]
+31 code lines=  7 blank= 0 words=  0 first='chosen = fitted[BEST]' outs=['stream:stdout', 'text/html,text/plain']
+32 code lines= 60 blank= 2 words=  0 first='start_p, goal_p = tuple(config["practice_start_yx"]), tuple(' outs=['image/png,text/plain', 'stream:stdout']
+33 code lines= 24 blank= 0 words=  0 first='# mission shift check with the stored fit-row statistics (di' outs=['application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+34 code lines= 25 blank= 0 words=  0 first='# failure analysis: for every configuration whose practice r' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain', 'stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+35 mark lines=  1 blank= 0 words=  7 first='## Part 7: Export the mission predictions' outs=[]
+36 code lines= 12 blank= 0 words=  0 first='out_path = save_submission(mission_pred, BUNDLE_DIR, "submis' outs=['stream:stdout', 'application/vnd.microsoft.datawrangler.viewer.v0+json,text/html,text/plain']
+37 mark lines=  1 blank= 0 words=  2 first='# Summary' outs=[]
+38 code lines= 39 blank= 1 words=  0 first='import sys, sklearn, matplotlib' outs=['stream:stdout']
+39 mark lines=  2 blank= 0 words=113 first='## AI use' outs=[]
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb3.py`
+```
+import sys
+import nbformat
+from nbformat.v4 import new_notebook, new_markdown_cell, new_code_cell
+
+STARTER = sys.argv[1]
+OUT = sys.argv[2]
+
+starter = nbformat.read(STARTER, as_version=4)
+cells = []
+
+# every starter cell is copied unchanged (source only, outputs come from a fresh run)
+for c in starter.cells:
+    if c.source.strip() == "# Your work starts here.":
+        continue
+    nc = new_markdown_cell(c.source) if c.cell_type == "markdown" else new_code_cell(c.source)
+    nc["id"] = c["id"] if "id" in c else nc["id"]
+    cells.append(nc)
+
+
+def md(s):
+    cells.append(new_markdown_cell(s))
+
+
+def code(s):
+    cells.append(new_code_cell(s.strip("\n")))
+
+
+md("""## My solution
+Restart and Run All reproduces everything (seed 4521, about a minute; the first cell needs internet and git). It writes `submission.csv`, `practice_run.html` and the `figures/` folder.
+
+**How the data is used.** Fit rows (every practice row except the 30 validation rows) fit the z-score, PCA and k-means. The 60 calibration-training labels name the clusters and train kNN. The 30 validation rows score every configuration and pick the model, so that score is a selection score, not a test score. Mission rows are only transformed and predicted.
+
+**Sources.** Lectures 1.1, 1.3, 1.4, 2.3, 2.4 and their notebooks. ISL 12.2 (PCA, scaling) and 12.4 (Algorithm 12.2, k-means).""")
+
+md("### 1. Setup")
+code('''
+import time
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from itertools import permutations
+from pathlib import Path
+from IPython.display import display
+from sklearn.decomposition import PCA
+from rover_starter import _plan, save_submission  # _plan is only read, to draw the planned route
+
+SEED = 4521
+CLASSES = np.array(["firm", "rough", "sand"])
+FIRM, ROUGH, SAND = 0, 1, 2
+TO_INT = {name: i for i, name in enumerate(CLASSES)}
+COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+Path("figures").mkdir(exist_ok=True)
+
+# the starter calls the validation table `test`
+validation = test
+y_train = calibration_train["terrain"].map(TO_INT).to_numpy()
+y_val = validation["terrain"].map(TO_INT).to_numpy()
+
+X_fit = X_dev[fit_indices]
+X_train = X_dev[train_indices]
+X_val = X_dev[test_indices]
+h, w = config["grid_shape"]
+
+# boundary checks: sensors only, validation disjoint from fitting, row-major grid order
+assert list(sensor_columns) == [f"sensor_{i}" for i in range(1, 9)]
+assert len(np.intersect1d(fit_indices, test_indices)) == 0
+assert np.isin(train_indices, fit_indices).all()
+assert len(fit_indices) + len(test_indices) == len(development)
+assert (development["y"] * w + development["x"]).tolist() == list(range(h * w))
+assert (mission["y"] * w + mission["x"]).tolist() == list(range(h * w))
+
+print(f"fit {len(X_fit)} | calibration-training {len(X_train)} | validation {len(X_val)} | mission {len(X_mission)}")
+display(pd.DataFrame({"calibration-training": np.bincount(y_train, minlength=3),
+                      "validation": np.bincount(y_val, minlength=3)}, index=CLASSES))
+''')
+
+md("""### 2. Methods in NumPy
+Each docstring gives the time cost (n points, d features, k clusters, m queries).
+- **k-means** follows ISL Algorithm 12.2: a random cluster for every point, then centroids and nearest-centroid reassignment until no label changes (cap 300 iterations). Best of 10 random starts by within-cluster sum of squares.
+- **Empty cluster:** re-seeded at the point farthest from its centroid (my choice, not from the course).
+- **Cluster names:** majority of the 60 training labels in each cluster; if the names are not one-to-one, the best one-to-one assignment.""")
+code('''
+def zscore_fit(X):
+    """per-sensor mean and std from the fit rows; a constant sensor keeps divisor 1. O(n d)"""
+    mu = X.mean(axis=0)
+    sd = X.std(axis=0)
+    return mu, np.where(sd == 0, 1.0, sd)
+
+
+def zscore_apply(X, mu, sd):
+    """standardize any rows with stored statistics. O(n d)"""
+    return (X - mu) / sd
+
+
+def sq_dists(A, B):
+    """squared distance from every row of A (m,d) to every row of B (n,d), via |a-b|^2 = |a|^2 + |b|^2 - 2a.b.
+    O(m n d) time and O(m n) memory, one matrix product instead of a python loop"""
+    d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
+    np.maximum(d2, 0.0, out=d2)  # rounding can leave tiny negatives
+    return d2
+
+
+def assign_nearest(X, C):
+    """step 2b of algorithm 12.2: nearest centroid for every point and its squared distance. O(n k d)"""
+    d2 = sq_dists(X, C)
+    labels = d2.argmin(axis=1)
+    return labels, d2[np.arange(len(X)), labels]
+
+
+def centroids_from_labels(X, labels, k):
+    """step 2a of algorithm 12.2: each centroid is the mean of its members (nan if empty). O(n d)"""
+    counts = np.bincount(labels, minlength=k).astype(float)
+    sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        return sums / counts[:, None], counts
+
+
+def update_centroids(X, labels, C, d2min):
+    """centroid update; an empty cluster is re-seeded at the farthest point"""
+    newC, counts = centroids_from_labels(X, labels, C.shape[0])
+    empty = np.flatnonzero(counts == 0)
+    if len(empty):
+        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]
+    return newC, len(empty)
+
+
+def within_ss(X, labels, C):
+    """within-cluster sum of squares, the objective k-means decreases (ISL 12.17). O(n d)"""
+    return float(((X - C[labels]) ** 2).sum())
+''')
+code('''
+def kmeans(X, k=3, n_init=10, max_iter=300, seed=SEED):
+    """isl algorithm 12.2 with random starts. per start: random assignment, then repeat
+    (centroids, nearest-centroid reassignment) until no assignment changes.
+    O(n_init * iterations * n k d) time. returns the start with the lowest within-cluster sum of squares"""
+    rng = np.random.default_rng(seed)
+    n = len(X)
+    best, empty_total, dist_evals, all_inertias = None, 0, 0, []
+
+    for _ in range(n_init):
+        # step 1: random cluster for every point, with every cluster forced non-empty
+        labels = rng.integers(0, k, size=n)
+        labels[rng.choice(n, size=k, replace=False)] = np.arange(k)
+
+        # step 2a
+        C, _ = centroids_from_labels(X, labels, k)
+        history = [within_ss(X, labels, C)]
+        converged, it = False, 0
+
+        for it in range(1, max_iter + 1):
+            # step 2b
+            new_labels, d2min = assign_nearest(X, C)
+            dist_evals += n * k
+            if np.array_equal(new_labels, labels):
+                converged = True
+                break
+            labels = new_labels
+            C, e = update_centroids(X, labels, C, d2min)
+            empty_total += e
+            history.append(within_ss(X, labels, C))
+
+        all_inertias.append(history[-1])
+        if best is None or history[-1] < best["inertia"]:
+            best = dict(centroids=C, labels=labels, inertia=history[-1], iterations=it,
+                        converged=converged, history=np.array(history))
+
+    best.update(empty_events=empty_total, distance_evals=dist_evals, all_inertias=np.array(all_inertias))
+    return best
+''')
+code('''
+def name_clusters(C, F_train, y_train_int, k=3):
+    """name each cluster from the calibration-training labels only. O(n_train k d + k^2)"""
+    cl, _ = assign_nearest(F_train, C)
+
+    # rows are clusters, columns are terrains
+    table = np.zeros((k, 3), dtype=int)
+    np.add.at(table, (cl, y_train_int), 1)
+
+    majority = table.argmax(axis=1)
+    has_tie = any((row == row.max()).sum() > 1 for row in table)
+    if len(set(majority)) == k and not has_tie and (table.sum(axis=1) > 0).all():
+        return majority, table, "majority vote"
+
+    best_perm = max(permutations(range(3)), key=lambda p: sum(table[j, p[j]] for j in range(k)))
+    return np.array(best_perm), table, "one-to-one permutation"
+
+
+def knn_predict(F_train, y_train_int, F, k=1):
+    """k nearest neighbors by squared distance; a tied vote goes to the nearest tied neighbor.
+    O(m n d) distances, O(m n) top-k with argpartition, O(m k log k) to order the k"""
+    d2 = sq_dists(F, F_train)
+    if k == 1:
+        return y_train_int[d2.argmin(axis=1)]
+
+    rows = np.arange(len(F))[:, None]
+    nn = np.argpartition(d2, k - 1, axis=1)[:, :k]
+    nn = nn[rows, np.argsort(d2[rows, nn], axis=1)]  # nearest first
+    votes = y_train_int[nn]
+    counts = np.stack([(votes == c).sum(axis=1) for c in range(3)], axis=1)
+    is_top = counts[rows, votes] == counts.max(axis=1)[:, None]
+    return votes[np.arange(len(F)), is_top.argmax(axis=1)]  # nearest neighbor of a top class decides
+
+
+def knn_classifier(k):
+    """closure in the lecture 1.3 style: classify(train_features, train_labels, test_features)"""
+    def knn_classify(x_train, y_train_int, x_test):
+        return knn_predict(x_train, y_train_int, x_test, k)
+    return knn_classify
+
+
+def metrics(y_true, y_pred):
+    """confusion matrix, accuracy, per-class precision, recall and F1 (lecture 1.4), macro F1. O(n)"""
+    cm = np.zeros((3, 3), dtype=int)
+    np.add.at(cm, (y_true, y_pred), 1)  # rows are true, columns are predicted
+    tp = np.diag(cm).astype(float)
+    pred_n, true_n = cm.sum(axis=0), cm.sum(axis=1)
+    prec = np.divide(tp, pred_n, out=np.zeros(3), where=pred_n > 0)
+    rec = np.divide(tp, true_n, out=np.zeros(3), where=true_n > 0)
+    f1 = np.divide(2 * prec * rec, prec + rec, out=np.zeros(3), where=(prec + rec) > 0)
+    return dict(cm=cm, accuracy=tp.sum() / cm.sum(), macro_f1=f1.mean(), f1=f1,
+                precision=prec, recall=rec, sand_recall=rec[SAND])
+''')
+
+md("""### 3. Checks
+Every check is an `assert`. The lecture 1.1 loop is the reference for kNN, the k-means objective must never rise (ISL 12.18), and sklearn is only a cross-check.""")
+code('''
+def distance_sq(p0, p1):
+    """lecture 1.1: squared distance between two points"""
+    return np.sum((p0 - p1) ** 2)
+
+
+def nn_classify_sample(training_set, training_labels, new_example):
+    """lecture 1.1: label of the nearest training point, one query at a time"""
+    dists = np.array([distance_sq(t, new_example) for t in training_set])
+    return training_labels[dists.argmin()]
+
+
+def check_partition(labels, k, n):
+    """every point is in exactly one cluster and every id is in range (lecture 2.3)"""
+    return labels.shape == (n,) and labels.min() >= 0 and labels.max() < k
+
+
+def check_centroids_are_means(X, labels, C):
+    """final centroids equal the mean of their members"""
+    return all(np.allclose(C[j], X[labels == j].mean(axis=0)) for j in range(len(C)) if (labels == j).any())
+
+
+def check_nonincreasing(history, tol=1e-9):
+    """the objective never goes up from one iteration to the next"""
+    return bool(np.all(np.diff(history) <= tol * max(1.0, history[0])))
+
+
+# fit-row statistics, reused by every later cell
+mu, sd = zscore_fit(X_fit)
+Z_fit = zscore_apply(X_fit, mu, sd)
+Z_train = zscore_apply(X_train, mu, sd)
+Z_val = zscore_apply(X_val, mu, sd)
+assert np.allclose(Z_fit.mean(axis=0), 0) and np.allclose(Z_fit.std(axis=0), 1)
+''')
+code('''
+# vectorized distances and kNN against the lecture loop
+assert np.allclose(sq_dists(Z_val, Z_train), np.array([[distance_sq(a, b) for b in Z_train] for a in Z_val]))
+for name, (A, B) in {"z-score": (Z_train, Z_val), "raw": (X_train, X_val)}.items():
+    ref = np.array([nn_classify_sample(A, y_train, q) for q in B])
+    assert np.array_equal(knn_predict(A, y_train, B, k=1), ref), name
+    print(f"1-NN equals the lecture 1.1 loop on all {len(B)} validation rows ({name})")
+
+# k-means invariants on standardized and raw features
+for name, F in {"z-score": Z_fit, "raw": X_fit}.items():
+    km = kmeans(F, k=3)
+    assert check_partition(km["labels"], 3, len(F)), name
+    assert km["converged"] and check_nonincreasing(km["history"]), name
+    assert check_centroids_are_means(F, km["labels"], km["centroids"]), name
+    print(f"k-means ({name}): converged in {km['iterations']} iterations, objective {km['history'][0]:.1f} "
+          f"to {km['inertia']:.1f}, never rose, {km['empty_events']} empty clusters")
+''')
+code('''
+# PCA components are orthonormal and its variance equals the squared singular values (lecture 2.4)
+pca_check = PCA().fit(Z_fit)
+assert np.allclose(pca_check.components_ @ pca_check.components_.T, np.eye(8))
+assert np.isclose(pca_check.explained_variance_ratio_.sum(), 1.0)
+s = np.linalg.svd(Z_fit - Z_fit.mean(axis=0), compute_uv=False)
+assert np.allclose(s ** 2 / (s ** 2).sum(), pca_check.explained_variance_ratio_)
+
+# library cross-checks, verification only
+from sklearn.preprocessing import StandardScaler
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.cluster import KMeans
+from sklearn.metrics import f1_score, accuracy_score
+
+assert np.allclose(Z_fit, StandardScaler().fit(X_fit).transform(X_fit))
+for k in (1, 3, 5):
+    ours = knn_classifier(k)(Z_train, y_train, Z_val)
+    theirs = KNeighborsClassifier(n_neighbors=k).fit(Z_train, y_train).predict(Z_val)
+    print(f"kNN k={k}: agreement with sklearn {(ours == theirs).mean():.3f}")
+    if k == 1:
+        assert np.array_equal(ours, theirs)
+
+lib = KMeans(n_clusters=3, init="random", n_init=10, random_state=SEED).fit(Z_fit)
+mine = kmeans(Z_fit)
+print(f"k-means objective: mine {mine['inertia']:.2f}, sklearn {lib.inertia_:.2f}")
+assert abs(mine["inertia"] - lib.inertia_) / lib.inertia_ < 0.02
+
+rng = np.random.default_rng(0)
+yt, yp = rng.integers(0, 3, 200), rng.integers(0, 3, 200)
+m = metrics(yt, yp)
+assert np.isclose(m["macro_f1"], f1_score(yt, yp, average="macro", labels=[0, 1, 2], zero_division=0))
+assert np.isclose(m["accuracy"], accuracy_score(yt, yp))
+print("all checks passed")
+''')
+
+md("""### 4. Representation
+Squared distance adds one term per sensor, so sensor j weighs `variance_j / sum(variance)` in raw k-means and 1-NN. PCA is fitted on the fit rows only (lecture 2.4). The 95% count is the first m whose cumulative variance ratio reaches 0.95.""")
+code('''
+var = X_fit.var(axis=0)
+scales = pd.DataFrame({"mean": X_fit.mean(axis=0), "std": X_fit.std(axis=0),
+                       "min": X_fit.min(axis=0), "max": X_fit.max(axis=0),
+                       "share of raw squared distance (%)": 100 * var / var.sum()}, index=sensor_columns)
+display(scales.round(3))
+
+std = X_fit.std(axis=0)
+top2 = np.argsort(-var)[:2]
+print(f"largest std / smallest std = {std.max() / std.min():,.0f} "
+      f"({sensor_columns[std.argmax()]} vs {sensor_columns[std.argmin()]})")
+print(f"top two sensors supply {100 * var[top2].sum() / var.sum():.2f}% of raw squared distance: "
+      f"{[sensor_columns[i] for i in top2]}")
+print(f"after z-scoring every sensor supplies {100 / len(sensor_columns):.1f}%")
+''')
+code('''
+pca_z = PCA().fit(Z_fit)
+pca_raw = PCA().fit(X_fit)
+cum_z = np.cumsum(pca_z.explained_variance_ratio_)
+cum_raw = np.cumsum(pca_raw.explained_variance_ratio_)
+N95_Z = int(np.searchsorted(cum_z, 0.95) + 1)
+N95_RAW = int(np.searchsorted(cum_raw, 0.95) + 1)
+print(f"components for at least 95% variance: standardized {N95_Z} of 8, raw {N95_RAW} of 8")
+
+display(pd.DataFrame({"var ratio (standardized)": pca_z.explained_variance_ratio_,
+                      "cumulative (standardized)": cum_z,
+                      "var ratio (raw)": pca_raw.explained_variance_ratio_,
+                      "cumulative (raw)": cum_raw}, index=range(1, 9)).round(4))
+display(pd.DataFrame(pca_z.components_[:3].T, index=sensor_columns, columns=["PC1", "PC2", "PC3"]).round(3))
+''')
+code('''
+P_fit = pca_z.transform(Z_fit)
+P_train = pca_z.transform(Z_train)
+
+fig = plt.figure(figsize=(11, 3.6))
+
+ax = fig.add_subplot(1, 3, 1)
+ax.plot(range(1, 9), cum_z, "o-", color="#0072B2", label="standardized")
+ax.plot(range(1, 9), cum_raw, "s--", color="#D55E00", label="raw")
+ax.axhline(0.95, color="gray", ls=":")
+ax.annotate(f"{N95_Z} components (standardized)", (N95_Z, cum_z[N95_Z - 1]),
+            textcoords="offset points", xytext=(6, -14), fontsize=8)
+ax.set_xlabel("number of principal components")
+ax.set_ylabel("cumulative explained variance")
+ax.set_ylim(0, 1.03)
+ax.set_title("(a) variance retained", fontsize=10)
+ax.legend(fontsize=8, loc="lower right")
+
+ax = fig.add_subplot(1, 3, 2)
+ax.scatter(P_fit[:, 0], P_fit[:, 1], s=6, c="#c8c8c8", label="fit rows (unlabeled)")
+for t in (FIRM, ROUGH, SAND):
+    ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=26, c=COLORS[t],
+               edgecolor="k", linewidth=0.4, label=f"{CLASSES[t]} (labeled)")
+ax.set_xlabel("PC1")
+ax.set_ylabel("PC2")
+ax.set_title("(b) top 2 components", fontsize=10)
+ax.legend(fontsize=7)
+
+ax = fig.add_subplot(1, 3, 3, projection="3d")
+ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=4, c="#c8c8c8", alpha=0.5)
+for t in (FIRM, ROUGH, SAND):
+    ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2],
+               s=18, c=COLORS[t], edgecolor="k", linewidth=0.3)
+ax.set_xlabel("PC1")
+ax.set_ylabel("PC2")
+ax.set_zlabel("PC3")
+ax.set_title("(c) top 3 components", fontsize=10)
+
+plt.tight_layout()
+plt.savefig("figures/fig1_pca.png", dpi=200, bbox_inches="tight")
+plt.show()
+''')
+
+md("""### 5. Experiments
+Eleven configurations on one fixed split. C1 to C8 are the grid scaling (raw, z-score) x representation (8 sensors, PCA at 95%) x model (3-cluster k-means, 1-NN), so neighbors differ in one factor. E1 to E3 add PCA with 2 components and 3-NN.""")
+code('''
+def make_transform(scale, n_pca):
+    """stored preprocessing: z-score statistics and PCA are fitted on the fit rows only"""
+    mu_, sd_ = zscore_fit(X_fit) if scale else (np.zeros(X_fit.shape[1]), np.ones(X_fit.shape[1]))
+    pca_ = PCA(n_components=n_pca).fit(zscore_apply(X_fit, mu_, sd_)) if n_pca else None
+
+    def transform(X):
+        Z = zscore_apply(X, mu_, sd_)
+        return pca_.transform(Z) if pca_ is not None else Z
+
+    return transform
+
+
+def fit_config(scale, n_pca, model, k=1):
+    """fit one configuration; returns its predict function, dimensions, cluster diagnostics and fit time"""
+    t0 = time.perf_counter()
+    transform = make_transform(scale, n_pca)
+    F_fit, F_train = transform(X_fit), transform(X_train)
+    info = {}
+
+    if model == "k-means":
+        km = kmeans(F_fit, k=3)
+        names, table, how = name_clusters(km["centroids"], F_train, y_train)
+
+        def predict(X):
+            return names[assign_nearest(transform(X), km["centroids"])[0]]
+
+        info = dict(inertia=km["inertia"], iterations=km["iterations"], converged=km["converged"],
+                    empty_events=km["empty_events"], naming=how, table=table, names=names,
+                    sizes=np.bincount(km["labels"], minlength=3), distance_evals=km["distance_evals"])
+    else:
+        classify = knn_classifier(k)
+
+        def predict(X):
+            return classify(F_train, y_train, transform(X))
+
+    return dict(predict=predict, dims=F_fit.shape[1], info=info, fit_ms=1000 * (time.perf_counter() - t0))
+''')
+code('''
+# (id, scaling, representation, n_pca, model, k)
+GRID = [
+    ("C1", "raw", "8 sensors", None, "k-means", 1),
+    ("C2", "raw", "8 sensors", None, "1-NN", 1),
+    ("C3", "z-score", "8 sensors", None, "k-means", 1),
+    ("C4", "z-score", "8 sensors", None, "1-NN", 1),
+    ("C5", "raw", "PCA 95%", N95_RAW, "k-means", 1),
+    ("C6", "raw", "PCA 95%", N95_RAW, "1-NN", 1),
+    ("C7", "z-score", "PCA 95%", N95_Z, "k-means", 1),
+    ("C8", "z-score", "PCA 95%", N95_Z, "1-NN", 1),
+    ("E1", "z-score", "PCA 2", 2, "k-means", 1),
+    ("E2", "z-score", "PCA 2", 2, "1-NN", 1),
+    ("E3", "z-score", "8 sensors", None, "3-NN", 3),
+]
+
+fitted, rows = {}, []
+for cid, scaling, rep, n_pca, model, k in GRID:
+    cfg = fit_config(scaling == "z-score", n_pca, "k-means" if model == "k-means" else "knn", k)
+    fitted[cid] = cfg
+
+    # validation rows score the model; all practice cells feed the simulator
+    t0 = time.perf_counter()
+    pv = cfg["predict"](X_val)
+    pa = cfg["predict"](X_dev)
+    predict_ms = 1000 * (time.perf_counter() - t0)
+
+    m = metrics(y_val, pv)
+    assert np.isclose(m["macro_f1"], f1_score(y_val, pv, average="macro", labels=[0, 1, 2], zero_division=0))
+    prac = evaluate_practice(CLASSES[pa], BUNDLE_DIR)
+
+    rows.append(dict(config=cid, scaling=scaling, representation=rep, model=model, dims=cfg["dims"],
+                     val_accuracy=m["accuracy"], macro_f1=m["macro_f1"], sand_recall=m["sand_recall"],
+                     sand_found=f"{m['cm'][SAND, SAND]}/{m['cm'][SAND].sum()}",
+                     practice=prac["status"], steps=prac["steps"], cost=prac["predicted_cost"],
+                     predicted_sand_cells=int((pa == SAND).sum()),
+                     fit_ms=round(cfg["fit_ms"], 1), predict_ms=round(predict_ms, 1)))
+
+results = pd.DataFrame(rows).set_index("config")
+results.drop(columns=["fit_ms", "predict_ms"]).round(3).to_csv("figures/hw2_configs.csv")
+display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))
+''')
+code('''
+# how the 60 labeled training points fall in each cluster, for every k-means configuration
+for cid, scaling, rep, n_pca, model, k in GRID:
+    info = fitted[cid]["info"]
+    if not info:
+        continue
+    print(f"{cid} ({scaling}, {rep}): {info['naming']}, names {[str(c) for c in CLASSES[info['names']]]}, "
+          f"sizes {info['sizes'].tolist()}, converged {info['converged']} in {info['iterations']} iterations, "
+          f"empty clusters {info['empty_events']}, objective {info['inertia']:.1f}")
+    display(pd.DataFrame(info["table"], index=[f"cluster {j}" for j in range(3)], columns=CLASSES))
+''')
+code('''
+# one random start can end in a worse local optimum (lecture 2.3), which is why the best of 10 is kept
+def stability(F_fit, F_train, F_val, n_runs=20):
+    """one k-means start per seed: how many reach the best objective, how many match the first start's predictions"""
+    best = kmeans(F_fit, n_init=10)["inertia"]
+    reached, preds = 0, []
+    for s in range(n_runs):
+        km = kmeans(F_fit, n_init=1, seed=1000 + s)
+        reached += abs(km["inertia"] - best) / best < 1e-6
+        names, _, _ = name_clusters(km["centroids"], F_train, y_train)
+        preds.append(names[assign_nearest(F_val, km["centroids"])[0]])
+    same = sum(np.array_equal(p, preds[0]) for p in preds)
+    return reached, same, n_runs
+
+
+for name, scale in (("raw 8 sensors", False), ("z-score 8 sensors", True)):
+    tf = make_transform(scale, None)
+    reached, same, n_runs = stability(tf(X_fit), tf(X_train), tf(X_val))
+    print(f"{name}: {reached}/{n_runs} single starts reach the best objective, "
+          f"{same}/{n_runs} give the same validation predictions as the first start")
+''')
+code('''
+# elbow check for three clusters: objective against k on standardized fit rows
+ks = list(range(2, 9))
+inertia_k = [kmeans(Z_fit, k=kk, n_init=5)["inertia"] for kk in ks]
+
+plt.figure(figsize=(4.2, 3))
+plt.plot(ks, inertia_k, "o-")
+plt.axvline(3, color="gray", ls=":")
+plt.xlabel("number of clusters k")
+plt.ylabel("within-cluster sum of squares")
+plt.title("Elbow check", fontsize=10)
+plt.tight_layout()
+plt.show()
+print({kk: round(float(v), 1) for kk, v in zip(ks, inertia_k)})
+''')
+
+md("""### 6. Selection
+Rule fixed before any result: highest validation macro F1, then higher sand recall, then fewer dimensions, then table order. The practice outcome is recorded but not used to select.""")
+code('''
+key = results.assign(f=results.macro_f1.round(10), s=results.sand_recall.round(10))
+ranked = key.sort_values(["f", "s", "dims"], ascending=[False, False, True], kind="stable")
+BEST = ranked.index[0]
+r = results.loc[BEST]
+print(f"selected {BEST}: {r.scaling}, {r.representation}, {r.model}, {int(r.dims)} dimensions")
+
+top = ranked[ranked.f == ranked.f.iloc[0]]
+print("sharing the top macro F1:", list(top.index))
+print("also tied on sand recall:", list(top[top.s == top.s.iloc[0]].index))
+print("also tied on dimensions:", list(top[(top.s == top.s.iloc[0]) & (top.dims == top.dims.iloc[0])].index))
+
+cm_best = metrics(y_val, fitted[BEST]["predict"](X_val))
+display(pd.DataFrame(cm_best["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))
+''')
+
+md("""### 7. Deployment
+The selected model is reused as fitted, with no refit on validation or mission rows.""")
+code('''
+chosen = fitted[BEST]
+practice_pred = chosen["predict"](X_dev)
+practice_result = evaluate_practice(CLASSES[practice_pred], BUNDLE_DIR)
+print(BEST, practice_result)
+
+html = show_practice_run(CLASSES[practice_pred], BUNDLE_DIR)
+Path("practice_run.html").write_text(html.data, encoding="utf-8")
+display(html)
+''')
+code('''
+start_p, goal_p = tuple(config["practice_start_yx"]), tuple(config["practice_goal_yx"])
+start_m, goal_m = tuple(config["mission_start_yx"]), tuple(config["mission_goal_yx"])
+
+mission_pred = chosen["predict"](X_mission)
+path_p, cost_p = _plan(practice_pred, (h, w), start_p, goal_p)
+path_m, cost_m = _plan(mission_pred, (h, w), start_m, goal_m)
+print(f"practice route cost {cost_p:.1f}, mission route cost {cost_m:.1f}")
+''')
+code('''
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+
+cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
+panels = [(practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),
+          (mission_pred, path_m, start_m, goal_m, "Predicted mission map and planned route")]
+
+fig, axes = plt.subplots(1, 2, figsize=(9, 4.4))
+for ax, (pred, path, start, goal, title) in zip(axes, panels):
+    ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
+    if path:
+        ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.8)
+    ax.scatter([start[1]], [start[0]], marker="s", s=70, c="k")
+    ax.scatter([goal[1]], [goal[0]], marker="*", s=130, c="k")
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.set_title(title, fontsize=10)
+
+if practice_result["status"] == "ROVER STUCK IN SAND":
+    sy, sx = path_p[practice_result["steps"]]
+    axes[0].scatter([sx], [sy], marker="X", s=140, c="#c1121f", edgecolor="w", zorder=5)
+    axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)", fontsize=9)
+else:
+    axes[0].set_xlabel(f"{practice_result['status']}, {practice_result['steps']} steps", fontsize=9)
+axes[1].set_xlabel("no truth exists for the mission; prediction only", fontsize=9)
+
+fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),
+                    Patch(color="#8d99ae", label="sand")], loc="lower center", ncol=3, fontsize=8, frameon=False)
+plt.tight_layout(rect=(0, 0.06, 1, 1))
+plt.savefig("figures/fig2_deploy.png", dpi=200, bbox_inches="tight")
+plt.show()
+''')
+code('''
+# mission shift check with the stored fit-row statistics (diagnostic only, nothing is refitted)
+Z_mission = zscore_apply(X_mission, mu, sd)
+shift = pd.DataFrame({"mission mean (z)": Z_mission.mean(axis=0),
+                      "mission std (z)": Z_mission.std(axis=0)}, index=sensor_columns)
+display(shift.round(3))
+print(f"largest mean shift: {np.abs(shift['mission mean (z)']).max():.3f} fit-row standard deviations")
+
+display(pd.DataFrame({"practice predicted share": np.bincount(practice_pred, minlength=3) / len(practice_pred),
+                      "mission predicted share": np.bincount(mission_pred, minlength=3) / len(mission_pred)},
+                     index=CLASSES).round(3))
+''')
+code('''
+# failure analysis: where the rover stopped for each configuration that got stuck.
+# the planned path gives the cell, no truth file is read
+stuck = results.index[results.practice == "ROVER STUCK IN SAND"]
+print("configurations that got the rover stuck:", list(stuck))
+
+for cid in stuck:
+    pred_c = fitted[cid]["predict"](X_dev)
+    path_c, _ = _plan(pred_c, (h, w), start_p, goal_p)
+    sy, sx = path_c[int(results.loc[cid, "steps"])]
+    i = sy * w + sx
+    print(f"{cid}: stopped at (y={sy}, x={sx}) after {results.loc[cid, 'steps']} steps; predicted "
+          f"{CLASSES[pred_c[i]]} there, the simulator reports sand")
+    print("   standardized sensors:", dict(zip(sensor_columns, zscore_apply(X_dev[i], mu, sd).round(2).tolist())))
+    mv = metrics(y_val, fitted[cid]["predict"](X_val))
+    display(pd.DataFrame(mv["cm"], index=[f"true {c}" for c in CLASSES], columns=[f"pred {c}" for c in CLASSES]))
+''')
+
+md("### 8. Export")
+code('''
+out_path = save_submission(mission_pred, BUNDLE_DIR, "submission.csv")
+sub = pd.read_csv(out_path)
+
+assert list(sub.columns) == ["student_id", "x", "y", "predicted_terrain"]
+assert len(sub) == len(mission)
+assert (sub["x"].to_numpy() == mission["x"].to_numpy()).all() and (sub["y"].to_numpy() == mission["y"].to_numpy()).all()
+assert (sub["predicted_terrain"].to_numpy() == CLASSES[mission_pred]).all()
+
+print(out_path, sub.shape, "student_id:", sub["student_id"].iloc[0])
+print(sub["predicted_terrain"].value_counts().to_dict())
+display(sub.head())
+''')
+
+md("### Summary")
+code('''
+import sys
+import sklearn
+import matplotlib
+
+print(f"python {sys.version.split()[0]} | numpy {np.__version__} | pandas {pd.__version__} | "
+      f"scikit-learn {sklearn.__version__} | matplotlib {matplotlib.__version__}")
+print(f"seed {SEED} | student_id {config['student_id']}")
+print(f"components for 95% variance: standardized {N95_Z}, raw {N95_RAW}")
+print(f"selected {BEST} | practice: {practice_result['status']} ({practice_result['steps']} steps)")
+print(results[["scaling", "representation", "model", "dims", "val_accuracy", "macro_f1", "sand_recall", "practice"]]
+      .round(3).to_string())
+''')
+
+md("""### AI use
+AI use is allowed in this course and I used it heavily. Claude Code (Anthropic) wrote the code in this notebook and the report draft under my direction. I checked the results against the assignment and am responsible for what I submit.""")
+
+nb = new_notebook(cells=cells)
+nb.metadata = {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"},
+               "language_info": {"name": "python"}}
+nbformat.validate(nb)
+nbformat.write(nb, OUT)
+print("wrote", OUT, len(cells), "cells")
+
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" && ( time "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert" ) 2>&1 | grep -E "Error|Traceback|Writing|assert|real"; ls; echo "--- compare with previous run in Code/Homework"; cmp submission.csv "$H/submission.csv" && echo "submission.csv IDENTICAL"; cmp figures/hw2_configs.csv "$H/figures/hw2_configs.csv" && echo "hw2_configs.csv IDENTICAL"`
+```
+wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh/CSCI4521_HW2.ipynb 42 cells
+[NbConvertApp] Writing 1446482 bytes to CSCI4521_HW2.ipynb
+real	0m13.610s
+CSCI4521_HW2.ipynb
+figures
+practice_run.html
+rover-rescue-download
+submission.csv
+--- compare with previous run in Code/Homework
+submission.csv IDENTICAL
+hw2_configs.csv IDENTICAL
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I "$SC/audit.py" CSCI4521_HW2.ipynb; cmp submission.csv "$SC/fresh/submission.csv" && echo "in-place submission.csv == fresh-dir submission.csv"; ls -la submission.csv practice_run.html CSCI4521_HW2.ipynb figures/ | grep -E "submission|practice|HW2|hw2|fig1_pca|fig2_deploy"`
+```
+wrote CSCI4521_HW2.ipynb 42 cells
+[NbConvertApp] Writing 1446314 bytes to CSCI4521_HW2.ipynb
+cells: 42
+ 0 mark lines=  5 blank= 2 words= 64 first='# Rover Rescue: student starting notebook' outs=[]
+ 1 code lines= 59 blank= 6 words=  0 first='from pathlib import Path' outs=['stream:stdout']
+ 2 code lines= 20 blank= 1 words=  0 first='import numpy as np' outs=['stream:stdout', 'text/html,text/plain']
+ 3 code lines=  1 blank= 0 words=  0 first='test.head()' outs=['text/html,text/plain']
+ 4 mark lines=  3 blank= 1 words= 33 first='## Check the simulator' outs=[]
+ 5 code lines=  2 blank= 0 words=  0 first='practice_predictions = np.full(len(development), "firm")' outs=['stream:stdout']
+ 6 code lines=  3 blank= 1 words=  0 first='from IPython.display import display' outs=['text/html,text/plain']
+ 7 mark lines=  3 blank= 1 words= 34 first='## Your project' outs=[]
+ 8 mark lines=  6 blank= 2 words=108 first='## My solution' outs=[]
+ 9 mark lines=  1 blank= 0 words=  3 first='### 1. Setup' outs=[]
+10 code lines= 38 blank= 5 words=  0 first='import time' outs=['stream:stdout', 'text/html,text/plain']
+11 mark lines=  5 blank= 0 words= 92 first='### 2. Methods in NumPy' outs=[]
+12 code lines= 47 blank=12 words=  0 first='def zscore_fit(X):' outs=[]
+13 code lines= 37 blank= 5 words=  0 first='def kmeans(X, k=3, n_init=10, max_iter=300, seed=SEED):' outs=[]
+14 code lines= 51 blank=10 words=  0 first='def name_clusters(C, F_train, y_train_int, k=3):' outs=[]
+15 mark lines=  2 blank= 0 words= 31 first='### 3. Checks' outs=[]
+16 code lines= 32 blank=10 words=  0 first='def distance_sq(p0, p1):' outs=[]
+17 code lines= 15 blank= 1 words=  0 first='# vectorized distances and kNN against the lecture loop' outs=['stream:stdout']
+18 code lines= 32 blank= 4 words=  0 first='# PCA components are orthonormal and its variance equals the' outs=['stream:stdout', 'stream:stdout']
+19 mark lines=  2 blank= 0 words= 45 first='### 4. Representation' outs=[]
+20 code lines= 13 blank= 1 words=  0 first='var = X_fit.var(axis=0)' outs=['text/html,text/plain', 'stream:stdout']
+21 code lines= 13 blank= 1 words=  0 first='pca_z = PCA().fit(Z_fit)' outs=['stream:stdout', 'text/html,text/plain', 'text/html,text/plain']
+22 code lines= 40 blank= 5 words=  0 first='P_fit = pca_z.transform(Z_fit)' outs=['image/png,text/plain']
+23 mark lines=  2 blank= 0 words= 46 first='### 5. Experiments' outs=[]
+24 code lines= 36 blank= 9 words=  0 first='def make_transform(scale, n_pca):' outs=[]
+25 code lines= 40 blank= 5 words=  0 first='# (id, scaling, representation, n_pca, model, k)' outs=['text/html,text/plain']
+26 code lines=  9 blank= 0 words=  0 first='# how the 60 labeled training points fall in each cluster, f' outs=['stream:stdout', 'text/html,text/plain', 'stream:stdout', 'text/html,text/plain', 'stream:stdout', 'text/html,text/plain', 'stream:stdout', 'text/html,text/plain', 'stream:stdout', 'text/html,text/plain']
+27 code lines= 19 blank= 2 words=  0 first='# one random start can end in a worse local optimum (lecture' outs=['stream:stdout']
+28 code lines= 13 blank= 1 words=  0 first='# elbow check for three clusters: objective against k on sta' outs=['image/png,text/plain', 'stream:stdout']
+29 mark lines=  2 blank= 0 words= 32 first='### 6. Selection' outs=[]
+30 code lines= 13 blank= 2 words=  0 first='key = results.assign(f=results.macro_f1.round(10), s=results' outs=['stream:stdout', 'text/html,text/plain']
+31 mark lines=  2 blank= 0 words= 18 first='### 7. Deployment' outs=[]
+32 code lines=  8 blank= 1 words=  0 first='chosen = fitted[BEST]' outs=['stream:stdout', 'text/html,text/plain']
+33 code lines=  7 blank= 1 words=  0 first='start_p, goal_p = tuple(config["practice_start_yx"]), tuple(' outs=['stream:stdout']
+34 code lines= 31 blank= 4 words=  0 first='from matplotlib.colors import ListedColormap' outs=['image/png,text/plain']
+35 code lines= 10 blank= 1 words=  0 first='# mission shift check with the stored fit-row statistics (di' outs=['text/html,text/plain', 'stream:stdout', 'text/html,text/plain']
+36 code lines= 15 blank= 1 words=  0 first='# failure analysis: where the rover stopped for each configu' outs=['stream:stdout', 'text/html,text/plain', 'stream:stdout', 'text/html,text/plain']
+37 mark lines=  1 blank= 0 words=  3 first='### 8. Export' outs=[]
+38 code lines= 11 blank= 2 words=  0 first='out_path = save_submission(mission_pred, BUNDLE_DIR, "submis' outs=['stream:stdout', 'text/html,text/plain']
+39 mark lines=  1 blank= 0 words=  2 first='### Summary' outs=[]
+40 code lines= 11 blank= 1 words=  0 first='import sys' outs=['stream:stdout']
+41 mark lines=  2 blank= 0 words= 45 first='### AI use' outs=[]
+in-place submission.csv == fresh-dir submission.csv
+-rw-r--r-- 1 anant 197609 1462416 Oct 27 20:46 CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609  755128 Oct 27 20:46 practice_run.html
+-rw-r--r-- 1 anant 197609   13797 Oct 27 20:46 submission.csv
+-rw-r--r-- 1 anant 197609 244081 Oct 27 20:46 fig1_pca.png
+-rw-r--r-- 1 anant 197609  35330 Oct 27 20:46 fig2_deploy.png
+-rw-r--r-- 1 anant 197609    952 Oct 27 20:46 hw2_configs.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 42 2>&1 | grep -v "^\[IPK" | cut -c1-230 | head -250`
+```
+=== cell 10
+fit 754 | calibration-training 60 | validation 30 | mission 784
+  Unnamed: 0  calibration-training  validation
+0       firm                    20          10
+1      rough                    20          10
+2       sand                    20          10
+=== cell 12
+=== cell 13
+=== cell 14
+=== cell 16
+=== cell 17
+1-NN equals the lecture 1.1 loop on all 30 validation rows (z-score)
+1-NN equals the lecture 1.1 loop on all 30 validation rows (raw)
+k-means (z-score): converged in 5 iterations, objective 6026.3 to 1237.5, never rose, 0 empty clusters
+k-means (raw): converged in 10 iterations, objective 2523037.5 to 594016.8, never rose, 0 empty clusters
+=== cell 18
+kNN k=1: agreement with sklearn 1.000
+kNN k=3: agreement with sklearn 1.000
+kNN k=5: agreement with sklearn 1.000
+k-means objective: mine 1237.50, sklearn 1237.50
+all checks passed
+=== cell 20
+  Unnamed: 0     mean     std      min       max  share of raw squared distance (%)
+0   sensor_1    4.959   0.077    4.791     5.124                              0.000
+1   sensor_2   84.746  18.682   37.539   125.946                             10.390
+2   sensor_3   -2.675   0.644   -4.169    -1.528                              0.012
+3   sensor_4  948.868  52.446  827.529  1092.093                             81.885
+4   sensor_5    1.175   4.383   -8.286    10.731                              0.572
+5   sensor_6   19.992   0.040   19.922    20.086                              0.000
+6   sensor_7  -54.412  15.460  -92.122   -29.023                              7.115
+7   sensor_8    8.718   0.928    6.714    11.348                              0.026
+largest std / smallest std = 1,320 (sensor_4 vs sensor_6)
+top two sensors supply 92.27% of raw squared distance: ['sensor_4', 'sensor_2']
+after z-scoring every sensor supplies 12.5%
+=== cell 21
+components for at least 95% variance: standardized 3 of 8, raw 2 of 8
+   Unnamed: 0  var ratio (standardized)  cumulative (standardized)  var ratio (raw)  cumulative (raw)
+0           1                    0.6408                     0.6408           0.8835            0.8835
+1           2                    0.2705                     0.9112           0.0989            0.9824
+2           3                    0.0434                     0.9546           0.0161            0.9985
+3           4                    0.0157                     0.9703           0.0015            1.0000
+4           5                    0.0114                     0.9817           0.0000            1.0000
+5           6                    0.0075                     0.9893           0.0000            1.0000
+6           7                    0.0061                     0.9954           0.0000            1.0000
+7           8                    0.0046                     1.0000           0.0000            1.0000
+  Unnamed: 0    PC1    PC2    PC3
+0   sensor_1 -0.281 -0.503  0.066
+1   sensor_2 -0.275 -0.492 -0.274
+2   sensor_3  0.431  0.002 -0.098
+3   sensor_4 -0.406 -0.043 -0.480
+4   sensor_5 -0.377  0.245  0.583
+5   sensor_6 -0.412 -0.161  0.372
+6   sensor_7 -0.274  0.517 -0.063
+7   sensor_8  0.329 -0.386  0.445
+=== cell 22
+[image]
+=== cell 24
+=== cell 25
+   Unnamed: 0_level_0            scaling     representation              model               dims       val_accuracy           macro_f1        sand_recall         sand_found             practice               steps                
+               config Unnamed: 1_level_1 Unnamed: 2_level_1 Unnamed: 3_level_1 Unnamed: 4_level_1 Unnamed: 5_level_1 Unnamed: 6_level_1 Unnamed: 7_level_1 Unnamed: 8_level_1   Unnamed: 9_level_1 Unnamed: 10_level_1 Unnamed: 11_lev
+0                  C1                raw          8 sensors            k-means                  8              0.700              0.704                0.5               5/10  ROVER STUCK IN SAND                  20                
+1                  C2                raw          8 sensors               1-NN                  8              0.933              0.935                0.9               9/10      MISSION SUCCESS                  54                
+2                  C3            z-score          8 sensors            k-means                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+3                  C4            z-score          8 sensors               1-NN                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+4                  C5                raw            PCA 95%            k-means                  2              0.700              0.704                0.5               5/10  ROVER STUCK IN SAND                  20                
+5                  C6                raw            PCA 95%               1-NN                  2              0.867              0.868                0.9               9/10      MISSION SUCCESS                  54                
+6                  C7            z-score            PCA 95%            k-means                  3              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+7                  C8            z-score            PCA 95%               1-NN                  3              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+8                  E1            z-score              PCA 2            k-means                  2              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+9                  E2            z-score              PCA 2               1-NN                  2              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+10                 E3            z-score          8 sensors               3-NN                  8              1.000              1.000                1.0              10/10      MISSION SUCCESS                  54                
+=== cell 26
+C1 (raw, 8 sensors): majority vote, names ['rough', 'firm', 'sand'], sizes [263, 209, 282], converged True in 10 iterations, empty clusters 0, objective 594016.8
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     0      8     7
+1  cluster 1    16      1     1
+2  cluster 2     4     11    12
+C3 (z-score, 8 sensors): majority vote, names ['firm', 'rough', 'sand'], sizes [263, 289, 202], converged True in 5 iterations, empty clusters 0, objective 1237.5
+  Unnamed: 0  firm  rough  sand
+0  cluster 0    20      0     0
+1  cluster 1     0     20     0
+2  cluster 2     0      0    20
+C5 (raw, PCA 95%): majority vote, names ['sand', 'firm', 'rough'], sizes [278, 207, 269], converged True in 8 iterations, empty clusters 0, objective 551196.9
+  Unnamed: 0  firm  rough  sand
+0  cluster 0     4     11    12
+1  cluster 1    16      1     1
+2  cluster 2     0      8     7
+C7 (z-score, PCA 95%): majority vote, names ['firm', 'rough', 'sand'], sizes [263, 289, 202], converged True in 6 iterations, empty clusters 0, objective 963.9
+  Unnamed: 0  firm  rough  sand
+0  cluster 0    20      0     0
+1  cluster 1     0     20     0
+2  cluster 2     0      0    20
+E1 (z-score, PCA 2): majority vote, names ['firm', 'rough', 'sand'], sizes [263, 289, 202], converged True in 5 iterations, empty clusters 0, objective 715.4
+  Unnamed: 0  firm  rough  sand
+0  cluster 0    20      0     0
+1  cluster 1     0     20     0
+2  cluster 2     0      0    20
+=== cell 27
+raw 8 sensors: 2/20 single starts reach the best objective, 20/20 give the same validation predictions as the first start
+z-score 8 sensors: 15/20 single starts reach the best objective, 15/20 give the same validation predictions as the first start
+=== cell 28
+[image]
+{2: 2652.2, 3: 1237.5, 4: 1085.7, 5: 939.1, 6: 837.1, 7: 801.8, 8: 754.6}
+=== cell 30
+selected E1: z-score, PCA 2, k-means, 2 dimensions
+sharing the top macro F1: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3']
+also tied on sand recall: ['E1', 'E2', 'C7', 'C8', 'C3', 'C4', 'E3']
+also tied on dimensions: ['E1', 'E2']
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm         10           0          0
+1  true rough          0          10          0
+2   true sand          0           0         10
+=== cell 32
+E1 {'success': True, 'status': 'MISSION SUCCESS', 'steps': 54, 'predicted_cost': 70.8}
+[other output] ['text/html', 'text/plain']
+=== cell 33
+practice route cost 70.8, mission route cost 52.0
+=== cell 34
+[image]
+=== cell 35
+  Unnamed: 0  mission mean (z)  mission std (z)
+0   sensor_1             0.231            0.933
+1   sensor_2             0.206            0.905
+2   sensor_3            -0.189            1.031
+3   sensor_4             0.172            1.016
+4   sensor_5             0.131            1.082
+5   sensor_6             0.243            1.040
+6   sensor_7             0.022            1.011
+7   sensor_8            -0.053            1.028
+largest mean shift: 0.243 fit-row standard deviations
+  Unnamed: 0  practice predicted share  mission predicted share
+0       firm                     0.348                    0.460
+1      rough                     0.381                    0.269
+2       sand                     0.270                    0.270
+=== cell 36
+configurations that got the rover stuck: ['C1', 'C5']
+C1: stopped at (y=13, x=4) after 20 steps; predicted rough there, the simulator reports sand
+   standardized sensors: {'sensor_1': -0.15, 'sensor_2': -0.1, 'sensor_3': 0.87, 'sensor_4': -1.41, 'sensor_5': -1.18, 'sensor_6': -0.71, 'sensor_7': -1.7, 'sensor_8': 1.85}
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm          8           0          2
+1  true rough          0           8          2
+2   true sand          0           5          5
+C5: stopped at (y=13, x=4) after 20 steps; predicted rough there, the simulator reports sand
+   standardized sensors: {'sensor_1': -0.15, 'sensor_2': -0.1, 'sensor_3': 0.87, 'sensor_4': -1.41, 'sensor_5': -1.18, 'sensor_6': -0.71, 'sensor_7': -1.7, 'sensor_8': 1.85}
+   Unnamed: 0  pred firm  pred rough  pred sand
+0   true firm          8           0          2
+1  true rough          0           8          2
+2   true sand          0           5          5
+=== cell 38
+submission.csv (784, 4) student_id: demo3
+{'firm': 361, 'sand': 212, 'rough': 211}
+   Unnamed: 0 student_id  x  y predicted_terrain
+0           0      demo3  0  0              firm
+1           1      demo3  1  0              firm
+2           2      demo3  2  0              firm
+3           3      demo3  3  0              firm
+4           4      demo3  4  0              firm
+=== cell 40
+python 3.14.7 | numpy 2.5.4 | pandas 3.1.0 | scikit-learn 1.9.1 | matplotlib 3.11.2
+seed 4521 | student_id demo3
+components for 95% variance: standardized 3, raw 2
+selected E1 | practice: MISSION SUCCESS (54 steps)
+        scaling representation    model  dims  val_accuracy  macro_f1  sand_recall             practice
+config                                                                                                 
+C1          raw      8 sensors  k-means     8         0.700     0.704          0.5  ROVER STUCK IN SAND
+C2          raw      8 sensors     1-NN     8         0.933     0.935          0.9      MISSION SUCCESS
+C3      z-score      8 sensors  k-means     8         1.000     1.000          1.0      MISSION SUCCESS
+C4      z-score      8 sensors     1-NN     8         1.000     1.000          1.0      MISSION SUCCESS
+C5          raw        PCA 95%  k-means     2         0.700     0.704          0.5  ROVER STUCK IN SAND
+C6          raw        PCA 95%     1-NN     2         0.867     0.868          0.9      MISSION SUCCESS
+C7      z-score        PCA 95%  k-means     3         1.000     1.000          1.0      MISSION SUCCESS
+C8      z-score        PCA 95%     1-NN     3         1.000     1.000          1.0      MISSION SUCCESS
+E1      z-score          PCA 2  k-means     2         1.000     1.000          1.0      MISSION SUCCESS
+E2      z-score          PCA 2     1-NN     2         1.000     1.000          1.0      MISSION SUCCESS
+E3      z-score      8 sensors     3-NN     8         1.000     1.000          1.0      MISSION SUCCESS
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchfig.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:70]
+    s = s.replace(old, new)
+
+# style constant in the setup cell
+swap('''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+Path("figures").mkdir(exist_ok=True)''',
+'''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+# report figures are saved at the width they are printed, so text is sized for print
+REPORT_STYLE = {"font.size": 7.5, "axes.titlesize": 8, "axes.labelsize": 7.5,
+                "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 6.5}
+Path("figures").mkdir(exist_ok=True)''')
+
+# figure 1 cell
+a = s.index("P_fit = pca_z.transform(Z_fit)")
+b = s.index("''')", a)
+fig1 = '''P_fit = pca_z.transform(Z_fit)
+P_train = pca_z.transform(Z_train)
+
+with plt.rc_context(REPORT_STYLE):
+    fig = plt.figure(figsize=(7.0, 2.5))
+
+    ax = fig.add_subplot(1, 3, 1)
+    ax.plot(range(1, 9), cum_z, "o-", ms=3.5, color="#0072B2", label="standardized")
+    ax.plot(range(1, 9), cum_raw, "s--", ms=3.5, color="#D55E00", label="raw")
+    ax.axhline(0.95, color="gray", ls=":", lw=1)
+    ax.annotate(f"{N95_Z} components\\n(standardized)", (N95_Z, cum_z[N95_Z - 1]),
+                textcoords="offset points", xytext=(6, -22), fontsize=6.5)
+    ax.set_xlabel("number of principal components")
+    ax.set_ylabel("cumulative explained variance")
+    ax.set_ylim(0, 1.03)
+    ax.set_title("(a) variance retained")
+    ax.legend(loc="lower right")
+
+    ax = fig.add_subplot(1, 3, 2)
+    ax.scatter(P_fit[:, 0], P_fit[:, 1], s=3, c="#c8c8c8", label="fit rows (unlabeled)")
+    for t in (FIRM, ROUGH, SAND):
+        ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=12, c=COLORS[t],
+                   edgecolor="k", linewidth=0.3, label=f"{CLASSES[t]} (labeled)")
+    ax.set_xlabel("PC1")
+    ax.set_ylabel("PC2")
+    ax.set_title("(b) top 2 components")
+    ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)
+
+    ax = fig.add_subplot(1, 3, 3, projection="3d")
+    ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=2, c="#c8c8c8", alpha=0.5)
+    for t in (FIRM, ROUGH, SAND):
+        ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2],
+                   s=8, c=COLORS[t], edgecolor="k", linewidth=0.2)
+    ax.set_xlabel("PC1", labelpad=-4)
+    ax.set_ylabel("PC2", labelpad=-4)
+    ax.set_zlabel("PC3", labelpad=-4)
+    ax.tick_params(pad=-2)
+    ax.set_title("(c) top 3 components")
+
+    plt.tight_layout()
+    plt.savefig("figures/fig1_pca.png", dpi=300, bbox_inches="tight")
+    plt.show()
+'''
+s = s[:a] + fig1 + s[b:]
+
+# figure 2 cell
+a = s.index("from matplotlib.colors import ListedColormap")
+b = s.index("''')", a)
+fig2 = '''from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+
+cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
+panels = [(practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),
+          (mission_pred, path_m, start_m, goal_m, "Predicted mission map and route")]
+
+with plt.rc_context(REPORT_STYLE):
+    fig, axes = plt.subplots(1, 2, figsize=(5.6, 2.9))
+    for ax, (pred, path, start, goal, title) in zip(axes, panels):
+        ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
+        if path:
+            ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.3)
+        ax.scatter([start[1]], [start[0]], marker="s", s=35, c="k")
+        ax.scatter([goal[1]], [goal[0]], marker="*", s=70, c="k")
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.set_title(title)
+
+    if practice_result["status"] == "ROVER STUCK IN SAND":
+        sy, sx = path_p[practice_result["steps"]]
+        axes[0].scatter([sx], [sy], marker="X", s=80, c="#c1121f", edgecolor="w", zorder=5)
+        axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)")
+    else:
+        axes[0].set_xlabel(f"{practice_result['status']}, {practice_result['steps']} steps")
+    axes[1].set_xlabel("prediction only, no mission truth exists")
+
+    fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),
+                        Patch(color="#8d99ae", label="sand")], loc="lower center", ncol=3, frameon=False)
+    plt.tight_layout(rect=(0, 0.07, 1, 1))
+    plt.savefig("figures/fig2_deploy.png", dpi=300, bbox_inches="tight")
+    plt.show()
+'''
+s = s[:a] + fig2 + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchfig.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('syntax ok')"
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
+import struct
+for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+"`
+```
+Exit code 1
+patched
+syntax ok
+wrote CSCI4521_HW2.ipynb 42 cells
+Traceback (most recent call last):
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+[31mSyntaxError[39m[31m:[39m unterminated f-string literal (detected at line 11)
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+      ~~~~^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'figures/fig1_pca.png'
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = "components\\n(standardized)"
+assert s.count(old) == 1
+s = s.replace(old, "components\\\\n(standardized)")
+open(p, "w", encoding="utf-8").write(s)
+print("fixed")
+PYEOF
+./venv/Scripts/python.exe -I fixesc.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
+import struct
+for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+"`
+```
+Exit code 1
+fixed
+wrote CSCI4521_HW2.ipynb 42 cells
+Traceback (most recent call last):
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+[31mSyntaxError[39m[31m:[39m unterminated f-string literal (detected at line 11)
+Traceback (most recent call last):
+  File "<string>", line 4, in <module>
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+      ~~~~^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'figures/fig1_pca.png'
+```
+- `Grep` -- pattern `components.*standardized\)` path `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb3.py`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+s=open('build_nb3.py',encoding='utf-8').read()
+i=s.index('components')
+j=s.index('(standardized)', i)
+print(repr(s[j-20:j+14]))
+import nbformat
+nb=nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb',as_version=4)
+for c in nb.cells:
+    if 'standardized)' in c.source and 'annotate' in c.source:
+        k=c.source.index('components'); print(repr(c.source[k:k+40]))
+"`
+```
+'taFrame({"var ratio (standardized)'
+'components\n(standardized)", (N95_Z, cum_'
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+s=open('build_nb3.py',encoding='utf-8').read()
+i=s.index('N95_Z} components')
+seg=s[i:i+40]
+print([hex(ord(ch)) for ch in seg[16:26]])
+"`
+```
+['0x73', '0x5c', '0x6e', '0x28', '0x73', '0x74', '0x61', '0x6e', '0x64', '0x61']
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc2.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+bs = chr(92)
+old = "components" + bs + "n(standardized)"
+assert s.count(old) == 1
+s = s.replace(old, "components")
+s = s.replace('xytext=(6, -22), fontsize=6.5)', 'xytext=(6, -12), fontsize=6.5)')
+open(p, "w", encoding="utf-8").write(s)
+print("fixed")
+PYEOF
+./venv/Scripts/python.exe -I fixesc2.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
+import struct
+for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+"`
+```
+fixed
+wrote CSCI4521_HW2.ipynb 42 cells
+[NbConvertApp] Writing 1392079 bytes to CSCI4521_HW2.ipynb
+figures/fig1_pca.png 2175 740 px -> 7.25 x 2.47 in at 300 dpi
+figures/fig2_deploy.png 1602 920 px -> 5.34 x 3.07 in at 300 dpi
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
+
+## You
+
+[Image: original 2175x740, displayed at 2000x680. Multiply coordinates by 1.09 to map to original image.]
+
+## Claude
+
+### Tool Calls
+
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig2_deploy.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = 'ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)'
+assert s.count(old) == 1
+s = s.replace(old, 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixleg.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep -E "fig1_pca|fig2_deploy|hw2"`
+```
+ok
+wrote CSCI4521_HW2.ipynb 42 cells
+[NbConvertApp] Writing 1391194 bytes to CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609 248268 Oct 27 20:49 fig1_pca.png
+-rw-r--r-- 1 anant 197609  38656 Oct 27 20:49 fig2_deploy.png
+-rw-r--r-- 1 anant 197609    952 Oct 27 20:49 hw2_configs.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
+
+## You
+
+[Image: original 2175x740, displayed at 2000x680. Multiply coordinates by 1.09 to map to original image.]
+
+## Claude
+
+The legend now covers the sand cluster instead. A cleaner fix is to add headroom above the data and put the legend there in two columns, where nothing can overlap.
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg2.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)'
+assert s.count(old) == 1
+s = s.replace(old, 'ax.set_ylim(top=5.0)  # headroom so the legend never covers points\n    ax.legend(loc="upper center", ncol=2, handletextpad=0.2, columnspacing=0.8, borderpad=0.3)')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixleg2.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+```
+ok
+wrote CSCI4521_HW2.ipynb 42 cells
+[NbConvertApp] Writing 1389821 bytes to CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609 241547 Oct 27 20:49 fig1_pca.png
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
+
+## You
+
+[Image: original 2175x740, displayed at 2000x680. Multiply coordinates by 1.09 to map to original image.]
+
+## Claude
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg3.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old
+    s = s.replace(old, new)
+swap('label="fit rows (unlabeled)")', 'label="fit rows")')
+swap('label=f"{CLASSES[t]} (labeled)")', 'label=f"{CLASSES[t]}")')
+swap('ax.set_ylim(top=5.0)  # headroom so the legend never covers points', 'ax.set_ylim(top=4.6)  # headroom so the legend never covers points\n    ax.set_yticks([-2, 0, 2])')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixleg3.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+```
+ok
+wrote CSCI4521_HW2.ipynb 42 cells
+[NbConvertApp] Writing 1387761 bytes to CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609 234585 Oct 27 20:49 fig1_pca.png
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
+
+## You
+
+[Image: original 2175x740, displayed at 2000x680. Multiply coordinates by 1.09 to map to original image.]
+
+## Claude
+
+The estimate says 2 pages but the content ends at 93% of page 2. Word lays text out a little differently, so that's too close to the edge for comfort. Let me see the layout before trimming.
+
+Still 89%. I'm cutting redundancy from the prose, not content the assignment requires (initialization, stopping rule, empty clusters, protocol, sand risk, limitations all stay).
+
+My test code contains docstrings with triple quotes, which broke the script's own string. I'm putting the inserted blocks in separate files instead.
+
+Before touching your files, I'm testing the new checks in the scratch directory, using your actual `csci-4521` environment so the results are what you would see.
+
+Just a wrong keyword on my measurement script, not a notebook problem. Fixing it.
+
+Everything passes, including the stuck-rover and blocked-goal drawing tests, and Figure 2 is still byte-identical, so the refactor changed nothing visible. Re-measuring coverage.
+
+The final file is in place and every result is still identical. Now a last mechanical proofread of the final notebook (lint, stderr, dashes, prose count), since it has new cells.
+
+One docstring line is over the line-length I held the rest of the notebook to. It's a trivial fix, but I want the final file clean, so I'll shorten it and re-run in place.
+
+The isolated-mode flag stops Python from importing my sibling script, and no note was written. This is my own trusted script, so I'm running it normally.
+
+Testing is at 100%, and your re-run was clean. I re-ran your notebook's state first, then pushed the testing further.
+
+**Your re-run.** It ran in your `csci-4521` kernel (Python 3.12.14, numpy 2.5.3) as a proper Restart and Run All, with no errors. Its `submission.csv`, results table and both figures matched my Python 3.14 runs byte for byte, so the results don't depend on the environment.
+
+**What "100%" means here, measured:**
+- **Line and branch coverage:** the check cells alone run 237 of 237 lines and 28 of 28 branches of my code, with all 18 functions covered. The whole notebook runs 470 of 470 lines and 58 of 58 branches.
+- **Mutation test:** I broke the methods 14 different ways (flipped a sign, argmin to argmax, dropped a square, kept the worst k-means start, and so on), and the checks caught all 14.
+
+**Two problems the tests found and I fixed:**
+1. **Tie-break defect:** the empty-cluster re-seed broke ties with an unstable sort. It's now a stable sort. No run ever produced an empty cluster, so no result changed.
+2. **Missing check:** the first mutation round caught only 13 of 14. The survivor ("keep the worst random start") showed nothing tested that the best start is kept, so I added that check.
+
+**New checks, all assert-based:**
+- A hand-worked case for every method.
+- kNN for k = 1, 3, 5, 7 against the lecture-style loop.
+- The lecture 1.4 COVID example (precision 0.5, recall 0.75, F1 0.6).
+- Stored preprocessing and table values.
+- The deployment figure drawing a stuck rover and a fully blocked goal.
+
+**Final state of your folder.** `CSCI4521_HW2.ipynb` now has 46 cells. I re-ran it in your own env, so its counts run 1 to 32 in order. Results are unchanged, and the notebook stores a generic `python3` kernel name so any grader's Jupyter or Colab opens it cleanly. The vault note records exactly what was run, and still passes lint.
+
+**Not tested:** Word itself, the Gradescope upload, and a Colab run.
+
+The notebook, HTML, `submission.csv` and figures are ready, so the Word report and PDF are what's left. Do you want me to build the Word document from the draft next? The page-count estimate for it is 2 pages, ending about 89% down page 2.
+
+### Tool Calls
+
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q pyflakes pycodestyle 2>&1 | grep -v notice; cat > lintnb.py <<'PYEOF'
+import nbformat, sys, subprocess, pathlib
+nb = nbformat.read(sys.argv[1], as_version=4)
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+code = []
+for c in nb.cells[start:]:
+    if c.cell_type == "code":
+        code.append("# ---- cell ----\n" + c.source + "\n")
+text = "\n".join(code)
+pathlib.Path("mycode.py").write_text(text, encoding="utf-8")
+print("code cells:", len(code), "lines:", text.count("\n"))
+PYEOF
+./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== pyflakes"; ./venv/Scripts/python.exe -m pyflakes mycode.py; echo "== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -30`
+```
+code cells: 23 lines: 594
+== pyflakes
+mycode.py:23:14: undefined name 'test'
+mycode.py:24:11: undefined name 'calibration_train'
+mycode.py:27:9: undefined name 'X_dev'
+mycode.py:27:15: undefined name 'fit_indices'
+mycode.py:28:11: undefined name 'X_dev'
+mycode.py:28:17: undefined name 'train_indices'
+mycode.py:29:9: undefined name 'X_dev'
+mycode.py:29:15: undefined name 'test_indices'
+mycode.py:30:8: undefined name 'config'
+mycode.py:33:13: undefined name 'sensor_columns'
+mycode.py:34:27: undefined name 'fit_indices'
+mycode.py:34:40: undefined name 'test_indices'
+mycode.py:35:16: undefined name 'train_indices'
+mycode.py:35:31: undefined name 'fit_indices'
+mycode.py:36:12: undefined name 'fit_indices'
+mycode.py:36:31: undefined name 'test_indices'
+mycode.py:36:52: undefined name 'development'
+mycode.py:37:9: undefined name 'development'
+mycode.py:37:32: undefined name 'development'
+mycode.py:38:9: undefined name 'mission'
+mycode.py:38:28: undefined name 'mission'
+mycode.py:40:105: undefined name 'X_mission'
+mycode.py:274:91: undefined name 'sensor_columns'
+mycode.py:280:11: undefined name 'sensor_columns'
+mycode.py:280:45: undefined name 'sensor_columns'
+mycode.py:282:11: undefined name 'sensor_columns'
+mycode.py:283:58: undefined name 'sensor_columns'
+mycode.py:298:53: undefined name 'sensor_columns'
+mycode.py:408:25: undefined name 'X_dev'
+mycode.py:413:12: undefined name 'evaluate_practice'
+mycode.py:413:43: undefined name 'BUNDLE_DIR'
+mycode.py:490:35: undefined name 'X_dev'
+mycode.py:491:19: undefined name 'evaluate_practice'
+mycode.py:491:61: undefined name 'BUNDLE_DIR'
+mycode.py:494:8: undefined name 'show_practice_run'
+mycode.py:494:50: undefined name 'BUNDLE_DIR'
+mycode.py:499:25: undefined name 'config'
+mycode.py:499:61: undefined name 'config'
+mycode.py:500:25: undefined name 'config'
+mycode.py:500:60: undefined name 'config'
+mycode.py:502:34: undefined name 'X_mission'
+mycode.py:543:26: undefined name 'X_mission'
+mycode.py:545:72: undefined name 'sensor_columns'
+mycode.py:560:37: undefined name 'X_dev'
+mycode.py:566:48: undefined name 'sensor_columns'
+mycode.py:566:77: undefined name 'X_dev'
+mycode.py:571:42: undefined name 'BUNDLE_DIR'
+mycode.py:575:24: undefined name 'mission'
+mycode.py:576:32: undefined name 'mission'
+mycode.py:576:91: undefined name 'mission'
+mycode.py:590:35: undefined name 'config'
+== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'" ; echo "(end of non-starter pyflakes findings)"; echo; ./venv/Scripts/python.exe -I -c "
+import nbformat
+nb = nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb', as_version=4)
+start = next(i for i,c in enumerate(nb.cells) if c.source.startswith('## My solution'))
+words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type=='markdown')
+errs = [i for i,c in enumerate(nb.cells) if c.cell_type=='code' for o in c.outputs if o.output_type=='error' or (o.output_type=='stream' and o.name=='stderr')]
+print('my markdown words:', words, '| cells with error/stderr output:', errs)
+em = [i for i,c in enumerate(nb.cells[start:],start) if '\u2014' in c.source or '\u2013' in c.source]
+print('cells with em/en dash:', em)
+"`
+```
+(end of non-starter pyflakes findings)
+
+my markdown words: 425 | cells with error/stderr output: []
+cells with em/en dash: []
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" >/dev/null && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png practice_run.html; do cmp -s "$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "--- hw2_configs.csv"; cat "$H/figures/hw2_configs.csv"; echo; echo "--- practice_run.html"; head -c 300 "$H/practice_run.html"; echo; grep -c "ROVER\|MISSION SUCCESS" "$H/practice_run.html"; "$PY" -I -c "
+import pandas as pd
+s=pd.read_csv('$H/submission.csv'); m=pd.read_csv('$H/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv')
+print('submission', s.shape, list(s.columns), s.student_id.unique(), s.predicted_terrain.value_counts().to_dict())
+print('row order matches mission.csv:', (s.x==m.x).all() and (s.y==m.y).all())
+"`
+```
+[NbConvertApp] Writing 1387649 bytes to CSCI4521_HW2.ipynb
+IDENTICAL  submission.csv
+IDENTICAL  figures/hw2_configs.csv
+IDENTICAL  figures/fig1_pca.png
+IDENTICAL  figures/fig2_deploy.png
+DIFFERS    practice_run.html
+
+--- hw2_configs.csv
+config,scaling,representation,model,dims,val_accuracy,macro_f1,sand_recall,sand_found,practice,steps,cost,predicted_sand_cells
+C1,raw,8 sensors,k-means,8,0.7,0.704,0.5,5/10,ROVER STUCK IN SAND,20,92.2,291
+C2,raw,8 sensors,1-NN,8,0.933,0.935,0.9,9/10,MISSION SUCCESS,54,72.2,210
+C3,z-score,8 sensors,k-means,8,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+C4,z-score,8 sensors,1-NN,8,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+C5,raw,PCA 95%,k-means,2,0.7,0.704,0.5,5/10,ROVER STUCK IN SAND,20,92.2,287
+C6,raw,PCA 95%,1-NN,2,0.867,0.868,0.9,9/10,MISSION SUCCESS,54,76.4,207
+C7,z-score,PCA 95%,k-means,3,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+C8,z-score,PCA 95%,1-NN,3,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+E1,z-score,PCA 2,k-means,2,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+E2,z-score,PCA 2,1-NN,2,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+E3,z-score,8 sensors,3-NN,8,1.0,1.0,1.0,10/10,MISSION SUCCESS,54,70.8,212
+
+--- practice_run.html
+
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script language="javascript">
+  function isInternetExplorer() {
+    ua = navigator.userAgent;
+    /* MSIE used to detect old browsers and Trident used to newer ones*/
+    return ua.ind
+0
+submission (784, 4) ['student_id', 'x', 'y', 'predicted_terrain'] <StringArray>
+['demo3']
+Length: 1, dtype: str {'firm': 361, 'sand': 212, 'rough': 211}
+row order matches mission.csv: True
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cat > htmlcmp.py <<'PYEOF'
+import re, sys
+a = open(sys.argv[1], encoding="utf-8").read()
+b = open(sys.argv[2], encoding="utf-8").read()
+print("sizes:", len(a), len(b))
+# find where they differ
+diffs = [(i, a[i-30:i+30], b[i-30:i+30]) for i in range(min(len(a), len(b))) if a[i] != b[i]][:3]
+for d in diffs: print(d)
+norm = lambda s: re.sub(r"[0-9a-f]{20,}|anim[0-9a-f]+", "ID", s)
+print("equal after masking random ids:", norm(a) == norm(b))
+print("contains the animation script:", "Animation" in a, "| frames embedded:", a.count("data:image/png;base64"))
+PYEOF
+./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh/practice_run.html" "$H/practice_run.html"`
+```
+sizes: 745382 745382
+(4779, 'imation">\n  <img id="[REDACTED]', 'imation">\n  <img id="[REDACTED]')
+(4780, 'mation">\n  <img id="[REDACTED]', 'mation">\n  <img id="[REDACTED]')
+(4781, 'ation">\n  <img id="[REDACTED]', 'ation">\n  <img id="[REDACTED]')
+equal after masking random ids: True
+contains the animation script: True | frames embedded: 55
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\report_build.py`
+```
+import sys
+import pandas as pd
+import pymupdf as fitz
+
+H = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+OUT = sys.argv[1] if len(sys.argv) > 1 else "report_est.pdf"
+
+P = {}
+P["s1"] = ("1. Question and configurations. How much do scaling and PCA change a terrain map built from eight sensors, "
+           "and does a 3-cluster k-means classifier that borrows terrain names from 60 labels match 1-NN? Table 1 compares "
+           "eleven configurations: a grid of scaling (raw or z-score), representation (all 8 sensors or the PCA components "
+           "keeping 95% of the variance) and model (k-means or 1-NN), so neighbors in the grid differ in one factor, plus "
+           "three extras (PCA with 2 components for both models, and 3-NN). My k-means follows ISL Algorithm 12.2 in NumPy: "
+           "a random cluster for every point, then centroids and nearest-centroid reassignment until no label changes "
+           "(cap 300 iterations), keeping the best of 10 random starts by within-cluster sum of squares. A single start is "
+           "not enough: on z-scored data 15 of 20 single starts reached the best objective, on raw data 2 of 20. An empty "
+           "cluster would be re-seeded at the farthest point; none occurred. Each cluster takes the majority label of the "
+           "60 calibration-training points, which was one-to-one every time. Three clusters match the three terrains, and "
+           "the elbow agrees (within-cluster sum of squares 2652 at k=2, 1238 at k=3, 1086 at k=4).")
+P["s2"] = ("2. Evaluation protocol. Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "
+           "the 30 validation rows, no labels). The 60 calibration-training labels (20 per terrain) named clusters and "
+           "trained 1-NN. Every configuration was scored on the same 30 validation rows (10 per terrain; one error is 3.3 "
+           "points). I selected the deployed model on these rows, so its score is a selection score, not an untouched test "
+           "score, and the practice run shows deployment, not accuracy. Mission rows were transformed with the stored mean, "
+           "standard deviation and PCA and then predicted, never fitted on.")
+P["s3a"] = ("3. Evidence. Sensor standard deviations range from 0.040 (sensor_6) to 52.4 (sensor_4), a factor of 1,320, and "
+            "sensors 4 and 2 supply 92.3% of raw squared distance, so raw distances mostly measure two sensors. PCA keeps "
+            "95% of the variance with 3 components after z-scoring (95.5%) and 2 on raw data (98.2%), but raw PC1 alone "
+            "holds 88.4%, which restates the scale problem (Figure 1a). In PC1 and PC2 the data form three groups "
+            "matching the labeled terrains (Figure 1b).")
+P["s3b"] = ("Scaling mattered most. With model and representation fixed, z-scoring raised k-means accuracy from 0.700 to "
+            "1.000 and 1-NN from 0.933 to 1.000 on 8 sensors. Raw k-means found 5 of 10 validation sand cells; its cluster "
+            "named sand held 12 sand, 11 rough and 4 firm training points, while every z-scored cluster was pure (20, 20, "
+            "20). PCA changed little: on z-scored data 8, 3 and 2 dimensions all scored 1.000, while on raw data PCA "
+            "lowered 1-NN from 0.933 to 0.867 (two more errors). Cluster and 1-NN tied at 1.000 on every z-scored "
+            "configuration; on raw data 1-NN beat k-means (0.933 against 0.700). A possible explanation, untested: raw "
+            "k-means partitions mostly along sensor_4, while 1-NN uses the labels locally.")
+P["t1cap"] = ("Table 1: dimensions, validation accuracy, macro F1 (unweighted mean of the three per-class F1 scores), sand "
+              "recall and practice rover outcome for each configuration.")
+P["f1cap"] = ("Figure 1: (a) cumulative explained variance, (b) PC1 and PC2, (c) PC1 to PC3 of the z-scored fit rows. Gray: "
+              "fit rows. Color: labeled training points.")
+P["s4"] = ("4. Decision and sand risk. Seven configurations tie at 1.000 accuracy, macro F1 and sand recall (C3, C4, C7, C8, "
+           "E1, E2, E3), so validation cannot rank them. My rule, set before running, was highest macro F1, then sand "
+           "recall, then fewer dimensions, then table order. It picked E1 (z-score, PCA 2, k-means), which differs from E2 "
+           "only by table order, so this is a tie and not a win. E1 uses 2 dimensions and needs labels only to name three "
+           "clusters. Its practice route succeeded in 54 steps at predicted cost 70.8, like the other six (Figure 2). A "
+           "missed sand cell is predicted firm or rough, so the planner treats it as passable and the rover stops the "
+           "first time its route crosses it; a false sand prediction only blocks a cell and adds a detour. Raw k-means "
+           "shows the cost: it called 5 of 10 sand cells rough and its rover stopped at step 20, at (y=13, x=4), where it "
+           "predicted rough and the simulator reported sand. Raw 1-NN also missed 1 of 10 validation sand cells yet "
+           "reached the goal, so that cell was not on its route.")
+P["f2cap"] = ("Figure 2: selected model E1. Left: practice map with the planned route (mission success, 54 steps). Right: "
+              "predicted mission map with its planned route.")
+P["s5"] = ("5. Limitations. Thirty validation rows cannot separate seven perfect models, and a perfect score on them is not "
+           "a perfect model; one successful practice route is a demonstration. Mission rows, z-scored with the fit "
+           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor (standard deviations 0.9 to "
+           "1.1), so I saw no sensor drift. The predicted mission mix still differs (firm 46.0%, rough 26.9%, sand 27.0% "
+           "against 34.8%, 38.1% and 27.0% on practice), and without mission labels I cannot tell a real regional "
+           "difference from a model error.")
+P["ai"] = ("AI use: AI use is allowed in this course and I used it heavily. Claude Code (Anthropic) read the course "
+           "materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked "
+           "the results against the assignment, and am responsible for what I submit.")
+
+
+def table_rows():
+    df = pd.read_csv(f"{H}/figures/hw2_configs.csv")
+    rows = []
+    for _, r in df.iterrows():
+        outcome = f"stuck, step {int(r.steps)}" if "STUCK" in r.practice else f"success, {int(r.steps)} steps"
+        rows.append([r.config, r.scaling, f"{r.representation} ({int(r.dims)})", r.model,
+                     f"{r.val_accuracy:.3f}", f"{r.macro_f1:.3f}", f"{r.sand_recall:.2f}", outcome])
+    return rows
+
+
+HEAD = ["ID", "Scaling", "Representation (dims)", "Model", "Accuracy", "Macro F1", "Sand recall", "Practice rover"]
+ROWS = table_rows()
+
+if __name__ == "__main__":
+    css = """
+    body { font-family: serif; font-size: 10.5pt; line-height: 1.15; }
+    p { margin: 0 0 3pt 0; text-align: justify; }
+    p.t { text-align: center; margin: 0; font-weight: bold; }
+    p.cap { text-align: center; font-size: 9.5pt; margin: 1pt 0 4pt 0; }
+    table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }
+    td, th { padding: 1pt 4pt; border-bottom: 0.5pt solid #888; }
+    th { border-top: 0.8pt solid #000; border-bottom: 0.8pt solid #000; }
+    div.c { text-align: center; margin: 2pt 0 0 0; }
+    """
+    rows_html = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in r) + "</tr>" for r in ROWS)
+    head_html = "<tr>" + "".join(f"<th>{c}</th>" for c in HEAD) + "</tr>"
+    html = f"""
+    <p class="t">HW 2: Rover Rescue</p><p class="t">Anant Gupta</p><p class="t" style="margin-bottom:4pt">October 2026</p>
+    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s4']}</p>
+    <div class="c"><img src="fig2_deploy.png" width="385"></div><p class="cap">{P['f2cap']}</p>
+    <p>{P['s5']}</p><p>{P['ai']}</p>
+    """
+    story = fitz.Story(html=html, user_css=css, archive=fitz.Archive(f"{H}/figures"))
+    writer = fitz.DocumentWriter(OUT)
+    mediabox = fitz.paper_rect("letter")
+    where = mediabox + (54, 54, -54, -54)           # 0.75 inch margins
+    more, pages, last_bottom = 1, 0, 0
+    while more:
+        dev = writer.begin_page(mediabox)
+        more, filled = story.place(where)
+        story.draw(dev)
+        writer.end_page()
+        pages += 1
+        last_bottom = filled.y1
+    writer.close()
+    usable_top, usable_bottom = where.y0, where.y1
+    print(f"pages: {pages}; last page content ends at {100 * (last_bottom - usable_top) / (usable_bottom - usable_top):.0f}% of its usable height")
+    words = sum(len(P[k].split()) for k in P)
+    print("words in text and captions:", words)
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+print(len(d), 'pages rendered')
+"`
+```
+Exit code 1
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\report_build.py", line 112, in <module>
+    last_bottom = filled.y1
+                  ^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'y1'
+Traceback (most recent call last):
+  File "<string>", line 3, in <module>
+    d = fitz.open('report_est.pdf')
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\venv\Lib\site-packages\pymupdf\__init__.py", line 3018, in __init__
+    raise EmptyFileError(f'Cannot open empty file: {filename=}.')
+pymupdf.EmptyFileError: Cannot open empty file: filename='report_est.pdf'.
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/last_bottom = filled.y1/last_bottom = filled[3]/' report_build.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+print(len(d), 'pages rendered')
+"`
+```
+pages: 2; last page content ends at 93% of its usable height
+words in text and captions: 904
+2 pages rendered
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+[This command modified 1 file you've previously read: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\report_build.py. Call Read before editing.]
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p2.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+
+swap('Three clusters match the three terrains, and "\n           "the elbow agrees (within-cluster sum of squares 2652 at k=2, 1238 at k=3, 1086 at k=4).")',
+     'Three clusters match the three terrains and "\n           "the elbow agrees (objective 2652, 1238, 1086 for k = 2, 3, 4).")')
+swap('E1 uses 2 dimensions and needs labels only to name three "\n           "clusters. Its practice route', 'E1 is the simplest of them (2 dimensions). Its practice route')
+swap('width="385"', 'width="331"')
+open(p, "w", encoding="utf-8").write(s)
+print("trimmed")
+PYEOF
+./venv/Scripts/python.exe -I trim.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+```
+trimmed
+pages: 2; last page content ends at 89% of its usable height
+words in text and captions: 897
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim2.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:70]
+    s = s.replace(old, new)
+
+# section 1
+swap('so neighbors in the grid differ in one factor, plus "\n           "three extras (PCA with 2 components for both models, and 3-NN). ',
+     'so neighbors differ in one factor, plus three extras "\n           "(PCA with 2 components for both models, and 3-NN). ')
+swap('A single start is "\n           "not enough: on z-scored data 15 of 20 single starts reached the best objective, on raw data 2 of 20. ',
+     'One start is not "\n           "enough: 15 of 20 single starts reached the best objective on z-scored data, 2 of 20 on raw data. ')
+# section 2
+swap('Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows, no labels). ',
+     'Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows; no labels). ')
+swap('I selected the deployed model on these rows, so its score is a selection score, not an untouched test "\n           "score, and the practice run shows deployment, not accuracy. ',
+     'I selected the model on these rows, so its score is a selection score, not a test score, and the "\n           "practice run shows deployment, not accuracy. ')
+# section 3
+swap('PCA changed little: on z-scored data 8, 3 and 2 dimensions all scored 1.000, while on raw data PCA "\n            "lowered 1-NN from 0.933 to 0.867 (two more errors). ',
+     'PCA changed little: 8, 3 and 2 dimensions all scored 1.000 on z-scored data, while on raw data PCA lowered "\n            "1-NN from 0.933 to 0.867 (two more errors). ')
+# section 5
+swap('Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor (standard deviations 0.9 to "\n           "1.1), so I saw no sensor drift. The predicted mission mix still differs',
+     'Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor, so I saw no sensor drift. "\n           "The predicted mission mix still differs')
+# AI line
+swap('AI use: AI use is allowed in this course and I used it heavily. Claude Code (Anthropic) read the course "\n           "materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked "\n           "the results against the assignment, and am responsible for what I submit.',
+     'AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, "\n           "wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results "\n           "and am responsible for what I submit.')
+swap('width="331"', 'width="310"')
+open(p, "w", encoding="utf-8").write(s)
+print("trimmed")
+PYEOF
+./venv/Scripts/python.exe -I trim2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+```
+trimmed
+pages: 2; last page content ends at 85% of its usable height
+words in text and captions: 880
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim3.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:70]
+    s = s.replace(old, new)
+swap('holds 88.4%, which restates the scale problem (Figure 1a). ', 'holds 88.4% (Figure 1a). ')
+swap('A possible explanation, untested: raw "\n            "k-means partitions mostly along sensor_4, while 1-NN uses the labels locally.',
+     'A possible explanation, untested: raw "\n            "k-means splits mostly along sensor_4.')
+swap('table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }', 'table { border-collapse: collapse; font-size: 8.5pt; margin: 0 0 1pt 0; }')
+swap('td, th { padding: 1pt 4pt;', 'td, th { padding: 0.4pt 4pt;')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I trim3.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    t = p.get_text()
+    print('page', i+1, '| has C1:', 'C1' in t, '| has E3:', 'E3' in t, '| has Table 1 caption:', 'Table 1:' in t, '| has AI use:', 'AI use' in t)
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+"`
+```
+ok
+pages: 2; last page content ends at 80% of its usable height
+words in text and captions: 869
+page 1 | has C1: True | has E3: False | has Table 1 caption: False | has AI use: False
+page 2 | has C1: False | has E3: True | has Table 1 caption: True | has AI use: True
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+old = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s4']}</p>"""
+new = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s4']}</p>"""
+assert s.count(old) == 1
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("reordered")
+PYEOF
+./venv/Scripts/python.exe -I reorder.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    t = p.get_text()
+    print('page', i+1, '| C1:', 'C1' in t, '| E3:', 'E3' in t, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t)
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+"`
+```
+reordered
+pages: 2; last page content ends at 94% of its usable height
+words in text and captions: 869
+page 1 | C1: True | E3: True | Table 1 caption: True | Fig1 caption: False | Fig2 caption: False | AI use: False
+page 2 | C1: True | E3: True | Table 1 caption: False | Fig1 caption: True | Fig2 caption: True | AI use: True
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder2.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+new_block = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c" style="page-break-before: always"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s4']}</p>"""
+a = s.index("    <p>{P['s1']}</p>")
+b = s.index("    <div class=\"c\"><img src=\"fig2_deploy.png\"")
+s = s[:a] + new_block + "\n" + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I reorder2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    t = p.get_text()
+    print('page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t, '| 3. Evidence:', '3. Evidence' in t, '| 4. Decision:', '4. Decision' in t)
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+"`
+```
+ok
+pages: 2; last page content ends at 89% of its usable height
+words in text and captions: 869
+page 1 | Table 1 caption: False | Fig1 caption: True | Fig2 caption: False | AI use: False | 3. Evidence: True | 4. Decision: False
+page 2 | Table 1 caption: True | Fig1 caption: False | Fig2 caption: True | AI use: True | 3. Evidence: False | 4. Decision: True
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\est_p2.png`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note.py`
+```
+import report_build as rb
+
+P, HEAD, ROWS = rb.P, rb.HEAD, rb.ROWS
+
+md_table = "| " + " | ".join(HEAD) + " |\n| " + " | ".join("---" for _ in HEAD) + " |\n" + \
+    "\n".join("| " + " | ".join(r) + " |" for r in ROWS)
+tsv_table = "\n".join("\t".join(r) for r in [HEAD] + ROWS)
+
+NOTE = f"""---
+type: class
+class_kind: homework
+status: sprout
+created: 2026-10-26
+updated: 2026-10-27
+deadline: 2026-10-27
+tags:
+  - class
+  - homework
+area:
+  - "[[CSCI 4521 Board]]"
+next: "Build the Word report from the Report draft (page break before Table 1, figures from Code/Homework/figures), export the PDF, confirm 2 pages, then upload the 4 files listed under Submit to Gradescope before 11 pm on 2026-10-27."
+---
+# Homework - 2
+## Overview
+Rover Rescue (CSCI 4521 HW2): build a terrain classifier from eight sensors (firm, rough, sand), compare scaling, PCA and k-means against 1-NN, deploy one fitted model on the practice and mission grids, and explain the evidence in a standalone report of at most two pages. The grade is the 100-point `rubric.md` in the course repo, not the 10, 20 and 10 points printed in the PDF. No extra credit is offered in the handout, the repo markdown or the rubric.
+Deadline: 11 pm on 2026-10-27, as the user stated it. Confirm on the Gradescope assignment page: the Board's schedule listed HW2 for 10/20, the handout says "check Gradescope", and the repo folder was committed 2026-10-22.
+Status 2026-10-27: the notebook, both figures, `submission.csv` and the practice HTML are final and tested. Left: the Word report and its PDF, then the upload.
+## Requirements
+### Submit
+The handout lists four deliverables. Upload exactly these four, from `D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Code\\Homework\\`:
+- [ ] `CSCI4521_HW2.ipynb`, saved with outputs (code and every figure used in the report)
+- [ ] `practice_run.html`, the practice deployment animation (the same run appears as a static map in Figure 2 of the report)
+- [ ] `submission.csv`, from `save_submission`, 784 rows in mission.csv order, `student_id` demo3 (the instructor says to leave it)
+- [ ] the report PDF (export from Word, two pages at most)
+Do not upload: the `rover-rescue-download/` folder (it holds the dataset and `practice_truth.bin`), the starter notebook `[REDACTED].ipynb`, `figures/` files as separate items, or any HW1 file.
+How: Gradescope, CSCI 4521, Homework 2, upload. Whether the page has one multi-file slot or four slots is unverified, so read the page first. After uploading, open each file in the Gradescope preview and keep the confirmation.
+### Must not do
+- Do not read `practice_truth.bin`; only `evaluate_practice` and `show_practice_run` touch it.
+- Do not change `split_data` or its split.
+- Do not use x, y as features.
+- Do not fit normalization, PCA or k-means on validation rows, and never fit anything on mission data.
+- Do not use validation labels to name clusters or train 1-NN.
+- Do not replace the four required NumPy operations (normalization, nearest-centroid assignment, centroid update, kNN prediction) with library versions.
+- Do not call the validation score an untouched test estimate, or the practice run an accuracy estimate.
+### Report must state
+- [ ] Question, the configurations compared and why.
+- [ ] The component count for 95% variance.
+- [ ] What scaling and PCA changed and what cluster versus kNN showed, tied to the metrics. A tie is reported as a tie.
+- [ ] Why the deployed model was chosen, how a missed sand cell changes the route, and one failure, surprise, tie or limitation.
+- [ ] Which rows were used for fitting, naming and validation, and how the fitted model was reused on mission.
+- [ ] Observations kept apart from explanations. The AI-use note sits at the bottom.
+### Rules
+- Piazza, instructor Ebasa Temesgen (relayed by the user 2026-10-27): the dataset is the supplied `demo_data` folder, the starter notebook loads it, and `student_id` demo3 is copied into `submission.csv` and stays unchanged. This replaces the PDF's "personalized dataset" wording.
+- Piazza, instructor Bernardo Bianco Prado: sklearn is fine for k-means computation. The handout still says to assemble your own k-means loop and the rubric awards 25 points for correct k-means, so the notebook uses its own loop and keeps `KMeans` only as a cross-check. That satisfies both readings.
+- Piazza, a student: `save_submission(predictions, BUNDLE_DIR)` at the end of the notebook writes `submission.csv`.
+- AI: the user states AI use is allowed as much as possible in this course, so treat it as green but unverified (the handout prints no level). The disclosure with how much AI was used sits at the bottom of the report and of the notebook.
+- Late policy: 24-hour grace day, nothing after.
+## Work log
+### 2026-10-27 Final state and tests
+`Code\\Homework\\CSCI4521_HW2.ipynb` has 42 cells: the starter cells unchanged, then eight short sections (setup, NumPy methods, checks, representation, experiments, selection, deployment, export), a summary and an AI-use note. About 425 words of prose in total. k-means follows ISL Algorithm 12.2 and lecture 2.3 (random cluster for every point, centroids and reassignment until nothing changes, best of 10 random starts). Code style follows the CSCI 4041 projects: a docstring with time cost on every function, comments on each step, and assert-based checks.
+Tests run:
+- Restart and Run All from a clean empty directory, including the clone cell: 14 seconds, no errors. `submission.csv`, `hw2_configs.csv` and both PNGs are byte-identical to the in-place run. `practice_run.html` is identical apart from random element ids and holds 55 embedded frames.
+- Notebook asserts pass: fit and validation rows are disjoint, row order is row-major, 1-NN equals the lecture 1.1 loop on all 30 validation rows (raw and z-scored), the k-means objective never rises and centroids equal member means, PCA components are orthonormal and variance equals squared singular values, sklearn agrees (k-means objective 1237.50 in both, kNN at k=1, 3, 5, macro F1 and accuracy).
+- pyflakes finds no unused names or imports in my cells, pycodestyle (120 columns) is clean, no cell wrote to stderr, no em or en dashes.
+- Every number in the report draft was compared with the executed output. One wording fix came out of it (the mission standard deviation range).
+- Layout estimate with PyMuPDF (Times 10.5 pt, 0.75 in margins, the real figure files, page break before Table 1): 2 pages, page 2 ends at about 89% of its height.
+Not tested: Word itself, the Gradescope upload, and a Colab run. The notebook ran on Windows with Python 3.14 in a scratch environment, because the `csci-4521` conda env does not exist on this laptop.
+Evidence (demo bundle, the confirmed dataset):
+- Split: fit 754, calibration-training 60 (20 per class), validation 30 (10 per class).
+- Scales: std runs from 0.040 (sensor_6) to 52.4 (sensor_4), a ratio of 1,320. Sensors 4 and 2 supply 92.27% of raw squared distance. After z-scoring each supplies 12.5%.
+- PCA: 95% needs 3 components after z-scoring (cumulative 0.9546; PC1 64.1%, PC2 27.1%, PC3 4.3%) and 2 on raw data (0.9824; PC1 alone 88.4%). Three separated groups show in PC1 and PC2.
+- Raw k-means and raw PCA k-means: validation accuracy 0.700, macro F1 0.704, sand recall 0.5 (5 of 10), rover stuck at step 20 at (y=13, x=4) where it predicted rough. The cluster named sand holds 12 sand, 11 rough and 4 firm training points.
+- Raw 1-NN 0.933 and raw PCA 1-NN 0.867, both sand recall 0.9 and both reach the goal. Every z-score configuration scores 1.000 on accuracy, macro F1 and sand recall and reaches the goal in 54 steps at cost 70.8.
+- Seven configurations tie at the top. The pre-set rule (macro F1, then sand recall, then fewer dimensions, then table order) picked E1 (z-score, PCA 2, k-means), tied with E2 on every metric.
+- One random start is not enough: 15 of 20 single starts reach the best objective on z-scored data, 2 of 20 on raw data. Elbow objective: k=2 2652, k=3 1238, k=4 1086.
+- Mission: largest mean shift 0.243 fit-row standard deviations. Predicted shares firm 46.0%, rough 26.9%, sand 27.0% against 34.8%, 38.1% and 27.0% on practice. Mission route cost 52.0.
+- PCA does not save time here: a k-means start takes about 1 ms at 8, 3 and 2 dimensions. The report makes no speed claim.
+### Decisions
+- Word, not LaTeX: two pages, one table, two figures, no equations, no bibliography. Switch only if the table cannot fit.
+- Figures were regenerated at print size (7.25 in and 5.34 in wide at 300 dpi) so that text stays readable when inserted at full width. The first versions were 11 and 9 inches wide and would have shrunk to about 5 pt.
+- The `BUNDLE_OVERRIDE` cell was removed after the Piazza answer, and the timing-scaling cell was dropped because its noisy ratios supported no claim.
+- Selection rule fixed before any result: macro F1, then sand recall, then fewer dimensions, then table order. The practice outcome is recorded, not used to select.
+### Rubric coverage
+"Met" means the evidence exists in the executed notebook, not that points are guaranteed.
+| Rubric line | Where | Evidence |
+| --- | --- | --- |
+| Learning system and method choices (25) | notebook 2 Methods, 5 Experiments | z-score, nearest-centroid, centroid update, own k-means loop, cluster naming from the 60 labels, kNN, all NumPy; initialization, stopping rule and empty clusters stated and counted |
+| Sensor scales (4) | notebook 4, first table | std range 1,320x, share of raw squared distance per sensor |
+| PCA and 95% count (6) | notebook 4, PCA table | fitted on fit rows only, 3 (z-score) and 2 (raw) |
+| PCA figure and reading (5) | `figures/fig1_pca.png`, report 3 | variance curve, top 2 and top 3 components |
+| Three or more configurations (8) | notebook 5 | 11 configurations, full grid plus extras |
+| Common held-out evaluation, boundaries (9) | notebook 1 Setup, 5 | asserts, same 30 validation rows, labels only for naming and 1-NN |
+| Dimensions, accuracy, macro F1, sand recall, practice (8) | notebook 5 table, `figures/hw2_configs.csv`, Table 1 | all five per configuration |
+| Model choice, reuse, mission map, practice run (10) | notebook 6 and 7, `practice_run.html`, `figures/fig2_deploy.png` | rule fixed first, stored objects reused, mission map and route |
+| Report (20) | Word report | draft below: question, table, figures, sand risk, protocol, limitations |
+| Reproducibility (5) | notebook header and Summary | dependencies, run steps, seed, versions, clean-directory run verified |
+### Word report layout
+The two-page limit is the one rubric line that cannot be verified until Word runs, so follow these settings from the start.
+- Page: Letter, 0.75 in margins, one column. Times New Roman 10.5 pt, single spacing, 3 pt after paragraphs, 0 before, body justified.
+- Optional page header (HW1 used one): `CSCI 4521`, tab, `Anant Gupta`, tab, `October 27, 2026`, 9 pt, bottom border.
+- Title block: three centered bold lines, `HW 2: Rover Rescue`, `Anant Gupta`, `October 2026`.
+- Each numbered paragraph starts with its title in bold (`1. Question and configurations.`), then the text in normal weight.
+- Order: title block, sections 1 and 2, section 3 first paragraph, Figure 1, section 3 second paragraph, a page break, Table 1, section 4, Figure 2, section 5, the AI-use line.
+- Figure 1: `figures/fig1_pca.png`, Insert, Pictures, In Line with Text, centered, 7.0 in wide with the aspect ratio locked. Caption below, 9.5 pt, centered.
+- Figure 2: `figures/fig2_deploy.png`, same way, 4.3 in wide.
+- Table 1: paste the tab-separated block below, Insert, Table, Convert Text to Table with 8 columns. 8.5 pt, header row bold with a rule above and below, light rule under each row, text columns left, number columns centered, caption below.
+- Copy the text from source mode (Ctrl+E in Obsidian) and use Paste Special, Unformatted Text. Remove the bracketed notes.
+- Export: File, Save As, PDF (Standard). Reopen the PDF and check: two pages, page 2 ends with the AI-use line and about half an inch or more of space, text is selectable, both figures are sharp and their labels readable, Table 1 sits whole on page 2.
+- If it spills past two pages, do these in order and stop when it fits: Figure 2 to 3.8 in, margins to 0.7 in, body to 10 pt, drop the elbow numbers from section 1. Never cut the protocol, the sand-risk paragraph, the limitations or Table 1; the rubric scores them.
+- Before export, check each number against `figures/hw2_configs.csv` and the notebook Summary cell.
+### Report draft
+{P['s1'].split('. ')[0]}
+HW 2: Rover Rescue
+Anant Gupta
+October 2026
+{P['s1']}
+{P['s2']}
+{P['s3a']}
+[Insert Figure 1 here, 7.0 in wide]
+{P['f1cap']}
+{P['s3b']}
+[Page break]
+[Insert Table 1 here from the block below]
+{P['t1cap']}
+{P['s4']}
+[Insert Figure 2 here, 4.3 in wide]
+{P['f2cap']}
+{P['s5']}
+{P['ai']}
+### Table 1 rows
+Markdown view:
+{md_table}
+Tab-separated, for Convert Text to Table in Word:
+```
+{tsv_table}
+```
+### Submission
+Not submitted yet.
+## Concepts used
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 12|ISL Chapter 12]]: PCA (12.2) gave the 95% component count, the variance curve and the scaling argument; k-means (12.4, Algorithm 12.2) gave the algorithm, the local-optimum argument and the multiple random starts.
+- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]]: kNN and the bias-variance trade-off, behind the 1-NN comparison.
+- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 5|Week - 5]] and [[20_Progress/Degree/CSCI 4521/Weekly/Week - 6|Week - 6]]: PCA with kNN, the leakage rule (split first, then fit), k-means steps, initialization and stopping.
+- [[20_Progress/Degree/CSCI 4521/Homework/Homework - 1|Homework - 1]]: z-score from training statistics, precision, recall and F1, and the Word report flow.
+## Post-submit reflection
+<!-- Optional until feedback: the first failure, the pattern, and what to change. -->
+"""
+
+# the stray first line above was a placeholder; drop it so the draft starts at the title block
+NOTE = NOTE.replace(f"### Report draft\n{P['s1'].split('. ')[0]}\n", "### Report draft\n")
+
+out = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+open(out, "w", encoding="utf-8", newline="\n").write(NOTE)
+print("written", len(NOTE), "chars")
+
+```
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=full-iso CSCI4521_HW2.ipynb submission.csv practice_run.html figures/ | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; "$SC/venv/Scripts/python.exe" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+print("kernelspec:", nb.metadata.get("kernelspec"), "| language_info:", nb.metadata.get("language_info", {}).get("version"))
+errs, stderr, noout = [], [], []
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    if not c.outputs and c.execution_count is None: noout.append(i)
+    for o in c.outputs:
+        if o.output_type == "error": errs.append((i, o.ename, o.evalue))
+        if o.output_type == "stream" and o.name == "stderr": stderr.append(i)
+print("cells:", len(nb.cells), "| error outputs:", errs, "| stderr cells:", stderr, "| never-executed code cells:", noout)
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("execution counts in order:", counts[:5], "...", counts[-3:], "| strictly increasing:", all(a < b for a, b in zip(counts, counts[1:])))
+for i, c in enumerate(nb.cells):
+    if c.cell_type == "code" and "all checks passed" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        print("checks cell", i, "printed 'all checks passed'")
+    if c.cell_type == "code" and "python " in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") and "numpy" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        print([o["text"].splitlines()[0] for o in c.outputs if o.output_type == "stream"][0])
+PYEOF`
+```
+-rw-r--r-- 1 anant 197609 1411429 2026-10-27 20:54:02.586764100 -0500 CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609  755128 2026-10-27 20:53:26.605168200 -0500 practice_run.html
+-rw-r--r-- 1 anant 197609   13797 2026-10-27 20:53:27.057963500 -0500 submission.csv
+-rw-r--r-- 1 anant 197609 234585 2026-10-27 20:53:23.833049700 -0500 fig1_pca.png
+-rw-r--r-- 1 anant 197609  38656 2026-10-27 20:53:26.857971400 -0500 fig2_deploy.png
+-rw-r--r-- 1 anant 197609    952 2026-10-27 20:53:24.431344100 -0500 hw2_configs.csv
+kernelspec: {'display_name': 'csci-4521', 'language': 'python', 'name': 'python3'} | language_info: 3.12.14
+cells: 42 | error outputs: [] | stderr cells: [] | never-executed code cells: []
+execution counts in order: [1, 2, 3, 4, 5] ... [26, 27, 28] | strictly increasing: True
+checks cell 18 printed 'all checks passed'
+python 3.12.14 | numpy 2.5.3 | pandas 3.0.6 | scikit-learn 1.9.1 | matplotlib 3.11.2
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; echo "== compare the user's 3.12 run with my clean-directory 3.14 run"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$SC/fresh/$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "== course env location"; ls /c/Users/anant/miniconda3/envs/ 2>&1; find /c/Users/anant -maxdepth 5 -type d -name "csci-4521" 2>/dev/null | head; find /c/Users/anant/miniconda3/envs -maxdepth 2 -name python.exe 2>/dev/null | head`
+```
+== compare the user's 3.12 run with my clean-directory 3.14 run
+IDENTICAL  submission.csv
+IDENTICAL  figures/hw2_configs.csv
+IDENTICAL  figures/fig1_pca.png
+IDENTICAL  figures/fig2_deploy.png
+
+== course env location
+/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521
+```
+- `Bash` -- `cat "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/kernel.json"; echo; ls "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/"`
+```
+{
+ "argv": [
+  "D:\\Apps\\Miniconda\\envs\\csci-4521\\python.exe",
+  "-Xfrozen_modules=off",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python (CSCI 4521)",
+ "language": "python",
+ "metadata": {
+  "debugger": true,
+  "supported_encryption": [
+   "curve"
+  ]
+ },
+ "kernel_protocol_version": "5.5"
+}
+kernel.json
+logo-32x32.png
+logo-64x64.png
+logo-svg.svg
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+# ---- 1. hand-worked unit checks and kNN / metrics reference checks, inside section 3 (Checks)
+anchor = 'print("all checks passed")\n\'\'\')\n'
+assert s.count(anchor) == 1
+new_cells = r"""print("all checks passed")
+''')
+code('''
+# small cases worked out by hand, one per function
+# zscore: a constant sensor keeps divisor 1 and never produces nan
+X_const = np.array([[1.0, 5.0], [3.0, 5.0], [5.0, 5.0]])
+mu_c, sd_c = zscore_fit(X_const)
+Z_c = zscore_apply(X_const, mu_c, sd_c)
+assert np.allclose(sd_c, [np.sqrt(8 / 3), 1.0]) and np.isfinite(Z_c).all() and np.allclose(Z_c[:, 1], 0)
+
+# sq_dists and assign_nearest: a 3-4-5 triangle, with a tie that goes to the first centroid
+A = np.array([[0.0, 0.0], [3.0, 4.0]])
+B = np.array([[0.0, 0.0], [6.0, 8.0]])
+assert np.allclose(sq_dists(A, B), [[0, 100], [25, 25]])
+labels_a, d2_a = assign_nearest(A, B)
+assert labels_a.tolist() == [0, 0] and np.allclose(d2_a, [0, 25])
+
+# centroids_from_labels: member means, nan for an empty cluster
+X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
+lab_s = np.array([0, 0, 1, 1])
+C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
+assert np.allclose(C_s[:2], [[1.0, 0.0], [11.0, 12.0]]) and np.isnan(C_s[2]).all() and n_s.tolist() == [2, 2, 0]
+
+# update_centroids: the empty cluster is re-seeded at the point farthest from its own centroid
+C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
+_, d2min_s = assign_nearest(X_s, C_old[:2])
+C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
+assert n_empty == 1 and np.allclose(C_new[:2], C_s[:2]) and np.allclose(C_new[2], X_s[d2min_s.argmax()])
+
+# within_ss: 1 + 1 + 5 + 5
+assert np.isclose(within_ss(X_s, lab_s, C_s[:2]), 12.0)
+
+# kmeans: three far-apart blobs are recovered exactly, a seed repeats, and the best start has the lowest objective
+rng = np.random.default_rng(1)
+blobs = np.vstack([rng.normal(c, 0.1, size=(20, 2)) for c in ((0, 0), (10, 0), (0, 10))])
+truth = np.repeat([0, 1, 2], 20)
+km_b = kmeans(blobs, k=3)
+assert all(len(set(km_b["labels"][truth == t])) == 1 for t in range(3)) and len(set(km_b["labels"])) == 3
+assert np.array_equal(km_b["labels"], kmeans(blobs, k=3)["labels"])
+assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())
+
+# name_clusters: the majority path, then the fallback when two clusters claim one terrain
+C_n = np.array([[0.0, 0.0], [10.0, 0.0], [0.0, 10.0]])
+F_n = np.array([[0, 0.5], [0.5, 0], [10, 0.5], [10.5, 0], [0, 10.5], [0.5, 10]])
+names_n, _, how_n = name_clusters(C_n, F_n, np.array([2, 2, 0, 0, 1, 1]))
+assert how_n == "majority vote" and names_n.tolist() == [2, 0, 1]
+
+F_f = np.array([[0, .3], [.3, 0], [.2, .2], [10, .3], [10.3, 0], [10.2, .2], [0, 10.3], [.3, 10], [.2, 10.2]])
+y_f = np.array([0, 0, 0, 0, 0, 1, 1, 1, 2])
+names_f, table_f, how_f = name_clusters(C_n, F_f, y_f)
+best_total = max(sum(table_f[j, p[j]] for j in range(3)) for p in permutations(range(3)))
+assert how_f == "one-to-one permutation" and sorted(names_f.tolist()) == [0, 1, 2]
+assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5
+print("unit checks passed")
+''')
+code('''
+def knn_reference(F_train, y_train_int, F, k):
+    """lecture-style loop: distances for one query, take the k nearest, vote, tied vote goes to the nearest tied neighbor"""
+    out = []
+    for q in F:
+        dists = np.array([distance_sq(t, q) for t in F_train])
+        nearest = np.argsort(dists, kind="stable")[:k]
+        votes = np.bincount(y_train_int[nearest], minlength=3)
+        tied = np.flatnonzero(votes == votes.max())
+        out.append(next(y_train_int[j] for j in nearest if y_train_int[j] in tied))
+    return np.array(out)
+
+
+# kNN for several k, on standardized and raw features, against the loop
+Z_dev = zscore_apply(X_dev, mu, sd)
+for name, (A, B) in {"z-score": (Z_train, Z_dev), "raw": (X_train, X_dev)}.items():
+    for k in (1, 3, 5, 7):
+        assert np.array_equal(knn_predict(A, y_train, B, k), knn_reference(A, y_train, B, k)), (name, k)
+assert np.array_equal(knn_classifier(3)(Z_train, y_train, Z_val), knn_predict(Z_train, y_train, Z_val, 3))
+
+# three neighbors with three different classes: the nearest one decides
+F_t = np.array([[0.0], [1.0], [2.0]])
+y_t = np.array([0, 1, 2])
+assert knn_predict(F_t, y_t, np.array([[0.2], [2.2]]), k=3).tolist() == [0, 2]
+
+# metrics on the lecture 1.4 example: 20 positives (15 found), 80 negatives (15 false alarms)
+y_true = np.array([SAND] * 20 + [FIRM] * 80)
+y_pred = np.array([SAND] * 15 + [FIRM] * 5 + [FIRM] * 65 + [SAND] * 15)
+m_c = metrics(y_true, y_pred)
+assert m_c["cm"].tolist() == [[65, 0, 15], [0, 0, 0], [5, 0, 15]]
+assert np.isclose(m_c["accuracy"], 0.80) and np.isclose(m_c["precision"][SAND], 0.5)
+assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)
+assert np.isfinite(m_c["f1"]).all() and m_c["f1"][ROUGH] == 0  # a class that never occurs scores 0, not nan
+print("reference checks passed")
+''')
+"""
+s = s.replace(anchor, new_cells)
+
+# ---- 2. checks on the pipeline and the table, right after the results table
+anchor2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n'
+assert s.count(anchor2) == 1
+pipe = anchor2 + r"""code('''
+# checks on the stored preprocessing, on repeatability and on the table
+tf = make_transform(True, 3)
+F = tf(X_fit)
+assert np.allclose(F.mean(axis=0), 0, atol=1e-9)
+assert np.allclose(np.cov(F.T), np.diag(PCA(n_components=3).fit(Z_fit).explained_variance_), atol=1e-8)
+
+rep_a, rep_b = fit_config(True, 2, "k-means"), fit_config(True, 2, "k-means")
+pred_a = rep_a["predict"](X_dev)
+assert np.array_equal(pred_a, rep_b["predict"](X_dev))
+assert len(pred_a) == h * w and set(np.unique(pred_a)) <= {FIRM, ROUGH, SAND}
+
+assert len(results) == 11 and results.index.is_unique
+assert results[["val_accuracy", "macro_f1", "sand_recall"]].apply(lambda col: col.between(0, 1)).all().all()
+for cid in results.index:
+    pv = fitted[cid]["predict"](X_val)
+    assert np.isclose(results.loc[cid, "val_accuracy"], accuracy_score(y_val, pv))
+    assert np.isclose(results.loc[cid, "sand_recall"], ((pv == SAND) & (y_val == SAND)).sum() / (y_val == SAND).sum())
+print("pipeline checks passed")
+''')
+"""
+s = s.replace(anchor2, pipe)
+
+# ---- 3. selection check
+old3 = 'r = results.loc[BEST]\n'
+assert s.count(old3) == 1
+s = s.replace(old3, old3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')
+
+open(p, "w", encoding="utf-8").write(s)
+print("tests added")
+PYEOF
+./venv/Scripts/python.exe -I addtests.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+```
+Exit code 1
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\addtests.py", line 64
+    """lecture-style loop: distances for one query, take the k nearest, vote, tied vote goes to the nearest tied neighbor"""
+       ^^^^^^^
+SyntaxError: invalid syntax
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins1.txt`
+```
+print("all checks passed")
+''')
+code('''
+# small cases worked out by hand, one per function
+# zscore: a constant sensor keeps divisor 1 and never produces nan
+X_const = np.array([[1.0, 5.0], [3.0, 5.0], [5.0, 5.0]])
+mu_c, sd_c = zscore_fit(X_const)
+Z_c = zscore_apply(X_const, mu_c, sd_c)
+assert np.allclose(sd_c, [np.sqrt(8 / 3), 1.0]) and np.isfinite(Z_c).all() and np.allclose(Z_c[:, 1], 0)
+
+# sq_dists and assign_nearest: a 3-4-5 triangle, with a tie that goes to the first centroid
+A = np.array([[0.0, 0.0], [3.0, 4.0]])
+B = np.array([[0.0, 0.0], [6.0, 8.0]])
+assert np.allclose(sq_dists(A, B), [[0, 100], [25, 25]])
+labels_a, d2_a = assign_nearest(A, B)
+assert labels_a.tolist() == [0, 0] and np.allclose(d2_a, [0, 25])
+
+# centroids_from_labels: member means, nan for an empty cluster
+X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
+lab_s = np.array([0, 0, 1, 1])
+C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
+assert np.allclose(C_s[:2], [[1.0, 0.0], [11.0, 12.0]]) and np.isnan(C_s[2]).all() and n_s.tolist() == [2, 2, 0]
+
+# update_centroids: the empty cluster is re-seeded at the point farthest from its own centroid
+C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
+_, d2min_s = assign_nearest(X_s, C_old[:2])
+C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
+assert n_empty == 1 and np.allclose(C_new[:2], C_s[:2]) and np.allclose(C_new[2], X_s[d2min_s.argmax()])
+
+# within_ss: 1 + 1 + 5 + 5
+assert np.isclose(within_ss(X_s, lab_s, C_s[:2]), 12.0)
+
+# kmeans: three far-apart blobs are recovered exactly, a seed repeats, and the best start has the lowest objective
+rng = np.random.default_rng(1)
+blobs = np.vstack([rng.normal(c, 0.1, size=(20, 2)) for c in ((0, 0), (10, 0), (0, 10))])
+truth = np.repeat([0, 1, 2], 20)
+km_b = kmeans(blobs, k=3)
+assert all(len(set(km_b["labels"][truth == t])) == 1 for t in range(3)) and len(set(km_b["labels"])) == 3
+assert np.array_equal(km_b["labels"], kmeans(blobs, k=3)["labels"])
+assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())
+
+# name_clusters: the majority path, then the fallback when two clusters claim one terrain
+C_n = np.array([[0.0, 0.0], [10.0, 0.0], [0.0, 10.0]])
+F_n = np.array([[0, 0.5], [0.5, 0], [10, 0.5], [10.5, 0], [0, 10.5], [0.5, 10]])
+names_n, _, how_n = name_clusters(C_n, F_n, np.array([2, 2, 0, 0, 1, 1]))
+assert how_n == "majority vote" and names_n.tolist() == [2, 0, 1]
+
+F_f = np.array([[0, .3], [.3, 0], [.2, .2], [10, .3], [10.3, 0], [10.2, .2], [0, 10.3], [.3, 10], [.2, 10.2]])
+y_f = np.array([0, 0, 0, 0, 0, 1, 1, 1, 2])
+names_f, table_f, how_f = name_clusters(C_n, F_f, y_f)
+best_total = max(sum(table_f[j, p[j]] for j in range(3)) for p in permutations(range(3)))
+assert how_f == "one-to-one permutation" and sorted(names_f.tolist()) == [0, 1, 2]
+assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5
+print("unit checks passed")
+''')
+code('''
+def knn_reference(F_train, y_train_int, F, k):
+    """lecture-style loop: distances for one query, take the k nearest, vote, a tied vote goes to the nearest tied neighbor"""
+    out = []
+    for q in F:
+        dists = np.array([distance_sq(t, q) for t in F_train])
+        nearest = np.argsort(dists, kind="stable")[:k]
+        votes = np.bincount(y_train_int[nearest], minlength=3)
+        tied = np.flatnonzero(votes == votes.max())
+        out.append(next(y_train_int[j] for j in nearest if y_train_int[j] in tied))
+    return np.array(out)
+
+
+# kNN for several k, on standardized and raw features, against the loop
+Z_dev = zscore_apply(X_dev, mu, sd)
+for name, (A, B) in {"z-score": (Z_train, Z_dev), "raw": (X_train, X_dev)}.items():
+    for k in (1, 3, 5, 7):
+        assert np.array_equal(knn_predict(A, y_train, B, k), knn_reference(A, y_train, B, k)), (name, k)
+assert np.array_equal(knn_classifier(3)(Z_train, y_train, Z_val), knn_predict(Z_train, y_train, Z_val, 3))
+
+# three neighbors with three different classes: the nearest one decides
+F_t = np.array([[0.0], [1.0], [2.0]])
+y_t = np.array([0, 1, 2])
+assert knn_predict(F_t, y_t, np.array([[0.2], [2.2]]), k=3).tolist() == [0, 2]
+
+# metrics on the lecture 1.4 example: 20 positives (15 found), 80 negatives (15 false alarms)
+y_true = np.array([SAND] * 20 + [FIRM] * 80)
+y_pred = np.array([SAND] * 15 + [FIRM] * 5 + [FIRM] * 65 + [SAND] * 15)
+m_c = metrics(y_true, y_pred)
+assert m_c["cm"].tolist() == [[65, 0, 15], [0, 0, 0], [5, 0, 15]]
+assert np.isclose(m_c["accuracy"], 0.80) and np.isclose(m_c["precision"][SAND], 0.5)
+assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)
+assert np.isfinite(m_c["f1"]).all() and m_c["f1"][ROUGH] == 0  # a class that never occurs scores 0, not nan
+print("reference checks passed")
+''')
+
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins2.txt`
+```
+display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))
+''')
+code('''
+# checks on the stored preprocessing, on repeatability and on the table
+tf = make_transform(True, 3)
+F = tf(X_fit)
+assert np.allclose(F.mean(axis=0), 0, atol=1e-9)
+assert np.allclose(np.cov(F.T), np.diag(PCA(n_components=3).fit(Z_fit).explained_variance_), atol=1e-8)
+
+rep_a, rep_b = fit_config(True, 2, "k-means"), fit_config(True, 2, "k-means")
+pred_a = rep_a["predict"](X_dev)
+assert np.array_equal(pred_a, rep_b["predict"](X_dev))
+assert len(pred_a) == h * w and set(np.unique(pred_a)) <= {FIRM, ROUGH, SAND}
+
+assert len(results) == 11 and results.index.is_unique
+assert results[["val_accuracy", "macro_f1", "sand_recall"]].apply(lambda col: col.between(0, 1)).all().all()
+for cid in results.index:
+    pv = fitted[cid]["predict"](X_val)
+    assert np.isclose(results.loc[cid, "val_accuracy"], accuracy_score(y_val, pv))
+    assert np.isclose(results.loc[cid, "sand_recall"], ((pv == SAND) & (y_val == SAND)).sum() / (y_val == SAND).sum())
+print("pipeline checks passed")
+''')
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests2.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+a1 = 'print("all checks passed")\n\'\'\')\n'
+a2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n'
+a3 = 'r = results.loc[BEST]\n'
+for a in (a1, a2, a3):
+    assert s.count(a) == 1, a[:50]
+
+s = s.replace(a1, open("ins1.txt", encoding="utf-8").read())
+s = s.replace(a2, open("ins2.txt", encoding="utf-8").read())
+s = s.replace(a3, a3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')
+open(p, "w", encoding="utf-8").write(s)
+print("tests added")
+PYEOF
+./venv/Scripts/python.exe -I addtests2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+```
+tests added
+builder syntax ok
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; ls "$CE" && "$CE" -c "
+import sys, numpy, pandas, sklearn, matplotlib, IPython
+print(sys.version.split()[0], numpy.__version__, pandas.__version__, sklearn.__version__, matplotlib.__version__)
+import nbformat, nbconvert, jupyter_client; print('nbformat', nbformat.__version__, 'nbconvert', nbconvert.__version__)
+" 2>&1 | tail -3`
+```
+D:/Apps/Miniconda/envs/csci-4521/python.exe
+3.12.14 2.5.3 3.0.6 1.9.1 3.11.2
+nbformat 5.11.1 nbconvert 7.17.1
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert|AssertionError" ; "$CE" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+errs = [(i, o.ename, o.evalue) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
+print("cells:", len(nb.cells), "| errors:", errs)
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
+    for line in txt.splitlines():
+        if "passed" in line or "equals the lecture" in line or "sklearn" in line: print(f"cell {i}: {line}")
+PYEOF`
+```
+wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh2/CSCI4521_HW2.ipynb 45 cells
+Traceback (most recent call last):
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+assert np.allclose(sd_c, [np.sqrt(8 / 3), 1.0]) and np.isfinite(Z_c).all() and np.allclose(Z_c[:, 1], 0)
+assert np.allclose(sq_dists(A, B), [[0, 100], [25, 25]])
+assert labels_a.tolist() == [0, 0] and np.allclose(d2_a, [0, 25])
+assert np.allclose(C_s[:2], [[1.0, 0.0], [11.0, 12.0]]) and np.isnan(C_s[2]).all() and n_s.tolist() == [2, 2, 0]
+assert n_empty == 1 and np.allclose(C_new[:2], C_s[:2]) and np.allclose(C_new[2], X_s[d2min_s.argmax()])
+assert np.isclose(within_ss(X_s, lab_s, C_s[:2]), 12.0)
+assert all(len(set(km_b["labels"][truth == t])) == 1 for t in range(3)) and len(set(km_b["labels"])) == 3
+assert np.array_equal(km_b["labels"], kmeans(blobs, k=3)["labels"])
+assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())
+assert how_n == "majority vote" and names_n.tolist() == [2, 0, 1]
+assert how_f == "one-to-one permutation" and sorted(names_f.tolist()) == [0, 1, 2]
+assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5
+[31mAssertionError[39m                            Traceback (most recent call last)
+[32m---> [39m[32m25[39m [38;5;28;01massert[39;00m n_empty == [32m1[39m [38;5;28;01mand[39;00m np.allclose(C_new[:[32m2[39m], C_s[:[32m2[39m]) [38;5;28;01mand[39;00m np.allclose(C_new[[32m2[39m], X_s[d2min_s.argmax()])
+[32m     28[39m [38;5;28;01massert[39;00m np.isclose(within_ss(X_s, lab_s, C_s[:[32m2[39m]), [32m12.0[39m)
+[31mAssertionError[39m: 
+cells: 45 | errors: []
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > dbg.py <<'PYEOF'
+import numpy as np
+def sq_dists(A, B):
+    d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
+    np.maximum(d2, 0.0, out=d2)
+    return d2
+def assign_nearest(X, C):
+    d2 = sq_dists(X, C)
+    labels = d2.argmin(axis=1)
+    return labels, d2[np.arange(len(X)), labels]
+def centroids_from_labels(X, labels, k):
+    counts = np.bincount(labels, minlength=k).astype(float)
+    sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        return sums / counts[:, None], counts
+def update_centroids(X, labels, C, d2min):
+    newC, counts = centroids_from_labels(X, labels, C.shape[0])
+    empty = np.flatnonzero(counts == 0)
+    if len(empty):
+        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]
+    return newC, len(empty)
+
+X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
+lab_s = np.array([0, 0, 1, 1])
+C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
+C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
+_, d2min_s = assign_nearest(X_s, C_old[:2])
+print("d2min:", d2min_s)
+C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
+print("n_empty", n_empty); print("C_new\n", C_new); print("C_s\n", C_s)
+print("argsort(-d2):", np.argsort(-d2min_s), "| argmax:", d2min_s.argmax())
+print("first two rows equal:", np.allclose(C_new[:2], C_s[:2]), "| re-seed equal:", np.allclose(C_new[2], X_s[d2min_s.argmax()]))
+PYEOF
+D:/Apps/Miniconda/envs/csci-4521/python.exe dbg.py`
+```
+d2min: [1. 1. 5. 5.]
+n_empty 1
+C_new
+ [[ 1.  0.]
+ [11. 12.]
+ [12. 14.]]
+C_s
+ [[ 1.  0.]
+ [11. 12.]
+ [nan nan]]
+argsort(-d2): [3 2 1 0] | argmax: 2
+first two rows equal: True | re-seed equal: False
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixstable.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = '        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]'
+new = '        newC[empty] = X[np.argsort(-d2min, kind="stable")[:len(empty)]]  # stable sort: ties go to the lowest index'
+assert s.count(old) == 1
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("fixed")
+PYEOF
+./venv/Scripts/python.exe -I fixstable.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ; "$CE" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
+print("cells:", len(nb.cells), "| errors:", errs)
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
+    for line in txt.splitlines():
+        if "passed" in line or "equals the lecture" in line: print(f"cell {i}: {line}")
+PYEOF
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to user's earlier run: $f" || echo "DIFFERS: $f"; done`
+```
+fixed
+wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh2/CSCI4521_HW2.ipynb 45 cells
+[NbConvertApp] Writing 1395988 bytes to CSCI4521_HW2.ipynb
+cells: 45 | errors: []
+cell 17: 1-NN equals the lecture 1.1 loop on all 30 validation rows (z-score)
+cell 17: 1-NN equals the lecture 1.1 loop on all 30 validation rows (raw)
+cell 18: all checks passed
+cell 19: unit checks passed
+cell 20: reference checks passed
+cell 28: pipeline checks passed
+IDENTICAL to user's earlier run: submission.csv
+IDENTICAL to user's earlier run: figures/hw2_configs.csv
+IDENTICAL to user's earlier run: figures/fig1_pca.png
+IDENTICAL to user's earlier run: figures/fig2_deploy.png
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q coverage 2>&1 | grep -v notice; cat > covrun.py <<'PYEOF'
+import os, sys, ast, io, contextlib
+import nbformat, coverage
+
+nb_path = sys.argv[1]
+limit_marker = sys.argv[2] if len(sys.argv) > 2 else None   # stop after the cell that prints this text
+nb = nbformat.read(nb_path, as_version=4)
+
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+chunks, my_first_line, stop_after = [], None, None
+line_no = 1
+code_cells = []
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code":
+        continue
+    text = c.source + "\n"
+    if limit_marker and any(limit_marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        stop_after = i
+    code_cells.append((i, text))
+    if stop_after is not None:
+        break
+
+script, my_start = "", None
+for i, text in code_cells:
+    if i > start and my_start is None:
+        my_start = script.count("\n") + 1
+    script += text + "\n"
+open("cov_script.py", "w", encoding="utf-8").write(script)
+
+os.environ["MPLBACKEND"] = "Agg"
+cov = coverage.Coverage(include=["cov_script.py"])
+cov.start()
+ns = {"__name__": "__main__"}
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    exec(compile(script, "cov_script.py", "exec"), ns)
+cov.stop()
+_, executable, _, missing, _ = cov.analysis2("cov_script.py")
+mine = [n for n in executable if n >= my_start]
+miss = [n for n in missing if n >= my_start]
+print(f"lines of my code: {len(mine)}, executed: {len(mine) - len(miss)}, coverage {100 * (len(mine) - len(miss)) / len(mine):.1f}%")
+
+# per-function view
+tree = ast.parse(script)
+funcs = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.lineno >= my_start]
+lines = script.splitlines()
+print(f"{'function':28s} {'lines':>5s} {'run':>5s}  missing")
+for f in funcs:
+    span = {n for n in executable if f.lineno <= n <= f.end_lineno}
+    m = sorted(n for n in miss if n in span)
+    print(f"{f.name:28s} {len(span):5d} {len(span) - len(m):5d}  {m if m else ''}")
+if miss:
+    print("\nuncovered lines:")
+    for n in miss:
+        print(f"  {n}: {lines[n - 1].strip()[:110]}")
+PYEOF
+echo "######## tests only (starter + setup + methods + all check cells, before any experiment)"; cd fresh2 && ../venv/Scripts/python.exe -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | tail -40`
+```
+######## tests only (starter + setup + methods + all check cells, before any experiment)
+Already on 'main'
+Your branch is up to date with 'origin/main'.
+lines of my code: 231, executed: 231, coverage 100.0%
+function                     lines   run  missing
+zscore_fit                       4     4  
+zscore_apply                     2     2  
+sq_dists                         4     4  
+assign_nearest                   4     4  
+centroids_from_labels            5     5  
+update_centroids                 6     6  
+within_ss                        2     2  
+kmeans                          25    25  
+name_clusters                   10    10  
+knn_predict                     11    11  
+knn_classifier                   4     4  
+metrics                          9     9  
+distance_sq                      2     2  
+nn_classify_sample               3     3  
+check_partition                  2     2  
+check_centroids_are_means        2     2  
+check_nonincreasing              2     2  
+knn_reference                    9     9
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > covbranch.py <<'PYEOF'
+import os, sys, io, json, contextlib
+import nbformat, coverage
+
+nb = nbformat.read(sys.argv[1], as_version=4)
+marker = sys.argv[2] if len(sys.argv) > 2 else None
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+cells, stop = [], False
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code":
+        continue
+    cells.append((i, c.source + "\n"))
+    if marker and any(marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        break
+script, my_start = "", None
+for i, text in cells:
+    if i > start and my_start is None:
+        my_start = script.count("\n") + 1
+    script += text + "\n"
+open("cov_script.py", "w", encoding="utf-8").write(script)
+
+os.environ["MPLBACKEND"] = "Agg"
+cov = coverage.Coverage(include=["cov_script.py"], branch=True)
+cov.start()
+with contextlib.redirect_stdout(io.StringIO()):
+    exec(compile(script, "cov_script.py", "exec"), {"__name__": "__main__"})
+cov.stop()
+cov.json_report(outfile="cov.json", include=["cov_script.py"], quiet=True)
+rep = json.load(open("cov.json"))["files"]["cov_script.py"]
+ex, miss = rep["executed_lines"], rep["missing_lines"]
+exe_mine = [n for n in ex + miss if n >= my_start]
+miss_mine = [n for n in miss if n >= my_start]
+print(f"lines: {len(exe_mine) - len(miss_mine)}/{len(exe_mine)}")
+br_miss = [b for b in rep.get("missing_branches", []) if b[0] >= my_start]
+br_exec = [b for b in rep.get("executed_branches", []) if b[0] >= my_start]
+total_br = len(br_exec) + len(br_miss)
+print(f"branches: {len(br_exec)}/{total_br} taken" + ("" if not br_miss else f"  | untaken: {br_miss}"))
+lines = script.splitlines()
+for src, dst in br_miss:
+    print(f"   line {src} -> {dst}: {lines[src - 1].strip()[:100]}")
+for n in miss_mine:
+    print(f"   uncovered line {n}: {lines[n - 1].strip()[:100]}")
+PYEOF
+cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch"`
+```
+######## TESTS ONLY (line + branch)
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\covbranch.py", line 27, in <module>
+    cov.json_report(outfile="cov.json", include=["cov_script.py"], quiet=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Coverage.json_report() got an unexpected keyword argument 'quiet'
+
+######## WHOLE NOTEBOOK, top to bottom (line + branch)
+cov_script.py:513: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+cov_script.py:653: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+cov_script.py:719: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\covbranch.py", line 27, in <module>
+    cov.json_report(outfile="cov.json", include=["cov_script.py"], quiet=True)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Coverage.json_report() got an unexpected keyword argument 'quiet'
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/cov.json_report(outfile="cov.json", include=\["cov_script.py"\], quiet=True)/cov.json_report(outfile="cov.json", include=["cov_script.py"])/' covbranch.py && cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"`
+```
+######## TESTS ONLY (line + branch)
+lines: 231/231
+branches: 27/28 taken  | untaken: [[202, 214]]
+   line 202 -> 214: for it in range(1, max_iter + 1):
+
+######## WHOLE NOTEBOOK, top to bottom (line + branch)
+lines: 448/451
+branches: 51/54 taken  | untaken: [[202, 214], [699, 701], [707, 708]]
+   line 202 -> 214: for it in range(1, max_iter + 1):
+   line 699 -> 701: if path:
+   line 707 -> 708: if practice_result["status"] == "ROVER STUCK IN SAND":
+   uncovered line 708: sy, sx = path_p[practice_result["steps"]]
+   uncovered line 709: axes[0].scatter([sx], [sy], marker="X", s=80, c="#c1121f", edgecolor="w", zorder=5)
+   uncovered line 710: axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)")
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins3.txt`
+```
+from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+
+cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
+
+
+def draw_deployment(pred_p, path_p, result_p, pred_m, path_m, save_as=None):
+    """practice map with its planned route (and where the rover stopped, if it did) beside the predicted mission map"""
+    panels = [(pred_p, path_p, start_p, goal_p, "Practice map and planned route"),
+              (pred_m, path_m, start_m, goal_m, "Predicted mission map and route")]
+
+    with plt.rc_context(REPORT_STYLE):
+        fig, axes = plt.subplots(1, 2, figsize=(5.6, 2.9))
+        for ax, (pred, path, start, goal, title) in zip(axes, panels):
+            ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
+            if path:
+                ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.3)
+            ax.scatter([start[1]], [start[0]], marker="s", s=35, c="k")
+            ax.scatter([goal[1]], [goal[0]], marker="*", s=70, c="k")
+            ax.set_xticks([])
+            ax.set_yticks([])
+            ax.set_title(title)
+
+        if result_p["status"] == "ROVER STUCK IN SAND":
+            sy, sx = path_p[result_p["steps"]]
+            axes[0].scatter([sx], [sy], marker="X", s=80, c="#c1121f", edgecolor="w", zorder=5)
+            axes[0].set_xlabel(f"rover stuck after {result_p['steps']} steps (X)")
+        else:
+            axes[0].set_xlabel(f"{result_p['status']}, {result_p['steps']} steps")
+        axes[1].set_xlabel("prediction only, no mission truth exists")
+
+        fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),
+                            Patch(color="#8d99ae", label="sand")], loc="lower center", ncol=3, frameon=False)
+        plt.tight_layout(rect=(0, 0.07, 1, 1))
+        if save_as:
+            plt.savefig(save_as, dpi=300, bbox_inches="tight")
+    return fig, axes
+
+
+fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")
+plt.show()
+''')
+code('''
+# the drawing code also handles a stuck rover and a goal that the predicted map blocks completely
+cases = {"stuck rover": (fitted["C1"]["predict"](X_dev), "ROVER STUCK IN SAND"),
+         "blocked goal": (np.full(h * w, SAND), "NO ROUTE")}
+for name, (pred_t, expected) in cases.items():
+    result_t = evaluate_practice(CLASSES[pred_t], BUNDLE_DIR)
+    path_t, _ = _plan(pred_t, (h, w), start_p, goal_p)
+    assert result_t["status"] == expected and (path_t is None) == (expected == "NO ROUTE")
+    fig_t, axes_t = draw_deployment(pred_t, path_t, result_t, mission_pred, path_m)
+    assert len(axes_t) == 2
+    plt.close(fig_t)
+    print(f"{name}: drawn ({result_t['status']})")
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch3.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+# figure cell -> function plus a test cell
+a = s.index("from matplotlib.colors import ListedColormap")
+b = s.index("''')", a)
+s = s[:a] + open("ins3.txt", encoding="utf-8").read() + s[b:]
+
+# iteration-cap test next to the other kmeans checks
+old = 'assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())\n'
+assert s.count(old) == 1
+new = old + ('\n# the iteration cap stops a start that has not converged yet\n'
+             'km_cap = kmeans(blobs, k=3, n_init=1, max_iter=1)\n'
+             'assert km_cap["iterations"] == 1 and not km_cap["converged"]\n')
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patch3.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
+print("cells:", len(nb.cells), "| errors:", errs)
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
+        if "passed" in line or "drawn" in line: print(f"cell {i}: {line}")
+PYEOF
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to earlier run: $f" || echo "DIFFERS: $f"; done`
+```
+patched
+builder syntax ok
+wrote C:/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/hw2/fresh2/CSCI4521_HW2.ipynb 46 cells
+[NbConvertApp] Writing 1398145 bytes to CSCI4521_HW2.ipynb
+cells: 46 | errors: []
+cell 18: all checks passed
+cell 19: unit checks passed
+cell 20: reference checks passed
+cell 28: pipeline checks passed
+cell 38: stuck rover: drawn (ROVER STUCK IN SAND)
+cell 38: blocked goal: drawn (NO ROUTE)
+IDENTICAL to earlier run: submission.csv
+IDENTICAL to earlier run: figures/hw2_configs.csv
+IDENTICAL to earlier run: figures/fig1_pca.png
+IDENTICAL to earlier run: figures/fig2_deploy.png
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && echo "######## TESTS ONLY, before any experiment (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## per-function (tests only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"`
+```
+######## TESTS ONLY, before any experiment (line + branch)
+lines: 233/233
+branches: 28/28 taken
+
+######## WHOLE NOTEBOOK, top to bottom (line + branch)
+lines: 466/466
+branches: 58/58 taken
+
+######## per-function (tests only)
+lines of my code: 233, executed: 233, coverage 100.0%
+function                     lines   run  missing
+zscore_fit                       4     4  
+zscore_apply                     2     2  
+sq_dists                         4     4  
+assign_nearest                   4     4  
+centroids_from_labels            5     5  
+update_centroids                 6     6  
+within_ss                        2     2  
+kmeans                          25    25  
+name_clusters                   10    10  
+knn_predict                     11    11  
+knn_classifier                   4     4  
+metrics                          9     9  
+distance_sq                      2     2  
+nn_classify_sample               3     3  
+check_partition                  2     2  
+check_centroids_are_means        2     2  
+check_nonincreasing              2     2  
+knn_reference                    9     9
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > mutate.py <<'PYEOF'
+import os, io, sys, contextlib, warnings
+warnings.filterwarnings("ignore")
+os.environ["MPLBACKEND"] = "Agg"
+base = open("cov_script.py", encoding="utf-8").read()
+
+MUTANTS = [
+    ("zscore_fit: drop the constant-sensor guard", "return mu, np.where(sd == 0, 1.0, sd)", "return mu, sd"),
+    ("sq_dists: flip the cross term sign", "- 2.0 * (A @ B.T)", "+ 2.0 * (A @ B.T)"),
+    ("assign_nearest: argmin -> argmax", "labels = d2.argmin(axis=1)", "labels = d2.argmax(axis=1)"),
+    ("centroids_from_labels: wrong divisor", "return sums / counts[:, None], counts", "return sums / (counts[:, None] + 1), counts"),
+    ("update_centroids: re-seed at the NEAREST point", 'np.argsort(-d2min, kind="stable")', "np.argsort(d2min, kind=\"stable\")"),
+    ("within_ss: drop the square", "return float(((X - C[labels]) ** 2).sum())", "return float(np.abs(X - C[labels]).sum())"),
+    ("kmeans: never detect convergence", "if np.array_equal(new_labels, labels):", "if False:"),
+    ("kmeans: keep the WORST start", 'if best is None or history[-1] < best["inertia"]:', 'if best is None or history[-1] > best["inertia"]:'),
+    ("name_clusters: fallback picks the WORST permutation", "best_perm = max(permutations(range(3))", "best_perm = min(permutations(range(3))"),
+    ("name_clusters: transpose the table", "np.add.at(table, (cl, y_train_int), 1)", "np.add.at(table, (y_train_int, cl), 1)"),
+    ("knn_predict: k=1 uses argmax", "return y_train_int[d2.argmin(axis=1)]", "return y_train_int[d2.argmax(axis=1)]"),
+    ("knn_predict: order the k neighbors farthest first", "np.argsort(d2[rows, nn], axis=1)]", "np.argsort(-d2[rows, nn], axis=1)]"),
+    ("metrics: F1 without the factor 2", "np.divide(2 * prec * rec, prec + rec", "np.divide(prec * rec, prec + rec"),
+    ("metrics: sand recall reads the wrong class", "sand_recall=rec[SAND])", "sand_recall=rec[ROUGH])"),
+]
+
+def run(src):
+    ns = {"__name__": "__main__"}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            exec(compile(src, "mutant.py", "exec"), ns)
+        return None
+    except BaseException as e:
+        return type(e).__name__
+
+print("baseline (no mutation):", "passes" if run(base) is None else "FAILS")
+killed = 0
+for name, old, new in MUTANTS:
+    assert base.count(old) == 1, (name, base.count(old))
+    err = run(base.replace(old, new))
+    status = f"killed by {err}" if err else "SURVIVED"
+    killed += err is not None
+    print(f"{status:28s} {name}")
+print(f"\nmutants killed: {killed}/{len(MUTANTS)}")
+PYEOF
+cd fresh2 && ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+```
+baseline (no mutation): passes
+killed by AssertionError     zscore_fit: drop the constant-sensor guard
+killed by AssertionError     sq_dists: flip the cross term sign
+killed by AssertionError     assign_nearest: argmin -> argmax
+killed by AssertionError     centroids_from_labels: wrong divisor
+killed by AssertionError     update_centroids: re-seed at the NEAREST point
+killed by AssertionError     within_ss: drop the square
+killed by AssertionError     kmeans: never detect convergence
+SURVIVED                     kmeans: keep the WORST start
+killed by AssertionError     name_clusters: fallback picks the WORST permutation
+killed by AssertionError     name_clusters: transpose the table
+killed by AssertionError     knn_predict: k=1 uses argmax
+killed by AssertionError     knn_predict: order the k neighbors farthest first
+killed by AssertionError     metrics: F1 without the factor 2
+killed by AssertionError     metrics: sand recall reads the wrong class
+
+mutants killed: 13/14
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch4.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = "{km['empty_events']} empty clusters\")\n"
+assert s.count(old) == 1, s.count(old)
+new = old + ('\n# the best start is kept: on raw features the starts differ, and the returned objective is the smallest of them\n'
+             'km_raw = kmeans(X_fit, k=3)\n'
+             'assert km_raw["all_inertias"].max() > km_raw["inertia"]\n'
+             'assert np.isclose(km_raw["inertia"], km_raw["all_inertias"].min())\n')
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patch4.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; echo "--- coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "--- mutation (tests-only script)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+```
+patched
+[NbConvertApp] Writing 1398559 bytes to CSCI4521_HW2.ipynb
+--- coverage
+lines: 469/469
+branches: 58/58 taken
+--- mutation (tests-only script)
+baseline (no mutation): passes
+killed by AssertionError     zscore_fit: drop the constant-sensor guard
+killed by AssertionError     sq_dists: flip the cross term sign
+killed by AssertionError     assign_nearest: argmin -> argmax
+killed by AssertionError     centroids_from_labels: wrong divisor
+killed by AssertionError     update_centroids: re-seed at the NEAREST point
+killed by AssertionError     within_ss: drop the square
+killed by AssertionError     kmeans: never detect convergence
+killed by AssertionError     kmeans: keep the WORST start
+killed by AssertionError     name_clusters: fallback picks the WORST permutation
+killed by AssertionError     name_clusters: transpose the table
+killed by AssertionError     knn_predict: k=1 uses argmax
+killed by AssertionError     knn_predict: order the k neighbors farthest first
+killed by AssertionError     metrics: F1 without the factor 2
+killed by AssertionError     metrics: sand recall reads the wrong class
+
+mutants killed: 14/14
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+print("kernel used:", nb.metadata["kernelspec"], "| python", nb.metadata["language_info"]["version"])
+# store a generic kernel name so any grader's Jupyter or Colab opens it without a missing-kernel prompt
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+PYEOF
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL to the earlier verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL to the earlier verified run"; ls -la CSCI4521_HW2.ipynb submission.csv practice_run.html figures | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"`
+```
+wrote CSCI4521_HW2.ipynb 46 cells
+[NbConvertApp] Writing 1398205 bytes to CSCI4521_HW2.ipynb
+kernel used: {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'} | python 3.12.14
+submission.csv IDENTICAL to the earlier verified run
+hw2_configs.csv IDENTICAL to the earlier verified run
+-rw-r--r-- 1 anant 197609 1414538 Oct 27 21:03 CSCI4521_HW2.ipynb
+-rw-r--r-- 1 anant 197609  755128 Oct 27 21:03 practice_run.html
+-rw-r--r-- 1 anant 197609   13797 Oct 27 21:03 submission.csv
+-rw-r--r-- 1 anant 197609 234585 Oct 27 21:03 fig1_pca.png
+-rw-r--r-- 1 anant 197609  38656 Oct 27 21:03 fig2_deploy.png
+-rw-r--r-- 1 anant 197609    952 Oct 27 21:03 hw2_configs.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N"; echo "== pyflakes (starter-provided names filtered)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(none above = clean)"; echo "== pycodestyle"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=125 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head; echo "(none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
+import nbformat
+nb = nbformat.read(r"$N", as_version=4)
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+dash = [i for i, c in enumerate(nb.cells[start:], start) if "\u2014" in c.source or "\u2013" in c.source]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("cells", len(nb.cells), "| my prose words", words, "| error or stderr cells", errs, "| dash cells", dash)
+print("execution counts strictly increasing from 1:", counts[0] == 1 and all(a < b for a, b in zip(counts, counts[1:])), "| last", counts[-1])
+print("kernelspec:", nb.metadata["kernelspec"]["name"], "| python", nb.metadata["language_info"]["version"])
+PYEOF`
+```
+code cells: 27 lines: 734
+== pyflakes (starter-provided names filtered)
+(none above = clean)
+== pycodestyle
+mycode.py:334:126: E501 line too long (126 > 125 characters)
+(none above = clean)
+cells 46 | my prose words 425 | error or stderr cells [] | dash cells []
+execution counts strictly increasing from 1: True | last 32
+kernelspec: python3 | python 3.12.14
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch5.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = '"""lecture-style loop: distances for one query, take the k nearest, vote, a tied vote goes to the nearest tied neighbor"""'
+assert s.count(old) == 1
+s = s.replace(old, '"""lecture-style loop: k nearest by distance, vote, a tied vote goes to the nearest tied neighbor"""')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patch5.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+PYEOF
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle at 120 columns: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
+```
+ok
+[NbConvertApp] Writing 1398272 bytes to CSCI4521_HW2.ipynb
+submission.csv IDENTICAL
+hw2_configs.csv IDENTICAL
+code cells: 27 lines: 734
+mycode.py:363:121: E501 line too long (122 > 120 characters)
+mycode.py:665:121: E501 line too long (124 > 120 characters)
+(pycodestyle at 120 columns: none above = clean)
+(pyflakes: none above = clean)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n '363p;665p' mycode.py`
+```
+assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)
+fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch6.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+swap('assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)',
+     'assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75)\nassert np.isclose(m_c["f1"][SAND], 0.6)')
+swap('fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")',
+     'fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m,\n                            save_as="figures/fig2_deploy.png")')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patch6.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+PYEOF
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
+import nbformat
+nb = nbformat.read(r"$N", as_version=4)
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order run 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
+        if "passed" in line or "drawn" in line: print(f"  cell {i}: {line}")
+PYEOF`
+```
+ok
+[NbConvertApp] Writing 1398407 bytes to CSCI4521_HW2.ipynb
+submission.csv IDENTICAL
+hw2_configs.csv IDENTICAL
+code cells: 27 lines: 736
+(pycodestyle 120 cols: none above = clean)
+(pyflakes: none above = clean)
+cells 46 | error/stderr cells [] | in-order run 1.. 32 True
+  cell 18: all checks passed
+  cell 19: unit checks passed
+  cell 20: reference checks passed
+  cell 28: pipeline checks passed
+  cell 38: stuck rover: drawn (ROVER STUCK IN SAND)
+  cell 38: blocked goal: drawn (NO ROUTE)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "######## coverage of the FINAL notebook in the Homework folder"; echo "tests only:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "whole notebook:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## mutation test against the FINAL notebook"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch" | tail -4`
+```
+######## coverage of the FINAL notebook in the Homework folder
+tests only:
+lines: 237/237
+branches: 28/28 taken
+whole notebook:
+lines: 470/470
+branches: 58/58 taken
+
+######## mutation test against the FINAL notebook
+killed by AssertionError     metrics: F1 without the factor 2
+killed by AssertionError     metrics: sand recall reads the wrong class
+
+mutants killed: 14/14
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\tests_block.txt`
+```
+Tests run, all on the final file in the user's `csci-4521` env (Python 3.12.14, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, matplotlib 3.11.2):
+- The user re-ran the notebook in that env (Restart and Run All, execution counts 1 to 28 in order, no errors). Its `submission.csv`, results table and both figures were byte-identical to my earlier Python 3.14 runs, so the results do not depend on the environment. After that I added tests and ran the final file in the same env: execution counts 1 to 32 in order, no error or stderr output, outputs unchanged.
+- Check cells, all assert-based. A general block: fit and validation rows are disjoint, grid order is row-major, z-score has mean 0 and std 1, vectorized distances and 1-NN equal the lecture 1.1 loop on raw and z-scored data, k-means clusters partition the data and converge, the objective never rises and centroids equal member means, PCA components are orthonormal and its variance equals the squared singular values, sklearn cross-checks. A unit block with a hand-worked case for every method: constant sensor, 3-4-5 triangle, empty-cluster re-seed, within-cluster sum, exact recovery of three blobs, the iteration cap, the best start being kept, naming by majority and by the one-to-one fallback. A reference block: kNN for k = 1, 3, 5, 7 on raw and z-scored data against a lecture-style loop, the nearest-neighbor tie-break, and metrics on the lecture 1.4 COVID example (precision 0.5, recall 0.75, F1 0.6, accuracy 0.8). A pipeline block: stored z-score and PCA, repeatable fits, every table value against sklearn accuracy and a direct sand recall. A drawing check for a stuck rover and a blocked goal.
+- Coverage (coverage.py on the executed notebook): the check cells alone run 237 of 237 lines and 28 of 28 branches of my code, with all 18 functions fully covered. The whole notebook runs 470 of 470 lines and 58 of 58 branches.
+- Mutation test: 14 deliberate bugs (distance sign flipped, argmin to argmax, wrong centroid divisor, dropped square, convergence never detected, worst start kept, worst naming permutation, transposed table, neighbors ordered farthest first, F1 without the factor 2, sand recall read from the wrong class, and others). The checks caught all 14. The first round caught 13; the survivor, "keep the worst random start", exposed a missing check, and the raw-features best-start check now covers it.
+- Defect found by the new tests: ties in the empty-cluster re-seed were broken by an unstable sort. Fixed with a stable sort. No run ever produced an empty cluster, so no result changed.
+- Clean-directory run (fresh clone, 14 seconds): byte-identical outputs. `practice_run.html` is identical apart from random element ids and holds 55 embedded frames.
+- pyflakes finds no unused names or imports in my cells, pycodestyle at 120 columns is clean, no stderr output anywhere, no em or en dashes.
+- Every number in the report draft was compared with the executed output. One wording fix came out of it (the mission standard deviation range).
+- Layout estimate with PyMuPDF (Times 10.5 pt, 0.75 in margins, the real figure files, page break before Table 1): 2 pages, page 2 ends at about 89% of its height.
+Not tested: Word itself, the Gradescope upload, and a Colab run.
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchnote.py <<'PYEOF'
+p = "gen_note.py"
+s = open(p, encoding="utf-8").read()
+a = s.index("Tests run:\n")
+b = s.index("Evidence (demo bundle, the confirmed dataset):")
+s = s[:a] + open("tests_block.txt", encoding="utf-8").read() + s[b:]
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+swap("has 42 cells: the starter cells unchanged", "has 46 cells: the starter cells unchanged")
+swap("- Figures were regenerated at print size", "- The deployment figure is a function so the checks can draw a stuck rover and a blocked goal. The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.\n- Figures were regenerated at print size")
+open(p, "w", encoding="utf-8").write(s)
+print("gen_note patched")
+PYEOF
+./venv/Scripts/python.exe -I patchnote.py && ./venv/Scripts/python.exe -I gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; grep -c "BUNDLE_OVERRIDE\|personalized" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+```
+gen_note patched
+Traceback (most recent call last):
+  File "C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\hw2\gen_note.py", line 1, in <module>
+    import report_build as rb
+ModuleNotFoundError: No module named 'report_build'
+grep: : No such file or directory
+
+grep: : No such file or directory
+grep: : No such file or directory
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale mentions (BUNDLE_OVERRIDE|personalized): $(grep -c 'BUNDLE_OVERRIDE\|personalized' "$F")"; grep -n "personalized\|BUNDLE_OVERRIDE" "$F" | cut -c1-160; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+```
+written 22536 chars
+16:## Overview
+20:## Requirements
+21:### Submit
+29:### Must not do
+37:### Report must state
+44:### Rules
+50:## Work log
+51:### 2026-10-27 Final state and tests
+74:### Decisions
+80:### Rubric coverage
+94:### Word report layout
+108:### Report draft
+126:### Table 1 rows
+156:### Submission
+158:## Concepts used
+163:## Post-submit reflection
+dash hits: 0
+stale mentions (BUNDLE_OVERRIDE|personalized): 2
+45:- Piazza, instructor Ebasa Temesgen (relayed by the user 2026-10-27): the dataset is the supplied `demo_data` folder, the starter notebook loads it, and `stu
+78:- The `BUNDLE_OVERRIDE` cell was removed after the Piazza answer, and the timing-scaling cell was dropped because its noisy ratios supported no claim.
+FIT: 1/2 = 50.0%
+  20_Progress/Degree/CSCI 4521/Homework/Homework - 1.md  [course-homework]  6:legacy-shape; 1:status-off-vocab:active; 1:missing-key:class_kind; 1:hash-in-tags; 2:missing-heading:Requirements; 5:extra-blank-lines:15
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+
 ## Actions Taken
 
 **Files created:**
@@ -7177,7 +10348,14 @@ FIT: 1/2 = 50.0%
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\blockB.md`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb2.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\build_nb3.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\gen_note.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins1.txt`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins2.txt`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\ins3.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\new_block.md`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\report_build.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\tests_block.txt`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 
 **Files modified:**
@@ -7477,5 +10655,927 @@ open(p, "w", encoding="utf-8").write(s)
 print("ok", len(s))
 PYEOF
 ./venv/Scripts/python.exe -I splice2.py; F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > audit.py <<'PYEOF'
+import nbformat, sys
+nb = nbformat.read(sys.argv[1], as_version=4)
+print("cells:", len(nb.cells))
+for i, c in enumerate(nb.cells):
+    n_md_words = len(c.source.split()) if c.cell_type == "markdown" else 0
+    n_lines = len(c.source.splitlines())
+    blank = sum(1 for l in c.source.splitlines() if not l.strip())
+    outs = []
+    for o in c.get("outputs", []):
+        if o.output_type == "stream": outs.append("stream:" + o.name)
+        elif o.output_type == "error": outs.append("ERROR")
+        else: outs.append(",".join(sorted(o.get("data", {}).keys())))
+    print(f"{i:2d} {c.cell_type[:4]} lines={n_lines:3d} blank={blank:2d} words={n_md_words:3d} first={c.source.splitlines()[0][:60] if c.source else ''!r} outs={outs}")
+PYEOF
+./venv/Scripts/python.exe -I audit.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" && ( time "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert" ) 2>&1 | grep -E "Error|Traceback|Writing|assert|real"; ls; echo "--- compare with previous run in Code/Homework"; cmp submission.csv "$H/submission.csv" && echo "submission.csv IDENTICAL"; cmp figures/hw2_configs.csv "$H/figures/hw2_configs.csv" && echo "hw2_configs.csv IDENTICAL"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I "$SC/audit.py" CSCI4521_HW2.ipynb; cmp submission.csv "$SC/fresh/submission.csv" && echo "in-place submission.csv == fresh-dir submission.csv"; ls -la submission.csv practice_run.html CSCI4521_HW2.ipynb figures/ | grep -E "submission|practice|HW2|hw2|fig1_pca|fig2_deploy"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I outs.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" 10 42 2>&1 | grep -v "^\[IPK" | cut -c1-230 | head -250`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchfig.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:70]
+    s = s.replace(old, new)
+
+# style constant in the setup cell
+swap('''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+Path("figures").mkdir(exist_ok=True)''',
+'''COLORS = {FIRM: "#0072B2", ROUGH: "#009E73", SAND: "#D55E00"}
+# report figures are saved at the width they are printed, so text is sized for print
+REPORT_STYLE = {"font.size": 7.5, "axes.titlesize": 8, "axes.labelsize": 7.5,
+                "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 6.5}
+Path("figures").mkdir(exist_ok=True)''')
+
+# figure 1 cell
+a = s.index("P_fit = pca_z.transform(Z_fit)")
+b = s.index("''')", a)
+fig1 = '''P_fit = pca_z.transform(Z_fit)
+P_train = pca_z.transform(Z_train)
+
+with plt.rc_context(REPORT_STYLE):
+    fig = plt.figure(figsize=(7.0, 2.5))
+
+    ax = fig.add_subplot(1, 3, 1)
+    ax.plot(range(1, 9), cum_z, "o-", ms=3.5, color="#0072B2", label="standardized")
+    ax.plot(range(1, 9), cum_raw, "s--", ms=3.5, color="#D55E00", label="raw")
+    ax.axhline(0.95, color="gray", ls=":", lw=1)
+    ax.annotate(f"{N95_Z} components\\n(standardized)", (N95_Z, cum_z[N95_Z - 1]),
+                textcoords="offset points", xytext=(6, -22), fontsize=6.5)
+    ax.set_xlabel("number of principal components")
+    ax.set_ylabel("cumulative explained variance")
+    ax.set_ylim(0, 1.03)
+    ax.set_title("(a) variance retained")
+    ax.legend(loc="lower right")
+
+    ax = fig.add_subplot(1, 3, 2)
+    ax.scatter(P_fit[:, 0], P_fit[:, 1], s=3, c="#c8c8c8", label="fit rows (unlabeled)")
+    for t in (FIRM, ROUGH, SAND):
+        ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], s=12, c=COLORS[t],
+                   edgecolor="k", linewidth=0.3, label=f"{CLASSES[t]} (labeled)")
+    ax.set_xlabel("PC1")
+    ax.set_ylabel("PC2")
+    ax.set_title("(b) top 2 components")
+    ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)
+
+    ax = fig.add_subplot(1, 3, 3, projection="3d")
+    ax.scatter(P_fit[:, 0], P_fit[:, 1], P_fit[:, 2], s=2, c="#c8c8c8", alpha=0.5)
+    for t in (FIRM, ROUGH, SAND):
+        ax.scatter(P_train[y_train == t, 0], P_train[y_train == t, 1], P_train[y_train == t, 2],
+                   s=8, c=COLORS[t], edgecolor="k", linewidth=0.2)
+    ax.set_xlabel("PC1", labelpad=-4)
+    ax.set_ylabel("PC2", labelpad=-4)
+    ax.set_zlabel("PC3", labelpad=-4)
+    ax.tick_params(pad=-2)
+    ax.set_title("(c) top 3 components")
+
+    plt.tight_layout()
+    plt.savefig("figures/fig1_pca.png", dpi=300, bbox_inches="tight")
+    plt.show()
+'''
+s = s[:a] + fig1 + s[b:]
+
+# figure 2 cell
+a = s.index("from matplotlib.colors import ListedColormap")
+b = s.index("''')", a)
+fig2 = '''from matplotlib.colors import ListedColormap
+from matplotlib.patches import Patch
+
+cmap = ListedColormap(["#e9ecef", "#f4c95d", "#8d99ae"])
+panels = [(practice_pred, path_p, start_p, goal_p, "Practice map and planned route"),
+          (mission_pred, path_m, start_m, goal_m, "Predicted mission map and route")]
+
+with plt.rc_context(REPORT_STYLE):
+    fig, axes = plt.subplots(1, 2, figsize=(5.6, 2.9))
+    for ax, (pred, path, start, goal, title) in zip(axes, panels):
+        ax.imshow(pred.reshape(h, w), cmap=cmap, vmin=0, vmax=2, interpolation="nearest")
+        if path:
+            ax.plot([p[1] for p in path], [p[0] for p in path], "-", color="#c1121f", lw=1.3)
+        ax.scatter([start[1]], [start[0]], marker="s", s=35, c="k")
+        ax.scatter([goal[1]], [goal[0]], marker="*", s=70, c="k")
+        ax.set_xticks([])
+        ax.set_yticks([])
+        ax.set_title(title)
+
+    if practice_result["status"] == "ROVER STUCK IN SAND":
+        sy, sx = path_p[practice_result["steps"]]
+        axes[0].scatter([sx], [sy], marker="X", s=80, c="#c1121f", edgecolor="w", zorder=5)
+        axes[0].set_xlabel(f"rover stuck after {practice_result['steps']} steps (X)")
+    else:
+        axes[0].set_xlabel(f"{practice_result['status']}, {practice_result['steps']} steps")
+    axes[1].set_xlabel("prediction only, no mission truth exists")
+
+    fig.legend(handles=[Patch(color="#e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),
+                        Patch(color="#8d99ae", label="sand")], loc="lower center", ncol=3, frameon=False)
+    plt.tight_layout(rect=(0, 0.07, 1, 1))
+    plt.savefig("figures/fig2_deploy.png", dpi=300, bbox_inches="tight")
+    plt.show()
+'''
+s = s[:a] + fig2 + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patchfig.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('syntax ok')"
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
+import struct
+for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = "components\\n(standardized)"
+assert s.count(old) == 1
+s = s.replace(old, "components\\\\n(standardized)")
+open(p, "w", encoding="utf-8").write(s)
+print("fixed")
+PYEOF
+./venv/Scripts/python.exe -I fixesc.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
+import struct
+for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+s=open('build_nb3.py',encoding='utf-8').read()
+i=s.index('components')
+j=s.index('(standardized)', i)
+print(repr(s[j-20:j+14]))
+import nbformat
+nb=nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb',as_version=4)
+for c in nb.cells:
+    if 'standardized)' in c.source and 'annotate' in c.source:
+        k=c.source.index('components'); print(repr(c.source[k:k+40]))
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I -c "
+s=open('build_nb3.py',encoding='utf-8').read()
+i=s.index('N95_Z} components')
+seg=s[i:i+40]
+print([hex(ord(ch)) for ch in seg[16:26]])
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixesc2.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+bs = chr(92)
+old = "components" + bs + "n(standardized)"
+assert s.count(old) == 1
+s = s.replace(old, "components")
+s = s.replace('xytext=(6, -22), fontsize=6.5)', 'xytext=(6, -12), fontsize=6.5)')
+open(p, "w", encoding="utf-8").write(s)
+print("fixed")
+PYEOF
+./venv/Scripts/python.exe -I fixesc2.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png figures/fig2_deploy.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; "$PY" -I -c "
+import struct
+for f in ('figures/fig1_pca.png','figures/fig2_deploy.png'):
+    d=open(f,'rb').read(32); w,h=struct.unpack('>II',d[16:24]); print(f,w,h,'px ->',round(w/300,2),'x',round(h/300,2),'in at 300 dpi')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = 'ax.legend(loc="upper left", handletextpad=0.2, borderpad=0.3)'
+assert s.count(old) == 1
+s = s.replace(old, 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixleg.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep -E "fig1_pca|fig2_deploy|hw2"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg2.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = 'ax.legend(loc="lower left", handletextpad=0.2, borderpad=0.3)'
+assert s.count(old) == 1
+s = s.replace(old, 'ax.set_ylim(top=5.0)  # headroom so the legend never covers points\n    ax.legend(loc="upper center", ncol=2, handletextpad=0.2, columnspacing=0.8, borderpad=0.3)')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixleg2.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixleg3.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old
+    s = s.replace(old, new)
+swap('label="fit rows (unlabeled)")', 'label="fit rows")')
+swap('label=f"{CLASSES[t]} (labeled)")', 'label=f"{CLASSES[t]}")')
+swap('ax.set_ylim(top=5.0)  # headroom so the legend never covers points', 'ax.set_ylim(top=4.6)  # headroom so the legend never covers points\n    ax.set_yticks([-2, 0, 2])')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I fixleg3.py
+SC="$(pwd)"; PY="$SC/venv/Scripts/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f figures/fig1_pca.png && "$PY" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; ls -la figures | grep fig1_pca`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q pyflakes pycodestyle 2>&1 | grep -v notice; cat > lintnb.py <<'PYEOF'
+import nbformat, sys, subprocess, pathlib
+nb = nbformat.read(sys.argv[1], as_version=4)
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+code = []
+for c in nb.cells[start:]:
+    if c.cell_type == "code":
+        code.append("# ---- cell ----\n" + c.source + "\n")
+text = "\n".join(code)
+pathlib.Path("mycode.py").write_text(text, encoding="utf-8")
+print("code cells:", len(code), "lines:", text.count("\n"))
+PYEOF
+./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "== pyflakes"; ./venv/Scripts/python.exe -m pyflakes mycode.py; echo "== pycodestyle (max line 120, ignoring cell-separator blank-line codes E302/E305/E303 between cells)"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -30`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'" ; echo "(end of non-starter pyflakes findings)"; echo; ./venv/Scripts/python.exe -I -c "
+import nbformat
+nb = nbformat.read('D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb', as_version=4)
+start = next(i for i,c in enumerate(nb.cells) if c.source.startswith('## My solution'))
+words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type=='markdown')
+errs = [i for i,c in enumerate(nb.cells) if c.cell_type=='code' for o in c.outputs if o.output_type=='error' or (o.output_type=='stream' and o.name=='stderr')]
+print('my markdown words:', words, '| cells with error/stderr output:', errs)
+em = [i for i,c in enumerate(nb.cells[start:],start) if '\u2014' in c.source or '\u2013' in c.source]
+print('cells with em/en dash:', em)
+"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; PY="$SC/venv/Scripts/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh" && mkdir -p "$SC/fresh" && cd "$SC/fresh" && "$PY" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh/CSCI4521_HW2.ipynb" >/dev/null && "$PY" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png practice_run.html; do cmp -s "$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "--- hw2_configs.csv"; cat "$H/figures/hw2_configs.csv"; echo; echo "--- practice_run.html"; head -c 300 "$H/practice_run.html"; echo; grep -c "ROVER\|MISSION SUCCESS" "$H/practice_run.html"; "$PY" -I -c "
+import pandas as pd
+s=pd.read_csv('$H/submission.csv'); m=pd.read_csv('$H/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv')
+print('submission', s.shape, list(s.columns), s.student_id.unique(), s.predicted_terrain.value_counts().to_dict())
+print('row order matches mission.csv:', (s.x==m.x).all() and (s.y==m.y).all())
+"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; cd "$SC" && cat > htmlcmp.py <<'PYEOF'
+import re, sys
+a = open(sys.argv[1], encoding="utf-8").read()
+b = open(sys.argv[2], encoding="utf-8").read()
+print("sizes:", len(a), len(b))
+# find where they differ
+diffs = [(i, a[i-30:i+30], b[i-30:i+30]) for i in range(min(len(a), len(b))) if a[i] != b[i]][:3]
+for d in diffs: print(d)
+norm = lambda s: re.sub(r"[0-9a-f]{20,}|anim[0-9a-f]+", "ID", s)
+print("equal after masking random ids:", norm(a) == norm(b))
+print("contains the animation script:", "Animation" in a, "| frames embedded:", a.count("data:image/png;base64"))
+PYEOF
+./venv/Scripts/python.exe -I htmlcmp.py "$SC/fresh/practice_run.html" "$H/practice_run.html"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+print(len(d), 'pages rendered')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/last_bottom = filled.y1/last_bottom = filled[3]/' report_build.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -8 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+print(len(d), 'pages rendered')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+
+swap('Three clusters match the three terrains, and "\n           "the elbow agrees (within-cluster sum of squares 2652 at k=2, 1238 at k=3, 1086 at k=4).")',
+     'Three clusters match the three terrains and "\n           "the elbow agrees (objective 2652, 1238, 1086 for k = 2, 3, 4).")')
+swap('E1 uses 2 dimensions and needs labels only to name three "\n           "clusters. Its practice route', 'E1 is the simplest of them (2 dimensions). Its practice route')
+swap('width="385"', 'width="331"')
+open(p, "w", encoding="utf-8").write(s)
+print("trimmed")
+PYEOF
+./venv/Scripts/python.exe -I trim.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim2.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:70]
+    s = s.replace(old, new)
+
+# section 1
+swap('so neighbors in the grid differ in one factor, plus "\n           "three extras (PCA with 2 components for both models, and 3-NN). ',
+     'so neighbors differ in one factor, plus three extras "\n           "(PCA with 2 components for both models, and 3-NN). ')
+swap('A single start is "\n           "not enough: on z-scored data 15 of 20 single starts reached the best objective, on raw data 2 of 20. ',
+     'One start is not "\n           "enough: 15 of 20 single starts reached the best objective on z-scored data, 2 of 20 on raw data. ')
+# section 2
+swap('Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows, no labels). ',
+     'Normalization, PCA and k-means were fitted on the 754 fit rows (all practice rows except "\n           "the 30 validation rows; no labels). ')
+swap('I selected the deployed model on these rows, so its score is a selection score, not an untouched test "\n           "score, and the practice run shows deployment, not accuracy. ',
+     'I selected the model on these rows, so its score is a selection score, not a test score, and the "\n           "practice run shows deployment, not accuracy. ')
+# section 3
+swap('PCA changed little: on z-scored data 8, 3 and 2 dimensions all scored 1.000, while on raw data PCA "\n            "lowered 1-NN from 0.933 to 0.867 (two more errors). ',
+     'PCA changed little: 8, 3 and 2 dimensions all scored 1.000 on z-scored data, while on raw data PCA lowered "\n            "1-NN from 0.933 to 0.867 (two more errors). ')
+# section 5
+swap('Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor (standard deviations 0.9 to "\n           "1.1), so I saw no sensor drift. The predicted mission mix still differs',
+     'Mission rows, z-scored with the fit "\n           "statistics, sit within 0.25 standard deviations of the fit mean on every sensor, so I saw no sensor drift. "\n           "The predicted mission mix still differs')
+# AI line
+swap('AI use: AI use is allowed in this course and I used it heavily. Claude Code (Anthropic) read the course "\n           "materials, wrote the notebook code, ran the experiments and drafted this report. I directed the work, checked "\n           "the results against the assignment, and am responsible for what I submit.',
+     'AI use: allowed in this course, and I used it heavily. Claude Code (Anthropic) read the course materials, "\n           "wrote the notebook code, ran the experiments and drafted this report; I directed the work, checked the results "\n           "and am responsible for what I submit.')
+swap('width="331"', 'width="310"')
+open(p, "w", encoding="utf-8").write(s)
+print("trimmed")
+PYEOF
+./venv/Scripts/python.exe -I trim2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > trim3.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:70]
+    s = s.replace(old, new)
+swap('holds 88.4%, which restates the scale problem (Figure 1a). ', 'holds 88.4% (Figure 1a). ')
+swap('A possible explanation, untested: raw "\n            "k-means partitions mostly along sensor_4, while 1-NN uses the labels locally.',
+     'A possible explanation, untested: raw "\n            "k-means splits mostly along sensor_4.')
+swap('table { border-collapse: collapse; font-size: 9pt; margin: 0 0 1pt 0; }', 'table { border-collapse: collapse; font-size: 8.5pt; margin: 0 0 1pt 0; }')
+swap('td, th { padding: 1pt 4pt;', 'td, th { padding: 0.4pt 4pt;')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I trim3.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    t = p.get_text()
+    print('page', i+1, '| has C1:', 'C1' in t, '| has E3:', 'E3' in t, '| has Table 1 caption:', 'Table 1:' in t, '| has AI use:', 'AI use' in t)
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+old = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s4']}</p>"""
+new = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s4']}</p>"""
+assert s.count(old) == 1
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("reordered")
+PYEOF
+./venv/Scripts/python.exe -I reorder.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    t = p.get_text()
+    print('page', i+1, '| C1:', 'C1' in t, '| E3:', 'E3' in t, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t)
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > reorder2.py <<'PYEOF'
+p = "report_build.py"
+s = open(p, encoding="utf-8").read()
+new_block = """    <p>{P['s1']}</p><p>{P['s2']}</p><p>{P['s3a']}</p>
+    <div class="c"><img src="fig1_pca.png" width="504"></div><p class="cap">{P['f1cap']}</p>
+    <p>{P['s3b']}</p>
+    <div class="c" style="page-break-before: always"><table align="center">{head_html}{rows_html}</table></div><p class="cap">{P['t1cap']}</p>
+    <p>{P['s4']}</p>"""
+a = s.index("    <p>{P['s1']}</p>")
+b = s.index("    <div class=\"c\"><img src=\"fig2_deploy.png\"")
+s = s[:a] + new_block + "\n" + s[b:]
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I reorder2.py && ./venv/Scripts/python.exe -I report_build.py report_est.pdf 2>&1 | tail -3 && ./venv/Scripts/python.exe -I -c "
+import pymupdf as fitz
+d = fitz.open('report_est.pdf')
+for i, p in enumerate(d):
+    t = p.get_text()
+    print('page', i+1, '| Table 1 caption:', 'Table 1:' in t, '| Fig1 caption:', 'Figure 1:' in t, '| Fig2 caption:', 'Figure 2:' in t, '| AI use:', 'AI use' in t, '| 3. Evidence:', '3. Evidence' in t, '| 4. Decision:', '4. Decision' in t)
+    p.get_pixmap(dpi=70).save(f'est_p{i+1}.png')
+"`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && ls -la --time-style=full-iso CSCI4521_HW2.ipynb submission.csv practice_run.html figures/ | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; "$SC/venv/Scripts/python.exe" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+print("kernelspec:", nb.metadata.get("kernelspec"), "| language_info:", nb.metadata.get("language_info", {}).get("version"))
+errs, stderr, noout = [], [], []
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    if not c.outputs and c.execution_count is None: noout.append(i)
+    for o in c.outputs:
+        if o.output_type == "error": errs.append((i, o.ename, o.evalue))
+        if o.output_type == "stream" and o.name == "stderr": stderr.append(i)
+print("cells:", len(nb.cells), "| error outputs:", errs, "| stderr cells:", stderr, "| never-executed code cells:", noout)
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("execution counts in order:", counts[:5], "...", counts[-3:], "| strictly increasing:", all(a < b for a, b in zip(counts, counts[1:])))
+for i, c in enumerate(nb.cells):
+    if c.cell_type == "code" and "all checks passed" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        print("checks cell", i, "printed 'all checks passed'")
+    if c.cell_type == "code" and "python " in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") and "numpy" in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        print([o["text"].splitlines()[0] for o in c.outputs if o.output_type == "stream"][0])
+PYEOF`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; echo "== compare the user's 3.12 run with my clean-directory 3.14 run"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$SC/fresh/$f" "$H/$f" && echo "IDENTICAL  $f" || echo "DIFFERS    $f"; done; echo; echo "== course env location"; ls /c/Users/anant/miniconda3/envs/ 2>&1; find /c/Users/anant -maxdepth 5 -type d -name "csci-4521" 2>/dev/null | head; find /c/Users/anant/miniconda3/envs -maxdepth 2 -name python.exe 2>/dev/null | head`
+- `cat "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/kernel.json"; echo; ls "/c/Users/anant/AppData/Roaming/jupyter/kernels/csci-4521/"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+# ---- 1. hand-worked unit checks and kNN / metrics reference checks, inside section 3 (Checks)
+anchor = 'print("all checks passed")\n\'\'\')\n'
+assert s.count(anchor) == 1
+new_cells = r"""print("all checks passed")
+''')
+code('''
+# small cases worked out by hand, one per function
+# zscore: a constant sensor keeps divisor 1 and never produces nan
+X_const = np.array([[1.0, 5.0], [3.0, 5.0], [5.0, 5.0]])
+mu_c, sd_c = zscore_fit(X_const)
+Z_c = zscore_apply(X_const, mu_c, sd_c)
+assert np.allclose(sd_c, [np.sqrt(8 / 3), 1.0]) and np.isfinite(Z_c).all() and np.allclose(Z_c[:, 1], 0)
+
+# sq_dists and assign_nearest: a 3-4-5 triangle, with a tie that goes to the first centroid
+A = np.array([[0.0, 0.0], [3.0, 4.0]])
+B = np.array([[0.0, 0.0], [6.0, 8.0]])
+assert np.allclose(sq_dists(A, B), [[0, 100], [25, 25]])
+labels_a, d2_a = assign_nearest(A, B)
+assert labels_a.tolist() == [0, 0] and np.allclose(d2_a, [0, 25])
+
+# centroids_from_labels: member means, nan for an empty cluster
+X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
+lab_s = np.array([0, 0, 1, 1])
+C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
+assert np.allclose(C_s[:2], [[1.0, 0.0], [11.0, 12.0]]) and np.isnan(C_s[2]).all() and n_s.tolist() == [2, 2, 0]
+
+# update_centroids: the empty cluster is re-seeded at the point farthest from its own centroid
+C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
+_, d2min_s = assign_nearest(X_s, C_old[:2])
+C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
+assert n_empty == 1 and np.allclose(C_new[:2], C_s[:2]) and np.allclose(C_new[2], X_s[d2min_s.argmax()])
+
+# within_ss: 1 + 1 + 5 + 5
+assert np.isclose(within_ss(X_s, lab_s, C_s[:2]), 12.0)
+
+# kmeans: three far-apart blobs are recovered exactly, a seed repeats, and the best start has the lowest objective
+rng = np.random.default_rng(1)
+blobs = np.vstack([rng.normal(c, 0.1, size=(20, 2)) for c in ((0, 0), (10, 0), (0, 10))])
+truth = np.repeat([0, 1, 2], 20)
+km_b = kmeans(blobs, k=3)
+assert all(len(set(km_b["labels"][truth == t])) == 1 for t in range(3)) and len(set(km_b["labels"])) == 3
+assert np.array_equal(km_b["labels"], kmeans(blobs, k=3)["labels"])
+assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())
+
+# name_clusters: the majority path, then the fallback when two clusters claim one terrain
+C_n = np.array([[0.0, 0.0], [10.0, 0.0], [0.0, 10.0]])
+F_n = np.array([[0, 0.5], [0.5, 0], [10, 0.5], [10.5, 0], [0, 10.5], [0.5, 10]])
+names_n, _, how_n = name_clusters(C_n, F_n, np.array([2, 2, 0, 0, 1, 1]))
+assert how_n == "majority vote" and names_n.tolist() == [2, 0, 1]
+
+F_f = np.array([[0, .3], [.3, 0], [.2, .2], [10, .3], [10.3, 0], [10.2, .2], [0, 10.3], [.3, 10], [.2, 10.2]])
+y_f = np.array([0, 0, 0, 0, 0, 1, 1, 1, 2])
+names_f, table_f, how_f = name_clusters(C_n, F_f, y_f)
+best_total = max(sum(table_f[j, p[j]] for j in range(3)) for p in permutations(range(3)))
+assert how_f == "one-to-one permutation" and sorted(names_f.tolist()) == [0, 1, 2]
+assert sum(table_f[j, names_f[j]] for j in range(3)) == best_total == 5
+print("unit checks passed")
+''')
+code('''
+def knn_reference(F_train, y_train_int, F, k):
+    """lecture-style loop: distances for one query, take the k nearest, vote, tied vote goes to the nearest tied neighbor"""
+    out = []
+    for q in F:
+        dists = np.array([distance_sq(t, q) for t in F_train])
+        nearest = np.argsort(dists, kind="stable")[:k]
+        votes = np.bincount(y_train_int[nearest], minlength=3)
+        tied = np.flatnonzero(votes == votes.max())
+        out.append(next(y_train_int[j] for j in nearest if y_train_int[j] in tied))
+    return np.array(out)
+
+
+# kNN for several k, on standardized and raw features, against the loop
+Z_dev = zscore_apply(X_dev, mu, sd)
+for name, (A, B) in {"z-score": (Z_train, Z_dev), "raw": (X_train, X_dev)}.items():
+    for k in (1, 3, 5, 7):
+        assert np.array_equal(knn_predict(A, y_train, B, k), knn_reference(A, y_train, B, k)), (name, k)
+assert np.array_equal(knn_classifier(3)(Z_train, y_train, Z_val), knn_predict(Z_train, y_train, Z_val, 3))
+
+# three neighbors with three different classes: the nearest one decides
+F_t = np.array([[0.0], [1.0], [2.0]])
+y_t = np.array([0, 1, 2])
+assert knn_predict(F_t, y_t, np.array([[0.2], [2.2]]), k=3).tolist() == [0, 2]
+
+# metrics on the lecture 1.4 example: 20 positives (15 found), 80 negatives (15 false alarms)
+y_true = np.array([SAND] * 20 + [FIRM] * 80)
+y_pred = np.array([SAND] * 15 + [FIRM] * 5 + [FIRM] * 65 + [SAND] * 15)
+m_c = metrics(y_true, y_pred)
+assert m_c["cm"].tolist() == [[65, 0, 15], [0, 0, 0], [5, 0, 15]]
+assert np.isclose(m_c["accuracy"], 0.80) and np.isclose(m_c["precision"][SAND], 0.5)
+assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)
+assert np.isfinite(m_c["f1"]).all() and m_c["f1"][ROUGH] == 0  # a class that never occurs scores 0, not nan
+print("reference checks passed")
+''')
+"""
+s = s.replace(anchor, new_cells)
+
+# ---- 2. checks on the pipeline and the table, right after the results table
+anchor2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n'
+assert s.count(anchor2) == 1
+pipe = anchor2 + r"""code('''
+# checks on the stored preprocessing, on repeatability and on the table
+tf = make_transform(True, 3)
+F = tf(X_fit)
+assert np.allclose(F.mean(axis=0), 0, atol=1e-9)
+assert np.allclose(np.cov(F.T), np.diag(PCA(n_components=3).fit(Z_fit).explained_variance_), atol=1e-8)
+
+rep_a, rep_b = fit_config(True, 2, "k-means"), fit_config(True, 2, "k-means")
+pred_a = rep_a["predict"](X_dev)
+assert np.array_equal(pred_a, rep_b["predict"](X_dev))
+assert len(pred_a) == h * w and set(np.unique(pred_a)) <= {FIRM, ROUGH, SAND}
+
+assert len(results) == 11 and results.index.is_unique
+assert results[["val_accuracy", "macro_f1", "sand_recall"]].apply(lambda col: col.between(0, 1)).all().all()
+for cid in results.index:
+    pv = fitted[cid]["predict"](X_val)
+    assert np.isclose(results.loc[cid, "val_accuracy"], accuracy_score(y_val, pv))
+    assert np.isclose(results.loc[cid, "sand_recall"], ((pv == SAND) & (y_val == SAND)).sum() / (y_val == SAND).sum())
+print("pipeline checks passed")
+''')
+"""
+s = s.replace(anchor2, pipe)
+
+# ---- 3. selection check
+old3 = 'r = results.loc[BEST]\n'
+assert s.count(old3) == 1
+s = s.replace(old3, old3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')
+
+open(p, "w", encoding="utf-8").write(s)
+print("tests added")
+PYEOF
+./venv/Scripts/python.exe -I addtests.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > addtests2.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+a1 = 'print("all checks passed")\n\'\'\')\n'
+a2 = 'display(results.style.format({"val_accuracy": "{:.3f}", "macro_f1": "{:.3f}", "sand_recall": "{:.3f}"}))\n\'\'\')\n'
+a3 = 'r = results.loc[BEST]\n'
+for a in (a1, a2, a3):
+    assert s.count(a) == 1, a[:50]
+
+s = s.replace(a1, open("ins1.txt", encoding="utf-8").read())
+s = s.replace(a2, open("ins2.txt", encoding="utf-8").read())
+s = s.replace(a3, a3 + 'assert np.isclose(r.macro_f1, results.macro_f1.max())\n')
+open(p, "w", encoding="utf-8").write(s)
+print("tests added")
+PYEOF
+./venv/Scripts/python.exe -I addtests2.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"`
+- `CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; ls "$CE" && "$CE" -c "
+import sys, numpy, pandas, sklearn, matplotlib, IPython
+print(sys.version.split()[0], numpy.__version__, pandas.__version__, sklearn.__version__, matplotlib.__version__)
+import nbformat, nbconvert, jupyter_client; print('nbformat', nbformat.__version__, 'nbconvert', nbconvert.__version__)
+" 2>&1 | tail -3`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|assert|AssertionError" ; "$CE" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+errs = [(i, o.ename, o.evalue) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
+print("cells:", len(nb.cells), "| errors:", errs)
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
+    for line in txt.splitlines():
+        if "passed" in line or "equals the lecture" in line or "sklearn" in line: print(f"cell {i}: {line}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > dbg.py <<'PYEOF'
+import numpy as np
+def sq_dists(A, B):
+    d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
+    np.maximum(d2, 0.0, out=d2)
+    return d2
+def assign_nearest(X, C):
+    d2 = sq_dists(X, C)
+    labels = d2.argmin(axis=1)
+    return labels, d2[np.arange(len(X)), labels]
+def centroids_from_labels(X, labels, k):
+    counts = np.bincount(labels, minlength=k).astype(float)
+    sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)
+    with np.errstate(invalid="ignore", divide="ignore"):
+        return sums / counts[:, None], counts
+def update_centroids(X, labels, C, d2min):
+    newC, counts = centroids_from_labels(X, labels, C.shape[0])
+    empty = np.flatnonzero(counts == 0)
+    if len(empty):
+        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]
+    return newC, len(empty)
+
+X_s = np.array([[0.0, 0.0], [2.0, 0.0], [10.0, 10.0], [12.0, 14.0]])
+lab_s = np.array([0, 0, 1, 1])
+C_s, n_s = centroids_from_labels(X_s, lab_s, 3)
+C_old = np.array([[1.0, 0.0], [11.0, 12.0], [99.0, 99.0]])
+_, d2min_s = assign_nearest(X_s, C_old[:2])
+print("d2min:", d2min_s)
+C_new, n_empty = update_centroids(X_s, lab_s, C_old, d2min_s)
+print("n_empty", n_empty); print("C_new\n", C_new); print("C_s\n", C_s)
+print("argsort(-d2):", np.argsort(-d2min_s), "| argmax:", d2min_s.argmax())
+print("first two rows equal:", np.allclose(C_new[:2], C_s[:2]), "| re-seed equal:", np.allclose(C_new[2], X_s[d2min_s.argmax()]))
+PYEOF
+D:/Apps/Miniconda/envs/csci-4521/python.exe dbg.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > fixstable.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = '        newC[empty] = X[np.argsort(-d2min)[:len(empty)]]'
+new = '        newC[empty] = X[np.argsort(-d2min, kind="stable")[:len(empty)]]  # stable sort: ties go to the lowest index'
+assert s.count(old) == 1
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("fixed")
+PYEOF
+./venv/Scripts/python.exe -I fixstable.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError" ; "$CE" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
+print("cells:", len(nb.cells), "| errors:", errs)
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    txt = "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream")
+    for line in txt.splitlines():
+        if "passed" in line or "equals the lecture" in line: print(f"cell {i}: {line}")
+PYEOF
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to user's earlier run: $f" || echo "DIFFERS: $f"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -m pip install -q coverage 2>&1 | grep -v notice; cat > covrun.py <<'PYEOF'
+import os, sys, ast, io, contextlib
+import nbformat, coverage
+
+nb_path = sys.argv[1]
+limit_marker = sys.argv[2] if len(sys.argv) > 2 else None   # stop after the cell that prints this text
+nb = nbformat.read(nb_path, as_version=4)
+
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+chunks, my_first_line, stop_after = [], None, None
+line_no = 1
+code_cells = []
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code":
+        continue
+    text = c.source + "\n"
+    if limit_marker and any(limit_marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        stop_after = i
+    code_cells.append((i, text))
+    if stop_after is not None:
+        break
+
+script, my_start = "", None
+for i, text in code_cells:
+    if i > start and my_start is None:
+        my_start = script.count("\n") + 1
+    script += text + "\n"
+open("cov_script.py", "w", encoding="utf-8").write(script)
+
+os.environ["MPLBACKEND"] = "Agg"
+cov = coverage.Coverage(include=["cov_script.py"])
+cov.start()
+ns = {"__name__": "__main__"}
+buf = io.StringIO()
+with contextlib.redirect_stdout(buf):
+    exec(compile(script, "cov_script.py", "exec"), ns)
+cov.stop()
+_, executable, _, missing, _ = cov.analysis2("cov_script.py")
+mine = [n for n in executable if n >= my_start]
+miss = [n for n in missing if n >= my_start]
+print(f"lines of my code: {len(mine)}, executed: {len(mine) - len(miss)}, coverage {100 * (len(mine) - len(miss)) / len(mine):.1f}%")
+
+# per-function view
+tree = ast.parse(script)
+funcs = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.lineno >= my_start]
+lines = script.splitlines()
+print(f"{'function':28s} {'lines':>5s} {'run':>5s}  missing")
+for f in funcs:
+    span = {n for n in executable if f.lineno <= n <= f.end_lineno}
+    m = sorted(n for n in miss if n in span)
+    print(f"{f.name:28s} {len(span):5d} {len(span) - len(m):5d}  {m if m else ''}")
+if miss:
+    print("\nuncovered lines:")
+    for n in miss:
+        print(f"  {n}: {lines[n - 1].strip()[:110]}")
+PYEOF
+echo "######## tests only (starter + setup + methods + all check cells, before any experiment)"; cd fresh2 && ../venv/Scripts/python.exe -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | tail -40`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > covbranch.py <<'PYEOF'
+import os, sys, io, json, contextlib
+import nbformat, coverage
+
+nb = nbformat.read(sys.argv[1], as_version=4)
+marker = sys.argv[2] if len(sys.argv) > 2 else None
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+cells, stop = [], False
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code":
+        continue
+    cells.append((i, c.source + "\n"))
+    if marker and any(marker in o.get("text", "") for o in c.outputs if o.output_type == "stream"):
+        break
+script, my_start = "", None
+for i, text in cells:
+    if i > start and my_start is None:
+        my_start = script.count("\n") + 1
+    script += text + "\n"
+open("cov_script.py", "w", encoding="utf-8").write(script)
+
+os.environ["MPLBACKEND"] = "Agg"
+cov = coverage.Coverage(include=["cov_script.py"], branch=True)
+cov.start()
+with contextlib.redirect_stdout(io.StringIO()):
+    exec(compile(script, "cov_script.py", "exec"), {"__name__": "__main__"})
+cov.stop()
+cov.json_report(outfile="cov.json", include=["cov_script.py"], quiet=True)
+rep = json.load(open("cov.json"))["files"]["cov_script.py"]
+ex, miss = rep["executed_lines"], rep["missing_lines"]
+exe_mine = [n for n in ex + miss if n >= my_start]
+miss_mine = [n for n in miss if n >= my_start]
+print(f"lines: {len(exe_mine) - len(miss_mine)}/{len(exe_mine)}")
+br_miss = [b for b in rep.get("missing_branches", []) if b[0] >= my_start]
+br_exec = [b for b in rep.get("executed_branches", []) if b[0] >= my_start]
+total_br = len(br_exec) + len(br_miss)
+print(f"branches: {len(br_exec)}/{total_br} taken" + ("" if not br_miss else f"  | untaken: {br_miss}"))
+lines = script.splitlines()
+for src, dst in br_miss:
+    print(f"   line {src} -> {dst}: {lines[src - 1].strip()[:100]}")
+for n in miss_mine:
+    print(f"   uncovered line {n}: {lines[n - 1].strip()[:100]}")
+PYEOF
+cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -i 's/cov.json_report(outfile="cov.json", include=\["cov_script.py"\], quiet=True)/cov.json_report(outfile="cov.json", include=["cov_script.py"])/' covbranch.py && cd fresh2 && echo "######## TESTS ONLY (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch3.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+
+# figure cell -> function plus a test cell
+a = s.index("from matplotlib.colors import ListedColormap")
+b = s.index("''')", a)
+s = s[:a] + open("ins3.txt", encoding="utf-8").read() + s[b:]
+
+# iteration-cap test next to the other kmeans checks
+old = 'assert np.isclose(km_b["inertia"], km_b["all_inertias"].min())\n'
+assert s.count(old) == 1
+new = old + ('\n# the iteration cap stops a start that has not converged yet\n'
+             'km_cap = kmeans(blobs, k=3, n_init=1, max_iter=1)\n'
+             'assert km_cap["iterations"] == 1 and not km_cap["converged"]\n')
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patch3.py && ./venv/Scripts/python.exe -I -c "import ast;ast.parse(open('build_nb3.py',encoding='utf-8').read());print('builder syntax ok')"
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
+import nbformat
+nb = nbformat.read("CSCI4521_HW2.ipynb", as_version=4)
+errs = [(i, o.ename) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error"]
+print("cells:", len(nb.cells), "| errors:", errs)
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
+        if "passed" in line or "drawn" in line: print(f"cell {i}: {line}")
+PYEOF
+for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$f" "$H/$f" && echo "IDENTICAL to earlier run: $f" || echo "DIFFERS: $f"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && echo "######## TESTS ONLY, before any experiment (line + branch)" && ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## WHOLE NOTEBOOK, top to bottom (line + branch)"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## per-function (tests only)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" 2>&1 | grep -v "Already on\|Your branch"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > mutate.py <<'PYEOF'
+import os, io, sys, contextlib, warnings
+warnings.filterwarnings("ignore")
+os.environ["MPLBACKEND"] = "Agg"
+base = open("cov_script.py", encoding="utf-8").read()
+
+MUTANTS = [
+    ("zscore_fit: drop the constant-sensor guard", "return mu, np.where(sd == 0, 1.0, sd)", "return mu, sd"),
+    ("sq_dists: flip the cross term sign", "- 2.0 * (A @ B.T)", "+ 2.0 * (A @ B.T)"),
+    ("assign_nearest: argmin -> argmax", "labels = d2.argmin(axis=1)", "labels = d2.argmax(axis=1)"),
+    ("centroids_from_labels: wrong divisor", "return sums / counts[:, None], counts", "return sums / (counts[:, None] + 1), counts"),
+    ("update_centroids: re-seed at the NEAREST point", 'np.argsort(-d2min, kind="stable")', "np.argsort(d2min, kind=\"stable\")"),
+    ("within_ss: drop the square", "return float(((X - C[labels]) ** 2).sum())", "return float(np.abs(X - C[labels]).sum())"),
+    ("kmeans: never detect convergence", "if np.array_equal(new_labels, labels):", "if False:"),
+    ("kmeans: keep the WORST start", 'if best is None or history[-1] < best["inertia"]:', 'if best is None or history[-1] > best["inertia"]:'),
+    ("name_clusters: fallback picks the WORST permutation", "best_perm = max(permutations(range(3))", "best_perm = min(permutations(range(3))"),
+    ("name_clusters: transpose the table", "np.add.at(table, (cl, y_train_int), 1)", "np.add.at(table, (y_train_int, cl), 1)"),
+    ("knn_predict: k=1 uses argmax", "return y_train_int[d2.argmin(axis=1)]", "return y_train_int[d2.argmax(axis=1)]"),
+    ("knn_predict: order the k neighbors farthest first", "np.argsort(d2[rows, nn], axis=1)]", "np.argsort(-d2[rows, nn], axis=1)]"),
+    ("metrics: F1 without the factor 2", "np.divide(2 * prec * rec, prec + rec", "np.divide(prec * rec, prec + rec"),
+    ("metrics: sand recall reads the wrong class", "sand_recall=rec[SAND])", "sand_recall=rec[ROUGH])"),
+]
+
+def run(src):
+    ns = {"__name__": "__main__"}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            exec(compile(src, "mutant.py", "exec"), ns)
+        return None
+    except BaseException as e:
+        return type(e).__name__
+
+print("baseline (no mutation):", "passes" if run(base) is None else "FAILS")
+killed = 0
+for name, old, new in MUTANTS:
+    assert base.count(old) == 1, (name, base.count(old))
+    err = run(base.replace(old, new))
+    status = f"killed by {err}" if err else "SURVIVED"
+    killed += err is not None
+    print(f"{status:28s} {name}")
+print(f"\nmutants killed: {killed}/{len(MUTANTS)}")
+PYEOF
+cd fresh2 && ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch4.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = "{km['empty_events']} empty clusters\")\n"
+assert s.count(old) == 1, s.count(old)
+new = old + ('\n# the best start is kept: on raw features the starts differ, and the returned objective is the smallest of them\n'
+             'km_raw = kmeans(X_fit, k=3)\n'
+             'assert km_raw["all_inertias"].max() > km_raw["inertia"]\n'
+             'assert np.isclose(km_raw["inertia"], km_raw["all_inertias"].min())\n')
+s = s.replace(old, new)
+open(p, "w", encoding="utf-8").write(s)
+print("patched")
+PYEOF
+./venv/Scripts/python.exe -I patch4.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; H="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; rm -rf "$SC/fresh2" && mkdir -p "$SC/fresh2" && cd "$SC/fresh2" && "$CE" "$SC/build_nb3.py" "$H/Homework2_RoverRescue_student.ipynb" "$SC/fresh2/CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; echo "--- coverage"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py CSCI4521_HW2.ipynb 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "--- mutation (tests-only script)"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py CSCI4521_HW2.ipynb "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch"`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && cp submission.csv "$SC/prev_submission.csv" && cp figures/hw2_configs.csv "$SC/prev_configs.csv" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|Writing|AssertionError"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+print("kernel used:", nb.metadata["kernelspec"], "| python", nb.metadata["language_info"]["version"])
+# store a generic kernel name so any grader's Jupyter or Colab opens it without a missing-kernel prompt
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+PYEOF
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL to the earlier verified run"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL to the earlier verified run"; ls -la CSCI4521_HW2.ipynb submission.csv practice_run.html figures | grep -E "HW2|submission|practice|hw2|fig1_pca|fig2_deploy"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; ./venv/Scripts/python.exe -I lintnb.py "$N"; echo "== pyflakes (starter-provided names filtered)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(none above = clean)"; echo "== pycodestyle"; ./venv/Scripts/python.exe -m pycodestyle --max-line-length=125 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head; echo "(none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
+import nbformat
+nb = nbformat.read(r"$N", as_version=4)
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+words = sum(len(c.source.split()) for c in nb.cells[start:] if c.cell_type == "markdown")
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+dash = [i for i, c in enumerate(nb.cells[start:], start) if "\u2014" in c.source or "\u2013" in c.source]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("cells", len(nb.cells), "| my prose words", words, "| error or stderr cells", errs, "| dash cells", dash)
+print("execution counts strictly increasing from 1:", counts[0] == 1 and all(a < b for a, b in zip(counts, counts[1:])), "| last", counts[-1])
+print("kernelspec:", nb.metadata["kernelspec"]["name"], "| python", nb.metadata["language_info"]["version"])
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch5.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+old = '"""lecture-style loop: distances for one query, take the k nearest, vote, a tied vote goes to the nearest tied neighbor"""'
+assert s.count(old) == 1
+s = s.replace(old, '"""lecture-style loop: k nearest by distance, vote, a tied vote goes to the nearest tied neighbor"""')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patch5.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+PYEOF
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && ./venv/Scripts/python.exe -I lintnb.py "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle at 120 columns: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && sed -n '363p;665p' mycode.py`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patch6.py <<'PYEOF'
+p = "build_nb3.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+swap('assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75) and np.isclose(m_c["f1"][SAND], 0.6)',
+     'assert np.isclose(m_c["recall"][SAND], 0.75) and np.isclose(m_c["sand_recall"], 0.75)\nassert np.isclose(m_c["f1"][SAND], 0.6)')
+swap('fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m, save_as="figures/fig2_deploy.png")',
+     'fig, axes = draw_deployment(practice_pred, path_p, practice_result, mission_pred, path_m,\n                            save_as="figures/fig2_deploy.png")')
+open(p, "w", encoding="utf-8").write(s)
+print("ok")
+PYEOF
+./venv/Scripts/python.exe -I patch6.py
+SC="$(pwd)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework" && rm -f submission.csv practice_run.html figures/fig1_pca.png figures/fig2_deploy.png figures/hw2_configs.csv && "$CE" "$SC/build_nb3.py" "Homework2_RoverRescue_student.ipynb" "CSCI4521_HW2.ipynb" >/dev/null && "$CE" -m jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 --ExecutePreprocessor.kernel_name=csci-4521 CSCI4521_HW2.ipynb 2>&1 | grep -E "Error|Traceback|AssertionError|Writing"; "$CE" -I - <<'PYEOF'
+import nbformat
+p = "CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+nb.metadata["kernelspec"] = {"display_name": "Python 3", "language": "python", "name": "python3"}
+nbformat.write(nb, p)
+PYEOF
+cmp -s submission.csv "$SC/prev_submission.csv" && echo "submission.csv IDENTICAL"; cmp -s figures/hw2_configs.csv "$SC/prev_configs.csv" && echo "hw2_configs.csv IDENTICAL"; cd "$SC" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb" && ./venv/Scripts/python.exe -I lintnb.py "$N" && ./venv/Scripts/python.exe -m pycodestyle --max-line-length=120 --ignore=E302,E305,E303,E402,W391,E731 mycode.py | head -5; echo "(pycodestyle 120 cols: none above = clean)"; ./venv/Scripts/python.exe -m pyflakes mycode.py | grep -vE "undefined name '(test|calibration_train|X_dev|fit_indices|train_indices|test_indices|config|sensor_columns|development|mission|X_mission|evaluate_practice|show_practice_run|BUNDLE_DIR)'"; echo "(pyflakes: none above = clean)"; ./venv/Scripts/python.exe -I - <<PYEOF
+import nbformat
+nb = nbformat.read(r"$N", as_version=4)
+errs = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.outputs if o.output_type == "error" or (o.output_type == "stream" and o.name == "stderr")]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("cells", len(nb.cells), "| error/stderr cells", errs, "| in-order run 1..", counts[-1], all(a < b for a, b in zip(counts, counts[1:])))
+for i, c in enumerate(nb.cells):
+    if c.cell_type != "code": continue
+    for line in "".join(o.get("text", "") for o in c.outputs if o.output_type == "stream").splitlines():
+        if "passed" in line or "drawn" in line: print(f"  cell {i}: {line}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/fresh2" && N="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb"; echo "######## coverage of the FINAL notebook in the Homework folder"; echo "tests only:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" "reference checks passed" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo "whole notebook:"; ../venv/Scripts/python.exe -W ignore -I ../covbranch.py "$N" 2>&1 | grep -v "Already on\|Your branch\|Wrote JSON"; echo; echo "######## mutation test against the FINAL notebook"; ../venv/Scripts/python.exe -W ignore -I ../covrun.py "$N" "reference checks passed" >/dev/null 2>&1; ../venv/Scripts/python.exe -W ignore -I ../mutate.py 2>&1 | grep -v "Already on\|Your branch" | tail -4`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && cat > patchnote.py <<'PYEOF'
+p = "gen_note.py"
+s = open(p, encoding="utf-8").read()
+a = s.index("Tests run:\n")
+b = s.index("Evidence (demo bundle, the confirmed dataset):")
+s = s[:a] + open("tests_block.txt", encoding="utf-8").read() + s[b:]
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+swap("has 42 cells: the starter cells unchanged", "has 46 cells: the starter cells unchanged")
+swap("- Figures were regenerated at print size", "- The deployment figure is a function so the checks can draw a stuck rover and a blocked goal. The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.\n- Figures were regenerated at print size")
+open(p, "w", encoding="utf-8").write(s)
+print("gen_note patched")
+PYEOF
+./venv/Scripts/python.exe -I patchnote.py && ./venv/Scripts/python.exe -I gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo; LC_ALL=C grep -cP "\xE2\x80[\x93\x94]" "$F"; grep -c "BUNDLE_OVERRIDE\|personalized" "$F"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe gen_note.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; echo "stale mentions (BUNDLE_OVERRIDE|personalized): $(grep -c 'BUNDLE_OVERRIDE\|personalized' "$F")"; grep -n "personalized\|BUNDLE_OVERRIDE" "$F" | cut -c1-160; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
 
 

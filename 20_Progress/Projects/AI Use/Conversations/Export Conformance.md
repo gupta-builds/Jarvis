@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-28
 tags:
   - project
   - ai
@@ -51,5 +51,12 @@ The exporter reads Claude Code's internal transcript JSONL directly. The docs wa
 Notes are `MM-DD {title}.md`, as the Standard says for Claude Code. Titles come from the last `ai-title` entry, else a slug of the first real human turn. A project folder is the cwd leaf, so a one-off directory creates a one-off project folder.
 ## Summaries
 Five summaries exist; four are Cursor, one is Claude Code. The Standard's summary family needs `source_note`, `decision_count`, `action_count`, and nine headings. The Claude Code summary is the Standard's gold standard example.
+## Corrections
+**2026-10-28.** The Windows exporter was fixed for notes it writes from now on. Notes already on disk keep their bytes; none was rewritten, so every count above still describes the old corpus. Checked by `scripts/run-all-tests.ps1` (all tests under PowerShell 7 and 5.1) and by exporting two real Acer sessions to a scratch folder, where the token totals matched an independent count exactly.
+- *Fixed, new notes only:* `status: seed` with `review_state: raw`, and `created` and `updated` as dates. UTF-8 written without a byte-order mark for notes, markers, and both rollup files. Marker and note-head reads now name UTF-8, so a title with an en dash still finds its own note on re-export. Rollups are `type: generated` with `generator: claude-session-exporter` and `gen_kind: index`. Bash and PowerShell commands are fenced blocks, so the Tasks plugin no longer parses command lines. Fences and inline spans grow past any backtick run in the content, and every line of an Edit diff carries its `-` or `+`.
+- *Fixed, new notes only:* prices for `claude-opus-5-5`, `claude-sonnet-5-5`, and `claude-haiku-5-5`. Cache reads on the two 5.5 models cost 0.05 of the input rate, not 0.1, so the old flat multiplier was also wrong for them. The Sonnet 5 rate of $2 and $10 is now the standard price, not an introductory one. Source: the Anthropic pricing page, read 2026-10-28.
+- *Fixed earlier, 2026-10-22:* token deduplication by message id and project routing (a session keeps the folder holding its marker). The "2 to 3 times too high" warning under Source format applies to notes written before that date.
+- *Still open:* the old notes (BOM, `status: raw`, no `created` or `updated`, inflated tokens, null costs, old rollup types). The Legacy Shapes migration has not run. The WSL exporter still writes `status: raw` with no `review_state`, `created`, or `updated`, rollups typed `dashboard`, no prices for the three 5.5 models, and a flat 0.1 cache-read rate.
+- *Still open, found while fixing:* Haiku 5.5 over 100,000 prompt tokens is billed at higher rates and is not priced; `claude-fable-5-1` has no table entry and gets a null cost; the command in a Bash or PowerShell call line and in the `Commands run` list is not passed through `Redact-Secrets`.
 ## Non-Goals
 This is a measurement, not a migration. Nothing was rewritten. The Legacy Shapes table in the Standard names the mechanical fixes; they stay unrun until the Standard is final.

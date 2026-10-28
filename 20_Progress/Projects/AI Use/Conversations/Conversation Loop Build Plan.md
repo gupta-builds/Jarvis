@@ -108,15 +108,15 @@ The loop is running when 1 to 7 are true. It is closed only after the first Inte
 Each prompt is an Agent Prompt note in `Prompts/`: run-by line, guide link, then the whole prompt in one fenced block. The first three are written in full. The next three are detailed and get refined by what the first three return. The last three are drafts, refined as each earlier phase returns.
 | Phase | Task | Runs on | Done when |
 |---|---|---|---|
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot\|P0]] | Retention to 60 days and a transcript snapshot | Sonnet 5.5, medium | Setting read back, snapshot counts match, sweep check pending |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Correctness\|P1]] | Exporter: prices, frontmatter, encoding, readable commands, one test runner | Sonnet 5.5, medium | All tests green in both shells, two real sessions within 5% |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Project Routing and Acer Re-export\|P2]] | Project routing file, reroute with approval gate, re-export, coverage script | Sonnet 5.5, high | Coverage script clean, transcript count unchanged |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Hook Timing and Failure Record\|P3]] | Time the hook, record every export result | Sonnet 5.5, medium | Timing table and `export_result` lines |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Design Postmortem\|P4]] | Stress test of the loop design | Opus 5.5, high | A finding per layer, each keep, change or cut |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Review Notes and First Hand Review\|P5]] | Weekly note shape and the first review by hand | Sonnet 5.5, medium, with the owner | Weekly note and one ledger row |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Event Capture Hook\|P6]] | Event hook | Sonnet 5.5, high | Pinned schema, concurrency and overhead tests |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Weekly Digest\|P7]] | Weekly digest | Sonnet 5.5, medium | Golden test, owner's ten-prompt hand count |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Schedules and Review Nudge\|P8]] | Scheduled digest, review skeleton, `/startday` nudge, timetable | Sonnet 5.5, medium | Task result 0, skeleton created once |
+| [[P0 - Retention and Transcript Snapshot\|P0]] | Retention to 60 days and a transcript snapshot | Sonnet 5.5, medium | Setting read back, snapshot counts match, sweep check pending |
+| [[P1 - Exporter Correctness\|P1]] | Exporter: prices, frontmatter, encoding, readable commands, one test runner | Sonnet 5.5, medium | All tests green in both shells, two real sessions within 5% |
+| [[P2 - Project Routing and Acer Re-export\|P2]] | Project routing file, reroute with approval gate, re-export, coverage script | Sonnet 5.5, high | Coverage script clean, transcript count unchanged |
+| [[P3 - Hook Timing and Failure Record\|P3]] | Time the hook, record every export result | Sonnet 5.5, medium | Timing table and `export_result` lines |
+| [[P4 - Design Postmortem\|P4]] | Stress test of the loop design | Opus 5.5, high | A finding per layer, each keep, change or cut |
+| [[P5 - Review Notes and First Hand Review\|P5]] | Weekly note shape and the first review by hand | Sonnet 5.5, medium, with the owner | Weekly note and one ledger row |
+| [[P6 - Event Capture Hook\|P6]] | Event hook | Sonnet 5.5, high | Pinned schema, concurrency and overhead tests |
+| [[P7 - Weekly Digest\|P7]] | Weekly digest | Sonnet 5.5, medium | Golden test, owner's ten-prompt hand count |
+| [[P8 - Schedules and Review Nudge\|P8]] | Scheduled digest, review skeleton, `/startday` nudge, timetable | Sonnet 5.5, medium | Task result 0, skeleton created once |
 Written after the phases above report, because they need their results:
 | Phase | Task | Needs first |
 |---|---|---|

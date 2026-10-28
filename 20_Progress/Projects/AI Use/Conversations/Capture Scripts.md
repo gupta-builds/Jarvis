@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-28
 tags:
   - project
   - ai
@@ -29,14 +29,15 @@ One card per script, as the code stands on 2026-10-21. Paths are relative to `30
 - *Failure:* every side effect sits in an empty `catch`, and the script always exits 0. It cannot block Claude Code and cannot report a failure.
 - *Cost:* runs the exporter on every `Stop`, which is every assistant turn.
 - *Settings:* the `Stop` and `SessionEnd` entries in `C:\Users\anant\.claude\settings.json` set no `timeout` and no `async` (read 2026-10-21). The docs say `SessionEnd` hooks share a 1.5-second budget unless a longer `timeout` is set (up to 60 seconds), and that `async: true` runs a command hook "in the background without blocking". By that wording, the exporter blocks the end of every turn and a `SessionEnd` export may be cut off. Neither has been timed.
-### `scripts/export-claude-session.ps1` (871 lines)
+### `scripts/export-claude-session.ps1` (1,004 lines)
 - *Parameters:* `-TranscriptPath`, `-SessionId`, `-Cwd`, `-SourceApp` (`ClaudeCode` or `Cowork`), `-BackfillAll`, `-DryRun`.
+- *Test override:* the environment variable `JARVIS_CAPTURE_OUTROOT` replaces the computed output root so tests and real-transcript checks write to a scratch folder. Test only; the hook and the scheduled task never set it.
 - *Machine:* host name `desktop-3vbg0jh` is Dell, `gupta-builds` is Acer, anything else returns nothing and logs to `%LOCALAPPDATA%\claude-capture\unknown-host.log`.
 - *Project:* `Get-ProjectName` maps `c:\users\anant` and `c:\users\anant gupta` to `Home`, two old-vault paths to `Jarvis` and `The Plan`, and uses the cwd leaf for everything else. That is why `Code`, `CSCI 5304`, `denytest`, `Plans`, and `Jesse` exist as project folders on the Acer. An empty cwd gives `Unknown`.
-- *Price table:* nine models, dollars per million tokens: `claude-fable-5`, `claude-mythos-5`, `claude-opus-5`, `claude-opus-4-8`, `-4-7`, `-4-6`, `claude-sonnet-5` (2.00 input, 10.00 output), `claude-sonnet-4-6`, `claude-haiku-4-5`. A model with no entry makes the session's `cost_usd` null. No entry for `opus-5-5`, `sonnet-5-5`, or `haiku-5-5`.
+- *Price table:* twelve models, dollars per million tokens, each with its own cache-read multiplier (0.05 for `claude-opus-5-5` and `claude-sonnet-5-5`, 0.1 for the rest). Added 2026-10-28: `claude-opus-5-5` (4.00 and 20.00), `claude-sonnet-5-5` (2.00 and 10.00), `claude-haiku-5-5` (0.10 and 0.50, the up-to-100,000-token rate). Cache writes are 1.25x (5 minutes) and 2x (1 hour) of input. A model with no entry (`claude-fable-5-1` today) makes the session's `cost_usd` null.
 - *Redaction:* `Redact-Secrets` applies eight regex rules: `sk-ant-`, `sk-`, `ghp_`, `xox*-`, `AKIA`, `Bearer` tokens, `SetEnvironmentVariable` values, and a catch-all for any 24-plus character token mixing letters and digits.
-- *Rendering:* `Format-ToolCall` writes each tool call as a list line. Bash and PowerShell commands go in an inline backtick span, not a fenced block. Write contents and Edit diffs go in fenced blocks.
-- *Output:* the note, the `.exported/<id>.done` marker, the `_raw_jsonl` junction, and both `00 -` rollup files (`Update-Rollups`, typed `index`).
+- *Rendering:* `Format-ToolCall` writes each tool call as a list line. Bash and PowerShell commands, their results, Write contents, and Edit and MultiEdit diffs go in fenced blocks (`bash` and `powershell` tagged for commands; every diff line carries `-` or `+`). Read, Grep, Glob, and the default JSON dump for Agent, Skill, and MCP calls stay one-line inline spans. Helpers: `Get-Fence` and `Format-InlineCode` size the delimiter past any backtick run in the content, `Write-Utf8NoBom` writes without a byte-order mark.
+- *Output:* the note, the `.exported/<id>.done` marker, the `_raw_jsonl` junction, and both `00 -` rollup files (`Update-Rollups`, typed `generated`, `gen_kind: index`). Frontmatter carries `status: seed`, `review_state: raw`, `created`, and `updated`.
 - *Modes:* single session from the hook, a full walk of top-level transcripts with `-BackfillAll`, and `-DryRun`, which reports seen, duplicate, legacy, and pending counts without writing.
 - *Logging:* none to disk except the unknown-host line. Counts go to the console.
 ### `scripts/wsl-session-export.ps1` (760 lines)
@@ -47,8 +48,10 @@ One card per script, as the code stands on 2026-10-21. Paths are relative to `30
 - Takes `-TaskLabel Windows|WSL` and `-ExitCode`. Appends `{timestamp, exitCode}` to `logs/capture-health-<label>.json`, keeping the last 20, then rewrites `00 - Capture Health.md` with the last 10 rows per label and a warning callout after 3 consecutive failures. No model calls. It records the exit code only: not how many sessions were seen, written, skipped, or failed.
 ### `scripts/register-capture-backfill-windows-task.ps1` (82 lines)
 - Registers `ConversationCapture-Backfill-Windows` on the Acer only (it refuses any other host). Dry run unless `-Apply`. Settings were copied from the Dell's task on 2026-10-17: 30-minute repetition for 3,650 days, `RestartCount` 3 at `PT2M`, hidden, start when available, 10-minute limit, ignore new instances, and it runs on battery. Logs to `%LOCALAPPDATA%\claude-capture\register-task.log`. There is no equivalent script for the Dell, and none for WSL timers.
-### `scripts/test-token-aggregation.ps1` (68 lines)
-- Dot-sources the exporter, feeds it a hand-built fake transcript with known numbers, and diffs the written frontmatter. The only test in the capture path. Not wired to anything.
+### `scripts/run-all-tests.ps1` (33 lines) and the `test-*.ps1` files
+- The runner runs every `test-*.ps1` in `scripts/` under `pwsh` and under `powershell.exe` (the hook's shell), prints one PASS or FAIL line per test per shell, and exits non-zero if any fail. Run by hand; nothing schedules it.
+- `test-exporter-output.ps1` (207 lines): synthetic transcripts for frontmatter, no BOM, rollup typing, fenced and inline rendering, per-model cost, and an en dash title surviving a second export. Takes `-ExporterPath` to run against another copy of the exporter.
+- `test-token-dedup.ps1` (93 lines): one count per message id in both exporters. `test-project-routing.ps1` (82 lines): project naming and the folder a session keeps. `test-token-aggregation.ps1` (87 lines): tool, token, and cost totals; rewritten 2026-10-28 to build its own transcript, because the fake one it used no longer existed and it had been failing.
 ## Neighbors in the same folder
 - `hooks/jarvis-write-guard.ps1` (95) and `hooks/jarvis-internship-note-guard.ps1` (126): vault write rules and internship frontmatter checks on `PreToolUse` and `PostToolUse`. Not capture. The internship guard writes `logs/internship-note-guard.jsonl`.
 - `scripts/git-auto-sync.ps1` (458), its register script, and its VBS launcher: the 30-minute commit and push that carries the notes.

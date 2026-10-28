@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-28
 tags:
   - project
   - ai
@@ -37,6 +37,7 @@ WSL mirrors the Windows host name, so the same lookup serves both OSes. A third 
 | `SessionStart` hook | not registered | the script has a branch for it that never runs |
 | `PreToolUse` guard (Write, Edit, MultiEdit) | project `.claude/settings.json` | `jarvis-write-guard.ps1` |
 | `PostToolUse` guard (Write, Edit, MultiEdit) | project `.claude/settings.json` | `jarvis-internship-note-guard.ps1` |
+| `cleanupPeriodDays` | `C:\Users\anant\.claude\settings.json` | `60`, set 2026-10-28 (was the 30-day default). Safety copy: `D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22`, 272 `.jsonl` files, 633,702,146 bytes. Retention check pending, run on or after 2026-10-30 |
 Neither entry carries a `timeout` or `async` key, so `SessionEnd` runs under the documented 1.5-second budget and both run in the foreground (see the postmortem, finding 12). The hook command is an absolute path into the vault, so it follows the vault if the vault is cloned to the same place and breaks if it is not.
 | Task | Cadence | Last run | Result | Registered by |
 |---|---|---|---|---|

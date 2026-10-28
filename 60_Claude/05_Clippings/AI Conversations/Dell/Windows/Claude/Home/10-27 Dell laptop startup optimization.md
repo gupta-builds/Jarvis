@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Dell laptop startup optimization"
 started_at: 2026-10-27T21:47:09
 ended_at: 2026-10-27T22:33:56
-exported_at: 2026-10-28T14:30:02
+exported_at: 2026-10-28T15:30:02
 duration_minutes: 46.8
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: 18b7c8ff-15cc-4a55-a126-df861fb8eab5
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-27
+updated: 2026-10-28
 turn_count: 7
 tools_used:
   Glob: 1
@@ -24,7 +27,7 @@ tokens:
   cache_creation: 137048
   cache_read: 2530243
   total: 2708381
-cost_usd: null
+cost_usd: 1.21178
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -159,8 +162,209 @@ After you reboot, tell me and I'll list what launched and when, to confirm the 4
 
 ### Tool Calls
 
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== SYSTEM ===\"\nGet-CimInstance Win32_ComputerSystem | Select Manufacturer,Model,TotalPhysicalMemory | fl\nGet-CimInstance Win32_BIOS | Select SMBIOSBIOSVersion,ReleaseDate | fl\nGet-CimInstance Win32_Processor | Select Name,NumberOfCores,NumberOfLogicalProcessors | fl\n\"=== RUN KEYS ===\"\nforeach($p in \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\u0027,\u0027HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\u0027,\u0027HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\u0027){ \"--- $p\"; (Get-ItemProperty $p).PSObject.Properties | ?{$_.Name -notmatch \u0027^PS\u0027} | %{ \"$($_.Name) = $($_.Value)\" } }\n\"=== STARTUP APPROVED (disabled=03/other) ===\"\nforeach($p in \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\u0027,\u0027HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\u0027,\u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\StartupFolder\u0027){ \"--- $p\"; (Get-ItemProperty $p).PSObject.Properties | ?{$_.Name -notmatch \u0027^PS\u0027} | %{ \"$($_.Name) = $(($_.Value[0..3]) -join \u0027,\u0027)\" } }\n\"=== STARTUP FOLDERS ===\"\nGet-ChildItem \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\",\"$env:ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\StartUp\" -Force | Select FullName\n\"=== TASKS (logon/boot triggers, non-Microsoft) ===\"\nGet-ScheduledTask | ?{$_.State -ne \u0027Disabled\u0027 -and $_.TaskPath -notmatch \u0027^\\\\Microsoft\\\\\u0027} | %{ $t=$_; $trg=($t.Triggers | %{$_.CimClass.CimClassName -replace \u0027MSFT_TaskTrigger\u0027,\u0027\u0027}) -join \u0027,\u0027; \"$($t.TaskPath)$($t.TaskName) [$($t.State)] triggers=$trg\" }","description":"Audit startup entries, tasks, and system info"}`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== AUTO-START SERVICES (non-Microsoft/non-core) ===\"\nGet-CimInstance Win32_Service | ?{$_.StartMode -eq \u0027Auto\u0027 -and $_.PathName -notmatch \u0027System32\\\\(svchost|lsass|services)|Windows Defender|MsMpEng|NisSrv\u0027} | Select Name,State,@{n=\u0027Path\u0027;e={$_.PathName.Substring(0,[Math]::Min(100,$_.PathName.Length))}} | ft -AutoSize -Wrap | Out-String -Width 250\n\"=== TOP PROCESSES BY MEMORY ===\"\nGet-Process | Sort WS -Desc | Select -First 25 Name,Id,@{n=\u0027MB\u0027;e={[int]($_.WS/1MB)}} | ft -AutoSize\n\"=== BATTERY ===\"\nGet-CimInstance Win32_Battery | Select Name,EstimatedChargeRemaining,BatteryStatus,DesignVoltage | fl\npowercfg /getactivescheme\n\"=== SYNCTHING TASK ===\"\n(Get-ScheduledTask \[REDACTED]\u0027).Settings | Select DisallowStartIfOnBatteries,StopIfGoingOnBatteries\n\"=== INSTALLED (startup-relevant) ===\"\nGet-ItemProperty HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | ?{$_.DisplayName -match \u0027Dell|Malwarebytes|Toggl|Obsidian|Vivaldi|Tailscale|Syncthing|PowerToys|Google Drive|ChatGPT|Claude|Windhawk|Intel|NVIDIA|AMD|Killer|Realtek|Waves\u0027} | Select DisplayName,DisplayVersion | Sort DisplayName | ft -AutoSize","description":"Audit services, processes, battery, installed apps"}`
+- `PowerShell`
+```powershell
+$ErrorActionPreference='SilentlyContinue'
+"=== SYSTEM ==="
+Get-CimInstance Win32_ComputerSystem | Select Manufacturer,Model,TotalPhysicalMemory | fl
+Get-CimInstance Win32_BIOS | Select SMBIOSBIOSVersion,ReleaseDate | fl
+Get-CimInstance Win32_Processor | Select Name,NumberOfCores,NumberOfLogicalProcessors | fl
+"=== RUN KEYS ==="
+foreach($p in 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run','HKLM:\Software\Microsoft\Windows\CurrentVersion\Run','HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run'){ "--- $p"; (Get-ItemProperty $p).PSObject.Properties | ?{$_.Name -notmatch '^PS'} | %{ "$($_.Name) = $($_.Value)" } }
+"=== STARTUP APPROVED (disabled=03/other) ==="
+foreach($p in 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run','HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run','HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\StartupFolder'){ "--- $p"; (Get-ItemProperty $p).PSObject.Properties | ?{$_.Name -notmatch '^PS'} | %{ "$($_.Name) = $(($_.Value[0..3]) -join ',')" } }
+"=== STARTUP FOLDERS ==="
+Get-ChildItem "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup","$env:ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp" -Force | Select FullName
+"=== TASKS (logon/boot triggers, non-Microsoft) ==="
+Get-ScheduledTask | ?{$_.State -ne 'Disabled' -and $_.TaskPath -notmatch '^\\Microsoft\\'} | %{ $t=$_; $trg=($t.Triggers | %{$_.CimClass.CimClassName -replace 'MSFT_TaskTrigger',''}) -join ','; "$($t.TaskPath)$($t.TaskName) [$($t.State)] triggers=$trg" }
+```
+```
+=== SYSTEM ===
+
+Manufacturer        : Dell Inc.
+Model               : Latitude 5530
+TotalPhysicalMemory : 34029125632
+
+
+SMBIOSBIOSVersion : 1.38.0
+ReleaseDate       : 7/23/2026 7:00:00 PM
+
+
+Name                      : 12th Gen Intel(R) Core(TM) i7-1255U
+NumberOfCores             : 10
+NumberOfLogicalProcessors : 12
+
+=== RUN KEYS ===
+--- HKCU:\Software\Microsoft\Windows\CurrentVersion\Run
+Discord = "C:\Users\Anant Gupta\AppData\Local\Discord\Update.exe" --processStart Discord.exe
+GoogleDriveFS = "C:\Program Files\Google\Drive File Stream\132.0.0.0\GoogleDriveFS.exe" --startup_mode
+Spotify = C:\Users\Anant Gupta\AppData\Roaming\Spotify\Spotify.exe --autostart --minimized
+Docker Desktop = C:\Program Files\Docker\Docker\Docker Desktop.exe
+Voquill = C:\Users\Anant Gupta\AppData\Local\Voquill\Voquill.exe --voquill-autostart-hidden
+com.squirrel.slack.slack = "C:\Users\Anant Gupta\AppData\Local\slack\slack.exe" --process-start-args --startup
+--- HKLM:\Software\Microsoft\Windows\CurrentVersion\Run
+SecurityHealth = C:\WINDOWS\system32\SecurityHealthSystray.exe
+WavesSvc = "C:\WINDOWS\System32\DriverStore\FileRepository\wavesapo11de.[REDACTED]\WavesSvc64.exe" -Jack
+RtkAudUService = "C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.[REDACTED]\RtkAudUService64.exe" -background
+--- HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+=== STARTUP APPROVED (disabled=03/other) ===
+--- HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run
+[REDACTED] = 2,0,0,0
+OneDrive = 2,0,0,0
+Discord = 3,0,0,0
+Docker Desktop = 3,0,0,0
+GoogleDriveFS = 3,0,0,0
+Spotify = 3,0,0,0
+[REDACTED] = 2,0,0,0
+Voquill = 3,0,0,0
+com.squirrel.slack.slack = 3,0,0,0
+--- HKLM:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run
+SecurityHealth = 6,0,0,0
+RtkAudUService = 2,0,0,0
+Riot Vanguard = 3,0,0,0
+WavesSvc = 2,0,0,0
+DubbingAI = 3,0,0,0
+Logitech Download Assistant = 3,0,0,0
+--- HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\StartupFolder
+Wispr Flow.lnk = 3,0,0,0
+Ollama.lnk = 3,0,0,0
+=== STARTUP FOLDERS ===
+
+FullName
+--------
+C:\Users\Anant Gupta\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini
+C:\Users\Anant Gupta\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Ollama.lnk
+C:\Users\Anant Gupta\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\Wispr Flow.lnk
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup\desktop.ini
+=== TASKS (logon/boot triggers, non-Microsoft) ===
+\ConversationCapture-Backfill-Windows [Ready] triggers=MSFT_TaskTimeTrigger
+\CreateExplorerShellUnelevatedTask [Ready] triggers=MSFT_TaskRegistrationTrigger
+\Jarvis-Cursor-Session-Export [Ready] triggers=MSFT_TaskDailyTrigger
+\Jarvis-Syncthing-Health [Ready] triggers=MSFT_TaskDailyTrigger
+\Jarvis-WeeklyReview [Ready] triggers=MSFT_TaskWeeklyTrigger
+\Syncthing [Running] triggers=MSFT_TaskLogonTrigger
+\ThePlan-GitSync [Ready] triggers=MSFT_TaskDailyTrigger
+\Toolkit-Watch-C [Ready] triggers=MSFT_TaskDailyTrigger
+\Toolkit-Weekly-Clean [Ready] triggers=MSFT_TaskWeeklyTrigger
+\[REDACTED] [Ready] triggers=MSFT_TaskDailyTrigger
+\WindhawkRunUITask [Ready] triggers=
+\[REDACTED] [Ready] triggers=MSFT_TaskDailyTrigger
+\PowerToys\Autorun for Anant Gupta [Ready] triggers=MSFT_TaskLogonTrigger
+\SoftLanding\[REDACTED]\SoftLandingCreativeManagementTask [Ready] triggers=,MSFT_TaskTimeTrigger,MSFT_TaskTimeTrigger
+```
+- `PowerShell`
+```powershell
+$ErrorActionPreference='SilentlyContinue'
+"=== AUTO-START SERVICES (non-Microsoft/non-core) ==="
+Get-CimInstance Win32_Service | ?{$_.StartMode -eq 'Auto' -and $_.PathName -notmatch 'System32\\(svchost|lsass|services)|Windows Defender|MsMpEng|NisSrv'} | Select Name,State,@{n='Path';e={$_.PathName.Substring(0,[Math]::Min(100,$_.PathName.Length))}} | ft -AutoSize -Wrap | Out-String -Width 250
+"=== TOP PROCESSES BY MEMORY ==="
+Get-Process | Sort WS -Desc | Select -First 25 Name,Id,@{n='MB';e={[int]($_.WS/1MB)}} | ft -AutoSize
+"=== BATTERY ==="
+Get-CimInstance Win32_Battery | Select Name,EstimatedChargeRemaining,BatteryStatus,DesignVoltage | fl
+powercfg /getactivescheme
+"=== SYNCTHING TASK ==="
+(Get-ScheduledTask 'Jarvis-Syncthing-Health').Settings | Select DisallowStartIfOnBatteries,StopIfGoingOnBatteries
+"=== INSTALLED (startup-relevant) ==="
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*,HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*,HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -match 'Dell|Malwarebytes|Toggl|Obsidian|Vivaldi|Tailscale|Syncthing|PowerToys|Google Drive|ChatGPT|Claude|Windhawk|Intel|NVIDIA|AMD|Killer|Realtek|Waves'} | Select DisplayName,DisplayVersion | Sort DisplayName | ft -AutoSize
+```
+```
+=== AUTO-START SERVICES (non-Microsoft/non-core) ===
+
+Name                                      State   Path
+----                                      -----   ----
+CodexSandboxService.OpenAI.Codex          Running "C:\Program Files\WindowsApps\OpenAI.Codex_26.1021.3705.0_x64__2p2nqsd0c76g0\app\resources\codex-win
+CoworkVMService                           Running "C:\Program Files\WindowsApps\Claude_2.37337.1.0_x64__pzs8sxrjxfjjc\app\resources\cowork-svc.exe"
+cplspcon                                  Running C:\WINDOWS\System32\DriverStore\FileRepository\iigd_dch.[REDACTED]\IntelCpHDCPSvc.ex
+DellClientManagementService               Running "C:\Program Files (x86)\Dell\UpdateService\ServiceShell.exe"
+DellTechHub                               Running "C:\Program Files\Dell\TechHub\Dell.TechHub.exe"
+dptftcs                                   Running C:\WINDOWS\System32\DriverStore\FileRepository\dtt_sw.[REDACTED]\ipfsvc.exe
+edgeupdate                                Stopped "C:\Program Files (x86)\Microsoft\EdgeUpdate\MicrosoftEdgeUpdate.exe" /svc
+[REDACTED].0.8089.0  Stopped "C:\Program Files (x86)\Google\GoogleUpdater\157.0.8089.0\updater.exe" --system --windows-service --
+GoogleUpdaterService157.0.8089.0          Stopped "C:\Program Files (x86)\Google\GoogleUpdater\157.0.8089.0\updater.exe" --system --windows-service --
+hostcontrolsvc                            Running C:\WINDOWS\System32\bcmHostControlService.exe
+hoststoragesvc                            Running C:\WINDOWS\System32\bcmHostStorageService.exe
+Intel(R) Platform License Manager Service Stopped C:\WINDOWS\System32\DriverStore\FileRepository\iclsclient.[REDACTED]\lib\PlatformLic
+IntelAudioService                         Running C:\WINDOWS\System32\DriverStore\FileRepository\intcoed.[REDACTED]\AS\IAS\IntelAudioS
+IntelGraphicsSoftwareService              Running "C:\Program Files\WindowsApps\AppUp.IntelArcSoftware_26.36.2702.0_x64__8j3eq9eme6ctt\VFS\ProgramFile
+ipfsvc                                    Running C:\WINDOWS\System32\DriverStore\FileRepository\ipf_cpu.[REDACTED]\ipf_uf.exe
+jhi_service                               Running C:\WINDOWS\System32\DriverStore\FileRepository\dal.[REDACTED]\jhi_service.exe
+MBAMService                               Stopped "C:\Program Files\Malwarebytes\Anti-Malware\MBAMService.exe"
+RtkAudioUniversalService                  Running C:\WINDOWS\System32\DriverStore\FileRepository\realtekservice.[REDACTED]\RtkAudUServ
+Spooler                                   Running C:\WINDOWS\System32\spoolsv.exe
+sppsvc                                    Stopped C:\WINDOWS\system32\sppsvc.exe
+ushupgradesvc                             Running C:\WINDOWS\System32\bcmUshUpgradeService.exe
+vmms                                      Running C:\WINDOWS\system32\vmms.exe
+WavesAudioService                         Running C:\WINDOWS\System32\DriverStore\FileRepository\wavesapo11de.[REDACTED]\WavesAudioSer
+WavesSysSvc                               Running C:\WINDOWS\System32\DriverStore\FileRepository\wavesapo11de.[REDACTED]\WavesSysSvc64
+Windhawk                                  Running "C:\Program Files\Windhawk\windhawk.exe" -service
+WMIRegistrationService                    Running C:\WINDOWS\System32\DriverStore\FileRepository\mewmiprov.[REDACTED]\WMIRegistrationS
+WSearch                                   Running C:\WINDOWS\system32\SearchIndexer.exe /Embedding
+WSLService                                Running "C:\Program Files\WSL\wslservice.exe"
+
+
+=== TOP PROCESSES BY MEMORY ===
+
+Name                                        Id   MB
+----                                        --   --
+Memory Compression                        3380 1528
+Obsidian                                 21380 1037
+vmmemWSL                                  4932  650
+MsMpEng                                   4788  537
+vivaldi                                  15348  467
+claude                                    8996  462
+vivaldi                                  17668  423
+vivaldi                                  23624  389
+explorer                                 12112  388
+ChatGPT                                  17372  325
+Dell.TechHub.Instrumentation.SubAgent     7452  275
+ChatGPT                                  15736  261
+vivaldi                                  15808  247
+vivaldi                                  19712  240
+WavesSysSvc64                             4812  225
+ChatGPT                                  19312  212
+ChatGPT                                  17404  211
+vivaldi                                  24060  190
+StartMenuExperienceHost                  25436  176
+vivaldi                                  11560  156
+vivaldi                                  21068  155
+vivaldi                                   8760  154
+SearchHost                               25376  149
+powershell                               12948  135
+Dell.TechHub.Instrumentation.UserProcess 14300  132
+
+=== BATTERY ===
+
+Name                     : DELL Y86WG12
+EstimatedChargeRemaining : 100
+BatteryStatus            : 2
+DesignVoltage            : 16450
+
+Power Scheme GUID: [REDACTED]  (Ultimate Performance)=== SYNCTHING TASK ===
+
+DisallowStartIfOnBatteries StopIfGoingOnBatteries
+-------------------------- ----------------------
+                      True                   True
+=== INSTALLED (startup-relevant) ===
+
+
+DisplayName                                           DisplayVersion
+-----------                                           --------------
+Dell Command | Update for Windows Universal           5.7.2
+Dell Core Services                                    1.15.18.0
+Dell SupportAssist OS Recovery Plugin for Dell Update 5.5.16.3
+Dell SupportAssist OS Recovery Plugin for Dell Update 5.5.16.3
+Google Drive                                          132.0.0.0
+Intel(R) Graphics Software & Drivers                  1.0.1168.1
+Intel® Software Installer                             23.20.1.1
+Malwarebytes version 5.7.2.358                        5.7.2.358
+Obsidian                                              1.9.12
+PowerToys (Preview)                                   0.100.2
+PowerToys (Preview) x64                               0.100.2
+Realtek Audio Driver                                  6.0.9954.2
+Toggl 1.7.2                                           1.7.2
+Vivaldi                                               8.2.4133.94
+Windhawk v1.7.3                                       1.7.3
+```
 - `Grep` -- pattern `stagger|45 ?s|Startup` path `D:\Users\_Anant\10_Areas\Documents\Jarvis`
 - `Grep` -- pattern `stagger|Stagger|Startup-|Delay|logon trigger|Battery Health|Dell Command` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
 - `Glob` -- pattern `**/*{stagger,Stagger,startup,Startup}*` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
@@ -169,14 +373,990 @@ After you reboot, tell me and I'll list what launched and when, to confirm the 4
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude\Home\10-26 Startup programs on laptop boot.md`
 - `Grep` -- pattern `stagger|45 ?s|Start-Sleep|Delay|Startup-Stagger|\.ps1|\.vbs|PT45S` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude\Home\10-26 Startup programs on laptop boot.md`
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude\Home\10-26 Startup programs on laptop boot.md`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== ELEVATED? ===\"; ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)\n\"=== POWER PLANS ===\"; powercfg /list\n\"=== FAST STARTUP / HIBERNATE ===\"; (Get-ItemProperty \u0027HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Power\u0027).HiberbootEnabled\n\"RestartApps=\"; (Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\u0027).RestartApps\n\"=== DEFENDER ===\"; Get-MpComputerStatus | Select AMServiceEnabled,RealTimeProtectionEnabled,AntivirusEnabled,AMProductVersion,AntivirusSignatureLastUpdated | fl\nGet-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct | Select displayName,productState | fl\n\"=== MALWAREBYTES leftovers ===\"\nGet-Service | ?{$_.DisplayName -match \u0027Malwarebytes|MBAM\u0027} | Select Name,Status,StartType | ft\nGet-ScheduledTask | ?{$_.TaskName -match \u0027Malwarebytes|MBAM\u0027} | Select TaskPath,TaskName,State | ft\nGet-Process | ?{$_.Name -match \u0027mbam|malwarebytes\u0027} | Select Name,Id\n\"=== STORE APP STARTUP TASKS ===\"\n$base=\u0027HKCU:\\Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\SystemAppData\u0027\nGet-ChildItem $base | %{ $pn=$_.PSChildName; Get-ChildItem $_.PSPath | %{ $v=Get-ItemProperty $_.PSPath; \"$pn | $($_.PSChildName) | State=$($v.State)\" } }\n\"=== WT startup settings ===\"\n$wt=Get-ChildItem \"$env:LOCALAPPDATA\\Packages\\Microsoft.WindowsTerminal*\\LocalState\\settings.json\"; $wt.FullName\nSelect-String -Path $wt.FullName -Pattern \u0027startOnUserLogin|startupActions|launchMode|defaultProfile|\"commandline\"\u0027 | %{$_.Line.Trim()}\n\"=== WSL ===\"\nwsl -l -v 2\u003e\u00261 | Out-String\n\"=== TAILSCALE ===\"\nGet-Service Tailscale | Select Name,Status,StartType | ft\nGet-Command tailscale* | Select Source\nGet-AppxPackage *Tailscale* | Select Name\n\"=== Syncthing task ===\"\n$t=Get-ScheduledTask Syncthing; $t.Settings | Select DisallowStartIfOnBatteries,StopIfGoingOnBatteries,ExecutionTimeLimit | fl; $t.Actions | Select Execute,Arguments | fl; $t.Triggers | Select Delay,Enabled | fl\n\"=== Existing Startup-Delayed tasks ===\"\nGet-ScheduledTask | ?{$_.TaskName -like \u0027Startup-Delayed*\u0027} | Select TaskName,State","description":"Audit power, Defender, Store startups, WSL, Tailscale"}`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== PowerToys enabled modules ===\"\n$f=\"$env:LOCALAPPDATA\\Microsoft\\PowerToys\\settings.json\"\n$j=Get-Content $f -Raw | ConvertFrom-Json; \"startup=$($j.startup) version=$($j.powertoys_version)\"; $j.enabled.PSObject.Properties | %{ \"$($_.Name) = $($_.Value)\" }\n\"=== PowerToys task ===\"\nGet-ScheduledTask -TaskPath \u0027\\PowerToys\\\u0027 | Select TaskName,State | ft\n\"=== Key app paths ===\"\nforeach($p in \"$env:LOCALAPPDATA\\Programs\\Obsidian\\Obsidian.exe\",\"D:\\Apps\\Obsidian\\Obsidian.exe\",\"$env:LOCALAPPDATA\\Programs\\Toggl*\",\"D:\\Apps\\Toggl*\",\"$env:LOCALAPPDATA\\Vivaldi\\Application\\vivaldi.exe\",\"C:\\Program Files\\Vivaldi\\Application\\vivaldi.exe\",\"D:\\Apps\\Vivaldi\\Application\\vivaldi.exe\",\"C:\\Program Files\\Dell\\CommandUpdate\\dcu-cli.exe\",\"C:\\Program Files (x86)\\Dell\\CommandUpdate\\dcu-cli.exe\"){ \"$p : $(Test-Path $p)\" }\nGet-ChildItem \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\",\"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\" -Recurse -Filter *.lnk | ?{$_.Name -match \u0027Obsidian|Toggl|Vivaldi|Claude|Syncthing|Tailscale|ChatGPT|Terminal\u0027} | %{ $l=(New-Object -ComObject WScript.Shell).CreateShortcut($_.FullName); \"$($_.Name) -\u003e $($l.TargetPath) $($l.Arguments)\" }\nGet-AppxPackage | ?{$_.Name -match \u0027Claude|ChatGPT|OpenAI|WindowsTerminal|Tailscale|Toggl|Obsidian\u0027} | Select Name,PackageFamilyName | ft -AutoSize\n\"=== Vivaldi profiles ===\"\nGet-ChildItem \"$env:LOCALAPPDATA\\Vivaldi\\User Data\" -Directory | Select Name\n\"=== Obsidian vaults registered ===\"\n(Get-Content \"$env:APPDATA\\obsidian\\obsidian.json\" -Raw | ConvertFrom-Json).vaults.PSObject.Properties | %{ $_.Value.path }\n\"=== DRIVERS ===\"\nGet-CimInstance Win32_PnPSignedDriver | ?{$_.DeviceClass -in \u0027NET\u0027,\u0027DISPLAY\u0027,\u0027BLUETOOTH\u0027,\u0027SYSTEM\u0027,\u0027MEDIA\u0027,\u0027HIDCLASS\u0027 -and $_.Manufacturer -match \u0027Intel|Dell|Realtek|Waves|Broadcom\u0027} | Select DeviceName,DriverVersion,@{n=\u0027Date\u0027;e={$_.DriverDate.ToString(\u0027yyyy-MM-dd\u0027)}} | Sort DeviceName | ft -AutoSize | Out-String -Width 200\n\"=== Boot ===\"\n(Get-CimInstance Win32_OperatingSystem).LastBootUpTime\nGet-WinEvent -FilterHashtable @{LogName=\[REDACTED]/Operational\u0027;Id=100} -MaxEvents 3 | %{ $x=[xml]$_.ToXml(); \"$($_.TimeCreated) BootTime=$($x.Event.EventData.Data | ?{$_.Name -eq \u0027BootTime\u0027} | % \u0027#text\u0027)ms\" }","description":"Audit PowerToys, app paths, drivers, boot time"}`
+- `PowerShell`
+```powershell
+$ErrorActionPreference='SilentlyContinue'
+"=== ELEVATED? ==="; ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+"=== POWER PLANS ==="; powercfg /list
+"=== FAST STARTUP / HIBERNATE ==="; (Get-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Power').HiberbootEnabled
+"RestartApps="; (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon').RestartApps
+"=== DEFENDER ==="; Get-MpComputerStatus | Select AMServiceEnabled,RealTimeProtectionEnabled,AntivirusEnabled,AMProductVersion,AntivirusSignatureLastUpdated | fl
+Get-CimInstance -Namespace root/SecurityCenter2 -ClassName AntivirusProduct | Select displayName,productState | fl
+"=== MALWAREBYTES leftovers ==="
+Get-Service | ?{$_.DisplayName -match 'Malwarebytes|MBAM'} | Select Name,Status,StartType | ft
+Get-ScheduledTask | ?{$_.TaskName -match 'Malwarebytes|MBAM'} | Select TaskPath,TaskName,State | ft
+Get-Process | ?{$_.Name -match 'mbam|malwarebytes'} | Select Name,Id
+"=== STORE APP STARTUP TASKS ==="
+$base='HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData'
+Get-ChildItem $base | %{ $pn=$_.PSChildName; Get-ChildItem $_.PSPath | %{ $v=Get-ItemProperty $_.PSPath; "$pn | $($_.PSChildName) | State=$($v.State)" } }
+"=== WT startup settings ==="
+$wt=Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal*\LocalState\settings.json"; $wt.FullName
+Select-String -Path $wt.FullName -Pattern 'startOnUserLogin|startupActions|launchMode|defaultProfile|"commandline"' | %{$_.Line.Trim()}
+"=== WSL ==="
+wsl -l -v 2>&1 | Out-String
+"=== TAILSCALE ==="
+Get-Service Tailscale | Select Name,Status,StartType | ft
+Get-Command tailscale* | Select Source
+Get-AppxPackage *Tailscale* | Select Name
+"=== Syncthing task ==="
+$t=Get-ScheduledTask Syncthing; $t.Settings | Select DisallowStartIfOnBatteries,StopIfGoingOnBatteries,ExecutionTimeLimit | fl; $t.Actions | Select Execute,Arguments | fl; $t.Triggers | Select Delay,Enabled | fl
+"=== Existing Startup-Delayed tasks ==="
+Get-ScheduledTask | ?{$_.TaskName -like 'Startup-Delayed*'} | Select TaskName,State
+```
+```
+=== ELEVATED? ===
+False
+=== POWER PLANS ===
+
+Existing Power Schemes (* Active)
+-----------------------------------
+Power Scheme GUID: [REDACTED]  (Balanced)
+Power Scheme GUID: [REDACTED]  (Ultimate Performance) *
+=== FAST STARTUP / HIBERNATE ===
+1
+RestartApps=
+=== DEFENDER ===
+
+AMServiceEnabled              : True
+RealTimeProtectionEnabled     : True
+AntivirusEnabled              : True
+AMProductVersion              : 4.18.26100.4
+AntivirusSignatureLastUpdated : 10/27/2026 1:49:53 AM
+
+
+displayName  : Windows Defender
+productState : 397568
+
+=== MALWAREBYTES leftovers ===
+
+Name         Status StartType
+----         ------ ---------
+MBAMService Stopped Automatic
+
+=== STORE APP STARTUP TASKS ===
+[REDACTED] | PSR | State=
+[REDACTED] | Schemas | State=
+[REDACTED] | SplashScreen | State=
+40174MouriNaruto.NanaZip_gnj4mf6z9tkrc | HAM | State=
+40174MouriNaruto.NanaZip_gnj4mf6z9tkrc | PSR | State=
+40174MouriNaruto.NanaZip_gnj4mf6z9tkrc | Schemas | State=
+40174MouriNaruto.NanaZip_gnj4mf6z9tkrc | SplashScreen | State=
+5319275A.[REDACTED] | [REDACTED] | State=1
+5319275A.[REDACTED] | ApplicationFrame | State=
+5319275A.[REDACTED] | HAM | State=
+5319275A.[REDACTED] | PersistedPickerData | State=
+5319275A.[REDACTED] | PersistedStorageItemTable | State=
+5319275A.[REDACTED] | PersistedTitleBarData | State=
+5319275A.[REDACTED] | PSR | State=
+5319275A.[REDACTED] | Schemas | State=
+5319275A.[REDACTED] | SplashScreen | State=
+5319275A.[REDACTED] | WhatsAppStartupTask | State=0
+617231644CE58.[REDACTED] | HAM | State=
+617231644CE58.[REDACTED] | PSR | State=
+617231644CE58.[REDACTED] | Schemas | State=
+617231644CE58.[REDACTED] | SplashScreen | State=
+AIToolkit.Inference.Agent_8wekyb3d8bbwe | HAM | State=
+AIToolkit.Inference.Agent_8wekyb3d8bbwe | PSR | State=
+AIToolkit.Inference.Agent_8wekyb3d8bbwe | Schemas | State=
+AIToolkit.Inference.Agent_8wekyb3d8bbwe | SplashScreen | State=
+AppUp.[REDACTED] | IntelGraphicsSoftwareStartup | State=2
+AppUp.[REDACTED] | PSR | State=
+AppUp.[REDACTED] | Schemas | State=
+AppUp.[REDACTED] | SplashScreen | State=
+AppUp.[REDACTED] | GCPStartupId | State=2
+AppUp.[REDACTED] | PSR | State=
+AppUp.[REDACTED] | Schemas | State=
+AppUp.[REDACTED] | SplashScreen | State=
+AppUp.[REDACTED] | IntelManagementandSecurityStatus | State=2
+AppUp.[REDACTED] | PSR | State=
+AppUp.[REDACTED] | Schemas | State=
+AppUp.[REDACTED] | SplashScreen | State=
+[REDACTED] | PSR | State=
+[REDACTED] | Schemas | State=
+Claude_pzs8sxrjxfjjc | ClaudeStartup | State=0
+Claude_pzs8sxrjxfjjc | HAM | State=
+Claude_pzs8sxrjxfjjc | PSR | State=
+Claude_pzs8sxrjxfjjc | Schemas | State=
+Claude_pzs8sxrjxfjjc | SplashScreen | State=
+DellInc.[REDACTED] | HAM | State=
+DellInc.[REDACTED] | PSR | State=
+DellInc.[REDACTED] | Schemas | State=
+DellInc.[REDACTED] | SplashScreen | State=
+[REDACTED] | PSR | State=
+[REDACTED] | Schemas | State=
+[REDACTED] | SplashScreen | State=
+[REDACTED] | PSR | State=
+[REDACTED] | Schemas | State=
+Malwarebytes.[REDACTED] | HAM | State=
+Malwarebytes.[REDACTED] | PSR | State=
+Malwarebytes.[REDACTED] | Schemas | State=
+Malwarebytes.[REDACTED] | SplashScreen | State=
+Microsoft.AAD.[REDACTED] | HAM | State=
+Microsoft.AAD.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.AAD.[REDACTED] | PSR | State=
+Microsoft.AAD.[REDACTED] | Schemas | State=
+Microsoft.AAD.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | CmdPalStartup | State=0
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.ECApp_8wekyb3d8bbwe | PSR | State=
+Microsoft.ECApp_8wekyb3d8bbwe | Schemas | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.LockApp_cw5n1h2txyewy | HAM | State=
+Microsoft.LockApp_cw5n1h2txyewy | PersistedStorageItemTable | State=
+Microsoft.LockApp_cw5n1h2txyewy | PSR | State=
+Microsoft.LockApp_cw5n1h2txyewy | Schemas | State=
+Microsoft.MicrosoftEdge.Stable_8wekyb3d8bbwe | HAM | State=
+Microsoft.MicrosoftEdge.Stable_8wekyb3d8bbwe | PSR | State=
+Microsoft.MicrosoftEdge.Stable_8wekyb3d8bbwe | Schemas | State=
+Microsoft.MicrosoftEdge.Stable_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.NET.Native.Framework.2.2_8wekyb3d8bbwe | Schemas | State=
+Microsoft.NET.Native.Runtime.2.2_8wekyb3d8bbwe | Schemas | State=
+Microsoft.Paint_8wekyb3d8bbwe | HAM | State=
+Microsoft.Paint_8wekyb3d8bbwe | PSR | State=
+Microsoft.Paint_8wekyb3d8bbwe | Schemas | State=
+Microsoft.Paint_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.PowerToys.[REDACTED] | HAM | State=
+Microsoft.PowerToys.[REDACTED] | PSR | State=
+Microsoft.PowerToys.[REDACTED] | Schemas | State=
+Microsoft.PowerToys.[REDACTED] | SplashScreen | State=
+Microsoft.PowerToys.[REDACTED] | HAM | State=
+Microsoft.PowerToys.[REDACTED] | PSR | State=
+Microsoft.PowerToys.[REDACTED] | Schemas | State=
+Microsoft.PowerToys.[REDACTED] | SplashScreen | State=
+Microsoft.PowerToys.[REDACTED] | HAM | State=
+Microsoft.PowerToys.[REDACTED] | PSR | State=
+Microsoft.PowerToys.[REDACTED] | Schemas | State=
+Microsoft.PowerToys.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedPickerData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | ApplicationFrame | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedPickerData | State=
+Microsoft.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.[REDACTED] | PersistedTitleBarData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.Services.Store.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.Todos_8wekyb3d8bbwe | ApplicationFrame | State=
+Microsoft.Todos_8wekyb3d8bbwe | AppUriHandlers | State=
+Microsoft.Todos_8wekyb3d8bbwe | HAM | State=
+Microsoft.Todos_8wekyb3d8bbwe | PersistedStorageItemTable | State=
+Microsoft.Todos_8wekyb3d8bbwe | PersistedTitleBarData | State=
+Microsoft.Todos_8wekyb3d8bbwe | PSR | State=
+Microsoft.Todos_8wekyb3d8bbwe | Schemas | State=
+Microsoft.Todos_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.Todos_8wekyb3d8bbwe | ToDoStartupId | State=0
+Microsoft.UI.Xaml.2.7_8wekyb3d8bbwe | Schemas | State=
+Microsoft.UI.Xaml.2.8_8wekyb3d8bbwe | Schemas | State=
+Microsoft.VCLibs.140.00.[REDACTED] | Schemas | State=
+Microsoft.VCLibs.140.00_8wekyb3d8bbwe | Schemas | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x6_8wekyb3d8bbwe | PSR | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x6_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x6_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x8_8wekyb3d8bbwe | HAM | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x8_8wekyb3d8bbwe | PSR | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x8_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WinAppRuntime.DDLM.5001.214.1843.0-x8_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy | ApplicationFrame | State=
+Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy | HAM | State=
+Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy | PersistedStorageItemTable | State=
+Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy | PSR | State=
+Microsoft.Windows.Apprep.ChxApp_cw5n1h2txyewy | Schemas | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | ApplicationFrame | State=
+Microsoft.Windows.[REDACTED] | HAM | State=
+Microsoft.Windows.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | SplashScreen | State=
+Microsoft.Windows.[REDACTED] | HAM | State=
+Microsoft.Windows.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | HAM | State=
+Microsoft.Windows.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | SplashScreen | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | ApplicationFrame | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | ApplicationFrame | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | HAM | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | PersistedPickerData | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | PersistedStorageItemTable | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | PersistedTitleBarData | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | PSR | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | Schemas | State=
+Microsoft.Windows.Photos_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | HAM | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | HAM | State=
+Microsoft.Windows.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.Windows.[REDACTED] | PSR | State=
+Microsoft.Windows.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | AlarmCapable | State=
+Microsoft.[REDACTED] | ApplicationFrame | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.[REDACTED] | PersistedTitleBarData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.WindowsAppRuntime.1.2_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.1.3_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.1.4_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.1.5_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.1.6_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.1.7_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.1.8_8wekyb3d8bbwe | Schemas | State=
+Microsoft.WindowsAppRuntime.2_8wekyb3d8bbwe | Schemas | State=
+Microsoft.[REDACTED] | ApplicationFrame | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.[REDACTED] | PersistedTitleBarData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | ApplicationFrame | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.[REDACTED] | PersistedTitleBarData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+microsoft.[REDACTED] | ApplicationFrame | State=
+microsoft.[REDACTED] | HAM | State=
+microsoft.[REDACTED] | PersistedStorageItemTable | State=
+microsoft.[REDACTED] | PersistedTitleBarData | State=
+microsoft.[REDACTED] | PSR | State=
+microsoft.[REDACTED] | Schemas | State=
+microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | ApplicationFrame | State=
+Microsoft.[REDACTED] | AppUriHandlers | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.[REDACTED] | PersistedTitleBarData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | ApplicationFrame | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PersistedStorageItemTable | State=
+Microsoft.[REDACTED] | PersistedTitleBarData | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.[REDACTED] | StartTerminalOnLoginTask | State=0
+Microsoft.Winget.Source_8wekyb3d8bbwe | PSR | State=
+Microsoft.Winget.Source_8wekyb3d8bbwe | Schemas | State=
+Microsoft.Winget.Source_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | HAM | State=
+Microsoft.[REDACTED] | PSR | State=
+Microsoft.[REDACTED] | Schemas | State=
+Microsoft.[REDACTED] | SplashScreen | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | ApplicationFrame | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | HAM | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | PersistedStorageItemTable | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | PersistedTitleBarData | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | PSR | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | Schemas | State=
+Microsoft.ZuneMusic_8wekyb3d8bbwe | SplashScreen | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | ApplicationFrame | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | HAM | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | PersistedStorageItemTable | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | PersistedTitleBarData | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | PSR | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | Schemas | State=
+Microsoft.ZuneVideo_8wekyb3d8bbwe | SplashScreen | State=
+MicrosoftCorporationII.[REDACTED] | HAM | State=
+MicrosoftCorporationII.[REDACTED] | PSR | State=
+MicrosoftCorporationII.[REDACTED] | Schemas | State=
+MicrosoftCorporationII.[REDACTED] | SplashScreen | State=
+MicrosoftCorporationII.WinAppRuntime.Main.1.5_8wekyb3d8bbwe | PSR | State=
+MicrosoftCorporationII.WinAppRuntime.Main.1.5_8wekyb3d8bbwe | Schemas | State=
+MicrosoftCorporationII.WinAppRuntime.Main.1.5_8wekyb3d8bbwe | SplashScreen | State=
+MicrosoftCorporationII.WinAppRuntime.Main.2_8wekyb3d8bbwe | PSR | State=
+MicrosoftCorporationII.WinAppRuntime.Main.2_8wekyb3d8bbwe | Schemas | State=
+MicrosoftCorporationII.WinAppRuntime.Main.2_8wekyb3d8bbwe | SplashScreen | State=
+MicrosoftCorporationII.WinAppRuntime.Singleton_8wekyb3d8bbwe | HAM | State=
+MicrosoftCorporationII.WinAppRuntime.Singleton_8wekyb3d8bbwe | PSR | State=
+MicrosoftCorporationII.WinAppRuntime.Singleton_8wekyb3d8bbwe | Schemas | State=
+MicrosoftCorporationII.WinAppRuntime.Singleton_8wekyb3d8bbwe | SplashScreen | State=
+MicrosoftCorporationII.WinML.Intel.OpenVINO.EP.1.8_8wekyb3d8bbwe | PSR | State=
+MicrosoftCorporationII.WinML.Intel.OpenVINO.EP.1.8_8wekyb3d8bbwe | Schemas | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | ApplicationFrame | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | HAM | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | PersistedStorageItemTable | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | PersistedTitleBarData | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | PSR | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | Schemas | State=
+MicrosoftWindows.Client.CBS_cw5n1h2txyewy | SplashScreen | State=
+MicrosoftWindows.Client.CoreAI_cw5n1h2txyewy | HAM | State=
+MicrosoftWindows.Client.CoreAI_cw5n1h2txyewy | PSR | State=
+MicrosoftWindows.Client.CoreAI_cw5n1h2txyewy | Schemas | State=
+MicrosoftWindows.Client.Core_cw5n1h2txyewy | PSR | State=
+MicrosoftWindows.Client.Core_cw5n1h2txyewy | Schemas | State=
+MicrosoftWindows.Client.OOBE_cw5n1h2txyewy | HAM | State=
+MicrosoftWindows.Client.OOBE_cw5n1h2txyewy | PSR | State=
+MicrosoftWindows.Client.OOBE_cw5n1h2txyewy | Schemas | State=
+MicrosoftWindows.[REDACTED] | CrossDevice.Start | State=1
+MicrosoftWindows.[REDACTED] | HAM | State=
+MicrosoftWindows.[REDACTED] | PSR | State=
+MicrosoftWindows.[REDACTED] | Schemas | State=
+MicrosoftWindows.[REDACTED] | SplashScreen | State=
+OpenAI.Codex_2p2nqsd0c76g0 | App | State=2
+OpenAI.Codex_2p2nqsd0c76g0 | HAM | State=
+OpenAI.Codex_2p2nqsd0c76g0 | PSR | State=
+OpenAI.Codex_2p2nqsd0c76g0 | Schemas | State=
+OpenAI.Codex_2p2nqsd0c76g0 | SplashScreen | State=
+Windows.[REDACTED] | PSR | State=
+Windows.[REDACTED] | Schemas | State=
+Windows.[REDACTED] | SplashScreen | State=
+windows.[REDACTED] | ApplicationFrame | State=
+windows.[REDACTED] | HAM | State=
+windows.[REDACTED] | PersistedPickerData | State=
+windows.[REDACTED] | PersistedTitleBarData | State=
+windows.[REDACTED] | PSR | State=
+windows.[REDACTED] | Schemas | State=
+windows.[REDACTED] | SplashScreen | State=
+Windows.[REDACTED] | HAM | State=
+Windows.[REDACTED] | PSR | State=
+Windows.[REDACTED] | Schemas | State=
+=== WT startup settings ===
+C:\Users\Anant Gupta\AppData\Local\Packages\Microsoft.[REDACTED]\LocalState\settings.json
+"defaultProfile":  "{[REDACTED]}",
+"commandline":  "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+"commandline":  "%SystemRoot%\\System32\\cmd.exe",
+"commandline":  "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -ExecutionPolicy ByPass -NoExit -Command \"\u0026 \u0027C:\\Users\\Anant Gupta\\miniconda3\\shell\\condabin\\conda-hook.ps1\u0027 ; conda activate \u0027C:\\Users\\Anant Gupta\\miniconda3\u0027 \"",
+"commandline":  "\"%WINDIR%\\System32\\cmd.exe\" /K \"\"C:\\Users\\Anant Gupta\\miniconda3\\Scripts\\activate.bat\" \"C:\\Users\\Anant Gupta\\miniconda3\"\"",
+=== WSL ===
+    N A M E                             S T A T E                       V E R S I O N 
+ 
+ *   U b u n t u                         R u n n i n g                   2 
+ 
+     d o c k e r - d e s k t o p         S t o p p e d                   2 
+ 
+ 
+
+=== TAILSCALE ===
+=== Syncthing task ===
+
+DisallowStartIfOnBatteries : False
+StopIfGoingOnBatteries     : False
+ExecutionTimeLimit         : PT0S
+
+
+Execute   : D:\Apps\Syncthing\[REDACTED].1.5\[REDACTED].1.5\syncthing.exe
+Arguments : serve --no-console --no-browser
+
+
+Delay   : 
+Enabled : True
+
+=== Existing Startup-Delayed tasks ===
+```
+- `PowerShell`
+```powershell
+$ErrorActionPreference='SilentlyContinue'
+"=== PowerToys enabled modules ==="
+$f="$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json"
+$j=Get-Content $f -Raw | ConvertFrom-Json; "startup=$($j.startup) version=$($j.powertoys_version)"; $j.enabled.PSObject.Properties | %{ "$($_.Name) = $($_.Value)" }
+"=== PowerToys task ==="
+Get-ScheduledTask -TaskPath '\PowerToys\' | Select TaskName,State | ft
+"=== Key app paths ==="
+foreach($p in "$env:LOCALAPPDATA\Programs\Obsidian\Obsidian.exe","D:\Apps\Obsidian\Obsidian.exe","$env:LOCALAPPDATA\Programs\Toggl*","D:\Apps\Toggl*","$env:LOCALAPPDATA\Vivaldi\Application\vivaldi.exe","C:\Program Files\Vivaldi\Application\vivaldi.exe","D:\Apps\Vivaldi\Application\vivaldi.exe","C:\Program Files\Dell\CommandUpdate\dcu-cli.exe","C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe"){ "$p : $(Test-Path $p)" }
+Get-ChildItem "$env:APPDATA\Microsoft\Windows\Start Menu\Programs","C:\ProgramData\Microsoft\Windows\Start Menu\Programs" -Recurse -Filter *.lnk | ?{$_.Name -match 'Obsidian|Toggl|Vivaldi|Claude|Syncthing|Tailscale|ChatGPT|Terminal'} | %{ $l=(New-Object -ComObject WScript.Shell).CreateShortcut($_.FullName); "$($_.Name) -> $($l.TargetPath) $($l.Arguments)" }
+Get-AppxPackage | ?{$_.Name -match 'Claude|ChatGPT|OpenAI|WindowsTerminal|Tailscale|Toggl|Obsidian'} | Select Name,PackageFamilyName | ft -AutoSize
+"=== Vivaldi profiles ==="
+Get-ChildItem "$env:LOCALAPPDATA\Vivaldi\User Data" -Directory | Select Name
+"=== Obsidian vaults registered ==="
+(Get-Content "$env:APPDATA\obsidian\obsidian.json" -Raw | ConvertFrom-Json).vaults.PSObject.Properties | %{ $_.Value.path }
+"=== DRIVERS ==="
+Get-CimInstance Win32_PnPSignedDriver | ?{$_.DeviceClass -in 'NET','DISPLAY','BLUETOOTH','SYSTEM','MEDIA','HIDCLASS' -and $_.Manufacturer -match 'Intel|Dell|Realtek|Waves|Broadcom'} | Select DeviceName,DriverVersion,@{n='Date';e={$_.DriverDate.ToString('yyyy-MM-dd')}} | Sort DeviceName | ft -AutoSize | Out-String -Width 200
+"=== Boot ==="
+(Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Diagnostics-Performance/Operational';Id=100} -MaxEvents 3 | %{ $x=[xml]$_.ToXml(); "$($_.TimeCreated) BootTime=$($x.Event.EventData.Data | ?{$_.Name -eq 'BootTime'} | % '#text')ms" }
+```
+```
+Exit code 1
+=== PowerToys enabled modules ===
+startup=True version=v0.100.2
+AdvancedPaste = True
+AlwaysOnTop = True
+Awake = False
+CmdNotFound = False
+CmdPal = True
+ColorPicker = False
+CropAndLock = True
+CursorWrap = False
+EnvironmentVariables = True
+FancyZones = True
+File Explorer = True
+File Locksmith = True
+FindMyMouse = False
+GrabAndMove = False
+Hosts = True
+Image Resizer = True
+Keyboard Manager = False
+LightSwitch = False
+Measure Tool = True
+MouseHighlighter = True
+MouseJump = False
+MousePointerCrosshairs = False
+MouseWithoutBorders = False
+NewPlus = False
+Peek = True
+PowerDisplay = False
+PowerRename = True
+PowerToys Run = True
+QuickAccent = False
+RegistryPreview = True
+Shortcut Guide = True
+TextExtractor = True
+Workspaces = True
+ZoomIt = False
+=== PowerToys task ===
+
+TaskName                State
+--------                -----
+Autorun for Anant Gupta Ready
+
+=== Key app paths ===
+C:\Users\Anant Gupta\AppData\Local\Programs\Obsidian\Obsidian.exe : True
+D:\Apps\Obsidian\Obsidian.exe : False
+C:\Users\Anant Gupta\AppData\Local\Programs\Toggl* : False
+D:\Apps\Toggl* : True
+C:\Users\Anant Gupta\AppData\Local\Vivaldi\Application\vivaldi.exe : True
+C:\Program Files\Vivaldi\Application\vivaldi.exe : False
+D:\Apps\Vivaldi\Application\vivaldi.exe : False
+C:\Program Files\Dell\CommandUpdate\dcu-cli.exe : True
+C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe : False
+Obsidian.lnk -> C:\Users\Anant Gupta\AppData\Local\Programs\Obsidian\Obsidian.exe 
+Toggl.lnk -> D:\Apps\Toggl 2.0\Toggl 2.0.exe 
+Vivaldi.lnk -> C:\Users\Anant Gupta\AppData\Local\Vivaldi\Application\vivaldi.exe 
+
+Name                      PackageFamilyName
+----                      -----------------
+Microsoft.WindowsTerminal Microsoft.[REDACTED]
+Claude                    Claude_pzs8sxrjxfjjc
+OpenAI.Codex              OpenAI.Codex_2p2nqsd0c76g0
+
+=== Vivaldi profiles ===
+
+Name
+----
+ActorSafetyLists
+AmountExtractionHeuristicRegexes
+CaptchaProviders
+CertificateRevocation
+component_crx_cache
+Crashpad
+Crowd Deny
+Default
+extensions_crx_cache
+FileTypePolicies
+FirstPartySetsPreloaded
+GPUPersistentCache
+GraphiteDawnCache
+GrShaderCache
+hyphen-data
+MEIPreload
+Notification Resources
+OnDeviceHeadSuggestModel
+OriginTrials
+PKIMetadata
+Profile 1
+Safe Browsing
+SafetyTips
+ShaderCache
+Snapshots
+SSLErrorAssistant
+Subresource Filter
+System Profile
+TrustTokenKeyCommitments
+WasmTtsEngine
+Webstore Downloads
+WidevineCdm
+ZxcvbnData
+=== Obsidian vaults registered ===
+D:\Users\_Anant\10_Areas\Documents\The Plan
+D:\Users\_Anant\10_Areas\Documents\Jarvis
+=== DRIVERS ===
+
+DeviceName                                                   DriverVersion   Date
+----------                                                   -------------   ----
+HD Audio Driver for Display Audio                            32.0.101.7088   2026-06-16
+HD Audio Driver for Display Audio                            32.0.101.7088   2026-06-16
+HID PCI Minidriver for ISS                                   3.1.0.4589      2022-11-03
+HID PCI Minidriver for ISS                                   3.1.0.4589      2022-11-03
+HID PCI Minidriver for ISS                                   3.1.0.4589      2022-11-03
+Intel(R) Ethernet Connection (16) I219-LM                    12.19.2.66      2025-11-15
+Intel(R) GNA Scoring Accelerator module                      3.5.0.1611      2025-08-11
+Intel(R) HID Event Filter                                    2.2.2.18        2025-11-18
+Intel(R) Host Bridge/DRAM Registers - 4601                   10.1.45.9       1968-07-17
+Intel(R) Innovation Platform Framework Extensible Framework  2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Generic Participant   2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Generic Participant   2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Generic Participant   2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Generic Participant   2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Generic Participant   2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Generic Participant   2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Manager               2.3.20306.4     2026-07-07
+Intel(R) Innovation Platform Framework Processor Participant 2.3.20306.4     2026-07-07
+Intel(R) Integrated Sensor Solution                          3.1.0.4589      2022-11-03
+Intel(R) Iris(R) Xe Graphics                                 32.0.101.7088   2026-06-16
+Intel(R) LPC Controller - 5182                               10.1.36.7       1968-07-17
+Intel(R) Management Engine Interface #1                      2603.9.4.0      2026-01-12
+Intel(R) PCI Express Root Port #10 - 51B1                    10.1.36.7       1968-07-17
+Intel(R) PEG60 - 464D                                        10.1.45.9       1968-07-17
+Intel(R) Power Engine Plug-in                                10.0.26100.9278 2006-06-20
+Intel(R) Serial IO GPIO Host Controller - INTC1055           30.100.2134.22  2021-08-19
+Intel(R) Serial IO I2C Host Controller - 51E8                30.100.2134.22  2021-08-19
+Intel(R) Serial IO I2C Host Controller - 51E9                30.100.2134.22  2021-08-19
+Intel(R) Shared SRAM - 51EF                                  10.1.36.7       1968-07-17
+Intel(R) SMBus - 51A3                                        10.1.36.7       1968-07-17
+Intel(R) SPI (flash) Controller - 51A4                       10.1.36.7       1968-07-17
+Intel(R) TypeC PCIe - 463F                                   10.1.45.9       1968-07-17
+Intel(R) TypeC PCIe - 466E                                   10.1.45.9       1968-07-17
+Intel(R) Wi-Fi 6E AX211 160MHz                               24.60.0.3       2026-06-10
+Intel(R) Wireless Bluetooth(R)                               24.40.11.1      2026-07-01
+Intel® Smart Sound Technology BUS                            10.29.0.12635   2026-02-17
+Intel® Smart Sound Technology Detection Verification         1.0.4125.0      2025-11-27
+Intel® Smart Sound Technology for Bluetooth® Audio           10.29.0.12635   2026-02-17
+Intel® Smart Sound Technology for USB Audio                  10.29.0.12635   2026-02-17
+Intel® Smart Sound Technology OED                            10.29.0.12635   2026-02-17
+
+
+=== Boot ===
+```
 - `Grep` -- pattern `DisallowStartIfOnBatteries|AC Recovery|Primary AC Use|75 and stop 80|Battery Configuration` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n$up=\[REDACTED]\u0027; $bal=\[REDACTED]\u0027\n$sets=@(\n @(\u0027SUB_SLEEP\u0027,\u0027STANDBYIDLE\u0027,\u0027Sleep after\u0027),@(\u0027SUB_SLEEP\u0027,\u0027HIBERNATEIDLE\u0027,\u0027Hibernate after\u0027),\n @(\u0027SUB_VIDEO\u0027,\u0027VIDEOIDLE\u0027,\u0027Display off\u0027),@(\u0027SUB_DISK\u0027,\u0027DISKIDLE\u0027,\u0027Disk off\u0027),\n @(\u0027SUB_BUTTONS\u0027,\u0027LIDACTION\u0027,\u0027Lid close\u0027),@(\u0027SUB_BUTTONS\u0027,\u0027PBUTTONACTION\u0027,\u0027Power button\u0027),\n @(\u0027SUB_PROCESSOR\u0027,\u0027PROCTHROTTLEMAX\u0027,\u0027Max CPU %\u0027),@(\u0027SUB_PROCESSOR\u0027,\u0027PERFEPP\u0027,\u0027EPP\u0027),@(\u0027SUB_PROCESSOR\u0027,\u0027PERFBOOSTMODE\u0027,\u0027Boost mode\u0027))\nforeach($s in $sets){ foreach($g in @(@(\u0027Ultimate\u0027,$up),@(\u0027Balanced\u0027,$bal))){\n  $o=powercfg /query $g[1] $s[0] $s[1] 2\u003e\u00261 | Out-String\n  $ac=[regex]::Match($o,\u0027Current AC Power Setting Index: (0x[0-9a-f]+)\u0027).Groups[1].Value\n  $dc=[regex]::Match($o,\u0027Current DC Power Setting Index: (0x[0-9a-f]+)\u0027).Groups[1].Value\n  \"{0,-16} {1,-9} AC={2,-12} DC={3}\" -f $s[2],$g[0],$ac,$dc } }\n\"=== ALL non-Microsoft-path tasks: battery flags ===\"\nGet-ScheduledTask | ?{$_.TaskPath -notmatch \u0027^\\\\Microsoft\\\\\u0027 -and $_.State -ne \u0027Disabled\u0027} | %{ \"{0,-55} DisallowOnBatt={1} StopOnBatt={2}\" -f ($_.TaskPath+$_.TaskName),$_.Settings.DisallowStartIfOnBatteries,$_.Settings.StopIfGoingOnBatteries }\n\"=== Any Dell/Intel/vendor tasks incl. Microsoft-path? ===\"\nGet-ScheduledTask | ?{$_.TaskName -match \u0027Dell|SupportAssist|Intel|Waves|Realtek|Adobe|Google|Edge|OneDrive|Zoom|Spotify|Teams\u0027 -and $_.State -ne \u0027Disabled\u0027} | Select TaskPath,TaskName,State | ft -AutoSize\n\"=== PowerToys elevation ===\"\nSelect-String -Path \"$env:LOCALAPPDATA\\Microsoft\\PowerToys\\settings.json\" -Pattern \u0027run_elevated|startup\u0027 | %{$_.Line.Trim().Substring(0,[Math]::Min(120,$_.Line.Trim().Length))}\n(Get-ScheduledTask -TaskPath \u0027\\PowerToys\\\u0027).Principal | Select RunLevel,LogonType | fl\n(Get-ScheduledTask -TaskPath \u0027\\PowerToys\\\u0027).Actions | Select Execute,Arguments | fl\n\"=== Uptime / boot ===\"\n$b=(Get-CimInstance Win32_OperatingSystem).LastBootUpTime; \"Boot: $b  Uptime: $((Get-Date)-$b)\"\n\"=== Ollama/Wispr targets exist? ===\"\n$ws=New-Object -ComObject WScript.Shell; foreach($n in \u0027Ollama\u0027,\u0027Wispr Flow\u0027){ $l=$ws.CreateShortcut(\"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\$n.lnk\"); \"$n -\u003e $($l.TargetPath) exists=$(Test-Path $l.TargetPath)\" }\n\"=== winget has Tailscale? ===\"\nwinget --version","description":"Compare power plans, task battery flags, PowerToys, uptime"}`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027Stop\u0027\n$scr=\u0027D:\\Cache\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\u0027\n$me=\"$env:USERDOMAIN\\$env:USERNAME\"\nfunction Step($n,[scriptblock]$b){ try{ \u0026 $b }catch{ \"FAILED [$n]: $($_.Exception.Message.Trim())\" } }\n\n\"## A. POWER: copy lid/button/disk behaviour to Balanced, then activate it\"\nStep \u0027power\u0027 {\n  $up=\[REDACTED]\u0027; $bal=\[REDACTED]\u0027\n  $sub=\[REDACTED]\u0027\n  $items=@{ lid=\[REDACTED]\u0027; powerbtn=\[REDACTED]\u0027; sleepbtn=\[REDACTED]\u0027 }\n  foreach($k in $items.Keys){ $o=powercfg /query $up $sub $items[$k] | Out-String\n    $ac=[Convert]::ToInt32(([regex]::Match($o,\u0027Current AC Power Setting Index: 0x([0-9a-f]+)\u0027).Groups[1].Value),16)\n    $dc=[Convert]::ToInt32(([regex]::Match($o,\u0027Current DC Power Setting Index: 0x([0-9a-f]+)\u0027).Groups[1].Value),16)\n    powercfg /setacvalueindex $bal $sub $items[$k] $ac; powercfg /setdcvalueindex $bal $sub $items[$k] $dc\n    \"  $k copied AC=$ac DC=$dc\" }\n  powercfg /setacvalueindex $bal SUB_DISK DISKIDLE 0   # disk never off on AC; battery keeps Balanced default\n  powercfg /setactive $bal\n  powercfg /getactivescheme }\n\n\"## B. Run keys / StartupApproved\"\nStep \u0027approved\u0027 {\n  $k=\u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\u0027\n  $b=New-Object byte[] 12; $b[0]=2; Set-ItemProperty $k -Name GoogleDriveFS -Value $b -Type Binary\n  \"  GoogleDriveFS approved byte = \" + (Get-ItemProperty $k).GoogleDriveFS[0]\n  $r=\u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\u0027\n  if((Get-ItemProperty $r).PSObject.Properties.Name -contains \u0027Discord\u0027){ Remove-ItemProperty $r -Name Discord; \"  Discord Run value removed (it self-rewrites)\" } }\n\n\"## C. Store-app startup tasks (2=on, 1=off)\"\nStep \u0027store\u0027 {\n  $base=\u0027HKCU:\\Software\\Classes\\Local Settings\\Software\\Microsoft\\Windows\\CurrentVersion\\AppModel\\SystemAppData\u0027\n  $map=@(@(\[REDACTED]\u0027,\u0027ClaudeStartup\u0027,2),@(\u0027Microsoft.[REDACTED]\u0027,\[REDACTED]\u0027,2),\n         @(\u0027AppUp.[REDACTED]\u0027,\[REDACTED]\u0027,1),@(\u0027AppUp.[REDACTED]\u0027,\u0027GCPStartupId\u0027,1),\n         @(\u0027AppUp.[REDACTED]\u0027,\[REDACTED]\u0027,1))\n  foreach($m in $map){ $p=\"$base\\$($m[0])\\$($m[1])\"; Set-ItemProperty $p -Name State -Value $m[2] -Type DWord; \"  $($m[1]) State=\" + (Get-ItemProperty $p).State } }\n\n\"## D. Windows Terminal: start on login (settings.json) + RestartApps off\"\nStep \u0027terminal\u0027 {\n  $f=(Get-ChildItem \"$env:LOCALAPPDATA\\Packages\\Microsoft.[REDACTED]\\LocalState\\settings.json\").FullName\n  Copy-Item $f \"$scr\\wt-settings.backup.json\" -Force\n  $t=[IO.File]::ReadAllText($f)\n  if($t -notmatch \u0027\"startOnUserLogin\"\u0027){ $i=$t.IndexOf(\u0027{\u0027); $t=$t.Insert($i+1,\"`r`n    `\"startOnUserLogin`\": true,\"); [IO.File]::WriteAllText($f,$t,(New-Object Text.UTF8Encoding($false))) }\n  (Select-String -Path $f -Pattern \u0027startOnUserLogin\u0027).Line.Trim()\n  Set-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\u0027 -Name RestartApps -Value 0 -Type DWord\n  \"  RestartApps=\" + (Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\u0027).RestartApps }\n\n\"## E. Staggered launch tasks\"\nfunction New-Delayed($name,$exe,$arg,$delay,$wd){\n  $a= if($wd){ New-ScheduledTaskAction -Execute $exe -Argument $arg -WorkingDirectory $wd } else { New-ScheduledTaskAction -Execute $exe -Argument $arg }\n  $t=New-ScheduledTaskTrigger -AtLogOn -User $me; $t.Delay=$delay\n  $s=New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable\n  $p=New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Limited\n  Register-ScheduledTask -TaskName $name -Action $a -Trigger $t -Settings $s -Principal $p -Force | Out-Null\n  $r=Get-ScheduledTask $name; \"  {0} : {1} delay={2} run={3}\" -f $r.TaskName,$r.State,$r.Triggers[0].Delay,$r.Principal.RunLevel }\n$obs=\"$env:LOCALAPPDATA\\Programs\\Obsidian\\Obsidian.exe\"; $tog=\u0027D:\\Apps\\Toggl 2.0\\Toggl 2.0.exe\u0027; $viv=\"$env:LOCALAPPDATA\\Vivaldi\\Application\\vivaldi.exe\"; $pt=\u0027C:\\Program Files\\PowerToys\\PowerToys.exe\u0027\nforeach($x in $obs,$tog,$viv,$pt){ if(-not(Test-Path -LiteralPath $x)){ throw \"missing $x\" } }\nStep \u0027obsidian\u0027 { New-Delayed \[REDACTED]\u0027 $obs \u0027\u0027 \u0027PT45S\u0027 (Split-Path $obs) }\nStep \u0027toggl\u0027    { New-Delayed \[REDACTED]\u0027 $tog \u0027\u0027 \u0027PT45S\u0027 (Split-Path $tog) }\nStep \u0027vivaldi\u0027  { New-Delayed \[REDACTED]\u0027 $viv \[REDACTED]=Default\u0027 \u0027PT45S\u0027 (Split-Path $viv) }\nStep \u0027wsl\u0027      { New-Delayed \[REDACTED]\u0027 \u0027conhost.exe\u0027 \u0027--headless wsl.exe -d Ubuntu --exec sleep infinity\u0027 \u0027PT60S\u0027 $null }\nStep \u0027powertoys\u0027{ New-Delayed \[REDACTED]\u0027 $pt \u0027\u0027 \u0027PT90S\u0027 (Split-Path $pt) }\n\n\"## F. PowerToys own autostart off (so it doesn\u0027t fight the delayed task)\"\nStep \u0027pt-off\u0027 {\n  Disable-ScheduledTask -TaskPath \u0027\\PowerToys\\\u0027 -TaskName \u0027Autorun for Anant Gupta\u0027 | Out-Null\n  \"  PT Autorun task: \" + (Get-ScheduledTask -TaskPath \u0027\\PowerToys\\\u0027).State\n  $f=\"$env:LOCALAPPDATA\\Microsoft\\PowerToys\\settings.json\"; $t=[IO.File]::ReadAllText($f)\n  if($t.StartsWith(\u0027{\"startup\":true,\u0027)){ $t=\u0027{\"startup\":false,\u0027+$t.Substring(\u0027{\"startup\":true,\u0027.Length); [IO.File]::WriteAllText($f,$t,(New-Object Text.UTF8Encoding($false))) }\n  \"  PT startup=\" + (Get-Content $f -Raw | ConvertFrom-Json).startup }\n\n\"## G. Jarvis-Syncthing-Health: run on battery too\"\nStep \u0027health\u0027 {\n  $t=Get-ScheduledTask \[REDACTED]\u0027; $t.Settings.DisallowStartIfOnBatteries=$false; $t.Settings.StopIfGoingOnBatteries=$false\n  Set-ScheduledTask -InputObject $t | Out-Null\n  (Get-ScheduledTask \[REDACTED]\u0027).Settings | Select DisallowStartIfOnBatteries,StopIfGoingOnBatteries | Out-String }","description":"Apply non-admin startup, power, and task changes"}`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027Stop\u0027\n$me=\"$env:USERDOMAIN\\$env:USERNAME\"\nfunction New-Delayed($name,$exe,$arg,$delay,$wd){\n  $p1=@{Execute=$exe}; if($arg){$p1.Argument=$arg}; if($wd){$p1.WorkingDirectory=$wd}\n  $a=New-ScheduledTaskAction @p1\n  $t=New-ScheduledTaskTrigger -AtLogOn -User $me; $t.Delay=$delay\n  $s=New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable\n  $p=New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Limited\n  Register-ScheduledTask -TaskName $name -Action $a -Trigger $t -Settings $s -Principal $p -Force | Out-Null\n  $r=Get-ScheduledTask $name; \"  {0} : {1} delay={2} run={3}\" -f $r.TaskName,$r.State,$r.Triggers[0].Delay,$r.Principal.RunLevel }\n$obs=\"$env:LOCALAPPDATA\\Programs\\Obsidian\\Obsidian.exe\"; $tog=\u0027D:\\Apps\\Toggl 2.0\\Toggl 2.0.exe\u0027; $pt=\u0027C:\\Program Files\\PowerToys\\PowerToys.exe\u0027\nNew-Delayed \[REDACTED]\u0027 $obs $null \u0027PT45S\u0027 (Split-Path $obs)\nNew-Delayed \[REDACTED]\u0027 $tog $null \u0027PT45S\u0027 (Split-Path $tog)\nNew-Delayed \[REDACTED]\u0027 $pt $null \u0027PT90S\u0027 (Split-Path $pt)\n\"=== all Startup-Delayed tasks ===\"\nGet-ScheduledTask | ?{$_.TaskName -like \u0027Startup-Delayed*\u0027} | %{ $x=$_; \"{0,-28} {1} delay={2} exe={3} {4}\" -f $x.TaskName,$x.State,$x.Triggers[0].Delay,$x.Actions[0].Execute,$x.Actions[0].Arguments }\n\"=== SUB_BUTTONS settings on active plan ===\"\npowercfg /query [REDACTED] SUB_BUTTONS | Select-String \u0027GUID|Index\u0027","description":"Create remaining delayed tasks, inspect button power settings"}`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027Continue\u0027\n$up=\[REDACTED]\u0027; $bal=\[REDACTED]\u0027\nforeach($pl in @(@(\u0027Ultimate\u0027,$up),@(\u0027Balanced\u0027,$bal))){ \"--- $($pl[0])\"\n  powercfg /qh $pl[1] SUB_BUTTONS | Select-String \u0027Power Setting GUID|Current (AC|DC)\u0027 | %{ $_.Line.Trim() } }\n\"--- DISK + other relevant (Balanced vs Ultimate), hidden included\"\nforeach($pl in @(@(\u0027Ultimate\u0027,$up),@(\u0027Balanced\u0027,$bal))){ \"--- $($pl[0])\"; powercfg /qh $pl[1] SUB_DISK DISKIDLE | Select-String \u0027Current (AC|DC)\u0027 | %{ $_.Line.Trim() } }","description":"Read hidden lid and button power settings"}`
-- `PowerShell` -- `{"command":"$bal=\[REDACTED]\u0027\npowercfg /setacvalueindex $bal SUB_BUTTONS [REDACTED] 0\npowercfg /setacvalueindex $bal SUB_DISK DISKIDLE 0\npowercfg /setactive $bal\npowercfg /getactivescheme\nforeach($q in @(@(\u0027SUB_BUTTONS\u0027,\[REDACTED]\u0027,\u0027Lid close\u0027),@(\u0027SUB_DISK\u0027,\u0027DISKIDLE\u0027,\u0027Disk off\u0027),@(\u0027SUB_SLEEP\u0027,\u0027STANDBYIDLE\u0027,\u0027Sleep\u0027))){\n $o=(powercfg /qh $bal $q[0] $q[1]) -join \u0027 \u0027\n \"{0,-10} AC={1} DC={2}\" -f $q[2],[regex]::Match($o,\u0027AC Power Setting Index: (0x[0-9a-f]+)\u0027).Groups[1].Value,[regex]::Match($o,\u0027DC Power Setting Index: (0x[0-9a-f]+)\u0027).Groups[1].Value }\n\"=== Final startup state check ===\"\n$k=\u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\u0027\n(Get-ItemProperty $k).PSObject.Properties | ?{$_.Name -notmatch \u0027^PS\u0027} | %{ \"{0,-45} {1}\" -f $_.Name,$(if($_.Value[0] -eq 2){\u0027ENABLED\u0027}else{\u0027disabled\u0027}) }\n\"Startup folder:\"; Get-ChildItem \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\" -Filter *.lnk | %{ $_.Name }\n\"--- Wispr/Ollama approved:\"; (Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\StartupFolder\u0027).PSObject.Properties | ?{$_.Name -match \u0027lnk\u0027} | %{ \"{0} byte={1}\" -f $_.Name,$_.Value[0] }","description":"Finish power plan switch and verify startup state"}`
+- `PowerShell`
+```powershell
+$ErrorActionPreference='SilentlyContinue'
+$up='a35e357e-c0f8-4b96-a393-ab6bf3805ecb'; $bal='381b4222-f694-41f0-9685-ff5bb260df2e'
+$sets=@(
+ @('SUB_SLEEP','STANDBYIDLE','Sleep after'),@('SUB_SLEEP','HIBERNATEIDLE','Hibernate after'),
+ @('SUB_VIDEO','VIDEOIDLE','Display off'),@('SUB_DISK','DISKIDLE','Disk off'),
+ @('SUB_BUTTONS','LIDACTION','Lid close'),@('SUB_BUTTONS','PBUTTONACTION','Power button'),
+ @('SUB_PROCESSOR','PROCTHROTTLEMAX','Max CPU %'),@('SUB_PROCESSOR','PERFEPP','EPP'),@('SUB_PROCESSOR','PERFBOOSTMODE','Boost mode'))
+foreach($s in $sets){ foreach($g in @(@('Ultimate',$up),@('Balanced',$bal))){
+  $o=powercfg /query $g[1] $s[0] $s[1] 2>&1 | Out-String
+  $ac=[regex]::Match($o,'Current AC Power Setting Index: (0x[0-9a-f]+)').Groups[1].Value
+  $dc=[regex]::Match($o,'Current DC Power Setting Index: (0x[0-9a-f]+)').Groups[1].Value
+  "{0,-16} {1,-9} AC={2,-12} DC={3}" -f $s[2],$g[0],$ac,$dc } }
+"=== ALL non-Microsoft-path tasks: battery flags ==="
+Get-ScheduledTask | ?{$_.TaskPath -notmatch '^\\Microsoft\\' -and $_.State -ne 'Disabled'} | %{ "{0,-55} DisallowOnBatt={1} StopOnBatt={2}" -f ($_.TaskPath+$_.TaskName),$_.Settings.DisallowStartIfOnBatteries,$_.Settings.StopIfGoingOnBatteries }
+"=== Any Dell/Intel/vendor tasks incl. Microsoft-path? ==="
+Get-ScheduledTask | ?{$_.TaskName -match 'Dell|SupportAssist|Intel|Waves|Realtek|Adobe|Google|Edge|OneDrive|Zoom|Spotify|Teams' -and $_.State -ne 'Disabled'} | Select TaskPath,TaskName,State | ft -AutoSize
+"=== PowerToys elevation ==="
+Select-String -Path "$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json" -Pattern 'run_elevated|startup' | %{$_.Line.Trim().Substring(0,[Math]::Min(120,$_.Line.Trim().Length))}
+(Get-ScheduledTask -TaskPath '\PowerToys\').Principal | Select RunLevel,LogonType | fl
+(Get-ScheduledTask -TaskPath '\PowerToys\').Actions | Select Execute,Arguments | fl
+"=== Uptime / boot ==="
+$b=(Get-CimInstance Win32_OperatingSystem).LastBootUpTime; "Boot: $b  Uptime: $((Get-Date)-$b)"
+"=== Ollama/Wispr targets exist? ==="
+$ws=New-Object -ComObject WScript.Shell; foreach($n in 'Ollama','Wispr Flow'){ $l=$ws.CreateShortcut("$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup\$n.lnk"); "$n -> $($l.TargetPath) exists=$(Test-Path $l.TargetPath)" }
+"=== winget has Tailscale? ==="
+winget --version
+```
+```
+Sleep after      Ultimate  AC=0x00000000   DC=0x000000b4
+Sleep after      Balanced  AC=0x00000000   DC=0x000000b4
+Hibernate after  Ultimate  AC=0x00000000   DC=0x7fffffff
+Hibernate after  Balanced  AC=0x00000000   DC=0x7fffffff
+Display off      Ultimate  AC=0x00000000   DC=0x000000b4
+Display off      Balanced  AC=0x00000000   DC=0x000000b4
+Disk off         Ultimate  AC=0x00000000   DC=0x00000000
+Disk off         Balanced  AC=0x0000001e   DC=0x0000003c
+Lid close        Ultimate  AC=             DC=
+Lid close        Balanced  AC=             DC=
+Power button     Ultimate  AC=             DC=
+Power button     Balanced  AC=             DC=
+Max CPU %        Ultimate  AC=0x00000064   DC=0x00000064
+Max CPU %        Balanced  AC=0x00000064   DC=0x00000064
+EPP              Ultimate  AC=             DC=
+EPP              Balanced  AC=             DC=
+Boost mode       Ultimate  AC=             DC=
+Boost mode       Balanced  AC=             DC=
+=== ALL non-Microsoft-path tasks: battery flags ===
+\ConversationCapture-Backfill-Windows                   DisallowOnBatt=True StopOnBatt=True
+\CreateExplorerShellUnelevatedTask                      DisallowOnBatt=False StopOnBatt=False
+\Jarvis-Cursor-Session-Export                           DisallowOnBatt=False StopOnBatt=False
+\Jarvis-Syncthing-Health                                DisallowOnBatt=True StopOnBatt=True
+\Jarvis-WeeklyReview                                    DisallowOnBatt=False StopOnBatt=False
+\Syncthing                                              DisallowOnBatt=False StopOnBatt=False
+\ThePlan-GitSync                                        DisallowOnBatt=False StopOnBatt=False
+\Toolkit-Watch-C                                        DisallowOnBatt=False StopOnBatt=False
+\Toolkit-Weekly-Clean                                   DisallowOnBatt=False StopOnBatt=False
+\[REDACTED]                    DisallowOnBatt=False StopOnBatt=True
+\WindhawkRunUITask                                      DisallowOnBatt=False StopOnBatt=True
+\[REDACTED] DisallowOnBatt=False StopOnBatt=False
+\PowerToys\Autorun for Anant Gupta                      DisallowOnBatt=False StopOnBatt=False
+\SoftLanding\[REDACTED]\SoftLandingCreativeManagementTask DisallowOnBatt=False StopOnBatt=False
+=== Any Dell/Intel/vendor tasks incl. Microsoft-path? ===
+
+TaskPath TaskName                                                         State
+-------- --------                                                         -----
+\        [REDACTED] Ready
+
+=== PowerToys elevation ===
+{"startup":true,"enabled":{"AdvancedPaste":true,"AlwaysOnTop":true,"Awake":false,"CmdNotFound":false,"CmdPal":true,"Colo
+
+RunLevel  : Limited
+LogonType : Interactive
+
+
+Execute   : C:\Program Files\PowerToys\PowerToys.exe
+Arguments : 
+
+=== Uptime / boot ===
+Boot: 10/27/2026 10:35:29  Uptime: 11:27:58.6598147
+=== Ollama/Wispr targets exist? ===
+Ollama -> D:\Apps\Ollama\ollama app.exe exists=True
+Wispr Flow -> C:\Users\Anant Gupta\AppData\Local\WisprFlow\Wispr Flow.exe exists=True
+=== winget has Tailscale? ===
+v1.29.380
+```
+- `PowerShell`
+```powershell
+$ErrorActionPreference='Stop'
+$scr='D:\Cache\Temp\claude\C--Users-Anant-Gupta\18b7c8ff-15cc-4a55-a126-df861fb8eab5\scratchpad'
+$me="$env:USERDOMAIN\$env:USERNAME"
+function Step($n,[scriptblock]$b){ try{ & $b }catch{ "FAILED [$n]: $($_.Exception.Message.Trim())" } }
+
+"## A. POWER: copy lid/button/disk behaviour to Balanced, then activate it"
+Step 'power' {
+  $up='a35e357e-c0f8-4b96-a393-ab6bf3805ecb'; $bal='381b4222-f694-41f0-9685-ff5bb260df2e'
+  $sub='4f971e89-eebd-4455-a8de-9e59040e7347'
+  $items=@{ lid='5ca83367-6e45-459f-a27b-476b1d01c936'; powerbtn='7648efa3-dd9c-4e61-b1d4-da3a4ad13a4b'; sleepbtn='96996bc0-ad50-47ec-923b-6f41874dd9eb' }
+  foreach($k in $items.Keys){ $o=powercfg /query $up $sub $items[$k] | Out-String
+    $ac=[Convert]::ToInt32(([regex]::Match($o,'Current AC Power Setting Index: 0x([0-9a-f]+)').Groups[1].Value),16)
+    $dc=[Convert]::ToInt32(([regex]::Match($o,'Current DC Power Setting Index: 0x([0-9a-f]+)').Groups[1].Value),16)
+    powercfg /setacvalueindex $bal $sub $items[$k] $ac; powercfg /setdcvalueindex $bal $sub $items[$k] $dc
+    "  $k copied AC=$ac DC=$dc" }
+  powercfg /setacvalueindex $bal SUB_DISK DISKIDLE 0   # disk never off on AC; battery keeps Balanced default
+  powercfg /setactive $bal
+  powercfg /getactivescheme }
+
+"## B. Run keys / StartupApproved"
+Step 'approved' {
+  $k='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run'
+  $b=New-Object byte[] 12; $b[0]=2; Set-ItemProperty $k -Name GoogleDriveFS -Value $b -Type Binary
+  "  GoogleDriveFS approved byte = " + (Get-ItemProperty $k).GoogleDriveFS[0]
+  $r='HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
+  if((Get-ItemProperty $r).PSObject.Properties.Name -contains 'Discord'){ Remove-ItemProperty $r -Name Discord; "  Discord Run value removed (it self-rewrites)" } }
+
+"## C. Store-app startup tasks (2=on, 1=off)"
+Step 'store' {
+  $base='HKCU:\Software\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\AppModel\SystemAppData'
+  $map=@(@('Claude_pzs8sxrjxfjjc','ClaudeStartup',2),@('Microsoft.WindowsTerminal_8wekyb3d8bbwe','StartTerminalOnLoginTask',2),
+         @('AppUp.IntelArcSoftware_8j3eq9eme6ctt','IntelGraphicsSoftwareStartup',1),@('AppUp.IntelGraphicsExperience_8j3eq9eme6ctt','GCPStartupId',1),
+         @('AppUp.IntelManagementandSecurityStatus_8j3eq9eme6ctt','IntelManagementandSecurityStatus',1))
+  foreach($m in $map){ $p="$base\$($m[0])\$($m[1])"; Set-ItemProperty $p -Name State -Value $m[2] -Type DWord; "  $($m[1]) State=" + (Get-ItemProperty $p).State } }
+
+"## D. Windows Terminal: start on login (settings.json) + RestartApps off"
+Step 'terminal' {
+  $f=(Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json").FullName
+  Copy-Item $f "$scr\wt-settings.backup.json" -Force
+  $t=[IO.File]::ReadAllText($f)
+  if($t -notmatch '"startOnUserLogin"'){ $i=$t.IndexOf('{'); $t=$t.Insert($i+1,"`r`n    `"startOnUserLogin`": true,"); [IO.File]::WriteAllText($f,$t,(New-Object Text.UTF8Encoding($false))) }
+  (Select-String -Path $f -Pattern 'startOnUserLogin').Line.Trim()
+  Set-ItemProperty 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon' -Name RestartApps -Value 0 -Type DWord
+  "  RestartApps=" + (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Winlogon').RestartApps }
+
+"## E. Staggered launch tasks"
+function New-Delayed($name,$exe,$arg,$delay,$wd){
+  $a= if($wd){ New-ScheduledTaskAction -Execute $exe -Argument $arg -WorkingDirectory $wd } else { New-ScheduledTaskAction -Execute $exe -Argument $arg }
+  $t=New-ScheduledTaskTrigger -AtLogOn -User $me; $t.Delay=$delay
+  $s=New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable
+  $p=New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Limited
+  Register-ScheduledTask -TaskName $name -Action $a -Trigger $t -Settings $s -Principal $p -Force | Out-Null
+  $r=Get-ScheduledTask $name; "  {0} : {1} delay={2} run={3}" -f $r.TaskName,$r.State,$r.Triggers[0].Delay,$r.Principal.RunLevel }
+$obs="$env:LOCALAPPDATA\Programs\Obsidian\Obsidian.exe"; $tog='D:\Apps\Toggl 2.0\Toggl 2.0.exe'; $viv="$env:LOCALAPPDATA\Vivaldi\Application\vivaldi.exe"; $pt='C:\Program Files\PowerToys\PowerToys.exe'
+foreach($x in $obs,$tog,$viv,$pt){ if(-not(Test-Path -LiteralPath $x)){ throw "missing $x" } }
+Step 'obsidian' { New-Delayed 'Startup-Delayed-Obsidian' $obs '' 'PT45S' (Split-Path $obs) }
+Step 'toggl'    { New-Delayed 'Startup-Delayed-Toggl' $tog '' 'PT45S' (Split-Path $tog) }
+Step 'vivaldi'  { New-Delayed 'Startup-Delayed-Vivaldi' $viv '--profile-directory=Default' 'PT45S' (Split-Path $viv) }
+Step 'wsl'      { New-Delayed 'Startup-Delayed-WSL' 'conhost.exe' '--headless wsl.exe -d Ubuntu --exec sleep infinity' 'PT60S' $null }
+Step 'powertoys'{ New-Delayed 'Startup-Delayed-PowerToys' $pt '' 'PT90S' (Split-Path $pt) }
+
+"## F. PowerToys own autostart off (so it doesn't fight the delayed task)"
+Step 'pt-off' {
+  Disable-ScheduledTask -TaskPath '\PowerToys\' -TaskName 'Autorun for Anant Gupta' | Out-Null
+  "  PT Autorun task: " + (Get-ScheduledTask -TaskPath '\PowerToys\').State
+  $f="$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json"; $t=[IO.File]::ReadAllText($f)
+  if($t.StartsWith('{"startup":true,')){ $t='{"startup":false,'+$t.Substring('{"startup":true,'.Length); [IO.File]::WriteAllText($f,$t,(New-Object Text.UTF8Encoding($false))) }
+  "  PT startup=" + (Get-Content $f -Raw | ConvertFrom-Json).startup }
+
+"## G. Jarvis-Syncthing-Health: run on battery too"
+Step 'health' {
+  $t=Get-ScheduledTask 'Jarvis-Syncthing-Health'; $t.Settings.DisallowStartIfOnBatteries=$false; $t.Settings.StopIfGoingOnBatteries=$false
+  Set-ScheduledTask -InputObject $t | Out-Null
+  (Get-ScheduledTask 'Jarvis-Syncthing-Health').Settings | Select DisallowStartIfOnBatteries,StopIfGoingOnBatteries | Out-String }
+```
+```
+Exit code 1
+## A. POWER: copy lid/button/disk behaviour to Balanced, then activate it
+The power scheme, subgroup or setting specified does not exist.
+FAILED [power]: Exception calling "ToInt32" with "2" argument(s): "Specified argument was out of the range of valid values. (Parameter 'Index was out of range. Must be non-negative and less than the size of the collection.')"
+## B. Run keys / StartupApproved
+  GoogleDriveFS approved byte = 2
+  Discord Run value removed (it self-rewrites)
+## C. Store-app startup tasks (2=on, 1=off)
+  ClaudeStartup State=2
+  StartTerminalOnLoginTask State=2
+  IntelGraphicsSoftwareStartup State=1
+  GCPStartupId State=1
+  IntelManagementandSecurityStatus State=1
+## D. Windows Terminal: start on login (settings.json) + RestartApps off
+"startOnUserLogin": true,
+  RestartApps=0
+## E. Staggered launch tasks
+FAILED [obsidian]: Cannot validate argument on parameter 'Argument'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+FAILED [toggl]: Cannot validate argument on parameter 'Argument'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+  Startup-Delayed-Vivaldi : Ready delay=PT45S run=Limited
+  Startup-Delayed-WSL : Ready delay=PT1M run=Limited
+FAILED [powertoys]: Cannot validate argument on parameter 'Argument'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.
+## F. PowerToys own autostart off (so it doesn't fight the delayed task)
+  PT Autorun task: Disabled
+  PT startup=False
+## G. Jarvis-Syncthing-Health: run on battery too
+
+DisallowStartIfOnBatteries StopIfGoingOnBatteries
+-------------------------- ----------------------
+                     False                  False
+```
+- `PowerShell`
+```powershell
+$ErrorActionPreference='Stop'
+$me="$env:USERDOMAIN\$env:USERNAME"
+function New-Delayed($name,$exe,$arg,$delay,$wd){
+  $p1=@{Execute=$exe}; if($arg){$p1.Argument=$arg}; if($wd){$p1.WorkingDirectory=$wd}
+  $a=New-ScheduledTaskAction @p1
+  $t=New-ScheduledTaskTrigger -AtLogOn -User $me; $t.Delay=$delay
+  $s=New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable
+  $p=New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Limited
+  Register-ScheduledTask -TaskName $name -Action $a -Trigger $t -Settings $s -Principal $p -Force | Out-Null
+  $r=Get-ScheduledTask $name; "  {0} : {1} delay={2} run={3}" -f $r.TaskName,$r.State,$r.Triggers[0].Delay,$r.Principal.RunLevel }
+$obs="$env:LOCALAPPDATA\Programs\Obsidian\Obsidian.exe"; $tog='D:\Apps\Toggl 2.0\Toggl 2.0.exe'; $pt='C:\Program Files\PowerToys\PowerToys.exe'
+New-Delayed 'Startup-Delayed-Obsidian' $obs $null 'PT45S' (Split-Path $obs)
+New-Delayed 'Startup-Delayed-Toggl' $tog $null 'PT45S' (Split-Path $tog)
+New-Delayed 'Startup-Delayed-PowerToys' $pt $null 'PT90S' (Split-Path $pt)
+"=== all Startup-Delayed tasks ==="
+Get-ScheduledTask | ?{$_.TaskName -like 'Startup-Delayed*'} | %{ $x=$_; "{0,-28} {1} delay={2} exe={3} {4}" -f $x.TaskName,$x.State,$x.Triggers[0].Delay,$x.Actions[0].Execute,$x.Actions[0].Arguments }
+"=== SUB_BUTTONS settings on active plan ==="
+powercfg /query a35e357e-c0f8-4b96-a393-ab6bf3805ecb SUB_BUTTONS | Select-String 'GUID|Index'
+```
+```
+  Startup-Delayed-Obsidian : Ready delay=PT45S run=Limited
+  Startup-Delayed-Toggl : Ready delay=PT45S run=Limited
+  Startup-Delayed-PowerToys : Ready delay=PT1M30S run=Limited
+=== all Startup-Delayed tasks ===
+Startup-Delayed-Obsidian     Ready delay=PT45S exe=C:\Users\Anant Gupta\AppData\Local\Programs\Obsidian\Obsidian.exe 
+Startup-Delayed-PowerToys    Ready delay=PT1M30S exe=C:\Program Files\PowerToys\PowerToys.exe 
+Startup-Delayed-Toggl        Ready delay=PT45S exe=D:\Apps\Toggl 2.0\Toggl 2.0.exe 
+Startup-Delayed-Vivaldi      Ready delay=PT45S exe=C:\Users\Anant Gupta\AppData\Local\Vivaldi\Application\vivaldi.exe --profile-directory=Default
+Startup-Delayed-WSL          Ready delay=PT1M exe=conhost.exe --headless wsl.exe -d Ubuntu --exec sleep infinity
+=== SUB_BUTTONS settings on active plan ===
+
+Power Scheme GUID: [REDACTED]  (Ultimate Performance)
+  Subgroup GUID: [REDACTED]  (Power buttons and lid)
+    GUID Alias: SUB_BUTTONS
+    Power Setting GUID: [REDACTED]  (Start menu power button)
+      GUID Alias: UIBUTTON_ACTION
+      Possible Setting Index: 000
+      Possible Setting Index: 001
+      Possible Setting Index: 002
+    Current AC Power Setting Index: 0x00000000
+    Current DC Power Setting Index: 0x00000000
+```
+- `PowerShell`
+```powershell
+$ErrorActionPreference='Continue'
+$up='a35e357e-c0f8-4b96-a393-ab6bf3805ecb'; $bal='381b4222-f694-41f0-9685-ff5bb260df2e'
+foreach($pl in @(@('Ultimate',$up),@('Balanced',$bal))){ "--- $($pl[0])"
+  powercfg /qh $pl[1] SUB_BUTTONS | Select-String 'Power Setting GUID|Current (AC|DC)' | %{ $_.Line.Trim() } }
+"--- DISK + other relevant (Balanced vs Ultimate), hidden included"
+foreach($pl in @(@('Ultimate',$up),@('Balanced',$bal))){ "--- $($pl[0])"; powercfg /qh $pl[1] SUB_DISK DISKIDLE | Select-String 'Current (AC|DC)' | %{ $_.Line.Trim() } }
+```
+```
+--- Ultimate
+Power Setting GUID: [REDACTED]  (Lid close action)
+Current AC Power Setting Index: 0x00000000
+Current DC Power Setting Index: 0x00000002
+Power Setting GUID: [REDACTED]  (Power button action)
+Current AC Power Setting Index: 0x00000003
+Current DC Power Setting Index: 0x00000003
+Power Setting GUID: [REDACTED]  (Enable forced button/lid shutdown)
+Current AC Power Setting Index: 0x00000000
+Current DC Power Setting Index: 0x00000000
+Power Setting GUID: [REDACTED]  (Sleep button action)
+Current AC Power Setting Index: 0x00000003
+Current DC Power Setting Index: 0x00000003
+Power Setting GUID: [REDACTED]  (Lid open action)
+Current AC Power Setting Index: 0x00000001
+Current DC Power Setting Index: 0x00000001
+Power Setting GUID: [REDACTED]  (Start menu power button)
+Current AC Power Setting Index: 0x00000000
+Current DC Power Setting Index: 0x00000000
+--- Balanced
+Power Setting GUID: [REDACTED]  (Lid close action)
+Current AC Power Setting Index: 0x00000002
+Current DC Power Setting Index: 0x00000002
+Power Setting GUID: [REDACTED]  (Power button action)
+Current AC Power Setting Index: 0x00000003
+Current DC Power Setting Index: 0x00000003
+Power Setting GUID: [REDACTED]  (Enable forced button/lid shutdown)
+Current AC Power Setting Index: 0x00000000
+Current DC Power Setting Index: 0x00000000
+Power Setting GUID: [REDACTED]  (Sleep button action)
+Current AC Power Setting Index: 0x00000003
+Current DC Power Setting Index: 0x00000003
+Power Setting GUID: [REDACTED]  (Lid open action)
+Current AC Power Setting Index: 0x00000001
+Current DC Power Setting Index: 0x00000001
+Power Setting GUID: [REDACTED]  (Start menu power button)
+Current AC Power Setting Index: 0x00000000
+Current DC Power Setting Index: 0x00000000
+--- DISK + other relevant (Balanced vs Ultimate), hidden included
+--- Ultimate
+Current AC Power Setting Index: 0x00000000
+Current DC Power Setting Index: 0x00000000
+--- Balanced
+Current AC Power Setting Index: 0x0000001e
+Current DC Power Setting Index: 0x0000003c
+```
+- `PowerShell`
+```powershell
+$bal='381b4222-f694-41f0-9685-ff5bb260df2e'
+powercfg /setacvalueindex $bal SUB_BUTTONS 5ca83367-6e45-459f-a27b-476b1d01c936 0
+powercfg /setacvalueindex $bal SUB_DISK DISKIDLE 0
+powercfg /setactive $bal
+powercfg /getactivescheme
+foreach($q in @(@('SUB_BUTTONS','5ca83367-6e45-459f-a27b-476b1d01c936','Lid close'),@('SUB_DISK','DISKIDLE','Disk off'),@('SUB_SLEEP','STANDBYIDLE','Sleep'))){
+ $o=(powercfg /qh $bal $q[0] $q[1]) -join ' '
+ "{0,-10} AC={1} DC={2}" -f $q[2],[regex]::Match($o,'AC Power Setting Index: (0x[0-9a-f]+)').Groups[1].Value,[regex]::Match($o,'DC Power Setting Index: (0x[0-9a-f]+)').Groups[1].Value }
+"=== Final startup state check ==="
+$k='HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run'
+(Get-ItemProperty $k).PSObject.Properties | ?{$_.Name -notmatch '^PS'} | %{ "{0,-45} {1}" -f $_.Name,$(if($_.Value[0] -eq 2){'ENABLED'}else{'disabled'}) }
+"Startup folder:"; Get-ChildItem "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup" -Filter *.lnk | %{ $_.Name }
+"--- Wispr/Ollama approved:"; (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\StartupFolder').PSObject.Properties | ?{$_.Name -match 'lnk'} | %{ "{0} byte={1}" -f $_.Name,$_.Value[0] }
+```
+```
+Power Scheme GUID: [REDACTED]  (Balanced)Lid close  AC=0x00000000 DC=0x00000002
+Disk off   AC=0x00000000 DC=0x0000003c
+Sleep      AC=0x00000000 DC=0x000000b4
+=== Final startup state check ===
+[REDACTED] ENABLED
+OneDrive                                      ENABLED
+Discord                                       disabled
+Docker Desktop                                disabled
+GoogleDriveFS                                 ENABLED
+Spotify                                       disabled
+[REDACTED] ENABLED
+Voquill                                       disabled
+com.squirrel.slack.slack                      disabled
+Startup folder:
+Ollama.lnk
+Wispr Flow.lnk
+--- Wispr/Ollama approved:
+Wispr Flow.lnk byte=3
+Ollama.lnk byte=3
+```
 
 ## You
 
@@ -334,13 +1514,150 @@ Stay on AC power. Wi-Fi will drop briefly during the driver install. Have your B
 ### Tool Calls
 
 - `Grep` -- pattern `tailscale` path `D:\Users\_Anant\10_Areas\Documents\Jarvis`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== Windows Tailscale ===\"\nGet-Service Tailscale | Select Name,Status,StartType | ft -AutoSize\nGet-Process tailscale* | Select Name,Id | ft -AutoSize\n\u0026 \u0027C:\\Program Files\\Tailscale\\tailscale.exe\u0027 status 2\u003e\u00261 | Select -First 8\n\"=== Tailscale in WSL ===\"\nwsl -d Ubuntu -- bash -c \u0027systemctl is-active tailscaled; tailscale status 2\u003e\u00261 | head -5; tailscale ip -4; cat /etc/wsl.conf; cat /proc/sys/kernel/hostname\u0027 2\u003e\u00261\n\"=== .wslconfig ===\"\nGet-Content \"$env:USERPROFILE\\.wslconfig\" 2\u003e\u00261\n\"=== Malwarebytes install entries ===\"\nGet-ItemProperty HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | ?{$_.DisplayName -match \u0027Malwarebytes\u0027} | Select DisplayName,DisplayVersion,UninstallString | fl\nGet-AppxPackage -AllUsers *Malwarebytes* | Select Name,PackageFullName | fl\nGet-Process | ?{$_.Name -match \u0027mbam|malwarebytes\u0027} | Select Name,Id\n\"=== vhdx ===\"\nGet-ChildItem D:\\WSL -Recurse -Filter *.vhdx | Select FullName,@{n=\u0027GB\u0027;e={[math]::Round($_.Length/1GB,1)}} | ft -AutoSize\nGet-ChildItem \"$env:LOCALAPPDATA\\Packages\\*Ubuntu*\\LocalState\\*.vhdx\" | Select FullName,@{n=\u0027GB\u0027;e={[math]::Round($_.Length/1GB,1)}} | ft -AutoSize","description":"Check Tailscale on Windows and WSL, Malwarebytes, vhdx"}`
+- `PowerShell`
+```powershell
+$ErrorActionPreference='SilentlyContinue'
+"=== Windows Tailscale ==="
+Get-Service Tailscale | Select Name,Status,StartType | ft -AutoSize
+Get-Process tailscale* | Select Name,Id | ft -AutoSize
+& 'C:\Program Files\Tailscale\tailscale.exe' status 2>&1 | Select -First 8
+"=== Tailscale in WSL ==="
+wsl -d Ubuntu -- bash -c 'systemctl is-active tailscaled; tailscale status 2>&1 | head -5; tailscale ip -4; cat /etc/wsl.conf; cat /proc/sys/kernel/hostname' 2>&1
+"=== .wslconfig ==="
+Get-Content "$env:USERPROFILE\.wslconfig" 2>&1
+"=== Malwarebytes install entries ==="
+Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\*,HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -match 'Malwarebytes'} | Select DisplayName,DisplayVersion,UninstallString | fl
+Get-AppxPackage -AllUsers *Malwarebytes* | Select Name,PackageFullName | fl
+Get-Process | ?{$_.Name -match 'mbam|malwarebytes'} | Select Name,Id
+"=== vhdx ==="
+Get-ChildItem D:\WSL -Recurse -Filter *.vhdx | Select FullName,@{n='GB';e={[math]::Round($_.Length/1GB,1)}} | ft -AutoSize
+Get-ChildItem "$env:LOCALAPPDATA\Packages\*Ubuntu*\LocalState\*.vhdx" | Select FullName,@{n='GB';e={[math]::Round($_.Length/1GB,1)}} | ft -AutoSize
+```
+```
+=== Windows Tailscale ===
+
+Name       Status StartType
+----       ------ ---------
+Tailscale Running Automatic
+
+
+Name             Id
+----             --
+tailscale-ipn 11052
+tailscaled    18740
+tailscaled    24668
+
+100.116.203.49  desktop-3vbg0jh  anantmahi721@  windows  -  
+100.94.129.113  dell-wsl         anantmahi721@  linux    -  
+100.84.91.11    gupta-builds     anantmahi721@  windows  -  
+=== Tailscale in WSL ===
+active
+100.94.129.113  dell-wsl         anantmahi721@  linux    -  
+100.116.203.49  desktop-3vbg0jh  anantmahi721@  windows  -  
+100.84.91.11    gupta-builds     anantmahi721@  windows  -  
+100.94.129.113
+[boot]
+systemd=true
+
+[user]
+default=anant_gupta
+
+[interop]
+enabled = true
+appendWindowsPath = true
+DESKTOP-3VBG0JH
+=== .wslconfig ===
+[wsl2]
+networkingMode=mirrored
+firewall=true
+memory=20GB
+processors=10
+swap=8GB
+swapfile=D:\\WSL\\swap.vhdx
+vmIdleTimeout=-1
+
+[general]
+instanceIdleTimeout=-1
+
+[experimental]
+autoMemoryReclaim=gradual
+sparseVhd=true
+=== Malwarebytes install entries ===
+
+DisplayName     : Malwarebytes version 5.7.2.358
+DisplayVersion  : 5.7.2.358
+UninstallString : "C:\Program Files\Malwarebytes\Anti-Malware\mbuns.exe" /uninstall /arp
+
+=== vhdx ===
+
+FullName                                                 GB
+--------                                                 --
+D:\WSL\swap.vhdx                                       0.00
+D:\WSL\Docker\DockerDesktopWSL\disk\docker_data.vhdx  33.80
+D:\WSL\Docker\DockerDesktopWSL\main\ext4.vhdx          0.10
+D:\WSL\Ubuntu\ext4.vhdx                              107.60
+```
 - `Grep` -- pattern `tailscale` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
 - `Grep` -- pattern `hard stop|never install|do not install|not install.*windows|both.*(windows|wsl)` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\30_Reviews\AI\Conversations\Dell WSL Track.md`
 - `Grep` -- pattern `tailscale` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
 - `Grep` -- pattern `tailscale` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Codebases\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md`
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Codebases\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md`
-- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027Stop\u0027\n$me=\"$env:USERDOMAIN\\$env:USERNAME\"\nfunction Step($n,[scriptblock]$b){ try{ \u0026 $b }catch{ \"FAILED [$n]: $($_.Exception.Message.Trim())\" } }\n\n\"## 1. WSL task: start distro only (idle timers are already -1), at 15s\"\nStep \u0027wsl\u0027 {\n  $t=Get-ScheduledTask \[REDACTED]\u0027\n  $t.Actions[0].Arguments=\u0027--headless wsl.exe -d Ubuntu --exec /bin/true\u0027\n  $t.Triggers[0].Delay=\u0027PT15S\u0027\n  Set-ScheduledTask -InputObject $t | Out-Null\n  $r=Get-ScheduledTask \[REDACTED]\u0027; \"  $($r.Actions[0].Execute) $($r.Actions[0].Arguments) | delay=$($r.Triggers[0].Delay)\" }\n\n\"## 2. Wispr Flow: staggered task at 60s (Startup-folder shortcut stays disabled)\"\nStep \u0027wispr\u0027 {\n  $exe=\"$env:LOCALAPPDATA\\WisprFlow\\Wispr Flow.exe\"; if(-not(Test-Path -LiteralPath $exe)){throw \"missing $exe\"}\n  $a=New-ScheduledTaskAction -Execute $exe -WorkingDirectory (Split-Path $exe)\n  $tr=New-ScheduledTaskTrigger -AtLogOn -User $me; $tr.Delay=\u0027PT60S\u0027\n  $s=New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable\n  $p=New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Limited\n  Register-ScheduledTask -TaskName \[REDACTED]\u0027 -Action $a -Trigger $tr -Settings $s -Principal $p -Force | Out-Null\n  $r=Get-ScheduledTask \[REDACTED]\u0027; \"  $($r.TaskName) $($r.State) delay=$($r.Triggers[0].Delay)\" }\n\n\"## 3. PowerToys: keep EnvironmentVariables, TextExtractor, CmdPal only\"\nStep \u0027pt\u0027 {\n  $f=\"$env:LOCALAPPDATA\\Microsoft\\PowerToys\\settings.json\"\n  Copy-Item $f \u0027D:\\Cache\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\\powertoys-settings.backup.json\u0027 -Force\n  Get-Process PowerToys* -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 3\n  $keep=\[REDACTED]\u0027,\u0027TextExtractor\u0027,\u0027CmdPal\u0027\n  $j=Get-Content $f -Raw | ConvertFrom-Json\n  foreach($n in @($j.enabled.PSObject.Properties.Name)){ $j.enabled.$n = ($keep -contains $n) }\n  [IO.File]::WriteAllText($f,($j | ConvertTo-Json -Depth 20 -Compress),(New-Object Text.UTF8Encoding($false)))\n  $c=Get-Content $f -Raw | ConvertFrom-Json\n  \"  startup=$($c.startup)  ENABLED: \" + (($c.enabled.PSObject.Properties | ?{$_.Value} | %{$_.Name}) -join \u0027, \u0027)\n  \"  total modules still true: \" + @($c.enabled.PSObject.Properties | ?{$_.Value}).Count }\n\n\"## 4. All startup tasks now\"\nGet-ScheduledTask | ?{$_.TaskName -like \u0027Startup-Delayed*\u0027} | Sort {$_.Triggers[0].Delay} | %{ \"{0,-30} delay={1,-8} {2}\" -f $_.TaskName,$_.Triggers[0].Delay,$_.State }","description":"Fix WSL task, add Wispr task, trim PowerToys modules"}`
+- `PowerShell`
+```powershell
+$ErrorActionPreference='Stop'
+$me="$env:USERDOMAIN\$env:USERNAME"
+function Step($n,[scriptblock]$b){ try{ & $b }catch{ "FAILED [$n]: $($_.Exception.Message.Trim())" } }
+
+"## 1. WSL task: start distro only (idle timers are already -1), at 15s"
+Step 'wsl' {
+  $t=Get-ScheduledTask 'Startup-Delayed-WSL'
+  $t.Actions[0].Arguments='--headless wsl.exe -d Ubuntu --exec /bin/true'
+  $t.Triggers[0].Delay='PT15S'
+  Set-ScheduledTask -InputObject $t | Out-Null
+  $r=Get-ScheduledTask 'Startup-Delayed-WSL'; "  $($r.Actions[0].Execute) $($r.Actions[0].Arguments) | delay=$($r.Triggers[0].Delay)" }
+
+"## 2. Wispr Flow: staggered task at 60s (Startup-folder shortcut stays disabled)"
+Step 'wispr' {
+  $exe="$env:LOCALAPPDATA\WisprFlow\Wispr Flow.exe"; if(-not(Test-Path -LiteralPath $exe)){throw "missing $exe"}
+  $a=New-ScheduledTaskAction -Execute $exe -WorkingDirectory (Split-Path $exe)
+  $tr=New-ScheduledTaskTrigger -AtLogOn -User $me; $tr.Delay='PT60S'
+  $s=New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit ([TimeSpan]::Zero) -MultipleInstances IgnoreNew -StartWhenAvailable
+  $p=New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Limited
+  Register-ScheduledTask -TaskName 'Startup-Delayed-WisprFlow' -Action $a -Trigger $tr -Settings $s -Principal $p -Force | Out-Null
+  $r=Get-ScheduledTask 'Startup-Delayed-WisprFlow'; "  $($r.TaskName) $($r.State) delay=$($r.Triggers[0].Delay)" }
+
+"## 3. PowerToys: keep EnvironmentVariables, TextExtractor, CmdPal only"
+Step 'pt' {
+  $f="$env:LOCALAPPDATA\Microsoft\PowerToys\settings.json"
+  Copy-Item $f 'D:\Cache\Temp\claude\C--Users-Anant-Gupta\18b7c8ff-15cc-4a55-a126-df861fb8eab5\scratchpad\powertoys-settings.backup.json' -Force
+  Get-Process PowerToys* -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 3
+  $keep='EnvironmentVariables','TextExtractor','CmdPal'
+  $j=Get-Content $f -Raw | ConvertFrom-Json
+  foreach($n in @($j.enabled.PSObject.Properties.Name)){ $j.enabled.$n = ($keep -contains $n) }
+  [IO.File]::WriteAllText($f,($j | ConvertTo-Json -Depth 20 -Compress),(New-Object Text.UTF8Encoding($false)))
+  $c=Get-Content $f -Raw | ConvertFrom-Json
+  "  startup=$($c.startup)  ENABLED: " + (($c.enabled.PSObject.Properties | ?{$_.Value} | %{$_.Name}) -join ', ')
+  "  total modules still true: " + @($c.enabled.PSObject.Properties | ?{$_.Value}).Count }
+
+"## 4. All startup tasks now"
+Get-ScheduledTask | ?{$_.TaskName -like 'Startup-Delayed*'} | Sort {$_.Triggers[0].Delay} | %{ "{0,-30} delay={1,-8} {2}" -f $_.TaskName,$_.Triggers[0].Delay,$_.State }
+```
+```
+## 1. WSL task: start distro only (idle timers are already -1), at 15s
+  conhost.exe --headless wsl.exe -d Ubuntu --exec /bin/true | delay=PT15S
+## 2. Wispr Flow: staggered task at 60s (Startup-folder shortcut stays disabled)
+  Startup-Delayed-WisprFlow Ready delay=PT1M
+## 3. PowerToys: keep EnvironmentVariables, TextExtractor, CmdPal only
+  startup=False  ENABLED: CmdPal, EnvironmentVariables, TextExtractor
+  total modules still true: 3
+## 4. All startup tasks now
+Startup-Delayed-WSL            delay=PT15S    Ready
+Startup-Delayed-WisprFlow      delay=PT1M     Ready
+Startup-Delayed-PowerToys      delay=PT1M30S  Ready
+Startup-Delayed-Obsidian       delay=PT45S    Ready
+Startup-Delayed-Toggl          delay=PT45S    Ready
+Startup-Delayed-Vivaldi        delay=PT45S    Ready
+```
 
 ## Actions Taken
 
@@ -355,5 +1672,4 @@ _None detected_
 
 **Commands run:**
 _None_
-
 

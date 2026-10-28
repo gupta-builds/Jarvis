@@ -1,3 +1,10 @@
+# Exports Claude Code (and Cowork) session transcripts to one Markdown note each.
+# Run by the Stop/SessionEnd hook and by the 30-minute -BackfillAll task, under
+# Windows PowerShell 5.1.
+#
+# Environment (TEST ONLY): JARVIS_CAPTURE_OUTROOT replaces the computed output
+# root so tests and real-transcript checks write to a scratch folder instead of
+# the vault. Leave it unset everywhere else.
 param(
     [string]$TranscriptPath = "",
     [string]$SessionId = "",
@@ -24,25 +31,41 @@ function Get-CaptureMachine {
     }
 }
 $Machine = Get-CaptureMachine
-$OutRoot = if ($Machine) { Join-Path $ConvRoot "$Machine\Windows\Claude" } else { $null }
+# TEST ONLY: JARVIS_CAPTURE_OUTROOT replaces the computed OutRoot, so tests and
+# real-transcript checks can export to a scratch folder instead of the vault.
+# Never set it in the hook or the scheduled task.
+$OutRoot = if ($env:JARVIS_CAPTURE_OUTROOT) { $env:JARVIS_CAPTURE_OUTROOT }
+elseif ($Machine) { Join-Path $ConvRoot "$Machine\Windows\Claude" }
+else { $null }
 
 # ---------------------------------------------------------------------------
-# Pricing (dollars per million tokens). Reused from the WSL exporter's table,
-# looked up 2026-07-30 via the claude-api skill - one day old as of this
-# script's authorship (2026-07-31), so treated as current rather than
-# re-derived. Sonnet 5 intro pricing ($2/$10) runs through 2026-08-31, then
-# reverts to $3/$15 - revisit this table after that date.
+# Pricing (dollars per million tokens). Source:
+# https://platform.claude.com/docs/en/about-claude/pricing, read 2026-10-28.
+# Cache multipliers on that page: 5-minute write 1.25x input, 1-hour write
+# 2x input, cache read (hit) 0.1x input, except 0.05x on claude-opus-5-5 and
+# claude-sonnet-5-5 (and 0.025x on Fable 5.1 / Mythos 5.1, not in this table).
+# `read` below is that per-model cache-read multiplier.
+# claude-sonnet-5: $2/$10 is now the standard price; the planned 2026-09-01
+# increase to $3/$15 will not occur (page footnote 3).
+# claude-haiku-5-5: rates are for prompts up to 100,000 tokens. Requests over
+# that are billed at $0.50/$2.50 and are not priced here (the Acer's
+# transcripts held no Haiku 5.5 usage as of 2026-10-28).
+# Models absent from this table (claude-fable-5-1, claude-mythos-5-1, any
+# unknown id) get cost_usd: null rather than an estimate.
 # ---------------------------------------------------------------------------
 $Pricing = @{
-    "claude-fable-5"    = @{ input = 10.00; output = 50.00 }
-    "claude-mythos-5"   = @{ input = 10.00; output = 50.00 }
-    "claude-opus-5"     = @{ input = 5.00; output = 25.00 }
-    "claude-opus-4-8"   = @{ input = 5.00; output = 25.00 }
-    "claude-opus-4-7"   = @{ input = 5.00; output = 25.00 }
-    "claude-opus-4-6"   = @{ input = 5.00; output = 25.00 }
-    "claude-sonnet-5"   = @{ input = 2.00; output = 10.00 }
-    "claude-sonnet-4-6" = @{ input = 3.00; output = 15.00 }
-    "claude-haiku-4-5"  = @{ input = 1.00; output = 5.00 }
+    "claude-fable-5"    = @{ input = 10.00; output = 50.00; read = 0.1 }
+    "claude-mythos-5"   = @{ input = 10.00; output = 50.00; read = 0.1 }
+    "claude-opus-5-5"   = @{ input = 4.00; output = 20.00; read = 0.05 }
+    "claude-opus-5"     = @{ input = 5.00; output = 25.00; read = 0.1 }
+    "claude-opus-4-8"   = @{ input = 5.00; output = 25.00; read = 0.1 }
+    "claude-opus-4-7"   = @{ input = 5.00; output = 25.00; read = 0.1 }
+    "claude-opus-4-6"   = @{ input = 5.00; output = 25.00; read = 0.1 }
+    "claude-sonnet-5-5" = @{ input = 2.00; output = 10.00; read = 0.05 }
+    "claude-sonnet-5"   = @{ input = 2.00; output = 10.00; read = 0.1 }
+    "claude-sonnet-4-6" = @{ input = 3.00; output = 15.00; read = 0.1 }
+    "claude-haiku-5-5"  = @{ input = 0.10; output = 0.50; read = 0.1 }
+    "claude-haiku-4-5"  = @{ input = 1.00; output = 5.00; read = 0.1 }
 }
 
 function Resolve-PricingKey {
@@ -121,6 +144,58 @@ function Get-ToolResultText {
     return ($parts -join "`n")
 }
 
+# Writes text as UTF-8 without a byte-order mark. Set-Content -Encoding UTF8 adds
+# a BOM under Windows PowerShell 5.1, which is the shell the hook runs.
+function Write-Utf8NoBom {
+    param([string]$Path, [string]$Text)
+    [System.IO.File]::WriteAllText($Path, $Text, (New-Object System.Text.UTF8Encoding($false)))
+}
+
+# A fence must be longer than any run of backticks inside it, or tool output
+# that contains three backticks closes the block early.
+function Get-Fence {
+    param([string]$Text)
+    $max = 0
+    foreach ($m in [regex]::Matches([string]$Text, '`+')) { if ($m.Length -gt $max) { $max = $m.Length } }
+    return ('`' * [Math]::Max(3, $max + 1))
+}
+
+# Inline code span on one line. Newlines become spaces so no line inside the span
+# can start with "- " or "1. " and be read as a task or list item by Obsidian's
+# Tasks plugin. The delimiter is longer than any backtick run inside the text.
+function Format-InlineCode {
+    param([string]$Text)
+    $t = ([string]$Text) -replace '\r?\n', ' '
+    if ($t -eq '') { $t = ' ' }
+    $max = 0
+    foreach ($m in [regex]::Matches($t, '`+')) { if ($m.Length -gt $max) { $max = $m.Length } }
+    $tick = '`' * ($max + 1)
+    if ($t.StartsWith('`') -or $t.EndsWith('`')) { $t = " $t " }
+    return "$tick$t$tick"
+}
+
+# Every line of a multi-line side gets the marker, not just the first.
+function Format-DiffSide {
+    param([string]$Marker, [string]$Text)
+    $out = New-Object System.Collections.Generic.List[string]
+    foreach ($l in ([string]$Text -split '\r?\n')) { $out.Add("$Marker $l") }
+    return $out
+}
+
+function Add-FencedBlock {
+    param($Lines, [string]$Body, [string]$Lang = '')
+    $fence = Get-Fence $Body
+    $Lines.Add("$fence$Lang")
+    $Lines.Add($Body)
+    $Lines.Add($fence)
+}
+
+function Add-DiffBlock {
+    param($Lines, $Old, $New)
+    $body = (@(Format-DiffSide '-' (Redact-Secrets ([string]$Old))) + @(Format-DiffSide '+' (Redact-Secrets ([string]$New)))) -join "`n"
+    Add-FencedBlock -Lines $Lines -Body $body -Lang 'diff'
+}
+
 # Renders exactly one tool_use block into markdown lines. Called once per
 # call, appended individually to a List[string] by the caller - never
 # comma-joined, so N Bash calls in one turn produce N separate entries.
@@ -130,48 +205,40 @@ function Format-ToolCall {
     $in = $Block.input
     switch -Regex ($Block.name) {
         '^Read$' {
-            $lines.Add("- ``Read`` -- ``$($in.file_path)``")
+            $lines.Add("- ``Read`` -- $(Format-InlineCode ([string]$in.file_path))")
         }
         '^Write$' {
-            $lines.Add("- ``Write`` -- ``$($in.file_path)``")
+            $lines.Add("- ``Write`` -- $(Format-InlineCode ([string]$in.file_path))")
             if ($in.content) {
-                $lines.Add('```')
-                $lines.Add((Redact-Secrets ([string]$in.content)))
-                $lines.Add('```')
+                Add-FencedBlock -Lines $lines -Body (Redact-Secrets ([string]$in.content))
             }
         }
         '^Edit$' {
-            $lines.Add("- ``Edit`` -- ``$($in.file_path)``")
-            $lines.Add('```diff')
-            $lines.Add("- $(Redact-Secrets ([string]$in.old_string))")
-            $lines.Add("+ $(Redact-Secrets ([string]$in.new_string))")
-            $lines.Add('```')
+            $lines.Add("- ``Edit`` -- $(Format-InlineCode ([string]$in.file_path))")
+            Add-DiffBlock -Lines $lines -Old $in.old_string -New $in.new_string
         }
         '^MultiEdit$' {
-            $lines.Add("- ``MultiEdit`` -- ``$($in.file_path)``")
+            $lines.Add("- ``MultiEdit`` -- $(Format-InlineCode ([string]$in.file_path))")
             foreach ($edit in @($in.edits)) {
-                $lines.Add('```diff')
-                $lines.Add("- $(Redact-Secrets ([string]$edit.old_string))")
-                $lines.Add("+ $(Redact-Secrets ([string]$edit.new_string))")
-                $lines.Add('```')
+                Add-DiffBlock -Lines $lines -Old $edit.old_string -New $edit.new_string
             }
         }
-        '^Bash$' {
-            $lines.Add("- ``Bash`` -- ``$($in.command)``")
+        '^(Bash|PowerShell)$' {
+            $lang = if ($Block.name -eq 'Bash') { 'bash' } else { 'powershell' }
+            $lines.Add("- ``$($Block.name)``")
+            Add-FencedBlock -Lines $lines -Body ([string]$in.command) -Lang $lang
             if ($ResultText) {
-                $lines.Add('```')
-                $lines.Add((Redact-Secrets $ResultText))
-                $lines.Add('```')
+                Add-FencedBlock -Lines $lines -Body (Redact-Secrets $ResultText)
             }
         }
         '^(Grep|Glob)$' {
             $pat = if ($in.pattern) { [string]$in.pattern } else { "" }
             $pth = if ($in.path) { [string]$in.path } else { "" }
-            $lines.Add("- ``$($Block.name)`` -- pattern ``$pat`` path ``$pth``")
+            $lines.Add("- ``$($Block.name)`` -- pattern $(Format-InlineCode $pat) path $(Format-InlineCode $pth)")
         }
         default {
             $dump = ($in | ConvertTo-Json -Compress -Depth 6)
-            $lines.Add("- ``$($Block.name)`` -- ``$(Redact-Secrets $dump)``")
+            $lines.Add("- ``$($Block.name)`` -- $(Format-InlineCode (Redact-Secrets $dump))")
         }
     }
     return $lines
@@ -316,12 +383,22 @@ function Test-LegacyExported {
 
 function Update-Rollups {
     param([string]$ProjectDir)
-    $vaultRel = $ProjectDir.Substring($VaultRoot.Length + 1) -replace '\\', '/'
+    # Vault-relative when the folder is inside the vault; a ProjectDir outside it
+    # (tests, JARVIS_CAPTURE_OUTROOT) falls back to its full path.
+    $vaultPrefix = $VaultRoot.TrimEnd('\', '/') + '\'
+    $vaultRel = if ($ProjectDir.StartsWith($vaultPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+        $ProjectDir.Substring($vaultPrefix.Length) -replace '\\', '/'
+    }
+    else {
+        $ProjectDir -replace '\\', '/'
+    }
 
     $indexPath = Join-Path $ProjectDir "00 - Session Index.md"
     $indexContent = @"
 ---
-type: index
+type: generated
+generator: claude-session-exporter
+gen_kind: index
 ---
 
 ``````dataview
@@ -338,12 +415,14 @@ WHERE type = "input"
 SORT started_at DESC
 ``````
 "@
-    Set-Content -LiteralPath $indexPath -Value $indexContent -Encoding UTF8
+    Write-Utf8NoBom -Path $indexPath -Text $indexContent
 
     $rollupPath = Join-Path $ProjectDir "00 - Tool Usage Rollup.md"
     $rollupContent = @"
 ---
-type: index
+type: generated
+generator: claude-session-exporter
+gen_kind: index
 ---
 
 ``````dataviewjs
@@ -370,7 +449,7 @@ dv.header(2, "Files touched (by session count)");
 dv.table(["File", "Sessions"], Object.entries(fileSessions).sort((a, b) => b[1] - a[1]));
 ``````
 "@
-    Set-Content -LiteralPath $rollupPath -Value $rollupContent -Encoding UTF8
+    Write-Utf8NoBom -Path $rollupPath -Text $rollupContent
 }
 
 # ---------------------------------------------------------------------------
@@ -445,7 +524,7 @@ function Export-Session {
         # of skipping. Reuse the marker's own stored filename so a title
         # change between renders (ai-title arriving late, or a slug from an
         # early turn getting replaced) never orphans a stale duplicate note.
-        $storedName = Get-Content -LiteralPath $markerPath -Raw -ErrorAction SilentlyContinue
+        $storedName = Get-Content -LiteralPath $markerPath -Raw -Encoding UTF8 -ErrorAction SilentlyContinue
         if ($storedName) { $reuseOutputName = $storedName.Trim() }
         if (-not $reuseOutputName) {
             # Marker predates the filename-content change above and is an
@@ -455,7 +534,7 @@ function Export-Session {
             $existingMatch = Get-ChildItem -LiteralPath $projectDir -Filter "*.md" -File -ErrorAction SilentlyContinue |
                 Where-Object { $_.Name -notlike "00 - *" } |
                 Where-Object {
-                    $head = Get-Content -LiteralPath $_.FullName -TotalCount 20 -ErrorAction SilentlyContinue
+                    $head = Get-Content -LiteralPath $_.FullName -TotalCount 20 -Encoding UTF8 -ErrorAction SilentlyContinue
                     $head -match "^session_id: $([regex]::Escape($SessionIdIn))$"
                 } |
                 Select-Object -First 1
@@ -689,7 +768,7 @@ function Export-Session {
         if ($pk) {
             $rate = $Pricing[$pk]
             $costUsd += ($u.input * $rate.input + $u.output * $rate.output +
-                         $u.cache_read * $rate.input * 0.1 +
+                         $u.cache_read * $rate.input * $rate.read +
                          $u.cache_5m * $rate.input * 1.25 +
                          $u.cache_1h * $rate.input * 2.0) / 1000000
         }
@@ -739,7 +818,11 @@ function Export-Session {
     [void]$sb.AppendLine("project: $projectName")
     if ($CwdIn) { [void]$sb.AppendLine("cwd: '$CwdIn'") }
     [void]$sb.AppendLine("session_id: $SessionIdIn")
-    [void]$sb.AppendLine("status: raw")
+    $createdDay = if ($startedAt.Length -ge 10) { $startedAt.Substring(0, 10) } else { $exportedAt.Substring(0, 10) }
+    [void]$sb.AppendLine("status: seed")
+    [void]$sb.AppendLine("review_state: raw")
+    [void]$sb.AppendLine("created: $createdDay")
+    [void]$sb.AppendLine("updated: $($exportedAt.Substring(0, 10))")
     [void]$sb.AppendLine("turn_count: $($turns.Count)")
     if ($toolTally.Count -eq 0) {
         [void]$sb.AppendLine("tools_used: {}")
@@ -808,23 +891,23 @@ function Export-Session {
     $uniqueCommands = @(@($bashCommands) | Select-Object -Unique)
 
     [void]$sb.AppendLine("**Files created:**")
-    if ($uniqueWritten.Count -eq 0) { [void]$sb.AppendLine("_None_") } else { foreach ($f in $uniqueWritten) { [void]$sb.AppendLine("- ``$f``") } }
+    if ($uniqueWritten.Count -eq 0) { [void]$sb.AppendLine("_None_") } else { foreach ($f in $uniqueWritten) { [void]$sb.AppendLine("- $(Format-InlineCode $f)") } }
     [void]$sb.AppendLine("")
     [void]$sb.AppendLine("**Files modified:**")
-    if ($uniqueEdited.Count -eq 0) { [void]$sb.AppendLine("_None_") } else { foreach ($f in $uniqueEdited) { [void]$sb.AppendLine("- ``$f``") } }
+    if ($uniqueEdited.Count -eq 0) { [void]$sb.AppendLine("_None_") } else { foreach ($f in $uniqueEdited) { [void]$sb.AppendLine("- $(Format-InlineCode $f)") } }
     [void]$sb.AppendLine("")
     [void]$sb.AppendLine("**Files deleted (heuristic, from Bash commands):**")
-    if ($deletedCommands.Count -eq 0) { [void]$sb.AppendLine("_None detected_") } else { foreach ($c in $deletedCommands) { [void]$sb.AppendLine("- ``$c``") } }
+    if ($deletedCommands.Count -eq 0) { [void]$sb.AppendLine("_None detected_") } else { foreach ($c in $deletedCommands) { [void]$sb.AppendLine("- $(Format-InlineCode $c)") } }
     [void]$sb.AppendLine("")
     [void]$sb.AppendLine("**Commands run:**")
-    if ($uniqueCommands.Count -eq 0) { [void]$sb.AppendLine("_None_") } else { foreach ($c in $uniqueCommands) { [void]$sb.AppendLine("- ``$c``") } }
+    if ($uniqueCommands.Count -eq 0) { [void]$sb.AppendLine("_None_") } else { foreach ($c in $uniqueCommands) { [void]$sb.AppendLine("- $(Format-InlineCode $c)") } }
     [void]$sb.AppendLine("")
 
-    Set-Content -LiteralPath $outputPath -Value $sb.ToString() -Encoding UTF8
+    Write-Utf8NoBom -Path $outputPath -Text $sb.ToString()
     # Marker content is the note's own relative filename, not an empty touch
     # file - a later re-render (session grew since last export) reads this
     # back to overwrite the same note instead of guessing a fresh name.
-    Set-Content -LiteralPath $markerPath -Value (Split-Path -Leaf $outputPath) -Encoding UTF8
+    Write-Utf8NoBom -Path $markerPath -Text (Split-Path -Leaf $outputPath)
 
     $result.Status = "written"
     return $result
@@ -836,7 +919,7 @@ function Export-Session {
 # ---------------------------------------------------------------------------
 if ($BackfillAll -or $TranscriptPath) {
 
-    if (-not $Machine) {
+    if (-not $OutRoot) {
         # Unknown host: write nothing, leave one line in a local (unsynced) log.
         try {
             $logDir = Join-Path $env:LOCALAPPDATA "claude-capture"

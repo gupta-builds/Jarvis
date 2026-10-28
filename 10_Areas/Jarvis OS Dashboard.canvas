@@ -1,97 +1,15 @@
 {
-	"nodes": [
-		{
-			"id": "focus",
-			"type": "text",
-			"text": "## TODAY'S FOCUS\n`INPUT[text:00_Dashboard#today_focus]`\n**80 —** `INPUT[text:00_Dashboard#today_80]`\n**20 —** `INPUT[text:00_Dashboard#today_20]`",
-			"x": 0,
-			"y": 29,
-			"width": 1600,
-			"height": 178,
-			"color": "4"
-		},
-		{
-			"id": "numbers",
-			"type": "text",
-			"text": "## TODAY'S NUMBERS\n```dataviewjs\n// Read from today's daily note. Nothing is stored on this canvas or on 00_Dashboard.\nconst DAILY = \"10_Areas/Life/Enumerate/Daily\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);\nconst lc = Number(p?.lc_count ?? 0);\nconst study = Number(p?.study_today ?? 0);\nconst wins = count([\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nconst floor = count([\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\")).length;\nconst cls = (ok, mid) => ok ? 'green' : mid ? 'yellow' : '';\nconst c = dv.el('div', '', {cls: 'stat-grid'});\nc.innerHTML = `\n  <div class=\"stat-tile ${cls(wins >= 4, wins >= 2)}\"><div class=\"stat-label\">Wins</div><div class=\"stat-value\">${wins}<span style=\"font-size:0.85rem;opacity:0.5\">/4</span></div></div>\n  <div class=\"stat-tile ${cls(floor >= 3, floor >= 1)}\"><div class=\"stat-label\">Floor</div><div class=\"stat-value\">${floor}<span style=\"font-size:0.85rem;opacity:0.5\">/3</span></div></div>\n  <div class=\"stat-tile ${cls(lc >= 5, lc > 0)}\"><div class=\"stat-label\">Problems</div><div class=\"stat-value\">${lc}</div><div class=\"stat-delta ${lc >= 5 ? 'positive' : 'neutral'}\">target 5</div></div>\n  <div class=\"stat-tile\"><div class=\"stat-label\">Study Hours</div><div class=\"stat-value\">${study}h</div></div>\n  <div class=\"stat-tile ${open === 0 ? 'green' : open > 3 ? 'red' : 'yellow'}\"><div class=\"stat-label\">Open Loses</div><div class=\"stat-value\">${open}</div></div>\n`;\nif (!p) dv.paragraph(\"No daily note for today yet. Run /startday.\");\n```",
-			"x": 0,
-			"y": 224,
-			"width": 1000,
-			"height": 265
-		},
-		{
-			"id": "drivers",
-			"type": "text",
-			"text": "## WINS, FLOOR AND LOSES\n```dataviewjs\nconst DAILY = \"10_Areas/Life/Enumerate/Daily\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst bar = (label, keys) => {\n  const done = p ? keys.filter((k) => p[k] === true).length : 0;\n  const pct = Math.round((done / keys.length) * 100);\n  const w = dv.el('div', '', {cls: 'progress-wrap'});\n  w.innerHTML = `<div class=\"progress-label\">${label}: ${done} / ${keys.length} · ${pct}%</div><div class=\"progress-bar-bg\"><div class=\"progress-bar-fill\" style=\"width:${pct}%\"></div></div>`;\n};\nbar(\"Daily Wins\", [\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nbar(\"Daily Floor\", [\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\"));\nconst today = dv.date(\"today\");\nconst age = (t) => {\n  const s = t.since ? String(t.since).slice(0, 10) : t.path.split(\"/\").pop().replace(\".md\", \"\");\n  const d = dv.date(s);\n  return d ? Math.max(0, Math.floor(today.diff(d, \"days\").days)) : 0;\n};\nif (open.length === 0) dv.paragraph(\"No open Loses.\");\nelse {\n  const sorted = open.sort((t) => age(t), \"desc\");\n  dv.paragraph(`**${sorted.length} open Loses** · oldest ${age(sorted[0])} days`);\n  dv.taskList(sorted.slice(0, 4), false);\n}\n```",
-			"x": 1024,
-			"y": 224,
-			"width": 576,
-			"height": 340,
-			"color": "3"
-		},
-		{
-			"id": "internship",
-			"type": "text",
-			"text": "## INTERNSHIP PIPELINE\n```dataview\nTABLE status, next\nFROM \"10_Areas/Career/Internships\"\nSORT file.mtime DESC\nLIMIT 5\n```",
-			"x": 1024,
-			"y": 588,
-			"width": 576,
-			"height": 300
-		},
-		{
-			"id": "priorities",
-			"type": "text",
-			"text": "## TODAY'S PRIORITIES\n```dataviewjs\nconst t = dv.page(`10_Areas/Life/Enumerate/Daily/${dv.date(\"today\").toFormat(\"yyyy-MM-dd\")}`);\nconst tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes(\"Daily Loses\")) : [];\nif (tasks.length) dv.taskList(tasks.slice(0, 10), false);\nelse dv.paragraph(t ? \"Nothing open in today's note.\" : \"No daily note for today yet.\");\n```",
-			"x": 0,
-			"y": 652,
-			"width": 1000,
-			"height": 440
-		},
-		{
-			"id": "clippings",
-			"type": "text",
-			"text": "## CLIPPINGS QUEUE\n```dataviewjs\nconst n = dv.pages('\"60_Claude/05_Clippings\"').where(p => !p.file.name.includes(\"board\") && !p.file.name.includes(\"README\")).length;\ndv.paragraph(`**${n}** items awaiting distillation · [[60_Claude/05_Clippings/Clippings board|view board]]`);\n```",
-			"x": 1024,
-			"y": 912,
-			"width": 576,
-			"height": 80
-		},
-		{
-			"id": "projects",
-			"type": "text",
-			"text": "## ACTIVE PROJECTS\n```dataview\nTABLE status, deadline, next, file.mtime AS \"Updated\"\nFROM \"20_Progress\"\nWHERE type = \"project\" AND status != \"archived\" AND status != \"complete\"\nSORT deadline ASC\nLIMIT 10\n```",
-			"x": 0,
-			"y": 1116,
-			"width": 1000,
-			"height": 360
-		},
-		{
-			"id": "vaulthealth",
-			"type": "text",
-			"text": "## VAULT HEALTH\n```dataview\nTABLE file.folder AS Folder, file.mtime AS \"Updated\"\nFROM \"10_Areas\" OR \"20_Progress\" OR \"40_Resources\" OR \"60_Claude\"\nWHERE !type OR !status\nSORT file.mtime DESC\nLIMIT 10\n```",
-			"x": 1024,
-			"y": 1016,
-			"width": 576,
-			"height": 460
-		},
-		{
-			"id": "navigation",
-			"type": "text",
-			"text": "**System:** [[CLAUDE.md]] · [[AGENTS.md]] · [[Jarvis OS — North Star]] · [[AI_CONTEXT]] · [[HUMAN_WRITING]] · **Claude OS:** [[Claude OS]] · [[20_Progress/AI/Claude OS Dashboard|Claude OS Dashboard]] · [[10_Areas/AI/Jarvis OS Dashboard|Canvas Dashboard]] · **Life:** [[Life OS]] · [[10_Areas/Life/Tracking/Health Tracker|Health]] · [[10_Areas/Life/Tracking/Finance Tracker|Finance]] · [[Daily Operating System|Daily OS]] · [[00_Dashboard]]",
-			"x": 0,
-			"y": 1500,
-			"width": 1600,
-			"height": 55
-		},
-		{
-			"id": "thisweek",
-			"type": "text",
-			"text": "## THIS WEEK\n```dataviewjs\nconst pages = dv.pages('\"10_Areas/Life/Enumerate/Daily\"').where(p => {\n  if (!p.file.day) return false;\n  const today = dv.date(\"today\");\n  const mon = today.minus({days: today.weekday - 1});\n  return p.file.day >= mon && p.file.day <= today;\n});\nconst tick = (p, keys) => keys.filter((k) => p[k] === true).length;\nconst lc = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);\nconst st = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);\nconst wn = pages.values.reduce((a,p) => a + tick(p, [\"win_project\",\"win_career\",\"win_cleanup\",\"win_review\"]), 0);\nconst fl = pages.values.reduce((a,p) => a + tick(p, [\"floor_1\",\"floor_2\",\"floor_3\"]), 0);\nconst clips = dv.pages('\"60_Claude/10_Source_Summaries\"').where(p => {\n  const mon = dv.date(\"today\").minus({days: dv.date(\"today\").weekday - 1});\n  return p.file.ctime >= mon;\n}).length;\ndv.paragraph(`**Notes:** ${pages.length}/7 · **Problems:** ${lc}/35 · **Study:** ${st}h · **Wins:** ${wn}/${pages.length * 4} · **Floor:** ${fl}/${pages.length * 3} · **Clippings ingested:** ${clips}`);\n```",
-			"x": 0,
-			"y": 509,
-			"width": 1000,
-			"height": 121
-		}
+	"nodes":[
+		{"id":"focus","type":"text","text":"## TODAY'S FOCUS\n`INPUT[text:00_Dashboard#today_focus]`\n**80 —** `INPUT[text:00_Dashboard#today_80]`\n**20 —** `INPUT[text:00_Dashboard#today_20]`","x":0,"y":29,"width":1600,"height":178,"color":"4"},
+		{"id":"numbers","type":"text","text":"## TODAY'S NUMBERS\n```dataviewjs\n// Read from today's daily note. Nothing is stored on this canvas or on 00_Dashboard.\nconst DAILY = \"10_Areas/Life/Enumerate/Daily\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);\nconst lc = Number(p?.lc_count ?? 0);\nconst study = Number(p?.study_today ?? 0);\nconst wins = count([\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nconst floor = count([\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\")).length;\nconst cls = (ok, mid) => ok ? 'green' : mid ? 'yellow' : '';\nconst c = dv.el('div', '', {cls: 'stat-grid'});\nc.innerHTML = `\n  <div class=\"stat-tile ${cls(wins >= 4, wins >= 2)}\"><div class=\"stat-label\">Wins</div><div class=\"stat-value\">${wins}<span style=\"font-size:0.85rem;opacity:0.5\">/4</span></div></div>\n  <div class=\"stat-tile ${cls(floor >= 3, floor >= 1)}\"><div class=\"stat-label\">Floor</div><div class=\"stat-value\">${floor}<span style=\"font-size:0.85rem;opacity:0.5\">/3</span></div></div>\n  <div class=\"stat-tile ${cls(lc >= 5, lc > 0)}\"><div class=\"stat-label\">Problems</div><div class=\"stat-value\">${lc}</div><div class=\"stat-delta ${lc >= 5 ? 'positive' : 'neutral'}\">target 5</div></div>\n  <div class=\"stat-tile\"><div class=\"stat-label\">Study Hours</div><div class=\"stat-value\">${study}h</div></div>\n  <div class=\"stat-tile ${open === 0 ? 'green' : open > 3 ? 'red' : 'yellow'}\"><div class=\"stat-label\">Open Loses</div><div class=\"stat-value\">${open}</div></div>\n`;\nif (!p) dv.paragraph(\"No daily note for today yet. Run /startday.\");\n```","x":0,"y":224,"width":1000,"height":265},
+		{"id":"drivers","type":"text","text":"## WINS, FLOOR AND LOSES\n```dataviewjs\nconst DAILY = \"10_Areas/Life/Enumerate/Daily\";\nconst todayStr = dv.date(\"today\").toFormat(\"yyyy-MM-dd\");\nconst p = dv.page(`${DAILY}/${todayStr}`);\nconst bar = (label, keys) => {\n  const done = p ? keys.filter((k) => p[k] === true).length : 0;\n  const pct = Math.round((done / keys.length) * 100);\n  const w = dv.el('div', '', {cls: 'progress-wrap'});\n  w.innerHTML = `<div class=\"progress-label\">${label}: ${done} / ${keys.length} · ${pct}%</div><div class=\"progress-bar-bg\"><div class=\"progress-bar-fill\" style=\"width:${pct}%\"></div></div>`;\n};\nbar(\"Daily Wins\", [\"win_project\", \"win_career\", \"win_cleanup\", \"win_review\"]);\nbar(\"Daily Floor\", [\"floor_1\", \"floor_2\", \"floor_3\"]);\nconst open = dv.pages(`\"${DAILY}\"`).file.tasks\n  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes(\"Daily Loses\"));\nconst today = dv.date(\"today\");\nconst age = (t) => {\n  const s = t.since ? String(t.since).slice(0, 10) : t.path.split(\"/\").pop().replace(\".md\", \"\");\n  const d = dv.date(s);\n  return d ? Math.max(0, Math.floor(today.diff(d, \"days\").days)) : 0;\n};\nif (open.length === 0) dv.paragraph(\"No open Loses.\");\nelse {\n  const sorted = open.sort((t) => age(t), \"desc\");\n  dv.paragraph(`**${sorted.length} open Loses** · oldest ${age(sorted[0])} days`);\n  dv.taskList(sorted.slice(0, 4), false);\n}\n```","x":1024,"y":224,"width":576,"height":340,"color":"3"},
+		{"id":"internship","type":"text","text":"## INTERNSHIP PIPELINE\n```dataview\nTABLE status, next\nFROM \"10_Areas/Career/Internships\"\nSORT file.mtime DESC\nLIMIT 5\n```","x":1024,"y":588,"width":576,"height":300},
+		{"id":"priorities","type":"text","text":"## TODAY'S PRIORITIES\n```dataviewjs\nconst t = dv.page(`10_Areas/Life/Enumerate/Daily/${dv.date(\"today\").toFormat(\"yyyy-MM-dd\")}`);\nconst tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes(\"Daily Loses\")) : [];\nif (tasks.length) dv.taskList(tasks.slice(0, 10), false);\nelse dv.paragraph(t ? \"Nothing open in today's note.\" : \"No daily note for today yet.\");\n```","x":0,"y":652,"width":1000,"height":440},
+		{"id":"clippings","type":"text","text":"## CLIPPINGS QUEUE\n```dataviewjs\nconst n = dv.pages('\"60_Claude/05_Clippings\"').where(p => !p.file.name.includes(\"board\") && !p.file.name.includes(\"README\")).length;\ndv.paragraph(`**${n}** items awaiting distillation · [[60_Claude/05_Clippings/Clippings board|view board]]`);\n```","x":1024,"y":912,"width":576,"height":80},
+		{"id":"projects","type":"text","text":"## ACTIVE PROJECTS\n```dataview\nTABLE status, deadline, next, file.mtime AS \"Updated\"\nFROM \"20_Progress\"\nWHERE type = \"project\" AND status != \"archived\" AND status != \"complete\"\nSORT deadline ASC\nLIMIT 10\n```","x":0,"y":1116,"width":1000,"height":360},
+		{"id":"vaulthealth","type":"text","text":"## VAULT HEALTH\n```dataview\nTABLE file.folder AS Folder, file.mtime AS \"Updated\"\nFROM \"10_Areas\" OR \"20_Progress\" OR \"40_Resources\" OR \"60_Claude\"\nWHERE !type OR !status\nSORT file.mtime DESC\nLIMIT 10\n```","x":1024,"y":1016,"width":576,"height":460},
+		{"id":"navigation","type":"text","text":"**System:** [[CLAUDE.md]] · [[AGENTS.md]] · [[Jarvis OS — North Star]] · [[AI_CONTEXT]] · [[HUMAN_WRITING]] · **Claude OS:** [[Claude OS]] · [[20_Progress/AI/Claude OS Dashboard|Claude OS Dashboard]] · [[10_Areas/AI/Jarvis OS Dashboard|Canvas Dashboard]] · **Life:** [[Life OS]] · [[10_Areas/Life/Tracking/Health Tracker|Health]] · [[10_Areas/Life/Tracking/Finance Tracker|Finance]] · [[Daily Operating System|Daily OS]] · [[00_Dashboard]]","x":0,"y":1500,"width":1600,"height":55},
+		{"id":"thisweek","type":"text","text":"## THIS WEEK\n```dataviewjs\nconst pages = dv.pages('\"10_Areas/Life/Enumerate/Daily\"').where(p => {\n  if (!p.file.day) return false;\n  const today = dv.date(\"today\");\n  const mon = today.minus({days: today.weekday - 1});\n  return p.file.day >= mon && p.file.day <= today;\n});\nconst tick = (p, keys) => keys.filter((k) => p[k] === true).length;\nconst lc = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);\nconst st = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);\nconst wn = pages.values.reduce((a,p) => a + tick(p, [\"win_project\",\"win_career\",\"win_cleanup\",\"win_review\"]), 0);\nconst fl = pages.values.reduce((a,p) => a + tick(p, [\"floor_1\",\"floor_2\",\"floor_3\"]), 0);\nconst clips = dv.pages('\"60_Claude/10_Source_Summaries\"').where(p => {\n  const mon = dv.date(\"today\").minus({days: dv.date(\"today\").weekday - 1});\n  return p.file.ctime >= mon;\n}).length;\ndv.paragraph(`**Notes:** ${pages.length}/7 · **Problems:** ${lc}/35 · **Study:** ${st}h · **Wins:** ${wn}/${pages.length * 4} · **Floor:** ${fl}/${pages.length * 3} · **Clippings ingested:** ${clips}`);\n```","x":0,"y":509,"width":1000,"height":121}
 	],
-	"edges": []
+	"edges":[]
 }

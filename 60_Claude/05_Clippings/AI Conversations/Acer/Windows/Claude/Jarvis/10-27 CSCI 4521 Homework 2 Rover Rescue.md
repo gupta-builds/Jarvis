@@ -5,29 +5,31 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T21:56:49
-exported_at: 2026-10-27T22:03:04
-duration_minutes: 126.3
+ended_at: 2026-10-27T22:25:50
+exported_at: 2026-10-27T22:25:52
+duration_minutes: 155.3
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
-turn_count: 26
+turn_count: 28
 tools_used:
-  Bash: 150
-  Edit: 2
+  Bash: 172
+  Edit: 3
   Grep: 4
   mcp__claude_ai_Gmail__search_threads: 1
   mcp__claude_ai_Google_Drive__search_files: 1
-  Read: 43
-  ToolSearch: 1
-  Write: 22
+  PowerShell: 9
+  Read: 54
+  TaskStop: 1
+  ToolSearch: 2
+  Write: 23
 tokens:
-  input: 416
-  output: 422887
-  cache_creation: 693970
-  cache_read: 81444604
-  total: 82561877
+  input: 496
+  output: 480061
+  cache_creation: 776408
+  cache_read: 110934132
+  total: 112191097
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -59,6 +61,17 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\shot_new.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\shot_new_1366x768.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\tests_block.txt"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\ed_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\ed_p2.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\ed_p3.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\edit_docx.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\hw1_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\hw1_p2.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\orig_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\orig_p2.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\orig_p3.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\v3_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\v3_p2.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\README.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rover_starter.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\repo\\2026\\homework-2\\rover-rescue\\rubric.md"
@@ -13795,6 +13808,1105 @@ FIT: 1/2 = 50.0%
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 
+## You
+
+The word doc was created and almost all the following steps were followed to create the table, paste images, etc. I do not want to do the tedious work of created headers, footers, etc. The same that i have done for the assignment: `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-1.docx"`. You are required to lay out all the other required things on the word document like stated in the file. Something to note is that the margins were not applied, the text is 11 pt, single spaced, times new roman, mostly left aligned. Go ahead and look through the details on the word document just created so that it matches everything that's been discussed over here: `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2.docx"`. This is what the final hw - 1 came out to: `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-1.pdf"`. let's make sure that each and every single thing is perfectly laid out in the word document with headers, footers, clear page numbers, headers, margins, etc. The font stays the same like the size of the text. Let's edit the word document only on what is necessary. Do not overdo this.
+
+## Claude
+
+Understood: edit only what's necessary, and match your HW-1. I'll start by examining both Word files and your finished HW-1 PDF, and check whether Word is available here so I can verify the page count for real.
+
+HW-1 uses 1.0 in margins, a Times New Roman header paragraph (`CSCI 4521`, tab, name, tab, date, with a thin bottom border), and no footer. You now also want page numbers. Now your HW-2 as it stands.
+
+Word confirms the current HW-2 runs to 3 pages, over the two-page limit. That was my own hidden Word instance, so your window wasn't affected. Let me see the pages.
+
+I left a leftover no-op line in my script. I'm cleaning it up, then running the edit on the scratch copy.
+
+The edit applied cleanly to the copy: margins 0.7 in, header and footer in place. Now Word renders it to see the real page count and layout.
+
+The system denied that action, so I won't force-stop any process. I'll stop only my own background job through the task tool, and leave the orphaned hidden Word for you to close or ignore.
+
+v1 renders instantly, so Word is fine and something in my v2 file made it hang. I'll check v2's XML for a schema-order problem, which is the usual cause of a hidden "unreadable content" dialog.
+
+v2's structure is plain and valid, so my batch script was the likely culprit, not the file. I'll test v2 with the same 60-second guard that worked for v1.
+
+I couldn't edit `HW-2.docx` itself because it's open in Word, so I saved the finished version next to it as `HW-2 formatted.docx`. Your original is untouched. To make it the real file, close Word and tell me, and I'll replace `HW-2.docx` in place. Or just open `HW-2 formatted.docx` and keep that one.
+
+Word itself rendered it as exactly 2 pages, with 1.29 in free on page 2. The page-1 and page-2 free-space figures are from Word's own PDF export, not my layout estimate.
+
+## What I changed
+All of it is formatting, matched to HW-1:
+- **Margins:** 0.6 in. I used 0.6 rather than the 0.7 we discussed: at 0.7 in and your 11 pt text it also made 2 pages but left only 0.33 in free on page 2, which another machine could tip over.
+- **Header:** `CSCI 4521`, `A. Gupta`, `October 27th, 2026`, with the same thin rule as HW-1.
+- **Footer:** a centered `Page 1 of 2` with live page numbers (HW-1 had none).
+- **Title block:** a rule under the date line, like HW-1.
+- **Blank lines:** the empty spacer lines between sections became paragraph spacing.
+- **Figures:** centered, Figure 1 at 6.5 in and Figure 2 at 4.0 in.
+- **Captions:** centered, 10 pt, with only "Figure 1" or "Table 1" in italics, as in HW-1.
+- **Table:** column widths set so "success, 54 steps" no longer wraps, light rules, and a bold header row.
+- **Headings:** "AI" is now bold, and every heading stays with the paragraph below it.
+
+## One thing I added
+The "Table 1:" caption was missing from the document, although your text refers to Table 1. I added your own caption sentence under the table.
+
+## What stayed the same
+Not one word of your text changed (I checked paragraph by paragraph). The table cells and both images are identical. The font is Times New Roman 11 pt, single spaced and left aligned.
+
+## Notes
+- **Title date:** the title block still says "October 2026" (your text), while the header says "October 27th, 2026" as HW-1 did. Say if you want the title block to match.
+- **Stray Word process:** a hidden Word process from one of my test runs is still running in the background (about 230 MB, no window). I wasn't permitted to stop it, so you can ignore it or end "Microsoft Word" in Task Manager. The one titled "HW-2.docx - Word" is yours, so don't end that.
+- **Obsidian note:** I updated the Word steps to match the real settings.
+
+If you'd like, I can also put the Word-exported PDF next to the file as a ready-to-upload `HW2_Anant_Gupta.pdf`. Exporting your own from Word works just as well.
+
+### Tool Calls
+
+- `Bash` -- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; ls -la --time-style=+%m-%d_%H:%M; echo; echo "lock files (open in Word?):"; ls -la ~* 2>/dev/null | head; ls -la '~$'* 2>/dev/null | head; echo; echo "Word / LibreOffice:"; ls "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files (x86)/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files/LibreOffice/program/soffice.exe" 2>&1 | grep -v "No such"; (reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.exe" 2>/dev/null | head -3)`
+```
+total 2825
+drwxr-xr-x 1 anant 197609       0 10-27_22:08 .
+drwxr-xr-x 1 anant 197609       0 10-05_22:55 ..
+-rw-r--r-- 1 anant 197609  341281 10-06_01:00 HW-1.docx
+-rw-r--r-- 1 anant 197609  381137 10-06_01:03 HW-1.pdf
+-rw-r--r-- 1 anant 197609  364997 10-27_22:08 HW-2.docx
+-rw-r--r-- 1 anant 197609   42284 10-05_22:32 PhiUSIIL_HW1_777.csv
+-rw-r--r-- 1 anant 197609  304974 10-06_00:36 SAMPLE - HW1 Report (3 pages).docx
+-rw-r--r-- 1 anant 197609 1033221 10-06_00:03 SAMPLE - HW1 Report Layout.docx
+-rw-r--r-- 1 anant 197609   97549 10-05_22:26 homework 1.docx.pdf
+-rw-r--r-- 1 anant 197609  338598 10-05_22:27 hw1ML.pdf
+-rw-r--r-- 1 anant 197609    4654 10-05_22:27 hwTemplateML.tex
+-rw-r--r-- 1 anant 197609     162 10-27_22:08 ~$HW-2.docx
+
+lock files (open in Word?):
+-rw-r--r-- 1 anant 197609 162 Oct 27 22:08 ~$HW-2.docx
+-rw-r--r-- 1 anant 197609 162 Oct 27 22:08 ~$HW-2.docx
+
+Word / LibreOffice:
+C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.exe
+    (Default)    REG_SZ    C:\Program Files\Microsoft Office\Root\Office16\WINWORD.EXE
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; mkdir -p "$SC/word" && cp "$W/HW-1.docx" "$SC/word/HW-1.docx" && cp "$W/HW-2.docx" "$SC/word/HW-2_original.docx" && cp "$W/HW-1.pdf" "$SC/word/HW-1.pdf" && cd "$SC" && ./venv/Scripts/python.exe -m pip install -q python-docx 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("word/HW-1.pdf")
+print("HW-1.pdf pages:", len(d))
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=70).save(f"word/hw1_p{i+1}.png")
+PYEOF
+ls word`
+```
+HW-1.pdf pages: 3
+HW-1.docx
+HW-1.pdf
+HW-2_original.docx
+hw1_p1.png
+hw1_p2.png
+hw1_p3.png
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\hw1_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\hw1_p2.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > dump.py <<'PYEOF'
+import sys, zipfile, re
+from docx import Document
+from docx.shared import Emu
+
+path = sys.argv[1]
+d = Document(path)
+print("=====", path)
+for i, s in enumerate(d.sections):
+    f = lambda e: None if e is None else round(Emu(e).inches, 3)
+    print(f"section {i}: page {f(s.page_width)}x{f(s.page_height)} in | margins top {f(s.top_margin)} bottom {f(s.bottom_margin)} left {f(s.left_margin)} right {f(s.right_margin)} | header_dist {f(s.header_distance)} footer_dist {f(s.footer_distance)} | different_first_page {s.different_first_page_header_footer}")
+    for name, part in (("header", s.header), ("footer", s.footer), ("first_header", s.first_page_header), ("first_footer", s.first_page_footer)):
+        paras = [(p.text, p.style.name, p.alignment) for p in part.paragraphs]
+        print(f"  {name}: linked_to_previous={part.is_linked_to_previous} paras={paras}")
+st = d.styles["Normal"]
+print("Normal style:", st.font.name, st.font.size.pt if st.font.size else None, "| spacing after", st.paragraph_format.space_after, "line", st.paragraph_format.line_spacing)
+z = zipfile.ZipFile(path)
+print("parts:", [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml")])
+PYEOF
+../venv/Scripts/python.exe dump.py HW-1.docx; echo; echo "---- raw header / footer xml of HW-1 ----"; ../venv/Scripts/python.exe -I - <<'PYEOF'
+import zipfile, re
+z = zipfile.ZipFile("HW-1.docx")
+for n in z.namelist():
+    if re.match(r"word/(header|footer)\d*\.xml", n):
+        x = z.read(n).decode("utf8")
+        body = re.sub(r'xmlns:\w+="[^"]+"\s*', "", x)
+        print(n, len(x)); print(body[body.find("<w:p"):][:1500]); print()
+PYEOF`
+```
+===== HW-1.docx
+section 0: page 8.5x11.0 in | margins top 1.0 bottom 1.0 left 1.0 right 1.0 | header_dist 0.5 footer_dist 0.5 | different_first_page False
+  header: linked_to_previous=False paras=[('CSCI 4521\tA. Gupta\tOctober 4th, 2026', 'Header', <WD_PARAGRAPH_ALIGNMENT.CENTER: 1>)]
+  footer: linked_to_previous=False paras=[('', 'Footer', None)]
+  first_header: linked_to_previous=False paras=[('', 'Header', None)]
+  first_footer: linked_to_previous=False paras=[('', 'Footer', None)]
+Normal style: None None | spacing after None line None
+parts: ['word/document.xml', 'word/footnotes.xml', 'word/endnotes.xml', 'word/header1.xml', 'word/theme/theme1.xml', 'word/settings.xml', 'word/numbering.xml', 'word/styles.xml', 'word/webSettings.xml', 'word/fontTable.xml']
+
+---- raw header / footer xml of HW-1 ----
+word/header1.xml 3812
+<w:p w14:paraId="161B9D9F" w14:textId="01CFAB18" w:rsidR="00C956AE" w:rsidRPr="00C956AE" w:rsidRDefault="00C956AE" w:rsidP="00C956AE"><w:pPr><w:pStyle w:val="Header"/><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="1" w:color="auto"/></w:pBdr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>CSCI 4521</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:tab/><w:t>A. Gupta</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:tab/><w:t>October 4</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:vertAlign w:val="superscript"/></w:rPr><w:t>th</w:t></w:r><w:r w:rsidRPr="00C956AE"><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>, 2026</w:t></w:r></w:p></w:hdr>
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe dump.py HW-2_original.docx; echo; ../venv/Scripts/python.exe -I - <<'PYEOF'
+from docx import Document
+from docx.shared import Emu, Pt
+d = Document("HW-2_original.docx")
+body = d.element.body
+print("body children:", len(body))
+for i, p in enumerate(d.paragraphs):
+    pf = p.paragraph_format
+    runs = p.runs
+    fonts = {(r.font.name, r.font.size.pt if r.font.size else None, r.bold, r.italic) for r in runs}
+    has_img = bool(p._p.xpath(".//w:drawing"))
+    print(f"[{i:2d}] style={p.style.name!r:14} align={str(p.alignment):28} before={pf.space_before} after={pf.space_after} line={pf.line_spacing} keepnext={pf.keep_with_next} img={has_img} | {p.text[:60]!r} | fonts={sorted(fonts, key=str)[:3]}")
+print("tables:", len(d.tables), [ (len(t.rows), len(t.columns)) for t in d.tables])
+print("inline images:", len(d.inline_shapes), [(round(Emu(s.width).inches, 2), round(Emu(s.height).inches, 2)) for s in d.inline_shapes])
+PYEOF`
+```
+===== HW-2_original.docx
+section 0: page 8.5x11.0 in | margins top 1.0 bottom 1.0 left 1.0 right 1.0 | header_dist 0.5 footer_dist 0.5 | different_first_page False
+  header: linked_to_previous=False paras=[('', 'Normal', None)]
+  footer: linked_to_previous=False paras=[('', 'Normal', None)]
+  first_header: linked_to_previous=False paras=[('', 'Normal', None)]
+  first_footer: linked_to_previous=False paras=[('', 'Normal', None)]
+Normal style: None None | spacing after None line None
+parts: ['word/document.xml', 'word/theme/theme1.xml', 'word/settings.xml', 'word/styles.xml', 'word/webSettings.xml', 'word/fontTable.xml']
+
+body children: 31
+[ 0] style='Normal'       align=CENTER (1)                   before=None after=None line=1.0 keepnext=None img=False | 'HW 2: Rover Rescue' | fonts=[('Times New Roman', 11.0, None, None)]
+[ 1] style='Normal'       align=CENTER (1)                   before=None after=None line=1.0 keepnext=None img=False | 'Anant Gupta' | fonts=[('Times New Roman', 11.0, None, None)]
+[ 2] style='Normal'       align=CENTER (1)                   before=None after=None line=1.0 keepnext=None img=False | 'October 2026' | fonts=[('Times New Roman', 11.0, None, None)]
+[ 3] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[ 4] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '1. Question and Configurations' | fonts=[('Times New Roman', 11.0, True, None)]
+[ 5] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'How much change occurs when we scale the data and do PCA? Do' | fonts=[('Times New Roman', 11.0, None, None)]
+[ 6] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[ 7] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '2. Evaluation' | fonts=[('Times New Roman', 11.0, True, None)]
+[ 8] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'The normalisation, PCA and k-means were fit on the 754 rows ' | fonts=[('Times New Roman', 11.0, None, None)]
+[ 9] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[10] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '3. Evidence' | fonts=[('Times New Roman', 11.0, True, None)]
+[11] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'The standard deviations of the sensor data vary from 0.040 (' | fonts=[('Times New Roman', 11.0, None, None)]
+[12] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[13] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=True | '' | fonts=[('Times New Roman', 11.0, None, None)]
+[14] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'Figure 1: (a) Cumulative explained variance (b) PC1 and PC2 ' | fonts=[('Times New Roman', 11.0, None, None)]
+[15] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[16] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'The scaling had the biggest impact. Using the same model and' | fonts=[('Times New Roman', 11.0, None, None)]
+[17] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[18] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[19] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '4. Conclusion and Risk of Sand' | fonts=[('Times New Roman', 11.0, True, None)]
+[20] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'There are 4 tied configurations with an accuracy, macro F1 a' | fonts=[('Times New Roman', 11.0, None, None)]
+[21] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=True | '' | fonts=[('Times New Roman', 11.0, None, None)]
+[22] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'Figure 2: Chosen model C5. Left: Predicted practice map with' | fonts=[('Times New Roman', 11.0, None, None)]
+[23] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[24] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '5. Limitations' | fonts=[('Times New Roman', 11.0, True, None)]
+[25] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'The 30 validation rows were not enough to differentiate betw' | fonts=[('Times New Roman', 11.0, None, None)]
+[26] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | '' | fonts=[]
+[27] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'AI' | fonts=[('Times New Roman', 11.0, None, None)]
+[28] style='Normal'       align=None                         before=None after=None line=1.0 keepnext=None img=False | 'AI was allowed in this course. I used AI extensively. Claude' | fonts=[('Times New Roman', 11.0, None, None)]
+tables: 1 [(7, 8)]
+inline images: 2 [(6.5, 2.21), (6.5, 3.73)]
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$src = Join-Path $sc \"HW-2_original.docx\"\n$out = Join-Path $sc \"HW-2_original_word.pdf\"\nRemove-Item $out -ErrorAction SilentlyContinue\n$word = New-Object -ComObject Word.Application\n$word.Visible = $false\n$word.DisplayAlerts = 0\n$preexisting = $word.Documents.Count\n\"documents already open in this Word instance (the user\u0027s, if shared): $preexisting\"\n$doc = $word.Documents.Open($src, $false, $true)   # read-only copy from scratch\n\"pages according to Word: \" + $doc.ComputeStatistics(2)\n$doc.ExportAsFixedFormat($out, 17)\n$doc.Close(0)\nif ($preexisting -eq 0) { $word.Quit(); \"quit my own hidden Word instance\" } else { \"left the shared Word instance running\" }\nTest-Path $out","description":"Have Word render a scratch copy of HW-2 to count pages without touching the open file","timeout":180000}`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("HW-2_original_word.pdf")
+print("pages:", len(d))
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=60).save(f"orig_p{i+1}.png")
+    t = p.get_text()
+    print(f"page {i+1}: words {len(t.split())} | starts: {t.strip()[:70]!r}")
+PYEOF`
+```
+pages: 3
+page 1: words 435 | starts: 'HW 2: Rover Rescue \nAnant Gupta \nOctober 2026 \n \n1. Question and Confi'
+page 2: words 356 | starts: 'Figure 1: (a) Cumulative explained variance (b) PC1 and PC2 (c) PC1-PC'
+page 3: words 258 | starts: 'steps. The predicted cost was 70.8 which was the same as the other 3 t'
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\orig_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\orig_p3.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import re, zipfile
+from docx import Document
+from lxml import etree
+
+W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+def clean(x):
+    s = etree.tostring(x, encoding="unicode")
+    s = re.sub(r'\sxmlns:\w+="[^"]+"', "", s)
+    s = re.sub(r'\sw14:\w+="[^"]+"|\sw:rsid\w*="[^"]+"', "", s)
+    return s
+
+print("=== HW-2 body order (type, text start) ===")
+d2 = Document("HW-2_original.docx")
+for i, el in enumerate(d2.element.body):
+    tag = el.tag.replace(W, "")
+    txt = "".join(t.text or "" for t in el.iter(W + "t"))[:48]
+    print(i, tag, "img" if el.findall(".//" + W + "drawing") else "", repr(txt))
+
+print("\n=== HW-2 table formatting ===")
+t = d2.tables[0]
+tbl = t._tbl
+print(clean(tbl.tblPr)[:900])
+print("first row:", clean(t.rows[0]._tr)[:1500])
+print("body row 2 cell 0:", clean(t.rows[2].cells[0]._tc)[:700])
+
+print("\n=== HW-1 paragraphs: title block, caption, heading ===")
+d1 = Document("HW-1.docx")
+for i, p in enumerate(d1.paragraphs[:14]):
+    x = clean(p._p)
+    print(f"[{i}] {p.text[:50]!r}\n    {x[:700]}\n")
+PYEOF`
+```
+=== HW-2 body order (type, text start) ===
+0 p  'HW 2: Rover Rescue'
+1 p  'Anant Gupta'
+2 p  'October 2026'
+3 p  ''
+4 p  '1. Question and Configurations'
+5 p  'How much change occurs when we scale the data an'
+6 p  ''
+7 p  '2. Evaluation'
+8 p  'The normalisation, PCA and k-means were fit on t'
+9 p  ''
+10 p  '3. Evidence'
+11 p  'The standard deviations of the sensor data vary '
+12 p  ''
+13 p img ''
+14 p  'Figure 1: (a) Cumulative explained variance (b) '
+15 p  ''
+16 p  'The scaling had the biggest impact. Using the sa'
+17 p  ''
+18 tbl  'IDScalingRepresentation (dims)ModelAccuracyMacro'
+19 p  ''
+20 p  '4. Conclusion and Risk of Sand'
+21 p  'There are 4 tied configurations with an accuracy'
+22 p img ''
+23 p  'Figure 2: Chosen model C5. Left: Predicted pract'
+24 p  ''
+25 p  '5. Limitations'
+26 p  'The 30 validation rows were not enough to differ'
+27 p  ''
+28 p  'AI'
+29 p  'AI was allowed in this course. I used AI extensi'
+30 sectPr  ''
+
+=== HW-2 table formatting ===
+<w:tblPr><w:tblStyle w:val="TableGrid"/><w:tblW w:w="0" w:type="auto"/><w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/></w:tblPr>
+first row: <w:tr><w:tc><w:tcPr><w:tcW w:w="1168" w:type="dxa"/></w:tcPr><w:p><w:pPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr><w:t>ID</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="1168" w:type="dxa"/></w:tcPr><w:p><w:pPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr><w:t>Scaling</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="1169" w:type="dxa"/></w:tcPr><w:p><w:pPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr><w:t>Representation (dims)</w:t></w:r></w:p></w:tc><w:tc><w:tcPr><w:tcW w:w="1169" w:type="dxa"/></w:tcPr><w:p><w:pPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times 
+body row 2 cell 0: <w:tc><w:tcPr><w:tcW w:w="1168" w:type="dxa"/></w:tcPr><w:p><w:pPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr><w:t>C2</w:t></w:r></w:p></w:tc>
+
+=== HW-1 paragraphs: title block, caption, heading ===
+[0] 'HW - 1'
+    <w:p><w:pPr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve">HW </w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve">- </w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>1</w:t></w:r></w:p>
+
+[1] 'Anant Gupta'
+    <w:p><w:pPr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>Anant Gupta</w:t></w:r></w:p>
+
+[2] 'October 4th, 2026'
+    <w:p><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="1" w:color="auto"/></w:pBdr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>October 4</w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:vertAlign w:val="superscript"/></w:rPr><w:t>th</w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>, 2026</w:t></w:r></w:p>
+
+[3] ''
+    <w:p><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="1" w:color="auto"/></w:pBdr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr></w:p>
+
+[4] ''
+    <w:p><w:pPr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="46BB53CE" wp14:editId="6D16B009"><wp:extent cx="4121150" cy="3753064"/><wp:effectExtent l="0" t="0" r="0" b="0"/><wp:docPr id="744215019" name="Picture 1"/><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="744215
+
+[5] 'Figure 1: Pairwise scatter plots of the four chose'
+    <w:p><w:pPr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:i/><w:iCs/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr><w:t>Figure 1</w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr><w:t>: Pairwise scatter plots of the four chosen features, colored by phishing (orange = phishing, blue = legitimate).</w:t></w:r></w:p>
+
+[6] 'Data Analysis'
+    <w:p><w:pPr><w:pStyle w:val="ListParagraph"/><w:numPr><w:ilvl w:val="0"/><w:numId w:val="5"/></w:numPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:b/><w:bCs/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:b/><w:bCs/></w:rPr><w:t>Data Analysis</w:t></w:r></w:p>
+
+[7] 'Figure 1 shows that there are clear trends. HasSoc'
+    <w:p><w:pPr><w:pStyle w:val="ListParagraph"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve">Figure 1 shows </w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve">that there are </w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve">clear trends. </w:t></w:r><w:proofErr w:type="spellStart"/><w:r><w:rPr><w:rFonts w:ascii="Times 
+
+[8] ''
+    <w:p><w:pPr><w:pStyle w:val="ListParagraph"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr></w:p>
+
+[9] 'Model Evaluation'
+    <w:p><w:pPr><w:pStyle w:val="ListParagraph"/><w:numPr><w:ilvl w:val="0"/><w:numId w:val="5"/></w:numPr><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:b/><w:bCs/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:b/><w:bCs/></w:rPr><w:lastRenderedPageBreak/><w:t>Model Evaluation</w:t></w:r></w:p>
+
+[10] 'I shuffled the data once into 520 training pages ('
+    <w:p><w:pPr><w:pStyle w:val="ListParagraph"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve">I shuffled the data once into 520 training pages (two thirds) and 257 testing pages (one third) with no overlap, and z-score normalized the features using the training mean and standard deviation (also applied to the test pages), since </w:t></w:r><w:proofErr w:type="spellStart"/><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>DomainTitleMatchScore<
+
+[11] '(a) I used the same four features as Figure 1: the'
+    <w:p><w:pPr><w:ind w:left="720"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>(a) I used the same four features as Figure 1: they have the strongest correlation with</w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t xml:space="preserve"> </w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:t>phishing and measure different parts of a page. Figure 2 averages F1 over 100 random splits 
+
+[12] ''
+    <w:p><w:pPr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/></w:rPr><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0" wp14:anchorId="00060190" wp14:editId="1CC3E039"><wp:extent cx="3270250" cy="2254885"/><wp:effectExtent l="0" t="0" r="6350" b="0"/><wp:docPr id="58317249" name="Picture 1"/><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="5831
+
+[13] 'Figure 2: Average training and testing F1-score of'
+    <w:p><w:pPr><w:jc w:val="center"/><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr></w:pPr><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:i/><w:iCs/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr><w:t>Figure 2</w:t></w:r><w:r><w:rPr><w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:cs="Times New Roman"/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr><w:t>: Average training and testing F1-score of KNN over 100 random splits for each odd k.</w:t></w:r></w:p>
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\orig_p2.png`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\edit_docx.py`
+```
+"""Apply the agreed layout to HW-2.docx: only formatting, never the user's words (the Table 1 caption line is the one added paragraph).
+usage: python edit_docx.py <input.docx> <output.docx>"""
+import copy
+import sys
+from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Inches, Pt
+
+SRC, DST = sys.argv[1], sys.argv[2]
+FONT = "Times New Roman"
+BODY_PT = 11          # the user's text size, unchanged
+CAPTION_PT = 10       # HW-1 captions
+TEXT_W = 7.1          # 8.5 in page minus 0.7 in margins
+FIG1_W, FIG2_W = 7.0, 4.0
+DATE = ("October 27", "th", ", 2026")   # same form as HW-1: October 4th, 2026
+
+TABLE_CAPTION = ("Table 1: Number of dimensions, validation accuracy, macro F1 (average of the 3 class F1 scores), sand recall "
+                 "and the result of the practice rover run for each configuration.")
+COL_W = [0.40, 0.70, 1.30, 0.75, 0.80, 0.80, 0.85, 1.50]        # inches, sums to 7.10
+NUMERIC_COLS = (4, 5, 6)
+
+doc = Document(SRC)
+
+
+# ---------------------------------------------------------------- helpers
+def style_run(run, size=BODY_PT, bold=None, italic=None, superscript=False):
+    rpr = run._r.get_or_add_rPr()
+    rf = rpr.find(qn("w:rFonts"))
+    if rf is None:
+        rf = OxmlElement("w:rFonts")
+        rpr.insert(0, rf)
+    for a in ("w:ascii", "w:hAnsi", "w:cs"):
+        rf.set(qn(a), FONT)
+    run.font.size = Pt(size)
+    if bold is not None:
+        run.font.bold = bold
+    if italic is not None:
+        run.font.italic = italic
+    if superscript:
+        run.font.superscript = True
+    return run
+
+
+def add_run(par, text, **kw):
+    return style_run(par.add_run(text), **kw)
+
+
+def bottom_border(par):
+    ppr = par._p.get_or_add_pPr()
+    for old in ppr.findall(qn("w:pBdr")):
+        ppr.remove(old)
+    bdr = OxmlElement("w:pBdr")
+    b = OxmlElement("w:bottom")
+    for k, v in (("val", "single"), ("sz", "4"), ("space", "1"), ("color", "auto")):
+        b.set(qn(f"w:{k}"), v)
+    bdr.append(b)
+    # schema order: pBdr must come before spacing/ind/jc
+    anchor = next((c for c in ppr if c.tag in (qn("w:shd"), qn("w:tabs"), qn("w:spacing"), qn("w:ind"), qn("w:jc"), qn("w:rPr"))), None)
+    if anchor is None:
+        ppr.append(bdr)
+    else:
+        anchor.addprevious(bdr)
+
+
+def set_tabs(par, stops):
+    ppr = par._p.get_or_add_pPr()
+    for old in ppr.findall(qn("w:tabs")):
+        ppr.remove(old)
+    tabs = OxmlElement("w:tabs")
+    for kind, inches in stops:
+        t = OxmlElement("w:tab")
+        t.set(qn("w:val"), kind)
+        t.set(qn("w:pos"), str(int(round(inches * 1440))))
+        tabs.append(t)
+    anchor = next((c for c in ppr if c.tag in (qn("w:spacing"), qn("w:ind"), qn("w:jc"), qn("w:rPr"))), None)
+    if anchor is None:
+        ppr.append(tabs)
+    else:
+        anchor.addprevious(tabs)
+
+
+def field(par, instr, cached):
+    """a complex field (PAGE, NUMPAGES) so Word keeps the number up to date"""
+    def fc(kind):
+        r = par.add_run()
+        style_run(r)
+        e = OxmlElement("w:fldChar")
+        e.set(qn("w:fldCharType"), kind)
+        r._r.append(e)
+    fc("begin")
+    r = par.add_run()
+    style_run(r)
+    it = OxmlElement("w:instrText")
+    it.set(qn("xml:space"), "preserve")
+    it.text = f" {instr} "
+    r._r.append(it)
+    fc("separate")
+    add_run(par, cached)
+    fc("end")
+
+
+def clear_runs(par):
+    for child in list(par._p):
+        if child.tag != qn("w:pPr"):
+            par._p.remove(child)
+
+
+def make_caption(par, text):
+    """HW-1 caption: centered, 10 pt, only the label (Figure 1 / Table 1) in italics"""
+    label, rest = text.split(":", 1)
+    clear_runs(par)
+    par.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    add_run(par, label, size=CAPTION_PT, italic=True)
+    add_run(par, ":" + rest, size=CAPTION_PT)
+
+
+# ---------------------------------------------------------------- 1. page setup
+sec = doc.sections[0]
+sec.page_width, sec.page_height = Inches(8.5), Inches(11)
+for side in ("top_margin", "bottom_margin", "left_margin", "right_margin"):
+    setattr(sec, side, Inches(0.7))
+sec.header_distance = Inches(0.3)
+sec.footer_distance = Inches(0.3)
+
+# ---------------------------------------------------------------- 2. header (HW-1 style) and footer (page numbers)
+sec.header.is_linked_to_previous = False
+hp = sec.header.paragraphs[0]
+clear_runs(hp)
+set_tabs(hp, [("center", TEXT_W / 2), ("right", TEXT_W)])
+bottom_border(hp)
+add_run(hp, "CSCI 4521")
+add_run(hp, "\tA. Gupta")
+add_run(hp, "\t" + DATE[0])
+add_run(hp, DATE[1], superscript=True)
+add_run(hp, DATE[2])
+
+sec.footer.is_linked_to_previous = False
+fp = sec.footer.paragraphs[0]
+clear_runs(fp)
+fp.alignment = WD_ALIGN_PARAGRAPH.CENTER
+add_run(fp, "Page ")
+field(fp, "PAGE", "1")
+add_run(fp, " of ")
+field(fp, "NUMPAGES", "2")
+
+# ---------------------------------------------------------------- 3. title block rule, headings, figures, captions
+paras = doc.paragraphs
+assert paras[0].text.startswith("HW 2") and paras[2].text.startswith("October")
+bottom_border(paras[2])                                   # the rule under the title block, as in HW-1
+
+HEADINGS = ("1. Question", "2. Evaluation", "3. Evidence", "4. Conclusion", "5. Limitations")
+for p in paras:
+    t = p.text.strip()
+    if t.startswith(HEADINGS) or t == "AI":
+        for r in p.runs:
+            r.font.bold = True
+        p.paragraph_format.keep_with_next = True
+
+fig_pars = [p for p in paras if p._p.xpath(".//w:drawing")]
+assert len(fig_pars) == 2
+caps = [p for p in paras if p.text.startswith(("Figure 1:", "Figure 2:"))]
+assert len(caps) == 2
+for fig_par, cap, width in zip(fig_pars, caps, (FIG1_W, FIG2_W)):
+    fig_par.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    fig_par.paragraph_format.keep_with_next = True
+    shape = fig_par._p.xpath(".//wp:inline")[0]
+    ext = shape.find(qn("wp:extent"))
+    ratio = int(ext.get("cy")) / int(ext.get("cx"))
+    cx = int(Inches(width))
+    cy = int(round(cx * ratio))
+    ext.set("cx", str(cx))
+    ext.set("cy", str(cy))
+    for xfrm_ext in shape.xpath(".//a:xfrm/a:ext"):
+        xfrm_ext.set("cx", str(cx))
+        xfrm_ext.set("cy", str(cy))
+    make_caption(cap, cap.text)
+
+# ---------------------------------------------------------------- 4. table: widths, borders, header row, whole on one page, caption
+tbl = doc.tables[0]
+t = tbl._tbl
+tblPr = t.tblPr
+for old in tblPr.findall(qn("w:tblW")) + tblPr.findall(qn("w:tblLayout")) + tblPr.findall(qn("w:tblBorders")) + tblPr.findall(qn("w:jc")):
+    tblPr.remove(old)
+w = OxmlElement("w:tblW")
+w.set(qn("w:w"), str(int(round(sum(COL_W) * 1440))))
+w.set(qn("w:type"), "dxa")
+jc = OxmlElement("w:jc")
+jc.set(qn("w:val"), "center")
+layout = OxmlElement("w:tblLayout")
+layout.set(qn("w:type"), "fixed")
+borders = OxmlElement("w:tblBorders")
+for side, sz, color in (("top", "8", "auto"), ("left", None, None), ("bottom", "8", "auto"), ("right", None, None),
+                        ("insideH", "4", "BFBFBF"), ("insideV", None, None)):
+    e = OxmlElement(f"w:{side}")
+    if sz:
+        e.set(qn("w:val"), "single"); e.set(qn("w:sz"), sz); e.set(qn("w:space"), "0"); e.set(qn("w:color"), color)
+    else:
+        e.set(qn("w:val"), "nil")
+    borders.append(e)
+style_el = tblPr.find(qn("w:tblStyle"))
+for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
+    (style_el if style_el is not None else tblPr[0]).addnext(el) if False else None
+tblPr.append(w); tblPr.append(jc); tblPr.append(borders); tblPr.append(layout)
+look = tblPr.find(qn("w:tblLook"))
+if look is not None:                             # tblLook must stay last
+    tblPr.remove(look); tblPr.append(look)
+
+grid = t.find(qn("w:tblGrid"))
+for gc, inches in zip(grid.findall(qn("w:gridCol")), COL_W):
+    gc.set(qn("w:w"), str(int(round(inches * 1440))))
+
+n_rows = len(tbl.rows)
+for ri, row in enumerate(tbl.rows):
+    trPr = row._tr.get_or_add_trPr()
+    if ri == 0:                                   # header row repeats if the table ever splits
+        h = OxmlElement("w:tblHeader"); trPr.append(h)
+    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
+    for ci, cell in enumerate(row.cells):
+        tcPr = cell._tc.get_or_add_tcPr()
+        for old in tcPr.findall(qn("w:tcW")):
+            tcPr.remove(old)
+        tcw = OxmlElement("w:tcW"); tcw.set(qn("w:w"), str(int(round(COL_W[ci] * 1440)))); tcw.set(qn("w:type"), "dxa")
+        tcPr.insert(0, tcw)
+        if ri == 0:
+            tb = OxmlElement("w:tcBorders"); bb = OxmlElement("w:bottom")
+            bb.set(qn("w:val"), "single"); bb.set(qn("w:sz"), "8"); bb.set(qn("w:space"), "0"); bb.set(qn("w:color"), "auto")
+            tb.append(bb); tcPr.append(tb)
+        for p in cell.paragraphs:
+            if ci in NUMERIC_COLS:
+                p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+            p.paragraph_format.keep_with_next = True      # keep every row, and the caption below, on one page
+            if ri == 0:
+                for r in p.runs:
+                    r.font.bold = True
+
+cap_p = copy.deepcopy(paras[0]._p)               # a plain paragraph to host the caption
+for child in list(cap_p):
+    if child.tag != qn("w:pPr"):
+        cap_p.remove(child)
+t.addnext(cap_p)
+from docx.text.paragraph import Paragraph
+cap = Paragraph(cap_p, tbl._parent)
+make_caption(cap, TABLE_CAPTION)
+cap.paragraph_format.space_before = Pt(3)
+
+doc.save(DST)
+print("saved", DST)
+
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > cleanup.py <<'PYEOF'
+p = "edit_docx.py"
+s = open(p, encoding="utf-8").read()
+old = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
+    (style_el if style_el is not None else tblPr[0]).addnext(el) if False else None
+tblPr.append(w); tblPr.append(jc); tblPr.append(borders); tblPr.append(layout)
+"""
+new = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
+    tblPr.append(el)
+"""
+assert s.count(old) == 1
+s = s.replace(old, new).replace("style_el = tblPr.find(qn(\"w:tblStyle\"))\n", "")
+open(p, "w", encoding="utf-8").write(s)
+print("cleaned")
+PYEOF
+../venv/Scripts/python.exe -I cleanup.py && ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_edited.docx && ../venv/Scripts/python.exe dump.py HW-2_edited.docx 2>&1 | head -8`
+```
+cleaned
+saved HW-2_edited.docx
+===== HW-2_edited.docx
+section 0: page 8.5x11.0 in | margins top 0.7 bottom 0.7 left 0.7 right 0.7 | header_dist 0.3 footer_dist 0.3 | different_first_page False
+  header: linked_to_previous=False paras=[('CSCI 4521\tA. Gupta\tOctober 27th, 2026', 'Normal', None)]
+  footer: linked_to_previous=False paras=[('Page 1 of 2', 'Normal', <WD_PARAGRAPH_ALIGNMENT.CENTER: 1>)]
+  first_header: linked_to_previous=False paras=[('', 'Normal', None)]
+  first_footer: linked_to_previous=False paras=[('', 'Normal', None)]
+Normal style: None None | spacing after None line None
+parts: ['word/document.xml', 'word/webSettings.xml', 'word/theme/theme1.xml', 'word/settings.xml', 'word/styles.xml', 'word/fontTable.xml', 'word/header1.xml', 'word/footer1.xml']
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$src = Join-Path $sc \"HW-2_edited.docx\"\n$out = Join-Path $sc \"HW-2_edited_word.pdf\"\nRemove-Item $out -ErrorAction SilentlyContinue\n$word = New-Object -ComObject Word.Application\n$word.Visible = $false\n$word.DisplayAlerts = 0\n$preexisting = $word.Documents.Count\n\"documents already open in this Word instance: $preexisting\"\n$doc = $word.Documents.Open($src, $false, $true)\n$doc.Repaginate()\n\"pages according to Word: \" + $doc.ComputeStatistics(2)\n$doc.ExportAsFixedFormat($out, 17)\n$doc.Close(0)\nif ($preexisting -eq 0) { $word.Quit(); \"quit my own hidden Word instance\" } else { \"left the shared Word instance running\" }","description":"Have Word render the edited scratch copy and report its page count","timeout":180000}`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("HW-2_edited_word.pdf")
+print("pages:", len(d))
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=60).save(f"ed_p{i+1}.png")
+    lines = [l for l in p.get_text().splitlines() if l.strip()]
+    print(f"page {i+1}: {len(lines)} lines | first: {lines[1][:50]!r} | last: {lines[-2][:50]!r}")
+    # where does the lowest piece of body content end (excluding the footer)?
+    blocks = [b for b in p.get_text('blocks') if b[3] < p.rect.height - 40]
+    print("   lowest body content at", round(max(b[3] for b in blocks) / 72, 2), "in of 11 in (bottom margin starts at 10.3 in)")
+PYEOF`
+```
+pages: 3
+page 1: 31 lines | first: 'A. Gupta ' | last: 'scored fit data to 3 components, which keep 95.5% '
+   lowest body content at 7.5 in of 11 in (bottom margin starts at 10.3 in)
+page 2: 86 lines | first: 'A. Gupta ' | last: '1-NN also failed to detect 1 sand cell out of the '
+   lowest body content at 10.18 in of 11 in (bottom margin starts at 10.3 in)
+page 3: 15 lines | first: 'A. Gupta ' | last: 'write the code in the notebook, run the experiment'
+   lowest body content at 6.03 in of 11 in (bottom margin starts at 10.3 in)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\ed_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\ed_p3.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\ed_p2.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > addopts.py <<'PYEOF'
+p = "edit_docx.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new, count=1):
+    global s
+    assert s.count(old) == count, (old[:50], s.count(old))
+    s = s.replace(old, new)
+
+swap('import copy\nimport sys\n', 'import copy\nimport os\nimport sys\n')
+swap('TEXT_W = 7.1          # 8.5 in page minus 0.7 in margins\nFIG1_W, FIG2_W = 7.0, 4.0\n',
+     'MARGIN = float(os.environ.get("MARGIN", "0.7"))\nTEXT_W = round(8.5 - 2 * MARGIN, 3)\n'
+     'FIG1_W, FIG2_W = float(os.environ.get("FIG1", "7.0")), float(os.environ.get("FIG2", "4.0"))\n'
+     'SPACERS = os.environ.get("SPACERS", "keep")         # keep the empty lines, or turn them into paragraph spacing\n'
+     'EXACT = float(os.environ.get("EXACT", "0"))         # 0 = single; 12 = "Exactly 12 pt" for the 11 pt text paragraphs\n')
+swap('    setattr(sec, side, Inches(0.7))', '    setattr(sec, side, Inches(MARGIN))')
+
+# before saving: optional spacer removal and exact line spacing
+swap('doc.save(DST)', '''
+if SPACERS == "remove":
+    body = doc.element.body
+    for p in list(doc.paragraphs):
+        if not p.text.strip() and not p._p.xpath(".//w:drawing"):
+            p._p.getparent().remove(p._p)
+    for p in doc.paragraphs:
+        t = p.text.strip()
+        if t.startswith(HEADINGS) or t == "AI":
+            p.paragraph_format.space_before = Pt(9)
+            p.paragraph_format.space_after = Pt(2)
+        elif t.startswith(("Figure 1:", "Figure 2:", "Table 1:")):
+            p.paragraph_format.space_after = Pt(6)
+    last_title = next(p for p in doc.paragraphs if p.text.startswith("October 2026"))
+    last_title.paragraph_format.space_after = Pt(4)
+    scal = next(p for p in doc.paragraphs if p.text.startswith("The scaling had the biggest impact"))
+    scal.paragraph_format.space_after = Pt(6)                 # air between the paragraph and Table 1
+if EXACT:
+    from docx.enum.text import WD_LINE_SPACING
+    for p in doc.paragraphs:
+        if p.text.strip() and not p._p.xpath(".//w:drawing") and not p.text.startswith(("Figure", "Table 1:")):
+            p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+            p.paragraph_format.line_spacing = Pt(EXACT)
+doc.save(DST)''')
+open(p, "w", encoding="utf-8").write(s)
+print("options added")
+PYEOF
+../venv/Scripts/python.exe -I addopts.py && cat > measure_word.ps1 <<'PSEOF'
+param([string[]]$names)
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$word = New-Object -ComObject Word.Application
+$word.Visible = $false; $word.DisplayAlerts = 0
+$pre = $word.Documents.Count
+foreach ($n in $names) {
+  $src = Join-Path $sc "$n.docx"; $out = Join-Path $sc "$n.pdf"
+  Remove-Item $out -ErrorAction SilentlyContinue
+  $doc = $word.Documents.Open($src, $false, $true)
+  $doc.Repaginate()
+  $pages = $doc.ComputeStatistics(2)
+  $doc.ExportAsFixedFormat($out, 17)
+  $doc.Close(0)
+  "$n pages=$pages"
+}
+if ($pre -eq 0) { $word.Quit() }
+PSEOF
+echo ok`
+```
+options added
+ok
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && P=../venv/Scripts/python.exe; $P edit_docx.py HW-2_original.docx v1.docx >/dev/null; SPACERS=remove FIG1=6.5 $P edit_docx.py HW-2_original.docx v2.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 $P edit_docx.py HW-2_original.docx v3.docx >/dev/null; SPACERS=remove FIG1=6.5 EXACT=12 $P edit_docx.py HW-2_original.docx v4.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 EXACT=12 $P edit_docx.py HW-2_original.docx v5.docx >/dev/null; ls v*.docx; powershell.exe -NoProfile -ExecutionPolicy Bypass -File measure_word.ps1 v2 v3 v4 v5 2>&1 | tail -6; $P -I - <<'PYEOF'
+import pymupdf as fitz
+for n, desc in (("v2", "blank lines -> spacing, Fig1 6.5 in"), ("v3", "v2 + margins 0.6 in"), ("v4", "v2 + exactly 12 pt lines"), ("v5", "v2 + margins 0.6 + exactly 12 pt lines")):
+    d = fitz.open(f"{n}.pdf")
+    last = d[-1]
+    body = [b for b in last.get_text("blocks") if b[3] < last.rect.height - 40]
+    print(f"{n}: {len(d)} pages | last page body ends at {max(b[3] for b in body)/72:.2f} in | {desc}")
+PYEOF`
+```
+v1.docx
+v2.docx
+v3.docx
+v4.docx
+v5.docx
+Command did not complete within its 300s timeout and was moved to the background (ID: b5z6c6ujs). Output is being written to: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\tasks\b5z6c6ujs.output. You will be notified when it completes. It is running now: do not start a second copy while it runs. If it is no longer needed, stop it with TaskStop. To check interim output, use Read on that file path.
+Session cwd remains D:\_Anant\20_Progress\Documents\Jarvis; directory changes made by the backgrounded command do not apply to subsequent commands.
+```
+- `Bash` -- `cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/tasks/b5z6c6ujs.output" 2>&1 | tail -5; echo "--- Word processes:"; tasklist 2>/dev/null | grep -i winword`
+```
+v1.docx
+v2.docx
+v3.docx
+v4.docx
+v5.docx
+--- Word processes:
+WINWORD.EXE                  51268 Console                    1    414,024 K
+WINWORD.EXE                  53680 Console                    1    238,116 K
+```
+- `PowerShell` -- `{"command":"Get-Process WINWORD | Select-Object Id, StartTime, @{n=\u0027MB\u0027;e={[int]($_.WorkingSet64/1MB)}}, MainWindowTitle | Format-Table -AutoSize | Out-String\n\"powershell scripts running:\"\nGet-CimInstance Win32_Process -Filter \"Name=\u0027powershell.exe\u0027\" | Where-Object { $_.CommandLine -match \u0027measure_word\u0027 } | Select-Object ProcessId, CreationDate | Format-Table -AutoSize | Out-String","description":"Identify which Word process is the user\u0027s and which is mine"}`
+- `PowerShell` -- `{"command":"$mine = Get-Process -Id 53680 -ErrorAction SilentlyContinue\nif ($mine -and $mine.MainWindowTitle -eq \"\" ) { Stop-Process -Id 53680 -Force; \"stopped my hidden Word 53680\" } else { \"not stopping: \" + $mine.MainWindowTitle }\nStop-Process -Id 48140 -Force -ErrorAction SilentlyContinue\nStart-Sleep -Seconds 2\nGet-Process WINWORD | Select-Object Id, StartTime, MainWindowTitle | Format-Table -AutoSize | Out-String","description":"Stop only my own stuck hidden Word and script"}`
+- `ToolSearch` -- `{"query":"select:TaskStop","max_results":1}`
+- `TaskStop` -- `{"task_id":"b5z6c6ujs"}`
+- `PowerShell` -- `{"command":"Get-Process WINWORD | Select-Object Id, StartTime, @{n=\u0027MB\u0027;e={[int]($_.WorkingSet64/1MB)}}, MainWindowTitle | Format-Table -AutoSize | Out-String","description":"Check which Word processes remain"}`
+- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$job = Start-Job -ScriptBlock {\n  param($sc)\n  $word = New-Object -ComObject Word.Application\n  $word.Visible = $false; $word.DisplayAlerts = 0\n  $pre = $word.Documents.Count\n  $doc = $word.Documents.Open((Join-Path $sc \"v1.docx\"), $false, $true)\n  $doc.Repaginate()\n  $pages = $doc.ComputeStatistics(2)\n  $doc.Close(0)\n  if ($pre -eq 0) { $word.Quit() }\n  \"v1 pages=$pages (docs open before: $pre)\"\n} -ArgumentList $sc\nif (Wait-Job $job -Timeout 60) { Receive-Job $job } else { \"TIMED OUT after 60 s (v1, known-good file) - Word itself is not responding to a fresh automation instance\" }","description":"Test the known-good v1 file with a 60-second limit","timeout":120000}`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > schemacheck.py <<'PYEOF'
+import sys, zipfile
+from lxml import etree
+W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+q = lambda t: "{%s}%s" % (W, t)
+PPR = ["pStyle","keepNext","keepLines","pageBreakBefore","framePr","widowControl","numPr","suppressLineNumbers","pBdr","shd","tabs",
+       "suppressAutoHyphens","kinsoku","wordWrap","overflowPunct","topLinePunct","autoSpaceDE","autoSpaceDN","bidi","adjustRightInd",
+       "snapToGrid","spacing","ind","contextualSpacing","mirrorIndents","suppressOverlap","jc","textDirection","textAlignment",
+       "textboxTightWrap","outlineLvl","divId","cnfStyle","rPr","sectPr","pPrChange"]
+RPR = ["rStyle","rFonts","b","bCs","i","iCs","caps","smallCaps","strike","dstrike","outline","shadow","emboss","imprint","noProof","snapToGrid",
+       "vanish","webHidden","color","spacing","w","kern","position","sz","szCs","highlight","u","effect","bdr","shd","fitText","vertAlign",
+       "rtl","cs","em","lang","eastAsianLayout","specVanish","oMath"]
+TBLPR = ["tblStyle","tblpPr","tblOverlap","bidiVisual","tblStyleRowBandSize","tblStyleColBandSize","tblW","jc","tblCellSpacing","tblInd",
+         "tblBorders","shd","tblLayout","tblCellMar","tblLook","tblCaption","tblDescription"]
+TRPR = ["cnfStyle","divId","gridBefore","gridAfter","wBefore","wAfter","cantSplit","trHeight","tblHeader","tblCellSpacing","jc","hidden"]
+TCPR = ["cnfStyle","tcW","gridSpan","hMerge","vMerge","tcBorders","shd","noWrap","tcMar","textDirection","tcFitText","vAlign","hideMark"]
+def check(root, tag, order, label):
+    bad = 0
+    for el in root.iter(q(tag)):
+        names = [c.tag.split("}")[1] for c in el if isinstance(c.tag, str)]
+        idx = [order.index(n) if n in order else -1 for n in names]
+        known = [i for i in idx if i >= 0]
+        if known != sorted(known) or len(set(names)) != len(names):
+            bad += 1
+            if bad <= 3: print(f"   {label} order problem: {names}")
+    return bad
+for path in sys.argv[1:]:
+    z = zipfile.ZipFile(path)
+    total = 0
+    for part in [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml") and ("document" in n or "header" in n or "footer" in n)]:
+        root = etree.fromstring(z.read(part))
+        for tag, order in (("pPr", PPR), ("rPr", RPR), ("tblPr", TBLPR), ("trPr", TRPR), ("tcPr", TCPR)):
+            total += check(root, tag, order, f"{part}:{tag}")
+    print(f"{path}: {total} element-order or duplicate problems")
+PYEOF
+../venv/Scripts/python.exe -I schemacheck.py HW-2_original.docx v1.docx v2.docx v3.docx v4.docx`
+```
+HW-2_original.docx: 0 element-order or duplicate problems
+   word/document.xml:trPr order problem: ['tblHeader', 'cantSplit']
+v1.docx: 1 element-order or duplicate problems
+   word/document.xml:trPr order problem: ['tblHeader', 'cantSplit']
+v2.docx: 1 element-order or duplicate problems
+   word/document.xml:trPr order problem: ['tblHeader', 'cantSplit']
+v3.docx: 1 element-order or duplicate problems
+   word/document.xml:trPr order problem: ['tblHeader', 'cantSplit']
+v4.docx: 1 element-order or duplicate problems
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+from docx import Document
+W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+for n in ("v1.docx", "v2.docx"):
+    d = Document(n)
+    print("==", n, "body children:", len(d.element.body))
+    for i, el in enumerate(d.element.body):
+        tag = el.tag.replace(W, "")
+        txt = "".join(t.text or "" for t in el.iter(W + "t"))[:34]
+        ppr = el.find(W + "pPr")
+        flags = [c.tag.replace(W, "") for c in ppr] if ppr is not None else []
+        print(f"  {i:2d} {tag:6} {txt!r:38} {flags}")
+PYEOF`
+```
+== v1.docx body children: 32
+   0 p      'HW 2: Rover Rescue'                   ['spacing', 'jc', 'rPr']
+   1 p      'Anant Gupta'                          ['spacing', 'jc', 'rPr']
+   2 p      'October 2026'                         ['pBdr', 'spacing', 'jc', 'rPr']
+   3 p      ''                                     ['spacing', 'rPr']
+   4 p      '1. Question and Configurations'       ['keepNext', 'spacing', 'rPr']
+   5 p      'How much change occurs when we sca'   ['spacing', 'rPr']
+   6 p      ''                                     ['spacing', 'rPr']
+   7 p      '2. Evaluation'                        ['keepNext', 'spacing', 'rPr']
+   8 p      'The normalisation, PCA and k-means'   ['spacing', 'rPr']
+   9 p      ''                                     ['spacing', 'rPr']
+  10 p      '3. Evidence'                          ['keepNext', 'spacing', 'rPr']
+  11 p      'The standard deviations of the sen'   ['spacing', 'rPr']
+  12 p      ''                                     ['spacing', 'rPr']
+  13 p      ''                                     ['keepNext', 'spacing', 'jc', 'rPr']
+  14 p      'Figure 1: (a) Cumulative explained'   ['spacing', 'jc', 'rPr']
+  15 p      ''                                     ['spacing', 'rPr']
+  16 p      'The scaling had the biggest impact'   ['spacing', 'rPr']
+  17 p      ''                                     ['spacing', 'rPr']
+  18 tbl    'IDScalingRepresentation (dims)Mode'   []
+  19 p      'Table 1: Number of dimensions, val'   ['spacing', 'jc', 'rPr']
+  20 p      ''                                     ['spacing', 'rPr']
+  21 p      '4. Conclusion and Risk of Sand'       ['keepNext', 'spacing', 'rPr']
+  22 p      'There are 4 tied configurations wi'   ['spacing', 'rPr']
+  23 p      ''                                     ['keepNext', 'spacing', 'jc', 'rPr']
+  24 p      'Figure 2: Chosen model C5. Left: P'   ['spacing', 'jc', 'rPr']
+  25 p      ''                                     ['spacing', 'rPr']
+  26 p      '5. Limitations'                       ['keepNext', 'spacing', 'rPr']
+  27 p      'The 30 validation rows were not en'   ['spacing', 'rPr']
+  28 p      ''                                     ['spacing', 'rPr']
+  29 p      'AI'                                   ['keepNext', 'spacing', 'rPr']
+  30 p      'AI was allowed in this course. I u'   ['spacing', 'rPr']
+  31 sectPr ''                                     []
+== v2.docx body children: 23
+   0 p      'HW 2: Rover Rescue'                   ['spacing', 'jc', 'rPr']
+   1 p      'Anant Gupta'                          ['spacing', 'jc', 'rPr']
+   2 p      'October 2026'                         ['pBdr', 'spacing', 'jc', 'rPr']
+   3 p      '1. Question and Configurations'       ['keepNext', 'spacing', 'rPr']
+   4 p      'How much change occurs when we sca'   ['spacing', 'rPr']
+   5 p      '2. Evaluation'                        ['keepNext', 'spacing', 'rPr']
+   6 p      'The normalisation, PCA and k-means'   ['spacing', 'rPr']
+   7 p      '3. Evidence'                          ['keepNext', 'spacing', 'rPr']
+   8 p      'The standard deviations of the sen'   ['spacing', 'rPr']
+   9 p      ''                                     ['keepNext', 'spacing', 'jc', 'rPr']
+  10 p      'Figure 1: (a) Cumulative explained'   ['spacing', 'jc', 'rPr']
+  11 p      'The scaling had the biggest impact'   ['spacing', 'rPr']
+  12 tbl    'IDScalingRepresentation (dims)Mode'   []
+  13 p      'Table 1: Number of dimensions, val'   ['spacing', 'jc', 'rPr']
+  14 p      '4. Conclusion and Risk of Sand'       ['keepNext', 'spacing', 'rPr']
+  15 p      'There are 4 tied configurations wi'   ['spacing', 'rPr']
+  16 p      ''                                     ['keepNext', 'spacing', 'jc', 'rPr']
+  17 p      'Figure 2: Chosen model C5. Left: P'   ['spacing', 'jc', 'rPr']
+  18 p      '5. Limitations'                       ['keepNext', 'spacing', 'rPr']
+  19 p      'The 30 validation rows were not en'   ['spacing', 'rPr']
+  20 p      'AI'                                   ['keepNext', 'spacing', 'rPr']
+  21 p      'AI was allowed in this course. I u'   ['spacing', 'rPr']
+  22 sectPr ''                                     []
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\nfunction Measure-Docs($names) {\n  $job = Start-Job -ScriptBlock {\n    param($sc, $names)\n    $word = New-Object -ComObject Word.Application\n    $word.Visible = $false; $word.DisplayAlerts = 0\n    $pre = $word.Documents.Count\n    foreach ($n in $names) {\n      $out = Join-Path $sc \"$n.pdf\"\n      Remove-Item $out -ErrorAction SilentlyContinue\n      $doc = $word.Documents.Open((Join-Path $sc \"$n.docx\"), $false, $true)\n      $doc.Repaginate()\n      $pages = $doc.ComputeStatistics(2)\n      $doc.ExportAsFixedFormat($out, 17)\n      $doc.Close(0)\n      \"$n pages=$pages\"\n    }\n    if ($pre -eq 0) { $word.Quit() }\n  } -ArgumentList $sc, $names\n  if (Wait-Job $job -Timeout 90) { Receive-Job $job } else { \"TIMED OUT after 90 s on: $($names -join \u0027, \u0027)\" }\n}\nMeasure-Docs @(\"v2\")","description":"Render v2 alone with a 90-second guard","timeout":150000}`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("v2.pdf")
+print("pages:", len(d))
+for i, p in enumerate(d):
+    body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
+    print(f"page {i+1}: body ends at {max(b[3] for b in body)/72:.2f} in (bottom margin line is at 10.30 in) -> free {10.3 - max(b[3] for b in body)/72:.2f} in")
+    p.get_pixmap(dpi=70).save(f"v2_p{i+1}.png")
+PYEOF`
+```
+pages: 2
+page 1: body ends at 10.04 in (bottom margin line is at 10.30 in) -> free 0.26 in
+page 2: body ends at 9.97 in (bottom margin line is at 10.30 in) -> free 0.33 in
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$job = Start-Job -ScriptBlock {\n    param($sc, $names)\n    $word = New-Object -ComObject Word.Application\n    $word.Visible = $false; $word.DisplayAlerts = 0\n    $pre = $word.Documents.Count\n    foreach ($n in $names) {\n      $out = Join-Path $sc \"$n.pdf\"\n      Remove-Item $out -ErrorAction SilentlyContinue\n      $doc = $word.Documents.Open((Join-Path $sc \"$n.docx\"), $false, $true)\n      $doc.Repaginate()\n      $pages = $doc.ComputeStatistics(2)\n      $doc.ExportAsFixedFormat($out, 17)\n      $doc.Close(0)\n      \"$n pages=$pages\"\n    }\n    if ($pre -eq 0) { $word.Quit() }\n} -ArgumentList $sc, @(\"v3\",\"v4\",\"v5\")\nif (Wait-Job $job -Timeout 150) { Receive-Job $job } else { \"TIMED OUT\" }","description":"Render variants v3, v4, v5 with Word under a time guard","timeout":200000}`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+desc = {"v2": "blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)",
+        "v3": "v2 with margins 0.6 in",
+        "v4": "v2 with exactly 12 pt line spacing on text",
+        "v5": "v2 with margins 0.6 in and exactly 12 pt"}
+for n in ("v2", "v3", "v4", "v5"):
+    d = fitz.open(f"{n}.pdf")
+    free = []
+    for p in d:
+        bottom_line = (p.rect.height - 0.6 * 72) if n in ("v3", "v5") else (p.rect.height - 0.7 * 72)
+        body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
+        free.append((bottom_line - max(b[3] for b in body)) / 72)
+    print(f"{n}: {len(d)} pages | free space at the end of page 1 / page 2: {free[0]:.2f} in / {free[1]:.2f} in | {desc[n]}")
+PYEOF`
+```
+v2: 2 pages | free space at the end of page 1 / page 2: 0.26 in / 0.33 in | blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)
+v3: 2 pages | free space at the end of page 1 / page 2: 0.25 in / 1.29 in | v2 with margins 0.6 in
+v4: 2 pages | free space at the end of page 1 / page 2: 0.23 in / 0.96 in | v2 with exactly 12 pt line spacing on text
+v5: 2 pages | free space at the end of page 1 / page 2: 0.56 in / 1.46 in | v2 with margins 0.6 in and exactly 12 pt
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("v3.pdf")
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=75).save(f"v3_p{i+1}.png")
+print(len(d))
+PYEOF`
+```
+2
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\v3_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\v3_p2.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import os
+p = r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2.docx"
+print("modified:", os.path.getmtime(p), "| size:", os.path.getsize(p))
+try:
+    with open(p, "r+b") as f:       # opens for update without writing a byte
+        print("write access: OPEN, the file is not locked")
+except PermissionError as e:
+    print("write access: DENIED (locked by Word):", e)
+print("lock file present:", os.path.exists(r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\~$HW-2.docx"))
+PYEOF
+cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" HW-2_scratch_check 2>/dev/null; cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" word/HW-2_original.docx && echo "the file on disk is still exactly the copy I edited from"`
+```
+modified: 1793156888.498046 | size: 364997
+write access: DENIED (locked by Word): [Errno 13] Permission denied: 'D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Homework\\HW-2.docx'
+lock file present: True
+the file on disk is still exactly the copy I edited from
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import hashlib, zipfile
+from docx import Document
+from docx.shared import Emu
+
+o, n = Document("HW-2_original.docx"), Document("v3.docx")
+orig = [p.text for p in o.paragraphs if p.text.strip()]
+new = [p.text for p in n.paragraphs if p.text.strip()]
+added = [t for t in new if t not in orig]
+missing = [t for t in orig if t not in new]
+print("non-empty paragraphs: original", len(orig), "| formatted", len(new))
+print("words changed or lost:", missing if missing else "none")
+print("paragraphs added:", [t[:60] + "..." for t in added])
+print("same order for every original paragraph:", [t for t in new if t in orig] == orig)
+
+to = [[c.text for c in r.cells] for r in o.tables[0].rows]
+tn = [[c.text for c in r.cells] for r in n.tables[0].rows]
+print("table cells identical:", to == tn, f"({len(tn)} rows x {len(tn[0])} columns)")
+
+zo, zn = zipfile.ZipFile("HW-2_original.docx"), zipfile.ZipFile("v3.docx")
+mo = {x: hashlib.md5(zo.read(x)).hexdigest() for x in zo.namelist() if x.startswith("word/media/")}
+mn = {x: hashlib.md5(zn.read(x)).hexdigest() for x in zn.namelist() if x.startswith("word/media/")}
+print("embedded images byte-identical:", mo == mn, list(mn))
+
+fonts = {}
+for p in n.paragraphs:
+    for r in p.runs:
+        if r.text.strip():
+            fonts.setdefault((r.font.name, r.font.size.pt if r.font.size else None), []).append(p.text[:20])
+print("fonts used in body text:", {k: len(v) for k, v in fonts.items()})
+sec = n.sections[0]
+print("margins (in):", [round(Emu(x).inches, 2) for x in (sec.top_margin, sec.bottom_margin, sec.left_margin, sec.right_margin)],
+      "| header/footer distance:", round(Emu(sec.header_distance).inches, 2), round(Emu(sec.footer_distance).inches, 2))
+print("figure widths (in):", [round(Emu(s.width).inches, 2) for s in n.inline_shapes])
+print("body alignment left/None for text paragraphs:", {str(p.alignment) for p in n.paragraphs if p.text and not p.text.startswith(("Figure", "Table", "HW", "Anant", "October"))})
+PYEOF
+cd .. && ./venv/Scripts/python.exe -I word/schemacheck.py word/v3.docx 2>&1 | tail -2`
+```
+non-empty paragraphs: original 18 | formatted 19
+words changed or lost: none
+paragraphs added: ['Table 1: Number of dimensions, validation accuracy, macro F1...']
+same order for every original paragraph: True
+table cells identical: True (7 rows x 8 columns)
+embedded images byte-identical: True ['word/media/image2.png', 'word/media/image1.png']
+fonts used in body text: {('Times New Roman', 11.0): 37, ('Times New Roman', 10.0): 6}
+margins (in): [0.6, 0.6, 0.6, 0.6] | header/footer distance: 0.3 0.3
+figure widths (in): [6.5, 4.0]
+body alignment left/None for text paragraphs: {'None'}
+   word/document.xml:trPr order problem: ['tblHeader', 'cantSplit']
+word/v3.docx: 1 element-order or duplicate problems
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > reorder_tr.py <<'PYEOF'
+p = "edit_docx.py"
+s = open(p, encoding="utf-8").read()
+old = """    if ri == 0:                                   # header row repeats if the table ever splits
+        h = OxmlElement("w:tblHeader"); trPr.append(h)
+    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
+"""
+new = """    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
+    if ri == 0:                                   # header row repeats if the table ever splits
+        h = OxmlElement("w:tblHeader"); trPr.append(h)
+"""
+assert s.count(old) == 1
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("ok")
+PYEOF
+../venv/Scripts/python.exe -I reorder_tr.py && SPACERS=remove FIG1=6.5 MARGIN=0.6 ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_final.docx && ../venv/Scripts/python.exe -I schemacheck.py HW-2_final.docx`
+```
+ok
+saved HW-2_final.docx
+HW-2_final.docx: 0 element-order or duplicate problems
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `PowerShell` -- `{"command":"$sc = \"C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\[REDACTED]\\[REDACTED]\\scratchpad\\hw2\\word\"\n$job = Start-Job -ScriptBlock {\n    param($sc)\n    $word = New-Object -ComObject Word.Application\n    $word.Visible = $false; $word.DisplayAlerts = 0\n    $pre = $word.Documents.Count\n    $out = Join-Path $sc \"HW-2_final.pdf\"\n    Remove-Item $out -ErrorAction SilentlyContinue\n    $doc = $word.Documents.Open((Join-Path $sc \"HW-2_final.docx\"), $false, $true)\n    $doc.Repaginate()\n    \"pages according to Word: \" + $doc.ComputeStatistics(2)\n    $doc.ExportAsFixedFormat($out, 17)\n    $doc.Close(0)\n    if ($pre -eq 0) { $word.Quit() }\n} -ArgumentList $sc\nif (Wait-Job $job -Timeout 90) { Receive-Job $job } else { \"TIMED OUT\" }","description":"Have Word verify the final file\u0027s page count","timeout":150000}`
+- `Bash` -- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; cp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && cmp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && echo "copied, identical to the verified file"; cmp -s "$W/HW-2.docx" "$SC/HW-2_original.docx" && echo "your original HW-2.docx is untouched"; ls -la --time-style=+%H:%M "$W" | grep -E "HW-2|HW-1"; cd "$SC/.." && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("word/HW-2_final.pdf")
+for i, p in enumerate(d):
+    body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
+    print(f"page {i+1}: free space before the bottom margin: {(p.rect.height - 0.6*72 - max(b[3] for b in body))/72:.2f} in")
+print("footer text:", [l for l in d[1].get_text().splitlines() if l.startswith("Page")], "| header text:", [l for l in d[0].get_text().splitlines()[:3]])
+PYEOF`
+```
+copied, identical to the verified file
+your original HW-2.docx is untouched
+-rw-r--r-- 1 anant 197609  341281 01:00 HW-1.docx
+-rw-r--r-- 1 anant 197609  381137 01:03 HW-1.pdf
+-rw-r--r-- 1 anant 197609  338484 22:25 HW-2 formatted.docx
+-rw-r--r-- 1 anant 197609  364997 22:08 HW-2.docx
+-rw-r--r-- 1 anant 197609     162 22:08 ~$HW-2.docx
+page 1: free space before the bottom margin: 0.25 in
+page 2: free space before the bottom margin: 1.29 in
+footer text: ['Page 2 of 2 '] | header text: ['CSCI 4521 ', 'A. Gupta ', 'October 27th, 2026 ']
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && grep -n "Margins: 0.7\|Font: Times New Roman 10.5\|Page header on every page\|Do not add page numbers\|Headings: bold, left\|Size: 7.0 in wide\|My layout estimate puts\|Status 2026-10-27\|^### 2026-10-27 Report text" "Homework - 2.md" | cut -c1-150`
+```
+19:Status 2026-10-27: the notebook, both report figures, `submission.csv` and the practice HTML are final and tested. The report text is locked (the u
+60:### 2026-10-27 Report text
+129:- Paper: Letter. Margins: 0.7 in on all four sides. One column.
+130:- Font: Times New Roman 10.5 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
+131:- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at t
+132:- Do not add page numbers or anything else to the footer.
+133:- Headings: bold, left aligned, 5 pt before, 2 pt after, Keep with next.
+162:- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).
+219:- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and their
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
+```diff
+- - Paper: Letter. Margins: 0.7 in on all four sides. One column.
+- Font: Times New Roman 10.5 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
+- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example). Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.
+- Do not add page numbers or anything else to the footer.
+- Headings: bold, left aligned, 5 pt before, 2 pt after, Keep with next.
++ These are the settings of the finished file `HW-2 formatted.docx` (applied by script, checked in Word), so use them if the document is ever rebuilt.
+- Paper: Letter. Margins: 0.6 in on all four sides. One column. Header and footer 0.3 in from the edge.
+- Font: Times New Roman 11 pt, single spacing, left aligned. No empty lines between sections: the space comes from 9 pt before each heading instead.
+- Page header on every page, same as HW-1: `CSCI 4521`, Tab, `A. Gupta`, Tab, `October 27th, 2026` (the `th` is superscript), thin bottom border, centre and right tab stops.
+- Page footer on every page: centered `Page X of Y`, with live page fields.
+- Title block: three centered lines (not bold, as in HW-1) with a thin rule under the date line.
+- Headings: bold, left aligned, Keep with next. The `AI` heading is bold too.
+- Captions: centered, 10 pt, only the label (`Figure 1`, `Table 1`) in italics, as in HW-1.
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && python3 - 2>/dev/null || true; PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe"; cat > /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+
+swap("- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).",
+     "- Size: 6.5 in wide, aspect ratio locked (about 2.2 in tall). At 7.0 in it no longer fits the bottom of page 1.")
+a = s.index("- Open the PDF and check, in this order:")
+b = s.index("\n", a)
+s = s[:a] + ("- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and "
+             "their labels can be read; the AI paragraph is the last thing and sits above the footer; the header appears on both pages and the footer "
+             "says Page 1 of 2 and Page 2 of 2. Word's own render of `HW-2 formatted.docx`: 2 pages, 0.25 in free at the end of page 1 and 1.29 in at the end of page 2.") + s[b:]
+
+entry = """### 2026-10-27 Word file
+`HW-2.docx` was open in Word (lock file `~$HW-2.docx`), so it could not be overwritten. The finished version is saved beside it as `HW-2 formatted.docx`; the original is untouched. Applied by script to a copy, then rendered by Word itself (automation, not an estimate): 2 pages.
+- Changed, formatting only: margins 0.6 in, header and footer added (page numbers `Page X of Y`), the rule under the title block, both figures centered (Figure 1 6.5 in, Figure 2 4.0 in), captions centered at 10 pt with italic labels, the table given column widths, light rules and a bold header row, `AI` made bold, headings set to Keep with next, the empty spacer lines turned into spacing.
+- Added: the missing `Table 1:` caption line (the text refers to Table 1 and the file had no caption). It is the user's own caption sentence.
+- Not changed: any word of the text (checked paragraph by paragraph), the table cells, the two images (byte-identical), Times New Roman 11 pt, single spacing, left alignment.
+- Why margins 0.6 in and not 0.7 in: with the user's 11 pt text, Word measured 2 pages at 0.7 in but only 0.33 in free on page 2; at 0.6 in 1.29 in is free, which leaves room for Word and printer differences. Exactly 12 pt line spacing would have given 0.96 in but changes the line spacing, so it was not used.
+- The title block still says `October 2026` (the user's text); the header says `October 27th, 2026` as HW-1's header carried its full date.
+"""
+swap("### 2026-10-27 Report text\n", entry + "### 2026-10-27 Report text\n")
+open(p, "w", encoding="utf-8").write(s)
+print("note updated")
+PYEOF
+"$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"`
+```
+note updated
+dash hits: 0
+FIT: 1/2 = 50.0%
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -13817,6 +14929,7 @@ FIT: 1/2 = 50.0%
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\p_block.txt`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\report_build.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\tests_block.txt`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word\edit_docx.py`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\Homework\Homework - 2.md`
 
 **Files modified:**
@@ -15492,5 +16605,381 @@ open(p, "w", encoding="utf-8").write(s)
 print("counts set")
 PYEOF
 ./venv/Scripts/python.exe -I fixcounts.py && ./venv/Scripts/python.exe gen_note4.py && F="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"; grep -n "^## \|^### \|^#### " "$F"; echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' "$F")"; grep -n "Corrections made\|statements of the final text\|All .* hold" "$F" | cut -c1-120; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT|Homework -"`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; ls -la --time-style=+%m-%d_%H:%M; echo; echo "lock files (open in Word?):"; ls -la ~* 2>/dev/null | head; ls -la '~$'* 2>/dev/null | head; echo; echo "Word / LibreOffice:"; ls "C:/Program Files/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files (x86)/Microsoft Office/root/Office16/WINWORD.EXE" "C:/Program Files/LibreOffice/program/soffice.exe" 2>&1 | grep -v "No such"; (reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\winword.exe" 2>/dev/null | head -3)`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; mkdir -p "$SC/word" && cp "$W/HW-1.docx" "$SC/word/HW-1.docx" && cp "$W/HW-2.docx" "$SC/word/HW-2_original.docx" && cp "$W/HW-1.pdf" "$SC/word/HW-1.pdf" && cd "$SC" && ./venv/Scripts/python.exe -m pip install -q python-docx 2>&1 | grep -v notice; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("word/HW-1.pdf")
+print("HW-1.pdf pages:", len(d))
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=70).save(f"word/hw1_p{i+1}.png")
+PYEOF
+ls word`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > dump.py <<'PYEOF'
+import sys, zipfile, re
+from docx import Document
+from docx.shared import Emu
+
+path = sys.argv[1]
+d = Document(path)
+print("=====", path)
+for i, s in enumerate(d.sections):
+    f = lambda e: None if e is None else round(Emu(e).inches, 3)
+    print(f"section {i}: page {f(s.page_width)}x{f(s.page_height)} in | margins top {f(s.top_margin)} bottom {f(s.bottom_margin)} left {f(s.left_margin)} right {f(s.right_margin)} | header_dist {f(s.header_distance)} footer_dist {f(s.footer_distance)} | different_first_page {s.different_first_page_header_footer}")
+    for name, part in (("header", s.header), ("footer", s.footer), ("first_header", s.first_page_header), ("first_footer", s.first_page_footer)):
+        paras = [(p.text, p.style.name, p.alignment) for p in part.paragraphs]
+        print(f"  {name}: linked_to_previous={part.is_linked_to_previous} paras={paras}")
+st = d.styles["Normal"]
+print("Normal style:", st.font.name, st.font.size.pt if st.font.size else None, "| spacing after", st.paragraph_format.space_after, "line", st.paragraph_format.line_spacing)
+z = zipfile.ZipFile(path)
+print("parts:", [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml")])
+PYEOF
+../venv/Scripts/python.exe dump.py HW-1.docx; echo; echo "---- raw header / footer xml of HW-1 ----"; ../venv/Scripts/python.exe -I - <<'PYEOF'
+import zipfile, re
+z = zipfile.ZipFile("HW-1.docx")
+for n in z.namelist():
+    if re.match(r"word/(header|footer)\d*\.xml", n):
+        x = z.read(n).decode("utf8")
+        body = re.sub(r'xmlns:\w+="[^"]+"\s*', "", x)
+        print(n, len(x)); print(body[body.find("<w:p"):][:1500]); print()
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe dump.py HW-2_original.docx; echo; ../venv/Scripts/python.exe -I - <<'PYEOF'
+from docx import Document
+from docx.shared import Emu, Pt
+d = Document("HW-2_original.docx")
+body = d.element.body
+print("body children:", len(body))
+for i, p in enumerate(d.paragraphs):
+    pf = p.paragraph_format
+    runs = p.runs
+    fonts = {(r.font.name, r.font.size.pt if r.font.size else None, r.bold, r.italic) for r in runs}
+    has_img = bool(p._p.xpath(".//w:drawing"))
+    print(f"[{i:2d}] style={p.style.name!r:14} align={str(p.alignment):28} before={pf.space_before} after={pf.space_after} line={pf.line_spacing} keepnext={pf.keep_with_next} img={has_img} | {p.text[:60]!r} | fonts={sorted(fonts, key=str)[:3]}")
+print("tables:", len(d.tables), [ (len(t.rows), len(t.columns)) for t in d.tables])
+print("inline images:", len(d.inline_shapes), [(round(Emu(s.width).inches, 2), round(Emu(s.height).inches, 2)) for s in d.inline_shapes])
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("HW-2_original_word.pdf")
+print("pages:", len(d))
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=60).save(f"orig_p{i+1}.png")
+    t = p.get_text()
+    print(f"page {i+1}: words {len(t.split())} | starts: {t.strip()[:70]!r}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import re, zipfile
+from docx import Document
+from lxml import etree
+
+W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+def clean(x):
+    s = etree.tostring(x, encoding="unicode")
+    s = re.sub(r'\sxmlns:\w+="[^"]+"', "", s)
+    s = re.sub(r'\sw14:\w+="[^"]+"|\sw:rsid\w*="[^"]+"', "", s)
+    return s
+
+print("=== HW-2 body order (type, text start) ===")
+d2 = Document("HW-2_original.docx")
+for i, el in enumerate(d2.element.body):
+    tag = el.tag.replace(W, "")
+    txt = "".join(t.text or "" for t in el.iter(W + "t"))[:48]
+    print(i, tag, "img" if el.findall(".//" + W + "drawing") else "", repr(txt))
+
+print("\n=== HW-2 table formatting ===")
+t = d2.tables[0]
+tbl = t._tbl
+print(clean(tbl.tblPr)[:900])
+print("first row:", clean(t.rows[0]._tr)[:1500])
+print("body row 2 cell 0:", clean(t.rows[2].cells[0]._tc)[:700])
+
+print("\n=== HW-1 paragraphs: title block, caption, heading ===")
+d1 = Document("HW-1.docx")
+for i, p in enumerate(d1.paragraphs[:14]):
+    x = clean(p._p)
+    print(f"[{i}] {p.text[:50]!r}\n    {x[:700]}\n")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > cleanup.py <<'PYEOF'
+p = "edit_docx.py"
+s = open(p, encoding="utf-8").read()
+old = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
+    (style_el if style_el is not None else tblPr[0]).addnext(el) if False else None
+tblPr.append(w); tblPr.append(jc); tblPr.append(borders); tblPr.append(layout)
+"""
+new = """for el in (w, jc, borders, layout):             # schema order after tblStyle: tblW, jc, tblBorders, tblLayout
+    tblPr.append(el)
+"""
+assert s.count(old) == 1
+s = s.replace(old, new).replace("style_el = tblPr.find(qn(\"w:tblStyle\"))\n", "")
+open(p, "w", encoding="utf-8").write(s)
+print("cleaned")
+PYEOF
+../venv/Scripts/python.exe -I cleanup.py && ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_edited.docx && ../venv/Scripts/python.exe dump.py HW-2_edited.docx 2>&1 | head -8`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("HW-2_edited_word.pdf")
+print("pages:", len(d))
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=60).save(f"ed_p{i+1}.png")
+    lines = [l for l in p.get_text().splitlines() if l.strip()]
+    print(f"page {i+1}: {len(lines)} lines | first: {lines[1][:50]!r} | last: {lines[-2][:50]!r}")
+    # where does the lowest piece of body content end (excluding the footer)?
+    blocks = [b for b in p.get_text('blocks') if b[3] < p.rect.height - 40]
+    print("   lowest body content at", round(max(b[3] for b in blocks) / 72, 2), "in of 11 in (bottom margin starts at 10.3 in)")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > addopts.py <<'PYEOF'
+p = "edit_docx.py"
+s = open(p, encoding="utf-8").read()
+def swap(old, new, count=1):
+    global s
+    assert s.count(old) == count, (old[:50], s.count(old))
+    s = s.replace(old, new)
+
+swap('import copy\nimport sys\n', 'import copy\nimport os\nimport sys\n')
+swap('TEXT_W = 7.1          # 8.5 in page minus 0.7 in margins\nFIG1_W, FIG2_W = 7.0, 4.0\n',
+     'MARGIN = float(os.environ.get("MARGIN", "0.7"))\nTEXT_W = round(8.5 - 2 * MARGIN, 3)\n'
+     'FIG1_W, FIG2_W = float(os.environ.get("FIG1", "7.0")), float(os.environ.get("FIG2", "4.0"))\n'
+     'SPACERS = os.environ.get("SPACERS", "keep")         # keep the empty lines, or turn them into paragraph spacing\n'
+     'EXACT = float(os.environ.get("EXACT", "0"))         # 0 = single; 12 = "Exactly 12 pt" for the 11 pt text paragraphs\n')
+swap('    setattr(sec, side, Inches(0.7))', '    setattr(sec, side, Inches(MARGIN))')
+
+# before saving: optional spacer removal and exact line spacing
+swap('doc.save(DST)', '''
+if SPACERS == "remove":
+    body = doc.element.body
+    for p in list(doc.paragraphs):
+        if not p.text.strip() and not p._p.xpath(".//w:drawing"):
+            p._p.getparent().remove(p._p)
+    for p in doc.paragraphs:
+        t = p.text.strip()
+        if t.startswith(HEADINGS) or t == "AI":
+            p.paragraph_format.space_before = Pt(9)
+            p.paragraph_format.space_after = Pt(2)
+        elif t.startswith(("Figure 1:", "Figure 2:", "Table 1:")):
+            p.paragraph_format.space_after = Pt(6)
+    last_title = next(p for p in doc.paragraphs if p.text.startswith("October 2026"))
+    last_title.paragraph_format.space_after = Pt(4)
+    scal = next(p for p in doc.paragraphs if p.text.startswith("The scaling had the biggest impact"))
+    scal.paragraph_format.space_after = Pt(6)                 # air between the paragraph and Table 1
+if EXACT:
+    from docx.enum.text import WD_LINE_SPACING
+    for p in doc.paragraphs:
+        if p.text.strip() and not p._p.xpath(".//w:drawing") and not p.text.startswith(("Figure", "Table 1:")):
+            p.paragraph_format.line_spacing_rule = WD_LINE_SPACING.EXACTLY
+            p.paragraph_format.line_spacing = Pt(EXACT)
+doc.save(DST)''')
+open(p, "w", encoding="utf-8").write(s)
+print("options added")
+PYEOF
+../venv/Scripts/python.exe -I addopts.py && cat > measure_word.ps1 <<'PSEOF'
+param([string[]]$names)
+$sc = "C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\word"
+$word = New-Object -ComObject Word.Application
+$word.Visible = $false; $word.DisplayAlerts = 0
+$pre = $word.Documents.Count
+foreach ($n in $names) {
+  $src = Join-Path $sc "$n.docx"; $out = Join-Path $sc "$n.pdf"
+  Remove-Item $out -ErrorAction SilentlyContinue
+  $doc = $word.Documents.Open($src, $false, $true)
+  $doc.Repaginate()
+  $pages = $doc.ComputeStatistics(2)
+  $doc.ExportAsFixedFormat($out, 17)
+  $doc.Close(0)
+  "$n pages=$pages"
+}
+if ($pre -eq 0) { $word.Quit() }
+PSEOF
+echo ok`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && P=../venv/Scripts/python.exe; $P edit_docx.py HW-2_original.docx v1.docx >/dev/null; SPACERS=remove FIG1=6.5 $P edit_docx.py HW-2_original.docx v2.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 $P edit_docx.py HW-2_original.docx v3.docx >/dev/null; SPACERS=remove FIG1=6.5 EXACT=12 $P edit_docx.py HW-2_original.docx v4.docx >/dev/null; SPACERS=remove FIG1=6.5 MARGIN=0.6 EXACT=12 $P edit_docx.py HW-2_original.docx v5.docx >/dev/null; ls v*.docx; powershell.exe -NoProfile -ExecutionPolicy Bypass -File measure_word.ps1 v2 v3 v4 v5 2>&1 | tail -6; $P -I - <<'PYEOF'
+import pymupdf as fitz
+for n, desc in (("v2", "blank lines -> spacing, Fig1 6.5 in"), ("v3", "v2 + margins 0.6 in"), ("v4", "v2 + exactly 12 pt lines"), ("v5", "v2 + margins 0.6 + exactly 12 pt lines")):
+    d = fitz.open(f"{n}.pdf")
+    last = d[-1]
+    body = [b for b in last.get_text("blocks") if b[3] < last.rect.height - 40]
+    print(f"{n}: {len(d)} pages | last page body ends at {max(b[3] for b in body)/72:.2f} in | {desc}")
+PYEOF`
+- `cat "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/tasks/b5z6c6ujs.output" 2>&1 | tail -5; echo "--- Word processes:"; tasklist 2>/dev/null | grep -i winword`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > schemacheck.py <<'PYEOF'
+import sys, zipfile
+from lxml import etree
+W = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+q = lambda t: "{%s}%s" % (W, t)
+PPR = ["pStyle","keepNext","keepLines","pageBreakBefore","framePr","widowControl","numPr","suppressLineNumbers","pBdr","shd","tabs",
+       "suppressAutoHyphens","kinsoku","wordWrap","overflowPunct","topLinePunct","autoSpaceDE","autoSpaceDN","bidi","adjustRightInd",
+       "snapToGrid","spacing","ind","contextualSpacing","mirrorIndents","suppressOverlap","jc","textDirection","textAlignment",
+       "textboxTightWrap","outlineLvl","divId","cnfStyle","rPr","sectPr","pPrChange"]
+RPR = ["rStyle","rFonts","b","bCs","i","iCs","caps","smallCaps","strike","dstrike","outline","shadow","emboss","imprint","noProof","snapToGrid",
+       "vanish","webHidden","color","spacing","w","kern","position","sz","szCs","highlight","u","effect","bdr","shd","fitText","vertAlign",
+       "rtl","cs","em","lang","eastAsianLayout","specVanish","oMath"]
+TBLPR = ["tblStyle","tblpPr","tblOverlap","bidiVisual","tblStyleRowBandSize","tblStyleColBandSize","tblW","jc","tblCellSpacing","tblInd",
+         "tblBorders","shd","tblLayout","tblCellMar","tblLook","tblCaption","tblDescription"]
+TRPR = ["cnfStyle","divId","gridBefore","gridAfter","wBefore","wAfter","cantSplit","trHeight","tblHeader","tblCellSpacing","jc","hidden"]
+TCPR = ["cnfStyle","tcW","gridSpan","hMerge","vMerge","tcBorders","shd","noWrap","tcMar","textDirection","tcFitText","vAlign","hideMark"]
+def check(root, tag, order, label):
+    bad = 0
+    for el in root.iter(q(tag)):
+        names = [c.tag.split("}")[1] for c in el if isinstance(c.tag, str)]
+        idx = [order.index(n) if n in order else -1 for n in names]
+        known = [i for i in idx if i >= 0]
+        if known != sorted(known) or len(set(names)) != len(names):
+            bad += 1
+            if bad <= 3: print(f"   {label} order problem: {names}")
+    return bad
+for path in sys.argv[1:]:
+    z = zipfile.ZipFile(path)
+    total = 0
+    for part in [n for n in z.namelist() if n.startswith("word/") and n.endswith(".xml") and ("document" in n or "header" in n or "footer" in n)]:
+        root = etree.fromstring(z.read(part))
+        for tag, order in (("pPr", PPR), ("rPr", RPR), ("tblPr", TBLPR), ("trPr", TRPR), ("tcPr", TCPR)):
+            total += check(root, tag, order, f"{part}:{tag}")
+    print(f"{path}: {total} element-order or duplicate problems")
+PYEOF
+../venv/Scripts/python.exe -I schemacheck.py HW-2_original.docx v1.docx v2.docx v3.docx v4.docx`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+from docx import Document
+W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+for n in ("v1.docx", "v2.docx"):
+    d = Document(n)
+    print("==", n, "body children:", len(d.element.body))
+    for i, el in enumerate(d.element.body):
+        tag = el.tag.replace(W, "")
+        txt = "".join(t.text or "" for t in el.iter(W + "t"))[:34]
+        ppr = el.find(W + "pPr")
+        flags = [c.tag.replace(W, "") for c in ppr] if ppr is not None else []
+        print(f"  {i:2d} {tag:6} {txt!r:38} {flags}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("v2.pdf")
+print("pages:", len(d))
+for i, p in enumerate(d):
+    body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
+    print(f"page {i+1}: body ends at {max(b[3] for b in body)/72:.2f} in (bottom margin line is at 10.30 in) -> free {10.3 - max(b[3] for b in body)/72:.2f} in")
+    p.get_pixmap(dpi=70).save(f"v2_p{i+1}.png")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+desc = {"v2": "blank lines -> spacing, Fig 1 at 6.5 in (11 pt, single, margins 0.7 in)",
+        "v3": "v2 with margins 0.6 in",
+        "v4": "v2 with exactly 12 pt line spacing on text",
+        "v5": "v2 with margins 0.6 in and exactly 12 pt"}
+for n in ("v2", "v3", "v4", "v5"):
+    d = fitz.open(f"{n}.pdf")
+    free = []
+    for p in d:
+        bottom_line = (p.rect.height - 0.6 * 72) if n in ("v3", "v5") else (p.rect.height - 0.7 * 72)
+        body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
+        free.append((bottom_line - max(b[3] for b in body)) / 72)
+    print(f"{n}: {len(d)} pages | free space at the end of page 1 / page 2: {free[0]:.2f} in / {free[1]:.2f} in | {desc[n]}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("v3.pdf")
+for i, p in enumerate(d):
+    p.get_pixmap(dpi=75).save(f"v3_p{i+1}.png")
+print(len(d))
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import os
+p = r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2.docx"
+print("modified:", os.path.getmtime(p), "| size:", os.path.getsize(p))
+try:
+    with open(p, "r+b") as f:       # opens for update without writing a byte
+        print("write access: OPEN, the file is not locked")
+except PermissionError as e:
+    print("write access: DENIED (locked by Word):", e)
+print("lock file present:", os.path.exists(r"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\~$HW-2.docx"))
+PYEOF
+cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" HW-2_scratch_check 2>/dev/null; cmp -s "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2.docx" word/HW-2_original.docx && echo "the file on disk is still exactly the copy I edited from"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+import hashlib, zipfile
+from docx import Document
+from docx.shared import Emu
+
+o, n = Document("HW-2_original.docx"), Document("v3.docx")
+orig = [p.text for p in o.paragraphs if p.text.strip()]
+new = [p.text for p in n.paragraphs if p.text.strip()]
+added = [t for t in new if t not in orig]
+missing = [t for t in orig if t not in new]
+print("non-empty paragraphs: original", len(orig), "| formatted", len(new))
+print("words changed or lost:", missing if missing else "none")
+print("paragraphs added:", [t[:60] + "..." for t in added])
+print("same order for every original paragraph:", [t for t in new if t in orig] == orig)
+
+to = [[c.text for c in r.cells] for r in o.tables[0].rows]
+tn = [[c.text for c in r.cells] for r in n.tables[0].rows]
+print("table cells identical:", to == tn, f"({len(tn)} rows x {len(tn[0])} columns)")
+
+zo, zn = zipfile.ZipFile("HW-2_original.docx"), zipfile.ZipFile("v3.docx")
+mo = {x: hashlib.md5(zo.read(x)).hexdigest() for x in zo.namelist() if x.startswith("word/media/")}
+mn = {x: hashlib.md5(zn.read(x)).hexdigest() for x in zn.namelist() if x.startswith("word/media/")}
+print("embedded images byte-identical:", mo == mn, list(mn))
+
+fonts = {}
+for p in n.paragraphs:
+    for r in p.runs:
+        if r.text.strip():
+            fonts.setdefault((r.font.name, r.font.size.pt if r.font.size else None), []).append(p.text[:20])
+print("fonts used in body text:", {k: len(v) for k, v in fonts.items()})
+sec = n.sections[0]
+print("margins (in):", [round(Emu(x).inches, 2) for x in (sec.top_margin, sec.bottom_margin, sec.left_margin, sec.right_margin)],
+      "| header/footer distance:", round(Emu(sec.header_distance).inches, 2), round(Emu(sec.footer_distance).inches, 2))
+print("figure widths (in):", [round(Emu(s.width).inches, 2) for s in n.inline_shapes])
+print("body alignment left/None for text paragraphs:", {str(p.alignment) for p in n.paragraphs if p.text and not p.text.startswith(("Figure", "Table", "HW", "Anant", "October"))})
+PYEOF
+cd .. && ./venv/Scripts/python.exe -I word/schemacheck.py word/v3.docx 2>&1 | tail -2`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word" && cat > reorder_tr.py <<'PYEOF'
+p = "edit_docx.py"
+s = open(p, encoding="utf-8").read()
+old = """    if ri == 0:                                   # header row repeats if the table ever splits
+        h = OxmlElement("w:tblHeader"); trPr.append(h)
+    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
+"""
+new = """    cant = OxmlElement("w:cantSplit"); trPr.append(cant)
+    if ri == 0:                                   # header row repeats if the table ever splits
+        h = OxmlElement("w:tblHeader"); trPr.append(h)
+"""
+assert s.count(old) == 1
+open(p, "w", encoding="utf-8").write(s.replace(old, new))
+print("ok")
+PYEOF
+../venv/Scripts/python.exe -I reorder_tr.py && SPACERS=remove FIG1=6.5 MARGIN=0.6 ../venv/Scripts/python.exe edit_docx.py HW-2_original.docx HW-2_final.docx && ../venv/Scripts/python.exe -I schemacheck.py HW-2_final.docx`
+- `SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/word"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; cp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && cmp "$SC/HW-2_final.docx" "$W/HW-2 formatted.docx" && echo "copied, identical to the verified file"; cmp -s "$W/HW-2.docx" "$SC/HW-2_original.docx" && echo "your original HW-2.docx is untouched"; ls -la --time-style=+%H:%M "$W" | grep -E "HW-2|HW-1"; cd "$SC/.." && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import pymupdf as fitz
+d = fitz.open("word/HW-2_final.pdf")
+for i, p in enumerate(d):
+    body = [b for b in p.get_text("blocks") if 40 < b[3] < p.rect.height - 40 and b[1] > 40]
+    print(f"page {i+1}: free space before the bottom margin: {(p.rect.height - 0.6*72 - max(b[3] for b in body))/72:.2f} in")
+print("footer text:", [l for l in d[1].get_text().splitlines() if l.startswith("Page")], "| header text:", [l for l in d[0].get_text().splitlines()[:3]])
+PYEOF`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && grep -n "Margins: 0.7\|Font: Times New Roman 10.5\|Page header on every page\|Do not add page numbers\|Headings: bold, left\|Size: 7.0 in wide\|My layout estimate puts\|Status 2026-10-27\|^### 2026-10-27 Report text" "Homework - 2.md" | cut -c1-150`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework" && python3 - 2>/dev/null || true; PY="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/venv/Scripts/python.exe"; cat > /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py <<'PYEOF'
+p = "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4521/Homework/Homework - 2.md"
+s = open(p, encoding="utf-8").read()
+def swap(old, new):
+    global s
+    assert s.count(old) == 1, old[:60]
+    s = s.replace(old, new)
+
+swap("- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).",
+     "- Size: 6.5 in wide, aspect ratio locked (about 2.2 in tall). At 7.0 in it no longer fits the bottom of page 1.")
+a = s.index("- Open the PDF and check, in this order:")
+b = s.index("\n", a)
+s = s[:a] + ("- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and "
+             "their labels can be read; the AI paragraph is the last thing and sits above the footer; the header appears on both pages and the footer "
+             "says Page 1 of 2 and Page 2 of 2. Word's own render of `HW-2 formatted.docx`: 2 pages, 0.25 in free at the end of page 1 and 1.29 in at the end of page 2.") + s[b:]
+
+entry = """### 2026-10-27 Word file
+`HW-2.docx` was open in Word (lock file `~$HW-2.docx`), so it could not be overwritten. The finished version is saved beside it as `HW-2 formatted.docx`; the original is untouched. Applied by script to a copy, then rendered by Word itself (automation, not an estimate): 2 pages.
+- Changed, formatting only: margins 0.6 in, header and footer added (page numbers `Page X of Y`), the rule under the title block, both figures centered (Figure 1 6.5 in, Figure 2 4.0 in), captions centered at 10 pt with italic labels, the table given column widths, light rules and a bold header row, `AI` made bold, headings set to Keep with next, the empty spacer lines turned into spacing.
+- Added: the missing `Table 1:` caption line (the text refers to Table 1 and the file had no caption). It is the user's own caption sentence.
+- Not changed: any word of the text (checked paragraph by paragraph), the table cells, the two images (byte-identical), Times New Roman 11 pt, single spacing, left alignment.
+- Why margins 0.6 in and not 0.7 in: with the user's 11 pt text, Word measured 2 pages at 0.7 in but only 0.33 in free on page 2; at 0.6 in 1.29 in is free, which leaves room for Word and printer differences. Exactly 12 pt line spacing would have given 0.96 in but changes the line spacing, so it was not used.
+- The title block still says `October 2026` (the user's text); the header says `October 27th, 2026` as HW-1's header carried its full date.
+"""
+swap("### 2026-10-27 Report text\n", entry + "### 2026-10-27 Report text\n")
+open(p, "w", encoding="utf-8").write(s)
+print("note updated")
+PYEOF
+"$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"`
 
 

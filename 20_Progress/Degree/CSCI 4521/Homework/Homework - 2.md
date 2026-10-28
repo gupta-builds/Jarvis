@@ -57,6 +57,13 @@ Ready to submit when: the PDF exists and is two pages, the four files above are 
 - AI disclosure: the handout's Course policy says to follow the syllabus AI-use policy and disclose assistance as required, and the syllabus says to cite AI prominently. The user decided it appears in one place only: the final "AI" paragraph of the Word report. It is not in the notebook, the HTML or the CSV (checked).
 - Late policy: 24-hour grace day, nothing after.
 ## Work log
+### 2026-10-27 Word file
+`HW-2.docx` was open in Word (lock file `~$HW-2.docx`), so it could not be overwritten. The finished version is saved beside it as `HW-2 formatted.docx`; the original is untouched. Applied by script to a copy, then rendered by Word itself (automation, not an estimate): 2 pages.
+- Changed, formatting only: margins 0.6 in, header and footer added (page numbers `Page X of Y`), the rule under the title block, both figures centered (Figure 1 6.5 in, Figure 2 4.0 in), captions centered at 10 pt with italic labels, the table given column widths, light rules and a bold header row, `AI` made bold, headings set to Keep with next, the empty spacer lines turned into spacing.
+- Added: the missing `Table 1:` caption line (the text refers to Table 1 and the file had no caption). It is the user's own caption sentence.
+- Not changed: any word of the text (checked paragraph by paragraph), the table cells, the two images (byte-identical), Times New Roman 11 pt, single spacing, left alignment.
+- Why margins 0.6 in and not 0.7 in: with the user's 11 pt text, Word measured 2 pages at 0.7 in but only 0.33 in free on page 2; at 0.6 in 1.29 in is free, which leaves room for Word and printer differences. Exactly 12 pt line spacing would have given 0.96 in but changes the line spacing, so it was not used.
+- The title block still says `October 2026` (the user's text); the header says `October 27th, 2026` as HW-1's header carried its full date.
 ### 2026-10-27 Report text
 The text below is the user's own wording from a rewrite of my draft. It was checked sentence by sentence against the executed notebook, the notebook source and the simulator code, and corrected only where a statement did not match. Style, British spelling, section titles and sentence order are the user's.
 Corrections made (14):
@@ -126,11 +133,14 @@ Evidence (demo bundle, the confirmed dataset):
 ### Word document: copy-paste guide
 Follow the steps in order. Every grey code block is plain text; use its copy button, then Paste Special, Unformatted Text, in Word. The text is final: paste it as it is. The example `HW2.pdf` has the same shape: a header line on every page, a centered title block, then numbered sections with their heading on its own line.
 #### Step 0: page setup (once, before pasting anything)
-- Paper: Letter. Margins: 0.7 in on all four sides. One column.
-- Font: Times New Roman 10.5 pt. Single line spacing. Spacing after paragraph 3 pt, before 0 pt. Body text justified.
-- Page header on every page, 9 pt, with a thin bottom border: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 27, 2026` (put the two tab stops at the center and the right margin, like the example). Set Header from Top to 0.3 in (Layout, Margins, Custom Margins) so the header sits in the margin and does not push the body down.
-- Do not add page numbers or anything else to the footer.
-- Headings: bold, left aligned, 5 pt before, 2 pt after, Keep with next.
+These are the settings of the finished file `HW-2 formatted.docx` (applied by script, checked in Word), so use them if the document is ever rebuilt.
+- Paper: Letter. Margins: 0.6 in on all four sides. One column. Header and footer 0.3 in from the edge.
+- Font: Times New Roman 11 pt, single spacing, left aligned. No empty lines between sections: the space comes from 9 pt before each heading instead.
+- Page header on every page, same as HW-1: `CSCI 4521`, Tab, `A. Gupta`, Tab, `October 27th, 2026` (the `th` is superscript), thin bottom border, centre and right tab stops.
+- Page footer on every page: centered `Page X of Y`, with live page fields.
+- Title block: three centered lines (not bold, as in HW-1) with a thin rule under the date line.
+- Headings: bold, left aligned, Keep with next. The `AI` heading is bold too.
+- Captions: centered, 10 pt, only the label (`Figure 1`, `Table 1`) in italics, as in HW-1.
 #### Step 1: title block
 Three centered bold lines. Paste, then center and bold all three.
 ```
@@ -159,7 +169,7 @@ The standard deviations of the sensor data vary from 0.040 (sensor_6) to 52.4 (s
 #### Step 5: IMAGE, Figure 1
 - File: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\figures\fig1_pca.png`
 - Place: directly under step 4, on its own centered line. Insert, Pictures, This Device, then Layout Options, In Line with Text.
-- Size: 7.0 in wide, aspect ratio locked (about 2.4 in tall).
+- Size: 6.5 in wide, aspect ratio locked (about 2.2 in tall). At 7.0 in it no longer fits the bottom of page 1.
 - Caption: the line below, 10 pt, centered, directly under the image.
 ```
 Figure 1: (a) Cumulative explained variance (b) PC1 and PC2 (c) PC1-PC3 of z-scored fit data. Fit data shown in grey. Labelled training data shown in colour.
@@ -216,7 +226,7 @@ AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) wa
 ```
 #### Step 12: export and final check
 - File, Save As, PDF (Standard, not minimum size). Name it `HW2_Anant_Gupta.pdf`.
-- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and their labels can be read; the AI paragraph is the last thing and sits above the bottom margin; the header appears on both pages. My layout estimate puts the end of page 2 at about 91%, which leaves about 0.8 in.
+- Open the PDF and check, in this order: exactly two pages; Table 1 is whole (not split between pages); Figure 1 and Figure 2 are sharp and their labels can be read; the AI paragraph is the last thing and sits above the footer; the header appears on both pages and the footer says Page 1 of 2 and Page 2 of 2. Word's own render of `HW-2 formatted.docx`: 2 pages, 0.25 in free at the end of page 1 and 1.29 in at the end of page 2.
 - Check every number once against `figures/hw2_configs.csv` (Table 1) and the notebook Summary cell (component count 3, selected C5).
 - If it spills onto a third page, do these in order and stop when it fits: (1) body text to 10 pt; (2) Figure 2 to 3.8 in wide; (3) margins to 0.65 in; (4) only if still over, the user may drop one of these sentences, none of which a rubric line needs: the elbow values in brackets at the end of section 1; "This is a large difference of a factor of 1320." in section 3; "Both the cluster and 1-NN had a score of 1.000 for all the z-scored configurations." in section 3. Never cut the evaluation section, the sand-risk explanation, the limitations or Table 1.
 ### Submission

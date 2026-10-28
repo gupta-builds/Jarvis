@@ -5,28 +5,28 @@ source_app: claude-code
 source_os: windows
 title: "Valorant fullscreen resolution settings"
 started_at: 2026-10-26T22:17:10
-ended_at: 2026-10-26T23:19:24
-exported_at: 2026-10-26T23:33:05
-duration_minutes: 62.2
+ended_at: 2026-10-27T23:02:10
+exported_at: 2026-10-27T23:02:12
+duration_minutes: 1485
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: fc64a558-0fb7-49f1-bec9-d00fcd7a2632
 status: raw
-turn_count: 7
+turn_count: 9
 tools_used:
   Agent: 1
   Glob: 1
   Grep: 3
-  PowerShell: 2
+  PowerShell: 4
   Read: 1
   ToolSearch: 1
   WebSearch: 4
 tokens:
-  input: 18
-  output: 8377
-  cache_creation: 55359
-  cache_read: 408742
-  total: 472496
+  input: 24
+  output: 10385
+  cache_creation: 119430
+  cache_read: 622536
+  total: 752375
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -140,6 +140,25 @@ Sources:
 - `Grep` -- pattern `ResolutionSize|FullscreenMode|bShouldLetterbox|DesiredScreen|bUseDesired` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Config`
 - `WebSearch` -- `{"query":"Valorant black bars top and bottom 16:10 laptop 2560x1600 fullscreen \"Letterbox\" fix NVIDIA scaling","mode":"extended"}`
 - `PowerShell` -- `{"command":"Get-Process | Where-Object { $_.ProcessName -match \u0027VALORANT\u0027 } | Select-Object ProcessName,Id | Format-Table; Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\DirectX\\UserGpuPreferences\u0027 -ErrorAction SilentlyContinue | Select-Object * -ExcludeProperty PS* | Format-List; Get-CimInstance -Namespace root\\wmi -ClassName WmiMonitorBasicDisplayParams -ErrorAction SilentlyContinue | Select-Object InstanceName,MaxHorizontalImageSize,MaxVerticalImageSize | Format-Table","description":"Check Valorant process, GPU preference, monitor size"}`
+
+## You
+
+I am not sure what it is but it needs to be fixed, look into it yourslef.
+
+## Claude
+
+I made one change. Valorant is now set to run on the RTX 5070 Ti ("High performance") instead of "let Windows decide". It was `GpuPreference=0` before and is `2` now. Fullscreen optimizations were already disabled for the game, so I left that alone. Neither change takes effect until the game restarts, and I haven't tested whether they fix the bars.
+
+I haven't fixed the black bars yet. The cause I found is `bShouldLetterbox=True` in all three Valorant config files. I assumed that flag is the Aspect Ratio Method, but I haven't confirmed it. Valorant is still running and rewrites its config on exit, so I can't change the flag safely now.
+
+Close Valorant fully (quit from the Riot client too), then tell me. I'll set the flag to `False` in all three files and re-read them to confirm. Then relaunch with Fullscreen at 2560x1600 and see whether the bars are gone.
+
+If they are still there, the next step is NVIDIA Control Panel. Under Adjust desktop size and position, set Scaling to GPU and tick the override box. I can't script that from here, so you would need to click through it.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"Get-Process | Where-Object { $_.ProcessName -match \u0027VALORANT|RiotClient|Riot\u0027 } | Select-Object ProcessName,Id,StartTime | Format-Table; Get-ChildItem \u0027C:\\Users\\anant\\AppData\\Local\\VALORANT\\Saved\\Config\u0027 -Recurse -Filter GameUserSettings.ini | Select-Object FullName,LastWriteTime | Format-Table -AutoSize","description":"Check whether Valorant is running and config timestamps"}`
+- `PowerShell` -- `{"command":"$exe = \u0027D:\\Games\\Riot Games\\VALORANT\\live\\ShooterGame\\Binaries\\Win64\\VALORANT-Win64-Shipping.exe\u0027\n$gpu = \u0027HKCU:\\Software\\Microsoft\\DirectX\\UserGpuPreferences\u0027\n$lay = \u0027HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers\u0027\n\"before gpu: \" + (Get-ItemProperty $gpu -Name $exe -ErrorAction SilentlyContinue).$exe\n\"before layers: \" + (Get-ItemProperty $lay -Name $exe -ErrorAction SilentlyContinue).$exe\nSet-ItemProperty -Path $gpu -Name $exe -Value \u0027GpuPreference=2;\u0027\nif (-not (Test-Path $lay)) { New-Item -Path $lay -Force | Out-Null }\nSet-ItemProperty -Path $lay -Name $exe -Value \u0027~ DISABLEDXMAXIMIZEDWINDOWEDMODE\u0027\n\"after gpu: \" + (Get-ItemProperty $gpu -Name $exe).$exe\n\"after layers: \" + (Get-ItemProperty $lay -Name $exe).$exe","description":"Set Valorant to high performance GPU, disable fullscreen optimizations"}`
 
 ## Actions Taken
 

@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Valorant network lag and crashes"
 started_at: 2026-10-20T22:02:36
-ended_at: 2026-10-20T22:09:54
-exported_at: 2026-10-20T22:24:16
-duration_minutes: 7.3
+ended_at: 2026-10-27T22:57:26
+exported_at: 2026-10-27T22:57:30
+duration_minutes: 10134.8
 project: Home
 cwd: 'C:\Users\anant'
 session_id: a89d5721-ad89-4818-92ab-7e5878fb7e94
@@ -17,11 +17,11 @@ tools_used:
   Grep: 2
   PowerShell: 9
 tokens:
-  input: 48
-  output: 22288
-  cache_creation: 171937
-  cache_read: 1256180
-  total: 1450453
+  input: 14
+  output: 6386
+  cache_creation: 40108
+  cache_read: 388882
+  total: 435390
 cost_usd: null
 model:
   - "claude-sonnet-5-5"

@@ -5,31 +5,31 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4521 Homework 2 Rover Rescue"
 started_at: 2026-10-27T19:50:31
-ended_at: 2026-10-27T22:25:52
-exported_at: 2026-10-27T22:33:03
-duration_minutes: 155.4
+ended_at: 2026-10-27T22:47:51
+exported_at: 2026-10-27T22:47:53
+duration_minutes: 177.3
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
 session_id: 1b6f8eac-44d0-4860-b243-88b063adb7c7
 status: raw
-turn_count: 28
+turn_count: 30
 tools_used:
-  Bash: 172
+  Bash: 186
   Edit: 3
   Grep: 4
   mcp__claude_ai_Gmail__search_threads: 1
   mcp__claude_ai_Google_Drive__search_files: 1
   PowerShell: 9
-  Read: 54
+  Read: 57
   TaskStop: 1
   ToolSearch: 2
   Write: 23
 tokens:
-  input: 496
-  output: 480061
-  cache_creation: 776408
-  cache_read: 110934132
-  total: 112191097
+  input: 528
+  output: 502786
+  cache_creation: 808015
+  cache_read: 123339426
+  total: 124650755
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -61,6 +61,9 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\shot_new.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\shot_new_1366x768.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\tests_block.txt"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\verify\\html_1366x768.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\verify\\pdf_p1.png"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\verify\\pdf_p2.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\ed_p1.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\ed_p2.png"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\1b6f8eac-44d0-4860-b243-88b063adb7c7\\scratchpad\\hw2\\word\\ed_p3.png"
@@ -14907,6 +14910,685 @@ dash hits: 0
 FIT: 1/2 = 50.0%
 ```
 
+## You
+
+The assignment was submited, verify whether all these documents are correct or not: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\CSCI4521_HW2.ipynb`, `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\submission.csv`, `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\practice_run.html`, `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\HW-2 formatted.pdf"`. I have submitted and finished the assignment now
+
+## Claude
+
+I'll verify all four submitted files read-only, against everything we established. First the basics: that they exist, when they were last modified, and whether anything changed after my last verified run.
+
+All 25 code cells have identical syntax trees, so the formatting changed nothing about behavior. One comment differs, so I'll look at it, then verify the CSV and HTML.
+
+The only fact-check failure is about a line-by-line text check, which could be a side effect of the reformatting wrapping lines. I'll check it properly using the syntax tree instead of line text.
+
+All four files are correct and consistent with each other, with one thing you need to decide about: **none of them mentions AI use**. I only read the files, so nothing you submitted was changed.
+
+## What's correct
+- **`submission.csv`:**
+  - It has 784 rows and the columns `student_id, x, y, predicted_terrain`, with `student_id` `demo3` as in `config.json`.
+  - The rows are in `mission.csv` order and cover the full 28x28 grid, with no gaps or duplicates.
+  - The counts (362 firm, 212 sand, 210 rough) match what the notebook printed.
+  - It is byte-identical to the file I verified earlier.
+- **`practice_run.html`:**
+  - It opens as a proper page with a title, and all 55 frames are embedded.
+  - In Edge at three window sizes, top and bottom margins are equal and left and right differ by 2 px, so it is centered.
+  - It contains no AI mention.
+- **`CSCI4521_HW2.ipynb`:**
+  - It has 38 cells, with no errors and nothing written to stderr.
+  - Its outputs match the report, and its tables and figures are identical to my verified run.
+  - All 25 code cells are equivalent to the code I tested, checked as syntax trees. A formatter re-wrapped your lines at 88 characters, which changes layout only.
+  - The "Sources" line now omits lecture 1.1, which is your edit and harmless.
+  - Its execution counts run 93 to 117. The cells ran in order, but the kernel was not restarted, so it wasn't a fresh Restart and Run All. The results equal my clean-directory runs, so there is no practical effect.
+- **`HW-2 formatted.pdf`:**
+  - It is 2 pages exported from Word, with the header on both pages and "Page 1 of 2" and "Page 2 of 2" in the footer.
+  - Both figures are present, and all six Table 1 rows match the results file.
+  - Its text matches the locked report except for small edits of yours: US spellings ("normalization", "generalizes"), "3-cluster", and a few commas.
+
+## AI disclosure
+The final "AI" paragraph is not in the PDF or in your saved Word file, and the notebook has none either. The syllabus's academic-conduct section says to cite AI assistants prominently. The handout's Course policy line says to disclose assistance as required.
+
+If you removed it on purpose, there is nothing to do. If it dropped out by accident, the syllabus gives an automatic 24-hour grace day, so you could resubmit the PDF with the paragraph restored. That is your call.
+
+### Tool Calls
+
+- `Bash` -- `C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; ls -la --time-style=+%m-%d_%H:%M:%S "$C/CSCI4521_HW2.ipynb" "$C/submission.csv" "$C/practice_run.html" "$W/HW-2 formatted.pdf" "$W/HW-2 formatted.docx" "$W/HW-2.docx" 2>&1 | awk '{printf "%-9s %s  %s %s %s\n", $5, $6, $7, $8, $9}'; echo; echo "my last verified copies (scratch fresh3 run, same code) vs the submitted ones:"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$C/$f" "$SC/fresh3/$f" && echo "  identical: $f" || echo "  DIFFERENT: $f"; done`
+```
+4521/Homework/HW-2.docx': No  such file or
+1342535   10-27_22:14:35  D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb 
+755613    10-27_22:12:12  D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html 
+13796     10-27_22:12:12  D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/submission.csv 
+370665    10-27_22:40:40  D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.docx
+316940    10-27_22:40:54  D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf
+
+my last verified copies (scratch fresh3 run, same code) vs the submitted ones:
+  identical: submission.csv
+  identical: figures/hw2_configs.csv
+  identical: figures/fig1_pca.png
+  identical: figures/fig2_deploy.png
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; mkdir -p verify && ./venv/Scripts/python.exe -I - <<PYEOF
+import nbformat, re, subprocess, sys
+p = r"$C/CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+print("== notebook: structure")
+print("cells:", len(nb.cells), "| kernelspec:", nb.metadata.get("kernelspec"), "| python in run:", nb.metadata.get("language_info", {}).get("version"))
+errs = [(i, o.get("ename")) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "error"]
+stderr = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "stream" and o.name == "stderr"]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("error outputs:", errs, "| stderr cells:", stderr)
+print("execution counts:", counts[0], "to", counts[-1], "| strictly increasing, none missing:", counts == list(range(1, len(counts) + 1)))
+ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)]
+print("cells that mention AI / Claude / Anthropic:", ai)
+print("last cell:", repr(nb.cells[-1].source[:50]))
+dash = [i for i, c in enumerate(nb.cells) if "\u2014" in c.source or "\u2013" in c.source]
+print("cells with em or en dashes:", dash)
+PYEOF
+echo; echo "== notebook: is the code the same as the code I tested? (rebuild from my builder, compare every cell source)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; "$CE" build_nb4.py "$C/Homework2_RoverRescue_student.ipynb" verify/rebuilt.ipynb >/dev/null && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+import glob
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+print("cells rebuilt vs submitted:", len(a.cells), len(b.cells))
+diff = [i for i, (x, y) in enumerate(zip(a.cells, b.cells)) if x.source != y.source or x.cell_type != y.cell_type]
+print("cells whose source differs:", diff if diff else "none (every code and markdown cell is identical)")
+PYEOF`
+```
+== notebook: structure
+cells: 38 | kernelspec: {'display_name': 'Python 3', 'language': 'python', 'name': 'python3'} | python in run: 3.12.14
+error outputs: [] | stderr cells: []
+execution counts: 93 to 117 | strictly increasing, none missing: False
+cells that mention AI / Claude / Anthropic: []
+last cell: 'import sys\nimport sklearn\nimport matplotlib\n\nprint'
+cells with em or en dashes: []
+
+== notebook: is the code the same as the code I tested? (rebuild from my builder, compare every cell source)
+cells rebuilt vs submitted: 38 38
+cells whose source differs: [8, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 29, 31, 32, 33, 35, 37]
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat, difflib
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+kinds = {"crlf": 0, "trailing_newline": 0, "trailing_space": 0, "other": []}
+for i, (x, y) in enumerate(zip(a.cells, b.cells)):
+    if x.source == y.source:
+        continue
+    xs, ys = x.source, y.source
+    if xs.replace("\r\n", "\n") == ys.replace("\r\n", "\n"):
+        kinds["crlf"] += 1; continue
+    if xs.rstrip("\n") == ys.rstrip("\n"):
+        kinds["trailing_newline"] += 1; continue
+    if [l.rstrip() for l in xs.splitlines()] == [l.rstrip() for l in ys.splitlines()]:
+        kinds["trailing_space"] += 1; continue
+    kinds["other"].append(i)
+print("difference types:", {k: (v if k != "other" else v) for k, v in kinds.items()})
+for i in kinds["other"][:6]:
+    x, y = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()
+    print(f"\n--- cell {i} ({a.cells[i].cell_type}) real differences:")
+    for l in list(difflib.unified_diff(x, y, "built", "submitted", lineterm="", n=0))[:14]:
+        print("   ", l[:150])
+PYEOF`
+```
+difference types: {'crlf': 0, 'trailing_newline': 0, 'trailing_space': 0, 'other': [8, 10, 12, 13, 14, 16, 17, 18, 20, 21, 22, 24, 25, 26, 27, 29, 31, 32, 33, 35, 37]}
+
+--- cell 8 (markdown) real differences:
+    --- built
+    +++ submitted
+    @@ -6 +6 @@
+    -**Sources.** Lectures 1.1, 1.4, 2.3, 2.4 and their notebooks; ISL 12.2 (PCA, scaling) and 12.4 (Algorithm 12.2, k-means).
+    +**Sources.** Lectures 1.4, 2.3, 2.4 and their notebooks; ISL 12.2 (PCA, scaling) and 12.4 (Algorithm 12.2, k-means).
+
+--- cell 10 (code) real differences:
+    --- built
+    +++ submitted
+    @@ -8 +8,4 @@
+    -from rover_starter import _plan, save_submission  # _plan is only read, to draw the planned route
+    +from rover_starter import (
+    +    _plan,
+    +    save_submission,
+    +)  # _plan is only read, to draw the planned route
+    @@ -16,2 +19,8 @@
+    -REPORT_STYLE = {"font.size": 7.5, "axes.titlesize": 8, "axes.labelsize": 7.5,
+    -                "xtick.labelsize": 7, "ytick.labelsize": 7, "legend.fontsize": 6.5}
+    +REPORT_STYLE = {
+    +    "font.size": 7.5,
+    +    "axes.titlesize": 8,
+
+--- cell 12 (code) real differences:
+    --- built
+    +++ submitted
+    @@ -16 +16 @@
+    -    d2 = (A ** 2).sum(axis=1)[:, None] + (B ** 2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
+    +    d2 = (A**2).sum(axis=1)[:, None] + (B**2).sum(axis=1)[None, :] - 2.0 * (A @ B.T)
+    @@ -31 +31,4 @@
+    -    sums = np.stack([np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])], axis=1)
+    +    sums = np.stack(
+    +        [np.bincount(labels, weights=X[:, j], minlength=k) for j in range(X.shape[1])],
+    +        axis=1,
+    +    )
+    @@ -41 +44,3 @@
+    -        newC[empty] = X[np.argsort(-d2min, kind="stable")[:len(empty)]]  # stable sort: ties go to the lowest index
+    +        newC[empty] = X[
+
+--- cell 13 (code) real differences:
+    --- built
+    +++ submitted
+    @@ -32,2 +32,8 @@
+    -            best = dict(centroids=C, labels=labels, inertia=history[-1], iterations=it,
+    -                        converged=converged, history=np.array(history))
+    +            best = dict(
+    +                centroids=C,
+    +                labels=labels,
+    +                inertia=history[-1],
+    +                iterations=it,
+    +                converged=converged,
+    +                history=np.array(history),
+    +            )
+
+--- cell 14 (code) real differences:
+    --- built
+    +++ submitted
+    @@ -14 +14,3 @@
+    -    best_perm = max(permutations(range(3)), key=lambda p: sum(table[j, p[j]] for j in range(k)))
+    +    best_perm = max(
+    +        permutations(range(3)), key=lambda p: sum(table[j, p[j]] for j in range(k))
+    +    )
+    @@ -31 +33,3 @@
+    -    return votes[np.arange(len(F)), is_top.argmax(axis=1)]  # nearest neighbor of a top class decides
+    +    return votes[
+    +        np.arange(len(F)), is_top.argmax(axis=1)
+    +    ]  # nearest neighbor of a top class decides
+    @@ -43,2 +47,9 @@
+    -    return dict(cm=cm, accuracy=tp.sum() / cm.sum(), macro_f1=f1.mean(), f1=f1,
+
+--- cell 16 (code) real differences:
+    --- built
+    +++ submitted
+    @@ -25 +25,5 @@
+    -    return all(np.allclose(C[j], X[labels == j].mean(axis=0)) for j in range(len(C)) if (labels == j).any())
+    +    return all(
+    +        np.allclose(C[j], X[labels == j].mean(axis=0))
+    +        for j in range(len(C))
+    +        if (labels == j).any()
+    +    )
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import ast, nbformat, re
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+code_same = code_diff = 0
+md_diffs = []
+comment_diffs = 0
+for i, (x, y) in enumerate(zip(a.cells, b.cells)):
+    if x.cell_type == "code":
+        same = ast.dump(ast.parse(x.source)) == ast.dump(ast.parse(y.source))
+        code_same += same; code_diff += (not same)
+        if not same:
+            print(f"cell {i}: code is NOT equivalent")
+        cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]
+        cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]
+        if cx != cy:
+            comment_diffs += 1
+    else:
+        if x.source != y.source:
+            md_diffs.append(i)
+print(f"code cells with identical syntax tree: {code_same} of {code_same + code_diff}")
+print("code cells whose comments differ (text, ignoring wrapping):", comment_diffs)
+print("markdown cells whose text differs:", md_diffs)
+for i in md_diffs:
+    xs, ys = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()
+    for l, m in zip(xs, ys):
+        if l != m:
+            print(f"   built    : {l[:140]}\n   submitted: {m[:140]}")
+PYEOF`
+```
+code cells with identical syntax tree: 25 of 25
+code cells whose comments differ (text, ignoring wrapping): 1
+markdown cells whose text differs: [8]
+   built    : **Sources.** Lectures 1.1, 1.4, 2.3, 2.4 and their notebooks; ISL 12.2 (PCA, scaling) and 12.4 (Algorithm 12.2, k-means).
+   submitted: **Sources.** Lectures 1.4, 2.3, 2.4 and their notebooks; ISL 12.2 (PCA, scaling) and 12.4 (Algorithm 12.2, k-means).
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat, re
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+for i, (x, y) in enumerate(zip(a.cells, b.cells)):
+    if x.cell_type != "code": continue
+    cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]
+    cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]
+    if cx != cy:
+        print(f"cell {i}:"); [print("   built    :", p) for p in cx if p not in cy]; [print("   submitted:", p) for p in cy if p not in cx]
+PYEOF
+echo; echo "================ submission.csv ================"; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import pandas as pd, numpy as np, nbformat, re, io
+C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+sub = pd.read_csv(f"{C}/submission.csv")
+mis = pd.read_csv(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv")
+cfg = pd.read_json(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/config.json", typ="series")
+print("shape:", sub.shape, "| columns:", list(sub.columns))
+print("student_id values:", sub.student_id.unique().tolist(), "| config student_id:", cfg["student_id"])
+print("rows in mission.csv order (x, y match row by row):", bool((sub.x == mis.x).all() and (sub.y == mis.y).all()))
+print("terrain values:", sorted(sub.predicted_terrain.unique()), "| no missing values:", not sub.isna().any().any())
+print("counts:", sub.predicted_terrain.value_counts().to_dict())
+print("duplicate (x, y) rows:", int(sub.duplicated(["x", "y"]).sum()), "| grid covered 28x28:", sub.shape[0] == 28 * 28 and set(zip(sub.x, sub.y)) == {(x, y) for x in range(28) for y in range(28)})
+nb = nbformat.read(f"{C}/CSCI4521_HW2.ipynb", as_version=4)
+out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") for c in nb.cells if c.cell_type == "code")
+m = re.search(r"submission.csv \((\d+), (\d+)\) student_id: (\w+)\n(\{[^}]*\})", out)
+print("notebook printed:", m.group(0).replace("\n", " | "))
+print("matches the notebook's own printed counts:", eval(m.group(4)) == sub.predicted_terrain.value_counts().to_dict())
+print("identical to the file I verified earlier (byte for byte):", open(f"{C}/submission.csv", "rb").read() == open("fresh3/submission.csv", "rb").read())
+PYEOF`
+```
+cell 32:
+   built    : #c1121f", lw=1.3)
+   built    : #e9ecef", label="firm"), Patch(color="#f4c95d", label="rough"),
+   built    : #8d99ae", label="sand")], loc="lower center", ncol=3, frameon=False)
+   submitted: #c1121f", lw=1.3
+   submitted: #e9ecef", label="firm"),
+   submitted: #f4c95d", label="rough"),
+   submitted: #8d99ae", label="sand"),
+
+================ submission.csv ================
+shape: (784, 4) | columns: ['student_id', 'x', 'y', 'predicted_terrain']
+student_id values: ['demo3'] | config student_id: demo3
+rows in mission.csv order (x, y match row by row): True
+terrain values: ['firm', 'rough', 'sand'] | no missing values: True
+counts: {'firm': 362, 'sand': 212, 'rough': 210}
+duplicate (x, y) rows: 0 | grid covered 28x28: True
+notebook printed: submission.csv (784, 4) student_id: demo3 | {'firm': 362, 'sand': 212, 'rough': 210}
+matches the notebook's own printed counts: True
+identical to the file I verified earlier (byte for byte): True
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== fact-check of the report text against the SUBMITTED notebook ==="; ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -E "FAIL|failures"; echo; echo "=== practice_run.html ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import re
+C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+s = open(f"{C}/practice_run.html", encoding="utf-8").read()
+print("size:", len(s), "bytes | starts with doctype:", s.lstrip().lower().startswith("<!doctype html>"), "| has <title>:", re.findall(r"<title>(.*?)</title>", s))
+print("centering CSS present:", "display: flex" in s and "justify-content: center" in s and "align-items: center" in s, "| frame offset fix:", "translateX(-1.25%)" in s and "translateY(-25px)" in s)
+print("embedded frames:", s.count("data:image/png;base64"), "(expected 55 = start + 54 steps) | animation script present:", "Animation.prototype" in s)
+print("closes properly:", s.rstrip().endswith("</body></html>"))
+print("mentions AI/Claude/Anthropic:", bool(re.search(r"(?i)claude|anthropic|\bAI\b", re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "", s))))
+PYEOF
+EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; rm -f verify/html_*.png; for pair in "1280 900" "1920 1080" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$(pwd)/verify/html_${1}x${2}.png" "file:///D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html" >/dev/null 2>&1; done; ls verify | grep html_ | tr '\n' ' '`
+```
+=== fact-check of the report text against the SUBMITTED notebook ===
+FAIL mission rows only appear in the setup print and in predict
+1 failures
+
+=== practice_run.html ===
+size: 745857 bytes | starts with doctype: True | has <title>: ['Rover Rescue practice run']
+centering CSS present: True | frame offset fix: True
+embedded frames: 55 (expected 55 = start + 54 steps) | animation script present: True
+closes properly: True
+mentions AI/Claude/Anthropic: False
+html_1280x900.png html_1366x768.png html_1920x1080.png
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import ast, nbformat
+nb = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+uses = []
+for i, c in enumerate(nb.cells[start:], start):
+    if c.cell_type != "code": continue
+    tree = ast.parse(c.source)
+    for stmt in ast.walk(tree):
+        if isinstance(stmt, ast.Call):
+            names = {n.id for n in ast.walk(stmt) if isinstance(n, ast.Name)}
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Name) and node.id in ("X_mission", "Z_mission"):
+            # find the innermost statement that holds it
+            for stmt in ast.walk(tree):
+                if isinstance(stmt, (ast.Assign, ast.Expr, ast.AugAssign)) and node in list(ast.walk(stmt)):
+                    uses.append((i, ast.get_source_segment(c.source, stmt).replace("\n", " ")[:120])); break
+seen = []
+for u in uses:
+    if u not in seen: seen.append(u)
+print("every statement that touches mission features:")
+for i, t in seen: print(f"  cell {i}: {t}")
+fit_like = [t for _, t in seen if any(k in t for k in (".fit(", "kmeans(", "name_clusters(", "zscore_fit("))]
+print("\nany of them a fit / kmeans / naming call:", fit_like if fit_like else "none")
+PYEOF`
+```
+every statement that touches mission features:
+  cell 10: print(     f"fit {len(X_fit)} | calibration-training {len(X_train)} | validation {len(X_val)} | mission {len(X_mission)}
+  cell 31: mission_pred = chosen["predict"](X_mission)
+
+any of them a fit / kmeans / naming call: none
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/verify" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+from PIL import Image
+import numpy as np
+for name in ("1280x900", "1366x768", "1920x1080"):
+    im = np.asarray(Image.open(f"html_{name}.png").convert("RGB")).astype(int)
+    h, w, _ = im.shape
+    ink = np.abs(im - 255).sum(axis=2) > 30
+    cols, rows = np.flatnonzero(ink.any(axis=0)), np.flatnonzero(ink.any(axis=1))
+    l, r, t, b = cols.min(), w - 1 - cols.max(), rows.min(), h - 1 - rows.max()
+    print(f"window {w}x{h}: left {l}px right {r}px (diff {abs(l-r)}) | top {t}px bottom {b}px (diff {abs(t-b)})")
+PYEOF`
+```
+window 1280x900: left 408px right 406px (diff 2) | top 136px bottom 136px (diff 0)
+window 1366x768: left 451px right 449px (diff 2) | top 70px bottom 70px (diff 0)
+window 1920x1080: left 728px right 726px (diff 2) | top 226px bottom 226px (diff 0)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\verify\html_1366x768.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, pymupdf as fitz
+import report_build as rb
+W = r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf"
+d = fitz.open(W)
+print("== structure")
+print("pages:", len(d), "| size:", [(round(p.rect.width / 72, 2), round(p.rect.height / 72, 2)) for p in d], "| producer:", d.metadata.get("producer"), "| creator:", d.metadata.get("creator"))
+for i, p in enumerate(d):
+    imgs = p.get_images(full=True)
+    fonts = sorted({f[3] for f in p.get_fonts()})
+    sizes = {}
+    for b in p.get_text("dict")["blocks"]:
+        for l in b.get("lines", []):
+            for s in l["spans"]:
+                if s["text"].strip(): sizes[round(s["size"], 1)] = sizes.get(round(s["size"], 1), 0) + len(s["text"])
+    print(f"page {i+1}: images {len(imgs)} | fonts {fonts} | text sizes (pt: chars) {dict(sorted(sizes.items()))}")
+    lines = [l.strip() for l in p.get_text().splitlines() if l.strip()]
+    print(f"   header line: {' | '.join(lines[:3])}   footer line: {lines[-1]}")
+
+norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'").replace("\ufb01", "fi").replace("\ufb02", "fl")).strip()
+full = norm(" ".join(p.get_text() for p in d))
+print("\n== text of the PDF against the locked report text, paragraph by paragraph")
+keys = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"]
+missing = []
+for k in keys:
+    ok = norm(rb.P[k]) in full
+    print(("  identical " if ok else "  DIFFERS   ") + k + f" ({len(rb.P[k].split())} words)")
+    if not ok: missing.append(k)
+print("title lines present:", all(t in full for t in rb.P["title"]))
+print("leftover placeholder text:", [w for w in ("[Insert", "Step ", "```", "TODO") if w in full] or "none")
+print("\nAI paragraph occurrences (should be exactly the final paragraph):", full.count("Claude Code (Anthropic)"))
+PYEOF`
+```
+== structure
+pages: 2 | size: [(8.5, 11.0), (8.5, 11.0)] | producer: Microsoft� Word for Microsoft 365 | creator: Microsoft� Word for Microsoft 365
+page 1: images 1 | fonts ['BCDEEE+TimesNewRomanPSMT', 'BCDFEE+TimesNewRomanPSMT', 'BCDGEE+Aptos', 'BCDHEE+TimesNewRomanPS-BoldMT', 'BCDIEE+Arial-BoldMT', 'BCDJEE+TimesNewRomanPS-BoldMT', 'BCDKEE+TimesNewRomanPS-ItalicMT'] | text sizes (pt: chars) {7.0: 2, 10.0: 157, 11.0: 2708}
+   header line: CSCI 4521 | A. Gupta | October 27th, 2026   footer line: of the k-means model from 0.700 to 1.000. The 1-NN also increased from 0.933 to 1.000. Without the scaling, the k-
+page 2: images 1 | fonts ['BCDEEE+TimesNewRomanPSMT', 'BCDFEE+TimesNewRomanPSMT', 'BCDGEE+Aptos', 'BCDHEE+TimesNewRomanPS-BoldMT', 'BCDIEE+Arial-BoldMT', 'BCDJEE+TimesNewRomanPS-BoldMT', 'BCDKEE+TimesNewRomanPS-ItalicMT'] | text sizes (pt: chars) {7.0: 2, 10.0: 330, 11.0: 2650}
+   header line: CSCI 4521 | A. Gupta | October 27th, 2026   footer line: area.
+
+== text of the PDF against the locked report text, paragraph by paragraph
+  identical h1 (4 words)
+  DIFFERS   s1 (224 words)
+  identical h2 (2 words)
+  DIFFERS   s2 (113 words)
+  identical h3 (2 words)
+  identical s3a (80 words)
+  identical f1cap (27 words)
+  DIFFERS   s3b (145 words)
+  identical t1cap (29 words)
+  identical h4 (6 words)
+  DIFFERS   s4 (216 words)
+  identical f2cap (24 words)
+  identical h5 (2 words)
+  DIFFERS   s5 (65 words)
+  DIFFERS   hai (1 words)
+  DIFFERS   ai (43 words)
+title lines present: True
+leftover placeholder text: none
+
+AI paragraph occurrences (should be exactly the final paragraph): 0
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, difflib, pymupdf as fitz
+import report_build as rb
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'")).strip()
+# remove running header and footer lines from the PDF text before comparing
+body = []
+for p in d:
+    for l in p.get_text().splitlines():
+        t = l.strip()
+        if not t or t.startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")): continue
+        body.append(t)
+full = norm(" ".join(body))
+open("verify/pdf_text.txt", "w", encoding="utf-8").write(full)
+
+def locate(par):
+    """the stretch of PDF text that starts where this paragraph starts"""
+    start = norm(par)[:40]
+    i = full.find(start)
+    return i
+
+order = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"]
+for k in ["s1", "s2", "s3b", "s4", "s5", "hai", "ai"]:
+    want = norm(rb.P[k]).split()
+    i = locate(rb.P[k])
+    if i < 0:
+        print(f"\n[{k}] start of the paragraph not found in the PDF"); continue
+    have = full[i:i + len(norm(rb.P[k])) + 400].split()
+    sm = difflib.SequenceMatcher(None, want, have[:len(want) + 60], autojunk=False)
+    print(f"\n[{k}]")
+    n = 0
+    for op, a1, a2, b1, b2 in sm.get_opcodes():
+        if op == "equal": continue
+        n += 1
+        if n > 8: print("   ..."); break
+        print(f"   {op}: locked={' '.join(want[a1:a2])[:110]!r}  ->  pdf={' '.join(have[b1:b2])[:110]!r}")
+print("\nlast 300 characters of the PDF body text:\n", full[-300:])
+PYEOF`
+```
+[s1]
+   replace: locked='3 cluster'  ->  pdf='3-cluster'
+   replace: locked='empty'  ->  pdf='empty,'
+   insert: locked=''  ->  pdf='2. Evaluation The normalization, PCA and k-means were fit on the 754 rows of fit data (all practice data exclu'
+
+[s2] start of the paragraph not found in the PDF
+
+[s3b]
+   replace: locked='k-means'  ->  pdf='k- means'
+   insert: locked=''  ->  pdf='ID Scaling Representation (dims) Model Accuracy Macro F1 Sand recall Practice rover C1 raw 8 sensors (8) k-mea'
+
+[s4]
+   replace: locked='(z-score,'  ->  pdf='(z- score,'
+   replace: locked='70.8'  ->  pdf='70.8,'
+   replace: locked='rough'  ->  pdf='rough,'
+   insert: locked=''  ->  pdf='Figure 2: Chosen model C5. Left: Predicted practice map with planned route (mission successful in 54 steps). R'
+
+[s5]
+   replace: locked='generalises'  ->  pdf='generalizes'
+
+[hai] start of the paragraph not found in the PDF
+
+[ai] start of the paragraph not found in the PDF
+
+last 300 characters of the PDF body text:
+ rentiate between the 4 perfect models. A perfect score on the validation data does not mean it is a perfect model. The practice run only tests 1 route, so it is a demonstration and not proof. There are no labels on the mission data meaning I cannot see how well the model generalizes to the new area.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, difflib, zipfile, pymupdf as fitz
+import report_build as rb
+from docx import Document
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s)
+def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)           # undo line-wrap hyphen spacing artifacts
+pdf_words = tok(clean(" ".join(l.strip() for p in d for l in p.get_text().splitlines()
+                              if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")))))
+locked = []
+for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:
+    locked += tok(rb.P[k])
+# the table sits inside the PDF text; drop it from the PDF stream for the comparison
+t1 = pdf_words.index("ID"); t2 = next(i for i, w in enumerate(pdf_words) if w == "Table" and pdf_words[i+1].startswith("1"))
+table_words = pdf_words[t1:t2]
+pdf_nt = pdf_words[:t1] + pdf_words[t2:]
+sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False)
+print(f"locked report words: {len(locked)} | PDF words (table removed): {len(pdf_nt)} | similarity {sm.ratio():.4f}")
+for op, a1, a2, b1, b2 in sm.get_opcodes():
+    if op == "equal": continue
+    print(f"  {op:8} locked={' '.join(locked[a1:a2])[:120]!r}  pdf={' '.join(pdf_nt[b1:b2])[:120]!r}")
+
+print("\n== is any AI disclosure left anywhere in the PDF?")
+txt = " ".join(p.get_text() for p in d)
+print("mentions of 'AI', 'Claude', 'Anthropic' as words in PDF text:", re.findall(r"\bAI\b|Claude|Anthropic", txt) or "none")
+print("annotations/comments in PDF:", sum(len(list(p.annots() or [])) for p in d), "| metadata title/subject/keywords:", {k: d.metadata.get(k) for k in ("title", "subject", "keywords")})
+
+print("\n== the Word file HW-2 formatted.docx as you last saved it (22:40)")
+dx = Document(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.docx")
+dtxt = " ".join(p.text for p in dx.paragraphs)
+print("last paragraphs:", [p.text[:60] for p in dx.paragraphs if p.text.strip()][-2:])
+print("AI / Claude mentioned in the docx:", re.findall(r"\bAI\b|Claude|Anthropic", dtxt) or "none")
+PYEOF`
+```
+locked report words: 983 | PDF words (table removed): 1591 | similarity 0.7242
+  insert   locked=''  pdf='HW 2: Rover Rescue Anant Gupta October 2026'
+  replace  locked='3 cluster'  pdf='3-cluster'
+  replace  locked='empty'  pdf='empty,'
+  replace  locked='normalisation,'  pdf='normalization,'
+  insert   locked=''  pdf='1 shows 6 configurations. The first 4 use all 8 sensors, either raw or z-scored, with k-means or 1-NN. The final 2 use t'
+  replace  locked='70.8'  pdf='70.8,'
+  replace  locked='rough'  pdf='rough,'
+  replace  locked='generalises'  pdf='generalizes'
+  delete   locked='AI AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) was used to read the course material, w'  pdf=''
+
+== is any AI disclosure left anywhere in the PDF?
+mentions of 'AI', 'Claude', 'Anthropic' as words in PDF text: none
+annotations/comments in PDF: 0 | metadata title/subject/keywords: {'title': '', 'subject': '', 'keywords': ''}
+
+== the Word file HW-2 formatted.docx as you last saved it (22:40)
+last paragraphs: ['Limitations', 'The 30 validation rows were not enough to differentiate betw']
+AI / Claude mentioned in the docx: none
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, difflib, pymupdf as fitz
+import report_build as rb
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s)
+def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)
+lines = [l.strip() for p in d for l in p.get_text().splitlines()
+         if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page "))]
+pdf_words = tok(clean(" ".join(lines)))
+t1 = pdf_words.index("ID")                                                  # first table header cell
+t2 = next(i for i in range(t1, len(pdf_words) - 1) if pdf_words[i] == "Table" and pdf_words[i + 1].startswith("1:"))   # the caption, after the table
+print("table words removed from the comparison:", t2 - t1, "(7 rows x 8 cells, plus wrapped header cells)")
+pdf_nt = pdf_words[:t1] + pdf_words[t2:]
+locked = []
+for t in rb.P["title"]: locked += tok(t)
+for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:
+    locked += tok(rb.P[k])
+sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False)
+print(f"locked words {len(locked)} | PDF words {len(pdf_nt)} | similarity {sm.ratio():.4f}")
+for op, a1, a2, b1, b2 in sm.get_opcodes():
+    if op == "equal": continue
+    print(f"  {op:8} locked={' '.join(locked[a1:a2])[:150]!r}   pdf={' '.join(pdf_nt[b1:b2])[:150]!r}")
+PYEOF`
+```
+table words removed from the comparison: 84 (7 rows x 8 cells, plus wrapped header cells)
+locked words 991 | PDF words 946 | similarity 0.9706
+  replace  locked='3 cluster'   pdf='3-cluster'
+  replace  locked='empty'   pdf='empty,'
+  replace  locked='normalisation,'   pdf='normalization,'
+  replace  locked='70.8'   pdf='70.8,'
+  replace  locked='rough'   pdf='rough,'
+  replace  locked='generalises'   pdf='generalizes'
+  delete   locked='AI AI was allowed in this course. I used AI extensively. Claude Code (Anthropic) was used to read the course material, write the code in the notebook,'   pdf=''
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, pandas as pd, pymupdf as fitz
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
+
+print("== Table 1 in the PDF, row by row, against figures/hw2_configs.csv")
+words = [(w[4], round(w[1])) for p in d for w in p.get_text("words") if w[1] > 0]
+page_with_table = next(i for i, p in enumerate(d) if "C1" in p.get_text() and "k-means" in p.get_text() and "0.700" in p.get_text())
+rows = {}
+for w in d[page_with_table].get_text("words"):
+    y = round(w[1] / 4)                      # group words that share a line
+    rows.setdefault(y, []).append((w[0], w[4]))
+ok_all = True
+for cid in cfg.index:
+    line = next((" ".join(t for _, t in sorted(r)) for r in rows.values() if sorted(r)[0][1] == cid), None)
+    c = cfg.loc[cid]
+    expected = [f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", c.scaling, c.model, (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]
+    ok = line is not None and all(e in line for e in expected)
+    ok_all &= ok
+    print(("  ok   " if ok else "  FAIL ") + (line or f"{cid}: row not found"))
+print("table matches the results file:", ok_all)
+
+print("\n== where do the extra fonts come from?")
+for pi, p in enumerate(d):
+    for b in p.get_text("dict")["blocks"]:
+        for l in b.get("lines", []):
+            for s in l["spans"]:
+                if "Aptos" in s["font"] or "Arial" in s["font"]:
+                    print(f"  page {pi+1}: font {s['font']!r} size {s['size']:.1f} text {s['text'][:40]!r}")
+print("  (the picture text inside the two figures is part of the images, not fonts)")
+for i, p in enumerate(d): p.get_pixmap(dpi=80).save(f"verify/pdf_p{i+1}.png")
+PYEOF`
+```
+== Table 1 in the PDF, row by row, against figures/hw2_configs.csv
+  FAIL C1: row not found
+  FAIL C2: row not found
+  FAIL C3: row not found
+  FAIL C4: row not found
+  FAIL C5: row not found
+  FAIL C6: row not found
+table matches the results file: False
+
+== where do the extra fonts come from?
+  page 1: font 'Aptos' size 12.0 text ' '
+  page 1: font 'Aptos' size 12.0 text ' '
+  page 1: font 'Arial-BoldMT' size 11.0 text ' '
+  page 1: font 'Arial-BoldMT' size 11.0 text ' '
+  page 1: font 'Arial-BoldMT' size 11.0 text ' '
+  page 2: font 'Aptos' size 12.0 text ' '
+  page 2: font 'Aptos' size 12.0 text ' '
+  page 2: font 'Arial-BoldMT' size 11.0 text ' '
+  page 2: font 'Arial-BoldMT' size 11.0 text ' '
+  (the picture text inside the two figures is part of the images, not fonts)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\verify\pdf_p1.png`
+- `Read` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\1b6f8eac-44d0-4860-b243-88b063adb7c7\scratchpad\hw2\verify\pdf_p2.png`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import pandas as pd, pymupdf as fitz
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
+p = d[1]
+words = sorted(p.get_text("words"), key=lambda w: (w[1], w[0]))
+rows, cur, last_y = [], [], None
+for w in words:
+    if last_y is not None and abs(w[1] - last_y) > 3:
+        rows.append(cur); cur = []
+    cur.append(w); last_y = w[1]
+rows.append(cur)
+lines = [" ".join(w[4] for w in sorted(r, key=lambda w: w[0])) for r in rows]
+bad = 0
+for cid, c in cfg.iterrows():
+    line = next((l for l in lines if l.startswith(cid + " ")), None)
+    exp = [c.scaling, c.model, f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]
+    ok = line is not None and all(e in line for e in exp)
+    bad += (not ok)
+    print(("ok   " if ok else "FAIL ") + str(line))
+print("table rows that match the results file:", len(cfg) - bad, "of", len(cfg))
+PYEOF`
+```
+ok   C1 raw 8 sensors (8) k-means 0.700 0.704 0.50 stuck, step 20
+ok   C2 raw 8 sensors (8) 1-NN 0.933 0.935 0.90 success, 54 steps
+ok   C3 z-score 8 sensors (8) k-means 1.000 1.000 1.00 success, 54 steps
+ok   C4 z-score 8 sensors (8) 1-NN 1.000 1.000 1.00 success, 54 steps
+ok   C5 z-score PCA 95% (3) k-means 1.000 1.000 1.00 success, 54 steps
+ok   C6 z-score PCA 95% (3) 1-NN 1.000 1.000 1.00 success, 54 steps
+table rows that match the results file: 6 of 6
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -16981,5 +17663,341 @@ open(p, "w", encoding="utf-8").write(s)
 print("note updated")
 PYEOF
 "$PY" -I /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/notefix.py && echo "dash hits: $(LC_ALL=C grep -cP '\xE2\x80[\x93\x94]' 'Homework - 2.md')"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4521/Homework/" --list 5 2>&1 | grep -E "FIT"`
+- `C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; W="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework"; SC="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2"; ls -la --time-style=+%m-%d_%H:%M:%S "$C/CSCI4521_HW2.ipynb" "$C/submission.csv" "$C/practice_run.html" "$W/HW-2 formatted.pdf" "$W/HW-2 formatted.docx" "$W/HW-2.docx" 2>&1 | awk '{printf "%-9s %s  %s %s %s\n", $5, $6, $7, $8, $9}'; echo; echo "my last verified copies (scratch fresh3 run, same code) vs the submitted ones:"; for f in submission.csv figures/hw2_configs.csv figures/fig1_pca.png figures/fig2_deploy.png; do cmp -s "$C/$f" "$SC/fresh3/$f" && echo "  identical: $f" || echo "  DIFFERENT: $f"; done`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && C="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"; mkdir -p verify && ./venv/Scripts/python.exe -I - <<PYEOF
+import nbformat, re, subprocess, sys
+p = r"$C/CSCI4521_HW2.ipynb"
+nb = nbformat.read(p, as_version=4)
+print("== notebook: structure")
+print("cells:", len(nb.cells), "| kernelspec:", nb.metadata.get("kernelspec"), "| python in run:", nb.metadata.get("language_info", {}).get("version"))
+errs = [(i, o.get("ename")) for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "error"]
+stderr = [i for i, c in enumerate(nb.cells) if c.cell_type == "code" for o in c.get("outputs", []) if o.output_type == "stream" and o.name == "stderr"]
+counts = [c.execution_count for c in nb.cells if c.cell_type == "code"]
+print("error outputs:", errs, "| stderr cells:", stderr)
+print("execution counts:", counts[0], "to", counts[-1], "| strictly increasing, none missing:", counts == list(range(1, len(counts) + 1)))
+ai = [i for i, c in enumerate(nb.cells) for t in [c.source + "".join(o.get("text", "") for o in c.get("outputs", []) if o.output_type == "stream")] if re.search(r"(?i)\bAI\b|claude|anthropic", t)]
+print("cells that mention AI / Claude / Anthropic:", ai)
+print("last cell:", repr(nb.cells[-1].source[:50]))
+dash = [i for i, c in enumerate(nb.cells) if "\u2014" in c.source or "\u2013" in c.source]
+print("cells with em or en dashes:", dash)
+PYEOF
+echo; echo "== notebook: is the code the same as the code I tested? (rebuild from my builder, compare every cell source)"; CE="D:/Apps/Miniconda/envs/csci-4521/python.exe"; "$CE" build_nb4.py "$C/Homework2_RoverRescue_student.ipynb" verify/rebuilt.ipynb >/dev/null && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+import glob
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+print("cells rebuilt vs submitted:", len(a.cells), len(b.cells))
+diff = [i for i, (x, y) in enumerate(zip(a.cells, b.cells)) if x.source != y.source or x.cell_type != y.cell_type]
+print("cells whose source differs:", diff if diff else "none (every code and markdown cell is identical)")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat, difflib
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+kinds = {"crlf": 0, "trailing_newline": 0, "trailing_space": 0, "other": []}
+for i, (x, y) in enumerate(zip(a.cells, b.cells)):
+    if x.source == y.source:
+        continue
+    xs, ys = x.source, y.source
+    if xs.replace("\r\n", "\n") == ys.replace("\r\n", "\n"):
+        kinds["crlf"] += 1; continue
+    if xs.rstrip("\n") == ys.rstrip("\n"):
+        kinds["trailing_newline"] += 1; continue
+    if [l.rstrip() for l in xs.splitlines()] == [l.rstrip() for l in ys.splitlines()]:
+        kinds["trailing_space"] += 1; continue
+    kinds["other"].append(i)
+print("difference types:", {k: (v if k != "other" else v) for k, v in kinds.items()})
+for i in kinds["other"][:6]:
+    x, y = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()
+    print(f"\n--- cell {i} ({a.cells[i].cell_type}) real differences:")
+    for l in list(difflib.unified_diff(x, y, "built", "submitted", lineterm="", n=0))[:14]:
+        print("   ", l[:150])
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import ast, nbformat, re
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+code_same = code_diff = 0
+md_diffs = []
+comment_diffs = 0
+for i, (x, y) in enumerate(zip(a.cells, b.cells)):
+    if x.cell_type == "code":
+        same = ast.dump(ast.parse(x.source)) == ast.dump(ast.parse(y.source))
+        code_same += same; code_diff += (not same)
+        if not same:
+            print(f"cell {i}: code is NOT equivalent")
+        cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]
+        cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]
+        if cx != cy:
+            comment_diffs += 1
+    else:
+        if x.source != y.source:
+            md_diffs.append(i)
+print(f"code cells with identical syntax tree: {code_same} of {code_same + code_diff}")
+print("code cells whose comments differ (text, ignoring wrapping):", comment_diffs)
+print("markdown cells whose text differs:", md_diffs)
+for i in md_diffs:
+    xs, ys = a.cells[i].source.splitlines(), b.cells[i].source.splitlines()
+    for l, m in zip(xs, ys):
+        if l != m:
+            print(f"   built    : {l[:140]}\n   submitted: {m[:140]}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import nbformat, re
+a = nbformat.read("verify/rebuilt.ipynb", as_version=4)
+b = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+for i, (x, y) in enumerate(zip(a.cells, b.cells)):
+    if x.cell_type != "code": continue
+    cx = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", x.source)]
+    cy = [re.sub(r"\s+", " ", t.strip()) for t in re.findall(r"#[^\n]*", y.source)]
+    if cx != cy:
+        print(f"cell {i}:"); [print("   built    :", p) for p in cx if p not in cy]; [print("   submitted:", p) for p in cy if p not in cx]
+PYEOF
+echo; echo "================ submission.csv ================"; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import pandas as pd, numpy as np, nbformat, re, io
+C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+sub = pd.read_csv(f"{C}/submission.csv")
+mis = pd.read_csv(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/mission.csv")
+cfg = pd.read_json(f"{C}/rover-rescue-download/2026/homework-2/rover-rescue/demo_data/config.json", typ="series")
+print("shape:", sub.shape, "| columns:", list(sub.columns))
+print("student_id values:", sub.student_id.unique().tolist(), "| config student_id:", cfg["student_id"])
+print("rows in mission.csv order (x, y match row by row):", bool((sub.x == mis.x).all() and (sub.y == mis.y).all()))
+print("terrain values:", sorted(sub.predicted_terrain.unique()), "| no missing values:", not sub.isna().any().any())
+print("counts:", sub.predicted_terrain.value_counts().to_dict())
+print("duplicate (x, y) rows:", int(sub.duplicated(["x", "y"]).sum()), "| grid covered 28x28:", sub.shape[0] == 28 * 28 and set(zip(sub.x, sub.y)) == {(x, y) for x in range(28) for y in range(28)})
+nb = nbformat.read(f"{C}/CSCI4521_HW2.ipynb", as_version=4)
+out = "\n".join("".join(o.get("text", "") for o in c.outputs if o.output_type == "stream") for c in nb.cells if c.cell_type == "code")
+m = re.search(r"submission.csv \((\d+), (\d+)\) student_id: (\w+)\n(\{[^}]*\})", out)
+print("notebook printed:", m.group(0).replace("\n", " | "))
+print("matches the notebook's own printed counts:", eval(m.group(4)) == sub.predicted_terrain.value_counts().to_dict())
+print("identical to the file I verified earlier (byte for byte):", open(f"{C}/submission.csv", "rb").read() == open("fresh3/submission.csv", "rb").read())
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && echo "=== fact-check of the report text against the SUBMITTED notebook ==="; ./venv/Scripts/python.exe factcheck2.py 2>&1 | grep -E "FAIL|failures"; echo; echo "=== practice_run.html ==="; ./venv/Scripts/python.exe -I - <<'PYEOF'
+import re
+C = "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework"
+s = open(f"{C}/practice_run.html", encoding="utf-8").read()
+print("size:", len(s), "bytes | starts with doctype:", s.lstrip().lower().startswith("<!doctype html>"), "| has <title>:", re.findall(r"<title>(.*?)</title>", s))
+print("centering CSS present:", "display: flex" in s and "justify-content: center" in s and "align-items: center" in s, "| frame offset fix:", "translateX(-1.25%)" in s and "translateY(-25px)" in s)
+print("embedded frames:", s.count("data:image/png;base64"), "(expected 55 = start + 54 steps) | animation script present:", "Animation.prototype" in s)
+print("closes properly:", s.rstrip().endswith("</body></html>"))
+print("mentions AI/Claude/Anthropic:", bool(re.search(r"(?i)claude|anthropic|\bAI\b", re.sub(r"data:image/png;base64,[A-Za-z0-9+/=]+", "", s))))
+PYEOF
+EDGE="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"; rm -f verify/html_*.png; for pair in "1280 900" "1920 1080" "1366 768"; do set -- $pair; "$EDGE" --headless=new --disable-gpu --hide-scrollbars --window-size=$1,$2 --virtual-time-budget=5000 --screenshot="$(pwd)/verify/html_${1}x${2}.png" "file:///D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/practice_run.html" >/dev/null 2>&1; done; ls verify | grep html_ | tr '\n' ' '`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe -I - <<'PYEOF'
+import ast, nbformat
+nb = nbformat.read(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/CSCI4521_HW2.ipynb", as_version=4)
+start = next(i for i, c in enumerate(nb.cells) if c.source.startswith("## My solution"))
+uses = []
+for i, c in enumerate(nb.cells[start:], start):
+    if c.cell_type != "code": continue
+    tree = ast.parse(c.source)
+    for stmt in ast.walk(tree):
+        if isinstance(stmt, ast.Call):
+            names = {n.id for n in ast.walk(stmt) if isinstance(n, ast.Name)}
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Name) and node.id in ("X_mission", "Z_mission"):
+            # find the innermost statement that holds it
+            for stmt in ast.walk(tree):
+                if isinstance(stmt, (ast.Assign, ast.Expr, ast.AugAssign)) and node in list(ast.walk(stmt)):
+                    uses.append((i, ast.get_source_segment(c.source, stmt).replace("\n", " ")[:120])); break
+seen = []
+for u in uses:
+    if u not in seen: seen.append(u)
+print("every statement that touches mission features:")
+for i, t in seen: print(f"  cell {i}: {t}")
+fit_like = [t for _, t in seen if any(k in t for k in (".fit(", "kmeans(", "name_clusters(", "zscore_fit("))]
+print("\nany of them a fit / kmeans / naming call:", fit_like if fit_like else "none")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2/verify" && ../venv/Scripts/python.exe -I - <<'PYEOF'
+from PIL import Image
+import numpy as np
+for name in ("1280x900", "1366x768", "1920x1080"):
+    im = np.asarray(Image.open(f"html_{name}.png").convert("RGB")).astype(int)
+    h, w, _ = im.shape
+    ink = np.abs(im - 255).sum(axis=2) > 30
+    cols, rows = np.flatnonzero(ink.any(axis=0)), np.flatnonzero(ink.any(axis=1))
+    l, r, t, b = cols.min(), w - 1 - cols.max(), rows.min(), h - 1 - rows.max()
+    print(f"window {w}x{h}: left {l}px right {r}px (diff {abs(l-r)}) | top {t}px bottom {b}px (diff {abs(t-b)})")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, pymupdf as fitz
+import report_build as rb
+W = r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf"
+d = fitz.open(W)
+print("== structure")
+print("pages:", len(d), "| size:", [(round(p.rect.width / 72, 2), round(p.rect.height / 72, 2)) for p in d], "| producer:", d.metadata.get("producer"), "| creator:", d.metadata.get("creator"))
+for i, p in enumerate(d):
+    imgs = p.get_images(full=True)
+    fonts = sorted({f[3] for f in p.get_fonts()})
+    sizes = {}
+    for b in p.get_text("dict")["blocks"]:
+        for l in b.get("lines", []):
+            for s in l["spans"]:
+                if s["text"].strip(): sizes[round(s["size"], 1)] = sizes.get(round(s["size"], 1), 0) + len(s["text"])
+    print(f"page {i+1}: images {len(imgs)} | fonts {fonts} | text sizes (pt: chars) {dict(sorted(sizes.items()))}")
+    lines = [l.strip() for l in p.get_text().splitlines() if l.strip()]
+    print(f"   header line: {' | '.join(lines[:3])}   footer line: {lines[-1]}")
+
+norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'").replace("\ufb01", "fi").replace("\ufb02", "fl")).strip()
+full = norm(" ".join(p.get_text() for p in d))
+print("\n== text of the PDF against the locked report text, paragraph by paragraph")
+keys = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"]
+missing = []
+for k in keys:
+    ok = norm(rb.P[k]) in full
+    print(("  identical " if ok else "  DIFFERS   ") + k + f" ({len(rb.P[k].split())} words)")
+    if not ok: missing.append(k)
+print("title lines present:", all(t in full for t in rb.P["title"]))
+print("leftover placeholder text:", [w for w in ("[Insert", "Step ", "```", "TODO") if w in full] or "none")
+print("\nAI paragraph occurrences (should be exactly the final paragraph):", full.count("Claude Code (Anthropic)"))
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, difflib, pymupdf as fitz
+import report_build as rb
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+norm = lambda s: re.sub(r"\s+", " ", s.replace("\u00a0", " ").replace("\u2019", "'")).strip()
+# remove running header and footer lines from the PDF text before comparing
+body = []
+for p in d:
+    for l in p.get_text().splitlines():
+        t = l.strip()
+        if not t or t.startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")): continue
+        body.append(t)
+full = norm(" ".join(body))
+open("verify/pdf_text.txt", "w", encoding="utf-8").write(full)
+
+def locate(par):
+    """the stretch of PDF text that starts where this paragraph starts"""
+    start = norm(par)[:40]
+    i = full.find(start)
+    return i
+
+order = ["h1", "s1", "h2", "s2", "h3", "s3a", "f1cap", "s3b", "t1cap", "h4", "s4", "f2cap", "h5", "s5", "hai", "ai"]
+for k in ["s1", "s2", "s3b", "s4", "s5", "hai", "ai"]:
+    want = norm(rb.P[k]).split()
+    i = locate(rb.P[k])
+    if i < 0:
+        print(f"\n[{k}] start of the paragraph not found in the PDF"); continue
+    have = full[i:i + len(norm(rb.P[k])) + 400].split()
+    sm = difflib.SequenceMatcher(None, want, have[:len(want) + 60], autojunk=False)
+    print(f"\n[{k}]")
+    n = 0
+    for op, a1, a2, b1, b2 in sm.get_opcodes():
+        if op == "equal": continue
+        n += 1
+        if n > 8: print("   ..."); break
+        print(f"   {op}: locked={' '.join(want[a1:a2])[:110]!r}  ->  pdf={' '.join(have[b1:b2])[:110]!r}")
+print("\nlast 300 characters of the PDF body text:\n", full[-300:])
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, difflib, zipfile, pymupdf as fitz
+import report_build as rb
+from docx import Document
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s)
+def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)           # undo line-wrap hyphen spacing artifacts
+pdf_words = tok(clean(" ".join(l.strip() for p in d for l in p.get_text().splitlines()
+                              if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page ")))))
+locked = []
+for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:
+    locked += tok(rb.P[k])
+# the table sits inside the PDF text; drop it from the PDF stream for the comparison
+t1 = pdf_words.index("ID"); t2 = next(i for i, w in enumerate(pdf_words) if w == "Table" and pdf_words[i+1].startswith("1"))
+table_words = pdf_words[t1:t2]
+pdf_nt = pdf_words[:t1] + pdf_words[t2:]
+sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False)
+print(f"locked report words: {len(locked)} | PDF words (table removed): {len(pdf_nt)} | similarity {sm.ratio():.4f}")
+for op, a1, a2, b1, b2 in sm.get_opcodes():
+    if op == "equal": continue
+    print(f"  {op:8} locked={' '.join(locked[a1:a2])[:120]!r}  pdf={' '.join(pdf_nt[b1:b2])[:120]!r}")
+
+print("\n== is any AI disclosure left anywhere in the PDF?")
+txt = " ".join(p.get_text() for p in d)
+print("mentions of 'AI', 'Claude', 'Anthropic' as words in PDF text:", re.findall(r"\bAI\b|Claude|Anthropic", txt) or "none")
+print("annotations/comments in PDF:", sum(len(list(p.annots() or [])) for p in d), "| metadata title/subject/keywords:", {k: d.metadata.get(k) for k in ("title", "subject", "keywords")})
+
+print("\n== the Word file HW-2 formatted.docx as you last saved it (22:40)")
+dx = Document(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.docx")
+dtxt = " ".join(p.text for p in dx.paragraphs)
+print("last paragraphs:", [p.text[:60] for p in dx.paragraphs if p.text.strip()][-2:])
+print("AI / Claude mentioned in the docx:", re.findall(r"\bAI\b|Claude|Anthropic", dtxt) or "none")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, difflib, pymupdf as fitz
+import report_build as rb
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+tok = lambda s: re.findall(r"[A-Za-z0-9_.%()=,:;'\"/+\-<>]+", s)
+def clean(s): return re.sub(r"(?<=\w)- (?=\w)", "-", s)
+lines = [l.strip() for p in d for l in p.get_text().splitlines()
+         if l.strip() and not l.strip().startswith(("CSCI 4521", "A. Gupta", "October 27th", "Page "))]
+pdf_words = tok(clean(" ".join(lines)))
+t1 = pdf_words.index("ID")                                                  # first table header cell
+t2 = next(i for i in range(t1, len(pdf_words) - 1) if pdf_words[i] == "Table" and pdf_words[i + 1].startswith("1:"))   # the caption, after the table
+print("table words removed from the comparison:", t2 - t1, "(7 rows x 8 cells, plus wrapped header cells)")
+pdf_nt = pdf_words[:t1] + pdf_words[t2:]
+locked = []
+for t in rb.P["title"]: locked += tok(t)
+for k in ["h1","s1","h2","s2","h3","s3a","f1cap","s3b","t1cap","h4","s4","f2cap","h5","s5","hai","ai"]:
+    locked += tok(rb.P[k])
+sm = difflib.SequenceMatcher(None, locked, pdf_nt, autojunk=False)
+print(f"locked words {len(locked)} | PDF words {len(pdf_nt)} | similarity {sm.ratio():.4f}")
+for op, a1, a2, b1, b2 in sm.get_opcodes():
+    if op == "equal": continue
+    print(f"  {op:8} locked={' '.join(locked[a1:a2])[:150]!r}   pdf={' '.join(pdf_nt[b1:b2])[:150]!r}")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import re, pandas as pd, pymupdf as fitz
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
+
+print("== Table 1 in the PDF, row by row, against figures/hw2_configs.csv")
+words = [(w[4], round(w[1])) for p in d for w in p.get_text("words") if w[1] > 0]
+page_with_table = next(i for i, p in enumerate(d) if "C1" in p.get_text() and "k-means" in p.get_text() and "0.700" in p.get_text())
+rows = {}
+for w in d[page_with_table].get_text("words"):
+    y = round(w[1] / 4)                      # group words that share a line
+    rows.setdefault(y, []).append((w[0], w[4]))
+ok_all = True
+for cid in cfg.index:
+    line = next((" ".join(t for _, t in sorted(r)) for r in rows.values() if sorted(r)[0][1] == cid), None)
+    c = cfg.loc[cid]
+    expected = [f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", c.scaling, c.model, (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]
+    ok = line is not None and all(e in line for e in expected)
+    ok_all &= ok
+    print(("  ok   " if ok else "  FAIL ") + (line or f"{cid}: row not found"))
+print("table matches the results file:", ok_all)
+
+print("\n== where do the extra fonts come from?")
+for pi, p in enumerate(d):
+    for b in p.get_text("dict")["blocks"]:
+        for l in b.get("lines", []):
+            for s in l["spans"]:
+                if "Aptos" in s["font"] or "Arial" in s["font"]:
+                    print(f"  page {pi+1}: font {s['font']!r} size {s['size']:.1f} text {s['text'][:40]!r}")
+print("  (the picture text inside the two figures is part of the images, not fonts)")
+for i, p in enumerate(d): p.get_pixmap(dpi=80).save(f"verify/pdf_p{i+1}.png")
+PYEOF`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/1b6f8eac-44d0-4860-b243-88b063adb7c7/scratchpad/hw2" && ./venv/Scripts/python.exe - <<'PYEOF'
+import pandas as pd, pymupdf as fitz
+d = fitz.open(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Homework/HW-2 formatted.pdf")
+cfg = pd.read_csv(r"D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4521/Code/Homework/figures/hw2_configs.csv").set_index("config")
+p = d[1]
+words = sorted(p.get_text("words"), key=lambda w: (w[1], w[0]))
+rows, cur, last_y = [], [], None
+for w in words:
+    if last_y is not None and abs(w[1] - last_y) > 3:
+        rows.append(cur); cur = []
+    cur.append(w); last_y = w[1]
+rows.append(cur)
+lines = [" ".join(w[4] for w in sorted(r, key=lambda w: w[0])) for r in rows]
+bad = 0
+for cid, c in cfg.iterrows():
+    line = next((l for l in lines if l.startswith(cid + " ")), None)
+    exp = [c.scaling, c.model, f"{c.val_accuracy:.3f}", f"{c.macro_f1:.3f}", f"{c.sand_recall:.2f}", (f"step {int(c.steps)}" if "STUCK" in c.practice else f"{int(c.steps)} steps")]
+    ok = line is not None and all(e in line for e in exp)
+    bad += (not ok)
+    print(("ok   " if ok else "FAIL ") + str(line))
+print("table rows that match the results file:", len(cfg) - bad, "of", len(cfg))
+PYEOF`
 
 

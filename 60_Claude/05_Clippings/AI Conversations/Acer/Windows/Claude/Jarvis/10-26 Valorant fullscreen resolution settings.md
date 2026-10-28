@@ -6,7 +6,7 @@ source_os: windows
 title: "Valorant fullscreen resolution settings"
 started_at: 2026-10-26T22:17:10
 ended_at: 2026-10-27T23:40:19
-exported_at: 2026-10-28T01:03:06
+exported_at: 2026-10-28T02:03:06
 duration_minutes: 1523.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

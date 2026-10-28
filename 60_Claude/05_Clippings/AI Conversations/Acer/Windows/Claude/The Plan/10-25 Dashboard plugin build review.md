@@ -1,39 +1,44 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-10-26T17:14:24
-exported_at: 2026-10-28T15:03:17
-duration_minutes: 1261.8
+ended_at: 2026-10-28T15:08:00
+exported_at: 2026-10-28T15:33:06
+duration_minutes: 4015.4
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
-status: raw
-turn_count: 14
+status: seed
+review_state: raw
+created: 2026-10-25
+updated: 2026-10-28
+turn_count: 16
 tools_used:
   AskUserQuestion: 5
-  Bash: 58
+  Bash: 62
   Edit: 7
+  Grep: 1
   mcp__plugin_context7_context7__query-docs: 2
   mcp__plugin_context7_context7__resolve-library-id: 1
-  Read: 1
+  Read: 2
   ToolSearch: 1
   WebSearch: 8
   Write: 22
 tokens:
-  input: 152
-  output: 170612
-  cache_creation: 522641
-  cache_read: 15967180
-  total: 16660585
-cost_usd: null
+  input: 158
+  output: 172326
+  cache_creation: 583991
+  cache_read: 16169916
+  total: 16926391
+cost_usd: 6.826637
 model:
   - "claude-opus-5-5"
   - "claude-sonnet-5-5"
 files_touched:
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Daily\\2026-10-27.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Plugin Build Prompts.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Architecture.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Build Hub.md"
@@ -218,7 +223,10 @@ I wrote nothing during this review. If you want this report as a shareable page 
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && find "40_Resources/Obsidian/Dashboards" "00_Live/Tracking/Plans" -type f | head -200; echo ---; ls -la; echo ---; ls .claude .claude/* 2>/dev/null`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && find "40_Resources/Obsidian/Dashboards" "00_Live/Tracking/Plans" -type f | head -200; echo ---; ls -la; echo ---; ls .claude .claude/* 2>/dev/null
+```
 ```
 40_Resources/Obsidian/Dashboards/Audit - Dashboard Stack and Phone Checklist.md
 40_Resources/Obsidian/Dashboards/Build Plan.md
@@ -313,7 +321,10 @@ trace-topic.md
 weekly-review
 weekly-review.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && wc -c *.md "Dashboard Build"/*.md && cat "Dashboards Hub.md" "Dashboard Build/Dashboard Build Hub.md" "Build Plan.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && wc -c *.md "Dashboard Build"/*.md && cat "Dashboards Hub.md" "Dashboard Build/Dashboard Build Hub.md" "Build Plan.md"
+```
 ```
   9082 Audit - Dashboard Stack and Phone Checklist.md
   3165 Build Plan.md
@@ -549,7 +560,10 @@ Finish B1 to B3 so the daily note, the streak and the Home page exist. Everythin
 5. **Sync collisions.** Obsidian Sync, git auto-sync and any Syncthing must not write the same files.
 6. **Secrets.** `40_Resources/CS/Links.md` still lists a Keys section. Rotate and strip it separately; no prompt here reads it.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat "Decisions Log.md" "Dashboard Build/Build Log.md" "Dashboard Build/Build Steps.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat "Decisions Log.md" "Dashboard Build/Build Log.md" "Dashboard Build/Build Steps.md"
+```
 ```
 ---
 type: evergreen
@@ -733,7 +747,10 @@ S0 one short session. S1 and S2 one session. S3 one session. S4 to S6 one to two
 
 Each stage stops at its gate. Extras are noted, not built. No automation work (A1) starts inside these stages.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git log --oneline | head -40; git status --short | head -40; echo ---; ls -la; echo; find src tests -type f | grep -v node_modules | sort; cat package.json manifest.json 2>/dev/null`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git log --oneline | head -40; git status --short | head -40; echo ---; ls -la; echo; find src tests -type f | grep -v node_modules | sort; cat package.json manifest.json 2>/dev/null
+```
 ```
 a65a4ba Secrets guard: a bare word is not a file name
 23e6452 Add engine review modules, plan-cli, hooks and tests
@@ -851,7 +868,10 @@ tests/validate.test.ts
 }
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git diff --stat; git diff; git log -3 --format='%h %ad %s' --date=iso; git remote -v; echo ---; ls -la "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"; md5sum main.js "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard/main.js" dist/plan-cli.cjs "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/plan-cli/plan-cli.cjs"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git diff --stat; git diff; git log -3 --format='%h %ad %s' --date=iso; git remote -v; echo ---; ls -la "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard"; md5sum main.js "D:/_Anant/20_Progress/Documents/The Plan/.obsidian/plugins/the-plan-dashboard/main.js" dist/plan-cli.cjs "D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/plan-cli/plan-cli.cjs"
+```
 ```
  src/core/config.ts   | 2 +-
  src/core/streak.ts   | 2 +-
@@ -911,7 +931,10 @@ drwxr-xr-x 1 anant 197609      0 Oct 15 19:51 ..
 [REDACTED] *D:/_Anant/20_Progress/Documents/The Plan/30_Order/System/plan-cli/plan-cli.cjs
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls -la --time-style=full-iso dist; grep -n "Math.max(best" dist/*.cjs main.js | head; grep -c "The beginning" dist/plan-cli.cjs main.js; wc -l src/**/*.ts src/**/*.tsx src/*.ts; cat src/main.ts src/settings.ts`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && ls -la --time-style=full-iso dist; grep -n "Math.max(best" dist/*.cjs main.js | head; grep -c "The beginning" dist/plan-cli.cjs main.js; wc -l src/**/*.ts src/**/*.tsx src/*.ts; cat src/main.ts src/settings.ts
+```
 ```
 total 40
 drwxr-xr-x 1 anant 197609     0 2026-10-13 16:00:38.125583700 -0500 .
@@ -1045,7 +1068,10 @@ export class PlanSettingTab extends PluginSettingTab {
 }
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && cat view/DashboardView.tsx ui/App.tsx ui/hooks.ts ui/sections.tsx`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && cat view/DashboardView.tsx ui/App.tsx ui/hooks.ts ui/sections.tsx
+```
 ```
 import { ItemView, normalizePath, type WorkspaceLeaf } from "obsidian";
 import { StrictMode, useCallback, useEffect, useMemo, useState } from "react";
@@ -1596,7 +1622,10 @@ export function Links({ links, p, area, onOpen }: { links: LinkItem[]; p: Palett
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Plugin Build Prompts.md`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat "Dashboard Build/Verification and Risks.md" "Dashboard Build/Review - Corrections to Earlier Notes.md" "Audit - Dashboard Stack and Phone Checklist.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat "Dashboard Build/Verification and Risks.md" "Dashboard Build/Review - Corrections to Earlier Notes.md" "Audit - Dashboard Stack and Phone Checklist.md"
+```
 ```
 ---
 type: project
@@ -1805,7 +1834,10 @@ Not covered, by choice: QuickAdd choices, Templater note creation, and a locked-
 - Check Obsidian Git's auto routines are off.
 - Apply the five recommendations in one approved settings step.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat "Spec - AI Loop.md" "Spec - Home and Monthly Dashboards.md" "Spec - Automation Layers.md" | sed -n '1,400p'`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat "Spec - AI Loop.md" "Spec - Home and Monthly Dashboards.md" "Spec - Automation Layers.md" | sed -n '1,400p'
+```
 ```
 ---
 type: project
@@ -2093,7 +2125,10 @@ Plans and tasks from every source land in one place: The Plan. Today they are sc
 - A scheduled job that edits notes needs a log entry and a dry-run mode.
 - Calendar alarms for the habit times were suggested and not decided. Do not create calendar events without approval.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la --time-style=long-iso .claude/agents .claude/skills .claude/skills/*/ ; echo; cat .claude/settings.json; echo; ls -la .claude/settings.local.json 2>&1; cat .gitignore`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la --time-style=long-iso .claude/agents .claude/skills .claude/skills/*/ ; echo; cat .claude/settings.json; echo; ls -la .claude/settings.local.json 2>&1; cat .gitignore
+```
 ```
 .claude/agents:
 total 16
@@ -2293,7 +2328,10 @@ credentials.json
 __pycache__/
 *.pyc
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --format='%h %ad %s' --date=iso -- .claude .gitignore | head -20; echo ---; git log --format='%h %ad %s' --date=iso --since=2026-10-13 --until=2026-10-17 | head -40; echo ---; git ls-files .claude | head -50; echo ---; ls -la --time-style=long-iso 30_Order/System 30_Order/System/plan-cli 30_Order/System/streak 2>&1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --format='%h %ad %s' --date=iso -- .claude .gitignore | head -20; echo ---; git log --format='%h %ad %s' --date=iso --since=2026-10-13 --until=2026-10-17 | head -40; echo ---; git ls-files .claude | head -50; echo ---; ls -la --time-style=long-iso 30_Order/System 30_Order/System/plan-cli 30_Order/System/streak 2>&1
+```
 ```
 b26def3 2026-10-16 21:02:24 -0500 auto: 2026-10-16 21:02 | 97 files
 0b995c5 2026-10-16 21:01:48 -0500 auto: 2026-10-16 21:01 | 133 files
@@ -2382,7 +2420,10 @@ drwxr-xr-x 1 anant 197609    0 2026-10-13 00:28 fixtures
 -rwxr-xr-x 1 anant 197609 3698 2026-10-14 10:51 streak.py
 -rw-r--r-- 1 anant 197609 9579 2026-10-14 10:51 test_streak.py
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && for c in 0b995c5 b26def3; do echo "== $c"; git show --stat --format='%an %ae %ad' $c | grep -E '^\S|\.claude|gitignore|AGENTS|CLAUDE|30_Order/System|Agentic|Standards' | head -60; done; echo; git show e10bc90 --stat | head; git show 7c82dc8:.claude/settings.json | head -50`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && for c in 0b995c5 b26def3; do echo "== $c"; git show --stat --format='%an %ae %ad' $c | grep -E '^\S|\.claude|gitignore|AGENTS|CLAUDE|30_Order/System|Agentic|Standards' | head -60; done; echo; git show e10bc90 --stat | head; git show 7c82dc8:.claude/settings.json | head -50
+```
 ```
 == 0b995c5
 Anant Gupta gupt0479@umn.edu Fri Oct 16 21:01:48 2026 -0500
@@ -2533,7 +2574,10 @@ Date:   Wed Oct 14 15:23:02 2026 -0500
   }
 }
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la --time-style=long-iso 30_Order/System/git-sync; grep -n "auto:\|auto-sync:\|GitOwned\|commit -m\|add -A" 30_Order/System/git-sync/*.ps1 | head -30; echo ---; ls "30_Order/Standards/Agentic OS" "30_Order/Standards/Dashboards" "30_Order/Standards/References" "30_Order/Workflows/Agentic OS" "30_Order/Workflows" 2>&1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la --time-style=long-iso 30_Order/System/git-sync; grep -n "auto:\|auto-sync:\|GitOwned\|commit -m\|add -A" 30_Order/System/git-sync/*.ps1 | head -30; echo ---; ls "30_Order/Standards/Agentic OS" "30_Order/Standards/Dashboards" "30_Order/Standards/References" "30_Order/Workflows/Agentic OS" "30_Order/Workflows" 2>&1
+```
 ```
 total 16
 drwxr-xr-x 1 anant 197609     0 2026-09-26 16:21 .
@@ -2596,7 +2640,10 @@ How to Use Agents.md
 How to Use Plugins.md
 How to Use Skills.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=200 --format= 0b995c5 | grep -E '^ \.' | grep -v '^ \.claude' ; echo ---; ls 00_Live/Enumerate/Daily | tail -8; ls 00_Live/Enumerate/Monthly 00_Live/Enumerate 2>&1 | tail -15`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=200 --format= 0b995c5 | grep -E '^ \.' | grep -v '^ \.claude' ; echo ---; ls 00_Live/Enumerate/Daily | tail -8; ls 00_Live/Enumerate/Monthly 00_Live/Enumerate 2>&1 | tail -15
+```
 ```
  .codex/README.md                                                                                       |   45 ----
  .codex/config.toml                                                                                     |   29 +--
@@ -2633,7 +2680,10 @@ Yearly
 2026-06.md
 2026-10.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la --time-style=full-iso "00_Live/Enumerate/Daily/25-10-2026.md"; cat "00_Live/Enumerate/Daily/25-10-2026.md"; echo ===; git show --stat --format='%h %ae %ad' 0dbb873 96f2547 b8a1c14 7749fff ad9056a | grep -v '^$'`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la --time-style=full-iso "00_Live/Enumerate/Daily/25-10-2026.md"; cat "00_Live/Enumerate/Daily/25-10-2026.md"; echo ===; git show --stat --format='%h %ae %ad' 0dbb873 96f2547 b8a1c14 7749fff ad9056a | grep -v '^$'
+```
 ```
 -rw-r--r-- 1 anant 197609 0 2026-10-25 17:42:58.998000000 -0500 00_Live/Enumerate/Daily/25-10-2026.md
 ===
@@ -2655,7 +2705,10 @@ ad9056a anantmahi721@gmail.com Mon Oct 19 16:53:03 2026 -0500
  00_Live/Enumerate/Daily/19-10-2026.md | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --format='%h %ad' --date=iso --name-status -- "00_Live/Enumerate/Daily/19-10-2026.md" | head; find . -name "19-10-2026*" -not -path "./.git/*"; find 00_Live -newer 30_Order/System/plan-cli/plan-cli.cjs -name "*.md" | head -30; echo ---; grep -o '"format":"[^"]*"\|"folder":"[^"]*"\|"template":"[^"]*"\|"enabled":[a-z]*' .obsidian/plugins/periodic-notes/data.json 2>&1 | head -20; grep -o '"format": *"[^"]*"\|"folder": *"[^"]*"' .obsidian/daily-notes.json 2>&1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --format='%h %ad' --date=iso --name-status -- "00_Live/Enumerate/Daily/19-10-2026.md" | head; find . -name "19-10-2026*" -not -path "./.git/*"; find 00_Live -newer 30_Order/System/plan-cli/plan-cli.cjs -name "*.md" | head -30; echo ---; grep -o '"format":"[^"]*"\|"folder":"[^"]*"\|"template":"[^"]*"\|"enabled":[a-z]*' .obsidian/plugins/periodic-notes/data.json 2>&1 | head -20; grep -o '"format": *"[^"]*"\|"folder": *"[^"]*"' .obsidian/daily-notes.json 2>&1
+```
 ```
 Exit code 2
 0dbb873 2026-10-25 17:53:05 -0500
@@ -2685,7 +2738,10 @@ M	00_Live/Enumerate/Daily/19-10-2026.md
 "enabled":
 grep: .obsidian/daily-notes.json: No such file or directory
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat "00_Live/Enumerate/Daily/19-10-2026.md"; echo ===; cat .obsidian/plugins/periodic-notes/data.json; echo; ls 30_Order/Templates "30_Order/Templates/Daily Dashboard" 2>&1`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && cat "00_Live/Enumerate/Daily/19-10-2026.md"; echo ===; cat .obsidian/plugins/periodic-notes/data.json; echo; ls 30_Order/Templates "30_Order/Templates/Daily Dashboard" 2>&1
+```
 ```
 ---
 type: daily
@@ -2782,11 +2838,17 @@ Better Week.md
 Better Year.md
 Daily Note.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-25 | head -c 1500`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && node 30_Order/System/plan-cli/plan-cli.cjs streak 00_Live/Enumerate/Daily 2026-10-25 | head -c 1500
+```
 ```
 {"current_streak":0,"best_streak":0,"today_categories_done":0,"today_status":"NOT_YET","at_risk":false,"first_day":null,"days":[{"date":"2026-09-26","has_note":true,"categories":0,"forgiven":false},{"date":"2026-09-27","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-28","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-29","has_note":false,"categories":0,"forgiven":false},{"date":"2026-09-30","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-01","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-02","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-03","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-04","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-05","has_note":true,"categories":0,"forgiven":false},{"date":"2026-10-06","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-07","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-08","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-09","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-10","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-11","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-12","has_note":true,"categories":0,"forgiven":false},{"date":"2026-10-13","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-14","has_note":false,"categories":0,"forgiven":false},{"date":"2026-10-15","has_
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Tracking/Plans" && wc -c *; cat "Summer Grind.md"; echo ======; cat "Winter Break.md" | head -150`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Tracking/Plans" && wc -c *; cat "Summer Grind.md"; echo ======; cat "Winter Break.md" | head -150
+```
 ```
 19549 Summer Grind.md
 11449 Winter Break.md
@@ -3202,7 +3264,10 @@ tags:
 ## Week 5 (Jan 19–25): Polish + Resume bullets + Optional AI Twin upgrade
 **Goal:** package it professionally.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && find . -name "*.md" -newer "40_Resources/Obsidian/Dashboards/Audit - Dashboard Stack and Phone Checklist.md" -not -path "./.git/*" -not -path "./node_modules/*" | head -60; echo ---; grep -rli "claude assist\|ask claude\|claude panel\|daily plan\|daily-plan" --include=*.md . 2>/dev/null | grep -v "^./.git" | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && find . -name "*.md" -newer "40_Resources/Obsidian/Dashboards/Audit - Dashboard Stack and Phone Checklist.md" -not -path "./.git/*" -not -path "./node_modules/*" | head -60; echo ---; grep -rli "claude assist\|ask claude\|claude panel\|daily plan\|daily-plan" --include=*.md . 2>/dev/null | grep -v "^./.git" | head -30
+```
 ```
 ./.claude/agents/career-operator.md
 ./.claude/agents/research-distiller.md
@@ -3274,7 +3339,10 @@ tags:
 ./50_Archive/copilot/copilot-conversations/AI_Second_Brain_Vault_Structure@20260423_203909.md
 ./50_Archive/copilot/copilot-conversations/Mentorship_Program_Goal_Planning@20260330_114034.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis/50_Reviews/Dashboard" && ls -la --time-style=long-iso; wc -c *; cat "Daily Review System.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/60_Jarvis/50_Reviews/Dashboard" && ls -la --time-style=long-iso; wc -c *; cat "Daily Review System.md"
+```
 ```
 total 8
 drwxr-xr-x 1 anant 197609 0 2026-10-25 20:08 .
@@ -3293,8 +3361,11 @@ wc: Weekly: Is a directory
       0 Weekly Review Board.md
       0 total
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^#" "40_Resources/Obsidian/Dashboards/Prompts.md"; git log -3 --format='%h %ad' --date=iso -- "40_Resources/Obsidian/Dashboards/Prompts.md"; echo ---; cat "00_Live/Enumerate/Weekly/2026-W44.md"; echo ---; cat "30_Order/Workflows/Agentic OS/Agentic OS.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^#" "40_Resources/Obsidian/Dashboards/Prompts.md"; git log -3 --format='%h %ad' --date=iso -- "40_Resources/Obsidian/Dashboards/Prompts.md"; echo ---; cat "00_Live/Enumerate/Weekly/2026-W44.md"; echo ---; cat "30_Order/Workflows/Agentic OS/Agentic OS.md"
 ```
+````
 23:# Prompts
 34:## How to run
 42:## How these follow the Sonnet 5.5 guide
@@ -3443,8 +3514,11 @@ Use the checklist in [[Agentic OS Standard]]. Run it after any change, and with 
 ## Not built
 
 Scheduled or unattended runs, the rearranging of a frozen month, the next-month skeleton, task intake from other apps, and any Monthly or review view in the dashboard. See [[Spec - Automation Layers]].
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git diff --stat 176de70 HEAD -- "40_Resources/Obsidian/Dashboards" "30_Order" AGENTS.md CLAUDE.md "60_Jarvis" | tail -30; echo; git show 176de70:"40_Resources/Obsidian/Dashboards/Prompts.md" | grep -n "^#"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git diff --stat 176de70 HEAD -- "40_Resources/Obsidian/Dashboards" "30_Order" AGENTS.md CLAUDE.md "60_Jarvis" | tail -30; echo; git show 176de70:"40_Resources/Obsidian/Dashboards/Prompts.md" | grep -n "^#"`
 ```
  30_Order/System/plan-cli/plan-cli.cjs              | 1058 --------------------
  .../Dashboards/Research - Platform Facts.md        |  239 -----
@@ -3459,8 +3533,11 @@ Scheduled or unattended runs, the rearranging of a frozen month, the next-month 
 112:## Session 2: Automation
 146:## Notes on the design of these two prompts
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git diff --stat=200 176de70 HEAD | grep "Platform Facts"; find . -name "Research - Platform Facts*" -not -path "./.git/*"; sed -n 1,160p "40_Resources/Obsidian/Dashboards/Prompts.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git diff --stat=200 176de70 HEAD | grep "Platform Facts"; find . -name "Research - Platform Facts*" -not -path "./.git/*"; sed -n 1,160p "40_Resources/Obsidian/Dashboards/Prompts.md"
 ```
+````
  40_Resources/{Obsidian/Dashboards => }/Research - Platform Facts.md                               |    0
 ./40_Resources/Research - Platform Facts.md
 ---
@@ -3615,8 +3692,11 @@ Check before you report: scan every note you wrote for em dashes; confirm every 
 - Writes are allowed only into two new folders, created after the note list is approved. This fits the AGENTS.md rule against speculative folders: the folders are named in the prompt, and the session still asks.
 - Changes to Decisions Log, Dashboards Hub, Spec - Automation Layers and Agentic OS are proposed and never applied inside these sessions.
 - The reminder transport, the scheduling route and the Jarvis boundary are the three decisions most likely to change the design. Each has its own phase.
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents" && ls "The Plan/40_Resources/Obsidian/Dashboards/"; echo ---; ls Jarvis; ls Jarvis/.claude/skills Jarvis/.claude/agents 2>&1; find Jarvis -maxdepth 3 -iname "*daily*" -not -path "*/.git/*" -not -path "*/50_Archive/*" -not -path "*/.stversions/*" | head -30
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && ls "The Plan/40_Resources/Obsidian/Dashboards/"; echo ---; ls Jarvis; ls Jarvis/.claude/skills Jarvis/.claude/agents 2>&1; find Jarvis -maxdepth 3 -iname "*daily*" -not -path "*/.git/*" -not -path "*/50_Archive/*" -not -path "*/.stversions/*" | head -30`
 ```
 Audit - Dashboard Stack and Phone Checklist.md
 Build Plan.md
@@ -3694,7 +3774,10 @@ Jarvis/.claude/agents/daily-operator.md
 Jarvis/.codex/agents/daily-operator.toml
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && ls -laR --time-style=long-iso "The Plan/40_Resources/Obsidian/Dashboards/Daily"; echo ---; ls -la --time-style=long-iso Jarvis/.claude/skills/startday Jarvis/.claude/skills/closeday Jarvis/.claude/skills/plan-it; cat Jarvis/.claude/skills/startday/SKILL.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents" && ls -laR --time-style=long-iso "The Plan/40_Resources/Obsidian/Dashboards/Daily"; echo ---; ls -la --time-style=long-iso Jarvis/.claude/skills/startday Jarvis/.claude/skills/closeday Jarvis/.claude/skills/plan-it; cat Jarvis/.claude/skills/startday/SKILL.md
+```
 ```
 The Plan/40_Resources/Obsidian/Dashboards/Daily:
 total 4
@@ -3791,7 +3874,10 @@ Output the compact summary block from [reference.md §2](reference.md), includin
 - In Step 3b touch only the three named frontmatter fields.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 10_Areas/Life/Enumerate/Daily | tail -12; echo ---; f=$(ls 10_Areas/Life/Enumerate/Daily | grep 2026-10 | tail -1); echo "$f"; head -60 "10_Areas/Life/Enumerate/Daily/$f"; echo ---; sed -n 1,40p .claude/skills/closeday/SKILL.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 10_Areas/Life/Enumerate/Daily | tail -12; echo ---; f=$(ls 10_Areas/Life/Enumerate/Daily | grep 2026-10 | tail -1); echo "$f"; head -60 "10_Areas/Life/Enumerate/Daily/$f"; echo ---; sed -n 1,40p .claude/skills/closeday/SKILL.md
+```
 ```
 2026-08-10.md
 2026-09-07.md
@@ -3901,7 +3987,10 @@ Read, in this order:
 > 5. Did a company actually move `Current/` → `Applied/` today?
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && head -12 "30_Order/Templates/Daily Dashboard/Daily Note.md"; grep -n "tp\.\|{{" "30_Order/Templates/Daily Dashboard/Daily Note.md" | head; echo ---; sed -n '/^# /,$p' "30_Order/Workflows/Daily Dashboard.md" | head -80; echo ---; grep -o '"[a-zA-Z_]*[Ff]older[a-zA-Z_]*": *"[^"]*"\|"enable_folder_templates": *[a-z]*\|"trigger_on_file_creation": *[a-z]*' .obsidian/plugins/templater-obsidian/data.json`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && head -12 "30_Order/Templates/Daily Dashboard/Daily Note.md"; grep -n "tp\.\|{{" "30_Order/Templates/Daily Dashboard/Daily Note.md" | head; echo ---; sed -n '/^# /,$p' "30_Order/Workflows/Daily Dashboard.md" | head -80; echo ---; grep -o '"[a-zA-Z_]*[Ff]older[a-zA-Z_]*": *"[^"]*"\|"enable_folder_templates": *[a-z]*\|"trigger_on_file_creation": *[a-z]*' .obsidian/plugins/templater-obsidian/data.json
+```
 ```
 ---
 type: daily
@@ -4004,7 +4093,10 @@ Use `/closeday dry-run` to see the planned writes without writing.
 "folder": "20_Progress"
 "folder": "40_Resources"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && grep -n "export\|cause\|month\|grade\|milestoneTitles" core/model.ts | head -30; grep -rn "#[0-9a-fA-F]\{6\}" ui/styles.ts | head -8; grep -n "links" core/config.ts; echo ---; cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n '/^# /,$p' "30_Order/Standards/References/Reference - the-plan-dashboard.md" | head -60`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && grep -n "export\|cause\|month\|grade\|milestoneTitles" core/model.ts | head -30; grep -rn "#[0-9a-fA-F]\{6\}" ui/styles.ts | head -8; grep -n "links" core/config.ts; echo ---; cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n '/^# /,$p' "30_Order/Standards/References/Reference - the-plan-dashboard.md" | head -60
+```
 ```
 8:export interface Row {
 15:export interface CategoryView {
@@ -4131,8 +4223,11 @@ Reply "yes" to the note list, or tell me what to change.
 
 ### Tool Calls
 
-- `Bash` -- `pwd; cd "D:/_Anant/20_Progress/Documents/Jarvis" 2>/dev/null && pwd && git log --oneline | head -5; cat 00_Dashboard.md | head -120; echo ---; ls 40_Resources/Obsidian 2>&1; ls 40_Resources | head -30; ls .obsidian/plugins; cat .obsidian/community-plugins.json`
+- `Bash`
+```bash
+pwd; cd "D:/_Anant/20_Progress/Documents/Jarvis" 2>/dev/null && pwd && git log --oneline | head -5; cat 00_Dashboard.md | head -120; echo ---; ls 40_Resources/Obsidian 2>&1; ls 40_Resources | head -30; ls .obsidian/plugins; cat .obsidian/community-plugins.json
 ```
+````
 /d/_Anant/20_Progress/Documents/The Plan
 /d/_Anant/20_Progress/Documents/Jarvis
 4a6df081 Auto-sync: 2026-10-26 13:48,  11 files changed, 8099 insertions(+), 88 deletions(-)
@@ -4317,8 +4412,11 @@ url-into-selection
   "homepage"
 ]
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*.canvas" -not -path "./50_Archive/*" -not -path "./.git/*" | head; echo ---; ls 10_Areas 10_Areas/Life 10_Areas/Life/Plans 10_Areas/Life/Habits 10_Areas/Life/Enumerate 10_Areas/Career 20_Progress 2>&1 | head -80; echo ---; head -60 AGENTS.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*.canvas" -not -path "./50_Archive/*" -not -path "./.git/*" | head; echo ---; ls 10_Areas 10_Areas/Life 10_Areas/Life/Plans 10_Areas/Life/Habits 10_Areas/Life/Enumerate 10_Areas/Career 20_Progress 2>&1 | head -80; echo ---; head -60 AGENTS.md`
 ```
 ./10_Areas/Jarvis OS Dashboard.canvas
 ./20_Progress/AI/Claude OS Dashboard.canvas
@@ -4443,8 +4541,11 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 | If the note is | Write it to | Read first (30_Order) |
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -la --time-style=long-iso "40_Resources/Obsidian/Dashboard" "40_Resources/Obsidian/Dashboard"/* | head -60; echo ---; sed -n 120,260p 00_Dashboard.md; echo ---; ls "10_Areas/Life/Plans/Fall 2026" "10_Areas/Life/Plans/Summer 2026" 20_Progress/Mentorship\ Program 20_Progress/Internship 20_Progress/Degree 20_Progress/Projects 2>&1 | head -70`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -la --time-style=long-iso "40_Resources/Obsidian/Dashboard" "40_Resources/Obsidian/Dashboard"/* | head -60; echo ---; sed -n 120,260p 00_Dashboard.md; echo ---; ls "10_Areas/Life/Plans/Fall 2026" "10_Areas/Life/Plans/Summer 2026" 20_Progress/Mentorship\ Program 20_Progress/Internship 20_Progress/Degree 20_Progress/Projects 2>&1 | head -70
 ```
+````
 -rw-r--r-- 1 anant 197609 4905 2026-10-26 13:20 40_Resources/Obsidian/Dashboard/Jarvis Build Overview.md
 -rw-r--r-- 1 anant 197609    0 2026-10-26 13:51 40_Resources/Obsidian/Dashboard/Prompts.md
 -rw-r--r-- 1 anant 197609 4622 2026-10-26 13:20 40_Resources/Obsidian/Dashboard/The Plan Overview.md
@@ -4620,8 +4721,11 @@ Jarvis & The Plan
 Projects Board.md
 Research
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard" && cat "Jarvis Build Overview.md"; echo =====; sed -n 1,60p "The Plan Overview.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard" && cat "Jarvis Build Overview.md"; echo =====; sed -n 1,60p "The Plan Overview.md"`
 ```
 ---
 type: reference
@@ -4727,7 +4831,10 @@ Built and tested in the repository: the engine, 87 tests, the React view, and th
 | What is broken, and what is next? | [[The Plan Dashboard State and Gaps 2026-10-25]] |
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans/Fall 2026" && sed -n 1,200p "Fall 2026 - The One Thing.md" | head -70; echo ====; grep -n "^#" "Fall 2026 Plan.md" "Weekly Rhythm.md" "Anti-Drift Rules.md" "LeetCode & CodePath.md" "Fall 2026 Builds.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans/Fall 2026" && sed -n 1,200p "Fall 2026 - The One Thing.md" | head -70; echo ====; grep -n "^#" "Fall 2026 Plan.md" "Weekly Rhythm.md" "Anti-Drift Rules.md" "LeetCode & CodePath.md" "Fall 2026 Builds.md"
+```
 ```
 ---
 type: evergreen
@@ -4810,13 +4917,19 @@ Fall 2026 Builds.md:39:## Status
 Fall 2026 Builds.md:51:## Links
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis "The Plan" 2>/dev/null | grep -v "50_Archive\|\.git/" | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"; echo ---; python3 - <<'E' 2>/dev/null || node -e 'const c=JSON.parse(require("fs").readFileSync("Jarvis/10_Areas/Jarvis OS Dashboard.canvas","utf8"));console.log(c.nodes.length+" nodes, "+(c.edges||[]).length+" edges");console.log(c.nodes.map(n=>n.type+":"+(n.text||n.file||n.label||"").slice(0,60).replace(/\n/g," ")).join("\n"))'
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis "The Plan" 2>/dev/null | grep -v "50_Archive\|\.git/" | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"; echo ---; python3 - <<'E' 2>/dev/null || node -e 'const c=JSON.parse(require("fs").readFileSync("Jarvis/10_Areas/Jarvis OS Dashboard.canvas","utf8"));console.log(c.nodes.length+" nodes, "+(c.edges||[]).length+" edges");console.log(c.nodes.map(n=>n.type+":"+(n.text||n.file||n.label||"").slice(0,60).replace(/\n/g," ")).join("\n"))'
 E
-ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'`
+ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'
+```
 ```
 PreToolUse:Bash hook error: 50_Archive is never read or written.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources "The Plan/00_Live" "The Plan/30_Order" "The Plan/40_Resources" 2>/dev/null | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources "The Plan/00_Live" "The Plan/30_Order" "The Plan/40_Resources" 2>/dev/null | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"
+```
 ```
 Jarvis/10_Areas/AI/Claude Code.md
 Jarvis/10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applied AI Engineer Intern - Millennium.md
@@ -4878,9 +4991,12 @@ Per [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s Update Pro
 ## Verified gap this note closes
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `AskUserQuestion` -- `{"questions":[{"header":"Plugin shape","question":"How should the Jarvis dashboard plugin relate to The Plan\u0027s plugin and engine?","multiSelect":false,"options":[{"label":"Separate plugin, own engine (Recommended)","description":"New repo `jarvis-dashboard`. It copies The Plan\u0027s proven structure (core engine, repo, safe tick via Vault.process, CLI, hooks) but has its own day model. No shared code, so a Plan change can never break Jarvis."},{"label":"Shared core package","description":"One engine package imported by both plugins. Less duplication, but a change for one vault can break the other and the build gets harder to reason about."},{"label":"One plugin, two vault profiles","description":"A single plugin with a config per vault. Fewest repos, but the two day models are different enough that it becomes a pile of conditionals."}]},{"header":"Day model","question":"How should a Jarvis day be recorded in the daily note so the plugin can tick it safely?","multiSelect":false,"options":[{"label":"Checkbox lines with a field (Recommended)","description":"Wins, floor and tasks become `- [ ] ... [track:: application]` lines, like The Plan\u0027s `[cat::]`. The plugin flips one character. Meta Bind toggles and frontmatter booleans go away, which also lets Meta Bind be removed."},{"label":"Keep frontmatter booleans","description":"Keep `win_*` and `floor_*` in frontmatter. The plugin writes them with processFrontMatter. Fewer skill changes, but the day stays split between properties and text."},{"label":"Hybrid","description":"Checkbox lines for things you do, frontmatter only for numbers (problems, study hours). Needs a clear rule for which is which."}]},{"header":"Streak","question":"What should the Jarvis streak count? This is the main habit-forming mechanic.","multiSelect":false,"options":[{"label":"The floor (Recommended)","description":"A day counts when the daily floor is held: one company moved Current to Applied, LeetCode reps, one class or study step. It rewards the Fall 2026 \u0027One Thing\u0027 directly. One forgiven miss, as in The Plan."},{"label":"Floor plus wins score","description":"A day counts at N of 7 (3 floor plus 4 wins). Softer, but the headline number blurs the one thing that matters."},{"label":"Application streak only","description":"Streak equals days with at least one application sent. Sharp and motivating, but a class or exam day breaks it."},{"label":"Several separate streaks","description":"One each for applications, LeetCode and study. Rich, but harder to keep to one screen with no scroll."}]},{"header":"Identity","question":"Jarvis AGENTS.md bans personal-life content, but you want identity and habit pull here. How should that work?","multiSelect":false,"options":[{"label":"Builder identity only in Jarvis (Recommended)","description":"Jarvis shows work identity: \u0027I am a builder who ships\u0027, proof of the day, evidence from Truths of Life. Personal identity, health and habits stay in The Plan. Matches the current rule and avoids two copies drifting."},{"label":"Read-only Plan summary","description":"Jarvis also shows The Plan\u0027s streak and ring as one small tile, read-only. A plugin cannot read another vault, so this needs a small synced note that The Plan\u0027s `/closeday` writes."},{"label":"Change the rule","description":"Allow identity and habit content in Jarvis. Needs an AGENTS.md change and creates duplication with The Plan."}]}]}`
-- `AskUserQuestion` -- `{"questions":[{"header":"Always visible","question":"Which groups must always be on the single no-scroll page, including on the phone? Anything not chosen goes to desktop-only or a one-tap detail view. Pick all that apply.","multiSelect":true,"options":[{"label":"Today core","description":"Streak number, floor ring, the 80 (One Thing) and the 20 supporting tasks, tickable."},{"label":"Pipeline numbers","description":"Applications moved Current to Applied today and this week, LeetCode count against 5, study hours."},{"label":"Calendar strip","description":"Now and next from Google Calendar, plus deadlines due within 7 days."},{"label":"Loses and carryover","description":"Open Daily Loses with age, plus carryover from yesterday, tickable."}]},{"header":"Time layer","question":"Toggl is not going into Jarvis. What should the Jarvis time and calendar layer do?","multiSelect":false,"options":[{"label":"Read the calendar, plan blocks (Recommended)","description":"Dashboard shows now and next from Google Calendar. `/startday` proposes time blocks for the 80 and the floor and creates them in Google Calendar only after your yes. Plan owns tracked time."},{"label":"Read-only calendar","description":"Dashboard only shows events. Nothing is ever created in Calendar. Safest, least help."},{"label":"Full scheduling","description":"The dashboard or a scheduled run also moves and reschedules blocks when the day slips. Most help, highest risk of surprise edits."}]},{"header":"First transport","question":"Which outbound path should the automation layer design first for reminders and blocks?","multiSelect":false,"options":[{"label":"Google Calendar through the Claude connector (Recommended)","description":"Already attached to the session, runs from a Claude Code run on the laptop, and syncs to the phone through Calendar. Reminders come from Calendar alarms."},{"label":"Apple Reminders through a Shortcut","description":"Native phone alerts, but there is no Windows API and the transport is unverified."},{"label":"Zapier","description":"Can bridge Calendar, Todoist and Reminders, but adds a service, a cost and a token to expire."},{"label":"Design all three, build one","description":"Compare them in the design notes, then build the winner first."}]},{"header":"Plugin removal","question":"When the Jarvis plugin ships, which existing plugins should be removed? Dataview is still used by other notes.","multiSelect":false,"options":[{"label":"Remove only after a clean fortnight (Recommended)","description":"Disable Meta Bind and Multi-Column Markdown for the dashboard only after the plugin has run clean for two weeks. Keep Dataview, Kanban and Homepage for other notes. Retire the markdown page and canvas last."},{"label":"Remove at ship","description":"Disable Meta Bind and Multi-Column the day the plugin ships. Faster, but there is no fallback if it breaks."},{"label":"Keep everything","description":"Add the plugin and leave the rest in place. No removal."}]}]}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in .obsidian/plugins/*/; do n=$(basename $d); v=$(node -e 'try{console.log(require("./'$d'manifest.json").version)}catch(e){console.log("?")}'); echo "$n $v"; done; echo ---; node -e 'const d=require("./.obsidian/plugins/lazy-plugins/data.json");console.log(JSON.stringify(d.desktop||d,null,0).slice(0,1500))'; echo ---; cat .obsidian/core-plugins.json | tr -d '\n ' | head -c 700; echo; ls .obsidian/snippets; cat .obsidian/appearance.json | tr -d '\n '`
+- `AskUserQuestion` -- ``{"questions":[{"header":"Plugin shape","question":"How should the Jarvis dashboard plugin relate to The Plan\u0027s plugin and engine?","multiSelect":false,"options":[{"label":"Separate plugin, own engine (Recommended)","description":"New repo `jarvis-dashboard`. It copies The Plan\u0027s proven structure (core engine, repo, safe tick via Vault.process, CLI, hooks) but has its own day model. No shared code, so a Plan change can never break Jarvis."},{"label":"Shared core package","description":"One engine package imported by both plugins. Less duplication, but a change for one vault can break the other and the build gets harder to reason about."},{"label":"One plugin, two vault profiles","description":"A single plugin with a config per vault. Fewest repos, but the two day models are different enough that it becomes a pile of conditionals."}]},{"header":"Day model","question":"How should a Jarvis day be recorded in the daily note so the plugin can tick it safely?","multiSelect":false,"options":[{"label":"Checkbox lines with a field (Recommended)","description":"Wins, floor and tasks become `- [ ] ... [track:: application]` lines, like The Plan\u0027s `[cat::]`. The plugin flips one character. Meta Bind toggles and frontmatter booleans go away, which also lets Meta Bind be removed."},{"label":"Keep frontmatter booleans","description":"Keep `win_*` and `floor_*` in frontmatter. The plugin writes them with processFrontMatter. Fewer skill changes, but the day stays split between properties and text."},{"label":"Hybrid","description":"Checkbox lines for things you do, frontmatter only for numbers (problems, study hours). Needs a clear rule for which is which."}]},{"header":"Streak","question":"What should the Jarvis streak count? This is the main habit-forming mechanic.","multiSelect":false,"options":[{"label":"The floor (Recommended)","description":"A day counts when the daily floor is held: one company moved Current to Applied, LeetCode reps, one class or study step. It rewards the Fall 2026 \u0027One Thing\u0027 directly. One forgiven miss, as in The Plan."},{"label":"Floor plus wins score","description":"A day counts at N of 7 (3 floor plus 4 wins). Softer, but the headline number blurs the one thing that matters."},{"label":"Application streak only","description":"Streak equals days with at least one application sent. Sharp and motivating, but a class or exam day breaks it."},{"label":"Several separate streaks","description":"One each for applications, LeetCode and study. Rich, but harder to keep to one screen with no scroll."}]},{"header":"Identity","question":"Jarvis AGENTS.md bans personal-life content, but you want identity and habit pull here. How should that work?","multiSelect":false,"options":[{"label":"Builder identity only in Jarvis (Recommended)","description":"Jarvis shows work identity: \u0027I am a builder who ships\u0027, proof of the day, evidence from Truths of Life. Personal identity, health and habits stay in The Plan. Matches the current rule and avoids two copies drifting."},{"label":"Read-only Plan summary","description":"Jarvis also shows The Plan\u0027s streak and ring as one small tile, read-only. A plugin cannot read another vault, so this needs a small synced note that The Plan\u0027s `/closeday` writes."},{"label":"Change the rule","description":"Allow identity and habit content in Jarvis. Needs an AGENTS.md change and creates duplication with The Plan."}]}]}``
+- `AskUserQuestion` -- ``{"questions":[{"header":"Always visible","question":"Which groups must always be on the single no-scroll page, including on the phone? Anything not chosen goes to desktop-only or a one-tap detail view. Pick all that apply.","multiSelect":true,"options":[{"label":"Today core","description":"Streak number, floor ring, the 80 (One Thing) and the 20 supporting tasks, tickable."},{"label":"Pipeline numbers","description":"Applications moved Current to Applied today and this week, LeetCode count against 5, study hours."},{"label":"Calendar strip","description":"Now and next from Google Calendar, plus deadlines due within 7 days."},{"label":"Loses and carryover","description":"Open Daily Loses with age, plus carryover from yesterday, tickable."}]},{"header":"Time layer","question":"Toggl is not going into Jarvis. What should the Jarvis time and calendar layer do?","multiSelect":false,"options":[{"label":"Read the calendar, plan blocks (Recommended)","description":"Dashboard shows now and next from Google Calendar. `/startday` proposes time blocks for the 80 and the floor and creates them in Google Calendar only after your yes. Plan owns tracked time."},{"label":"Read-only calendar","description":"Dashboard only shows events. Nothing is ever created in Calendar. Safest, least help."},{"label":"Full scheduling","description":"The dashboard or a scheduled run also moves and reschedules blocks when the day slips. Most help, highest risk of surprise edits."}]},{"header":"First transport","question":"Which outbound path should the automation layer design first for reminders and blocks?","multiSelect":false,"options":[{"label":"Google Calendar through the Claude connector (Recommended)","description":"Already attached to the session, runs from a Claude Code run on the laptop, and syncs to the phone through Calendar. Reminders come from Calendar alarms."},{"label":"Apple Reminders through a Shortcut","description":"Native phone alerts, but there is no Windows API and the transport is unverified."},{"label":"Zapier","description":"Can bridge Calendar, Todoist and Reminders, but adds a service, a cost and a token to expire."},{"label":"Design all three, build one","description":"Compare them in the design notes, then build the winner first."}]},{"header":"Plugin removal","question":"When the Jarvis plugin ships, which existing plugins should be removed? Dataview is still used by other notes.","multiSelect":false,"options":[{"label":"Remove only after a clean fortnight (Recommended)","description":"Disable Meta Bind and Multi-Column Markdown for the dashboard only after the plugin has run clean for two weeks. Keep Dataview, Kanban and Homepage for other notes. Retire the markdown page and canvas last."},{"label":"Remove at ship","description":"Disable Meta Bind and Multi-Column the day the plugin ships. Faster, but there is no fallback if it breaks."},{"label":"Keep everything","description":"Add the plugin and leave the rest in place. No removal."}]}]}``
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in .obsidian/plugins/*/; do n=$(basename $d); v=$(node -e 'try{console.log(require("./'$d'manifest.json").version)}catch(e){console.log("?")}'); echo "$n $v"; done; echo ---; node -e 'const d=require("./.obsidian/plugins/lazy-plugins/data.json");console.log(JSON.stringify(d.desktop||d,null,0).slice(0,1500))'; echo ---; cat .obsidian/core-plugins.json | tr -d '\n ' | head -c 700; echo; ls .obsidian/snippets; cat .obsidian/appearance.json | tr -d '\n '
+```
 ```
 calendar 1.5.10
 cmdr 0.7.0
@@ -4920,7 +5036,10 @@ readingview.css
 {"enabledCssSnippets":["dashboard","myedits","rainbowfile_colors","readingview","headerspace"],"cssTheme":"AnuPpuccin","baseFontSizeAction":false}
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15`
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15
+````
 ```
 meta-bind INPUT/BUTTON notes:
 87
@@ -4960,8 +5079,11 @@ css classes:
 10_Areas/Life/Enumerate/Daily/2026-09-28.md
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `AskUserQuestion` -- `{"questions":[{"header":"Note creation","question":"Who should create today\u0027s daily note? The Plan\u0027s dashboard showed zeros for ten days because the creating plugin used the wrong file name.","multiSelect":false,"options":[{"label":"The plugin, from the template (Recommended)","description":"A \u0027Create today\u0027s note\u0027 action in the dashboard builds `YYYY-MM-DD.md` from the template and refuses any other name. The dashboard also warns loudly when a note in the Daily folder is misnamed. `/startday` calls the same rule."},{"label":"`/startday` only","description":"The skill creates it when you start the day. Simple, but nothing creates it on a day you forget to run the skill."},{"label":"Keep Periodic Notes and Templater","description":"Leave creation to the existing plugins and only fix their settings. Smallest change, same failure risk as The Plan."}]},{"header":"The 80","question":"Where should today\u0027s 80 (the One Thing) come from each day?","multiSelect":false,"options":[{"label":"From the Fall plan, you approve (Recommended)","description":"`/startday` reads the week\u0027s One Hard Thing and the application-floor rule from the Fall 2026 Plan and proposes today\u0027s 80. You say yes or edit it, then it writes one line."},{"label":"You type it every morning","description":"Free text on the dashboard. Total control, but it breaks on tired mornings."},{"label":"Always the application floor","description":"The 80 is always \u0027move one company Current to Applied\u0027, and the One Hard Thing becomes a 20. Matches the One Thing note exactly."}]},{"header":"Daily delight","question":"Which elements should make the page feel rewarding every day? Pick all you want.","multiSelect":true,"options":[{"label":"Builder levels","description":"Level titles at streak milestones (3, 7, 21, 66, 100), with your own wording, shown beside the streak."},{"label":"Proof of the day","description":"One line of evidence you shipped, written at close, shown tomorrow as \u0027Yesterday you proved: ...\u0027."},{"label":"Heatmap of floor days","description":"The last 30 or 60 days as a GitHub-style grid, shaded by how much of the floor was held."},{"label":"Pipeline momentum","description":"A running count of companies Current to Applied this week against the target, with the gap shown plainly."}]},{"header":"Canvas fate","question":"What should happen to the current canvas (`Jarvis OS Dashboard.canvas`) and `00_Dashboard.md`?","multiSelect":false,"options":[{"label":"Canvas becomes the map, page retires (Recommended)","description":"Keep the canvas as an exploration map only, as The Plan did with its Map Canvas. Homepage opens the plugin view. `00_Dashboard.md` is retired last, after a clean fortnight, and only on your word."},{"label":"Replace both with the plugin","description":"Plugin view only. Both the canvas and the page retire after the fortnight."},{"label":"Keep both as fallbacks","description":"Leave the canvas and page untouched. The plugin is a third surface, which risks three copies of the same queries."}]}]}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find 30_Order -name "Note Type Registry.md" | head -1); echo "$f"; grep -n "reference\|project\|prompt\|build" "$f" | head -30; ls 30_Order/Templates | head -40; ls 40_Resources/Obsidian/Dashboard/"Jarvis Builds"/Ran; ls 20_Progress/Projects/"Jarvis & The Plan" 2>&1 | head`
+- `AskUserQuestion` -- ``{"questions":[{"header":"Note creation","question":"Who should create today\u0027s daily note? The Plan\u0027s dashboard showed zeros for ten days because the creating plugin used the wrong file name.","multiSelect":false,"options":[{"label":"The plugin, from the template (Recommended)","description":"A \u0027Create today\u0027s note\u0027 action in the dashboard builds `YYYY-MM-DD.md` from the template and refuses any other name. The dashboard also warns loudly when a note in the Daily folder is misnamed. `/startday` calls the same rule."},{"label":"`/startday` only","description":"The skill creates it when you start the day. Simple, but nothing creates it on a day you forget to run the skill."},{"label":"Keep Periodic Notes and Templater","description":"Leave creation to the existing plugins and only fix their settings. Smallest change, same failure risk as The Plan."}]},{"header":"The 80","question":"Where should today\u0027s 80 (the One Thing) come from each day?","multiSelect":false,"options":[{"label":"From the Fall plan, you approve (Recommended)","description":"`/startday` reads the week\u0027s One Hard Thing and the application-floor rule from the Fall 2026 Plan and proposes today\u0027s 80. You say yes or edit it, then it writes one line."},{"label":"You type it every morning","description":"Free text on the dashboard. Total control, but it breaks on tired mornings."},{"label":"Always the application floor","description":"The 80 is always \u0027move one company Current to Applied\u0027, and the One Hard Thing becomes a 20. Matches the One Thing note exactly."}]},{"header":"Daily delight","question":"Which elements should make the page feel rewarding every day? Pick all you want.","multiSelect":true,"options":[{"label":"Builder levels","description":"Level titles at streak milestones (3, 7, 21, 66, 100), with your own wording, shown beside the streak."},{"label":"Proof of the day","description":"One line of evidence you shipped, written at close, shown tomorrow as \u0027Yesterday you proved: ...\u0027."},{"label":"Heatmap of floor days","description":"The last 30 or 60 days as a GitHub-style grid, shaded by how much of the floor was held."},{"label":"Pipeline momentum","description":"A running count of companies Current to Applied this week against the target, with the gap shown plainly."}]},{"header":"Canvas fate","question":"What should happen to the current canvas (`Jarvis OS Dashboard.canvas`) and `00_Dashboard.md`?","multiSelect":false,"options":[{"label":"Canvas becomes the map, page retires (Recommended)","description":"Keep the canvas as an exploration map only, as The Plan did with its Map Canvas. Homepage opens the plugin view. `00_Dashboard.md` is retired last, after a clean fortnight, and only on your word."},{"label":"Replace both with the plugin","description":"Plugin view only. Both the canvas and the page retire after the fortnight."},{"label":"Keep both as fallbacks","description":"Leave the canvas and page untouched. The plugin is a third surface, which risks three copies of the same queries."}]}]}``
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find 30_Order -name "Note Type Registry.md" | head -1); echo "$f"; grep -n "reference\|project\|prompt\|build" "$f" | head -30; ls 30_Order/Templates | head -40; ls 40_Resources/Obsidian/Dashboard/"Jarvis Builds"/Ran; ls 20_Progress/Projects/"Jarvis & The Plan" 2>&1 | head
+```
 ```
 30_Order/Note Type Registry.md
 18:To write or fix a note, find its row, open the Standard, copy the Template, follow the Workflow. A note type with no row has no kit; build one with [[Building a Note Kit]] before writing it. Tiers are defined in [[Conformance Standard]]. A kit's state is `built` (written to the contract), `align` (exists, must be rewritten to the contract), `planned` (not written, named here), or `decide` (waiting on a user decision). Planned names are plain text and become links when written.
@@ -5003,7 +5125,10 @@ Jarvis.md
 My AI Twin.md
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n "obsidian\|claude\|^\*\|^!" .gitignore | head -30; ls 30_Order/System 2>/dev/null; ls 30_Order/System/sync-workflow 2>/dev/null | head; git remote -v | head -2`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n "obsidian\|claude\|^\*\|^!" .gitignore | head -30; ls 30_Order/System 2>/dev/null; ls 30_Order/System/sync-workflow 2>/dev/null | head; git remote -v | head -2
+```
 ```
 2:.obsidian/workspace.json
 3:.obsidian/workspace-mobile.json
@@ -5049,7 +5174,7 @@ origin	https://github.com/gupta-builds/Jarvis.git (fetch)
 origin	https://github.com/gupta-builds/Jarvis.git (push)
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `AskUserQuestion` -- `{"questions":[{"header":"Floor rows","question":"The Fall plan\u0027s floor has three rows: application moved Current to Applied, LeetCode or CodePath reps (5 or more), and one class step. Should these drive the streak, and how should they change next term?","multiSelect":false,"options":[{"label":"Rows set per term in config (Recommended)","description":"Fall\u0027s three rows are the floor now, as checkbox lines with a `[track::]` field. Next term you change a config table and the plan note, not code. The streak counts a day when all floor rows are done, one miss forgiven."},{"label":"Fixed three rows","description":"Hard-code the three rows. Simpler, but a new term means a code change."},{"label":"Floor is 2 of 3","description":"A day counts when any two floor rows are done. Softer, and it weakens the application floor."}]},{"header":"Wins","question":"What should happen to the four wins (project, career, cleanup, review)?","multiSelect":false,"options":[{"label":"Separate score, not in the streak (Recommended)","description":"Wins show as a 0 to 4 ring beside the streak and in the weekly total. The streak stays tied to the floor, so a cleanup win can never rescue a day with no application."},{"label":"Wins count toward the streak","description":"A day counts at floor plus a minimum number of wins. Richer score, blurrier signal."},{"label":"Drop the wins","description":"Floor, the 80 and the 20 only. Simplest page, loses the project and review habits."}]},{"header":"No-scroll fit","question":"Windows on the Dell and Acer differ in size. How should the no-vertical-scroll guarantee hold, given no content is removed?","multiSelect":false,"options":[{"label":"Scale the whole page to fit (Recommended)","description":"Font size and grid scale with the pane, as The Plan\u0027s view does. Below a readable minimum size a plain banner says \u0027Window too small\u0027. Only written text scrolls sideways."},{"label":"Fixed layout with minimum window","description":"One layout, tested at a set minimum window size, and a banner below it."},{"label":"Two layouts, wide and compact","description":"A wide grid and a compact grid like The Plan, switching on pane shape. More to test, but better use of tall narrow panes."}]},{"header":"Daily Loses","question":"Daily Loses are promises that slipped, carried until made up, each with a why and a fix. What should the new design do with them?","multiSelect":false,"options":[{"label":"Keep, tickable on the page (Recommended)","description":"Same mechanic, as `- [ ]` lines under `## Daily Loses` with `[since::]`, shown oldest first with age. Ticking writes back to the source note line. `/closeday` still asks for the why and fix."},{"label":"Fold into the 20","description":"Open Loses simply become carried tasks in the 20. Fewer concepts, loses the accountability framing."},{"label":"Retire Loses","description":"Drop the mechanic and rely on the floor streak and weekly review."}]}]}`
+- `AskUserQuestion` -- ``{"questions":[{"header":"Floor rows","question":"The Fall plan\u0027s floor has three rows: application moved Current to Applied, LeetCode or CodePath reps (5 or more), and one class step. Should these drive the streak, and how should they change next term?","multiSelect":false,"options":[{"label":"Rows set per term in config (Recommended)","description":"Fall\u0027s three rows are the floor now, as checkbox lines with a `[track::]` field. Next term you change a config table and the plan note, not code. The streak counts a day when all floor rows are done, one miss forgiven."},{"label":"Fixed three rows","description":"Hard-code the three rows. Simpler, but a new term means a code change."},{"label":"Floor is 2 of 3","description":"A day counts when any two floor rows are done. Softer, and it weakens the application floor."}]},{"header":"Wins","question":"What should happen to the four wins (project, career, cleanup, review)?","multiSelect":false,"options":[{"label":"Separate score, not in the streak (Recommended)","description":"Wins show as a 0 to 4 ring beside the streak and in the weekly total. The streak stays tied to the floor, so a cleanup win can never rescue a day with no application."},{"label":"Wins count toward the streak","description":"A day counts at floor plus a minimum number of wins. Richer score, blurrier signal."},{"label":"Drop the wins","description":"Floor, the 80 and the 20 only. Simplest page, loses the project and review habits."}]},{"header":"No-scroll fit","question":"Windows on the Dell and Acer differ in size. How should the no-vertical-scroll guarantee hold, given no content is removed?","multiSelect":false,"options":[{"label":"Scale the whole page to fit (Recommended)","description":"Font size and grid scale with the pane, as The Plan\u0027s view does. Below a readable minimum size a plain banner says \u0027Window too small\u0027. Only written text scrolls sideways."},{"label":"Fixed layout with minimum window","description":"One layout, tested at a set minimum window size, and a banner below it."},{"label":"Two layouts, wide and compact","description":"A wide grid and a compact grid like The Plan, switching on pane shape. More to test, but better use of tall narrow panes."}]},{"header":"Daily Loses","question":"Daily Loses are promises that slipped, carried until made up, each with a why and a fix. What should the new design do with them?","multiSelect":false,"options":[{"label":"Keep, tickable on the page (Recommended)","description":"Same mechanic, as `- [ ]` lines under `## Daily Loses` with `[since::]`, shown oldest first with age. Ticking writes back to the source note line. `/closeday` still asks for the why and fix."},{"label":"Fold into the 20","description":"Open Loses simply become carried tasks in the 20. Fewer concepts, loses the accountability framing."},{"label":"Retire Loses","description":"Drop the mechanic and rely on the floor streak and weekly review."}]}]}``
 
 ## You
 
@@ -5145,7 +5270,10 @@ After your answers, I'll write `Prompts.md` with prompt P1 only, to the Agent Pr
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -name "Agent Prompt Standard.md" -o -name "Spec and Plan Standard.md" -o -name "Frontmatter Standard.md" -o -name "Project Spec Template.md" -o -name "Project Plan Template.md" -o -name "Agent Prompt Template.md" -o -name "Prompt Cycle.md" -o -name "Conformance Standard.md" | head; `
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -name "Agent Prompt Standard.md" -o -name "Spec and Plan Standard.md" -o -name "Frontmatter Standard.md" -o -name "Project Spec Template.md" -o -name "Project Plan Template.md" -o -name "Agent Prompt Template.md" -o -name "Prompt Cycle.md" -o -name "Conformance Standard.md" | head; 
+```
 ```
 ./Standards/Conformance Standard.md
 ./Standards/Frontmatter Standard.md
@@ -5157,8 +5285,11 @@ After your answers, I'll write `Prompts.md` with prompt P1 only, to the Agent Pr
 ./Workflows/Projects/Prompt Cycle.md
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Standards/Projects/Agent\ Prompt\ Standard.md Standards/Projects/Spec\ and\ Plan\ Standard.md Templates/Projects/Agent\ Prompt\ Template.md Templates/Projects/Project\ Spec\ Template.md Templates/Projects/Project\ Plan\ Template.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Standards/Projects/Agent\ Prompt\ Standard.md Standards/Projects/Spec\ and\ Plan\ Standard.md Templates/Projects/Agent\ Prompt\ Template.md Templates/Projects/Project\ Spec\ Template.md Templates/Projects/Project\ Plan\ Template.md
 ```
+````
 ---
 type: system
 status: sprout
@@ -5396,8 +5527,11 @@ related_progress: []
 ## Open Questions
 <!-- Tasks only, as - [ ] decisions that block the sequence. -->
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Workflows/Projects/Prompt\ Cycle.md; sed -n 1,80p Standards/Frontmatter\ Standard.md
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Workflows/Projects/Prompt\ Cycle.md; sed -n 1,80p Standards/Frontmatter\ Standard.md`
 ```
 ---
 type: system
@@ -5514,7 +5648,10 @@ Optional everywhere: `notes` (list of wikilinks), `next` (text), `area`, `source
 ## Scoped keys
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "gupt0479\|google calendar\|gcal" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources Jarvis/60_Claude "The Plan/00_Live" "The Plan/10_UMN" "The Plan/20_Progress" "The Plan/30_Order" "The Plan/40_Resources" "The Plan/60_Jarvis" 2>/dev/null | head -30`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents" && grep -rli "gupt0479\|google calendar\|gcal" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources Jarvis/60_Claude "The Plan/00_Live" "The Plan/10_UMN" "The Plan/20_Progress" "The Plan/30_Order" "The Plan/40_Resources" "The Plan/60_Jarvis" 2>/dev/null | head -30
+```
 ```
 Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing.md
 Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md
@@ -5548,7 +5685,10 @@ Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-23 
 Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-25 Read .claudeskillsweekly-reviewweekly-review.md and execute.md
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "gupt0479\|google calendar\|gcal\|calendar" "10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md" "30_Order/Standards/Operations/Daily Note Standard.md" "30_Order/Workflows/Operations/Daily Close Loop.md" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md" "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md" | cut -c1-400 | head -40; echo ======; cat "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Home/09-21 Calendar connection and Wednesday schedule.md" | head -120`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "gupt0479\|google calendar\|gcal\|calendar" "10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md" "30_Order/Standards/Operations/Daily Note Standard.md" "30_Order/Workflows/Operations/Daily Close Loop.md" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md" "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md" | cut -c1-400 | head -40; echo ======; cat "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Home/09-21 Calendar connection and Wednesday schedule.md" | head -120
+```
 ```
 10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md:15:next: "Pick the tool stack for the Jarvis automations weekend project (Gmail, GCal, mobile-to-Obsidian) - currently unscoped"
 10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md:32:**Jarvis automations** is the one genuinely new, unscoped build this session: a weekend (no date set yet) spent building real automations across Gmail, Google Calendar, and other information-providing tools, plus a pipeline that ingests videos shared from the phone - Reels, YouTube videos watched - landing in Obsidian somehow. `20_Progress/Proje
@@ -5644,8 +5784,11 @@ _None detected_
 _None_
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && cat "30_Order/Standards/Operations/Daily Note Standard.md"; echo =======; cat "30_Order/Workflows/Operations/Daily Close Loop.md"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && cat "30_Order/Standards/Operations/Daily Note Standard.md"; echo =======; cat "30_Order/Workflows/Operations/Daily Close Loop.md"
 ```
+````
 ---
 type: system
 status: sprout
@@ -5797,9 +5940,12 @@ Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `
 - A closed day has the counts equal to the toggles, every slipped promise in Daily Loses, and a session-log line.
 - The dashboard's numbers match the note.
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find . -name "How to Use Google Calendar.md" -not -path "./.git/*" | head -3); echo "$f"; cat "$(echo "$f" | head -1)"; echo ======; cat "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find . -name "How to Use Google Calendar.md" -not -path "./.git/*" | head -3); echo "$f"; cat "$(echo "$f" | head -1)"; echo ======; cat "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md"`
-```
+````
 ./60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar.md
 ---
 type: system
@@ -5985,9 +6131,12 @@ It covers `00_Dashboard.md`, the homepage canvas, the daily note and its templat
 - [ ] Does a tick from the Daily Loses list on the dashboard write back to its source note?
 - [ ] Should the weekly review use the Sunday-start week that Periodic Notes names, or an ISO week as The Plan's standard says?
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,90p "10_Areas/Life/Enumerate/Weekly/2026-W44.md" | cut -c1-300; echo =====; f=$(find 30_Order/Templates -name "Better Today.md"); echo $f; cat "$f"
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,90p "10_Areas/Life/Enumerate/Weekly/2026-W44.md" | cut -c1-300; echo =====; f=$(find 30_Order/Templates -name "Better Today.md"); echo $f; cat "$f"`
-```
+````
 ---
 type: thought
 thought_kind: weekly
@@ -6138,8 +6287,11 @@ floors_done: 0
 **LeetCode today:** `INPUT[number:lc_count]`
 **Study hours:** `INPUT[number:study_today]`
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Plan Standard" "Plan Review Cadence" "Periodic Review Note Standard" "Vault Lint" "Note Kit Standard" "Reference Standard"; do printf "%s: " "$n"; find 30_Order -name "$n.md" | head -1; done; ls "20_Progress/Mentorship Program/Plans" 20_Progress/Degree/_Courses 2>&1 | head -20; sed -n 1,40p "10_Areas/Life/Plans/Plans Board.md" | cut -c1-250
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Plan Standard" "Plan Review Cadence" "Periodic Review Note Standard" "Vault Lint" "Note Kit Standard" "Reference Standard"; do printf "%s: " "$n"; find 30_Order -name "$n.md" | head -1; done; ls "20_Progress/Mentorship Program/Plans" 20_Progress/Degree/_Courses 2>&1 | head -20; sed -n 1,40p "10_Areas/Life/Plans/Plans Board.md" | cut -c1-250`
 ```
 Plan Standard: 30_Order/Standards/Plan Standard.md
 Plan Review Cadence: 30_Order/Workflows/Ingestion/Plan Review Cadence.md
@@ -6185,7 +6337,10 @@ next: "[[00 - Summer Plans Index|Summer Plans Index]]"
 - [[Plans-to-Create]] — how any new plan here gets created
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Jarvis Build Hub" "Jarvis Decisions Log" "Jarvis Architecture" "Jarvis Build Log" "Jarvis Verification and Risks"; do find . -name "$n*.md" -not -path "./.git/*" | head -2; done; echo "--- tracked plugin folders:"; git ls-files .obsidian/plugins | cut -d/ -f3 | sort -u | tr '\n' ' '; echo; git check-ignore -v .obsidian/plugins/jarvis-dashboard/main.js || echo "main.js would NOT be ignored"; echo "--- tracker:"; ls "10_Areas/Career/Internships/Tracker" "10_Areas/Career/Internships/Tracker/Each One" 2>&1 | head; f=$(find "10_Areas/Career/Internships/Tracker/Each One/Applied" -name "*.md" 2>/dev/null | head -1); echo "applied sample: ${f:-none}"; ls "10_Areas/Career/Internships/Tracker/Each One/Current" 2>/dev/null | wc -l; cd "../The Plan" && grep -rli toggl --include=*.md 00_Live 30_Order 40_Resources 60_Jarvis .claude 2>/dev/null | head -3; echo "plan toggl hits above (blank = none)"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Jarvis Build Hub" "Jarvis Decisions Log" "Jarvis Architecture" "Jarvis Build Log" "Jarvis Verification and Risks"; do find . -name "$n*.md" -not -path "./.git/*" | head -2; done; echo "--- tracked plugin folders:"; git ls-files .obsidian/plugins | cut -d/ -f3 | sort -u | tr '\n' ' '; echo; git check-ignore -v .obsidian/plugins/jarvis-dashboard/main.js || echo "main.js would NOT be ignored"; echo "--- tracker:"; ls "10_Areas/Career/Internships/Tracker" "10_Areas/Career/Internships/Tracker/Each One" 2>&1 | head; f=$(find "10_Areas/Career/Internships/Tracker/Each One/Applied" -name "*.md" 2>/dev/null | head -1); echo "applied sample: ${f:-none}"; ls "10_Areas/Career/Internships/Tracker/Each One/Current" 2>/dev/null | wc -l; cd "../The Plan" && grep -rli toggl --include=*.md 00_Live 30_Order 40_Resources 60_Jarvis .claude 2>/dev/null | head -3; echo "plan toggl hits above (blank = none)"
+```
 ```
 --- tracked plugin folders:
 calendar cmdr code-styler dataview excalibrain file-explorer-plus homepage lazy-plugins lean-terminal multi-column-markdown ninja-cursor obsidian-excalidraw-plugin obsidian-git obsidian-kanban obsidian-latex-suite obsidian-local-rest-api obsidian-meta-bind-plugin obsidian-spaced-repetition obsidian-style-settings periodic-notes quickadd recent-edits recent-files-obsidian templater-obsidian text-extractor url-into-selection 
@@ -6208,7 +6363,10 @@ applied sample: none
 30_Order/Workflows/Agentic OS/How to Use Plugins.md
 plan toggl hits above (blank = none)
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n -i -B2 -A6 "toggl" "00_Live/Enumerate/Daily/2026-10-26.md" | head -60; echo ====; grep -n -i -B1 -A4 "toggl" "30_Order/Templates/Daily Dashboard/Better Today.md" "30_Order/Workflows/Agentic OS/How to Use Plugins.md" | cut -c1-300 | head -50; echo ====; cd ../Jarvis/10_Areas/Career/Internships/Tracker && ls "Each One"; ls "Each One/Applied" 2>&1 | head -3; ls "Each One/Current" | head -3; sed -n 1,14p "Each One/Current/$(ls 'Each One/Current' | head -1)"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n -i -B2 -A6 "toggl" "00_Live/Enumerate/Daily/2026-10-26.md" | head -60; echo ====; grep -n -i -B1 -A4 "toggl" "30_Order/Templates/Daily Dashboard/Better Today.md" "30_Order/Workflows/Agentic OS/How to Use Plugins.md" | cut -c1-300 | head -50; echo ====; cd ../Jarvis/10_Areas/Career/Internships/Tracker && ls "Each One"; ls "Each One/Applied" 2>&1 | head -3; ls "Each One/Current" | head -3; sed -n 1,14p "Each One/Current/$(ls 'Each One/Current' | head -1)"
+```
 ```
 39-| Win     | Target | Done                        |
 40-| ------- | ------ | --------------------------- |
@@ -6278,7 +6436,10 @@ deadline:
 related_notes:
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls "Jarvis Build" 2>&1 | head -2; mkdir -p "Jarvis Build" && ls -d "Jarvis Build"`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls "Jarvis Build" 2>&1 | head -2; mkdir -p "Jarvis Build" && ls -d "Jarvis Build"
+```
 ```
 Jarvis Build
 ```
@@ -6349,7 +6510,7 @@ Each correction keeps the original statement and says what replaced it.
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
-```
+````
 ---
 type: project
 status: active
@@ -6496,9 +6657,9 @@ Old notes keep the old shape. The engine reads only the new shape. A day in the 
 - [ ] Should the 87 older notes be converted, or left as history?
 - [ ] Should a Blocks line that passed with no tick turn into a Lose automatically at close, as the Close Loop proposes today?
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Dashboard Page.md`
-```
+````
 ---
 type: project
 status: active
@@ -6613,7 +6774,7 @@ The root measures its pane with a ResizeObserver. Font size is the smaller of a 
 - [ ] Which Dell and Acer window sizes must hold? Needed for the fixtures in prompt P4.
 - [ ] Should the health chip also check that the skills and hooks exist, as a guard against The Plan's 16 October overwrite?
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
 ```
 ---
@@ -7273,7 +7434,10 @@ Build
 - [ ] Should a daily-note validator also run as a hook after a write?
 
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && ls; echo "--- em dash / en dash count per file:"; grep -c "—" *.md | grep -v ":0" || echo "none"; echo "--- frontmatter delimiters (expect 2 per file in first 30 lines) and first/last key:"; for f in *.md; do n=$(head -40 "$f" | grep -c '^---$'); echo "$f: $n"; done; echo "--- unresolved in-folder links (names starting with Jarvis ):"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "MISSING: $n"; done; echo "--- non-folder link targets used (should exist in Jarvis):"; grep -oh "\[\[[^]|#]*" *.md | sed 's/\[\[//' | grep -v "^Jarvis \(Build Hub\|Decisions\|Spec\|Architecture\|Plugin\|Verification\|Build Log\)" | sort | uniq -c | sort -rn`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && ls; echo "--- em dash / en dash count per file:"; grep -c "—" *.md | grep -v ":0" || echo "none"; echo "--- frontmatter delimiters (expect 2 per file in first 30 lines) and first/last key:"; for f in *.md; do n=$(head -40 "$f" | grep -c '^---$'); echo "$f: $n"; done; echo "--- unresolved in-folder links (names starting with Jarvis ):"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "MISSING: $n"; done; echo "--- non-folder link targets used (should exist in Jarvis):"; grep -oh "\[\[[^]|#]*" *.md | sed 's/\[\[//' | grep -v "^Jarvis \(Build Hub\|Decisions\|Spec\|Architecture\|Plugin\|Verification\|Build Log\)" | sort | uniq -c | sort -rn
+```
 ```
 Jarvis Architecture.md
 Jarvis Build Hub.md
@@ -7317,22 +7481,22 @@ MISSING: Jarvis Dashboard Build Record
       1 Agent Prompt Standard
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
-```diff
+````diff
 - ```markdown
----
-type: thought
+- ---
+- type: thought
 + ```markdown
-(frontmatter starts)
-type: thought
-```
++ (frontmatter starts)
++ type: thought
+````
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
 ```diff
 - floors_done: 0
----
-# Did you get better today?
+- ---
+- # Did you get better today?
 + floors_done: 0
-(frontmatter ends)
-# Did you get better today?
++ (frontmatter ends)
++ # Did you get better today?
 ```
 
 ## You
@@ -7424,7 +7588,10 @@ I extended 11 notes and added two research notes:
 
 ### Tool Calls
 
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --since=2026-10-25 --format='%h %ad %an %s' --date=iso | head -15; echo ---; find . -name "*.md" -newermt "2026-10-25 20:30" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./copilot/*" | head -40; echo --- plugin repo; cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git log --format='%h %ad %s' --date=iso | head -5; git status --short | head; ls -la --time-style=long-iso main.js dist 2>/dev/null | head -5; echo --- jarvis-cli; ls -la --time-style=long-iso "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/jarvis-cli" | head -20`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --since=2026-10-25 --format='%h %ad %an %s' --date=iso | head -15; echo ---; find . -name "*.md" -newermt "2026-10-25 20:30" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./copilot/*" | head -40; echo --- plugin repo; cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git log --format='%h %ad %s' --date=iso | head -5; git status --short | head; ls -la --time-style=long-iso main.js dist 2>/dev/null | head -5; echo --- jarvis-cli; ls -la --time-style=long-iso "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/jarvis-cli" | head -20
+```
 ```
 fb8abe6 2026-10-26 15:05:01 -0500 Anant Gupta auto-sync: 2026-10-26 15:05 | 1 files
 610851d 2026-10-26 15:03:05 -0500 Anant Gupta auto-sync: 2026-10-26 15:03 | 2 files
@@ -7514,8 +7681,11 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `mcp__plugin_context7_context7__resolve-library-id` -- `{"query":"Obsidian plugin API ItemView registerView metadataCache","libraryName":"Obsidian"}`
 - `mcp__plugin_context7_context7__query-docs` -- `{"libraryId":"/obsidianmd/obsidian-api","query":"workspace.onLayoutReady vault create event fires for existing files at load; registerView ItemView getLeavesOfType detach","language":"TypeScript"}`
 - `mcp__plugin_context7_context7__query-docs` -- `{"libraryId":"/obsidianmd/obsidian-api","query":"metadataCache getFileCache frontmatter changed event and cachedRead versus read","language":"TypeScript"}`
-- `AskUserQuestion` -- `{"questions":[{"header":"Health chip","question":"Sync banner and vault health: how should system problems show on the page?","multiSelect":false,"options":[{"label":"One health chip (Recommended)","description":"A single chip, green when clean and red with a count when not. It covers misnamed notes, leftover placeholders, a stale plugin build on the other laptop, missing skills or hooks, a sync problem, and notes missing type or status. Click it to see the list in a note."},{"label":"Chip plus the sync banner","description":"Keep the sync banner strip on the page as well as the chip. More visible, but it uses space and duplicates a signal."},{"label":"Nothing on the page","description":"Problems appear only when you run the doctor command. Cleanest page, but this is how The Plan showed zeros for ten days without anyone noticing."}]},{"header":"Week strip","question":"What should the page show about the week so far?","multiSelect":false,"options":[{"label":"Seven day row (Recommended)","description":"Seven small cells, Monday to Sunday, each shaded by floor rows done, with today outlined, plus one line of totals: wins, floors, problems, study hours. Fits in the hero with no scroll."},{"label":"Totals line only","description":"One line: days with a note, wins, floors, problems, study hours. Smallest, no daily shape."},{"label":"Weekly review only","description":"Nothing about the week on the daily page. It appears when you run the weekly review."}]},{"header":"Projects","question":"Active projects and the clippings queue: what stays on the daily page?","multiSelect":false,"options":[{"label":"Projects as chips, clippings to review (Recommended)","description":"Three chips show each active project\u0027s `next:` line and open the project note. The clippings count moves to the weekly review."},{"label":"Both off the page","description":"Neither is on the daily page. Both appear in the weekly review. Lowest clutter."},{"label":"Both as chips","description":"Three project chips and one clippings chip. Uses more of the page."}]},{"header":"Loses","question":"You said Loses are noted down and the next day\u0027s actions are recalculated from them, not pushed forward. How long should a Lose stay open?","multiSelect":false,"options":[{"label":"Open until made up or dropped (Recommended)","description":"A Lose stays in the note where it happened and is never copied forward. The page counts every open one across notes, oldest first, capped at 7. The eighth must be made up or dropped at close. `/startday` reads open Loses and recalculates the new day\u0027s 80 and 20 from them. The carried mark `[\u003e]` is retired."},{"label":"Closed once the next day is recalculated","description":"Closing the day marks a Lose as handled when the next day\u0027s actions are built from it. The page then shows only the last day\u0027s Loses, so the cap rarely matters."},{"label":"Open for a fixed number of days","description":"A Lose expires after a set number of days, for example 7, and is dropped automatically. This needs a rule for what an auto-dropped Lose records."}]}]}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=160 --format='%h %s' fb8f157 | head -30; echo ---; echo "Plan daily template headings:"; grep -n "^#\|^created\|^[a-z_]*:" "30_Order/Templates/Daily Dashboard/Better Today.md" | head -40; echo ---; echo "Schema headings:"; grep -n "^#" "30_Order/Standards/Dashboards/Daily Note Schema.md" | head -30; echo ---; grep -rniE "time log|time-log|timelog|time spent|stopwatch|clockify|toggl\b" --include=*.md 00_Live 30_Order 40_Resources/Obsidian 60_Jarvis 2>/dev/null | grep -vi "toggle" | cut -c1-200 | head -10; echo "(blank above = no time-log design notes)"; echo ---; ls 00_Live/Enumerate/Daily | tail -5; echo; ls 00_Live | head -30`
+- `AskUserQuestion` -- ``{"questions":[{"header":"Health chip","question":"Sync banner and vault health: how should system problems show on the page?","multiSelect":false,"options":[{"label":"One health chip (Recommended)","description":"A single chip, green when clean and red with a count when not. It covers misnamed notes, leftover placeholders, a stale plugin build on the other laptop, missing skills or hooks, a sync problem, and notes missing type or status. Click it to see the list in a note."},{"label":"Chip plus the sync banner","description":"Keep the sync banner strip on the page as well as the chip. More visible, but it uses space and duplicates a signal."},{"label":"Nothing on the page","description":"Problems appear only when you run the doctor command. Cleanest page, but this is how The Plan showed zeros for ten days without anyone noticing."}]},{"header":"Week strip","question":"What should the page show about the week so far?","multiSelect":false,"options":[{"label":"Seven day row (Recommended)","description":"Seven small cells, Monday to Sunday, each shaded by floor rows done, with today outlined, plus one line of totals: wins, floors, problems, study hours. Fits in the hero with no scroll."},{"label":"Totals line only","description":"One line: days with a note, wins, floors, problems, study hours. Smallest, no daily shape."},{"label":"Weekly review only","description":"Nothing about the week on the daily page. It appears when you run the weekly review."}]},{"header":"Projects","question":"Active projects and the clippings queue: what stays on the daily page?","multiSelect":false,"options":[{"label":"Projects as chips, clippings to review (Recommended)","description":"Three chips show each active project\u0027s `next:` line and open the project note. The clippings count moves to the weekly review."},{"label":"Both off the page","description":"Neither is on the daily page. Both appear in the weekly review. Lowest clutter."},{"label":"Both as chips","description":"Three project chips and one clippings chip. Uses more of the page."}]},{"header":"Loses","question":"You said Loses are noted down and the next day\u0027s actions are recalculated from them, not pushed forward. How long should a Lose stay open?","multiSelect":false,"options":[{"label":"Open until made up or dropped (Recommended)","description":"A Lose stays in the note where it happened and is never copied forward. The page counts every open one across notes, oldest first, capped at 7. The eighth must be made up or dropped at close. `/startday` reads open Loses and recalculates the new day\u0027s 80 and 20 from them. The carried mark `[\u003e]` is retired."},{"label":"Closed once the next day is recalculated","description":"Closing the day marks a Lose as handled when the next day\u0027s actions are built from it. The page then shows only the last day\u0027s Loses, so the cap rarely matters."},{"label":"Open for a fixed number of days","description":"A Lose expires after a set number of days, for example 7, and is dropped automatically. This needs a rule for what an auto-dropped Lose records."}]}]}``
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=160 --format='%h %s' fb8f157 | head -30; echo ---; echo "Plan daily template headings:"; grep -n "^#\|^created\|^[a-z_]*:" "30_Order/Templates/Daily Dashboard/Better Today.md" | head -40; echo ---; echo "Schema headings:"; grep -n "^#" "30_Order/Standards/Dashboards/Daily Note Schema.md" | head -30; echo ---; grep -rniE "time log|time-log|timelog|time spent|stopwatch|clockify|toggl\b" --include=*.md 00_Live 30_Order 40_Resources/Obsidian 60_Jarvis 2>/dev/null | grep -vi "toggle" | cut -c1-200 | head -10; echo "(blank above = no time-log design notes)"; echo ---; ls 00_Live/Enumerate/Daily | tail -5; echo; ls 00_Live | head -30
+```
 ```
 fb8f157 auto-sync: 2026-10-26 15:00 | 21 files
 
@@ -7614,7 +7784,10 @@ Monthly Dashboard.md
 Tracking
 ```
 - `WebSearch` -- `{"query":"CSS container query units cqw cqh clamp scale font size to fit container browser support MDN","mode":"standard"}`
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "headings of today's Plan daily note:"; grep -n "^#\|^created\|^type\|^thought_kind\|cat::" "00_Live/Enumerate/Daily/2026-10-26.md" | cut -c1-90 | head -30; echo "cat:: lines:"; grep -c "cat::" "00_Live/Enumerate/Daily/2026-10-26.md"; echo ---; git show fb8f157 -- "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Daily Dashboard.md" | grep "^[+-]" | grep -v "^+++\|^---" | cut -c1-260; echo ---; echo "Plan periodic notes daily template now:"; grep -o '"daily": *{[^}]*}' .obsidian/plugins/periodic-notes/data.json | cut -c1-260`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "headings of today's Plan daily note:"; grep -n "^#\|^created\|^type\|^thought_kind\|cat::" "00_Live/Enumerate/Daily/2026-10-26.md" | cut -c1-90 | head -30; echo "cat:: lines:"; grep -c "cat::" "00_Live/Enumerate/Daily/2026-10-26.md"; echo ---; git show fb8f157 -- "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Daily Dashboard.md" | grep "^[+-]" | grep -v "^+++\|^---" | cut -c1-260; echo ---; echo "Plan periodic notes daily template now:"; grep -o '"daily": *{[^}]*}' .obsidian/plugins/periodic-notes/data.json | cut -c1-260
+```
 ```
 headings of today's Plan daily note:
 2:type: thought
@@ -7651,7 +7824,10 @@ cat:: lines:
 ---
 Plan periodic notes daily template now:
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^| 51\|^| 52\|^| 53" "40_Resources/Obsidian/Dashboards/Decisions Log.md" | cut -c1-1800; echo ---; sed -n '/^## Template/,/^## Frontmatter/p' "30_Order/Standards/Dashboards/Daily Note Schema.md" | cut -c1-1500`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^| 51\|^| 52\|^| 53" "40_Resources/Obsidian/Dashboards/Decisions Log.md" | cut -c1-1800; echo ---; sed -n '/^## Template/,/^## Frontmatter/p' "30_Order/Standards/Dashboards/Daily Note Schema.md" | cut -c1-1500
+```
 ```
 75:| 51 | Daily template is Better Today (2026-10-26) | `Daily Note.md` is deleted. [[Better Today]] is the template for daily notes, set in Periodic Notes with the formats `YYYY-MM-DD`, `gggg-[W]ww`, `YYYY-MM` and `YYYY`. The skills, the standards and the QuickAdd setup now name it. | The template does not yet carry the engine structure (`type: daily`, `## Targets` to `## Intake`, `[cat::]` lines), so the streak reads 0 until it does. See Template in [[Daily Note Schema]]. Open until Anant decides how the structure gets back into the template. |
 ---
@@ -7754,7 +7930,7 @@ Each stands until Anant says otherwise.
 
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
-```
+````
 ---
 type: project
 status: active
@@ -7919,9 +8095,9 @@ Old notes keep the old shape and stay as history ([[Jarvis Decisions Log]] D40).
 ## Open Questions
 None blocking the build. Every question was answered or defaulted on 2026-10-26, see [[Jarvis Decisions Log]].
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Dashboard Page.md`
-```
+````
 ---
 type: project
 status: active
@@ -8053,7 +8229,7 @@ A layout engine is needed, which jsdom does not have. Three layers:
 ## Open Questions
 None blocking the build. The real pane sizes are measured at the start of the build, as planned above.
 
-```
+````
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
 ```
 ---
@@ -8715,40 +8891,40 @@ notes:
 ```diff
 - ## What would make each removal safe
 + ## What the finished design says about each group
-- Meta Bind and Multi-Column Markdown are the two plugins the dashboard no longer needs ([[Jarvis Spec - Carry Forward]]). Their other uses are the 87 and 14 notes above.
-- Periodic Notes and Calendar are the question: the plugin creates today's note, but Periodic Notes also makes weekly and monthly notes.
-- Templater stays while any template carries `<% %>`.
-- Local REST API stays. The `jarvis` MCP tools depend on it.
-
-## What would make each removal safe
++ - Meta Bind and Multi-Column Markdown are the two plugins the dashboard no longer needs ([[Jarvis Spec - Carry Forward]]). Their other uses are the 87 and 14 notes above.
++ - Periodic Notes and Calendar are the question: the plugin creates today's note, but Periodic Notes also makes weekly and monthly notes.
++ - Templater stays while any template carries `<% %>`.
++ - Local REST API stays. The `jarvis` MCP tools depend on it.
++ 
++ ## What would make each removal safe
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
 ```diff
 - - The next prompt must know: the day model replaces the frontmatter toggles built on 2026-10-26 morning ([[Jarvis Decisions Log]], Correction 3).
 + - The next prompt must know: the day model replaces the frontmatter toggles built on 2026-10-26 morning ([[Jarvis Decisions Log]], Correction 3).
-
-### 2026-10-26, design finalized
-- Every open question was answered or defaulted. [[Jarvis Decisions Log]] now holds D1 to D45 and nine corrections. Defaults taken by the assistant are D32 to D45.
-- Two research notes were added: [[Jarvis Research - Outside Sources]] and [[Jarvis Research - The Plan Parallel Builds]]. [[Jarvis Build Hub]] is now the source of truth and maps every feature to its owning note.
-- Checked: The Plan's changes of 2026-10-26 (its restore commit, Decision 51 and its daily template), the Obsidian API documentation through search and the typed docs index, `jarvis-cli` contents, git ignore behaviour for the plugin folder.
-- Settled by check: the CLI is `dashboard-cli` because `jarvis-cli` is taken; the week is ISO; the plugin folder is tracked by git.
-- Still unverified: rows 1 to 7, 9, 10 and 13 to 17 of [[Jarvis Verification and Risks]].
-- Waiting on The Plan: the time overview heading, the time log folder and entry format, and the structure of its daily template.
-- Prompts are not written. They are written in a separate session from these notes.
-- The next prompt must know: the page cannot be proven no-scroll in jsdom. It needs the real-browser and live checks in [[Jarvis Spec - Dashboard Page]].
++ 
++ ### 2026-10-26, design finalized
++ - Every open question was answered or defaulted. [[Jarvis Decisions Log]] now holds D1 to D45 and nine corrections. Defaults taken by the assistant are D32 to D45.
++ - Two research notes were added: [[Jarvis Research - Outside Sources]] and [[Jarvis Research - The Plan Parallel Builds]]. [[Jarvis Build Hub]] is now the source of truth and maps every feature to its owning note.
++ - Checked: The Plan's changes of 2026-10-26 (its restore commit, Decision 51 and its daily template), the Obsidian API documentation through search and the typed docs index, `jarvis-cli` contents, git ignore behaviour for the plugin folder.
++ - Settled by check: the CLI is `dashboard-cli` because `jarvis-cli` is taken; the week is ISO; the plugin folder is tracked by git.
++ - Still unverified: rows 1 to 7, 9, 10 and 13 to 17 of [[Jarvis Verification and Risks]].
++ - Waiting on The Plan: the time overview heading, the time log folder and entry format, and the structure of its daily template.
++ - Prompts are not written. They are written in a separate session from these notes.
++ - The next prompt must know: the page cannot be proven no-scroll in jsdom. It needs the real-browser and live checks in [[Jarvis Spec - Dashboard Page]].
 ```
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
 ```diff
 - | Code location | `D:\_Anant\20_Progress\Projects\jarvis-dashboard`, proposed, not confirmed |
-| Hosting | Private GitHub repository, created only after Anant says yes in the session |
-| Devices | The Dell and the Acer. No phone. |
+- | Hosting | Private GitHub repository, created only after Anant says yes in the session |
+- | Devices | The Dell and the Acer. No phone. |
 + | Code location | On the Acer. The path is chosen when the build starts. The Dell receives built files through git. |
-| Hosting | A private GitHub repository for the source is recommended, created only after Anant says yes in the session |
-| Stack | TypeScript, React 19, `isDesktopOnly: true`, no Node API in version 1 |
-| CLI | `dashboard-cli` in `30_Order/System/dashboard-cli/` |
-| Devices | The Dell and the Acer, Obsidian full screen. No phone. |
-| Week | ISO, Monday to Sunday |
-| Open Loses cap | 7 |
++ | Hosting | A private GitHub repository for the source is recommended, created only after Anant says yes in the session |
++ | Stack | TypeScript, React 19, `isDesktopOnly: true`, no Node API in version 1 |
++ | CLI | `dashboard-cli` in `30_Order/System/dashboard-cli/` |
++ | Devices | The Dell and the Acer, Obsidian full screen. No phone. |
++ | Week | ISO, Monday to Sunday |
++ | Open Loses cap | 7 |
 ```
 - `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
 ```
@@ -8894,11 +9070,14 @@ None blocking the build. The two unchecked boxes above are the last steps of the
 - `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
 ```diff
 - ## Build stages
-These are stages, not prompts.
+- These are stages, not prompts.
 + ## Sequence
-These are build stages, not prompts.
++ These are build stages, not prompts.
 ```
-- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && echo "files: $(ls *.md | wc -l)"; echo "--- em/en dashes:"; grep -c "[—–]" *.md | grep -v ":0" || echo none; echo "--- '---' lines per file (expect 2):"; for f in *.md; do echo "$(grep -c '^---$' "$f") $f"; done | sort | uniq -c -w2; echo "--- frontmatter required keys (type,status,created,updated,tags):"; for f in *.md; do for k in type status created updated tags; do head -30 "$f" | grep -q "^$k:" || echo "MISSING $k in $f"; done; done; echo "--- in-folder links unresolved:"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "unresolved: $n"; done; echo "--- required headings:"; for f in Jarvis\ Spec*.md Jarvis\ Architecture.md; do for h in "What This Is" "Current State" "Non-Goals"; do grep -q "^## $h" "$f" || echo "$f lacks $h"; done; done; for h in Goal Sequence "Open Questions"; do grep -q "^## $h" "Jarvis Build Hub.md" || echo "Hub lacks $h"; done; echo "--- stale phrases:"; grep -n "Decide\b\|iPhone 15\|\[>\] carried\|Prompts.md is not written\|jarvis-cli\`" *.md | cut -c1-140 | head -20; echo "--- decision refs D1-D45 used vs defined:"; grep -oh "D[0-9][0-9]*" *.md | grep -v "^D1$" | sort -u | tr '\n' ' '`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && echo "files: $(ls *.md | wc -l)"; echo "--- em/en dashes:"; grep -c "[—–]" *.md | grep -v ":0" || echo none; echo "--- '---' lines per file (expect 2):"; for f in *.md; do echo "$(grep -c '^---$' "$f") $f"; done | sort | uniq -c -w2; echo "--- frontmatter required keys (type,status,created,updated,tags):"; for f in *.md; do for k in type status created updated tags; do head -30 "$f" | grep -q "^$k:" || echo "MISSING $k in $f"; done; done; echo "--- in-folder links unresolved:"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "unresolved: $n"; done; echo "--- required headings:"; for f in Jarvis\ Spec*.md Jarvis\ Architecture.md; do for h in "What This Is" "Current State" "Non-Goals"; do grep -q "^## $h" "$f" || echo "$f lacks $h"; done; done; for h in Goal Sequence "Open Questions"; do grep -q "^## $h" "Jarvis Build Hub.md" || echo "Hub lacks $h"; done; echo "--- stale phrases:"; grep -n "Decide\b\|iPhone 15\|\[>\] carried\|Prompts.md is not written\|jarvis-cli\`" *.md | cut -c1-140 | head -20; echo "--- decision refs D1-D45 used vs defined:"; grep -oh "D[0-9][0-9]*" *.md | grep -v "^D1$" | sort -u | tr '\n' ' '
+```
 ```
 files: 13
 --- em/en dashes:
@@ -9205,6 +9384,380 @@ Continue the conversation from where it left off without asking the user any fur
 
 The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
+## You
+
+`40_Resources/Obsidian/Dashboards`, `40_Resources/Obsidian/Dashboards/Dashboard Build`, p`40_Resources/Obsidian/Dashboards/Prompts` - the plan notes (folders and files). `D:\_Anant\20_Progress\Projects\the-plan-dashboard` - plugin was created here. 
+
+
+
+<pasted_content id="99d6">
+Great work. The Jarvis build has been removed. It's been moved to Jarvis and we need to focus on the plan right now.  
+  
+The Jarvis build notes are taking place but the plan's dashboard is still extremely weak. There are a lot of things that still need to take place over here inside this world: to make the dashboard functional, to build the todo workflow, and to do a lot of things.  
+  
+Based on the agenda that took place in the session and similarities to the plan, things that the plan should implement based on Jarvis's dashboard design that we just made:
+
+*   We need to upgrade the nodes that are currently listed inside the dashboards.
+*   We need to archive the things that have already run.
+*   We need to come up with a new build plan.
+*   We need to come up with fixes and designs.
+*   We need to go through all the notes and update all of them with the recent information and with the changes that need to take place.
+
+The job is supposed to go through all the notes, understand in detail whatever needs to be changed, and then let's see how this goes and what the dashboard is going to do.
+</pasted_content id="99d6">
+
+
+Based on the notes written down, you are required to ask me a lot of questions on the build that needs to take place to upgrade the system currently established to be successful, frictionloess and everything. Firstly, the darshboard is not editable at all on the plan - needs to be changed. The design itself of the dashboard needs to be ugradeds with the content that appears on it by using today's daily note as an example. Let's do the task correctly to test and make sure that each and every single thing is done correctly for the plugin and our build. Make no mistakes with this task at all. Go through all the detailed builds that have already taken place inside the plan. Let's make sure to remodal and redesign the plan for perfection so that we can optimize all the future tools to be added here. Make no mistakes with this task, this is to lay out the finalized version of the plan's dashboard and will mostly be the same after today. So, let's perfect this now.
+
+## Claude
+
+I'll start by checking the current state of the Dashboards notes and today's daily note, then ask my questions.
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la "40_Resources/Obsidian/Dashboards" "40_Resources/Obsidian/Dashboards/Dashboard Build" 2>&1 | head -80; echo ---; ls 00_Live/Enumerate/Daily | tail -8; echo ---; git status --short | head -20
+```
+```
+40_Resources/Obsidian/Dashboards:
+total 84
+drwxr-xr-x 1 anant 197609     0 Oct 28 14:59 .
+drwxr-xr-x 1 anant 197609     0 Oct 26 13:28 ..
+-rw-r--r-- 1 anant 197609  9082 Oct 14 15:18 Audit - Dashboard Stack and Phone Checklist.md
+-rw-r--r-- 1 anant 197609  3165 Oct 12 23:11 Build Plan.md
+drwxr-xr-x 1 anant 197609     0 Oct 12 20:43 Daily
+drwxr-xr-x 1 anant 197609     0 Oct 14 10:59 Dashboard Build
+-rw-r--r-- 1 anant 197609  4524 Oct 14 15:16 Dashboards Hub.md
+-rw-r--r-- 1 anant 197609 13447 Oct 26 14:59 Decisions Log.md
+-rw-r--r-- 1 anant 197609 24640 Oct 14 15:47 Prompts.md
+-rw-r--r-- 1 anant 197609  6779 Oct 12 20:50 Research - Jarvis Dashboard Findings.md
+-rw-r--r-- 1 anant 197609  8495 Oct 14 14:38 Spec - AI Loop.md
+-rw-r--r-- 1 anant 197609  4303 Oct 12 20:48 Spec - Automation Layers.md
+-rw-r--r-- 1 anant 197609  4745 Oct 12 20:47 Spec - Home and Monthly Dashboards.md
+-rw-r--r-- 1 anant 197609  5976 Oct 14 10:59 Spec - Streak and Daily Note.md
+
+40_Resources/Obsidian/Dashboards/Dashboard Build:
+total 104
+drwxr-xr-x 1 anant 197609     0 Oct 14 10:59 .
+drwxr-xr-x 1 anant 197609     0 Oct 28 14:59 ..
+-rw-r--r-- 1 anant 197609  5583 Oct 13 00:13 Architecture.md
+-rw-r--r-- 1 anant 197609  3014 Oct 13 16:16 Build Log.md
+-rw-r--r-- 1 anant 197609  6923 Oct 12 23:11 Build Prompts.md
+-rw-r--r-- 1 anant 197609  3407 Oct 12 23:11 Build Steps.md
+-rw-r--r-- 1 anant 197609  3754 Oct 13 00:13 Dashboard Build Hub.md
+-rw-r--r-- 1 anant 197609  5034 Oct 13 00:13 Front End and Visual System.md
+-rw-r--r-- 1 anant 197609 33543 Oct 13 00:13 Plugin Build Prompts.md
+-rw-r--r-- 1 anant 197609  3926 Oct 13 00:13 Private Use and Sharing.md
+-rw-r--r-- 1 anant 197609  6774 Oct 13 00:07 Reference - Obsidian API for This Build.md
+-rw-r--r-- 1 anant 197609  8389 Oct 12 23:10 Research - Obsidian Dashboard Methods.md
+-rw-r--r-- 1 anant 197609 12246 Oct 13 00:13 Research - Plugin Creation Guide.md
+-rw-r--r-- 1 anant 197609  4207 Oct 13 00:07 Review - Corrections to Earlier Notes.md
+-rw-r--r-- 1 anant 197609  4564 Oct 13 00:07 Sonnet 5.5 Prompt Rules.md
+-rw-r--r-- 1 anant 197609  4013 Oct 14 10:59 Verification and Risks.md
+---
+2026-07-08.md
+2026-09-26.md
+2026-10-05.md
+2026-10-12.md
+2026-10-19.md
+2026-10-25.md
+2026-10-26.md
+2026-10-27.md
+---
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Architecture.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Build Hub.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Build Log.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Decisions Log.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Plugin Retirement List.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Research - Outside Sources.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Research - The Plan Parallel Builds.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Carry Forward.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Dashboard Page.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Day Model and Streak.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Plans Feed.md"
+ D "40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Verification and Risks.md"
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la "D:/_Anant/20_Progress/Projects/the-plan-dashboard" | head -30; git -C "D:/_Anant/20_Progress/Projects/the-plan-dashboard" status --short; git -C "D:/_Anant/20_Progress/Projects/the-plan-dashboard" log --oneline | head
+```
+```
+total 212
+drwxr-xr-x 1 anant 197609      0 Oct 14 14:42 .
+drwxr-xr-x 1 anant 197609      0 Oct 13 14:54 ..
+drwxr-xr-x 1 anant 197609      0 Oct 26 15:59 .git
+-rw-r--r-- 1 anant 197609     69 Oct 13 14:54 .gitignore
+drwxr-xr-x 1 anant 197609      0 Oct 13 15:03 .preview-out
+drwxr-xr-x 1 anant 197609      0 Oct 14 14:42 .test-out
+drwxr-xr-x 1 anant 197609      0 Oct 13 16:00 dist
+-rw-r--r-- 1 anant 197609   1647 Oct 13 15:58 esbuild.config.mjs
+-rw-r--r-- 1 anant 197609 247154 Oct 13 19:51 main.js
+-rw-r--r-- 1 anant 197609    233 Oct 13 14:54 manifest.json
+drwxr-xr-x 1 anant 197609      0 Oct 13 14:55 node_modules
+-rw-r--r-- 1 anant 197609  46685 Oct 13 14:55 package-lock.json
+-rw-r--r-- 1 anant 197609   1009 Oct 13 15:58 package.json
+drwxr-xr-x 1 anant 197609      0 Oct 13 15:58 scripts
+drwxr-xr-x 1 anant 197609      0 Oct 13 15:55 src
+-rw-r--r-- 1 anant 197609   1836 Oct 13 15:04 styles.css
+drwxr-xr-x 1 anant 197609      0 Oct 14 10:51 tests
+-rw-r--r-- 1 anant 197609    580 Oct 13 14:54 tsconfig.json
+-rw-r--r-- 1 anant 197609    758 Oct 13 14:54 version-bump.mjs
+-rw-r--r-- 1 anant 197609     22 Oct 13 14:54 versions.json
+ M src/core/config.ts
+ M src/core/streak.ts
+ M tests/engine.test.ts
+a65a4ba Secrets guard: a bare word is not a file name
+23e6452 Add engine review modules, plan-cli, hooks and tests
+b744ba1 Dashboard plugin: engine, React view, tests
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "== 2026-10-27 headings and line shapes (no prose) =="; grep -nE '^(#|---|- \[)|::' 00_Live/Enumerate/Daily/2026-10-27.md | sed -E 's/(\] ).{0,0}.*/\1/' | head -70; echo; wc -l 00_Live/Enumerate/Daily/2026-10-27.md; echo "== src tree =="; find "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" -type f | sed 's#.*/src/#src/#'; echo "== Dashboards Hub =="; sed -n 1,80p "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"
+```
+```
+== 2026-10-27 headings and line shapes (no prose) ==
+1:---
+11:---
+12:# Did you get better today?
+14:## Morning Plan
+23:### 80
+32:### 20
+48:## Daily Wins
+56:## Daily Floor
+63:## Productivity
+68:## Just Write
+79:### Good Habits 
+80:- [ ] 
+81:- [ ] 
+82:- [ ] 
+83:### Bad Habits 
+86:## Tomorrow
+
+88 00_Live/Enumerate/Daily/2026-10-27.md
+== src tree ==
+src/cli/common.ts
+src/cli/plan-cli.ts
+src/cli/streak-cli.ts
+src/core/close.ts
+src/core/config.ts
+src/core/dates.ts
+src/core/grade.ts
+src/core/jarvis.ts
+src/core/model.ts
+src/core/parse.ts
+src/core/periods.ts
+src/core/review.ts
+src/core/sections.ts
+src/core/streak.ts
+src/core/tables.ts
+src/core/toggle.ts
+src/core/validate.ts
+src/data/repo.ts
+src/data/write.ts
+src/hooks/dailyValidator.ts
+src/hooks/paths.ts
+src/hooks/secretsGuard.ts
+src/hooks/types.ts
+src/hooks/writeGuard.ts
+src/main.ts
+src/settings.ts
+src/ui/App.tsx
+src/ui/charts.tsx
+src/ui/hooks.ts
+src/ui/sections.tsx
+src/ui/styles.ts
+src/view/DashboardView.tsx
+== Dashboards Hub ==
+---
+type: project
+status: sprout
+created: 2026-10-12
+tags:
+  - dashboard
+  - hub
+notes:
+  - "[[Research - Jarvis Dashboard Findings]]"
+  - "[[Decisions Log]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - AI Loop]]"
+  - "[[Spec - Automation Layers]]"
+  - "[[Build Plan]]"
+  - "[[Prompts]]"
+  - "[[Life OS]]"
+  - "[[Agentic OS Standard]]"
+  - "[[Agentic OS]]"
+next: "Run prompt R1, then B1 (see Build Plan)"
+---
+# Dashboards Hub
+
+The design record for The Plan's daily dashboard, streak system and AI loop, from the 2026-10-12 brainstorm. Jarvis owns work. The Plan owns personal growth: habits, health, money, learning, and one career line a day.
+
+## What is being built
+
+- **Home dashboard.** Opens on startup on desktop and phone. First thing seen: streak number and today's score ring.
+- **Monthly dashboard.** Month heatmap and grade, failure causes, plan, finance, health, and an overview of both vaults.
+- **Map canvas.** Exploration only, with real edges.
+- **Streak system.** Five categories (Morning, Study, Fitness, Mind, Career). A day counts at 3 of 5. One miss forgiven, two in a row break it.
+- **Daily note.** Redesigned around those categories. The only source of truth.
+- **AI loop.** Five skills, four agents, three hooks, one streak script, reference notes for every tool.
+- **Automation.** Daily, weekly and monthly layers, laid out and built later.
+
+## Notes in this folder
+
+| Note | Holds |
+|---|---|
+| [[Research - Jarvis Dashboard Findings]] | What Jarvis contains, what was weak, The Plan's current state |
+| [[Decisions Log]] | Every question and answer, plus items still to confirm |
+| [[Spec - Streak and Daily Note]] | Categories, rules, algorithm, daily note schema |
+| [[Spec - Home and Monthly Dashboards]] | Layouts, plugins, visual language, risks |
+| [[Spec - AI Loop]] | Skills, agents, hooks, toolkit, logging, `60_Jarvis` zones |
+| [[Spec - Automation Layers]] | Daily, weekly and monthly layers and their constraints |
+| [[Build Plan]] | Order, dependencies, gates, risks |
+| [[Dashboard Build Hub]] | How the Home dashboard is built: research, architecture, front end, stages, prompts (folder `Dashboard Build`) |
+| [[Prompts]] | One prompt per session |
+
+## Where the built system is documented (2026-10-13)
+
+The design above is built in part. The rules and procedures now live in `30_Order`, and this folder keeps the design record.
+
+| Question | Note |
+|---|---|
+| What are the rules of the daily note and the streak? | [[Daily Note Schema]], [[Streak Rule]] |
+| What does a weekly or monthly review measure, grade and write? | [[30_Order/Standards/Dashboards/Weekly Review|Weekly Review]], [[30_Order/Standards/Dashboards/Monthly Review|Monthly Review]] |
+| When is a review due and may it run alone? | [[Scheduled Review]] |
+| How is the assistant tooling organised and what may each part write? | [[Agentic OS Standard]] |
+| How are skills, agents and hooks built? | [[Skill Standard]], [[Agent Standard]], [[Hook Standard]] |
+| How do I run the loop? | [[Agentic OS]], [[Daily Dashboard]], [[How to Use Skills]] |
+| What does the engine do and how was it tested? | [[Reference - plan-cli]] |
+
+## Navigation
+
+The markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). The active dashboard is the private plugin view `the-plan-dashboard`, opened with the command "Open dashboard" ([[Reference - the-plan-dashboard]]). The links that page held are kept here.
+
+- **Entry points:** [[AI_CONTEXT]], [[AGENTS]], [[AI AGENT]], [[CLAUDE]], [[60_Jarvis/00_Control_Center/Jarvis Control Center|Jarvis Control Center]]
+- **Boards:** [[20_Progress/Projects/Projects Board|Projects Board]], [[20_Progress/UROP/BOOM Board|BOOM Board]], [[60_Jarvis/60_Jarvis Board|Jarvis Board]]
+- **Month:** the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]], and the [[Monthly Dashboard]] that reads the daily notes
+- **Map:** [[Map Canvas.canvas|Map canvas]] (domains, goals and the notes that own them). Not [[Map]], which is the `00_Live` index.
+
+## Principles
+
+1. Direct, factual language. No praise, no guilt.
+2. One source of truth. The daily note holds the data. Dashboards read.
+3. Computed, not typed. Every dashboard number comes from the daily notes.
+4. Minimal frontmatter. Ticking lists, not tables.
+5. Every tool has a reference note with its source.
+6. No unrequested writes. Anything that touches outside systems waits for approval.
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Daily\2026-10-27.md`
+- `Grep` -- pattern `registerView|ItemView|onClick|toggle|contentEditable|processFrontMatter|Vault.process|vault\.(modify|process)|isDesktopOnly` path `D:\_Anant\20_Progress\Projects\the-plan-dashboard\src`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,200p "40_Resources/Obsidian/Dashboards/Decisions Log.md" | tail -40; echo ======; sed -n 1,60p "40_Resources/Obsidian/Dashboards/Build Plan.md"
+```
+```
+| 20 | Five skills | startday, closeday, weekly-review, monthly-review, jarvis-dump | Skills are directories. |
+| 21 | Four agents | daily-auditor, review-analyst, skeptic, vault-curator. Cut career-operator and research-distiller. | Agents are folders or files by purpose. |
+| 22 | Hooks | Write guard, secrets guard, daily-note validator. Written to Anthropic's official spec. | Spec checked in prompt R1. |
+| 23 | CLAUDE.md | Thin pointer to AGENTS.md plus Claude-only specifics | One rule set. |
+| 24 | Home top | Streak number and score ring first | Then today's ticks, career and study lines. |
+| 25 | Logging | Four layers: daily note, review sections, decision register, AI session log (only with approval) | No new folders. |
+| 26 | `/jarvis-dump` | Copy, Jarvis untouched. Writes nowhere except the `60_Jarvis` landing folder. | Provenance frontmatter on every dumped note. |
+| 27 | Tool references | One reference note per tool in `30_Order/Standards/References/`, linked from the tool | Source URL, version checked, date. Path clarified 2026-10-13 to match [[Spec - AI Loop]] and the [[Tool Reference Template]]. |
+| 28 | Task intake | Reminders (phone), Todoist, Google Calendar (gupt0479@umn.edu), tasks typed in Obsidian | Three automation layers. See [[Spec - Automation Layers]]. |
+| 29 | Hour-one scope | Design the whole architecture. `30_Order` entirely, basic skills, agents and hooks laid out. Prompts for the later sessions. | Build is staged. See [[Build Plan]]. |
+| 30 | Automation | Not part of this build. Only the basic layer is laid out. | Slot reserved in the daily note. |
+| 31 | Score ring colours (2026-10-12, second session) | Red, golden orange, light dark green | Red under 3, golden orange at 3 and 4, green at 5. See [[Front End and Visual System]]. |
+| 32 | How forgiven days count | As lost days in the month | Adds 0 to streak length, never resets, counted in the month's lost days. |
+| 33 | Heatmap shading | Eye pleasing | Single green ramp, dashed outline on forgiven days. Fine detail decided on screen. |
+| 34 | Dashboard medium | Not a note, canvas, Kanban or drawing. Homepage opens it on launch. Research the latest Obsidian methods. | Proposed answer: a private plugin view. See [[Dashboard Build Hub]]. Needs Anant's go-ahead for S0. |
+| 35 | ISO rename done (2026-10-13) | Approved and executed. 27 daily notes `DD-MM-YYYY` to `YYYY-MM-DD`; `22-12-2025 and before` became `2025-12-22`; 4 monthly notes `MM-YYYY` to `YYYY-MM` (`2025-12`, `2026-01`, `2026-03`, `2026-06`). | Moved with `obsidian move`, so wikilinks updated. Dataview returns `file.day` for all 28 dailies (after a reindex, since Dataview does not reparse on rename). Two dead links to missing 23-12-2025 and 25-12-2025 were removed from `2025-W52`. Weekly and yearly names were already ISO-style. See [[Naming and Folder Map]]. |
+| 36 | Streak engine (2026-10-13, orchestration session) | The Node program `plan-cli`, built from the plugin's `core/`, is what skills, hooks and reviews call. `streak.py` stays as the reference and the test oracle. | Removes the Python path dependency. Parity tests keep the two equal. Replaces the earlier Proposed item. See [[Reference - plan-cli]]. |
+| 37 | Grade for weeks and months | Percent of counted days MET, plus a letter: A at 90, B at 75, C at 60, D at 40, F below | The bands are one table in `CONFIG.gradeBands`. A change goes through this log first. The percent stays the number of record. Confirmed by Anant on 2026-10-14: the same letter structure as the daily workflow, with the percent. |
+| 38 | Jarvis Review proposals | Accepted as written: outcomes promote, revise and reject; reject goes to deletion or `60_Jarvis/40_Archive` only after a yes; a promoted note gets `status: seed` or `sprout` and `reviewed: YYYY-MM-DD`; one review note per batch in `60_Jarvis/50_Reviews/Jarvis/`, written on request; `unreviewed` stays a one-folder status exception | See [[Jarvis Review]] and [[Jarvis Move]]. On 2026-10-14 Anant confirmed this as the base. It will be modified in detail after the process has run and been proven to work. |
+| 39 | Scope of the orchestration build | The base only: engine, CLI, hooks as a program, tests, agents, skills updated, standards and workflows. No new dashboard screens. | The Monthly and review views stay with B7. |
+| 40 | Review cadence and automation (revised 2026-10-14) | Unattended runs are scheduled tasks that fire by themselves at set times with no human yes or no. They are meant for repetitive, clearly defined, detailed processes, and for now for the weekly and monthly reviews only. The reviews are designed in detail, and their times and settings fixed, only after the manual process has run and been proven. The due times in [[Scheduled Review]] (weekly after the Sunday close, monthly on the 1st) are working defaults until then. | Nothing is scheduled and every review is manual today. Writes of an unattended run are limited to the review's own entry. An engine-only, read-only report is designed and not built. |
+| 41 | Milestone level titles (revised 2026-10-14) | The beginning (3), Toward 21 (7), Now it gets hard (21), Work pays off (66), Consistency, discipline, mindset (100) | Worded from Anant's own lines and shortened for the dashboard. They replace the earlier defaults Spark, Steady, Habit, Automatic and Centurion. They are in `CONFIG.milestoneTitles` and in [[Streak Rule]]. The dashboard does not show them yet. Change this row and the config together. |
+| 42 | Jarvis snapshot for the Monthly review | Jarvis writes it in its own vault. Anant brings it across with `/jarvis-dump`. Its file name contains "Snapshot" and the month label, for example `Jarvis Snapshot 2026-09.md`. `monthly-review` requests it and never produces it. | The engine matches the name in `60_Jarvis/10_Promoted_Notes`. |
+| 43 | Dumped copies and the promotion index | A source's existing `status` moves to `source_status` when `status: unreviewed` is added. The index's Dataview query points at `60_Jarvis/10_Promoted_Notes`. | The query path is fixed in [[Promoted From Jarvis Index]]. |
+| 44 | Hooks | The write guard, secrets guard and daily-note validator are one program, `plan-cli hook`. The guards fail closed. They are registered in `.claude/settings.json` only after Anant approves the diff in [[Hook Standard]]. | Registered on 2026-10-13 and verified live. |
+| 45 | Agents | `daily-auditor`, `review-analyst` and `skeptic` are single read-only files with `Read, Grep, Glob`, and the caller supplies engine output. `vault-curator` was rewritten, and `career-operator` and `research-distiller` were removed, on 2026-10-13 with Anant's approval. | See [[Agent Standard]]. |
+| 46 | The frozen month (2026-10-14) | A finished month stays inside the same `00_Live/Enumerate` folder and is not archived until a new year begins. Each 1st: learn (the review), improve (decide changes), plan ahead (a new month with a new plan, forgetting the previous 30 days). The daily notes of a finished month may be rearranged inside `Enumerate`. | Replaces the Proposed item "a frozen monthly recap is the archive". Where the daily notes are rearranged is not decided, and the engine reads only `Daily/`, so nothing moves until the engine accepts the new place. See [[30_Order/Standards/Dashboards/Monthly Review|Monthly Review]]. |
+| 47 | `00_Dashboard.md` retired (2026-10-14) | Anant asked for the markdown dashboard to be deleted, because the plugin view is the active dashboard. | The note was deleted. Its links were repointed to [[Dashboards Hub]], which now holds the navigation links. Homepage was already set to "Nothing". |
+| 48 | Best streak follows the spec (2026-10-14) | `best` counts closed days only, as in [[Spec - Streak and Daily Note]]. Today joins it the next day. | `streak.py` and the engine were changed together and the parity tests pass. The earlier `max(best, current)` is removed. The deployed plugin build keeps it until the plugin is next built. See [[Streak Rule]]. |
+| 49 | Workflow names and Dataview paths (2026-10-14) | The review workflows are named [[Run Weekly Review]] and [[Run Monthly Review]], so that no note shares a name with its standard. Dataview queries now point at folders that exist. | Links were rewritten. Fixed: the Jarvis Board, System Status, Enrichment Quality Dashboard, the project briefs board and the Enumerate Board. |
+| 50 | Hook code location (2026-10-14) | The three hooks stay inside `plan-cli.cjs` and are registered in `.claude/settings.json`. No scripts are created in `30_Order/System/hooks`. This settles the conflict between the early build prompt, which asked for scripts there, and Decisions 36 and 44. | One program shares the parser and path rules with the dashboard, has unit and built-bundle tests, and is already registered. Separate scripts would duplicate each rule and run twice per call. Changes go through the engine source, then `build:cli` and `deploy:cli`. See [[Hook Standard]]. |
+| 51 | Daily template is Better Today (2026-10-26) | `Daily Note.md` is deleted. [[Better Today]] is the template for daily notes, set in Periodic Notes with the formats `YYYY-MM-DD`, `gggg-[W]ww`, `YYYY-MM` and `YYYY`. The skills, the standards and the QuickAdd setup now name it. | The template does not yet carry the engine structure (`type: daily`, `## Targets` to `## Intake`, `[cat::]` lines), so the streak reads 0 until it does. See Template in [[Daily Note Schema]]. Open until Anant decides how the structure gets back into the template. |
+
+## Proposed, not yet confirmed
+
+- Plugin source lives in a separate repo outside the vault, built files copied in. See [[Architecture]].
+- Streak and ring colour hex values in [[Front End and Visual System]].
+- Multi-Column Markdown plugin dropped in favour of a CSS grid snippet.
+- Review records: `60_Jarvis/50_Reviews/Weekly` and `Monthly` hold a saved analysis only on request, `Dashboard` holds verification records, `Agentic OS` holds toolkit audits. See [[Agentic OS Standard]].
+- Google Calendar alarms for 8 am, 2 pm, 5:30 and the evening close: not decided. Anant raised the reminder and Todoist overlap instead. See [[Spec - Automation Layers]].
+======
+---
+type: project
+status: sprout
+created: 2026-10-12
+tags:
+  - dashboard
+  - build-plan
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Decisions Log]]"
+  - "[[Prompts]]"
+  - "[[The Plan Vault Architecture]]"
+next: "Run R1, then B1"
+---
+# Build Plan
+
+This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in [[Prompts]].
+
+## Order and dependencies
+
+| Step | Prompt | Slice | Needs | Gate before moving on |
+|---|---|---|---|---|
+| 0 | R1 | Research: official specs, automation transport, plugin state | Nothing | Findings note written; unknowns listed |
+| 1 | B1 | ISO rename of daily notes and the `30_Order` standards (note types, naming, daily schema, streak rule, folder map) | R1 | Every renamed note opens; all links resolve; standards reviewed by Anant |
+| 2 | B2 | Daily template, QuickAdd choices, streak script and its tests | B1 | Script output matches hand-computed streak on sample notes |
+| 3 | B3 | Home dashboard and CSS | B2 | Home renders on desktop and phone; ticking writes back; numbers equal the script |
+| 4 | B4 | The five skills (directories) | B1, B2 | Each skill dry-run on a sample day; reference notes exist |
+| 5 | B5 | Four agents and three hooks, plus `settings.json` | R1, B1 | Hook tests: blocked cases blocked, allowed cases allowed |
+| 6 | B6 | `60_Jarvis` zones README, `CLAUDE.md` rewrite, `AGENTS.md` reconciliation, `jarvis-dump` | B4, B5 | No stale paths; one rule set |
+| 7 | B7 | Monthly dashboard and the Map canvas | B3 | Monthly renders; canvas has edges |
+| 8 | B8 | Plugin audit and phone test, sync-collision check | B3 | Written pass/fail list for desktop and phone |
+| 9 | A1 | Automation layers (later, not in this build) | All above, R1 | Separate plan |
+
+## Update 2026-10-12 (second session)
+
+Step 3 (B3, Home dashboard and CSS) is replaced by stages S0 to S6 in [[Dashboard Build Hub]]. The Home is a private plugin view, not a markdown note. B2's streak script becomes the shared engine module.
+
+## This session (done in the hour)
+
+- Research of Jarvis and The Plan: [[Research - Jarvis Dashboard Findings]].
+- Every question answered: [[Decisions Log]].
+- Specs: [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - AI Loop]], [[Spec - Automation Layers]].
+- Prompts for every later session: [[Prompts]].
+- Nothing outside this folder was written or moved.
+
+## Next-day target
+
+Finish B1 to B3 so the daily note, the streak and the Home page exist. Everything else follows in the order above.
+
+## Risks to watch
+
+1. **Rename breakage.** The ISO rename touches every daily note. Use link-aware moves and verify links after.
+2. **Scope creep.** Each prompt says to stop when its slice is done and to mention extras instead of building them.
+3. **Drift between script and dashboard.** One test, run in B3.
+4. **Unverified plugin state.** Do B8 early if Home misbehaves.
+5. **Sync collisions.** Obsidian Sync, git auto-sync and any Syncthing must not write the same files.
+6. **Secrets.** `40_Resources/CS/Links.md` still lists a Keys section. Rotate and strip it separately; no prompt here reads it.
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -9263,12 +9816,10 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -la --time-style=long-iso "40_Resources/Obsidian/Dashboard" "40_Resources/Obsidian/Dashboard"/* | head -60; echo ---; sed -n 120,260p 00_Dashboard.md; echo ---; ls "10_Areas/Life/Plans/Fall 2026" "10_Areas/Life/Plans/Summer 2026" 20_Progress/Mentorship\ Program 20_Progress/Internship 20_Progress/Degree 20_Progress/Projects 2>&1 | head -70`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard" && cat "Jarvis Build Overview.md"; echo =====; sed -n 1,60p "The Plan Overview.md"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans/Fall 2026" && sed -n 1,200p "Fall 2026 - The One Thing.md" | head -70; echo ====; grep -n "^#" "Fall 2026 Plan.md" "Weekly Rhythm.md" "Anti-Drift Rules.md" "LeetCode & CodePath.md" "Fall 2026 Builds.md"`
-- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis "The Plan" 2>/dev/null | grep -v "50_Archive\|\.git/" | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"; echo ---; python3 - <<'E' 2>/dev/null || node -e 'const c=JSON.parse(require("fs").readFileSync("Jarvis/10_Areas/Jarvis OS Dashboard.canvas","utf8"));console.log(c.nodes.length+" nodes, "+(c.edges||[]).length+" edges");console.log(c.nodes.map(n=>n.type+":"+(n.text||n.file||n.label||"").slice(0,60).replace(/\n/g," ")).join("\n"))'
-E
-ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'`
+- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis "The Plan" 2>/dev/null | grep -v "50_Archive\|\.git/" | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"; echo ---; python3 - <<'E' 2>/dev/null || node -e 'const c=JSON.parse(require("fs").readFileSync("Jarvis/10_Areas/Jarvis OS Dashboard.canvas","utf8"));console.log(c.nodes.length+" nodes, "+(c.edges||[]).length+" edges");console.log(c.nodes.map(n=>n.type+":"+(n.text||n.file||n.label||"").slice(0,60).replace(/\n/g," ")).join("\n"))' E ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'`
 - `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources "The Plan/00_Live" "The Plan/30_Order" "The Plan/40_Resources" 2>/dev/null | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in .obsidian/plugins/*/; do n=$(basename $d); v=$(node -e 'try{console.log(require("./'$d'manifest.json").version)}catch(e){console.log("?")}'); echo "$n $v"; done; echo ---; node -e 'const d=require("./.obsidian/plugins/lazy-plugins/data.json");console.log(JSON.stringify(d.desktop||d,null,0).slice(0,1500))'; echo ---; cat .obsidian/core-plugins.json | tr -d '\n ' | head -c 700; echo; ls .obsidian/snippets; cat .obsidian/appearance.json | tr -d '\n '`
-- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15````
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find 30_Order -name "Note Type Registry.md" | head -1); echo "$f"; grep -n "reference\|project\|prompt\|build" "$f" | head -30; ls 30_Order/Templates | head -40; ls 40_Resources/Obsidian/Dashboard/"Jarvis Builds"/Ran; ls 20_Progress/Projects/"Jarvis & The Plan" 2>&1 | head`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n "obsidian\|claude\|^\*\|^!" .gitignore | head -30; ls 30_Order/System 2>/dev/null; ls 30_Order/System/sync-workflow 2>/dev/null | head; git remote -v | head -2`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -name "Agent Prompt Standard.md" -o -name "Spec and Plan Standard.md" -o -name "Frontmatter Standard.md" -o -name "Project Spec Template.md" -o -name "Project Plan Template.md" -o -name "Agent Prompt Template.md" -o -name "Prompt Cycle.md" -o -name "Conformance Standard.md" | head; `
@@ -9288,6 +9839,9 @@ ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/se
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=160 --format='%h %s' fb8f157 | head -30; echo ---; echo "Plan daily template headings:"; grep -n "^#\|^created\|^[a-z_]*:" "30_Order/Templates/Daily Dashboard/Better Today.md" | head -40; echo ---; echo "Schema headings:"; grep -n "^#" "30_Order/Standards/Dashboards/Daily Note Schema.md" | head -30; echo ---; grep -rniE "time log|time-log|timelog|time spent|stopwatch|clockify|toggl\b" --include=*.md 00_Live 30_Order 40_Resources/Obsidian 60_Jarvis 2>/dev/null | grep -vi "toggle" | cut -c1-200 | head -10; echo "(blank above = no time-log design notes)"; echo ---; ls 00_Live/Enumerate/Daily | tail -5; echo; ls 00_Live | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "headings of today's Plan daily note:"; grep -n "^#\|^created\|^type\|^thought_kind\|cat::" "00_Live/Enumerate/Daily/2026-10-26.md" | cut -c1-90 | head -30; echo "cat:: lines:"; grep -c "cat::" "00_Live/Enumerate/Daily/2026-10-26.md"; echo ---; git show fb8f157 -- "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Daily Dashboard.md" | grep "^[+-]" | grep -v "^+++\|^---" | cut -c1-260; echo ---; echo "Plan periodic notes daily template now:"; grep -o '"daily": *{[^}]*}' .obsidian/plugins/periodic-notes/data.json | cut -c1-260`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^| 51\|^| 52\|^| 53" "40_Resources/Obsidian/Dashboards/Decisions Log.md" | cut -c1-1800; echo ---; sed -n '/^## Template/,/^## Frontmatter/p' "30_Order/Standards/Dashboards/Daily Note Schema.md" | cut -c1-1500`
-- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && echo "files: $(ls *.md | wc -l)"; echo "--- em/en dashes:"; grep -c "[—–]" *.md | grep -v ":0" || echo none; echo "--- '---' lines per file (expect 2):"; for f in *.md; do echo "$(grep -c '^---$' "$f") $f"; done | sort | uniq -c -w2; echo "--- frontmatter required keys (type,status,created,updated,tags):"; for f in *.md; do for k in type status created updated tags; do head -30 "$f" | grep -q "^$k:" || echo "MISSING $k in $f"; done; done; echo "--- in-folder links unresolved:"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "unresolved: $n"; done; echo "--- required headings:"; for f in Jarvis\ Spec*.md Jarvis\ Architecture.md; do for h in "What This Is" "Current State" "Non-Goals"; do grep -q "^## $h" "$f" || echo "$f lacks $h"; done; done; for h in Goal Sequence "Open Questions"; do grep -q "^## $h" "Jarvis Build Hub.md" || echo "Hub lacks $h"; done; echo "--- stale phrases:"; grep -n "Decide\b\|iPhone 15\|\[>\] carried\|Prompts.md is not written\|jarvis-cli\`" *.md | cut -c1-140 | head -20; echo "--- decision refs D1-D45 used vs defined:"; grep -oh "D[0-9][0-9]*" *.md | grep -v "^D1$" | sort -u | tr '\n' ' '`
-
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && echo "files: $(ls *.md | wc -l)"; echo "--- em/en dashes:"; grep -c "[—–]" *.md | grep -v ":0" || echo none; echo "--- '---' lines per file (expect 2):"; for f in *.md; do echo "$(grep -c '^---$' "$f") $f"; done | sort | uniq -c -w2; echo "--- frontmatter required keys (type,status,created,updated,tags):"; for f in *.md; do for k in type status created updated tags; do head -30 "$f" | grep -q "^$k:" || echo "MISSING $k in $f"; done; done; echo "--- in-folder links unresolved:"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "unresolved: $n"; done; echo "--- required headings:"; for f in Jarvis\ Spec*.md Jarvis\ Architecture.md; do for h in "What This Is" "Current State" "Non-Goals"; do grep -q "^## $h" "$f" || echo "$f lacks $h"; done; done; for h in Goal Sequence "Open Questions"; do grep -q "^## $h" "Jarvis Build Hub.md" || echo "Hub lacks $h"; done; echo "--- stale phrases:"; grep -n "Decide\b\|iPhone 15\|\[>\] carried\|Prompts.md is not written\|jarvis-cli\`" *.md | cut -c1-140 | head -20; echo "--- decision refs D1-D45 used vs defined:"; grep -oh "D[0-9][0-9]*" *.md | grep -v "^D1$" | sort -u | tr '\n' ' '``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la "40_Resources/Obsidian/Dashboards" "40_Resources/Obsidian/Dashboards/Dashboard Build" 2>&1 | head -80; echo ---; ls 00_Live/Enumerate/Daily | tail -8; echo ---; git status --short | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && ls -la "D:/_Anant/20_Progress/Projects/the-plan-dashboard" | head -30; git -C "D:/_Anant/20_Progress/Projects/the-plan-dashboard" status --short; git -C "D:/_Anant/20_Progress/Projects/the-plan-dashboard" log --oneline | head`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "== 2026-10-27 headings and line shapes (no prose) =="; grep -nE '^(#|---|- \[)|::' 00_Live/Enumerate/Daily/2026-10-27.md | sed -E 's/(\] ).{0,0}.*/\1/' | head -70; echo; wc -l 00_Live/Enumerate/Daily/2026-10-27.md; echo "== src tree =="; find "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" -type f | sed 's#.*/src/#src/#'; echo "== Dashboards Hub =="; sed -n 1,80p "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n 1,200p "40_Resources/Obsidian/Dashboards/Decisions Log.md" | tail -40; echo ======; sed -n 1,60p "40_Resources/Obsidian/Dashboards/Build Plan.md"`
 

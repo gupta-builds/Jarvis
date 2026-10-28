@@ -1,5 +1,7 @@
-﻿---
-type: index
+---
+type: generated
+generator: claude-session-exporter
+gen_kind: index
 ---
 
 ```dataviewjs

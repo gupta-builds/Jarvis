@@ -6,7 +6,7 @@ source_os: windows
 title: "Dell laptop startup optimization"
 started_at: 2026-10-27T21:47:09
 ended_at: 2026-10-28T16:14:53
-exported_at: 2026-10-28T20:30:02
+exported_at: 2026-10-28T21:30:02
 duration_minutes: 1107.7
 project: Home
 cwd: 'C:\Users\Anant Gupta'

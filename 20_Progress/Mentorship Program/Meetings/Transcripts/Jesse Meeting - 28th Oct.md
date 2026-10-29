@@ -1,23 +1,21 @@
 ---
 type: input
 status: seed
-created:
-input_kind: transcript
-source_url:
-related_progress: []
+created: 2026-10-28
+updated: 2026-10-28
 tags:
   - transcript
-next:
+input_kind: transcript
+related_progress:
+  - "[[Plan - Jesse]]"
+  - "[[Google Doc - First Meeting]]"
+next: Write the brief and the action note with the Meeting Workflow
 ---
 # Jesse Meeting - 28th Oct
-
-**Captured:** 2026-10-28
-**Source:**
-
+**Date:** 2026-10-28, scheduled 4:30 to 5:15 pm CT
+**Participants:** Anant Gupta, Jesse (mentor, CSE Mentorship Program)
+**Captured with:** Flow. The call started on Zoom and moved to Google Meet after Jesse's audio broke up. The recording kept running into the AIIS club meeting that followed; that part was cut after "See you. Have a great day."
 ## Raw Transcript
-
-Paste the untouched transcript below, inside the fence. Do not edit, clean, or summarize here — this file is the raw capture. Summarization happens in the linked brief once `/transcript-to-brief` runs.
-
 ```
 Them: Hey, can you hear me now?
 You: Hey, Jesse.
@@ -554,148 +552,4 @@ Them:  All right. See you later.
 Them:  Bye.
 You:  Perfect. All right.
 You:  See you. Have a great day.
-You:  Yo.
-Them:  So man, I don't—
-You:  Good, bro. We'll be you.
-You:  How's your week been?
-Them:  It's good.
-Them:  Yeah.
-You:  You look sleepy, bro.
-Them:  I yeah, the, the midterm
-You:  Oh.
-Them:  finished last week. So I'm just like didn't feel like doing anything.
-You:  Got a lot of midterms. Last week.
-You:  This week.
-Them:  Or like last two weeks, it was like there was multiple at once.
-Them:  So—
-You:  Oh, that's rough. Yeah.
-You:  We got a project due. Is it NAF?
-You:  NAF? Are you listening?
-Them:  Don't, don't get me started with the project, bro.
-You:  No. I'm picky.
-You:  He's here. Bro.
-Them:  I was supposed to finish it today.
-You:  Did you did you start the project? You were supposed to finish it today.
-You:  That's crazy. That's crazy.
-Them:  That was the plan. Then I got tired and I'm like, I didn't do anything.
-You:  Mm. I.
-You:  Got a second. I got to get working on it, bro.
-Them:  But let me let me look. Uh, bro, we'll just do the same thing if worse comes to worst.
-Them:  Did they they didn't release great for us, did they?
-You:  Yeah. The project one is not out yet.
-You:  No.
-Them:  Yeah. Um,.
-Them:  I will.
-Them:  Tomorrow.
-Them:  Kind of don't have time.
-Them:  I'll try to shoot it. I'll try to do let's do Friday, right?
-You:  Yeah. It's due Friday.
-Them:  Want to meet Friday afternoon? I have another project meeting in the morning.
-Them:  All right.
-You:  Okay. Friday sounds great.
-Them:  Like around 5:00-ish.
-Them:  Okay.
-You:  Friday. Yeah.
-You:  Perfect.
-Them:  When is it do it is due Friday, isn't it?
-Them:  Yeah, it's due Friday.
-You:  30th. Yeah.
-Them:  Yeah.
-You:  And June Friday. 30th. Yeah.
-You:  It's okay, bro. We got this.
-You:  We'll finish it up.
-Them:  How did the midterm go by the way, bro?
-Them:  All right, good job.
-You:  Bro. I I screwed it.
-You:  I screwed up the 5,000 level course. Bro, it's
-Them:  Joy is up? That's beautiful.
-You:  joy. Do you remember joy from 4041?
-You:  Yeah. I screwed it up, bro.
-You:  I screwed it up.
-Them:  You sc you screwed up her course.
-Them:  How?
-You:  Yeah.
-Them:  No.
-You:  Bro, the midterm is like 40% of the grade. And there were seven long questions.
-Them:  Mm-hmm.
-You:  And the lecture is two hours long. So it's a 120-minute lecture.
-You:  And you write seven long questions. And they're all like one sheet of paper.
-Them:  Each question? That's diabolical, bro.
-You:  Bro, that's diabolical. That's diabolical.
-You:  So I don't I don't know how much I'm going to get on it. But let's see.
-You:  Hopefully, it's not bad.
-Them:  I mean, she I think they'll they got to agree with that linea, very linea.
-You:  Yeah. Hopefully.
-You:  Bro, we.
-Them:  No.
-You:  Got 4061 midterm next week.
-Them:  It's the week after.
-Them:  Yeah, week 10.
-You:  Is it week after? Oh.
-You:  Save. Save.
-You:  Save.
-Them:  Yeah, I looked it up 'cause I I I had another midterm next week.
-You:  No. That's rough.
-Them:  We'll see how this one goes. Might have to drop that course, bro.
-Them:  Databases?
-You:  Databases. Oh, that's a rough one.
-You:  That's a rough one. Are you taking with that guy that, uh, Jaydeep Srivastava?
-Them:  Oh, fuck oh, sorry. Dude, I did the homework, but I forgot to submit it.
-Them:  What type of BS is this?
-Them:  I'll email them, bro.
-Them:  It's okay. It's 1% of the course, but still.
-You:  Mm. But like these these things matter, bro.
-Them:  Yeah, but they matter. They had a—
-You:  His passion.
-Them:  And there hasn't been. What's going on?
-You:  How about we have like a every meeting agenda? Like I don't think we have like something written out for this meeting.
-You:  How about we have that from the next meeting? Like we got to have these things figured out these meetings.
-You:  How does that sound?
-Them:  Sounds beautiful. Seems like you have a good idea.
-You:  Okay. Let me get working on that.
-Them:  Is Dars gonna be here today or should we just start?
-Them:  Uh, I think I don't know about Dars, but I said he's gonna come in like 5 minutes.
-Them:  Okay.
-Them:  So I'll just wait for him and I guess we can just start.
-Them:  You want to talk through kind of what we want to discuss today? Maybe like what we want to like put together impromptu agenda for today?
-Them:  Low-key probably like finance and that's—
-Them:  And that's probably mostly it. Okay.
-Them:  Cool. The only thing that came to mind on my end was reserving a room for the 11th.
-Them:  Yeah, I'm already on it. I already sent them a message.
-Them:  Great. Yeah, then we're chilling.
-Them:  Yeah.
-You:  Sweet. I sent over the Google Doc.
-You:  Mm. The meeting agenda.
-Them:  Do we want to touch on marketing at all?
-Them:  Price department?
-Them:  Uh, marketing?
-Them:  No.
-Them:  I mean, like we we don't we really can't do anything un-until like within like at least two two weeks. Before the events.
-Them:  Sounds good.
-Them:  I figure we could put together a plan too, just so we don't get to the point where it's like less than a week and we haven't done much.
-You:  So we're booking the room out for Vigiline. The one—
-You:  Yeah. I don't think I'm going to calendar which Vigiline are we talking about?
-Them:  On the 11th, uh, I think it's people day.
-You:  No. Day 11th.
-Them:  It's the one that got re-rescheduled, right?
-Them:  That was on the 28th, but got rescheduled.
-You:  Okay.
-Them:  I think Dars might have put it in the calendar in blank, but don't call him up.
-You:  It says
-Them:  Yeah.
-You:  unsupervised learning and transformer architecture.
-Them:  It's that one, I believe.
-You:  Okay.
-Them:  Oh, was the program the school email?
-Them:  Hi.
-You:  Hey, Amal. Yeah.
-You:  Um, we're
-Them:  Okay.
-You:  just discussing things on this Google Doc. So if you want to take a look at it.
-Them:  I was trying to join all day. I couldn't join so I was wondering why.
-Them:  Yeah.
-You:  Join this Google Meet. Uh.
-You:  Not too many links.
-Them:  Uh, once I comes back, I guess we can start.
-Them:  Hi guys.
 ```

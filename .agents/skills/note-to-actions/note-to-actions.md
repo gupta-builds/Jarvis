@@ -16,8 +16,8 @@ When this skill is invoked:
 
 Before drafting, read:
 
-- `30_Order/Standards/Action Standard.md`
-- `30_Order/Workflows/Brief to Action.md`
+- `30_Order/Workflows/Ingestion/Meeting Workflow.md` (this skill runs steps 6 to 8)
+- `30_Order/Standards/Ingestion/Action Standard.md`
 - `30_Order/Templates/Capability/Action Template.md`
 - `HUMAN_WRITING.md`
 
@@ -54,7 +54,7 @@ Check for a sibling folder next to the source's folder whose name suggests actio
 
 ### 7. Set Frontmatter and Close Out
 
-Set `type: action`, `status: active`, `source_note:` pointing at the source (filename with extension, no path), `related_progress:`, and `next:` — the single statement to close out first.
+Set `type: action`, `status: active`, `source_note:` as a quoted wikilink to the source (filename only, no path), `related_progress:`, and `next:` — the single statement to close out first.
 
 Link the action note back into the source note's `## Follow-Up Actions` (or equivalent) section if the source is a brief.
 

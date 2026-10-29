@@ -16,8 +16,9 @@ When this skill is invoked:
 
 Before drafting, read:
 
-- `30_Order/Standards/Brief Standard.md`
-- `30_Order/Workflows/Transcript to Brief.md`
+- `30_Order/Workflows/Ingestion/Meeting Workflow.md` (this skill runs steps 3 to 5)
+- `30_Order/Standards/Ingestion/Transcript Standard.md`
+- `30_Order/Standards/Ingestion/Brief Standard.md`
 - `30_Order/Templates/Capability/Brief Template.md`
 - `HUMAN_WRITING.md`
 
@@ -25,7 +26,7 @@ Before drafting, read:
 
 If a path was given, use it. Otherwise ask which note holds the transcript, or use the active file if it's clearly a transcript (raw pasted conversation, `type: input`).
 
-If the transcript is pasted as loose text with no note yet, save it first using `30_Order/Templates/Frontmatter/For Transcript.md` — `type: input`, `status: seed`, `input_kind: transcript`. Never edit the raw text once saved.
+If the transcript is pasted as loose text with no note yet, save it first with `30_Order/Templates/Capability/Transcript Template.md` (step 1 of the Meeting Workflow). Never edit the raw text once saved, except to cut a different conversation the recording caught, and name the cut.
 
 ### 2. Read Fully Before Asking Anything
 
@@ -63,7 +64,7 @@ Check for a sibling folder next to the transcript's folder whose name suggests b
 
 ### 7. Set Frontmatter and Close Out
 
-Set `type: input`, `status: sprout`, `input_kind: transcript`, `source_note:` pointing at the transcript (filename with extension, no path), `related_progress:`, and `next:` pointing at running `/note-to-actions` against this brief.
+Set `type: input`, `status: sprout`, `input_kind: brief`, `source_note:` as a quoted wikilink to the transcript (filename only, no path), `related_progress:`, and `next:` pointing at running `/note-to-actions` against this brief, or `None` with the reason if the meeting needs no action note. Set the transcript's `next` to the brief and its status to `sprout`.
 
 Append a one-line entry to `60_Claude/07_AI_Information/Session Logs/log.md`.
 

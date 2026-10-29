@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-05-31
-updated: 2026-10-16
+updated: 2026-10-28
 tags:
   - system
   - workflow
@@ -33,13 +33,12 @@ produce      outputs next to the project they serve
 ## Ingestion and projects
 | Workflow | Use when | Serves |
 |---|---|---|
-| [[Brief to Action]] | A brief or dense note exists, its topics are understood, and each needs a concrete next step. | [[Action Standard]] |
 | [[Brief to Progress]] | A plan, spec, or meeting brief is ready to become active work the dashboard tracks. | [[Project Standard]] |
 | [[Conversations Loop]] | Weekly, during the AI tools review, and whenever capture looks wrong. | [[Conversations]] |
+| [[Meeting Workflow]] | A meeting, call, or conversation has been recorded and needs its transcript, and its brief and action note if it earned them. | [[Brief Standard]] |
 | [[PDF Extraction]] | A PDF needs its content pulled into the vault before a source summary or textbook note is written. | [[PDF Extraction Standard]] |
 | [[Plan Review Cadence]] | A daily or weekly skill runs where a type plan note exists, or a new plan is created. | [[Plan Standard]] |
 | [[Summary to Distilled]] | A concept recurs across summaries, or one summary holds an idea worth owning. | [[Evergreen Standard]] |
-| [[Transcript to Brief]] | A transcript of people talking is in the vault and worth turning into decisions and threads. | [[Brief Standard]] |
 ## Enrichment and writing
 | Workflow | Use when | Serves |
 |---|---|---|

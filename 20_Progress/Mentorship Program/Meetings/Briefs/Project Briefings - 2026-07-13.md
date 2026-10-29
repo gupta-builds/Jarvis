@@ -1,10 +1,10 @@
 ---
 type: input
 status: sprout
-input_kind: transcript
+input_kind: brief
 created: 2026-07-14
-updated: 2026-08-08
-source_note: Mentor Meeting Transcript.md
+updated: 2026-10-28
+source_note: "[[Mentor Meeting Transcript]]"
 tags:
   - mentorship
   - brief

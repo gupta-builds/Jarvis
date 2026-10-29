@@ -92,8 +92,8 @@ Reply with: the baseline counts; the routing rules as written; the test results 
 </report>
 ````
 ## Run Record
-- Ran:
-- Result:
-- Reviewed by owner:
+- Ran: 2026-10-28, Sonnet 5.5, in the Jarvis directory on the Acer. The owner approved the dry-run plan at the step 7 gate.
+- Result: all twelve steps done. Routing now comes from `capture-projects.json`; the exporter has `-Force`; `check-capture-coverage.ps1` and `reroute-acer-notes.ps1` exist. `run-all-tests.ps1` passes 12 of 12 (six test files, both shells). Of 129 transcripts, 103 have an assistant turn and each has one note in the right folder; the other 26 have none, as designed. The tree holds Jarvis 83, The Plan 20, Home 17, UMN Courses 5, Scratch 1. 8 files moved and 28 archived to `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22` (36-row SHA-256 manifest); 8 folders retired. Transcripts were 129 before and after every step. One departure from step 7(b): the two live Code sessions had their `.exported` markers archived so the exporter would regenerate them in UMN Courses. After the run the 22:03 backfill task returned 0 and the coverage script still passed. Report line is in [[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]].
+- Reviewed by owner: pending. To confirm: the `Scratch` folder (holds the `denytest` note only).
 ## Related Notes
 [[20_Progress/Projects/AI Use/Conversations/Legacy Layout and Archives|Legacy Layout and Archives]], [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]], [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]], [[20_Progress/Projects/AI Use/Conversations/Platform Coverage|Platform Coverage]].

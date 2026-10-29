@@ -27,10 +27,10 @@ notes:
 [[For Inputs]]
 [[For Progress]]
 [[For Thoughts]]
-[[For Transcript]]
 # Capability
 [[Clipping Distill Template]]
 [[MOC Template]]
+[[Transcript Template]]
 [[Brief Template]]
 [[Action Template]]
 # Classes

@@ -14,10 +14,10 @@ model: claude-sonnet-5
 # note-to-actions
 
 ## Purpose
-Agent wrapper around the existing `/note-to-actions` skill (`.claude/skills/note-to-actions.md`). Per Anant directly: "an agent that converts any note into actionable statements and a new note — for having a detailed understanding of the task at hand that needs to be done." Where the skill defines the mechanics, this agent is the isolable entry point for running it as a subagent when the source note is long enough that reading it fully would otherwise flood the main window.
+Agent wrapper around the existing `/note-to-actions` skill (`.claude/skills/note-to-actions/note-to-actions.md`), which runs steps 6 to 8 of [[Meeting Workflow]]. Per Anant directly: "an agent that converts any note into actionable statements and a new note — for having a detailed understanding of the task at hand that needs to be done." Where the skill defines the mechanics, this agent is the isolable entry point for running it as a subagent when the source note is long enough that reading it fully would otherwise flood the main window.
 
 ## Relationship to the skill
-Does not duplicate the skill's instructions — invokes `.claude/skills/note-to-actions.md` per its own `type: action` note format (statements only, no checkboxes).
+Does not duplicate the skill's instructions — invokes `.claude/skills/note-to-actions/note-to-actions.md` per its own `type: action` note format (statements only, no checkboxes).
 
 ## Status
 Scaffold — the skill is real; this agent formalizes it as a subagent per the North Star's agent standard.

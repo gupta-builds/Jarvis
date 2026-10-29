@@ -1,8 +1,9 @@
 ---
-type: project
+type: action
 status: active
 created: 2026-07-13
-updated: 2026-08-08
+updated: 2026-10-28
+source_note: "[[Project Briefings - 2026-07-13]]"
 related_progress:
   - "[[Project Briefings - 2026-07-13]]"
   - "[[Mentor Meeting Playbook]]"
@@ -13,7 +14,6 @@ related_progress:
   - "[[Mentor Details'25]]"
   - "[[Codebase Deep Read]]"
 tags:
-  - "#progress"
   - mentorship
 next: Track the adx GitHub-issue decision here once [[Codebase Deep Read]]'s review is ready to act on.
 ---

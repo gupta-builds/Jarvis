@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-08-08
-updated: 2026-10-16
+updated: 2026-10-28
 tags:
   - system
   - standards
@@ -12,23 +12,24 @@ tier: 1
 maps_to:
   - "[[Brief Template]]"
 used_by:
-  - "[[Transcript to Brief]]"
+  - "[[Meeting Workflow]]"
 gold_standard: "[[20_Progress/Mentorship Program/Meetings/Briefs/Project Briefings - 2026-07-13|Project Briefings - 2026-07-13]]"
 notes:
+  - "[[Transcript Standard]]"
   - "[[Action Standard]]"
   - "[[Spec and Plan Standard]]"
   - "[[HUMAN_WRITING]]"
 ---
 # Brief Standard
-==A brief compresses a transcript into what was decided and what actually mattered. It is not a second transcript and it is not a task list.==
-This is the standard for a note built from a transcript of people talking: a meeting, a call, a video, or a written exchange. The raw transcript is its own note (`input_kind: transcript`) and is never edited. A project plan or spec is not a brief even when it sits in `40_Project_Briefs/`; those are [[Spec and Plan Standard]] notes. A summary of an AI conversation is a [[Conversations]] note.
+==A brief compresses one transcript into what was decided and what actually mattered. It is not a second transcript and it is not a task list.==
+This is the standard for the note [[Meeting Workflow]] makes from a [[Transcript Standard]] note. A meeting gets a brief when it carried a decision or a thread worth keeping; otherwise its transcript stands alone. A project plan or spec is not a brief even when it sits in `40_Project_Briefs/`; those are [[Spec and Plan Standard]] notes. A summary of an AI conversation is a [[Conversations]] note.
 ## Spec
 ```json
 {
   "family": "brief",
   "tier": 1,
   "match": {"type": "input", "kind": "brief", "path": "^(20_Progress|10_Areas|60_Claude/40_Project_Briefs)/", "where": {}, "where_not": {}},
-  "legacy_match": [{"type": "input", "path": "^20_Progress/Mentorship Program/Meetings/Briefs/", "where": {"input_kind": "transcript"}}],
+  "legacy_match": [{"type": "input", "path": "^(20_Progress|10_Areas)/.*/Briefs/", "where": {"input_kind": "transcript"}}],
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "input_kind", "source_note", "next"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "source_note": "wikilink"},
@@ -38,11 +39,11 @@ This is the standard for a note built from a transcript of people talking: a mee
 ```
 ## Headings
 ### Frontmatter
-`type: input`, `input_kind: brief`, `status: sprout`. `source_note` is a quoted wikilink to the raw transcript, filename only, no folder path. `related_progress` lists the projects it touches. `next` is the pointer to the `/note-to-actions` pass, or to the action note if one exists.
+`type: input`, `input_kind: brief`, `status: sprout`. `source_note` is a quoted wikilink to the transcript, filename only, no folder path. `related_progress` lists the projects it touches. `next` is the action note as a wikilink once one exists; before that it is the `/note-to-actions` pass, or `None` with the reason.
 > [!WARNING]
 > `source_note` pointing at a transcript that does not exist, or at a folder path.
 ### Source lines
-`**Source:**`, `**Transcript:**`, `**Date of conversation:**` directly under the title. Metadata only. If the filename date differs from the meeting date, say so on the date line.
+`**Source:**` (the meeting in a few words: who, what, where), `**Transcript:**` (a wikilink), `**Date of conversation:**`, directly under the title. Metadata only. If the filename date differs from the meeting date, say so on the date line.
 ### What This Was
 One to three sentences: what kind of conversation, who was in it, and any known limit such as unreliable speaker labels.
 ### What Was Decided
@@ -55,9 +56,9 @@ One `###` per substantive topic, ordered by what mattered most. Bold key names o
 ### Open Questions
 `- [ ]` tasks: unresolved threads, passages too garbled to write up, and context the transcript assumed that the vault lacks.
 ### Follow-Up Actions
-`- [ ]` high-level next steps only. The linked breakdown is an [[Action Standard]] note.
+`- [ ]` high-level next steps only. Link the [[Action Standard]] note that breaks them down; when none is needed, one line says so.
 ### Related Notes
-Verified wikilinks only, including the action note when one exists.
+Verified wikilinks only, including the transcript and the action note when one exists.
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
@@ -69,6 +70,7 @@ Verified wikilinks only, including the action note when one exists.
 - The raw transcript is untouched and `source_note` resolves to it.
 - Reopening the transcript would not reveal a decision or thread this brief missed.
 - Every garbled or ambiguous passage is named in Open Questions, not guessed.
+- Follow-Up Actions links the action note, or says none is needed.
 - The note passes [[Vault Lint]] for the `brief` family.
 ## Gold Standard Example
-[[20_Progress/Mentorship Program/Meetings/Briefs/Project Briefings - 2026-07-13|Project Briefings - 2026-07-13]]: a framing line about unreliable speaker labels, decisions with bold labels, ordered threads, and honest open questions. It is the only brief in the vault, and it still carries `input_kind: transcript`.
+[[20_Progress/Mentorship Program/Meetings/Briefs/Project Briefings - 2026-07-13|Project Briefings - 2026-07-13]]: a framing line about unreliable speaker labels, decisions with bold labels, ordered threads, and honest open questions. It is the only brief in the vault.

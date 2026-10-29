@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-08-08
-updated: 2026-10-16
+updated: 2026-10-28
 tags:
   - system
   - standards
@@ -12,22 +12,23 @@ tier: 1
 maps_to:
   - "[[Action Template]]"
 used_by:
-  - "[[Brief to Action]]"
+  - "[[Meeting Workflow]]"
 gold_standard: "[[10_Areas/AI/Setup/Gaps|Gaps]]"
 notes:
   - "[[Brief Standard]]"
+  - "[[Transcript Standard]]"
   - "[[HUMAN_WRITING]]"
 ---
 # Action Standard
 ==An action note is a linked map of what still needs doing: statements only, and every statement earns its place by carrying a link.==
-This is the standard for a note derived from a brief or any dense note with interlinks. It is a map of next steps, not a second brief and not a checklist. It sits next to its source, in an `Action/` folder if one exists. Only two action notes exist in the vault today, so this Standard describes their shared shape and nothing more.
+This is the standard for a note derived from a brief or any dense note with interlinks. [[Meeting Workflow]] writes one when a brief's follow-ups each need a concrete step; a meeting that needs none gets no action note. It is a map of next steps, not a second brief and not a checklist. It sits next to its source, in an `Action/` folder if one exists.
 ## Spec
 ```json
 {
   "family": "action",
   "tier": 1,
   "match": {"type": "action", "kind": null, "path": "", "where": {}, "where_not": {}},
-  "legacy_match": [{"type": "project", "path": "^20_Progress/Mentorship Program/Meetings/Action/"}],
+  "legacy_match": [{"type": "project", "path": "^(20_Progress|10_Areas)/.*/Action/"}],
   "status": ["active", "paused", "complete", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "source_note", "next"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "source_note": "wikilink"},
@@ -39,7 +40,7 @@ This is the standard for a note derived from a brief or any dense note with inte
 ### Frontmatter
 `type: action`, `status: active`. `source_note` is a quoted wikilink to the brief or note it came from. `related_progress` lists the projects it touches. `next` is the single next statement to close out.
 > [!WARNING]
-> `type: project` used for an action note. The 2026-07-14 Mentor Meeting actions note is typed `project`, so it does not appear as an action.
+> `type: project` used for an action note. The 2026-07-14 Mentor Meeting actions note was typed `project`, so it did not appear as an action.
 ### Opening line
 One line naming the source and the rule: statements only, every statement links to what it is about.
 ### Thread sections
@@ -61,6 +62,7 @@ Last. Statements naming what could not be turned into a concrete step, so nothin
 - Nearly every statement has a wikilink; no checkboxes, no prose paragraphs.
 - Every thread in the source is a section or a named open thread.
 - Missing link targets were raised as questions, not created as stub notes.
+- The brief's Follow-Up Actions links to this note.
 - The note passes [[Vault Lint]] for the `action` family.
 ## Gold Standard Example
 [[10_Areas/AI/Setup/Gaps|Gaps]]: type `action`, statements grouped by thread, a source note, and an Open Threads section. It also carries two dated process rules, which Legacy Shapes treats as judgment.

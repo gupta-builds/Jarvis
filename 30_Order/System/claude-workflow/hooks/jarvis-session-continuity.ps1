@@ -1,6 +1,25 @@
+# Claude Code SessionStart / Stop / SessionEnd hook. Runs under Windows PowerShell 5.1.
+#
+# Activity log: every Stop and SessionEnd appends two lines to
+# ~/.claude/jarvis-session-activity.jsonl. The first is written before the
+# export (event, session_id, cwd, reason, transcript_path, in_jarvis). The second
+# is the outcome: {timestamp, event: "export_result", session_id, status, ms,
+# error}. status is the exporter's own status (written, dup, junk, legacy, error),
+# "skipped" when no export was attempted (error says why), or "no_status" when
+# the exporter printed none. error is empty on success; on an exception it holds
+# the exception type and the script line only, never a path or transcript text.
+#
+# Environment (TEST ONLY, leave unset everywhere else):
+#   JARVIS_ACTIVITY_LOG     replaces the activity log path, so tests and timing
+#                           runs never touch the real log.
+#   JARVIS_CAPTURE_OUTROOT  read by export-claude-session.ps1 (see its header);
+#                           the hook passes it through unchanged by inheritance.
 param()
 
 $ErrorActionPreference = "Stop"
+
+# Fail open: any unexpected error must end the hook with exit 0.
+trap { exit 0 }
 
 $rawInput = [Console]::In.ReadToEnd()
 if ([string]::IsNullOrWhiteSpace($rawInput)) {
@@ -27,6 +46,22 @@ function Test-IsInsideJarvis {
     $normalizedPath = $Path.TrimEnd('\', '/').ToLowerInvariant()
     $normalizedRoot = $jarvisRoot.TrimEnd('\', '/').ToLowerInvariant()
     return ($normalizedPath -eq $normalizedRoot -or $normalizedPath.StartsWith($normalizedRoot + "\"))
+}
+
+# Appends one JSON line to the activity log. Never throws.
+function Add-ActivityLine {
+    param([System.Collections.IDictionary]$Entry)
+
+    try {
+        $path = if ($env:JARVIS_ACTIVITY_LOG) { $env:JARVIS_ACTIVITY_LOG } else { Join-Path (Join-Path $env:USERPROFILE ".claude") "jarvis-session-activity.jsonl" }
+        $dir = Split-Path -Parent $path
+        if ($dir -and -not (Test-Path -LiteralPath $dir)) {
+            New-Item -ItemType Directory -Path $dir -Force | Out-Null
+        }
+        ($Entry | ConvertTo-Json -Compress) | Add-Content -LiteralPath $path -Encoding UTF8
+    } catch {
+        # fail open - never block session shutdown on the activity log
+    }
 }
 
 if ($eventName -eq "SessionStart" -and (Test-IsInsideJarvis -Path $cwd)) {
@@ -64,27 +99,15 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
     $transcriptPath = [string]$hookInput.transcript_path
     $sessionId = [string]$hookInput.session_id
 
-    try {
-        $claudeDir = Join-Path $env:USERPROFILE ".claude"
-        if (-not (Test-Path -LiteralPath $claudeDir)) {
-            New-Item -ItemType Directory -Path $claudeDir -Force | Out-Null
-        }
-
-        $activityPath = Join-Path $claudeDir "jarvis-session-activity.jsonl"
-        $entry = [ordered]@{
-            timestamp = (Get-Date).ToString("o")
-            event = $eventName
-            session_id = $sessionId
-            cwd = $cwd
-            reason = [string]$hookInput.reason
-            transcript_path = $transcriptPath
-            in_jarvis = $isJarvis
-        }
-
-        ($entry | ConvertTo-Json -Compress) | Add-Content -LiteralPath $activityPath -Encoding UTF8
-    } catch {
-        # fail open - never block session shutdown on the activity log
-    }
+    Add-ActivityLine ([ordered]@{
+        timestamp = (Get-Date).ToString("o")
+        event = $eventName
+        session_id = $sessionId
+        cwd = $cwd
+        reason = [string]$hookInput.reason
+        transcript_path = $transcriptPath
+        in_jarvis = $isJarvis
+    })
 
     # Tier 1 (mechanical, ~0 tokens): auto-export this session's transcript to
     # the raw archive the moment it ends, so capture is live rather than
@@ -98,15 +121,49 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
     # inside that project folder (checked by the export script itself), not
     # a shared exported-claude-sessions.json index - so no index file to
     # read/write here at all.
+    #
+    # The outcome (status, elapsed ms, error) goes to the activity log before
+    # the exception is swallowed, so a failed or slow export leaves a trace.
+    $exportStatus = "skipped"
+    $exportError = ""
+    $exportSw = [System.Diagnostics.Stopwatch]::StartNew()
     try {
         $exportScript = Join-Path $jarvisRoot "30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
 
-        if ($sessionId -and $transcriptPath -and (Test-Path -LiteralPath $transcriptPath)) {
-            & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode" | Out-Null
+        if (-not $sessionId) {
+            $exportError = "no session_id"
+        } elseif (-not $transcriptPath) {
+            $exportError = "no transcript_path"
+        } elseif (-not (Test-Path -LiteralPath $transcriptPath)) {
+            $exportError = "transcript not found"
+        } else {
+            $exportOutput = & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode"
+            $exportStatus = "no_status"
+            if (($exportOutput | Out-String) -match '(?m)^Status:\s*(\w+)') {
+                $exportStatus = $Matches[1]
+            }
+            if ($exportStatus -eq "error") {
+                $exportError = "exporter returned status error"
+            }
         }
     } catch {
+        $exportStatus = "error"
+        $exportError = try {
+            "$($_.Exception.GetType().Name) at $(Split-Path -Leaf $_.InvocationInfo.ScriptName):$($_.InvocationInfo.ScriptLineNumber)"
+        } catch {
+            "exception"
+        }
         # fail open - a bad transcript must never block Claude Code from exiting
     }
+    $exportSw.Stop()
+    Add-ActivityLine ([ordered]@{
+        timestamp = (Get-Date).ToString("o")
+        event = "export_result"
+        session_id = $sessionId
+        status = $exportStatus
+        ms = [int]$exportSw.ElapsedMilliseconds
+        error = $exportError
+    })
 
     # Cowork sweep: Cowork/Agent-Mode sessions run in fully isolated .claude
     # sandboxes under %APPDATA%\Claude\local-agent-mode-sessions and never fire

@@ -3,6 +3,7 @@ type: input
 input_kind: transcript
 status: seed
 created: 2026-07-14
+updated: 2026-10-28
 source_url:
 related_progress:
   - "[[adx]]"

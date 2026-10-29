@@ -8,7 +8,7 @@ tags:
   - ai
   - conversations
 project_kind: project
-next: Run Prompts/P2 (project routing and Acer re-export); P0 and P1 ran on 2026-10-28. P3 to P5 get refined by what they return.
+next: Run Prompts/P3 (hook timing and failure record); P0 to P2 ran on 2026-10-28. Check the 60-day retention setting on or after 2026-10-30 and confirm the Scratch folder. P3 to P5 get refined by what they return.
 related_progress:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Research Plan|Conversation Loop Research Plan]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
@@ -37,7 +37,7 @@ Scope decision for this round: Claude Code only. The Dell and both WSL sides are
 | `10_Areas/AI/Setup/Conversation Map.md` | The map of all of the above | Written 2026-10-21 |
 | This folder | Postmortem, as-built records, research plan, design, sources, protocols, ledger, taxonomy, local reviewer, machine audit | Written 2026-10-21 and 2026-10-22 |
 ## Next Action
-[[P0 - Retention and Transcript Snapshot|P0]] (retention and snapshot) and [[P1 - Exporter Correctness|P1]] (exporter) ran on 2026-10-28; see the Log. Next is [[P2 - Project Routing and Acer Re-export|P2]], which repairs what exists and does not wait for the design. On or after 2026-10-30, check that the 60-day setting holds. The postmortem of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]] is [[P4 - Design Postmortem|P4]]. The phases, the definition of complete, and the old-B to new-P mapping are in the Corrections section of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].
+[[P0 - Retention and Transcript Snapshot|P0]] (retention and snapshot), [[P1 - Exporter Correctness|P1]] (exporter), and [[20_Progress/Projects/AI Use/Conversations/Prompts - Acer/P2 - Project Routing and Acer Re-export|P2]] (project routing and Acer re-export) ran on 2026-10-28; see the Log. Next is [[20_Progress/Projects/AI Use/Conversations/Prompts - Acer/P3 - Hook Timing and Failure Record|P3]]. On or after 2026-10-30, check that the 60-day setting holds. The postmortem of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]] is [[P4 - Design Postmortem|P4]]. The phases, the definition of complete, and the old-B to new-P mapping are in the Corrections section of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].
 ## Open Questions
 - [ ] Keep or retire the legacy `Windows/Claude Code/` and `Windows/Cowork/` trees. 107 notes are duplicates of sessions that also sit under `Dell/` or inside one tree. Owner decision. Partly answered 2026-10-22: the Dell is repo conversations only, so these trees are outside the Acer loop; the retire decision waits for build B9.
 - [ ] Wire or retire Cowork capture. No Cowork session has been captured since 2026-07-24. Out of scope for the Claude Code loop; decide at build B9.

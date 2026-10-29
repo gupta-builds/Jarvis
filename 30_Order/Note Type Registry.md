@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-28
 tags:
   - system
   - registry
@@ -59,7 +59,6 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
 | career-fair | 2 | input | `20_Progress/Internship/Career Fair/` | none | [[Career Fair Standard]] | [[Career Fair Intake]] | built |
 | interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
-| mentorship-meeting | 1 | project / plan | `20_Progress/Mentorship Program/` | [[Mentorship Meeting Template]] | [[Mentorship Meeting Standard]] | none | built |
 | resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Resume Alteration Standard]] | [[Application Document Preparation]] | built |
 | cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Cover Letter Template]] | [[Cover Letter Alteration Standard]] | [[Application Document Preparation]] | built (no instance yet) |
 | intake-log | 2 | input / clipping | `10_Areas/Career/Internships/List/Dossiers/_Today/` | none | [[Deadline and Intake Triage Standard]] | none | built |
@@ -80,8 +79,9 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | prompt-queue | 1 | project / prompt (`prompt_shape: queue`) | `20_Progress/Internship/Building System/Runs/` | none | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
 | machine-runbook | 1 | reference / runbook | `40_Resources/CS/` | [[Machine Runbook Template]] | [[Machine Runbook Standard]] | none | built |
 | technical-concept | 1 | concept | `20_Progress/Projects/`, `20_Progress/Internship/`, `40_Resources/CS/`, `40_Resources/UMN/SAO/` | [[Technical Concept Template]] | [[Technical Concept Standard]] | none | built (no gold example yet) |
-| brief | 1 | input / brief | `20_Progress/`, `10_Areas/`, `60_Claude/40_Project_Briefs/` | [[Brief Template]] | [[Brief Standard]] | [[Transcript to Brief]] | built |
-| action | 1 | action | next to the source note | [[Action Template]] | [[Action Standard]] | [[Brief to Action]] | built |
+| transcript | 2 | input / transcript | `20_Progress/`, `10_Areas/` (not `Degree/` or `Career Fair`), in a `Transcripts/` folder | [[Transcript Template]] | [[Transcript Standard]] | [[Meeting Workflow]] | built |
+| brief | 1 | input / brief | `20_Progress/`, `10_Areas/`, `60_Claude/40_Project_Briefs/` | [[Brief Template]] | [[Brief Standard]] | [[Meeting Workflow]] | built |
+| action | 1 | action | next to the source note | [[Action Template]] | [[Action Standard]] | [[Meeting Workflow]] | built |
 ## Knowledge
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|

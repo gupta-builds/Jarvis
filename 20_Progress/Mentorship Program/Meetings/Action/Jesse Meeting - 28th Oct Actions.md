@@ -16,7 +16,7 @@ next: Email Jesse the thank-you with the corrected rule and a proposed weekday a
 ---
 # Jesse Meeting - 28th Oct Actions
 From [[Jesse Meeting - 28th Oct Brief]]. Statements only, and every statement links to what it is about.
-#
+## Ov
 ## Internship and the work authorization rule
 - Send Jesse a short correction: UMN paused CPT after the August SEVP messages, Nov 6 is a federal court hearing, and on-campus work is still allowed ([[CPT Program]], [[Junior Year Internship Decision]]). *Not a correction but just some more solid information on the CPT situation*
 - Send the open questions to ISSS by 2026-10-30, since their answers decide what Anant can tell Jesse ([[ISSS October Meeting Brief]]). *A meeting with ISSS is again scheduled next week for more follow up questions after solid research taken place this week*

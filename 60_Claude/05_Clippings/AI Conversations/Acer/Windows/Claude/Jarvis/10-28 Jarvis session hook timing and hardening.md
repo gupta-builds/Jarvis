@@ -5,11 +5,11 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis session hook timing and hardening"
 started_at: 2026-10-28T22:28:53
-ended_at: 2026-10-28T23:00:36
-exported_at: 2026-10-28T23:00:37
-duration_minutes: 31.7
+ended_at: 2026-10-28T23:03:39
+exported_at: 2026-10-28T23:33:04
+duration_minutes: 34.8
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 68c513bc-f671-4b52-b1ef-e2eeebb9f750
 status: seed
 review_state: raw

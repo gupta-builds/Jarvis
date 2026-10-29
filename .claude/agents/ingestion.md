@@ -19,6 +19,9 @@ model: claude-sonnet-5
 ## Purpose
 The single agent any ingestion — of any source type, run by hand or fired automatically — routes through, per Anant directly: "ingestion, as it says itself, is an ingestion agent that helps any sort of ingestion that has been done inside Jarvis whether it's YouTube videos, transcripts, web, PDFs, etc. Anything that has or needs to be ingested even automated is going to fire up this agent to come into action."
 
+## PDFs
+A PDF source is extracted with MinerU only: run `30_Order/System/claude-workflow/scripts/mineru-pdf.ps1 "<pdf>"` (it starts the MinerU server if it is stopped) and read the Markdown it prints. Never `Read` the PDF and never use `pdftotext` or `pypdf`; a hook blocks them. Procedure: `30_Order/Workflows/Ingestion/PDF Extraction.md`.
+
 ## Relationship to research-distiller
 `ingestion` gets the raw source into the vault in a consistent shape (clipping/summary, tagged `input`, filed correctly). `research-distiller` then does the deeper work of researching through it and distilling it into durable notes using `human-operator`'s humanizer output. Ingestion is the intake step, not the distillation step.
 

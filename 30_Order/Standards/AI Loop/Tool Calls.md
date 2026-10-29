@@ -23,7 +23,7 @@ This is the behavior policy for which tool an agent reaches for when it reads, s
 | Situation | Tool |
 |---|---|
 | Any text file or Markdown note | `Read` |
-| PDF file | Python pypdf via `Bash` |
+| PDF file | MinerU through `mineru-pdf.ps1` via `Bash` or `PowerShell`, then `Read` the Markdown it prints. Never `Read` the PDF or use pypdf or `pdftotext`; a hook blocks them. See [[PDF Extraction]]. |
 | Image file | `Read` (multimodal) |
 | Live URL | `WebFetch` |
 | Search file contents | `Grep` |

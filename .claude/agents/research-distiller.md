@@ -46,7 +46,7 @@ Before doing anything, read:
 
 | Source | Location | Read Method | Output Folder |
 |--------|----------|-------------|---------------|
-| PDF | `60_Claude/05_Clippings/PDFs/` | `extract_pdf.py` (pypdf → multimodal fallback) | `60_Claude/10_Source_Summaries/PDF Ingestion/` |
+| PDF | `60_Claude/05_Clippings/PDFs/` | MinerU via `mineru-pdf.ps1`, then `Read` the Markdown (never the PDF) | `60_Claude/10_Source_Summaries/PDF Ingestion/` |
 | Image | `60_Claude/05_Clippings/PDFs/` | `Read` tool (multimodal) | `60_Claude/10_Source_Summaries/PDF Ingestion/` |
 | Web clip | `60_Claude/05_Clippings/Web/` | `Read` tool | `60_Claude/10_Source_Summaries/Web Ingestion/` |
 | Live URL | passed by user | `WebFetch` tool | `60_Claude/10_Source_Summaries/Web Ingestion/` |
@@ -60,20 +60,15 @@ Before doing anything, read:
 
 ### PDFs
 
-Run `scripts/extract_pdf.py` from the `ingesting-clipping` skill:
+Every PDF goes through MinerU; follow `30_Order/Workflows/Ingestion/PDF Extraction.md`. Run this and then `Read` the Markdown file it prints, in pieces:
 
-```bash
-cd "D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\skills\ingesting-clipping"
-python scripts\extract_pdf.py "FULL_WINDOWS_PATH_TO_PDF"
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts/mineru-pdf.ps1 "FULL_PATH_TO_PDF"
 ```
 
-Read the exit code. **If exit code is 2 (sparse output), the PDF is scanned/image-based — do not use the pypdf text.** Switch to the multimodal `Read` tool:
+It starts the MinerU server when it is stopped, so a stopped server is never a reason to use another reader. Exit 3 means still parsing: run the same command again. Exit 1 means a MinerU error: report the text to the user. **Never `Read` the PDF, never `pdftotext`, `pypdf` or the retired `extract_pdf.py`:** a hook blocks them, and they lose math, tables and scans. A scan or dense math gets `-Tier advanced`; a figure gets `mineru read doc:ID/tier:standard/page:N --format image --output page-N.png` and then `Read` of the PNG.
 
-- Pass the PDF file path to `Read`. Claude reads each page as an image.
-- Extract all visible text, table data, annotations, and diagram labels from what you see.
-- Do not skip pages — if a page is genuinely blank, note it explicitly.
-
-First pass always maps every heading and subheading across all pages before writing anything. For PDFs over 30 pages: the pypdf path handles all pages in one run, so batch your *writing* in 20-page chunks; on the multimodal `Read` path, read 5 pages at a time and write notes for that batch before reading the next.
+First pass always maps every heading and subheading across all pages before writing anything. For PDFs over 30 pages, parse a chapter at a time with `-Pages 120-135`, write that chapter's notes, then parse the next range.
 
 ### Images
 Use `Read` (multimodal). Extract all visible text first. Describe diagrams with enough detail to be usable without the original.

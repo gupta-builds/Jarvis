@@ -22,7 +22,7 @@ The Textbook Map lists the section as assigned and the PDF or other authoritativ
 ## Steps
 1. Read [[Textbook Standard]], the course Board, and the Map entry. Confirm the title, edition, chapter or section, assigned date, and local source file.
 2. If the source is missing, record a marked preparation task and ask for the file. Never write chapter content from memory.
-3. Run the NotebookLM prompt from [[Repetitive Things]] on the landed source. Treat the output as draft material.
+3. Extract the chapter's pages from a PDF source with [[PDF Extraction]] (`mineru-pdf.ps1 -Pages`), and read that Markdown, never the PDF. Then run the NotebookLM prompt from [[Repetitive Things]] on the landed source. Treat the output as draft material.
 4. Check definitions, claims, equations, examples, and section boundaries against the source. Move anything uncertain to Open Questions; do not repair it with general knowledge.
 5. Create the note from [[Textbook Template]]: fill the source header, one summary highlight, key concepts, reading notes in source order, a worked example, and mechanism and contrast cards.
 6. Link the matching week and the Map entry. Create or update concepts only through [[Concept Workflow]].

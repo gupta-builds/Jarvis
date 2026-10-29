@@ -34,7 +34,7 @@ The course runs lecture (TuTh) plus a Monday lab, graded on Weekly Canvas Quizze
 ## Source hierarchy and trust
 1. Live Canvas, Gradescope, Piazza, and instructor announcements control dates, requirements, grading, and policy.
 2. The local CSCI 4061 source folder (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\`) controls the two textbook PDFs, lecture slide PDFs, lab PDFs, and lecture transcripts once verified - desktop shortcut `CSCI 4061.lnk`.
-3. Textbook notes are built directly from the actual APUE/Kleppmann PDF (read with the PDF tool, section by section), not from a NotebookLM intermediary - this course has no established NotebookLM prompt library the way CSCI 4511W/5304 do.
+3. Textbook notes are built directly from the actual APUE/Kleppmann PDF (extracted with MinerU one chapter's page range at a time, per [[PDF Extraction]], and read section by section from that Markdown, never with `Read` on the PDF), not from a NotebookLM intermediary - this course has no established NotebookLM prompt library the way CSCI 4511W/5304 do.
 4. User live lecture capture in each week note's `## Lecture` section records what was actually said/emphasized and must be preserved; it does not silently override the textbook.
 5. Lab/project starter code, `QUESTIONS.txt` files, and TA slide PDFs are primary sources for lab and project notes - read them directly rather than inferring their content from the week's lecture topic alone.
 6. Existing vault notes provide continuity and style, not authority when they conflict with a primary source above.
@@ -42,7 +42,7 @@ If a live source and an existing note disagree, update the note with the dated c
 ## Weekly operating rhythm
 ### Before the lecture
 1. Read the Board's Schedule row for the week and the matching entry in [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] - the map already states which chapter(s) are assigned and whether that chapter's note is landed and source-checked.
-2. If the chapter note doesn't exist yet, that is the week's first production task: read the actual PDF section by section and build the note directly, following [[Textbook Standard]]'s shape (Chapter Summary, Key Concepts, Full Reading Notes, Worked Example, Connections, Flashcards) - this course's six landed chapters (1, 3, 4, 7, 8, 10) are the working examples.
+2. If the chapter note doesn't exist yet, that is the week's first production task: parse the chapter's pages from the actual PDF with [[PDF Extraction]] (`-Pages`), read it section by section, and build the note directly, following [[Textbook Standard]]'s shape (Chapter Summary, Key Concepts, Full Reading Notes, Worked Example, Connections, Flashcards) - this course's six landed chapters (1, 3, 4, 7, 8, 10) are the working examples.
 3. Create/update the week note before class from the schedule, textbook note, and any already-available slide PDFs, under a pre-lecture scaffold - see [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] for the live example of this state, including its own explicit warning that pre-lecture content is inferred, not lecture-verified.
 ### During the lecture
 The user works directly in the week note's `## Lecture` header, organized by numbered topic with a `(LecNN, date)` tag per section - exactly the pattern [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] through [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] already establish. Preserve this live capture; do not have an agent replace it with a polished invented transcript.

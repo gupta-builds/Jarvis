@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
 """
+RETIRED 2026-10-29. Do not use. Every PDF now goes through MinerU:
+30_Order/System/claude-workflow/scripts/mineru-pdf.ps1 (procedure:
+30_Order/Workflows/Ingestion/PDF Extraction.md). The pypdf path lost math and
+tables, and its "scanned PDF" fallback was a whole-PDF Read that put 25 to 50 MB
+of base64 into the transcript. A hook (hooks/jarvis-pdf-guard.ps1) now blocks
+running this file. Kept for history only.
+
 Jarvis PDF extractor for ingesting-clipping.
 Usage: python extract_pdf.py "<windows_path_to_pdf>"
 

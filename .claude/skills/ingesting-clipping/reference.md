@@ -22,22 +22,22 @@ One source → one complete note. Read the whole source with the method for its 
 
 ## 2. PDF extraction
 
-**Primary path — `scripts/extract_pdf.py`.** Run it via Bash with the full Windows path:
+**The only path is MinerU.** Procedure, tiers and failure handling: `30_Order/Workflows/Ingestion/PDF Extraction.md`; the rules: `30_Order/Standards/Ingestion/PDF Extraction Standard.md`. In short, run this with Bash or PowerShell (full path to the PDF):
 
-```bash
-cd "D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\skills\ingesting-clipping"
-python scripts\extract_pdf.py "FULL_WINDOWS_PATH_TO_PDF"
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts/mineru-pdf.ps1 "FULL_PATH_TO_PDF"
 ```
 
-The script prints page count and per-page text. Read the exit code:
+The script starts the MinerU server if it is stopped, parses the document, writes the Markdown to a temp file, and prints that path with the page range and tier. Then `Read` the Markdown in pieces (`offset` and `limit`); it carries `<!-- page N of M -->` markers for the `Pages:` line. Read the exit code:
 
-- **Exit 0** — extraction succeeded. Use the printed text.
-- **Exit 2** — output averaged under 200 chars/page. The PDF is scanned or image-based. **Do not use the sparse pypdf text. Switch to the multimodal fallback below.**
-- **Exit 1** — file missing or `pypdf` not installed (`pip install pypdf --break-system-packages`).
+- **Exit 0** — done. Read the Markdown.
+- **Exit 3** — still parsing. Run the same command again; MinerU keeps the work. For a long book, add `-Pages 120-135` for the chapter you need instead of the whole thing.
+- **Exit 1** — MinerU error. Show the user the printed error text. **Do not switch to `Read` on the PDF, `pdftotext` or `pypdf`:** a hook blocks them, and they lose math, tables and scans.
+- **Scanned PDF or dense math** — re-run with `-Tier advanced`, then spot-check two or three hard pages.
 
-**Fallback — multimodal `Read` (the critical instruction).** When the script exits 2, pass the PDF file path directly to the `Read` tool. Claude sees each page as an image. Extract all visible text, table data, annotations, and diagram labels from what you see. Do not skip pages; if a page is genuinely blank, note it explicitly. This replaces the old "OCR is needed — tell the user" dead end: you can read the PDF yourself.
+**Figures and page images.** `mineru read doc:ID/tier:standard/page:N --format image --output page-N.png`, then `Read` the PNG. The PNG is fine to read; the PDF is not.
 
-**Long PDFs.** First pass always maps every heading/subheading before writing. On the pypdf path, the script handles all pages in one run; for very large files batch your *writing* in 20-page chunks. On the multimodal `Read` path, read ~5 pages at a time and write notes for that batch before reading the next — this keeps context manageable and prevents dropped detail.
+**Long PDFs.** First pass always maps every heading and subheading before writing. Parse a chapter at a time with `-Pages`, write that chapter's notes, then parse the next range; the parsed pages stay cached, so `mineru read doc:ID/tier:standard/page:N --context 1` re-reads one page without parsing again.
 
 ---
 

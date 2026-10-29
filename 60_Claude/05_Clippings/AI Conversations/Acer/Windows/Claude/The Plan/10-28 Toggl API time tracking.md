@@ -5,31 +5,31 @@ source_app: claude-code
 source_os: windows
 title: "Toggl API time tracking"
 started_at: 2026-10-28T22:26:20
-ended_at: 2026-10-29T00:57:03
-exported_at: 2026-10-29T01:03:06
-duration_minutes: 150.7
+ended_at: 2026-10-29T01:21:41
+exported_at: 2026-10-29T01:21:42
+duration_minutes: 175.3
 project: The Plan
-cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
+cwd: 'D:\_Anant\20_Progress\Documents\The Plan\00_Live\Tracking\Time'
 session_id: 045b6dda-a561-490b-a55b-b3f474963737
 status: seed
 review_state: raw
 created: 2026-10-28
 updated: 2026-10-29
-turn_count: 14
+turn_count: 16
 tools_used:
   Agent: 8
-  Bash: 5
+  Bash: 6
   PowerShell: 6
   Read: 4
   ToolSearch: 1
-  WebSearch: 10
+  WebSearch: 13
 tokens:
-  input: 56
-  output: 47142
-  cache_creation: 226735
-  cache_read: 1834905
-  total: 2108838
-cost_usd: 1.561962
+  input: 60
+  output: 60043
+  cache_creation: 233789
+  cache_read: 2212097
+  total: 2505989
+cost_usd: 1.756916
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -1736,6 +1736,171 @@ Sources:
 - `WebSearch` -- `{"query":"Toggl add team member free plan invite same person second account different email timers on two computers","mode":"standard"}`
 - `WebSearch` -- `{"query":"Toggl terms of service multiple accounts one person free plan abuse circumvent limits","mode":"standard"}`
 
+## You
+
+The free api question can be answered on the new account that is going to be created on the dell (i checked the website and it is still available but with limited requests). Fix: a small new skill, /closetime, that does only the Toggl part for the laptop it runs on. closeday calls it on whichever laptop you use first. i like this fix and seems like a better option here, should also be mentioned to the agent to use. Concurrent daily-note writes. Both laptops write to the same daily note. Each skill run writes only its own sub-heading (### acer, ### dell) under ## Time. this is not really a blocker but the sub headings are useful for documenting time. Actually, the time should be shown in a simple table manner because there is nothing that i edit. There are two main columns acer and dell and everything is stated inside the box. That's how i see the time summary being shown on my daily note with a short line just above the timeline saying where most of the time went. Forgetting versus not using a laptop. A missing block must mean "forgot", so an unused laptop gets a one-line "No time tracked" that you confirm. closeday and weekly-review flag any day with a missing block. crucial and yes anything that does not land is labeled as forgot. Wrong key on the wrong laptop. Each laptop sets TOGGL_API_TOKEN and TOGGL_DEVICE=acer|dell. The engine checks that the key's user id matches the device listed in Toggl.md and refuses to run on a mismatch. done carefully and per machine. Overlapping time. which is why we will have a table to clearly show the difference between both the laptops. There are sub folders created inside the folder mentioned to keep the tracking per laptop different as well. So, this can be done quite easily. Weekly roll-up. is going to be taken care of the session calling /closetime on both the laptops. is also mentioned that the weekly review needs to document the other laptop's time. so, the weekly review is done perfectly and managed over the agents. 
+
+Now, to focus on the steps that were provided to me. exactly those steps will be executed. for the account that the dell will use: anant.lucifer@gmail.com. New account created, right now both the devices use: anantmahi721@gmail.com. All the blockers were answered. But these are still very high level blockers that were discussed through here. You are required to do a detailed postmortem on the described plan so far. What are the failures possible? What would happen if everything were to be running successgfully? what errors would we encounter? How can we avoid these errors before hand? Find me a clear and detailed list of the postmortems after solid research on the workflow just explained to you. Now, let's make sure that the postmortem is taken care of after the basic details are laid out.
+
+## Claude
+
+I'll check the subfolders you created, then research the real failure modes of each moving part: Obsidian Sync on a shared note, Toggl entries that cross midnight or stay running, and the Windows environment variable setup.
+
+The basics are below, followed by the pre-mortem. I haven't written anything to the vault. Findings marked *verified* come from docs or sources I read. Findings marked *inferred* are my reasoning, and *unverified* means I couldn't confirm them.
+
+## Locked basics
+
+| Item | Setting |
+|---|---|
+| Acer | `anantmahi721@gmail.com`, organization owner and admin, creates all projects |
+| Dell | `anant.lucifer@gmail.com`, plain Member, own API key |
+| Per-laptop environment variables | `TOGGL_API_TOKEN`, `TOGGL_ORGANIZATION_ID`, `TOGGL_WORKSPACE_ID`, `TOGGL_DEVICE=acer\|dell` |
+| Device key | Lowercase `acer` and `dell` in settings, shown as Acer and Dell |
+| Folders (found) | `Time/Weekly/Acer`, `Weekly/Dell`, `Monthly/Acer`, `Monthly/Dell` |
+| Weekly note name | `Time 2026-W44 Acer.md`. The device stays in the filename, because `2026-W44` would collide with `Enumerate/Weekly/2026-W44.md` and break your unique-name rule. |
+| Daily note | `## Time` at the end of the note, one line on where most time went, then a table with columns Acer and Dell. A column with no block shows `FORGOT`. |
+| Skills | New `/closetime` per laptop. `weekly-review` documents both laptops. |
+
+Both laptops currently sign in as `anantmahi721`, so the Dell app, the Dell extension and the Dell CLI all have to be signed out and back in as `anant.lucifer`.
+
+## What the day looks like if everything works
+
+1. You track on both laptops, with parallel timers.
+2. Each laptop runs `/closetime` once. It pulls with its own key and shows the table, the "where time went" line and any flags.
+3. You confirm and it writes that laptop's weekly note, then re-renders the daily table.
+4. Every number in the table comes from the engine.
+
+The failures below come after that happy path.
+
+## Pre-mortem
+
+### A. Accounts and setup
+
+1. **Dell still signed in as the old account (High, inferred).** Dell time lands under the Acer user, the Dell key returns nothing, and the table shows an honest-looking zero.
+   - Prevention: sign-out and sign-in checklist, then start a test timer on the Dell and confirm that entry's user id is the Dell member's.
+   - Detection: the engine's key check can't see the app's login, so this needs the test timer.
+2. **Invite goes unaccepted (Low, verified).** Invites show as "Invited" and can be resent. Check spam.
+3. **Dell member can't create projects (Med, verified).** The access matrix says Members can't manage projects.
+   - Prevention: create all projects on Acer first, then invite. The Dell tracks against existing projects only.
+4. **Trial ends and the plan drops to Free (High, unverified).** What happens to the member, the API and your data is unknown. You said Free still has the API with limits.
+   - Prevention: after the trial ends, run one real pull on both laptops. The vault holds the archive, so nothing depends on Toggl's history.
+5. **Token expiry conflict (Med, verified).** One docs page says tokens expire (30 or 90 days), another says they don't.
+   - Prevention: the engine reports a clear "key expired, regenerate" message. Put a calendar reminder on the real expiry. Regenerating a key on one laptop only invalidates that laptop's key.
+6. **Environment variable not visible (Med, verified for `setx`).** `setx` doesn't reach already-open terminals. Whether VS Code inherits it only after a full restart is inferred.
+   - Prevention: fully quit VS Code and terminals after setting variables, then check with an existence test (`if ($env:TOGGL_API_TOKEN) {'set'}`) that never prints the value.
+7. **Key leaks into a transcript (High, inferred).**
+   - Prevention: the engine never prints headers and redacts errors. Never run `env` or list the environment in a session.
+8. **Toggl's own CLI sends analytics and error reports by default (Low, verified).** If you use the CLI, set `TOGGL_PRODUCT_ANALYTICS=off` and `TOGGL_SENTRY=off`. The engine uses plain HTTPS and doesn't need this.
+
+### B. API and data correctness
+
+9. **No example responses in the docs (High, verified).** A parser written from field lists can silently read wrong shapes.
+   - Prevention: capture one real, sanitized response first, write a contract test, and make unknown shapes a hard error instead of zeros.
+10. **Timer still running at close (High, verified).** A running 2.0 entry has no `duration`. A timer left on overnight becomes a 14-hour entry.
+    - Prevention: `/closetime` stops at a running timer, asks for a stop time, and flags any single entry over a set length.
+11. **Entries that cross midnight (Med, verified for Track, 2.0 unverified).** Toggl's own reports assign the whole entry to the start date. The stream returns entries that overlap your range, so the engine clips to local-day boundaries.
+    - Prevention: document that vault numbers are clipped, so they may differ from Toggl's own reports.
+12. **Daylight saving (Med, verified docs silent).** Entries store the creator's timezone, and the docs don't cover DST. If you are in the US, **DST ends this Sunday, Nov 1 2026**, so that day is 25 hours long.
+    - Prevention: day boundaries from the OS timezone, with DST fixtures in the tests. Don't hardcode 24 hours.
+13. **Pagination (Med, verified).** The paged list has no total and stops at an empty page. The stream has no pagination, and any size cap on it is unverified.
+    - Prevention: use the stream, and in tests compare against the paged list.
+14. **Quota while testing (Med, verified).** Free allows 30 requests per hour, and every dry-run hits the network.
+    - Prevention: engine tests use recorded fixtures, never live calls. Stop on HTTP 402 and report `X-Toggl-Quota-Remaining`. Never retry in a loop.
+15. **The 30 report-data requests per month (Med, unverified).** I don't know if the stream counts toward it.
+    - Prevention: watch the quota headers during the first week.
+16. **Entries edited after closing (Med, inferred).** You can edit Toggl later, so the note goes stale.
+    - Prevention: `weekly-review` re-pulls and lists changes using `updated_at`. The weekly figure supersedes the daily one. The engine drops entries with `deleted_at`.
+17. **Breaks counted as work (Low).** The engine excludes break-type entries.
+18. **Overlapping entries on one account (Low).** Manual edits can create them, so the engine flags them.
+19. **Listed versus unlisted matching (Med, verified gap).** Your newest daily note uses the older layout with no `[cat::]` lines, so everything would show as unlisted. A typo in a description does the same.
+    - Prevention: show the top unmatched descriptions with the nearest daily-note task and let you confirm. Fix the template gap, or anchor matching on the Targets section.
+
+### C. Notes and sync
+
+20. **Two laptops edit the same table line (High, verified).** Sync merges markdown with diff-match-patch, and Obsidian's own docs warn it "may sometimes create duplicate text or formatting problems." A table puts both laptops' columns on the same lines.
+    - Prevention: each laptop writes its own weekly note (separate files, no conflict). The daily table is re-rendered from both notes, one run at a time. The skill re-reads the note just before writing and validates the table shape afterwards.
+    - You can set Obsidian's Conflict resolution to "Create conflict file" (version 1.9.7 and later) so conflicts become visible instead of silently merged. I won't touch `.obsidian`.
+    - Decision: a transposed table (Acer and Dell as rows) would avoid shared lines entirely. You asked for columns, so tell me if you'd accept rows.
+21. **Tomorrow's note created on both laptops (Med, verified forum reports).** If a note is created on one device and a remote copy arrives within a couple of minutes, Sync keeps the remote one without merging.
+    - Prevention: only `closeday` creates tomorrow's note. `/closetime` never creates notes.
+22. **Re-running a day (Med).** The block must be replaced by heading, never appended.
+    - Prevention: test running it twice and diffing. Stop if manual edits broke heading order.
+23. **Name collisions (Med).** Handled by the device in the filename.
+24. **`## Time` in the daily note (Med).** The schema fixes the heading order and says only the six validator rules apply. I need to add the heading to the schema and decision log, then confirm `plan-cli day` and `validate` give identical streak numbers on a fixture with and without it.
+25. **Weekly note embed (Low).** `weekly-review` currently writes only `## Review Log`. It needs approval to touch a new `## Time` heading. I'll check the embeds render and don't confuse the engine's weekly parser.
+26. **Engine not deployed on the Dell (Med).** The engine travels via git, so if the Dell hasn't synced, `/closetime` fails on an unknown command.
+    - Prevention: a version check as step 0 of the skill.
+27. **Git history (Med, verified).** Git auto-sync commits every 15 minutes, so task descriptions and time data go into history. Keep descriptions to task text only.
+
+### D. Skills and agents
+
+28. **`closeday` may not be able to call `/closetime` (Med, unverified).** `closeday` has `disable-model-invocation: true`, which may stop it from invoking another skill.
+    - Prevention: test it. The fallback is `closeday` repeating the `closetime` steps, or you run `/closetime` right after.
+29. **A Toggl failure must not block the streak close (High).** `closeday` currently stops on any failed engine command.
+    - Prevention: make the Toggl step non-fatal, so an outage or a 402 doesn't stop the daily close.
+30. **Hand-computed numbers (Med).** Prevention: the engine renders the exact markdown for the table and the "where most time went" line, and the skill pastes it.
+31. **Agents can't run commands (verified).** `daily-auditor` receives the engine JSON, and doesn't pull data itself.
+
+### E. After weeks of success
+
+32. **Skipping the ritual.** If `/closetime` takes more than about two minutes, you'll skip it. Target: one confirmation per laptop.
+33. **Misreading numbers.** Untracked time is not lost time, and the table won't say otherwise. No guilt wording.
+34. **Doubled time.** Parallel timers add up to more than the day. The table shows each laptop separately, and combined focus time comes from the union.
+35. **Daily confirmations for a laptop you rarely use.** Your rule is a confirmation each day. The cost is one line per day.
+36. **A young product (verified).** The app is v1.7.2, the Swagger file lists `localhost:8080`, and some doc samples show the wrong HTTP methods.
+    - Prevention: the contract test and a printed version, so a change fails loudly.
+
+## Gates before any build
+
+1. Dell signed in as `anant.lucifer` and an entry shows the right user.
+2. The Free-API check and a real sanitized sample response.
+3. Quota headers observed on both accounts.
+4. `## Time` added to the schema, and the fixture check passing.
+5. The `closeday` to `closetime` call tested.
+
+## Decisions for you
+
+1. Columns, with serialized writes and a pre-write sync check, or rows?
+2. Should the engine make `/closetime` the only path, with `closeday` just reminding you?
+
+Sources:
+- [Troubleshoot Obsidian Sync](https://help.obsidian.md/sync/troubleshoot)
+- [Obsidian forum: daily notes sync problem](https://forum.obsidian.md/t/daily-notes-sync-problem/58314)
+- [Timezones in Toggl](https://docs.toggl.com/timezones-in-toggl)
+- [Toggl community: entries spanning days](https://community.toggl.com/t/time-entries-spanning-multiple-days-dont-show-up-properly-in-reports/438)
+- [Toggl 2.0 API overview](https://engineering.toggl.com/docs/focus/)
+- [Access levels in Toggl](https://docs.toggl.com/user-roles-in-toggl)
+- [@togglhq/cli](https://www.npmjs.com/package/@togglhq/cli)
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Tracking/Time" && find . | sort && echo "== sizes" && find . -type f -name "*.md" -exec wc -c {} + | tail -20
+```
+```
+.
+./Monthly
+./Monthly/Acer
+./Monthly/Dell
+./Time Spent This Week.md
+./Time Tracking System.md
+./Toggl.md
+./Weekly
+./Weekly/Acer
+./Weekly/Dell
+./log.md
+== sizes
+0 ./log.md
+0 ./Time Spent This Week.md
+0 ./Time Tracking System.md
+0 ./Toggl.md
+0 total
+```
+- `WebSearch` -- `{"query":"Obsidian Sync conflict resolution same note edited on two devices markdown merge diff-match-patch frontmatter","mode":"standard"}`
+- `WebSearch` -- `{"query":"Toggl time entry running past midnight split day report timezone daylight saving API duration negative running timer","mode":"standard"}`
+- `WebSearch` -- `{"query":"Windows setx environment variable not available in already open terminal Claude Code VS Code restart user environment variables","mode":"standard"}`
+
 ## Actions Taken
 
 **Files created:**
@@ -1753,4 +1918,5 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "== find standards" && find 30_Order -iname "Naming and Folder Map*" -o -iname "Note Types and Frontmatter*" -o -iname "Better Week*" -o -iname "Better Today*" -o -iname "Decisions Log*" -o -iname "Spec - Streak*" | head; echo "== weekly dir"; ls 00_Live/Enumerate/Weekly | tail -5; echo "== engine"; ls 30_Order/System/plan-cli 30_Order/System/streak 2>/dev/null | head -20; echo "== engine repo"; ls "D:/_Anant/20_Progress/Projects/the-plan-dashboard" 2>/dev/null | head -30; echo "== sizes of time notes"; wc -c 00_Live/Tracking/Time/*.md; echo "== git ignore/secrets"; cat .gitignore 2>/dev/null | head -20`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && node -e 'const s=JSON.parse(require("fs").readFileSync(".claude/settings.json","utf8"));console.log(JSON.stringify({perm:s.permissions,hooks:Object.fromEntries(Object.entries(s.hooks||{}).map(([k,v])=>[k,v.map(h=>({m:h.matcher,c:(h.hooks||[]).map(x=>x.command||x.type)}))]))},null,1))'`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "=== Better Week"; cat "30_Order/Templates/Daily Dashboard/Better Week.md" | head -60; echo; echo "=== W44 headings"; grep -n "^#" 00_Live/Enumerate/Weekly/2026-W44.md | head -30; echo "=== Naming map (Tracking/Time/Weekly)"; grep -n -i -E "tracking|weekly|YYYY-W|gggg|device|laptop" "30_Order/Standards/Naming and Folder Map.md" | head -30; echo "=== engine src"; ls "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/tests" "D:/_Anant/20_Progress/Projects/the-plan-dashboard/scripts" | head -60; grep -n -E '"(test|build:cli|deploy:cli)"' "D:/_Anant/20_Progress/Projects/the-plan-dashboard/package.json"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/00_Live/Tracking/Time" && find . | sort && echo "== sizes" && find . -type f -name "*.md" -exec wc -c {} + | tail -20`
 

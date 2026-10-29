@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-10-28T15:56:18
-exported_at: 2026-10-29T01:03:09
-duration_minutes: 4063.7
+ended_at: 2026-10-29T01:06:55
+exported_at: 2026-10-29T01:33:23
+duration_minutes: 4614.3
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
@@ -17,7 +17,7 @@ created: 2026-10-25
 updated: 2026-10-29
 turn_count: 16
 tools_used:
-  AskUserQuestion: 6
+  AskUserQuestion: 7
   Bash: 62
   Edit: 7
   Grep: 1
@@ -28,12 +28,12 @@ tools_used:
   WebSearch: 8
   Write: 22
 tokens:
-  input: 160
-  output: 174481
-  cache_creation: 592777
-  cache_read: 16261072
-  total: 17028490
-cost_usd: 6.892451
+  input: 162
+  output: 176159
+  cache_creation: 595289
+  cache_read: 16361014
+  total: 17132624
+cost_usd: 6.929277
 model:
   - "claude-opus-5-5"
   - "claude-sonnet-5-5"
@@ -9413,6 +9413,8 @@ Based on the notes written down, you are required to ask me a lot of questions o
 
 I'll start by checking the current state of the Dashboards notes and today's daily note, then ask my questions.
 
+Phone plus no vertical scroll conflicts on a 393 px wide screen, so that needs settling. These three questions also decide how the streak is counted and where to-dos come from.
+
 ### Tool Calls
 
 - `Bash`
@@ -9758,6 +9760,7 @@ Finish B1 to B3 so the daily note, the streak and the Home page exist. Everythin
 6. **Secrets.** `40_Resources/CS/Links.md` still lists a Keys section. Rotate and strip it separately; no prompt here reads it.
 ```
 - `AskUserQuestion` -- ``{"questions":[{"question":"The streak engine only counts `[cat::]` lines under five category headings (Morning, Study, Fitness, Mind, Career), and your Better Today note has none, so the streak reads 0. What should the Plan\u0027s daily note and streak be built on from here?","header":"Day model","multiSelect":false,"options":[{"label":"Ticks on the 80 and 20 lines (Recommended)","description":"The habit lines you already write under ### 80 and ### 20 become the data. Each group (Mornings, Studying, Health) is a category. Streak counts groups done, same one-forgiven-miss rule. Meta Bind toggles go away. Matches the Jarvis day model, so both vaults behave the same."},{"label":"Restore the five [cat::] categories","description":"Put Morning, Study, Fitness, Mind, Career lines back into Better Today as the engine expects. Least code change, but it discards the 80/20 structure you now write every day."},{"label":"Two scores, 80/20 plus the five categories","description":"Keep the five categories as the streak and show the 80/20 ticks as a second ring. More to maintain and the note gets longer."}]},{"question":"The dashboard is not editable today. How much should you be able to change from the page without opening the note?","header":"Editing","multiSelect":false,"options":[{"label":"Tick, edit lines, and write (Recommended)","description":"Tick anything, double-click to edit any line in place (80/20, wins, habits, Tomorrow), and type into Just Write and Do Not Do from the page. Every write is a Vault.process edit that refuses if the line changed underneath."},{"label":"Tick and edit lines only","description":"Ticks plus in-place line edits. Long journaling text stays in the note."},{"label":"Tick only, fix the broken ticks","description":"Smallest change. Ticking works again, nothing else is editable."}]},{"question":"Should The Plan\u0027s dashboard become the same one-page, no-vertical-scroll, scaled-to-fit page as the Jarvis design, or stay a scrolling dashboard?","header":"Page shape","multiSelect":false,"options":[{"label":"One page, no vertical scroll (Recommended)","description":"Same rules as Jarvis: whole page scales to fit, only written text scrolls sideways, Window too small banner. Month and review views become a second tab or a toggle on the same page, not a longer page."},{"label":"Scrolling page, tidier","description":"Keep a long page with sections, but redesign the order and look. Easier on phones."},{"label":"One page on laptop, scrolling on phone","description":"Two layouts from one engine. Doubles the layout work and the phone has never been tested."}]},{"question":"The Plan is used on a phone through Obsidian Sync (AGENTS.md), but nothing has been tested there and Jarvis is laptop only. Which devices does the finished Plan dashboard target?","header":"Devices","multiSelect":false,"options":[{"label":"Laptops now, phone later","description":"Set isDesktopOnly true, test on the Dell and Acer, and design the phone view as a separate later build. Keeps this build finishable in one pass."},{"label":"Laptops and iPhone 15 together","description":"The dashboard must work on the phone from day one. Needs a phone test route and touch editing, and it lengthens the build."},{"label":"Laptops only, permanently","description":"Matches Jarvis. The phone keeps the markdown notes and nothing else."}]}]}``
+- `AskUserQuestion` -- `{"questions":[{"question":"A one-page, no-scroll layout cannot hold every block on an iPhone 15 (about 393 x 852 pt). How should the phone get around that?","header":"Phone layout","multiSelect":false,"options":[{"label":"Phone shows tabs, each tab fits one screen (Recommended)","description":"Today, Plan, Month and Write are four tabs with a bottom bar. Nothing scrolls vertically on any tab. Laptop shows all of it on one page. Written text still scrolls sideways only."},{"label":"Phone is allowed to scroll vertically","description":"The no-scroll rule applies on laptops only. Simplest on the phone, but breaks the rule you set for Jarvis."},{"label":"Phone gets only Today","description":"A single compact screen with the streak, the 80 and 20 ticks and Tomorrow. Month and review stay laptop only."}]},{"question":"With the 80 and 20 lines as the data, what makes a day count toward the streak? Today\u0027s note has 2 groups under 80 (Mornings, Studying) and 2 under 20 (Mornings, Health), which cannot use the old rule of 3 of 5.","header":"Streak rule","multiSelect":false,"options":[{"label":"All 80 lines ticked (Recommended)","description":"The day is MET when every 80 line is done. The 20 lines are a separate score that supports the 80 and never affects the streak. One miss forgiven, two in a row reset, as before."},{"label":"A percentage of 80 and 20 lines together","description":"MET at 60 percent or more of all ticked lines. Forgiving, but lets you skip a whole 80 habit and still count."},{"label":"One 80 line per group","description":"MET when each group (Mornings, Studying) has at least one of its 80 lines ticked."}]},{"question":"You asked for a todo workflow. Where do tasks come from and where do they live in The Plan? Decision 28 listed Reminders, Todoist, Google Calendar (gupt0479@umn.edu) and tasks typed in Obsidian.","header":"Todo source","multiSelect":false,"options":[{"label":"Obsidian is the only list (Recommended)","description":"Tasks are checkbox lines in the daily note (Tomorrow and the 20) and in plan notes. The dashboard shows them, you tick and add them there. Calendar is read-only for time blocks. Todoist and Reminders are not connected in this build."},{"label":"Obsidian plus Google Calendar blocks","description":"As above, and the dashboard also reads your calendar events for today as timed blocks you can tick off."},{"label":"Todoist as the capture inbox","description":"Capture in Todoist, pulled into the daily note at /startday. Needs an outside service and an approval step, and Jarvis dropped Todoist for being a second list."}]},{"question":"How is the Tomorrow section used today, and what should the page do with it?","header":"Tomorrow","multiSelect":false,"options":[{"label":"Tomorrow becomes tomorrow\u0027s morning plan (Recommended)","description":"Lines typed in Tomorrow are carried by /closeday into the next day\u0027s Morning Plan as a preview, shown on the page as Next. The dashboard lets you add and edit them. Nothing is copied forward unticked."},{"label":"Tomorrow stays a free list","description":"The dashboard shows it as a list you can edit. No automatic carry into the next note."},{"label":"Tomorrow feeds the 80 directly","description":"Anything in Tomorrow is promoted into the next day\u0027s 80 or 20 at /startday, with you approving each line."}]}]}`
 
 ## Actions Taken
 

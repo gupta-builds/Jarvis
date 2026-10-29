@@ -5,11 +5,11 @@ source_app: claude-code
 source_os: windows
 title: "Toggl API time tracking"
 started_at: 2026-10-28T22:26:20
-ended_at: 2026-10-29T01:21:41
-exported_at: 2026-10-29T01:21:42
-duration_minutes: 175.3
+ended_at: 2026-10-29T01:26:40
+exported_at: 2026-10-29T01:33:21
+duration_minutes: 180.3
 project: The Plan
-cwd: 'D:\_Anant\20_Progress\Documents\The Plan\00_Live\Tracking\Time'
+cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: 045b6dda-a561-490b-a55b-b3f474963737
 status: seed
 review_state: raw

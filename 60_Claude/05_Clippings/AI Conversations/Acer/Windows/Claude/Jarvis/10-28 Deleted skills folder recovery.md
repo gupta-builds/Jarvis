@@ -6,7 +6,7 @@ source_os: windows
 title: "Deleted skills folder recovery"
 started_at: 2026-10-28T23:04:59
 ended_at: 2026-10-28T23:08:15
-exported_at: 2026-10-29T00:33:07
+exported_at: 2026-10-29T01:33:20
 duration_minutes: 3.3
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

@@ -6,7 +6,7 @@ source_os: windows
 title: "Jesse Storm mentorship program"
 started_at: 2026-10-28T15:33:03
 ended_at: 2026-10-28T23:54:19
-exported_at: 2026-10-29T00:03:05
+exported_at: 2026-10-29T00:33:05
 duration_minutes: 501.3
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

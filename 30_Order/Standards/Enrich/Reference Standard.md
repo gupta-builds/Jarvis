@@ -39,6 +39,7 @@ This is the standard for `type: reference` notes in `40_Resources/` and the tool
 Reference notes have no shared heading set; Plugins docs, tool profiles, and link lists differ too much to force one. The rules are about frontmatter and entry.
 ### Frontmatter
 `type: reference`, `reference_kind` from the table below, `area` a wikilink list naming the `10_Areas` domain it serves, `notes` linking related references, `status: seed` until it has been used, and `tree` once relied on. Add `reviewed` (date) when a fact in it was re-checked.
+
 | `reference_kind` | Holds |
 |---|---|
 | `plugin-doc` | How a plugin is configured and used in this vault |

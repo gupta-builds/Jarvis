@@ -14,6 +14,13 @@
 #                           runs never touch the real log.
 #   JARVIS_CAPTURE_OUTROOT  read by export-claude-session.ps1 (see its header);
 #                           the hook passes it through unchanged by inheritance.
+#   JARVIS_EXPORT_LOCK_WAIT_MS  replaces the 25000 ms wait for the per-session
+#                           export lock, so a test can reach the "export in
+#                           progress" path without waiting 25 seconds.
+#
+# Cowork sweep failures: a Cowork transcript whose export throws leaves one
+# export_result line (status "error", session_id = the transcript's basename,
+# error = exception type and script line). Successes leave no line.
 param()
 
 $ErrorActionPreference = "Stop"
@@ -149,7 +156,9 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
                 $mutexName = "Local\jarvis-session-export-" + ($sessionId -replace '[^A-Za-z0-9_-]', '_')
                 $exportMutex = New-Object System.Threading.Mutex($false, $mutexName)
                 try {
-                    $haveLock = $exportMutex.WaitOne(25000)
+                    $lockWaitMs = 25000
+                    if ($env:JARVIS_EXPORT_LOCK_WAIT_MS -match '^\d{1,6}$') { $lockWaitMs = [int]$env:JARVIS_EXPORT_LOCK_WAIT_MS }
+                    $haveLock = $exportMutex.WaitOne($lockWaitMs)
                 } catch [System.Threading.AbandonedMutexException] {
                     # the previous holder was killed; this thread owns the mutex now
                     $haveLock = $true
@@ -236,7 +245,20 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
                     $baseName = [System.IO.Path]::GetFileNameWithoutExtension($fullPath)
                     & $exportScript -TranscriptPath $fullPath -SessionId $baseName -SourceApp "Cowork" | Out-Null
                 } catch {
-                    # skip this one transcript, keep sweeping the rest
+                    # keep sweeping the rest, but leave a trace of this one
+                    $sweepError = try {
+                        "$($_.Exception.GetType().Name) at $(Split-Path -Leaf $_.InvocationInfo.ScriptName):$($_.InvocationInfo.ScriptLineNumber)"
+                    } catch {
+                        "exception"
+                    }
+                    Add-ActivityLine ([ordered]@{
+                        timestamp = (Get-Date).ToString("o")
+                        event = "export_result"
+                        session_id = $baseName
+                        status = "error"
+                        ms = 0
+                        error = $sweepError
+                    })
                 }
             }
         }

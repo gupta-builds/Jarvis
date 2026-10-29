@@ -42,6 +42,7 @@ This is the standard for the notes at the root of `20_Progress/Degree/` that run
 ## Headings
 ### Roles
 Each control note has one role.
+
 | Role | Note today | Holds |
 |---|---|---|
 | Degree board | `UMN Board` | How the Degree folder works, the map of course Boards, status |

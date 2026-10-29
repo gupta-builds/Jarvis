@@ -5,7 +5,8 @@
 # The hook runs in the same shell edition as this test (run-all-tests.ps1 runs
 # the test under pwsh and under Windows PowerShell 5.1).
 # Cases: empty stdin, garbage stdin, a missing transcript path, a valid
-# transcript, and a transcript whose export throws.
+# transcript, a transcript whose export throws, the per-session export lock held
+# elsewhere, Stop and SessionEnd running at once, and a failing Cowork export.
 
 $ErrorActionPreference = "Stop"
 
@@ -103,6 +104,71 @@ Assert "exporter throws: exit 0" ($code -eq 0)
 Assert "exporter throws: one export_result" ($res.Count -eq 1)
 Assert "exporter throws: status error with a non-empty error" ($res.Count -eq 1 -and $res[0].status -eq "error" -and -not [string]::IsNullOrWhiteSpace($res[0].error))
 Assert "exporter throws: error holds no path" ($res.Count -eq 1 -and $res[0].error -notmatch '[A-Za-z]:[\\/]')
+
+# ---- lock held elsewhere: skipped with "export in progress", then written once free ----
+Reset-Log
+$sidLock = "hook-test-lock"
+$lockOut = Join-Path $work "out-lock"
+$held = New-Object System.Threading.Mutex($true, ("Local\jarvis-session-export-" + $sidLock))
+try {
+    $env:JARVIS_EXPORT_LOCK_WAIT_MS = "300"
+    $code = Invoke-Hook (New-HookJson "SessionEnd" $sidLock $tOk) $lockOut
+}
+finally {
+    Remove-Item Env:JARVIS_EXPORT_LOCK_WAIT_MS -ErrorAction SilentlyContinue
+    $held.ReleaseMutex()
+    $held.Dispose()
+}
+$res = @(Get-Results)
+Assert "lock held: exit 0" ($code -eq 0)
+Assert "lock held: one export_result, status skipped, error 'export in progress'" ($res.Count -eq 1 -and $res[0].status -eq "skipped" -and $res[0].error -eq "export in progress")
+Assert "lock held: no note written" (-not (Test-Path -LiteralPath (Join-Path $lockOut "hook-test-proj")))
+$code = Invoke-Hook (New-HookJson "SessionEnd" $sidLock $tOk) $lockOut
+$res = @(Get-Results)
+Assert "lock released: next run exits 0 and writes" ($code -eq 0 -and $res.Count -eq 2 -and $res[1].status -eq "written")
+
+# ---- Stop and SessionEnd at once for one session: one note, one written, one dup ----
+Reset-Log
+$sidRace = "hook-test-race"
+$raceOut = Join-Path $work "out-race"
+$env:JARVIS_ACTIVITY_LOG = $logPath
+$env:JARVIS_CAPTURE_OUTROOT = $raceOut
+$procs = @()
+try {
+    foreach ($ev in "Stop", "SessionEnd") {
+        $inFile = Join-Path $work "race-$ev.json"
+        [System.IO.File]::WriteAllText($inFile, (New-HookJson $ev $sidRace $tOk), $utf8)
+        $procs += Start-Process -FilePath $exe -ArgumentList "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "`"$hook`"" -RedirectStandardInput $inFile -WindowStyle Hidden -PassThru
+    }
+    $procs | Wait-Process -Timeout 90
+}
+finally {
+    Remove-Item Env:JARVIS_ACTIVITY_LOG, Env:JARVIS_CAPTURE_OUTROOT -ErrorAction SilentlyContinue
+}
+$res = @(Get-Results)
+$statuses = (@($res | ForEach-Object { $_.status }) | Sort-Object) -join ","
+Assert "race: both hooks exit 0" (@($procs | Where-Object { $_.HasExited -and $_.ExitCode -eq 0 }).Count -eq 2)
+Assert "race: one note for the session" (@(Get-ChildItem -LiteralPath (Join-Path $raceOut "hook-test-proj") -Filter "*.md" -File | Where-Object { $_.Name -notlike "00 - *" }).Count -eq 1)
+Assert "race: results are one dup and one written" ($statuses -eq "dup,written")
+
+# ---- Cowork sweep: a transcript whose export throws leaves an error line ----
+Reset-Log
+$fakeAppData = Join-Path $work "appdata"
+$cwDir = Join-Path $fakeAppData "Claude\local-agent-mode-sessions\s1\cw-outputs"
+New-Item -ItemType Directory -Path $cwDir -Force | Out-Null
+Copy-Item -LiteralPath $tOk -Destination (Join-Path $cwDir "hook-test-cowork.jsonl")
+$realAppData = $env:APPDATA
+try {
+    $env:APPDATA = $fakeAppData
+    $code = Invoke-Hook (New-HookJson "SessionEnd" "hook-test-cw-main" $tOk) $badRoot
+}
+finally {
+    $env:APPDATA = $realAppData
+}
+$cw = @(Get-Results | Where-Object { $_.session_id -eq "hook-test-cowork" })
+Assert "cowork sweep: exit 0" ($code -eq 0)
+Assert "cowork sweep: failed transcript leaves one error line" ($cw.Count -eq 1 -and $cw[0].status -eq "error" -and -not [string]::IsNullOrWhiteSpace($cw[0].error))
+Assert "cowork sweep: error holds no path" ($cw.Count -eq 1 -and $cw[0].error -notmatch '[A-Za-z]:[\\/]')
 
 # ---- cleanup (remove junctions by themselves first, never recurse through them) ----
 Get-ChildItem -LiteralPath $outRoot -Recurse -Directory -Force -ErrorAction SilentlyContinue | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint } | ForEach-Object { [System.IO.Directory]::Delete($_.FullName) }

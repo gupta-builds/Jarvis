@@ -55,6 +55,7 @@ The bulk of the note. Prose that explains the key notes and how they relate, wit
 A short table of current live state, only for a folder that tracks ongoing work. Update it in the same session as the folder's changes, or delete it.
 ### Dataview (optional)
 Live queries only, below the prose, never above it. Skip a query that repeats what the Map says. Every `FROM` folder must exist ([[Dashboard Standard]]).
+
 ```dataview
 TABLE status, updated
 FROM "20_Progress/Mentorship Program"

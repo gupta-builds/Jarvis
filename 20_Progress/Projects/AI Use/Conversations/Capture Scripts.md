@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-28
+updated: 2026-10-29
 tags:
   - project
   - ai
@@ -114,4 +114,15 @@ Wall time of `powershell.exe -NoProfile -File <hook>` with JSON on stdin, `Measu
 1. `SessionEnd` really exports: in a scratch folder, start `claude`, send one prompt, run `/clear`, then run `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl -Tail 3`. An `export_result` line for that session must appear. Do not use `claude -p`; it kills async hooks and gives a false result.
 2. After one normal working day: p50 and p95 of `ms` from the real file, `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl | ConvertFrom-Json | Where-Object event -eq export_result`, then group by `status` and take the 50th and 95th percentile of `ms`. Also count lines whose `status` is `error` or `no_status`.
 ### The test files
-`test-session-hook.ps1` (112 lines) runs the hook as a child shell with synthetic transcripts: empty stdin, garbage stdin, a missing transcript, a valid transcript (written, then dup, exact field names, no transcript text in the log), and an export that throws. 21 assertions, 7 test files in total, 14 of 14 runs passing under `pwsh` and `powershell.exe`.
+`test-session-hook.ps1` (112 lines) runs the hook as a child shell with synthetic transcripts: empty stdin, garbage stdin, a missing transcript, a valid transcript (written, then dup, exact field names, no transcript text in the log), and an export that throws. 21 assertions, 7 test files in total, 14 of 14 runs passing under `pwsh` and `powershell.exe`. Superseded by the next section: the file now has 31 assertions.
+### Close-out, 2026-10-29
+*The "Risks seen but not tested" bullets above are kept as written. The first is now tested and fixed.*
+- **The race was real.** `Stop` (async) and `SessionEnd` for one session, started 150 ms apart, both reported `written` and each wrote its own note: 8 sessions gave 16 notes. Every exit code was 0, so the hook showed nothing. It was not a `status: error` as guessed above.
+- **Fix:** the hook takes a named mutex per session (`Local\jarvis-session-export-<session id>`) around the export. The second hook waits, finds the marker current, and returns `dup` in 114 to 179 ms. After the fix 8 sessions gave 8 notes, with no temp files left. The wait is capped at 25 s, inside the 30 s `SessionEnd` timeout; past that the hook skips and logs `skipped` with `error` "export in progress". A mutex that cannot be created, or whose holder was killed, never blocks the export. `ms` leaves out the wait.
+- **Cowork sweep:** the empty `catch` now writes an `export_result` line (`status: error`, `session_id` the transcript's basename, `ms: 0`, `error` the exception type and script line). Successes still write nothing. This machine has no Cowork folder, so only the test has exercised it.
+- **Test override added:** `JARVIS_EXPORT_LOCK_WAIT_MS` (test only) replaces the 25 s wait.
+- **Hook card:** the hook is 272 lines now (215 above). It still has no byte-order mark and still holds only the two old non-ASCII em dashes in the dead `SessionStart` text.
+- **Test files:** `test-session-hook.ps1` is 178 lines and 31 assertions. New cases: the lock held elsewhere (skipped, then written once free), `Stop` and `SessionEnd` at once (one note, one `written`, one `dup`), and a failing Cowork export. The race case cannot fail on correct code, but it only exercises a real collision when the two hooks overlap; the 8-session run above is the proof. Suite: 14 of 14 runs pass under `pwsh` and `powershell.exe`.
+- **Why transcripts get large (found while measuring):** the 115.9 MB transcript is 19 whole-PDF `Read` results holding 105.9 MB, each a base64 `document` block stored twice in its line. A 30 MB and a 17.5 MB transcript are 94% and 88% one PDF read; image blocks fill another 19.5 MB file. The note stays small (570,850 bytes for the largest) because the exporter drops the bodies, and the cost is the roughly 4.5 s parse on each re-render. `projects/` is 662 MB in 515 files, 184 MB of it subagent and tool-result files. This is failure code E2 (context bloat) in the taxonomy, and the vault rule to use `mineru parse` for PDFs is not enforced for `Read`. No guard was added: a guard is an actuator, which the design leaves to the owner as one ledger row. Candidate for the first week of the loop.
+- **Still open, owner side:** the `/clear` check and the day of real timings above (15 `export_result` lines exist so far, too few to take a p95), the retention check on or after 2026-10-30, and the PDF-read decision.
+- **Still open, not P3:** the P1 items (Haiku 5.5 above 100,000 prompt tokens unpriced, `claude-fable-5-1` null cost, command lines not redacted, the WSL exporter); the backfill still writes no per-export record.

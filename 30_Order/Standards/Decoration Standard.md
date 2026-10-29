@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-15
-updated: 2026-10-16
+updated: 2026-10-29
 tags:
   - system
   - standards
@@ -37,7 +37,7 @@ This is the standard for the markers inside a note body: highlight, bold, italic
 | `EXAMPLE` | A worked example |
 `IMPORTANT` and `DANGER` appear in [[HUMAN_WRITING]] for its do and do-not pair. `INFO`, `CAUTION`, and `DECISION` appear in older notes and are not in the documented set: add no new ones, and when touching a note map `INFO` to `NOTE` and `CAUTION` to `WARNING`. Do not stack callouts. One blank line follows a callout before prose, and that is the only blank line allowed.
 ## Tables, embeds, math, code
-- A table compares rows. A list that Dataview can derive from frontmatter is a query, not a hand-built table.
+- A table compares rows. A list that Dataview can derive from frontmatter is a query, not a hand-built table. A table and a dataview block need one blank line above them when text sits directly over them, or Obsidian does not render them; Vault Lint warns, and does not fail the note ([[Jarvis Writing and Formatting]]).
 - An Excalidraw or Canvas embed sits beside a paragraph that states the mechanism in words. An image-only diagram is invisible to search.
 - Notation goes in `$...$` with a sentence saying what it means. Use `$$...$$` only for an equation worth reading on its own line.
 - Code blocks carry a language identifier and stay short.

@@ -69,6 +69,7 @@ Four rows: Project, Career, Cleanup, Review. The target comes from the weekly Go
 | `from` | `weekly` (a Goal or Friday checkpoint), `calendar` (a block that passed), `win`, `floor`, or `other`. |
 | `since` | The date it first slipped. It never changes, so age is `today - since`. |
 The checkbox mark is the state:
+
 | Mark | Meaning |
 |---|---|
 | `[ ]` | Open. Counts on the dashboard and ages one day each midnight. |

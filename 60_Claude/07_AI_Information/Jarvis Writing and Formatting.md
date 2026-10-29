@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-31
+updated: 2026-10-29
 tags:
   - evergreen
   - system
@@ -50,8 +50,18 @@ Rules:
 - Zero blank lines between consecutive list items
 - Zero blank lines between consecutive sections
 - **One blank line is acceptable:** immediately after a callout (`> [!X]`) or blockquote (`> `) before a following paragraph of prose
+- **One blank line is required:** directly above a Markdown table or a fenced `dataview` or `dataviewjs` block when text sits right above it
 
 Extra blank lines are not stylistic — they are an error. They bloat the file and signal that the agent added them instead of relying on CSS.
+
+### Tables and Dataview Blocks Need A Blank Line Above
+
+When a table starts on the line right after a paragraph, a list item, or a callout, Obsidian does not render it as a table. A `dataview` or `dataviewjs` block behaves the same way. AI-written notes must never start a table or a dataview block on the line after text.
+
+- Put one blank line between the text and the table or block.
+- No blank line is needed when the line above is a heading, the closing line of a code fence, or the end of an HTML comment, because those already end their block. Keep the vault's zero-blank-lines rule there.
+- Tables and dataview blocks inside fenced code or frontmatter are ignored.
+- [[Vault Lint]] reports `table-no-blank-above` and `dataview-no-blank-above` as warnings with line numbers. A warning does not fail a note or change the fit percentage, but the rule still holds for every note an AI writes. The lint never edits a note, so the fix is by hand.
 
 ## Markdown Shape
 
@@ -60,7 +70,7 @@ Write for fast rereading.
 - Use short paragraphs.
 - Use headings when they help navigation or retrieval.
 - Use bullets for comparison, steps, symptoms, examples, and constraints.
-- Use tables only when comparison is clearer in rows.
+- Use tables only when comparison is clearer in rows, with a blank line above them when text is directly over them.
 - Use code blocks for code, syntax, commands, data examples, and exact formats.
 - Use callouts sparingly for warnings, source notes, definitions, or important caveats.
 
@@ -474,7 +484,7 @@ Rules specific to notes created from external sources.
 
 ## Quality Gate
 
-==Run this 16-point checklist before saving any note. Do not save until all pass.==
+==Run this 17-point checklist before saving any note. Do not save until all pass.==
 
 1. **Duplicate frontmatter keys?** → scan and fix; one key, one value
 2. **Every `notes:` wikilink confirmed to exist?** → Grep each one; fix or move to body labeled `(to create)`
@@ -492,6 +502,7 @@ Rules specific to notes created from external sources.
 14. **`## Open Questions` in `- [ ]` Tasks format?** → fix if prose
 15. **`## Flashcards` section with `#cards/[track]` cards?** → add if missing (source notes); minimum 3–5; test mechanisms not labels
 16. **Does re-reading this note replace opening the original?** → if no, add what is missing
+17. **Does any table or `dataview` block start on the line right after text?** → add one blank line above it (the lint only warns, but never save a note that starts one on the line after text)
 
 ## Safety Rules
 

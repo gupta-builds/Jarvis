@@ -213,7 +213,7 @@ const PLACEHOLDER = /<%|%>|\{\{|\}\}|YYYY-MM-DD|==\s*==|\[\[\s*\]\]/;
 const GEN_LEGACY = new Set(['code', 'rationale', 'document', 'community']);
 function check(rel, text) {
   const n = parseNote(text);
-  const r = { path: rel, family: null, tier: null, fails: [], notes: [] };
+  const r = { path: rel, family: null, tier: null, fails: [], warns: [], notes: [] };
   const type = val(n, 'type');
   // tier 3 by legacy type
   let cand = type ? matchSpec(n, rel) : [];
@@ -365,13 +365,14 @@ function check(rel, text) {
     }
     if (hr) add(5, 'hr-in-body:' + hr);
     if (blanks) add(5, 'extra-blank-lines:' + blanks);
-    if (spots.badTables.length) add(5, 'table-no-blank-above:' + spots.badTables.map((i) => 'L' + (lineOff + i + 1)).join(','));
-    if (spots.badDvs.length) add(5, 'dataview-no-blank-above:' + spots.badDvs.map((i) => 'L' + (lineOff + i + 1)).join(','));
+    // warnings only: they never fail a note or change the fit percentage
+    if (spots.badTables.length) r.warns.push('table-no-blank-above:' + spots.badTables.map((i) => 'L' + (lineOff + i + 1)).join(','));
+    if (spots.badDvs.length) r.warns.push('dataview-no-blank-above:' + spots.badDvs.map((i) => 'L' + (lineOff + i + 1)).join(','));
     if (text.replace(/\r\n/g, '\n').endsWith('\n\n')) add(5, 'trailing-blank');
     const pl = cleanProse(body);
     if (PLACEHOLDER.test(pl)) add(5, 'unresolved-placeholder');
   }
-  if (spec && Array.isArray(spec.skip_checks) && spec.skip_checks.length) r.fails = r.fails.filter((f) => !spec.skip_checks.includes(parseInt(f, 10)));
+  if (spec && Array.isArray(spec.skip_checks) && spec.skip_checks.length) { r.fails = r.fails.filter((f) => !spec.skip_checks.includes(parseInt(f, 10))); if (spec.skip_checks.includes(5)) r.warns = []; }
   r.pass = r.fails.length === 0;
   // which checks failed
   r.failed = [...new Set(r.fails.map((f) => f.split(':')[0]))].sort();
@@ -524,4 +525,11 @@ Object.entries(fam).sort((a, b) => b[1].n - a[1].n).forEach(([k, t]) => console.
 const reasons = {}; for (const r of results) for (const f of r.fails) { const k = f.replace(/:\d+$/, '').replace(/(duplicate-key|missing-key|empty-key|not-list|bad-date|bad-number|placeholder-in-value|missing-heading|empty-heading|type-off-vocab|status-off-vocab|kind-off-vocab|hr-in-body|extra-blank-lines|table-no-blank-above|dataview-no-blank-above|checkbox-outside-todo|todo-lines|missing-subheading|dead-body-links|dead-frontmatter-links|legacy-generated-type):.*/, '$1'); reasons[k] = (reasons[k] || 0) + 1; }
 console.log('\nTop failure reasons:'); Object.entries(reasons).sort((a, b) => b[1] - a[1]).slice(0, 15).forEach(([k, v]) => console.log(`  ${String(v).padStart(5)}  ${k}`));
 if (LIST_N) { console.log(`\nFirst ${LIST_N} failing notes:`); results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}${r.dead ? '  DEAD: ' + r.dead.join(' | ') : ''}`)); }
+// warnings never affect FIT; they print with line numbers (first 20, or --list N)
+{ const wc = {}; const wn = results.filter((r) => r.warns && r.warns.length);
+  for (const r of wn) for (const w of r.warns) { const k = w.split(':')[0]; wc[k] = (wc[k] || 0) + 1; }
+  if (wn.length) {
+    console.log('\nWarnings (do not affect FIT):'); Object.entries(wc).sort().forEach(([k, v]) => console.log('  ' + String(v).padStart(5) + '  notes with ' + k));
+    console.log('  First ' + Math.min(wn.length, LIST_N || 20) + ' notes with warnings:'); wn.slice(0, LIST_N || 20).forEach((r) => console.log('    ' + r.path + '  ' + r.warns.join('; ')));
+  } }
 if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ fit, total: results.length, results }, null, 1));

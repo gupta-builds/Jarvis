@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-28
+updated: 2026-10-29
 tags:
   - project
   - ai
@@ -101,3 +101,4 @@ This is not a registry to maintain by hand and not a proposal for one. It record
 - **`SessionEnd` row, `timeout`:** the entry now has `"timeout": 30` and stays synchronous. Without it the 1.5-second budget applied, and a fresh export of the largest transcript took 4.8 to 5.1 seconds (p50 to p95 of 5 runs). The docs do not say whether an async hook survives `SessionEnd` in an interactive session, so it was not made async.
 - **Basis:** the timing table is in the Corrections of [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]]. Two checks are still pending on the owner's side (a real `/clear` and a day of real timings); both are written out there.
 - **Changed by:** targeted edits to the two entries only; every other key and hook event matches the copy taken before the edit.
+- **2026-10-29, async and `SessionEnd` together:** the undocumented overlap of an async `Stop` export with `SessionEnd` was tested and was a real defect (two notes per session). The hook now serializes exports per session, so the settings above stand unchanged. See the close-out in [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].

@@ -22,6 +22,7 @@ notes:
 This is the canonical schema for note properties in Jarvis. Before it, the type and status lists lived in CLAUDE.md, Vault Operating System, and the templates, and the three disagreed (8, 12, and about 20 types, against 40+ in the notes). Vault Operating System now points here. A property that matters to one family only is defined in that family's Standard, not in this file.
 ## type
 Seventeen values. A note has exactly one.
+
 | type | What it is | Kind key | Allowed kinds |
 |---|---|---|---|
 | `input` | Captured or source-derived: a clip, summary, transcript, brief | `input_kind` | clipping, source-summary, pdf-summary, web-summary, video-summary, repo-card, transcript, brief, ai-conversation, ai-conversation-summary, job-dossier |
@@ -44,6 +45,7 @@ Seventeen values. A note has exactly one.
 If two types seem to fit, pick by what the reader does with the note: studies it (`concept`, `evergreen`), executes it (`project`, `plan`, `tracker`), looks it up (`reference`), or follows it (`system`).
 ## status
 One axis only. Maturity for knowledge, lifecycle for work.
+
 | type | Allowed status | Default |
 |---|---|---|
 | `input`, `concept`, `evergreen`, `index`, `output`, `reference` | seed, sprout, tree, archived | seed |
@@ -61,6 +63,7 @@ One axis only. Maturity for knowledge, lifecycle for work.
 - `stage` holds a pipeline position such as `applied` or `interview`. It is owned by the Standard of the pipeline that uses it (the internship Standards), and its values are listed there.
 ## Universal keys
 Required on every Tier 1 and Tier 2 note. Tier rules are in [[Conformance Standard]].
+
 | Key | YAML type | Rule |
 |---|---|---|
 | `type` | text | One of the seventeen above |
@@ -81,6 +84,7 @@ Optional everywhere: `notes` (list of wikilinks), `next` (text), `area`, `source
 A key defined by one family stays in that family. Examples: `deadline_posted`, `matched_reason`, `result` (internship notes), `decision_count` (conversation summaries), `tools_used` (Claude Code exports), `generator` and `source` (generated notes). Dormant today: `enrichment_status` and `enrichment_level` are defined by the Enrichment workflow and no note uses them. Add them only while running that workflow.
 ## Legacy values
 When a session touches an old note it replaces these. See [[Conformance on Touch]].
+
 | Old | New |
 |---|---|
 | `type: code`, `rationale`, `document`, `community` | `type: generated` with `gen_kind` set to the old value and a `generator` |

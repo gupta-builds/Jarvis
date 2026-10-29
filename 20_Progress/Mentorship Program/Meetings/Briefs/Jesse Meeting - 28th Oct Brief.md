@@ -21,7 +21,7 @@ next: "[[Jesse Meeting - 28th Oct Actions]]"
 **Transcript:** [[Jesse Meeting - 28th Oct]]
 **Date of conversation:** 2026-10-28
 ## What This Was
-The first call between Anant and Jesse. Jesse joined from his phone, so the call moved from Zoom to Google Meet after his audio broke up, and he could not open the shared Google Doc, though he said he had read it. Anant ran about 10 minutes past the 45-minute block. Speaker labels (You and Them) are reliable, but the capture garbles some names and terms, listed in Open Questions. The Mentoring Agreement due 2026-11-02 never came up.
+> [!SUMMARY] The *first call* between Anant and Jesse. Jesse joined from his phone, so the call moved from Zoom to Google Meet after his audio broke up, and he could not open the shared Google Doc, though he said he had read it. Anant ran about 10 minutes past the 45-minute block. Speaker labels (You and Them) are reliable, but the capture garbles some names and terms, listed in Open Questions. The Mentoring Agreement due 2026-11-02 never came up.
 ## What Was Decided
 - **Nov 4 event:** both are attending the Meet Your Partner event; Jesse confirmed at the end ("We'll see you there then").
 - **Mock interviews:** Jesse is open to running them "at any time". No date was set.

@@ -16,15 +16,16 @@ next: Email Jesse the thank-you with the corrected rule and a proposed weekday a
 ---
 # Jesse Meeting - 28th Oct Actions
 From [[Jesse Meeting - 28th Oct Brief]]. Statements only, and every statement links to what it is about.
+#
 ## Internship and the work authorization rule
-- Send Jesse a short correction: UMN paused CPT after the August SEVP messages, Nov 6 is a federal court hearing, and on-campus work is still allowed ([[CPT Program]], [[Junior Year Internship Decision]]).
-- Send the open questions to ISSS by 2026-10-30, since their answers decide what Anant can tell Jesse ([[ISSS October Meeting Brief]]).
-- Look up SymphonyAI's Bangalore office and what it hires for, then ask ISSS what an internship abroad does to F-1 status ([[Junior Year Internship Decision]]).
-- Make the ask Jesse never got: a fifteen-minute introduction to someone who has hired international students ([[Google Doc - First Meeting]]).
-- Book the first mock interview once the weekday is fixed ([[Smart Goals]]).
+- Send Jesse a short correction: UMN paused CPT after the August SEVP messages, Nov 6 is a federal court hearing, and on-campus work is still allowed ([[CPT Program]], [[Junior Year Internship Decision]]). *Not a correction but just some more solid information on the CPT situation*
+- Send the open questions to ISSS by 2026-10-30, since their answers decide what Anant can tell Jesse ([[ISSS October Meeting Brief]]). *A meeting with ISSS is again scheduled next week for more follow up questions after solid research taken place this week*
+- Look up SymphonyAI's Bangalore office and what it hires for, then ask ISSS what an internship abroad does to F-1 status ([[Junior Year Internship Decision]]). *Just research more on Jesse's current activities and the comapnies he is worked in and working in*
+- Make the ask Jesse never got: a fifteen-minute introduction to someone who has hired international students ([[Google Doc - First Meeting]]). *Should be done on the in person meeting and noted down*
+- Book the first mock interview once the weekday is fixed ([[Smart Goals]]). *Future meeting plans, taken place after some solid work is done on communication and interview preperation.*
 ## Three goals and the Mentoring Agreement
-- Send Jesse the three goals in writing and ask what he would change, because the Mentoring Agreement is due before the Nov 4 event ([[Smart Goals]]).
-- Fill in the agreement with the goal 1 wording that holds either way on Nov 6, and submit it to Katie by 2026-11-02 ([[Plan - Jesse]]).
+- Send Jesse the three goals in writing and ask what he would change, because the Mentoring Agreement is due before the Nov 4 event ([[Smart Goals]]). 
+- Fill in the agreement with the goal 1 wording that holds either way on Nov 6, and submit it to Katie by 2026-11-02 ([[Plan - Jesse]]). *Done*
 ## Rhythm, format and the Nov 4 event
 - Propose an evening weekday and time to Jesse, with every other Monday as the option he floated, and send the invite ([[Plan - Jesse]]).
 - Offer Teams for remote sessions, since Jesse's clients use it ([[Mentor Meeting Playbook - Jesse]]).

@@ -6,7 +6,7 @@ source_os: windows
 title: "Jarvis session hook timing and hardening"
 started_at: 2026-10-28T22:28:53
 ended_at: 2026-10-29T01:27:36
-exported_at: 2026-10-29T02:33:07
+exported_at: 2026-10-29T03:33:15
 duration_minutes: 178.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

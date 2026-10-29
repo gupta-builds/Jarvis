@@ -6,7 +6,7 @@ source_os: windows
 title: "Export-claude-session.ps1 conformance fixes"
 started_at: 2026-10-28T15:16:41
 ended_at: 2026-10-28T16:55:11
-exported_at: 2026-10-28T21:03:04
+exported_at: 2026-10-28T22:03:03
 duration_minutes: 98.5
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

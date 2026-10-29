@@ -10,7 +10,12 @@ related_progress: []
 next:
 ---
 # <% tp.file.title %>
-<!-- Opening line: name the source note and the rule, statements only, every statement links to what it is about. -->
-<!-- Then one ## per thread in the source's order, with one linked declarative statement per required step. -->
+<!-- Opening line: "From [[source note]]." then the rule, statements only, every statement links to what it is about. -->
+> [!todo] To Do
+> - [ ] <!-- Required. The single most urgent action with its deadline and a link. Word for word the same as `next`. Ask the user. One to three lines, most urgent first. -->
+<!-- Then one ## per thread in the source's order and with its heading words, with one linked declarative statement per required step. The user's own comment on a statement goes after it in italics. -->
 ## Open Threads
-<!-- Statements naming what could not become a concrete step, so nothing from the source is dropped. -->
+### Questions
+<!-- Unanswered questions for the other person, an office, or the user, as linked statements. -->
+### Research
+<!-- What the user must look up or verify, as linked statements starting with a verb. Garbled names go here as verify items. -->

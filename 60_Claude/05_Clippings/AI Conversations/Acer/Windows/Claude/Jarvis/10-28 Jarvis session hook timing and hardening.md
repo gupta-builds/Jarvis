@@ -5,17 +5,17 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis session hook timing and hardening"
 started_at: 2026-10-28T22:28:53
-ended_at: 2026-10-28T23:03:39
-exported_at: 2026-10-28T23:33:04
-duration_minutes: 34.8
+ended_at: 2026-10-28T23:55:21
+exported_at: 2026-10-29T00:03:04
+duration_minutes: 86.5
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 68c513bc-f671-4b52-b1ef-e2eeebb9f750
 status: seed
 review_state: raw
 created: 2026-10-28
-updated: 2026-10-28
-turn_count: 4
+updated: 2026-10-29
+turn_count: 5
 tools_used:
   Bash: 14
   Edit: 10
@@ -2564,6 +2564,278 @@ Notes per project folder:
 === PASS: every session with an assistant turn has one note in the right folder ===
 exit=0
 ```
+
+## You
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+<system-reminder>
+<tools-used-before-summary>Bash, Edit, Grep, PowerShell, Read, Write</tools-used-before-summary>
+</system-reminder>
+Summary:
+1. Primary Request and Intent:
+
+**Turn 1 (pasted P3 prompt, "Hook Timing and Failure Record").** Measure and harden the Claude Code Stop and SessionEnd hook on the owner's Acer laptop (GUPTA-BUILDS, Windows 11) so a slow or failing session export is visible and cannot slow the owner down. The goal had three parts: a measured timing table, an outcome line in the activity log for every export, and settings chosen from the measurements. Nothing about what the exporter renders may change. The numbered steps were:
+- Step 1: add the test overrides.
+- Step 2: measure.
+- Step 3: add the `export_result` record.
+- Step 4: decide the settings.
+- Step 5: apply them with targeted edits.
+- Step 6: write `scripts/test-session-hook.ps1`.
+- Step 7: write two pending owner checks.
+- Step 8: patch three vault notes.
+
+That turn is complete and was reported.
+
+**Turn 2 (current user request, quoted from the user's message).** The user pasted my own "Unexpected" list from the report and asked: "How are these taking place? Why is the transcript so large? Go over the resources listed over here to tackle the issue: `20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources`. Dig through information here in detail and the design notes here to take care of this unexpected behavior. Have the transcript notes landed in jarvis for this laptop? Where exactly? Is it only for jarvis? What have the first 3 - p0, p1, p2, and p3 accomplished? Make sure to sort this unexpected behavior out by figuring out the answers to all the above questions and the unexpected behavior."
+
+The unexpected items to resolve were:
+- The largest transcript is 115.9 MB, not "over 8 MB".
+- The hook never had a BOM.
+- The exporter is 1,076 lines, not 921.
+- An async Stop export can race with SessionEnd.
+- The hook logs a `skipped` result, which goes beyond the brief.
+- `Conversation Layer`'s `next:` and "Next Action" still point at P3.
+- The Cowork sweep's per-transcript `catch` still swallows failures.
+
+2. Key Technical Concepts:
+- Claude Code hooks: Stop fires after every assistant turn. SessionEnd has a default 1.5 s timeout, which a per-hook `timeout` of up to 60 s raises. `"async": true` runs a hook in the background with its `timeout` not enforced. Whether an async hook survives SessionEnd in an interactive session is undocumented, and headless `claude -p` kills async hooks.
+- The hook runs under Windows PowerShell 5.1 via `powershell -NoProfile -ExecutionPolicy Bypass -File`. Tests run under both `pwsh` 7.6.9 and `powershell.exe`.
+- PowerShell 5.1 pitfalls:
+  - A function returning one object unrolls it, so `.Count` is `$null` unless wrapped in `@()`.
+  - `Remove-Item -Recurse` can follow NTFS junctions. The exporter creates a `_raw_jsonl` junction to the LIVE `C:\Users\anant\.claude\projects\<slug>` folder, so cleanup must delete junctions first with `[System.IO.Directory]::Delete($path)` and never recurse through them.
+  - .NET `JsonDocument.TryGetProperty([ref])` does not work from PowerShell. Use `ConvertFrom-Json`.
+  - BOM-less UTF-8 with non-ASCII text can be misdecoded by 5.1 (an em dash's 0x94 byte maps to a curly quote).
+  - Python is not installed.
+- The exporter (`export-claude-session.ps1`, 1,076 lines) is the session-to-note renderer.
+  - `Export-Session` returns a status object whose `Status` is one of dup / junk / written / error / legacy / pending.
+  - Single-session mode prints `Status: <status> -- Project: <name>`.
+  - The per-session dedup marker is `<projectDir>\.exported\<sid>.done`, written at the end of an export. A junk session also gets a marker.
+  - If the marker exists and the transcript is not newer, the status is `dup`. If the transcript is newer, the session is re-rendered in place, reusing the filename stored in the marker.
+  - `JARVIS_CAPTURE_OUTROOT` (test only) replaces the computed output root.
+  - `Test-LegacyExported` reads the real vault's legacy marker folders on each fresh id.
+  - `Update-Rollups` writes static Dataview notes, so its cost does not scale with note count.
+  - The routing rules live in `capture-projects.json`.
+- Activity log `C:\Users\anant\.claude\jarvis-session-activity.jsonl`: the first line is written before the export. The second is `{timestamp, event:"export_result", session_id, status, ms, error}`. `error` holds only the exception type and script line, never a path or transcript text. `JARVIS_ACTIVITY_LOG` (test only) overrides the file path.
+- Conversation Loop design: capture, then digest, then a human weekly review with a blind pass, one change per week, and a ledger.
+  - Sources 5 to 7 are Tang, Gloaguen and AgentDiet.
+  - AgentDiet (Xiao et al., arXiv 2509.23586) found tool results were about 63% of tokens in a coding trajectory. Quo's token audit reported about 80%.
+  - Failure Taxonomy code E2, "Context bloat", covers a large tool result kept in context, a file read twice, or a session run far past its useful length.
+  - Build Plan B4 (weekly digest) and Weekly Review Protocol step 6 are meant to surface the biggest tool results and files read twice. These are not built yet.
+  - The design lists the 606 MB `projects/` folder as a storage risk.
+- A named Mutex (`Local\jarvis-session-export-<sid>`) serializes exports per session.
+
+3. Files and Code Sections:
+
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1` (MODIFIED, about 215 lines before the mutex edit; no BOM, never had one).
+  - Header comment documenting the activity log, the `export_result` fields, and the test-only overrides.
+  - `trap { exit 0 }` fail-open, directly after `$ErrorActionPreference = "Stop"`.
+  - `Add-ActivityLine` helper. It never throws and honors `JARVIS_ACTIVITY_LOG`:
+    ```powershell
+    function Add-ActivityLine {
+        param([System.Collections.IDictionary]$Entry)
+        try {
+            $path = if ($env:JARVIS_ACTIVITY_LOG) { $env:JARVIS_ACTIVITY_LOG } else { Join-Path (Join-Path $env:USERPROFILE ".claude") "jarvis-session-activity.jsonl" }
+            $dir = Split-Path -Parent $path
+            if ($dir -and -not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
+            ($Entry | ConvertTo-Json -Compress) | Add-Content -LiteralPath $path -Encoding UTF8
+        } catch { }
+    }
+    ```
+  - The original first activity line (event, session_id, cwd, reason, transcript_path, in_jarvis) is kept and written before the export.
+  - The export block sets `$exportStatus = "skipped"` and `$exportError = ""`, then starts `$exportSw`. The `skipped` reasons are "no session_id", "no transcript_path" and "transcript not found".
+  - Otherwise it runs `$exportOutput = & $exportScript ...` and parses `(?m)^Status:\s*(\w+)` (falling back to `no_status`).
+  - A returned `error` status sets `error` to "exporter returned status error".
+  - A catch sets status `error` and `error` to `"<ExceptionType> at <leaf>:<line>"`. Then `Add-ActivityLine` writes the `export_result` line.
+  - **Most recent edit, this turn: the per-session mutex around the export.** It waits up to 25 s, treats `AbandonedMutexException` as lock acquired, and on a failure to create the mutex proceeds unlocked. If the lock is not acquired, `error` is "export in progress". `$exportSw.Restart()` runs after the lock is acquired, so `ms` excludes wait time. `ReleaseMutex` runs in `finally`, and the mutex is disposed:
+    ```powershell
+    $mutexName = "Local\jarvis-session-export-" + ($sessionId -replace '[^A-Za-z0-9_-]', '_')
+    $exportMutex = New-Object System.Threading.Mutex($false, $mutexName)
+    try { $haveLock = $exportMutex.WaitOne(25000) } catch [System.Threading.AbandonedMutexException] { $haveLock = $true }
+    ```
+  - The Cowork sweep (SessionEnd only) is untouched. This machine has no Cowork root.
+  - It still has 2 pre-existing non-ASCII em-dash lines in the dead SessionStart text. None were added.
+
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-session-hook.ps1` (NEW, 112 lines, no BOM).
+  - Runs the hook as a child shell, in the same edition as the test host.
+  - Sets the two overrides to a temp dir.
+  - 21 assertions across five cases: empty stdin, garbage stdin, missing transcript (`skipped` / "transcript not found"), valid synthetic transcript (`written`, then `dup`, exact fields `timestamp,event,session_id,status,ms,error`, no transcript text in the log), and export throws (OUTROOT is a file, so `status` is `error` with a non-empty, path-free `error`).
+  - Fixed during the turn: the `@()` wrapping of `Get-Results` and `Get-LogLines` results for 5.1.
+  - Its cleanup removes junctions first.
+  - It is picked up automatically by `run-all-tests.ps1`.
+
+- `C:\Users\anant\.claude\settings.json` (MODIFIED by targeted Edit).
+  - The Stop entry gained `"async": true, "timeout": 60`.
+  - The SessionEnd entry gained `"timeout": 30` (synchronous).
+  - Backup: `C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\settings.json.bak`.
+  - A parse and diff confirmed only those two entries changed.
+
+- `export-claude-session.ps1` (UNCHANGED this task).
+
+- Vault notes patched in turn 1 (appended `## Corrections` or a Log line; earlier text untouched; no em dashes):
+  - `20_Progress/Projects/AI Use/Conversations/Capture Registration.md`: Corrections on the Stop `async`/`timeout` and SessionEnd `timeout` rows.
+  - `.../Capture Scripts.md`: Corrections with the hook card update, the timing table, the decision, the risks, the pending owner checks, the test files card, and the BOM correction.
+  - `.../Conversation Layer.md`: one Log line, "2026-10-28 (P3)".
+  - These now carry a stale line: Capture Scripts' "Risks seen but not tested" says the async-Stop/SessionEnd race was untested. That race is now tested and fixed.
+
+- Scratchpad files (temp, not in the vault), under `C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\`:
+  - `measure-hook.ps1`
+  - `race-test.ps1`
+  - `results.jsonl`
+  - the settings backup
+
+Timing results (wall ms, p50 / p95, 5 runs). Baseline for an empty script is 219 / 231; the hook with garbage stdin is 229 / 379.
+
+| Transcript | Stop fresh | SessionEnd fresh | Stop dup | SessionEnd dup |
+|---|---|---|---|---|
+| 1.9 KB (`junk`) | 523 / 552 | 490 / 585 | 547 / 569 | 436 / 593 |
+| 1.1 MB (`written`) | 874 / 1,159 | 874 / 892 | 434 / 473 | 485 / 627 |
+| 115.9 MB (`written`) | 4,909 / 5,225 | 4,827 / 5,055 | 435 / 495 | 512 / 585 |
+
+4. Errors and fixes:
+- The test script failed under 5.1 on single-result cases (.Count is `$null` for a unrolled single object). I fixed it by wrapping `$res = @(Get-Results)` and `@(Get-LogLines)`.
+- The first large-transcript profiling attempt failed because Python is not installed (exit 49).
+- The .NET `TryGetProperty([ref])` approach failed with a MethodException, so I switched to `ConvertFrom-Json` plus a recursive walk.
+- A PowerShell command was blocked with "Remove-Item on system path '/$' is blocked". Nothing ran. I moved the race test into a script file (`race-test.ps1`) and ran that.
+- My first BOM-history check went through PowerShell text decoding, which can drop a BOM. I redid it on raw bytes with `git show ... | head -c 3 | xxd`.
+- A few output-formatting errors from `ConvertFrom-Json` auto-parsing timestamps into DateTime were harmless.
+- I replaced an invented example line number in the Capture Scripts note with the placeholder shape `<ExceptionType> at <script>.ps1:<line>`.
+- No user corrections were received.
+
+5. Problem Solving (answers found for the user's questions):
+
+**Why the 115.9 MB transcript is so large.**
+- It is session `09-24 Course catch-up and board notes overhaul`, in the Jarvis project.
+- 19 lines over 200,000 characters hold 105.8 of the 115.9 MB. All 19 are `user` entries holding the result of a `Read` call on a `.pdf`: a base64 `document/application/pdf` block, 52.9 MB of base64 in total.
+- Each such line is about twice its base64 size, because Claude Code stores the result twice per line (in `message.content` and again in `toolUseResult`). For example, line 571 is 51.0 MB with 25.5 MB of base64.
+- Across the 133 top-level transcripts (478 MB total), the 110.5 MB file is 95% PDF `Read` lines. A 30 MB file is 94% from one PDF read, and a 17.5 MB file is 88%.
+- Another 19.5 MB file is image blocks (40 of them).
+- The whole `projects/` folder is 662 MB in 515 files (606 MB on 2026-10-22), and 184 MB of it is subagent and tool-result files.
+- The exporter handles it: the note for that session is only 570,850 bytes. The cost is about 4.5 s to parse the file on each re-render. The file's last write was about 2026-09-28, so it is idle.
+- This ties to the sources: AgentDiet says tool results dominate tokens (about 63%), and Quo's audit says about 80%.
+- The design's planned remedies are E2 "Context bloat", the B4 digest and Weekly Review step 6. The design's `projects/` growth note blamed subagent files and saved tool results, so whole-PDF `Read` calls are new information.
+- It also conflicts with the vault rule CLAUDE.md #9, "PDF extraction: use mineru parse, never pdftotext".
+- No bloat control exists yet. Any control would be a human-decided actuator change (a ledger row), not something I add unasked.
+
+**BOM.**
+- The hook has no BOM in any commit. Raw bytes are `706172` ("par") in every commit before my edit.
+- Only `wsl-session-export.ps1` among the tracked workflow `.ps1` files starts with `efbbbf`.
+- The P3 and P1 prompts over-generalized "files with non-ASCII carry a BOM on purpose".
+- Non-ASCII lines remain without a BOM in the hook (2, in the dead SessionStart text), `register-git-auto-sync-task.ps1` (2), `register-jarvis-sync-task.ps1` (1) and `wsl-session-export.ps1` (11, which has a BOM).
+- The hook parses and runs fine as is.
+
+**Exporter line count.**
+- 921 lines was true when the prompt was written (922 split-count at commit 8e168922, 2026-10-22).
+- It grew to 1,005 and then 1,077 in two commits on 2026-10-28 (P1 and P2 work: pricing, status fields, fenced rendering, routing, `-Force`).
+
+**"over 8 MB".** It was a stale lower-bound understatement; the 116 MB file existed on 2026-10-22.
+
+**The race.**
+- Test: Stop and SessionEnd started 150 ms apart for the same session id, 4 sessions on the median transcript and 4 on the largest, output to scratch.
+- Before the fix: both reported `written` in every case, and 8 sessions produced 16 notes (a duplicate note per session). All exit codes were 0, so the hook showed no sign of it.
+- After the mutex fix: the first writes (about 4.4 to 5.5 s on the large transcript, 0.55 to 0.68 s on the median), and the second returns `dup` in 114 to 179 ms. 8 sessions produced 8 notes, and no temp files were left.
+- All 14 suite runs pass.
+
+**Do notes land in Jarvis? Where?**
+- Yes. `check-capture-coverage.ps1` (read-only, exit 0) printed: "PASS: every session with an assistant turn has one note in the right folder". 133 top-level transcripts; 105 with an assistant turn, all 105 with one note in the right folder; 28 with no assistant turn (exempt, no note); no missing, duplicate or wrong-folder notes; 128 notes in the tree; 23 notes whose transcripts are gone and which keep their old format (no `review_state`).
+- Location: `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude\<project>\`.
+- Notes per folder: Jarvis 84, The Plan 21, Home 17, UMN Courses 5, Scratch 1. Each folder also has `.exported\` markers, a `_raw_jsonl` junction to the live transcripts (not in Scratch), and `00 -` rollups.
+- Other notes under `AI Conversations`: Dell 617, legacy `Windows\` 117.
+- The `Acer\Windows` subfolders AGY, Codex, Kiro and Local hold 0 notes (WSL subfolders exist, empty or not checked).
+- The Acer tree is git-tracked (358 files) and not ignored, so Jarvis-GitAutoSync commits it.
+
+**Is it only Jarvis?**
+- The capture is not limited to Jarvis sessions.
+- The hook is registered globally in the user settings, so it fires for every Claude Code project on this laptop. It routes by cwd through `capture-projects.json` into per-project folders, but all of them live inside the Jarvis vault.
+- Cowork has none on this machine, WSL and Dell are separate, and Codex, Cursor and Kiro are not covered by this hook.
+
+**The real hook is working live.** The real activity log (205 lines: 127 Stop, 77 SessionEnd, 1 `export_result`) shows one `export_result` for this session: `status=written`, `ms=538`. It is the only one so far because only one turn has ended since the edit. This session's note is `\Jarvis\10-28 Jarvis session hook timing and hardening.md` (95,959 bytes).
+
+**What P0 to P3 accomplished** (from the Conversation Layer Log and the prompts):
+- **P0** (2026-10-28):
+  - Set `cleanupPeriodDays` to 60 in `settings.json` (was the 30-day default).
+  - Copied 272 `.jsonl` files (633,702,146 bytes, 126 top-level) to `D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22`.
+  - The 30-day sweep had already removed 2026-09-24 to 2026-09-27, which the snapshot cannot recover.
+  - A retention check is pending on or after 2026-10-30.
+- **P1**:
+  - Exporter correctness: `status: seed`, `review_state: raw`, `created` and `updated`, no BOM, rollups typed `generated`, fenced tool calls.
+  - Priced `claude-opus-5-5`, `claude-sonnet-5-5` and `claude-haiku-5-5` (0.05 cache-read multiplier on the two 5.5 models).
+  - Added `run-all-tests.ps1` and `JARVIS_CAPTURE_OUTROOT`.
+  - Two real sessions matched an independent token count exactly.
+  - Open items: Haiku 5.5 above 100K prompt tokens is not priced, `claude-fable-5-1` gets a null cost, command lines are not redacted, and the WSL exporter has every old problem.
+- **P2**:
+  - Routing in `capture-projects.json` (Jarvis, The Plan, UMN Courses, Home, Scratch, else the cwd leaf), `-Force`, `check-capture-coverage.ps1` and `reroute-acer-notes.ps1`.
+  - 103 of 129 transcripts then had a note in the right folder; 8 files moved and 28 archived to `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22` with a SHA-256 manifest.
+  - 8 folders were retired.
+- **P3** (this work):
+  - Timing table and `export_result` record.
+  - Stop async with a 60 s timeout, SessionEnd synchronous with a 30 s timeout.
+  - No debounce.
+  - `test-session-hook.ps1`.
+  - Notes patched.
+  - Two owner checks pending.
+
+6. All user messages:
+- Turn 1: a pasted P3 prompt (`<pasted_content id="0c32">`). It contained `<role>`, `<context>`, `<goal>`, `<constraints>`, `<progress_updates>`, `<steps>` (1 to 8), `<verification>` and `<report>`. Security and behavioral constraints it stated that still apply:
+  - "Never open .credentials.json, .env files, history.jsonl, or print transcript text. Pointing the hook at a real transcript path is fine; report milliseconds only."
+  - "Do not run git commit or git push; Jarvis-GitAutoSync is the only git writer."
+  - "Do not let measurement write into the vault or the real activity log."
+  - "The hook must exit 0 on every input and must never throw from a log write. Keep it compatible with Windows PowerShell 5.1 and keep its BOM; add no non-ASCII character."
+  - "When the work the user asked for is done and checked, stop and report. Don't add features, tests, files, docs or refactors that weren't asked for. If you think one would help, mention it at the end instead of doing it."
+  - "Test under pwsh and powershell.exe -NoProfile -ExecutionPolicy Bypass -File."
+  - Edit only the hook script, the exporter's header and path handling for the two overrides, the two settings entries (a targeted edit after copying the file to the scratchpad), `scripts/test-session-hook.ps1`, and the notes named in step 8.
+  - The report was to be under 350 words with exact numbers.
+- Turn 2: a message with a pasted block (`<pasted_content id="0c32">`, a copy of my "Unexpected." list), followed by the user's text: "How are these taking place? Why is the transcript so large? Go over the resources listed over here to tackle the issue: `20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources`. Dig through information here in detail and the design notes here to take care of this unexpected behavior. Have the transcript notes landed in jarvis for this laptop? Where exactly? Is it only for jarvis? What have the first 3 - p0, p1, p2, and p3 accomplished? Make sure to sort this unexpected behavior out by figuring out the answers to all the above questions and the unexpected behavior."
+- Turn 3: the request for this summary (text-only, no tools).
+
+Standing rules from the user's global and project CLAUDE.md files, which must be preserved:
+- Never write files, notes or scratch output anywhere unless the user explicitly asked in that session. Do not write to the vault unless the user names the exact file and asks.
+- Never read, print or surface secret-bearing files: `.env*`, `.credentials.json`, `.mcp.json` literal secrets, SSH private keys, anything with credential, secret or token in its name. Use the value indirectly only.
+- Never use em dashes; use complete sentences with normal punctuation.
+- Vault rules: patch by heading; preserve frontmatter; no new files at the vault root; unsure goes to `60_Claude/00_Inbox/`; never read or write `50_Archive/`; `60_Claude/05_Clippings/` raw sources are read-only after capture; no personal-life content in Jarvis; PDF extraction uses `mineru parse`, never `pdftotext`.
+- Session-end protocol: append to `60_Claude/07_AI_Information/Session Logs/log.md`. Per the global rule this was not done in this session, because it was not asked.
+- Use the scratchpad for temporary files.
+
+7. Pending Tasks:
+- Turn 2 asks to "sort out" the unexpected behaviors. Done: root causes were found for every item, and the race was fixed in code.
+- Not yet done, and not asked:
+  - **Not updating the vault notes:** I have not updated the three notes I wrote in turn 1, which are now stale. Capture Scripts' "Risks seen but not tested" bullet, Capture Registration and the Conversation Layer Log do not mention the mutex fix, the PDF-bloat finding or the duplicate-note race result. By the no-unrequested-writes rule, this must be offered, not done.
+  - **No bloat-control decision:** nothing was changed for PDF bloat. A human-decided actuator is needed, for example a ledger row with a rule such as use `mineru parse`, or a PreToolUse guard on whole-PDF `Read`. This is the owner's decision.
+  - **Stale `next:` and "Next Action":** `Conversation Layer`'s `next:` and "Next Action" still point at P3 and need an owner or explicit request to update.
+  - **Cowork sweep:** its per-transcript `catch` still swallows failures. It is unchanged and has no activity on this machine.
+  - **Pending owner checks from turn 1:**
+    - A real `/clear` check. Start `claude` in a scratch folder, send one prompt, run `/clear`, then `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl -Tail 3`. An `export_result` line must appear. Do not use `claude -p`.
+    - After one working day, compute the p50 and p95 of `ms` from the real `export_result` lines, and count `error` and `no_status` lines.
+    - Retention check on or after 2026-10-30.
+  - **Mutex edge case:** the "export in progress" skip path (a 25 s lock wait timeout) was not exercised in a test, and no regression test for the race was added to the suite, since a short synthetic transcript makes the race flaky.
+
+8. Current Work:
+Immediately before the summary request, I was finishing the turn-2 investigation and had just run `check-capture-coverage.ps1`, which returned PASS (105 of 105 sessions with an assistant turn have one note in the right folder; 128 notes in the tree). Before that I had:
+- Added the per-session mutex to `jarvis-session-continuity.ps1`.
+- Re-run `race-test.ps1 -Label after`, which showed 8 notes for 8 sessions.
+- Re-run the suite: "=== ALL 14 TEST RUNS PASSED ===".
+
+The final answer to the user's questions had not yet been written. I was about to give a plain-language report covering:
+- how each unexpected item happened;
+- why the transcript is large (19 whole-PDF `Read` results, each stored twice);
+- the Sources and Design context;
+- where notes landed;
+- the scope of capture;
+- what P0 to P3 accomplished;
+- the race fix, with before/after numbers.
+
+9. Optional Next Step:
+Write the final text report for the user's turn-2 questions (no more investigation is needed). It should state that the race was fixed in the hook, report the 16-to-8 notes result, and list the items left for the owner. Then offer the following without doing them (the standing rule forbids unrequested writes):
+- updating the three stale Corrections notes with the mutex fix and the PDF-bloat finding;
+- the owner's decision on how to stop whole-PDF `Read` calls (the rule in CLAUDE.md #9 says to use `mineru parse`);
+- updating `Conversation Layer`'s `next:` and "Next Action" to point past P3.
+
+Where I left off, verbatim from the last tool result: "=== PASS: every session with an assistant turn has one note in the right folder ===" and "=== ALL 14 TEST RUNS PASSED ===". I will not start any new work beyond the report and the offers without the user's confirmation.
+
+If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED].jsonl
+Continue the conversation from where it left off without asking the user any further questions. Resume directly — do not acknowledge the summary, do not recap what was happening, do not preface with "I'll continue" or similar. Pick up the last task as if the break never happened.
+
+The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
 ## Actions Taken
 

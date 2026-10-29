@@ -2,7 +2,7 @@
 type: action
 status: active
 created: 2026-07-13
-updated: 2026-10-28
+updated: 2026-10-29
 source_note: "[[Project Briefings - 2026-07-13]]"
 related_progress:
   - "[[Project Briefings - 2026-07-13]]"
@@ -19,6 +19,8 @@ next: Track the adx GitHub-issue decision here once [[Codebase Deep Read]]'s rev
 ---
 # 2026-07-14 Mentor Meeting — Actions
 ==The full link-dense action breakdown from the 2026-07-14 call — this is where the detail lives; [[Project Briefings - 2026-07-13]] is the compressed brief pointing here.==
+> [!todo] To Do
+> - [ ] Track the adx GitHub-issue decision here once [[Codebase Deep Read]]'s review is ready to act on.
 ## A Note On What This File Is
 This content used to live directly inside `Project Briefings - 2026-07-13.md`, back when that single note carried both the compressed meeting summary and the full action breakdown. Once [[Brief Standard]] was written (2026-08-08), the two roles got split — the brief stays compressed, and this note carries the detail Brief Standard says shouldn't live in a brief. Brief Standard's own text also references a not-yet-written `Action Standard` for what a `/note-to-actions` output should look like structurally; that Standard doesn't exist yet, so this note doesn't claim to conform to one — it's the same real content as before, relocated and lightly updated where reality has since moved past it.
 ## 1. Review adx in Depth — Ahnaf's Agent Development Kit
@@ -59,3 +61,12 @@ Before the 2026-07-14 call, the note this content originated from held detailed,
 - [[Codebase Deep Read]] — where Section 1's adx review actually landed, far deeper than planned here
 - [[Mentor Meeting Playbook]] — the standing format and Session Log
 - [[Mentor Details'25]] — the mentor whose program this is
+## Open Threads
+### Questions
+- Whether the 2026-07-19 feedback deadline mattered to Ahnaf once it passed, given the review grew into a multi-session pass, is not known ([[Project Briefings - 2026-07-13]]).
+- Whether the adx memory-layer proposal goes to GitHub is unresolved: the brief's Follow-Up Actions say to raise it as an issue, while Section 1 says it is not headed for GitHub because issues there cover code defects only ([[Codebase Deep Read]]).
+- The roughly 22:00 to 30:00 stretch of the call, a tangent about Ahnaf's own mentor, cannot be reconstructed from the garbled capture ([[Mentor Meeting Transcript]]).
+### Research
+- Verify that every "80k" in the transcript means "adx", which the brief says was only spot-checked ([[Mentor Meeting Transcript]]).
+- Look at OpenHands before writing the memory-layer issue, so the proposal is differentiated ([[adx]]).
+- Check the current wave status in [[Internship - Dashboard]] rather than trusting the snapshot in Section 2.

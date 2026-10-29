@@ -45,16 +45,18 @@ This is the standard for the note [[Meeting Workflow]] makes from a [[Transcript
 ### Source lines
 `**Source:**` (the meeting in a few words: who, what, where), `**Transcript:**` (a wikilink), `**Date of conversation:**`, directly under the title. Metadata only. If the filename date differs from the meeting date, say so on the date line.
 ### What This Was
-One to three sentences: what kind of conversation, who was in it, and any known limit such as unreliable speaker labels.
+One to three sentences: what kind of conversation, who was in it, and any known limit such as unreliable speaker labels. It may sit in a `> [!SUMMARY]` callout, with the text on the line below the marker, not on the marker line.
 ### What Was Decided
 One bullet per real decision, with a bold label. If nothing was decided, write that; do not invent a resolution for a thread the transcript left open.
 ### Key Threads
 One `###` per substantive topic, ordered by what mattered most. Bold key names on first mention and link the vault notes each thread touches.
 *Density:* the bulk of the note. Skip ten-second tangents.
+*Conflicts:* when a speaker's claim differs from a vault fact, write what was said, then what the vault says with its link, and do not correct either side silently. If the user later says the transcript misheard or misworded it, say "likely a transcription error", give the user's reading in their words, and leave the transcript alone.
+*Garbled names:* give the transcript's spelling in quotes and the user's best reading marked as the user's. Anything the user is not sure of stays marked unconfirmed.
 > [!WARNING]
 > A thread for every topic touched. That is a second transcript.
 ### Open Questions
-`- [ ]` tasks: unresolved threads, passages too garbled to write up, and context the transcript assumed that the vault lacks.
+`- [ ]` tasks: unresolved threads, passages too garbled to write up, and context the transcript assumed that the vault lacks. When the user answers one after the call, tick it `- [x]`, keep the question, and add the answer and the date. Nothing is deleted.
 ### Follow-Up Actions
 `- [ ]` high-level next steps only. Link the [[Action Standard]] note that breaks them down; when none is needed, one line says so.
 ### Related Notes

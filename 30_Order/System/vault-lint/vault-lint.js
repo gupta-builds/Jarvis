@@ -102,6 +102,33 @@ function sectionBody(sc, hs, idx) {
   return sc.slice(start, end);
 }
 
+// Tables and dataview blocks need a blank line above them when text sits directly over them, or Obsidian does not render them.
+// Starts a table at a header row followed by a delimiter row; ignores fenced code, HTML comments, and frontmatter (not in lines).
+// A heading, a closing code fence, a callout title, or the end of an HTML comment above is a block edge and needs no blank line.
+function formatSpots(lines) {
+  const strip = (s) => s.replace(/^\s*(?:>\s?)*/, '');
+  const DELIM = /^\s*\|?\s*:?-+:?\s*(\|\s*:?-+:?\s*)*\|?\s*$/;
+  const tables = [], dvs = []; let inF = false, inC = false;
+  for (let i = 0; i < lines.length; i++) {
+    const l = lines[i];
+    if (inC) { if (l.includes('-->')) inC = false; continue; }
+    if (/^\s*```/.test(l)) { if (!inF && /^\s*```dataview(js)?\s*$/i.test(l)) dvs.push(i); inF = !inF; continue; }
+    if (inF) continue;
+    if (l.includes('<!--') && !l.includes('-->')) { inC = true; continue; }
+    const s = strip(l);
+    if (s.includes('|') && s.trim() !== '' && i + 1 < lines.length) {
+      const nx = strip(lines[i + 1]);
+      if (nx.includes('|') && nx.includes('-') && DELIM.test(nx)) tables.push(i);
+    }
+  }
+  const edgeOk = (i) => {
+    if (i === 0) return true;
+    const p = lines[i - 1]; const ps = strip(p).trim();
+    return ps === '' || /^#{1,6}\s/.test(ps) || /^\s*```\s*$/.test(p) || (/^\s*>/.test(p) && /^\[![^\]]+\]/.test(ps)) || p.trim().endsWith('-->');
+  };
+  return { tables, dvs, badTables: tables.filter((i) => !edgeOk(i)), badDvs: dvs.filter((i) => !edgeOk(i)) };
+}
+
 // ---------- vocabulary from Frontmatter Standard ----------
 function loadVocab() {
   const f = mdFiles.find((x) => x.rel === '30_Order/Standards/Frontmatter Standard.md');
@@ -256,6 +283,40 @@ function check(rel, text) {
       if (!sb) add(2, 'empty-heading:' + w);
     }
   }
+  // F7 action shape (Action Standard: To Do callout, checkboxes only inside it, Open Threads subsections)
+  if (spec && spec.family === 'action' && (spec.todo_callout || spec.open_threads_subheadings)) {
+    const sc7 = stripCode(body);
+    if (spec.todo_callout) {
+      const maxL = spec.todo_callout.max_lines || 3;
+      const CB = /^\s*(?:>\s*)*[-*+]\s+\[[ xX\/\->]\]/;
+      const h1 = sc7.findIndex((l) => l !== null && /^#\s+/.test(l));
+      let open = -1;
+      if (h1 >= 0) for (let j = h1 + 1; j < sc7.length; j++) { if (sc7[j] !== null && sc7[j].trim() !== '' && !/^\s*<!--/.test(sc7[j])) { open = j; break; } }
+      let tStart = -1, tEnd = -1;
+      if (open >= 0 && sc7[open + 1] != null && /^>\s*\[!todo\]/i.test(sc7[open + 1])) {
+        tStart = open + 1; tEnd = tStart;
+        while (tEnd + 1 < sc7.length && sc7[tEnd + 1] != null && /^>/.test(sc7[tEnd + 1])) tEnd++;
+      }
+      if (tStart < 0) add(7, sc7.some((l) => l !== null && /^>\s*\[!todo\]/i.test(l)) ? 'todo-not-under-opening' : 'todo-missing');
+      else {
+        const items = []; for (let j = tStart; j <= tEnd; j++) { const m = sc7[j].match(/^>\s*[-*+]\s+\[[ xX\/\->]\]\s*(.*)$/); if (m) items.push(m[1].trim()); }
+        if (items.length < 1 || items.length > maxL) add(7, 'todo-lines:' + items.length);
+        const flat = (s) => s.replace(/\s+/g, ' ').trim();
+        let nx = n.keys.next ? n.keys.next.raw : ''; if (/^(["']).*\1$/.test(nx)) nx = nx.slice(1, -1);
+        if (items.length && flat(items[0]) !== flat(nx)) add(7, 'todo-next-mismatch');
+      }
+      let outside = 0;
+      for (let j = 0; j < sc7.length; j++) { if (sc7[j] === null || (j >= tStart && j <= tEnd && tStart >= 0)) continue; if (CB.test(sc7[j])) outside++; }
+      if (outside) add(7, 'checkbox-outside-todo:' + outside);
+    }
+    if (spec.open_threads_subheadings) {
+      const { hs: hs7, sc: scx } = h2s(body); const oi = hs7.findIndex((h) => norm(h.title) === 'open threads');
+      if (oi >= 0) {
+        const sec = sectionBody(scx, hs7, oi); const subs = sec.filter((l) => l !== null && /^###\s+/.test(l)).map((l) => norm(l.replace(/^###\s+/, '')));
+        for (const w of spec.open_threads_subheadings) if (!subs.includes(norm(w))) add(7, 'missing-subheading:' + w);
+      }
+    }
+  }
   // F3 links
   const linkSrc = [];
   for (const k of n.order) { const e = n.keys[k]; linkSrc.push({ where: 'fm:' + k, text: [e.raw, ...e.items].join('\n') }); }
@@ -285,6 +346,8 @@ function check(rel, text) {
   // F5 hygiene (tier 1, 2)
   if (tier !== 3) {
     if (n.hasFm && n.bodyStartsWithNewline && body[0] === '') { /* blank right after frontmatter */ add(5, 'blank-after-frontmatter'); }
+    const spots = formatSpots(body); const lineOff = text.replace(/^﻿/, '').replace(/\r\n/g, '\n').split('\n').length - body.length;
+    const startSet = new Set([...spots.tables, ...spots.dvs]);
     let blanks = 0, hr = 0; let inF = false;
     for (let i = 0; i < body.length; i++) {
       const l = body[i];
@@ -295,11 +358,15 @@ function check(rel, text) {
         let p = i - 1; while (p >= 0 && body[p].trim() === '') p--;
         let q = i + 1; while (q < body.length && body[q].trim() === '') q++;
         const okCallout = p >= 0 && q < body.length && /^\s*>/.test(body[p]) && !/^\s*>/.test(body[q]) && body[i - 1].trim() !== '';
-        if (!okCallout) blanks++;
+        // the one blank line a table or dataview block needs above it, when text sits directly over it
+        const okSpot = i > 0 && body[i - 1].trim() !== '' && !/^\s*#{1,6}\s/.test(body[i - 1]) && startSet.has(i + 1);
+        if (!okCallout && !okSpot) blanks++;
       }
     }
     if (hr) add(5, 'hr-in-body:' + hr);
     if (blanks) add(5, 'extra-blank-lines:' + blanks);
+    if (spots.badTables.length) add(5, 'table-no-blank-above:' + spots.badTables.map((i) => 'L' + (lineOff + i + 1)).join(','));
+    if (spots.badDvs.length) add(5, 'dataview-no-blank-above:' + spots.badDvs.map((i) => 'L' + (lineOff + i + 1)).join(','));
     if (text.replace(/\r\n/g, '\n').endsWith('\n\n')) add(5, 'trailing-blank');
     const pl = cleanProse(body);
     if (PLACEHOLDER.test(pl)) add(5, 'unresolved-placeholder');
@@ -388,10 +455,11 @@ function kitCheck() {
         for (const g2 of got) if (!allowed.has(g2) && specs.length === 1) add('warn', tf.rel, `template has heading not in spec: ${g2}`);
         hs.forEach((h, i) => {
           const sb = sectionBody(sc, hs, i).join('\n');
-          const stripped = sb.replace(/<!--[\s\S]*?-->/g, '').replace(/^\s*```[\s\S]*?```/gm, '').trim();
+          const subN = (sb.match(/^###\s+/gm) || []).length; // ### subheadings are allowed; each may carry its own comment
+          const stripped = sb.replace(/<!--[\s\S]*?-->/g, '').replace(/^###\s+.*$/gm, '').replace(/^\s*```[\s\S]*?```/gm, '').trim();
           if (stripped && !/^(Spec)$/i.test(h.title) && !/^(Log)$/i.test(h.title)) add('warn', tf.rel, `template section "${h.title}" has body text beyond a comment`);
           const cm = (sb.match(/<!--[\s\S]*?-->/g) || []);
-          if (cm.length > 1) add('warn', tf.rel, `template section "${h.title}" has ${cm.length} comments (limit 1)`);
+          if (cm.length > 1 + subN) add('warn', tf.rel, `template section "${h.title}" has ${cm.length} comments (limit ${1 + subN})`);
           if (cm[0] && cm[0].length > 160) add('warn', tf.rel, `template comment under "${h.title}" is long (${cm[0].length} chars)`);
         });
       }
@@ -453,7 +521,7 @@ console.log('By tier:'); Object.keys(tiers).sort().forEach((t) => console.log(` 
 const fam = {}; for (const r of results) { const t = fam[r.family] = fam[r.family] || { n: 0, f: 0, near: 0, checks: {} }; t.n++; if (r.pass) t.f++; if (r.failed.length === 1) t.near++; for (const c of r.failed) t.checks[c] = (t.checks[c] || 0) + 1; }
 console.log('\nBy family (fit / total, near-fit, failing checks):');
 Object.entries(fam).sort((a, b) => b[1].n - a[1].n).forEach(([k, t]) => console.log(`  ${k.padEnd(28)} ${String(t.f).padStart(5)}/${String(t.n).padEnd(5)} ${pct(t.f, t.n).padStart(6)}  near ${String(t.near).padStart(4)}  ${Object.entries(t.checks).sort().map(([c, v]) => 'F' + c + ':' + v).join(' ')}`));
-const reasons = {}; for (const r of results) for (const f of r.fails) { const k = f.replace(/:\d+$/, '').replace(/(duplicate-key|missing-key|empty-key|not-list|bad-date|bad-number|placeholder-in-value|missing-heading|empty-heading|type-off-vocab|status-off-vocab|kind-off-vocab|hr-in-body|extra-blank-lines|dead-body-links|dead-frontmatter-links|legacy-generated-type):.*/, '$1'); reasons[k] = (reasons[k] || 0) + 1; }
+const reasons = {}; for (const r of results) for (const f of r.fails) { const k = f.replace(/:\d+$/, '').replace(/(duplicate-key|missing-key|empty-key|not-list|bad-date|bad-number|placeholder-in-value|missing-heading|empty-heading|type-off-vocab|status-off-vocab|kind-off-vocab|hr-in-body|extra-blank-lines|table-no-blank-above|dataview-no-blank-above|checkbox-outside-todo|todo-lines|missing-subheading|dead-body-links|dead-frontmatter-links|legacy-generated-type):.*/, '$1'); reasons[k] = (reasons[k] || 0) + 1; }
 console.log('\nTop failure reasons:'); Object.entries(reasons).sort((a, b) => b[1] - a[1]).slice(0, 15).forEach(([k, v]) => console.log(`  ${String(v).padStart(5)}  ${k}`));
 if (LIST_N) { console.log(`\nFirst ${LIST_N} failing notes:`); results.filter((r) => !r.pass).slice(0, LIST_N).forEach((r) => console.log(`  ${r.path}  [${r.family}]  ${r.fails.join('; ')}${r.dead ? '  DEAD: ' + r.dead.join(' | ') : ''}`)); }
 if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ fit, total: results.length, results }, null, 1));

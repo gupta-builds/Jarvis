@@ -1,6 +1,6 @@
 ---
 type: input
-status: seed
+status: sprout
 created: 2026-10-28
 updated: 2026-10-28
 tags:
@@ -9,7 +9,7 @@ input_kind: transcript
 related_progress:
   - "[[Plan - Jesse]]"
   - "[[Google Doc - First Meeting]]"
-next: Write the brief and the action note with the Meeting Workflow
+next: "[[Jesse Meeting - 28th Oct Brief]]"
 ---
 # Jesse Meeting - 28th Oct
 **Date:** 2026-10-28, scheduled 4:30 to 5:15 pm CT

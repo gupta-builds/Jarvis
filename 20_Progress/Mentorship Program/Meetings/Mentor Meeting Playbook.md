@@ -6,7 +6,7 @@ updated: 2026-07-13
 related:
   - "[[Plan - Ahnaf]]"
   - "[[Mentor Details'25]]"
-  - "[[Mentor Meeting - One-Pager]]"
+  - "[[Meet Your Partner]]"
   - "[[Mentorship and Networking]]"
   - "[[Project Briefings - 2026-07-13]]"
 tags:
@@ -16,7 +16,7 @@ next: Fill in the Session Log entry after the 2026-07-13 call
 ---
 # Mentor Meeting Playbook
 ## Why This Note Exists
-This is the standing source of truth for every Ahnaf meeting from here forward, not just tonight's. The **Playbook** sections below (4 Goals, Current Real State, Standing Format) stay stable across meetings. Each individual meeting gets its own dated entry under [[#Session Log]] — append, never overwrite. [[Mentor Meeting - One-Pager]] covers the April meeting and is now historical; the hackathon-prep note it used to pair with has been folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed. This file is what to open before every future call. [[Project Briefings - 2026-07-13|Project Briefings]] holds the full, source-checked depth on Portfolio/Orby, TradingView, and CausalOps — read that before the call, not just the summary below.
+This is the standing source of truth for every Ahnaf meeting from here forward, not just tonight's. The **Playbook** sections below (4 Goals, Current Real State, Standing Format) stay stable across meetings. Each individual meeting gets its own dated entry under [[#Session Log]] — append, never overwrite. [[Meet Your Partner]] covers the April meeting and is now historical; the hackathon-prep note it used to pair with has been folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed. This file is what to open before every future call. [[Project Briefings - 2026-07-13|Project Briefings]] holds the full, source-checked depth on Portfolio/Orby, TradingView, and CausalOps — read that before the call, not just the summary below.
 ## The 4 Goals — What This Mentorship Is Actually For
 Not "help with my whole summer." Four specific things a mentor is actually useful for:
 1. **Relationship** — a connection with Ahnaf strong enough that he'd recommend me to other employers, and one that keeps going after the program's stated end around September 2026. This is earned by showing up with real execution each meeting, not by asking for it directly. See [[Mentorship and Networking]] on why warm intros beat cold applications.

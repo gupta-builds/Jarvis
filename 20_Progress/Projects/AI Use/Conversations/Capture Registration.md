@@ -95,3 +95,9 @@ Slot rule: a new task takes a free minute. Taken minutes are :01 and every fifth
 No file lists what should be registered per machine, so a missing registration is found only when notes stop appearing. The 10-08 tracking analysis found the Acer's hook unregistered by reading settings files by hand; the 10-04 audit found the backfill tasks missing the same way. Each registration also differs in form: JSON in user settings, JSON in project settings, Task Scheduler XML, systemd unit files.
 ## Non-Goals
 This is not a registry to maintain by hand and not a proposal for one. It records what a person can check today and how.
+## Corrections
+*2026-10-28. The sections above are kept as written.*
+- **`Stop` row, `timeout` and `async`:** the sentence "Neither entry carries a `timeout` or `async` key" no longer holds. The `Stop` entry in `C:\Users\anant\.claude\settings.json` now has `"async": true` and `"timeout": 60`, so the export runs in the background and no longer holds up the end of a turn. The docs say an async hook's `timeout` is not enforced; it is set anyway as a stated upper bound.
+- **`SessionEnd` row, `timeout`:** the entry now has `"timeout": 30` and stays synchronous. Without it the 1.5-second budget applied, and a fresh export of the largest transcript took 4.8 to 5.1 seconds (p50 to p95 of 5 runs). The docs do not say whether an async hook survives `SessionEnd` in an interactive session, so it was not made async.
+- **Basis:** the timing table is in the Corrections of [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]]. Two checks are still pending on the owner's side (a real `/clear` and a day of real timings); both are written out there.
+- **Changed by:** targeted edits to the two entries only; every other key and hook event matches the copy taken before the edit.

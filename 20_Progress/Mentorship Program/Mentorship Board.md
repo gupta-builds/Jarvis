@@ -34,7 +34,7 @@ Reference links: [CSE Mentor Program How to Guide for Students](https://cse.umn.
 
 [[Mentor Meeting Playbook]] is the meeting format Ahnaf's relationship followed, Demo, Shipped/Blocked/Deciding, Ask, and its Session Log is the append-only record of what was actually said. The most recent entry, 2026-07-14, is where **adx**, [[adx|Ahnaf's own Agent Development Kit]], became the real center of gravity of that relationship, and where the feedback debt now driving [[Plan - Ahnaf]]'s re-engagement sequence comes from.
 
-Each meeting moves through three folders under `Meetings/`: the raw call lands untouched in `Transcripts/`, `/transcript-to-brief` turns it into a dated brief in `Briefs/`, [[Project Briefings - 2026-07-13]] is the current real example, and `/note-to-actions` turns that brief into a link-dense action note in `Action/` once one exists for a given meeting. [[Mentor Meeting - One-Pager]] is superseded, kept for history; the hackathon-prep note it used to point to has been folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed.
+Each meeting moves through three folders under `Meetings/`: the raw call lands untouched in `Transcripts/`, `/transcript-to-brief` turns it into a dated brief in `Briefs/`, [[Project Briefings - 2026-07-13]] is the current real example, and `/note-to-actions` turns that brief into a link-dense action note in `Action/` once one exists for a given meeting. [[Meet Your Partner]] is superseded, kept for history; the hackathon-prep note it used to point to has been folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed.
 ## Status
 | Thread | State |
 |---|---|

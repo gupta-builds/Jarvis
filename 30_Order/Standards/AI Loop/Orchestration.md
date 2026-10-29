@@ -39,7 +39,7 @@ Each agent is `.claude/agents/<name>.md` with frontmatter `name`, `description`,
 | `research-distiller` | deep multi-source or long-PDF distillation | Read, Glob, Grep, Edit, Write, Bash, WebFetch |
 | `human-operator` | default writer for new vault prose | Read, Write, Edit |
 | `anti-slop-editor` | rewriting AI-sounding notes | Read, Glob, Grep, Edit, Write |
-| `note-to-actions` | turning a note into an action map | Read, Write |
+| `meeting-operator` | a meeting transcript through brief then action note, asking at each checkpoint | Read, Glob, Grep, Write, Edit, Bash |
 | `learning-agent` | drills, spaced repetition, learning from the vault only | Read, Glob, Grep, Edit, Write |
 | `professor` | coordinating coursework skills | Read, Grep, Glob, Edit |
 | `daily-operator` | dashboard, plans, rollover, deadlines | Read, Grep, Glob, Edit |

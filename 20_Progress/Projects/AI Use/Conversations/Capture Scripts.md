@@ -82,3 +82,36 @@ One card per script, as the code stands on 2026-10-21. Paths are relative to `30
 - The PowerShell 5.1 files are sensitive to non-ASCII text: `run-weekly-review.ps1` opens with a warning that a stray em dash once broke string literals, and the hook scripts carry a byte-order mark for the same reason.
 ## Non-Goals
 Not a review of code quality and not a rewrite plan. The Windows exporter's mid-section (turn reconstruction and frontmatter assembly) and the Cursor scripts were not read in full here.
+## Corrections
+*2026-10-28. The sections above are kept as written.*
+### The hook card (`hooks/jarvis-session-continuity.ps1`, now 215 lines)
+- **New output:** after the export, the hook appends a second line to `jarvis-session-activity.jsonl`: `{timestamp, event: "export_result", session_id, status, ms, error}`. `status` is the exporter's own (`written`, `dup`, `junk`, `legacy`, `error`), `skipped` when no export was attempted (`error` says `no session_id`, `no transcript_path` or `transcript not found`), or `no_status` when the exporter printed none. `ms` times the session export only, not the Cowork sweep. `error` is empty on success; on an exception it holds the exception type and the script line (shape: `<ExceptionType> at <script>.ps1:<line>`), never a message, a path, or transcript text. The first line is unchanged and is still written before the export.
+- **Superseded:** "cannot report a failure" and "no script writes a success, skip, or failure record per export" are no longer true for the session export. Still true for the Cowork sweep (one empty `catch` per transcript) and for the backfill.
+- **Failure:** a `trap` at the top turns any unexpected error into exit 0. A log write that fails is swallowed inside one helper and cannot throw. Checked with six odd stdin payloads and a log path that is a folder: exit 0 each time.
+- **Test overrides (test only, never set in settings or a task):** `JARVIS_ACTIVITY_LOG` replaces the activity file path; `JARVIS_CAPTURE_OUTROOT` is read by the exporter and reaches it because the hook calls the exporter in its own process.
+- **Settings:** the "Settings" bullet is superseded. `Stop` is `async: true`, `timeout: 60`; `SessionEnd` is synchronous, `timeout: 30`. See [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].
+- **Byte-order mark:** the Gaps line saying the hook scripts carry a byte-order mark is wrong for this hook. It has none, and none at the last commit either. It does hold two non-ASCII em dashes, in the `SessionStart` text that never runs. Nothing was changed there.
+### Timing, 2026-10-28
+Wall time of `powershell.exe -NoProfile -File <hook>` with JSON on stdin, `Measure-Command`, 5 runs per cell, p50 / p95 in milliseconds (nearest rank, so p95 is the slowest of 5). Output went to a scratch folder and the activity file to a scratch file. "Fresh" is a new session id, so the export really ran; "dup" is the same id again, so the early return ran. Startup of an empty script was 219 / 231, and the hook with garbage stdin 229 / 379.
+
+| Transcript | Export status | `Stop` fresh | `SessionEnd` fresh | `Stop` dup | `SessionEnd` dup |
+|---|---|---|---|---|---|
+| smallest, 1,918 B | `junk` | 523 / 552 | 490 / 585 | 547 / 569 | 436 / 593 |
+| median, 1,104,343 B | `written` | 874 / 1,159 | 874 / 892 | 434 / 473 | 485 / 627 |
+| largest, 115,894,961 B | `written` | 4,909 / 5,225 | 4,827 / 5,055 | 435 / 495 | 512 / 585 |
+
+- The largest transcript is 115.9 MB, not "over 8 MB". Its fresh export is about 4.5 seconds inside the hook, so the time is not proportional to size.
+- The `dup` path costs about 100 to 190 ms inside the hook on top of the 219 ms start. The assumption that `dup` is fast held; the assumption that a re-render is the slow case held too. A `Stop` after a turn finds the transcript grown, so it re-renders, and that costs the "fresh" figure.
+- This machine has no Cowork folder, so the `SessionEnd` sweep added nothing here.
+### Decision
+- `Stop`: p95 on the median and largest transcripts (1,159 and 5,225 ms) is over the 500 ms line, so it went async with `timeout: 60`.
+- `SessionEnd`: stays synchronous with `timeout: 30`. A fresh export of the largest transcript outlasts the default 1.5 seconds three times over; 30 seconds is about six times the worst measured run.
+- No debounce was added. Async already takes the cost off the user. A debounce would skip exports on purpose, which is the failure the `export_result` line exists to catch, and it would leave the last turns to `SessionEnd` or the 30-minute backfill when a session dies without a clean exit. Revisit with the day of real timings below.
+### Risks seen but not tested
+- An async `Stop` export can still be running when `SessionEnd` starts, and both would render the same note. A collision would show as `status: error` in the activity file. The exporter has no lock.
+- Whether an async hook survives `SessionEnd` in an interactive session is undocumented, and a headless run kills it, so only the interactive check below can answer it.
+### Pending checks for the owner
+1. `SessionEnd` really exports: in a scratch folder, start `claude`, send one prompt, run `/clear`, then run `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl -Tail 3`. An `export_result` line for that session must appear. Do not use `claude -p`; it kills async hooks and gives a false result.
+2. After one normal working day: p50 and p95 of `ms` from the real file, `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl | ConvertFrom-Json | Where-Object event -eq export_result`, then group by `status` and take the 50th and 95th percentile of `ms`. Also count lines whose `status` is `error` or `no_status`.
+### The test files
+`test-session-hook.ps1` (112 lines) runs the hook as a child shell with synthetic transcripts: empty stdin, garbage stdin, a missing transcript, a valid transcript (written, then dup, exact field names, no transcript text in the log), and an export that throws. 21 assertions, 7 test files in total, 14 of 14 runs passing under `pwsh` and `powershell.exe`.

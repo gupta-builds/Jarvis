@@ -50,7 +50,7 @@ Frontmatter comes from the template, never from memory. Find the note type in [[
 | Task | Use |
 | --- | --- |
 | Open or close the day | `/startday`, `/closeday` |
-| Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |
+| Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller`; for a meeting, agent `meeting-operator` |
 | Distill a note, map next steps | `/distill-note`, `/note-to-actions` |
 | Fix AI-sounding prose | `/remove-ai-slop`, agent `anti-slop-editor` |
 | Review a week or vault health | `/weekly-review`, `/ops health-check`, agent `vault-curator` |

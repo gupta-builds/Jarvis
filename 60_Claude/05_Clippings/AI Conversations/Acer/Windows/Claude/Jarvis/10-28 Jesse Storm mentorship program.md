@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Jesse Storm mentorship program"
 started_at: 2026-10-28T15:33:03
-ended_at: 2026-10-28T22:28:24
-exported_at: 2026-10-28T22:33:07
-duration_minutes: 415.3
+ended_at: 2026-10-28T23:02:24
+exported_at: 2026-10-28T23:03:03
+duration_minutes: 449.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 8dd87b3c-1fbb-4e76-ba29-1797ff4262e1
@@ -15,33 +15,39 @@ status: seed
 review_state: raw
 created: 2026-10-28
 updated: 2026-10-28
-turn_count: 8
+turn_count: 13
 tools_used:
-  Bash: 25
-  Edit: 30
+  Agent: 3
+  Bash: 46
+  Edit: 31
   Glob: 8
   Grep: 18
   mcp__claude_ai_Gmail__search_threads: 2
   mcp__claude_ai_Google_Calendar__list_events: 2
-  Read: 63
+  Read: 68
   ToolSearch: 1
-  Write: 8
+  Write: 16
 tokens:
-  input: 108
-  output: 94024
-  cache_creation: 370614
-  cache_read: 8147903
-  total: 8612649
-cost_usd: 3.237702
+  input: 162
+  output: 149788
+  cache_creation: 477781
+  cache_read: 15467834
+  total: 16095565
+cost_usd: 4.956111
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\agents\\meeting-operator.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\agents\\note-to-actions.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\commands\\note-to-actions.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\commands\\transcript-to-brief.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\settings.json"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\mentorship\\SKILL.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\note-to-actions\\note-to-actions.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\note-to-actions\\references\\example-action.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\note-to-actions\\SKILL.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\transcript-to-brief\\references\\example-brief.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\transcript-to-brief\\SKILL.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\transcript-to-brief\\transcript-to-brief.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\CPT Broadcast Messages.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\CPT Program.md"
@@ -56,7 +62,10 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Smart Goals.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Systems for Goals.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Action\\2026-07-14 Mentor Meeting — Actions.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Action\\Jesse Meeting - 28th Oct Actions.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Briefs\\Jesse Meeting - 28th Oct Brief.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Briefs\\Project Briefings - 2026-07-13.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Meet Your Partner.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Mentor Meeting - One-Pager.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Mentor Meeting Playbook.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Meetings\\Transcripts\\Jesse Meeting - 28th Oct.md"
@@ -2909,10 +2918,1797 @@ By family (fit / total, near-fit, failing checks):
   brief                            1/1     100.0%  near    0
 ```
 
+## You
+
+<local-command-caveat>The command below was run directly in Claude Code, not sent to you as a request, and its output goes straight to the user. It's recorded here as context for later messages.</local-command-caveat>
+
+## You
+
+<command-name>/plugin</command-name>
+            <command-message>plugin</command-message>
+            <command-args></command-args>
+
+## You
+
+<local-command-stdout>(no content)</local-command-stdout>
+
+## You
+
+
+
+<pasted_content id="a265">
+ `20_Progress/Mentorship Program/Meetings/Meet Your Partner` which was before: `Mentorship
+  Program/Meetings/: Mentor Meeting - One-Pager`. This is a note which is going to keep on getting
+  renamed and changed per meeting as a one pager. The next meeting is the meet your partner event so i
+  renamed it to that event. Now, that we have the /transcript-to-brief and /note-to-actions skills to
+  use to conver the brief and action note. Firstly, let's modify the skills created already based on
+  the official guidelines provided by anthropic:
+  `https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf`,
+  `https://www.skillsdirectory.com/docs/skill-file-structure`.
+</pasted_content id="a265">
+
+
+Go ahead and design the provided skills and the note mentioned to be updated for the event coming up ahead (just a draft for now, will be remodeled later). Now, the other notes, Overall Plan: should be a file that is for both the mentors and should be written out after ahnaf's meetings have been figured out. Another thing that i want to do here is utilize the existing meeting brief of ahnaf to have more context on what exactly to do here. There was a lot of useful content from ahnaf but none of it was written out for actions or even written down in detail. So, the skills should be creating examples/references from the meeting transcript, brief and action note that is going to be designed now from the jesse's meeting that took place. This is going to be the base example/refernece for the skills. Go ahead and design it based on the brief note and action note that would be written based on the standards, systems, templates and workflow just described. Make sure that everything is written down cleanly. So, that we can run the skills and actuall test the output ourselves after you modify the skills to fit the official design. Make sure to draft the skills for perfection here. This should be nailing down the workflow established. Let's do something better here - an agent just for meetings that searches for knowledge on the skills task and manages both of these skills correctly. The agent helps me draft the brief first and then the action note in the same session by asking for my input, modification of the conversation brief and the actions that i need to take after the meeting. Are all human outputs that this agent will ask and also the skill, agent is just governing over the two skills that are modified. Go ahead and create this agent (if already exists then modify it to fit the skills that are being modified right now). Do the task correctly, make no mistakes.
+
+## Claude
+
+I'll start with the official skill guidelines and the current state of the notes you named. The Anthropic guide, the skills file-structure page, and the Claude Code agent rules for skills and for asking you questions all need checking first.
+
+Status: I'm extracting the Anthropic skill guide PDF locally. MinerU's full engines aren't installed here, so I'm using its text-only local mode, which is enough for a prose guide.
+
+Extraction worked. I'm reading the guide's fundamentals, patterns and troubleshooting sections now.
+
+Both new notes pass lint. The one em dash is inside a wikilink to Ahnaf's action note, whose filename has one. Next is the `Meet Your Partner` one-pager, reshaped as a draft for the Nov 4 event.
+
+Now the skills. I'm writing each as a proper `SKILL.md` with the frontmatter the guide requires, then putting the worked examples in `references/`.
+
+The two skills now show up in the skill list, so they're discovered. Next: remove the old flat skill files and the two redundant commands, sync the Codex copies, and create the meeting agent.
+
+Everything is written. I'm validating it against the guide's checklist: names, description length, no angle brackets, file naming, size limits, and the agent's references.
+
+I rebuilt both skills to Anthropic's format, created the `meeting-operator` agent, and wrote the Jesse brief and action note as the reference examples. I haven't run either skill or the agent yet. I only checked structure: the lint and my validation script passed. Running them is the real test.
+
+## The Jesse notes
+- **Brief:** `Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md` passes lint. It has six threads, ordered by what mattered, plus eight open questions.
+- **Action note:** `Meetings/Action/Jesse Meeting - 28th Oct Actions.md` passes lint. Its sections follow the brief's threads.
+- **Action statements are my proposals.** The skill would normally ask you for each one. Correct any that are wrong.
+- **The transcript** now links forward to the brief and is marked `sprout`.
+
+## Three things from the call that matter
+- **The Mentoring Agreement was never raised.** It's due to Katie on Nov 2, two days before the event.
+- **Jesse now has a partly wrong picture of the work rule.** You told him it was finalized on Sept 15, that Nov 6 is an "official announcement", and that you can't work on campus. The vault says Nov 6 is a federal court hearing and on-campus work is still allowed. The first action is a short correction to him.
+- **The best lead was Jesse's company's Bangalore office.** SymphonyAI has an office in Whitefield, your hometown, which fits the internship-abroad route. The introduction ask you planned was never made.
+
+## The skills
+The old files were flat notes, not `SKILL.md`. The Anthropic guide requires that exact file name, which is why Claude Code was loading them through the command wrappers. Changes:
+- **Structure:** each skill is now `SKILL.md` plus `references/`. The reference examples are built from the Jesse notes and from Ahnaf's action note, which shows the paragraph-to-statement conversion.
+- **Frontmatter:** names are kebab-case and match the folders. Descriptions give what the skill does, when to use it, and when not to, at 562 and 520 characters. Pre-approved tools are read-only plus the lint command, so writes still prompt you.
+- **Flow:** each skill is a conversation. Skill 1 reads the whole transcript and proposes a plan. It waits for your answers, drafts, then loops on your changes. Skill 2 asks what each thread needs, by when and with whom, then drafts and loops on your changes.
+- **Rule fixes:** the old skills told you to set `input_kind: transcript` on briefs and to write `source_note` as plain text. Both are fixed.
+- **Removed:** the two command wrappers (a skill wins over a command of the same name) and the old flat files. The Codex copies in `.agents/skills` are synced.
+
+## The agent
+- `meeting-operator` preloads both skills.
+- It has six checkpoints where it stops for your input: triage, the brief plan, brief revisions, per-thread action questions, action revisions, and the final report.
+- I deleted the old `note-to-actions` agent, since this one replaces it.
+- **How to run it:** use `claude --agent meeting-operator`. A subagent can't ask you questions directly, so the agent returns its questions at the end of each phase when run that way. This comes from the Claude Code docs as summarized by a fetch tool, so check it against your build.
+- I added the agent to `Orchestration.md`, the `CLAUDE.md` tool table and `Claude Code.md`. The Meeting Workflow names it.
+
+## Meet Your Partner
+It's a draft one-pager for Nov 4 with fixed headings, so it can be reused for each meeting. It adds a "Before the Event" checklist, a 30-second intro, the work-authorization pitch, three questions and the introduction ask. The project facts in the intro are July-dated and marked [confirm]. This overwrote the April Ahnaf content, which is in git.
+
+## Overall Plan
+I left it empty on purpose, per your sequencing: it covers both mentors and comes after Ahnaf's meetings are mapped. Ahnaf's brief and action note are the next base layer to rebuild, since most of the action note is still paragraphs. I linked the Overall Plan as an open thread in Jesse's action note.
+
+## Test it
+- The guide suggests trigger tests. Try `/transcript-to-brief` on the Jesse transcript. It should find the existing brief and ask whether to update it.
+- Also try a paraphrase like "brief this call", and one unrelated prompt that should not trigger it.
+
+## Housekeeping
+- I started the local MinerU server to read the guide PDF, in its text-only mode, and stopped it afterward.
+- I wrote no session-log entry.
+
+### Tool Calls
+
+- `Agent` -- `{"description":"Fetch Anthropic skill guide PDF","subagent_type":"web-fetch","prompt":"Fetch https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf and report, in full detail and with exact field names and limits, everything it says about: (1) required file/folder structure and naming (SKILL.md case, folder kebab-case, forbidden files like README.md), (2) every YAML frontmatter field (name, description, license, allowed-tools, compatibility, metadata, etc.) with character limits and forbidden characters, (3) how to write the description (what + when + trigger phrases, negative triggers), (4) progressive disclosure and what belongs in references/, scripts/, assets/, (5) recommended SKILL.md body structure, size limits, instruction-writing advice (critical instructions on top, specific actionable steps, examples, error handling), (6) multi-step workflow patterns and patterns for asking the user for input / iterative refinement, (7) testing and iteration guidance (trigger tests, functional tests), (8) common mistakes/troubleshooting. Be exhaustive; the report is the only thing I will see."}`
+- `Agent` -- `{"description":"Fetch skill file-structure docs","subagent_type":"web-fetch","prompt":"Fetch https://www.skillsdirectory.com/docs/skill-file-structure and report in full detail: the required and optional files and folders in a skill, exact SKILL.md frontmatter fields and constraints, naming rules, recommended body structure, size limits, how references/scripts/assets are organized and linked, and any best practices or anti-patterns listed. If the page links to other docs pages on the same site about skill frontmatter or best practices, fetch the most relevant one too and include it. Be exhaustive; the report is the only thing I will see."}`
+- `Agent` -- ``{"description":"Claude Code agent and skill rules","subagent_type":"claude-code-guide","prompt":"Answer precisely from current Claude Code docs: (1) Subagent (.claude/agents/*.md) frontmatter fields: name, description, tools, model, skills (does a `skills` field preload skills into the subagent?), permissionMode, color, etc., with exact syntax. (2) Can a subagent ask the user questions interactively (AskUserQuestion) or hold a multi-turn back-and-forth with the user? What is the supported way to run a custom agent as the main interactive session (e.g. `claude --agent \u003cname\u003e`, or the `agent` setting)? (3) Skill (.claude/skills/\u003cname\u003e/SKILL.md) frontmatter fields supported by Claude Code (name, description, allowed-tools, disable-model-invocation, user-invocable, argument-hint, context: fork, agent, model, etc.) and how $ARGUMENTS works. (4) If a skill and a legacy .claude/commands/\u003cname\u003e.md share the same name, which wins? (5) Does a skill folder require the file be named exactly SKILL.md? Give exact quotes or field names where possible."}``
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program" && ls -la Meetings Meetings/* | head -40; echo ====; cat "Meetings/Meet Your Partner.md" 2>/dev/null | head -120
+```
+```
+-rw-r--r-- 1 anant 197609  2159 Oct 19 16:33 Meetings/Meet Your Partner.md
+-rw-r--r-- 1 anant 197609 13145 Oct 28 22:39 Meetings/Mentor Meeting Playbook.md
+
+Meetings:
+total 24
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:39 .
+drwxr-xr-x 1 anant 197609     0 Oct 19 20:24 ..
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:23 Action
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:23 Briefs
+-rw-r--r-- 1 anant 197609  2159 Oct 19 16:33 Meet Your Partner.md
+-rw-r--r-- 1 anant 197609 13145 Oct 28 22:39 Mentor Meeting Playbook.md
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:23 Transcripts
+
+Meetings/Action:
+total 16
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:23 .
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:39 ..
+-rw-r--r-- 1 anant 197609 12877 Oct 28 22:23 2026-07-14 Mentor Meeting — Actions.md
+
+Meetings/Briefs:
+total 8
+drwxr-xr-x 1 anant 197609    0 Oct 28 22:23 .
+drwxr-xr-x 1 anant 197609    0 Oct 28 22:39 ..
+-rw-r--r-- 1 anant 197609 5364 Oct 28 22:23 Project Briefings - 2026-07-13.md
+
+Meetings/Transcripts:
+total 52
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:23 .
+drwxr-xr-x 1 anant 197609     0 Oct 28 22:39 ..
+-rw-r--r-- 1 anant 197609 50901 Oct 28 22:37 Jesse Meeting - 28th Oct.md
+-rw-r--r-- 1 anant 197609 26817 Oct 28 22:23 Mentor Meeting Transcript.md
+====
+---
+type: project
+status: active
+created: 2026-04-27
+related:
+  - "[[Mentor Details'25]]"
+  - "[[Opspilot]]"
+  - "[[Resq]]"
+---
+# Meeting One-Pager — Ahnaf
+> [!NOTE] Superseded
+> This was the one-pager for the mid-April meeting. [[Mentor Meeting Playbook]] is the current source of truth going forward. The "1 Next Step" below (Resq vs. Opspilot as flagship) was never resolved on record — TradingView ended up becoming the actual flagship this summer, not either hackathon project.
+Print this or keep it on screen. Historical source: the hackathon-prep note, now folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed from this folder.
+## 3 Goals
+1. Which project is the stronger portfolio artifact and how should I frame it?
+2. What should I focus on this summer if there is no internship?
+3. How do I network intentionally — not just ask for referrals?
+## 2 Project Pitches
+**[[Opspilot]]:** AI operations dashboard for a restaurant manager. Connected workflow: reservation → invoice → payment → finance → feedback → recovery action. AI became useful only after the deterministic workflow was solid.
+
+**[[Resq]]:** CFO-style cash workspace. Cash truth, 13-week forecast, breakpoint detection, ranked actions. AI advises but never touches the numbers. Sharper product story after the pivot from OpsPilot.
+
+**Cross-project lesson:** The hardest part was not coding. It was scope control, demo truth, and explaining clearly what was real versus mocked.
+## 3 Questions
+1. Between OpsPilot and Resq, which sounds more impressive to an engineering manager, and why?
+2. If no internship, which 1–2 summer priorities would you weight heaviest: system design, AI/ML, research, project-building, or networking?
+3. If I want to learn about product-facing engineering teams like BestBuy.com or mobile, which roles should I talk to first?
+## 1 Concrete Ask
+"If it feels appropriate, would you be open to introducing me to one frontend engineer and one backend engineer for informational conversations later on?"
+## 1 Next Step
+Decide whether [[Resq]] or [[Opspilot]] becomes the main summer portfolio project, update the [[Plan - Ahnaf]].
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; mkdir -p "$S/pdf-in" "$S/pdf-out"; cp "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/tool-results/webfetch-1793245903515-6sdlwt.pdf" "$S/pdf-in/guide.pdf" && ls -la "$S/pdf-in"; head -c 8 "$S/pdf-in/guide.pdf"; echo; which mineru mineru.exe 2>&1 | head -2; mineru --version 2>&1 | head -2
+```
+```
+total 556
+drwxr-xr-x 1 anant 197609      0 Oct 28 22:52 .
+drwxr-xr-x 1 anant 197609      0 Oct 28 22:52 ..
+-rw-r--r-- 1 anant 197609 561652 Oct 28 22:52 guide.pdf
+%PDF-1.4
+/c/Users/anant/.local/bin/mineru
+/c/Users/anant/.local/bin/mineru.exe
+MinerU version: 4.0.10
+Python version: 3.12.14
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Briefs\Project Briefings - 2026-07-13.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Action\2026-07-14 Mentor Meeting — Actions.md`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; mineru --help 2>&1 | head -25
+```
+```
+ Usage: mineru [OPTIONS] COMMAND [ARGS]...                                     
+                                                                               
+ MinerU — your personal document center, built for agents                      
+                                                                               
+┌─ Options ───────────────────────────────────────────────────────────────────┐
+│ --version          Show the version and exit.                               │
+│ --help             Show this message and exit.                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+┌─ Commands ──────────────────────────────────────────────────────────────────┐
+│ parse       Parse a document file.                                          │
+│ read        Read parsed document content by locator.                        │
+│ scan        Scan a file or directory into the document library.             │
+│ watch       Manage directories watched for automatic scanning.              │
+│ search      Search parsed document content.                                 │
+│ find        Search filenames only (not document content).                   │
+│ usage       Show remote parse service usage and limits.                     │
+│ list        List document library resources.                                │
+│ show        Show document library resource details.                         │
+│ telemetry   Manage anonymous usage telemetry.                               │
+│ server      Start, stop, and inspect the local MinerU server.               │
+│ config      Show or override MinerU configuration values.                   │
+│ invalidate  Invalidate cached parse results so the next run parses again.   │
+│ forget      Remove file records and cached results from the document        │
+│             library.                                                        │
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Mentor Details'26.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; mineru parse --help 2>&1 | head -30
+```
+```
+ Usage: mineru parse [OPTIONS] {path}                                          
+                                                                               
+ Parse a document file.                                                        
+                                                                               
+┌─ Arguments ─────────────────────────────────────────────────────────────────┐
+│ *    path      <str>  Path to the document file [required]                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+┌─ Options ───────────────────────────────────────────────────────────────────┐
+│ --tier               <flash|basic|standard|adv  Parse tier: flash, basic,   │
+│                      anced>                     standard, advanced          │
+│                                                 (default: server decides)   │
+│ --pages      -p      <str>                      PDF pages: '1-5,8', 'r3-r1' │
+│                                                 (counted from the end), or  │
+│                                                 'all'; default: first 10    │
+│                                                 pages                       │
+│ --after              <str>                      Continue reading after a    │
+│                                                 content cursor from earlier │
+│                                                 output                      │
+│ --limit              <int>                      Soft character limit for    │
+│                                                 printed content             │
+│ --format     -f      <markdown>                 Output format: markdown     │
+│                                                 [default: markdown]         │
+│ --force                                         Force re-parse, ignore      │
+│                                                 cache                       │
+│ --remote                                        Use the mineru.net official │
+│                                                 remote parse service        │
+│ --wait               <int>                      Max seconds to wait for     │
+│                                                 parse to complete           │
+│                                                 [default: 60]               │
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; cd "$S/pdf-out" && timeout 280 mineru parse "$S/pdf-in/guide.pdf" --pages all --wait 240 --limit 400000 > guide.md 2> guide.err; echo exit=$?; wc -c guide.md guide.err; head -c 600 guide.err; echo; head -c 1200 guide.md
+```
+```
+exit=1
+ 0 guide.md
+71 guide.err
+71 total
+Error: Local mineru server is not running. Run 'mineru server start'.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program
+```
+- `Bash`
+```bash
+mineru server start 2>&1 | tail -5; sleep 3; mineru server status 2>&1 | tail -5
+```
+```
+Server started (PID 6424).
+│                                                                             │
+│ --- managed parse-server stdout: start ---                                  │
+│                                                                             │
+│ --- managed parse-server stdout: start ---                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; cd "$S/pdf-out" && timeout 400 mineru parse "$S/pdf-in/guide.pdf" --pages all --wait 360 --limit 400000 > guide.md 2> guide.err; echo exit=$?; wc -c guide.md guide.err; head -c 500 guide.err; echo; head -c 800 guide.md
+```
+```
+exit=1
+  0 guide.md
+167 guide.err
+167 total
+Error: No basic, standard, or advanced engine available. You can start a local 
+parse-server, use --remote, or explicitly pass --tier flash for text-only 
+preview.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; cd "$S/pdf-out" && timeout 250 mineru parse "$S/pdf-in/guide.pdf" --tier flash --pages all --wait 200 --limit 400000 > guide.md 2> guide.err; echo exit=$?; wc -c guide.md guide.err; head -c 400 guide.err; echo; head -c 1500 guide.md
+```
+```
+exit=0
+41201 guide.md
+    0 guide.err
+41201 total
+
+<!-- page 1 of 33 -->
+
+# The Complete Guide to Building Skills for Claude
+
+<!-- page 2 of 33 -->
+
+## Contents
+
+## Introduction
+
+## 3
+
+Fundamentals
+
+4
+
+Planning and design Testing and iteration Distribution and sharing Patterns and troubleshooting Resources and references
+
+7
+
+14
+
+18
+
+21
+
+28
+
+2
+
+<!-- page 3 of 33 -->
+
+## Introduction
+
+A [skill](https://claude.com/blog/skills) is a set of instructions - packaged as a simple folder - that teaches Claude how to handle specific tasks or workflows. Skills are one of the most powerful ways to customize Claude for your specific needs. Instead of re-explaining your preferences, processes, and domain expertise in every conversation, skills let you teach Claude once and benefit every time.
+
+Skills are powerful when you have repeatable workflows: generating frontend designs from specs, conducting research with consistent methodology, creating documents that follow your team's style guide, or orchestrating multi-step processes. They work well with Claude's built-in capabilities like code execution and document creation. For those building MCP integrations, skills add another powerful layer helping turn raw tool access into reliable, optimized workflows.
+
+This guide covers everything you need to know to build effective skills - from planning and structure to testing and distribution. Whether you're building a skill for yourself, your team, or for the community, you'll find practical patterns and real-wo
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; sed -n '1,400p' "$S/pdf-out/guide.md" | grep -v '^$' | sed -n '25,330p'
+```
+```
+What you'll get out of this guide: By the end, you'll be able to build a functional skill in a single sitting. Expect about 15-30 minutes to build and test your first working skill using the skill-creator. Let's get started.
+<!-- page 4 of 33 -->
+## Chapter 1
+Fundamentals
+4
+<!-- page 5 of 33 -->
+## Chapter 1
+## Fundamentals
+## What is a skill?
+A skill is a folder containing:
+• SKILL.md (required): Instructions in Markdown with YAML frontmatter • scripts/ (optional): Executable code (Python, Bash, etc.) • references/ (optional): Documentation loaded as needed • assets/ (optional): Templates, fonts, icons used in output
+## Core design principles
+## Progressive Disclosure
+Skills use a three-level system:
+• First level (YAML frontmatter): Always loaded in Claude's system prompt.
+Provides just enough information for Claude to know when each skill should be used without loading all of it into context.
+• Second level (SKILL.md body): Loaded when Claude thinks the skill is relevant to the current task. Contains the full instructions and guidance.
+• Third level (Linked files): Additional files bundled within the skill directory that Claude can choose to navigate and discover only as needed.
+This progressive disclosure minimizes token usage while maintaining specialized expertise.
+## Composability
+Claude can load multiple skills simultaneously. Your skill should work well alongside others, not assume it's the only capability available.
+## Portability
+Skills work identically across Claude.ai, Claude Code, and API. Create a skill once and it works across all surfaces without modification, provided the environment supports any dependencies the skill requires.
+## For MCP Builders: Skills + Connectors
+💡 Building standalone skills without MCP? Skip to Planning and Design - you can always return here later.
+If you already have a [working MCP server](https://support.claude.com/en/articles/[REDACTED]), you've done the hard part. Skills are the knowledge layer on top - capturing the workflows and best practices you already know, so Claude can apply them consistently.
+## The kitchen analogy
+MCP provides the professional kitchen: access to tools, ingredients, and equipment.
+Skills provide the recipes: step-by-step instructions on how to create something valuable.
+5
+<!-- page 6 of 33 -->
+Together, they enable users to accomplish complex tasks without needing to figure out every step themselves.
+How they work together:
+![Image block](doc:66cbcc0/tier:flash/page:6/block:3)
+<details>
+<summary>image content</summary>
+MCP (Connectivity)        Skills (Knowledge)
+Connects Claude to your service
+Teaches Claude how to use your service
+(Notion, Asana, Linear, etc.)
+effectively
+Provides real-time data access and tool
+Captures workflows and best practices
+invocation
+What Claude can do        How Claude should do it
+</details>
+## Why this matters for your MCP users
+## Without skills:
+• Users connect your MCP but don't know what to do next
+• Support tickets asking "how do I do X with your integration" • Each conversation starts from scratch
+• Inconsistent results because users prompt differently each time
+• Users blame your connector when the real issue is workflow guidance
+## With skills:
+• Pre-built workflows activate automatically when needed • Consistent, reliable tool usage • Best practices embedded in every interaction • Lower learning curve for your integration
+6
+<!-- page 7 of 33 -->
+## Chapter 2
+Planning and design
+7
+<!-- page 8 of 33 -->
+## Chapter 2
+## Planning and design
+## Start with use cases
+## Common skill use case categories
+Before writing any code, identify 2-3 concrete use cases your skill should enable.
+## Good use case definition:
+At Anthropic, we’ve observed three common use cases:
+## Category 1: Document & Asset Creation
+Used for: Creating consistent, high-quality output including documents, presentations, apps, designs, code, etc.
+Use Case: Project Sprint Planning
+Trigger: User says "help me plan this sprint" or "create sprint tasks" Steps:
+Real example: [frontend-design skill](https://github.com/anthropics/skills/tree/main/skills/frontend-design) (also see [skills for docx, pptx, xlsx, and ppt](https://github.com/anthropics/skills/tree/main/skills))
+"Create distinctive, production-grade frontend interfaces with high design quality. Use when building web components, pages, artifacts, posters, or applications."
+1. Fetch current project status from Linear (via MCP)
+2. Analyze team velocity and capacity
+3. Suggest task prioritization
+4. Create tasks in Linear with proper labels and estimates Result: Fully planned sprint with tasks created
+## Ask yourself:
+• What does a user want to accomplish?
+• What multi-step workflows does this require?
+• Which tools are needed (built-in or MCP?)
+## Key techniques:
+• Embedded style guides and brand standards • Template structures for consistent output • Quality checklists before finalizing
+• No external tools required - uses Claude's built-in capabilities
+• What domain knowledge or best practices should be embedded?
+8
+<!-- page 9 of 33 -->
+## Category 2: Workflow Automation
+## Define success criteria
+Used for: Multi-step processes that benefit from consistent methodology, including coordination across multiple MCP servers.
+## How will you know your skill is working?
+These are aspirational targets - rough benchmarks rather than precise thresholds. Aim for rigor but accept that there will be an element of vibes-based assessment. We are actively developing more robust measurement guidance and tooling.
+Real example: [skill-creator skill](https://github.com/anthropics/skills/blob/main/skills/skill-creator/SKILL.md)
+"Interactive guide for creating new skills. Walks the user through use case definition, frontmatter generation, instruction writing, and validation."
+## Key techniques:
+## Quantitative metrics:
+• Skill triggers on 90% of relevant queries
+– How to measure: Run 10-20 test queries that should trigger your skill. Track how many times it loads automatically vs. requires explicit invocation. • Completes workflow in X tool calls
+– How to measure: Compare the same task with and without the skill enabled.
+• Step-by-step workflow with validation gates • Templates for common structures • Built-in review and improvement suggestions • Iterative refinement loops
+## Category 3: MCP Enhancement
+Count tool calls and total tokens consumed.
+• 0 failed API calls per workflow
+– How to measure: Monitor MCP server logs during test runs. Track retry rates and error codes.
+Used for: Workflow guidance to enhance the tool access an MCP server provides. Real example: [sentry-code-review skill (from Sentry)](https://github.com/getsentry/sentry-for-claude/tree/main/skills) "Automatically analyzes and fixes detected bugs in GitHub Pull Requests using Sentry's error monitoring data via their MCP server."
+## Qualitative metrics:
+• Users don't need to prompt Claude about next steps – How to assess: During testing, note how often you need to redirect or clarify.
+## Key techniques:
+Ask beta users for feedback.
+• Workflows complete without user correction
+– How to assess: Run the same request 3-5 times. Compare outputs for structural consistency and quality.
+• Consistent results across sessions
+– How to assess: Can a new user accomplish the task on first try with minimal guidance?
+• Coordinates multiple MCP calls in sequence • Embeds domain expertise • Provides context users would otherwise need to specify • Error handling for common MCP issues
+9
+<!-- page 10 of 33 -->
+## YAML frontmatter: The most important part
+## Technical requirements
+The YAML frontmatter is how Claude decides whether to load your skill. Get this right.
+## File structure
+## your-skill-name/
+├── SKILL.md
+\# Required - main skill file
+## Minimal required format
+├── scripts/
+\# Optional - executable code
+## ---
+name: your-skill-name description: What it does. Use when user asks to [specific phrases]. ---
+│ ├── process\_data.py # Example
+│ └── validate.sh # Example
+├── references/
+\# Optional - documentation
+│ ├── api-guide.md # Example
+│ └── examples/ # Example
+└── assets/
+\# Optional - templates, etc.
+└── report-template.md # Example
+## Critical rules
+## SKILL.md naming:
+That's all you need to start.
+## Field requirements
+name (required):
+• Must be exactly SKILL.md (case-sensitive) • No variations accepted (SKILL.MD, skill.md, etc.)
+## Skill folder naming:
+• kebab-case only
+## • Use kebab-case: notion-project-setup ✅
+## • No spaces: Notion Project Setup ❌
+• No spaces or capitals • Should match folder name description (required): • MUST include BOTH: – What the skill does
+## • No underscores: notion\_project\_setup ❌
+## • No capitals: NotionProjectSetup ❌
+## No README.md:
+– When to use it (trigger conditions)
+• Under 1024 characters
+• No XML tags (< or >)
+• Include specific tasks users might say
+• Don't include README.md inside your skill folder • All documentation goes in SKILL.md or references/
+• Mention file types if relevant
+• Note: when distributing via GitHub, you'll still want a repo-level README for human users — see Distribution and Sharing.
+10
+<!-- page 11 of 33 -->
+license (optional): • Use if making skill open source • Common: MIT, Apache-2.0
+## Writing effective skills
+## The description field
+According to Anthropic's [engineering blog](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills): "This metadata...provides just enough information for Claude to know when each skill should be used without loading all of it into context." This is the first level of progressive disclosure.
+compatibility (optional) • 1-500 characters
+• Indicates environment requirements: e.g. intended product, required system packages, network access needs, etc.
+## Structure:
+## [What it does] + [When to use it] + [Key capabilities]
+metadata (optional): • Any custom key-value pairs • Suggested: author, version, mcp-server
+• Example: \`\`\`yaml
+metadata:
+## Examples of good descriptions:
+author: ProjectHub version: 1.0.0 mcp-server: projecthub
+## # Good - specific and actionable
+description: Analyzes Figma design files and generates developer handoff documentation. Use when user uploads .fig files, asks for "design specs", "component documentation", or "design-to-code handoff".
+\`\`\`
+## Security restrictions
+## Forbidden in frontmatter:
+## # Good - includes trigger phrases
+description: Manages Linear project workflows including sprint planning, task creation, and status tracking. Use when user mentions "sprint", "Linear tasks", "project planning", or asks to "create tickets".
+• XML angle brackets (< >) • Skills with "claude" or "anthropic" in name (reserved) Why: Frontmatter appears in Claude's system prompt. Malicious content could inject instructions.
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; grep -v '^$' "$S/pdf-out/guide.md" | sed -n '330,640p'
+```
+```
+For programmatic use cases - such as building applications, agents, or automated workflows that leverage skills - the API provides direct control over skill management and execution.
+## Current distribution model (January 2026)
+## How individual users get skills:
+## Key capabilities:
+• \`/v1/skills\` endpoint for listing and managing skills
+• Add skills to Messages API requests via the \`container.skills\` parameter
+1. Download the skill folder
+2. Zip the folder (if needed)
+3. Upload to Claude.ai via Settings > Capabilities > Skills
+4. Or place in Claude Code skills directory
+• Version control and management through the Claude Console • Works with the Claude Agent SDK for building custom agents
+## When to use skills via the API vs. Claude.ai:
+![Image block](doc:66cbcc0/tier:flash/page:19/block:17)
+<details>
+<summary>image content</summary>
+Use Case        Best Surface
+End users interacting with skills directly        Claude.ai / Claude Code
+Manual testing and iteration during development      Claude.ai / Claude Code
+Individual, ad-hoc workflows        Claude.ai / Claude Code
+Applications using skills programmatically        API
+Production deployments at scale        API
+Automated pipelines and agent systems        API
+</details>
+## Organization-level skills:
+• Admins can deploy skills workspace-wide (shipped December 18, 2025) • Automatic updates • Centralized management
+## An open standard
+We've published [Agent Skills](https://agentskills.io/home) as an open standard. Like MCP, we believe skills should be portable across tools and platforms - the same skill should work whether you're using Claude or other AI platforms. That said, some skills are designed to take full advantage of a specific platform's capabilities; authors can note this in the skill's compatibility field. We've been collaborating with members of the ecosystem on the standard, and we're excited by early adoption.
+19
+<!-- page 20 of 33 -->
+Note: Skills in the API require the Code Execution Tool beta, which provides the secure environment skills need to run. For implementation details, see: • [Skills API Quickstart](https://docs.claude.com/en/docs/agents-and-tools/agent-skills/quickstart) • [Create Custom skills](https://docs.claude.com/en/api/skills/create-skill)
+\- Select the skill folder (zipped)
+3. Enable the skill: - Toggle on the [Your Service] skill - Ensure your MCP server is connected
+## 4. Test:
+\- Ask Claude: "Set up a new project in [Your Service]"
+• [Skills in the Agent SDK](https://docs.claude.com/en/docs/agent-sdk/skills)
+## Recommended approach today
+## Positioning your skill
+Start by hosting your skill on GitHub with a public repo, clear README (for human visitors — this is separate from your skill folder, which should not contain a README.md), and example usage with screenshots. Then add a section to your MCP documentation that links to the skill, explains why using both together is valuable, and provides a quick-start guide.
+How you describe your skill determines whether users understand its value and actually try it. When writing about your skill—in your README, documentation, or marketing - keep these principles in mind.
+## 1. Host on GitHub
+## Focus on outcomes, not features:
+✅ Good:
+"The ProjectHub skill enables teams to set up complete project workspaces in seconds — including pages, databases, and templates — instead of spending 30 minutes on manual setup."
+– Public repo for open-source skills – Clear README with installation instructions – Example usage and screenshots
+## 2. Document in Your MCP Repo
+– Link to skills from MCP documentation
+– Explain the value of using both together
+– Provide quick-start guide
+❌ Bad:
+"The ProjectHub skill is a folder containing YAML frontmatter and Markdown instructions that calls our MCP server tools."
+## 3. Create an Installation Guide
+## # Installing the [Your Service] skill
+1. Download the skill: - Clone repo: \`git clone https: /github.com/yourcompany/ skills\` - Or download ZIP from Releases
+Highlight the MCP + skills story:
+"Our MCP server gives Claude access to your Linear projects. Our skills teach Claude your team's sprint planning workflow. Together, they enable AI-powered project management."
+## 2. Install in Claude: - Open Claude.ai > Settings > skills
+\- Click "Upload skill"
+20
+<!-- page 21 of 33 -->
+## Chapter 5
+## Patterns and
+troubleshooting
+21
+<!-- page 22 of 33 -->
+## Chapter 5
+## Patterns and troubleshooting
+## Pattern 1: Sequential workflow orchestration
+These patterns emerged from skills created by early adopters and internal teams. They represent common approaches we've seen work well, not prescriptive templates.
+Use when: Your users need multi-step processes in a specific order. Example structure:
+## Choosing your approach: Problem-first vs. tool-first
+Think of it like Home Depot. You might walk in with a problem - "I need to fix a kitchen cabinet" - and an employee points you to the right tools. Or you might pick out a new drill and ask how to use it for your specific job.
+Skills work the same way:
+## # Workflow: Onboard New Customer
+## ### Step 1: Create Account
+Call MCP tool: \`create\_customer\` Parameters: name, email, company
+• Problem-first: "I need to set up a project workspace" → Your skill orchestrates the right MCP calls in the right sequence. Users describe outcomes; the skill handles the tools.
+## ### Step 2: Setup Payment
+Call MCP tool: \`setup\_payment\_method\` Wait for: payment method verification
+• Tool-first: "I have Notion MCP connected" → Your skill teaches Claude the optimal workflows and best practices. Users have access; the skill provides expertise.
+## ### Step 3: Create Subscription
+Call MCP tool: \`create\_subscription\` Parameters: plan\_id, customer\_id (from Step 1)
+Most skills lean one direction. Knowing which framing fits your use case helps you choose the right pattern below.
+## ### Step 4: Send Welcome Email
+Call MCP tool: \`send\_email\` Template: welcome\_email\_template
+Key techniques:
+• Explicit step ordering • Dependencies between steps • Validation at each stage • Rollback instructions for failures
+22
+<!-- page 23 of 33 -->
+## Pattern 2: Multi-MCP coordination
+## Pattern 3: Iterative refinement
+Use when: Workflows span multiple services.
+Use when: Output quality improves with iteration. Example: Report generation
+Example: Design-to-development handoff
+\### Phase 1: Design Export (Figma MCP)
+1. Export design assets from Figma
+2. Generate design specifications
+3. Create asset manifest
+## # Iterative Report Creation
+## ### Initial Draft
+1. Fetch data via MCP
+2. Generate first draft report
+\### Phase 2: Asset Storage (Drive MCP)
+1. Create project folder in Drive
+2. Upload all assets
+3. Save to temporary file
+## ### Quality Check
+1. Run validation script: \`scripts/check\_report.py\`
+3. Generate shareable links
+## ### Phase 3: Task Creation (Linear MCP)
+1. Create development tasks
+2. Attach asset links to tasks
+3. Assign to engineering team
+2. Identify issues: - Missing sections - Inconsistent formatting - Data validation errors
+## ### Refinement Loop
+## ### Phase 4: Notification (Slack MCP) 1. Post handoff summary to #engineering 2. Include asset links and task references
+1. Address each identified issue
+2. Regenerate affected sections
+3. Re-validate
+4. Repeat until quality threshold met
+Key techniques:
+• Clear phase separation
+• Data passing between MCPs
+• Validation before moving to next phase • Centralized error handling
+## ### Finalization
+1. Apply final formatting
+2. Generate summary
+3. Save final version
+Key techniques:
+• Explicit quality criteria • Iterative improvement • Validation scripts • Know when to stop iterating
+23
+<!-- page 24 of 33 -->
+## Pattern 4: Context-aware tool selection
+## Pattern 5: Domain-specific intelligence
+Use when: Same outcome, different tools depending on context. Example: File storage
+Use when: Your skill adds specialized knowledge beyond tool access. Example: Financial compliance
+## # Smart File Storage
+## ### Decision Tree
+1. Check file type and size
+## # Payment Processing with Compliance
+\### Before Processing (Compliance Check)
+1. Fetch transaction details via MCP
+2. Determine best storage location: - Large files (>10MB): Use cloud storage MCP - Collaborative docs: Use Notion/Docs MCP - Code files: Use GitHub MCP - Temporary files: Use local storage
+## ### Execute Storage
+Based on decision: - Call appropriate MCP tool - Apply service-specific metadata - Generate access link
+\### Provide Context to User Explain why that storage was chosen
+Key techniques:
+• Clear decision criteria
+• Fallback options
+• Transparency about choices
+2. Apply compliance rules: - Check sanctions lists - Verify jurisdiction allowances - Assess risk level
+3. Document compliance decision ### Processing IF compliance passed: - Call payment processing MCP tool - Apply appropriate fraud checks - Process transaction
+ELSE:
+\- Flag for review - Create compliance case
+\### Audit Trail - Log all compliance checks - Record processing decisions - Generate audit report
+Key techniques: • Domain expertise embedded in logic • Compliance before action • Comprehensive documentation • Clear governance
+24
+<!-- page 25 of 33 -->
+## Troubleshooting
+## Skill won't upload
+## # Wrong
+name: My Cool Skill
+Error: "Could not find SKILL.md in uploaded folder" Cause: File not named exactly SKILL.md
+## # Correct
+name: my-cool-skill
+Solution: • Rename to SKILL.md (case-sensitive) • Verify with: ls -la should show SKILL.md Error: "Invalid frontmatter"
+## Skill doesn't trigger
+Symptom: Skill never loads automatically Fix: Revise your description field. See The Description Field for good/bad examples. Quick checklist: • Is it too generic? ("Helps with projects" won't work) • Does it include trigger phrases users would actually say? • Does it mention relevant file types if applicable? Debugging approach: Ask Claude: "When would you use the [skill name] skill?" Claude will quote the description back. Adjust based on what's missing.
+Cause: YAML formatting issue Common mistakes:
+## # Wrong - missing delimiters
+name: my-skill
+description: Does things
+## # Wrong - unclosed quotes
+name: my-skill
+description: "Does things
+## # Correct ---
+## Skill triggers too often
+Symptom: Skill loads for unrelated queries Solutions: 1. Add negative triggers
+name: my-skill
+description: Does things
+\---
+Error: "Invalid skill name"
+## description: Advanced data analysis for CSV files. Use for statistical modeling, regression, clustering. Do NOT use for
+Cause: Name has spaces or capitals
+simple data exploration (use data-viz skill instead).
+25
+<!-- page 26 of 33 -->
+2. Be more specific
+## Instructions not followed
+Symptom: Skill loads but Claude doesn't follow instructions
+## # Too broad
+description: Processes documents
+## # More specific
+Common causes:
+description: Processes PDF legal documents for contract review
+3. Clarify scope
+1. Instructions too verbose – Keep instructions concise – Use bullet points and numbered lists – Move detailed reference to separate files
+## description: PayFlow payment processing for e-commerce. Use
+specifically for online payment workflows, not for general financial queries.
+## MCP connection issues
+Symptom: Skill loads but MCP calls fail
+2. Instructions buried – Put critical instructions at the top – Use ## Important or ## Critical headers – Repeat key points if needed
+3. Ambiguous language
+## # Bad
+Make sure to validate things properly
+## # Good
+CRITICAL: Before calling create\_project, verify: - Project name is non-empty - At least one team member assigned - Start date is not in the past
+Checklist:
+1. Verify MCP server is connected – Claude.ai: Settings > Extensions > [Your Service] – Should show "Connected" status
+Advanced technique: For critical validations, consider bundling a script that performs the checks programmatically rather than relying on language instructions. Code is deterministic; language interpretation isn't. See the [Office skills](https://github.com/anthropics/skills/tree/main/skills) for examples of this pattern.
+2. Check authentication – API keys valid and not expired – Proper permissions/scopes granted – OAuth tokens refreshed
+3. Test MCP independently – Ask Claude to call MCP directly (without skill) – "Use [Service] MCP to fetch my projects" – If this fails, issue is MCP not skill
+4. Model "laziness" Add explicit encouragement:
+## # Performance Notes
+\- Take your time to do this thoroughly - Quality is more important than speed - Do not skip validation steps
+Note: Adding this to user prompts is more effective than in SKILL.md
+4. Verify tool names – Skill references correct MCP tool names – Check MCP server documentation – Tool names are case-sensitive
+26
+<!-- page 27 of 33 -->
+## Large context issues
+Symptom: Skill seems slow or responses degraded
+Causes:
+• Skill content too large • Too many skills enabled simultaneously • All content loaded instead of progressive disclosure
+Solutions:
+1. Optimize SKILL.md size – Move detailed docs to references/ – Link to references instead of inline – Keep SKILL.md under 5,000 words
+2. Reduce enabled skills – Evaluate if you have more than 20 - 50 skills enabled simultaneously – Recommend selective enablement – Consider skill "packs" for related capabilities
+27
+<!-- page 28 of 33 -->
+## Chapter 6
+Resources and references
+28
+<!-- page 29 of 33 -->
+## Chapter 6
+## Resources and references
+If you're building your first skill, start with the Best Practices Guide, then reference the API docs as needed.
+## Tools and Utilities
+## skill-creator skill:
+• Built into Claude.ai and available for Claude Code • Can generate skills from descriptions • Reviews and provides recommendations • Use: "Help me build a skill using skill-creator"
+## Official Documentation
+## Anthropic Resources:
+## Validation:
+• skill-creator can assess your skills • Ask: "Review this skill and suggest improvements"
+• [Best Practices Guide](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) • [Skills Documentation](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) • [API Reference](https://platform.claude.com/docs/en/api/overview) • [MCP Documentation](https://modelcontextprotocol.io)
+## Blog Posts:
+• [Introducing Agent Skills](https://claude.com/blog/skills)
+## Getting Support
+• [Engineering Blog: Equipping Agents for the Real World](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) • [Skills Explained](https://www.claude.com/blog/skills-explained) • [How to Create Skills for Claude](https://www.claude.com/blog/how-to-create-skills-key-steps-limitations-and-examples) • [Building Skills for Claude Code](https://www.claude.com/blog/building-skills-for-claude-code) • [Improving Frontend Design through Skills](https://www.claude.com/blog/improving-frontend-design-through-skills)
+## For Technical Questions:
+• General questions: Community forums at the [Claude Developers Discord](https://discord.com/invite/6PPFFzqPDZ)
+## For Bug Reports:
+• GitHub Issues: [anthropics/skills/issues](https://github.com/anthropics/skills/issues) • Include: Skill name, error message, steps to reproduce
+## Example skills
+## Public skills repository:
+• GitHub: [anthropics/skills](https://github.com/anthropics/skills) • Contains Anthropic-created skills you can customize
+29
+<!-- page 30 of 33 -->
+Reference A: Quick
+checklist
+Use this checklist to validate your skill before and after upload. If you want
+a faster start, use the skill-creator skill to generate your first draft, then run
+through this list to make sure you haven't missed anything.
+Before you start Identified 2-3 concrete use cases Tools identified (built-in or MCP) Reviewed this guide and example skills Planned folder structure
+During development Folder named in kebab-case SKILL.md file exists (exact spelling) YAML frontmatter has --- delimiters name field: kebab-case, no spaces, no capitals description includes WHAT and WHEN No XML tags (< >) anywhere Instructions are clear and actionable Error handling included Examples provided References clearly linked
+Before upload Tested triggering on obvious tasks Tested triggering on paraphrased requests Verified doesn't trigger on unrelated topics Functional tests pass Tool integration works (if applicable) Compressed as .zip file
+After upload Test in real conversations Monitor for under/over-triggering Collect user feedback Iterate on description and instructions Update version in metadata
+30
+<!-- page 31 of 33 -->
+Reference B: YAML
+## Security notes
+## Allowed:
+• Any standard YAML types (strings, numbers, booleans, lists, objects) • Custom metadata fields • Long descriptions (up to 1024 characters)
+frontmatter
+Required fields --- name: skill-name-in-kebab-case description: What it does and when to use it. Include specific trigger phrases. ---
+## Forbidden:
+• XML angle brackets (< >) - security restriction • Code execution in YAML (uses safe YAML parsing)
+• Skills named with "claude" or "anthropic" prefix (reserved)
+All optional fields name: skill-name description: [required description] license: MIT # Optional: License for open-source allowed-tools: "Bash(python:\*) Bash(npm:\*) WebFetch" # Optional: Restrict tool access metadata: # Optional: Custom fields author: Company Name version: 1.0.0 mcp-server: server-name category: productivity tags: [project-management, automation] documentation: https: /example.com/docs support: support@example.com
+31
+<!-- page 32 of 33 -->
+## Reference C: Complete skill examples
+For full, production-ready skills demonstrating the patterns in this guide: • Document Skills - [PDF](http://https://github.com/anthropics/skills/tree/main/skills/pdf), [DOCX](https://github.com/anthropics/skills/tree/main/skills/docx), [PPTX](https://github.com/anthropics/skills/tree/main/skills/pptx), [XLSX](https://github.com/anthropics/skills/tree/main/skills/xlsx) creation • [Example Skills](https://github.com/anthropics/skills/tree/main/skills) - Various workflow patterns
+• [Partner Skills Directory](https://www.claude.com/connectors) - View skills from various partners such as Asana, Atlassian, Canva, Figma, Sentry, Zapier, and more
+These repositories stay up-to-date and include additional examples beyond what's covered here. Clone them, modify them for your use case, and use them as templates.
+32
+<!-- page 33 of 33 -->
+## [claude.ai](http://claude.ai)
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; grep -v '^$' "$S/pdf-out/guide.md" | sed -n '255,330p'
+```
+```
+13
+<!-- page 14 of 33 -->
+## Chapter 3
+Testing and iteration
+14
+<!-- page 15 of 33 -->
+## Chapter 3
+## Testing and iteration
+Skills can be tested at varying levels of rigor depending on your needs:
+• Manual testing in Claude.ai - Run queries directly and observe behavior. Fast iteration, no setup required.
+• Scripted testing in Claude Code - Automate test cases for repeatable validation across changes.
+• Programmatic testing via skills API - Build evaluation suites that run systematically against defined test sets.
+Choose the approach that matches your quality requirements and the visibility of your skill. A skill used internally by a small team has different testing needs than one deployed to thousands of enterprise users.
+Pro Tip: Iterate on a single task before expanding
+We’ve found that the most effective skill creators iterate on a single challenging task until Claude succeeds, then extract the winning approach into a skill. This leverages Claude’s in-context learning and provides faster signal than broad testing. Once you have a working foundation, expand to multiple test cases for coverage.
+## Recommended Testing Approach
+Based on early experience, effective skills testing typically covers three areas:
+## 1. Triggering tests
+Goal: Ensure your skill loads at the right times.
+Test cases: • ✅ Triggers on obvious tasks • ✅ Triggers on paraphrased requests • ❌ Doesn't trigger on unrelated topics Example test suite:
+Should trigger: - "Help me set up a new ProjectHub workspace" - "I need to create a project in ProjectHub" - "Initialize a ProjectHub project for Q4 planning"
+Should NOT trigger: - "What's the weather in San Francisco?" - "Help me write Python code" - "Create a spreadsheet" (unless ProjectHub skill handles sheets)
+15
+<!-- page 16 of 33 -->
+## 2. Functional tests
+## With skill:
+\- Automatic workflow execution - 2 clarifying questions only - 0 failed API calls - 6,000 tokens consumed
+## Using the skill-creator skill
+The skill-creator skill - available in Claude.ai via plugin directory or download for Claude Code - can help you build and iterate on skills. If you have an MCP server and know your top 2–3 workflows, you can build and test a functional skill in a single sitting - often in 15–30 minutes.
+Goal: Verify the skill produces correct outputs. Test cases: • Valid outputs generated • API calls succeed • Error handling works • Edge cases covered Example:
+## Test: Create project with 5 tasks
+Given: Project name "Q4 Planning", 5 task descriptions When: Skill executes workflow Then:
+\- Project created in ProjectHub
+\- 5 tasks created with correct properties - All tasks linked to project
+\- No API errors
+Creating skills: • Generate skills from natural language descriptions • Produce properly formatted SKILL.md with frontmatter • Suggest trigger phrases and structure Reviewing skills:
+• Flag common issues (vague descriptions, missing triggers, structural problems)
+## 3. Performance comparison
+Goal: Prove the skill improves results vs. baseline.
+• Identify potential over/under-triggering risks
+Use the metrics from <u>Define Success Criteria</u>. Here's what a comparison might look like.
+• Suggest test cases based on the skill's stated purpose Iterative improvement:
+• After using your skill and encountering edge cases or failures, bring those examples back to skill-creator
+Baseline comparison:
+• Example: "Use the issues & solution identified in this chat to improve how the skill handles [specific edge case]"
+## Without skill: - User provides instructions each time - 15 back-and-forth messages
+\- 3 failed API calls requiring retry - 12,000 tokens consumed
+16
+<!-- page 17 of 33 -->
+To use:
+Execution issues:
+• Inconsistent results
+"Use the skill-creator skill to help me build a skill for • API call failures
+[your use case]" • User corrections needed
+Note: skill-creator helps you design and refine skills but does not execute
+automated test suites or produce quantitative evaluation results.
+## Iteration based on feedback
+Skills are living documents. Plan to iterate based on:
+## Undertriggering signals:
+• Skill doesn't load when it should • Users manually enabling it • Support questions about when to use it
+Solution: Improve instructions, add error handling
+Solution: Add more detail and nuance to the description - this may include keywords particularly for technical terms
+## Overtriggering signals:
+• Skill loads for irrelevant queries • Users disabling it • Confusion about purpose
+Solution: Add negative triggers, be more specific
+17
+<!-- page 18 of 33 -->
+## Chapter 4
+Distribution and sharing
+18
+<!-- page 19 of 33 -->
+## Chapter 4
+## Distribution and sharing
+Skills make your MCP integration more complete. As users compare connectors, those with skills offer a faster path to value, giving you an edge over MCP-only alternatives.
+## Using skills via API
+For programmatic use cases - such as building applications, agents, or automated workflows that leverage skills - the API provides direct control over skill management and execution.
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; grep -v '^$' "$S/pdf-out/guide.md" | sed -n '196,256p'; mineru server stop 2>&1 | tail -2
+```
+```
+## Examples of good descriptions:
+author: ProjectHub version: 1.0.0 mcp-server: projecthub
+## # Good - specific and actionable
+description: Analyzes Figma design files and generates developer handoff documentation. Use when user uploads .fig files, asks for "design specs", "component documentation", or "design-to-code handoff".
+\`\`\`
+## Security restrictions
+## Forbidden in frontmatter:
+## # Good - includes trigger phrases
+description: Manages Linear project workflows including sprint planning, task creation, and status tracking. Use when user mentions "sprint", "Linear tasks", "project planning", or asks to "create tickets".
+• XML angle brackets (< >) • Skills with "claude" or "anthropic" in name (reserved) Why: Frontmatter appears in Claude's system prompt. Malicious content could inject instructions.
+## # Good - clear value proposition description: End-to-end customer onboarding workflow for PayFlow. Handles account creation, payment setup, and
+subscription management. Use when user says "onboard new customer", "set up subscription", or "create PayFlow account".
+11
+<!-- page 12 of 33 -->
+## Examples of bad descriptions:
+## Example: \`\`\`bash
+python scripts/fetch\_data.py --project-id PROJECT\_ID Expected output: [describe what success looks like]
+## # Too vague
+description: Helps with projects.
+## # Missing triggers
+description: Creates sophisticated multi-page documentation systems.
+(Add more steps as needed)
+## # Too technical, no user triggers description: Implements the Project entity model with
+hierarchical relationships.
+## Examples
+## Example 1: [common scenario]
+User says: "Set up a new marketing campaign" Actions:
+## Writing the main instructions
+After the frontmatter, write the actual instructions in Markdown.
+1. Fetch existing campaigns via MCP
+2. Create new campaign with provided parameters Result: Campaign created with confirmation link (Add more examples as needed)
+## Recommended structure:
+Adapt this template for your skill. Replace bracketed sections with your specific content.
+## ---
+name: your-skill description: [...] ---
+## # Your Skill Name
+## # Instructions
+## ### Step 1: [First Major Step] Clear explanation of what happens.
+## Troubleshooting
+## Error: [Common error message]
+Cause: [Why it happens] Solution: [How to fix] (Add more error cases as needed)
+12
+<!-- page 13 of 33 -->
+## Best Practices for Instructions
+## Reference bundled resources clearly
+## Before writing queries, consult \`references/api-patterns.md\`
+Be Specific and Actionable
+## ✅ Good:
+## Run \`python scripts/validate.py --input {filename}\` to check
+for: - Rate limiting guidance - Pagination patterns - Error codes and handling
+data format. If validation fails, common issues include: - Missing required fields (add them to the CSV) - Invalid date formats (use YYYY-MM-DD)
+## Use progressive disclosure
+Keep SKILL.md focused on core instructions. Move detailed documentation to \`references/\` and link to it. (See [Core Design Principles](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) for how the threelevel system works.)
+## ❌ Bad:
+## Validate the data before proceeding.
+## Include error handling
+## # Common Issues
+## ### MCP Connection Failed If you see "Connection refused": 1. Verify MCP server is running: Check Settings > Extensions 2. Confirm API key is valid
+3. Try reconnecting: Settings > Extensions > [Your Service] > Reconnect
+13
+<!-- page 14 of 33 -->
+Server stopped.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "=== event details"; grep -rn "Meet Your Partner" --include=*.md 20_Progress/Mentorship Program 10_Areas 2>/dev/null | grep -v "Meet Your Partner.md" | cut -c1-260 | head -14; echo "=== agent/skill mentions to update"; grep -n "note-to-actions\|transcript-to-brief" 30_Order/Standards/AI\ Loop/Orchestration.md 10_Areas/AI/Claude\ Code.md CLAUDE.md "10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md" "40_Resources/Obsidian/Dashboard/Jarvis Build/Jarvis Spec - Plans Feed.md" 2>/dev/null | cut -c1-240; echo "=== other agents' tools format"; sed -n '1,16p' .claude/agents/career-operator.md
+```
+```
+=== event details
+=== agent/skill mentions to update
+30_Order/Standards/AI Loop/Orchestration.md:42:| `note-to-actions` | turning a note into an action map | Read, Write |
+10_Areas/AI/Claude Code.md:49:| `/note-to-actions` | Turns a note into a link-dense map of concrete next steps |
+10_Areas/AI/Claude Code.md:51:| `/transcript-to-brief` | Turns a transcript into a structured brief |
+CLAUDE.md:53:| Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |
+CLAUDE.md:54:| Distill a note, map next steps | `/distill-note`, `/note-to-actions` |
+10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md:86:| Mentorship (Ahnaf) | Alternate weeks | Meeting held, `/transcript-to-brief` then `/note-to-actions` run on it | [[20_Progress/Mentorship Program/Plans/Fall 2026 — Detailed Expectations|
+40_Resources/Obsidian/Dashboard/Jarvis Build/Jarvis Spec - Plans Feed.md:42:| Mentorship | `Plan - Ahnaf`, `Plan - Jesse` | Meetings, outreach, the actions from each meeting | A 20 from `/note-to-actions`, a `[due::]` line | Anant | The mee
+=== other agents' tools format
+---
+name: career-operator
+description: >
+  Use proactively for internship applications, resume and cover-letter updates,
+  portfolio project briefs, and mentorship meeting prep. MUST BE USED when
+  creating career briefs in 60_Claude/40_Project_Briefs/ or updating application
+  tracking under 10_Areas/Career/ and 20_Progress/. Reads the vault's career
+  notes first and produces action-oriented output — every brief carries concrete
+  next steps, deadlines, and links to real projects and skills.
+tools:
+  - Read
+  - Glob
+  - Grep
+  - Edit
+  - Write
+model: claude-sonnet-4-6
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n '30,52p' "30_Order/Standards/AI Loop/Orchestration.md"; echo =====; sed -n '36,60p' "10_Areas/AI/Claude Code.md"; echo ====; sed -n '1,12p' "10_Areas/AI/Claude Code.md"; grep -n "agents" "10_Areas/AI/Claude Code.md" | head
+```
+```
+- **Skill (a `/command`):** a repeatable procedure with a fixed checklist, run in the main window. Examples: `/startday`, `/closeday`, `/ingest-clipping`, `/weekly-review`.
+- **Agent:** isolated context for heavy reading or a distinct role.
+- **Inline:** everything else.
+## Agent file shape
+Each agent is `.claude/agents/<name>.md` with frontmatter `name`, `description`, `tools`, and `model`. The description is third person and says when to use it: "Use proactively for... MUST BE USED for...". The `tools` list holds only what the role needs, so a read-only role cannot write.
+## Roster
+| Agent | Use for | Tools |
+|---|---|---|
+| `ingestion` | any new source: YouTube, transcript, clipping, PDF | Read, Write, WebFetch, Bash |
+| `research-distiller` | deep multi-source or long-PDF distillation | Read, Glob, Grep, Edit, Write, Bash, WebFetch |
+| `human-operator` | default writer for new vault prose | Read, Write, Edit |
+| `anti-slop-editor` | rewriting AI-sounding notes | Read, Glob, Grep, Edit, Write |
+| `note-to-actions` | turning a note into an action map | Read, Write |
+| `learning-agent` | drills, spaced repetition, learning from the vault only | Read, Glob, Grep, Edit, Write |
+| `professor` | coordinating coursework skills | Read, Grep, Glob, Edit |
+| `daily-operator` | dashboard, plans, rollover, deadlines | Read, Grep, Glob, Edit |
+| `career-operator` | applications, resume, portfolio briefs | Read, Glob, Grep, Edit, Write |
+| `vault-curator` | links, orphans, duplicates, Write Contract checks | Read, Glob, Grep, Edit, Write |
+| `llm-council` | high-stakes decisions needing five advisors | Read, Grep, Glob |
+Counts and tool lists drift. The folder `.claude/agents/` is the truth; fix this table when it disagrees.
+> [!WARNING]
+> Treating a subagent's report as fact. A survey agent once returned a "will report back" line with zero tool uses recorded. Check tool-use counts, and read the files that carry the conclusion before acting on it.
+> [!WARNING]
+=====
+| `/remove-ai-slop` | Rewrites AI-sounding prose per [[HUMAN_WRITING]] |
+| `/context` | Loads the context pack: manifest, dashboard, session log tail |
+| `/trace-topic` | Traces a topic across the vault |
+| `/connect-notes` | Surfaces missing wikilinks |
+| `/weekly-review` | Answers the 7 weekly questions, writes the weekly note |
+| `/lint-claude-layer` | Lints 60_Claude for broken links and orphans |
+| `/ops` | Vault health operations (see `ops-reference.md`) |
+| `/tag-month` | Creates missing monthly checkpoint git tags |
+| `/mcp-hub` | MCP server reference (skill file only, no command) |
+| `/challenge` | Pressure-tests a belief, plan, or decision — premortem, red-team, blindspots, invert |
+| `/excalidraw-diagram` | Builds a diagram on the live Excalidraw canvas, exports it into the vault as a native Obsidian Excalidraw file |
+| `/ideas` | Generates a grounded idea report — tools to build, people to meet, topics to investigate |
+| `/llm-council` | Runs a high-stakes, genuinely uncertain decision through a 5-advisor council with peer review and chairman synthesis |
+| `/note-to-actions` | Turns a note into a link-dense map of concrete next steps |
+| `/strategy` | Runs a project, trade, or resource-allocation decision through SWOT, WARGAME, PARETO, and LEVERAGE |
+| `/transcript-to-brief` | Turns a transcript into a structured brief |
+Only `startday`, `closeday`, and `ingesting-clipping` follow the directory standard from [[Jarvis OS — North Star]] Part 5.1 (SKILL.md ≤500 lines + reference.md + scripts/). The rest are still flat prose files — convert them as they get used, most-used first.
+### Agents (5, in `.claude/agents/`)
+All five now carry proper frontmatter (`name`, `description` in the "Use proactively… MUST BE USED…" pattern, `tools` allowlist, `model: claude-sonnet-4-6`):
+- `research-distiller` — deep source ingestion; the only agent with Bash + WebFetch (needs `extract_pdf.py` and `gh api`)
+- `anti-slop-editor` — rewrites per [[HUMAN_WRITING]]
+- `vault-curator` — link/duplicate/frontmatter health, report-first
+- `learning-agent` — spaced-repetition drills over Capability Engine fields
+- `career-operator` — internship/resume/mentorship briefs
+### Hooks (2 scripts, wired in `.claude/settings.json`)
+====
+---
+type: evergreen
+status: sprout
+created: 2026-07-03
+updated: 2026-08-19
+tags:
+  - ai
+  - tool-guide
+  - claude-code
+notes:
+  - "[[Claude OS]]"
+  - "[[Jarvis OS — North Star]]"
+16:Claude Code is the primary implementation surface. Everything that changes files — vault notes, project code, system config — runs through it. Cursor is for surgical in-editor edits with live LSP feedback; Kiro is for spec-gated product builds; Codex is a second opinion with repo-local skills. Claude Code is where the agentic work happens: multi-file changes, skills, subagents, hooks, MCP.
+21:| Jarvis (this vault) | PKM/vault OS: skills, agents, hooks, MCP — the whole daily loop | `.claude/` in the vault; snapshot at `20_Progress/AI/Claude Code/Jarvis/` |
+22:| CausalOps (HiveMind) | Multi-agent CI: 3 specialist subagents, 4 test commands, 3 guard hooks | `20_Progress/AI/Claude Code/CausalOps/` |
+24:| Resq / OpsPilot | `.claude/` as the canon layer: PRD, context, playbooks, checklists that Kiro agents also read | `20_Progress/AI/Claude Code/Resq/`, `.../OpsPilot/` |
+53:### Agents (5, in `.claude/agents/`)
+64:| `jarvis-write-guard.ps1` | PreToolUse (Write\|Edit\|MultiEdit) | Write Contract: denies vault-root files, `50_Archive/`, `.obsidian/`, `05_Clippings/`, `.cursor/`, `.kiro/`, `.git/`; allowlists the daily-ops paths (Daily/, Plans/, Templates/, skills, agents, dashboard, session log, Claude OS) so the daily loop can never be blocked |
+80:- Obsidian agents (3): `obsidian-architect`, `obsidian-researcher`, `obsidian-session-archivist`
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Briefs\Jesse Meeting - 28th Oct Brief.md`
+```
+---
+type: input
+status: sprout
+created: 2026-10-28
+updated: 2026-10-28
+tags:
+  - brief
+  - mentorship
+input_kind: brief
+source_note: "[[Jesse Meeting - 28th Oct]]"
+related_progress:
+  - "[[Plan - Jesse]]"
+  - "[[Mentor Details'26]]"
+  - "[[Smart Goals]]"
+  - "[[Junior Year Internship Decision]]"
+  - "[[Meet Your Partner]]"
+next: "[[Jesse Meeting - 28th Oct Actions]]"
+---
+# Jesse Meeting - 28th Oct Brief
+**Source:** First one-on-one with Jesse Strom (Director, Industry Solutions, SymphonyAI), Anant's CSE mentor for 2026-27, on Zoom then Google Meet
+**Transcript:** [[Jesse Meeting - 28th Oct]]
+**Date of conversation:** 2026-10-28
+## What This Was
+The first call between Anant and Jesse. Jesse joined from his phone, so the call moved from Zoom to Google Meet after his audio broke up, and he could not open the shared Google Doc, though he said he had read it. Anant ran about 10 minutes past the 45-minute block. Speaker labels (You and Them) are reliable, but the capture garbles some names and terms, listed in Open Questions. The Mentoring Agreement due 2026-11-02 never came up.
+## What Was Decided
+- **Nov 4 event:** both are attending the Meet Your Partner event; Jesse confirmed at the end ("We'll see you there then").
+- **Mock interviews:** Jesse is open to running them "at any time". No date was set.
+- **Format:** Jesse is happy to meet in person now and then (he lives in Bloomington, about 20 minutes from campus). Evenings suit in-person; he is at his computer in the afternoons.
+- **Left open:** the weekday and time, how often to meet, which of Anant's three goals gets a first step, and any internship route.
+## Key Threads
+### Internship and the work authorization rule
+Goal one, and the longest exchange. Jesse had not heard of the rule and twice asked for the reasoning behind it. He said it "changes my answer" on what he would advise, asked whether a remote or non-US internship counts, and said he would look into the rule himself. Several things Anant told him differ from the vault's research: Anant said the rule was finalized on Sept 15, that Nov 6 is an "official announcement", and that he cannot work on campus. The vault says UMN paused CPT after the August SEVP messages, Nov 6 is a federal court hearing, and on-campus work is still allowed ([[CPT Program]], [[CPT Broadcast Messages]], [[Junior Year Internship Decision]]).
+The strongest lead came late: SymphonyAI has a headquarters office in Whitefield, **Bangalore**, Anant's hometown, and Jesse visited last year. Anant asked about working there and Jesse pointed him to the company website. That fits the "internship physically abroad" route. Jesse also said SymphonyAI is hiring and that he has colleagues at other companies who may have internships, but no introduction was asked for or offered. Anant's planned ask (a colleague who has hired international students) was not made.
+### Three goals and the Mentoring Agreement
+Anant walked through his three goals (internships, projects and startup judgment, communication) as "systems that need a check-in". Jesse said he would take a look and think about them. He was not asked what he would do in Anant's place until near the end, and then answered only about internships. The agreement form, the goals as SMART goals, and how it gets signed were not raised ([[Smart Goals]], [[Plan - Jesse]]).
+### Rhythm, format and the Nov 4 event
+Anant proposed every other week; Jesse said his past mentees met once or twice a month depending on school and work. They agreed to fix a weekday ("let's figure out the day of the week"; Saturday is busy; Anant floated every other Monday). Jesse uses Teams for work and says most of his clients do too; Anant has a Teams account. Jesse could not see the Google Doc on his phone, and noted that in past years the event forms could be filled in on the night. Details of the event are in [[Meet Your Partner]].
+### Startup judgment
+Anant said he has no grounding in equity, shareholders, capital or selling, and wants to learn from people who have done it. Jesse said "we can talk about that". His first company started with about 20 people and was acquired, a friend in LA started a company six months ago, and he often brings friends or colleagues into sessions. Nothing was scheduled. Ahnaf's concrete first step (an LLC, then a business bank account) is the comparison point ([[Project Briefings - 2026-07-13]]).
+### Communication and networking
+Anant described struggling with public speaking, joining the CSE student ambassador program for it, and asked Jesse for recommendations. Jesse said he is "on the right track" and gave none. Anant asked for networking events in Minneapolis. Jesse named a manufacturing conference at the convention center, said such events cost $500 to $1,000, and said he would check whether students get a discount.
+### Jesse's background and what he offers
+Seagate internship in 2007, University of Minnesota in 2008 (Computer Engineering), then a workflow-software company that SymphonyAI acquired in 2020, rising from systems engineer to principal architect. His team is about 100 people in a company of about 3,000, and clients include 3M, Cargill, Seagate and General Mills. Useful opinions: AI in plants mostly serves plant managers and above, now reaching operators; vision AI handles safety checks; and he prefers finding and repeating the best shifts ("golden batches") to hunting for faults. He mentors because he enjoys it and was an admissions ambassador himself ([[Mentor Details'26]]).
+### Anant's intro and Jarvis
+Anant introduced himself as a computer science junior with an Entrepreneurship minor admitted this semester, which settles the mismatch with the mentor form (Computer Engineering). He mentioned hackathons and a Bangalore internship building an HR management site with five people. Jesse asked which model powers Jarvis; Anant described local models on a new 32 GB laptop plus Hermes Agent running tests all day, and Opus costing too much per task. Jesse called Sonnet the middle ground. Anant steered back to the agenda himself.
+## Open Questions
+- [ ] The weekday, time and cadence are not set; Jesse's usual is once or twice a month and Anant asked for every other week.
+- [ ] The Mentoring Agreement was never discussed, and the Nov 4 event falls after its 2026-11-02 due date.
+- [ ] Jesse now holds a partly wrong picture of the rule (finalized Sept 15, Nov 6 as a decision, no on-campus work) and needs a correction.
+- [ ] The product Jesse's company moved into its platform is transcribed "savage", probably Savigent (his "savvy and intelligent" explanation), and the company as "As One Technologies"; confirm both spellings before using them.
+- [ ] The manufacturing conference is transcribed "MDM" or "MD and M" with no date.
+- [ ] The friend in LA who started a company is transcribed "Swaitha"; the name is unverified.
+- [ ] Anant's sentence on remote pay "through the U, through the UFL" is garbled (UMN is also transcribed UFM and UFL); the point about remote internships is unclear.
+- [ ] Anant's tooling sentences are garbled ("Valve so far", "I've been using Ruby"); the tools meant are unconfirmed.
+## Follow-Up Actions
+- [ ] Email Jesse a thank-you with the corrected rule, the Google Doc link, and a proposed weekday and time.
+- [ ] Settle the cadence and send the calendar invite.
+- [ ] Get the Mentoring Agreement agreed and submitted by 2026-11-02.
+- [ ] Look into the SymphonyAI Bangalore office and make the introduction ask.
+- [ ] Prepare for the Nov 4 event.
+- [ ] The step-by-step breakdown is [[Jesse Meeting - 28th Oct Actions]].
+## Related Notes
+- [[Jesse Meeting - 28th Oct]]: the raw transcript this brief compresses
+- [[Jesse Meeting - 28th Oct Actions]]: the linked next steps
+- [[Plan - Jesse]], [[Mentor Details'26]], [[Smart Goals]]: the standing goals and mentor profile
+- [[Junior Year Internship Decision]], [[CPT Program]]: the facts behind the internship thread
+- [[Meet Your Partner]]: the one-pager for the Nov 4 event
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Action\Jesse Meeting - 28th Oct Actions.md`
+```
+---
+type: action
+status: active
+created: 2026-10-28
+updated: 2026-10-28
+tags:
+  - action
+  - mentorship
+source_note: "[[Jesse Meeting - 28th Oct Brief]]"
+related_progress:
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+  - "[[Junior Year Internship Decision]]"
+  - "[[Meet Your Partner]]"
+next: Email Jesse the thank-you with the corrected rule and a proposed weekday and time, per [[Junior Year Internship Decision]].
+---
+# Jesse Meeting - 28th Oct Actions
+From [[Jesse Meeting - 28th Oct Brief]]. Statements only, and every statement links to what it is about.
+## Internship and the work authorization rule
+- Send Jesse a short correction: UMN paused CPT after the August SEVP messages, Nov 6 is a federal court hearing, and on-campus work is still allowed ([[CPT Program]], [[Junior Year Internship Decision]]).
+- Send the open questions to ISSS by 2026-10-30, since their answers decide what Anant can tell Jesse ([[ISSS October Meeting Brief]]).
+- Look up SymphonyAI's Bangalore office and what it hires for, then ask ISSS what an internship abroad does to F-1 status ([[Junior Year Internship Decision]]).
+- Make the ask Jesse never got: a fifteen-minute introduction to someone who has hired international students ([[Google Doc - First Meeting]]).
+- Book the first mock interview once the weekday is fixed ([[Smart Goals]]).
+## Three goals and the Mentoring Agreement
+- Send Jesse the three goals in writing and ask what he would change, because the Mentoring Agreement is due before the Nov 4 event ([[Smart Goals]]).
+- Fill in the agreement with the goal 1 wording that holds either way on Nov 6, and submit it to Katie by 2026-11-02 ([[Plan - Jesse]]).
+## Rhythm, format and the Nov 4 event
+- Propose an evening weekday and time to Jesse, with every other Monday as the option he floated, and send the invite ([[Plan - Jesse]]).
+- Offer Teams for remote sessions, since Jesse's clients use it ([[Mentor Meeting Playbook - Jesse]]).
+- Resend the Google Doc as a link he can open on a phone, and ask whether he wants the event forms done in advance or on the night ([[Meet Your Partner]]).
+- Update Current State in [[Plan - Jesse]], which still says no contact.
+## Startup judgment
+- Ask Jesse which friend or colleague he would bring in first on equity and capital, and when ([[Smart Goals]]).
+- Weigh Ahnaf's LLC-first step against whatever Jesse's network offers before choosing a first move ([[Project Briefings - 2026-07-13]]).
+## Communication and networking
+- Ask Jesse what he found on student pricing for the manufacturing conference, and its name and date ([[Smart Goals]]).
+- Compare his event leads with Ahnaf's Minnesota list so none are counted twice ([[2026-07-14 Mentor Meeting — Actions]]).
+## Jesse's background and what he offers
+- Add Jesse's career path and clients to [[Mentor Details'26]] after the garbled product and company names are confirmed.
+- Revisit the CausalOps and MOM link flagged in [[Initial Outreach]] using Jesse's point that plant AI serves managers first and works by repeating the best shifts.
+## Anant's intro and Jarvis
+- Record in [[Plan - Jesse]] that Anant told Jesse he studies computer science with an Entrepreneurship minor, while the mentor form says Computer Engineering.
+## Open Threads
+- Which of Jesse's offers comes first (mock interview, startup introduction, event) is undecided until he replies with his own plan ([[Plan - Jesse]]).
+- What Jesse's cadence adds to the program-level plan waits until Ahnaf's meetings are mapped ([[Overall Plan]]).
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Meetings/Transcripts" && sed -i '0,/^status: seed$/s//status: sprout/; 0,/^next: .*$/s//next: "[[Jesse Meeting - 28th Oct Brief]]"/' "Jesse Meeting - 28th Oct.md" && sed -n '1,13p' "Jesse Meeting - 28th Oct.md"; cd ../../../.. && grep -rn "Mentor Meeting - One-Pager" --include=*.md 20_Progress 10_Areas 30_Order 2>/dev/null | cut -c1-200 | head
+```
+```
+---
+type: input
+status: sprout
+created: 2026-10-28
+updated: 2026-10-28
+tags:
+  - transcript
+input_kind: transcript
+related_progress:
+  - "[[Plan - Jesse]]"
+  - "[[Google Doc - First Meeting]]"
+next: "[[Jesse Meeting - 28th Oct Brief]]"
+---
+20_Progress/Mentorship Program/Jesse/Initial Outreach.md:21:1. **Follow-through gaps.** Both early meeting notes ("Mentor Meeting - One-Pager" and "Mentor Meeting - Hackathons, Summer, and Networking"
+[This command modified 1 file you've previously read: 20_Progress\Mentorship Program\Meetings\Transcripts\Jesse Meeting - 28th Oct.md. Call Read before editing.]
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node 30_Order/System/vault-lint/vault-lint.js --path "20_Progress/Mentorship Program/Meetings/" --list 30 2>&1 | sed -n '2,40p'; grep -c "—" "20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md" "20_Progress/Mentorship Program/Meetings/Action/Jesse Meeting - 28th Oct Actions.md"
+```
+```
+FIT: 5/8 = 62.5%
+
+By tier:
+  tier 1: 3/6 = 50.0%
+  tier 2: 2/2 = 100.0%
+
+By family (fit / total, near-fit, failing checks):
+  action                           1/2      50.0%  near    1  F2:1
+  brief                            2/2     100.0%  near    0  
+  project                          0/2       0.0%  near    0  F1:2 F2:2 F5:2 F6:2
+  transcript                       2/2     100.0%  near    0  
+
+Top failure reasons:
+     11  2:missing-heading
+      5  1:missing-key
+      2  6:legacy-shape
+      2  5:extra-blank-lines
+
+First 30 failing notes:
+  20_Progress/Mentorship Program/Meetings/Action/2026-07-14 Mentor Meeting — Actions.md  [action]  2:missing-heading:Open Threads
+  20_Progress/Mentorship Program/Meetings/Meet Your Partner.md  [project]  6:legacy-shape; 1:missing-key:updated; 1:missing-key:tags; 1:missing-key:project_kind; 1:missing-key:next; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 5:extra-blank-lines:2
+  20_Progress/Mentorship Program/Meetings/Mentor Meeting Playbook.md  [project]  6:legacy-shape; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 5:extra-blank-lines:6
+20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md:0
+20_Progress/Mentorship Program/Meetings/Action/Jesse Meeting - 28th Oct Actions.md:1
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Meet Your Partner.md`
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Meet Your Partner.md`
+```
+---
+type: project
+status: active
+created: 2026-04-27
+updated: 2026-10-28
+tags:
+  - mentorship
+  - meeting
+related:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Jesse Meeting - 28th Oct Brief]]"
+  - "[[Jesse Meeting - 28th Oct Actions]]"
+next: Send the correction email and the Mentoring Agreement before Nov 2, then attend the event on Nov 4.
+---
+# Meet Your Partner
+> [!NOTE] Draft
+> One-pager for the next meeting. It is renamed and rewritten for each meeting, so the headings stay and the content changes. It began as the April one-pager for Ahnaf, which [[Mentor Meeting Playbook]] replaced. Items marked [confirm] are unchecked.
+**Event:** Wed 2026-11-04, 7 to 8:30 pm, McNamara Alumni Center (Memorial Hall, 200 SE Oak St.). Jesse said on 2026-10-28 he is attending. [confirm what the program runs on the night, and whether the forms are done there]
+## Before the Event
+- [ ] Email Jesse the corrected rule, the Google Doc link, and a proposed weekday and time (see [[Jesse Meeting - 28th Oct Actions]]).
+- [ ] Get the Mentoring Agreement goals agreed and submit it to Katie by 2026-11-02, two days before the event.
+- [ ] Skim [[Mentor Details'26]] and the brief so nothing is asked twice.
+## 3 Goals
+1. Meet Jesse in person and leave with the weekday and time of the next meeting.
+2. Get the introduction ask answered: one person who has hired international students.
+3. Practice the intro on two people besides Jesse.
+## 2 Pitches
+**Intro, 30 seconds:** "I'm Anant, a computer science junior at UMN with a minor in entrepreneurship. I build AI systems on my own: Jarvis, a personal knowledge system run by agents, and CausalOps, which refuses to answer when the evidence is weak. I can build, but I'm weaker at pitching and networking, so I'm here for honest advice on internships and on turning projects into something." [confirm the project facts, which date from July]
+**The work authorization problem, three sentences:** "I'm an international student, and UMN paused CPT in August after new federal guidance. There's a federal court hearing on November 6 and nobody knows the outcome. So I'm planning three routes at once: research on campus, an internship abroad, and pre-completion OPT, which I'd decide on around March."
+## 3 Questions
+1. "Did you find out why the rule was written, and does it change what you'd tell me to do this year?" Unblocks: whether to plan around a US summer internship.
+2. "Would SymphonyAI's Bangalore office take an intern, and who would I ask?" Unblocks: the internship abroad route.
+3. "What did you find on student pricing for the manufacturing conference?" Unblocks: the events goal.
+## 1 Concrete Ask
+"Is there anyone in your network who has hired international students that I could talk to for fifteen minutes?"
+## 1 Next Step
+Within a day of the event, send Jesse a thank-you and the agreed weekday and time, then put the second meeting on the calendar and log this one with the [[Meeting Workflow]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\transcript-to-brief\SKILL.md`
+```
+---
+name: transcript-to-brief
+description: Turns a meeting transcript note in the Jarvis vault into a six-section brief note by reading the whole transcript, asking the user only what the transcript cannot answer, and drafting to Brief Standard. Use when the user says "write the brief", "brief this meeting", "transcript to brief", "summarize this call into a brief", or points at a Transcript note (type input, input_kind transcript) that has no brief yet. Do NOT use for the action note (use note-to-actions), for AI conversation exports, or for clipping, PDF, or video summaries (use ingest-clipping).
+argument-hint: "[path or name of the transcript note]"
+allowed-tools: "Read Glob Grep Bash(node 30_Order/System/vault-lint/vault-lint.js *)"
+metadata:
+  author: Anant Gupta
+  version: 2.0.0
+  workflow: Meeting Workflow, steps 3 to 5
+---
+# Transcript to Brief
+Compresses one transcript into what was decided and what mattered. Runs steps 3 to 5 of [[Meeting Workflow]]. The whole job is a conversation with the user: you propose, they correct, then you write.
+## Critical rules
+1. Never edit the transcript. The only change to it is its own `next` and `status`, in step 8.
+2. Read the whole transcript before asking anything.
+3. Ask in chat and wait. Do not write the brief until the user has approved the plan in step 5.
+4. Never guess a garbled passage and never invent a decision for a thread the transcript left open. Both go in Open Questions.
+5. Wikilink only notes that exist. Search first.
+6. Write plain prose per HUMAN_WRITING. No em dashes. No blank lines in the note.
+## Before you start
+Read these, in this order:
+1. `30_Order/Workflows/Ingestion/Meeting Workflow.md`
+2. `30_Order/Standards/Ingestion/Brief Standard.md`
+3. `30_Order/Templates/Capability/Brief Template.md`
+4. `references/example-brief.md` in this skill folder: what a finished brief looks like and why it works
+## Steps
+### Step 1: Locate the transcript
+Use the argument if given, otherwise the active file, otherwise ask. Confirm the frontmatter is `type: input` and `input_kind: transcript`. If the text is pasted loose with no note, stop and create it first from `30_Order/Templates/Capability/Transcript Template.md` (Meeting Workflow step 1).
+Glob the sibling `Briefs/` folder and grep for the transcript's name in `source_note`. If a brief exists, ask whether to update it or stop.
+### Step 2: Gather context
+Search the vault, never `50_Archive/`:
+- The transcript's `related_progress` notes, especially the project's plan note.
+- The mentor or person's profile note, if the transcript names them.
+- The previous brief and action note in the same project, to match terms and see what is already known.
+- Any note the speakers name (a project, a program, a rule).
+### Step 3: Read the transcript in full
+Read in chunks of about 400 lines. Keep a running list of three things: decisions, threads, and passages you cannot read confidently. Speaker labels may be unreliable; say so if they are.
+### Step 4: Decide whether it earns a brief
+A brief needs a decision or a thread worth keeping. If the call had neither, say so, set the transcript's `next` to that, and stop.
+### Step 5: Propose before writing
+Post a short plan in chat, then ask. Cover:
+- The decisions you found, one line each.
+- The threads in the order you think they mattered, and what you would skip.
+- Where the transcript conflicts with what the vault already says. Record what was said and flag it; do not silently correct either side.
+Ask only what is needed, in this order, and quote the exact fragment when asking:
+1. Disambiguation: garbled passages or speaker confusion that would change what you write.
+2. What mattered: propose your own read first ("X and Y look like the substance, Z a tangent. Right?").
+3. Context the vault lacks: a person, project, or term the speakers assume.
+Batch unrelated questions. Ask one at a time when answers could change each other. Wait for answers.
+### Step 6: Draft the brief
+Copy the Brief Template shape exactly: the three source lines, then the six `##` sections. Follow the per-heading rules in Brief Standard. File name is the transcript's name plus "Brief", saved in the sibling `Briefs/` folder, otherwise beside the transcript. Set frontmatter per Step 8.
+### Step 7: Show it and revise
+Show the user the decisions, the thread headings, and the Open Questions, and ask "What should change?" Patch by heading and repeat until they say it is done. Ask them directly about any item they might want to add: a decision you missed, a thread to cut, a follow-up.
+### Step 8: Frontmatter and links
+- Brief: `type: input`, `status: sprout`, `input_kind: brief`, `source_note` as a quoted wikilink to the transcript (filename only), `related_progress`, and `next` as the action note's wikilink if one will be made, otherwise `None` with the reason.
+- Transcript: set `next` to the brief's wikilink and `status` to `sprout`. Touch nothing else.
+### Step 9: Lint and log
+Run `node 30_Order/System/vault-lint/vault-lint.js --path "<folder of the brief>"` and fix every failure for the brief. Append one line to `60_Claude/07_AI_Information/Session Logs/log.md`.
+### Step 10: Report
+Say where the brief is, how many Open Questions remain, and whether `/note-to-actions` is the next step.
+## Quality bar
+- The brief is not a second transcript. If Key Threads is as long as the source, compress it.
+- Every decision carries a bold label. "Nothing was decided" is a valid answer.
+- Follow-Up Actions are high level. The step-by-step breakdown belongs in the action note.
+## Troubleshooting
+**The transcript has speaker labels like "Them" and "You".** Treat them as reliable only if the user confirms it. Otherwise write from substance and say so in What This Was.
+**The transcript runs past the meeting (another call at the end).** Do not cut it here. Tell the user; the cut is made in the transcript note and named on its Captured with line.
+**Lint says missing-heading or missing-key.** Compare the note to the Brief Template. All six headings must be present, in order, with content.
+**Lint says bad-wikilink on `source_note` or `next`.** The target note does not exist yet, or the link has a folder path. Use the filename only.
+**The user wants the actions in the same pass.** Finish and lint the brief first, then run `/note-to-actions` on it.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\note-to-actions\SKILL.md`
+```
+---
+name: note-to-actions
+description: Turns a brief, or any dense interlinked note, in the Jarvis vault into an action note, a link-dense map of concrete next steps with one section per thread, by asking the user what each thread actually requires. Use when the user says "write the actions", "what do I need to do after this meeting", "note to actions", "turn this brief into next steps", or points at a brief whose Follow-Up Actions has no action note yet. Do NOT use to summarize a transcript (use transcript-to-brief) or to make a checklist or task list.
+argument-hint: "[path or name of the brief or note]"
+allowed-tools: "Read Glob Grep Bash(node 30_Order/System/vault-lint/vault-lint.js *)"
+metadata:
+  author: Anant Gupta
+  version: 2.0.0
+  workflow: Meeting Workflow, steps 6 to 8
+---
+# Note to Actions
+Maps what still needs doing after a meeting. Runs steps 6 to 8 of [[Meeting Workflow]]. It is not a second brief and does not re-summarize. The next steps come from the user, not from you.
+## Critical rules
+1. Statements only. No checkboxes, no prose paragraphs, one sentence per step.
+2. Every statement carries at least one wikilink to the project, concept, person, or note it concerns. A statement with no link has not been mapped to anything; rewrite it or ask.
+3. Do not infer a step the source does not support. Ask.
+4. Ask in chat and wait. Do not write the note until the user has confirmed the threads in step 4.
+5. Never create a stub note for a missing link target. Ask what to do instead.
+6. Nothing is silently dropped. Every source thread becomes a section or a line under Open Threads.
+7. Write plain prose per HUMAN_WRITING. No em dashes. No blank lines in the note.
+## Before you start
+Read these, in this order:
+1. `30_Order/Workflows/Ingestion/Meeting Workflow.md`
+2. `30_Order/Standards/Ingestion/Action Standard.md`
+3. `30_Order/Templates/Capability/Action Template.md`
+4. `references/example-action.md` in this skill folder: a finished action note and a before-and-after of a paragraph turned into statements
+## Steps
+### Step 1: Locate the source
+Use the argument if given, otherwise the active file, otherwise ask. It is usually a brief with `input_kind: brief`. Glob the sibling `Action/` folder and grep for the source's name in `source_note`; if an action note exists, ask whether to update it.
+### Step 2: Understand the source and its context
+Read the whole source, then every note it links that you need to understand a thread: the transcript for exact wording, the project's plan note, the profile of the person involved, and earlier action notes in the same project for dates and commitments already made. Search the vault, never `50_Archive/`.
+### Step 3: Collect candidate steps
+For each thread in the source (a brief's `### Key Threads`), draft candidate statements from what the source supports. Mark anything that would need a decision from the user. Check dates the source mentions against today.
+### Step 4: Ask what each thread requires
+Go thread by thread, in the source's order. For each, show the candidates and ask:
+- What is the actual next move on this thread, and does the candidate match?
+- On what, by when, and with whom?
+- Is there a step you would add, change, or drop?
+Offer your candidate and confirm it; do not just assume. Ask a thread at a time when the threads are independent, and batch the simple ones. Ask the user directly for anything only they know: a date they committed to, a person they will contact, a thing they decided not to do.
+### Step 5: Missing link targets
+If a step needs a person, project, or concept that has no vault note, ask: link it anyway to a note to be created, skip the link, or record the gap under Open Threads. Wait for the answer.
+### Step 6: Draft the note
+Copy the Action Template shape: an opening line naming the source and the rule, then one `##` per source thread in the source's order with the same heading words, then `## Open Threads`. Name the file after the meeting plus "Actions". Save in the sibling `Action/` folder, otherwise beside the source.
+### Step 7: Show it and revise
+Show the sections and ask "What should change, and what is missing?" Patch by heading and repeat until the user says it is done.
+### Step 8: Frontmatter and links
+- Action note: `type: action`, `status: active`, `source_note` as a quoted wikilink to the source (filename only), `related_progress`, and `next` as the single statement to close out first.
+- Source brief: make sure its `next` and `## Follow-Up Actions` name the action note. Touch nothing else.
+### Step 9: Lint and log
+Run `node 30_Order/System/vault-lint/vault-lint.js --path "<folder of the action note>"` and fix every failure for the new note. Append one line to `60_Claude/07_AI_Information/Session Logs/log.md`.
+### Step 10: Report
+Say where the note is, what `next` is, and what sits under Open Threads.
+## Quality bar
+- Terse. A step that needs a paragraph is explained in the source, not here.
+- Concrete verbs: send, ask, book, look up, compare. Not "consider" or "follow up".
+- The user's dates are used as given; no invented deadlines.
+## Troubleshooting
+**The source is not a brief and has no Key Threads.** Use its own section headings as the threads and say so in the opening line.
+**A thread produced no concrete step.** Put it under Open Threads as a statement naming what is unresolved.
+**Lint says missing-heading.** The note must end with `## Open Threads` and have content under it.
+**Lint says bad-wikilink on `source_note`.** Use the filename only, in quotes, and check the brief exists.
+**The user gives a step with no clear link target.** Link to the plan note of the project, or ask which note it belongs to.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\transcript-to-brief\references\example-brief.md`
+````
+# Example brief: Jesse Meeting - 28th Oct Brief
+The full note is `20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md`, built from `Transcripts/Jesse Meeting - 28th Oct.md` (535 raw lines). Read it when you need the whole shape. This file shows what to copy and what to avoid. A second, older example is `Project Briefings - 2026-07-13.md` in the same folder, which came from a heavily garbled capture.
+## What the brief does well
+**What This Was is short and states the limits.** Three facts a reader needs: the call moved platforms, the person could not open the shared doc, and the one item that mattered (the agreement due 2026-11-02) was never raised. It also names the capture's weakness (garbled names) and points to Open Questions.
+**What Was Decided holds only real decisions, then says what was left open.**
+```
+- **Nov 4 event:** both are attending ...; Jesse confirmed at the end ("We'll see you there then").
+- **Mock interviews:** Jesse is open to running them "at any time". No date was set.
+- **Left open:** the weekday and time, how often to meet, ...
+```
+A decision has a bold label and a quote or fact that proves it. "Open to" is recorded as open, not as a plan. The last bullet stops the reader from assuming the rest was settled.
+**Key Threads are ordered by what mattered, not by when they came up.** The internship thread came first and the opening small talk about video quality became one clause in What This Was. Six threads for a 535-line call, and the rapport (accents, a trip to Bangalore) did not get a thread of its own.
+**Conflicts with the vault are recorded, not corrected.**
+```
+Several things Anant told him differ from the vault's research: Anant said ... Nov 6 is an "official announcement" ...
+The vault says ... Nov 6 is a federal court hearing ...
+```
+The brief says what was said, says what the vault holds, and links the notes. The follow-up (a correction email) goes to the action note. The brief does not decide who was right.
+**Open Questions are specific and quote the fragment.** "The product ... is transcribed 'savage', probably Savigent (his 'savvy and intelligent' explanation) ... confirm before using." A guess is labelled as a guess and left unresolved.
+**Follow-Up Actions are one line each and end by linking the action note.**
+## What to avoid
+- A thread for every topic. Ten-second tangents do not get a heading.
+- Verbs that hide the speaker: "it was discussed that". Say who said what.
+- Resolving a garbled sentence by guessing. Put it in Open Questions.
+- Copying the transcript's order. Compress and reorder.
+- Step-by-step tasks in Follow-Up Actions. Those belong in the action note.
+## Question bank
+Ask only if the transcript does not answer. Quote the fragment.
+**Disambiguation**
+- "Line 187 reads 'What made you stay involved with your man, the first lady?' Is that 'mentoring students at UMN'?"
+- "Both 'Them' and 'You' say 'we' about the event. Who is attending besides you and Jesse?"
+- "The name after 'my friend' reads 'Swaitha'. Do you know the spelling?"
+**What mattered**
+- "The internship exchange is about a third of the call. I would make it Key Thread 1 and put the Bangalore office lead inside it. Right?"
+- "The accent and ambassador story looks like rapport more than substance. I would leave it to one clause. OK?"
+**Context the vault lacks**
+- "Jesse's company products ('Foundry', 'Catalyst') have no notes. Skip the links, or note the gap?"
+- "He mentions a conference at the convention center and you did not catch the name. Do you remember it?"
+
+````
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\note-to-actions\references\example-action.md`
+````
+# Example action note: Jesse Meeting - 28th Oct Actions
+The full note is `20_Progress/Mentorship Program/Meetings/Action/Jesse Meeting - 28th Oct Actions.md`, built from `Briefs/Jesse Meeting - 28th Oct Brief.md`. Read it for the whole shape. This file shows what to copy and what to avoid.
+## What the note does well
+**The sections are the brief's Key Threads, in the same order and with the same words.** A reader can lay the two notes side by side.
+**One sentence per step, a verb first, a link in every statement.**
+```
+- Send the open questions to ISSS by 2026-10-30, since their answers decide what Anant can tell Jesse ([[ISSS October Meeting Brief]]).
+- Make the ask Jesse never got: a fifteen-minute introduction to someone who has hired international students ([[Google Doc - First Meeting]]).
+```
+The first carries a date the user gave. The second turns a gap in the transcript (the planned ask was not made) into a step. Neither says "consider" or "follow up".
+**Steps that depend on each other are ordered.** Under the agreement thread, sending the goals in writing comes before submitting the agreement, because the event is after the due date.
+**Open Threads names what cannot be a step yet and why.**
+```
+- Which of Jesse's offers comes first ... is undecided until he replies with his own plan ([[Plan - Jesse]]).
+```
+**Steps cross projects when the vault already holds the answer.** "Weigh Ahnaf's LLC-first step against whatever Jesse's network offers" links the earlier brief, so advice from one mentor informs the other.
+**`next` is one statement**, the one to close first.
+## Before and after: a paragraph into statements
+The older Ahnaf action note (`2026-07-14 Mentor Meeting — Actions.md`) holds most of its content as paragraphs. This is the shape that fails the standard, and its fix.
+Before, from thread 1:
+```
+Ahnaf connected this to the "context graph" problem and referenced OpenHands as a comparable project ... worth a look before writing the issue, so the proposal is differentiated, not a re-invention. Not yet raised, and not headed for GitHub. As of 2026-08-30, GitHub issues on ahnafyy/adx are scoped strictly to code/use-case defects ...
+```
+After:
+```
+## adx
+- Read OpenHands' shared-memory design before writing up the memory-layer proposal for [[adx]].
+- Hold the memory-layer proposal out of GitHub issues and keep it for a Google Doc beside [[Competitive Positioning]].
+- Tell Ahnaf the 2026-07-19 feedback date passed because the review grew into [[Codebase Deep Read]].
+```
+Each sentence of the paragraph that implied work became one statement. Background that explains why (what adx is, how the review grew) stays in the brief or the project note, where it can be read once.
+## What to avoid
+- A step with no link. Ask which note it belongs to.
+- "Think about", "look into", "consider". Say what the move is.
+- Explanations. One sentence, then stop.
+- A thread dropped because it had no obvious step. Put it under Open Threads.
+- Dates the user did not give. Ask.
+## Question bank
+Ask a thread at a time. Offer your candidate first.
+- "For the internship thread, my candidate is: send Jesse a correction of the rule. Is that the right move, and by when?"
+- "The agreement is due 2026-11-02 and the event is 2026-11-04. Should the goals go to Jesse in writing before then?"
+- "Jesse said he would check student pricing. Do you want a step to ask him, or wait for him to reply?"
+- "Ahnaf's brief covers the same event leads. Should I add a step to compare the two lists?"
+- "A step needs a note for SymphonyAI and none exists. Link to a note to be created, skip the link, or record the gap?"
+
+````
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\agents\meeting-operator.md`
+```
+---
+name: meeting-operator
+description: Use proactively after any recorded meeting, call, or conversation has a transcript note in the vault. MUST BE USED to turn a transcript into a brief and then an action note in one session, by running the transcript-to-brief and note-to-actions skills in order and asking the user for their input at every checkpoint. Searches the vault for the project, people, and earlier meetings first. Do NOT use for AI conversation exports, clippings, or video summaries.
+tools:
+  - Read
+  - Glob
+  - Grep
+  - Write
+  - Edit
+  - Bash
+model: inherit
+skills:
+  - transcript-to-brief
+  - note-to-actions
+color: blue
+---
+You run the Meeting Workflow for Anant. A meeting becomes up to three linked notes: the transcript (already captured), a brief, and an action note. You govern two skills and add nothing to them: `transcript-to-brief` does steps 3 to 5, `note-to-actions` does steps 6 to 8. Your job is the order, the checkpoints, the vault search, and the links between the notes.
+Read `30_Order/Workflows/Ingestion/Meeting Workflow.md` first. Follow `HUMAN_WRITING.md`. Never use em dashes. Never read or write `50_Archive/`. Never edit the transcript beyond its own `next` and `status`.
+## How you talk to the user
+The brief and the action note are made of the user's own knowledge: what mattered, what they decided, what they will do. You supply the draft. They supply the truth. At every checkpoint below, stop, show your draft or question in plain chat, and wait for the answer. Never fill a gap with a guess.
+If you are running as a subagent and cannot ask the user directly, finish the current phase, return the questions as your final message, and continue when you are resumed with the answers. If you are the session's main agent (`claude --agent meeting-operator`), ask in chat.
+## Session plan
+### Phase 0: Find the meeting
+Take the transcript from the argument or the active file. Check it is `type: input` with `input_kind: transcript`. Glob the sibling `Briefs/` and `Action/` folders to see what already exists.
+**Checkpoint 1.** Say what you found and what the meeting needs: transcript only, plus a brief, or plus a brief and an action note. Ask the user to confirm.
+### Phase 1: Search before you write
+Search the vault for what the skills would otherwise ask the user: the project's plan note, the person's profile, the previous brief and action note in the same project, and any note the transcript names. Use the earlier briefs as a guide to terms and to what is already known. Note where the transcript conflicts with what the vault says.
+### Phase 2: The brief
+Run `transcript-to-brief` exactly.
+**Checkpoint 2.** Post the decisions and thread order you propose, and the disambiguation questions. Wait.
+**Checkpoint 3.** Write the draft. Show decisions, thread headings, and Open Questions, and ask what to change. Repeat until the user says it is done.
+### Phase 3: The action note
+Only if Checkpoint 1 said it is needed. Run `note-to-actions` exactly on the finished brief.
+**Checkpoint 4.** Go thread by thread. Offer your candidate steps, then ask what the next move is, by when, and with whom, and whether anything is missing. Ask about any link target the vault lacks.
+**Checkpoint 5.** Write the draft, show it, and ask what to change. Repeat until the user says it is done.
+### Phase 4: Close the loop
+Check the links run forward and back: transcript `next` to brief, brief `next` and Follow-Up Actions to the action note, action `source_note` to the brief. Run Vault Lint on each new note and fix failures. Append one line to `60_Claude/07_AI_Information/Session Logs/log.md`.
+**Checkpoint 6.** Report the three file paths, what remains in Open Questions and Open Threads, and the single `next` statement. Ask whether anything should be sent or booked now.
+## What you do not do
+- Write a note before its checkpoint is answered.
+- Add prep, summary, or log notes. A meeting makes the three notes and no others.
+- Change the skills' rules to fit a meeting. If a rule seems wrong, say so to the user.
+- Treat a skill's output as done before lint passes.
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's/- "Line 187 reads /- "One line reads /' .claude/skills/transcript-to-brief/references/example-brief.md && rm -v .claude/skills/transcript-to-brief/transcript-to-brief.md .claude/skills/note-to-actions/note-to-actions.md .claude/commands/transcript-to-brief.md .claude/commands/note-to-actions.md .claude/agents/note-to-actions.md .agents/skills/transcript-to-brief/transcript-to-brief.md .agents/skills/note-to-actions/note-to-actions.md && for s in transcript-to-brief note-to-actions; do mkdir -p ".agents/skills/$s/references" && cp ".claude/skills/$s/SKILL.md" ".agents/skills/$s/SKILL.md" && cp .claude/skills/$s/references/*.md ".agents/skills/$s/references/"; done && find .claude/skills/transcript-to-brief .claude/skills/note-to-actions .agents/skills/transcript-to-brief .agents/skills/note-to-actions -type f
+```
+```
+removed '.claude/skills/transcript-to-brief/transcript-to-brief.md'
+removed '.claude/skills/note-to-actions/note-to-actions.md'
+removed '.claude/commands/transcript-to-brief.md'
+removed '.claude/commands/note-to-actions.md'
+removed '.claude/agents/note-to-actions.md'
+removed '.agents/skills/transcript-to-brief/transcript-to-brief.md'
+removed '.agents/skills/note-to-actions/note-to-actions.md'
+.claude/skills/transcript-to-brief/references/example-brief.md
+.claude/skills/transcript-to-brief/SKILL.md
+.claude/skills/note-to-actions/references/example-action.md
+.claude/skills/note-to-actions/SKILL.md
+.agents/skills/transcript-to-brief/references/example-brief.md
+.agents/skills/transcript-to-brief/SKILL.md
+.agents/skills/note-to-actions/references/example-action.md
+.agents/skills/note-to-actions/SKILL.md
+[This command modified 1 file you've previously read: .claude\skills\transcript-to-brief\references\example-brief.md. Call Read before editing.]
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's#^| `note-to-actions` | turning a note into an action map | Read, Write |$#| `meeting-operator` | a meeting transcript through brief then action note, asking at each checkpoint | Read, Glob, Grep, Write, Edit, Bash |#' "30_Order/Standards/AI Loop/Orchestration.md" && sed -i 's#| `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |#| `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller`; for a meeting, agent `meeting-operator` |#' CLAUDE.md && sed -i 's#^Only `startday`, `closeday`, and `ingesting-clipping` follow#Only `startday`, `closeday`, `ingesting-clipping`, `transcript-to-brief`, and `note-to-actions` follow#' "10_Areas/AI/Claude Code.md" && grep -n "meeting-operator" "30_Order/Standards/AI Loop/Orchestration.md" CLAUDE.md && grep -n "transcript-to-brief., and" "10_Areas/AI/Claude Code.md" | cut -c1-120
+```
+```
+30_Order/Standards/AI Loop/Orchestration.md:42:| `meeting-operator` | a meeting transcript through brief then action note, asking at each checkpoint | Read, Glob, Grep, Write, Edit, Bash |
+CLAUDE.md:53:| Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller`; for a meeting, agent `meeting-operator` |
+52:Only `startday`, `closeday`, `ingesting-clipping`, `transcript-to-brief`, and `note-to-actions` follow the directory
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Ingestion\Meeting Workflow.md`
+```diff
+- Turn any meeting into up to three linked notes: transcript, brief, action. `/transcript-to-brief` runs steps 3 to 5; `/note-to-actions` runs 6 to 8.
++ Turn any meeting into up to three linked notes: transcript, brief, action. `/transcript-to-brief` runs steps 3 to 5, `/note-to-actions` 6 to 8, and the `meeting-operator` agent runs both in one session.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad/check.js" <<'EOF'
+const fs=require('fs'),path=require('path');
+let bad=0;const say=(ok,m)=>{console.log((ok?'ok   ':'FAIL ')+m);if(!ok)bad++;};
+for(const root of ['.claude/skills','.agents/skills']){
+ for(const s of ['transcript-to-brief','note-to-actions']){
+  const dir=path.join(root,s),f=path.join(dir,'SKILL.md');
+  const files=fs.readdirSync(dir);
+  say(files.includes('SKILL.md'),`${dir}: SKILL.md present (exact case)`);
+  say(!files.some(x=>/readme/i.test(x)),`${dir}: no README`);
+  const t=fs.readFileSync(f,'utf8');
+  const m=t.match(/^---\n([\s\S]*?)\n---\n/);
+  say(!!m,`${dir}: frontmatter delimiters`);
+  const fm=m[1];
+  const name=(fm.match(/^name: (.+)$/m)||[])[1];
+  const desc=(fm.match(/^description: (.+)$/m)||[])[1]||'';
+  say(name===s&&/^[a-z0-9-]+$/.test(name),`${dir}: name matches folder, kebab-case`);
+  say(desc.length<=1024&&desc.length>100,`${dir}: description ${desc.length} chars`);
+  say(/Use when/.test(desc)&&/Do NOT/.test(desc),`${dir}: description has what, when, and negative trigger`);
+  say(!/[<>]/.test(fm),`${dir}: no angle brackets in frontmatter`);
+  say(!/claude|anthropic/i.test(name),`${dir}: name not reserved`);
+  say(t.split('\n').length<500,`${dir}: ${t.split('\n').length} lines (<500)`);
+  say(!t.includes('—'),`${dir}: no em dash in SKILL.md`);
+  for(const r of fs.readdirSync(path.join(dir,'references'))){const rt=fs.readFileSync(path.join(dir,'references',r),'utf8');say(!rt.includes('—')||/Mentor Meeting — Actions/.test(rt),`${dir}/references/${r}: dashes ok (${rt.split('\n').length} lines)`);say(t.includes('references/'+r),`${dir}: SKILL.md links references/${r}`);}
+ }
+}
+const a=fs.readFileSync('.claude/agents/meeting-operator.md','utf8');
+say(/^name: meeting-operator$/m.test(a),'agent: name');
+say(/skills:\n  - transcript-to-brief\n  - note-to-actions/.test(a),'agent: preloads both skills');
+say(!a.includes('—'),'agent: no em dash');
+for(const f of ['30_Order/Standards/Ingestion/Transcript Standard.md','30_Order/Workflows/Ingestion/Meeting Workflow.md','20_Progress/Mentorship Program/Meetings/Meet Your Partner.md','20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md'])
+ say(!fs.readFileSync(f,'utf8').includes('—'),`${f}: no em dash`);
+console.log(bad?`\n${bad} FAILED`:'\nall checks passed');
+EOF
+node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad/check.js"; echo "--- kit lint"; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|transcript\|brief\|action\|errors"; echo "--- meetings lint"; node 30_Order/System/vault-lint/vault-lint.js --path "20_Progress/Mentorship Program/Meetings/" --list 20 2>&1 | sed -n '2,3p;5,14p'; echo "--- stale refs to deleted files"; grep -rn "skills/note-to-actions.md\|skills/transcript-to-brief.md\|agents/note-to-actions" --include=*.md --include=*.json . 2>/dev/null | grep -v "05_Clippings\|50_Archive\|\.bak\|Session Logs\|_backups\|20_Progress/AI/" | cut -c1-160 | head
+```
+```
+ok   .claude\skills\transcript-to-brief: SKILL.md present (exact case)
+ok   .claude\skills\transcript-to-brief: no README
+ok   .claude\skills\transcript-to-brief: frontmatter delimiters
+ok   .claude\skills\transcript-to-brief: name matches folder, kebab-case
+ok   .claude\skills\transcript-to-brief: description 562 chars
+ok   .claude\skills\transcript-to-brief: description has what, when, and negative trigger
+ok   .claude\skills\transcript-to-brief: no angle brackets in frontmatter
+ok   .claude\skills\transcript-to-brief: name not reserved
+ok   .claude\skills\transcript-to-brief: 71 lines (<500)
+ok   .claude\skills\transcript-to-brief: no em dash in SKILL.md
+ok   .claude\skills\transcript-to-brief/references/example-brief.md: dashes ok (39 lines)
+ok   .claude\skills\transcript-to-brief: SKILL.md links references/example-brief.md
+ok   .claude\skills\note-to-actions: SKILL.md present (exact case)
+ok   .claude\skills\note-to-actions: no README
+ok   .claude\skills\note-to-actions: frontmatter delimiters
+ok   .claude\skills\note-to-actions: name matches folder, kebab-case
+ok   .claude\skills\note-to-actions: description 520 chars
+ok   .claude\skills\note-to-actions: description has what, when, and negative trigger
+ok   .claude\skills\note-to-actions: no angle brackets in frontmatter
+ok   .claude\skills\note-to-actions: name not reserved
+ok   .claude\skills\note-to-actions: 63 lines (<500)
+ok   .claude\skills\note-to-actions: no em dash in SKILL.md
+ok   .claude\skills\note-to-actions/references/example-action.md: dashes ok (45 lines)
+ok   .claude\skills\note-to-actions: SKILL.md links references/example-action.md
+ok   .agents\skills\transcript-to-brief: SKILL.md present (exact case)
+ok   .agents\skills\transcript-to-brief: no README
+ok   .agents\skills\transcript-to-brief: frontmatter delimiters
+ok   .agents\skills\transcript-to-brief: name matches folder, kebab-case
+ok   .agents\skills\transcript-to-brief: description 562 chars
+ok   .agents\skills\transcript-to-brief: description has what, when, and negative trigger
+ok   .agents\skills\transcript-to-brief: no angle brackets in frontmatter
+ok   .agents\skills\transcript-to-brief: name not reserved
+ok   .agents\skills\transcript-to-brief: 71 lines (<500)
+ok   .agents\skills\transcript-to-brief: no em dash in SKILL.md
+ok   .agents\skills\transcript-to-brief/references/example-brief.md: dashes ok (39 lines)
+ok   .agents\skills\transcript-to-brief: SKILL.md links references/example-brief.md
+ok   .agents\skills\note-to-actions: SKILL.md present (exact case)
+ok   .agents\skills\note-to-actions: no README
+ok   .agents\skills\note-to-actions: frontmatter delimiters
+ok   .agents\skills\note-to-actions: name matches folder, kebab-case
+ok   .agents\skills\note-to-actions: description 520 chars
+ok   .agents\skills\note-to-actions: description has what, when, and negative trigger
+ok   .agents\skills\note-to-actions: no angle brackets in frontmatter
+ok   .agents\skills\note-to-actions: name not reserved
+ok   .agents\skills\note-to-actions: 63 lines (<500)
+ok   .agents\skills\note-to-actions: no em dash in SKILL.md
+ok   .agents\skills\note-to-actions/references/example-action.md: dashes ok (45 lines)
+ok   .agents\skills\note-to-actions: SKILL.md links references/example-action.md
+ok   agent: name
+ok   agent: preloads both skills
+ok   agent: no em dash
+ok   30_Order/Standards/Ingestion/Transcript Standard.md: no em dash
+ok   30_Order/Workflows/Ingestion/Meeting Workflow.md: no em dash
+ok   20_Progress/Mentorship Program/Meetings/Meet Your Partner.md: no em dash
+ok   20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md: no em dash
+
+all checks passed
+--- kit lint
+WARN  30_Order/Workflows/Ingestion/Meeting Workflow.md  workflow is 356 words (limit 350)
+0 errors, 13 warnings
+--- meetings lint
+FIT: 5/8 = 62.5%
+
+  tier 1: 3/6 = 50.0%
+  tier 2: 2/2 = 100.0%
+
+By family (fit / total, near-fit, failing checks):
+  action                           1/2      50.0%  near    1  F2:1
+  brief                            2/2     100.0%  near    0  
+  project                          0/2       0.0%  near    0  F1:2 F2:2 F5:1 F6:2
+  transcript                       2/2     100.0%  near    0  
+
+Top failure reasons:
+--- stale refs to deleted files
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Ingestion" && sed -i 's/, and the `meeting-operator` agent runs both in one session\./, and `meeting-operator` runs both in one session./; s/ Search before linking any name\./ Search before linking./; s/Every ambiguous passage is resolved or named in Open Questions\./Every ambiguous passage is resolved or in Open Questions./; s/ and it becomes `sprout`;/ and it becomes `sprout`;/; s/Ask about a missing link target; no stubs\./Ask about missing link targets; no stubs./' "Meeting Workflow.md" && sed -i 's/A meeting or call has been recorded, whether or not you took part\./A meeting or call has been recorded./; s/ before asking anything\./ first./' "Meeting Workflow.md" && cd ../../.. && node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|errors"; sed -n '17,40p' "30_Order/Workflows/Ingestion/Meeting Workflow.md"
+```
+```
+0 errors, 12 warnings
+---
+# Meeting Workflow
+Turn any meeting into up to three linked notes: transcript, brief, action. `/transcript-to-brief` runs steps 3 to 5, `/note-to-actions` 6 to 8, and `meeting-operator` runs both in one session.
+## Use when
+A meeting or call has been recorded.
+## Steps
+1. Copy [[Transcript Template]] into a `Transcripts/` folder beside the project's meeting notes and paste the raw text in. One conversation per note; cut and name any other conversation the recording caught.
+2. Decide what the meeting needs. Every meeting keeps its transcript. A brief follows if it carried a decision or a thread worth keeping, an action note only if the follow-ups each need a concrete step. If neither, say so in the transcript's `next` and stop.
+3. Read [[Brief Standard]], then the whole transcript once first.
+4. Ask only what the transcript requires: garbled passages, which threads mattered, missing context. Search before linking.
+5. Copy [[Brief Template]], write the six sections, and set `source_note` to a quoted wikilink to the transcript. Save in a sibling `Briefs/` folder, else beside the transcript.
+6. Read [[Action Standard]], then the brief and its links. For each thread ask for the concrete next step; infer none.
+7. Copy [[Action Template]]: one `##` per brief thread in order, one linked statement per step, the unresolved under Open Threads. Ask about missing link targets; no stubs. Save in a sibling `Action/` folder if one exists, otherwise beside the brief.
+8. Link forward: the transcript's `next` names the brief and it becomes `sprout`; the brief's `next` and Follow-Up Actions name the action note.
+9. Run [[Vault Lint]] on each new note; add one session log line.
+## Do not
+Do not edit the transcript beyond the named cut, guess a garbled passage, or invent a decision. Do not add a prep, summary, or log note; planning lives in the project's plan.
+## Done when
+- The transcript is untouched and each later note links back to its source.
+- Every ambiguous passage is resolved or in Open Questions.
+- Lint passes each note.
+[This command modified 1 file you've previously read: 30_Order\Workflows\Ingestion\Meeting Workflow.md. Call Read before editing.]
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's/^A meeting or call has been recorded\.$/A meeting or call has been recorded, whether or not you took part./; s/then the whole transcript once first\./then the whole transcript before asking anything./' "30_Order/Workflows/Ingestion/Meeting Workflow.md" && node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|errors"; git status --short | grep -v "05_Clippings\|AI Use/Conversations" 
+```
+```
+0 errors, 12 warnings
+ D .agents/skills/note-to-actions/note-to-actions.md
+ D .agents/skills/transcript-to-brief/transcript-to-brief.md
+ D .claude/agents/note-to-actions.md
+ D .claude/commands/note-to-actions.md
+ D .claude/commands/transcript-to-brief.md
+ D .claude/skills/note-to-actions/note-to-actions.md
+ D .claude/skills/transcript-to-brief/transcript-to-brief.md
+ M "10_Areas/AI/Claude Code.md"
+ D "20_Progress/Mentorship Program/Meetings/Mentor Meeting - One-Pager.md"
+ M "20_Progress/Mentorship Program/Meetings/Mentor Meeting Playbook.md"
+ M "20_Progress/Mentorship Program/Meetings/Transcripts/Jesse Meeting - 28th Oct.md"
+ M "20_Progress/Mentorship Program/Mentorship Board.md"
+ M "30_Order/Standards/AI Loop/Orchestration.md"
+ M "30_Order/Workflows/Ingestion/Meeting Workflow.md"
+ M CLAUDE.md
+?? .agents/skills/note-to-actions/SKILL.md
+?? .agents/skills/note-to-actions/references/
+?? .agents/skills/transcript-to-brief/SKILL.md
+?? .agents/skills/transcript-to-brief/references/
+?? .claude/agents/meeting-operator.md
+?? .claude/skills/note-to-actions/SKILL.md
+?? .claude/skills/note-to-actions/references/
+?? .claude/skills/transcript-to-brief/SKILL.md
+?? .claude/skills/transcript-to-brief/references/
+?? "20_Progress/Mentorship Program/Meetings/Action/Jesse Meeting - 28th Oct Actions.md"
+?? "20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md"
+?? "20_Progress/Mentorship Program/Meetings/Meet Your Partner.md"
+?? 30_Order/System/claude-workflow/scripts/test-session-hook.ps1
+[This command modified 1 file you've previously read: 30_Order\Workflows\Ingestion\Meeting Workflow.md. Call Read before editing.]
+```
+
 ## Actions Taken
 
 **Files created:**
+- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\agents\meeting-operator.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\note-to-actions\references\example-action.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\note-to-actions\SKILL.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\transcript-to-brief\references\example-brief.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\transcript-to-brief\SKILL.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Google Doc - First Meeting.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Action\Jesse Meeting - 28th Oct Actions.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Briefs\Jesse Meeting - 28th Oct Brief.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Meet Your Partner.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion\Action Standard.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion\Brief Standard.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion\Transcript Standard.md`
@@ -2958,4 +4754,25 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && cp .claude/skills/transcript-to-brief/transcript-to-brief.md .agents/skills/transcript-to-brief/transcript-to-brief.md && cp .claude/skills/note-to-actions/note-to-actions.md .agents/skills/note-to-actions/note-to-actions.md && echo "--- em dashes in new kit files"; grep -c "—" "30_Order/Standards/Ingestion/Transcript Standard.md" "30_Order/Templates/Capability/Transcript Template.md" "30_Order/Workflows/Ingestion/Meeting Workflow.md" "30_Order/Standards/Ingestion/Brief Standard.md" "30_Order/Standards/Ingestion/Action Standard.md"; echo "--- lint"; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|transcript\|brief\|action\|errors"; echo "--- Systems for Goals line"; grep -n "Transcript to Brief to Action" "20_Progress/Mentorship Program/Jesse/Systems for Goals.md"; echo "--- overall fit"; node 30_Order/System/vault-lint/vault-lint.js 2>&1 | sed -n '2,3p'; git status --short | head -30`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's/it is the same Transcript to Brief to Action chain already standardized for Ahnaf/it is the same transcript, brief, and action chain of the Meeting Workflow, already used for Ahnaf/' "20_Progress/Mentorship Program/Jesse/Systems for Goals.md" && sed -n '23p' "20_Progress/Mentorship Program/Jesse/Systems for Goals.md" && node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|transcript\|brief\|action\|errors"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|transcript\|brief\|action\|errors"; node 30_Order/System/vault-lint/vault-lint.js --specs 2>&1 | tail -5; node 30_Order/System/vault-lint/vault-lint.js --path "20_Progress/Mentorship Program/Meetings/" 2>&1 | sed -n '2,12p'`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program" && ls -la Meetings Meetings/* | head -40; echo ====; cat "Meetings/Meet Your Partner.md" 2>/dev/null | head -120`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; mkdir -p "$S/pdf-in" "$S/pdf-out"; cp "C:/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/tool-results/webfetch-1793245903515-6sdlwt.pdf" "$S/pdf-in/guide.pdf" && ls -la "$S/pdf-in"; head -c 8 "$S/pdf-in/guide.pdf"; echo; which mineru mineru.exe 2>&1 | head -2; mineru --version 2>&1 | head -2`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; mineru --help 2>&1 | head -25`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; mineru parse --help 2>&1 | head -30`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; cd "$S/pdf-out" && timeout 280 mineru parse "$S/pdf-in/guide.pdf" --pages all --wait 240 --limit 400000 > guide.md 2> guide.err; echo exit=$?; wc -c guide.md guide.err; head -c 600 guide.err; echo; head -c 1200 guide.md`
+- `mineru server start 2>&1 | tail -5; sleep 3; mineru server status 2>&1 | tail -5`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; cd "$S/pdf-out" && timeout 400 mineru parse "$S/pdf-in/guide.pdf" --pages all --wait 360 --limit 400000 > guide.md 2> guide.err; echo exit=$?; wc -c guide.md guide.err; head -c 500 guide.err; echo; head -c 800 guide.md`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; cd "$S/pdf-out" && timeout 250 mineru parse "$S/pdf-in/guide.pdf" --tier flash --pages all --wait 200 --limit 400000 > guide.md 2> guide.err; echo exit=$?; wc -c guide.md guide.err; head -c 400 guide.err; echo; head -c 1500 guide.md`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; sed -n '1,400p' "$S/pdf-out/guide.md" | grep -v '^$' | sed -n '25,330p'`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; grep -v '^$' "$S/pdf-out/guide.md" | sed -n '330,640p'`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; grep -v '^$' "$S/pdf-out/guide.md" | sed -n '255,330p'`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad"; grep -v '^$' "$S/pdf-out/guide.md" | sed -n '196,256p'; mineru server stop 2>&1 | tail -2`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "=== event details"; grep -rn "Meet Your Partner" --include=*.md 20_Progress/Mentorship Program 10_Areas 2>/dev/null | grep -v "Meet Your Partner.md" | cut -c1-260 | head -14; echo "=== agent/skill mentions to update"; grep -n "note-to-actions\|transcript-to-brief" 30_Order/Standards/AI\ Loop/Orchestration.md 10_Areas/AI/Claude\ Code.md CLAUDE.md "10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md" "40_Resources/Obsidian/Dashboard/Jarvis Build/Jarvis Spec - Plans Feed.md" 2>/dev/null | cut -c1-240; echo "=== other agents' tools format"; sed -n '1,16p' .claude/agents/career-operator.md`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n '30,52p' "30_Order/Standards/AI Loop/Orchestration.md"; echo =====; sed -n '36,60p' "10_Areas/AI/Claude Code.md"; echo ====; sed -n '1,12p' "10_Areas/AI/Claude Code.md"; grep -n "agents" "10_Areas/AI/Claude Code.md" | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Meetings/Transcripts" && sed -i '0,/^status: seed$/s//status: sprout/; 0,/^next: .*$/s//next: "[[Jesse Meeting - 28th Oct Brief]]"/' "Jesse Meeting - 28th Oct.md" && sed -n '1,13p' "Jesse Meeting - 28th Oct.md"; cd ../../../.. && grep -rn "Mentor Meeting - One-Pager" --include=*.md 20_Progress 10_Areas 30_Order 2>/dev/null | cut -c1-200 | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node 30_Order/System/vault-lint/vault-lint.js --path "20_Progress/Mentorship Program/Meetings/" --list 30 2>&1 | sed -n '2,40p'; grep -c "—" "20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md" "20_Progress/Mentorship Program/Meetings/Action/Jesse Meeting - 28th Oct Actions.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's/- "Line 187 reads /- "One line reads /' .claude/skills/transcript-to-brief/references/example-brief.md && rm -v .claude/skills/transcript-to-brief/transcript-to-brief.md .claude/skills/note-to-actions/note-to-actions.md .claude/commands/transcript-to-brief.md .claude/commands/note-to-actions.md .claude/agents/note-to-actions.md .agents/skills/transcript-to-brief/transcript-to-brief.md .agents/skills/note-to-actions/note-to-actions.md && for s in transcript-to-brief note-to-actions; do mkdir -p ".agents/skills/$s/references" && cp ".claude/skills/$s/SKILL.md" ".agents/skills/$s/SKILL.md" && cp .claude/skills/$s/references/*.md ".agents/skills/$s/references/"; done && find .claude/skills/transcript-to-brief .claude/skills/note-to-actions .agents/skills/transcript-to-brief .agents/skills/note-to-actions -type f`
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's#^| `note-to-actions` | turning a note into an action map | Read, Write |$#| `meeting-operator` | a meeting transcript through brief then action note, asking at each checkpoint | Read, Glob, Grep, Write, Edit, Bash |#' "30_Order/Standards/AI Loop/Orchestration.md" && sed -i 's#| `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |#| `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller`; for a meeting, agent `meeting-operator` |#' CLAUDE.md && sed -i 's#^Only `startday`, `closeday`, and `ingesting-clipping` follow#Only `startday`, `closeday`, `ingesting-clipping`, `transcript-to-brief`, and `note-to-actions` follow#' "10_Areas/AI/Claude Code.md" && grep -n "meeting-operator" "30_Order/Standards/AI Loop/Orchestration.md" CLAUDE.md && grep -n "transcript-to-brief., and" "10_Areas/AI/Claude Code.md" | cut -c1-120``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis" && cat > "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad/check.js" <<'EOF' const fs=require('fs'),path=require('path'); let bad=0;const say=(ok,m)=>{console.log((ok?'ok   ':'FAIL ')+m);if(!ok)bad++;}; for(const root of ['.claude/skills','.agents/skills']){  for(const s of ['transcript-to-brief','note-to-actions']){   const dir=path.join(root,s),f=path.join(dir,'SKILL.md');   const files=fs.readdirSync(dir);   say(files.includes('SKILL.md'),`${dir}: SKILL.md present (exact case)`);   say(!files.some(x=>/readme/i.test(x)),`${dir}: no README`);   const t=fs.readFileSync(f,'utf8');   const m=t.match(/^---\n([\s\S]*?)\n---\n/);   say(!!m,`${dir}: frontmatter delimiters`);   const fm=m[1];   const name=(fm.match(/^name: (.+)$/m)||[])[1];   const desc=(fm.match(/^description: (.+)$/m)||[])[1]||'';   say(name===s&&/^[a-z0-9-]+$/.test(name),`${dir}: name matches folder, kebab-case`);   say(desc.length<=1024&&desc.length>100,`${dir}: description ${desc.length} chars`);   say(/Use when/.test(desc)&&/Do NOT/.test(desc),`${dir}: description has what, when, and negative trigger`);   say(!/[<>]/.test(fm),`${dir}: no angle brackets in frontmatter`);   say(!/claude|anthropic/i.test(name),`${dir}: name not reserved`);   say(t.split('\n').length<500,`${dir}: ${t.split('\n').length} lines (<500)`);   say(!t.includes('—'),`${dir}: no em dash in SKILL.md`);   for(const r of fs.readdirSync(path.join(dir,'references'))){const rt=fs.readFileSync(path.join(dir,'references',r),'utf8');say(!rt.includes('—')||/Mentor Meeting — Actions/.test(rt),`${dir}/references/${r}: dashes ok (${rt.split('\n').length} lines)`);say(t.includes('references/'+r),`${dir}: SKILL.md links references/${r}`);}  } } const a=fs.readFileSync('.claude/agents/meeting-operator.md','utf8'); say(/^name: meeting-operator$/m.test(a),'agent: name'); say(/skills:\n  - transcript-to-brief\n  - note-to-actions/.test(a),'agent: preloads both skills'); say(!a.includes('—'),'agent: no em dash'); for(const f of ['30_Order/Standards/Ingestion/Transcript Standard.md','30_Order/Workflows/Ingestion/Meeting Workflow.md','20_Progress/Mentorship Program/Meetings/Meet Your Partner.md','20_Progress/Mentorship Program/Meetings/Briefs/Jesse Meeting - 28th Oct Brief.md'])  say(!fs.readFileSync(f,'utf8').includes('—'),`${f}: no em dash`); console.log(bad?`\n${bad} FAILED`:'\nall checks passed'); EOF node "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/8dd87b3c-1fbb-4e76-ba29-1797ff4262e1/scratchpad/check.js"; echo "--- kit lint"; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|transcript\|brief\|action\|errors"; echo "--- meetings lint"; node 30_Order/System/vault-lint/vault-lint.js --path "20_Progress/Mentorship Program/Meetings/" --list 20 2>&1 | sed -n '2,3p;5,14p'; echo "--- stale refs to deleted files"; grep -rn "skills/note-to-actions.md\|skills/transcript-to-brief.md\|agents/note-to-actions" --include=*.md --include=*.json . 2>/dev/null | grep -v "05_Clippings\|50_Archive\|\.bak\|Session Logs\|_backups\|20_Progress/AI/" | cut -c1-160 | head``
+- ``cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Ingestion" && sed -i 's/, and the `meeting-operator` agent runs both in one session\./, and `meeting-operator` runs both in one session./; s/ Search before linking any name\./ Search before linking./; s/Every ambiguous passage is resolved or named in Open Questions\./Every ambiguous passage is resolved or in Open Questions./; s/ and it becomes `sprout`;/ and it becomes `sprout`;/; s/Ask about a missing link target; no stubs\./Ask about missing link targets; no stubs./' "Meeting Workflow.md" && sed -i 's/A meeting or call has been recorded, whether or not you took part\./A meeting or call has been recorded./; s/ before asking anything\./ first./' "Meeting Workflow.md" && cd ../../.. && node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|errors"; sed -n '17,40p' "30_Order/Workflows/Ingestion/Meeting Workflow.md"``
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -i 's/^A meeting or call has been recorded\.$/A meeting or call has been recorded, whether or not you took part./; s/then the whole transcript once first\./then the whole transcript before asking anything./' "30_Order/Workflows/Ingestion/Meeting Workflow.md" && node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | grep -i "meeting\|errors"; git status --short | grep -v "05_Clippings\|AI Use/Conversations" `
 

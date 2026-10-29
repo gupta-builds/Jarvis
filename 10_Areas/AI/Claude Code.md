@@ -49,7 +49,7 @@ Table corrected 2026-08-19 against the diff already identified in [[20_Progress/
 | `/note-to-actions` | Turns a note into a link-dense map of concrete next steps |
 | `/strategy` | Runs a project, trade, or resource-allocation decision through SWOT, WARGAME, PARETO, and LEVERAGE |
 | `/transcript-to-brief` | Turns a transcript into a structured brief |
-Only `startday`, `closeday`, and `ingesting-clipping` follow the directory standard from [[Jarvis OS — North Star]] Part 5.1 (SKILL.md ≤500 lines + reference.md + scripts/). The rest are still flat prose files — convert them as they get used, most-used first.
+Only `startday`, `closeday`, `ingesting-clipping`, `transcript-to-brief`, and `note-to-actions` follow the directory standard from [[Jarvis OS — North Star]] Part 5.1 (SKILL.md ≤500 lines + reference.md + scripts/). The rest are still flat prose files — convert them as they get used, most-used first.
 ### Agents (5, in `.claude/agents/`)
 All five now carry proper frontmatter (`name`, `description` in the "Use proactively… MUST BE USED…" pattern, `tools` allowlist, `model: claude-sonnet-4-6`):
 - `research-distiller` — deep source ingestion; the only agent with Bash + WebFetch (needs `extract_pdf.py` and `gh api`)

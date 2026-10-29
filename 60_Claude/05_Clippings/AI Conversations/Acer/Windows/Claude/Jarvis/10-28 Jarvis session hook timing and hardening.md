@@ -5,38 +5,46 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis session hook timing and hardening"
 started_at: 2026-10-28T22:28:53
-ended_at: 2026-10-28T22:32:53
-exported_at: 2026-10-28T22:33:04
-duration_minutes: 4
+ended_at: 2026-10-28T23:00:36
+exported_at: 2026-10-28T23:00:37
+duration_minutes: 31.7
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts'
 session_id: 68c513bc-f671-4b52-b1ef-e2eeebb9f750
 status: seed
 review_state: raw
 created: 2026-10-28
 updated: 2026-10-28
-turn_count: 2
+turn_count: 4
 tools_used:
-  Bash: 4
-  Edit: 4
-  Grep: 5
-  PowerShell: 4
-  Read: 7
-  Write: 1
+  Bash: 14
+  Edit: 10
+  Grep: 7
+  PowerShell: 23
+  Read: 14
+  Write: 3
 tokens:
-  input: 30
-  output: 25282
-  cache_creation: 80062
-  cache_read: 1310813
-  total: 1416187
-cost_usd: 0.704209
+  input: 98
+  output: 78347
+  cache_creation: 186498
+  cache_read: 6681359
+  total: 6946302
+cost_usd: 2.197794
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:\\Users\\anant\\.claude\\settings.json"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\68c513bc-f671-4b52-b1ef-e2eeebb9f750\\scratchpad\\measure-hook.ps1"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\68c513bc-f671-4b52-b1ef-e2eeebb9f750\\scratchpad\\race-test.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Capture Registration.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Capture Scripts.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Conversation Layer.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Conversation Loop Design.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Conversation Loop Sources.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\hooks\\jarvis-session-continuity.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\export-claude-session.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\test-exporter-output.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\test-session-hook.ps1"
 tags:
   - input
   - ai-conversation
@@ -117,6 +125,52 @@ I'm going to read the hook script, the exporter's header and the settings entrie
 P1's `JARVIS_CAPTURE_OUTROOT` is already in the exporter. Next I'll read how the exporter takes parameters, prints its status and picks its output root.
 
 Step 1 and the hook part of step 3 are done. Now I'll check the edited region and confirm no non-ASCII characters were added and the BOM state is unchanged.
+
+I'll hold off running the test until the harness finishes, so the two don't compete for CPU. Checking progress now.
+
+Now I'll parse both files and confirm that only the Stop and SessionEnd entries differ from the backup. I'll also run the new test and the full suite under both shells.
+
+Next the full suite, with both shells, through `run-all-tests.ps1`.
+
+Steps 5 to 7's code is verified. Step 8 is the three notes, so I'll read their structure and the rows I need to patch.
+
+These two notes have no `Corrections` heading yet; the Build Plan does. I'll check how it formats entries so mine match.
+
+The notes end with a newline and follow the Build Plan's `## Corrections` pattern. Here are the three patches, which don't touch the earlier text.
+
+I put an illustrative line number in the notes' `error` example. I'll make it a clear placeholder instead, then check that my added text has no em dashes.
+
+All of step 8 is done. The hook, test and settings changes are verified, and two owner checks are still pending. The suite passes under both shells: 14 of 14 runs, with the new test at 21 assertions.
+
+**Timing** (wall ms, p50 / p95 of 5 runs, nearest rank). The startup baseline for an empty script is 219 / 231. The hook with garbage stdin is 229 / 379.
+
+| Transcript | Stop fresh | SessionEnd fresh | Stop dup | SessionEnd dup |
+|---|---|---|---|---|
+| 1.9 KB (`junk`) | 523 / 552 | 490 / 585 | 547 / 569 | 436 / 593 |
+| 1.1 MB | 874 / 1,159 | 874 / 892 | 434 / 473 | 485 / 627 |
+| 115.9 MB | 4,909 / 5,225 | 4,827 / 5,055 | 435 / 495 | 512 / 585 |
+
+**Activity lines.** A fresh export appends `{timestamp, event:"export_result", session_id, status:"written", ms:565, error:""}`. A repeat gives `status:"dup", ms:120`. A missing transcript gives `status:"skipped", error:"transcript not found"`. A throwing export gives `status:"error"` with an exception type and line number. The 565 and 120 come from the median-transcript timing runs, not the test run.
+
+**Settings.** The backup is `C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\settings.json.bak`. The Stop entry gained `"async": true, "timeout": 60`, and the SessionEnd entry gained `"timeout": 30`. The parse confirmed nothing else differs.
+
+**Decision.**
+- **Stop:** async, because the p95 is over 500 ms on the median and largest transcripts.
+- **SessionEnd:** synchronous with a 30 s timeout. A fresh export of the largest transcript takes about 5 s, which the default 1.5 s would kill.
+- **Debounce:** not added. Async already takes the cost off you, and a debounce would skip exports on purpose, which is the failure the new log line exists to catch.
+
+**Pending owner checks.**
+1. In a scratch folder, run `claude`, send one prompt, run `/clear`, then `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl -Tail 3`. An `export_result` line for that session must appear. Don't use `claude -p`.
+2. After one working day, take the p50 and p95 of `ms` from the real `export_result` lines, and count the `error` and `no_status` lines.
+
+**Unexpected.**
+- The largest transcript is 115.9 MB, not 8 MB.
+- The hook never had a BOM, even at the last commit, and it has two non-ASCII em dashes in its dead SessionStart text. I left both alone. `Capture Scripts` claimed a BOM, and I corrected that.
+- The exporter is 1,076 lines, not 921.
+- An async Stop export can still be running when SessionEnd starts. The exporter has no lock, so both could write the same note. A collision would show up as an `error` line in the activity file.
+- I made the hook log a `skipped` result when no export was attempted, which goes beyond the brief.
+- `Conversation Layer`'s `next:` and "Next Action" still point at P3.
+- I didn't touch the Cowork sweep, whose per-transcript `catch` still swallows failures.
 
 ### Tool Calls
 
@@ -862,13 +916,1667 @@ else { Write-Output "=== $fail EXPORTER OUTPUT CHECK(S) FAILED ==="; exit 1 }
 00000000: 2320 4f                                  # O
 57 /c/Users/anant/AppData/Local/Temp/claude/[REDACTED]/[REDACTED]/scratchpad/results.jsonl
 ```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-session-hook.ps1`
+```
+# Tests hooks\jarvis-session-continuity.ps1 as Claude Code runs it: a child
+# shell, JSON on stdin, exit code and activity log checked. Uses synthetic
+# transcripts only, and both test overrides (JARVIS_ACTIVITY_LOG,
+# JARVIS_CAPTURE_OUTROOT), so nothing touches the vault or the real log.
+# The hook runs in the same shell edition as this test (run-all-tests.ps1 runs
+# the test under pwsh and under Windows PowerShell 5.1).
+# Cases: empty stdin, garbage stdin, a missing transcript path, a valid
+# transcript, and a transcript whose export throws.
+
+$ErrorActionPreference = "Stop"
+
+$hook = (Resolve-Path (Join-Path $PSScriptRoot "..\hooks\jarvis-session-continuity.ps1")).Path
+$exe = if ($PSVersionTable.PSEdition -eq 'Core') { 'pwsh' } else { 'powershell' }
+
+$work = Join-Path $env:TEMP "session-hook-test-$(Get-Random)"
+$srcDir = Join-Path $work "src"
+$outRoot = Join-Path $work "out"
+$logPath = Join-Path $work "activity.jsonl"
+New-Item -ItemType Directory -Path $srcDir, $outRoot -Force | Out-Null
+
+$fail = 0
+function Assert($label, [bool]$ok) {
+    if ($ok) { Write-Output "PASS: $label" }
+    else { Write-Output "FAIL: $label"; $script:fail++ }
+}
+
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+function ConvertTo-Line($o) { $o | ConvertTo-Json -Depth 10 -Compress }
+
+# Runs the hook with $Stdin, the overrides set for the child, and returns the exit code.
+function Invoke-Hook([string]$Stdin, [string]$OutRoot = $outRoot) {
+    $env:JARVIS_ACTIVITY_LOG = $logPath
+    $env:JARVIS_CAPTURE_OUTROOT = $OutRoot
+    try {
+        $Stdin | & $exe -NoProfile -ExecutionPolicy Bypass -File $hook | Out-Null
+        return $LASTEXITCODE
+    }
+    finally {
+        Remove-Item Env:JARVIS_ACTIVITY_LOG, Env:JARVIS_CAPTURE_OUTROOT -ErrorAction SilentlyContinue
+    }
+}
+function Get-LogLines { if (Test-Path -LiteralPath $logPath) { @(Get-Content -LiteralPath $logPath -Encoding UTF8 | ForEach-Object { $_ | ConvertFrom-Json }) } else { @() } }
+function Get-Results { @(Get-LogLines | Where-Object { $_.event -eq 'export_result' }) }
+function Reset-Log { Remove-Item -LiteralPath $logPath -ErrorAction SilentlyContinue }
+function New-HookJson($event, $sid, $tp) {
+    ConvertTo-Line @{ hook_event_name = $event; session_id = $sid; transcript_path = $tp; cwd = "E:\code\hook-test-proj"; reason = "other" }
+}
+
+# ---- empty stdin: exit 0, nothing logged ------------------------------------
+Reset-Log
+$code = Invoke-Hook ""
+Assert "empty stdin: exit 0" ($code -eq 0)
+Assert "empty stdin: nothing logged" ((Get-LogLines).Count -eq 0)
+
+# ---- garbage stdin: exit 0, nothing logged ----------------------------------
+Reset-Log
+$code = Invoke-Hook "this is {not json"
+Assert "garbage stdin: exit 0" ($code -eq 0)
+Assert "garbage stdin: nothing logged" ((Get-LogLines).Count -eq 0)
+
+# ---- missing transcript path: exit 0, a skipped result with a reason --------
+Reset-Log
+$missing = Join-Path $srcDir "does-not-exist.jsonl"
+$code = Invoke-Hook (New-HookJson "Stop" "hook-test-missing" $missing)
+$res = Get-Results
+Assert "missing transcript: exit 0" ($code -eq 0)
+Assert "missing transcript: one export_result" ($res.Count -eq 1)
+Assert "missing transcript: status skipped, error says why" ($res.Count -eq 1 -and $res[0].status -eq "skipped" -and $res[0].error -eq "transcript not found")
+Assert "missing transcript: no note written" (-not (Test-Path -LiteralPath (Join-Path $outRoot "hook-test-proj")))
+
+# ---- valid transcript: written, then dup; fields exact; no transcript text --
+Reset-Log
+$cwdProj = "E:\code\hook-test-proj"
+$sidOk = "hook-test-valid"
+$tOk = Join-Path $srcDir "$sidOk.jsonl"
+$secret = "TRANSCRIPT_TEXT_MUST_NOT_REACH_THE_LOG"
+$lines = @(
+    (ConvertTo-Line @{ type = "user"; uuid = "u-1"; timestamp = "2026-10-22T12:00:00Z"; cwd = $cwdProj; message = @{ role = "user"; content = $secret } }),
+    (ConvertTo-Line @{ type = "assistant"; uuid = "a-1"; timestamp = "2026-10-22T12:00:01Z"; cwd = $cwdProj; message = @{ id = "m1"; role = "assistant"; model = "claude-sonnet-5"; content = @(@{ type = "text"; text = "reply" }); usage = @{ input_tokens = 10; output_tokens = 5 } } })
+)
+[System.IO.File]::WriteAllLines($tOk, [string[]]$lines, $utf8)
+$code1 = Invoke-Hook (New-HookJson "Stop" $sidOk $tOk)
+$code2 = Invoke-Hook (New-HookJson "SessionEnd" $sidOk $tOk)
+$res = Get-Results
+Assert "valid transcript: both runs exit 0" ($code1 -eq 0 -and $code2 -eq 0)
+Assert "valid transcript: two export_result lines" ($res.Count -eq 2)
+Assert "valid transcript: first run written" ($res.Count -ge 1 -and $res[0].status -eq "written" -and $res[0].error -eq "")
+Assert "valid transcript: second run dup" ($res.Count -ge 2 -and $res[1].status -eq "dup")
+$fields = if ($res.Count -ge 1) { ($res[0].PSObject.Properties.Name -join ",") } else { "" }
+Assert "valid transcript: fields are timestamp,event,session_id,status,ms,error" ($fields -eq "timestamp,event,session_id,status,ms,error")
+Assert "valid transcript: session_id matches and ms is a number" ($res.Count -ge 1 -and $res[0].session_id -eq $sidOk -and $res[0].ms -is [ValueType] -and $res[0].ms -ge 0)
+Assert "valid transcript: the Stop line is still written before the result" ((Get-LogLines)[0].event -eq "Stop")
+Assert "valid transcript: note exists in the override out root" (@(Get-ChildItem -LiteralPath (Join-Path $outRoot "hook-test-proj") -Filter "*.md" -File | Where-Object { $_.Name -notlike "00 - *" }).Count -eq 1)
+Assert "valid transcript: no transcript text in the log" (-not ((Get-Content -LiteralPath $logPath -Raw -Encoding UTF8).Contains($secret)))
+
+# ---- export throws: out root is a file, so creating the project folder fails -
+Reset-Log
+$badRoot = Join-Path $work "out-is-a-file"
+[System.IO.File]::WriteAllText($badRoot, "not a folder", $utf8)
+$code = Invoke-Hook (New-HookJson "Stop" "hook-test-throw" $tOk) $badRoot
+$res = Get-Results
+Assert "exporter throws: exit 0" ($code -eq 0)
+Assert "exporter throws: one export_result" ($res.Count -eq 1)
+Assert "exporter throws: status error with a non-empty error" ($res.Count -eq 1 -and $res[0].status -eq "error" -and -not [string]::IsNullOrWhiteSpace($res[0].error))
+Assert "exporter throws: error holds no path" ($res.Count -eq 1 -and $res[0].error -notmatch '[A-Za-z]:[\\/]')
+
+# ---- cleanup (remove junctions by themselves first, never recurse through them) ----
+Get-ChildItem -LiteralPath $outRoot -Recurse -Directory -Force -ErrorAction SilentlyContinue | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint } | ForEach-Object { [System.IO.Directory]::Delete($_.FullName) }
+Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
+
+if ($fail -eq 0) { Write-Output "=== ALL SESSION HOOK CHECKS PASSED ==="; exit 0 }
+else { Write-Output "=== $fail SESSION HOOK CHECK(S) FAILED ==="; exit 1 }
+
+```
+- `PowerShell`
+```powershell
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad'
+(Get-Content "$sp\results.jsonl").Count
+Get-Content "$sp\results.jsonl" -Tail 4
+Test-Path "$sp\results.done"
+Get-Content "$sp\measure.stderr" -ErrorAction SilentlyContinue | Select-Object -First 5
+```
+```
+67
+{"cell":"large|Stop|dup","wall_ms":495,"exit":0,"status":"dup","export_ms":120,"error":""}
+{"cell":"large|Stop|dup","wall_ms":435,"exit":0,"status":"dup","export_ms":105,"error":""}
+{"cell":"large|SessionEnd|fresh","wall_ms":4961,"exit":0,"status":"written","export_ms":4543,"error":""}
+{"cell":"large|SessionEnd|fresh","wall_ms":4800,"exit":0,"status":"written","export_ms":4406,"error":""}
+False
+```
+- `PowerShell`
+```powershell
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad'
+$n=0; while (-not (Test-Path "$sp\results.done") -and $n -lt 40) { Start-Sleep 3; $n++ }
+(Get-Content "$sp\results.jsonl").Count; Get-Content "$sp\picks.txt"
+$rows = Get-Content "$sp\results.jsonl" | ForEach-Object { $_ | ConvertFrom-Json }
+function Pct($v,$p){ $s=@($v|Sort-Object); $i=[math]::Ceiling($p/100*$s.Count)-1; $s[[math]::Max($i,0)] }
+"{0,-34} {1,3} {2,7} {3,7} {4,7} {5,9} {6,9}  {7}" -f 'cell','n','p50','p95','min','exp_p50','exp_p95','statuses'
+$rows | Where-Object { $_.cell -notlike '*dup-prime' } | Group-Object cell | ForEach-Object {
+  $w = $_.Group.wall_ms; $e = @($_.Group | Where-Object { $null -ne $_.export_ms } | ForEach-Object { $_.export_ms })
+  $st = ($_.Group.status | Group-Object | ForEach-Object { "$($_.Name)x$($_.Count)" }) -join ','
+  $ep50 = if ($e.Count) { Pct $e 50 } else { '-' }; $ep95 = if ($e.Count) { Pct $e 95 } else { '-' }
+  "{0,-34} {1,3} {2,7} {3,7} {4,7} {5,9} {6,9}  {7}" -f $_.Name,$w.Count,(Pct $w 50),(Pct $w 95),($w|Measure-Object -Minimum).Minimum,$ep50,$ep95,$st
+}
+"non-zero exits: " + @($rows | Where-Object { $_.exit -ne 0 }).Count
+"errors: " + @($rows | Where-Object { $_.error }).Count
+$rows | Where-Object { $_.cell -like '*dup-prime' } | ForEach-Object { "{0} {1} {2}ms" -f $_.cell,$_.status,$_.wall_ms }
+```
+```
+76
+small bytes=1918 age_min=12,338
+median bytes=1104343 age_min=20,613
+large bytes=115894961 age_min=43,763
+cell                                 n     p50     p95     min   exp_p50   exp_p95  statuses
+baseline-empty-script                5     219     231     203         -         -  
+hook-garbage-stdin                   5     229     379     221         -         -  
+large|SessionEnd|dup                 5     512     585     429       122       187  dupx5
+large|SessionEnd|fresh               5    4827    5055    4787      4443      4666  writtenx5
+large|Stop|dup                       5     435     495     406       105       120  dupx5
+large|Stop|fresh                     5    4909    5225    4609      4471      4767  writtenx5
+median|SessionEnd|dup                5     485     627     458       142       190  dupx5
+median|SessionEnd|fresh              5     874     892     821       546       578  writtenx5
+median|Stop|dup                      5     434     473     420       120       129  dupx5
+median|Stop|fresh                    5     874    1159     842       565       723  writtenx5
+small|SessionEnd|dup                 5     436     593     398       121       192  dupx5
+small|SessionEnd|fresh               5     490     585     482       176       185  junkx5
+small|Stop|dup                       5     547     569     426       160       186  dupx5
+small|Stop|fresh                     5     523     552     509       178       242  junkx5
+non-zero exits: 0
+errors: 0
+small|Stop|dup-prime junk 487ms
+small|SessionEnd|dup-prime junk 512ms
+median|Stop|dup-prime written 830ms
+median|SessionEnd|dup-prime written 912ms
+large|Stop|dup-prime written 4557ms
+large|SessionEnd|dup-prime written 4876ms
+```
+- `Read` -- `C:\Users\anant\.claude\settings.json`
+- `Edit` -- `C:\Users\anant\.claude\settings.json`
+```diff
+-     "Stop": [
+-       {
+-         "hooks": [
+-           {
+-             "type": "command",
+-             "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1\""
+-           }
++     "Stop": [
++       {
++         "hooks": [
++           {
++             "type": "command",
++             "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1\"",
++             "async": true,
++             "timeout": 60
++           }
+```
+- `Edit` -- `C:\Users\anant\.claude\settings.json`
+```diff
+-     "SessionEnd": [
+-       {
+-         "hooks": [
+-           {
+-             "type": "command",
+-             "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1\""
+-           }
++     "SessionEnd": [
++       {
++         "hooks": [
++           {
++             "type": "command",
++             "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1\"",
++             "timeout": 30
++           }
+```
+- `PowerShell`
+```powershell
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad'
+$new = Get-Content 'C:\Users\anant\.claude\settings.json' -Raw | ConvertFrom-Json
+$old = Get-Content "$sp\settings.json.bak" -Raw | ConvertFrom-Json
+"parse ok. top-level keys equal: " + ((($new.PSObject.Properties.Name) -join ',') -eq (($old.PSObject.Properties.Name) -join ','))
+$diffKeys = foreach ($k in $new.PSObject.Properties.Name) { if (($new.$k | ConvertTo-Json -Depth 20 -Compress) -ne ($old.$k | ConvertTo-Json -Depth 20 -Compress)) { $k } }
+"keys that differ: $diffKeys"
+foreach ($e in 'Stop','SessionEnd') { $a=$old.hooks.$e | ConvertTo-Json -Depth 20 -Compress; $b=$new.hooks.$e | ConvertTo-Json -Depth 20 -Compress; "$e differs: $($a -ne $b)" }
+"other hook events differ: " + (@($new.hooks.PSObject.Properties.Name | Where-Object { $_ -notin 'Stop','SessionEnd' } | Where-Object { ($new.hooks.$_ | ConvertTo-Json -Depth 20 -Compress) -ne ($old.hooks.$_ | ConvertTo-Json -Depth 20 -Compress) }).Count)
+git diff --no-index --stat "$sp\settings.json.bak" 'C:\Users\anant\.claude\settings.json' | Select-Object -Last 2
+git diff --no-index -U0 "$sp\settings.json.bak" 'C:\Users\anant\.claude\settings.json' | Select-String '^[+-][^+-]' | ForEach-Object { $_.Line -replace 'D:/_Anant.*jarvis-session-continuity.ps1','<hook>' }
+```
+```
+Exit code 1
+parse ok. top-level keys equal: True
+keys that differ: hooks
+Stop differs: True
+SessionEnd differs: True
+other hook events differ: 0
+ ...ettings.json.bak" => "C:\\Users\\anant\\.claude\\settings.json" | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"<hook>\""
++            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"<hook>\"",
++            "async": true,
++            "timeout": 60
+-            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"<hook>\""
++            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"<hook>\"",
++            "timeout": 30
+```
+- `PowerShell`
+```powershell
+Set-Location 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts'
+foreach ($exe in 'pwsh','powershell') { "--- test-session-hook under $exe"; & $exe -NoProfile -ExecutionPolicy Bypass -File .\test-session-hook.ps1; "exit=$LASTEXITCODE" }
+```
+```
+Exit code 1
+--- test-session-hook under pwsh
+PASS: empty stdin: exit 0
+PASS: empty stdin: nothing logged
+PASS: garbage stdin: exit 0
+PASS: garbage stdin: nothing logged
+PASS: missing transcript: exit 0
+PASS: missing transcript: one export_result
+PASS: missing transcript: status skipped, error says why
+PASS: missing transcript: no note written
+PASS: valid transcript: both runs exit 0
+PASS: valid transcript: two export_result lines
+PASS: valid transcript: first run written
+PASS: valid transcript: second run dup
+PASS: valid transcript: fields are timestamp,event,session_id,status,ms,error
+PASS: valid transcript: session_id matches and ms is a number
+PASS: valid transcript: the Stop line is still written before the result
+PASS: valid transcript: note exists in the override out root
+PASS: valid transcript: no transcript text in the log
+PASS: exporter throws: exit 0
+PASS: exporter throws: one export_result
+PASS: exporter throws: status error with a non-empty error
+PASS: exporter throws: error holds no path
+=== ALL SESSION HOOK CHECKS PASSED ===
+exit=0
+--- test-session-hook under powershell
+PASS: empty stdin: exit 0
+PASS: empty stdin: nothing logged
+PASS: garbage stdin: exit 0
+PASS: garbage stdin: nothing logged
+PASS: missing transcript: exit 0
+FAIL: missing transcript: one export_result
+FAIL: missing transcript: status skipped, error says why
+PASS: missing transcript: no note written
+PASS: valid transcript: both runs exit 0
+PASS: valid transcript: two export_result lines
+PASS: valid transcript: first run written
+PASS: valid transcript: second run dup
+PASS: valid transcript: fields are timestamp,event,session_id,status,ms,error
+PASS: valid transcript: session_id matches and ms is a number
+PASS: valid transcript: the Stop line is still written before the result
+PASS: valid transcript: note exists in the override out root
+PASS: valid transcript: no transcript text in the log
+PASS: exporter throws: exit 0
+FAIL: exporter throws: one export_result
+FAIL: exporter throws: status error with a non-empty error
+FAIL: exporter throws: error holds no path
+=== 5 SESSION HOOK CHECK(S) FAILED ===
+exit=1
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && sed -i 's/^\$res = Get-Results$/$res = @(Get-Results)/; s/(Get-LogLines)\.Count/@(Get-LogLines).Count/g; s/(Get-LogLines)\[0\]\.event/@(Get-LogLines)[0].event/' test-session-hook.ps1 && grep -n 'Get-Results\|Get-LogLines' test-session-hook.ps1 | cut -c1-110
+```
+```
+42:function Get-LogLines { if (Test-Path -LiteralPath $logPath) { @(Get-Content -LiteralPath $logPath -Encodin
+43:function Get-Results { @(Get-LogLines | Where-Object { $_.event -eq 'export_result' }) }
+53:Assert "empty stdin: nothing logged" (@(Get-LogLines).Count -eq 0)
+59:Assert "garbage stdin: nothing logged" (@(Get-LogLines).Count -eq 0)
+65:$res = @(Get-Results)
+84:$res = @(Get-Results)
+92:Assert "valid transcript: the Stop line is still written before the result" (@(Get-LogLines)[0].event -eq "
+101:$res = @(Get-Results)
+[This command modified 1 file you've previously read: test-session-hook.ps1. Call Read before editing.]
+```
+- `PowerShell`
+```powershell
+Set-Location 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts'
+.\run-all-tests.ps1; "exit=$LASTEXITCODE"
+```
+```
+PASS test-capture-projects.ps1 [pwsh]
+PASS test-capture-projects.ps1 [powershell]
+PASS test-check-capture-coverage.ps1 [pwsh]
+PASS test-check-capture-coverage.ps1 [powershell]
+PASS test-exporter-output.ps1 [pwsh]
+PASS test-exporter-output.ps1 [powershell]
+PASS test-project-routing.ps1 [pwsh]
+PASS test-project-routing.ps1 [powershell]
+PASS test-session-hook.ps1 [pwsh]
+PASS test-session-hook.ps1 [powershell]
+PASS test-token-aggregation.ps1 [pwsh]
+PASS test-token-aggregation.ps1 [powershell]
+PASS test-token-dedup.ps1 [pwsh]
+PASS test-token-dedup.ps1 [powershell]
+=== ALL 14 TEST RUNS PASSED ===
+exit=0
+```
+- `PowerShell`
+```powershell
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad'
+$hook = 'D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1'
+New-Item -ItemType Directory "$sp\logdir-as-file" -Force | Out-Null
+$env:JARVIS_ACTIVITY_LOG = "$sp\logdir-as-file"   # a directory, so every append fails
+$env:JARVIS_CAPTURE_OUTROOT = "$sp\odd-out"
+foreach ($in in 'null','[]','5','"str"','{"hook_event_name":"Stop","session_id":{"a":1},"transcript_path":[1,2]}','{"hook_event_name":"SessionEnd"}') {
+  $in | powershell -NoProfile -ExecutionPolicy Bypass -File $hook | Out-Null; "powershell exit=$LASTEXITCODE  stdin=$in"
+}
+'{"hook_event_name":"Stop","session_id":"x","transcript_path":"C:\\nope.jsonl"}' | pwsh -NoProfile -ExecutionPolicy Bypass -File $hook | Out-Null; "pwsh exit=$LASTEXITCODE (log write fails)"
+Remove-Item Env:JARVIS_ACTIVITY_LOG, Env:JARVIS_CAPTURE_OUTROOT
+$real = Get-Content 'C:\Users\anant\.claude\jarvis-session-activity.jsonl'
+"real log lines mentioning test ids: " + @($real | Select-String 'meas-|hook-test|smoke-').Count
+Get-ChildItem "$sp\meas-out" -Recurse -Force -Directory | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint } | ForEach-Object { [System.IO.Directory]::Delete($_.FullName) }
+Remove-Item "$sp\meas-out","$sp\logdir-as-file","$sp\odd-out" -Recurse -Force -ErrorAction SilentlyContinue
+"projects files still: " + (Get-ChildItem 'C:\Users\anant\.claude\projects' -Recurse -File | Measure-Object).Count + " (was 507 + this session's growth)"
+```
+```
+powershell exit=0  stdin=null
+powershell exit=0  stdin=[]
+powershell exit=0  stdin=5
+powershell exit=0  stdin="str"
+powershell exit=0  stdin={"hook_event_name":"Stop","session_id":{"a":1},"transcript_path":[1,2]}
+powershell exit=0  stdin={"hook_event_name":"SessionEnd"}
+pwsh exit=0 (log write fails)
+real log lines mentioning test ids: 0
+projects files still: 507 (was 507 + this session's growth)
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/AI Use/Conversations" 2>/dev/null || cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; pwd; for f in "Capture Registration.md" "Capture Scripts.md" "Conversation Layer.md"; do echo "=== $f"; wc -l "$f"; grep -n '^#\|^---$' "$f" | head -40; done; echo; grep -n -i 'timeout\|async' "Capture Registration.md" | cut -c1-220; echo ---; grep -n -i 'hook' "Capture Scripts.md" | cut -c1-220
+```
+```
+/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations
+=== Capture Registration.md
+97 Capture Registration.md
+1:---
+20:---
+21:# Capture Registration
+22:## What This Is
+25:## Host names
+32:## Acer, Windows (verified 2026-10-21)
+52:## Project routing (Acer Windows)
+63:## Acer, WSL (from Build 5c, 2026-10-17; not re-verified)
+71:## Dell, Windows and WSL (from Build 5c, not touched here)
+80:## Schedule (Acer, read from Task Scheduler on 2026-10-22, 23:40)
+94:## What nothing compares
+96:## Non-Goals
+=== Capture Scripts.md
+84 Capture Scripts.md
+1:---
+19:---
+20:# Capture Scripts
+21:## What This Is
+24:## Capture path
+25:### `hooks/jarvis-session-continuity.ps1` (158 lines)
+32:### `scripts/export-claude-session.ps1` (1,076 lines)
+44:### `capture-projects.json` (18 lines, in `30_Order/System/claude-workflow/`)
+47:### `scripts/check-capture-coverage.ps1` (160 lines)
+50:### `scripts/reroute-acer-notes.ps1` (303 lines)
+53:### `scripts/wsl-session-export.ps1` (760 lines)
+55:### `scripts/backfill-windows-silent.vbs` and `scripts/backfill-wsl-silent.vbs`
+57:### `scripts/update-capture-health.ps1` (146 lines)
+59:### `scripts/register-capture-backfill-windows-task.ps1` (82 lines)
+61:### `scripts/run-all-tests.ps1` (33 lines) and the `test-*.ps1` files
+66:## Neighbors in the same folder
+72:## Cursor
+74:## Documented limits the scripts were not written against
+78:## Gaps between cards
+83:## Non-Goals
+=== Conversation Layer.md
+64 Conversation Layer.md
+1:---
+21:---
+22:# Conversation Layer
+23:## Goal
+25:## Current State
+39:## Next Action
+41:## Open Questions
+50:## Log
+58:## Related Notes
+
+41:Neither entry carries a `timeout` or `async` key, so `SessionEnd` runs under the documented 1.5-second budget and both run in the foreground (see the postmortem, finding 12). The hook command is an absolute path into 
+---
+25:### `hooks/jarvis-session-continuity.ps1` (158 lines)
+27:- *Reads:* hook JSON on stdin. Uses `hook_event_name`, `cwd`, `transcript_path`, `session_id`, `reason`.
+31:- *Settings:* the `Stop` and `SessionEnd` entries in `C:\Users\anant\.claude\settings.json` set no `timeout` and no `async` (read 2026-10-21). The docs say `SessionEnd` hooks share a 1.5-second budget unless a longer 
+35:- *Test override:* the environment variable `JARVIS_CAPTURE_OUTROOT` replaces the computed output root so tests and real-transcript checks write to a scratch folder. Test only; the hook and the scheduled task never se
+42:- *Modes:* single session from the hook, a full walk of top-level transcripts with `-BackfillAll`, and `-DryRun`, which reports seen, duplicate, legacy, and pending counts without writing.
+54:- The WSL twin. Same contract, same machine lookup, `Machine/WSL/Claude` as the output. Derived in Build 5c from the Dell's old hook file; the changes were root resolution, the machine segment, the legacy-marker check
+56:- Hidden launchers. Run the exporter with `-BackfillAll` and wait for it, then run `update-capture-health.ps1` with the real exit code, then quit with that same code. The WSL launcher calls `wsl.exe -e bash -lc "pwsh 
+62:- The runner runs every `test-*.ps1` in `scripts/` under `pwsh` and under `powershell.exe` (the hook's shell), prints one PASS or FAIL line per test per shell, and exits non-zero if any fail. Run by hand; nothing sche
+67:- `hooks/jarvis-write-guard.ps1` (95) and `hooks/jarvis-internship-note-guard.ps1` (126): vault write rules and internship frontmatter checks on `PreToolUse` and `PostToolUse`. Not capture. The internship guard writes
+69:- `scripts/run-weekly-review.ps1` (57), its register script, and its VBS launcher: runs `/weekly-review` headlessly through Claude Code's print mode. That run is itself a Claude Code session, so the hook should captur
+76:- The hook reads five fields of a larger payload. Hook events for failures, permission denials, subagent stops, compaction, and loaded instruction files (`PostToolUseFailure`, `PermissionDenied`, `SubagentStop`, `PreC
+82:- The PowerShell 5.1 files are sensitive to non-ASCII text: `run-weekly-review.ps1` opens with a warning that a stray em dash once broke string literals, and the hook scripts carry a byte-order mark for the same reaso
+```
+- `Grep` -- pattern `Corrections` path `D:\_Anant\20_Progress\Documents\Jarvis`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Registration.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; grep -n '^## \|^### ' "Conversation Loop Build Plan.md" | head -30; n=$(grep -n '^## Corrections' "Conversation Loop Build Plan.md" | head -1 | cut -d: -f1); sed -n "${n},$((n+5))p" "Conversation Loop Build Plan.md" | cut -c1-400; echo; ls "Prompts - Acer" | head; git -C /d/_Anant/20_Progress/Documents/Jarvis status --short -- "20_Progress/Projects/AI Use/Conversations" | head
+```
+```
+24:## Goal
+27:## Sequence
+42:## Handoff for the next session
+50:## Open Questions
+57:## Non-Goals
+59:## Corrections
+61:### What had changed since the plan was written
+69:### Owner decisions, 2026-10-22
+81:### Numbering: B and P
+96:### What "complete" means for the Claude Code loop on the Acer
+107:### Phases and prompts
+128:### Beyond Claude Code on the Acer, to be known now and built later
+## Corrections
+*2026-10-22, later the same day. The sections above are kept as written.*
+### What had changed since the plan was written
+- B1 is half done. A Dell session on 2026-10-22 added message-id token dedup and vault-root-aware project routing to both exporters, with `test-token-dedup.ps1` and `test-project-routing.ps1`. The dedup test passes under PowerShell 7 (re-run on the Acer). The price table, `status: seed`, the BOM, and the fenced commands are still open. The changes are uncommitted in the shared tree. *Update 2026-1
+- The Dell's `Jarvis-GitAutoSync` is disabled. The Acer is the only git writer, so the Syncthing conflict risk in the handoff is much smaller (0 live conflict copies found).
+- The oldest transcript on the Acer is dated 2026-09-24 and moves forward daily, so B0 is urgent, not just first.
+
+P0 - Retention and Transcript Snapshot.md
+P1 - Exporter Correctness.md
+P2 - Project Routing and Acer Re-export.md
+P3 - Hook Timing and Failure Record.md
+P4 - Design Postmortem.md
+P5 - Review Notes and First Hand Review.md
+P6 - Event Capture Hook.md
+P7 - Weekly Digest.md
+P8 - Schedules and Review Nudge.md
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis"; wc -l 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1 30_Order/System/claude-workflow/scripts/test-session-hook.ps1 30_Order/System/claude-workflow/scripts/run-all-tests.ps1 30_Order/System/claude-workflow/scripts/export-claude-session.ps1; cd "20_Progress/Projects/AI Use/Conversations"; sed -n 92,97p "Capture Registration.md" | cut -c1-300; tail -c 200 "Capture Registration.md" | xxd | tail -2
+```
+```
+  215 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+  112 30_Order/System/claude-workflow/scripts/test-session-hook.ps1
+   33 30_Order/System/claude-workflow/scripts/run-all-tests.ps1
+ 1076 30_Order/System/claude-workflow/scripts/export-claude-session.ps1
+ 1436 total
+| Capture watchdog (planned, after P8) | every 60 min, at :18 | Looks for missing evidence that capture ran | `check-conversation-capture.ps1` | not registered |
+Slot rule: a new task takes a free minute. Taken minutes are :01 and every fifth minute from :01:45 (Syncthing), :03, :33, :08, :23, :38, :53, :12, :27, :42, :57. The backfill and the git sync share :03 and :33; the git script's hot-file defer is what keeps them from racing, so do not remove it.
+## What nothing compares
+No file lists what should be registered per machine, so a missing registration is found only when notes stop appearing. The 10-08 tracking analysis found the Acer's hook unregistered by reading settings files by hand; the 10-04 audit found the backfill tasks missing the same way. Each registration a
+## Non-Goals
+This is not a registry to maintain by hand and not a proposal for one. It records what a person can check today and how.
+000000b0: 616e 2063 6865 636b 2074 6f64 6179 2061  an check today a
+000000c0: 6e64 2068 6f77 2e0a                      nd how..
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Registration.md`
+```diff
+- This is not a registry to maintain by hand and not a proposal for one. It records what a person can check today and how.
+- 
++ This is not a registry to maintain by hand and not a proposal for one. It records what a person can check today and how.
++ ## Corrections
++ *2026-10-28. The sections above are kept as written.*
++ - **`Stop` row, `timeout` and `async`:** the sentence "Neither entry carries a `timeout` or `async` key" no longer holds. The `Stop` entry in `C:\Users\anant\.claude\settings.json` now has `"async": true` and `"timeout": 60`, so the export runs in the background and no longer holds up the end of a turn. The docs say an async hook's `timeout` is not enforced; it is set anyway as a stated upper bound.
++ - **`SessionEnd` row, `timeout`:** the entry now has `"timeout": 30` and stays synchronous. Without it the 1.5-second budget applied, and a fresh export of the largest transcript took 4.8 to 5.1 seconds (p50 to p95 of 5 runs). The docs do not say whether an async hook survives `SessionEnd` in an interactive session, so it was not made async.
++ - **Basis:** the timing table is in the Corrections of [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]]. Two checks are still pending on the owner's side (a real `/clear` and a day of real timings); both are written out there.
++ - **Changed by:** targeted edits to the two entries only; every other key and hook event matches the copy taken before the edit.
++ 
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+```diff
+- Not a review of code quality and not a rewrite plan. The Windows exporter's mid-section (turn reconstruction and frontmatter assembly) and the Cursor scripts were not read in full here.
+- 
++ Not a review of code quality and not a rewrite plan. The Windows exporter's mid-section (turn reconstruction and frontmatter assembly) and the Cursor scripts were not read in full here.
++ ## Corrections
++ *2026-10-28. The sections above are kept as written.*
++ ### The hook card (`hooks/jarvis-session-continuity.ps1`, now 215 lines)
++ - **New output:** after the export, the hook appends a second line to `jarvis-session-activity.jsonl`: `{timestamp, event: "export_result", session_id, status, ms, error}`. `status` is the exporter's own (`written`, `dup`, `junk`, `legacy`, `error`), `skipped` when no export was attempted (`error` says `no session_id`, `no transcript_path` or `transcript not found`), or `no_status` when the exporter printed none. `ms` times the session export only, not the Cowork sweep. `error` is empty on success; on an exception it holds the exception type and the script line (`IOException at export-claude-session.ps1:612`), never a message, a path, or transcript text. The first line is unchanged and is still written before the export.
++ - **Superseded:** "cannot report a failure" and "no script writes a success, skip, or failure record per export" are no longer true for the session export. Still true for the Cowork sweep (one empty `catch` per transcript) and for the backfill.
++ - **Failure:** a `trap` at the top turns any unexpected error into exit 0. A log write that fails is swallowed inside one helper and cannot throw. Checked with six odd stdin payloads and a log path that is a folder: exit 0 each time.
++ - **Test overrides (test only, never set in settings or a task):** `JARVIS_ACTIVITY_LOG` replaces the activity file path; `JARVIS_CAPTURE_OUTROOT` is read by the exporter and reaches it because the hook calls the exporter in its own process.
++ - **Settings:** the "Settings" bullet is superseded. `Stop` is `async: true`, `timeout: 60`; `SessionEnd` is synchronous, `timeout: 30`. See [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].
++ - **Byte-order mark:** the Gaps line saying the hook scripts carry a byte-order mark is wrong for this hook. It has none, and none at the last commit either. It does hold two non-ASCII em dashes, in the `SessionStart` text that never runs. Nothing was changed there.
++ ### Timing, 2026-10-28
++ Wall time of `powershell.exe -NoProfile -File <hook>` with JSON on stdin, `Measure-Command`, 5 runs per cell, p50 / p95 in milliseconds (nearest rank, so p95 is the slowest of 5). Output went to a scratch folder and the activity file to a scratch file. "Fresh" is a new session id, so the export really ran; "dup" is the same id again, so the early return ran. Startup of an empty script was 219 / 231, and the hook with garbage stdin 229 / 379.
++ 
++ | Transcript | Export status | `Stop` fresh | `SessionEnd` fresh | `Stop` dup | `SessionEnd` dup |
++ |---|---|---|---|---|---|
++ | smallest, 1,918 B | `junk` | 523 / 552 | 490 / 585 | 547 / 569 | 436 / 593 |
++ | median, 1,104,343 B | `written` | 874 / 1,159 | 874 / 892 | 434 / 473 | 485 / 627 |
++ | largest, 115,894,961 B | `written` | 4,909 / 5,225 | 4,827 / 5,055 | 435 / 495 | 512 / 585 |
++ 
++ - The largest transcript is 115.9 MB, not "over 8 MB". Its fresh export is about 4.5 seconds inside the hook, so the time is not proportional to size.
++ - The `dup` path costs about 100 to 190 ms inside the hook on top of the 219 ms start. The assumption that `dup` is fast held; the assumption that a re-render is the slow case held too. A `Stop` after a turn finds the transcript grown, so it re-renders, and that costs the "fresh" figure.
++ - This machine has no Cowork folder, so the `SessionEnd` sweep added nothing here.
++ ### Decision
++ - `Stop`: p95 on the median and largest transcripts (1,159 and 5,225 ms) is over the 500 ms line, so it went async with `timeout: 60`.
++ - `SessionEnd`: stays synchronous with `timeout: 30`. A fresh export of the largest transcript outlasts the default 1.5 seconds three times over; 30 seconds is about six times the worst measured run.
++ - No debounce was added. Async already takes the cost off the user. A debounce would skip exports on purpose, which is the failure the `export_result` line exists to catch, and it would leave the last turns to `SessionEnd` or the 30-minute backfill when a session dies without a clean exit. Revisit with the day of real timings below.
++ ### Risks seen but not tested
++ - An async `Stop` export can still be running when `SessionEnd` starts, and both would render the same note. A collision would show as `status: error` in the activity file. The exporter has no lock.
++ - Whether an async hook survives `SessionEnd` in an interactive session is undocumented, and a headless run kills it, so only the interactive check below can answer it.
++ ### Pending checks for the owner
++ 1. `SessionEnd` really exports: in a scratch folder, start `claude`, send one prompt, run `/clear`, then run `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl -Tail 3`. An `export_result` line for that session must appear. Do not use `claude -p`; it kills async hooks and gives a false result.
++ 2. After one normal working day: p50 and p95 of `ms` from the real file, `Get-Content $env:USERPROFILE\.claude\jarvis-session-activity.jsonl | ConvertFrom-Json | Where-Object event -eq export_result`, then group by `status` and take the 50th and 95th percentile of `ms`. Also count lines whose `status` is `error` or `no_status`.
++ ### The test files
++ `test-session-hook.ps1` (112 lines) runs the hook as a child shell with synthetic transcripts: empty stdin, garbage stdin, a missing transcript, a valid transcript (written, then dup, exact field names, no transcript text in the log), and an export that throws. 21 assertions, 7 test files in total, 14 of 14 runs passing under `pwsh` and `powershell.exe`.
++ 
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- ## Related Notes
+- - The session prompts, one per phase
++ - **2026-10-28 (P3):** Ran [[20_Progress/Projects/AI Use/Conversations/Prompts - Acer/P3 - Hook Timing and Failure Record|P3]] on the Acer. The hook now appends an `export_result` line (status, ms, error) to the activity file for every `Stop` and `SessionEnd`, before any error is swallowed. Timed over 76 runs: a fresh export is 0.9 s at the median transcript and 4.8 to 5.2 s at the largest (115.9 MB); a repeat is about 0.5 s, of which 0.22 s is PowerShell starting. `Stop` is now async with a 60 s timeout; `SessionEnd` stays synchronous with a 30 s timeout. `test-session-hook.ps1` passes under both shells (14 of 14 runs across 7 test files). Still pending for the owner: a real `/clear` check that `SessionEnd` writes its line, and the p50 and p95 of one working day. Detail is in the Corrections of [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
++ ## Related Notes
++ - The session prompts, one per phase
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; sed -i 's/(`IOException at export-claude-session.ps1:612`)/(shape: `<ExceptionType> at <script>.ps1:<line>`)/' "Capture Scripts.md"; grep -c 'IOException at' "Capture Scripts.md"; for f in "Capture Scripts.md" "Capture Registration.md"; do n=$(grep -n '^## Corrections' "$f" | tail -1 | cut -d: -f1); echo "$f em dashes in Corrections: $(tail -n +$n "$f" | grep -c '—')"; done; echo "log line em dashes: $(grep '2026-10-28 (P3)' 'Conversation Layer.md' | grep -c '—')"; grep -c '—' ../../../../30_Order/System/claude-workflow/scripts/test-session-hook.ps1; cd /d/_Anant/20_Progress/Documents/Jarvis; git status --short | grep -i 'session-hook\|continuity\|Capture \(Scripts\|Registration\)\|Conversation Layer.md'
+```
+```
+0
+Capture Scripts.md em dashes in Corrections: 0
+Capture Registration.md em dashes in Corrections: 0
+log line em dashes: 0
+0
+ M "20_Progress/Projects/AI Use/Conversations/Capture Registration.md"
+ M "20_Progress/Projects/AI Use/Conversations/Capture Scripts.md"
+ M "20_Progress/Projects/AI Use/Conversations/Conversation Layer.md"
+?? 30_Order/System/claude-workflow/scripts/test-session-hook.ps1
+[This command modified 1 file you've previously read: 20_Progress\Projects\AI Use\Conversations\Capture Scripts.md. Call Read before editing.]
+```
+
+## You
+
+
+
+<pasted_content id="0c32">
+
+Unexpected.
+- The largest transcript is 115.9 MB, not 8 MB.
+- The hook never had a BOM, even at the last commit, and it has two non-ASCII em dashes in its dead SessionStart text. I left both alone. Capture Scripts claimed a BOM, and I corrected that.
+- The exporter is 1,076 lines, not 921.
+- An async Stop export can still be running when SessionEnd starts. The exporter has no lock, so both could write the same note. A collision would show up as an error line in the activity file.
+- I made the hook log a skipped result when no export was attempted, which goes beyond the brief.
+- Conversation Layer's next: and "Next Action" still point at P3.
+- I didn't touch the Cowork sweep, whose per-transcript catch still swallows failures.
+</pasted_content id="0c32">
+
+
+How are these taking place? Why is the transcript so large? Go over the resources listed over here to tackle the issue: `20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources`. Dig through information here in detail and the design notes here to take care of this unexpected behavior. Have the transcript notes landed in jarvis for this laptop? Where exactly? Is it only for jarvis? What have the first 3 - p0, p1, p2, and p3 accomplished? Make sure to sort this unexpected behavior out by figuring out the answers to all the above questions and the unexpected behavior.
+
+## Claude
+
+I'll first read the sources and design notes, and look at the prompts for P0 to P3. In parallel I'll profile the 116 MB transcript by structure only: line types and byte totals, with no content printed.
+
+The .NET `TryGetProperty` out-parameter doesn't work from PowerShell. I'll do the walk with `ConvertFrom-Json` instead and keep the output small.
+
+The command was blocked before running, on a path check against one of my `Remove-Item` calls. I'll check that nothing partially ran, then re-run it from a script file with explicit paths.
+
+Nothing ran. I'm writing the race test as a script file in the scratchpad and running it from there.
+
+Now I'll re-run the same race test against the fixed hook, and then the full suite.
+
+Most of the unexpected items had simple causes, and I fixed the one real defect, a duplicate-note race. I changed only the hook and edited no notes.
+
+**Why the transcript is 115.9 MB**
+- 19 whole-PDF `Read` calls account for 105.9 MB of it. Each PDF is stored as a base64 `document` block inside the tool result.
+- The biggest line is 51 MB and holds one PDF. Each line is exactly twice its base64 length, so the data is probably stored twice per line. I didn't check the second location field by field.
+- It is a September course catch-up session in Jarvis. Its note is only 571 KB, because the exporter drops the PDF bodies.
+- This isn't a one-off. A 30 MB transcript is 94% a single PDF read, and image blocks fill several other large files. `projects/` is now 662 MB, up from 606 MB.
+- The sources predict this. AgentDiet puts tool results at about 63% of tokens, and Quo's audit says about 80%.
+- The design already has the answer on paper. The failure code E2 "Context bloat" and weekly review step 6 ("biggest tool results") would flag it. The digest that feeds them (B4) isn't built, so nothing flags it today.
+- Whole-PDF reads also sidestep the vault rule to use `mineru parse`.
+- I added no PDF guard. The design says you decide, one change per week with a ledger row. Say if you want one.
+
+**How the other items happened**
+- **921 lines and "8 MB":** the prompt was written on 2026-10-22. The exporter was 921 lines that day, and P1 and P2 grew it to 1,076. The 116 MB file already existed, so "over 8 MB" was just a poor lower bound.
+- **BOM:** the hook has never had one, in any commit. Only `wsl-session-export.ps1` does. P1's rule ("files with non-ASCII carry a BOM") was true of that one file and got generalised.
+- **Race (fixed):** both exports reported `written` and each session got two notes, 16 notes for 8 sessions. The hook now takes a per-session mutex. The second hook waits and returns `dup` in 114 to 179 ms, giving 8 notes for 8 sessions. All 14 test runs pass.
+
+**Have the notes landed for this laptop?**
+- **Where:** all in the Jarvis vault, at `60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/<project>/`, tracked by git.
+- **Counts:** 128 notes: Jarvis 84, The Plan 21, Home 17, UMN Courses 5, Scratch 1.
+- **Coverage:** the check passes. 105 of 105 sessions with an assistant turn have exactly one note in the right folder. The other 28 transcripts have no assistant turn.
+- **Live hook:** it works. This session's note exists, and its `export_result` line says `written`, 538 ms.
+- **Only Jarvis?** The hook is global, so it exports every Claude Code project here. They all land in the Jarvis vault.
+- **Not captured:** Cowork, WSL, and Codex, Kiro and AGY (their folders hold 0 notes).
+
+**What P0 to P3 did**
+- **P0:** set retention to 60 days and snapshotted 272 transcripts (633 MB). The oldest days, 09-24 to 09-27, were already gone.
+- **P1:** the new note format, three newly priced models, and the test runner.
+- **P2:** the routing file and the re-export. Every session now has one note.
+- **P3:** timing, the `export_result` log line, async Stop, and a 30 s SessionEnd timeout.
+
+**Still open:** the Capture Scripts note I wrote says the race was "not tested", which is now stale, and the `next:` in Conversation Layer still points at P3. I haven't touched either. Want me to update both?
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; ls; wc -c "Conversation Loop Sources.md" "Conversation Loop Design.md" "Claude Code Session Source.md" "Capture Pipeline - As Built.md" "Conversation Layer Postmortem.md" "Platform Coverage.md" 2>/dev/null; ls "Prompts - Acer"
+```
+```
+Capture Pipeline - As Built.md
+Capture Registration.md
+Capture Scripts.md
+Claude Code Session Source.md
+Conversation Layer Logs.md
+Conversation Layer Postmortem.md
+Conversation Layer.md
+Conversation Loop Build Plan.md
+Conversation Loop Design.md
+Conversation Loop Research Plan.md
+Conversation Loop Sources.md
+Export Conformance.md
+Failure Taxonomy.md
+Intervention Ledger.md
+Legacy Layout and Archives.md
+Local Reviewer.md
+Machine Audit 2026-10-22.md
+Monthly Review Protocol.md
+Per-Prompt Record.md
+Platform Coverage.md
+Prompts - Acer
+Prompts - Dell
+Weekly Review Protocol.md
+13345 Conversation Loop Sources.md
+11510 Conversation Loop Design.md
+ 7982 Claude Code Session Source.md
+ 6928 Capture Pipeline - As Built.md
+18578 Conversation Layer Postmortem.md
+ 3633 Platform Coverage.md
+61976 total
+P0 - Retention and Transcript Snapshot.md
+P1 - Exporter Correctness.md
+P2 - Project Routing and Acer Re-export.md
+P3 - Hook Timing and Failure Record.md
+P4 - Design Postmortem.md
+P5 - Review Notes and First Hand Review.md
+P6 - Event Capture Hook.md
+P7 - Weekly Digest.md
+P8 - Schedules and Review Nudge.md
+```
+- `PowerShell`
+```powershell
+$f = Get-ChildItem 'C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis' -Filter *.jsonl | Sort-Object Length -Descending | Select-Object -First 1
+"{0} bytes, {1:N0} min old" -f $f.Length, ((Get-Date)-$f.LastWriteTime).TotalMinutes
+$types = @{}; $n = 0; $maxLine = 0; $big = @()
+$sr = New-Object System.IO.StreamReader($f.FullName)
+while ($null -ne ($line = $sr.ReadLine())) {
+  $n++; $len = $line.Length
+  $t = 'unparsed'
+  if ($line -match '^\{"type":"([^"]+)"') { $t = $Matches[1] } elseif ($line -match '"type":"([^"]+)"') { $t = $Matches[1] }
+  $sub = ''
+  if ($len -gt 200000) { $big += [pscustomobject]@{ line = $n; type = $t; chars = $len; hasImageB64 = ($line -match '"media_type"|"type":"image"|base64'); hasToolResult = ($line -match 'tool_result'); hasToolUseResult = ($line -match '"toolUseResult"') } }
+  if (-not $types.ContainsKey($t)) { $types[$t] = @{ n = 0; chars = 0 } }
+  $types[$t].n++; $types[$t].chars += $len
+  if ($len -gt $maxLine) { $maxLine = $len }
+}
+$sr.Close()
+"lines=$n maxLineChars=$maxLine"
+$types.GetEnumerator() | Sort-Object { $_.Value.chars } -Descending | ForEach-Object { "{0,-24} n={1,6} MB={2,8:N1}" -f $_.Key, $_.Value.n, ($_.Value.chars/1MB) }
+"lines >200k chars: $($big.Count); total MB in them: {0:N1}" -f (($big | Measure-Object chars -Sum).Sum/1MB)
+$big | Sort-Object chars -Descending | Select-Object -First 8 | Format-Table -AutoSize | Out-String
+```
+```
+115894961 bytes, 43,784 min old
+lines=1139 maxLineChars=53478430
+user                     n=   168 MB=   107.8
+message                  n=   241 MB=     1.3
+prompt_snapshot          n=     5 MB=     0.4
+file                     n=    13 MB=     0.3
+instructions             n=     4 MB=     0.1
+skill_listing            n=     2 MB=     0.1
+total_tokens_reminder    n=   106 MB=     0.1
+hook_non_blocking_error  n=    58 MB=     0.1
+deferred_tools_delta     n=     4 MB=     0.1
+system                   n=    23 MB=     0.1
+agent_listing_delta      n=     3 MB=     0.1
+mcp_instructions_delta   n=     3 MB=     0.0
+last-prompt              n=    84 MB=     0.0
+session_context          n=     4 MB=     0.0
+deferred_tools_record    n=    26 MB=     0.0
+edited_text_file         n=     4 MB=     0.0
+compact_file_reference   n=    14 MB=     0.0
+file-history-snapshot    n=    13 MB=     0.0
+ai-title                 n=    81 MB=     0.0
+permission-mode          n=    82 MB=     0.0
+mode                     n=    82 MB=     0.0
+atis-latch               n=    82 MB=     0.0
+environment              n=     3 MB=     0.0
+file-history-delta       n=    11 MB=     0.0
+assistant                n=     3 MB=     0.0
+remote_session_change    n=     3 MB=     0.0
+date                     n=     5 MB=     0.0
+auto_mode                n=     2 MB=     0.0
+model                    n=     3 MB=     0.0
+cost-state               n=     3 MB=     0.0
+credential_org           n=     3 MB=     0.0
+directory                n=     1 MB=     0.0
+lines >200k chars: 19; total MB in them: 105.8
+
+line type    chars hasImageB64 hasToolResult hasToolUseResult
+---- ----    ----- ----------- ------------- ----------------
+ 571 user 53478430        True          True             True
+1007 user 11310162        True          True             True
+ 525 user  7081272        True          True             True
+ 315 user  7081236        True          True             True
+ 226 user  7008724        True          True             True
+ 184 user  6741392        True          True             True
+ 193 user  2846478        True          True             True
+ 337 user  2133475        True          True             True
+```
+- `Bash`
+```bash
+cd /c/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis && f=$(ls -S *.jsonl | head -1) && python -I - "$f" <<'EOF'
+import json,sys,collections
+path=sys.argv[1]
+uses={}   # tool_use_id -> (name, input keys)
+big=[]
+with open(path,encoding='utf-8') as fh:
+    for n,line in enumerate(fh,1):
+        try: o=json.loads(line)
+        except Exception: continue
+        m=o.get('message') or {}
+        c=m.get('content')
+        if isinstance(c,list):
+            for b in c:
+                if isinstance(b,dict) and b.get('type')=='tool_use':
+                    inp=b.get('input') or {}
+                    uses[b['id']]=(b.get('name'), sorted(inp.keys()) if isinstance(inp,dict) else [], (inp.get('file_path','') or '')[-4:].lower() if isinstance(inp,dict) else '')
+        if len(line)>200000:
+            kinds=collections.Counter(); blen=collections.Counter(); tid=None
+            def walk(x,depth=0):
+                global tid
+                if isinstance(x,dict):
+                    t=x.get('type')
+                    if t in ('image','document'):
+                        src=x.get('source') or {}
+                        kinds[(t,src.get('media_type'))]+=1; blen[(t,src.get('media_type'))]+=len(src.get('data','') or '')
+                    if x.get('type')=='tool_result': tid=x.get('tool_use_id')
+                    for v in x.values(): walk(v,depth+1)
+                elif isinstance(x,list):
+                    for v in x: walk(v,depth+1)
+            walk(o)
+            big.append((n,len(line),dict(kinds),dict(blen),tid,sorted(o.keys())[:0], 'toolUseResult' in o))
+print("tool_use captured:",len(uses))
+for n,L,k,bl,tid,_,tur in sorted(big,key=lambda r:-r[1]):
+    nm=uses.get(tid)
+    print(f"line {n}: {L/1e6:.1f}M chars  blocks={ {str(a):v for a,v in k.items()} } b64chars={ {str(a):round(v/1e6,1) for a,v in bl.items()} } tool={nm}")
+EOF
+```
+```
+Exit code 49
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Sources.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Design.md`
+- `PowerShell`
+```powershell
+$f = Get-ChildItem 'C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis' -Filter *.jsonl | Sort-Object Length -Descending | Select-Object -First 1
+$uses = @{}
+$rows = New-Object System.Collections.Generic.List[object]
+$sr = New-Object System.IO.StreamReader($f.FullName)
+$n = 0
+function Walk($el, $acc) {
+  switch ($el.ValueKind) {
+    'Object' {
+      $t = $null; if ($el.TryGetProperty('type', [ref]$t) -and $t.ValueKind -eq 'String') {
+        $ty = $t.GetString()
+        if ($ty -in 'image','document') { $src = $null; if ($el.TryGetProperty('source',[ref]$src)) { $mt=$null;$d=$null; $m = if ($src.TryGetProperty('media_type',[ref]$mt)) { $mt.GetString() } else { '?' }; $len = if ($src.TryGetProperty('data',[ref]$d)) { $d.GetString().Length } else { 0 }; $acc.blocks += "$ty/$m"; $acc.b64 += $len } }
+        if ($ty -eq 'tool_result') { $id=$null; if ($el.TryGetProperty('tool_use_id',[ref]$id)) { $acc.tid = $id.GetString() } }
+      }
+      foreach ($p in $el.EnumerateObject()) { Walk $p.Value $acc }
+    }
+    'Array' { foreach ($x in $el.EnumerateArray()) { Walk $x $acc } }
+  }
+}
+while ($null -ne ($line = $sr.ReadLine())) {
+  $n++
+  $isBig = $line.Length -gt 200000
+  if (-not $isBig -and $line -notmatch '"tool_use"') { continue }
+  try { $doc = [System.Text.Json.JsonDocument]::Parse($line) } catch { continue }
+  $root = $doc.RootElement
+  if (-not $isBig) {
+    $msg=$null;$c=$null
+    if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind -eq 'Object' -and $msg.TryGetProperty('content',[ref]$c) -and $c.ValueKind -eq 'Array') {
+      foreach ($b in $c.EnumerateArray()) { $bt=$null; if ($b.ValueKind -eq 'Object' -and $b.TryGetProperty('type',[ref]$bt) -and $bt.GetString() -eq 'tool_use') {
+        $id=$null;$nm=$null;$inp=$null; [void]$b.TryGetProperty('id',[ref]$id); [void]$b.TryGetProperty('name',[ref]$nm)
+        $fp=''; if ($b.TryGetProperty('input',[ref]$inp) -and $inp.ValueKind -eq 'Object') { $v=$null; if ($inp.TryGetProperty('file_path',[ref]$v)) { $fp = [IO.Path]::GetExtension($v.GetString()) } }
+        $uses[$id.GetString()] = "$($nm.GetString()) $fp".Trim() } }
+    }
+  } else {
+    $acc = @{ blocks = @(); b64 = 0; tid = $null }
+    Walk $root $acc
+    $rows.Add([pscustomobject]@{ line=$n; chars=$line.Length; blocks=($acc.blocks | Group-Object | ForEach-Object { "$($_.Name)x$($_.Count)" }) -join ' '; b64MB=[math]::Round($acc.b64/1MB,1); tid=$acc.tid })
+  }
+  $doc.Dispose()
+}
+$sr.Close()
+$rows | ForEach-Object { $_ | Add-Member tool ($uses[$_.tid]) -PassThru } | Sort-Object chars -Descending | Format-Table line,@{n='MB';e={[math]::Round($_.chars/1MB,1)}},b64MB,blocks,tool -AutoSize | Out-String -Width 200
+"total b64 MB in big lines: " + [math]::Round(($rows | Measure-Object b64MB -Sum).Sum,1)
+```
+```
+<persisted-output>
+Output too large (107.3KB). Full output saved to: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED]\tool-results\bk2wtm1oq.txt
+
+Preview (first 2KB):
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+     |          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Cannot find an overload for "TryGetProperty" and the argument count: "2".
+MethodException: 
+Line |
+  27 |      if ($root.TryGetProperty('message',[ref]$msg) -and $msg.ValueKind …
+...
+</persisted-output>
+```
+- `PowerShell`
+```powershell
+$f = Get-ChildItem 'C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis' -Filter *.jsonl | Sort-Object Length -Descending | Select-Object -First 1
+$uses = @{}; $rows = New-Object System.Collections.Generic.List[object]
+function Walk($x, $acc) {
+  if ($x -is [System.Management.Automation.PSCustomObject]) {
+    $ty = $x.type
+    if ($ty -in 'image','document') { $mt = $x.source.media_type; $acc.blocks += "$ty/$mt"; $acc.b64 += ([string]$x.source.data).Length }
+    elseif ($ty -eq 'tool_result' -and $x.tool_use_id) { $acc.tid = $x.tool_use_id }
+    foreach ($p in $x.PSObject.Properties) { if ($p.Name -ne 'data') { Walk $p.Value $acc } }
+  } elseif ($x -is [System.Collections.IEnumerable] -and $x -isnot [string]) { foreach ($i in $x) { Walk $i $acc } }
+}
+$sr = New-Object System.IO.StreamReader($f.FullName); $n = 0
+while ($null -ne ($line = $sr.ReadLine())) {
+  $n++
+  if ($line.Length -le 200000) {
+    foreach ($m in [regex]::Matches($line, '"type":"tool_use","id":"([^"]+)","name":"([^"]+)"(?:,"input":\{(?:[^{}]*?"file_path":"[^"]*?(\.[A-Za-z0-9]+)")?)?')) { $uses[$m.Groups[1].Value] = ($m.Groups[2].Value + ' ' + $m.Groups[3].Value).Trim() }
+    continue
+  }
+  $o = $line | ConvertFrom-Json -Depth 100
+  $acc = @{ blocks = @(); b64 = 0; tid = $null }
+  Walk $o $acc
+  $rows.Add([pscustomobject]@{ line=$n; MB=[math]::Round($line.Length/1MB,1); b64MB=[math]::Round($acc.b64/1MB,1); blocks=(($acc.blocks | Group-Object | ForEach-Object { "$($_.Name)x$($_.Count)" }) -join ' '); tool=$acc.tid })
+}
+$sr.Close()
+foreach ($r in $rows) { $r.tool = $uses[[string]$r.tool] }
+$rows | Sort-Object MB -Descending | Format-Table -AutoSize | Out-String -Width 160
+"sum b64 MB: " + [math]::Round(($rows | Measure-Object b64MB -Sum).Sum,1) + "   sum line MB: " + [math]::Round(($rows | Measure-Object MB -Sum).Sum,1)
+```
+```
+line    MB b64MB blocks                     tool
+----    -- ----- ------                     ----
+ 571 51.00 25.50 document/application/pdfx1 Read .pdf
+1007 10.80  5.40 document/application/pdfx1 Read .pdf
+ 525  6.80  3.40 document/application/pdfx1 Read .pdf
+ 315  6.80  3.40 document/application/pdfx1 Read .pdf
+ 226  6.70  3.30 document/application/pdfx1 Read .pdf
+ 184  6.40  3.20 document/application/pdfx1 Read .pdf
+ 193  2.70  1.40 document/application/pdfx1 Read .pdf
+ 337  2.00  1.00 document/application/pdfx1 Read .pdf
+ 195  1.90  0.90 document/application/pdfx1 Read .pdf
+ 206  1.60  0.80 document/application/pdfx1 Read .pdf
+ 326  1.60  0.80 document/application/pdfx1 Read .pdf
+ 215  1.50  0.70 document/application/pdfx1 Read .pdf
+ 328  1.40  0.70 document/application/pdfx1 Read .pdf
+ 523  1.40  0.70 document/application/pdfx1 Read .pdf
+ 204  1.30  0.70 document/application/pdfx1 Read .pdf
+ 217  1.20  0.60 document/application/pdfx1 Read .pdf
+ 948  0.30  0.20 document/application/pdfx1 Read .pdf
+ 317  0.30  0.10 document/application/pdfx1 Read .pdf
+ 946  0.20  0.10 document/application/pdfx1 Read .pdf
+
+
+sum b64 MB: 52.9   sum line MB: 105.9
+```
+- `PowerShell`
+```powershell
+$log = 'C:\Users\anant\.claude\jarvis-session-activity.jsonl'
+"total lines: " + (Get-Content $log).Count
+$er = Get-Content $log | Where-Object { $_ -match '"event":"export_result"' } | ForEach-Object { $_ | ConvertFrom-Json }
+"export_result lines in the real log: $($er.Count)"
+$er | Select-Object -Last 6 | ForEach-Object { "{0} {1} status={2} ms={3} err='{4}'" -f $_.timestamp.Substring(0,19), $_.session_id.Substring(0,8), $_.status, $_.ms, $_.error }
+"--- by status"; $er | Group-Object status | ForEach-Object { "$($_.Name): $($_.Count)" }
+"--- last 4 non-result lines (event, in_jarvis)"
+Get-Content $log | Where-Object { $_ -notmatch 'export_result' } | Select-Object -Last 4 | ForEach-Object { $o = $_ | ConvertFrom-Json; "{0} {1} {2} in_jarvis={3}" -f $o.timestamp.Substring(0,19), $o.event, $o.session_id.Substring(0,8), $o.in_jarvis }
+"--- events by type, whole file"; Get-Content $log | ForEach-Object { ($_ | ConvertFrom-Json).event } | Group-Object | ForEach-Object { "$($_.Name): $($_.Count)" }
+"--- earliest line"; (Get-Content $log -TotalCount 1 | ConvertFrom-Json).timestamp
+```
+```
+total lines: 205
+export_result lines in the real log: 1
+InvalidOperation: 
+Line |
+   5 |  … ch-Object { "{0} {1} status={2} ms={3} err='{4}'" -f $_.timestamp.Sub …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Method invocation failed because [System.DateTime] does not contain a method named 'Substring'.
+--- by status
+written: 1
+--- last 4 non-result lines (event, in_jarvis)
+InvalidOperation: 
+Line |
+   8 |  … tFrom-Json; "{0} {1} {2} in_jarvis={3}" -f $o.timestamp.Substring(0,1 …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Method invocation failed because [System.DateTime] does not contain a method named 'Substring'.
+InvalidOperation: 
+Line |
+   8 |  … tFrom-Json; "{0} {1} {2} in_jarvis={3}" -f $o.timestamp.Substring(0,1 …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Method invocation failed because [System.DateTime] does not contain a method named 'Substring'.
+InvalidOperation: 
+Line |
+   8 |  … tFrom-Json; "{0} {1} {2} in_jarvis={3}" -f $o.timestamp.Substring(0,1 …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Method invocation failed because [System.DateTime] does not contain a method named 'Substring'.
+InvalidOperation: 
+Line |
+   8 |  … tFrom-Json; "{0} {1} {2} in_jarvis={3}" -f $o.timestamp.Substring(0,1 …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Method invocation failed because [System.DateTime] does not contain a method named 'Substring'.
+--- events by type, whole file
+export_result: 1
+SessionEnd: 77
+Stop: 127
+--- earliest line
+
+Saturday, October 17, 2026 9:09:37 PM
+```
+- `PowerShell`
+```powershell
+$root = 'D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations'
+Get-ChildItem $root -Directory | ForEach-Object { "{0}: {1} notes (*.md, recursive)" -f $_.Name, @(Get-ChildItem $_.FullName -Recurse -Filter *.md -File -ErrorAction SilentlyContinue).Count }
+"--- Acer\Windows\Claude by project folder (notes excluding 00 - rollups; markers)"
+$a = Join-Path $root 'Acer\Windows\Claude'
+Get-ChildItem $a -Directory | ForEach-Object {
+  $notes = @(Get-ChildItem $_.FullName -Filter *.md -File | Where-Object Name -notlike '00 - *').Count
+  $mk = @(Get-ChildItem (Join-Path $_.FullName '.exported') -File -ErrorAction SilentlyContinue).Count
+  $raw = Test-Path (Join-Path $_.FullName '_raw_jsonl')
+  "{0,-22} notes={1,3} markers={2,3} raw_junction={3}" -f $_.Name,$notes,$mk,$raw }
+"--- other places under Acer"
+Get-ChildItem (Join-Path $root 'Acer') -Directory | ForEach-Object { $_.Name + ': ' + (@(Get-ChildItem $_.FullName -Directory).Name -join ', ') }
+"--- git check-ignore on the Acer tree"
+Set-Location 'D:\_Anant\20_Progress\Documents\Jarvis'
+git check-ignore -v "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/x.md"; "(exit $LASTEXITCODE; 1 means not ignored)"
+git ls-files "60_Claude/05_Clippings/AI Conversations/Acer" | Measure-Object | ForEach-Object { "tracked files under Acer: " + $_.Count }
+```
+```
+Acer: 164 notes (*.md, recursive)
+Dell: 617 notes (*.md, recursive)
+Windows: 117 notes (*.md, recursive)
+--- Acer\Windows\Claude by project folder (notes excluding 00 - rollups; markers)
+Home                   notes= 17 markers= 37 raw_junction=True
+Jarvis                 notes= 84 markers=101 raw_junction=True
+Scratch                notes=  1 markers=  1 raw_junction=False
+The Plan               notes= 21 markers= 27 raw_junction=True
+UMN Courses            notes=  5 markers=  5 raw_junction=True
+--- other places under Acer
+Windows: AGY, Claude, Codex, Kiro, Local
+WSL: AGY, Claude, Codex, Cursor, Kiro, Local
+--- git check-ignore on the Acer tree
+(exit 1; 1 means not ignored)
+tracked files under Acer: 358
+```
+- `PowerShell`
+```powershell
+Set-Location 'D:\_Anant\20_Progress\Documents\Jarvis'
+$h = '30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1'
+$e = '30_Order/System/claude-workflow/scripts/export-claude-session.ps1'
+"=== hook: first bytes and line count per commit (newest first)"
+git log --format='%h %ad' --date=short --follow -- $h | Select-Object -First 25 | ForEach-Object {
+  $hash = ($_ -split ' ')[0]
+  $b = git show "${hash}:$h" 2>$null | Select-Object -First 1
+  $raw = & git show "${hash}:$h" | Out-String
+  $lines = ($raw -split "`n").Count
+  $bom = [int][char]$raw[0] -eq 0xFEFF
+  "{0}  bom={1} lines={2}" -f $_, $bom, $lines }
+"=== exporter: line count per commit that touched it"
+git log --format='%h %ad' --date=short -- $e | Select-Object -First 14 | ForEach-Object {
+  $hash = ($_ -split ' ')[0]
+  $raw = & git show "${hash}:$e" | Out-String
+  "{0}  bom={1} lines={2}" -f $_, ([int][char]$raw[0] -eq 0xFEFF), (($raw -split "`n").Count) }
+```
+```
+=== hook: first bytes and line count per commit (newest first)
+42c23802 2026-10-28  bom=False lines=216
+7d5e069e 2026-10-04  bom=False lines=159
+a7f3a6c3 2026-10-04  bom=False lines=159
+87ca4a56 2026-09-29  bom=False lines=159
+fe4581da 2026-09-28  bom=False lines=159
+e5adf660 2026-08-13  bom=False lines=159
+94a5f117 2026-07-31  bom=False lines=145
+616a1a5b 2026-07-05  bom=False lines=184
+8cd2a1e1 2026-06-20  bom=False lines=81
+9bbaf797 2026-06-02  bom=False lines=79
+0d51d4f0 2026-05-26  bom=False lines=78
+=== exporter: line count per commit that touched it
+e8ba37e6 2026-10-28  bom=False lines=1077
+889f212e 2026-10-28  bom=False lines=1005
+8e168922 2026-10-22  bom=False lines=922
+7114dc0b 2026-10-17  bom=False lines=872
+7d5e069e 2026-10-04  bom=False lines=808
+87ca4a56 2026-09-29  bom=False lines=808
+e5adf660 2026-08-13  bom=False lines=808
+94a5f117 2026-07-31  bom=False lines=755
+616a1a5b 2026-07-05  bom=False lines=226
+61c82d4a 2026-07-05  bom=False lines=171
+34d3a196 2026-07-05  bom=False lines=160
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis
+h=30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+echo "== BOM check on raw bytes, hook, every commit that touched it"
+for c in $(git log --format=%h --follow -- $h); do printf "%s " "$c"; git show "$c:$h" | head -c 3 | xxd -p; done
+e=30_Order/System/claude-workflow/scripts/export-claude-session.ps1
+echo "== exporter first-3-bytes, oldest and newest"
+for c in $(git log --format=%h -- $e | sed -n '1p;$p'); do printf "%s " "$c"; git show "$c:$e" | head -c 3 | xxd -p; done
+echo "== which tracked .ps1 files in the workflow folder start with a BOM (efbbbf)"
+for f in $(git ls-files 30_Order/System/claude-workflow | grep '\.ps1$'); do printf "%s %s\n" "$(head -c 3 "$f" | xxd -p)" "$f"; done | sort | cut -c1-110
+echo "== non-ASCII anywhere in the workflow ps1 files (count of lines)"
+for f in $(git ls-files 30_Order/System/claude-workflow | grep '\.ps1$'); do n=$(grep -cP '[^\x00-\x7F]' "$f"); [ "$n" != "0" ] && echo "$n $f"; done
+```
+```
+== BOM check on raw bytes, hook, every commit that touched it
+42c23802 232043
+7d5e069e 706172
+a7f3a6c3 706172
+87ca4a56 706172
+fe4581da 706172
+e5adf660 706172
+94a5f117 706172
+616a1a5b 706172
+8cd2a1e1 706172
+9bbaf797 706172
+0d51d4f0 706172
+== exporter first-3-bytes, oldest and newest
+e8ba37e6 232045
+34d3a196 706172
+== which tracked .ps1 files in the workflow folder start with a BOM (efbbbf)
+232043 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+232045 30_Order/System/claude-workflow/scripts/export-claude-session.ps1
+23204f 30_Order/System/claude-workflow/scripts/test-exporter-output.ps1
+232050 30_Order/System/claude-workflow/scripts/reroute-acer-notes.ps1
+232052 30_Order/System/claude-workflow/scripts/check-capture-coverage.ps1
+232052 30_Order/System/claude-workflow/scripts/register-capture-backfill-windows-task.ps1
+232052 30_Order/System/claude-workflow/scripts/register-git-auto-sync-task.ps1
+232052 30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1
+232052 30_Order/System/claude-workflow/scripts/register-weekly-review-task.ps1
+232052 30_Order/System/claude-workflow/scripts/run-all-tests.ps1
+232052 30_Order/System/claude-workflow/scripts/run-weekly-review.ps1
+232052 30_Order/System/claude-workflow/scripts/test-project-routing.ps1
+232052 30_Order/System/claude-workflow/scripts/test-token-dedup.ps1
+232052 30_Order/System/claude-workflow/scripts/update-capture-health.ps1
+232053 30_Order/System/claude-workflow/scripts/git-auto-sync.ps1
+232053 30_Order/System/claude-workflow/scripts/test-check-capture-coverage.ps1
+232053 30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1
+232054 30_Order/System/claude-workflow/scripts/test-capture-projects.ps1
+706172 30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1
+706172 30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1
+efbbbf 30_Order/System/claude-workflow/scripts/wsl-session-export.ps1
+== non-ASCII anywhere in the workflow ps1 files (count of lines)
+2 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+2 30_Order/System/claude-workflow/scripts/register-git-auto-sync-task.ps1
+1 30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1
+11 30_Order/System/claude-workflow/scripts/wsl-session-export.ps1
+```
+- `PowerShell`
+```powershell
+$sid = '68c513bc-f671-4b52-b1ef-e2eeebb9f750'
+$log = 'C:\Users\anant\.claude\jarvis-session-activity.jsonl'
+Get-Content $log | Where-Object { $_ -match 'export_result' } | ForEach-Object { $_ }  | ForEach-Object { $o = $_ | ConvertFrom-Json; "export_result: session_prefix=$($o.session_id.Substring(0,8)) status=$($o.status) ms=$($o.ms) error='$($o.error)' (this session: $($o.session_id -eq $sid))" }
+$a = 'D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude'
+"--- notes carrying this session's id:"
+Get-ChildItem $a -Recurse -Filter *.md -File | Where-Object { $_.Name -notlike '00 - *' } | ForEach-Object { $h = Get-Content -LiteralPath $_.FullName -TotalCount 25 -Encoding UTF8; if ($h -match "^session_id: $sid$") { "{0}  {1:N0} bytes" -f ($_.FullName.Substring($a.Length)), $_.Length } }
+"--- the 115.9 MB session's note:"
+$big = Get-ChildItem 'C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis' -Filter *.jsonl | Sort-Object Length -Descending | Select-Object -First 1
+$bsid = $big.BaseName
+Get-ChildItem $a -Recurse -Filter *.md -File | Where-Object { $_.Name -notlike '00 - *' } | ForEach-Object { $h = Get-Content -LiteralPath $_.FullName -TotalCount 25 -Encoding UTF8; if ($h -match "^session_id: $bsid$") { "{0}  {1:N0} bytes (transcript {2:N0} bytes)" -f ($_.FullName.Substring($a.Length)), $_.Length, $big.Length } }
+"--- tools other than Claude under Acer\Windows (md notes)"
+foreach ($t in 'AGY','Codex','Kiro','Local') { $p = Join-Path 'D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows' $t; "{0}: {1}" -f $t, @(Get-ChildItem $p -Recurse -Filter *.md -File -ErrorAction SilentlyContinue).Count }
+```
+```
+export_result: session_prefix=68c513bc status=written ms=538 error='' (this session: True)
+--- notes carrying this session's id:
+\Jarvis\10-28 Jarvis session hook timing and hardening.md  95,959 bytes
+--- the 115.9 MB session's note:
+\Jarvis\09-24 Course catch-up and board notes overhaul.md  570,850 bytes (transcript 115,894,961 bytes)
+--- tools other than Claude under Acer\Windows (md notes)
+AGY: 0
+Codex: 0
+Kiro: 0
+Local: 0
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations/Prompts - Acer"; for f in "P0 - Retention and Transcript Snapshot.md" "P1 - Exporter Correctness.md" "P2 - Project Routing and Acer Re-export.md" "P3 - Hook Timing and Failure Record.md"; do echo "=================== $f"; awk '/^---$/{c++} c>=2' "$f" | head -40 | cut -c1-420; done
+```
+`````
+=================== P0 - Retention and Transcript Snapshot.md
+---
+# P0 - Retention and Transcript Snapshot
+Run by Sonnet 5.5 inside the directory: `D:\_Anant\20_Progress\Documents\Jarvis`
+Suggested effort: medium. The task is fully specified, and the prompt tells the model to keep going to the end.
+Follow this prompting guide to lay it out correctly: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]`
+Deadline: run before the first Claude Code session you start after 2026-10-24 17:56 local. That is when the oldest transcript turns 30 days old and the next session-start sweep deletes it.
+## Prompt - P0 Retention and Transcript Snapshot
+````
+<role>
+You are making one configuration change to Claude Code on the owner's Acer laptop and taking a safety copy of the session transcripts that Claude Code would otherwise delete. You verify with real commands and report plainly.
+</role>
+
+<context>
+The owner is building a loop that reviews their own Claude Code sessions every week. The loop reads the raw transcripts in C:\Users\anant\.claude\projects. Claude Code deletes those after 30 days by default, so each day that passes removes the oldest day of history. This task stops that loss for the Acer (Windows side) and keeps a copy of what exists now. The vault's CLAUDE.md and AGENTS.md load automatically; this p
+
+Facts verified on 2026-10-22 between 23:00 and 23:45 local. Re-check each in step 1 and report any that differ, because the machine may have changed since.
+- Machine GUPTA-BUILDS, Claude Code 2.1.309, Windows PowerShell 5.1 and PowerShell 7 both installed.
+- C:\Users\anant\.claude\settings.json has 83 lines and these top-level keys: permissions, hooks, statusLine, enabledPlugins, autoUpdatesChannel, theme, autoCompactEnabled, switchModelsOnFlag, autoContinueAtUsageLimit, autoMode. It has no cleanupPeriodDays key and no env block. The top-level "hooks": { sits at line 17.
+- 124 top-level transcripts (*.jsonl directly inside a project folder). Oldest last-written 2026-09-24 17:56, newest 2026-10-22 23:42. Per project folder: C--Users-anant 25, [REDACTED] 71, [REDACTED] 25, and three folders with one each (the 4061 course folder, the 4521 Code folder, and a denytest scratch folder).
+- C:\Users\anant\.claude\.last-cleanup held 2026-10-23T03:57Z, which matches the start of a session. It held 2026-10-22T01:53Z earlier the same day. So the sweep runs at session start (inferred from those two readings, not documented).
+- C:\Users\anant\.claude\projects is 585 MB. C: has 171.5 GB free and D: has 510.2 GB free.
+- D:\_Anant\99_Archive exists. It is outside the vault, so nothing placed there is synced or committed.
+- From the Claude Code docs (read 2026-10-21 and 22): cleanupPeriodDays defaults to 30 and its minimum is 1. The sweep also removes subagent files, tool-results, file-history, plans, paste-cache and usage-data (the /insights reports) in the same period. It leaves history.jsonl alone.
+- Conflicting evidence on the value 0: the docs say it fails validation, and a public GitHub issue says it stopped transcripts from being written at all. Treat 0 as unsafe.
+
+Owner decision, 2026-10-22: the Acer keeps 60 days. That covers the whole working life of this laptop, whose first notes date from 2026-09-17. The Dell is handled in a later phase and is out of scope here.
+</context>
+
+<goal>
+The setting "cleanupPeriodDays": 60 is in C:\Users\anant\.claude\settings.json, and nothing else in that file changed. A copy of every live transcript exists in D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22 with a manifest. The vault records both facts for later phases. The result is verified by reading the files back, except the sweep itself, which can only be checked later and is reported as pending.
+</goal>
+
+<constraints>
+- Touch only these four things: settings.json (one added key), the snapshot folder under D:\_Anant\99_Archive, one new row in the vault note 20_Progress/Projects/AI Use/Conversations/Capture Registration.md, and one new line in the Log of 20_Progress/Projects/AI Use/Conversations/Conversation Layer.md. Every other change would be hard to attribute later.
+- Edit settings.json with one targeted Edit. Parsing the file and writing it back can reorder or drop keys, so do not do that.
+- Delete nothing under C:\Users\anant\.claude, including the stray .statusline-ratelimit-cache.json.tmp.* files. Report them only.
+- Read settings.json with the Read tool. It holds permission rules, hooks and flags, no credentials. If any value in it ever looks like a credential, do not repeat it.
+- Never open or print .credentials.json, any .env file, history.jsonl, or the text of a transcript. Counting files and bytes is enough here.
+- Do not run git commit or git push. Jarvis-GitAutoSync commits the vault every 30 minutes and is the only git writer.
+- Do not use the value 0 or any value below 45 for cleanupPeriodDays.
+=================== P1 - Exporter Correctness.md
+---
+# P1 - Exporter Correctness
+Run by Sonnet 5.5 inside the directory: `D:\_Anant\20_Progress\Documents\Jarvis`
+Suggested effort: medium. If the session stops to ask about something the prompt already answers, raise it to high.
+Follow this prompting guide to lay it out correctly: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]`
+Run after P0. This phase changes how notes are written. It does not rewrite any existing note; P2 does that once, with the finished format.
+## Prompt - P1 Exporter Correctness
+````
+<role>
+You are a careful PowerShell engineer fixing the Windows Claude Code session exporter in the owner's Jarvis vault. Every behavior you change gets a test that fails on the old code and passes on the new.
+</role>
+
+<context>
+The exporter turns each Claude Code session transcript into one Markdown note under 60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/<project>/. It is 921 lines at 30_Order/System/claude-workflow/scripts/export-claude-session.ps1. The hook jarvis-session-continuity.ps1 runs it on every Stop and SessionEnd under Windows PowerShell 5.1 (the command is "powershell", not "pwsh"). A scheduled task runs it with 
+
+What is already fixed. A Dell session on 2026-10-22 added deduplication of token usage by message id (Set-ResponseUsage, Add-DedupedModelUsage), a vault-root-aware Get-ProjectName, and Find-ExistingSessionDir (a session keeps the folder where its .exported marker already lives). It added test-token-dedup.ps1 and test-project-routing.ps1 beside the exporter. Jarvis-GitAutoSync committed all of it by 23:33; git status 
+
+What is still wrong, by reading the code:
+- Pricing table (Pricing hashtable near lines 36 to 46; its comment near lines 29 to 35 says Sonnet 5's introductory rate ends 2026-08-31). It has no entry for claude-opus-5-5, claude-sonnet-5-5 or claude-haiku-5-5, so cost_usd is written as null for those models: 14, 52 and 7 old notes. The cost formula (near lines 691 to 694) multiplies the input rate by 0.1 for cache reads, 1.25 for 5-minute cache writes and 2.0 f
+- Frontmatter (near lines 728 to 772) writes status: raw, which the vault's Frontmatter Standard bans. It writes no review_state, created or updated. The Standard for this note type is 30_Order/Standards/AI Loop/Conversations.md (spec "ai-conversation-export"): status must be seed, review_state must be raw, created and updated must be dates. Allowed review_state values are raw, unreviewed, reviewed.
+- Encoding: notes, markers and the two rollup files are written with Set-Content -Encoding UTF8 (near lines 341, 373, 823, 827). Under Windows PowerShell 5.1 that adds a byte-order mark; 351 of 630 old notes start with one. The Standard wants UTF-8 without a BOM.
+- A related hazard: the marker holds the note's file name, and the exporter reads it back with Get-Content -Raw (near line 448) and reads note heads with Get-Content -TotalCount 20 (near line 458), both without -Encoding UTF8. Under 5.1, a BOM-less UTF-8 file read without an encoding is decoded as ANSI, so a title containing a character such as the en dash in "weeks 1–4" would not match its own file name on the nex
+- Rendering (Format-ToolCall near lines 127 to 178): Bash commands are written as one inline backtick span, even when the command spans several lines, and PowerShell, Agent, Skill and MCP calls fall into a default branch that writes an inline JSON dump. Obsidian's Tasks plugin parses the span's inner lines as task syntax and warns hundreds of times on one note. Fenced blocks use a fixed three-backtick fence, so tool 
+- Update-Rollups (near lines 317 to 374) writes 00 - Session Index.md and 00 - Tool Usage Rollup.md with type: index. The Standard wants type: generated, a generator key and gen_kind: index (30_Order/Standards/Generated Output Standard.md).
+- Tests: scripts/test-token-dedup.ps1 (passes under PowerShell 7 as of 2026-10-22; not yet run under 5.1), scripts/test-project-routing.ps1, and an older scripts/test-token-aggregation.ps1 that nothing runs.
+
+Vault conventions that matter here. Wikilinks in notes are path-qualified. Notes use no em dashes. The .ps1 files that contain non-ASCII characters carry a byte-order mark on purpose, because 5.1 misreads them without one; keep any BOM that is already on a .ps1 and add no non-ASCII character to a script.
+</context>
+
+<goal>
+Notes written by the exporter conform to the Conversations Standard, carry correct token totals, a cost for every model that Claude Code has used on this machine (or null with a stated reason), no BOM, and tool calls rendered so that Obsidian's Tasks plugin raises no warning. All test scripts pass under both shells, through a single runner. No existing note is touched.
+</goal>
+
+<constraints>
+- Modify only: scripts/export-claude-session.ps1, the new test scripts and runner in the same scripts folder, and the two vault notes named in step 11. The WSL exporter (wsl-session-export.ps1) stays as it is except that its existing test must stay green; note its gaps in your report. The WSL side is outside this phase.
+- Write nothing into the vault's conversation folders. Real transcripts may be read by the exporter and by a read-only script, but all output goes to the session scratchpad or the temp folder. Existing notes must keep their bytes exactly.
+- Never print or copy the text of a real transcript into your report. Use synthetic transcripts in tests. For real-data checks, report numbers only.
+- Never open .credentials.json, any .env file, or history.jsonl.
+- Run each test under pwsh and under powershell.exe -NoProfile -ExecutionPolicy Bypass -File, because the hook uses the second.
+- Keep the Redact-Secrets rules and Get-CaptureMachine unchanged.
+=================== P2 - Project Routing and Acer Re-export.md
+---
+# P2 - Project Routing and Acer Re-export
+Run by Sonnet 5.5 inside the directory: `D:\_Anant\20_Progress\Documents\Jarvis`
+Suggested effort: high. This phase moves files and rewrites the whole Acer note tree, and it has an owner approval gate in the middle.
+Follow this prompting guide to lay it out correctly: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]`
+Run after P0 and P1 are reviewed. If the session runs low on room, finish the step in progress, stop, and write the exact next step in the report.
+## Prompt - P2 Project Routing and Acer Re-export
+````
+<role>
+You are a careful engineer making the Acer's conversation archive match the owner's project layout, then regenerating every note with the finished exporter. Some steps move files and one is dangerous if done carelessly, so you check before you act and prove after.
+</role>
+
+<context>
+The owner works in several places with Claude Code on Windows and wants each place to have its own folder of session notes under 60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/. The Acer tree is a fresh test bed for the new design, so it may be reorganized. Read the code before describing it; line numbers below were read on 2026-10-22 and drift.
+
+Owner decisions of 2026-10-22 on which directories become which project folder:
+- Jarvis: the vault D:\_Anant\20_Progress\Documents\Jarvis and every folder inside it (the exporter already does this).
+- The Plan: D:\_Anant\20_Progress\Documents\The Plan and everything inside it (already does this).
+- Home: exactly C:\Users\anant (already does this).
+- UMN Courses: every folder under D:\_Anant\10_Areas\UMN, for example ...\UMN\Classes\CSCI\CSCI 5304 and ...\CSCI 4061\csci4061-fa26. This is new. All course work lands in one project folder called UMN Courses.
+- Any other directory in which Claude Code is used gets a folder named after the directory (the existing fallback), so new places are recorded automatically.
+- One exception chosen by the assistant for the owner to confirm in the report: Claude Code's own scratch folders under %LOCALAPPDATA%\Temp\claude go to a folder called Scratch, so one-off test runs (the denytest session) do not each create a project.
+
+What exists now (read on 2026-10-22, 23:30 to 23:45):
+- Acer tree: about 113 notes in 11 project folders: Jarvis 70, The Plan 19, Home 16, Code 2 (cwd under UMN\Classes\CSCI\CSCI 4521 and CSCI 4511W), and one each of CSCI 5304, csci4061-fa26, Conversations, Jesse, Plans, sync-workflow, denytest. Conversations, Jesse, Plans and sync-workflow hold sessions whose cwd is inside the Jarvis vault, so they belong to Jarvis. Code, CSCI 5304 and csci4061-fa26 hold sessions whose
+- Get-ProjectName (near lines 61 to 75 of scripts/export-claude-session.ps1) knows only the vault, The Plan and Home. Find-ExistingSessionDir (near lines 81 to 95) keeps a session in whichever folder already holds its .exported marker. So adding rules alone will not move any existing note; the move is this phase's job.
+- 4 sessions exist as two notes in two folders on the Acer (found by the Dell session), 3 inside Acer/Windows/Claude. Do not assume which; compute them.
+- The hook passes the live cwd of the session, the scheduled backfill passes the first cwd found in the transcript's first 20 lines. A session that changes directory can disagree with itself; stickiness handles that after the first export.
+- The backfill (-BackfillAll) walks C:\Users\anant\.claude\projects\*\*.jsonl, top level only. 124 top-level transcripts exist across six folders. Sessions with no assistant turn become a "junk" status and an empty marker, no note.
+- Test-LegacyExported returns "legacy" for session ids whose marker sits in the old Windows\ trees or in Dell\Windows\Claude, and skips them. Keep that.
+- DANGER, verified in the code (Export-Session near lines 469 to 474): each project folder contains _raw_jsonl, an NTFS junction that points at the LIVE C:\Users\anant\.claude\projects\<slug> transcript folder. Remove-Item -Recurse on a folder that contains the junction can delete the real transcripts on some Windows PowerShell versions. Only cmd /c rmdir "<junction path>" removes the link alone. Those transcripts ar
+- P0 saved a copy of the live transcripts to D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22 and set cleanupPeriodDays to 60. P1 finished the note format (status seed, review_state raw, created and updated, no BOM, fenced commands, deduplicated tokens, priced models) and added scripts/run-all-tests.ps1 and the JARVIS_CAPTURE_OUTROOT test override. Confirm both are done by reading the files and the P0 and P
+- Old notes written before P1 lack review_state and carry token totals inflated 2 to 3 times. This phase regenerates every note whose transcript still exists. Notes whose transcript was already swept stay as they are, and they are recognizable by having no review_state.
+</context>
+
+<goal>
+Every Acer session with a live transcript has exactly one note, in the right project folder per the rules above, written in the finished format. No session has two notes. Stray single-note folders are gone from the vault (archived outside it, not deleted). Notes whose transcripts were swept are moved to the right folder if they are in the wrong one. A read-only coverage script proves it against the transcripts on dis
+</goal>
+
+<constraints>
+=================== P3 - Hook Timing and Failure Record.md
+---
+# P3 - Hook Timing and Failure Record
+Run by Sonnet 5.5 inside the directory: `D:\_Anant\20_Progress\Documents\Jarvis`
+Suggested effort: medium.
+Follow this prompting guide to lay it out correctly: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]`
+Status of this draft: written before P0 to P2 ran. Before pasting it, confirm that the P1 and P2 report lines exist in the Conversation Layer log, and that scripts/run-all-tests.ps1 and the JARVIS_CAPTURE_OUTROOT override from P1 exist. If P1 or P2 changed the exporter's entry points, adjust step 1 to match.
+## Prompt - P3 Hook Timing and Failure Record
+````
+<role>
+You are measuring and hardening the Claude Code Stop and SessionEnd hook on the owner's Acer laptop so that a slow or failing export is visible and cannot slow the owner down.
+</role>
+
+<context>
+The hook 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1 runs the session exporter on every Stop (after every assistant turn) and on SessionEnd, in the foreground, under Windows PowerShell 5.1. It appends one line to C:\Users\anant\.claude\jarvis-session-activity.jsonl before the export, runs the exporter with its output discarded, and swallows every exception in empty catch blocks. Result: nobody
+
+Documented behavior, re-read from the Claude Code hooks reference on 2026-10-22:
+- Hooks block Claude until they finish unless the command hook sets "async": true. An async hook runs in the background and its "timeout" is not enforced.
+- SessionEnd hooks have a default timeout of 1.5 seconds. A per-hook "timeout" (up to 60 seconds) or the environment variable CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS raises it.
+- The docs do not say whether an async hook survives SessionEnd in an interactive session. In headless runs (claude -p) any async hook still running at teardown is killed.
+- transcript_path "may lag the in-memory conversation", so a Stop-time export can miss the newest messages. Stop provides last_assistant_message for the final text.
+- Matching hooks run in parallel; an identical handler registered in more than one settings file runs once.
+
+Verified by reading files on 2026-10-22: C:\Users\anant\.claude\settings.json registers Stop and SessionEnd at lines 18 to 38, both running powershell -NoProfile -ExecutionPolicy Bypass -File "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1", with no timeout and no async. The exporter prints "Status: <status> -- Project: <name>" to stdout in single-session mo
+
+Assumed, to verify: a full re-render of a long session on every Stop is the slow case; the "dup" early return is fast.
+</context>
+
+<goal>
+A measured table of how long the hook takes on small, median and largest transcripts for Stop and SessionEnd; a recorded outcome line for every export in the activity log, written before any error is swallowed; and hook settings chosen from the measurements, with the reasoning stated. Nothing about what the exporter renders changes.
+</goal>
+
+<constraints>
+- Edit only: the hook script, the exporter's header and path handling for two test overrides, the two Stop and SessionEnd entries of C:\Users\anant\.claude\settings.json (targeted edits, after copying the file to the scratchpad), a new scripts/test-session-hook.ps1, and the notes named in step 8.
+- Do not let measurement write into the vault or the real activity log. Use JARVIS_CAPTURE_OUTROOT (from P1) to send note output to the scratchpad, and add a test-only JARVIS_ACTIVITY_LOG override for the activity file.
+- Never open .credentials.json, .env files, history.jsonl, or print transcript text. Pointing the hook at a real transcript path is fine; report milliseconds only.
+- The hook must exit 0 on every input and must never throw from a log write. Keep it compatible with Windows PowerShell 5.1 and keep its BOM; add no non-ASCII character.
+- Do not run git commit or git push; Jarvis-GitAutoSync is the only git writer.
+- Test under pwsh and powershell.exe -NoProfile -ExecutionPolicy Bypass -File.
+- When the work the user asked for is done and checked, stop and report. Don't add features, tests, files, docs or refactors that weren't asked for. If you think one would help, mention it at the end instead of doing it.
+- Keep working until everything the user asked for is done, and only stop to ask when you can't go on without the user or before a risky step.
+`````
+- `PowerShell`
+```powershell
+$files = Get-ChildItem 'C:\Users\anant\.claude\projects' -Directory | ForEach-Object { Get-ChildItem -LiteralPath $_.FullName -Filter *.jsonl -File }
+$tot = ($files | Measure-Object Length -Sum).Sum
+"top-level transcripts: $($files.Count), total {0:N0} MB" -f ($tot/1MB)
+$res = foreach ($f in ($files | Sort-Object Length -Descending | Select-Object -First 12)) {
+  $pdf = 0; $img = 0; $huge = 0; $hugeBytes = 0
+  $sr = New-Object System.IO.StreamReader($f.FullName)
+  while ($null -ne ($l = $sr.ReadLine())) {
+    if ($l.Length -gt 1000000) { $huge++; $hugeBytes += $l.Length }
+    if ($l.Length -gt 100000) { $pdf += ([regex]::Matches($l,'"media_type":"application/pdf"')).Count; $img += ([regex]::Matches($l,'"media_type":"image/')).Count }
+  }
+  $sr.Close()
+  [pscustomobject]@{ MB=[math]::Round($f.Length/1MB,1); folder=($f.Directory.Name -replace '^D---Anant-20-Progress-Documents-',''); pdfBlocks=$pdf; imgBlocks=$img; linesOver1MB=$huge; MBinThoseLines=[math]::Round($hugeBytes/1MB,1); pctOfFile=[math]::Round(100*$hugeBytes/$f.Length) }
+}
+$res | Format-Table -AutoSize | Out-String
+$all = Get-ChildItem 'C:\Users\anant\.claude\projects' -Recurse -File -ErrorAction SilentlyContinue
+"whole projects folder: {0:N0} MB in {1} files" -f (($all | Measure-Object Length -Sum).Sum/1MB), $all.Count
+"subagent/tool-result files: {0:N0} MB" -f (($all | Where-Object { $_.FullName -match 'subagents|tool-results' } | Measure-Object Length -Sum).Sum/1MB)
+```
+```
+top-level transcripts: 133, total 478 MB
+
+    MB folder pdfBlocks imgBlocks linesOver1MB MBinThoseLines pctOfFile
+    -- ------ --------- --------- ------------ -------------- ---------
+110.50 Jarvis        19         0           16         105.00     95.00
+ 30.00 Jarvis         4         0            1          28.10     94.00
+ 19.50 Jarvis         0        40            0           0.00      0.00
+ 17.50 Jarvis         3         2            3          15.40     88.00
+ 13.20 Jarvis         4         0            4          10.60     81.00
+ 13.00 Jarvis         0        10            7           8.20     63.00
+ 12.40 Jarvis         1         0            1           7.50     61.00
+ 12.10 Jarvis         1         7            5           5.50     46.00
+ 10.90 Jarvis         0         0            0           0.00      0.00
+ 10.80 Jarvis         0        14            1           1.20     11.00
+ 10.70 Jarvis         2         1            2           9.10     86.00
+ 10.40 Jarvis         0         0            0           0.00      0.00
+
+
+whole projects folder: 662 MB in 515 files
+subagent/tool-result files: 184 MB
+```
+- `Bash`
+```bash
+cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; grep -n -i 'bloat\|tool-result\|tool result\|toolUseResult\|base64\|\bpdf\b\|606\|585 MB\|storage growth\|twice' "Failure Taxonomy.md" "Per-Prompt Record.md" "Machine Audit 2026-10-22.md" "Claude Code Session Source.md" "Conversation Layer Postmortem.md" "Capture Pipeline - As Built.md" "Local Reviewer.md" "Weekly Review Protocol.md" "Export Conformance.md" "Conversation Loop Build Plan.md" | cut -c1-330
+```
+```
+Failure Taxonomy.md:36:| E2 | Context bloat | A large tool result kept in context, a file read twice, or a session run far past its useful length | rule: result size, repeated reads, `context_tokens_start` | AgentDiet's useless, redundant, and expired waste (arXiv 2509.23586) |
+Per-Prompt Record.md:54:Assistant prose beyond the final message head, thinking blocks, tool result bodies, and pasted documents. The prompt text is redacted by the same rules as the exporter plus a block on anything that looks like a pasted file; `history.jsonl` is never copied.
+Machine Audit 2026-10-22.md:46:| `<session>/tool-results/` | Claude Code | large tool outputs kept aside | 7 files, 13.87 MB (five are raw PDFs saved by WebFetch) | yes |
+Machine Audit 2026-10-22.md:56:In the transcript, a user entry carries `promptId`, `permissionMode`, `gitBranch`, `cwd`, `version`, `origin`, `promptSource`, `turnPosition`, `entrypoint`, and `sessionId`. This session so far holds 394 tool results (6 errors), 69 Bash, 132 Edit, 82 Read, 59 WebSearch, 34 Write, and 28 Agent calls
+Machine Audit 2026-10-22.md:60:3. **`projects/` is 606 MB, 87% of it (528.6 MB) the Jarvis project.** Subagent transcripts and saved tool results are the growth. There is no cap besides the 30-day sweep.
+Claude Code Session Source.md:25:- Subfolders hold subagent and tool-result files. This Acer has 96 subagent transcripts beside the 122 top-level ones.
+Claude Code Session Source.md:27:- Observed 2026-10-22: each session also has a folder `<session_id>/` holding `subagents/agent-<id>.jsonl` with a `.meta.json` beside it, and `tool-results/` with the raw output of large tool calls (five of seven files in this session were PDFs fetched from the web). The sweep covers all of them.
+Claude Code Session Source.md:36:| user | 6,605 | Yes: text and image blocks; tool results |
+Claude Code Session Source.md:42:| system | 606 | No |
+Claude Code Session Source.md:51:Fields seen on entries, from the one transcript sampled in detail: `sessionId`, `uuid`, `parentUuid`, `timestamp`, `cwd`, `gitBranch`, `version`, `entrypoint`, `isSidechain`, `permissionMode`, `requestedModel`, `effort`, `durationMs`, `thinkingDurationMs`, `stopReason`, `toolUseResult`, `hookInfo
+Claude Code Session Source.md:57:- **Skills and commands:** the `Skill` tool ran 9 times (pdf 2, weekly-review 2, and one each of xlsx, schedule, copilot-web-fetch, mentorship, json-canvas). Slash commands visible as `<command-name>` tags: `/clear` 33, `/startday` 6, `/model` 6, `/weekly-review` 3, `/mcp` 3, `/compact` 2, `/conf
+Claude Code Session Source.md:68:- *Verbatim:* retention default 30 days, minimum 1, `0` rejected. The sweep deletes `projects/<project>/<session>.jsonl`, `subagents/`, `tool-results/`, `file-history/`, `plans/`, `debug/`, and `usage-data/`. It leaves `history.jsonl`, `stats-cache.json`, and auto memory files.
+Conversation Layer Postmortem.md:64:- Dropped from the notes: slash-command turns (skipped because they start with `<`), thinking blocks, system entries (`turn_duration`, `away_summary`, `compact_boundary`, `api_error`, `stop_hook_summary`), permission mode, the error flag on tool results (316 of 6,318 results on this Acer), and
+Conversation Layer Postmortem.md:82:- **Retention is documented, not inferred.** *Verbatim:* "The default is 30 days and the minimum is 1; setting `0` fails with a validation error" (claude-directory). The sweep deletes `projects/<project>/<session>.jsonl`, `subagents/`, `tool-results/`, `file-history/`, `plans/`, `debug/`, `pas
+Conversation Layer Postmortem.md:88:- **Built-in telemetry already emits most of what was planned** (*one pass*): events for tool results (success, duration, error type), tool decisions, API requests (model, tokens, cost), skill activations, subagent completions, hook runs, and compactions, switched on with `CLAUDE_CODE_ENABLE_T
+Capture Pipeline - As Built.md:43:1. **Claude Code appends to the transcript.** Every user turn, assistant turn, tool call, tool result, and system event is one JSON line. Shape in [[20_Progress/Projects/AI Use/Conversations/Claude Code Session Source|Claude Code Session Source]].
+Capture Pipeline - As Built.md:48:6. **The exporter renders.** Two passes over the JSONL: the first collects `ai-title` entries and indexes tool results by `tool_use_id`, the second builds turns, tool calls, token usage per model, cost, and the files touched. Secrets are redacted by regex. The note is written as `MM-DD {title}.m
+Local Reviewer.md:34:| A classifier fed only the user's messages and the agent's tool calls, with assistant prose and tool results stripped, did better than one fed everything; a cheap first stage tuned for recall (8.5% false positives on 10,000 real calls, 6.6% misses on 52 real overeager actions) followed by a reasoning stage 
+Weekly Review Protocol.md:34:6. **Bloat, toolkit, and notes read (5 min).** From the digest: the five prompts that started with the largest context; the biggest tool results; files read twice; compactions; which skills, subagents, and MCP tools were used and which never were; which instruction files loaded, and whether the one y
+Weekly Review Protocol.md:36:8. **The ten-minute setup review (10 min). Locked.** Ask one question: **what did I correct twice this week?** (If the answer is not obvious, take the most frequent code from step 3.) Then:
+Weekly Review Protocol.md:47:One note per ISO week in `60_Claude/30_Reviews/AI/Conversations/`, named `Weekly 2026-W43` and so on, with these headings: Period Covered, Coverage (prompts expected, prompts recorded), Sample (random and flagged counts), Codes (counts and links to the first-failure notes), Flags Reconciled, Bloat an
+Weekly Review Protocol.md:61:| 6 | [AgentDiet](https://arxiv.org/abs/2509.23586) | Tool results were about 63% of tokens in an average trajectory |
+Export Conformance.md:47:The body follows the Standard: `## You` and `## Claude` per turn, a `### Tool Calls` list, and `## Actions Taken`. The Standard says re-export updates the same note in place, and the exporter does. What the body leaves out, from [[20_Progress/Projects/AI Use/Conversations/Claude Code Session Source|Claud
+Conversation Loop Build Plan.md:30:| B0 | Retention and housekeeping: set `cleanupPeriodDays` (owner picks the value); decide on the 111 stray `.statusline-ratelimit-cache.json.tmp.*` files and the 606 MB `projects/` folder | The setting is in `settings.json`, confirmed by reading it back, and transcripts older than 30 days stil
+Conversation Loop Build Plan.md:34:| B4 | Weekly digest generator: counts per rule flag, largest contexts, tool-result sizes, files read twice, skills, subagents and instruction files used, a coverage line | Run on one week, output matches a hand count on ten prompts; tests exist, because the throwaway scripts from the research 
+Conversation Loop Build Plan.md:51:- Which `cleanupPeriodDays` value, given a 606 MB `projects/` folder?
+```
+- `PowerShell`
+```powershell
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad'
+$hook = 'D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1'
+$out = "$sp\race-out"; $log = "$sp\race-activity.jsonl"
+Remove-Item $log -ErrorAction SilentlyContinue
+$files = Get-ChildItem 'C:\Users\anant\.claude\projects' -Directory | ForEach-Object { Get-ChildItem -LiteralPath $_.FullName -Filter *.jsonl -File } | Where-Object { $_.Length -gt 0 -and $_.LastWriteTime -lt (Get-Date).AddMinutes(-30) } | Sort-Object Length
+$tests = @{ median = $files[[int][math]::Floor($files.Count/2)]; large = $files[-1] }
+$env:JARVIS_CAPTURE_OUTROOT = $out; $env:JARVIS_ACTIVITY_LOG = $log
+foreach ($name in 'median','large') {
+  1..4 | ForEach-Object {
+    $sid = "race-$name-$_-$([guid]::NewGuid().ToString('N').Substring(0,6))"
+    $procs = foreach ($ev in 'Stop','SessionEnd') {
+      $j = @{ hook_event_name=$ev; session_id=$sid; transcript_path=$tests[$name].FullName; cwd='C:\Users\anant' } | ConvertTo-Json -Compress
+      $tmp = "$sp\race-in-$ev-$sid.json"; Set-Content $tmp $j -Encoding ASCII
+      Start-Process powershell.exe -ArgumentList '-NoProfile','-ExecutionPolicy','Bypass','-File',$hook -RedirectStandardInput $tmp -WindowStyle Hidden -PassThru
+      Start-Sleep -Milliseconds 150
+    }
+    $procs | Wait-Process
+  }
+}
+Remove-Item Env:JARVIS_CAPTURE_OUTROOT, Env:JARVIS_ACTIVITY_LOG
+"exit codes of all hook processes were collected? (not captured by Start-Process -PassThru after wait; checking via log)"
+$rows = Get-Content $log | ForEach-Object { $_ | ConvertFrom-Json } | Where-Object event -eq export_result
+$rows | Group-Object { $_.session_id -replace '-[0-9a-f]{6}$','' } | ForEach-Object { $_.Name + ' -> ' + (($_.Group | ForEach-Object { "$($_.status)/$($_.ms)ms$(if($_.error){'/'+$_.error})" }) -join ' | ') }
+"--- notes per session id (duplicates would show >1)"
+$notes = Get-ChildItem $out -Recurse -Filter *.md -File | Where-Object Name -notlike '00 - *'
+$notes | ForEach-Object { (Get-Content -LiteralPath $_.FullName -TotalCount 25 -Encoding UTF8 | Where-Object { $_ -match '^session_id: ' }) } | Group-Object | ForEach-Object { "{0} x{1}" -f $_.Name, $_.Count } | Select-Object -First 10
+"total notes: $($notes.Count); sessions run: 8"
+"--- stray temp/lock-like files in out"
+Get-ChildItem $out -Recurse -Force -File | Where-Object { $_.Name -match '\.tmp|\.lock|~$' } | Measure-Object | ForEach-Object { $_.Count }
+Get-ChildItem $out -Recurse -Force -Directory | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint } | ForEach-Object { [System.IO.Directory]::Delete($_.FullName) }
+Remove-Item $out, "$sp\race-in-*" -Recurse -Force -ErrorAction SilentlyContinue
+```
+```
+Remove-Item on system path '/$' is blocked. This path is protected from removal.
+```
+- `PowerShell`
+```powershell
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad'
+"race-out exists: " + (Test-Path "$sp\race-out"); "race log exists: " + (Test-Path "$sp\race-activity.jsonl"); "env leaked: [$env:JARVIS_CAPTURE_OUTROOT] [$env:JARVIS_ACTIVITY_LOG]"
+Get-Process powershell -ErrorAction SilentlyContinue | Where-Object { $_.StartTime -gt (Get-Date).AddMinutes(-3) } | Measure-Object | ForEach-Object { "recent powershell procs: $($_.Count)" }
+```
+```
+race-out exists: False
+race log exists: False
+env leaked: [] []
+recent powershell procs: 1
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad\race-test.ps1`
+```
+# Concurrency test: Stop and SessionEnd hooks for the SAME session started 150 ms apart.
+# Scratch output only. Usage: race-test.ps1 -Label before|after
+param([string]$Label = 'run')
+$sp = 'C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad'
+$hook = 'D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1'
+$out = "$sp\race-out-$Label"
+$log = "$sp\race-activity-$Label.jsonl"
+if (Test-Path -LiteralPath $log) { Remove-Item -LiteralPath $log }
+$files = Get-ChildItem 'C:\Users\anant\.claude\projects' -Directory | ForEach-Object { Get-ChildItem -LiteralPath $_.FullName -Filter *.jsonl -File } | Where-Object { $_.Length -gt 0 -and $_.LastWriteTime -lt (Get-Date).AddMinutes(-30) } | Sort-Object Length
+$tests = [ordered]@{ median = $files[[int][math]::Floor($files.Count / 2)]; large = $files[-1] }
+$env:JARVIS_CAPTURE_OUTROOT = $out
+$env:JARVIS_ACTIVITY_LOG = $log
+$exitCodes = @()
+foreach ($name in $tests.Keys) {
+    for ($i = 1; $i -le 4; $i++) {
+        $sid = "race-$name-$i-$([guid]::NewGuid().ToString('N').Substring(0, 6))"
+        $procs = @()
+        foreach ($ev in 'Stop', 'SessionEnd') {
+            $j = @{ hook_event_name = $ev; session_id = $sid; transcript_path = $tests[$name].FullName; cwd = 'C:\Users\anant' } | ConvertTo-Json -Compress
+            $tmp = "$sp\race-in-$Label.json"
+            if ($ev -eq 'SessionEnd') { $tmp = "$sp\race-in-$Label-2.json" }
+            Set-Content -LiteralPath $tmp -Value $j -Encoding ASCII
+            $procs += Start-Process powershell.exe -ArgumentList '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', $hook -RedirectStandardInput $tmp -WindowStyle Hidden -PassThru
+            Start-Sleep -Milliseconds 150
+        }
+        $procs | Wait-Process
+        $exitCodes += ($procs | ForEach-Object { $_.ExitCode })
+    }
+}
+Remove-Item Env:JARVIS_CAPTURE_OUTROOT
+Remove-Item Env:JARVIS_ACTIVITY_LOG
+"all hook exit codes: " + (($exitCodes | Group-Object | ForEach-Object { "$($_.Name)x$($_.Count)" }) -join ' ')
+$rows = Get-Content -LiteralPath $log | ForEach-Object { $_ | ConvertFrom-Json } | Where-Object { $_.event -eq 'export_result' }
+foreach ($g in ($rows | Group-Object { $_.session_id -replace '-[0-9a-f]{6}$', '' })) {
+    $g.Name + ' -> ' + (($g.Group | ForEach-Object { $s = "$($_.status)/$($_.ms)ms"; if ($_.error) { $s += "/" + $_.error }; $s }) -join ' | ')
+}
+$notes = @(Get-ChildItem -LiteralPath $out -Recurse -Filter *.md -File | Where-Object { $_.Name -notlike '00 - *' })
+$ids = $notes | ForEach-Object { Get-Content -LiteralPath $_.FullName -TotalCount 25 -Encoding UTF8 | Where-Object { $_ -match '^session_id: ' } }
+"notes written: $($notes.Count) for 8 sessions; distinct session_id lines: $(@($ids | Sort-Object -Unique).Count)"
+$tmpLike = @(Get-ChildItem -LiteralPath $out -Recurse -Force -File | Where-Object { $_.Name -match '\.tmp$|\.lock$' }).Count
+"temp/lock-like files left: $tmpLike"
+# remove junctions alone first, never recurse through them
+Get-ChildItem -LiteralPath $out -Recurse -Force -Directory | Where-Object { $_.Attributes -band [IO.FileAttributes]::ReparsePoint } | ForEach-Object { [System.IO.Directory]::Delete($_.FullName) }
+Remove-Item -LiteralPath $out -Recurse -Force
+
+```
+- `PowerShell`
+```powershell
+& 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad\race-test.ps1' -Label before
+```
+```
+all hook exit codes: 0x16
+race-large-1 -> written/4694ms | written/4667ms
+race-large-2 -> written/4822ms | written/4874ms
+race-large-3 -> written/4812ms | written/4767ms
+race-large-4 -> written/4823ms | written/4706ms
+race-median-1 -> written/606ms | written/578ms
+race-median-2 -> written/566ms | written/592ms
+race-median-3 -> written/648ms | written/613ms
+race-median-4 -> written/591ms | written/647ms
+notes written: 16 for 8 sessions; distinct session_id lines: 8
+temp/lock-like files left: 0
+```
+- `Grep` -- pattern `exportSw|exportStatus = "skipped"|exportOutput|^    \$exportSw.Stop` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1`
+```diff
+-         } else {
+-             $exportOutput = & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode"
+-             $exportStatus = "no_status"
+-             if (($exportOutput | Out-String) -match '(?m)^Status:\s*(\w+)') {
+-                 $exportStatus = $Matches[1]
+-             }
+-             if ($exportStatus -eq "error") {
+-                 $exportError = "exporter returned status error"
+-             }
+-         }
+-     } catch {
++         } else {
++             # One export per session at a time. An async Stop export can still be
++             # running when the next Stop or SessionEnd fires for the same session;
++             # two renders with no marker yet each write their own note, so a
++             # session ended up with two. The second hook waits here (up to 25 s,
++             # inside SessionEnd's 30 s timeout), then finds the marker current and
++             # returns "dup". If the wait runs out, it skips and says so.
++             $exportMutex = $null
++             $haveLock = $false
++             try {
++                 $mutexName = "Local\jarvis-session-export-" + ($sessionId -replace '[^A-Za-z0-9_-]', '_')
++                 $exportMutex = New-Object System.Threading.Mutex($false, $mutexName)
++                 try {
++                     $haveLock = $exportMutex.WaitOne(25000)
++                 } catch [System.Threading.AbandonedMutexException] {
++                     # the previous holder was killed; this thread owns the mutex now
++                     $haveLock = $true
++                 }
++             } catch {
++                 # no mutex available: export unlocked rather than not at all
++                 $haveLock = $true
++                 $exportMutex = $null
++             }
++ 
++             if (-not $haveLock) {
++                 $exportError = "export in progress"
++             } else {
++                 try {
++                     $exportSw.Restart()
++                     $exportOutput = & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode"
++                     $exportStatus = "no_status"
++                     if (($exportOutput | Out-String) -match '(?m)^Status:\s*(\w+)') {
++                         $exportStatus = $Matches[1]
++                     }
++                     if ($exportStatus -eq "error") {
++                         $exportError = "exporter returned status error"
++                     }
++                 } finally {
++                     if ($exportMutex) {
++                         try { $exportMutex.ReleaseMutex() } catch {}
++                     }
++                 }
++             }
++             if ($exportMutex) { $exportMutex.Dispose() }
++         }
++     } catch {
+```
+- `PowerShell`
+```powershell
+& 'C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad\race-test.ps1' -Label after
+Set-Location 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts'
+.\run-all-tests.ps1; "exit=$LASTEXITCODE"
+```
+```
+all hook exit codes: 0x16
+race-large-1 -> written/4449ms | dup/148ms
+race-large-2 -> written/4774ms | dup/159ms
+race-large-3 -> written/5524ms | dup/116ms
+race-large-4 -> written/4895ms | dup/179ms
+race-median-1 -> written/603ms | dup/163ms
+race-median-2 -> written/676ms | dup/126ms
+race-median-3 -> written/553ms | dup/114ms
+race-median-4 -> written/551ms | dup/119ms
+notes written: 8 for 8 sessions; distinct session_id lines: 8
+temp/lock-like files left: 0
+PASS test-capture-projects.ps1 [pwsh]
+PASS test-capture-projects.ps1 [powershell]
+PASS test-check-capture-coverage.ps1 [pwsh]
+PASS test-check-capture-coverage.ps1 [powershell]
+PASS test-exporter-output.ps1 [pwsh]
+PASS test-exporter-output.ps1 [powershell]
+PASS test-project-routing.ps1 [pwsh]
+PASS test-project-routing.ps1 [powershell]
+PASS test-session-hook.ps1 [pwsh]
+PASS test-session-hook.ps1 [powershell]
+PASS test-token-aggregation.ps1 [pwsh]
+PASS test-token-aggregation.ps1 [powershell]
+PASS test-token-dedup.ps1 [pwsh]
+PASS test-token-dedup.ps1 [powershell]
+=== ALL 14 TEST RUNS PASSED ===
+exit=0
+```
+- `PowerShell`
+```powershell
+Set-Location 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts'
+.\check-capture-coverage.ps1 2>&1 | Select-Object -First 40; "exit=$LASTEXITCODE"
+```
+```
+=== Capture coverage ===
+Transcripts root : C:\Users\anant\.claude\projects
+Notes root       : D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\05_Clippings\AI Conversations\Acer\Windows\Claude
+
+Top-level transcripts          : 133
+  with an assistant turn       : 105
+  ok (one note, right folder)  : 105
+  no note                      : 0
+  two or more notes            : 0
+  wrong folder                 : 0
+  legacy only (exempt)         : 0
+  no assistant turn (exempt)   : 28
+Notes in the tree              : 128
+Notes with no live transcript  : 23 (23 without review_state)
+
+Notes per project folder:
+  Home                 17
+  Jarvis               84
+  Scratch              1
+  The Plan             21
+  UMN Courses          5
+=== PASS: every session with an assistant turn has one note in the right folder ===
+exit=0
+```
 
 ## Actions Taken
 
 **Files created:**
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad\measure-hook.ps1`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\68c513bc-f671-4b52-b1ef-e2eeebb9f750\scratchpad\race-test.ps1`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\test-session-hook.ps1`
 
 **Files modified:**
+- `C:\Users\anant\.claude\settings.json`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Registration.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Capture Scripts.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1`
 
 **Files deleted (heuristic, from Bash commands):**
@@ -879,4 +2587,14 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && cat run-all-tests.ps1; echo ----; sed -n 1,60p test-exporter-output.ps1; echo; head -c 3 ../hooks/jarvis-session-continuity.ps1 | xxd; head -c 3 export-claude-session.ps1 | xxd; grep -nP '[^\x00-\x7F]' ../hooks/jarvis-session-continuity.ps1 | head -3; which pwsh; pwsh -v`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/hooks" && head -c 3 jarvis-session-continuity.ps1 | xxd; echo "non-ascii lines now:"; grep -nP '[^\x00-\x7F]' jarvis-session-continuity.ps1 | cut -c1-12; git diff --stat -- jarvis-session-continuity.ps1; git show HEAD:"30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1" | head -c 3 | xxd; sed -n 125,150p jarvis-session-continuity.ps1`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && tail -25 test-exporter-output.ps1; head -c 3 test-exporter-output.ps1 | xxd; wc -l /c/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/68c513bc-f671-4b52-b1ef-e2eeebb9f750/scratchpad/results.jsonl`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && sed -i 's/^\$res = Get-Results$/$res = @(Get-Results)/; s/(Get-LogLines)\.Count/@(Get-LogLines).Count/g; s/(Get-LogLines)\[0\]\.event/@(Get-LogLines)[0].event/' test-session-hook.ps1 && grep -n 'Get-Results\|Get-LogLines' test-session-hook.ps1 | cut -c1-110`
+- `cd "D:/_Anant/20_Progress/Projects/AI Use/Conversations" 2>/dev/null || cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; pwd; for f in "Capture Registration.md" "Capture Scripts.md" "Conversation Layer.md"; do echo "=== $f"; wc -l "$f"; grep -n '^#\|^---$' "$f" | head -40; done; echo; grep -n -i 'timeout\|async' "Capture Registration.md" | cut -c1-220; echo ---; grep -n -i 'hook' "Capture Scripts.md" | cut -c1-220`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; grep -n '^## \|^### ' "Conversation Loop Build Plan.md" | head -30; n=$(grep -n '^## Corrections' "Conversation Loop Build Plan.md" | head -1 | cut -d: -f1); sed -n "${n},$((n+5))p" "Conversation Loop Build Plan.md" | cut -c1-400; echo; ls "Prompts - Acer" | head; git -C /d/_Anant/20_Progress/Documents/Jarvis status --short -- "20_Progress/Projects/AI Use/Conversations" | head`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis"; wc -l 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1 30_Order/System/claude-workflow/scripts/test-session-hook.ps1 30_Order/System/claude-workflow/scripts/run-all-tests.ps1 30_Order/System/claude-workflow/scripts/export-claude-session.ps1; cd "20_Progress/Projects/AI Use/Conversations"; sed -n 92,97p "Capture Registration.md" | cut -c1-300; tail -c 200 "Capture Registration.md" | xxd | tail -2`
+- ``cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; sed -i 's/(`IOException at export-claude-session.ps1:612`)/(shape: `<ExceptionType> at <script>.ps1:<line>`)/' "Capture Scripts.md"; grep -c 'IOException at' "Capture Scripts.md"; for f in "Capture Scripts.md" "Capture Registration.md"; do n=$(grep -n '^## Corrections' "$f" | tail -1 | cut -d: -f1); echo "$f em dashes in Corrections: $(tail -n +$n "$f" | grep -c '—')"; done; echo "log line em dashes: $(grep '2026-10-28 (P3)' 'Conversation Layer.md' | grep -c '—')"; grep -c '—' ../../../../30_Order/System/claude-workflow/scripts/test-session-hook.ps1; cd /d/_Anant/20_Progress/Documents/Jarvis; git status --short | grep -i 'session-hook\|continuity\|Capture \(Scripts\|Registration\)\|Conversation Layer.md'``
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; ls; wc -c "Conversation Loop Sources.md" "Conversation Loop Design.md" "Claude Code Session Source.md" "Capture Pipeline - As Built.md" "Conversation Layer Postmortem.md" "Platform Coverage.md" 2>/dev/null; ls "Prompts - Acer"`
+- `cd /c/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis && f=$(ls -S *.jsonl | head -1) && python -I - "$f" <<'EOF' import json,sys,collections path=sys.argv[1] uses={}   # tool_use_id -> (name, input keys) big=[] with open(path,encoding='utf-8') as fh:     for n,line in enumerate(fh,1):         try: o=json.loads(line)         except Exception: continue         m=o.get('message') or {}         c=m.get('content')         if isinstance(c,list):             for b in c:                 if isinstance(b,dict) and b.get('type')=='tool_use':                     inp=b.get('input') or {}                     uses[b['id']]=(b.get('name'), sorted(inp.keys()) if isinstance(inp,dict) else [], (inp.get('file_path','') or '')[-4:].lower() if isinstance(inp,dict) else '')         if len(line)>200000:             kinds=collections.Counter(); blen=collections.Counter(); tid=None             def walk(x,depth=0):                 global tid                 if isinstance(x,dict):                     t=x.get('type')                     if t in ('image','document'):                         src=x.get('source') or {}                         kinds[(t,src.get('media_type'))]+=1; blen[(t,src.get('media_type'))]+=len(src.get('data','') or '')                     if x.get('type')=='tool_result': tid=x.get('tool_use_id')                     for v in x.values(): walk(v,depth+1)                 elif isinstance(x,list):                     for v in x: walk(v,depth+1)             walk(o)             big.append((n,len(line),dict(kinds),dict(blen),tid,sorted(o.keys())[:0], 'toolUseResult' in o)) print("tool_use captured:",len(uses)) for n,L,k,bl,tid,_,tur in sorted(big,key=lambda r:-r[1]):     nm=uses.get(tid)     print(f"line {n}: {L/1e6:.1f}M chars  blocks={ {str(a):v for a,v in k.items()} } b64chars={ {str(a):round(v/1e6,1) for a,v in bl.items()} } tool={nm}") EOF`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis h=30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1 echo "== BOM check on raw bytes, hook, every commit that touched it" for c in $(git log --format=%h --follow -- $h); do printf "%s " "$c"; git show "$c:$h" | head -c 3 | xxd -p; done e=30_Order/System/claude-workflow/scripts/export-claude-session.ps1 echo "== exporter first-3-bytes, oldest and newest" for c in $(git log --format=%h -- $e | sed -n '1p;$p'); do printf "%s " "$c"; git show "$c:$e" | head -c 3 | xxd -p; done echo "== which tracked .ps1 files in the workflow folder start with a BOM (efbbbf)" for f in $(git ls-files 30_Order/System/claude-workflow | grep '\.ps1$'); do printf "%s %s\n" "$(head -c 3 "$f" | xxd -p)" "$f"; done | sort | cut -c1-110 echo "== non-ASCII anywhere in the workflow ps1 files (count of lines)" for f in $(git ls-files 30_Order/System/claude-workflow | grep '\.ps1$'); do n=$(grep -cP '[^\x00-\x7F]' "$f"); [ "$n" != "0" ] && echo "$n $f"; done`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations/Prompts - Acer"; for f in "P0 - Retention and Transcript Snapshot.md" "P1 - Exporter Correctness.md" "P2 - Project Routing and Acer Re-export.md" "P3 - Hook Timing and Failure Record.md"; do echo "=================== $f"; awk '/^---$/{c++} c>=2' "$f" | head -40 | cut -c1-420; done`
+- `cd "/d/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations"; grep -n -i 'bloat\|tool-result\|tool result\|toolUseResult\|base64\|\bpdf\b\|606\|585 MB\|storage growth\|twice' "Failure Taxonomy.md" "Per-Prompt Record.md" "Machine Audit 2026-10-22.md" "Claude Code Session Source.md" "Conversation Layer Postmortem.md" "Capture Pipeline - As Built.md" "Local Reviewer.md" "Weekly Review Protocol.md" "Export Conformance.md" "Conversation Loop Build Plan.md" | cut -c1-330`
 

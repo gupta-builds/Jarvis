@@ -137,14 +137,49 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
         } elseif (-not (Test-Path -LiteralPath $transcriptPath)) {
             $exportError = "transcript not found"
         } else {
-            $exportOutput = & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode"
-            $exportStatus = "no_status"
-            if (($exportOutput | Out-String) -match '(?m)^Status:\s*(\w+)') {
-                $exportStatus = $Matches[1]
+            # One export per session at a time. An async Stop export can still be
+            # running when the next Stop or SessionEnd fires for the same session;
+            # two renders with no marker yet each write their own note, so a
+            # session ended up with two. The second hook waits here (up to 25 s,
+            # inside SessionEnd's 30 s timeout), then finds the marker current and
+            # returns "dup". If the wait runs out, it skips and says so.
+            $exportMutex = $null
+            $haveLock = $false
+            try {
+                $mutexName = "Local\jarvis-session-export-" + ($sessionId -replace '[^A-Za-z0-9_-]', '_')
+                $exportMutex = New-Object System.Threading.Mutex($false, $mutexName)
+                try {
+                    $haveLock = $exportMutex.WaitOne(25000)
+                } catch [System.Threading.AbandonedMutexException] {
+                    # the previous holder was killed; this thread owns the mutex now
+                    $haveLock = $true
+                }
+            } catch {
+                # no mutex available: export unlocked rather than not at all
+                $haveLock = $true
+                $exportMutex = $null
             }
-            if ($exportStatus -eq "error") {
-                $exportError = "exporter returned status error"
+
+            if (-not $haveLock) {
+                $exportError = "export in progress"
+            } else {
+                try {
+                    $exportSw.Restart()
+                    $exportOutput = & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode"
+                    $exportStatus = "no_status"
+                    if (($exportOutput | Out-String) -match '(?m)^Status:\s*(\w+)') {
+                        $exportStatus = $Matches[1]
+                    }
+                    if ($exportStatus -eq "error") {
+                        $exportError = "exporter returned status error"
+                    }
+                } finally {
+                    if ($exportMutex) {
+                        try { $exportMutex.ReleaseMutex() } catch {}
+                    }
+                }
             }
+            if ($exportMutex) { $exportMutex.Dispose() }
         }
     } catch {
         $exportStatus = "error"

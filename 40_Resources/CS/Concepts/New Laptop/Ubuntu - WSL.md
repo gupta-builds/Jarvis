@@ -158,6 +158,7 @@ An install session reports a tool is blocked because `sudo` needs a password it 
 
 ## Acer toolkit sync and swap fix - 2026-10-15
 This section closes the problems list of the 2026-10-13 audit above, from a live session on the Acer.
+
 | Audit item | State now |
 |---|---|
 | 1 Weekly clean deletes `~/.cache/node` | **Fixed.** The deletion block in `~/tools/weekly-cache-cleanup.sh` is removed (a comment explains why). Corepack pnpm is pinned to 12.4.2 again. |
@@ -171,6 +172,7 @@ Version note: the Acer WSL was updated from 2.7.14.0 to 3.0.3.0 (kernel 6.18.54.
 
 ### What is on the Acer WSL disk, and what is still to decide (2026-10-15, read-only inventory)
 Taken so the discussion about WSL's role (now that the Dell hosts the code and the Acer reaches it over Tailscale SSH) starts from facts. Nothing was removed.
+
 | Item | Size | Regenerable? |
 |---|---|---|
 | `~/.cache` (uv 7.5 GB, node 0.1 GB, others small) | 7.7 GB | uv cache yes; `~/.cache/node` NEVER (Corepack pin) |

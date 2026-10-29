@@ -21,6 +21,7 @@ Exports Cursor agent sessions into the raw conversation archive described in [[C
 Task Scheduler, not a Cursor `sessionEnd` hook. For `vscode-remote+wsl` workspaces Cursor loads user hooks from the WSL path (`~/.cursor/hooks.json`), not the Windows one, and a WSL-side hook cannot reliably open the Windows SQLite store while Cursor holds it. So the export is an eventually consistent sweep: `register-cursor-export-task.ps1` registers `Jarvis-Cursor-Session-Export` (daily 00:05, repeating every 15 minutes for 23h55). The task runs `sweep-cursor-sessions-silent.vbs` (a hidden launcher) which runs `sweep-cursor-sessions.ps1`, which runs `export-cursor-sessions.py --sweep` with `py` or `python`.
 ## Inputs and Outputs
 Two stores joined on `composerId`, which equals the JSONL file name:
+
 | Source | Holds |
 |---|---|
 | `~/.cursor/projects/**/agent-transcripts/<uuid>/<uuid>.jsonl` (in the WSL home or the Windows profile, wherever the workspace ran) | Role and `message.content[]` turns with `text` and `tool_use`. No timestamps, usage, or model |

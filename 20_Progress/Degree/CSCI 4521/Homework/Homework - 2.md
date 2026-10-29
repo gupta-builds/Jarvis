@@ -67,6 +67,7 @@ Ready to submit when: the PDF exists and is two pages, the four files above are 
 ### 2026-10-27 Report text
 The text below is the user's own wording from a rewrite of my draft. It was checked sentence by sentence against the executed notebook, the notebook source and the simulator code, and corrected only where a statement did not match. Style, British spelling, section titles and sentence order are the user's.
 Corrections made (14):
+
 | Where | What did not match | Now |
 | --- | --- | --- |
 | Section 1 | "All the configurations include scaling and using all 8 sensors" was wrong for C5 and C6, which use PCA with 3 components. | The first 4 configurations use all 8 sensors; the final 2 use the 3 PCA components. |
@@ -118,6 +119,7 @@ Evidence (demo bundle, the confirmed dataset):
 - The notebook stores a generic `python3` kernel name so any Jupyter or Colab opens it without a missing-kernel prompt.
 ### Rubric coverage
 "Met" means the evidence exists in the executed notebook, not that points are guaranteed.
+
 | Rubric line | Where | Evidence |
 | --- | --- | --- |
 | Learning system and method choices (25) | notebook 2 Methods, 5 Experiments | z-score, nearest-centroid, centroid update, own k-means loop, cluster naming from the 60 labels, kNN, all NumPy; initialization, stopping rule and empty clusters stated and counted |

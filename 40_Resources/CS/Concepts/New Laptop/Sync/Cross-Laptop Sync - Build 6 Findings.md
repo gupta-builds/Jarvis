@@ -45,6 +45,7 @@ Everything else in the vault: the entire real content tree (`00_Inbox` through `
 - Everything else the Acer has is a same-path collision with the Dell, not a unique file — see below.
 ### Present on both sides with different content — the real collision risk
 Confirmed against actual raw content this session, not size alone:
+
 | Path | Acer's real content | Dell's real content | In `.stignore`? | Decision |
 |---|---|---|---|---|
 | `.obsidian/app.json` | `{}` | Real: `userIgnoreFilters` (3 entries), `pdfExportSettings`, `promptDelete`, `alwaysUpdateLinks`, `readableLineLength` — documented in [[40_Resources/Obsidian/Settings/File Handling and Properties]] | No | **Dell wins, no ambiguity.** Acer's is a literal empty object with zero information. Delete Acer's copy before sharing so Dell's real file populates cleanly rather than racing a mod-time tiebreak it has no reason to lose (Acer's is timestamped newer despite being empty). |

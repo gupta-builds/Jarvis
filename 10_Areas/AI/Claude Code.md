@@ -27,6 +27,7 @@ The Resq pattern is worth copying: its `.claude/` holds the project canon (PRD, 
 ## Jarvis setup
 ### Skills (19 commands via `.claude/commands/`)
 Table corrected 2026-08-19 against the diff already identified in [[20_Progress/Projects/AI Use/Claude Kit/Toolkit/Commands/What Commands|What Commands]] — this table was dated 2026-07-03 and had drifted: missing seven commands built 2026-07-29, and still listing `organize-csci2033`, which is no longer present in the live `commands/` folder.
+
 | Command | What it does |
 | --- | --- |
 | `/startday` | Fills today's daily note from the weekly Goals, the calendar and the Fall plan, carries open Daily Loses forward, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |
@@ -65,6 +66,7 @@ All five now carry proper frontmatter (`name`, `description` in the "Use proacti
 Both scripts live in `30_Order/System/claude-workflow/hooks/` — the vault owns the code, `.claude/settings.json` just points at it. Fail-open by design: a JSON parse error exits 0 rather than blocking real work.
 ### MCP servers (6, in `.mcp.json`)
 Corrected 2026-08-19 per the diff already identified in [[20_Progress/Projects/AI Use/Claude Kit/Toolkit/MCPs/What MCPs|What MCPs]] — this table was missing `excalidraw`.
+
 | Server | Command | Provides |
 | --- | --- | --- |
 | obsidian | `uvx mcp-obsidian` | Vault read/write through the Obsidian Local REST API (patch-by-heading, periodic notes) |

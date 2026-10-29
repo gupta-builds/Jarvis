@@ -183,6 +183,7 @@ TIP evidence: Interview supplement to U1/U2; not evidenced as a dedicated captur
 Coverage: No dedicated CSCI trie, prefix-sum or sliding-window note exists. Use the verified Handbook sheets and official problem contracts; do not label these as professor-taught methods.
 ## Complete original-file inventory
 132 educational files are enumerated below, including duplicate copies and optional outputs. Notebook cells, function names, imports and task text were inspected; PDF text was extracted, with relevant sections sampled. Image-only theory references were visually sampled. Indexing a file does not mean the student has studied it or that every page was reread.
+
 | Exact file | Primary preparation week | Role / content evidence |
 |---|---|---|
 | [Final Project/Heuristic Pathfinding/A_Formal_Basis_for_the_Heuristic_Determination_of_Minimum_Cost_Paths(Astar)-1967-68.pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Heuristic Pathfinding/A_Formal_Basis_for_the_Heuristic_Determination_of_Minimum_Cost_Paths(Astar)-1967-68.pdf>) | W9 | Optional theory/report reference; title/content checked, scanned items visually sampled. |

@@ -225,6 +225,7 @@ As an example of a situation in which several different statistics could reasona
 
 ||Invoice|   |   |   |   |
 |---|---|---|---|---|---|
+
 |1|2|3|4|5|
 |---|---|---|---|---|
 |Book value|295|730|528|205|129|

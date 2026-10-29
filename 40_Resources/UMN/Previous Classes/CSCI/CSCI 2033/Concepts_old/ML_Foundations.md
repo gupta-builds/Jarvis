@@ -35,6 +35,7 @@ related: [[Python]], [[Week_11_to_13]], [[Graphs_and_PageRank]]
 **This course**: linear regression model $\hat{y} = x^T\beta + v$. Minimize $\|A\beta - b\|^2$. Solved analytically with QR.
 
 **ML continuation**:
+
 | This course | ML equivalent |
 |---|---|
 | Linear regression | Backbone of all prediction models |
@@ -52,6 +53,7 @@ related: [[Python]], [[Week_11_to_13]], [[Graphs_and_PageRank]]
 **This course**: least squares classifier, binary $\{+1,-1\}$ labels, $\hat{f}(x) = x^T\beta + v$, threshold at $0$.
 
 **ML continuation**:
+
 | This course | ML equivalent |
 |---|---|
 | Binary LS classifier | Linear SVM (hard-margin), logistic regression |
@@ -70,6 +72,7 @@ related: [[Python]], [[Week_11_to_13]], [[Graphs_and_PageRank]]
 **This course**: k-means minimizes $J_\text{clust} = \frac{1}{N}\sum\|x_i - z_{c_i}\|^2$. Alternating optimization: assign → update.
 
 **ML continuation**:
+
 | This course | ML equivalent |
 |---|---|
 | k-means | Foundation of vector quantization, prototype methods |
@@ -88,6 +91,7 @@ related: [[Python]], [[Week_11_to_13]], [[Graphs_and_PageRank]]
 $$w^{(k+1)} = w^{(k)} - t\,\nabla\ell(w^{(k)})$$
 
 **ML continuation**:
+
 | This course | ML equivalent |
 |---|---|
 | Gradient descent (GD) | Exact same algorithm used to train neural networks |
@@ -107,6 +111,7 @@ $$w^{(k+1)} = w^{(k)} - t\,\nabla\ell(w^{(k)})$$
 **This course**: SVD $A = U\Sigma V^T$. Keep top $k$ singular values for best rank-$k$ approximation. Eigenfaces project faces onto a low-dimensional subspace.
 
 **ML continuation**:
+
 | This course | ML equivalent |
 |---|---|
 | SVD low-rank approximation | **PCA** (principal component analysis) — identical math |
@@ -126,6 +131,7 @@ $$w^{(k+1)} = w^{(k)} - t\,\nabla\ell(w^{(k)})$$
 **This course**: random surfer model, transition matrix $S$, damped Google matrix $G = \alpha S + \frac{1-\alpha}{n}J$, power iteration.
 
 **ML continuation**:
+
 | This course | ML equivalent |
 |---|---|
 | Column-stochastic matrix | Markov chain / transition model |

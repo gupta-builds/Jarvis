@@ -44,6 +44,7 @@ Post-commit and post-checkout hooks plus a custom post-merge path exported gener
 The recorded remaining risk was a shared export-ownership manifest updated without locking. Generated graphs, export hooks, and the future `jarvis-memory.links` index are distinct systems. The historical Graphify build does not establish current refresh or capture state. See [[How to use Graphify]] and [[Graphify Workflow]] for the original usage context.
 ### September: Sync Builds 0 through 8
 The original `Sync` IDs are retained. They are not renumbered into the restoration plan's J-series.
+
 | Original build | What the findings establish | What must remain qualified |
 |---|---|---|
 | Sync 0 and 1, September 18 | A pilot exposed silent external overwrite behavior in Obsidian. | The vulnerable interval was before Syncthing scanned the local edit; versioning does not preserve every unscanned edit. See [[Cross-Laptop Sync - Build 1 Findings]] and [[Cross-Laptop Sync - Build Roadmap]]. |
@@ -70,6 +71,7 @@ Sync 8's later addenda also supersede the early statement that the Acer Copilot 
 The same incident history later corrected the previously broken self-heal command through executable caching. These are dated observed repairs, not a guarantee against future OOM. Capture restoration must respect plugin scan exclusions before introducing more transcripts.
 ### October laptop rebuild: original IDs preserved
 [[Old Laptop Rebuild - Index]] is the latest closeout authority in the reviewed rebuild set; [[Old Laptop Rebuild - Runs Index]] still has stale open entries. Read findings and later checkpoints before interpreting an unfinished checklist near a note's beginning.
+
 | Original build | October 15 recorded position | Unresolved scope |
 |---|---|---|
 | Old Laptop 1 | Dell WSL work closed, including a final idle test that superseded an earlier pending next step. | Not evidence of every Jarvis pipeline running. |

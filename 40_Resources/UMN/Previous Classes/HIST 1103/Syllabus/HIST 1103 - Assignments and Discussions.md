@@ -76,6 +76,7 @@ Assignments and participation are **20% of the grade**. Every assignment lives i
 6. Go back and read everyone else's posts, and reply to a classmate's question using the same Reply method on their individual post (so the reply lands with the correct post).
 ## Assignment due dates — Discussions tab
 The dates below are exactly as shown in the D2L discussion list. Note these often differ from the dropbox list and from the syllabus schedule — confirm before relying on any single source.
+
 | Topic | Due (Discussions tab) |
 |---|---|
 | Practice Assignment | Jun 6, 2026 11:30 PM |
@@ -94,6 +95,7 @@ The dates below are exactly as shown in the D2L discussion list. Note these ofte
 | Assignment 13 | Jul 3, 2026 11:30 PM |
 ## Assignment due dates + availability — Assignments tab (dropbox)
 Same assignments, as shown in the dropbox list, with their open windows. Turnitin is enabled on most. The **due date** matches the discussion list (a Saturday); the **availability window end** runs a few days past the due date — that later date is how long the dropbox keeps accepting the file (a late-submission cutoff), not a second due date. **One real conflict:** the dropbox shows the Practice Assignment due **Jul 2**, while the discussion list shows it due **Jun 6**.
+
 | Dropbox item | Turnitin | Due | Available window |
 |---|---|---|---|
 | Practice Assignment | Yes | Jul 2, 2026 11:30 PM | Jun 1 – Jul 2 |
@@ -122,6 +124,7 @@ All listed items currently show status **"Not Submitted"** and score **"- / -"**
 - He may occasionally move a due date — if so, he states it in the assignment post or in the "Information" discussion area. Otherwise, all due dates are as listed in the syllabus.
 ## Strict due-date summary (treat as the schedule to follow)
 The assignment **due dates** are the same in the discussion and the dropbox (all Saturdays except #13). The reply to a classmate's question is due the **Sunday** after each assignment's Saturday.
+
 | Assignments | Assignment due (post + dropbox) | Classmate-reply due |
 |---|---|---|
 | Practice, 1, 2, 3 | Sat Jun 6, 11:30 PM | Sun Jun 7, 11:30 PM |

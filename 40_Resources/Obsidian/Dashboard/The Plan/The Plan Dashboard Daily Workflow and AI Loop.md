@@ -21,6 +21,7 @@ notes:
 This note explains the day as The Plan runs it: the daily note's shape, the streak rule, the skills, agents and hooks around it, and the reviews that read it. Read it to see what the dashboard is a view of, and to compare with Jarvis's own loop in [[Daily Close Loop]]. The rules live in The Plan's `30_Order/Standards/Dashboards/` (`Daily Note Schema`, `Streak Rule`, `Weekly Review`, `Monthly Review`, `Scheduled Review`) and `30_Order/Workflows/Daily Dashboard.md`. This note summarises them as read on 2026-10-26.
 ## The daily note
 File `00_Live/Enumerate/Daily/YYYY-MM-DD.md`. Frontmatter stays at four keys: `type: daily`, `status: seed`, `created`, `study_hours`. Ticking state and scores never go in frontmatter. The body has nine headings in a fixed order:
+
 | Heading | Holds |
 |---|---|
 | `## Targets` | `- Career line: ...` (one named task, never repeated from yesterday) and `- Study topic: ...` |

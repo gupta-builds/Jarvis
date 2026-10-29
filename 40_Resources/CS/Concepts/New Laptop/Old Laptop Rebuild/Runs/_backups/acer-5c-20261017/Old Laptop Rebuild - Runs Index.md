@@ -45,6 +45,7 @@ next: "When Build 6, 7 or 8 runs, add its folder and a results row here."
 
 ## Where the retired material went (2026-10-17)
 All of it is recoverable from the vault's git history; nothing needed to run or understand the machines was lost.
+
 | Retired note | Its content now lives in |
 |---|---|
 | `Prompt 1 WSL` | Build 1 findings; the locked rules in the Locked Decisions note |

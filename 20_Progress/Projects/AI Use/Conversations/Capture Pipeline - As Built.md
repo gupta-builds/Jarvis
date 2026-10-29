@@ -50,6 +50,7 @@ Jarvis-GitAutoSync (every 30 min) commits and pushes; Syncthing carries files to
 8. **Sync.** `Jarvis-GitAutoSync` commits and pushes the vault every 30 minutes; the commit subject carries a file count (for example `Auto-sync: 2026-10-21 19:03, 6 files changed`). Syncthing carries the same files to the Dell. `_raw_jsonl/`, `_raw_composer/`, the health state files, and the health note are excluded from both.
 ## Current State
 Verified on the Acer on 2026-10-21.
+
 | Step | Evidence |
 |---|---|
 | Hook registered | Global settings list `Stop` and `SessionEnd` with the command above; project settings carry only the two guard hooks |

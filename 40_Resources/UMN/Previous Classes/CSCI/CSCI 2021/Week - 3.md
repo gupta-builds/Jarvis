@@ -394,6 +394,7 @@ Same Things as lecture 6, lecture 6 has some lecture 8 stuff in text files.
 	- Next: 2^1 = 2, does not fit into 1. `d = 0`
 	- Next: 1^1 = 1, fit into 1. `p = 1 & d = 1`
 	- Binary = `10101`.
+
 |Decimal | Binary | Octal | Hex |
 |---      |---               |-      |--- |
 |77      |`01001101`  |115   |`0x4D`|

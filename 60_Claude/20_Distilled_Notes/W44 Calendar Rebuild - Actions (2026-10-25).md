@@ -2,7 +2,7 @@
 type: action
 status: active
 created: 2026-10-25
-updated: 2026-10-25
+updated: 2026-10-29
 tags:
   - action
   - calendar
@@ -16,6 +16,8 @@ next: "Rebuild Monday 10/26 and Thursday 10/29 with buffers, meals, and travel t
 ---
 # W44 Calendar Rebuild - Actions (2026-10-25)
 Source: [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|W44 Calendar Rebuild - What Was Done]]. Statements only, and each one links to what it is about. **(Claude)** means the calendar connector can do it in a session. **(you)** means it needs the Google Calendar app, the phone, or a decision.
+> [!todo] To Do
+> - [ ] Rebuild Monday 10/26 and Thursday 10/29 with buffers, meals, and travel time, and get a yes on the before and after, before Monday 7:30am
 ## Fix the errors in the W44 blocks
 - **(Claude)** Point the Monday 8:30 cover-letter block's WHERE at `20_Progress/Internship/Cover Letters/` and the [[Cover Letter Template]], where the [[30_Order/Note Type Registry|Note Type Registry]] files cover letters.
 - **(Claude)** Replace "Tick Todoist" in the seven close-the-day blocks with "tick today's lines in the daily note". The working calendar does not sync to Todoist ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
@@ -95,6 +97,8 @@ Source: [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (202
 - **(you)** Confirm whether CSCI 4521 HW2 was submitted. No note for it exists under [[20_Progress/Degree/CSCI 4521/CSCI 4521 Board|CSCI 4521]].
 - **(you)** Run `/startday` Monday morning to refresh [[00_Dashboard]], which still shows the 10/8 midterm.
 ## Open Threads
+### Questions
 - No listed calendar holds the UMN class blocks, so where they come from is still unknown ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#What it cannot do|What it cannot do]]).
-- Whether popups on the working calendar reach the phone stays unverified until a test event fires ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
 - Whether the Sunday planning should become a skill stays open until its Workflow exists and has run ([[Jarvis OS — North Star]]).
+### Research
+- Fire a test event on the working calendar to verify that popups reach the phone, which stays unverified until then ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).

@@ -21,6 +21,7 @@ notes:
 This note describes what The Plan's dashboard is made of: the plugin, the engine, the hooks, how files move between laptops, and where each piece lives. Read it before touching the plugin repository or deciding where a new automation can write. What is drawn on screen is in [[The Plan Dashboard UI and What Appears]]. Facts come from the plugin repository (read 2026-10-26), `Architecture.md`, `Reference - the-plan-dashboard.md` and `Reference - plan-cli.md` in The Plan, and the 2026-10-25 build review.
 ## The idea in three layers
 The daily note is the only source of truth. The dashboard reads it and stores nothing.
+
 | Layer | Job | Imports Obsidian? |
 |---|---|---|
 | Data | Daily notes named `YYYY-MM-DD.md`, with `- [ ]` lines and a `[cat:: morning]` field | No |
@@ -52,6 +53,7 @@ Settings hold one value: the daily folder, default `00_Live/Enumerate/Daily`. Ev
 Scripts: `npm run build` (typecheck then esbuild production), `build:cli` (two Node bundles, `streak-cli.cjs` and `plan-cli.cjs`), `test`, `preview` (headless Edge screenshots), `deploy -- <plugin folder>` (copies `main.js`, `manifest.json`, `styles.css`), `deploy:cli -- <folder>`. `PLAN_PLUGIN_OUT` sends the dev build straight into a vault plugin folder.
 ## The engine as a program: `plan-cli`
 `plan-cli.cjs` (about 46 KB) is deployed to `30_Order/System/plan-cli/` in the vault. It reads notes, prints JSON, and writes nothing.
+
 | Command | Output |
 |---|---|
 | `streak <dir> <date>` | current and best streak, today's category count, `at_risk`, `first_day`, per-day list |

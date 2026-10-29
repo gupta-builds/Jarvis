@@ -21,6 +21,7 @@ notes:
 ## What This Is
 ==Two of nine AI surfaces on this machine are exported, and the data for at least two more already sits on disk with no exporter.==
 For each platform: what exists on the Acer as source data (existence and counts only; no session content was read), whether an exporter exists, and what the archive holds. Checked 2026-10-21. Dell columns come from synced notes.
+
 | Platform | Source data on the Acer | Exporter | Notes in the archive | State |
 |---|---|---|---|---|
 | Claude Code, Windows | 122 top-level transcripts in `~/.claude/projects` (92 with an assistant turn), plus 96 subagent files | `export-claude-session.ps1`, hook and 30-minute task | Acer 108, Dell 179 | Live; subagent files not exported |

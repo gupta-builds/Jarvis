@@ -61,7 +61,7 @@ When a table starts on the line right after a paragraph, a list item, or a callo
 - Put one blank line between the text and the table or block.
 - No blank line is needed when the line above is a heading, the closing line of a code fence, or the end of an HTML comment, because those already end their block. Keep the vault's zero-blank-lines rule there.
 - Tables and dataview blocks inside fenced code or frontmatter are ignored.
-- [[Vault Lint]] reports `table-no-blank-above` and `dataview-no-blank-above` as warnings with line numbers. A warning does not fail a note or change the fit percentage, but the rule still holds for every note an AI writes. The lint never edits a note, so the fix is by hand.
+- [[Vault Lint]] reports `table-no-blank-above` and `dataview-no-blank-above` as warnings with line numbers. A warning does not fail a note or change the fit percentage, but the rule still holds for every note an AI writes. Run `node vault-lint.js --dry-run` to preview and `--fix` to insert the blank lines; `--fix` changes nothing else.
 
 ## Markdown Shape
 

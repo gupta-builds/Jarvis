@@ -40,6 +40,7 @@ Ask Your Teacher
 Assume that the helium porosity (in percentage) of coal samples taken from any particular seam is normally distributed with true standard deviation 0.76.
 
 (a) Compute a 95% CI for the true average porosity of a certain seam if the average porosity for 17 specimens from the seam was 4.85. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/leftparen1.gif)|
@@ -51,6 +52,7 @@ Assume that the helium porosity (in percentage) of coal samples taken from any p
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/rightparen1.gif)|    
   
 (b) Compute a 98% CI for true average porosity of another seam based on 12 specimens with a sample average porosity of 4.56. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/leftparen1.gif)|
@@ -78,6 +80,7 @@ My Notes
 Ask Your Teacher
 
 An article reported that, in a study of a particular wafer inspection process, 356 dies were examined by an inspection probe and 228 of these passed the probe. Assuming a stable process, calculate a 95% (two-sided) confidence interval for the proportion of all dies that pass the probe. (Round your answers to three decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/leftparen1.gif)|
@@ -103,6 +106,7 @@ Ask Your Teacher
 Silicone implant augmentation rhinoplasty is used to correct congenital nose deformities. The success of the procedure depends on various biomechanical properties of the human nasal periosteum and fascia. An article reported that for a sample of 18 (newly deceased) adults, the mean failure strain (%) was 26.0, and the standard deviation was 3.1.
 
 (a) Assuming a normal distribution for failure strain, estimate true average strain in a way that conveys information about precision and reliability. (Use a 95% confidence interval. Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/leftparen1.gif)|
@@ -114,6 +118,7 @@ Silicone implant augmentation rhinoplasty is used to correct congenital nose def
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/rightparen1.gif)|  
   
 (b) Predict the strain for a single adult in a way that conveys information about precision and reliability. (Use a 95% prediction interval. Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache682c103181d715c29e19d65b7eff5272/watex/img/leftparen1.gif)|

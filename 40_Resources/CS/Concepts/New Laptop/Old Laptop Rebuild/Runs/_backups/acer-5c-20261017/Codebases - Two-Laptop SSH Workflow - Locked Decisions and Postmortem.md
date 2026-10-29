@@ -158,6 +158,7 @@ Also confirmed live on 2026-10-17: `~/tools/sync-check` reports `second-brain-cl
 
 ## packageManager register (2026-10-15, read-only audit of the Dell's canonical repos)
 Decision 11 and the Build 5b decision on pnpm 12.4.2 mean a pin belongs in each repo's `package.json`, but only where the repo really uses that manager. The audit found that a blanket `pnpm@12.4.2` would be wrong for most repos. Nothing was changed in any repo. Each row is a separate, per-repo approval, done in its own `<machine>/pin-package-manager` branch or worktree, one repo at a time, and only when the working tree is clean enough to review the diff.
+
 | Repo (under `~/projects`) | Lockfiles found | `packageManager` today | Proposed pin | Blocker or note |
 |---|---|---|---|---|
 | `hub/portfolio` | `pnpm-lock.yaml` | none | `pnpm@12.4.2` | 114 dirty files on `post-frontend`; pin only after that work is committed or moved |

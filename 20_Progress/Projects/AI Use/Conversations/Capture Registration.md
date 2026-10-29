@@ -39,6 +39,7 @@ WSL mirrors the Windows host name, so the same lookup serves both OSes. A third 
 | `PostToolUse` guard (Write, Edit, MultiEdit) | project `.claude/settings.json` | `jarvis-internship-note-guard.ps1` |
 | `cleanupPeriodDays` | `C:\Users\anant\.claude\settings.json` | `60`, set 2026-10-28 (was the 30-day default). Safety copy: `D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22`, 272 `.jsonl` files, 633,702,146 bytes. Retention check pending, run on or after 2026-10-30 |
 Neither entry carries a `timeout` or `async` key, so `SessionEnd` runs under the documented 1.5-second budget and both run in the foreground (see the postmortem, finding 12). The hook command is an absolute path into the vault, so it follows the vault if the vault is cloned to the same place and breaks if it is not.
+
 | Task | Cadence | Last run | Result | Registered by |
 |---|---|---|---|---|
 | `ConversationCapture-Backfill-Windows` | every 30 min | 2026-10-21 19:33 | 0 | `register-capture-backfill-windows-task.ps1`, 2026-10-17 |
@@ -51,6 +52,7 @@ Not registered on the Acer: `Jarvis-Cursor-Session-Export` (the Cursor sweep) an
 Checks used: `Get-ScheduledTask` with `Get-ScheduledTaskInfo` for the tasks; a read of both settings files for the hooks; `Get-Content` on `jarvis-session-activity.jsonl` for the hook's own trail.
 ## Project routing (Acer Windows)
 Which project folder a session lands in comes from its working directory, through one editable file: `30_Order/System/claude-workflow/capture-projects.json`. The exporter reads it on every run. The rules are checked in order and the first match wins. A path under a rule means the folder itself or anything inside it; a path must match whole folder names, so `Jarvis-old` is not inside `Jarvis`. Case is ignored.
+
 | Order | Project folder | Match | Path |
 |---|---|---|---|
 | 1 | `Jarvis` | under | the vault, `D:\_Anant\20_Progress\Documents\Jarvis` |
@@ -79,6 +81,7 @@ I did not start WSL to read its settings. Build 5c's end-to-end test (`claude -p
 | Evidence of life | newest Dell session starts: Windows 2026-10-18, WSL 2026-10-18 |
 ## Schedule (Acer, read from Task Scheduler on 2026-10-22, 23:40)
 Every process that runs on a clock, in one place. Planned rows are not registered yet. Phase P8 owns this table from now on: each new task adds a row here in the same session that registers it.
+
 | Process | When | What it does | Script | Last result |
 |---|---|---|---|---|
 | `ConversationCapture-Backfill-Windows` | every 30 min, at :03 and :33 | Exports every top-level transcript that is new or grew, then writes Capture Health | `backfill-windows-silent.vbs` | 0 at 23:33 |

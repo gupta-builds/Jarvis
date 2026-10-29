@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-06-02
-updated: 2026-10-17
+updated: 2026-10-29
 tags:
   - log
 system_kind: log
@@ -1856,3 +1856,10 @@ Built [[20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 1|Homework - 1]] from 
 
 ## [2026-10-25] review | Weekly Synthesis 2026-W43
 Headless run via the `Jarvis-WeeklyReview` scheduled task, no human present; it started at 13:22 instead of 05:00, after an apparent 9-hour sleep. Coursework and conversation-layer docs landed, but the internship tracker is still 29/0/0 (29 days frozen, fifth review at zero), no daily note exists for 10-19 through 10-25, and four assessments now have no recorded outcome. Syncthing reads NOT IN SYNC only because the Dell is offline (99.81%, 22 items); git is 0/0 against origin; no live conflicts. Re-added the missing `(?d)` `.git-auto-sync.lock` line to `.stignore` (W42 reported adding it, but the file had not changed since 10-15). Log maintenance flag-only, nothing deleted. 10-23's work (26 VISAs notes, a 144-file batch commit) was never logged. Next: write `Main Cover Letter.md` and move one company to `Applied/`, record the four exam outcomes, confirm the Jesse email went out by 11/2. Full review: [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43]].
+
+## [2026-10-29] build | Jesse meeting notes, Action and Brief standards, lint rules, blank-line fix
+- Revised the Jesse brief and action note after the user's review: off-campus work wording, SymphonyAI hiring as the lead, Mentoring Agreement and Google Forms done, rough guesses for garbled names, a To Do callout first. Both pass lint ([[Jesse Meeting - 28th Oct Brief]], [[Jesse Meeting - 28th Oct Actions]]). Brought the stale [[Meet Your Partner]], [[Plan - Jesse]] and the [[2026-07-14 Mentor Meeting — Actions]] note up to date, and added the first-call entry to [[Mentor Meeting Playbook - Jesse]].
+- Standards: [[Action Standard]] now requires a `> [!todo]` To Do callout whose first line equals `next`, and Open Threads with Questions and Research. [[Brief Standard]] records vault conflicts and post-call corrections. Templates and [[Meeting Workflow]] updated to match.
+- [[Vault Lint]]: new action checks (`todo-missing`, `todo-next-mismatch`, `checkbox-outside-todo`, `missing-subheading` and others) and two warnings, `table-no-blank-above` and `dataview-no-blank-above`, which do not affect fit. New `--fix`, `--dry-run` and `--skip` flags insert only the blank line above a table or dataview block. Documented in [[Jarvis Writing and Formatting]].
+- Ran the fix over 85 notes (188 blank lines, each file verified as blank-line-only against a snapshot) and skipped 44 notes under `60_Claude/05_Clippings/`, which stay read-only. Brought Gaps, Summaries-to-Create and the W44 calendar actions note to the Action Standard. Whole-vault fit 238/5628 (4.2%), 44 warnings left, all in the clippings.
+- Not done: the skills and agents (`transcript-to-brief`, `note-to-actions`, `meeting-operator`) do not yet know the To Do callout or the new Open Threads shape and need a separate session. Next: send the thank-you and Teams invite to Jesse by Thu 2026-10-29, 8:00 am.

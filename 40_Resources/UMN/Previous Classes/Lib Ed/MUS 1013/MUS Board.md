@@ -30,6 +30,7 @@ SORT created ASC
 ```
 # MOC
 1. *Main*:
+
 ```dataview
 TABLE created, mastery, status, topics, related
 FROM "10_UMN/MUS 1013"
@@ -38,6 +39,7 @@ AND input_kind = "board"
 SORT created ASC
 ```
 2. *Concepts*:
+
 ```dataview
 TABLE created, mastery, status, topics, related
 FROM "10_UMN/MGMT 3001"

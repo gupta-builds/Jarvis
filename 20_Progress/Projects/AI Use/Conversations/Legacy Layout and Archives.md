@@ -34,6 +34,7 @@ The live tree is authoritative, as the README says. This note records what sits 
 The exporter does not write here. It reads the `.exported` markers here so a session already exported is not exported again. The tree was left in place when the Dell copy was made. Every Cowork note and all 34 Jarvis notes here have a Dell copy, but the 7 Home notes and the 1 The Plan note exist only here, so deleting the tree wholesale would lose 8 sessions.
 ## Duplicates by `session_id`
 630 parsed notes hold 523 distinct sessions, so 107 notes repeat one that exists elsewhere.
+
 | Where the copies sit | Sessions |
 |---|---|
 | `Dell/Windows/Claude` and the legacy Cowork tree | 62 |
@@ -44,6 +45,7 @@ The exporter does not write here. It reads the `.exported` markers here so a ses
 The first three rows come from the Dell copy and the older tree both surviving. The last two rows have a different cause that I have not confirmed: one session recorded under two project names, possibly because its cwd changed mid-session. The Standard's Legacy Shapes table covers the first case ("keep the later `exported_at`, flag the other, judgment") and not the second.
 ## The 14 archive folders
 `_archive-pre-fix` holds notes from before the 2026-07-30 rewrite, `_archive-pre-fix-2` from before the 2026-07-31 rewrite. 141 notes in total, excluded from the 630 above.
+
 | Folder | Notes |
 |---|---|
 | `Dell/Windows/Claude/Cowork/_archive-pre-fix` | 63 |

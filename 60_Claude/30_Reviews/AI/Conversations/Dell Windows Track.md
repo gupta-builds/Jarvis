@@ -21,6 +21,7 @@ notes:
 Read from the Acer through synced notes only; the Dell was not reached and nothing about its live hook or tasks was checked. The track holds the oldest and largest Claude Code archive: 179 notes from 2026-06-04 to 2026-10-18, plus 16 Cursor notes that stopped in July. It is the source of the 107-note duplicate problem, because the 10-08 reorganization copied the older `Windows/` trees into it and left them in place.
 ## Scope
 `Dell/Windows/Claude/` and `Dell/Windows/Cursor/` as they appear in the Acer's copy of the vault on 2026-10-21. Live state of the Dell is unverified. Registration facts are from Build 5c's 2026-10-17 session, listed in [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].
+
 | Item | Value |
 |---|---|
 | Claude notes | 179: Jarvis 104, Cowork 64, Home 10, The Plan 1 |

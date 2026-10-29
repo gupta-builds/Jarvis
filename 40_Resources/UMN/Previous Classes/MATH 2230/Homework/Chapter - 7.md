@@ -273,6 +273,7 @@ DevoreStat9 7.1.004.
 A CI is desired for the true average stray-load loss 𝜇 (watts) for a certain type of induction motor when the line current is held at 10 amps for a speed of 1500 rpm. Assume that stray-load loss is normally distributed with 𝜎 = 3.3. (Round your answers to two decimal places.)
 
 (a) Compute a 95% CI for 𝜇 when _n_ = 25 and x = 57.7.  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -284,6 +285,7 @@ A CI is desired for the true average stray-load loss 𝜇 (watts) for a certai
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/rightparen1.gif)|   watts  
   
 (b) Compute a 95% CI for 𝜇 when _n_ = 100 and x = 57.7.  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -295,6 +297,7 @@ A CI is desired for the true average stray-load loss 𝜇 (watts) for a certai
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/rightparen1.gif)|   watts  
   
 (c) Compute a 99% CI for 𝜇 when _n_ = 100 and x = 57.7.  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -306,6 +309,7 @@ A CI is desired for the true average stray-load loss 𝜇 (watts) for a certai
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/rightparen1.gif)|   watts  
   
 (d) Compute an 82% CI for 𝜇 when _n_ = 100 and x = 57.7.  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -343,6 +347,7 @@ DevoreStat9 7.1.005.
 Assume that the helium porosity (in percentage) of coal samples taken from any particular seam is normally distributed with true standard deviation 0.76.
 
 (a) Compute a 95% CI for the true average porosity of a certain seam if the average porosity for 18 specimens from the seam was 4.85. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -354,6 +359,7 @@ Assume that the helium porosity (in percentage) of coal samples taken from any p
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/rightparen1.gif)|    
   
 (b) Compute a 98% CI for true average porosity of another seam based on 13 specimens with a sample average porosity of 4.56. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -394,6 +400,7 @@ DevoreStat9 7.1.006.
 On the basis of extensive tests, the yield point of a particular type of mild steel-reinforcing bar is known to be normally distributed with 𝜎 = 100. The composition of the bar has been slightly modified, but the modification is not believed to have affected either the normality or the value of 𝜎.
 
 (a) Assuming this to be the case, if a sample of 81 modified bars resulted in a sample average yield point of 8405 lb, compute a 90% CI for the true average yield point of the modified bar. (Round your answers to one decimal place.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -669,6 +676,7 @@ Practice Another
 DevoreStat9 7.2.019.
 
 An article reported that, in a study of a particular wafer inspection process, 356 dies were examined by an inspection probe and 188 of these passed the probe. Assuming a stable process, calculate a 95% (two-sided) confidence interval for the proportion of all dies that pass the probe. (Round your answers to three decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -788,6 +796,7 @@ Practice Another
 DevoreStat9 7.2.024.
 
 A sample of 52 research cotton samples resulted in a sample average percentage elongation of 8.12 and a sample standard deviation of 1.48. Calculate a 95% large-sample CI for the true average percentage elongation 𝜇. (Round your answers to three decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -1102,6 +1111,7 @@ DevoreStat9 7.3.035.
 Silicone implant augmentation rhinoplasty is used to correct congenital nose deformities. The success of the procedure depends on various biomechanical properties of the human nasal periosteum and fascia. An article reported that for a sample of 19 (newly deceased) adults, the mean failure strain (%) was 26.0, and the standard deviation was 3.4.
 
 (a) Assuming a normal distribution for failure strain, estimate true average strain in a way that conveys information about precision and reliability. (Use a 95% confidence interval. Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/leftparen1.gif)|
@@ -1113,6 +1123,7 @@ Silicone implant augmentation rhinoplasty is used to correct congenital nose def
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/rightparen1.gif)|  
   
 (b) Predict the strain for a single adult in a way that conveys information about precision and reliability. (Use a 95% prediction interval. Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/leftparen1.gif)|
@@ -1165,6 +1176,7 @@ A normal probability plot gives substantial support to the assumption that the p
 |cadence||0.7900|1.0800|0.8550|0.9550||
 
 (a) Calculate and interpret a 95% confidence interval for population mean cadence. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/leftparen1.gif)|
@@ -1181,6 +1193,7 @@ With 95% confidence, the value of the true mean cadence of all such men falls in
 
   
 (b) Calculate and interpret a 95% prediction interval for the cadence of a single individual randomly selected from this population. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/leftparen1.gif)|
@@ -1220,6 +1233,7 @@ It's plausible that the distribution could be normal.It's not plausible that the
 
   
 (b) Calculate a two-sided 95% confidence interval for the true average work of adhesion for UHPC adhered to steel. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/leftparen1.gif)|
@@ -1243,6 +1257,7 @@ The interval suggests that 111 is a possible value for the true average.The inte
 
   
 (c) Predict the resulting work of adhesion value resulting from a single future replication of the experiment by calculating a 95% prediction interval. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachec421f96eda96a2324a8ed1d71e75472d/watex/img/leftparen1.gif)|

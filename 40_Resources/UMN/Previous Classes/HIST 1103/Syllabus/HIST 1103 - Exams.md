@@ -33,6 +33,7 @@ There are two exams: a **Midterm** and a **comprehensive Final**. Together they 
 - There are no make-up exams or alternate completion times without the instructor's prior discussion and approval.
 ## Dropbox windows (from D2L)
 The exam dropboxes in the Assignments tab show these windows (Turnitin enabled, each worth 100 points, currently "Not Submitted"):
+
 | Dropbox | Due | Available window |
 |---|---|---|
 | Midterm Exam | Thu Jun 18, 11:30 PM | Jun 15 – Jun 18 |

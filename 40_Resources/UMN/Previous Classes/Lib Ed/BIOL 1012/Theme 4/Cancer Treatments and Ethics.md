@@ -126,6 +126,7 @@ Biology of puberty blockers:
 - They do NOT provide cross-sex hormones — that is a separate treatment step.
 
 Ethics:
+
 | Pillar | Application |
 |---|---|
 | Autonomy | The child/adolescent's assent, guardian consent, and clinical understanding all matter. |

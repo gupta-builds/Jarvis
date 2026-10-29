@@ -38,6 +38,7 @@ No remote devices share the `jarvis` folder yet, so this is local-database healt
 ## Part 4: Log Rotation — Applied For Real
 Checked the `ClaudeKit-Sync-All` Scheduled Task before touching anything: `Get-ScheduledTaskInfo` showed `LastRunTime: 1:34:34 PM`, `NextRunTime: 1:49:33 PM`, `LastTaskResult: 0` (success) — the task had just finished, giving roughly 13 minutes of clear window before the next run. Confirmed via the Sync-Log files' own last-write timestamps (13:34:59–13:35:30) that the run had genuinely completed, not stalled mid-write.
 Ran `rotate-sync-logs.ps1 -Apply` immediately inside that window. All 11 target files rotated cleanly:
+
 | File | Lines archived | Lines still active |
 |---|---:|---:|
 | `_All-Projects-Sync-Log.md` | 16,460 | 4,224 |

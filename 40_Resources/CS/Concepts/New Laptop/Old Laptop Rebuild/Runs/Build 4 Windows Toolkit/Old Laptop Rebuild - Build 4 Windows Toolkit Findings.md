@@ -53,6 +53,7 @@ next: "Closed. Open: Codex node_repl path and the Windows VS Code, MCP and Claud
 | Open | Codex `node_repl` path in the Windows config does not resolve (Build 6); the lock lags self-updating tools (Codex, Cursor, Claude). `agy` resolves on Windows (1.3.5), so its one-time shim step is done |
 
 **Corrections to the log below (the live machine wins).**
+
 | The log says | What is true now |
 |---|---|
 | "Nothing has been changed on either laptop"; 12 decisions waiting | Phases 1 to 4 and Build 4b ran; all decisions answered (table above) |
@@ -126,6 +127,7 @@ Other WSL facts: the Dell `.bashrc` block is `# >>> JARVIS_WSL_ENV_BLOCK (Build 
 
 ### Toolkit manifest (proposed membership)
 Policies: `install` = install if missing (adopt the installed version into the lock), `latest` = bring to current, `verify` = check only, `absent` = must not exist.
+
 | Tool | Why it is there | Machines | Method and policy |
 |---|---|---|---|
 | PowerShell 7 | modern shell, profile and Terminal target | both | winget `Microsoft.PowerShell`, install (UAC) |
@@ -314,6 +316,7 @@ VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Cod
 
 ## Closing status of Build 4 (live check, 2026-10-14)
 Phases 1 to 4 ran on the Dell on 2026-10-13. The run is filed here under `Runs/`. What is left becomes **Build 4b** (prompt not written yet).
+
 | Item | State | Evidence |
 |---|---|---|
 | Toolkit installed (PowerShell 7, Starship, font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv) | DONE | `99-verify.ps1 -WriteLock` 104 PASS, 0 FAIL, 1 WARN (`node_repl`, Build 6); `Windows Toolkit\toolkit.lock.json` written |
@@ -436,6 +439,7 @@ Work done after the first Build 4b write-up above: the Build 5 leftovers, the co
 
 ### Quarantine disposal record (what existed before it was deleted)
 Written by the purge script to `D:\Backup\Quarantine-record\quarantine-record-2026-10-17.txt`; the files themselves are gone. Nothing in it was needed to run the machine.
+
 | Folder | Size | What it held |
 |---|---:|---|
 | `build5-leftovers-2026-10-15` | 4.33 GiB | Cursor server `snapshots` and agent-worker data, old pnpm v10 stores, `undo.txt` |
@@ -450,6 +454,7 @@ What remains outside the quarantine and was kept on purpose: `D:\Backup\WSL` (th
 ### `packageManager` pin pilot (what it is, what happened)
 **What a pin is.** A repo's `package.json` field `"packageManager": "pnpm@12.4.2"` makes Corepack run exactly that pnpm version in that repo on every machine, whatever is installed globally. On the Dell `pnpm` is a Corepack shim, so the pin is honoured. It stops the version drift that hit the Acer (pnpm floated to 12.11.2 after its weekly cleanup deleted `~/.cache/node`). With pnpm 12 the lockfile also records the pnpm version with integrity hashes. It helps pnpm repos only: npm repos are not pinned, and Python repos need `.python-version` and `uv.lock` instead.
 **Method.** One repo at a time, in a separate `git worktree` off `origin/main` on branch `dell-latitude/pin-package-manager` (so the main checkout's uncommitted files are untouched, per Decision 11), then `pnpm install --frozen-lockfile` and the repo's own checks.
+
 | Repo | Result |
 |---|---|
 | `hub/Learning-Tracker-Tool` | **Done, committed locally** as `51cc182` ("Pin pnpm 12.4.2 through packageManager"), unpushed, upstream unset; worktree at `~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager`. Diff: `package.json` +1 line, `pnpm-lock.yaml` +158 lines (the new package-manager section), `pnpm-workspace.yaml` +3 lines. Verified: frozen install exit 0 under pnpm 12.4.2, Next.js 16.1.6 starts, eslint exit 0. It is a **team repo** (remote `Shauryya27/Learning-Tracker-Tool`, merges from a collaborator): pushing the pin forces pnpm 12.4.2 on them, and older pnpm versions have not been tested against the new lockfile section, so the push or PR is the user's decision |

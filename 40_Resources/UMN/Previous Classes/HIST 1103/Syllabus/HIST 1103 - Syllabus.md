@@ -45,6 +45,7 @@ A survey of contemporary world history after World War II. The class covers majo
 ## Grading policy
 - The course is worth **1000 total points**.
 - Grades use a straight percentage scale (no curve):
+
 | Grade | Percentage |
 |---|---|
 | A | 91% and above |

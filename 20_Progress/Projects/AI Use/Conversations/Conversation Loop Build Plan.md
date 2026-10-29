@@ -80,6 +80,7 @@ Platforms other than Claude Code, any `30_Order` change before B10, and any buil
 | Schedule | Weekly digest on Sundays at 21:00 by default while testing. Every scheduled process is listed in the Schedule section of [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]]. |
 ### Numbering: B and P
 There was one list, now there is one scheme. The B-numbers (B0 to B10) are the builds in the Sequence table above, written by the research session. The P-numbers are phases, one session prompt each, in `Prompts/`. P replaces B from here on; use P only. Mapping, for reading the older notes:
+
 | Old build | Now |
 |---|---|
 | B0 retention | P0 |
@@ -106,6 +107,7 @@ These are the owner's finish conditions of 2026-10-22, each tied to the phase th
 The loop is running when 1 to 7 are true. It is closed only after the first Intervention Ledger row has been judged on its review date, about two weeks after the first review.
 ### Phases and prompts
 Each prompt is an Agent Prompt note in `Prompts/`: run-by line, guide link, then the whole prompt in one fenced block. The first three are written in full. The next three are detailed and get refined by what the first three return. The last three are drafts, refined as each earlier phase returns.
+
 | Phase | Task | Runs on | Done when |
 |---|---|---|---|
 | [[P0 - Retention and Transcript Snapshot\|P0]] | Retention to 60 days and a transcript snapshot | Sonnet 5.5, medium | Setting read back, snapshot counts match, sweep check pending |
@@ -118,6 +120,7 @@ Each prompt is an Agent Prompt note in `Prompts/`: run-by line, guide link, then
 | [[P7 - Weekly Digest\|P7]] | Weekly digest | Sonnet 5.5, medium | Golden test, owner's ten-prompt hand count |
 | [[P8 - Schedules and Review Nudge\|P8]] | Scheduled digest, review skeleton, `/startday` nudge, timetable | Sonnet 5.5, medium | Task result 0, skeleton created once |
 Written after the phases above report, because they need their results:
+
 | Phase | Task | Needs first |
 |---|---|---|
 | P9 | Capture watchdog: its own task, an expected-state file, a kill drill | P3, P6, P8 |

@@ -598,6 +598,7 @@ Provenance: Official; P; L-G row 105; L-A row 104. Attempt only within the confi
 These are public practice challenges, not the course’s private graded HackerRank assessments. Platform labels are retained; both graph challenges are labeled Hard by HackerRank.
 ## Captured session catalog
 T identifiers mean captured unit.session.version.problem. Every visible heading is listed, including incomplete alternate versions. Grade R means review the existing capture; it does not assign a new solution. Unit 5 solving status is unconfirmed.
+
 | ID / raw source | Captured title | Readable contract / purpose | Grade / study |
 |---|---|---|---|
 | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 1 Problems Transcript\|T1.1.V1.P1]] | Hunny Hunt | Linear search and first-index return | R; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-A Arrays and strings\|B-A Arrays and strings]] |
@@ -706,6 +707,7 @@ T identifiers mean captured unit.session.version.problem. Every visible heading 
 - The Unit 5 Pilot Training prose uses numbered courses while examples use string names. Preserve the discrepancy until checked against the portal.
 ## CSCI coding tasks - every current task
 The stable task identifier is notebook task number, not an assumed TIP103 homework/assessment number. R prompts are studied and explained; P1 drills are attempted manually; P2 implementations are optional. Read the existing code without treating it as evidence of a new independent solve.
+
 | ID | Exact notebook / task | Textbook label in source | Week / treatment |
 |---|---|---|---|
 | C2.1 | [Homework/Coding/CodingHW_2(chapter4-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_2(chapter4-CLRS).ipynb>); task 1: Implement a divide and conquer matrix multiply which works for non-power of 2 sizes of square matrices. | 4.1-1 | W3; P2 - optional implementation / required prompt review |
@@ -750,6 +752,7 @@ The stable task identifier is notebook task number, not an assumed TIP103 homewo
 | C9.5 | [Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb>); task 5: Implement Johnson's Algorithm for the All-Pairs Shortest Paths Problem for Sparse Graphs. | 23.3.1 | W9; P2 - optional implementation / required prompt review |
 ## CSCI paper tasks - every current question
 The original PDF page equals the question number for these five-page sheets. Graph-diagram questions must be viewed in the original PDF; text extraction does not establish their edge sets.
+
 | ID | Exact PDF / question and page | Purpose | Week / treatment |
 |---|---|---|---|
 | P1.1 | [Homework/Paper/Paper HW - 1 (Ch - 2).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 1 (Ch - 2).pdf>); Q1 / p.1 | Insertion-sort trace | W3; R - read and explain; full written proof optional |

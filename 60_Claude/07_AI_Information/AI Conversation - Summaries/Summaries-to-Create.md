@@ -2,7 +2,7 @@
 type: action
 status: active
 created: 2026-07-30
-updated: 2026-10-21
+updated: 2026-10-29
 tags:
   - action
   - ai-conversations
@@ -13,6 +13,8 @@ next: Read the first session under Conversation layer sessions and decide whethe
 ---
 # Summaries-to-Create
 Statements only: each names a raw session picked by a signal (what it is about, cost, turns), not yet by reading it, and links to the note. Cost is the exporter's published-price estimate and a floor for newer models.
+> [!todo] To Do
+> - [ ] Read the first session under Conversation layer sessions and decide whether it earned a summary.
 ## Conversation layer sessions
 - [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-08 Jarvis conversation tracking analysis|The 10-08 tracking analysis]] produced the redesign brief of five scripts and three logs that was never built (6 turns, 1,523 minutes, $11); its decisions feed [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Research Plan|the research plan]].
 - [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-17 Second-brain conversation layer postmortem|The 10-17 conversation layer session]] produced the audit in [[60_Claude/30_Reviews/Conversation Capture Layer Audit (2026-10-17)|Conversation Capture Layer Audit]] and shows the fork that stopped early.
@@ -34,7 +36,9 @@ Statements only: each names a raw session picked by a signal (what it is about, 
 - [[60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/tradingview/07-10 Build Fable 5 TradingView year-ahead research base|07-10 Build Fable 5 TradingView year-ahead research base]] cost $117 over 7 turns.
 - [[60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/CausalOps/07-05 Review CausalOps project notes and codebase|07-05 Review CausalOps project notes and codebase]] cost $113 over 71 turns.
 ## Open Threads
+### Questions
 - Cost and turn count are signals, not judgments: no session above was read to decide whether it produced a decision worth keeping, which [[30_Order/Standards/AI Loop/Conversations|Conversations]] requires before a summary exists.
 - Five summaries exist (four Cursor, one Claude Code, listed in [[60_Claude/07_AI_Information/AI Conversation - Summaries/README|the folder README]]); none of the sessions above has one.
-- Sessions with few turns and low cost but a real decision, such as a short sync fix, are not found by this list and need the turn and file signals in [[60_Claude/30_Reviews/AI/Conversations/Conversation Loop Review|Conversation Loop Review]].
-- The `/export-ai-session` skill that used to write summaries is not installed, so a summary written from this list is written by hand or by an agent following [[30_Order/Workflows/Toolkit/Conversation Capture|Conversation Capture]].
+### Research
+- Find sessions with few turns and low cost but a real decision, such as a short sync fix, which this list misses, using the turn and file signals in [[60_Claude/30_Reviews/AI/Conversations/Conversation Loop Review|Conversation Loop Review]].
+- Write any summary from this list by hand or with an agent following [[30_Order/Workflows/Toolkit/Conversation Capture|Conversation Capture]], because the `/export-ai-session` skill that used to write summaries is not installed.

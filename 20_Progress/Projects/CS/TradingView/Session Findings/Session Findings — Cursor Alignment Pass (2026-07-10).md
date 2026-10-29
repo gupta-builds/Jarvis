@@ -83,6 +83,7 @@ Then demo paper account; later portfolio-of-strategies + risk gauge.
 ### Ambition raise — “imbecile student project” revelation
 *Said:* Draft was directionally right but the bar felt like a CS junior toy. Missing how serious desks use process/math. Need quant-grade proof on equations, code, UI, brain, tests. Research depth; brain that thinks like a professional personal desk; not a lousy beginner platform. Long-run ambition (compound skill and capital) — notes must hold that bar without claiming guaranteed market profits in product language.
 *What we locked as the elevation:*
+
 | Lead | Meaning |
 |---|---|
 | Quant math is first-class | Every score has formula, inputs, as-of, and a test that can kill it |
@@ -112,6 +113,7 @@ Then demo paper account; later portfolio-of-strategies + risk gauge.
 
 ## Canonical Differentiator (elevated gap table)
 ==Lead with test-gated self-improving lab + local journal; quant math first-class; proof over narrative.==
+
 | Priority | Gap | Personal response |
 |---|---|---|
 | 1 | Research feed without promotion discipline | OOS → Monte Carlo → walk-forward → deflated Sharpe → demo paper only if better for *you* |

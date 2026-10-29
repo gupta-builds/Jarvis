@@ -32,6 +32,7 @@ One view, no page scroll. The root is a CSS grid with `overflow: hidden`, and lo
 - **Compact** otherwise, which includes the phone. Two columns and five rows in the ratio 1.2 : 1.6 : 1 : 0.8 : 1. The Trackers card is not drawn.
 - **Type size scales with the pane.** Wide: the smaller of width/78 and height/40, between 10 and 22 px. Compact: the smaller of width/30 and height/56, between 10 and 15 px.
 Placement in the wide grid:
+
 | Card | Columns, row |
 |---|---|
 | Streak (hero) | 1 to 3, row 1 |
@@ -60,6 +61,7 @@ In compact, Streak and Today and Last 30 days each take a full row, then Career 
 - **Cards.** A 1 px hairline border, 0.7 em radius, and a background that mixes 4 percent of the accent into the Obsidian background. Titles are small uppercase letters with wide tracking in the accent colour.
 - **Type.** JetBrains Mono, then the system monospace stack. Numbers use the same face, ported from the `gupta-builds` README card (large number over a small label).
 - **Theme.** The view reads the `theme-light` class on the page body and watches it, so it switches with Obsidian. Surfaces and text use Obsidian's variables; the meaningful colours are fixed.
+
 | Token | Dark | Light | Used for |
 |---|---|---|---|
 | accent | `#a78bfa` | `#7c5cdb` | Titles, ticks, links, pills |

@@ -22,6 +22,7 @@ notes:
 The Acer's Windows side is the one track checked directly and the only one that works end to end for capture. Hook, backfill task, and git sync all ran today. 108 session notes from 2026-09-17 to 2026-10-21 sit under `Acer/Windows/Claude/`. What it lacks is everything after capture: no per-machine Tool log, no distillation, no failure record.
 ## Scope
 `60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/` against `C:\Users\anant\.claude\` on `GUPTA-BUILDS`, measured 2026-10-21. WSL on the Acer has its own track. The Dell tracks are [[60_Claude/30_Reviews/AI/Conversations/Dell Windows Track|Dell Windows]] and [[60_Claude/30_Reviews/AI/Conversations/Dell WSL Track|Dell WSL]].
+
 | Item | Value |
 |---|---|
 | Notes | 108 (September 34, October 74) |

@@ -15,6 +15,7 @@ next: "[[20_Progress/Degree/CSCI 4511W/Weekly/Week - 2|Week - 2]]"
 # Week - 1
 ## Source check for the quiz review
 Checked 2026-10-13. Use this note for the September 9 introduction, [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]] for background, and [[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1]] for the paper. Material verification and personal mastery are separate: no closed-note recall results have been recorded yet.
+
 | Item | Source and boundary | Review status |
 |---|---|---|
 | Lecture 01, September 9 | Protected live capture below; no Lecture 01 PDF found | Four PEAS definitions survive; the classroom Vacuum World board work is missing |
@@ -26,6 +27,7 @@ Checked 2026-10-13. Use this note for the September 9 introduction, [[20_Progres
 The two-room example below is an explanatory reconstruction from Chapter 2 and AIMA code, not a recovered transcript of the missing September 9 board work. Its exact reward rule must be specified before calculating a score.
 ## Week 1 exercise inventory
 The fourth-edition preface states that exercises are online. The [author-linked Chapter 1 exercise bank](https://aimacode.github.io/aima-exercises/intro-exercises/) has 20 numbered entries. These are supplementary practice; no evidence assigns all 20 for this course. The site retains older wording and a near-duplicate pair, so use the local fourth edition for textbook claims.
+
 | Exercise | Retrieval cue |
 |---|---|
 | 1.1 | Define intelligence, AI, agent, rationality, reasoning |

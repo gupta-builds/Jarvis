@@ -15,6 +15,7 @@ next: "Explain the Week 1 distinctions without looking, then extend the glossary
 # CSCI 4511W Definitions
 ## Week 1 vocabulary and Week 2 bridge
 Source: [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]] §1.1-1.3; [[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Turing]] §1-7; [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week 1]] live PEAS capture. Percept, percept sequence, state, and the formal agent function below are Week 2 continuations from Lecture 02 slides 3-5 and [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2|Chapter 2]]. This glossary does not turn them into recorded Week 1 lecture content.
+
 | Term | Meaning and distinction |
 |---|---|
 | Agent | A system that perceives through sensors and acts through actuators in an environment |

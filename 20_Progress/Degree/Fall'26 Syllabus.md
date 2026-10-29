@@ -92,6 +92,7 @@ These are the existing candidate pool, not confirmed offerings. Verify Fall 2024
 - **Literature replacement:** undecided. Verify the approved Literature designation and whether upper-division WI overlap is available.
 ### Course decision worksheet
 Add one row per candidate as research and decisions happen. Record evidence before assigning a course to a semester.
+
 | Course | Credits and audit bucket | Prerequisite evidence | Offering/section evidence | Workload and timetable fit | Intended semester | Decision and backup |
 |---|---|---|---|---|---|---|
 | CSCI 3081W or MADR 3081W | 4; Program Design & Development per recorded APAS | To verify | To verify | To compare against the full load | Spring'27, existing plan | Requirement fixed; exact course/section pending verification. |

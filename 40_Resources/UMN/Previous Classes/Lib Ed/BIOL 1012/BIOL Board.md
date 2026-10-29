@@ -60,6 +60,7 @@ SORT created ASC
 - [[Theme 4 Source Coverage Checklist]]
 
 1. *Main*:
+
 ```dataview
 TABLE created, mastery, status, topics, related
 FROM "10_Areas/Degree/UMN/Classes/BIOL 1012"
@@ -68,6 +69,7 @@ AND input_kind = "board"
 SORT created ASC
 ```
 2. *Concepts*:
+
 ```dataview
 TABLE created, mastery, status, topics, related
 FROM "10_Areas/Degree/UMN/Classes/BIOL 1012"

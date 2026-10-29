@@ -817,8 +817,10 @@ Ask Your Teacher
 A department store sells sport shirts in three sizes (small, medium, and large), three patterns (plaid, print, and stripe), and two sleeve lengths (long and short). The accompanying tables give the proportions of shirts sold in the various category combinations.
 
 Short-sleeved
+
 ||   |Pattern|   |   |
 |---|---|---|---|---|
+
 |Pl|Pr|St|
 |---|---|---|
 |Size|S|0.04|0.02|0.05|
@@ -826,8 +828,10 @@ Short-sleeved
 |L|0.03|0.07|0.08|
 
 Long-sleeved
+
 ||   |Pattern|   |   |
 |---|---|---|---|---|
+
 |Pl|Pr|St|
 |---|---|---|
 |Size|S|0.03|0.02|0.03|

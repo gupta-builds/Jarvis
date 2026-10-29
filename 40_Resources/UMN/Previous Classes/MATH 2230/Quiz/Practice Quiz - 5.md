@@ -417,6 +417,7 @@ The following observations were made on fracture toughness of a base plate of 18
 |76.2|77.0|77.9|78.3|79.6|79.7|79.9|80.1|82.2|83.6|93.7|
 
 Calculate a 99% CI for the standard deviation of the fracture toughness distribution. (Round your answers to one decimal place.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacachee25e9c50fc79258fde9cab8f131a93f3/watex/img/leftparen1.gif)|
@@ -463,6 +464,7 @@ _H_a: _p_ ≠ 0.035
 
   
 Calculate the test statistic and determine the _P_-value. (Round your test statistic to two decimal places and your _P_-value to four decimal places.)  
+
 |   |   |   |
 |---|---|---|
 |z|=||

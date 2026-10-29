@@ -30,4 +30,10 @@ Agenda is the Starter Session Agenda in [[Initial Outreach]], shared with Jesse 
 - [ ] Send a thank-you message within 24 hours.
 - [ ] If this was the first meeting, confirm the Mentoring Agreement is signed and ready to submit to Katie by 2026-11-02.
 ## Session Log
-Append one dated entry per meeting below. Do not overwrite prior entries. Empty until the first meeting actually happens.
+Append one dated entry per meeting below. Do not overwrite prior entries.
+### 2026-10-28
+First call with Jesse, on Zoom then Google Meet because his audio broke up on his phone. Full transcript: [[Jesse Meeting - 28th Oct]]; brief: [[Jesse Meeting - 28th Oct Brief]]; step-by-step actions: [[Jesse Meeting - 28th Oct Actions]].
+- **What was actually said:** Jesse had not heard of the work authorization rule and said it "changes my answer" on what he would advise; he said SymphonyAI is hiring and that he has colleagues at other companies. He gave his path from a Seagate internship in 2007 to Director, Industry Solutions, and said past mentees met once or twice a month. He described a manufacturing conference at the Minneapolis convention center that costs $500 to $1,000 and said he would check for a student discount.
+- **What got decided:** Both are attending the Nov 4 Meet Your Partner event. Jesse is open to mock interviews "at any time" and to occasional in-person meetings, in the evening. The weekday, time and cadence, and the final wording of the three goals, are left for Nov 4. The Mentoring Agreement is completed and its Google Forms are done.
+- **Concrete next step:** Send Jesse the thank-you for connecting, "see you on Wednesday", and a Teams invite from the UMN email with the event details by Thu 2026-10-29, 8:00 am. Then research SymphonyAI and Jesse.
+- **Next meeting:** Not booked as a recurring slot. The next time they meet is the Meet Your Partner event on Wed 2026-11-04, 7 to 8:30 pm ([[Meet Your Partner]]); decisions go in [[Plan - Jesse]].

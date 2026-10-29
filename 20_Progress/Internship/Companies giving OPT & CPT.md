@@ -21,6 +21,7 @@ next:
 - A conditional "willingness to undergo a background investigation" (Palantir US Gov) is **not** a clearance requirement and does not exclude.
 ## Verdicts From The 2026-07-18 Dossier Audit
 Every verdict below cites text actually read on the live posting page that day.
+
 | Company / Role | Verdict | Evidence |
 | --- | --- | --- |
 | **Anduril** — Software Engineer Intern | **Excluded** | "U.S. Person status is required as this position needs to access export controlled data." — stated qualification in the JD |

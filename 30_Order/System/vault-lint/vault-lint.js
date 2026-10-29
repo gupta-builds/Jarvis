@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Vault Lint: measures how many notes fit their Standard (see 30_Order/Standards/Conformance Standard.md).
-// Usage: node vault-lint.js [--root DIR] [--path PREFIX] [--family ID] [--kit] [--specs] [--json FILE] [--list N]
+// Usage: node vault-lint.js [--root DIR] [--path PREFIX] [--family ID] [--kit] [--specs] [--json FILE] [--list N] [--fix | --dry-run] [--skip PREFIX,PREFIX]
+// --fix is the only mode that writes to notes: it inserts one blank line above a table or dataview block flagged by the two warnings. --dry-run prints the same changes without writing.
 const fs = require('fs');
 const path = require('path');
 
@@ -13,6 +14,8 @@ const KIT = !!opt('kit', false);
 const SPECS_ONLY = !!opt('specs', false);
 const LIST_N = parseInt(opt('list', '0'), 10) || 0;
 const JSON_OUT = opt('json', '');
+const FIX = args.includes('--fix'), DRY = args.includes('--dry-run');
+const SKIP_FIX = (typeof opt('skip', '') === 'string' ? opt('skip', '') : '').split(',').map((x) => x.trim()).filter(Boolean);
 const cfgFile = path.join(__dirname, 'vault-lint.config.json');
 const CFG = fs.existsSync(cfgFile) ? JSON.parse(fs.readFileSync(cfgFile, 'utf8')) : { out_of_scope: [], tier4: [], template_paths: [] };
 const re = (a) => (a || []).map((s) => new RegExp(s));
@@ -366,6 +369,7 @@ function check(rel, text) {
     if (hr) add(5, 'hr-in-body:' + hr);
     if (blanks) add(5, 'extra-blank-lines:' + blanks);
     // warnings only: they never fail a note or change the fit percentage
+    r.fixAt = [...spots.badTables, ...spots.badDvs].map((i) => lineOff + i);
     if (spots.badTables.length) r.warns.push('table-no-blank-above:' + spots.badTables.map((i) => 'L' + (lineOff + i + 1)).join(','));
     if (spots.badDvs.length) r.warns.push('dataview-no-blank-above:' + spots.badDvs.map((i) => 'L' + (lineOff + i + 1)).join(','));
     if (text.replace(/\r\n/g, '\n').endsWith('\n\n')) add(5, 'trailing-blank');
@@ -532,4 +536,24 @@ if (LIST_N) { console.log(`\nFirst ${LIST_N} failing notes:`); results.filter((r
     console.log('\nWarnings (do not affect FIT):'); Object.entries(wc).sort().forEach(([k, v]) => console.log('  ' + String(v).padStart(5) + '  notes with ' + k));
     console.log('  First ' + Math.min(wn.length, LIST_N || 20) + ' notes with warnings:'); wn.slice(0, LIST_N || 20).forEach((r) => console.log('    ' + r.path + '  ' + r.warns.join('; ')));
   } }
+// --fix / --dry-run: insert one blank line above flagged tables and dataview blocks, nothing else
+if ((FIX || DRY) && !KIT && !SPECS_ONLY) {
+  const stripBlank = (t) => t.split('\n').filter((l) => l.trim() !== '').join('\n');
+  let changed = 0, added = 0, skipped = 0, failed = 0;
+  console.log('\n' + (DRY && !FIX ? 'Dry run (nothing written):' : 'Fix:'));
+  for (const r of results) {
+    if (!r.fixAt || !r.fixAt.length) continue;
+    if (SKIP_FIX.some((x) => r.path.startsWith(x))) { skipped++; continue; }
+    const abs = path.join(ROOT, r.path); const orig = fs.readFileSync(abs, 'utf8');
+    const lines = orig.split('\n'); const blank = orig.includes('\r\n') ? '\r' : '';
+    const at = [...new Set(r.fixAt)].sort((a, b) => b - a);
+    for (const i of at) lines.splice(i, 0, blank);
+    const out = lines.join('\n');
+    if (stripBlank(out) !== stripBlank(orig)) { failed++; console.log('  SKIPPED (self-check failed) ' + r.path); continue; }
+    console.log('  ' + (FIX && !DRY ? 'fixed ' : 'would fix ') + r.path + '  +' + at.length + ' blank at ' + at.slice().reverse().map((i) => 'L' + (i + 1)).join(','));
+    if (FIX && !DRY) fs.writeFileSync(abs, out);
+    changed++; added += at.length;
+  }
+  console.log('  notes ' + (FIX && !DRY ? 'changed' : 'to change') + ': ' + changed + ', blank lines ' + (FIX && !DRY ? 'added' : 'to add') + ': ' + added + ', skipped by --skip: ' + skipped + ', failed self-check: ' + failed);
+}
 if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ fit, total: results.length, results }, null, 1));

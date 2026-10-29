@@ -56,6 +56,7 @@ This makes culture a potential source of **sustainable competitive advantage** â
 **Textbook definition:** Culture is a **pattern of shared basic assumptions** that a group learns as it solves its problems. These assumptions work well enough to be considered valid, and are taught to new members as the **correct way to perceive, think, and feel** about organizational challenges.
 
 Five lenses for reading a culture:
+
 | Lens | What to observe |
 |------|----------------|
 | **Values and philosophy** | What does the company say it stands for? What is its stated purpose? |

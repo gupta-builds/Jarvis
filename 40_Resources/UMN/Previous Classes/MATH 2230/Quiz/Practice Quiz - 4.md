@@ -329,6 +329,7 @@ _H_a: 𝜌 ≠ 0
 
   
 Calculate the test statistic and determine the _P_-value. (Round your test statistic to two decimal places and your _P_-value to three decimal places.)  
+
 |   |   |   |
 |---|---|---|
 |t|=||

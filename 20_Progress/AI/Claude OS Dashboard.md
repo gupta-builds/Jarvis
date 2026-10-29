@@ -68,6 +68,7 @@ Shadow: off
 === end-multi-column
 ## Setup Coverage
 All four platforms are fully mapped: every project folder has a `Setup.md` inventorying its files, rolled up in each platform's MOC. Cursor and Kiro got full-rigor treatment (live-vs-dump diffing where a live equivalent exists); Codex got a light-touch pass (frontmatter + Files list + Inventory table only, no gap analysis).
+
 | Platform | Setup.md coverage | MOC.md |
 | --- | --- | --- |
 | **Claude Code** | 8 of 8 project folders | [[20_Progress/AI/Claude Code/MOC\|MOC]] |

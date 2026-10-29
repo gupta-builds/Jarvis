@@ -50,6 +50,7 @@ track: career
 
 **Step 2: Ranking Matrix**
 Create ranking table:
+
 | Track | Prize | Judge Fit (You %) | Innovation % | Impact % | Tech % | Execution % | Fit Score |
 |---|---|---|---|---|---|---|---|
 | AI/ML GenAI | $3,000 | 95% | 40% | 40% | 20% | 0% | 9.2 |

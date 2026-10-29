@@ -27,6 +27,7 @@ next: "Closed. Open: BIOS battery cap, Defender exclusions and full scan, vscode
 **Still true and worth keeping:** sections 3 (what Windows owns on C:), 4 (the structure contract), 5 and 6 (scripts and watch design), and the Failure Log's growth rules. The contract is enforced by environment variables, so a new tool sets its variable first.
 
 **Open items from section 11, final status.**
+
 | Item | Final status (2026-10-17) |
 |---|---|
 | ~50 dot-folders holding agent-skill junctions | open, Build 6 (see the AI platforms audit) |

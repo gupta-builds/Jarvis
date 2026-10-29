@@ -196,6 +196,7 @@ dv.paragraph(`**LC:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${
 ```
 
 `## Today's Priorities` heading, then:
+
 ```dataview
 TASK
 FROM "10_Areas/Life/Enumerate/Daily"
@@ -204,6 +205,7 @@ LIMIT 8
 ```
 
 `## Active Projects` heading, then:
+
 ```dataview
 TABLE status, deadline, next, file.mtime AS "Updated"
 FROM "20_Progress"
@@ -246,6 +248,7 @@ Then the habit callout:
 ```
 
 `## Internship Pipeline` heading, then:
+
 ```dataview
 TABLE status, next
 FROM "10_Areas/Career/Internships"
@@ -254,6 +257,7 @@ LIMIT 5
 ```
 
 `## Clippings Queue` heading, then a DataviewJS count:
+
 ```dataviewjs
 const remaining = dv.pages('"60_Claude/05_Clippings"')
   .where(p => !p.file.name.includes("board") && !p.file.name.includes("README")).length;
@@ -261,6 +265,7 @@ dv.paragraph(`**${remaining}** items awaiting distillation`);
 ```
 
 `## Vault Health` heading, then:
+
 ```dataview
 TABLE file.folder AS Folder, file.mtime AS "Updated"
 FROM "10_Areas" OR "20_Progress" OR "40_Resources" OR "60_Claude"

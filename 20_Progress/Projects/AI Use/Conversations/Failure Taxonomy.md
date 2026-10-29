@@ -23,6 +23,7 @@ notes:
 This is the vocabulary for the `codes[]` field in [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]]. It is version 0. Two sources say a codebook written before reading the data does not survive it: Shankar et al. watched 5 of 9 people add or reinterpret criteria as they graded outputs ("criteria drift"), and Husain's method has the human code the first traces freely before any taxonomy is fixed. Tang et al. reached saturation after three rounds of coding 100 records. So the seed below is a starting guess, written down so the first review has something to argue with.
 ## Seeded codes
 The first seven are Tang et al.'s symptom categories from 20,574 real sessions (arXiv 2605.29442); percentages are their share of misalignment episodes, a different base from ours. The rest are this vault's own, built from the audit and the postmortem.
+
 | Code | Name | Definition | Detected by | Origin |
 |---|---|---|---|---|
 | S1 | Wrong project diagnosis | The agent misreads the codebase or vault state | human | Tang, 11.6% of episodes |

@@ -24,6 +24,7 @@ GROUP BY true
 > Target: set a real number here once you have a sense of realistic weekly pace (careery.pro's research says CS/tech students typically need 100-300+ applications — see [[System - Build Log]]). This count is auto-computed from real Tracker notes, never hand-edited.
 ## 16-Week Window
 Tick a box the day you actually touched the loop — found, screened, reached out, applied, followed up. One tick is enough; don't require a full application to count the day.
+
 | Week | Mon | Tue | Wed | Thu | Fri | Sat | Sun |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] | [ ] |

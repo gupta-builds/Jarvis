@@ -69,6 +69,7 @@ This section describes the types of operands instructions can manipulate and how
 		- s **(Scale Factor):** A constant multiplier (must be 1, 2, 4, or 8).
 2. Data Movement Instructions: These are among the most heavily used instructions, allowing data to be copied between registers and memory.
 	- The basic move instruction is `mov` (with size suffixes: `movb`, `movw`, `movl`, `movq`).
+
 	| **Instruction** | **Effect** | **Description** |
 	|------------------|------------|-----------------|
 	| `mov`            | `S, D → D ← S` | Move |

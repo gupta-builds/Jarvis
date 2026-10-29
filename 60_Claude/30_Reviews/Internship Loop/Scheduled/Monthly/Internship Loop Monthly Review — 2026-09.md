@@ -37,6 +37,7 @@ _Against [[30_Order/Workflows/Internship Pipeline]]'s own `Done When` list._
 **Batch B (Prompt 27, 2026-08-30) — never landed, confirmed by absence, not inferred.** None of its 7 dossiers (Castleton Data Engineering, KeyBank Analytics and Quantitative Modeling, Genentech Machine Learning, LPL Financial Software Engineer, Regions Bank, DTCC, GE Vernova) exist anywhere in `Programs/`, `Contacts/`, or `Tracker/`. `Claude Code Prompts.md`'s own prior `next` field described both prompts as run ("Prompts 26/27 pivot to actual promotion... two parallel Codebase sessions") — **that description doesn't hold for Batch B**. Either the second session never ran, ran and failed silently, or ran and its output was never committed. Not resolved this pass — flagged, not guessed at.
 
 **Deadline check, run directly against today's date (2026-09-04) — the most urgent finding this review produced:**
+
 | Program | Deadline | applying_note | Status |
 |---|---|---|---|
 | Castleton Commodities Intl — Data Science/ML Intern | 2026-09-01 | `null` | **Deadline already passed, 3 days ago, with no Applying note ever created.** |

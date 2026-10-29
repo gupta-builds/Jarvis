@@ -29,6 +29,7 @@ graphify install                # registers the /graphify skill with Claude Code
 3. **Docs/PDFs/images (costs tokens)** — parallel Claude subagents (or a configured API backend for headless `graphify extract`), each reading a batch of files and returning a `{nodes, edges}` JSON fragment, merged into the graph.
 ## Community Detection And Confidence
 Communities come from the **Leiden algorithm** over the edge graph — no embeddings, no vector store; the `semantically_similar_to` edges Claude extracts *are* the similarity signal feeding the clustering directly. Every edge carries one of three confidence tags:
+
 | Tag | Meaning | `confidence_score` |
 |---|---|---|
 | `EXTRACTED` | explicit in source (import, direct call) | always `1.0` |

@@ -36,6 +36,7 @@ next: "Closed. Open items: the Acer's 4 local-only internship commits, Windows V
 | Open | the Acer's 4 local-only internship commits; the Acer's Remote-SSH execution-location re-check; Windows VS Code, MCP and Claude Code wiring (Build 6) |
 
 **Corrections to the log below (the live machine wins).**
+
 | The log says | What is true now |
 |---|---|
 | systemd `degraded`, "wait for a stable WSL release" | closed: WSL 3.0.3.0 (stable 2026-10-09) fixed `systemd-binfmt`; `running`, 0 failed units |
@@ -79,6 +80,7 @@ Backups made before edits: `~/.bashrc.build2-20261007.bak`, `~/.gitconfig.build2
 
 ## State-changing commands and errors
 Commands applied in WSL after dated backups:
+
 | Change | Command or action | Result |
 |---|---|---|
 | Global Git behavior | `git config --global pull.rebase true`; `push.autoSetupRemote true`; `fetch.prune true`; `rerere.enabled true`; `core.autocrlf input`; `init.defaultBranch main` | All six values read back correctly |
@@ -189,6 +191,7 @@ List for later editing; older notes were not edited here:
 ## Phase 3 proposals
 ### Editor-server cleanup list, approval required
 Re-check immediately before any deletion that no VS Code, Cursor, or container editor is attached. Nothing has been deleted.
+
 | Area | Current measured candidates | Proposed targeted action after approval |
 |---|---|---|
 | `~/.vscode-server` (7.74 GiB at Build 1 audit) | 1.75 GiB cached VSIX; stale extension versions and logs | Enumerate current server hashes, live process attachments, extension IDs/versions and log age/size. Keep active server/hash and current 34 extensions. Remove only specifically identified superseded VSIX/log files after approval. |
@@ -261,6 +264,7 @@ Closed. WSL 3.0.3.0 (stable) fixed the systemd failure, Phase 4 finished on 2026
 
 ## Campaign ledger: final disposition (2026-10-17)
 The 2026-10-11 ledger listed work under an earlier build numbering (Build 3 Tier A/B/C, "Build 5 Windows VS Code/MCP", "Build 6 final parity"). Every row has been settled or re-homed:
+
 | Original item | Final |
 |---|---|
 | P4.1 systemd gate | closed by WSL 3.0.3.0 |
@@ -304,6 +308,7 @@ Gotcha: Tailscale SSH "check" mode asks for a browser confirmation after inactiv
 
 ## Acer visit ledger update, 2026-10-15
 Rows 4.6, 4.7 and 4.9 above were closed from the Acer on 2026-10-15; the evidence (route, host key, `sync-check`, transfer, clone inventory) is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
+
 | Row | State now |
 |---|---|
 | 4.6 Acer handoff, inventory | PASS. Two WSL clones; no Windows-side clones found. The internship clone holds 4 local-only commits, backed up as a verified Git bundle. |

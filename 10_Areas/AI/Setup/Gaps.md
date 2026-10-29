@@ -2,7 +2,7 @@
 type: action
 status: active
 created: 2026-08-09
-updated: 2026-10-17
+updated: 2026-10-29
 tags:
   - action
   - ai
@@ -14,7 +14,9 @@ related_progress:
 next: Decide whether/how to reconcile the two home directories' still-disjoint agents/commands/skills content, per [[20_Progress/AI/Claude Code/Sync - Unison]]
 ---
 # Gaps
-Derived from [[Folder Map]] and [[Notes Map]], both built from a full read-through of every AI-related folder in the vault on 2026-08-09. Statements only — no checkboxes, no prose paragraphs. Every statement links to the thing it concerns.
+Derived from [[Folder Map]] and [[Notes Map]], both built from a full read-through of every AI-related folder in the vault on 2026-08-09. Statements only, no checkboxes outside the To Do, no prose paragraphs. Every statement links to the thing it concerns.
+> [!todo] To Do
+> - [ ] Decide whether/how to reconcile the two home directories' still-disjoint agents/commands/skills content, per [[20_Progress/AI/Claude Code/Sync - Unison]]
 ## Sync and capture spot-check (2026-08-20)
 Independently re-verified, not taken on any prior session's report of itself, per this round's explicit "check real state, not reported state" instruction. `_All-Projects-Sync-Log.md` grepped directly for every line dated 2026-08-14 through 2026-08-20: **1740 OK / 0 failed / 0 skipped** — a grep for `CONFLICTS`/`FAIL`/`ERROR`/`SKIP` across the same range returned zero matches, most recent line 2026-08-20 12:49:34, minutes before this check. The sync mechanism is genuinely healthy right now, not just self-reporting healthy.
 `00 - Capture Health.md` shows both Windows and WSL backfill's last 10 runs all `OK (exit 0)`, most recent 2026-08-20T08:45–08:46 UTC. Cross-checked against real files rather than trusting the dashboard alone: Windows has a genuine new raw session note today (currently empty — a session still in progress, not a failure). WSL's newest real session note is still dated 2026-08-19 — no WSL Claude Code session has run yet today, which is why the backfill shows nothing new, not evidence of a broken hook. Both dashboards' "OK" claims independently confirmed real for this check; if a future check finds the dashboard claiming OK with no corroborating real session note for several days running, that is the pattern to treat as a silent failure, not this one.
@@ -64,12 +66,15 @@ Fill or delete the empty `40_Resources/CS/AI/Workflows/Claude Code/` subfolder.
 Review Codex, Cursor, and Kiro's own `MOC.md` files in full — this pass confirmed they exist and are real but did not read them end to end the way `20_Progress/AI/Claude Code/MOC` was read.
 `10_Areas/AI/Setup/` is no longer empty — [[Folder Map]], [[Notes Map]], and this note were relocated into it 2026-08-10; its purpose is now this meta-map itself, not open anymore.
 Turn the plain-code-formatted folder paths in [[10_Areas/AI/Claude Code]], `Codex.md`, `Cursor.md`, and `Kiro.md` into real wikilinks where the target folders have MOCs, so this meta-map layer and the per-tool registry actually connect.
-## Open Threads
-Whether `10_Areas/AI`, `20_Progress/AI`, and `20_Progress/Projects/AI Use` should be merged into fewer trees now that [[Folder Map]] has written down what each one does — flagged, not decided, in this pass.
-Decided 2026-08-10: the automated review system builds out under `60_Claude/30_Reviews/AI/` as its own tree, kept separate from `Weekly Synthesis/`/`Monthly/` since that structure is concept-mastery review (Capability Engine), a different subject — not yet built, but no longer an open question.
 ## Process rule: sequencing across concurrent sessions (added 2026-08-20)
 **A dependent round-prompt must name the specific commit hash or artifact it's waiting for, and the session running it must confirm that exact thing exists before proceeding — "run this after the other session lands its work" is not a strong enough instruction.** Found necessary the hard way this same round: a Jarvis-side verification checked the real second-brain-claudekit repo, correctly found it uncommitted (HEAD `ef464d2`), and reported that. A concurrent codebase session then landed 6 real commits about 20 minutes later (HEAD `9896d08`) — not a mistake by either session, just two sessions running in the same window with no shared checkpoint between them. Both reports were accurate at the moment each ran; neither knew what the other had or hadn't done yet.
 **How to apply:** when a round-prompt depends on another session's output (a commit, a promoted tool, a fixed file), name the exact artifact — a commit hash, a file path plus expected content, a specific line in a log — not just "the other session's work." The session executing the dependent prompt checks for that named artifact directly before trusting anything built on top of it; if the artifact isn't there yet, it reports "not yet landed" rather than proceeding on an assumption either way. This is the same discipline already applied to gbrain's promotion status above — real evidence checked, not guessed, when the outcome genuinely isn't known yet.
 ## Process rule: concurrent writes to the same vault note (added 2026-08-20)
 **A different failure mode from the one above — that rule covers one round waiting on another round's known, named output; this one covers two sessions editing the *same note* at the *same time* with neither knowing about the other.** Real evidence this happens: stray `Log.md.tmp.237231.*` and `Tool Map.md.tmp.237231.*` write-in-progress artifacts were reported in `20_Progress/Projects/AI Use/Claude Kit/` this same day — checked directly this pass and no longer present (removed by whatever process created them, or by the vault's own auto-commit bot; not something this pass needs to clean up, but real evidence the collision happened). Naming a commit hash to wait on doesn't help here — a live-append race on a shared note isn't a sequencing-order problem, it's a same-moment collision.
 **How to apply:** before appending to a shared, frequently-edited log (Claude Kit/Log.md, Tool Map.md, Gaps.md, and similarly the `sync-manifest.json`-tracked project logs), check the file's own current mtime immediately before writing, not just when first reading it at the start of a session — if the mtime is newer than when the session started or last read it, re-read the file fresh before appending rather than writing on top of a stale in-memory copy. This doesn't eliminate the race (two sessions can still both pass that check in the same instant), but it closes the common case where a session sits on a stale read for a long time before finally writing.
+## Open Threads
+### Questions
+Whether `10_Areas/AI`, `20_Progress/AI`, and `20_Progress/Projects/AI Use` should be merged into fewer trees now that [[Folder Map]] has written down what each one does — flagged, not decided, in this pass.
+Decided 2026-08-10: the automated review system builds out under `60_Claude/30_Reviews/AI/` as its own tree, kept separate from `Weekly Synthesis/`/`Monthly/` since that structure is concept-mastery review (Capability Engine), a different subject — not yet built, but no longer an open question.
+### Research
+Review Codex, Cursor, and Kiro's own `MOC.md` files end to end, which this pass did not do the way [[20_Progress/AI/Claude Code/MOC]] was read.

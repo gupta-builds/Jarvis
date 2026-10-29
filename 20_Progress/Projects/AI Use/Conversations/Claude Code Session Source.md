@@ -29,6 +29,7 @@ This note records what is in the raw transcripts on the Acer today, counted from
 - The oldest top-level file is dated 2026-09-21. No `cleanupPeriodDays` is set in the user settings. The docs state a 30-day default, so older sessions are deleted (see "What the docs say" below).
 ## What a transcript holds
 Entry types across the 122 files, with counts:
+
 | Type | Count | Exporter uses it |
 |---|---|---|
 | assistant | 11,352 | Yes: text, tool calls, `usage`, `model` |

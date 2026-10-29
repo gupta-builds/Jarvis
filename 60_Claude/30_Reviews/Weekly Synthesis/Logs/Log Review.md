@@ -17,6 +17,7 @@ notes:
 Build 5 (2026-09-19) rotated the Sync-Log files by moving old lines into a same-shaped `Sync-Log-Archive-<date>.md` file. That solved nothing structurally — the archive is still a file Obsidian has to index, and it grew right back to unmanageable size, which is exactly why this note exists a day later. The replacement rule, locked in 2026-09-20: when a managed log exceeds its line cap, the excess is **summarized in prose here, then deleted outright** — never moved to a second file. A summary answers "what happened," which is what anyone re-reading this later actually wants; a raw archive of `OK exit=0` lines never got reread once, by anyone, the whole time Build 5's archives existed.
 ## Managed Logs Registry
 Every log this note's trigger reads and trims. Adding a new one requires checking it isn't already covered by an existing entry's real scope, per the Log Standard.
+
 | Log | Path | Kind | Cap | Trim Rule |
 |---|---|---|---|---|
 | Per-project Sync-Log | `20_Progress/AI/Claude Code/<Project>/Sync-Log.md` (10 projects) | Mechanical, auto-generated every 15 min by `ClaudeKit-Sync-All` | 300 lines | Keep last 300, summarize+delete the rest |
@@ -68,6 +69,7 @@ Computed real aggregate statistics against each archive's full content (grep-bas
 - **A synchronized burst of one `CONFLICTS (skipped, see below)` in 6 of the 9 per-project archives**, all within a 36-minute window on 2026-08-10 (14:14-14:50) — a one-time initial-bootstrap conflict wave across CausalOps, Portfolio, Trading View, Resq, OpsPilot, and The Plan, each resolved the same run and never recurring. Confirmed via the combined archive (below): exactly 6 `CONFLICTS` lines total, same timestamps, same projects.
 - **A handful of `SKIPPED (another sync already running)` lock-contention lines per project (1-6 each)** — expected behavior when two scheduled runs overlap, not a failure.
 Per-file breakdown (runs = summary lines ending `exit=N`; detail lines = the richer per-path `<subfolder>/ OK <src> -> <dest>` lines added later in each file's history):
+
 | Project | Runs | OK | Conflicts | Transfer errors | Lock-skips | Detail lines |
 |---|---:|---:|---:|---:|---:|---:|
 | CausalOps | 1594 | 1593 | 1 | 0 | 2 | 7742 |
@@ -85,6 +87,7 @@ All 10 archive files deleted after this entry was written — fully superseded, 
 Before trim: 2126 lines, covering 2026-09-19 23:46 (first real commit-and-push run, Build 7) through 2026-09-20 13:59. All entries in the removed portion (1826 lines) were clean `OK exit=0` single-line runs from the 15-minute `Jarvis-GitAutoSync` cadence on this machine — no failures, no retries logged in the trimmed range. The one genuinely interesting event in this window (a real engineered push-race recovery, and the first-ever run bootstrapping git on this machine) predates this log's own creation and is already fully documented in [[Cross-Laptop Sync - Build 7 Findings]], not lost by this trim. After trim: 300 lines, covering roughly the last 3.5 hours (2026-09-20 10:33 onward).
 ## [2026-09-20] log-review | 10 active per-project Sync-Log.md files trimmed to their 300-line cap
 Same source (`ClaudeKit-Sync-All`, 15-min cadence, now driven from both the Dell and the Acer since Build 6) across all 10, each trimmed independently, real per-file counts on the removed portion (run-summary lines only, `exit=N`, not the richer per-path detail lines that outnumber them):
+
 | Project | Before | After | Removed-range start | Removed-range end | Runs in removed range | Non-OK |
 |---|---:|---:|---|---|---:|---|
 | CausalOps | 3417 | 300 | 2026-08-10 14:13:53 | 2026-09-20 03:49:34 | 446 | 0 |

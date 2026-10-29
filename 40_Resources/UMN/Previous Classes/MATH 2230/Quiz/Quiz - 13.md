@@ -291,6 +291,7 @@ _H_a: 𝜇1 − 𝜇2 > 1
 
   
 Calculate the test statistic and determine the _P_-value. (Round your test statistic to one decimal place and your _P_-value to three decimal places.)  
+
 |   |   |   |
 |---|---|---|
 |t|=||
@@ -320,6 +321,7 @@ Scientists and engineers frequently wish to compare two different techniques for
 
 ||Infant|   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
+
 |1|2|3|4|5|6|7|
 |---|---|---|---|---|---|---|
 |DD method|1,539|1,418|1,561|1,556|2,169|1,730|1,098|
@@ -328,6 +330,7 @@ Scientists and engineers frequently wish to compare two different techniques for
 
 ||Infant|   |   |   |   |   |   |
 |---|---|---|---|---|---|---|---|
+
 |8|9|10|11|12|13|14|
 |---|---|---|---|---|---|---|
 |DD method|1,198|1,479|1,281|1,414|1,964|2,174|2,058|

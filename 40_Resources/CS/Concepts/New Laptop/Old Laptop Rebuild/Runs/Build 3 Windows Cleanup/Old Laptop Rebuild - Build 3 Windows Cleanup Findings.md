@@ -37,6 +37,7 @@ next: "Closed by Build 3b. Open: vscode-remote-wsl on C:, Defender exclusions an
 | Suspicious files | `0K7YY.exe` and `nc6a9.exe` (identical, spoofed "MoUsoCoreWorker", hash mismatch) were renamed `.quarantined` and moved to the quarantine's `suspicious` folder by `01-user-cleanup.ps1`. They are absent from the profile root; that folder held 0 files when it was purged, so their final removal is not recorded. They were never run. **No full Defender scan has ever run** (last quick scan 2026-10-14) |
 
 **What did not get finished here, and its final status.**
+
 | Item | Final |
 |---|---|
 | Python 3.13.5 and Chocolatey | removed in Build 4; 3 visible ghost registrations cleared 2026-10-17, 7 hidden MSI component entries remain (exit 1603), invisible in Settings and `winget` |
@@ -74,6 +75,7 @@ The measured per-script results are in 3b, section 9.
 
 ## Screenshot transcription (WizTree v4.31, C:, scan 7.59 s)
 Hard-to-read figures were not an issue (text legible at native size), so no crop-and-zoom was needed. Size / allocated / items.
+
 | Path | Size GB | Alloc GB | Items |
 |---|---:|---:|---:|
 | C: total | 227.6 | 209.7 | 1,862,699 |
@@ -213,6 +215,7 @@ The elevated script and rollback are written in Phase 4. The read-only diagnosti
 
 ## Crash causes
 Window: last 30 days (Kernel-Power 41, BugCheck 1001 and 6008 events: none, so there were no blue screens or hard power loss).
+
 | Rank | Program | Evidence |
 |---|---|---|
 | 1 | VS Code | 15 Crashpad reports (Jul 3, Aug 4, Sep 5, Oct 3; newest 10-03), 0.45 GiB |
@@ -225,6 +228,7 @@ dump inventory: 37 .dmp on C: (1.22 GiB): wsl-crashes 3 (0.54), Code 15 (0.45), 
 
 ## Installed programs, classified
 Buckets from [[Installations]]. Install location read from the uninstall keys; blank means the installer does not record one.
+
 | Program | Location | Verdict |
 |---|---|---|
 | VS Code 1.141, Cursor 3.19, Kiro 1.0.395, Antigravity 2.12, Jan, Ollama, Obsidian, Postman, Slack, Discord, Zoom, Telegram, Spotify, Vivaldi, Voquill, Todoist, Loom, Cluely, 16x Prompt, Bitwarden, Claude Desktop | `AppData\...` | forced to C: (Electron/Squirrel/Store); clean caches only. VS Code is bucket B (Acer put it on D:) but moving it belongs to the Windows VS Code build |
@@ -248,6 +252,7 @@ Plan only, nothing run:
 
 ## Startup and scheduled-task review
 Startup entries (current user): Discord, RiotClient, Medal, Steam, GoogleDriveFS, Rize, Spotify, Docker Desktop, Voquill, Slack. Machine: SecurityHealth, WavesSvc, RtkAudUService, DubbingAI. Startup folder: E START App, Ollama, OpenClaw Gateway.cmd, Send to OneNote, Wispr Flow.
+
 | Item | Recommendation |
 |---|---|
 | Discord, RiotClient, Medal, Steam, Spotify, Rize, Voquill, Slack, E START App, Wispr Flow, Send to OneNote | disable at startup (launch when needed); saves RAM and logon time |
@@ -273,6 +278,7 @@ Design (applies once you approve):
 
 ## Sensitive-item inventory (path and category only, no values)
 Name-based scan of `C:\Users\Anant Gupta`, `D:\Users`, `D:\_Anant`, `D:\AI` (skipping `node_modules`, `.venv`, `target`, the Ubuntu VHDX): **313 hits**.
+
 | Category | Count | Where (top locations) |
 |---|---:|---|
 | browser data (Cookies, Login Data) | 145 | WebView2/Chromium profiles under `AppData\Local`, `AppData\LocalLow`, `AppData\Roaming\Code`, Antigravity, 16x Prompt |
@@ -308,6 +314,7 @@ Revised plan, because commit charge is 43.2 of 57.1 GiB (a 4 GB C: file would dr
 
 ## C: layout map (target structure, mirrored on the Acer)
 Rule: a folder on C: is either Windows, an installed program, or one tool's own state. Nothing the user authored lives on C:. Anything else goes to D:.
+
 | Location | What it is | Owner | Action rule |
 |---|---|---|---|
 | `C:\Windows`, `C:\Program Files`, `C:\Program Files (x86)`, `C:\ProgramData`, `C:\Users`, `C:\Recovery`, `C:\pagefile.sys` | OS and installed programs | Windows | Tier C, never hand-edited |

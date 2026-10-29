@@ -36,6 +36,7 @@ This is the personal interview-preparation syllabus for October 12 through Decem
 | [[Weekly Set\|Weekly Set]] | Current-week task checklist |
 ## Dated curriculum and effort
 The allocations are independent revision/practice budgets, not reserved appointments. Matching live CodePath content can replace its corresponding source-review block; any additional attendance or assessment commitment must be reconciled with the week’s budget. Optional work never displaces a required failed-pattern review.
+
 | Week / dates | Required knowledge | Checked LeetCode / hard | Other required practice | Budget: source / attempts and drills / recall |
 |---|---|---|---|---|
 | W1 2026-10-12 to 2026-10-18 | Read both sessions for each of Units 1-5; begin with captured three-step UPI, then expand to six-step UMPIRE; review list/string, dictionary/set, recursion, linked-node, tree and graph contracts; establish time/space variables and edge cases. | 9 / 0 | P1.2 | 12h / 5.00h / 5.50h = 22.5h |

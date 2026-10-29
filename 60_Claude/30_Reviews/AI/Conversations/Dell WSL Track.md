@@ -21,6 +21,7 @@ notes:
 Read from the Acer through synced notes only; the Dell was not reached. The track holds 142 Claude Code notes from 2026-06-30 to 2026-10-18 and 62 Cursor notes that end on 2026-09-05. It is the heaviest track per project (internship loop alone is 46 notes and $1,258) and the one whose capture broke most quietly: the hook pointed at a missing folder from 2026-10-13 until Build 5c repaired it on 2026-10-17.
 ## Scope
 `Dell/WSL/Claude/` and `Dell/WSL/Cursor/` as copied to the Acer, measured 2026-10-21. Facts about the Dell's WSL settings and timer come from Build 5c's session, which read the Dell over Tailscale SSH on 2026-10-17 and has not been repeated.
+
 | Item | Value |
 |---|---|
 | Claude notes | 142 |

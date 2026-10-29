@@ -928,6 +928,7 @@ The population of a particular country consists of three ethnic groups. Each ind
 
 ||   |Blood Group|   |   |   |
 |---|---|---|---|---|---|
+
 |O|A|B|AB|
 |---|---|---|---|
 |Ethnic Group|1|0.082|0.110|0.007|0.004|
@@ -985,6 +986,7 @@ The population of a particular country consists of three ethnic groups. Each ind
 
 ||   |Blood Group|   |   |   |
 |---|---|---|---|---|---|
+
 |O|A|B|AB|
 |---|---|---|---|
 |Ethnic Group|1|0.082|0.103|0.006|0.004|

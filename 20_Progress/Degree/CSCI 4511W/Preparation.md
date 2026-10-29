@@ -39,6 +39,7 @@ The assignment commands are documented entry points, not a claim that assignment
 ### Textbooks and exercises
 One locally stored textbook was found: Russell and Norvig, *Artificial Intelligence: A Modern Approach*, fourth edition, `CSCI 4511W Textbook.pdf` (2,145 PDF pages). Chapter 1 is background; assigned material through Lecture 10 is Chapter 2 §2.1-2.4, Chapter 3 §3.1-3.6, and Chapter 4 §4.1-4.4. [[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]] links all four existing chapter notes. Vector Semantics is a later supplementary reading, outside this quiz's covered lectures.
 The preface, PDF pp. 11-12, says exercises moved online. Verified author-linked banks:
+
 | Bank | Numbered entries | Status |
 |---|---|---|
 | [Chapter 1](https://aimacode.github.io/aima-exercises/intro-exercises/) | 1.1-1.20 | Full inventory in [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week 1]] |
@@ -48,6 +49,7 @@ The preface, PDF pp. 11-12, says exercises moved online. Verified author-linked 
 These are 93 numbered entries, including repeated/legacy material, not 93 confirmed course assignments. Match exercises by topic and prompt, not assumed fourth-edition numbering. Course-specific exercises also occur in PS1, PS2, lecture slides, discussions, and the sample quiz.
 ### Lectures through Week 6
 All paths in this table are relative to the primary source root. Dates come from PDF title slides and the Board schedule.
+
 | Week | Lecture sources | Textbook connection | Canonical notes |
 |---|---|---|---|
 | 1 | September 9 live capture; no Lecture 01 PDF found | Chapter 1 background; Turing §1-7 | [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week 1]], source-checked this session |
@@ -73,6 +75,7 @@ Discussion 5 is an explicit review source. Its worked examples cover vacuum-agen
 ### Sample Long Quiz — Verified Solutions (longquiz1-f24)
 Solved resourced (open discussion/lecture/textbook, with Python verification), not as a timed 45-minute/2-page dry run — that dry run is still a separate open gate below. Every numeric claim here was independently recomputed, not copied from Discussion 5; the two agree everywhere checked.
 **Answer key**
+
 | Q | Answer |
 |---|---|
 | 1a | 0 pts, under Discussion 5's "count clean rooms after the action" convention. Flag: the alternate before-action convention gives −1 instead — both verified by brute force over all 16 initial dirt patterns × all slip-outcome sequences, no convention stated on the quiz itself. |

@@ -21,6 +21,7 @@ This note is the course record for CodePath TIP103, grounded in the extracted se
 The syllabus targets advanced Python problem solving, algorithm analysis with UMPIRE, clear interview communication, upper-level internship and entry-level interview readiness, and deliberate use of learning/debugging tools (pages 1-2). Prerequisites include introductory OOP, loops, conditionals, arrays, types, functions, lists, dictionaries, linked lists, trees and common algorithms. Setup: VS Code-capable computer, 8 GB RAM minimum, 16 GB recommended, 10 GB free storage, free GitHub account. CodePath supplies the materials; no textbook purchase is required (pages 2-3).
 ## Standard delivery and topic sequence
 Ten taught units over approximately ten weeks, plus two asynchronous stretch units. Two synchronous sessions per week total four class hours per unit; each session is approximately one hour of lecture/discussion and one hour of collaborative coding. Expected assessment work is another 2-4 hours weekly. Mock interviews run throughout (page 3). These are course-design facts, not the personal study-hour budget.
+
 | Sample taught unit | Lecture topics | Source |
 |---|---|---|
 | 1 | Course structure and UMPIRE | PDF p.3 |
@@ -35,6 +36,7 @@ Ten taught units over approximately ten weeks, plus two asynchronous stretch uni
 | 10 | Final mock interview and wrap-up | PDF p.4 |
 ## Assessment numbering
 Assessment units are numbered separately from the sample lecture-unit table. A captured session number or homework filename does not establish its HackerRank assessment number (pages 4-5).
+
 | Assessment unit | Assessment topic |
 |---|---|
 | 1 | Strings and arrays |
@@ -67,6 +69,7 @@ The standard syllabus allows up to three absences without penalty; attendance is
 The supplied schedule image labels required sessions Tuesday and Thursday, 5-7 PM Pacific, with both PDT and PST shown; orientation Friday, 1:30-2:30 PM PDT; optional Study Hall and Fix-it Garage. It labels weekly submissions Sunday 11:59 PM PT. The image’s calendar displays session blocks at 7-9 PM but does not label that calendar timezone. Do not infer a conversion from the calendar alone. Cohort start/end dates and optional-session timezone remain unknown and do not control the personal December 28 deadline.
 ## Captured Units 1-5
 The captured session sequence differs from the generic sample table: captured Unit 4 covers OOP, linked lists and trees; captured Unit 5 covers graphs. Use these transcripts to map the actual landed content. The syllabus remains authority for standard course design; the portal is needed to reconcile exact cohort pacing.
+
 | Captured unit | Session 1 | Session 2 | Raw source |
 |---|---|---|---|
 | 1 | Strings, arrays, UPI | UMPIRE, matrices, two pointers, intervals | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 1 Problems Transcript\|Unit 1]] |

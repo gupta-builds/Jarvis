@@ -492,6 +492,7 @@ The list is constructed with three nodes:
 2. **Loop Initialization:**
    - `current = head` (points to Node 1).
 3. **While Loop Iteration Table:**
+
    | Iteration | `current` Node | `current.next` Node | `current.next.next` | Condition `while current.next.next:` | Action Taken |
    | :---: | :---: | :---: | :---: | :---: | :---: |
    | **1** | Node 1 (`value=1`) | Node 2 (`value=2`) | Node 3 (`value=3`) | **True** (Node 3 is not None) | `current = current.next` $\to$ Node 2 |

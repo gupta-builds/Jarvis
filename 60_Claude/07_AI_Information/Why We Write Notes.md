@@ -37,6 +37,7 @@ Every note has a specific intended reader. Write for that reader, not for the sa
 - **Obsidian graph / backlinks:** needs meaningful wikilinks that reflect real relationships, not reflexive linking of every keyword.
 ## Section 3 — Note Types and Their Purpose
 Each type answers one question and produces one thing. The decisive column is *when to extend instead of create* — most duplication in this vault comes from creating a new note where extending the canonical one was correct.
+
 | Note type | Question it answers | When to create | When to extend |
 |---|---|---|---|
 | Source summary (`input`) | What did this source say, and what is worth keeping? | Once per source, when the source is worth keeping | Never — source summaries are fixed captures of one source |

@@ -184,6 +184,7 @@ They should not reload half the vault by default.
 ## 3. Integrating multiple model and tool chains
 ### Tool roles
 Use lanes, not brand loyalty.
+
 | Lane | Default role | Good tools |
 |---|---|---|
 | Capture and extraction | structured parsing, metadata extraction, cheap summarization | Ollama, local scripts |

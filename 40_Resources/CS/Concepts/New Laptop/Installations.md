@@ -210,6 +210,7 @@ Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVID
 Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` a global package. Per-tool purpose, commands and gotchas are in [[Machine Toolkit - Tool Use Cases and Agent Guide]]; exact paths and sizes are in the catalog.
 
 **Shell, terminal and fonts**
+
 | Tool | Version | Source | Location | Note |
 |---|---|---|---|---|
 | PowerShell 7 | 7.6.7 | winget | WindowsApps alias | default shell and Terminal profile; profile block in `Documents\PowerShell` (Documents is on D:) |
@@ -220,6 +221,7 @@ Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an in
 | zoxide, fzf, PSFzf, fd, bat, delta | 0.10.0, 0.74.4, 2.7.12, 10.5.0, 0.26.1, 0.20.1 | winget (PSFzf: PowerShell Gallery) | WinGet Packages | configs from the toolkit: `%APPDATA%\fd\ignore`, `%APPDATA%\bat\config`, shared delta include |
 
 **CLI tools, runtimes and package managers**
+
 | Tool | Version | Source | Location | Note |
 |---|---|---|---|---|
 | Git | 2.55.0 | winget | `C:\Program Files\Git` | `core.autocrlf=input`; identity and safe.directory entries are machine-specific |
@@ -237,6 +239,7 @@ Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an in
 | .NET runtimes | 8.0.25 / 8.0.26 and 10.0.9 | winget | `C:\Program Files\dotnet` | the 8.x set is kept on purpose: WSL Settings is pinned to the .NET 8 desktop runtime. Dell apps (TechHub, DTP, MyDell) run on 10 |
 
 **AI platforms, agents and models**
+
 | Tool | Version | Source | Location | Note |
 |---|---|---|---|---|
 | Claude Code | 2.1.300 | native installer | `C:\Users\Anant Gupta\.local\bin\claude.exe` | WSL copy is 2.1.299 |
@@ -268,6 +271,7 @@ The six remaining Run-key entries (Discord, GoogleDriveFS, Spotify, Docker Deskt
 git 2.43.0, git-lfs 3.4.1, jq 1.7, ncdu 1.19, direnv 2.32.1, bubblewrap 0.9.0, socat, wslu 3.2.3, build-essential, curl, wget, unzip, python3-pip, Tailscale 1.104.1 (Tailscale apt repository; `RunSSH=true`, node `dell-wsl`). The apt copies of gh 2.45.0, ripgrep 14.1.0, fd-find 9.0.0, bat 0.24.0, fzf 0.44.1 and tmux 3.4 remain installed as fallbacks but are shadowed on PATH by the user-space builds below.
 
 **User-space binaries in `~/.local/bin`**
+
 | Tool | Version | Note |
 |---|---|---|
 | Starship | 1.26.0 | |
@@ -311,6 +315,7 @@ On 2026-10-11 the Acer's Windows side was also incomplete: Windows Terminal was 
 **Update 2026-10-17 (Build 5c):** the Acer WSL now holds no repos (role: local-model and GPU work), `/` is at 60 percent after a 4.4 GB cache trim, and a user timer `claude-capture-backfill` runs the conversation backfill every 30 minutes. `uv cache clean` ran; `gpu-smoke-test/.venv` (5.3 GB) is kept and still imports torch 2.14.0+cu130 on the RTX 5070 Ti. See [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]].
 
 Host `gupta-builds`, Ubuntu 24.04 on WSL 3.0.3.0 (kernel 6.18.54.1, updated 2026-10-15), user `anant_gupta`, `.wslconfig` 20 GB, 18 CPUs, 8 GiB swap at `D:\WSL\wsl-swap.vhdx`, mirrored networking. The versions below replace the 2026-09-19 table above where they differ.
+
 | Tool | Version | Source |
 |---|---|---|
 | tmux | 3.8 | built from source into `~/.local/bin` (no sudo); the 3.7c binary is in `~/.local/bin/.prev` |

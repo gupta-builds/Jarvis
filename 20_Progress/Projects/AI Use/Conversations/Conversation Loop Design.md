@@ -29,6 +29,7 @@ notes:
 Written 2026-10-22. The design is **locked pending a postmortem**: the choices below are settled unless the pre-implementation postmortem breaks one, and the status stays `active` until then. It is for Claude Code only, on the Acer first, with Obsidian as the place the review happens. The earlier idea of a recursive, self-improving loop is dropped. **The goal is better output, not better scores.** Rates in this design are thermometers for that, never targets.
 ## Current State
 The old capture layer had one part of a loop: a sensor. It wrote 630 session notes and nothing read them ([[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]] finding 5). A loop needs a sensor, a metric, a decision, an actuator, and a check that the change worked. This design supplies the other four, and puts the human at the decision.
+
 | Part | Old layer | This design |
 |---|---|---|
 | Sensor | Stop and SessionEnd hooks exporting a note per session | A per-event hook writing one JSON line per prompt, tool call, and stop, plus a coverage count against `history.jsonl` |

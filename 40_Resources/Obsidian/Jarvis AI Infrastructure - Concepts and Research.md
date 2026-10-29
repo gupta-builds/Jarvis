@@ -27,6 +27,7 @@ Jarvis's candidate harness components include `AGENTS.md`, `CLAUDE.md`, [[HUMAN_
 ## Knowledge graph, plugins, and neural networks
 ==A linked note graph provides relationships; a neural network learns parameters from data.==
 **Wikilinks** connect note nodes. Frontmatter supplies properties and, when a field contains note links with defined meaning, typed relationships. A consistent `type` field labels a node; it does not create a learned representation. A usable knowledge graph additionally needs defined relationships, identity resolution, provenance, and query behavior. Markdown already provides raw graph material, but that does not prove that `jarvis-memory` extracts or queries it.
+
 | Component | Mechanism | What still needs verification in Jarvis |
 |---|---|---|
 | Obsidian Graph View | Draws internal links between notes | Visualization is not proof of graph retrieval. |
@@ -50,6 +51,7 @@ Historical GBrain semantic testing and a local promptfoo `/challenge` experiment
 ## Evaluation before retrieval complexity
 ==A fixed set of evidence-backed questions makes retrieval changes comparable.==
 Start with 30 to 50 real questions and their evidence notes, versioned against the corpus and retrieval configuration. Include direct facts, related-note synthesis, recent decisions, superseded facts, contradictions, and questions the vault cannot answer. Course questions can contribute examples if they test the intended workflow; they should not silently become the whole benchmark. Separate a development set from held-out cases to reduce tuning to the answers.
+
 | Measure | What it answers |
 |---|---|
 | Recall@k | Did the returned set contain the required evidence? |
@@ -72,6 +74,7 @@ Anthropic evaluates the model and harness together and discusses code, model, an
 7. **Learned graph experiments.** Consider link prediction only with a clear task, suitable features, leakage controls, a held-out split, and simple similarity/popularity baselines. Do not use speculative edge predictions as trusted note links without review.
 ## Research anchors and limits
 ==Published results justify experiments; Jarvis must establish its own results.==
+
 | Source | What it contributes | Local decision boundary |
 |---|---|---|
 | [HippoRAG 2](https://arxiv.org/abs/2502.14802), 2025 | Knowledge-graph retrieval with Personalized PageRank and associative-memory evaluation. | Its reported gains are benchmark results, not a prediction of Jarvis recall. Test an ablation against existing retrieval. |

@@ -44,6 +44,7 @@ Surfaced by Prompt 14 v2's repo sweep — real, structured, confirmed via direct
 zapplyjobs (removed 2026-07-18 — entries are program/resource pages, not deadline-bearing postings). General job-board aggregators from `public-apis`' Jobs category (Adzuna, Careerjet, Jooble, Reed, ZipRecruiter) — same low-signal-for-internships problem as zapplyjobs, not internship-specific enough to be worth the integration. `SuryaHarikrishnan/2027-internship-tracker` (13,180 entries, found and evaluated 2026-08-24) — 100% re-aggregated from already-integrated SimplifyJobs/vanshb03 data, zero unique value, correctly skipped.
 ## Named-Program Coverage Check (refreshed 2026-08-24) — Coverage Gap Remains, Connector Question Now Closed
 Per [[00_Execution]]'s Web pass, [[Internship Tracking Dashboard — 2027 Calendar, Programs, & Application Pipeline]] named ~11 target early-talent programs. Re-checked directly against `List/Dossiers/` (frontmatter `company:` field, excluding `Viewed/`, not just body-text mentions of the name — a JD that merely links to LinkedIn or namechecks Google isn't a real hit): **5 of 11 companies now have a dossier, up from 3 at the 2026-07-29 check — but still none confirmed to be the specific named program.**
+
 | Company / Program | Dossier Coverage |
 |---|---|
 | Jane Street (FTTP) | 11 Jane Street dossiers exist (SWE, ML Engineer, ML Researcher, Hardware, Network, etc.) — unchanged since 2026-07-29; none confirmed as the specific FTTP program by name; likely generic postings, not the named pipeline |

@@ -53,6 +53,7 @@ Checked on 2026-10-26.
 
 ## Command-line program
 `dashboard-cli`, bundled for Node and deployed to `30_Order/System/dashboard-cli/` ([[Jarvis Decisions Log]] D43). Each command prints JSON and writes nothing.
+
 | Command | Prints |
 |---|---|
 | `streak <dailyFolder> <date>` | Current, best, floor rows done, at risk, 30 days of status |
@@ -67,6 +68,7 @@ Checked on 2026-10-26.
 
 ## Config
 One exported object, per machine where needed.
+
 | Key | Holds |
 |---|---|
 | `floorRows` | The term table: `application`, `practice`, `class` for Fall 2026 |

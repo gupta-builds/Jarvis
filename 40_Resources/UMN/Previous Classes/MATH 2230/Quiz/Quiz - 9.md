@@ -138,6 +138,7 @@ DevoreStat9 7.1.005.
 Assume that the helium porosity (in percentage) of coal samples taken from any particular seam is normally distributed with true standard deviation 0.76.
 
 (a) Compute a 95% CI for the true average porosity of a certain seam if the average porosity for 15 specimens from the seam was 4.85. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -149,6 +150,7 @@ Assume that the helium porosity (in percentage) of coal samples taken from any p
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/rightparen1.gif)|    
   
 (b) Compute a 98% CI for true average porosity of another seam based on 11 specimens with a sample average porosity of 4.56. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -229,6 +231,7 @@ DevoreStat9 7.2.013.
 An article reported that for a sample of 60 kitchens with gas cooking appliances monitored during a one-week period, the sample mean CO2 level (ppm) was 654.16, and the sample standard deviation was 162.
 
 (a) Calculate and interpret a 95% (two-sided) confidence interval for true average CO2 level in the population of all homes from which the sample was selected. (Round your answers to two decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|
@@ -307,6 +310,7 @@ Ask Your Teacher
 DevoreStat9 7.2.019.
 
 An article reported that, in a study of a particular wafer inspection process, 356 dies were examined by an inspection probe and 192 of these passed the probe. Assuming a stable process, calculate a 95% (two-sided) confidence interval for the proportion of all dies that pass the probe. (Round your answers to three decimal places.)  
+
   |   |
 |---|
 |![](https://www.webassign.net/wastatic/wacache32f2c13c21a1131bbba275d85261fb72/watex/img/leftparen1.gif)|

@@ -43,6 +43,7 @@ next: "Closed on the Dell. Open: D:\\_Anant and Drive (Build 8), per-repo pins, 
 | Not done here | `D:\_Anant` consolidation and the Google Drive mirror (Build 8; needs your answers); editor contract files (`.editorconfig`, `.vscode/extensions.json`) were added untracked to opspilot, safereach and Learning-Tracker-Tool and are not committed |
 
 **Corrections to the log below (the live machine wins).**
+
 | The log says | What is true now |
 |---|---|
 | "27 of 31 comparable files match by SHA-256" | true on 2026-10-13 against the September snapshot; after Build 5b both laptops equal the golden set, and equal each other |
@@ -233,6 +234,7 @@ Corrections to Build 5: `core.fsmonitor` was a no-op on Linux and was removed; m
 
 ## Growth rules
 Standing rule: nothing is removed unless it is a regenerable cache or the user approved it; every move goes to a dated quarantine; every config change keeps a timestamped backup in `~/.config/.toolkit-backups/`.
+
 | What grows or drifts | Rule | One check command |
 |---|---|---|
 | Config hashes | the 11 replaced files stay equal to the Acer snapshot; edits go to the snapshot first | `wsl-check.sh config` |

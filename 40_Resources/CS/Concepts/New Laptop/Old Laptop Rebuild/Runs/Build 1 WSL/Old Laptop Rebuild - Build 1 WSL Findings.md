@@ -38,6 +38,7 @@ next: "Closed. Later builds finished what this build deferred (systemd, tools, c
 | Idle gate | passed (75 s, no WSL call) on 2026-10-07 |
 
 **Corrections to the log below (the live machine wins).**
+
 | The log says | What is true now | Where it was fixed |
 |---|---|---|
 | systemd `degraded` (`systemd-binfmt.service`), "wait for a stable WSL fix" | closed by WSL 3.0.3.0 (stable 2026-10-09; Microsoft issue 41783); no prerelease and no workaround was used | Build 5 |
@@ -61,6 +62,7 @@ The three files in `%TEMP%\wsl-crashes` are ELF core dumps, not WSL VM dumps: on
 Phase 3 accepted Decision 3 from [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]: this Dell becomes the always-on Build 2 SSH host. Both timeout layers are therefore disabled (`[wsl2] vmIdleTimeout=-1` and `[general] instanceIdleTimeout=-1`), while gradual memory reclaim remains enabled. The Build 2 prompt was rewritten around that locked-decisions note rather than the superseded transient-WSL assumption.
 ## Audit Baseline And Planned After State
 “After” below is the measured WSL-side state before the required sudo trim and Windows restart. Host VHDX shrink, new resource limits, sparse conversion, and D:-swap creation cannot be measured until the handoff scripts run.
+
 | Item | Before, measured 2026-10-04 | After WSL-side Phase 3, measured 2026-10-04 |
 |---|---:|---:|
 | WSL home total | 82.88 GiB | 46.10 GiB allocated |
@@ -153,6 +155,7 @@ Sizes are allocated bytes and expected reclaim is an upper bound until measured 
 | **Total present** | **11.88 GiB** | **Measure after tool-native cleanup** |
 ### Cache cleanup - measured execution
 The post-install baseline was measured immediately before cleanup so installer downloads were included.
+
 | Cache | Before | After | Reclaimed |
 |---|---:|---:|---:|
 | npm (`npm cache clean --force`) | 6,425,854,956 B | 4,006,637,896 B | 2,419,217,060 B / 2.253 GiB |
@@ -165,6 +168,7 @@ The post-install baseline was measured immediately before cleanup so installer d
 npm's native cache cleanup does not remove `_npx`; 4,663,836,672 bytes there remain a separate Build 2 review item.
 ### Project artifact candidates - approval required
 The full scan found 147 common build/cache directories totaling 42.94 GiB. The 45 largest candidates were Git-ignored except two parent-project directories with no enclosing Git root (`ai/claude/claude-ai/node_modules`, 0.95 GiB; `.next`, 0.08 GiB), which require manual confirmation as well as approval.
+
 | Repository/group | Candidate size | Main contents |
 |---|---:|---|
 | `umn/boom` | 18.91 GiB | ignored Rust `target` |
@@ -317,6 +321,7 @@ Applied file read-back passed every exact key. Backup: `C:\Users\Anant Gupta\.ws
 `sparseVhd=true` makes newly-created VHDs sparse according to the current reference; it does not convert this existing Ubuntu VHDX. WSL 3.0.1's release notes mention a non-ASCII configuration-handling fix but do not discuss these individual keys or sparse conversion. The safe `wsl --manage Ubuntu --set-sparse true` request was refused on this machine with the explicit potential-data-corruption safeguard. `wsl.exe --help` lists `--set-sparse` and `--compact` under `--manage`, but not `--allow-unsafe`; `wsl.exe --manage --help` is invalid syntax. This proves behavior on this build/VHDX, not whether the refusal is build-specific or a standing policy. Never add the unsafe override; record safe refusal as SKIPPED and continue host verification.
 ## Toolchain Parity Diff
 No reusable Acer dotfile snapshot was found in the requested vault scope. Any configuration built in Phase 3 must be labeled “from notes, not from Acer.”
+
 | Tool/config | Dell live | Acer reference / action |
 |---|---|---|
 | git / git-lfs | 2.43.0 / 3.4.1 | Match |
@@ -435,6 +440,7 @@ The ncdu config (`-e`, dark color, `.git`/`node_modules` excludes, confirm-quit)
 - Terminal and Windows VS Code work remain later-session scope. The original `wsl-host-step.ps1` updated WSL, shut it down, and fatally exited after a safe sparse refusal; it is preserved as `.bak-20261007`. The corrected file is verification-only, with its pre-systemd-check revision preserved as `.pre-systemd-20261007.bak`. The original idle-test script is preserved as `.bak-20261007`.
 ### VHDX decision paper (measured 2026-10-07)
 Linux `/` reports 59,640,709,120 bytes used (55.54 GiB); `D:\WSL\Ubuntu\ext4.vhdx` is 115,507,986,432 bytes (107.58 GiB), not sparse. The 52.03 GiB difference is an upper-bound opportunity, not a promised reclaim: blocks not trimmed/zeroed and filesystem metadata may keep the result larger. D: has 363.80 GiB free; C: has 20.08 GiB free and a 32,247 MB pagefile (6,471 MB peak). Risk labels below are qualitative assessments, not measured failure rates. No VHDX operation was run.
+
 | Option | Measured context | Elevation | WSL shutdown | Reversibility | Data risk |
 |---|---|---|---|---|---|
 | Do nothing | Keep 107.58 GiB VHDX; D: has 363.80 GiB free; ext4 used is 55.54 GiB | No | No | No change to reverse | Lowest |

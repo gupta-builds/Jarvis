@@ -120,6 +120,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | tool-map | n/a | index (one note) | `20_Progress/Projects/AI Use/Claude Kit/Tool Map.md` | none | none, single living note | [[Tools Tracking]] | decide |
 ## Tier 4 and out of scope
 Paths below are not measured for fit. They are the same patterns as `vault-lint.config.json`.
+
 | Path | Why |
 |---|---|
 | `.claude/`, `.agents/`, `.codex/`, `.cursor/`, `.opencode/`, `.kiro/`, `.firecrawl/`, `.vscode/`, `copilot/` | Tool-native files; they keep their own frontmatter |

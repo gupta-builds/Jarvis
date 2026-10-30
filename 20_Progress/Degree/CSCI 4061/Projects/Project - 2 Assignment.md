@@ -1,7 +1,7 @@
 ---
 type: class
 class_kind: project
-status: seed
+status: sprout
 created: 2026-10-30
 updated: 2026-10-30
 tags:
@@ -9,126 +9,103 @@ tags:
   - project
 area:
   - "[[UMN Board]]"
-deadline:
-related: []
-next:
+  - "[[CSCI 4061 Board]]"
+deadline: 2026-10-30
+related:
+  - "[[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Implementation|Project - 2 Implementation]]"
+  - "[[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Quiz|Project - 2 Quiz]]"
+  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]]"
+next: "Implement the four EDIT files in proj2-code from the Chosen Project steps below, run make test-part1 and make test-part2 in the course container, test hadamard_threads by hand (no provided test), then make zip and upload to Gradescope before 11:59pm tonight (2026-10-30). Resource map: Project - 2 Implementation."
 ---
 # Project - 2 Assignment
 ## Overview
-> From Canvas:
-````
-#### Due Dates
+Project 2 has two independent parts that share one rule set: edit only the four files marked EDIT, check every return value that can fail, and expect an individual oral exam afterward. Part 1 adds `|` pipelines to the `swish` shell from [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1]]. Part 2 computes the Hadamard (element-wise) product of two matrices in parallel three ways (child processes plus one shared pipe, child processes plus shared memory, threads) and exposes all three to Python as a C extension. Worth 6.25% of the course grade. Collaboration with one partner is allowed; anyone outside the team is prohibited. See the syllabus for the integrity policy.
 
-- [Project Quiz](https://canvas.umn.edu/courses/579183/quizzes/1205758 "Project 2 Quiz"): 11:59pm, Friday 10/16/2026 (Canvas)
-- Final Submission: 11:59pm, Friday 10/30/2026 (Gradescope)
+> [!DANGER] Due tonight
+> Final submission is **11:59pm Friday 2026-10-30 on Gradescope**. Late penalty from [[CSCI 4061 Board]]: up to 24h late keeps 90% of earned credit, up to 48h keeps 80%, beyond 48h is 0%. Canvas states that no submission is accepted more than 48 hours late. The project grade is the **latest** submission, not the best one, so do not resubmit a worse build. The project quiz closed 10/16; its key is in [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Quiz|Project - 2 Quiz]].
 
-6.25% of Course Grade
+> [!WARNING] The starter code on disk is not one version
+> `proj2-code` still holds the 10/14 starter drop. `proj2-original` (copied 2026-10-30 and never to be edited) holds a revised drop. They differ in six part-2 files. Section "Starter code drift" below lists every difference. The autograder replaces every non-EDIT file with its own copy, so write the EDIT files to work against the revised non-EDIT files (`-Wall -Werror` on the extension build, `perror` instead of Python errors inside `read_matrix_from_file`).
 
-Projects are to be completed **individually or with a partner. Collaboration outside of your project team is prohibited.** See our [syllabus](https://canvas.umn.edu/courses/579183/assignments/syllabus) for full academic integrity policies.
-
-Download and unpack the starter code linked above. Place the unpacked `proj2-code` _inside_ of your existing `csci4061-fa26` directory to ensure you can access the project code within your Docker environment.
-
-**Starter Code:** [proj2-code.zip](https://csci4061-fa26.s3.amazonaws.com/proj2-code.zip)
-
-## Introduction
-
-It is often useful to launch and coordinate work among several different processes and/or threads when trying to accomplish a particular task, particularly when we want work to proceed in parallel to make full use of modern, multi-core systems.
-
-C remains the language of choice for low-level systems programming, where precise control over memory and over interactions with the operating system is a central concern. However, today many popular systems consist of internals implemented in C and a “wrapper” in a higher-level language that offers more convenience to the programmers using the system. Python is a popular choice as a wrapper language because it can interface easily with C code.
-
-This project will explore the following topics:
-
-- The use of pipes for inter-process communication
-- The use of shared memory for inter-process communication
-- Basic use of threads
-- Parallel data processing using both processes and threads
-- Interoperation between Python and C code
-
-In Part 1 of the project, you will extend the `swish` command-line shell from Project 1 to execute pipelined programs. This allows one to execute a sequence of programs in which each program consumes input from its predecessor and sends output to its successor. This was one of the key contributions of the original Unix operating system: the ability to compose small, simple tools to achieve a larger goal. This contribution was made possible thanks to the use of pipes in combination with the traditional `fork()`/`dup2()`/`exec()` combination we saw in Project 1.
-
-In Part 2 of the project, you will explore three different techniques for running code that performs numerical calculations in parallel. This is a common situation in real-world software like data science and machine learning frameworks. These frameworks often implement their performance-critical code in C but then allow the use of this code through a convenient _wrapper_ language like Python. Part 2 of the project will also demonstrate one means of accomplishing this. You will expose your C code as a Python _extension_, meaning it can be accessed and used like an ordinary module in Python code.
-
-## Grading Criteria
-
-- **Project Quiz (10%):** We have posted [a quiz](https://canvas.umn.edu/courses/579183/quizzes/1205758 "Project 2 Quiz") about this assignment description on our class Canvas site. Complete the quiz by the due date. The quiz is to be completed **individually** but multiple attempts are allowed.
-- **Automated Testing (40%):** We have provided several tests along with instructions on how to run these tests from the command line. To pass the tests, you will need to ensure that your code compiles and runs according to the specifications given. Note that we have some additional tests we will run against your code that are not provided to you.
-- **Oral Exam (40%):** Shortly after the project due date, you will sign up for a brief oral exam with the TAs, who will ask you questions about your submitted code and the extent to which you understand your work. Oral exams will be done individually, not together with your project partner if you choose to work with one.
-- **Error Checking (10%):** TAs will manually review your code to evaluate the extent to which your code thoroughly and appropriately checks for and handles error conditions. **Make sure that you properly check for and deal with errors whenever using a C library function that may indicate an error with its return value.**
-
-## Makefile
-
-There are three Makefiles provided as part of this project: one in the top level `proj2-code` directory, a second in the `part1` subdirectory, and a third in the `part2` subdirectory.
-
-The Makefiles in the `part1` and `part2` subdirectories support the following commands:
-
-- `make`: Compile all code, produce executable program(s)
-- `make clean`: Remove all compiled items. Useful if you want to recompile everything from scratch.
-- `make clean-tests`: Remove all files produced during execution of the tests.
-- `make test`: Run all test cases
-- `make test testnum=5`: Run test case #5 only
-
-Note that these two Makefiles do _not_ support `make zip`. This is only possible in the top-level directory.
-
-The Makefile in the top-level `proj2-code` directory supports the following commands:
-
-- `make`: Compile all code for both parts of the project, produce executable program(s)
-- `make clean`: Remove all compiled items in both parts of the project. Useful if you want to recompile everything from scratch.
-- `make clean-tests`: Remove all files produced during execution of the tests
-- `make test-part1`: Run all test cases for part 1 of the project
-- `make test-part2`: Run all test cases for part 2 of the project
-- `make zip`: Create a zip file for submission to Gradescope
-
-### Automated Tests
-
-Automated tests are included with the project’s starter code. **These tests are known to work within the 4061 Docker container only** but in most cases they should run identically in Linux environments such as the CSE Labs machines.
-
-_Don’t depend on the test cases and their output for your debugging._ Know how to run a program directly from the command line, and be ready to use tools like `gdb` to unearth the source of problems you encounter.
-
-Additionally, we have not provided tests for everything you will be expected to implement as part of this project. You will need to do some of your own testing to verify that your implementation of these features works as expected, and we will be running our own tests against these features as well when grading your submission.
-
-## Starter Code
-
-### Part 1
-
-Part 1 Starter Code Files
-|**File**|**Purpose**|**Notes**|
+### Deadlines and grading
+| Item | Weight | Detail |
 |---|---|---|
-|`Makefile`|Build|Build file to compile and run test cases|
-|`string_vector.h`|Provided|Header file for a vector data structure to store strings|
-|`string_vector.c`|Provided|Implementation of the string vector data structure|
-|`swish.c`|Provided|Implements the command-line interface for a highly simplified version of the `swish` shell|
-|`swish_funcs.h`|Provided|Header file for `swish` helper functions|
-|`swish_funcs_provided.o`|Provided|Binary file with implementations of some shell helper functions|
-|`swish_funcs.c`|**_EDIT_**|Implementations of `swish` helper functions|
-|`test_cases/`|Testing|Test cases and related materials|
+| Project quiz | 10% | Canvas, individual, multiple attempts, due 10/16 (past) |
+| Automated tests | 40% | Provided tests plus hidden tests Gradescope runs against your code |
+| Oral exam | 40% | Short slot with a TA, individual even on a team, signed up for after the due date |
+| Error checking | 10% | TAs read the code for checks on every C library or system call that can fail |
 
-### Part 2
+The error-checking line is the one the spec bolds: "properly check for and deal with errors whenever using a C library function that may indicate an error with its return value." The Project 1 convention applied: one point lost per missed check or missed cleanup step. Passing the visible tests is not a completion guarantee, because hidden tests exist for both parts. Local test output is not the debugging tool; run the program by hand and use `gdb`. The Gradescope autograder is the final authority on the automated 40%.
 
-Part 2 Starter Code Files
-|**File**|**Purpose**|**Notes**|
+### Build commands
+Three Makefiles exist: the project root, `part1/` and `part2/`.
+
+| Where | Command | Effect |
 |---|---|---|
-|`Makefile`|Build|Build file to compile and run test cases|
-|`setup.py`|Build|Specifies how to build Python extension from C code|
-|`hadamard.h`|Provided|Header file for parallel Hadamard product calculation functions|
-|`hadamard_extension.c`|Provided|Defines Python extension from C code|
-|`hadamard_utils.c`|Provided|Definitions for useful helper functions|
-|`hadamard_pipe.c`|**_EDIT_**|Code for parallel Hadamard product computation using processes and a pipe|
-|`hadamard_shmem.c`|**_EDIT_**|Code for parallel Hadamard product computation using processes and shared memory|
-|`hadamard_threads.c`|**_EDIT_**|Code for parallel Hadamard product computation using threads|
-|`hadamard_main.py`|Testing|Program for exercising Hadamard product functions|
-|`test_cases/`|Testing|Test cases and related materials|
+| part1, part2 | `make` | Compile everything |
+| part1, part2 | `make clean` | Remove compiled files |
+| part1, part2 | `make clean-tests` | Remove files produced by tests |
+| part1, part2 | `make test` | Run every test case |
+| part1, part2 | `make test testnum=5` | Run test case 5 only |
+| root | `make`, `make clean`, `make clean-tests` | Same, for both parts |
+| root | `make test-part1`, `make test-part2` | Run one part's tests |
+| root only | `make zip` | Build `proj2-code.zip` for Gradescope (the part Makefiles print an error if you try) |
 
-**Note that you are only allowed to change the files marked as _EDIT_ above. For all other files, the Gradescope autograder will ignore any modifications you make and use the standard version provided with the starter code.**
+Tests are known to work only inside the 4061 Docker container. `make zip` excludes `test_cases/` and `.git/`, warns above 10 MB and warns above 256 files.
 
-## Part 1: Extending swish
+### Starter code
+Part 1 (`part1/`):
 
-In this part of the project, you will extend the `swish` shell from Project 1 to support pipelined command execution. As you hopefully have seen before, one can type in a sequence of commands (including their arguments) separated by the `|` character to run those commands in a _pipeline_.
+| File | Role | Notes |
+|---|---|---|
+| `Makefile` | Build | Links `swish_funcs_provided_$(ARCH).o` (x86_64 or aarch64) |
+| `string_vector.h` / `.c` | Provided | Vector of strings, with Project 2 additions |
+| `swish.c` | Provided | CLI loop; no longer editable in this project |
+| `swish_funcs.h` | Provided | Declares `tokenize`, `run_command`, `run_pipelined_commands` |
+| `swish_funcs_provided.o` | Provided | Compiled `tokenize()` and `run_command()` |
+| `swish_funcs.c` | **EDIT** | Holds `run_piped_command()` and `run_pipelined_commands()` stubs |
+| `test_cases/` | Testing | 8 provided tests |
 
-A pipeline works by sending the output from each command to serve as the input for the next command over a pipe. For each command at position `i` in the pipeline, standard input is consumed from the standard output of command `i-1`, while standard output is sent as standard input to the command `i+1`. The two exceptions are the first command, which uses standard input normally, and the last command in the pipeline, which uses standard output normally.
+Part 2 (`part2/`):
 
-For example, in the simple pipeline `cat file.txt | wc -l`, we have two commands linked together by one pipe. The `cat` command (with argument `file.txt`) has its standard output redirected to the write end of the pipe. The `wc` command (with argument `-l`) has its standard input redirected to the read end of the pipe.
+| File | Role | Notes |
+|---|---|---|
+| `Makefile` | Build | Builds `hadamard.cpython-310-$(ARCH)-linux-gnu.so` via `pip install -e .` |
+| `setup.py` | Build | Declares the extension from the five C files |
+| `hadamard.h` | Provided | Prototypes of the three functions plus helpers |
+| `hadamard_extension.c` | Provided | `PyMethodDef` table and `PyInit_hadamard` |
+| `hadamard_utils.c` | Provided | `read_matrix_from_file`, `print_matrix`, `min` |
+| `hadamard_pipe.c` | **EDIT** | Processes plus one pipe |
+| `hadamard_shmem.c` | **EDIT** | Processes plus shared memory |
+| `hadamard_threads.c` | **EDIT** | Threads |
+| `hadamard_main.py` | Testing | Driver: `python3 hadamard_main.py <a> <b> <mode> <n_workers>` (mode: pipe, shmem or threads) |
+| `test_cases/` | Testing | 18 provided tests (9 pipe, 9 shmem), none for threads |
 
-Note that the first command in a pipeline may have its standard input redirected to a file with the `<` operator and the last command may have its standard output redirected to a file with the `>` or `>>` operators. **All** of the following are examples of valid command pipelines that your shell is expected to support:
+> [!IMPORTANT] Only the EDIT files count
+> The four EDIT files are `part1/swish_funcs.c`, `part2/hadamard_pipe.c`, `part2/hadamard_shmem.c`, `part2/hadamard_threads.c`. The autograder ignores every other change and substitutes its own standard copies. Changing a non-EDIT file makes the autograder fail your code.
+
+### Starter code drift (proj2-code versus proj2-original)
+Verified with `diff -r` on 2026-10-30. Part 1 is byte-identical in both. Part 2 differs:
+
+| File | `proj2-code` (10/14 drop) | `proj2-original` (revised) |
+|---|---|---|
+| `Makefile` | `pip install -e . -qq` | `pip install -e . -qq --no-build-isolation` |
+| `setup.py` | No compile flags | `extra_compile_args=["-Wall", "-Werror"]`, so a warning in your extension now fails the build |
+| `hadamard_utils.c` | Failures call `PyErr_SetFromErrno` / `PyErr_SetString` / `PyErr_NoMemory` inside the helper | Failures call `perror` / `fprintf(stderr, ...)` and return `NULL`; the caller must raise the Python exception |
+| `hadamard_pipe.c` | `worker` declared up top, defined at the bottom; its TODO says to open and reread both matrix files; no `PyErr_SetString` after a failed read | `worker` commented out (uncomment and implement it); no reread instruction; caller raises `PyExc_OSError` "Failed to read matrix data from file" |
+| `hadamard_shmem.c`, `hadamard_threads.c` | `worker` declared, definition at the bottom | `worker` commented out as a TODO block |
+
+Consequences: an unused `static` function is now a build error (`-Werror`), so implement and call each `worker`. An EDIT file must not assume which version of `read_matrix_from_file` it runs against, so only set a Python exception after a failed read when none is already set (`PyErr_Occurred()`). The [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Quiz|quiz note]] answer for question 14 quotes the old pipe-worker TODO ("reopen and reread the files"); the revised file no longer says that.
+
+### Part 1: extending swish
+`swish` keeps its Project 1 loop: read a line, tokenize, branch. In this simplified version `swish.c` handles `exit`, prints "Error: This simplified version of swish only supports piped commands" when no `|` token exists, and otherwise calls `run_pipelined_commands(&tokens)` and ignores its return value.
+
+**What a pipeline is.** The output of each command feeds the next over a pipe. For the command at position `i`: stdin comes from the stdout of command `i-1` and stdout goes to the stdin of command `i+1`. The first command reads stdin normally and the last writes stdout normally. In `cat file.txt | wc -l`, `cat` has its stdout redirected to the write end of the pipe and `wc -l` has its stdin redirected to the read end.
+
+**Redirection still works at the ends.** The first command may use `<` and the last may use `>` or `>>`. All six forms must work:
 
 - `cat file.txt | wc -l`
 - `cat < file.txt | wc -l`
@@ -137,188 +114,224 @@ Note that the first command in a pipeline may have its standard input redirected
 - `cat file.txt | wc -l >> out.txt`
 - `cat < file.txt | wc -l >> out.txt`
 
-Your shell must be able to handle pipelines with arbitrarily many commands. You may safely assume that a pipeline with `n` commands must use `n-1` pipes.
+**Arbitrary length.** A pipeline of `n` commands uses `n-1` pipes. Build an array of pipes, as in lecture. The example `cat gatsby.txt | tr -cs A-Za-z \n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 12` counts the most frequent words: seven commands, six pipes (pipes 0 to 5).
 
-The simplest way to achieve this is to construct an array of pipes, as we have studied in class. Each pipe in the array will be used to connect two commands in the pipeline together.
+![[Pasted image 20261030171412.png]]
+*Seven commands joined by six pipes. Each pipe has a write end (gold) and a read end (green). The Canvas alt text says "five pairs", which is wrong; the diagram and the arithmetic (`n-1 = 6`) agree.*
 
-For example, consider the pipeline `cat gatsby.txt | tr -cs A-Za-z \n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 12`, which counts the most frequently appearing words in the file `gatsby.txt`. This pipeline consists of seven commands and therefore requires six pipes, as shown in the diagram below.
+**Functions to complete in `swish_funcs.c`:**
+1. `run_pipelined_commands(strvec_t *tokens)`: returns 0 on success, -1 on error. Set up the pipe array, split the tokens into commands, call `fork()` per command, and wait.
+2. `run_piped_command(strvec_t *tokens, int *pipes, int n_pipe_fds, int in_idx, int out_idx)`: strongly recommended helper that runs one pipeline member. `in_idx` is the index in `pipes` of the descriptor to read stdin from, or -1 if input does not come from a pipe. `out_idx` is the index of the descriptor to write stdout to, or -1. `n_pipe_fds` is the length of the `pipes` array. Returns 0 on success, -1 on error.
 
-![A diagram showing five pairs of pipe file descriptors and the processes they interact with](https://canvas.umn.edu/courses/579183/files/62623418/preview?)
+**What the provided `run_command()` does.** The professor ships it compiled, not as source. It handles `exec` and handles `<`, `>`, `>>` found in the `tokens` it receives. It knows nothing about pipes, so pipes are your job through `pipe()` and `dup2()`. Call it only in a freshly forked child, exactly as in Project 1. Details recovered from the `.o` file are in [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Implementation|Project - 2 Implementation]].
 
-To implement this scheme, you must complete the function `run_pipelined_commands()` in `swish_funcs.c`. We strongly recommend you break up your work by also completing the `run_piped_command()` helper function, which should be responsible for running each individual member of the pipeline.
+**Token splitting.** The first command is every token before the first `|`. An interior command is the tokens between two `|` tokens. The last command is every token after the last `|`. `string_vector.h` gained helpers for Project 2: `strvec_find_last`, `strvec_num_occurrences`, `strvec_take`, `strvec_slice` (start inclusive, end exclusive, destination need not be initialized).
 
-**We have provided an implementation of the `run_command()` function from Project 1 for you.** We are only providing the compiled code, not the original C, but the `Makefile` we provide will link against this definition and make it available for your use in `swish_funcs.c`.
+**Launch order.** Theoretically any order works. The professor recommends launching backwards: last command first, working toward the first.
 
-The provided version of `run_command()` will handle calling `exec()` and calling `dup2()` if it sees the `<`, `>`, or `>>` operators in its input `tokens` parameter. However, it knows nothing about command pipelines – this is the part you will have to build yourself with the `pipe()` and `dup2()` system calls.
+**Hints from the spec.**
+- Close inherited pipe descriptors in each child if the child will never use them.
+- Close all necessary pipe descriptors on every error path.
+- Use the `string_vector.h` helpers to decide how many pipes to make and what each command's tokens are.
 
-You will also need to call `fork()` yourself. You should only call the provided `run_command()` function in a newly created child process, just as you did in Project 1.
+**Hidden tests.** The provided tests cover only two- and three-command pipelines. Hidden tests run pipelines longer than three commands and redirect the first command's input and/or the last command's output.
 
-The `run_pipelined_commands()` function will need to set up an array of pipes to connect each command in the pipeline. Then, call `fork()` to create child processes to run the commands. Of course, before you call `run_command()` in each child, you may need to use `dup2()` to ensure that the program consumes standard input from a pipe and/or writes standard output to a pipe.
+**The `SIGPIPE` caveat.** A command that does not consume all of stdin, such as `head -n 10`, can leave its predecessor writing into a pipe nobody reads. The predecessor may receive `SIGPIPE`, print "broken pipe" and die. The provided tests use `tail` and avoid `head` for this reason. `bash` makes its children ignore `SIGPIPE`; `swish` is not expected to, and no provided or hidden test will trigger this.
 
-You will need to do some string parsing to make this all work. The first command in the pipeline is represented by all input tokens up until the first occurrence of the `|` token. Each “interior” command in the pipeline is represented by the tokens in between two occurrences of `|`. The last command in the pipeline is represented by all tokens following the last `|` token.
+### Part 2: parallel matrix computations
+Why Hadamard: matrix math underlies data science, ML and AI code, and multi-core CPUs speed it up by working in parallel. Frameworks keep the fast part in C and wrap it in Python. Here the C code becomes a Python extension.
 
-**Make sure to read over the new version of `string_vector.h` – several functions have been added for Project 2 that will help you with this task.**
+#### The math
+The Hadamard product of two matrices of identical dimensions multiplies entries in matching positions. The code may assume it is always given matching dimensions.
 
-The order in which you fork and exec to run the pipeline commands should not, in theory, matter. You can execute programs starting with the first command, working your way to the last command, or execute programs starting with the last command and working your way to the first command. We recommend that you launch programs “backwards”, starting with the last pipeline element and working towards the first pipeline element, as this tends to be the most understandable way to do things.
+$$
+A=\begin{bmatrix} a_{11} & a_{12} \\ a_{21} & a_{22} \end{bmatrix},\quad
+B=\begin{bmatrix} b_{11} & b_{12} \\ b_{21} & b_{22} \end{bmatrix},\quad
+(A\circ B)_{ij}=a_{ij}\,b_{ij}
+$$
 
-**_Hints_**:
+$$
+A\circ B=\begin{bmatrix} a_{11}b_{11} & a_{12}b_{12} \\ a_{21}b_{21} & a_{22}b_{22} \end{bmatrix}
+$$
 
-- Don’t forget to close inherited pipe descriptors after a `fork()` in the child process if the child will never need those descriptors.
-- Make sure you close all necessary pipe file descriptors when handling errors.
-- Again, look at the `string_vector.h` functions. These will help you parse the user’s input to determine things like how many pipes to create, what commands to run for each element in the pipeline’s sequence, etc.
+The Canvas paste only captured the matrix `A` as MathML. The product form above is the definition stated in the prose ("each element is the product of two elements in the same location"), written out.
 
-### Hidden Tests
+#### Row-major storage
+Every matrix is stored as a **one-dimensional** array in row-major order: row 0, then row 1, and so on.
 
-You will notice that the tests we have provided to you only test command pipelines of two or three programs. We have hidden tests that will attempt to run pipelines with more than three commands in your `swish` implementation and will attempt to redirect the input of the first pipeline element and/or the output of the last pipeline element.
+![[Pasted image 20261030171424.png]]
+*A 3x3 matrix with its rows concatenated into one array: 1 2 3 | 4 5 6 | 7 8 9.*
 
-**One important point to note**: Be careful when testing out pipelines involving commands that do not consume all of the content from `stdin` in their execution. For example, running the `head` command with the argument `-n 10` will cause `head` to read exactly ten lines of input and no more, even if additional content is available. If `head` were in the middle of a pipeline, that means its predecessor might attempt to write contents to a pipe that `head` will never consume. This may cause the predecessor program to receive a `SIGPIPE` signal, print out error messages, and then terminate abnormally. You might then see an error message containing `broken pipe` or similar text.
+For an `r x c` matrix, element `(i, j)` sits at flat index `i*c + j`, and flat index `k` is row `k / c`, column `k % c`. Total elements: `r*c`. Because the product is element-wise, the flat index is all a worker needs, so it never has to think in rows and columns.
 
-If you inspect them carefully, you’ll notice that our provided tests use the `tail` command and avoid `head` to prevent this issue from occurring. Interestingly, the `bash` shell actually sets up its forked child processes to ignore `SIGPIPE` to suppress these kinds of error messages from occurring. Your `swish` shell is not expected to do this, and we will not run tests against your shell (provided or hidden) that will cause this problem.
+#### File format (`test_cases/resources/mat_NN_{a,b}.bin`)
+1. 4-byte unsigned integer: number of rows `r`
+2. 4-byte unsigned integer: number of columns `c`
+3. `r*c` signed 4-byte integers in row-major order
 
-## Part 2: Parallel Matrix Computations
+Size check: `mat_00` is 128x128, so 8 + 128*128*4 = 65 544 bytes, which matches the file on disk. The files are little-endian because the container is x86_64.
 
-Numerical calculations, particularly matrix computations, are crucial in many applications within data science, machine learning, and artificial intelligence. On modern systems with multi-core CPUs (or GPUs), these calculations can be significantly sped up by performing work in parallel.
+#### Provided helpers (`hadamard_utils.c`)
+- `unsigned min(unsigned a, unsigned b)`: the smaller of two unsigned values; offered for splitting work.
+- `int *read_matrix_from_file(const char *file_name, unsigned *n_rows, unsigned *n_cols, int sh_mem)`: reads dimensions and elements. The last argument decides placement: nonzero puts the elements in a shared `mmap` segment (`MAP_SHARED | MAP_ANONYMOUS`), zero puts them on the heap with `malloc`. You will use both modes, in different implementations. Returns `NULL` on failure. Segment size is `rows*cols*sizeof(int)`.
+- `void print_matrix(const int *mat, unsigned n_rows, unsigned n_cols)`: prints one row per line with `", "` between elements and no trailing comma. **Every one of your three functions must call it once the result matrix is computed**, because the tests compare that exact text.
 
-We will specifically use the element-wise product, or _Hadamard product_, of two matrices as an illustrative example for this part of the project. The Hadamard product of two matrices _A_ and _B_ is defined as follows:
+#### Organizing parallel work
+All three techniques split the same way: break `A`, `B` and the output `C` into chunks as equal in size as possible and give each worker (a process in techniques 1 and 2, a thread in technique 3) a `start` and `stop` index into the flat arrays. How to compute them is your decision. `math.h` is already included for you. Once the method is right, the same one serves all three techniques. The worker count comes from Python as an `unsigned`.
 
-The two matrix operands must have identical dimensions. Each element of the resulting matrix is the product of two elements in the same location (row and column index) of the two operand matrices. In this project, you are allowed to assume that your code will always be asked to compute the Hadamard product of two matrices with the proper dimensions, i.e., they will match each other.
+#### Technique 1: processes and a pipe (`hadamard_pipe.c`)
+- Many processes can share one pipe; several pipes would be more trouble than help (they are needed in Part 1, not here).
+- Create the pipe in the parent, then fork one child per worker. The original parent does not count as a worker.
+- `A` and `B` are read into heap memory in the parent. Children inherit copies of those heap regions, so each child must explicitly free them before it exits.
+- Each child computes its `start..stop` portion and writes each result element to the pipe, then cleans up and calls `exit()`.
+- After launching every child, the parent creates the `C` matrix.
+- The parent then reads from the pipe continuously until all children have finished and closed their write ends.
+- Elements from different children can arrive in any order and interleave, so send instances of the provided `struct element` (an `unsigned idx` and an `int value`). The parent uses `idx` to place each value in `C`.
+- Finally call `print_matrix()` on `C`.
 
-You will use three different techniques to compute the Hadamard product in parallel:
+#### Technique 2: processes and shared memory (`hadamard_shmem.c`)
+- The pipe approach is clumsy here: a pipe's coordination benefit is wasted when children work on disjoint chunks, and, while Linux copy-on-write makes the `A`/`B` copies cheap, sending elements one by one is cumbersome.
+- Instead, read `A` and `B` into shared memory in the parent before forking, using `read_matrix_from_file` with `sh_mem` set. Adapt that function's `mmap` code to make a third shared segment for `C`. Children inherit all three.
+- Fork one child per worker. Children read `A` and `B` through their pointers and store each result at the right index of `C`.
+- Chunks are disjoint, so little coordination is needed. Each child calls `exit()`. The parent waits for all children, then prints `C`.
 
-1. Processes cooperating using a pipe
-2. Processes cooperating using shared memory
-3. Threads
+#### Technique 3: threads (`hadamard_threads.c`)
+The simplest of the three, because `A`, `B` and `C` all live on the heap.
+1. Read `A` and `B` with `read_matrix_from_file`.
+2. Allocate `C` on the heap.
+3. Launch one thread per worker, each with a unique, roughly equal `start`/`stop`.
+4. Each worker computes its chunk; the thread body can be a handful of lines.
+5. The main thread waits for every thread.
+6. The main thread calls `print_matrix()` on `C`.
 
-### Matrix Representation
+A thread function takes one `void *`, so pass a pointer to the provided `struct thread_args` (`int *a`, `int *b`, `int *c`, `unsigned start`, `unsigned end`). Look back at the relevant lab and lecture code for the pattern.
 
-You can assume all matrices are represented in _row-major order_, as shown in the following figure:
+#### Making it a Python extension
+The key points the spec asks you to remember, all shown in the provided code:
+- A function called from Python takes `PyObject *self` and `PyObject *args`. Use `PyArg_ParseTuple` to pull the Python arguments into C locals. The arguments here are two file names and a worker count.
+- It returns a `PyObject *`. On success return `None` with `Py_RETURN_NONE`.
+- On error return `NULL`, but set a Python error first so an exception is raised in the interpreter. `PyErr_SetString` and `PyErr_Format` set one. If a failing C function set `errno`, use `PyErr_SetFromErrno`. A reasonable default type is `PyExc_OSError`.
 
-![A diagram of a matrix with its rows concatenated into a one-dimensional array](https://canvas.umn.edu/courses/579183/files/62623422/preview?)
-
-This means the matrices will be stored as **one-dimensional** arrays in your code even though they really represent two-dimensional objects.
-
-We have provided binary files representing nine pairs of matrices, each with matching dimensions, for testing purposes in `test_cases/resources`. Each of these files is comprised of the following sequence of items:
-
-1. A 4-byte unsigned integer representing the number of rows in the matrix, `r`
-2. A 4-byte unsigned integer representing the number of columns in the matrix, `c`
-3. A sequence of `r * c` signed integers, each 4 bytes in length, representing the matrix elements, in row-major order.
-
-Much of the file handling is already done for you. Check out the`read_matrix_from_file` function in `hadamard_utils.c`.
-
-### Utility Functions
-
-There are three useful functions provided to you in `hadamard_utils.c`. One is `min`, which just computes the minimum of two `unsigned` values. You may find this useful in dividing up the input matrices into a chunk for each worker, described more below.
-
-The `read_matrix_from_file` function will read in matrix dimensions and contents from the specified file. You will find it useful in all three of your implementations (pipes, shared memory, and threads) for this part of the project. Pay careful attention to the last argument, `sh_mem`, which determines if the matrix elements are placed in a shared memory segment or on the heap. You will need to use both modes, but in different implementations.
-
-The last function, `print_matrix`, should be called by each of your Hadamard product functions once the result matrix has been computed. You will need to do this so that the output of your program matches what’s expected in the tests.
-
-### Organizing Parallel Work
-
-Your implementations for each of the three techniques listed above will all share some common elements that you can reuse.
-
-First, they need to break up the work into roughly equal-sized pieces. Each piece of work is then assigned to one process (for techniques 1 and 2) or one thread (for technique 3).
-
-The easiest way to do this is to divide up the matrices _A_ and _B_ (the two inputs) and _C_ (the output) into chunks and to make these chunks as close to equally-sized as possible. Since the matrices are represented one-dimensionally in row-major order, this can be accomplished by giving each worker a `start` and `stop` index, telling it which chunk of elements in the matrix representation it is responsible for.
-
-It is your job to decide how to compute the `start` and `stop` value for each worker. You may find some of the functions in C’s `math.h` library helpful, and we’ve already included this header for you in the starter code.
-
-The good news is that once you figure out how to divide up work, you can use this same method for all three techniques (processes with a pipe, processes with shared memory, and threads).
-
-### Using Processes and a Pipe
-
-Implement your solution for this technique in `hadamard_pipe.c`. Some helpful code is already provided for you in this file.
-
-Many processes can share just one pipe without issue. Multiple pipes are often more trouble than they are worth unless they are specifically needed, such as in the shell pipeline situation of Part 1.
-
-To keep things simple, you should fork one child process to serve as each worker, after setting up the pipe in the parent. The original parent process won’t count as a worker.
-
-The two operand matrices, _A_ and _B_, are read in from a file and placed on the heap of the original parent process. When the parent forks, its children will inherit copies of these heap memory regions. But, that means each child will also need to explicitly free these regions before it exits.
-
-Each child should perform the necessary calculations for its assigned portion of the matrix (based on its assigned `start` and `stop` indexes), and write each element of the result matrix that it computes back to the pipe. Then, make sure to clean up and call `exit()` when done.
-
-After launching all child processes, the parent should create a _C_ matrix to hold the product of _A_ and _B_.
-
-Next, the parent should consume matrix elements from the read end of the pipe continuously until all children have finished and closed their write ends of the pipe. Because matrix elements from different children can be sent in any order and therefore could be mixed together, we recommend you send instances of `struct element` (provided for you already) over the pipe. This way, the parent will know where to place each data value it reads from the pipe in the result matrix.
-
-Finally, use `print_matrix()` to output the contents of the result matrix, _C_, so that your code can pass the tests.
-
-### Using Processes and Shared Memory
-
-Implement your solution for this technique in `hadamard_shmem.c`.
-
-The previous pipe-based approach has some disadvantages. While you may know that Linux does some copy-on-write optimizations for child process memory, meaning all those _A_ and _B_ matrix copies aren’t as costly as they may appear, sending matrix elements over a pipe is arguably cumbersome to implement. A pipe’s natural benefits for coordination aren’t especially helpful here, where each child is working on disjoint matrix chunks.
-
-Instead, we can read the input _A_ and _B_ matrices into shared memory segments in the parent process before forking any child worker processes. We can also set up a shared memory segment to hold the result matrix _C_ before forking. Then, all children will inherit access to the three segments.
-
-Your code should do just that. The code to set up segments for _A_ and _B_ is already given to you in the `read_matrix_from_file` function, which you’ll need to call in the parent process. Adapt the relevant code to set up a similar segment for _C_.
-
-Then, fork one child process for each “worker” needed, just as you did before. The children can use pointers to the _A_ and _B_ segments to get all of the input data they need for their assigned computations. They can then store each result using a pointer to the _C_ segment. Just make sure you put each result element at the proper index within _C_.
-
-When done, each child should call `exit()`. Since each child should be operating on a **disjoint** chunk of the _A_, _B_, and _C_, memory segments, little coordination is needed. The parent just needs to wait for all children to complete before printing out the _C_ matrix.
-
-### Using Threads
-
-Implement your solution for this technique in `hadamard_threads.c`.
-
-You will likely find that this is the simplest approach. It is very similar to the processes/shared memory technique but even easier because we can just put the _A_, _B_, and _C_, matrices on the heap rather than dealing with shared memory segments.
-
-You can follow largely the same sequence of steps:
-
-1. Read in the _A_ and _B_ matrices from a file using the `read_matrix_from_file` function.
-2. Set up a region of heap memory to hold the result matrix _C_.
-3. Launch workers, this time as threads. Make sure each thread is assigned a unique and roughly equal-sized matrix chunk as its work, specified by the `start` and `stop` indexes.
-4. In each worker thread, compute the assigned chunk of the Hadamard product.
-5. In the main thread, wait for each worker thread to complete.
-6. Finally in the main thread, use `print_matrix()` to output the contents of the _C_ matrix for testing purposes.
-
-The body of the function called by each thread can be quite simple, maybe only a handful of lines of code, under this technique. The tricky part is communicating enough information to each thread when this function only accepts a `void *` argument. We’ve provided a `struct thread_args` definition to help you with this. Look back at relevant lab and lecture code if you need a refresher on what to do with this struct and your threads.
-
-### Making a Python Extension
-
-The last challenge in this part of the project is fitting your code to the patterns and structure expected of a Python extension, so that your functions can be seamlessly invoked from Python.
-
-You should look back at the relevant lecture and lab code for guidance on this, but here are a few key points you’ll need to remember (and which should be demonstrated by the provided code):
-
-- Functions called from Python accept two arguments: `PyObject *self` and `PyObject *args`. Use `PyArg_ParseTuple` to extract the arguments passed from Python into local C variables.
-- Your function will also need to return a `PyObject *`. This can be quite flexible, but in this project we’ll just return `None` back to Python on success. Accomplish this with `Py_RETURN_NONE`.
-- If an error occurs, your function should instead return `NULL`. Before doing so, however, it should set up a **Python error** so that an exception is raised back in the Python interpreter.
-- You can set an error with functions like `PyErr_SetString` and `PyErr_Format`. However, if your C code has observed a failure in a function that sets `errno`, you should use `PyErr_SetFromErrno`.
-- Feel free to use the most appropriate Python exception type when setting an error, but a reasonable default is `PyExc_OSError`.
+The provided `hadamard_extension.c` registers the three functions as `hadamard_pipe`, `hadamard_shmem`, `hadamard_threads` in module `hadamard`, each with `METH_VARARGS`.
 
 ### Testing
+Provided tests exercise `hadamard_pipe.c` and `hadamard_shmem.c` on matrices of different shapes with different worker counts. The provided tests do **not** cover `hadamard_threads.c`; test it yourself on every provided matrix and with varying worker counts. Hidden tests exist as well.
 
-The provided tests will exercise your code in `hadamard_pipe.c` and `hadamard_shmem.c` using input matrices of varying dimensions and requesting different numbers of workers.
+| Test | Matrix (rows x cols) | Elements | Workers (pipe and shmem) | Elements divide evenly? |
+|---|---|---|---|---|
+| `mat_00` | 128 x 128 | 16 384 | 1 | yes |
+| `mat_01` | 256 x 256 | 65 536 | 2 | yes |
+| `mat_02` | 512 x 512 | 262 144 | 3 | no (remainder 1) |
+| `mat_03` | 1024 x 1024 | 1 048 576 | 4 | yes |
+| `mat_04` | 128 x 256 | 32 768 | 8 | yes |
+| `mat_05` | 256 x 128 | 32 768 | 11 | no (remainder 10) |
+| `mat_06` | 256 x 512 | 131 072 | 16 | yes |
+| `mat_07` | 201 x 301 | 60 501 | 20 | no (remainder 1) |
+| `mat_08` | 301 x 201 | 60 501 | 32 | no (remainder 21) |
 
-The provided tests do not cover the code in `hadamard_threads.c`. You should test this on your own. Make sure your threading code works correctly with all of the provided matrices and their different dimensions and with varying quantities of worker threads.
+Part 1 has eight tests, all run with `./swish` under valgrind (`use_valgrind: true`), four of them two-step (run the shell, then `cat out.txt`):
 
-## Submission
+| Input line | Checks |
+|---|---|
+| `echo hello \| cat` | two-element pipe |
+| `cat < test_cases/resources/numbers.txt \| wc -l` | two-element with input redirect (expect 30) |
+| `echo hello \| cat > out.txt` | two-element with output redirect |
+| `cat < ... \| wc -l > out.txt` | both redirects |
+| `cat test_cases/resources/numbers.txt \| sort -rn \| tail -n 10` | three-element |
+| the same with `<` | three-element, input redirect |
+| the same with `> out.txt` | three-element, output redirect |
+| both | three-element, both redirects |
 
-You must submit your code to Gradescope to receive credit for this project. Run the `make zip` command to create a zip archive suitable for uploading to Gradescope.
+### Submission rules
+- Run `make zip` in the root `proj2-code` directory and upload the zip to Gradescope.
+- Only the EDIT files may change. The autograder ignores or replaces anything else.
+- One submission per group; add the partner through Gradescope's group option after submitting.
+- Check that Gradescope's autograder output matches your local results. After the deadline, sign up for the individual oral exam with the TAs.
 
-**Remember, you can only modify the files designated as _EDIT_ in the table above.** Modifying other files will cause your code to fail the autograder tests.
+## Chosen Project
+Project 2 offers no options. This section is the mechanism: the concrete action sequence for each EDIT file, in the order to build and test them. No code, only the steps and the invariants each step must preserve. Source references for every step are in [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Implementation|Project - 2 Implementation]].
 
-**It is your responsibility to ensure that the Gradescope autograder results match your expectations based on local testing. The autograder is the final authority on the automated testing portion of your grade.**
+### Build order
+1. Part 1 first. It is the shortest and the only part with a shell-level test harness.
+2. `hadamard_threads.c` next. No process or IPC details, and it proves the split arithmetic.
+3. `hadamard_shmem.c`, then `hadamard_pipe.c`. Pipe last because it carries the one real deadlock trap.
+4. Re-run all of Part 2 after each file; a mistake in the shared split arithmetic shows up in every technique.
 
-You may also wish to review the late submission policy detailed in the [course syllabus](https://canvas.umn.edu/courses/579183/assignments/syllabus) to understand what score you will receive if submitting your work after the deadline. **No project submissions are accepted more than 48 hours after the deadline.**
+### Part 1 actions (`swish_funcs.c`)
+**`run_pipelined_commands`:**
+1. Count pipes with `strvec_num_occurrences(tokens, "|")`; commands = pipes + 1; the descriptor array has `2 * pipes` ints.
+2. Allocate the descriptor array and call `pipe()` for each pair at offset `2*i` (read end `2*i`, write end `2*i+1`). On failure close the pairs already made, free, return -1.
+3. Walk the commands from last to first. For command `j`: its tokens run from just after the `(j)`th `|` to just before the `(j+1)`th `|` (or to the end for the last command). Copy that range with `strvec_slice` (end exclusive).
+4. Compute `in_idx` and `out_idx`: first command has `in_idx = -1`, otherwise the read end of pipe `j-1`, which is index `2*(j-1)`; last command has `out_idx = -1`, otherwise the write end of pipe `j`, which is index `2*j + 1`.
+5. Call `run_piped_command` with the slice. Clear the slice with `strvec_clear` afterward on every path.
+6. Once every child is launched, close **every** pipe descriptor in the parent. The parent never reads or writes the pipes. An open write end in the parent stops the last reader ever seeing end-of-file.
+7. Wait for every child (one `wait`/`waitpid` per command, even after a failure). Return 0 only if everything succeeded; free the array.
 
-Please only submit **one** project per group. Gradescope has an option to add group members after an assignment has been submitted.
-````
-## Project Images
-1. 
-![[Pasted image 20261030171412.png]]
+**`run_piped_command`:**
+1. `fork()`. On failure return -1 (the caller closes pipes and reaps what it started).
+2. In the child: if `in_idx != -1`, `dup2(pipes[in_idx], STDIN_FILENO)`; if `out_idx != -1`, `dup2(pipes[out_idx], STDOUT_FILENO)`. Textbook p. 539 adds a defensive rule: when the two descriptors are equal, `dup2` and then `close` would close the only copy, so compare first.
+3. Close all `n_pipe_fds` pipe descriptors in the child, including the two just duplicated. A child that keeps an extra write end of a pipe it reads from, or a stray read end, hangs the pipeline.
+4. Call `run_command(tokens)`. It returns only on failure (exec does not return on success). If it returns, print nothing extra (it printed its own `perror`) and `exit` nonzero. Never return into the parent's code: that would run the shell loop twice.
+5. In the parent: return 0.
 
-2. ![[Pasted image 20261030171424.png]]
-3. Math on Matrix computations: Written as mathml code. 
-```
-|   |
-|---|
-|<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><br>  <mi>A</mi><br>  <mo>=</mo><br>  <mrow><br>    <mo>[</mo><br>    <mtable rowspacing="4pt" columnspacing="1em"><br>      <mtr><br>        <mtd><br>          <msub><br>            <mi>a</mi><br>            <mrow class="MJX-TeXAtom-ORD"><br>              <mn>11</mn><br>            </mrow><br>          </msub><br>        </mtd><br>        <mtd><br>          <msub><br>            <mi>a</mi><br>            <mrow class="MJX-TeXAtom-ORD"><br>              <mn>12</mn><br>            </mrow><br>          </msub><br>        </mtd><br>      </mtr><br>      <mtr><br>        <mtd><br>          <msub><br>            <mi>a</mi><br>            <mrow class="MJX-TeXAtom-ORD"><br>              <mn>21</mn><br>            </mrow><br>          </msub><br>        </mtd><br>        <mtd><br>          <msub><br>            <mi>a</mi><br>            <mrow class="MJX-TeXAtom-ORD"><br>              <mn>22</mn><br>            </mrow><br>          </msub><br>        </mtd><br>      </mtr><br>    </mtable><br>    <mo>]</mo><br>  </mrow><br></math>|
-```
+**Invariants:** every pipe end is closed in the parent before waiting, every child closes all pipe ends before `exec`, stdin/stdout of the middle commands both go through pipes, and no `run_command` is called outside a child.
+
+### Part 2 shared actions
+1. Parse arguments with `PyArg_ParseTuple(args, "ssI", ...)`. A failed parse returns `NULL` (the exception is already set).
+2. Reject a worker count of 0 with a Python exception, since the split divides by it.
+3. Read `A` and `B` (heap for pipe and threads, shared for shmem). On a `NULL` result, raise `OSError` only if no exception is already set, free whatever was already read, return `NULL`.
+4. Split with the balanced formula from [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab - 5]]: with `total = rows*cols`, `base = total / n`, `rem = total % n`, worker `i` takes `start = i*base + min(i, rem)` and `count = base + (i < rem ? 1 : 0)`, so `end = start + count` and loads differ by at most one element. Ranges are half-open `[start, end)`; the provided doc comments are ambiguous ("last element"), so state the convention in a comment. The alternative the starter's `min()` helper hints at is `chunk = ceil(total / n)`, `start = min(i*chunk, total)`, `end = min(start+chunk, total)`; it leaves the last workers smaller or even empty ([[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab 5]] quiz: ceiling makes the last chunk smaller, floor makes it larger).
+5. Per element: `c[k] = a[k] * b[k]` for `k` in `[start, end)`. `int` products fit the test data (the expected files were produced with 32-bit multiplication).
+6. Finish with `print_matrix(c, rows, cols)` exactly once in the parent/main thread, then free or unmap everything and `Py_RETURN_NONE`.
+7. Error rule everywhere: `errno`-setting call fails, `PyErr_SetFromErrno(PyExc_OSError)`; allocation fails, `PyErr_NoMemory()`; pthread call fails, build a message with `strerror(code)` because `pthread_*` return the error number and do not set `errno`.
+
+### `hadamard_threads.c` actions
+1. Allocate `C` (`malloc(total * sizeof(int))`), an array of `pthread_t`, and an array of `struct thread_args` with one slot per worker, all on the heap so each argument struct outlives its thread (textbook p. 390 warns about stack-allocated structures going stale).
+2. Fill `args[i]` (`a`, `b`, `c`, `start`, `end`) then `pthread_create(&threads[i], NULL, worker, &args[i])`. If creation fails at `i`, still join the `i` threads already running, free, and raise.
+3. `worker` casts the `void *` back to `struct thread_args *`, loops over `[start, end)`, returns `NULL`.
+4. Join every thread; check each `pthread_join` return value.
+5. Print `C`, free everything. No mutex is needed: workers write disjoint indexes and only read `A` and `B` ([[20_Progress/Degree/CSCI 4061/Labs/Lab - 7|Lab - 7]] needed a lock only because every thread updated one shared sum).
+
+### `hadamard_shmem.c` actions
+1. Parse arguments; read `A` and `B` with `sh_mem = 1`.
+2. `mmap` a third segment for `C` with the same flags and size `total * sizeof(int)`; check for `MAP_FAILED`.
+3. Fork `n` children. Fork failure: stop forking, still wait for the children already started, unmap all three segments, raise `OSError`.
+4. In each child, `worker(a, b, c, start, end, mapped_size)` fills its range, then every segment is unmapped with `munmap(ptr, mapped_size)` (a mapping is inherited, so the child must unmap even though it never mapped) and the child calls `exit(0)`, or `exit(1)` when anything failed. A child must never return into Python.
+5. The parent waits for all `n` children and inspects each status with `WIFEXITED` and `WEXITSTATUS`. Only after every child has exited does it read `C`: shared memory has no built-in timing, and `wait` is the synchronization.
+6. Print `C`, unmap all three, return `None`.
+
+### `hadamard_pipe.c` actions
+1. Parse arguments; read `A` and `B` to the heap.
+2. `pipe()` once, before any `fork`.
+3. Fork `n` children. Each child closes the read end, runs `worker(a, b, start, end, write_fd)`, which writes one `struct element {idx, value}` per element (8 bytes, far below `PIPE_BUF`, so writes from different children never interleave), checks that `write` returned the full size, closes the write end, frees `A` and `B`, calls `exit`.
+4. After the fork loop the parent closes its write end **before** reading. If it keeps the write end open, `read` never returns 0.
+5. The parent allocates `C`, then loops `read` of one `struct element` at a time into `C[idx]` until `read` returns 0. Treat a short read (more than 0 but fewer bytes than a struct) as an error, check `idx < total`, retry on `EINTR`.
+6. The parent must be reading while children write: a 1024x1024 run pushes 8 MB through a pipe whose buffer holds about 64 KB, so waiting for children before draining the pipe deadlocks.
+7. After `read` returns 0, close the read end, `wait` for all `n` children and check their statuses, print `C`, free everything, return `None`.
+8. On fork failure close the read end as well, so already-started children get `EPIPE`/`SIGPIPE` instead of blocking forever, then reap them.
+
+### Final checks before zipping
+1. Build clean from scratch under the revised non-EDIT files, with zero warnings (`-Werror`).
+2. Run all 8 Part 1 tests and all 18 Part 2 tests.
+3. Run the three techniques by hand on every provided matrix and diff the output against `test_cases/output/mat_NN.txt`, including the threads mode, which has no provided test.
+4. Run a 4+ command pipeline and the six redirection forms in `swish`.
+5. `make zip` from the root, `unzip -l` it, and confirm only sources are present.
 
 ## Concept Links
-<!-- Verified links to the concept, week, and textbook notes the project actually used. -->
+- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]]: Lec08 pipes, the descriptor-close rules and the single-pipe exercise. Weeks 5 to 8 have no weekly note yet; their lectures (Lec09 to Lec15) are mapped in [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Implementation|Project - 2 Implementation]].
+- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 4|Lab - 4]]: one `pipe` plus `fork` plus `dup2` plus `exec`, which Part 1 repeats `n-1` times.
+- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab - 5]]: the work-splitting formula and `mmap` shared results.
+- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 6|Lab - 6]]: the CPython extension skeleton and error rules.
+- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 7|Lab - 7]]: `pthread_create`, `pthread_join`, `strerror` error handling.
+- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter - 15]]: APUE 15.2 pipes and 15.9 shared memory, anonymous mapping.
+- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]]: `fork`/`wait` and `dup2`/`close`/`read`/`write`.
+- [[20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code|Project - 1 Code]]: the fork, `run_command`, redirection and cleanup pattern Part 1 extends.
+
+## Work Log
+- **2026-10-30:** Pasted the Canvas spec and rewrote it as this note, replacing the raw code block. Read every file in `proj2-code` and `proj2-original`, found the six-file part-2 drift (table above), confirmed part 1 is identical in both. Read `swish_funcs_provided_x86_64.o` through `nm`, `strings` and `objdump` in a throwaway container from the course image (read-only mount) to learn what `run_command` does. Read slides Lec09 to Lec15, transcripts Oct 1, 6, 13, 15, 20, the lecture and lab code for pipes, shared memory, Python extensions and threads, and APUE 1.7, 3.5 to 3.12, 5.9, 8.3 to 8.6, 11.1 to 11.5, 12.5, 14.8, 15.1 to 15.2, 15.9 straight from the PDF through MinerU (PDF page = book page + 34). MinerU first failed with `server_instance_mismatch`; `mineru server restart` fixed it. No implementation exists yet. The course dev container was stopped when checked (`docker ps -a` showed it exited 42 hours earlier); only its image was used.
+
 ## Submission
-<!-- Optional. Submission method, required reviews, and what was submitted. -->
+Not submitted yet. Upload `proj2-code.zip` from the project root to Gradescope, confirm the autograder matches the local result, add the partner if any, then book the oral exam slot.
+
 ## Post-Submit Reflection
 <!-- Within a day or two of submitting: what failed first and what pattern repeats. -->

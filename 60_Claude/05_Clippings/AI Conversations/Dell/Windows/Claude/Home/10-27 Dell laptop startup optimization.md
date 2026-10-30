@@ -6,7 +6,7 @@ source_os: windows
 title: "Dell laptop startup optimization"
 started_at: 2026-10-27T21:47:09
 ended_at: 2026-10-29T04:39:49
-exported_at: 2026-10-29T23:00:02
+exported_at: 2026-10-30T00:00:02
 duration_minutes: 1852.7
 project: Home
 cwd: 'C:\Users\Anant Gupta'
@@ -14,7 +14,7 @@ session_id: 18b7c8ff-15cc-4a55-a126-df861fb8eab5
 status: seed
 review_state: raw
 created: 2026-10-27
-updated: 2026-10-29
+updated: 2026-10-30
 turn_count: 18
 tools_used:
   Glob: 1

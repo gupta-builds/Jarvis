@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Midterm semester review for missed grades"
 started_at: 2026-10-30T20:09:35
-ended_at: 2026-10-30T21:31:51
-exported_at: 2026-10-30T21:33:04
-duration_minutes: 82.3
+ended_at: 2026-10-30T22:23:40
+exported_at: 2026-10-30T22:33:23
+duration_minutes: 134.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: b64dbfed-9222-434f-85f7-66c923de93d3
@@ -15,7 +15,7 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-10-30
-turn_count: 8
+turn_count: 9
 tools_used:
   Bash: 34
   Edit: 3
@@ -2395,6 +2395,353 @@ empty-file check across 30_Order and UMN top:
 40_Resources/UMN/Previous Classes/CSCI 2033/Preperation.md
 40_Resources/UMN/System Overview.md
 ```
+
+## You
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+<system-reminder>
+<tools-used-before-summary>Bash, Edit, Glob, Grep, Read, Write</tools-used-before-summary>
+</system-reminder>
+Summary:
+## 1. Primary Request and Intent
+
+The Jarvis vault (Obsidian, `D:\_Anant\20_Progress\Documents\Jarvis`, git branch `infra/cross-laptop-sync`) has been through three phases in this session.
+
+**Phase 1 (done): Half-semester review ledger.** The user asked me to rewrite `20_Progress/Degree/Hit or Miss - Miss.md` as a proper note with frontmatter and interlinks for Fall'26 Week 8 (2026-10-30). It records what was missed or marked down per course, accurately.
+
+**Phase 2 (done): Research on the course system in `30_Order`.** The user said a previous "reverse approach" (documenting standards for every existing note) bloated the system. They asked for read-only research with no actions covering:
+- `20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis`
+- `30_Order/Workflows/Courses`
+- `30_Order/Templates/Classes`
+- `30_Order/System/vault-lint`
+- `30_Order/System/excalidraw-mcp`
+- `30_Order/Standards/Courses`
+- `30_Order/Standards`
+- `40_Resources/UMN`
+
+The research had to explain how many standards, workflows, systems and templates exist, why, and where things stand.
+
+**Phase 3 (current): Decisions, then more research.** The user answered my decisions and design questions, then said:
+- "Do not write the prompts for the build yet. We are not even close to mapping out the courses entirely. If there is anymore confusion, detail that you need to look at. Go ahead and search for it. Come back with solid information that needs to be clarified for the build that we have just been working towards."
+- The build will be executed by new sessions with no context on the task, so prompts must later be written for them. **Do not write those prompts yet.**
+- The mode is still research only, with no file writes or other actions.
+
+### User's decisions and design direction (cumulative)
+
+**Note types (final, 10):** week, lab, homework, discussion, textbook, exam, project, board, concept, track. Audit was dropped from the list. The user said "That's it."
+
+**Templates:** exactly 10, one per note type. Templates should be "empty enough" and less descriptive. The vault-wide template count of 77 is "way too much"; the user wants it roughly halved. Course templates alone are 15, so reaching about 38 vault-wide needs cuts in other families, which is a separate pass.
+
+**Folds into other notes:** textbook-map, weekly sub-board, preparation, exam-material and project-companion fold into the Board or their parent note. Each gets no separate Template or Standard of its own.
+
+**Standards:**
+- The user said Standards "could be targeted to be 15 based on all the sub categories of notes that are being removed". I could not reconcile 15 with 10 note types, so it is **unclear**.
+- Individual courses get no individual Standards.
+- Word cap: the existing cap is correct. It counts prose only, excluding tables, frontmatter and Spec blocks.
+- Typical Standard length is 400 to 700 words, the cap is 700, and only very complex note systems may go to a hard maximum of 1,000.
+- Crossing 700 must **not** automatically spawn a new Standard. It triggers a reconsideration: shorten, or create a new one, "done carefully and by my approval." Choosing between split and cut depends on the note being designed.
+- The Note Kit Standard clause "over 700, split the family" is to be replaced by this approval-based rule.
+
+**Workflows:**
+- The user said "Workflows are correct".
+- One general **Learning Workflow** applies to all learning, whether a course or a concept.
+- Per-class workflows are kept but become thin addenda. They cover only what the specific course needs, and never restate Standards, Templates or Board content (grading weights, routing tables, the generic rhythm).
+- The only missing per-class workflow is **MGMT 3015**.
+- Existing per-class workflows: CSCI 4511W, 4061, 4521, 5304 and Technical Interview.
+
+**Archive:**
+- Any course in `40_Resources/UMN/Previous Classes/` is an archived course. This must be recorded as decided in the registry.
+- Notes there only need `status: archived`. No shape work is done on them.
+- The real CSCI 2033 is `40_Resources/UMN/Previous Classes/CSCI 2033` (flat). The user knows it is placed inconsistently, because other courses sit under `CSCI/`.
+- Spring'26 Syllabus: keep the `Previous Classes/` copy. The user answered "Yes, that's right" to my recommendation.
+
+**Concept notes (first-class, most crucial):**
+- Concept notes are the primary learning source for everything studied.
+- Hard learning-process rule: study, then implement, then test yourself, then update the note with missing or crucial content that was confusing. Everything in the note must be tested, learnt and proved by updating through the note.
+- The user says the existing concept notes are "mostly trash - ai slop" and the Concept Standard is "extremely thin".
+
+**Design system (new, not just a workflow):**
+- The user said "Design workflow mostly exists: incorrect." They want a scripted system like `30_Order/System/vault-lint`, plus a real design system for notes.
+- It should cover Obsidian settings, community plugin configuration, "the plugins that we make", and the dashboard.
+- It should make emphasis (italics, bold, highlight, callouts) deliberate: chosen to emphasize crucial content, not random.
+- Lint cannot judge whether a bold or italic is well placed.
+
+**Lint:**
+- Keep the `unmapped` flag.
+- The lint workflow will be completely customized and upgraded so that notes written get a check.
+
+**Agent and skills:**
+- Keep the `professor` agent as a coordinator.
+- Use no course-specific skills, and probably no hooks or commands.
+- Use 3 to 5 generic skills at most (I proposed 4: concept and textbook; week and discussion; lab, homework and project; exam, board and track). Skills must be thin pointers that read the live registry row and Standards instead of embedding rules, which the user phrased as "rely on what is currently established".
+- "Let's be essentialistic."
+
+**Control and root notes:** The user said the 7 Degree root notes ("control" notes) are evergreen notes, plans, deadline notes and boards viewed frequently, established outside the course workflow. They "might already have a particular standard, template" and need grouping with similar files across the vault.
+
+**Build order and execution:**
+- Proposed order: rules and registry, then course kit, then archive and dedupe, then the linter, then the design workflow, then `professor` and skills, then the UMN folder, then the Fall'26 notes.
+- The user said it "seems pretty correct to me but misses a few details."
+- New sessions will run the builds, so prompts must be written later.
+
+**UMN folder:** Reorganize `40_Resources/UMN` into concrete "how to do anything at UMN". Write notes as drafts for now. Four blank notes were created: How to Learn, Implementing The System, Per Course Design, System Overview.
+
+## 2. Key Technical Concepts
+
+- **Vault structure:** `30_Order` holds Standards, Templates, Workflows and System. Governing files: `Note Type Registry.md`, `00_How This Folder Works.md`, `Note Kit Standard`, `Conformance Standard`, `Frontmatter Standard`, `Decoration Standard`, `Jarvis Writing and Formatting`.
+- **Note Kit rules:**
+  - One Standard, one Template, and a Workflow only if the process repeats.
+  - A Standard under 700 prose words.
+  - Workflow under 350 words, with frontmatter `serves` and `trigger`.
+  - Templates carry one `<!-- -->` line of at most 140 characters per heading.
+  - Standard anatomy: Spec, Headings, Legacy Shapes, Done Conditions, Gold Standard Example.
+  - Rule: "No Standard for a family with no notes."
+  - Rule: "Read at least two real notes first."
+- **Frontmatter vocabulary:** 17 `type` values and 7 statuses. `class_kind` currently has 16 values: week, textbook, textbook-map, lab, homework, exam, exam-material, board, subboard, discussion, preparation, project, syllabus, control, track, audit.
+  - Target `class_kind` is 9 values: week, textbook, lab, homework, exam, board, discussion, project, track.
+  - Concept stays a separate `type: concept`.
+  - Seven would retire: textbook-map, exam-material, subboard, preparation, syllabus, control, audit.
+  - New types, statuses or kinds must be added to the Frontmatter Standard first.
+  - The legacy `input_kind` on course notes maps to `class_kind`.
+  - Status for `class` and `concept` is seed, sprout, tree or archived.
+- **Vault Lint:**
+  - `node vault-lint.js`, with `--specs`, `--kit`, `--path`, `--family`, `--fix`, `--dry-run` and `--skip`.
+  - It is 559 lines and has 76 Specs from 58 Standards.
+  - `--fix` only inserts blank lines above tables and Dataview blocks.
+  - Config `vault-lint.config.json` has `out_of_scope`, `tier4` and `template_paths`.
+  - Tiers 1 to 4 and six checks: frontmatter, headings, links, placement, hygiene, mapped.
+  - Target is 90% fit.
+  - **It has no check for highlight, bold, italic or callout rules.** It only checks tables and Dataview blank lines, placeholders, `---` in the body and similar.
+  - There is no path-based archived skip.
+- **Decoration Standard rules:**
+  - Exactly one `==highlight==` per `##` section (Flashcards excepted).
+  - Bold only on first introduction of a named concept.
+  - Italic labels.
+  - A documented callout set of NOTE, TIP, WARNING, QUESTION, SUMMARY and EXAMPLE.
+  - No stacked callouts.
+  - A text paragraph beside each drawing.
+- **Concept Standard (current):** six headings (One-Line Answer, Mechanism, Contrast / What It Is Not, Failure Modes / Misconceptions, Evidence From This Vault, Flashcards) plus an optional Start Here.
+  - Keys: `course`, `mastery_level` 0 to 10, `prerequisites`, `used_in`, `evidence`.
+  - There is no Implement, Self-test or Confusions section.
+  - The Concept Workflow updates only after lecture or assessment.
+  - Status becomes `tree` "after it survives an exam or a project".
+  - The Course Production Board rule 4 says "No concept notes", which conflicts with the new direction.
+- **Obsidian surface:**
+  - 11 community plugins are enabled in `community-plugins.json`: code-styler, file-explorer-plus, lazy-plugins, ninja-cursor, obsidian-latex-suite, obsidian-style-settings, templater-obsidian, url-into-selection, obsidian-local-rest-api, recent-files-obsidian, homepage.
+  - 26 plugin directories are installed, including dataview, kanban, meta-bind, excalidraw, spaced-repetition, quickadd, periodic-notes and obsidian-git, all with third-party authors. Three are disabled in `_disabled-plugins`: tasks, omnisearch and hover-editor.
+  - Theme AnuPpuccin; snippets dashboard.css, headerspace.css, myedits.css, rainbowfile_colors.css and readingview.css.
+  - `Plugin Inventory and Configuration Map.md` says three states can diverge: enabled, installed, and lazy-loaded via lazy-plugins.
+  - I did not read lazy-plugins' data file, because plugin data files may hold secrets.
+  - No user-authored plugin was found among the installed manifests.
+  - Docs exist in `40_Resources/Obsidian/` (Plugins, Settings, Dashboard, `Vault Operating System.md`, `Jarvis Vault Architecture.md`).
+- **Prompt machinery that already exists:** the Agent Prompt Standard (`project_kind: prompt`, 85 lines), the Agent Prompt Template and the Prompt Cycle workflow. The queue note holds only the next prompt, each prompt has a Report Back section reviewed against the repo, and finished prompts are archived. The `Course Production Board — Fall'26.md` (4,190 words) is the course-side dispatch board with "non-negotiable rules" and ready-to-paste handoff prompts. It includes a pending checklist and prompt for per-class Workflow files. Its text says to create 4 per-class files, including `MGMT 3015 Workflow.md`. The 4061, 4521 and 5304 files have since been created, but MGMT 3015 was not.
+- **Global CLAUDE.md constraints:**
+  - Never write files outside what was asked.
+  - PDFs via MinerU only.
+  - Never read or print secret-bearing files (.env, credentials, tokens).
+  - Never use em dashes.
+- **Project constraints:**
+  - No root-level vault files.
+  - Search before creating.
+  - Preserve frontmatter and patch by heading.
+  - `50_Archive/` is never read or written.
+  - Follow `30_Order` Standards, Templates and Workflows.
+  - Respect HUMAN_WRITING.
+  - Attribution on git commits: `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`.
+
+## 3. Files and Code Sections
+
+**Modified (the only write this session):**
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\Hit or Miss - Miss.md`
+  - Rewritten from a no-frontmatter scratch list into a ledger.
+  - Frontmatter: `type: class`, `class_kind: control`, `status: sprout`, `created: 2026-09-25`, `updated: 2026-10-30`, tags `[class, control]`, a `notes` list of the 5 course Boards, Fall'26 Syllabus and UMN Board, and a `next` line.
+  - Sections: Purpose, Map, Status (summary table, then CSCI 4511W, CSCI 4061, CSCI 5304, CSCI 4521, MGMT 3015 and ENGL 1004 (dropped)), and Known gaps (10 items).
+  - Content: 4511W Short Quiz 1 missed (-10), another short quiz -0.5, 5 of 8 discussions missed, Problem Set 2 code review missed ("36 points", ambiguous), homework deductions 2.4 and 3.3.
+  - 4061: labs 4 of 7 not scored, Quiz 1 -10, Entrance Survey, Project 1 quiz (derived at most 0.625% of course), oral exam cut, midterm 52/62 (83.9%).
+  - 5304: HW1 and Quiz 1 dropped, Quiz 3 -2.5/10.
+  - 4521: chime-ins 4.83/9.00, HW1 +6 extra credit, quizzes 50/51 and 49/50.
+  - MGMT 3015: attendance low, business idea 4.75/5, Quiz 1 51/52.
+  - A system note says this file changed on disk since I wrote it, and I should treat the changed version as current. I have not re-read it.
+  - It is now 1,569 words. Once `control` is retired it needs a new home.
+
+**Read this session (key facts):**
+- `30_Order/Standards/Courses/`:
+  - 16 files, about 79 KB, and 17 Spec blocks (Course Project has two).
+  - Prose words per Standard: Weekly 613, Concept 611, Board 557, Textbook 523, Exam 499, Weekly Board 492, Homework 491, Course Project 474, Lab 424, Preparation 420, Discussion 390, Exam Material 376, Textbook Map 365, Self-Study Track 351, Degree Control 308, Degree Audit 287.
+  - All 74 Standards are at or under 699 prose words, average 439.
+  - Created dates: 06-01 (Concept, Weekly), 09-08 (Exam, Lab, Course Project), 09-20 (7 Standards) and 10-16 (Degree Audit, Degree Control, Exam Material, Self-Study Track).
+- `30_Order/Workflows/Courses/`:
+  - 18 files: 13 generic (Board, Concept, Course Production, Discussion, Exam, Homework, Lab, Preparation, Projects, Textbook Map, Textbook, Weekly Board, Weekly) and 5 per-class.
+  - Per-class sizes: CSCI 4061 2,056 words, 4521 1,890, 4511W 1,603, 5304 1,457, Technical Interview 394.
+  - They are typed `system_kind: guide` and are not in the registry (only Technical Interview Workflow is, as the track plan).
+  - Generic workflows are 1.6 to 2.7 KB.
+- `30_Order/Templates/Classes/`: 15 files (Board or Main, Concept, Degree Control, Discussion, Exam Material, Exam Sheet, Homework, Lab, Preparation, Project, Textbook Map, Textbook, Track, Week, Weekly Board), about 12 KB.
+  - Vault templates by folder: Classes 15, Career 14, Capability 11, AI Toolkit 9, Frontmatter 9, Projects 7, Knowledge 5, Enumerate 4, System 2, plus a root MOC = 77.
+- `30_Order` overall: Standards 74, Workflows 49 (Courses 18, Enrichment 7, Ingestion 6, Internship 8, Operations 1, Projects 1, System 2, Toolkit 5), Templates 77. Sizes on 10-17 were Standards 335 KB, Templates 62 KB, Workflows 141 KB and System 36 KB.
+- Builds - Jarvis (5 notes: Builds - Jarvis, Build History July to October 2026, Current State 2026-10-17, Restoration Build Plan J0 to J7, Dashboard Build Record):
+  - They cover infrastructure: Sync Builds 0 to 13, Old Laptop, Claude Kit, internship pipeline, Graphify, Obsidian OOM incidents, memory and capture.
+  - The course system gets one paragraph (commits `0e23b437`, `abcc516a`, `06728e6d`: registry, conformance and lint). There is no J-packet for it.
+  - I did **not** read the Dashboard Build Record (63 lines).
+- Excalidraw MCP: not course related, not registered in `.mcp.json`, and the package was not installed on that machine. Vault Lint documentation is in `30_Order/System/vault-lint/Vault Lint.md`.
+- 10-15 gap review clipping, around lines 1429 to 1455:
+  - 6,786 notes, 67% machine-generated, 74% in families with no Standard, and "39 of the 46 Standards were written in September".
+  - Git history only spans 2026-04-23 to 2026-10-15.
+- Lint results (read-only runs):
+
+| Scope | Fit |
+|---|---|
+| Degree | 12/227 (5.3%) |
+| UMN | 0/385 |
+| course-week | 0/42 |
+| course-concept | 0/29 |
+| course-board | 0/7 |
+| course-control | 0/7 |
+| course-textbook | 7/47 |
+| course-lab | 2/6 |
+
+  - Degree top failures: 339 missing-heading and 264 missing-key.
+  - `--kit` check: 0 errors, 13 warnings.
+- Course note counts: Degree 227 md (CSCI 4041 61, 4061 42, 5304 28, 4511W 26, 4521 24, MGMT 3015 14, `_Courses` 26).
+  - `_Courses` holds 6 tracks: AI Associate Engineer, Cloud Architect, Github Foundations, ML Engineer, System Design and Technical Interview.
+  - Degree root notes:
+
+| Note | type | Words |
+|---|---|---|
+| Fall'26 Syllabus | class / `input_kind: board` | 1,653 |
+| Every Week | index | 1,627 |
+| UMN Board | index | 407 |
+| Course Production Board — Fall'26 | index | 4,190 |
+| Hit or Miss - Miss | class / control | 1,569 |
+| Repetitive Things | no frontmatter | 5,407 |
+| `_Courses/_Courses Board` | index | 1,150 |
+
+- Concept-note measurement (115 `type: concept` notes in Degree and Previous Classes): median 1,037 words.
+  - 74 headings are "Definition" and 24 use the "30-Second Explanation" shape.
+  - Only 14 of 29 current Degree concepts have all six Standard headings.
+  - 54 have a self-test style heading (Mini-Test or Diagnostic), 20 have an implementation or practice heading, and 2 have a confusion or open-question heading.
+  - This is structural evidence only; I did not assess prose quality.
+- `40_Resources/UMN`:
+  - Top level: `Links.md` (43 lines, evergreen link dump) and the 4 blank notes (0 bytes). A 0-byte `Previous Classes/CSCI 2033/Preperation.md` also exists.
+  - `The Plan` (5 notes): APAS, Community College, Entrepreneurship Minor, Extra Credits and Spring'26 Syllabus.
+  - `SAO` (30 notes).
+  - `Previous Classes`:
+    - The nested duplicate `CSCI/CSCI 2033` tree is **gone**: 0 md now, and git status is clean for that path, so the removal was committed between my earlier diff and my later check. The flat tree has 45 md.
+    - 300 md remain.
+    - Status counts: 111 sprout, 87 seed, 44 archived, 33 tree, 12 active, 11 complete, 2 with no status.
+    - `active` and `complete` are not valid for class and concept notes. Type counts: 200 class, 87 concept, 7 input, 2 reference, 2 dashboard, 1 evergreen.
+    - Path-links in notes still point at the removed nested path, at `10_Areas/UMN/Previous Classes/...`, and at `50_Archive/Previous Classes/...`. A count of files containing such stale links across `40_Resources/UMN` and `10_Areas` returned **111**. Examples: `10_Areas/Life/Plans/Summer 2026/ML Fundamentals (2033 + 2230).md` and notes in the flat 2033 tree (Final, Midterm - 1, Extra notes).
+    - Other links point at the flat path: Weekly 2026-W44, `Data View's/UMN Dashboard.md`, `CSCI 2021` concepts, and `20_Progress/AI/Claude Code/The Plan/.claude/skills/organize-csci2033.md`.
+    - The previous classes also include bespoke shapes: CSCI 2041 "Note Production Plan" and "Final Review Map", and BIOL 1012 Theme 4 drill banks and checklists.
+- `.claude/agents/professor.md`: a scaffold. Its description names per-course skills such as `class-csci4041` and `obsidian-class-*`, which do not exist. Model is `claude-sonnet-5`, its memory is planned at `.claude/context/MEMORY.md`, and the routing table is not built. It needs a rewrite to match the new generic-skills decision.
+- `.claude/skills` has 18 entries, none course-specific.
+- Vault-wide Standards for the control-note grouping candidates:
+  - `Plan Standard` covers `type: plan` in `10_Areas/Life/Plans/`.
+  - `MOC Standard` explicitly excludes `20_Progress/Degree/`, `40_Resources/UMN/` and `10_Areas/Notes/`.
+  - `Dashboard Standard` covers live-query boards.
+  - `Reference Standard` covers `40_Resources` lookups.
+  - The tracker family covers Deadline Tracker and similar notes under `10_Areas/Career/Internships/Tracker/`, and there is a Habit Tracker Board.
+  - `10_Areas/Life/Plans` holds Fall 2026 (Anti-Drift Rules, The One Thing, Builds, Fall 2026 Plan, LeetCode & CodePath, Weekly Rhythm), Plans Board, Plans-to-Create, Summer 2026, 2025 and Zero-Cost AI Stack.
+- Course Boards read for the ledger: 4511W, 4061, 5304, 4521, MGMT 3015, Fall'26 Syllabus, UMN Board, Every Week. Notable fact: the `CSCI 4061 Board` "Current Grade" section is computed from the ledger.
+
+## 4. Errors and fixes
+
+- **Ledger wording fixes (Phase 1):** I first wrote that "two of the five Boards" lean on the ledger. Only the CSCI 4061 Board links it, so I corrected it. I also tightened the PS2 stale-state wording and narrowed the "Common Mistakes" claim to what I had verified (the 4061 Board and the Fall'26 Syllabus).
+- **Wrong size claim:** I said the per-class workflows were "10 to 15 KB / 1,500 to 2,500 words". Measured prose words are 1,457 to 2,056 for the CSCI ones. I corrected this in a later reply.
+- **Count misread by the user:** The user said my counts were "slightly wrong". I clarified that 77 templates is the vault total and 15 are course templates, and that halving needs cuts outside courses.
+- **Wrong claim corrected by the user:** I said the design workflow "mostly exists" (Decoration plus Plugins Usage workflows). The user said that is incorrect and described a scripted system.
+- **Tool failures:**
+  - Python was unavailable, so I used `node -e` for word counts.
+  - A diff of the nested CSCI 2033 Board failed because the nested tree had been removed in the meantime.
+  - A `sed` for the Frontmatter Standard sections returned nothing, so I used Grep and Read instead.
+- **Unresolved discrepancy:** The user's list sums to 11 types when audit was included, and they said 10. They have since confirmed the 10 (audit out).
+- **Possible conflict not yet verified:** The Plugins Usage Standard and Workflow reference Tasks-plugin `- [ ]` lines (4 and 2 mentions), but the Tasks plugin is in `_disabled-plugins`.
+
+## 5. Problem Solving
+
+- The ledger note was completed with explicit Known gaps instead of guesses.
+- Root cause of the bloat, per the evidence:
+  - Standards were retrofitted after notes existed.
+  - The Oct 16 Note Kit rebuild created one family per existing shape, so each odd shape got a Standard (four on 10-16).
+  - The "split over 700 words" rule and Legacy Shapes tables added files and weight.
+  - Per-class workflows restated Board and Standard content.
+  - Skills and the `professor` agent were designed for per-course skills that were never built.
+- Ongoing research is collecting everything needed to clarify the build before any prompts are written. It was nearly complete when this summary was requested.
+
+## 6. All user messages
+
+1. First message (ledger task): asked for a half-semester review at Week 8 and listed misses per course. It said the earlier scratch file is `20_Progress/Degree/Hit or Miss - Miss` and asked me to "update that file concretely with frontmatter and interlinks for all the major links to the course" and to "Make no mistakes here and rely all the information down correctly." The figures were:
+   - **CSCI 4511W:** Short Quiz 1 missed; points off per short quiz (out of 10) 10 and 0.5; discussion attendance 5 missed of 8; code review problem set 2 (36 points, heavy grade); homework points deducted 2.4 and 3.3.
+   - **CSCI 4061:** 4 of 7 labs missed (2 dropped, 2 submitted but no grade); entrance survey missed; quiz 1 (-10 points); project 1 quiz missed; oral exam some points cut off; midterm 52/62.
+   - **CSCI 5304:** homework 1 and quiz 1 both dropped; quiz 3 (out of 10) 2.5 deducted.
+   - **CSCI 4521:** homework 1 extra credit 6 points; all chime-ins missed in a worst-case view, but the real score is 4.83/9.00; quiz 1 50/51; quiz 2 49/50.
+   - **MGMT 3015:** attendance low and not sure how low; Business Idea for a New Company 4.75/5; Quiz 1 51/52.
+2. Second message (research phase): said the `30_Order` system was built with a reverse approach that bloated it, and that courses only need week, lab, homework, discussion, textbook, exam, project and board, with per-course workflows for specialization. It asked me to go through the Builds - Jarvis notes, the Courses workflows, the Classes templates, vault-lint, excalidraw-mcp, the Courses standards, all Standards, and `40_Resources/UMN`. It asked me to reorganize UMN into concrete "how to anything at umn" and write notes as drafts for now. It said this is "only the research phase", "Do not take any actions at all", and asked how many standards, workflows, systems and templates exist for UMN and other courses, what exists, and where we stand.
+3. Third message (pasted content, id b43c, plus decisions), which in substance said:
+   - Template counts are off, and templates should be half of 77.
+   - The 8 types plus concept and track (and audit) should be the 10 or 11.
+   - Textbook-map, weekly sub-board, preparation, exam-material and project-companion fold into standards and boards.
+   - Archive is decided: any course in Previous Classes is an archive class, to be recorded in the registry.
+   - MGMT 3015's workflow is missing; the other course workflows are correct.
+   - There should be one general "learning workflow".
+   - Lint unmapped flagging is great, and lint will be completely upgraded to check notes.
+   - A design workflow is needed for italics, bold, highlighting, plugins, settings and the dashboard.
+   - The 700-word cap is hard: average 400 to 700, only extremely complicated Standards may exceed 700, and the absolute maximum is 1,000.
+   - Workflows should not restate other notes.
+   - Keep the `professor` agent with no course-specific skills, 3 to 5 generic skills at most, and no class-specific skills like CS5441.
+   - "Let's be essentialistic."
+
+   The decisions that followed:
+   1. Concept is first-class and the primary learning source, with the study, implement, test and update loop.
+   2. The five folds: yes.
+   3. Per-class workflows become thin, focused only on course-specific needs.
+   4. Previous Classes is just an archive with `status: archived`.
+   5. The real CSCI 2033 is `40_Resources/UMN/Previous Classes/CSCI 2033`.
+4. Fourth message: clarified the final types, the Standards target, the Note Kit rule, the design system, the concept lifecycle, the control notes, the word cap and the build order, as recorded in section 1 above. The verbatim closing instruction: "Do not write the prompts for the build yet. We are not even close to mapping out the courses entirely. If there is anymore confusion, detail that you need to look at. Go ahead and search for it. Come back with solid information that needs to be clarified for the build that we have just been working towards."
+
+## 7. Pending Tasks
+
+- **Deliver the consolidated clarification report.** My last tool calls (the Course Production Board section on per-class workflows, and the Tasks-plugin, stale-link and empty-file checks) completed. The report itself has not been written. It should lay out findings and the specific clarifications the build needs.
+- **Not yet allowed:** writing the build prompts, or any file creation, edit, deletion, merge or status change. Everything is still read-only until the user gives the go-ahead.
+- **Eventually:** write self-contained prompts for fresh sessions to execute the build steps in the agreed order. Each should follow the Agent Prompt Standard and Prompt Cycle patterns, with an explicit allowed-file list. Also draft the UMN reorganization notes.
+
+## 8. Current Work
+
+I was in the final research sweep that the user asked for ("Go ahead and search for it"). The last two tool results showed:
+- **Per-class workflow board entry:** `Course Production Board — Fall'26.md` lines 78 to 114 hold a "System work: per-class Workflow files" section with an unchecked list including `30_Order/Workflows/Courses/Per Class/MGMT 3015 Workflow.md`. It has an old handoff prompt template saying each per-class file must include a course-shape paragraph, a routing table, a source hierarchy, a weekly rhythm, an assignment workflow, status and handoff, and stop-and-ask conditions. That is the opposite of the new "thin addendum" decision.
+- **Tasks plugin:** it is disabled (in `_disabled-plugins`) but is still referenced in the Plugins Usage Standard (4 mentions) and Workflow (2 mentions).
+- **Stale links:** 111 files contain stale path-links (`50_Archive/Previous Classes`, `10_Areas/UMN/Previous Classes`, or the removed nested `Previous Classes/CSCI/CSCI 2033`).
+- **Empty files:** the four UMN blank notes plus `Previous Classes/CSCI 2033/Preperation.md` (0 bytes).
+
+## 9. Optional Next Step
+
+Write the text-only clarification report the user asked for ("Come back with solid information that needs to be clarified for the build that we have just been working towards"). No prompts, no file changes. It would cover:
+
+**Findings that sharpen the build:**
+- The Concept Standard has no implement, self-test or confusions loop, and the Course Production Board rule 4 ("No concept notes") conflicts with it. The measured concept shapes are in section 3.
+- `class_kind` has 16 values and 7 retire.
+- Lint has no emphasis checks and no archived path skip.
+- There are 111 files with stale links, and the nested 2033 tree is already deleted.
+- 256 of 300 Previous Classes notes lack `status: archived`, and 23 carry invalid `active` or `complete`.
+- The Tasks plugin is disabled but referenced in the design docs.
+- The Course Production Board holds an old per-class workflow prompt that contradicts the thin-addendum decision.
+- The prompt mechanism that already exists (Agent Prompt Standard, Prompt Cycle, the Course Production Board dispatch pattern) should be reused.
+
+**Questions to put to the user:**
+1. What does "Standards target 15" count?
+2. Where do the APAS and The Plan notes (Entrepreneurship Minor, Community College, Extra Credits) and the 7 root "control" notes go? Offer options mapped to the existing plan, dashboard, tracker, reference and index families.
+3. Which "plugins that we make" are meant, since none were found among the installed ones?
+4. How far should design-system automation go: check only, suggest, or auto-apply?
+5. Move CSCI 2033 into `CSCI/` and repair the 111 stale links?
+6. Should `active` and `complete` statuses in Previous Classes be set to `archived`, and should lint skip Previous Classes entirely?
+7. Where should the build prompts live, and must each carry an explicit allowed-files list?
+8. Should the Tasks-plugin references in the design docs be treated as stale?
+
+The user's verbatim instruction for this step: "Do not write the prompts for the build yet... Come back with solid information that needs to be clarified for the build that we have just been working towards."
+
+If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED].jsonl
+Continue the conversation from where it left off without asking the user any further questions. Resume directly — do not acknowledge the summary, do not recap what was happening, do not preface with "I'll continue" or similar. Pick up the last task as if the break never happened.
+
+The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
 ## Actions Taken
 

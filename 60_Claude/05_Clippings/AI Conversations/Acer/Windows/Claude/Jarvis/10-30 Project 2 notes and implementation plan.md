@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Project 2 notes and implementation plan"
 started_at: 2026-10-30T17:41:41
-ended_at: 2026-10-30T18:50:04
-exported_at: 2026-10-30T18:50:05
-duration_minutes: 68.4
+ended_at: 2026-10-30T19:02:30
+exported_at: 2026-10-30T19:03:07
+duration_minutes: 80.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a9e46100-945b-4824-a25e-507a231d7cb0
@@ -15,21 +15,21 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-10-30
-turn_count: 7
+turn_count: 9
 tools_used:
-  Bash: 110
+  Bash: 112
   Edit: 10
   Grep: 2
   PowerShell: 5
-  Read: 28
-  Write: 7
+  Read: 29
+  Write: 12
 tokens:
-  input: 260
-  output: 146065
-  cache_creation: 544473
-  cache_read: 46113563
-  total: 46804361
-cost_usd: 8.250418
+  input: 274
+  output: 170016
+  cache_creation: 568667
+  cache_read: 49630634
+  total: 50369591
+cost_usd: 8.938439
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -38,6 +38,7 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\mineru-out\\Lec10.standard.pall.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\mineru-out\\Lec11.standard.pall.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\mineru-out\\Lec12.standard.pall.md"
+  - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Labs\\lab05-code\\square_numbers.c"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj2-code\\part1\\swish_funcs.c"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj2-code\\part2\\hadamard_pipe.c"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj2-code\\part2\\hadamard_shmem.c"
@@ -13431,9 +13432,895 @@ proj2-code-naf/part2/Makefile
 proj2-code-naf/part2/pyproject.toml
 ```
 
+## You
+
+
+
+<pasted_content id="f13e">
+1. Remove the EINTR retry loops (in the pipe and shmem wait/read). They appear nowhere in lectures; only my Lab 5 solution has them. Use if (wait(NULL) == -1) { perror... } as in single_pipe.c.
+2. Remove the if (!PyErr_Occurred()) guards. The revised starter's own pipe file already uses a plain PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file"). Use that in all three files.
+3. Drop the failed flag and && !failed chains. Use the professor's pattern instead: clean up, wait for the children started so far (for (j < i) wait(NULL)), and return.
+4. Replace split_work and the balanced remainder formula. Neither is professor material. Compute the split inline in the loop, as lecture12-code/array_threads_v1.c does, using chunk_size and start/stop. Canvas hints at ceil plus the provided min(), so use that: chunk = ceil(total / n), start = i * chunk, end = min(start + chunk, total).
+5. Simplify the pipe read loop. Use int nbytes and while ((nbytes = read(...)) > 0) like single_pipe.c, and drop the ssize_t casts and the idx >= total check.
+6. Part 1 run_piped_command: drop the pipes[i] == STDIN_FILENO special case and the continue in the close loop. Use the plain dup2, check, then close-all pattern from lab04-code/pipeline_commands.c.
+7. Part 1 run_pipelined_commands: keep fflush(stdout), because Lab 1's fork_wait.c does the same with the comment "Prevents duplicate I/O after a fork". Without it I saw a duplicated @> prompt. Simplify the bars array and the (n_fds + 1) allocation trick, or keep the empty-command check only if you can explain it.
+8. Trim comments to one-line facts. Delete the multi-line "why" comments and cut density to about 0.10. Also remove the redundant a_size/mapped_size pair in shmem, wrap the mmap line that is 101 characters, and use n_workers consistently (the starter's TODO text uses it).
+</pasted_content id="f13e">
+
+
+Not exercised: fork() failure partway through the process loop, and the real Gradescope hidden tests.
+- It is not slop-free. Several pieces came from my own habits or from my earlier Lab 5 solution, not from the professor's material. Comment density is 0.15 against 0.10, and the logic is heavier than anything he writes.
+
+These comments concern me about the code and this is the slop that I was aiming to identify. Something to note is that the lab solutions written out are also by claude so do not rely on the solutions for the labs. Draft your own solutions for the particular lab you need the code from (lab 5): modify the lab code itself based on the professor's actual method instead of the bullshit written. Use the modified professor logic to write out the project code which is clearly based of the professor's writing style and textbook methods. Make sure to use the lecture methods discussed for the project in detail. Do not update through all the labs, just the labs that are needed for the project. Make sure to make the fixes required to the project here. I want to have a smooth oral exam, easy to explain. Not something that i have to defend or lose points over. Everything is simple and based of the core logic used in lectures. Do not use hard logic here, rely on simpler methods. Do not make the code too complex here. The fixes that are to be made should also be simplistic and easy to read with comment density roughly 0.12-0.15. Go ahead and implement these necessary fixes over here to make sure that everything is clean.
+
+## Claude
+
+Starting with Lab 5. The container still has the original starter at `/tmp/[REDACTED].c`, so I'll rebuild the lab solution from that using the professor's methods.
+
+Now Part 1, built on the helpers the spec added for Project 2 (`strvec_find_last`, `strvec_slice`, `strvec_take`) and the Lab 4 `dup2` pattern.
+
+All four project files and the Lab 5 solution are rewritten. Now the full verification pass on scratch copies in the running container.
+
+### Tool Calls
+
+- `Bash`
+```bash
+docker exec cranky_pasteur bash -c 'cat /tmp/lab05-original-square_numbers.c; echo ======; cd /workspaces/csci4061-fa26/Labs/lab05-code; ls; diff /tmp/lab05-original-square_numbers.c square_numbers.c | head -5; cat test_cases/tests.json | head -40'
+```
+```
+#define _GNU_SOURCE
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#define NUMBERS_LEN 40
+#define min(a, b) ((a) < (b) ? (a) : (b))    // You may find this useful when assigning work chunks
+
+int numbers[NUMBERS_LEN] = {
+    75, 3,   99, 36, 47, 88, 93, 93, 0,  96, 63, 27, 12, 67, 75, 22, 34, 41, 61, 48,
+    13, 100, 86, 15, 87, 35, 19, 92, 59, 70, 73, 65, 35, 35, 37, 44, 3,  20, 37, 27,
+};
+
+int main(int argc, char **argv) {
+    if (argc < 2) {
+        printf("Usage: %s <num_procs>\n", argv[0]);
+        return 1;
+    }
+
+    // Uncomment the next line to use this variable definition
+    // int n_procs = atoi(argv[1]);
+
+    // TODO Fork 'n_procs' worker processes, ensuring they have access to same
+    // shared memory segment
+
+    // Assign each child a disjoint chunk of 'numbers' array to square
+    // Chunks should be disjoint and (approximately) evenly sized
+
+    printf("Squares:\n");
+    for (int i = 0; i < NUMBERS_LEN; i++) {
+        // TODO Print out results from shared mem segment
+    }
+
+    return 0;
+}
+======
+Makefile
+QUESTIONS.txt
+lab05-code.zip
+square_numbers.c
+test_cases
+1a2,3
+> #include <errno.h>
+> #include <limits.h>
+24,25c26,34
+<     // Uncomment the next line to use this variable definition
+{
+    "name": "Lab 05",
+    "tests": [
+        {
+            "name": "Quiz - QUESTIONS.txt",
+            "description": "Check if the answers in QUESTIONS.txt are correct. This file must be edited so that the correct ( ) choices are replaced with (X) and no other changes are made to the file.",
+            "command": "socrates QUESTIONS.txt -c test_cases/resources/quiz_sum.json -a",
+            "output_file": "test_cases/output/quiz.txt",
+            "points": 0.5
+        },
+        {
+            "name": "Code - square_numbers 1 worker",
+            "description": "Checks to see if square_numbers with 1 worker process yields correct results",
+            "command": "./square_numbers 1",
+            "output_file": "test_cases/output/square_numbers.txt",
+            "points": 0.125
+        },
+        {
+            "name": "Code - square_numbers 2 workers",
+            "description": "Checks to see if square_numbers with 2 worker processes yields correct results",
+            "command": "./square_numbers 2",
+            "output_file": "test_cases/output/square_numbers.txt",
+            "points": 0.125
+        },
+        {
+            "name": "Code - square_numbers 3 workers",
+            "description": "Checks to see if square_numbers with 3 worker processes yields correct results",
+            "command": "./square_numbers 3",
+            "output_file": "test_cases/output/square_numbers.txt",
+            "points": 0.125
+        },
+        {
+            "name": "Code - square_numbers 4 workers",
+            "description": "Checks to see if square_numbers with 4 worker processes yields correct results",
+            "command": "./square_numbers 4",
+            "output_file": "test_cases/output/square_numbers.txt",
+            "points": 0.125
+        }
+    ]
+}
+```
+- `Read` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Labs\lab05-code\square_numbers.c`
+- `Write` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Labs\lab05-code\square_numbers.c`
+```
+#define _GNU_SOURCE
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#define NUMBERS_LEN 40
+#define min(a, b) ((a) < (b) ? (a) : (b))    // You may find this useful when assigning work chunks
+
+int numbers[NUMBERS_LEN] = {
+    75, 3,   99, 36, 47, 88, 93, 93, 0,  96, 63, 27, 12, 67, 75, 22, 34, 41, 61, 48,
+    13, 100, 86, 15, 87, 35, 19, 92, 59, 70, 73, 65, 35, 35, 37, 44, 3,  20, 37, 27,
+};
+
+int main(int argc, char **argv) {
+    if (argc < 2) {
+        printf("Usage: %s <num_procs>\n", argv[0]);
+        return 1;
+    }
+
+    int n_procs = atoi(argv[1]);
+    if (n_procs < 1) {
+        printf("Number of processes must be positive\n");
+        return 1;
+    }
+
+    // Children inherit this segment through fork
+    int *squares = mmap(NULL, NUMBERS_LEN * sizeof(int), PROT_READ | PROT_WRITE,
+                        MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+    if (squares == MAP_FAILED) {
+        perror("mmap");
+        return 1;
+    }
+
+    // Round up so every element gets covered, last chunk may be smaller
+    int chunk_size = ceil(NUMBERS_LEN / (double) n_procs);
+    for (int i = 0; i < n_procs; i++) {
+        int start = i * chunk_size;
+        int stop = min(start + chunk_size, NUMBERS_LEN);
+
+        pid_t child_pid = fork();
+        if (child_pid == -1) {
+            perror("fork");
+            for (int j = 0; j < i; j++) {
+                wait(NULL);
+            }
+            munmap(squares, NUMBERS_LEN * sizeof(int));
+            return 1;
+        } else if (child_pid == 0) {
+            for (int j = start; j < stop; j++) {
+                squares[j] = numbers[j] * numbers[j];
+            }
+            if (munmap(squares, NUMBERS_LEN * sizeof(int)) == -1) {
+                perror("munmap");
+                exit(1);
+            }
+            exit(0);
+        }
+    }
+
+    // Children write to shared memory, so wait before reading it
+    for (int i = 0; i < n_procs; i++) {
+        if (wait(NULL) == -1) {
+            perror("wait");
+            munmap(squares, NUMBERS_LEN * sizeof(int));
+            return 1;
+        }
+    }
+
+    printf("Squares:\n");
+    for (int i = 0; i < NUMBERS_LEN; i++) {
+        printf("%d\n", squares[i]);
+    }
+
+    if (munmap(squares, NUMBERS_LEN * sizeof(int)) == -1) {
+        perror("munmap");
+        return 1;
+    }
+    return 0;
+}
+
+```
+- `Write` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part1\swish_funcs.c`
+```
+#include "swish_funcs.h"
+
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#include "string_vector.h"
+
+#define MAX_ARGS 10
+
+/*
+ * Helper function to run a single command within a pipeline. You should make
+ * use of the provided 'run_command' function here.
+ * tokens: String vector containing the tokens representing the command to be
+ * executed, possible redirection, and the command's arguments.
+ * pipes: An array of pipe file descriptors.
+ * n_pipe_fds: Length of the 'pipes' array
+ * in_idx: Index of the file descriptor in the array from which the program
+ *         should read its input, or -1 if input should not be read from a pipe.
+ * out_idx: Index of the file descriptor in the array to which the program
+ *          should write its output, or -1 if output should not be written to
+ *          a pipe.
+ * Returns 0 on success or -1 on error.
+ */
+int run_piped_command(strvec_t *tokens, int *pipes, int n_pipe_fds, int in_idx, int out_idx) {
+    pid_t child_pid = fork();
+    if (child_pid == -1) {
+        perror("fork");
+        return -1;
+    } else if (child_pid == 0) {
+        if (in_idx != -1 && dup2(pipes[in_idx], STDIN_FILENO) == -1) {
+            perror("dup2");
+            exit(1);
+        }
+        if (out_idx != -1 && dup2(pipes[out_idx], STDOUT_FILENO) == -1) {
+            perror("dup2");
+            exit(1);
+        }
+
+        // Child no longer needs any of the original pipe descriptors
+        for (int i = 0; i < n_pipe_fds; i++) {
+            if (close(pipes[i]) == -1) {
+                perror("close");
+                exit(1);
+            }
+        }
+
+        // Only returns on failure
+        run_command(tokens);
+        exit(1);
+    }
+
+    return 0;
+}
+
+int run_pipelined_commands(strvec_t *tokens) {
+    int n_pipes = strvec_num_occurrences(tokens, "|");
+    int n_pipe_fds = 2 * n_pipes;
+
+    int *pipes = malloc(n_pipe_fds * sizeof(int));
+    if (pipes == NULL) {
+        fprintf(stderr, "malloc failed\n");
+        return -1;
+    }
+    for (int i = 0; i < n_pipes; i++) {
+        if (pipe(pipes + 2 * i) == -1) {
+            perror("pipe");
+            for (int j = 0; j < 2 * i; j++) {
+                close(pipes[j]);
+            }
+            free(pipes);
+            return -1;
+        }
+    }
+
+    // Prevents duplicate I/O after a fork
+    if (fflush(stdout) == EOF) {
+        perror("fflush");
+        for (int i = 0; i < n_pipe_fds; i++) {
+            close(pipes[i]);
+        }
+        free(pipes);
+        return -1;
+    }
+
+    // Launch commands from the last one back to the first one
+    int ret_val = 0;
+    int n_children = 0;
+    for (int i = n_pipes; i >= 0; i--) {
+        int bar_idx = strvec_find_last(tokens, "|");
+        strvec_t command;
+        if (strvec_slice(tokens, &command, bar_idx + 1, tokens->length) == -1) {
+            fprintf(stderr, "strvec_slice failed\n");
+            strvec_clear(&command);
+            ret_val = -1;
+            break;
+        }
+        if (i > 0) {
+            strvec_take(tokens, bar_idx);
+        }
+
+        int in_idx = (i == 0) ? -1 : 2 * (i - 1);
+        int out_idx = (i == n_pipes) ? -1 : 2 * i + 1;
+        int result = run_piped_command(&command, pipes, n_pipe_fds, in_idx, out_idx);
+        strvec_clear(&command);
+        if (result == -1) {
+            ret_val = -1;
+            break;
+        }
+        n_children++;
+    }
+
+    // Parent never uses the pipes, readers only see end of file once all write ends are closed
+    for (int i = 0; i < n_pipe_fds; i++) {
+        if (close(pipes[i]) == -1) {
+            perror("close");
+            ret_val = -1;
+        }
+    }
+
+    for (int i = 0; i < n_children; i++) {
+        if (wait(NULL) == -1) {
+            perror("wait");
+            ret_val = -1;
+        }
+    }
+
+    free(pipes);
+    return ret_val;
+}
+
+```
+- `Write` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_pipe.c`
+```
+#include <Python.h>
+#include <assert.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#include "hadamard.h"
+
+/*
+ * Represents one matrix element communicated over a pipe
+ * 'idx': Element index (in flattened representation)
+ * 'value': Element value
+ */
+struct element {
+    unsigned idx;
+    int value;
+};
+
+/*
+ * Function executed in each child process to compute its portion of the hadamard product
+ * 'a': Pointer to elements for first matrix operand
+ * 'b': Pointer to elements for second matrix operand
+ * 'start': Index (in flattened representation) of first element of matrix portion
+ * 'end': Index (in flattened representation) of last element of matrix portion
+ * 'pipe_fd': Descriptor of write end of pipe to use to send results back to coordinator
+ *
+ * Returns 0 on success or -1 on failure
+ */
+static int worker(const int *a, const int *b, unsigned start, unsigned end, int pipe_fd) {
+    for (unsigned i = start; i < end; i++) {
+        struct element elem;
+        elem.idx = i;
+        elem.value = a[i] * b[i];
+        if (write(pipe_fd, &elem, sizeof(elem)) == -1) {
+            perror("write");
+            return -1;
+        }
+    }
+    return 0;
+}
+
+PyObject *hadamard_pipe(PyObject *self, PyObject *args) {
+    const char *mat_a_file;
+    const char *mat_b_file;
+    unsigned n_workers;
+    if (!PyArg_ParseTuple(args, "ssI", &mat_a_file, &mat_b_file, &n_workers)) {
+        // ParseTuple sets up a Python exception on our behalf
+        return NULL;
+    }
+    if (n_workers == 0) {
+        PyErr_SetString(PyExc_ValueError, "Number of workers must be positive");
+        return NULL;
+    }
+
+    unsigned a_rows;
+    unsigned a_cols;
+    int *mat_a_data = read_matrix_from_file(mat_a_file, &a_rows, &a_cols, 0);
+    if (mat_a_data == NULL) {
+        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+        return NULL;
+    }
+    unsigned b_rows;
+    unsigned b_cols;
+    int *mat_b_data = read_matrix_from_file(mat_b_file, &b_rows, &b_cols, 0);
+    if (mat_b_data == NULL) {
+        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+        free(mat_a_data);
+        return NULL;
+    }
+    assert(a_rows == b_rows && a_cols == b_cols);
+    unsigned total = a_rows * a_cols;
+
+    int pipe_fds[2];
+    if (pipe(pipe_fds) == -1) {
+        PyErr_SetFromErrno(PyExc_OSError);
+        free(mat_a_data);
+        free(mat_b_data);
+        return NULL;
+    }
+
+    // Round up so every element gets covered, last chunk may be smaller
+    unsigned chunk_size = ceil(total / (double) n_workers);
+    for (unsigned i = 0; i < n_workers; i++) {
+        unsigned start = i * chunk_size;
+        unsigned end = min(start + chunk_size, total);
+
+        pid_t child_pid = fork();
+        if (child_pid == -1) {
+            PyErr_SetFromErrno(PyExc_OSError);
+            close(pipe_fds[0]);
+            close(pipe_fds[1]);
+            for (unsigned j = 0; j < i; j++) {
+                wait(NULL);
+            }
+            free(mat_a_data);
+            free(mat_b_data);
+            return NULL;
+        } else if (child_pid == 0) {
+            if (close(pipe_fds[0]) == -1) {
+                perror("close");
+                exit(1);
+            }
+            int result = worker(mat_a_data, mat_b_data, start, end, pipe_fds[1]);
+            free(mat_a_data);
+            free(mat_b_data);
+            if (result == -1) {
+                exit(1);
+            }
+            if (close(pipe_fds[1]) == -1) {
+                perror("close");
+                exit(1);
+            }
+            exit(0);
+        }
+    }
+
+    // Parent only reads, so read returns 0 once every child closes its write end
+    if (close(pipe_fds[1]) == -1) {
+        PyErr_SetFromErrno(PyExc_OSError);
+        close(pipe_fds[0]);
+        for (unsigned i = 0; i < n_workers; i++) {
+            wait(NULL);
+        }
+        free(mat_a_data);
+        free(mat_b_data);
+        return NULL;
+    }
+
+    int *mat_c_data = malloc(total * sizeof(int));
+    if (mat_c_data == NULL) {
+        PyErr_NoMemory();
+        close(pipe_fds[0]);
+        for (unsigned i = 0; i < n_workers; i++) {
+            wait(NULL);
+        }
+        free(mat_a_data);
+        free(mat_b_data);
+        return NULL;
+    }
+
+    struct element elem;
+    int nbytes;
+    while ((nbytes = read(pipe_fds[0], &elem, sizeof(elem))) > 0) {
+        mat_c_data[elem.idx] = elem.value;
+    }
+    if (nbytes == -1) {
+        PyErr_SetFromErrno(PyExc_OSError);
+        close(pipe_fds[0]);
+        for (unsigned i = 0; i < n_workers; i++) {
+            wait(NULL);
+        }
+        free(mat_a_data);
+        free(mat_b_data);
+        free(mat_c_data);
+        return NULL;
+    }
+
+    if (close(pipe_fds[0]) == -1) {
+        PyErr_SetFromErrno(PyExc_OSError);
+        for (unsigned i = 0; i < n_workers; i++) {
+            wait(NULL);
+        }
+        free(mat_a_data);
+        free(mat_b_data);
+        free(mat_c_data);
+        return NULL;
+    }
+
+    int ret_val = 0;
+    for (unsigned i = 0; i < n_workers; i++) {
+        int status;
+        if (wait(&status) == -1 || !WIFEXITED(status) || WEXITSTATUS(status) != 0) {
+            ret_val = -1;
+        }
+    }
+
+    if (ret_val == -1) {
+        PyErr_SetString(PyExc_OSError, "Worker process failed");
+    } else {
+        print_matrix(mat_c_data, a_rows, a_cols);
+    }
+
+    free(mat_a_data);
+    free(mat_b_data);
+    free(mat_c_data);
+    if (ret_val == -1) {
+        return NULL;
+    }
+    Py_RETURN_NONE;
+}
+
+```
+- `Write` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_shmem.c`
+```
+#define _GNU_SOURCE
+
+#include <Python.h>
+#include <assert.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/mman.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#include "hadamard.h"
+
+/*
+ * Function executed in each child process to compute its portion of the hadamard product
+ * 'a': Pointer to shared memory segment storing first matrix operand
+ * 'b': Pointer to shared memory segment storing second matrix operand
+ * 'c': Pointer to shared memory segment storing result matrix
+ * 'start': Index (in flattened representation) of first element of matrix portion
+ * 'end': Index (in flattened representation) of last element of matrix portion
+ * 'mapped_size': Size (in bytes) of each shared memory segment
+ *
+ * Returns 0 on success or -1 on failure
+ */
+static int worker(int *a, int *b, int *c, unsigned start, unsigned end, unsigned mapped_size) {
+    for (unsigned i = start; i < end; i++) {
+        c[i] = a[i] * b[i];
+    }
+
+    if (munmap(a, mapped_size) == -1 || munmap(b, mapped_size) == -1 ||
+        munmap(c, mapped_size) == -1) {
+        perror("munmap");
+        return -1;
+    }
+    return 0;
+}
+
+PyObject *hadamard_shmem(PyObject *self, PyObject *args) {
+    const char *mat_a_file;
+    const char *mat_b_file;
+    unsigned n_workers;
+    if (!PyArg_ParseTuple(args, "ssI", &mat_a_file, &mat_b_file, &n_workers)) {
+        // ParseTuple sets up a Python exception on our behalf
+        return NULL;
+    }
+    if (n_workers == 0) {
+        PyErr_SetString(PyExc_ValueError, "Number of workers must be positive");
+        return NULL;
+    }
+
+    unsigned a_rows;
+    unsigned a_cols;
+    int *mat_a_data = read_matrix_from_file(mat_a_file, &a_rows, &a_cols, 1);
+    if (mat_a_data == NULL) {
+        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+        return NULL;
+    }
+    unsigned b_rows;
+    unsigned b_cols;
+    int *mat_b_data = read_matrix_from_file(mat_b_file, &b_rows, &b_cols, 1);
+    if (mat_b_data == NULL) {
+        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+        munmap(mat_a_data, a_rows * a_cols * sizeof(int));
+        return NULL;
+    }
+    assert(a_rows == b_rows && a_cols == b_cols);
+    unsigned total = a_rows * a_cols;
+    unsigned mapped_size = total * sizeof(int);
+
+    // Same kind of segment read_matrix_from_file creates, children inherit it
+    int *mat_c_data =
+        mmap(NULL, mapped_size, PROT_READ | PROT_WRITE, MAP_SHARED | MAP_ANONYMOUS, -1, 0);
+    if (mat_c_data == MAP_FAILED) {
+        PyErr_SetFromErrno(PyExc_OSError);
+        munmap(mat_a_data, mapped_size);
+        munmap(mat_b_data, mapped_size);
+        return NULL;
+    }
+
+    // Round up so every element gets covered, last chunk may be smaller
+    unsigned chunk_size = ceil(total / (double) n_workers);
+    for (unsigned i = 0; i < n_workers; i++) {
+        unsigned start = i * chunk_size;
+        unsigned end = min(start + chunk_size, total);
+
+        pid_t child_pid = fork();
+        if (child_pid == -1) {
+            PyErr_SetFromErrno(PyExc_OSError);
+            for (unsigned j = 0; j < i; j++) {
+                wait(NULL);
+            }
+            munmap(mat_a_data, mapped_size);
+            munmap(mat_b_data, mapped_size);
+            munmap(mat_c_data, mapped_size);
+            return NULL;
+        } else if (child_pid == 0) {
+            if (worker(mat_a_data, mat_b_data, mat_c_data, start, end, mapped_size) == -1) {
+                exit(1);
+            }
+            exit(0);
+        }
+    }
+
+    // No built-in timing with shared memory, so wait before reading the result
+    int ret_val = 0;
+    for (unsigned i = 0; i < n_workers; i++) {
+        int status;
+        if (wait(&status) == -1 || !WIFEXITED(status) || WEXITSTATUS(status) != 0) {
+            ret_val = -1;
+        }
+    }
+
+    if (ret_val == -1) {
+        PyErr_SetString(PyExc_OSError, "Worker process failed");
+    } else {
+        print_matrix(mat_c_data, a_rows, a_cols);
+    }
+
+    if (munmap(mat_a_data, mapped_size) == -1 || munmap(mat_b_data, mapped_size) == -1 ||
+        munmap(mat_c_data, mapped_size) == -1) {
+        PyErr_SetFromErrno(PyExc_OSError);
+        return NULL;
+    }
+    if (ret_val == -1) {
+        return NULL;
+    }
+    Py_RETURN_NONE;
+}
+
+```
+- `Write` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_threads.c`
+```
+#define _GNU_SOURCE
+
+#include <Python.h>
+#include <assert.h>
+#include <math.h>
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "hadamard.h"
+
+/*
+ * Represents arguments for each thread
+ * 'a': Pointer to first matrix operand
+ * 'b': Pointer to second matrix operand
+ * 'c': Pointer to result matrix
+ * 'start': Index (in flattened representation) of first element of matrix portion
+ * 'end': Index (in flattened representation) of second element of matrix portion
+ */
+struct thread_args {
+    int *a;
+    int *b;
+    int *c;
+    unsigned start;
+    unsigned end;
+};
+
+/*
+ * Function executed in each thread to compute its portion of the hadamard product
+ * 'data': Pointer to struct thread_args instance
+ * Returns NULL
+ */
+static void *worker(void *data) {
+    struct thread_args *args = (struct thread_args *) data;
+    for (unsigned i = args->start; i < args->end; i++) {
+        args->c[i] = args->a[i] * args->b[i];
+    }
+    return NULL;
+}
+
+PyObject *hadamard_threads(PyObject *self, PyObject *args) {
+    const char *mat_a_file;
+    const char *mat_b_file;
+    unsigned n_workers;
+    if (!PyArg_ParseTuple(args, "ssI", &mat_a_file, &mat_b_file, &n_workers)) {
+        // ParseTuple sets up a Python exception on our behalf
+        return NULL;
+    }
+    if (n_workers == 0) {
+        PyErr_SetString(PyExc_ValueError, "Number of workers must be positive");
+        return NULL;
+    }
+
+    unsigned a_rows;
+    unsigned a_cols;
+    int *mat_a_data = read_matrix_from_file(mat_a_file, &a_rows, &a_cols, 0);
+    if (mat_a_data == NULL) {
+        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+        return NULL;
+    }
+    unsigned b_rows;
+    unsigned b_cols;
+    int *mat_b_data = read_matrix_from_file(mat_b_file, &b_rows, &b_cols, 0);
+    if (mat_b_data == NULL) {
+        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+        free(mat_a_data);
+        return NULL;
+    }
+    assert(a_rows == b_rows && a_cols == b_cols);
+    unsigned total = a_rows * a_cols;
+
+    int *mat_c_data = malloc(total * sizeof(int));
+    pthread_t *threads = malloc(n_workers * sizeof(pthread_t));
+    struct thread_args *thread_data = malloc(n_workers * sizeof(struct thread_args));
+    if (mat_c_data == NULL || threads == NULL || thread_data == NULL) {
+        PyErr_NoMemory();
+        free(mat_c_data);
+        free(threads);
+        free(thread_data);
+        free(mat_a_data);
+        free(mat_b_data);
+        return NULL;
+    }
+
+    // Round up so every element gets covered, last chunk may be smaller
+    unsigned chunk_size = ceil(total / (double) n_workers);
+    for (unsigned i = 0; i < n_workers; i++) {
+        thread_data[i].a = mat_a_data;
+        thread_data[i].b = mat_b_data;
+        thread_data[i].c = mat_c_data;
+        thread_data[i].start = i * chunk_size;
+        thread_data[i].end = min(thread_data[i].start + chunk_size, total);
+
+        int result = pthread_create(&threads[i], NULL, worker, &thread_data[i]);
+        if (result != 0) {
+            PyErr_Format(PyExc_OSError, "pthread_create failed: %s", strerror(result));
+            for (unsigned j = 0; j < i; j++) {
+                pthread_join(threads[j], NULL);
+            }
+            free(mat_c_data);
+            free(threads);
+            free(thread_data);
+            free(mat_a_data);
+            free(mat_b_data);
+            return NULL;
+        }
+    }
+
+    for (unsigned i = 0; i < n_workers; i++) {
+        int result = pthread_join(threads[i], NULL);
+        if (result != 0) {
+            PyErr_Format(PyExc_OSError, "pthread_join failed: %s", strerror(result));
+            for (unsigned j = i + 1; j < n_workers; j++) {
+                pthread_join(threads[j], NULL);
+            }
+            free(mat_c_data);
+            free(threads);
+            free(thread_data);
+            free(mat_a_data);
+            free(mat_b_data);
+            return NULL;
+        }
+    }
+
+    print_matrix(mat_c_data, a_rows, a_cols);
+
+    free(mat_c_data);
+    free(threads);
+    free(thread_data);
+    free(mat_a_data);
+    free(mat_b_data);
+    Py_RETURN_NONE;
+}
+
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v1.sh" <<'EOF'
+W=/workspaces/csci4061-fa26
+echo "##### Lab 5 (scratch copy)"
+rm -rf /tmp/l5 && cp -r $W/Labs/lab05-code /tmp/l5 && cd /tmp/l5 && make clean >/dev/null 2>&1; make 2>&1 | grep -i -E "warning|error"; make test 2>&1 | grep -E "Passed [0-9]|Total|Test"
+for n in 5 7 9 11 40 41 100; do ./square_numbers $n | md5sum | cut -c1-8 | tr '\n' ' '; done; echo "<- same hash for every worker count?"
+./square_numbers 0; echo "exit=$?"
+echo "##### Project, revised starter + my EDIT files"
+rm -rf /tmp/pv && cp -r $W/Projects/proj2-original /tmp/pv
+cp $W/Projects/proj2-code/part1/swish_funcs.c /tmp/pv/part1/
+cp $W/Projects/proj2-code/part2/hadamard_pipe.c $W/Projects/proj2-code/part2/hadamard_shmem.c $W/Projects/proj2-code/part2/hadamard_threads.c /tmp/pv/part2/
+cd /tmp/pv && make clean >/dev/null 2>&1
+make 2>&1 | grep -i -E "warning|error"
+make test-part1 2>&1 | grep -E "Passed [0-9]|Total"
+make test-part2 2>&1 | grep -E "Passed [0-9]|Total|Test .*[Ff]ail"
+cd part2; n=0; f=0
+for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 2 3 5 7 16 33 100; do
+  python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt
+  n=$((n+1)); if ! cmp -s /tmp/o.txt test_cases/output/mat_$m.txt || [ -s /tmp/e.txt ]; then f=$((f+1)); echo "FAIL $mode $m $w"; fi
+done; done; done; echo "sweep: $n runs, $f failures"
+python3 - <<'PY'
+import struct
+open('/tmp/s_a.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',1,2,3,4,5,-6))
+open('/tmp/s_b.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',7,8,9,10,11,12))
+PY
+for mode in threads pipe shmem; do echo "tiny/$mode (50 workers):"; python3 hadamard_main.py /tmp/s_a.bin /tmp/s_b.bin $mode 50 | tr '\n' ' '; echo; done
+python3 - <<'PY'
+import hadamard
+for name in ("hadamard_pipe","hadamard_shmem","hadamard_threads"):
+    f=getattr(hadamard,name)
+    for args in (("/tmp/s_a.bin","/tmp/s_b.bin",0),("/nonexistent","/tmp/s_b.bin",2),("/tmp/s_a.bin","/tmp/s_b.bin","x")):
+        try: f(*args); print(name,"NO EXCEPTION")
+        except Exception as e: print(name,args[2],type(e).__name__)
+PY
+python3 - >/dev/null <<'PY'
+import hadamard, os, sys
+a='test_cases/resources/mat_04_a.bin'; b='test_cases/resources/mat_04_b.bin'
+nfd=lambda: len(os.listdir('/proc/self/fd'))
+f0=nfd()
+for fn in (hadamard.hadamard_pipe,hadamard.hadamard_shmem,hadamard.hadamard_threads):
+    for i in range(200): fn(a,b,8)
+print("fds before/after",f0,nfd(),file=sys.stderr)
+PY
+echo "zombies: $(ps aux | grep -c '[d]efunct')"
+python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin pipe 4 | cmp - test_cases/output/mat_03.txt && echo "8MB pipe case ok"
+echo "##### Part 1 extras"
+cd /tmp/pv/part1; S=./swish
+printf 'the cat and the dog and the bird\nThe end of the story and the beginning\n' > /tmp/gatsby.txt
+run() { printf '%s\n' "$@" "exit" | $S 2>&1; }
+cat > /tmp/in1.txt <<'X'
+cat /tmp/gatsby.txt | tr -cs A-Za-z \n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 3
+exit
+X
+echo "7-cmd:"; $S < /tmp/in1.txt 2>&1 | tr -s '\n'
+echo "both redirects:"; run 'cat < /tmp/gatsby.txt | sort | uniq | wc -l > /tmp/out.txt' 'cat /tmp/out.txt | cat'
+echo "append:"; run 'echo one | cat > /tmp/o.txt' 'echo two | cat >> /tmp/o.txt' 'cat /tmp/o.txt | cat'
+echo "bad middle:"; run 'cat /tmp/gatsby.txt | nosuchcmd | wc -l' 'echo after | cat'
+echo "12 chain:"; run 'echo hi | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat'
+echo "prompt count with failing exec (expect 2):"; printf 'echo hi | nosuchcmd\nexit\n' | $S 2>&1 | grep -o '@>' | wc -l
+echo "valgrind:"; printf 'cat /tmp/gatsby.txt | sort | uniq -c | tail -n 2\nexit\n' > /tmp/in2.txt; valgrind -q --leak-check=full --track-fds=yes $S < /tmp/in2.txt 2>&1 | head -12
+EOF
+docker exec -i cranky_pasteur bash -s < "$SD/v1.sh" 2>&1 | head -120
+```
+
 ## Actions Taken
 
 **Files created:**
+- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Labs\lab05-code\square_numbers.c`
 - `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part1\swish_funcs.c`
 - `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_pipe.c`
 - `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_shmem.c`
@@ -13557,4 +14444,6 @@ _None detected_
 - `docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; echo "== lab01 fork_wait.c"; cat Labs/lab01-code/fork_wait.c; echo "== lab02 redirect_child.c (WIFEXITED part)"; grep -n -B3 -A6 "WIFEXITED" Labs/lab02-code/redirect_child.c | head -30; echo "== wait status macros anywhere in Lecture code:"; grep -rn "WEXITSTATUS\|WIFEXITED\|WIFSIGNALED" Lecture | head'; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; ls Labs/lab05-code; ls Labs/lab05-code/*.bak Labs/lab0*/QUESTIONS.txt.bak 2>/dev/null | head -3; diff <(sed -n 1,200p Labs/lab05-code/QUESTIONS.txt) <(sed -n 1,200p Labs/lab05-code/QUESTIONS.txt) >/dev/null; git -C . log --oneline -3 2>&1 | head -3'`
 - `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code"; sed -n 60,140p swish.c`
 - `docker exec cranky_pasteur bash -c 'rm -rf /tmp/rv_mine /tmp/rv_naf /tmp/nf /tmp/t_mine /tmp/t_naf /tmp/o*.txt /tmp/e.txt /tmp/in_dup.txt /tmp/review1.sh; ls /tmp | head; cd /workspaces/csci4061-fa26/Projects; find proj2-code proj2-code-naf -newer proj2-original/Makefile -type f -not -path "*/test_cases/*" | grep -v "\.c$" | head'`
+- `docker exec cranky_pasteur bash -c 'cat /tmp/lab05-original-square_numbers.c; echo ======; cd /workspaces/csci4061-fa26/Labs/lab05-code; ls; diff /tmp/lab05-original-square_numbers.c square_numbers.c | head -5; cat test_cases/tests.json | head -40'`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v1.sh" <<'EOF' W=/workspaces/csci4061-fa26 echo "##### Lab 5 (scratch copy)" rm -rf /tmp/l5 && cp -r $W/Labs/lab05-code /tmp/l5 && cd /tmp/l5 && make clean >/dev/null 2>&1; make 2>&1 | grep -i -E "warning|error"; make test 2>&1 | grep -E "Passed [0-9]|Total|Test" for n in 5 7 9 11 40 41 100; do ./square_numbers $n | md5sum | cut -c1-8 | tr '\n' ' '; done; echo "<- same hash for every worker count?" ./square_numbers 0; echo "exit=$?" echo "##### Project, revised starter + my EDIT files" rm -rf /tmp/pv && cp -r $W/Projects/proj2-original /tmp/pv cp $W/Projects/proj2-code/part1/swish_funcs.c /tmp/pv/part1/ cp $W/Projects/proj2-code/part2/hadamard_pipe.c $W/Projects/proj2-code/part2/hadamard_shmem.c $W/Projects/proj2-code/part2/hadamard_threads.c /tmp/pv/part2/ cd /tmp/pv && make clean >/dev/null 2>&1 make 2>&1 | grep -i -E "warning|error" make test-part1 2>&1 | grep -E "Passed [0-9]|Total" make test-part2 2>&1 | grep -E "Passed [0-9]|Total|Test .*[Ff]ail" cd part2; n=0; f=0 for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 2 3 5 7 16 33 100; do   python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt   n=$((n+1)); if ! cmp -s /tmp/o.txt test_cases/output/mat_$m.txt || [ -s /tmp/e.txt ]; then f=$((f+1)); echo "FAIL $mode $m $w"; fi done; done; done; echo "sweep: $n runs, $f failures" python3 - <<'PY' import struct open('/tmp/s_a.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',1,2,3,4,5,-6)) open('/tmp/s_b.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',7,8,9,10,11,12)) PY for mode in threads pipe shmem; do echo "tiny/$mode (50 workers):"; python3 hadamard_main.py /tmp/s_a.bin /tmp/s_b.bin $mode 50 | tr '\n' ' '; echo; done python3 - <<'PY' import hadamard for name in ("hadamard_pipe","hadamard_shmem","hadamard_threads"):     f=getattr(hadamard,name)     for args in (("/tmp/s_a.bin","/tmp/s_b.bin",0),("/nonexistent","/tmp/s_b.bin",2),("/tmp/s_a.bin","/tmp/s_b.bin","x")):         try: f(*args); print(name,"NO EXCEPTION")         except Exception as e: print(name,args[2],type(e).__name__) PY python3 - >/dev/null <<'PY' import hadamard, os, sys a='test_cases/resources/mat_04_a.bin'; b='test_cases/resources/mat_04_b.bin' nfd=lambda: len(os.listdir('/proc/self/fd')) f0=nfd() for fn in (hadamard.hadamard_pipe,hadamard.hadamard_shmem,hadamard.hadamard_threads):     for i in range(200): fn(a,b,8) print("fds before/after",f0,nfd(),file=sys.stderr) PY echo "zombies: $(ps aux | grep -c '[d]efunct')" python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin pipe 4 | cmp - test_cases/output/mat_03.txt && echo "8MB pipe case ok" echo "##### Part 1 extras" cd /tmp/pv/part1; S=./swish printf 'the cat and the dog and the bird\nThe end of the story and the beginning\n' > /tmp/gatsby.txt run() { printf '%s\n' "$@" "exit" | $S 2>&1; } cat > /tmp/in1.txt <<'X' cat /tmp/gatsby.txt | tr -cs A-Za-z \n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 3 exit X echo "7-cmd:"; $S < /tmp/in1.txt 2>&1 | tr -s '\n' echo "both redirects:"; run 'cat < /tmp/gatsby.txt | sort | uniq | wc -l > /tmp/out.txt' 'cat /tmp/out.txt | cat' echo "append:"; run 'echo one | cat > /tmp/o.txt' 'echo two | cat >> /tmp/o.txt' 'cat /tmp/o.txt | cat' echo "bad middle:"; run 'cat /tmp/gatsby.txt | nosuchcmd | wc -l' 'echo after | cat' echo "12 chain:"; run 'echo hi | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat' echo "prompt count with failing exec (expect 2):"; printf 'echo hi | nosuchcmd\nexit\n' | $S 2>&1 | grep -o '@>' | wc -l echo "valgrind:"; printf 'cat /tmp/gatsby.txt | sort | uniq -c | tail -n 2\nexit\n' > /tmp/in2.txt; valgrind -q --leak-check=full --track-fds=yes $S < /tmp/in2.txt 2>&1 | head -12 EOF docker exec -i cranky_pasteur bash -s < "$SD/v1.sh" 2>&1 | head -120`
 

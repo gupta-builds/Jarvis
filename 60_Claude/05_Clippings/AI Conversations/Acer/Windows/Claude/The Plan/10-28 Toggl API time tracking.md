@@ -6,7 +6,7 @@ source_os: windows
 title: "Toggl API time tracking"
 started_at: 2026-10-28T22:26:20
 ended_at: 2026-10-29T16:40:00
-exported_at: 2026-10-30T23:03:33
+exported_at: 2026-10-31T00:03:28
 duration_minutes: 1093.7
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
@@ -14,7 +14,7 @@ session_id: 045b6dda-a561-490b-a55b-b3f474963737
 status: seed
 review_state: raw
 created: 2026-10-28
-updated: 2026-10-30
+updated: 2026-10-31
 turn_count: 58
 tools_used:
   Agent: 10

@@ -6,7 +6,7 @@ source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
 ended_at: 2026-10-30T21:38:32
-exported_at: 2026-10-30T23:03:29
+exported_at: 2026-10-31T00:03:22
 duration_minutes: 75.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
@@ -14,7 +14,7 @@ session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9
 status: seed
 review_state: raw
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-10-31
 turn_count: 6
 tools_used:
   Bash: 20

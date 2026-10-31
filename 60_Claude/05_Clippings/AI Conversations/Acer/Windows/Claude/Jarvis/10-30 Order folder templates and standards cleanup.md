@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
-ended_at: 2026-10-30T20:47:14
-exported_at: 2026-10-30T21:03:05
-duration_minutes: 23.8
+ended_at: 2026-10-30T21:38:32
+exported_at: 2026-10-30T22:03:14
+duration_minutes: 75.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9
@@ -15,7 +15,7 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-10-30
-turn_count: 5
+turn_count: 6
 tools_used:
   Bash: 20
   Grep: 13
@@ -1889,6 +1889,177 @@ Today - 2026-06-03.md
 Vault-Audit-2026-05-29.md
 Weekly Synthesis
 ```
+
+## You
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+<system-reminder>
+<tools-used-before-summary>Bash, Grep, Read</tools-used-before-summary>
+</system-reminder>
+Summary:
+1. Primary Request and Intent:
+   The user (Anant Gupta) runs "Jarvis", an Obsidian second-brain vault at `D:\_Anant\20_Progress\Documents\Jarvis`. Another session is working exclusively on the course-related parts of `30_Order` (Standards/Courses, Templates/Classes, Workflows/Courses, course rows in the registry). This session owns everything else. The user wants the vault's `30_Order` system to match the design already proven on the meeting kit. Every note should come from a Template (structure only, few words), have a Standard (the detailed, note-specific content contract per header, per line and per design, derived from the Template), and have a Workflow (the repeated process, governed by an agent and skills). Meeting design is the model: 3 notes, 3 Standards, 3 Templates, 1 Workflow, minimalistic, agent-governed.
+
+   Stated end goals for the later build:
+   - Delete the entire `30_Order/Templates/Frontmatter` folder immediately.
+   - Cover all purposes with few templates, with clear and distinct names (no similar names). Frontmatter must never be broken. Templates are the core base.
+   - Standards cover the broad categories and are more detailed per note type than the templates.
+   - Workflows are updated in the same edit as the notes, so they never go stale. The user expects a weekly scheduled run to keep the order from going outdated.
+   - Design a review process so the system improves from the day-to-day note modifications.
+
+   The user said: "We are currently in between build to modify the system here but the system has been active for a while now."
+
+   The user also explained the history: "a reverse approach was taken and we documented standards, systems and workflows for all the notes that exist. This was the wrong approach which bloated the system with way too many notes for the same thing that we are doing all the time."
+
+   THE CURRENT TASK IS A READ-ONLY RESEARCH PHASE. The user said: "You are not allowed to edit or create anything here." They want an in-depth gathering of context from Jarvis (conversations, build notes, designs). They said "Make no mistakes with this research step" and "Ask me questions for more context on this process." Context folders named: `30_Order/Standards`, `40_Resources/UMN`, `30_Order/System/claude-workflow`, `30_Order/System/jarvis-memory`, `30_Order/System/jarvis-cli`, `30_Order/System/sync-workflow`, `30_Order/Templates`.
+
+   The summary request interrupted me before I wrote the final research report and questions. That report is the immediate deliverable.
+
+2. Key Technical Concepts:
+   - **30_Order kit model.** A Standard carries a JSON Spec block read by `vault-lint.js`. The Spec fields are: family, tier, match{type, kind, path, where, where_not, strict_path}, status, required_keys, key_types, headings, optional_headings, legacy_match, skip_checks, template.
+   - **Kit contract (Note Kit Standard).**
+     - One family has one kit.
+     - A Standard is under 700 words of prose.
+     - A Workflow is under 350 words and at most 9 steps.
+     - A Template has the spec keys and headings with one `<!-- -->` comment line of at most 140 characters each, no example prose, no `== ==`, no `[[ ]]`, and uses `<% tp.date.now("YYYY-MM-DD") %>`.
+     - A family needs at least two real notes before it gets a Standard.
+     - No two files in `30_Order` may share a name, because wikilinks resolve by name.
+   - **Frontmatter Standard.** A closed vocabulary of 17 `type` values and 7 `status` values, plus `*_kind` keys.
+     - Types: input, evergreen, concept, class, project, plan, thought, index, dashboard, review, output, action, tracker, contact, reference, system, generated.
+     - Statuses: seed, sprout, tree, archived, active, paused, complete.
+     - `review_state` replaces `status: raw`.
+     - YAML typing rules cover bare numbers, bare ISO dates, quoted wikilinks, UTF-8, LF, and no BOM.
+   - **Conformance Standard / Vault Lint.**
+     - "Fit" is six script checks: frontmatter, headings, links, placement, hygiene, mapped.
+     - Tiers 1 to 4; tier 4 is tool-native and out of scope. The target is 90% overall, with every family above 50%.
+     - Lint modes: `--kit`, `--specs`, `--path`, `--family`, `--list`, `--json`, `--fix`, `--dry-run`, `--skip`.
+     - It is run with `node vault-lint.js` from `30_Order/System/vault-lint/`.
+   - **Conformance on Touch workflow.** Any session that opens a note brings it to its Standard in the same edit. It uses Legacy Shapes tables (mechanical versus judgment moves). It requires a session-log line per touch, which conflicts with the user's global no-write rule.
+   - **Note Type Registry.** One row per family: tier, type/kind, folder, Template, Standard, Workflow, kit state (built, align, planned, decide). It currently has about 93 table rows.
+   - **Meeting kit (the model).**
+     - Transcript Standard + Transcript Template (`Templates/Capability/`).
+     - Brief Standard + Brief Template.
+     - Action Standard + Action Template. The Action note has a mandatory `> [!todo] To Do` callout of 1 to 3 lines whose first line equals `next`. Open Threads has Questions and Research subsections. User comments go in italics.
+     - One Meeting Workflow (9 steps) replaced `Transcript to Brief` and `Brief to Action`.
+     - Skills `/transcript-to-brief` and `/note-to-actions`, plus the `meeting-operator` agent, which has 6 checkpoints.
+     - Deleted in the 10-28 session: Mentorship Meeting Standard and Template, the two old workflows, and `Templates/Frontmatter/For Transcript.md`.
+   - **Northstar principles** (`Jarvis OS — North Star`, 2026-06-07): one fact, one home. No new instruction file without deleting or merging an old one. Deletion is part of writing. No new structure until the existing structure runs. Grill before building. Surgical edits. "Done means verified." Progressive disclosure and token economics.
+   - **Review layers** (Review System): Daily, Project, Plan, Internship loop, AI tools, Vault weekly, Audit, Ops. Findings escalate, and an item carried twice goes to the owner as a decision. A new review layer needs a named trigger and a named owner.
+   - **Scheduling / automation.**
+     - Scheduled task `Jarvis-WeeklyReview` runs Sundays 06:00, headless, with a flag-only exception for log deletion.
+     - `Jarvis-GitAutoSync` runs every 30 minutes (the Dell's copy is disabled; the Acer is the single git writer).
+     - `Jarvis-Syncthing-Health`.
+     - Hooks in `.claude/settings.json` are Write|Edit|MultiEdit PreToolUse `jarvis-write-guard.ps1` and PostToolUse `jarvis-internship-note-guard.ps1`. A `jarvis-pdf-guard.ps1` exists in the hooks folder. `jarvis-session-continuity.ps1` exists but is not registered on the Acer.
+   - **Tooling.**
+     - `jarvis-memory`: a SQLite-backed MCP skeleton. It has status, search and reindex only, with no embeddings and no graph. `.mcp.json` registers only `jarvis`.
+     - `jarvis-cli`: `jarvis.ps1` and `jarvis_ops.py`. Its report output targets an obsolete path.
+     - `claude-workflow`: hooks, session exporter, git-auto-sync, weekly-review runner, mineru-pdf.ps1.
+     - `sync-workflow`: Syncthing health and the Sync Alert Banner.
+     - `cursor-workflow`, `excalidraw-mcp`, `vault-lint`.
+   - **Templater.** `templates_folder` is `30_Order/Templates`. Folder templates are configured in `.obsidian/plugins/templater-obsidian/data.json`. Periodic Notes uses the `Enumerate/Better *` templates.
+
+3. Files and Code Sections:
+   Nothing was edited or created (read-only). Key files examined:
+   - `30_Order/00_How This Folder Works.md`: map of the folder. States the Template/Standard/Workflow/System roles. Says `Operations/` and `Projects/` are created when needed (stale).
+   - `30_Order/Note Type Registry.md`: about 93 rows across Foundation, Courses, Career, Projects, Knowledge, Operations, AI operations. It references `[[For Dashboards]]` as the dashboard Template (line 106), which breaks if the Frontmatter folder is deleted.
+   - `30_Order/Standards/Note Kit Standard.md` and `30_Order/Workflows/System/Building a Note Kit.md`: the kit contract and the 9-step build procedure.
+   - `30_Order/Standards/Frontmatter Standard.md`: the vocabulary of 17 types and 7 statuses, with a Legacy Values table.
+   - `30_Order/Standards/Conformance Standard.md` and `30_Order/Workflows/System/Conformance on Touch.md`: the fit definition and the touch workflow.
+   - `30_Order/Templates/System/Standard Template.md` (and Workflow Template).
+   - `30_Order/Workflows/00_Workflows Index.md`: lists workflows by group. It still lists `[[Application Document Preparation 1]]` (empty row) and `[[Internship - Design Rationale]]` as a "Course-specific production plan".
+   - Meeting kit files:
+     - `Standards/Ingestion/{Transcript,Brief,Action} Standard.md`
+     - `Templates/Capability/{Transcript,Brief,Action} Template.md`
+     - `Workflows/Ingestion/Meeting Workflow.md`
+     - `.claude/agents/meeting-operator.md`
+     - `.claude/skills/transcript-to-brief/SKILL.md`, `.claude/skills/note-to-actions/SKILL.md`, with `references/example-brief.md` and `references/example-action.md`.
+     - The skills have NOT yet been updated for the To Do callout, the Questions/Research subsections, the conflict/dictation rule, or post-call corrections. The `mentorship` skill is a stale stub.
+   - `30_Order/Templates/Frontmatter/` (9 files): For AI, For Brainstorm, For Classes, For Dashboards, For Evergreen, For Everything, For Inputs, For Progress, For Thoughts. Most are frontmatter-only. `For Evergreen` (about 2.2 KB) and `For Progress` (about 1.2 KB) carry body text with example prose.
+     - Dependents of the folder that would break on deletion:
+       - `.obsidian/plugins/templater-obsidian/data.json` folder templates: `20_Progress` -> For Progress, `40_Resources` -> For Evergreen, `60_Claude/20_Distilled_Notes` -> For Evergreen, `60_Claude/10_Source_Summaries` -> For Inputs, `60_Claude/40_Project_Briefs` -> For Progress.
+       - `Templates/MOC.md`: actually a legacy status-tree index note (created 2025-12-26) that links `[[For Everything]]` etc. and nonexistent templates such as CSCI 2011 Template.
+       - Note Type Registry (`[[For Dashboards]]`).
+       - `Standards/Operations/Dashboard Standard.md` (`maps_to: [[For Dashboards]]`).
+       - `.obsidian/plugins/file-explorer-plus/data.json` (cosmetic patterns).
+       - `.cursor/rules/note-creation.mdc` and `20_Progress/AI/Cursor/Jarvis/rules/note-creation.mdc`.
+       - CLAUDE.md line 46 (the "frontmatter-only starters in `30_Order/Templates/Frontmatter/` are for Inbox notes" sentence).
+       - Docs: `40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md`.
+       - A mirror at `20_Progress/AI/Claude Code/Jarvis/.claude/skills/transcript-to-brief/transcript-to-brief.md` that cites the already-deleted `For Transcript.md`.
+       - Historical logs and change reports (do not rewrite).
+     - A 2026-06-01 log entry already flagged "Templates/Frontmatter/ vs Templates/Metadata/ duplication... decide whether to delete".
+   - Template inventory (77 files): AI Toolkit(0 now, content moved), Capability (11), Career (4 plus Internship folder), Classes (15, course domain), Enumerate (4, wired to Periodic Notes), Frontmatter (9), Knowledge (5), MOC.md, Projects (7), System (2).
+     - Orphans not linked from any Standard, Workflow or Registry: `Career/Internship/Tracking Template.md`, `Career/List Monthly Log.md`, `MOC.md`, and all of Frontmatter except `For Dashboards`.
+     - Near-duplicate or confusingly named templates: MOC.md versus `Capability/MOC Template.md`; `Capability/Synthesis Template` versus `Knowledge/Synthesis Note Template` versus `Weekly Synthesis Template`; `Career/Tracking.md` versus `Career/Internship/Tracking Template.md`; `Classes/Project Template` versus `Projects/Project Note Template`; `Capability/Output Template` versus the Output Bullet and Output One-Pager templates; `Deep Dive Template` versus `Clipping Distill Template`; `Tool Logs` versus `Write Logs`.
+     - Stale agent references: `research-distiller.md` cites `Templates/Capability/Clipping Distill Template.md` (moved to AI Toolkit), and `learning-agent.md` cites a nonexistent `Jarvis Enrichment Template.md`.
+   - **Live counts** (checked in this session): Standards 74, Templates 77, Workflows 49, System 86 files (9 md). Standards by folder: root 11, Courses 16, Enrich 11, Ingestion 6, Internship 11, Operations 4, Projects 5 (AI Loop shows 10 files). Registry has about 93 rows.
+   - **Vault Lint run today (read-only).** Whole-vault FIT 240/5645 = 4.3%. Tier 1 is 9.8%, tier 2 is 1.7%, tier 3 is 0.8%. The unmapped group is 2923 notes. Families at 100%: family-standard, workflow, policy-standard, generated-output, system-component, action, brief. Many families are at 0%, including ai-conversation-export (668), internship-dossier (354), course-concept (222), dashboard (96), repo-card (94), project (2/90), and machine-runbook (1/90).
+   - `30_Order/System/vault-lint/Vault Lint.md`: the lint spec. It says "the weekly review records the fit percentage" and "No scheduled task exists yet". In fact the `weekly-review` skill and `run-weekly-review.ps1` contain zero mentions of vault-lint (confirmed by grep: 0).
+   - `.claude/skills/weekly-review/weekly-review.md`: a 266-line skill with steps 1 to 8. It includes the sync health checks 7.6, log maintenance 7.5, and a Promotion Scan. It has no kit-health or fit step, and it still references the old three-month plan, the Fall 2026 plan, and `30_Order/Standards/Daily Workflow Standard`, which no longer exists. The scheduled task `Jarvis-WeeklyReview` is Sundays 06:00.
+   - `30_Order/Standards/AI Loop/Review System.md`: the nesting review layers table and the shared rules (cite real rows, reviews do not fix, Carryover Escalation, honest emptiness).
+   - `60_Claude/07_AI_Information/AI_CONTEXT.md` (single cold-start read order) and `Jarvis OS — North Star.md` (diagnosis: over-built, under-converged; one fact one home).
+   - `Session Logs/log.md`: newest entries are at the end of the file (order newest-last, about line 1804 onward). The last entry is 2026-10-29, the Jesse meeting kit build. There are no log entries for the 10-15 to 10-17 `30_Order` rebuild, and it has not been rotated.
+   - Build records: `20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/` (Builds - Jarvis, Jarvis Build History, Jarvis Current State - 2026-10-17, Jarvis Restoration Build Plan with packets J0 to J7), plus `40_Resources/Obsidian/Jarvis AI Infrastructure - Concepts and Research.md`.
+   - `40_Resources/UMN`: Previous Classes (364 files: CSCI, CSCI 2033, Files, HIST 1103, Lib Ed, MATH 2230, Minor), SAO (30 files: AIIS, SAO Grant Process, Training Course), The Plan (5 files: APAS, Community College, Entrepreneurship Minor, Extra Credits, Spring'26 Syllabus). Previous Classes is course-adjacent and the other session's territory. SAO and The Plan are non-course.
+   - Conversation exports read (in `60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/`): `10-15 Jarvis 30_Order systems gap review.md`, `10-15 converge-jarvis-instruction-layer.md`, `10-17 Jarvis 30_Order rebuild and cleanup.md`, `10-28 Jesse Storm mentorship program.md`.
+   - Session 10-15 (gap review): the user asked "what do we not have standards... for?" The previous answer led to the "wish bank" retrofit approach, which the user later called wrong. The user then asked for a full categorization of everything the vault actually contains (a git-history manifest of 6,786 notes). Six fork agents audited the families. The wave-1 and wave-2 kit builds then produced 74 Standards, 78 Templates, 49 Workflows and 76 Specs across about 77 registry rows.
+   - Session 10-17 (rebuild and cleanup, the 8-minute audit): it verified the counts. It found the "97% fit" claim was the kit grading itself, while real whole-vault fit was 2.5%. It found `System/` holds 66 non-note files (a 3 MB log, a 2.6 MB sqlite, scripts) and that README.md appears 6 times. It proposed nine cut items, with a target of about 20 to 25 Standards, 25 to 30 Templates and 12 Workflows (about 55 files instead of 201). Item 8 was to move `System/` out of `30_Order`; the hardcoded-path caution applies. NONE of the cuts were executed. The only reduction since then is the meeting kit.
+   - Session 10-28 (Jesse): it produced the meeting kit and the lessons list below. Session lessons: subagents cannot ask questions, so return one numbered batch with letter codes. Dictated corrections are noisy and should be treated as hedged. Briefs should quote the transcript line. Downstream notes (Plan - Jesse, Meet Your Partner) go stale after a call and there is no workflow step to update them. The log-line conflict between project CLAUDE.md ("append session log") and the global no-write rule is unresolved. Skills and the agent need updating (To Do step, Questions/Research, conflict rule, post-call corrections). The skills' `references/` example files should be replaced by pointing at live gold-standard notes, and the `.agents/skills` copies double the upkeep. The user also wanted communication-coaching in action notes.
+
+4. Errors and fixes:
+   - Tool/environment: `python` is not available (the Store alias), so the Templater `data.json` parse failed. I read the JSON directly with Read instead.
+   - The Bash working directory drifted because of `cd` calls, so I switched to absolute paths.
+   - No user-facing errors. The user gave no corrective feedback in this session beyond the initial instructions.
+   - Two status messages were requested by the harness when I went silent (the "say in a few words what you're doing" nudges); I gave short status lines both times.
+
+5. Problem Solving:
+   - Established the lineage of the bloat.
+     - 2026-05-31 audit: templates were shells.
+     - 2026-06-01 "Standards layer extracted from templates": 5 Standards written.
+     - 2026-09: 39 of 46 Standards were written after most content already existed.
+     - 2026-10-15 to 10-16: the retrofit build produced the 74/78/49 kit.
+     - 2026-10-17: the cut list was proposed but not executed.
+     - 2026-10-28: the meeting kit was consolidated (the first real consolidation).
+   - Findings: the kit is large (about 540 KB, about 130k tokens). Fit is 4.3% overall. 2923 notes are unmapped. Many Standards cover 0 to 1 notes. System tooling files sit inside `30_Order`.
+   - Identified the dependency list for deleting `Templates/Frontmatter`. The Templater folder templates and the Dashboard family template (`For Dashboards`) need replacements first.
+
+6. All user messages:
+   - Message 1: `/clear` was run (local command, no content).
+   - Message 2 (the only substantive user request), verbatim: "Another session is working on the 30_order folder for the courses right now exclusively. You are required to take care of everything else that is not related to the courses. Something else that was done previously was to clearly lay out the meeting workflow, standards, templates, etc. We have taken care of the meeting workflow in detail with the skills, agents and everything. This is one of the ideal standards, workflows that we need to set which is minimalistic, governed over by an agent, has a workfow, clear systems established for the note. We wish for almost each and every single note to have this exact same workflow. For that, we have designed the 30_order folder to implement this across the entire vault. But now we are busy arranging the 30_order folder itself. Focus on everything except the course related work. Let's dig through the builds, etc. taken place by the previous sessions in detail to make sure that this work lands. Some context: `30_Order/Standards`, `40_Resources/UMN`, `30_Order/System/claude-workflow`, `30_Order/System/jarvis-memory`, `30_Order/System/jarvis-cli`, `30_Order/System/sync-workflow`, `30_Order/Templates`. Something that needs to take place immideately is to clear up the tempaltes to be exactly as we want it. There are too many and this is causing a lot of confusion now that we such detailed tempaltes: `30_Order/Templates/Frontmatter`, the entire folder needs to be deleted. We need to make sure that we have tempaltes designed for all purposes but not a lot of templates. I do not want similar names, clear names are established for each template that clearly explain the purpose of the template. The frontmatter should never be broken. writing the template is the core base of this entire workflow. Then, comes the standards for the broad categories that were just made. Standards is more detailed for each type of note that is created using the template. this standard is specific to the note that is being created and clearly specifies what the note should hold per header, per line, per design, etc. Clearly establishing what could also exist and how to format it correctly in the note. The standards fit all the notes because they are sourced of the templates and we create notes only using the templates. So, the standards is a modification from the templates. The template holds very less words and mainly only design/structure for the note. Now, after the entire thing is established we declare a workfowo for this process that is taking place already inside jarvis. Making sure that we are using the worklow exactly as designed, if there is anything that needs to be updated for the work. We update the workflow along the notes that are being updated so that the workflows never go old per update that takes place. something i see myself doing in the near future is to have a weekly scheduled run for these orders to be never outdated. We are currently in between build to modify the system here but the system has been active for a while now. We are makign modifications to it here, what could we do to make sure that when this build ends we have a better, more clearer way to improve the system to improve. How can a review process help in improving the system itself? We need to think of that when this entire process is finished and touched up on. How can we further improve the system based on the note modifications that keep taking place day to day? A lot of things were mentioned to take place inside this session over here with the end goal explained. Make sure to only gather context on the work that is explained to you here. Gather up context of all the files that exist, the build that took place to establish these systems. why were these established in the first place? something to note: `We have a lot of systems designed inside 30_Order to implement this correctly and to make sure that each and every singe note created is following these standards. In a previous session, a reverse approach was taken and we documented standards, systems and workflows for all the notes that exist. This was the wrong approach which bloated the system with way too many notes for the same thing that we are doing all the time.`. You are required to research in depth inside jarvis. Find me content that is clearly mentioned in jarvis already whether in conversations, build notes, designs, etc. I want to gather up all the information here to build on the process established without making mistakes. You are not allowed to edit or create anything here. This is a ready only first approach to gather up all the required context on the build that is being talked about over here. Make no mistakes with this research step. Gather up all the context and have a detailed understanding of the end goal that was just explained to you. Ask me questions for more context on this process. make sure to have a clear and in depth understanding of the systems established so that the work done is actually with context and knowledge on the notes already estbalished."
+   - Subsequent turns were harness nudges asking for a short status line, and then this summary request. These are not user requests.
+
+7. Pending Tasks:
+   - Deliver the final research report in chat (read-only, no files). It should cover:
+     - What exists and the lineage and why it was built.
+     - The meeting kit as the model.
+     - The Frontmatter deletion blast radius.
+     - Template overlap and orphans.
+     - The unexecuted 10-17 cut list.
+     - Gaps in the weekly review and lint.
+     - Hardcoded-path risks if `System/` ever moves.
+   - Ask the user the clarifying questions. Candidate questions I was about to ask:
+     1. Scope boundary with the course session: confirm that the Courses folders and the course rows in the registry are theirs, and who owns `40_Resources/UMN/Previous Classes` (the registry's `course-archive` row is "decide"). Confirm that `Templates/Classes` is theirs, and ask who edits shared files (the Registry, Workflows Index, Templater config).
+     2. Replacement for `Templates/Frontmatter` before deletion: the Templater folder templates for `20_Progress`, `40_Resources`, the distilled notes, source summaries, and `40_Project_Briefs`, and the `For Dashboards` template for the dashboard family. Should the Templater config be repointed? Should `Templates/MOC.md` (a legacy status-tree index) be deleted or converted?
+     3. Whether to execute the 10-17 cut proposals, and which: zero- or one-instance kits (cover-letter, job-company, linkedin-post, cheat, course-archive, tool-map, applying, deadline-tracker, graphify-note, prompt-queue, output-bullet), merging Internship, Enrich, AI Loop, writing Standards into HUMAN_WRITING, and dropping the per-class workflows. Target numbers.
+     4. Should `System/` (non-note tooling, about 86 files) move out of `30_Order`? The hardcoded-path risk in git-auto-sync, the Cursor exporter and the hooks must be handled in the same step.
+     5. Should the fit metric exclude generated notes, dossiers and exports, so that it measures only hand-written notes?
+     6. The session-log conflict: the project CLAUDE.md says append a log line, the global rule says do not write unrequested files. Which wins? Is it opt-in per run?
+     7. Weekly scheduled run: the existing `Jarvis-WeeklyReview` task, or a separate kit-review task? Should the review be report-only (no auto-fix) as the Review System says? Who decides on changes?
+     8. Registry/lint approach for the target state: how many families, and one Standard per template?
+     9. The meeting skills and agent, which still do not match the updated Standards: is that in scope?
+     10. Stale references in agents (`research-distiller`, `learning-agent`) and the Workflows Index rows.
+     11. Should the Playbooks, the one-pager and `Overall Plan` in `Mentorship Program/Meetings` stay (decisions left open on 10-28)?
+
+8. Current Work:
+   I was finishing the read-only research sweep. The last tool calls verified that the weekly-review skill and `run-weekly-review.ps1` never invoke vault-lint (0 matches). They also showed the hook wiring in `.claude/settings.json` (a write guard and an internship-note guard), that the W43 weekly synthesis contains no kit or fit reporting, and that `60_Claude/30_Reviews` holds AI, Internship Loop, Monthly, Ops Reports, Weekly Synthesis and other notes. Nothing was written to disk in this session, and git status was clean at the time of checking.
+
+9. Optional Next Step:
+   Write the final plain-text research report and clarifying questions to the user in chat, with no tool calls and no file creation. The user's instruction was: "Ask me questions for more context on this process. make sure to have a clear and in depth understanding of the systems established so that the work done is actually with context and knowledge on the notes already estbalished." After the user answers, propose the plan before any edit, because "You are not allowed to edit or create anything here" still applies until they say otherwise. The global rules still apply: never use em dashes, no unrequested files, never read secret files (`.env*`, `.credentials.json`, literal secrets in `.mcp.json`, SSH keys), and PDFs only via MinerU.
+
+If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED].jsonl
+Continue the conversation from where it left off without asking the user any further questions. Resume directly — do not acknowledge the summary, do not recap what was happening, do not preface with "I'll continue" or similar. Pick up the last task as if the break never happened.
+
+The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
 ## Actions Taken
 

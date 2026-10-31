@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Conversation Loop Design postmortem"
 started_at: 2026-10-30T20:23:23
-ended_at: 2026-10-30T21:51:42
-exported_at: 2026-10-30T21:51:46
-duration_minutes: 88.3
+ended_at: 2026-10-30T21:54:46
+exported_at: 2026-10-30T22:03:12
+duration_minutes: 91.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 92b4c77d-71e6-4c62-8aed-93b7a3b1f95b

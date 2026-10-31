@@ -59,7 +59,7 @@ Do not re-read all plan files — use these specific checks:
 
 ### Classes
 - Read [[20_Progress/Degree/Fall'26 Syllabus|Fall'26 Syllabus]] — Grading Criteria section, and whether it's been filled in with real rubrics yet
-- Any of the 6 Fall'26 courses (ENGL 1004, CSCI 4511W, CSCI 4061, CSCI 5304, MGMT 3015, CSCI 4521) with a deadline in the next 7 days? (ENGL 1004 replaced AMES 1201 and CSCI 4511W replaced CSCI 3081W, 2026-09-09 - both archived under their old names)
+- Any of the 5 Fall'26 courses (CSCI 4511W, CSCI 4061, CSCI 5304, MGMT 3015, CSCI 4521) with a deadline in the next 7 days? (CSCI 4511W replaced CSCI 3081W, 2026-09-09 - archived under its old name)
 
 ### Projects (TradingView, Portfolio v2, ClaudeKit)
 - Check `20_Progress/` — any project notes modified in the past 7 days?

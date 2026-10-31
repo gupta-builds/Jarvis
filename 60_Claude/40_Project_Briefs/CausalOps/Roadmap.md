@@ -91,4 +91,4 @@ Streaming causal inference engine capable of constructing and updating probabili
 
 - [[_Index]] — Master index
 - [[Memory Layer]] — Immediate priority implementation design
-- [[System Overview]] — Current architecture
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Current architecture

@@ -728,7 +728,7 @@ CausalOps (internally named **HiveMind**) is an evidence-backed causal reasoning
 
 ## Architecture
 
-- [[System Overview]] — What HiveMind is, how the layers fit together
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — What HiveMind is, how the layers fit together
 - [[LangGraph Pipeline]] — Original LangGraph graph topology (reference)
 - [[Coordinator Execution Model]] — Phase 2b coordinator replacing `graph.ainvoke`
 - [[GraphState Contract]] — The master TypedDict shared across all nodes
@@ -941,7 +941,7 @@ The RL loop learns *policy priors* for future runs — not ground-truth facts ab
 
 ## Related Notes
 
-- [[System Overview]] — Full pipeline and data flow
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Full pipeline and data flow
 - [[dataset_compiler]] — Where the statistical boundary lives
 - [[estimators]] — What happens when gates pass or fail
 - [[causal_discovery]] — How the DAG is validated against data
@@ -1082,7 +1082,7 @@ In Phase 2b, the `RunRecord` in `coordinator/store.py` mirrors `GraphState` as a
 - [[schema]] — Full source code reference
 - [[agents]] — Nodes that produce parent/child configs and memos
 - [[Coordinator Execution Model]] — How RunRecord bridges coordinator ↔ graph nodes
-- [[System Overview]] — Pipeline context
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Pipeline context
 
   ```
 - `Write` — `/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/40_Project_Briefs/CausalOps/Architecture/LangGraph Pipeline.md`
@@ -3735,7 +3735,7 @@ npx supabase gen types typescript \
 ## Related Notes
 
 - [[Environment Variables]] — Supabase + Azure embedding credentials needed
-- [[System Overview]] — Where memory layer fits in the pipeline
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Where memory layer fits in the pipeline
 - [[Design Philosophy]] — Invariant: memory context never as EvidenceRecord
 - [[_Index]] — Back to master index
 
@@ -3827,7 +3827,7 @@ Streaming causal inference engine capable of constructing and updating probabili
 
 - [[_Index]] — Master index
 - [[Memory Layer]] — Immediate priority implementation design
-- [[System Overview]] — Current architecture
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Current architecture
 
   ```
 - `Bash` — `BASE="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/40_Project_Briefs/CausalOps"

@@ -109,7 +109,7 @@ Entrepreneurship (this course's definition)::Designing, launching, and running a
 Idea vs. opportunity::An idea is a beginning; it becomes an opportunity only when it can create customer value and sustain the venture — novelty or founder passion alone don't qualify.
 The three-stage entrepreneurial process::Opportunity Discovery → Opportunity Evaluation → Opportunity Exploitation, all situated inside a Context that shapes what's findable.
 Why "testing an assumption with a real customer" beats "writing a long plan first"::Entrepreneurial action converts assumptions into evidence; small real-world tests limit time/resources at risk compared to planning in a vacuum.
-MGMT 3015's AI policy boundary::AI is allowed for research, ideation, and acknowledged assistance — but the report itself must be the student's own writing; this is stricter than "no restriction" and looser than [[20_Progress/Degree/ENGL 1004/ENGL 1004 Board|ENGL 1004]]'s total ban.
+MGMT 3015's AI policy boundary::AI is allowed for research, ideation, and acknowledged assistance — but the report itself must be the student's own writing; this is stricter than "no restriction".
 
 ## Textbook integration
 <!-- State what the textbook adds beyond lecture. Link the actual chapter and name the missing framework or test. -->

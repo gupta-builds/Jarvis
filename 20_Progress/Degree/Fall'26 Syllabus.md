@@ -57,7 +57,7 @@ Projected active load: **18 credits across five courses**, using the existing 4-
 	- Called "approximate" by the syllabus itself, unlike any other Fall'26 course's grading table. No date-anchored schedule exists yet - only 5 topic units with no calendar. Per-assignment color-coded AI policy (green/yellow/red) rather than one blanket rule.
 5. **CSCI 5304**: real syllabus and schedule already captured in full (built by a separate pass this session, not yet cross-linked here): [[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]] - Attendance & Participation 10%, Homework 20%, Quizzes 30%, Exams (midterm + final) 40%. Zero-AI-tools policy, stated twice, with real teeth (0 on the assignment, university report for repeats).
 
-All five retained Fall'26 courses have Board and Preparation notes. [[ENGL 1004 Board]] is retained as an inactive record after the drop. AMES 1201 and CSCI 3081W were removed from the Fall'26 roster on 2026-09-09; CSCI 3081W is planned for Spring'27.
+All five retained Fall'26 courses have Board and Preparation notes. AMES 1201 and CSCI 3081W were removed from the Fall'26 roster on 2026-09-09; CSCI 3081W is planned for Spring'27.
 ## Common mistakes
 - Mistakes from Spring'26 and previous semesters that should not be repeated. List out each mistake over here.
 - 

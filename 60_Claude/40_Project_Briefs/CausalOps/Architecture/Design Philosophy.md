@@ -67,7 +67,7 @@ The RL loop learns *policy priors* for future runs — not ground-truth facts ab
 
 ## Related Notes
 
-- [[System Overview]] — Full pipeline and data flow
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Full pipeline and data flow
 - [[dataset_compiler]] — Where the statistical boundary lives
 - [[estimators]] — What happens when gates pass or fail
 - [[causal_discovery]] — How the DAG is validated against data

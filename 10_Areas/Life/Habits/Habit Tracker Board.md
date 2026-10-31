@@ -23,7 +23,7 @@ tags:
 
 - [ ] application-floor — move ≥1 company `Current/` → `Applied/` ([[10_Areas/Career/Internships/Tracker/Tracker|Tracker]])
 - [ ] leetcode-codepath — ≥5 problems, topic logged ([[10_Areas/Life/Plans/Fall 2026/LeetCode & CodePath|LeetCode & CodePath]])
-- [ ] class-step — one step in 4511W / 4061 / 5304 / 4521 / MGMT 3015 / ENGL 1004
+- [ ] class-step — one step in 4511W / 4061 / 5304 / 4521 / MGMT 3015
 - [ ] review-note — 5-min end-of-day note / closeday
 
 ## Weekly

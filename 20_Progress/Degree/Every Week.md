@@ -18,7 +18,7 @@ notes:
 next: "Confirm CSCI 5304's midterm date (printed 10/15 vs. stated 10/22 - see that Board's anomaly warning) and MGMT 3015's two date anomalies (Session 6, Session 16) before those weeks arrive"
 ---
 # UMN
-ENGL 1004 was dropped, confirmed on 2026-10-09, and its entries are excluded from this active calendar. Five weeks are complete; Week 6 starts Monday, 2026-10-12. The referenced external spreadsheet was not located or updated and may retain the old roster.
+Five weeks are complete; Week 6 starts Monday, 2026-10-12. The referenced external spreadsheet was not located or updated and may retain the old roster.
 
 ==One master weekly calendar for every Fall'26 class - what's due, on what day, at what time, and whether it repeats. Each course's own Board note is the deep source (grading rationale, policies, full context); this note is the checkable cross-class view, the Obsidian counterpart to `Fall'26 Semester Calendar.xlsx` at `10_Areas/UMN/Plan/In Semester Review/`.==
 

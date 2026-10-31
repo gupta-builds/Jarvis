@@ -25,7 +25,7 @@ CausalOps is an evidence-backed causal reasoning engine for cyber SOC operations
 
 ## Architecture
 
-- [[System Overview]] — What CausalOps is, how the layers fit together
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — What CausalOps is, how the layers fit together
 - [[LangGraph Pipeline]] — Original LangGraph graph topology (reference)
 - [[Coordinator Execution Model]] — Phase 2b coordinator replacing `graph.ainvoke`
 - [[GraphState Contract]] — The master TypedDict shared across all nodes

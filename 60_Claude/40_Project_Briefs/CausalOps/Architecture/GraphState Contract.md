@@ -132,4 +132,4 @@ In Phase 2b, the `RunRecord` in `coordinator/store.py` mirrors `GraphState` as a
 - [[schema]] — Full source code reference
 - [[agents]] — Nodes that produce parent/child configs and memos
 - [[Coordinator Execution Model]] — How RunRecord bridges coordinator ↔ graph nodes
-- [[System Overview]] — Pipeline context
+- [[60_Claude/40_Project_Briefs/CausalOps/Architecture/System Overview]] — Pipeline context

@@ -2,13 +2,13 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-29
+updated: 2026-10-30
 tags:
   - project
   - ai
   - conversations
 project_kind: project
-next: Run Prompts/P4 (design postmortem); P0 to P3 are closed. Check the 60-day retention setting on or after 2026-10-30, confirm the Scratch folder, and do the owner's two hook checks (a real /clear, one day of export_result timings). P5 onward get refined by what P4 returns.
+next: P0 to P4 are closed; the postmortem is Conversation Loop Design Postmortem (2026-10-30). Answer its Open Questions, then run P5 (hand review) before P6 to P8, which its corrections change. Still the owner's: confirm the Scratch folder, a real /clear, one day of export_result timings, and the 60-day retention test on or after 2026-11-27 (the setting reads 60 and the 2026-09-28 transcript survived the last sweep).
 related_progress:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Research Plan|Conversation Loop Research Plan]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
@@ -46,7 +46,8 @@ Scope decision for this round: Claude Code only. The Dell and both WSL sides are
 - [ ] Where do the future logs live: inside the vault (synced, visible on both laptops) or outside it like `jarvis-session-activity.jsonl`?
 - [x] Is the 30-day transcript retention real? Yes, per the docs (2026-10-21); details in [[20_Progress/Projects/AI Use/Conversations/Claude Code Session Source|Claude Code Session Source]]. Whether to raise `cleanupPeriodDays` is an open owner decision.
 - [x] Owner decisions of 2026-10-22: `cleanupPeriodDays` 60 on the Acer; the human reviews first and the local model flags after; events per machine and scoped to tracked projects; Jarvis `.claude/` for skills; the Dell is repo conversations only. Recorded in the Corrections of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].
-- [ ] Still open: which local models to pull (decided by the pilot), the weekly time budget (P4 records minutes per step), and whether `/insights` goes before or after the pilot.
+- [ ] Still open: which local models to pull (decided by the pilot), the weekly time budget (P4 records minutes per step), and whether `/insights` goes before or after the pilot. *2026-10-30:* the postmortem proposes cutting both the pilot and the skill, so the first and third parts close if the owner agrees; the time budget is measured by P5.
+- [ ] Owner decisions from [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]] (2026-10-30), listed there as checkboxes: whether raw events keep prompt text, what happens to The Plan's session notes tracked in git, the wording of the vault-only hooks decision, cutting L2 and the `/insights` skill, a one-time `claude -p "/insights"` test, the ledger metric rule, the nudge and digest timing, the Review System wording, and the 2026-11-27 retention test.
 - [ ] Which of the two empty `How to Use Claude` notes (`How to Run Plugins & Tools`, `How to Use Skill Map`) belong to this project? They are not conversation notes and were left empty.
 ## Log
 - **2026-10-21:** Measured the live layer against the Acer's own transcripts, wrote the postmortem and the as-built records in this folder, filled the empty notes in the five locations listed above, and corrected two counts in the 2026-10-17 audit. Standards in `30_Order` left untouched.

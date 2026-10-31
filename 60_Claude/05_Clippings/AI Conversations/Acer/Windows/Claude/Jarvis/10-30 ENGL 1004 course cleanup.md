@@ -6,7 +6,7 @@ source_os: windows
 title: "ENGL 1004 course cleanup"
 started_at: 2026-10-30T20:23:11
 ended_at: 2026-10-30T20:28:29
-exported_at: 2026-10-30T20:33:03
+exported_at: 2026-10-30T21:03:03
 duration_minutes: 5.3
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

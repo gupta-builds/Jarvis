@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-28
+updated: 2026-10-30
 tags:
   - project
   - ai
   - conversations
   - build
 project_kind: plan
-next: Run Prompts/P3 (hook timing and failure record); P0 to P2 ran on 2026-10-28. Refine P3 to P5 with what they return. Phases, prompts and the B-to-P mapping are in Corrections below.
+next: P0 to P4 are done. Get the owner's answers to the Open Questions of Conversation Loop Design Postmortem, then run P5 (hand review) before P6 to P8, which the 2026-10-30 postmortem corrections below change. Phases, prompts and the B-to-P mapping are in Corrections below.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
@@ -130,3 +130,15 @@ Written after the phases above report, because they need their results:
 After P12: the local reviewer pilot, the `/insights` skill (in the Jarvis `.claude/`), the Dell rollout, then the Codex and Cursor exporters.
 ### Beyond Claude Code on the Acer, to be known now and built later
 The repos the owner works in (internship-research-loop, second-brain-claudekit, portfolio, CausalOps, tradingview, and Jarvis itself) document sessions from more than Claude Code: Codex and Cursor too. Nothing here builds for them yet. P12 writes down, for each platform and each laptop, where its sessions live, the file format, the retention, what the Acer or Dell already holds, and what the exporter and the clean-up of existing material would need. Known on 2026-10-21 and 22: Codex has 44 session files on the Acer in `~/.codex/sessions` (2026-10-13 to 2026-10-21) and no exporter; Cursor's sweep runs only on the Dell and its notes stop at 2026-10-08; Kiro holds configuration, not sessions; Antigravity's conversation store is empty; the Dell archive holds the older and larger body of material and needs a repo-only re-export from live transcripts. The Dell closes its loop after the Acer's, by Jarvis sync plus the build notes, never by hand-copying scripts.
+### Postmortem corrections, 2026-10-30 (P4)
+*From [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]]. Everything above is kept as written; where it differs, this section wins. Phase prompts P6 to P8 are not edited here: apply these changes when each is refreshed.*
+- **Cut (findings 3, 6).** B6, the local reviewer pilot, and B7, the `/insights` skill, leave the build path. The line "After P12: the local reviewer pilot, the `/insights` skill, the Dell rollout, then the Codex and Cursor exporters" now reads: after P12, the Dell rollout, then the Codex and Cursor exporters. The B-to-P table row "B6 local reviewer pilot, B7 `/insights` skill, B9 Dell rollout" keeps only B9. Reopen B6 under the trigger in the Design's Corrections. Monthly Review Protocol steps 4 (calibration) and the skill half of step 8 go with them; step 8 stays as a manual copy.
+- **Reorder (finding 4).** P5, the first hand review, runs before P6, not in parallel. Its "what made coding hard" notes and its measured minutes feed P6 to P8. The first four weekly reviews stay by hand, as the Weekly Review Protocol already says.
+- **P6, event hook (findings 1, 2, 8, 9).** Add the ignore lines for `events-*.jsonl` and the fallback log, proved with `git check-ignore -v`, before the first write. Key rows by session, agent and `prompt_id` or null; add `agent_id` to the Per-Prompt Record. Cut prompt text from raw events (length, `pasted`, command name only). Cut `claims_done` and `verified_after_last_edit` from the hook; the digest derives them. Key capture (step 1) also answers whether a subagent's rows carry the parent's `prompt_id` and whether a typed `/clear` fires `UserPromptSubmit`. Add a `claude -p` run to the tests. Replace the done-when "every prompt in `history.jsonl`" with: for one sampled day, each typed prompt counted per session has at least one row and each extra row has a source class. Register through a script kept in the vault, in the user-level settings, because The Plan, Home and UMN Courses sit outside the vault.
+- **P7, digest (findings 2, 5, 9).** Default to the last complete ISO week. The coverage line follows the corrected rule. Drop `agent_lines_kept_7d`. Rule flags carry T1 (pushback pattern) and T2 (claim with no check). For each rule-backed code the digest prints the count per 100 prompts over all prompts, because the ledger metric is that count. Fold prompts with no rows from the transcript and mark them. Ids and links only; the sample marks The Plan prompts link-only.
+- **P8, schedules and nudge (finding 7).** The task starts when available. The nudge fires from the toast and from `/startday` every day while the newest weekly note is a skeleton, with its age in days after 7; a missed week writes a gap line into the next digest. P10 rewords Review System's "Nothing runs on its own".
+- **P9, watchdog (finding 1).** Also watch the events file's heartbeat; headless runs may leave no rows, so the watchdog must not alarm on a session whose transcript `entrypoint` is `sdk-cli`.
+- **P11, rehearsal (finding 8).** Add the seeded drill of three known-bad prompts that the digest must flag. The loop is accepted as working after 4 consecutive weekly notes (or 3 and a recorded gap) and one judged ledger row.
+- **P12, platform and Dell map (finding 9).** Refresh the Codex figure: `~/.codex/sessions` held 131 files dated 2026-09-15 to 2026-10-27 on 2026-10-30. Write the Dell registration as a script from the vault. Record the event fields so a Codex fold can reuse them.
+- **Complete means (finding 8).** In the list above, item 3 reads "event rows, with no prompt text" and item 5 requires the weekly note to use the registry's eight headings.
+- **Owner decisions needed.** The Open Questions of the postmortem: prompt text in events, The Plan's tracked session notes, the wording of the vault-only hooks decision, the two cuts, the `claude -p "/insights"` test, the ledger metric rule, the nudge, and the Review System wording.

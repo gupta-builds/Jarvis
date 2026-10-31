@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-30
 tags:
   - project
   - ai
   - conversations
   - design
 project_kind: spec
-next: Write the pre-implementation postmortem of this design (a stress test of each layer before any build), then hand Conversation Loop Build Plan to its own session.
+next: The postmortem is written (Conversation Loop Design Postmortem, 2026-10-30). Get the owner's answers to its Open Questions, then run P5 (hand review) before P6 to P8 as changed in the Corrections below and in the Build Plan.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]]"
@@ -108,3 +108,14 @@ Nothing published tests a small local model on coding-session records. The adjac
 | Feeling of progress without better output | The output check in step 7 and the ledger's metric rule |
 ## Non-Goals
 Recursive self-improvement, automatic rule writing, a score or leaderboard for sessions, fine-tuning, other platforms (Codex, Cowork, WSL), and any model decision about whether output was good.
+## Corrections
+*2026-10-30, from [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]]. The sections above are kept as written. The lock stands except where an item below says otherwise; `status` stays `active` until the owner answers the postmortem's Open Questions.*
+- **L0 Capture (postmortem finding 1).** Rows are keyed by session, agent (`main` or `agent_id`), and `prompt_id` or null, not by `prompt_id` alone, because the docs say it is absent until the first user input. The hook only appends facts: `claims_done` and `verified_after_last_edit` move to the digest, since async sibling rows may not be written when `Stop` fires. Raw events keep no prompt text (length, `pasted`, command name only). A prompt with no rows is folded from the transcript at digest time. The ignore lines for the events file are added before the first write; the "Locked now" row's "already ignored by git and Syncthing" is wrong for a new file (`git check-ignore` exits 1). `claude -p` runs kill async hooks, so they are tested once and treated as possibly missing.
+- **L1 Digest (finding 2).** The coverage line is not equality with `history.jsonl`. It reads: every typed prompt counted per session and day has at least one row, and every extra row carries a source class from the transcript (`origin`, `promptSource`). `agent_lines_kept_7d` is cut: 874 of 974 commits in 30 days are 30-minute `Auto-sync` snapshots, so lines cannot be traced to prompts. The output check stays the five hand-opened files. The digest holds ids and links only, and covers the last complete ISO week by default.
+- **L2 Local reviewer (finding 3).** Cut from the build path. T1 and T2 become digest rules, T3 stays human-only, T4 is dropped. [[20_Progress/Projects/AI Use/Conversations/Local Reviewer|Local Reviewer]] stays as a deferred protocol, reopened only if about 8 weekly reviews show a recurring code that no rule flags. The "Why the local model is limited" section stands as the reason.
+- **L3 Weekly review (finding 4).** Kept. The first review runs before the event hook is built, minutes per step are recorded, and the weekly note is the registry's eight-heading note. A skipped week is recorded as a gap.
+- **L4 Monthly review (finding 5).** For a code with a digest rule, the ledger metric is the digest count per 100 prompts over all prompts of the period, not the coded sample of about 25 a week (a 95 percent interval of about 11 points at 50 prompts). Human-coded codes (S1, S2, S3, S5) are judged as notes. `inconclusive` is the expected outcome. The calibration step goes with L2.
+- **L5 `/insights` (finding 6).** The skill is cut. A skill is a prompt and cannot run a built-in command; `~/.claude/usage-data` does not exist on the Acer. The monthly review keeps a manual step: type `/insights`, copy the report into the vault. The report is swept at `cleanupPeriodDays` (60 on the Acer), not at the 30 days stated above. The "Order of the `/insights` skill against the pilot" question is closed: neither is on the path.
+- **Schedule and nudge (finding 7).** The weekly digest is a scheduled script that prepares input; the review stays human. The task starts when available; the nudge appears in a toast and in `/startday` while the newest weekly note is a skeleton, and a missed week appears in the next digest as a gap. Review System's sentence "Nothing runs on its own" is reworded in P10.
+- **Test and acceptance (finding 8).** The loop is accepted as working after 4 consecutive weekly notes (or 3 and a recorded gap) and one judged ledger row. "Output improved" is claimed only for a rule-count metric over all prompts. P11 adds a seeded drill of three known-bad prompts.
+- **Platform and machine scope (finding 9).** The "Prompt privacy" risk row ("Events stay local") is incomplete: the exporter already puts The Plan's redacted sessions into git. Scripts live in the vault; registration is user-level, made by a script from the vault, because The Plan, Home and UMN Courses sit outside it. Codex and Cursor stay after P12, with platform-neutral event fields. In "Still open", `cleanupPeriodDays` is answered (60 on the Acer), events are per machine, and the time budget waits for P5.

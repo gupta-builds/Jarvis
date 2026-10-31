@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Project 2 notes and implementation plan"
 started_at: 2026-10-30T17:41:41
-ended_at: 2026-10-30T18:32:05
-exported_at: 2026-10-30T18:33:07
-duration_minutes: 50.4
+ended_at: 2026-10-30T18:50:04
+exported_at: 2026-10-30T18:50:05
+duration_minutes: 68.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a9e46100-945b-4824-a25e-507a231d7cb0
@@ -15,21 +15,21 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-10-30
-turn_count: 4
+turn_count: 7
 tools_used:
-  Bash: 96
+  Bash: 110
   Edit: 10
   Grep: 2
   PowerShell: 5
   Read: 28
   Write: 7
 tokens:
-  input: 230
-  output: 121691
-  cache_creation: 495041
-  cache_read: 38346745
-  total: 38963707
-cost_usd: 7.032208
+  input: 260
+  output: 146065
+  cache_creation: 544473
+  cache_read: 46113563
+  total: 46804361
+cost_usd: 8.250418
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -11718,6 +11718,1719 @@ Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like '*mineru-pdf
 cranky_pasteur Exited (0) 42 hours ago
 ```
 
+## You
+
+The dev container isn't running. my bad on that, the container is running and this is the code that project mate has written for the project: `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code-naf"`, this was written in detail and worked on by him to make sure that all the code is written correctly and the test cases pass. But, this is ai slop code written. This sure passes all the tests and finishes the project but this is straight ai slop. You are required to go through the code that you have written out and compare it with the ai slop that is written. What ai slop is worse? Does it matter? No. 
+
+We are using the above project as an example of things that look like ai slop. Now, based on all the information that has been mentioned to you about the course CSCI 4061 and the files that were mentioned. You are required to go through all the lecture material, code, labs, textbook and review the code that you have written. This is just the review process. What is ai slop? What is written out of thin air? What is written that has absolutely no context with the material provided? what was written that did not follow the professor's code writting style? We need to make sure that the code that is written out is from the material that is provided for the course excsulively. Make no mistakes with this. Do the task correctly. Go through everything in detail. Read through the notes and files that were just worked on. What needs to be improved? How is the ai slop codebase? How does it compare to the code that you have already written and claim it to be complete? Go through the dev container currently running and read through all the files in massive detail. Make sure to dig through all the information already mentioned to review the projects here. This is a only review process, so there are absolutely no more changes done to the porjects no matter what you find. Come abck to me with summaries of both the codebases and where they currently stand. In the end, mention me fixes that need to take place to the original code: `/workspaces/csci4061-fa26/Projects/proj2-code` to make sure that we fit the professor's writting sstyle(from lectures and just code that is already written across the entire dev workspace). Does everything check out for the project? Is everything running cleanly? Do we satisfy everything that was mentioned in the canvas page? I want the project to submission ready, this is a review for submission readiness.
+
+## You
+
+The dev container isn't running. my bad on that, the container is running and this is the code that project mate has written for the project: `"D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code-naf"`, this was written in detail and worked on by him to make sure that all the code is written correctly and the test cases pass. But, this is ai slop code written. This sure passes all the tests and finishes the project but this is straight ai slop. You are required to go through the code that you have written out and compare it with the ai slop that is written. What ai slop is worse? Does it matter? No. 
+
+We are using the above project as an example of things that look like ai slop. Now, based on all the information that has been mentioned to you about the course CSCI 4061 and the files that were mentioned. You are required to go through all the lecture material, code, labs, textbook and review the code that you have written. This is just the review process. What is ai slop? What is written out of thin air? What is written that has absolutely no context with the material provided? what was written that did not follow the professor's code writting style? We need to make sure that the code that is written out is from the material that is provided for the course excsulively. Make no mistakes with this. Do the task correctly. Go through everything in detail. Read through the notes and files that were just worked on. What needs to be improved? How is the ai slop codebase? How does it compare to the code that you have already written and claim it to be complete? Go through the dev container currently running and read through all the files in massive detail. Make sure to dig through all the information already mentioned to review the projects here. This is a only review process, so there are absolutely no more changes done to the porjects no matter what you find. Come abck to me with summaries of both the codebases and where they currently stand. In the end, mention me fixes that need to take place to the original code: `/workspaces/csci4061-fa26/Projects/proj2-code` to make sure that we fit the professor's writting sstyle(from lectures and just code that is already written across the entire dev workspace). Does everything check out for the project? Is everything running cleanly? Do we satisfy everything that was mentioned in the canvas page? I want the project to submission ready, this is a review for submission readiness.
+
+Here is the assignment directly pasted from the canvas page: ```
+
+<pasted_content id="f13e">
+Due Dates
+Project Quiz: 11:59pm, Friday 10/16/2026 (Canvas)
+Final Submission: 11:59pm, Friday 10/30/2026 (Gradescope)
+6.25% of Course Grade
+
+Projects are to be completed individually or with a partner. Collaboration outside of your project team is prohibited. See our syllabus for full academic integrity policies.
+
+Download and unpack the starter code linked above. Place the unpacked proj2-code inside of your existing csci4061-fa26 directory to ensure you can access the project code within your Docker environment.
+
+Starter Code: proj2-code.zip
+
+Introduction
+It is often useful to launch and coordinate work among several different processes and/or threads when trying to accomplish a particular task, particularly when we want work to proceed in parallel to make full use of modern, multi-core systems.
+
+C remains the language of choice for low-level systems programming, where precise control over memory and over interactions with the operating system is a central concern. However, today many popular systems consist of internals implemented in C and a “wrapper” in a higher-level language that offers more convenience to the programmers using the system. Python is a popular choice as a wrapper language because it can interface easily with C code.
+
+This project will explore the following topics:
+
+The use of pipes for inter-process communication
+The use of shared memory for inter-process communication
+Basic use of threads
+Parallel data processing using both processes and threads
+Interoperation between Python and C code
+In Part 1 of the project, you will extend the swish command-line shell from Project 1 to execute pipelined programs. This allows one to execute a sequence of programs in which each program consumes input from its predecessor and sends output to its successor. This was one of the key contributions of the original Unix operating system: the ability to compose small, simple tools to achieve a larger goal. This contribution was made possible thanks to the use of pipes in combination with the traditional fork()/dup2()/exec() combination we saw in Project 1.
+
+In Part 2 of the project, you will explore three different techniques for running code that performs numerical calculations in parallel. This is a common situation in real-world software like data science and machine learning frameworks. These frameworks often implement their performance-critical code in C but then allow the use of this code through a convenient wrapper language like Python. Part 2 of the project will also demonstrate one means of accomplishing this. You will expose your C code as a Python extension, meaning it can be accessed and used like an ordinary module in Python code.
+
+Grading Criteria
+Project Quiz (10%): We have posted a quiz about this assignment description on our class Canvas site. Complete the quiz by the due date. The quiz is to be completed individually but multiple attempts are allowed.
+Automated Testing (40%): We have provided several tests along with instructions on how to run these tests from the command line. To pass the tests, you will need to ensure that your code compiles and runs according to the specifications given. Note that we have some additional tests we will run against your code that are not provided to you.
+Oral Exam (40%): Shortly after the project due date, you will sign up for a brief oral exam with the TAs, who will ask you questions about your submitted code and the extent to which you understand your work. Oral exams will be done individually, not together with your project partner if you choose to work with one.
+Error Checking (10%): TAs will manually review your code to evaluate the extent to which your code thoroughly and appropriately checks for and handles error conditions. Make sure that you properly check for and deal with errors whenever using a C library function that may indicate an error with its return value.
+Makefile
+There are three Makefiles provided as part of this project: one in the top level proj2-code directory, a second in the part1 subdirectory, and a third in the part2 subdirectory.
+
+The Makefiles in the part1 and part2 subdirectories support the following commands:
+
+make: Compile all code, produce executable program(s)
+make clean: Remove all compiled items. Useful if you want to recompile everything from scratch.
+make clean-tests: Remove all files produced during execution of the tests.
+make test: Run all test cases
+make test testnum=5: Run test case #5 only
+Note that these two Makefiles do not support make zip. This is only possible in the top-level directory.
+
+The Makefile in the top-level proj2-code directory supports the following commands:
+
+make: Compile all code for both parts of the project, produce executable program(s)
+make clean: Remove all compiled items in both parts of the project. Useful if you want to recompile everything from scratch.
+make clean-tests: Remove all files produced during execution of the tests
+make test-part1: Run all test cases for part 1 of the project
+make test-part2: Run all test cases for part 2 of the project
+make zip: Create a zip file for submission to Gradescope
+Automated Tests
+Automated tests are included with the project’s starter code. These tests are known to work within the 4061 Docker container only but in most cases they should run identically in Linux environments such as the CSE Labs machines.
+
+Don’t depend on the test cases and their output for your debugging. Know how to run a program directly from the command line, and be ready to use tools like gdb to unearth the source of problems you encounter.
+
+Additionally, we have not provided tests for everything you will be expected to implement as part of this project. You will need to do some of your own testing to verify that your implementation of these features works as expected, and we will be running our own tests against these features as well when grading your submission.
+
+Starter Code
+Part 1
+Part 1 Starter Code Files
+File    Purpose    Notes
+Makefile    Build    Build file to compile and run test cases
+string_vector.h    Provided    Header file for a vector data structure to store strings
+string_vector.c    Provided    Implementation of the string vector data structure
+swish.c    Provided    Implements the command-line interface for a highly simplified version of the swish shell
+swish_funcs.h    Provided    Header file for swish helper functions
+swish_funcs_provided.o    Provided    Binary file with implementations of some shell helper functions
+swish_funcs.c    EDIT    Implementations of swish helper functions
+test_cases/    Testing    Test cases and related materials
+Part 2
+Part 2 Starter Code Files
+File    Purpose    Notes
+Makefile    Build    Build file to compile and run test cases
+setup.py    Build    Specifies how to build Python extension from C code
+hadamard.h    Provided    Header file for parallel Hadamard product calculation functions
+hadamard_extension.c    Provided    Defines Python extension from C code
+hadamard_utils.c    Provided    Definitions for useful helper functions
+hadamard_pipe.c    EDIT    Code for parallel Hadamard product computation using processes and a pipe
+hadamard_shmem.c    EDIT    Code for parallel Hadamard product computation using processes and shared memory
+hadamard_threads.c    EDIT    Code for parallel Hadamard product computation using threads
+hadamard_main.py    Testing    Program for exercising Hadamard product functions
+test_cases/    Testing    Test cases and related materials
+Note that you are only allowed to change the files marked as EDIT above. For all other files, the Gradescope autograder will ignore any modifications you make and use the standard version provided with the starter code.
+
+Part 1: Extending swish
+In this part of the project, you will extend the swish shell from Project 1 to support pipelined command execution. As you hopefully have seen before, one can type in a sequence of commands (including their arguments) separated by the | character to run those commands in a pipeline.
+
+A pipeline works by sending the output from each command to serve as the input for the next command over a pipe. For each command at position i in the pipeline, standard input is consumed from the standard output of command i-1, while standard output is sent as standard input to the command i+1. The two exceptions are the first command, which uses standard input normally, and the last command in the pipeline, which uses standard output normally.
+
+For example, in the simple pipeline cat file.txt | wc -l, we have two commands linked together by one pipe. The cat command (with argument file.txt) has its standard output redirected to the write end of the pipe. The wc command (with argument -l) has its standard input redirected to the read end of the pipe.
+
+Note that the first command in a pipeline may have its standard input redirected to a file with the < operator and the last command may have its standard output redirected to a file with the > or >> operators. All of the following are examples of valid command pipelines that your shell is expected to support:
+
+cat file.txt | wc -l
+cat < file.txt | wc -l
+cat file.txt | wc -l > out.txt
+cat < file.txt | wc -l > out.txt
+cat file.txt | wc -l >> out.txt
+cat < file.txt | wc -l >> out.txt
+Your shell must be able to handle pipelines with arbitrarily many commands. You may safely assume that a pipeline with n commands must use n-1 pipes.
+
+The simplest way to achieve this is to construct an array of pipes, as we have studied in class. Each pipe in the array will be used to connect two commands in the pipeline together.
+
+For example, consider the pipeline cat gatsby.txt | tr -cs A-Za-z \n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 12, which counts the most frequently appearing words in the file gatsby.txt. This pipeline consists of seven commands and therefore requires six pipes, as shown in the diagram below.
+
+A diagram showing five pairs of pipe file descriptors and the processes they interact with
+
+To implement this scheme, you must complete the function run_pipelined_commands() in swish_funcs.c. We strongly recommend you break up your work by also completing the run_piped_command() helper function, which should be responsible for running each individual member of the pipeline.
+
+We have provided an implementation of the run_command() function from Project 1 for you. We are only providing the compiled code, not the original C, but the Makefile we provide will link against this definition and make it available for your use in swish_funcs.c.
+
+The provided version of run_command() will handle calling exec() and calling dup2() if it sees the <, >, or >> operators in its input tokens parameter. However, it knows nothing about command pipelines – this is the part you will have to build yourself with the pipe() and dup2() system calls.
+
+You will also need to call fork() yourself. You should only call the provided run_command() function in a newly created child process, just as you did in Project 1.
+
+The run_pipelined_commands() function will need to set up an array of pipes to connect each command in the pipeline. Then, call fork() to create child processes to run the commands. Of course, before you call run_command() in each child, you may need to use dup2() to ensure that the program consumes standard input from a pipe and/or writes standard output to a pipe.
+
+You will need to do some string parsing to make this all work. The first command in the pipeline is represented by all input tokens up until the first occurrence of the | token. Each “interior” command in the pipeline is represented by the tokens in between two occurrences of |. The last command in the pipeline is represented by all tokens following the last | token.
+
+Make sure to read over the new version of string_vector.h – several functions have been added for Project 2 that will help you with this task.
+
+The order in which you fork and exec to run the pipeline commands should not, in theory, matter. You can execute programs starting with the first command, working your way to the last command, or execute programs starting with the last command and working your way to the first command. We recommend that you launch programs “backwards”, starting with the last pipeline element and working towards the first pipeline element, as this tends to be the most understandable way to do things.
+
+Hints:
+
+Don’t forget to close inherited pipe descriptors after a fork() in the child process if the child will never need those descriptors.
+Make sure you close all necessary pipe file descriptors when handling errors.
+Again, look at the string_vector.h functions. These will help you parse the user’s input to determine things like how many pipes to create, what commands to run for each element in the pipeline’s sequence, etc.
+Hidden Tests
+You will notice that the tests we have provided to you only test command pipelines of two or three programs. We have hidden tests that will attempt to run pipelines with more than three commands in your swish implementation and will attempt to redirect the input of the first pipeline element and/or the output of the last pipeline element.
+
+One important point to note: Be careful when testing out pipelines involving commands that do not consume all of the content from stdin in their execution. For example, running the head command with the argument -n 10 will cause head to read exactly ten lines of input and no more, even if additional content is available. If head were in the middle of a pipeline, that means its predecessor might attempt to write contents to a pipe that head will never consume. This may cause the predecessor program to receive a SIGPIPE signal, print out error messages, and then terminate abnormally. You might then see an error message containing broken pipe or similar text.
+
+If you inspect them carefully, you’ll notice that our provided tests use the tail command and avoid head to prevent this issue from occurring. Interestingly, the bash shell actually sets up its forked child processes to ignore SIGPIPE to suppress these kinds of error messages from occurring. Your swish shell is not expected to do this, and we will not run tests against your shell (provided or hidden) that will cause this problem.
+
+Part 2: Parallel Matrix Computations
+Numerical calculations, particularly matrix computations, are crucial in many applications within data science, machine learning, and artificial intelligence. On modern systems with multi-core CPUs (or GPUs), these calculations can be significantly sped up by performing work in parallel.
+
+We will specifically use the element-wise product, or Hadamard product, of two matrices as an illustrative example for this part of the project. The Hadamard product of two matrices A and B is defined as follows:
+
+
+
+
+The two matrix operands must have identical dimensions. Each element of the resulting matrix is the product of two elements in the same location (row and column index) of the two operand matrices. In this project, you are allowed to assume that your code will always be asked to compute the Hadamard product of two matrices with the proper dimensions, i.e., they will match each other.
+
+You will use three different techniques to compute the Hadamard product in parallel:
+
+Processes cooperating using a pipe
+Processes cooperating using shared memory
+Threads
+Matrix Representation
+You can assume all matrices are represented in row-major order, as shown in the following figure:
+
+A diagram of a matrix with its rows concatenated into a one-dimensional array
+
+This means the matrices will be stored as one-dimensional arrays in your code even though they really represent two-dimensional objects.
+
+We have provided binary files representing nine pairs of matrices, each with matching dimensions, for testing purposes in test_cases/resources. Each of these files is comprised of the following sequence of items:
+
+A 4-byte unsigned integer representing the number of rows in the matrix, r
+A 4-byte unsigned integer representing the number of columns in the matrix, c
+A sequence of r * c signed integers, each 4 bytes in length, representing the matrix elements, in row-major order.
+Much of the file handling is already done for you. Check out theread_matrix_from_file function in hadamard_utils.c.
+
+Utility Functions
+There are three useful functions provided to you in hadamard_utils.c. One is min, which just computes the minimum of two unsigned values. You may find this useful in dividing up the input matrices into a chunk for each worker, described more below.
+
+The read_matrix_from_file function will read in matrix dimensions and contents from the specified file. You will find it useful in all three of your implementations (pipes, shared memory, and threads) for this part of the project. Pay careful attention to the last argument, sh_mem, which determines if the matrix elements are placed in a shared memory segment or on the heap. You will need to use both modes, but in different implementations.
+
+The last function, print_matrix, should be called by each of your Hadamard product functions once the result matrix has been computed. You will need to do this so that the output of your program matches what’s expected in the tests.
+
+Organizing Parallel Work
+Your implementations for each of the three techniques listed above will all share some common elements that you can reuse.
+
+First, they need to break up the work into roughly equal-sized pieces. Each piece of work is then assigned to one process (for techniques 1 and 2) or one thread (for technique 3).
+
+The easiest way to do this is to divide up the matrices A and B (the two inputs) and C (the output) into chunks and to make these chunks as close to equally-sized as possible. Since the matrices are represented one-dimensionally in row-major order, this can be accomplished by giving each worker a start and stop index, telling it which chunk of elements in the matrix representation it is responsible for.
+
+It is your job to decide how to compute the start and stop value for each worker. You may find some of the functions in C’s math.h library helpful, and we’ve already included this header for you in the starter code.
+
+The good news is that once you figure out how to divide up work, you can use this same method for all three techniques (processes with a pipe, processes with shared memory, and threads).
+
+Using Processes and a Pipe
+Implement your solution for this technique in hadamard_pipe.c. Some helpful code is already provided for you in this file.
+
+Many processes can share just one pipe without issue. Multiple pipes are often more trouble than they are worth unless they are specifically needed, such as in the shell pipeline situation of Part 1.
+
+To keep things simple, you should fork one child process to serve as each worker, after setting up the pipe in the parent. The original parent process won’t count as a worker.
+
+The two operand matrices, A and B, are read in from a file and placed on the heap of the original parent process. When the parent forks, its children will inherit copies of these heap memory regions. But, that means each child will also need to explicitly free these regions before it exits.
+
+Each child should perform the necessary calculations for its assigned portion of the matrix (based on its assigned start and stop indexes), and write each element of the result matrix that it computes back to the pipe. Then, make sure to clean up and call exit() when done.
+
+After launching all child processes, the parent should create a C matrix to hold the product of A and B.
+
+Next, the parent should consume matrix elements from the read end of the pipe continuously until all children have finished and closed their write ends of the pipe. Because matrix elements from different children can be sent in any order and therefore could be mixed together, we recommend you send instances of struct element (provided for you already) over the pipe. This way, the parent will know where to place each data value it reads from the pipe in the result matrix.
+
+Finally, use print_matrix() to output the contents of the result matrix, C, so that your code can pass the tests.
+
+Using Processes and Shared Memory
+Implement your solution for this technique in hadamard_shmem.c.
+
+The previous pipe-based approach has some disadvantages. While you may know that Linux does some copy-on-write optimizations for child process memory, meaning all those A and B matrix copies aren’t as costly as they may appear, sending matrix elements over a pipe is arguably cumbersome to implement. A pipe’s natural benefits for coordination aren’t especially helpful here, where each child is working on disjoint matrix chunks.
+
+Instead, we can read the input A and B matrices into shared memory segments in the parent process before forking any child worker processes. We can also set up a shared memory segment to hold the result matrix C before forking. Then, all children will inherit access to the three segments.
+
+Your code should do just that. The code to set up segments for A and B is already given to you in the read_matrix_from_file function, which you’ll need to call in the parent process. Adapt the relevant code to set up a similar segment for C.
+
+Then, fork one child process for each “worker” needed, just as you did before. The children can use pointers to the A and B segments to get all of the input data they need for their assigned computations. They can then store each result using a pointer to the C segment. Just make sure you put each result element at the proper index within C.
+
+When done, each child should call exit(). Since each child should be operating on a disjoint chunk of the A, B, and C, memory segments, little coordination is needed. The parent just needs to wait for all children to complete before printing out the C matrix.
+
+Using Threads
+Implement your solution for this technique in hadamard_threads.c.
+
+You will likely find that this is the simplest approach. It is very similar to the processes/shared memory technique but even easier because we can just put the A, B, and C, matrices on the heap rather than dealing with shared memory segments.
+
+You can follow largely the same sequence of steps:
+
+Read in the A and B matrices from a file using the read_matrix_from_file function.
+Set up a region of heap memory to hold the result matrix C.
+Launch workers, this time as threads. Make sure each thread is assigned a unique and roughly equal-sized matrix chunk as its work, specified by the start and stop indexes.
+In each worker thread, compute the assigned chunk of the Hadamard product.
+In the main thread, wait for each worker thread to complete.
+Finally in the main thread, use print_matrix() to output the contents of the C matrix for testing purposes.
+The body of the function called by each thread can be quite simple, maybe only a handful of lines of code, under this technique. The tricky part is communicating enough information to each thread when this function only accepts a void * argument. We’ve provided a struct thread_args definition to help you with this. Look back at relevant lab and lecture code if you need a refresher on what to do with this struct and your threads.
+
+Making a Python Extension
+The last challenge in this part of the project is fitting your code to the patterns and structure expected of a Python extension, so that your functions can be seamlessly invoked from Python.
+
+You should look back at the relevant lecture and lab code for guidance on this, but here are a few key points you’ll need to remember (and which should be demonstrated by the provided code):
+
+Functions called from Python accept two arguments: PyObject *self and PyObject *args. Use PyArg_ParseTuple to extract the arguments passed from Python into local C variables.
+Your function will also need to return a PyObject *. This can be quite flexible, but in this project we’ll just return None back to Python on success. Accomplish this with Py_RETURN_NONE.
+If an error occurs, your function should instead return NULL. Before doing so, however, it should set up a Python error so that an exception is raised back in the Python interpreter.
+You can set an error with functions like PyErr_SetString and PyErr_Format. However, if your C code has observed a failure in a function that sets errno, you should use PyErr_SetFromErrno.
+Feel free to use the most appropriate Python exception type when setting an error, but a reasonable default is PyExc_OSError.
+Testing
+The provided tests will exercise your code in hadamard_pipe.c and hadamard_shmem.c using input matrices of varying dimensions and requesting different numbers of workers.
+
+The provided tests do not cover the code in hadamard_threads.c. You should test this on your own. Make sure your threading code works correctly with all of the provided matrices and their different dimensions and with varying quantities of worker threads.
+
+Submission
+You must submit your code to Gradescope to receive credit for this project. Run the make zip command to create a zip archive suitable for uploading to Gradescope.
+
+Remember, you can only modify the files designated as EDIT in the table above. Modifying other files will cause your code to fail the autograder tests.
+
+It is your responsibility to ensure that the Gradescope autograder results match your expectations based on local testing. The autograder is the final authority on the automated testing portion of your grade.
+
+You may also wish to review the late submission policy detailed in the course syllabus to understand what score you will receive if submitting your work after the deadline. No project submissions are accepted more than 48 hours after the deadline.
+
+Please only submit one project per group. Gradescope has an option to add group members after an assignment has been submitted.
+</pasted_content id="f13e">
+
+```
+
+## Claude
+
+Review only, with no changes to either project. Anything I build runs on scratch copies inside the container. First, the container state and the partner's code.
+
+Confirmed: all 36 threads runs in the partner's code fail, while both codebases pass the 26 provided tests. Now the Part 1 behavior comparison and the edge cases for each codebase.
+
+Short answer: **don't submit the partner's code, and `proj2-code` is functionally ready but needs a style pass first.** I changed nothing in either project. All builds ran on scratch copies in the running container, and I deleted them afterward.
+
+## The partner's code (`proj2-code-naf`)
+- **The threads implementation does nothing.** The `worker` in `hadamard_threads.c` is just `return NULL;`, so the threads mode prints a matrix of zeros. All 36 threads runs I tried failed. It still passes 8/8 on Part 1 and 18/18 on Part 2, because no provided test covers threads. The spec says graders run their own tests, and the oral exam would expose it.
+- **A leftover AI prompt is in the file.** `hadamard_threads.c` line 133 reads "//calude why is this causing compliling error / //am i using thread_data wrong>".
+- **Starter TODO comments were left in** all four files, along with "Step 1" to "Step 10" narration, ragged indentation, and `assert` kept in the pipe file.
+- **Comment density is 0.31**, against 0.10 in the professor's code.
+- **It breaks explicit spec instructions:**
+  - Children call `_exit()`; the spec says `exit()`.
+  - Pipe children never free their copies of A and B, though the spec says they must.
+  - Shared-memory children never `munmap`.
+  - Failures use `perror` plus `PyErr_SetString` or `RuntimeError`, where the spec says `PyErr_SetFromErrno` for errno failures.
+  - Many `close` calls are unchecked.
+  - The shell uses a stack VLA.
+  - Part 1 doesn't flush `stdout` before forking, so prompts print out of order when output isn't a terminal.
+  - A malformed pipeline like `| wc -l` runs an empty command instead of reporting an error.
+
+## My code (`/workspaces/csci4061-fa26/Projects/proj2-code`)
+- **Tests:** 8/8 on Part 1 and 18/18 on Part 2 on the revised starter, which is what the autograder builds against with `-Werror`. A 108-run sweep over all matrices, 3 modes and 4 worker counts, including threads, had 0 failures.
+- **Other checks:** valgrind showed no leaks or fd leaks in the earlier run, and the files have no CRLF or tab problems.
+- **Not exercised:** `fork()` failure partway through the process loop, and the real Gradescope hidden tests.
+- **It is not slop-free.** Several pieces came from my own habits or from my earlier Lab 5 solution, not from the professor's material. Comment density is 0.15 against 0.10, and the logic is heavier than anything he writes.
+
+## Fixes to `proj2-code` for the professor's style
+Nothing here is a bug; each item is something you'd have to defend at the oral exam.
+
+1. **Remove the EINTR retry loops** (in the pipe and shmem `wait`/`read`). They appear nowhere in lectures; only my Lab 5 solution has them. Use `if (wait(NULL) == -1) { perror... }` as in `single_pipe.c`.
+2. **Remove the `if (!PyErr_Occurred())` guards.** The revised starter's own pipe file already uses a plain `PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file")`. Use that in all three files.
+3. **Drop the `failed` flag and `&& !failed` chains.** Use the professor's pattern instead: clean up, wait for the children started so far (`for (j < i) wait(NULL)`), and return.
+4. **Replace `split_work` and the balanced remainder formula.** Neither is professor material. Compute the split inline in the loop, as `lecture12-code/array_threads_v1.c` does, using `chunk_size` and `start`/`stop`. Canvas hints at `ceil` plus the provided `min()`, so use that: `chunk = ceil(total / n)`, `start = i * chunk`, `end = min(start + chunk, total)`.
+5. **Simplify the pipe read loop.** Use `int nbytes` and `while ((nbytes = read(...)) > 0)` like `single_pipe.c`, and drop the `ssize_t` casts and the `idx >= total` check.
+6. **Part 1 `run_piped_command`:** drop the `pipes[i] == STDIN_FILENO` special case and the `continue` in the close loop. Use the plain `dup2`, check, then close-all pattern from `lab04-code/pipeline_commands.c`.
+7. **Part 1 `run_pipelined_commands`:** keep `fflush(stdout)`, because Lab 1's `fork_wait.c` does the same with the comment "Prevents duplicate I/O after a fork". Without it I saw a duplicated `@>` prompt. Simplify the `bars` array and the `(n_fds + 1)` allocation trick, or keep the empty-command check only if you can explain it.
+8. **Trim comments to one-line facts.** Delete the multi-line "why" comments and cut density to about 0.10. Also remove the redundant `a_size`/`mapped_size` pair in shmem, wrap the `mmap` line that is 101 characters, and use `n_workers` consistently (the starter's TODO text uses it).
+
+## Submission readiness
+- **Spec items that check out:**
+  - Only the four EDIT files changed.
+  - Pipelines of any length work, with `<`, `>` and `>>` on both ends.
+  - All three techniques work and each prints via `print_matrix`.
+  - `exit()` is used and children free their copies.
+  - Errors use the Python exception types the spec asks for.
+  - A dry-run `make zip` listed only sources (no `test_cases/`).
+- **Stale non-EDIT files:** `proj2-code` still has the old `Makefile`, `hadamard_utils.c` and `setup.py` from the 10/14 starter. The autograder replaces them, so it doesn't affect grading, but local runs there don't use `-Werror`. Syncing those three from `proj2-original` would make local testing match the autograder; that's a change, so I left it.
+- **After the style pass,** rerun `make test-part1`, `make test-part2`, a threads sweep against `test_cases/output`, and `make zip`, then upload before 11:59pm tonight.
+
+### Tool Calls
+
+- `Bash`
+```bash
+docker ps --format "{{.ID}} {{.Names}} {{.Status}} {{.Image}}"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects"; ls; diff -rq proj2-original proj2-code-naf; echo ---; diff -rq proj2-code proj2-code-naf | head -30; wc -l proj2-code-naf/part1/swish_funcs.c proj2-code-naf/part2/hadamard_{pipe,shmem,threads}.c proj2-code/part1/swish_funcs.c proj2-code/part2/hadamard_{pipe,shmem,threads}.c
+```
+```
+c31429efeee7 cranky_pasteur Up 11 minutes [REDACTED]
+proj1-code
+proj1-original
+proj2-code
+proj2-code-naf
+proj2-original
+Files proj2-original/part1/swish_funcs.c and proj2-code-naf/part1/swish_funcs.c differ
+Only in proj2-original/part1: test_cases
+Files proj2-original/part2/hadamard_pipe.c and proj2-code-naf/part2/hadamard_pipe.c differ
+Files proj2-original/part2/hadamard_shmem.c and proj2-code-naf/part2/hadamard_shmem.c differ
+Files proj2-original/part2/hadamard_threads.c and proj2-code-naf/part2/hadamard_threads.c differ
+Only in proj2-original/part2: test_cases
+---
+Files proj2-code/part1/swish_funcs.c and proj2-code-naf/part1/swish_funcs.c differ
+Only in proj2-code/part1: test_cases
+Files proj2-code/part2/Makefile and proj2-code-naf/part2/Makefile differ
+Files proj2-code/part2/hadamard_pipe.c and proj2-code-naf/part2/hadamard_pipe.c differ
+Files proj2-code/part2/hadamard_shmem.c and proj2-code-naf/part2/hadamard_shmem.c differ
+Files proj2-code/part2/hadamard_threads.c and proj2-code-naf/part2/hadamard_threads.c differ
+Files proj2-code/part2/hadamard_utils.c and proj2-code-naf/part2/hadamard_utils.c differ
+Files proj2-code/part2/setup.py and proj2-code-naf/part2/setup.py differ
+Only in proj2-code/part2: test_cases
+  161 proj2-code-naf/part1/swish_funcs.c
+  235 proj2-code-naf/part2/hadamard_pipe.c
+  183 proj2-code-naf/part2/hadamard_shmem.c
+  186 proj2-code-naf/part2/hadamard_threads.c
+  175 proj2-code/part1/swish_funcs.c
+  214 proj2-code/part2/hadamard_pipe.c
+  176 proj2-code/part2/hadamard_shmem.c
+  148 proj2-code/part2/hadamard_threads.c
+ 1478 total
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code-naf"; ls -la . part1 part2; cat -n part1/swish_funcs.c
+```
+```
+.:
+total 12
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 .
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:35 ..
+-rw-r--r-- 1 anant 197609 1084 Oct 30 18:34 Makefile
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 part1
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 part2
+
+part1:
+total 36
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 .
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 ..
+-rw-r--r-- 1 anant 197609  890 Oct 30 18:34 Makefile
+-rw-r--r-- 1 anant 197609 2775 Oct 30 18:34 string_vector.c
+-rw-r--r-- 1 anant 197609 2879 Oct 30 18:34 string_vector.h
+-rw-r--r-- 1 anant 197609 1455 Oct 30 18:34 swish.c
+-rw-r--r-- 1 anant 197609 4208 Oct 30 18:34 swish_funcs.c
+-rw-r--r-- 1 anant 197609 1525 Oct 30 18:34 swish_funcs.h
+-rw-r--r-- 1 anant 197609 4256 Oct 30 18:34 [REDACTED].o
+-rw-r--r-- 1 anant 197609 3752 Oct 30 18:34 [REDACTED].o
+
+part2:
+total 38
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 .
+drwxr-xr-x 1 anant 197609    0 Oct 30 18:34 ..
+-rw-r--r-- 1 anant 197609  739 Oct 30 18:34 Makefile
+-rw-r--r-- 1 anant 197609 1749 Oct 30 18:34 hadamard.h
+-rw-r--r-- 1 anant 197609 1271 Oct 30 18:34 hadamard_extension.c
+-rw-r--r-- 1 anant 197609  823 Oct 30 18:34 hadamard_main.py
+-rw-r--r-- 1 anant 197609 6008 Oct 30 18:34 hadamard_pipe.c
+-rw-r--r-- 1 anant 197609 5252 Oct 30 18:34 hadamard_shmem.c
+-rw-r--r-- 1 anant 197609 4997 Oct 30 18:34 hadamard_threads.c
+-rw-r--r-- 1 anant 197609 2161 Oct 30 18:34 hadamard_utils.c
+-rw-r--r-- 1 anant 197609  105 Oct 30 18:34 pyproject.toml
+-rw-r--r-- 1 anant 197609  570 Oct 30 18:34 setup.py
+     1	#include "swish_funcs.h"
+     2	#include <string.h>
+     3	#include <assert.h>
+     4	#include <stdio.h>
+     5	#include <stdlib.h>
+     6	#include <sys/types.h>
+     7	#include <sys/wait.h>
+     8	#include <unistd.h>
+     9	#include "string_vector.h"
+    10	
+    11	#define MAX_ARGS 10
+    12	
+    13	/*
+    14	 * Helper function to run a single command within a pipeline. You should make
+    15	 * use of the provided 'run_command' function here.
+    16	 * tokens: String vector containing the tokens representing the command to be
+    17	 * executed, possible redirection, and the command's arguments.
+    18	 * pipes: An array of pipe file descriptors.
+    19	 * n_pipe_fds: Length of the 'pipes' array
+    20	 * in_idx: Index of the file descriptor in the array from which the program
+    21	 *         should read its input, or -1 if input should not be read from a pipe.
+    22	 * out_idx: Index of the file descriptor in the array to which the program
+    23	 *          should write its output, or -1 if output should not be written to
+    24	 *          a pipe.
+    25	 * Returns 0 on success or -1 on error.
+    26	 */
+    27	int run_piped_command(strvec_t *tokens, int *pipes, int n_pipe_fds, int in_idx, int out_idx) {
+    28	    // TODO Complete this function's implementation
+    29	
+    30	    if (in_idx != -1) {
+    31	        if (dup2(pipes[in_idx], STDIN_FILENO) == -1) {
+    32	            perror("dup2 input");
+    33	            return -1;
+    34	        }
+    35	    }
+    36	     // Redirect output if needed
+    37	    if (out_idx != -1) {
+    38	        if (dup2(pipes[out_idx], STDOUT_FILENO) == -1) {
+    39	            perror("dup2 output");
+    40	            return -1;
+    41	        }
+    42	    }
+    43	
+    44	     // Close all original pipe file
+    45	    for (int i = 0; i < n_pipe_fds; i++) {
+    46	        close(pipes[i]);
+    47	    }
+    48	
+    49	    return run_command(tokens);
+    50	}
+    51	
+    52	
+    53	
+    54	
+    55	
+    56	int run_pipelined_commands(strvec_t *tokens) {
+    57	// TODO Complete this function's implementation
+    58	   //  start by Count commands
+    59	    int num_commands = 1;
+    60	
+    61	    for (int i = 0; i < tokens->length; i++) {
+    62	        if (strcmp(strvec_get(tokens, i), "|") == 0) {
+    63	            num_commands++;
+    64	        }
+    65	    }
+    66	
+    67	    //  Calculate number of pipes
+    68	    int num_pipes = num_commands - 1;
+    69	    int n_pipe_fds = num_pipes * 2;
+    70	
+    71	    //  Create pipes
+    72	    int pipes[n_pipe_fds > 0 ? n_pipe_fds : 1];
+    73	
+    74	    for (int i = 0; i < n_pipe_fds; i += 2) {
+    75	        if (pipe(&pipes[i]) == -1) {
+    76	            perror("pipe");
+    77	
+    78	            for (int j = 0; j < i; j++) {
+    79	                close(pipes[j]);
+    80	            }
+    81	
+    82	            return -1;
+    83	        }
+    84	    }
+    85	    int start = 0;
+    86	    int cmd_idx = 0;
+    87	    int children_created = 0;
+    88	    int error = 0;
+    89	
+    90	    for (int i = 0; i <= tokens->length; i++) {
+    91	
+    92	        if (i == tokens->length||
+    93	            strcmp(strvec_get(tokens, i), "|") == 0) {
+    94	
+    95	            // Extract one command
+    96	            strvec_t command;
+    97	            strvec_init(&command);
+    98	
+    99	            for (int j = start; j < i; j++) {
+   100	                strvec_add(&command, strvec_get(tokens, j));
+   101	            }
+   102	
+   103	            //  Fork a child
+   104	            pid_t pid = fork();
+   105	
+   106	            if (pid == -1) {
+   107	                perror("fork");
+   108	                strvec_clear(&command);
+   109	                error = 1;
+   110	                break;
+   111	            }
+   112	
+   113	            if (pid == 0) {
+   114	
+   115	                // Calculate pipe indices
+   116	                int in_idx = (cmd_idx == 0)
+   117	                             ? -1
+   118	                             : 2 * (cmd_idx - 1);
+   119	
+   120	                int out_idx = (cmd_idx == num_commands - 1)
+   121	                              ? -1
+   122	                              : 2 * cmd_idx + 1;
+   123	
+   124	                int result = run_piped_command(
+   125	                    &command,
+   126	                    pipes,
+   127	                    n_pipe_fds,
+   128	                    in_idx,
+   129	                    out_idx
+   130	                );
+   131	
+   132	                _exit(result == 0 ? 0 : 1);
+   133	            }
+   134	
+   135	            // Parent continues to next command
+   136	            strvec_clear(&command);
+   137	            children_created++;
+   138	
+   139	            start = i + 1;
+   140	            cmd_idx++;
+   141	        }
+   142	    }
+   143	
+   144	    //  closes all pipe  for the parent
+   145	    for (int i = 0; i < n_pipe_fds; i++) {
+   146	        if (close(pipes[i]) == -1) {
+   147	            perror("close");
+   148	            error = 1;
+   149	        }
+   150	    }
+   151	
+   152	    //  Wait for all children
+   153	    for (int i = 0; i < children_created; i++) {
+   154	        if (waitpid(-1, NULL, 0) == -1) {
+   155	            perror("waitpid");
+   156	            error = 1;
+   157	        }
+   158	    }
+   159	
+   160	    return error ? -1 : 0;
+   161	}
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code-naf/part2"; cat -n hadamard_pipe.c
+```
+```
+     1	#include <Python.h>
+     2	#include <assert.h>
+     3	#include <math.h>
+     4	#include <stdio.h>
+     5	#include <stdlib.h>
+     6	#include <sys/types.h>
+     7	#include <sys/wait.h>
+     8	#include <unistd.h>
+     9	
+    10	#include "hadamard.h"
+    11	
+    12	/*
+    13	 * Represents one matrix element communicated over a pipe
+    14	 * 'idx': Element index (in flattened representation)
+    15	 * 'value': Element value
+    16	 */
+    17	struct element {
+    18	    unsigned idx;
+    19	    int value;
+    20	};
+    21	
+    22	/*
+    23	 * Function called by each child process to perform its portion of work
+    24	 * 'a': Pointer to elements for first matrix operand
+    25	 * 'b': Pointer to elements for second matrix operand
+    26	 * 'start': Index (in flattened representation) of first element of matrix portion
+    27	 * 'end': Index (in flattened representation) of last element of matrix portion
+    28	 * 'pipe_fd': Descriptor of write end of pipe to use to send results back to coordinator
+    29	 *
+    30	 * Returns 0 on success or -1 on failure
+    31	 */
+    32	// TODO: Uncomment this function definition. Implement the function,
+    33	// and call it from child processes.
+    34	static int worker(const int *a, const int *b, unsigned start, unsigned end, int pipe_fd) {
+    35	    for (unsigned i = start; i < end; i++) {
+    36	
+    37	        struct element result;
+    38	
+    39	        result.idx = i;
+    40	        result.value = a[i] * b[i];
+    41	
+    42	        // Send result through the pipe
+    43	        if (write(pipe_fd, &result, sizeof(result)) != sizeof(result)) {
+    44	            perror("write");
+    45	            return -1;
+    46	        }
+    47	    }
+    48	
+    49	    return 0;
+    50	}
+    51	
+    52	
+    53	PyObject *hadamard_pipe(PyObject *self, PyObject *args) {
+    54	    const char *mat_a_file;
+    55	    const char *mat_b_file;
+    56	    unsigned n_procs;
+    57	    if (!PyArg_ParseTuple(args, "ssI", &mat_a_file, &mat_b_file, &n_procs)) {
+    58	        // ParseTuple sets up a Python exception on our behalf
+    59	        return NULL;
+    60	    }
+    61	
+    62	    unsigned a_rows;
+    63	    unsigned a_cols;
+    64	    int *mat_a_data = read_matrix_from_file(mat_a_file, &a_rows, &a_cols, 0);
+    65	    if (mat_a_data == NULL) {
+    66	        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+    67	        return NULL;
+    68	    }
+    69	    unsigned b_rows;
+    70	    unsigned b_cols;
+    71	    int *mat_b_data = read_matrix_from_file(mat_b_file, &b_rows, &b_cols, 0);
+    72	    if (mat_b_data == NULL) {
+    73	        PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file");
+    74	        free(mat_a_data);
+    75	        return NULL;
+    76	    }
+    77	    assert(a_rows == b_rows && a_cols == b_cols);
+    78	
+    79	    /*
+    80	     * TODO Complete the implementation of this function
+    81	     * Create one pipe for all processes to share
+    82	     * Fork 'n_workers' child processes
+    83	     * Assign each child a roughly equal portion of matrix to work on
+    84	     * Set up a result matrix to store matrix elements sent by children
+    85	     * Collect results in the parent via the pipe
+    86	     * Don't forget cleanup and error handling!
+    87	     */
+    88	     if (n_procs == 0) {
+    89	        free(mat_a_data);
+    90	        free(mat_b_data);
+    91	        PyErr_SetString(PyExc_ValueError,
+    92	                        "Number of workers must be positive");
+    93	        return NULL;
+    94	    }
+    95	
+    96	    // Step 2: Allocate result matrix
+    97	    size_t total_elements = (size_t)a_rows * a_cols;
+    98	
+    99	    int *mat_c_data = malloc(total_elements * sizeof(int));
+   100	
+   101	    if (mat_c_data == NULL) {
+   102	        free(mat_a_data);
+   103	        free(mat_b_data);
+   104	        PyErr_NoMemory();
+   105	        return NULL;
+   106	    }
+   107	
+   108	    // Step 3: Create ONE pipe
+   109	    int pipe_fds[2];
+   110	
+   111	    if (pipe(pipe_fds) == -1) {
+   112	        perror("pipe");
+   113	        free(mat_a_data);
+   114	        free(mat_b_data);
+   115	        free(mat_c_data);
+   116	        PyErr_SetString(PyExc_OSError, "Failed to create pipe");
+   117	        return NULL;
+   118	    }
+   119	
+   120	    // Step 4: Fork child processes
+   121	    unsigned children_created = 0;
+   122	    int error = 0;
+   123	
+   124	    for (unsigned i = 0; i < n_procs; i++) {
+   125	
+   126	        unsigned start = (total_elements * i) / n_procs;
+   127	        unsigned end = (total_elements * (i + 1)) / n_procs;
+   128	
+   129	        pid_t pid = fork();
+   130	
+   131	        if (pid == -1) {
+   132	            perror("fork");
+   133	            error = 1;
+   134	            break;
+   135	        }
+   136	
+   137	        if (pid == 0) {
+   138	
+   139	            // Child does not read from the pipe
+   140	            close(pipe_fds[0]);
+   141	
+   142	            // Compute results and send them to parent
+   143	            int result = worker(
+   144	                mat_a_data,
+   145	                mat_b_data,
+   146	                start,
+   147	                end,
+   148	                pipe_fds[1]
+   149	            );
+   150	
+   151	            close(pipe_fds[1]);
+   152	            _exit(result == 0 ? 0 : 1);
+   153	        }
+   154	
+   155	        children_created++;
+   156	    }
+   157	
+   158	    // Step 5: Parent does not write to the pipe
+   159	    close(pipe_fds[1]);
+   160	
+   161	    // Step 6: Read results from children
+   162	    size_t received = 0;
+   163	    size_t expected = error ? 0 : total_elements;
+   164	
+   165	    while (received < expected) {
+   166	
+   167	        struct element result;
+   168	        size_t bytes_read = 0;
+   169	
+   170	        // Read one complete struct
+   171	        while (bytes_read < sizeof(result)) {
+   172	
+   173	            ssize_t n = read(
+   174	                pipe_fds[0],
+   175	                (char *)&result + bytes_read,
+   176	                sizeof(result) - bytes_read
+   177	            );
+   178	
+   179	            if (n <= 0) {
+   180	                error = 1;
+   181	                break;
+   182	            }
+   183	
+   184	            bytes_read += (size_t)n;
+   185	        }
+   186	
+   187	        if (error) {
+   188	            break;
+   189	        }
+   190	
+   191	        // Store result at correct index
+   192	        if (result.idx >= total_elements) {
+   193	            error = 1;
+   194	            break;
+   195	        }
+   196	
+   197	        mat_c_data[result.idx] = result.value;
+   198	        received++;
+   199	    }
+   200	
+   201	    // Step 7: Close reading end
+   202	    close(pipe_fds[0]);
+   203	
+   204	    // Step 8: Wait for children
+   205	    for (unsigned i = 0; i < children_created; i++) {
+   206	
+   207	        int status;
+   208	
+   209	        if (waitpid(-1, &status, 0) == -1) {
+   210	            perror("waitpid");
+   211	            error = 1;
+   212	        }
+   213	        else if (!WIFEXITED(status) || WEXITSTATUS(status) != 0) {
+   214	            error = 1;
+   215	        }
+   216	    }
+   217	
+   218	    // Step 9: Print result
+   219	    if (!error) {
+   220	        print_matrix(mat_c_data, a_rows, a_cols);
+   221	    }
+   222	
+   223	    // Step 10: Cleanup
+   224	    free(mat_a_data);
+   225	    free(mat_b_data);
+   226	    free(mat_c_data);
+   227	
+   228	    if (error) {
+   229	        PyErr_SetString(PyExc_RuntimeError,
+   230	                        "Pipe computation failed");
+   231	        return NULL;
+   232	    }
+   233	
+   234	    Py_RETURN_NONE;
+   235	}
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code-naf/part2"; cat -n hadamard_shmem.c; echo ================; cat -n hadamard_threads.c
+```
+```
+     1	#define _GNU_SOURCE
+     2	
+     3	#include <Python.h>
+     4	#include <assert.h>
+     5	#include <math.h>
+     6	#include <stdio.h>
+     7	#include <stdlib.h>
+     8	#include <sys/mman.h>
+     9	#include <sys/types.h>
+    10	#include <sys/wait.h>
+    11	#include <unistd.h>
+    12	
+    13	#include "hadamard.h"
+    14	
+    15	/*
+    16	 * Function executed in each child process to compute its portion of the hadamard product
+    17	 * 'a': Pointer to shared memory segment storing first matrix operand
+    18	 * 'b': Pointer to shared memory segment storing second matrix operand
+    19	 * 'c': Pointer to shared memory segment storing result matrix
+    20	 * 'start': Index (in flattened representation) of first element of matrix portion
+    21	 * 'end': Index (in flattened representation) of last element of matrix portion
+    22	 * 'mapped_size': Size (in bytes) of each shared memory segment
+    23	 *
+    24	 * Returns 0 on success or -1 on failure
+    25	 */
+    26	// TODO: Uncomment the function definition below and complete it
+    27	static int worker(int *a, int *b, int *c, unsigned start, unsigned end, unsigned mapped_size) {
+    28	    /*
+    29	     * TODO Implement this function
+    30	     * Multiply each pair of elements from the assigned portion of the input
+    31	     * matrices and store in the result matrix.
+    32	     * Don't forget error handling and cleanup!
+    33	     */
+    34	    for (unsigned i = start; i < end; i++) {
+    35	        c[i] = a[i] * b[i];
+    36	    }
+    37	
+    38	    return 0;
+    39	}
+    40	
+    41	PyObject *hadamard_shmem(PyObject *self, PyObject *args) {
+    42	    /*
+    43	     * TODO Implement this function
+    44	     * Read in arguments passed from Python
+    45	     * Read the two operand matrices from their files into shared memory
+    46	     * Set up shared memory segment to hold result matrix
+    47	     * Fork 'n_workers' children, giving each a roughly equal portion of the
+    48	     * input matrices to work on
+    49	     * Wait for all children to complete their work back in the parent
+    50	     * Then pass the result matrix to print_matrix()
+    51	     *
+    52	     * Don't forget error handling and cleanup!
+    53	     */
+    54	 // Step 1: Read Python arguments
+    55	    const char *mat_a_file;
+    56	    const char *mat_b_file;
+    57	    unsigned n_workers;
+    58	
+    59	    if (!PyArg_ParseTuple(args, "ssI",
+    60	                          &mat_a_file, &mat_b_file, &n_workers)) {
+    61	        return NULL;
+    62	    }
+    63	
+    64	    if (n_workers == 0) {
+    65	        PyErr_SetString(PyExc_ValueError,
+    66	                        "Number of workers must be positive");
+    67	        return NULL;
+    68	    }
+    69	
+    70	    // Step 2: Read matrices into shared memory
+    71	    unsigned a_rows, a_cols;
+    72	    unsigned b_rows, b_cols;
+    73	
+    74	    int *mat_a_data = read_matrix_from_file(
+    75	        mat_a_file, &a_rows, &a_cols, 1);
+    76	
+    77	    if (mat_a_data == NULL) {
+    78	        PyErr_SetString(PyExc_OSError, "Failed to read matrix A");
+    79	        return NULL;
+    80	    }
+    81	
+    82	    int *mat_b_data = read_matrix_from_file(
+    83	        mat_b_file, &b_rows, &b_cols, 1);
+    84	
+    85	    if (mat_b_data == NULL) {
+    86	        munmap(mat_a_data, (size_t)a_rows * a_cols * sizeof(int));
+    87	        PyErr_SetString(PyExc_OSError, "Failed to read matrix B");
+    88	        return NULL;
+    89	    }
+    90	
+    91	    // Step 3: Check matrix dimensions
+    92	    if (a_rows != b_rows || a_cols != b_cols) {
+    93	        munmap(mat_a_data, (size_t)a_rows * a_cols * sizeof(int));
+    94	        munmap(mat_b_data, (size_t)b_rows * b_cols * sizeof(int));
+    95	        PyErr_SetString(PyExc_ValueError, "Matrix dimensions do not match");
+    96	        return NULL;
+    97	    }
+    98	
+    99	    // Step 4: Allocate shared result matrix
+   100	    size_t total_elements = (size_t)a_rows * a_cols;
+   101	    size_t mapped_size = total_elements * sizeof(int);
+   102	
+   103	    int *mat_c_data = mmap(
+   104	        NULL,
+   105	        mapped_size,
+   106	        PROT_READ | PROT_WRITE,
+   107	        MAP_SHARED | MAP_ANONYMOUS,
+   108	        -1,
+   109	        0
+   110	    );
+   111	
+   112	    if (mat_c_data == MAP_FAILED) {
+   113	        munmap(mat_a_data, mapped_size);
+   114	        munmap(mat_b_data, mapped_size);
+   115	        PyErr_SetString(PyExc_OSError, "Failed to allocate shared memory");
+   116	        return NULL;
+   117	    }
+   118	
+   119	    // Step 5: Fork child processes
+   120	    unsigned children_created = 0;
+   121	    int error = 0;
+   122	
+   123	    for (unsigned i = 0; i < n_workers; i++) {
+   124	
+   125	        unsigned start = (total_elements * i) / n_workers;
+   126	        unsigned end = (total_elements * (i + 1)) / n_workers;
+   127	
+   128	        pid_t pid = fork();
+   129	
+   130	        if (pid == -1) {
+   131	            perror("fork");
+   132	            error = 1;
+   133	            break;
+   134	        }
+   135	
+   136	        if (pid == 0) {
+   137	            // Child computes its portion
+   138	            int result = worker(
+   139	                mat_a_data,
+   140	                mat_b_data,
+   141	                mat_c_data,
+   142	                start,
+   143	                end,
+   144	                (unsigned)mapped_size
+   145	            );
+   146	
+   147	            _exit(result == 0 ? 0 : 1);
+   148	        }
+   149	
+   150	        children_created++;
+   151	    }
+   152	
+   153	    // Step 6: Parent waits for all children
+   154	    for (unsigned i = 0; i < children_created; i++) {
+   155	        int status;
+   156	
+   157	        if (waitpid(-1, &status, 0) == -1) {
+   158	            perror("waitpid");
+   159	            error = 1;
+   160	        }
+   161	        else if (!WIFEXITED(status) || WEXITSTATUS(status) != 0) {
+   162	            error = 1;
+   163	        }
+   164	    }
+   165	
+   166	    // Step 7: Print result
+   167	    if (!error) {
+   168	        print_matrix(mat_c_data, a_rows, a_cols);
+   169	    }
+   170	
+   171	    // Step 8: Cleanup shared memory
+   172	    munmap(mat_a_data, mapped_size);
+   173	    munmap(mat_b_data, mapped_size);
+   174	    munmap(mat_c_data, mapped_size);
+   175	
+   176	    if (error) {
+   177	        PyErr_SetString(PyExc_RuntimeError,
+   178	                        "Shared memory computation failed");
+   179	        return NULL;
+   180	    }
+   181	
+   182	    Py_RETURN_NONE;
+   183	}
+================
+     1	#define _GNU_SOURCE
+     2	
+     3	#include <Python.h>
+     4	#include <assert.h>
+     5	#include <math.h>
+     6	#include <pthread.h>
+     7	#include <stdio.h>
+     8	#include <stdlib.h>
+     9	#include <string.h>
+    10	
+    11	#include "hadamard.h"
+    12	
+    13	/*
+    14	 * Represents arguments for each thread
+    15	 * 'a': Pointer to first matrix operand
+    16	 * 'b': Pointer to second matrix operand
+    17	 * 'c': Pointer to result matrix
+    18	 * 'start': Index (in flattened representation) of first element of matrix portion
+    19	 * 'end': Index (in flattened representation) of second element of matrix portion
+    20	 */
+    21	struct thread_args {
+    22	    int *a;
+    23	    int *b;
+    24	    int *c;
+    25	    unsigned start;
+    26	    unsigned end;
+    27	};
+    28	
+    29	/*
+    30	 * Function executed in each thread to compute its portion of the hadamard product
+    31	 * 'data': Pointer to struct thread_args instance
+    32	 * Declared here so this function can be referenced in hadamard_threads().
+    33	 * Complete the definition at the bottom of this file.
+    34	 * Returns NULL
+    35	 */
+    36	// TODO Uncomment this function definition and complete it
+    37	static void *worker(void *data) {
+    38	    /*
+    39	     * TODO Complete this function
+    40	     * Multiply each pair of elements and store the result, for the assigned
+    41	     * portion of the input matrices.
+    42	     */
+    43	    return NULL;
+    44	}
+    45	
+    46	PyObject *hadamard_threads(PyObject *self, PyObject *args) {
+    47	    /*
+    48	     * TODO Complete this function
+    49	     * Read arguments passed in by Python
+    50	     * Read the two input matrices from their files
+    51	     * Set up a result matrix on the heap
+    52	     * Launch 'n_workers' threads, each assigned a roughly equal portion of the
+    53	     * matrices to work on.
+    54	     * Wait for all threads to complete, then pass the result matrix to the
+    55	     * print_matrix() function.
+    56	     * Don't forget error handling and cleanup!
+    57	     */
+    58	    const char *mat_a_file;
+    59	    const char *mat_b_file;
+    60	    unsigned n_workers;
+    61	
+    62	    if (!PyArg_ParseTuple(args, "ssI",
+    63	                          &mat_a_file, &mat_b_file, &n_workers)) {
+    64	        return NULL;
+    65	    }
+    66	
+    67	    if (n_workers == 0) {
+    68	        PyErr_SetString(PyExc_ValueError,
+    69	                        "Number of workers must be positive");
+    70	        return NULL;
+    71	    }
+    72	
+    73	    // Step 2: Read both matrices
+    74	    unsigned a_rows, a_cols;
+    75	    unsigned b_rows, b_cols;
+    76	
+    77	    int *mat_a_data = read_matrix_from_file(
+    78	        mat_a_file, &a_rows, &a_cols, 0);
+    79	
+    80	    if (mat_a_data == NULL) {
+    81	        PyErr_SetString(PyExc_OSError, "Failed to read matrix A");
+    82	        return NULL;
+    83	    }
+    84	
+    85	    int *mat_b_data = read_matrix_from_file(
+    86	        mat_b_file, &b_rows, &b_cols, 0);
+    87	
+    88	    if (mat_b_data == NULL) {
+    89	        free(mat_a_data);
+    90	        PyErr_SetString(PyExc_OSError, "Failed to read matrix B");
+    91	        return NULL;
+    92	    }
+    93	
+    94	    if (a_rows != b_rows || a_cols != b_cols) {
+    95	        free(mat_a_data);
+    96	        free(mat_b_data);
+    97	        PyErr_SetString(PyExc_ValueError, "Matrix dimensions do not match");
+    98	        return NULL;
+    99	    }
+   100	
+   101	    // Step 3: Allocate result matrix
+   102	    size_t total_elements = (size_t)a_rows * a_cols;
+   103	
+   104	    int *mat_c_data = malloc(total_elements * sizeof(int));
+   105	
+   106	    if (mat_c_data == NULL) {
+   107	        free(mat_a_data);
+   108	        free(mat_b_data);
+   109	        PyErr_NoMemory();
+   110	        return NULL;
+   111	    }
+   112	
+   113	    // Step 4: Allocate thread information
+   114	    pthread_t *threads = malloc(n_workers * sizeof(pthread_t));
+   115	    struct thread_args *thread_data =
+   116	        malloc(n_workers * sizeof(struct thread_args));
+   117	
+   118	    if (threads == NULL || thread_data == NULL) {
+   119	        free(threads);
+   120	        free(thread_data);
+   121	        free(mat_a_data);
+   122	        free(mat_b_data);
+   123	        free(mat_c_data);
+   124	        PyErr_NoMemory();
+   125	        return NULL;
+   126	    }
+   127	
+   128	    // Step 5: Create threads
+   129	    unsigned created = 0;
+   130	    int thread_error = 0;
+   131	
+   132	    for (unsigned i = 0; i < n_workers; i++) {
+   133	        //calude why is this causing compliling error
+   134	        //am i using thread_data wrong>
+   135	        thread_data[i].a = mat_a_data;
+   136	        thread_data[i].b = mat_b_data;
+   137	        thread_data[i].c = mat_c_data;
+   138	
+   139	        thread_data[i].start = (total_elements * i) / n_workers;
+   140	        thread_data[i].end = (total_elements * (i + 1)) / n_workers;
+   141	
+   142	        int result = pthread_create(
+   143	            &threads[i],
+   144	            NULL,
+   145	            worker,
+   146	            &thread_data[i]
+   147	        );
+   148	
+   149	        if (result != 0) {
+   150	            thread_error = result;
+   151	            break;
+   152	        }
+   153	
+   154	        created++;
+   155	    }
+   156	
+   157	    // Step 6: Wait for all created threads
+   158	    for (unsigned i = 0; i < created; i++) {
+   159	        int result = pthread_join(threads[i], NULL);
+   160	        if (result != 0 && thread_error == 0) {
+   161	            thread_error = result;
+   162	        }
+   163	    }
+   164	
+   165	    // Step 7: Print result if all threads succeeded
+   166	    if (thread_error == 0) {
+   167	        print_matrix(mat_c_data, a_rows, a_cols);
+   168	    }
+   169	
+   170	    // Step 8: Cleanup
+   171	    free(threads);
+   172	    free(thread_data);
+   173	    free(mat_a_data);
+   174	    free(mat_b_data);
+   175	    free(mat_c_data);
+   176	
+   177	    if (thread_error != 0) {
+   178	        PyErr_Format(PyExc_RuntimeError,
+   179	                     "Thread operation failed: %s",
+   180	                     strerror(thread_error));
+   181	        return NULL;
+   182	    }
+   183	
+   184	
+   185	    Py_RETURN_NONE;
+   186	}
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash`
+```bash
+docker exec cranky_pasteur bash -c 'ls /workspaces/csci4061-fa26/Projects/; cd /workspaces/csci4061-fa26/Projects; diff -rq proj2-code proj2-original | head; echo ---; md5sum proj2-code/part1/swish_funcs.c proj2-code/part2/hadamard_*.c; which testius; python3 --version; gcc --version | head -1; pip list 2>/dev/null | grep -i -E "setuptools|wheel"'; md5sum "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code/part1/swish_funcs.c" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code/part2/hadamard_pipe.c"
+```
+```
+proj1-code
+proj1-original
+proj2-code
+proj2-code-naf
+proj2-original
+Files proj2-code/part1/swish_funcs.c and proj2-original/part1/swish_funcs.c differ
+Files proj2-code/part2/Makefile and proj2-original/part2/Makefile differ
+Files proj2-code/part2/hadamard_pipe.c and proj2-original/part2/hadamard_pipe.c differ
+Files proj2-code/part2/hadamard_shmem.c and proj2-original/part2/hadamard_shmem.c differ
+Files proj2-code/part2/hadamard_threads.c and proj2-original/part2/hadamard_threads.c differ
+Files proj2-code/part2/hadamard_utils.c and proj2-original/part2/hadamard_utils.c differ
+Files proj2-code/part2/setup.py and proj2-original/part2/setup.py differ
+---
+[REDACTED]  proj2-code/part1/swish_funcs.c
+[REDACTED]  proj2-code/part2/hadamard_extension.c
+[REDACTED]  proj2-code/part2/hadamard_pipe.c
+[REDACTED]  proj2-code/part2/hadamard_shmem.c
+[REDACTED]  proj2-code/part2/hadamard_threads.c
+[REDACTED]  proj2-code/part2/hadamard_utils.c
+/usr/local/bin/testius
+Python 3.10.12
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+setuptools         84.0.0
+wheel              0.37.1
+[REDACTED] *D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code/part1/swish_funcs.c
+[REDACTED] *D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code/part2/hadamard_pipe.c
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review1.sh" <<'EOF'
+W=/workspaces/csci4061-fa26/Projects
+for who in mine naf; do
+  src=$W/proj2-code; [ $who = naf ] && src=$W/proj2-code-naf
+  rm -rf /tmp/rv_$who && cp -r $W/proj2-original /tmp/rv_$who
+  cp $src/part1/swish_funcs.c /tmp/rv_$who/part1/
+  cp $src/part2/hadamard_pipe.c $src/part2/hadamard_shmem.c $src/part2/hadamard_threads.c /tmp/rv_$who/part2/
+  echo "################ $who"
+  cd /tmp/rv_$who && make clean >/dev/null 2>&1
+  make 2>&1 | grep -i -E "warning|error" | head
+  make test-part1 2>&1 | grep -E "Passed [0-9]|Total|Failed"
+  make test-part2 2>&1 | grep -E "Passed [0-9]|Total|Failed|Test .*[Ff]ail"
+  cd part2
+  n=0; f=0
+  for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 3 7 33; do
+     python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt
+     n=$((n+1)); if ! cmp -s /tmp/o.txt test_cases/output/mat_$m.txt; then f=$((f+1)); [ $f -le 3 ] && echo "  FAIL $mode m=$m w=$w"; fi
+  done; done; done
+  echo "  sweep: $n runs, $f failures"
+done
+EOF
+docker cp "$SD/review1.sh" cranky_pasteur:/tmp/review1.sh && docker exec cranky_pasteur bash /tmp/review1.sh 2>&1 | head -60
+```
+```
+bash: C:/Users/anant/AppData/Local/Temp/review1.sh: No such file or directory
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; docker exec -i cranky_pasteur bash -s < "$SD/review1.sh" 2>&1 | head -60
+```
+```
+################ mine
+gcc -Wall -Werror -g -c swish.c
+gcc -Wall -Werror -g -c string_vector.c
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Total Score: 8.0/8.0
+Passed 18/18 Tests
+Total Score: 18.0/18.0
+  sweep: 108 runs, 0 failures
+################ naf
+gcc -Wall -Werror -g -c swish.c
+gcc -Wall -Werror -g -c string_vector.c
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Total Score: 8.0/8.0
+Passed 18/18 Tests
+Total Score: 18.0/18.0
+  FAIL threads m=00 w=1
+  FAIL threads m=00 w=3
+  FAIL threads m=00 w=7
+  sweep: 108 runs, 36 failures
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review2.sh" <<'EOF'
+for who in mine naf; do
+ echo "################ $who"
+ S=/tmp/rv_$who/part1/swish
+ mkdir -p /tmp/t_$who && cd /tmp/t_$who
+ printf 'the cat and the dog and the bird\nThe end of the story and the beginning\n' > gatsby.txt
+ run() { printf '%s\n' "$@" "exit" | $S 2>&1; }
+ echo "-- 7cmd:"; printf 'cat gatsby.txt | tr -cs A-Za-z \\n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 3\nexit\n' > in1.txt; sed -i 's/\\\\n/\\n/' in1.txt; $S < in1.txt 2>&1 | tr -s '\n' | head -6
+ echo "-- redirect both:"; run 'cat < gatsby.txt | sort | uniq | wc -l > out.txt' 'cat out.txt | cat'
+ echo "-- append:"; run 'echo one | cat > o.txt' 'echo two | cat >> o.txt' 'cat o.txt | cat'
+ echo "-- bad middle cmd:"; run 'cat gatsby.txt | nosuchcmd | wc -l' 'echo after | cat'
+ echo "-- empty cmds (leading, trailing, doubled):"; timeout 10 bash -c "printf '%s\n' '| wc -l' 'ls |' 'cat gatsby.txt | | wc -l' 'echo ok | cat' exit | $S 2>&1"; echo "exit=$?"
+ echo "-- 12 chain:"; run 'echo hi | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat'
+ echo "-- bad input file:"; run 'cat < nofile | wc -l' 'echo ok3 | cat'
+ echo "-- valgrind (swish only):"
+ printf 'cat gatsby.txt | sort | uniq -c | tail -n 2\nexit\n' > in2.txt
+ valgrind -q --leak-check=full --track-fds=yes $S < in2.txt 2>&1 | head -25
+ echo "-- valgrind with --trace-children, failing exec in middle:"
+ printf 'cat gatsby.txt | nosuchcmd | wc -l\nexit\n' > in3.txt
+ valgrind -q --leak-check=full --track-fds=yes --trace-children=yes --trace-children-skip='*/cat,*/wc' $S < in3.txt 2>&1 | grep -E "==[0-9]+== (Open file|[0-9,]+ bytes|HEAP|All heap|definitely|still)" | head
+done
+EOF
+docker exec -i cranky_pasteur bash -s < "$SD/review2.sh" 2>&1 | head -120
+```
+```
+################ mine
+-- 7cmd:
+@> the cat and the dog and the bird
+The end of the story and the beginning
+Error: missing command in pipeline
+@> @> -- redirect both:
+@> @> 2
+@> -- append:
+@> @> @> one
+two
+@> -- bad middle cmd:
+@> exec: No such file or directory
+0
+@> after
+@> -- empty cmds (leading, trailing, doubled):
+Error: missing command in pipeline
+Error: missing command in pipeline
+Error: missing command in pipeline
+@> @> @> @> ok
+@> exit=0
+-- 12 chain:
+@> hi
+@> -- bad input file:
+@> Failed to open input file: No such file or directory
+0
+@> ok3
+@> -- valgrind (swish only):
+@>       1 The end of the story and the beginning
+      1 the cat and the dog and the bird
+@> -- valgrind with --trace-children, failing exec in middle:
+################ naf
+-- 7cmd:
+the cat and the dog and the bird
+The end of the story and the beginning
+@> @> @> -- redirect both:
+2
+@> @> @> -- append:
+one
+two
+@> @> @> @> -- bad middle cmd:
+exec: No such file or directory
+0
+after
+@> @> @> -- empty cmds (leading, trailing, doubled):
+0
+0
+ok
+@> @> @> @> @> exit=0
+-- 12 chain:
+hi
+@> @> -- bad input file:
+Failed to open input file: No such file or directory
+0
+ok3
+@> @> @> -- valgrind (swish only):
+      1 The end of the story and the beginning
+      1 the cat and the dog and the bird
+@> @> -- valgrind with --trace-children, failing exec in middle:
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review3.sh" <<'EOF'
+cd /tmp/rv_naf/part2
+echo "== naf threads output vs expected (mat_00, 2 workers), first row:"
+python3 hadamard_main.py test_cases/resources/mat_00_a.bin test_cases/resources/mat_00_b.bin threads 2 | head -1 | cut -c1-80
+head -1 test_cases/output/mat_00.txt | cut -c1-80
+echo "== mine without fflush: provided tests + duplicate-prompt check"
+rm -rf /tmp/nf && cp -r /tmp/rv_mine /tmp/nf && cd /tmp/nf/part1
+sed -i '/Prompt text still buffered/,/^    }$/d' swish_funcs.c
+grep -c fflush swish_funcs.c
+make 2>&1 | grep -i -E "error|warning"; make test 2>&1 | grep -E "Passed [0-9]|Total"
+printf 'echo hi | nosuchcmd\nexit\n' > /tmp/in_dup.txt
+echo "--- with fflush (mine):"; /tmp/rv_mine/part1/swish < /tmp/in_dup.txt > /tmp/o1.txt 2>&1; cat /tmp/o1.txt; echo
+echo "--- without fflush:"; ./swish < /tmp/in_dup.txt > /tmp/o2.txt 2>&1; cat /tmp/o2.txt; echo
+echo "--- naf (_exit, no fflush):"; /tmp/rv_naf/part1/swish < /tmp/in_dup.txt > /tmp/o3.txt 2>&1; cat /tmp/o3.txt
+EOF
+docker exec -i cranky_pasteur bash -s < "$SD/review3.sh" 2>&1 | head -50
+```
+```
+== naf threads output vs expected (mat_00, 2 workers), first row:
+0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+-108433, -8190, -127281, 7440, 380, -25920, 83898, -47894, 101660, -52152, -1295
+== mine without fflush: provided tests + duplicate-prompt check
+0
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Total Score: 8.0/8.0
+--- with fflush (mine):
+@> exec: No such file or directory
+@> 
+--- without fflush:
+exec: No such file or directory
+@> @> @> 
+--- naf (_exit, no fflush):
+exec: No such file or directory
+@> @>
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review4.py" <<'EOF'
+import re, glob, os
+W='/workspaces/csci4061-fa26'
+def stats(path):
+    t=open(path).read().split('\n'); inb=False; code=com=0
+    for l in t:
+        s=l.strip()
+        if not s: continue
+        if inb:
+            com+=1
+            if '*/' in s: inb=False
+            continue
+        if s.startswith('/*'):
+            com+=1
+            if '*/' not in s: inb=True
+            continue
+        if s.startswith('//'): com+=1; continue
+        code+=1
+        if '//' in s: com+=1
+    return code,com
+prof=[W+'/Lecture/lecture08-code/single_pipe.c',W+'/Lecture/lecture09-code/multi_pipes.c',W+'/Lecture/lecture09-code/shmem_example.c',W+'/Lecture/lecture09-code/shmem_exercise_v1.c',W+'/Lecture/lecture10-code/shmem_exercise_v2.c',W+'/Lecture/lecture12-code/pthreads_exercise_v1.c',W+'/Lecture/lecture12-code/pthreads_exercise_v2.c',W+'/Lecture/lecture12-code/pthreads_exercise_v3.c',W+'/Lecture/lecture13-code/array_threads_sum_fixed.c',W+'/Lecture/lecture11-code/inc_list.c',W+'/Lecture/lecture03-code/mini_shell.c',W+'/Lecture/lecture04-code/fork_io.c',W+'/Lecture/lecture05-code/block_sigint.c',W+'/Projects/proj2-original/part1/string_vector.c',W+'/Projects/proj2-original/part1/swish.c',W+'/Projects/proj2-original/part2/hadamard_utils.c',W+'/Projects/proj2-original/part2/hadamard_extension.c']
+def rep(name,files):
+    C=M=0
+    for f in files:
+        if os.path.exists(f):
+            c,m=stats(f); C+=c; M+=m
+    print(f"{name:28s} code={C:4d} comment-lines={M:4d} ratio={M/max(C,1):.2f}")
+rep('professor (17 files)',prof)
+for f in prof:
+    c,m=stats(f); print(f"   {os.path.basename(f):26s} {c:4d} {m:3d} {m/max(c,1):.2f}")
+mine=[W+'/Projects/proj2-code/part1/swish_funcs.c']+[W+'/Projects/proj2-code/part2/hadamard_%s.c'%x for x in ('pipe','shmem','threads')]
+naf=[W+'/Projects/proj2-code-naf/part1/swish_funcs.c']+[W+'/Projects/proj2-code-naf/part2/hadamard_%s.c'%x for x in ('pipe','shmem','threads')]
+orig=[W+'/Projects/proj2-original/part1/swish_funcs.c']+[W+'/Projects/proj2-original/part2/hadamard_%s.c'%x for x in ('pipe','shmem','threads')]
+rep('starter stubs (4 EDIT)',orig)
+rep('mine (4 EDIT)',mine)
+rep('naf (4 EDIT)',naf)
+for f in mine+naf:
+    c,m=stats(f); print(f"   {f.split('Projects/')[1]:44s} {c:4d} {m:3d} {m/max(c,1):.2f}")
+EOF
+docker exec -i cranky_pasteur python3 - < "$SD/review4.py"
+echo ======; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; echo "EINTR in professor code/slides-code:"; grep -rl EINTR Lecture Labs --include=*.c | head; echo "goto:"; grep -rln "\bgoto\b" Lecture --include=*.c | head -3; echo "ssize_t in lecture:"; grep -rn "ssize_t" Lecture --include=*.c | head -3; echo "designated init in lecture C (non-Python-API):"; grep -rn "= {\." Lecture --include=*.c | head -3; echo "static helpers in lecture code:"; grep -rn "^static" Lecture --include=*.c | head; echo "WIFEXITED in lecture/labs:"; grep -rln "WIFEXITED" Lecture Labs --include=*.c | head; echo "fflush in lecture:"; grep -rn "fflush" Lecture --include=*.c | head -3; echo "_exit in lecture:"; grep -rn "_exit" Lecture --include=*.c | head -3; echo "exit( in lecture:"; grep -rn "exit(" Lecture --include=*.c | wc -l; echo "waitpid in lecture:"; grep -rln "waitpid" Lecture --include=*.c | head -3; echo "wait(NULL) in lecture:"; grep -rln "wait(NULL)" Lecture --include=*.c | head -3'
+```
+```
+professor (17 files)         code=1056 comment-lines= 103 ratio=0.10
+   single_pipe.c                92   9 0.10
+   multi_pipes.c               129  13 0.10
+   shmem_example.c              31   2 0.06
+   shmem_exercise_v1.c          61   8 0.13
+   shmem_exercise_v2.c          83  11 0.13
+   pthreads_exercise_v1.c       53   7 0.13
+   pthreads_exercise_v2.c       69   7 0.10
+   pthreads_exercise_v3.c       66   7 0.11
+   array_threads_sum_fixed.c    84  11 0.13
+   inc_list.c                   50   7 0.14
+   mini_shell.c                 33   3 0.09
+   fork_io.c                    22   4 0.18
+   block_sigint.c               24   2 0.08
+   string_vector.c             103   4 0.04
+   swish.c                      45   4 0.09
+   hadamard_utils.c             73   2 0.03
+   hadamard_extension.c         38   2 0.05
+starter stubs (4 EDIT)       code=  86 comment-lines= 115 ratio=1.34
+mine (4 EDIT)                code= 564 comment-lines=  87 ratio=0.15
+naf (4 EDIT)                 code= 480 comment-lines= 148 ratio=0.31
+   proj2-code/part1/swish_funcs.c                136  22 0.16
+   proj2-code/part2/hadamard_pipe.c              171  26 0.15
+   proj2-code/part2/hadamard_shmem.c             142  20 0.14
+   proj2-code/part2/hadamard_threads.c           115  19 0.17
+   proj2-code-naf/part1/swish_funcs.c            102  27 0.26
+   proj2-code-naf/part2/hadamard_pipe.c          149  41 0.28
+   proj2-code-naf/part2/hadamard_shmem.c         114  39 0.34
+   proj2-code-naf/part2/hadamard_threads.c       115  41 0.36
+======
+EINTR in professor code/slides-code:
+Labs/lab05-code/square_numbers.c
+goto:
+ssize_t in lecture:
+Lecture/lecture11-code/inc_list.c:43:    Py_ssize_t list_len = PyList_Size(input_list);
+designated init in lecture C (non-Python-API):
+static helpers in lecture code:
+Lecture/lecture11-code/inc_list.c:9:static PyMethodDef inc_list_methods[] = {
+Lecture/lecture11-code/inc_list.c:24:static struct PyModuleDef inc_list_module = {
+WIFEXITED in lecture/labs:
+Labs/lab02-code/redirect_child.c
+Labs/lab05-code/square_numbers.c
+fflush in lecture:
+_exit in lecture:
+exit( in lecture:
+16
+waitpid in lecture:
+wait(NULL) in lecture:
+Lecture/lecture05-code/ls_redirection.c
+Lecture/lecture08-code/single_pipe.c
+Lecture/lecture09-code/multi_pipes.c
+```
+- `Bash`
+```bash
+docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26/Projects/proj2-code; echo "files (non test_cases):"; find . -type f -not -path "./*/test_cases/*" | sort; echo; echo "CRLF counts:"; for f in part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c; do printf "%s %s\n" $f $(grep -c $'"'"'\r'"'"' $f); done; echo "trailing whitespace lines:"; grep -n " $" part1/swish_funcs.c part2/hadamard_*.c | head; echo "tabs:"; grep -nP "\t" part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c | head -3; echo "long lines >100:"; awk "length>100{print FILENAME\":\"FNR\": \"length}" part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c; echo; cd ../proj2-code-naf; echo NAF CRLF/tabs/long:; grep -c $'"'"'\r'"'"' part1/swish_funcs.c part2/hadamard_pipe.c; awk "length>100{print FILENAME\":\"FNR\": \"length}" part1/swish_funcs.c part2/hadamard_*.c; ls /workspaces/csci4061-fa26/.clang-format /workspaces/csci4061-fa26/Projects/.clang-format 2>&1 | head -2'; echo ----; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; grep -n -i "fflush" -r Lecture Labs 2>/dev/null | head -3'; grep -n -i "fflush" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" | head -3 | cut -c1-250; grep -n -i "WIFEXITED" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" | head -2 | cut -c1-250
+```
+```
+files (non test_cases):
+./Makefile
+./part1/Makefile
+./part1/string_vector.c
+./part1/string_vector.h
+./part1/swish.c
+./part1/swish_funcs.c
+./part1/swish_funcs.h
+./part1/[REDACTED].o
+./part1/[REDACTED].o
+./part2/Makefile
+./part2/hadamard.h
+./part2/hadamard_extension.c
+./part2/hadamard_main.py
+./part2/hadamard_pipe.c
+./part2/hadamard_shmem.c
+./part2/hadamard_threads.c
+./part2/hadamard_utils.c
+./part2/pyproject.toml
+./part2/setup.py
+
+CRLF counts:
+part1/swish_funcs.c 0
+part2/hadamard_pipe.c 0
+part2/hadamard_shmem.c 0
+part2/hadamard_threads.c 0
+trailing whitespace lines:
+tabs:
+long lines >100:
+part2/hadamard_shmem.c:84: 101
+
+NAF CRLF/tabs/long:
+part1/swish_funcs.c:0
+part2/hadamard_pipe.c:0
+part2/hadamard_extension.c:19: 101
+ls: cannot access '/workspaces/csci4061-fa26/.clang-format': No such file or directory
+ls: cannot access '/workspaces/csci4061-fa26/Projects/.clang-format': No such file or directory
+----
+Labs/lab01-code/fork_wait.c:10:    fflush(stdout);    // Prevents duplicate I/O after a fork
+60:A **buffer** is a temporary chunk of memory holding data that was just read or is about to be written; **buffering** is deferring I/O operations until there's a worthwhile chunk to move at once. Three styles: **fully buffered** (files on disk - wa
+62:> This buffering material (fully/line/unbuffered, `fflush`, `fsync`) is APUE Chapter 5 content, not Chapter 3, per the same Textbook Map correction referenced above - it doesn't have a home in any of this course's six currently-landed chapter note
+```
+- `Bash`
+```bash
+docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; echo "== lab01 fork_wait.c"; cat Labs/lab01-code/fork_wait.c; echo "== lab02 redirect_child.c (WIFEXITED part)"; grep -n -B3 -A6 "WIFEXITED" Labs/lab02-code/redirect_child.c | head -30; echo "== wait status macros anywhere in Lecture code:"; grep -rn "WEXITSTATUS\|WIFEXITED\|WIFSIGNALED" Lecture | head'; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; ls Labs/lab05-code; ls Labs/lab05-code/*.bak Labs/lab0*/QUESTIONS.txt.bak 2>/dev/null | head -3; diff <(sed -n 1,200p Labs/lab05-code/QUESTIONS.txt) <(sed -n 1,200p Labs/lab05-code/QUESTIONS.txt) >/dev/null; git -C . log --oneline -3 2>&1 | head -3'
+```
+```
+== lab01 fork_wait.c
+#include <stdio.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+#define NUM_ITERS 4
+
+int main() {
+    printf("START pid: %d parent_pid: %d\n", getpid(), getppid());
+    fflush(stdout);    // Prevents duplicate I/O after a fork
+
+    for (int i = 0; i < NUM_ITERS; i++) {
+        pid_t pid = fork();
+        if (pid < 0) {
+            // An error occurred
+            perror("fork() failed");
+            return 1;
+        } else if (pid > 0) {
+            // Parent process, pid identifies child process
+            // TODO wait for this child process to terminate
+        }
+    }
+    printf("FINISH pid: %d parent_pid: %d\n", getpid(), getppid());
+    return 0;
+}
+== lab02 redirect_child.c (WIFEXITED part)
+56-        perror("wait failed");
+57-        return 1;
+58-    }
+59:    if (WIFEXITED(status)) {
+60-        printf("Child complete, return code %d\n", WEXITSTATUS(status));
+61-    } else {
+62-        printf("Child exited abnormally\n");
+63-    }
+64-
+65-    return 0;
+== wait status macros anywhere in Lecture code:
+Makefile
+QUESTIONS.txt
+lab05-code.zip
+square_numbers.c
+test_cases
+Labs/lab01-code/QUESTIONS.txt.bak
+Labs/lab02-code/QUESTIONS.txt.bak
+Labs/lab03-code/QUESTIONS.txt.bak
+fatal: not a git repository (or any parent up to mount point /workspaces)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+```
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code"; sed -n 60,140p swish.c
+```
+```
+        if (tokens.length == 0)
+        {
+            printf("%s", PROMPT);
+            continue;
+        }
+        const char *first_token = strvec_get(&tokens, 0);
+
+        if (strcmp(first_token, "pwd") == 0)
+        {
+            // TODO Task 1: Print the shell's current working directory
+            // Use the getcwd() system call
+            char cwd[CMD_LEN];
+            if (getcwd(cwd, CMD_LEN) == NULL)
+            {
+                perror("getcwd");
+            }
+            else
+            {
+                printf("%s\n", cwd);
+            }
+        }
+
+        else if (strcmp(first_token, "cd") == 0)
+        {
+            // TODO Task 1: Change the shell's current working directory
+            // Use the chdir() system call
+            // If the user supplied an argument (token at index 1), change to that directory
+            // Otherwise, change to the home directory by default
+            // This is available in the HOME environment variable (use getenv())
+            const char *dir;
+            if (tokens.length > 1)
+            {
+                dir = strvec_get(&tokens, 1);
+            }
+            else
+            {
+                dir = getenv("HOME");
+            }
+            if (dir == NULL || chdir(dir) == -1)
+            {
+                perror("chdir");
+            }
+        }
+
+        else if (strcmp(first_token, "exit") == 0)
+        {
+            strvec_clear(&tokens);
+            break;
+        }
+
+        // Task 5: Print out current list of pending jobs
+        else if (strcmp(first_token, "jobs") == 0)
+        {
+            int i = 0;
+            job_t *current = jobs.head;
+            while (current != NULL)
+            {
+                char *status_desc;
+                if (current->status == BACKGROUND)
+                {
+                    status_desc = "background";
+                }
+                else
+                {
+                    status_desc = "stopped";
+                }
+                printf("%d: %s (%s)\n", i, current->name, status_desc);
+                i++;
+                current = current->next;
+            }
+        }
+
+        // Task 5: Move stopped job into foreground
+        else if (strcmp(first_token, "fg") == 0)
+        {
+            if (resume_job(&tokens, &jobs, 1) == -1)
+            {
+                printf("Failed to resume job in foreground\n");
+            }
+        }
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash`
+```bash
+docker exec cranky_pasteur bash -c 'rm -rf /tmp/rv_mine /tmp/rv_naf /tmp/nf /tmp/t_mine /tmp/t_naf /tmp/o*.txt /tmp/e.txt /tmp/in_dup.txt /tmp/review1.sh; ls /tmp | head; cd /workspaces/csci4061-fa26/Projects; find proj2-code proj2-code-naf -newer proj2-original/Makefile -type f -not -path "*/test_cases/*" | grep -v "\.c$" | head'
+```
+```
+[REDACTED]
+[REDACTED]
+[REDACTED]
+lab05-archive-hzsgdl95
+[REDACTED].txt
+lab05-original-hashes.json
+[REDACTED].c
+lab05-page-2.png
+lab05-page-3.png
+lab05-page-5.png
+proj2-code-naf/Makefile
+proj2-code-naf/part1/Makefile
+proj2-code-naf/part1/string_vector.h
+proj2-code-naf/part1/swish_funcs.h
+proj2-code-naf/part1/[REDACTED].o
+proj2-code-naf/part1/[REDACTED].o
+proj2-code-naf/part2/hadamard.h
+proj2-code-naf/part2/hadamard_main.py
+proj2-code-naf/part2/Makefile
+proj2-code-naf/part2/pyproject.toml
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -11830,4 +13543,18 @@ _None detected_
 - `cd /tmp; IMG=vsc-csci4061-fa26-ef9b7821240261ae927e454cc2873b3961da52f52752878ef76bd02372bb6ac9; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects"; SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/p2extra.sh" <<'EOF' rm -rf /tmp/rev && cp -r /w/orig /tmp/rev cp /w/code/part2/hadamard_pipe.c /w/code/part2/hadamard_shmem.c /w/code/part2/hadamard_threads.c /tmp/rev/part2/ cd /tmp/rev/part2 && make hadamard.cpython-310-x86_64-linux-gnu.so 2>&1 | grep -i -E "warning|error" | head T=test_cases fail=0; n=0 for m in 00 01 02 03 04 05 06 07 08; do   for mode in threads pipe shmem; do     for w in 1 2 3 5 7 16 33 100; do       python3 hadamard_main.py $T/resources/mat_${m}_a.bin $T/resources/mat_${m}_b.bin $mode $w > /tmp/out.txt 2>/tmp/err.txt       n=$((n+1))       if ! cmp -s /tmp/out.txt $T/output/mat_$m.txt || [ -s /tmp/err.txt ]; then echo "FAIL m=$m mode=$mode w=$w"; head -c 200 /tmp/err.txt; fail=$((fail+1)); fi     done   done done echo "matrix sweep: $n runs, $fail failures" echo "--- more workers than elements (tiny matrix)" python3 - <<'PY' import struct open('/tmp/s_a.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',1,2,3,4,5,-6)) open('/tmp/s_b.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',7,8,9,10,11,12)) PY for mode in threads pipe shmem; do echo "$mode:"; python3 hadamard_main.py /tmp/s_a.bin /tmp/s_b.bin $mode 50; done echo "--- 0 workers / missing file / dim mismatch / bad arg type" python3 - <<'PY' import struct, hadamard open('/tmp/m_b.bin','wb').write(struct.pack('II',3,2)+struct.pack('6i',1,2,3,4,5,6)) for mode in ("hadamard_pipe","hadamard_shmem","hadamard_threads"):     f=getattr(hadamard,mode)     for args in (("/tmp/s_a.bin","/tmp/s_b.bin",0),("/nonexistent","/tmp/s_b.bin",2),("/tmp/s_a.bin","/tmp/m_b.bin",2),("/tmp/s_a.bin","/tmp/s_b.bin","x")):         try:             f(*args); print(mode,args,"no exception!")         except Exception as e:             print(mode,args[2] if len(args)>2 else '',type(e).__name__,e) PY echo "--- zombies/leftover processes"; ps aux | grep -c "[d]efunct" echo "--- repeat 200 calls in one interpreter: fd and mem growth" python3 - <<'PY' import hadamard, os, resource, io, contextlib, sys a='test_cases/resources/mat_04_a.bin'; b='test_cases/resources/mat_04_b.bin' sys.stdout=open(os.devnull,'w') def nfd(): return len(os.listdir('/proc/self/fd')) f0=nfd() for mode in (hadamard.hadamard_pipe,hadamard.hadamard_shmem,hadamard.hadamard_threads):     for i in range(200): mode(a,b,8) print("fds before/after", f0, nfd(), "maxrss KB", resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, file=sys.__stderr__) PY echo "--- stdout to file vs pipe identical (no duplicate flush)" python3 hadamard_main.py $T/resources/mat_08_a.bin $T/resources/mat_08_b.bin pipe 32 | cmp - $T/output/mat_08.txt && echo pipe-ok python3 hadamard_main.py $T/resources/mat_03_a.bin $T/resources/mat_03_b.bin pipe 4 | cmp - $T/output/mat_03.txt && echo big-pipe-ok EOF MSYS_NO_PATHCONV=1 docker run --rm -v "$P/proj2-code:/w/code" -v "$P/proj2-original:/w/orig:ro" -v "$SD:/s:ro" $IMG bash /s/p2extra.sh 2>&1 | head -80`
 - `cd /tmp; IMG=vsc-csci4061-fa26-ef9b7821240261ae927e454cc2873b3961da52f52752878ef76bd02372bb6ac9; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects"; SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/p2tail.sh" <<'EOF' rm -rf /tmp/rev && cp -r /w/orig /tmp/rev cp /w/code/part2/hadamard_pipe.c /w/code/part2/hadamard_shmem.c /w/code/part2/hadamard_threads.c /tmp/rev/part2/ cd /tmp/rev/part2 && make hadamard.cpython-310-x86_64-linux-gnu.so 2>&1 | grep -i -E "warning|error" | head T=test_cases python3 - >/dev/null <<'PY' import hadamard, os, resource, sys a='test_cases/resources/mat_04_a.bin'; b='test_cases/resources/mat_04_b.bin' def nfd(): return len(os.listdir('/proc/self/fd')) f0=nfd(); r0=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss for mode in (hadamard.hadamard_pipe,hadamard.hadamard_shmem,hadamard.hadamard_threads):     for i in range(200): mode(a,b,8) print("fds before/after", f0, nfd(), "maxrss KB", r0, resource.getrusage(resource.RUSAGE_SELF).ru_maxrss, file=sys.stderr) PY echo "zombies:"; ps aux | grep -c "[d]efunct" python3 hadamard_main.py $T/resources/mat_08_a.bin $T/resources/mat_08_b.bin pipe 32 | cmp - $T/output/mat_08.txt && echo pipe-through-pipe-ok python3 hadamard_main.py $T/resources/mat_03_a.bin $T/resources/mat_03_b.bin pipe 4 | cmp - $T/output/mat_03.txt && echo big-8MB-pipe-ok python3 hadamard_main.py $T/resources/mat_03_a.bin $T/resources/mat_03_b.bin threads 4 | cmp - $T/output/mat_03.txt && echo threads-ok echo "--- python3 -X dev warnings and gcc -Wextra on edit files" python3 -X dev hadamard_main.py $T/resources/mat_00_a.bin $T/resources/mat_00_b.bin pipe 3 2>&1 >/dev/null | head -3 gcc -fsyntax-only -Wall -Wextra -I/usr/include/python3.10 -I. hadamard_pipe.c hadamard_shmem.c hadamard_threads.c 2>&1 | grep -v "^In file\|Python.h" | head -20 echo "--- clang-format check" for f in hadamard_pipe.c hadamard_shmem.c hadamard_threads.c ../part1/swish_funcs.c; do clang-format --dry-run $f 2>&1 | head -3; done EOF MSYS_NO_PATHCONV=1 docker run --rm -v "$P/proj2-code:/w/code" -v "$P/proj2-original:/w/orig:ro" -v "$SD:/s:ro" $IMG bash /s/p2tail.sh 2>&1 | head -60`
 - `cd /tmp; IMG=vsc-csci4061-fa26-ef9b7821240261ae927e454cc2873b3961da52f52752878ef76bd02372bb6ac9; P="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects"; MSYS_NO_PATHCONV=1 docker run --rm -v "$P/proj2-code:/w/code" $IMG bash -c ' cd /w/code && make clean >/dev/null 2>&1; make clean-tests >/dev/null 2>&1; rm -rf part1/test_results part2/test_results part1/out.txt part2/*.egg-info part2/build part2/__pycache__ part2/*.so echo "--- artifacts left in code:"; find /w/code -newer /w/code/part1/swish_funcs.h -type f | grep -v "\.c$" | head echo "--- zip dry run on scratch copy"; rm -rf /tmp/z && mkdir /tmp/z && cp -r /w/code /tmp/z/proj2-code && cd /tmp/z/proj2-code && make zip 2>&1 | tail -3; unzip -l proj2-code.zip | awk "{print \$4}" | grep -v "^$" | head -40'; cd "$P" && diff -rq proj2-original proj2-code`
+- `docker ps --format "{{.ID}} {{.Names}} {{.Status}} {{.Image}}"; cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects"; ls; diff -rq proj2-original proj2-code-naf; echo ---; diff -rq proj2-code proj2-code-naf | head -30; wc -l proj2-code-naf/part1/swish_funcs.c proj2-code-naf/part2/hadamard_{pipe,shmem,threads}.c proj2-code/part1/swish_funcs.c proj2-code/part2/hadamard_{pipe,shmem,threads}.c`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code-naf"; ls -la . part1 part2; cat -n part1/swish_funcs.c`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code-naf/part2"; cat -n hadamard_pipe.c`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code-naf/part2"; cat -n hadamard_shmem.c; echo ================; cat -n hadamard_threads.c`
+- `docker exec cranky_pasteur bash -c 'ls /workspaces/csci4061-fa26/Projects/; cd /workspaces/csci4061-fa26/Projects; diff -rq proj2-code proj2-original | head; echo ---; md5sum proj2-code/part1/swish_funcs.c proj2-code/part2/hadamard_*.c; which testius; python3 --version; gcc --version | head -1; pip list 2>/dev/null | grep -i -E "setuptools|wheel"'; md5sum "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code/part1/swish_funcs.c" "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code/part2/hadamard_pipe.c"`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review1.sh" <<'EOF' W=/workspaces/csci4061-fa26/Projects for who in mine naf; do   src=$W/proj2-code; [ $who = naf ] && src=$W/proj2-code-naf   rm -rf /tmp/rv_$who && cp -r $W/proj2-original /tmp/rv_$who   cp $src/part1/swish_funcs.c /tmp/rv_$who/part1/   cp $src/part2/hadamard_pipe.c $src/part2/hadamard_shmem.c $src/part2/hadamard_threads.c /tmp/rv_$who/part2/   echo "################ $who"   cd /tmp/rv_$who && make clean >/dev/null 2>&1   make 2>&1 | grep -i -E "warning|error" | head   make test-part1 2>&1 | grep -E "Passed [0-9]|Total|Failed"   make test-part2 2>&1 | grep -E "Passed [0-9]|Total|Failed|Test .*[Ff]ail"   cd part2   n=0; f=0   for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 3 7 33; do      python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt      n=$((n+1)); if ! cmp -s /tmp/o.txt test_cases/output/mat_$m.txt; then f=$((f+1)); [ $f -le 3 ] && echo "  FAIL $mode m=$m w=$w"; fi   done; done; done   echo "  sweep: $n runs, $f failures" done EOF docker cp "$SD/review1.sh" cranky_pasteur:/tmp/review1.sh && docker exec cranky_pasteur bash /tmp/review1.sh 2>&1 | head -60`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; docker exec -i cranky_pasteur bash -s < "$SD/review1.sh" 2>&1 | head -60`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review2.sh" <<'EOF' for who in mine naf; do  echo "################ $who"  S=/tmp/rv_$who/part1/swish  mkdir -p /tmp/t_$who && cd /tmp/t_$who  printf 'the cat and the dog and the bird\nThe end of the story and the beginning\n' > gatsby.txt  run() { printf '%s\n' "$@" "exit" | $S 2>&1; }  echo "-- 7cmd:"; printf 'cat gatsby.txt | tr -cs A-Za-z \\n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 3\nexit\n' > in1.txt; sed -i 's/\\\\n/\\n/' in1.txt; $S < in1.txt 2>&1 | tr -s '\n' | head -6  echo "-- redirect both:"; run 'cat < gatsby.txt | sort | uniq | wc -l > out.txt' 'cat out.txt | cat'  echo "-- append:"; run 'echo one | cat > o.txt' 'echo two | cat >> o.txt' 'cat o.txt | cat'  echo "-- bad middle cmd:"; run 'cat gatsby.txt | nosuchcmd | wc -l' 'echo after | cat'  echo "-- empty cmds (leading, trailing, doubled):"; timeout 10 bash -c "printf '%s\n' '| wc -l' 'ls |' 'cat gatsby.txt | | wc -l' 'echo ok | cat' exit | $S 2>&1"; echo "exit=$?"  echo "-- 12 chain:"; run 'echo hi | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat'  echo "-- bad input file:"; run 'cat < nofile | wc -l' 'echo ok3 | cat'  echo "-- valgrind (swish only):"  printf 'cat gatsby.txt | sort | uniq -c | tail -n 2\nexit\n' > in2.txt  valgrind -q --leak-check=full --track-fds=yes $S < in2.txt 2>&1 | head -25  echo "-- valgrind with --trace-children, failing exec in middle:"  printf 'cat gatsby.txt | nosuchcmd | wc -l\nexit\n' > in3.txt  valgrind -q --leak-check=full --track-fds=yes --trace-children=yes --trace-children-skip='*/cat,*/wc' $S < in3.txt 2>&1 | grep -E "==[0-9]+== (Open file|[0-9,]+ bytes|HEAP|All heap|definitely|still)" | head done EOF docker exec -i cranky_pasteur bash -s < "$SD/review2.sh" 2>&1 | head -120`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review3.sh" <<'EOF' cd /tmp/rv_naf/part2 echo "== naf threads output vs expected (mat_00, 2 workers), first row:" python3 hadamard_main.py test_cases/resources/mat_00_a.bin test_cases/resources/mat_00_b.bin threads 2 | head -1 | cut -c1-80 head -1 test_cases/output/mat_00.txt | cut -c1-80 echo "== mine without fflush: provided tests + duplicate-prompt check" rm -rf /tmp/nf && cp -r /tmp/rv_mine /tmp/nf && cd /tmp/nf/part1 sed -i '/Prompt text still buffered/,/^    }$/d' swish_funcs.c grep -c fflush swish_funcs.c make 2>&1 | grep -i -E "error|warning"; make test 2>&1 | grep -E "Passed [0-9]|Total" printf 'echo hi | nosuchcmd\nexit\n' > /tmp/in_dup.txt echo "--- with fflush (mine):"; /tmp/rv_mine/part1/swish < /tmp/in_dup.txt > /tmp/o1.txt 2>&1; cat /tmp/o1.txt; echo echo "--- without fflush:"; ./swish < /tmp/in_dup.txt > /tmp/o2.txt 2>&1; cat /tmp/o2.txt; echo echo "--- naf (_exit, no fflush):"; /tmp/rv_naf/part1/swish < /tmp/in_dup.txt > /tmp/o3.txt 2>&1; cat /tmp/o3.txt EOF docker exec -i cranky_pasteur bash -s < "$SD/review3.sh" 2>&1 | head -50`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/review4.py" <<'EOF' import re, glob, os W='/workspaces/csci4061-fa26' def stats(path):     t=open(path).read().split('\n'); inb=False; code=com=0     for l in t:         s=l.strip()         if not s: continue         if inb:             com+=1             if '*/' in s: inb=False             continue         if s.startswith('/*'):             com+=1             if '*/' not in s: inb=True             continue         if s.startswith('//'): com+=1; continue         code+=1         if '//' in s: com+=1     return code,com prof=[W+'/Lecture/lecture08-code/single_pipe.c',W+'/Lecture/lecture09-code/multi_pipes.c',W+'/Lecture/lecture09-code/shmem_example.c',W+'/Lecture/lecture09-code/shmem_exercise_v1.c',W+'/Lecture/lecture10-code/shmem_exercise_v2.c',W+'/Lecture/lecture12-code/pthreads_exercise_v1.c',W+'/Lecture/lecture12-code/pthreads_exercise_v2.c',W+'/Lecture/lecture12-code/pthreads_exercise_v3.c',W+'/Lecture/lecture13-code/array_threads_sum_fixed.c',W+'/Lecture/lecture11-code/inc_list.c',W+'/Lecture/lecture03-code/mini_shell.c',W+'/Lecture/lecture04-code/fork_io.c',W+'/Lecture/lecture05-code/block_sigint.c',W+'/Projects/proj2-original/part1/string_vector.c',W+'/Projects/proj2-original/part1/swish.c',W+'/Projects/proj2-original/part2/hadamard_utils.c',W+'/Projects/proj2-original/part2/hadamard_extension.c'] def rep(name,files):     C=M=0     for f in files:         if os.path.exists(f):             c,m=stats(f); C+=c; M+=m     print(f"{name:28s} code={C:4d} comment-lines={M:4d} ratio={M/max(C,1):.2f}") rep('professor (17 files)',prof) for f in prof:     c,m=stats(f); print(f"   {os.path.basename(f):26s} {c:4d} {m:3d} {m/max(c,1):.2f}") mine=[W+'/Projects/proj2-code/part1/swish_funcs.c']+[W+'/Projects/proj2-code/part2/hadamard_%s.c'%x for x in ('pipe','shmem','threads')] naf=[W+'/Projects/proj2-code-naf/part1/swish_funcs.c']+[W+'/Projects/proj2-code-naf/part2/hadamard_%s.c'%x for x in ('pipe','shmem','threads')] orig=[W+'/Projects/proj2-original/part1/swish_funcs.c']+[W+'/Projects/proj2-original/part2/hadamard_%s.c'%x for x in ('pipe','shmem','threads')] rep('starter stubs (4 EDIT)',orig) rep('mine (4 EDIT)',mine) rep('naf (4 EDIT)',naf) for f in mine+naf:     c,m=stats(f); print(f"   {f.split('Projects/')[1]:44s} {c:4d} {m:3d} {m/max(c,1):.2f}") EOF docker exec -i cranky_pasteur python3 - < "$SD/review4.py" echo ======; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; echo "EINTR in professor code/slides-code:"; grep -rl EINTR Lecture Labs --include=*.c | head; echo "goto:"; grep -rln "\bgoto\b" Lecture --include=*.c | head -3; echo "ssize_t in lecture:"; grep -rn "ssize_t" Lecture --include=*.c | head -3; echo "designated init in lecture C (non-Python-API):"; grep -rn "= {\." Lecture --include=*.c | head -3; echo "static helpers in lecture code:"; grep -rn "^static" Lecture --include=*.c | head; echo "WIFEXITED in lecture/labs:"; grep -rln "WIFEXITED" Lecture Labs --include=*.c | head; echo "fflush in lecture:"; grep -rn "fflush" Lecture --include=*.c | head -3; echo "_exit in lecture:"; grep -rn "_exit" Lecture --include=*.c | head -3; echo "exit( in lecture:"; grep -rn "exit(" Lecture --include=*.c | wc -l; echo "waitpid in lecture:"; grep -rln "waitpid" Lecture --include=*.c | head -3; echo "wait(NULL) in lecture:"; grep -rln "wait(NULL)" Lecture --include=*.c | head -3'`
+- `docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26/Projects/proj2-code; echo "files (non test_cases):"; find . -type f -not -path "./*/test_cases/*" | sort; echo; echo "CRLF counts:"; for f in part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c; do printf "%s %s\n" $f $(grep -c $'"'"'\r'"'"' $f); done; echo "trailing whitespace lines:"; grep -n " $" part1/swish_funcs.c part2/hadamard_*.c | head; echo "tabs:"; grep -nP "\t" part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c | head -3; echo "long lines >100:"; awk "length>100{print FILENAME\":\"FNR\": \"length}" part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c; echo; cd ../proj2-code-naf; echo NAF CRLF/tabs/long:; grep -c $'"'"'\r'"'"' part1/swish_funcs.c part2/hadamard_pipe.c; awk "length>100{print FILENAME\":\"FNR\": \"length}" part1/swish_funcs.c part2/hadamard_*.c; ls /workspaces/csci4061-fa26/.clang-format /workspaces/csci4061-fa26/Projects/.clang-format 2>&1 | head -2'; echo ----; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; grep -n -i "fflush" -r Lecture Labs 2>/dev/null | head -3'; grep -n -i "fflush" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md" | head -3 | cut -c1-250; grep -n -i "WIFEXITED" "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md" | head -2 | cut -c1-250`
+- `docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; echo "== lab01 fork_wait.c"; cat Labs/lab01-code/fork_wait.c; echo "== lab02 redirect_child.c (WIFEXITED part)"; grep -n -B3 -A6 "WIFEXITED" Labs/lab02-code/redirect_child.c | head -30; echo "== wait status macros anywhere in Lecture code:"; grep -rn "WEXITSTATUS\|WIFEXITED\|WIFSIGNALED" Lecture | head'; docker exec cranky_pasteur bash -c 'cd /workspaces/csci4061-fa26; ls Labs/lab05-code; ls Labs/lab05-code/*.bak Labs/lab0*/QUESTIONS.txt.bak 2>/dev/null | head -3; diff <(sed -n 1,200p Labs/lab05-code/QUESTIONS.txt) <(sed -n 1,200p Labs/lab05-code/QUESTIONS.txt) >/dev/null; git -C . log --oneline -3 2>&1 | head -3'`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj1-code"; sed -n 60,140p swish.c`
+- `docker exec cranky_pasteur bash -c 'rm -rf /tmp/rv_mine /tmp/rv_naf /tmp/nf /tmp/t_mine /tmp/t_naf /tmp/o*.txt /tmp/e.txt /tmp/in_dup.txt /tmp/review1.sh; ls /tmp | head; cd /workspaces/csci4061-fa26/Projects; find proj2-code proj2-code-naf -newer proj2-original/Makefile -type f -not -path "*/test_cases/*" | grep -v "\.c$" | head'`
 

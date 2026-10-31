@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -79,8 +79,10 @@ Reply with: the before and after table; the snapshot counts and bytes for source
 </report>
 ````
 ## Run Record
-- Ran:
-- Result:
-- Reviewed by owner:
+- Ran: 2026-10-28 at about 15:11, Sonnet 5.5, in the Jarvis directory on the Acer. That was four days after the deadline above (2026-10-24 17:56), so the sweep had already taken the oldest days.
+- Result: `cleanupPeriodDays` set to 60 (it was the 30-day default). 272 `.jsonl` files (633,702,146 bytes, 126 of them top-level) copied to `D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22` with a manifest. Top-level transcripts went from 124 (oldest 2026-09-24) on 2026-10-22 to 126 (oldest 2026-09-28), so 2026-09-24 to 2026-09-27 cannot be recovered. Report line is in [[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]].
+- Sweep check, 2026-10-30: the setting reads 60; the oldest top-level transcript is 2026-09-28, 32 days old, and survived the sweep recorded in `.last-cleanup` (2026-10-31T01:43Z). A sweep that still honored 30 days would have removed it. The first full 60-day test is 2026-11-27.
+- Reviewed by owner: not recorded.
+- Side finding: 137 stray `.statusline-ratelimit-cache.json.tmp.*` files now (111 on 2026-10-22); none was deleted, as the prompt required.
 ## Related Notes
 [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Machine Audit 2026-10-22|Machine Audit 2026-10-22]], [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].

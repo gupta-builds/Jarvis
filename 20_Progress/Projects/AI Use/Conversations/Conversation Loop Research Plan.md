@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-22
+updated: 2026-10-30
 tags:
   - project
   - ai
   - conversations
   - research
 project_kind: plan
-next: Step 5 and 6 are answered in Conversation Loop Design; write its pre-implementation postmortem, then step 7 (rewrite 30_Order) waits for build B10.
+next: Research is finished and the postmortem is done. Step 7 (rewrite 30_Order) is phase P10 in the Build Plan, after the builds. Step 3's full pass over the transcripts is the digest (P7).
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]]"
@@ -50,5 +50,26 @@ No script, hook, or setting changes before the pre-implementation postmortem. No
 - [ ] How much of a transcript belongs in the note, and how much stays in a linked raw copy?
 - [ ] What is the token budget for the periodic review pass?
 - [ ] Do the logs live inside the vault or outside it?
+## Corrections
+*2026-10-30. The plan above is kept as written. The research is finished; this section records where each step ended up and answers the five open questions with evidence.*
+### Step status
+| Step | State |
+|---|---|
+| 1 Inventory what Claude Code exposes | Done, and re-verified on 2026-10-30 against the live docs ([[20_Progress/Projects/AI Use/Conversations/Claude Code Session Source|Claude Code Session Source]], Corrections) |
+| 2 Survey what practitioners track | Done; the sources were all re-opened on 2026-10-30 ([[20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources|Conversation Loop Sources]], verification pass) |
+| 3 Test each metric on our own data | Still partial. The per-metric recoverability table lives in [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] (source tags D, O, C). The full pass over the 150 transcripts is the digest's job (P7); the first hand review (P5) shows which metrics the owner actually reads |
+| 4 Define the session record | Done and rewritten 2026-10-30: facts from the hook, a record built by the digest |
+| 5 Define the loop | Done; postmortem run 2026-10-30; the design was rewritten, not just corrected ([[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]) |
+| 6 Define the guarantees | Partly built: outcome line for every export. Heartbeat, coverage line and watchdog are P6, P7 and P9 |
+| 7 Rewrite `30_Order` | P10, after the builds |
+| 8 Write build notes | Done: [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]] |
+### Open Questions, answered
+- **Is the hook payload richer than the five fields the script reads?** Yes. The common fields add `prompt_id`, `scratchpad_dir`, `permission_mode` and `effort`; the per-event fields are listed in the Session Source corrections. The export hook still reads five; the event hook (P6) will read the rest.
+- **Is a Stop-hook re-export fast enough?** Measured: for 60 written exports p50 729 ms, p95 1,911 ms, max 2,382. Stop is async with `timeout: 60`, so the user does not wait. SessionEnd stays synchronous with `timeout: 30` because its p95 is above the 1.5-second default.
+- **How much of a transcript belongs in the note?** Today the note carries the prompts, the final replies, the tool calls and the tool results (142 notes, 25.3 MB, median 76 KB, largest 1.35 MB). Tool results are what make notes large and what can carry private file text. The review reads the `## You` sections and the tool-call lists; the raw transcript stays 60 days.
+- **What is the token budget for the periodic review pass?** The review is human; its budget is minutes (P5 measures). The only model pass is the Claude-assisted stage A, one session a week after 30 hand-coded prompts.
+- **Do the logs live inside the vault or outside it?** Raw facts outside the synced tree and local (`logs/events-<machine>.jsonl`, ignored by git and Syncthing before the first write); the activity log in `~/.claude`; only the digest and the review notes are synced, with ids and links only.
+### What the plan did not foresee
+A privacy surface in the session notes themselves (tool results in git), a marker that blocks re-export after a deliberate deletion, a blind pass that a printed sample reason would spoil, and the fact that the second reviewer's evidence base changed while the research ran (Husain and Shankar's page was modified on 2026-09-01).
 ## Related Notes
 [[20_Progress/Projects/AI Use/Conversations/Capture Pipeline - As Built|Capture Pipeline]] and [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]] describe what the research will be measured against. [[30_Order/Workflows/Ingestion/Conversations Loop|Conversations Loop]] is the current, unmeasured version of step 5.

@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-29
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -136,3 +136,14 @@ Wall time of `powershell.exe -NoProfile -File <hook>` with JSON on stdin, `Measu
   - Vault text changed to match: PDF Extraction (workflow and standard), `ingesting-clipping` SKILL and reference, `research-distiller` and `ingestion` agents, Tool Calls, Capture to Summary, Textbook Workflow, the CSCI 4061, 4521 and 5304 workflows, `CLAUDE.md` rule 9, `AGENTS.md` Working Rules, the global `CLAUDE.md`, and `extract_pdf.py` (marked retired). Those instructions had been telling Claude to use pypdf and then `Read` the PDF.
   - Not covered: Codex, Cursor and Kiro have no hook, only the `AGENTS.md` rule. `.docx` and `.pptx` are not guarded. Python is not installed here, so the retired script could not run anyway.
 - **Still open, owner side:** the `/clear` check and the day of real timings above (15 `export_result` lines exist so far, too few to take a p95), and the retention check on or after 2026-10-30. The backfill still writes no per-export record; that belongs to P8, not P3.
+### Close of the owner's pending checks, 2026-10-30
+*The "Still open, owner side" bullet above is kept as written. Both hook checks are now answered from the log, without a special run. Counts and milliseconds only.*
+- **Real `/clear`:** `SessionEnd` writes its line and its outcome. From the first `export_result` (2026-10-28 22:36 -05:00) to 2026-10-30 21:14, there were 5 `SessionEnd` events with reason `clear`, and 5 have a later `export_result` for the same session. Across all reasons, 24 of 24 `SessionEnd` and 51 of 51 `Stop` events have one.
+- **One day of timings, taken over two days:** 75 `export_result` lines. `written` n=60, p50 729 ms, p95 1,911 ms, max 2,382. `dup` n=3, p50 144 ms. `junk` n=2, p50 277 ms. `skipped` n=10, p50 5 ms. The lines do not say whether the event was Stop or SessionEnd, so the table cannot split them. Stop is async; the SessionEnd p95 of about 1.9 seconds is above the 1.5-second default, which `timeout: 30` covers.
+- **The 10 skips** all read "transcript not found" and follow a `SessionEnd` with reason `resume` (7) or `other` (3), on 2026-10-29 and 2026-10-30. They are sessions that ended before a transcript existed. They are expected and harmless, but they look like a loss; the digest and the watchdog must classify them (build P7, P9).
+- **A BOM on the first line.** `jarvis-session-activity.jsonl` begins with a UTF-8 byte-order mark (first line written 2026-10-17 by the old hook under Windows PowerShell 5.1). A strict JSON parser rejects line 1. Readers strip it; the file is not rewritten.
+- **Coverage script, run read-only at 21:15:** 120 sessions with an assistant turn, 119 ok, 1 with no note, 0 with two, 0 in the wrong folder, 30 exempt. The one is `851dec9c`, whose note was deleted from the vault by a cleanup session while its marker stayed (see [[20_Progress/Projects/AI Use/Conversations/Export Conformance|Export Conformance]]). A scratch export with `JARVIS_CAPTURE_OUTROOT` set to a folder outside the vault wrote it correctly ("written"), so the exporter itself is fine and the marker is what blocks it.
+- **Exporter dry run, `-BackfillAll -DryRun`:** Home 18 seen, Jarvis 98 seen (96 dup, 2 pending), Scratch 5, The Plan 27, UMN Courses 2, none written. The two pending Jarvis sessions had not been exported when it ran (probably sessions still in progress; not identified).
+- **New risk, a cleanup that deletes notes.** Course cleanups in the vault can delete session notes. The coverage script catches it after the fact; nothing prevents or repairs it. Decision pending: whether capture recreates a note whose marker exists but whose file is gone.
+- **Headless runs:** 19 of 150 transcripts are `sdk-cli`. Of the 8 dated after the activity log began, 5 have a hook line and 3 have none. The backfill appears to cover them (the coverage script finds no other gap), but the hook cannot be relied on for `claude -p` runs, which the docs say kill async hooks at teardown.
+- **PDF guard** is registered with `if` filters on `Read(**/*.pdf)`, `Bash(*pdf*)` and `PowerShell(*pdf*)`. It is an actuator that arrived before the loop; if the owner logs it as a ledger row, the baseline can still be counted from transcripts while they live.

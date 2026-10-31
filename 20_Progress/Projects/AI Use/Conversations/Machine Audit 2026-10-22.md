@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -64,3 +64,30 @@ In the transcript, a user entry carries `promptId`, `permissionMode`, `gitBranch
 7. **Local AI is possible and not started.** 12 GB of GPU memory fits quantized models in the 7B to 14B range; no model is pulled.
 ## Non-Goals
 Not a security audit, and not a Dell check. Contents of `.credentials.json`, `history.jsonl`, the transcripts, and the telemetry files were not read.
+## Corrections
+*2026-10-30. The audit above is kept as written; it describes 2026-10-22. This section re-measures what could be re-measured on the Acer and says what changed. Counts only; no credential, prompt or transcript text was read.*
+### Re-measured
+| Item | 2026-10-22 | 2026-10-30 |
+|---|---|---|
+| Claude Code version | 2.1.307 | 2.1.314 (24 versions seen across the transcripts in five weeks) |
+| Top-level transcripts | 122 to 124 | 150 (130 `cli`, 19 `sdk-cli` headless, 1 `claude-desktop`) |
+| `projects/` | 606 MB | 699 MB in 553 files |
+| `history.jsonl` | 432 lines, 442,355 bytes | 639,198 bytes (lines not counted; the file is never opened) |
+| `usage-data/` (`/insights` reports) | not listed | does not exist, so `/insights` has never been run here |
+| Stray `.statusline-ratelimit-cache.json.tmp.*` files | 111 | 137, not cleaned (report only, as P0 specified) |
+| `~/.claude/sessions/` live registry | 8 files | 12 files |
+| `telemetry/` | 4 files | 4 files |
+| Ollama | installed, no model | no model (empty manifests, `ollama list` empty); note that running `ollama list` here starts the Ollama app |
+| Registered global hooks | Stop and SessionEnd, no `timeout`, no `async` | Stop (async, timeout 60), SessionEnd (sync, timeout 30), and three PreToolUse entries for the PDF guard (timeout 20). `cleanupPeriodDays` is 60 |
+| Scheduled tasks | six listed | `Jarvis-Codex-Daemon-Guard` is Disabled (last run 2026-10-26); `Jarvis-GitAutoSync` last result 1 at 21:03 (log: "Committed", then "FAILED, local changes could not be committed"; FAILED in 2 of its last 12 runs); `Jarvis-Syncthing-Health` last result 1 at 21:26; `Jarvis-WeeklyReview` ran 2026-10-25 at 13:22, next shown 2026-11-01 at 05:00 (registered 06:00-05:00; daylight saving ends that day) |
+Not re-measured: process counts, Obsidian and WSL state, plugin hook files, the MCP port. Treat those rows as 2026-10-22.
+### Findings, status
+1. `history.jsonl` still outlives the sweep and is still never copied. Unchanged.
+2. "The hook layer sees a tenth of what Claude Code offers." Still two of 33 events for capture; the docs list exactly 33 events (counted 2026-10-30). The event hook (P6) is the answer.
+3. `projects/` grew from 606 to 699 MB. The 115.9 MB transcript is 19 whole-PDF reads; a PDF guard has blocked that path since 2026-10-29. Retention is 60 days, which holds more.
+4. The stray statusline files grew from 111 to 137. Still not swept and not part of the loop.
+5. A session's tools depend on Obsidian being open. Unchanged and not re-tested.
+6. Codex runs alongside Claude Code. `~/.codex/sessions` holds 131 files dated 2026-09-15 to 2026-10-27 with no exporter.
+7. Local AI: possible and not started. No model is pulled. The plan is now staged: a Claude-assisted second reviewer first, a local model only at stage B ([[20_Progress/Projects/AI Use/Conversations/Local Reviewer|Local Reviewer]]).
+### What this audit missed
+It listed `history.jsonl` and the transcripts but not the session notes the layer itself writes into the vault. 142 Acer notes total 25.3 MB and contain the tool results of every session, including files Claude read in The Plan. That is a privacy surface the audit did not count ([[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|postmortem finding 9]]).

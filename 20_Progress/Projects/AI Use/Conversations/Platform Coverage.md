@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -41,3 +41,11 @@ For each platform: what exists on the Acer as source data (existence and counts 
 - A platform's presence in the archive tree is not coverage: every Acer scaffold folder for Codex, Kiro, AGY, and Local is empty, and the Dell has none of them.
 ## Non-Goals
 This does not rank platforms or say which to wire next. The research plan puts the other platforms after Claude Code.
+## Corrections
+*2026-10-30. The table above is the 2026-10-21 state and is kept as written.*
+- **Claude Code, Windows (Acer).** 150 top-level transcripts (130 `cli`, 19 `sdk-cli` headless, 1 `claude-desktop`), 142 notes in five project folders, 119 of 120 sessions with an assistant turn covered. Capture is live through the hook and the 30-minute backfill. Subagent files are still not exported.
+- **Codex.** `~/.codex/sessions` holds 131 files dated 2026-09-15 to 2026-10-27, counted with `find -type f` (the row above counted 44 JSONL files for 2026-10-13 to 2026-10-21, a narrower span and filter). No exporter exists. Whether Codex has a hook system comparable to Claude Code's was not reviewed, so the per-event record may not be available there; the exporter route (read the session files) is the safe assumption. `~/.codex/auth.json` exists and is never opened.
+- **Cursor.** Unchanged: the sweep runs only on the Dell and its notes stop at 2026-10-08.
+- **Order, set by the owner:** Claude Code on the Acer, then the Dell (repo conversations only), then Codex and Cursor. Until all platforms write the same record, the second reviewer is a Claude-assisted pass; a local model follows ([[20_Progress/Projects/AI Use/Conversations/Local Reviewer|Local Reviewer]]).
+- **Design consequence:** the event fields in [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] are platform-neutral on purpose (session, agent, prompt, tool, target, ok, ms), so a Codex or Cursor exporter can write the same record from files instead of hooks.
+- **Not re-measured:** Cowork, Kiro, Antigravity, local models (Ollama still has no model), claude.ai chat and ChatGPT.

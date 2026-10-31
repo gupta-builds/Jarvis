@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-28
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -59,5 +59,10 @@ Five summaries exist; four are Cursor, one is Claude Code. The Standard's summar
 - *Still open:* the old notes (BOM, `status: raw`, no `created` or `updated`, inflated tokens, null costs, old rollup types). The Legacy Shapes migration has not run. The WSL exporter still writes `status: raw` with no `review_state`, `created`, or `updated`, rollups typed `dashboard`, no prices for the three 5.5 models, and a flat 0.1 cache-read rate.
 - *Still open, found while fixing:* Haiku 5.5 over 100,000 prompt tokens is billed at higher rates and is not priced; `claude-fable-5-1` has no table entry and gets a null cost; the command in a Bash or PowerShell call line and in the `Commands run` list is not passed through `Redact-Secrets`.
 - *Closed by the owner, 2026-10-29:* there is no P1 leftover. Model cost is not tracked closely, so the Haiku 5.5 tier and the missing `claude-fable-5-1` price are accepted as they are, and the command-line and WSL exporter items above are closed with them. The facts stay true: those prices are null or approximate, command lines are not redacted, and the WSL exporter is unchanged. Reopen only if a note's cost or a leaked command line starts to matter.
+- **2026-10-30, what the Acer corpus looks like now.** 142 notes in the Acer tree (Jarvis 93, The Plan 21, Home 17, Scratch 6, UMN Courses 5), 25.3 MB in total, median 76 KB, largest 1.35 MB. 119 of 120 sessions with an assistant turn have exactly one note in the right folder (`check-capture-coverage.ps1`). 23 notes have no live transcript and no `review_state`, so they keep the old format. The corpus counts at the top of this note (630 notes, 351 with a BOM and so on) describe the 2026-10-21 snapshot across both laptops and are not re-counted; the Dell corpus is untouched.
+- **2026-10-30, the notes embed tool results.** A note shows the files Claude read and the output of its commands, inside fences. That is how a note of a session in The Plan can carry the text of private files Claude opened. The earlier "Body" section lists what the body leaves out; tool-result bodies are not on that list. This is why the owner decided on 2026-10-30 that The Plan's notes stay local to the Acer ([[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], P4b). Redaction is still the eight-rule regex list; whether it covers every kind of tool-result text was not tested.
+- **2026-10-30, a deleted note leaves a marker.** If a note is deleted and its `.exported/<id>.done` marker is not, the exporter reports `dup` and never recreates it. Found on `10-02 ENGL 1004 Journal Entry 3`, deleted by a cleanup session in the 20:33 auto-sync commit. The session is the one coverage failure today. Policy for deliberate deletions is an open decision.
+- **2026-10-30, a BOM that remains.** The hook's activity file (`jarvis-session-activity.jsonl`, not a note) starts with a byte-order mark on its first line, so a strict JSON reader drops line 1. New notes have none.
+- **Still true:** commands are not redacted, the WSL exporter is unchanged, and Haiku 5.5 above 100,000 prompt tokens and `claude-fable-5-1` are unpriced. The owner closed these on 2026-10-29.
 ## Non-Goals
 This is a measurement, not a migration. Nothing was rewritten. The Legacy Shapes table in the Standard names the mechanical fixes; they stay unrun until the Standard is final.

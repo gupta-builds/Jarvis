@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -72,3 +72,20 @@ Checked 2026-10-21 against `code.claude.com/docs`. "Verbatim" means quoted from 
 - The architecture paper (arXiv 2604.14228, a preprint) describes a nine-step turn and five context shapers before every model call, from Claude Code v2.1.88. It lists 27 hook events where the current docs list 33, so treat its version-specific details as dated.
 ## Non-Goals
 Not the official schema, and not a statement of what should be kept. Fields not listed under the counts were not examined. The doc-derived items are checked only as marked; nothing here was compared with another machine's transcripts.
+## Corrections
+*2026-10-30. The inventory above is kept as written. The "one pass" items are now checked against the live pages (hooks, commands, skills, headless, costs, monitoring-usage on code.claude.com, fetched 2026-10-30), and the counts were refreshed on the Acer. Counts only; no transcript text was read.*
+### Documented, now confirmed
+- **33 hook events**, counted from the event table: SessionStart, Setup, UserPromptSubmit, UserPromptExpansion, PreToolUse, PermissionRequest, PermissionDenied, PostToolUse, PostToolUseFailure, PostToolBatch, Notification, MessageDisplay, SubagentStart, SubagentStop, TaskCreated, TaskCompleted, Stop, StopFailure, TeammateIdle, InstructionsLoaded, ConfigChange, CwdChanged, DirectoryAdded, FileChanged, WorktreeCreate, WorktreeRemove, PreCompact, PostCompact, PreModelSwitch, PostModelSwitch, Elicitation, ElicitationResult, SessionEnd.
+- **Common input fields:** `session_id`, `prompt_id` ("absent until the first user input"; it matches the `prompt.id` attribute on OpenTelemetry events), `transcript_path` ("written asynchronously and may lag the in-memory conversation"; use `last_assistant_message` on Stop and SubagentStop for the final text), `cwd`, `scratchpad_dir`, `permission_mode`, `effort`, `hook_event_name`. `agent_id` and `agent_type` identify a subagent or teammate; a subagent's tool calls fire the same hooks.
+- **Per event:** `PostToolUse` carries `tool_name`, `tool_input`, `tool_use_id`, `tool_response`, `duration_ms` (excluding permission prompts and PreToolUse hooks). `PostToolUseFailure` carries `error`, `is_interrupt`, `duration_ms`. `SubagentStop` carries `agent_id`, `agent_type`, `agent_transcript_path`, `last_assistant_message`. `InstructionsLoaded` carries `file_path`, `memory_type`, `load_reason` (`session_start`, `nested_traversal`, `path_glob_match`, `include`, `compact`), is asynchronous and cannot block. `StopFailure` carries the API error string in `last_assistant_message`.
+- **Behavior that the design depends on:** matching hooks run in parallel; `PostToolUse` fires concurrently for parallel tool calls (`PostToolBatch` fires once per batch); an async hook's `timeout` is not enforced; under `claude -p` any async hook still running at teardown is killed and finalized as `cancelled`; `SessionEnd` hooks share a 1.5-second budget unless a per-hook `timeout` raises it, up to 60 seconds; `SessionEnd` reasons are `clear`, `resume`, `logout`, `prompt_input_exit`, `other`.
+- **Two facts that change the design:** `PermissionDenied` "only fires in auto mode" (not for a manual denial or a PreToolUse deny). `UserPromptSubmit` also fires for a session-scoped scheduled task or `/loop` iteration, a background subagent reporting back, and a message from another session, and for a typed skill or custom command with the line as typed; `UserPromptExpansion` fires for the expansion and carries `command_name`. Whether a typed built-in command such as `/clear` fires `UserPromptSubmit` is not documented.
+- **Telemetry:** `OTEL_LOGS_EXPORTER` accepts `otlp`, `console` and `none`; there is no file exporter.
+- **`/insights`:** a built-in command that writes `~/.claude/usage-data/report.html` and a timestamped copy, analyzes up to 200 sessions it has not seen on this machine, counts against plan usage, and is deleted on the `cleanupPeriodDays` schedule. Skills docs: bundled skills are prompt-based, "Most built-in commands instead execute fixed logic directly", so a skill cannot run it. Headless docs: "Built-in commands that only run in the terminal interface, such as `/login`, aren't available" (nothing is said about `/insights`).
+### Counts, refreshed on 2026-10-30
+- **Top-level transcripts:** 150. By `entrypoint` on the first entry: `cli` 130, `sdk-cli` 19, `claude-desktop` 1. The oldest is dated 2026-09-28 by last write. Claude Code is 2.1.314.
+- **Sampled transcript** (a 20 MB Jarvis session): 302 `promptId` fields; `permissionMode` `auto` on all 162 entries that carry it; 9 `turn_duration`, 9 `stop_hook_summary` and 3 `away_summary` system entries; attachment types `environment`, `edited_text_file`, `deferred_tools_record`, `prompt_snapshot`, `skill_listing`, `instructions` and a few singles. One `instructions` attachment was seen, so whether lazy instruction loads reach the transcript is not known; `InstructionsLoaded` is the documented source.
+- **Hook outcomes:** the activity log has 355 lines; 75 are `export_result`. Hook-only facts a transcript lacks: lazy instruction loads (unverified), the `PermissionDenied` reason, compaction triggers, and life beyond the 60-day sweep.
+- **Slash commands:** the notes still drop them (the exporter skips turns that start with `<`), so `/clear` and skill invocations reach neither the notes nor, until P6, any other record.
+### Stale in the sections above
+"The oldest top-level file is dated 2026-09-21. No `cleanupPeriodDays` is set" is now 2026-09-28 and 60 days. "122 top-level files" is 150. "24 distinct versions, 2.1.278 through 2.1.307" runs to 2.1.314. "Docs state a 30-day default" still holds as the default; the Acer overrides it.

@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -58,3 +58,14 @@ Two things to read off the table. The activity log and the markers are the only 
 [[30_Order/Standards/Log Standard|Log Standard]] says every log names its feeder, and that a silent log is investigated. [[30_Order/Standards/AI Loop/Logs|Logs]] defines three shapes (narrative, row, machine) and says a machine log carries no frontmatter. The activity log and the health state file are machine logs in all but name, and neither is described in either Standard. These Standards are scratchpads until the research lands, so this is a note of the gap, not a violation.
 ## Non-Goals
 Not a design for new logs. The logs the 2026-10-09 tracking session proposed (a per-machine script-run log, a session ledger, a tool and hook utilization log) are not listed because none exists.
+## Corrections
+*2026-10-30. The tables above are the 2026-10-21 state and are kept as written. Sizes and counts below were measured on the Acer on 2026-10-30; no log content was printed.*
+- **Session activity** (`~/.claude/jarvis-session-activity.jsonl`) is 110,961 bytes and 355 lines (first line 2026-10-17). Line types counted: `Stop` 175, `SessionEnd` 100, `export_result` 75, `pdf_guard` 2; 3 lines were not classified, and the first, byte-order-marked line is one of the lines a strict counter loses. `export_result` is new since 2026-10-28 22:36: `{timestamp, event, session_id, status, ms, error}` with `status` `written`, `dup`, `junk`, `legacy`, `error`, `skipped` or `no_status`. `pdf_guard` is new since 2026-10-29: `{timestamp, event, session_id, tool, rule}` with no path. The file still lives outside the vault, still has no reader, and its first line carries a byte-order mark. It is the one record that says the hook ran, now with its outcome.
+- **Markers:** 188 `.exported/*.done` files across the five Acer project folders.
+- **Capture Health:** `00 - Capture Health.md` is 1,355 bytes; the state files `capture-health-windows.json` (1,888) and `-wsl.json` (1,523) are current. The Windows backfill's last 20 rows are all exit 0; the exit code is still all it records.
+- **Session log** (`60_Claude/07_AI_Information/Session Logs/log.md`) is 325,570 bytes, about three times the 100 KB rotation line in the Log Standard, up from 312,764. **Summaries-to-Create** is 5,672 bytes, no longer empty.
+- **`git-auto-sync.log`** is 3.67 MB (it was 3.37 MB). It records FAILED runs without a reason line; 2 of the last 12 runs on 2026-10-30 ended FAILED.
+- **`weekly-review.log`** is 481 bytes (it was four lines for the runs of 2026-10-11 and 10-18). Task Scheduler shows the run of 2026-10-25 at 13:22 with result 0.
+- **`~/.claude/history.jsonl`** is 639,198 bytes (it was 442,355). It is never opened; the digest only counts its lines.
+- **Records that do not exist yet:** the event file `logs/events-<machine>.jsonl` (P6), the digest log `logs/conversation-digest.log` (P8), the watchdog's expected-state file (P9). Each will be named in the Schedule section of [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]] and ignored by git and Syncthing before its first write.
+- **Hook outcomes inside transcripts:** `stop_hook_summary` entries still exist in the raw transcripts only (9 in the one sampled transcript).

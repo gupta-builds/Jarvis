@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-28
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -74,5 +74,9 @@ They were archived, not deleted, and have not been compared with the live notes 
 - *Where things went:* nothing was deleted. Retired folders, the older copy of each duplicate, and the two notes replaced by regeneration are in `D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22`, with a SHA-256 `MANIFEST.csv` of 36 rows (8 files moved inside the vault, 28 archived). Four notes whose transcripts were already swept moved to the right folder with their `project:` line rewritten; a pre-edit copy is in the archive's `moved-originals` folder.
 - *Regenerated:* the 103 sessions with a live transcript and an assistant turn were re-rendered with `export-claude-session.ps1 -BackfillAll -Force` in the finished format. The 23 notes whose transcripts are gone kept their old bytes and still lack `review_state`.
 - *Not changed:* the legacy `Windows/` trees, the `_archive-pre-fix` folders, and everything under `Dell/`. The exporter and `capture-projects.json` sit in the vault folder both laptops share, so the Dell receives them through Syncthing; a Dell note exported at 21:30 on 2026-10-28 already carries `review_state: raw`. Whether the Dell holds the routing file and what its `Home`, `UMN Courses` and `Scratch` paths resolve to was not checked on the Dell. How the scripts work: [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
+- **2026-10-30, the Acer tree today.** `Acer/Windows/Claude` holds 142 notes: Jarvis 93, The Plan 21, Home 17, Scratch 6, UMN Courses 5. 23 notes outlived their transcripts and have no `review_state`. The coverage script reports 119 of 120 sessions with an assistant turn covered and 30 without an assistant turn (exempt). The `Scratch` folder grew from 1 to 6 notes; the owner still has to confirm that Scratch should exist.
+- **2026-10-30, a note that is gone but not archived.** `10-02 ENGL 1004 Journal Entry 3.md` was deleted from `Acer/Windows/Claude/Jarvis` by a cleanup session (commit `a8451eaa`, 2026-10-30 20:33). It was not moved to an archive and its marker remained. Git history holds it. Nothing in this folder's rules says a cleanup may delete captured notes.
+- **2026-10-30, The Plan folder.** 23 `.md` files and 27 markers under `Acer/Windows/Claude/The Plan/` are tracked in git and pushed to `origin`. The owner decided that they stay local to the Acer (build P4b). Ignore files stop only future commits; the history and the remote still hold them, and whether the Dell holds synced copies was not checked.
+- **Not re-measured:** the Dell, the legacy `Windows/` trees, the 14 archive folders and the empty scaffolds. All numbers above those sections are the 2026-10-21 figures.
 ## Non-Goals
 This does not recommend which copy to keep or whether to delete the archives. It does not cover the files inside `_raw_jsonl`.

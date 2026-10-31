@@ -2,7 +2,7 @@
 type: review
 status: sprout
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-30
 tags:
   - review
   - audit
@@ -102,3 +102,33 @@ This note, and the notes it links, are new on 2026-10-21. The 2026-10-17 audit's
 - [ ] Why do 3 Acer sessions and 6 Dell WSL sessions appear in two project folders of the same tree? A changed cwd mid-session is the guess, unchecked.
 - [ ] Did the Cowork stop on 2026-07-24 have a cause, or did Cowork simply not run?
 - [ ] How long does a Stop-triggered re-export take on a transcript of 1 MB or more?
+## Corrections
+*2026-10-30, from re-measuring the layer on the Acer. The findings above are kept as written; this section says which still hold. Detail of the design side is in [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]].*
+### Which findings changed
+| Finding | State on 2026-10-30 |
+|---|---|
+| 1 Layout | Acer tree is now five project folders (Jarvis 93, The Plan 21, Home 17, Scratch 6, UMN Courses 5), routed by `capture-projects.json` (P2). The legacy `Windows/` trees, `_archive-pre-fix` folders and everything under `Dell/` are untouched |
+| 2, 3 Silent failure; hook hides failures | Fixed for session exports (P3): every Stop and SessionEnd writes an `export_result` line before any error is swallowed. Since 2026-10-28 22:36, 51 of 51 Stop and 24 of 24 SessionEnd events have one. Still silent: the 30-minute backfill (it records an exit code only), the Cowork sweep's successes, and nothing watches for silence (P9) |
+| 4 Three implementations | Unchanged. The WSL exporter still has the old problems; the owner closed that item on 2026-10-29 because the WSL side is out of scope |
+| 5 No reader | Unchanged: no weekly review has run since W34. The reading half is P5 to P8 |
+| 7 Raw copy not durable | `cleanupPeriodDays` is 60 (set 2026-10-28). The oldest transcript is 32 days old and survived the last sweep. First full test 2026-11-27 |
+| 8 Metrics | Token deduplication and prices for the 5.5 models are fixed for notes written after 2026-10-28; the 23 older Acer notes keep the old format |
+| 9 Coverage claims | Codex: `~/.codex/sessions` holds 131 files dated 2026-09-15 to 2026-10-27 (counted with `find -type f`; the 44 JSONL files quoted above were a narrower count). Still no exporter |
+| 11 Failure modes | See below |
+### New failure modes found after this note was written
+- **An async Stop export raced SessionEnd** and wrote two notes per session (8 sessions, 16 notes, every exit code 0). Found and fixed on 2026-10-29 with a per-session lock.
+- **Huge transcripts from whole-PDF reads.** The largest transcript is 115.9 MB, 19 base64 PDF results (code E2). A PreToolUse guard was built on 2026-10-29.
+- **A cleanup can delete a captured note while its marker stays.** `10-02 ENGL 1004 Journal Entry 3` was deleted in the 20:33 auto-sync commit on 2026-10-30 by the ENGL 1004 cleanup session. The `.exported` marker still names it, so the exporter treats it as exported and never recreates it. The coverage script flags it (119 of 120). Whether deliberate deletions should be recreated is an open decision.
+- **The hook's activity log starts with a byte-order mark** on its first line (written by Windows PowerShell 5.1), so a strict JSON reader drops that line.
+- **Session notes carry tool results.** 142 Acer notes total 25.3 MB (median 76 KB, largest 1.35 MB), and a note shows files Claude read, fenced. The Plan's notes (23 `.md` files) are tracked in git and pushed to `origin` (`github.com/gupta-builds/Jarvis`, visibility not checked). The owner decided on 2026-10-30 that they stay local to the Acer (build P4b).
+- **Scheduled task times drift across daylight saving.** `Jarvis-WeeklyReview` was registered at 06:00-05:00 and its next run reads 05:00 on 2026-11-01. It ran about seven hours late on both observed Sundays (2026-10-18 at 13:15, 10-25 at 13:22).
+- **Sync reliability:** `Jarvis-GitAutoSync` ended FAILED in 2 of its last 12 runs on 2026-10-30 (including 21:03, right after logging a successful commit), and `Jarvis-Syncthing-Health` returned 1 at 21:26. Not diagnosed.
+### Finding 12, re-read against the docs on 2026-10-30
+The hooks reference lists exactly 33 events (confirmed by counting the event table): SessionStart, Setup, UserPromptSubmit, UserPromptExpansion, PreToolUse, PermissionRequest, PermissionDenied, PostToolUse, PostToolUseFailure, PostToolBatch, Notification, MessageDisplay, SubagentStart, SubagentStop, TaskCreated, TaskCompleted, Stop, StopFailure, TeammateIdle, InstructionsLoaded, ConfigChange, CwdChanged, DirectoryAdded, FileChanged, WorktreeCreate, WorktreeRemove, PreCompact, PostCompact, PreModelSwitch, PostModelSwitch, Elicitation, ElicitationResult, SessionEnd. The "one pass" items are now confirmed: `prompt_id` is "absent until the first user input"; `transcript_path` "may lag the in-memory conversation"; async hooks are killed at teardown under `claude -p`; matching hooks run in parallel and `PostToolUse` fires concurrently for parallel tool calls. New facts: `PermissionDenied` fires only in auto mode; `UserPromptSubmit` also fires for scheduled tasks, background-subagent reports and messages from other sessions, and for a typed skill with the line as typed; `InstructionsLoaded` is asynchronous; the log exporter options are `otlp`, `console` and `none` (no file exporter). The "sweep deletes `usage-data/`" claim holds and is governed by `cleanupPeriodDays`.
+### Open Questions, answered
+- Stop-time export cost: for 60 written exports, p50 729 ms and p95 1,911 ms (max 2,382 ms). Stop is async, so the user does not wait.
+- A SessionEnd export inside 1.5 seconds: the p95 is above 1.5 seconds, which is why `SessionEnd` carries `timeout: 30`. 24 of 24 SessionEnd events since the change have an outcome line.
+- Why 3 Acer sessions appeared in two project folders: answered by P2 (a changed cwd mid-session plus the old routing; four sessions had two notes, now one).
+- Still open: Cowork's stop on 2026-07-24 (out of scope for the Acer loop).
+### Priority Queue, status
+Item 1 (research) done. Item 2 (what a session leaves behind) answered by [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]]. Item 3 (legacy trees, Cowork) waits for the Dell phase. Item 4 (raw copy policy) done: 60 days on the Acer, snapshot taken. Item 5 (build notes) done: [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].

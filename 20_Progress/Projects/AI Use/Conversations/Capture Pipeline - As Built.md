@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -66,3 +66,39 @@ The seven-step list leaves two records of a run: the activity line (step 3) and 
 - **Cursor:** a Windows scheduled task on the Dell, `Jarvis-Cursor-Session-Export`, every 15 minutes, joining agent-transcript JSONL with the SQLite `composerHeaders` table. Not registered on the Acer. See [[30_Order/System/cursor-workflow/README|Cursor Workflow]].
 ## Non-Goals
 This note does not say what the pipeline should do, does not cover distillation or review, and makes no claim about the Dell or WSL beyond the sources named. Redaction coverage, re-export cost, and Claude Code version drift are open questions in the postmortem, not answered here.
+## Corrections
+*2026-10-30. The path above is kept as written (it is the 2026-10-21 state). This section is the same path as it runs today on the Acer (Windows). Checked by reading the settings, the hook log, the coverage script and the scheduled tasks.*
+```
+Claude Code writes  ~/.claude/projects/<cwd-slug>/<session_id>.jsonl   (live, every entry)
+  |  Stop (async, timeout 60) after every assistant turn, SessionEnd (sync, timeout 30) when the session closes
+  v
+jarvis-session-continuity.ps1   (global user settings; 272 lines; per-session named lock)
+  |-- append  {Stop|SessionEnd, session_id, cwd, reason, transcript_path}   to ~/.claude/jarvis-session-activity.jsonl
+  |-- export-claude-session.ps1  (routing from capture-projects.json; -Force for re-render)
+  |-- append  {export_result, status, ms, error}   (status: written, dup, junk, legacy, error, skipped, no_status)
+  v
+60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/<project>/   project = Jarvis | The Plan | UMN Courses | Home | Scratch | leaf name
+  ^
+  |  every 30 min: ConversationCapture-Backfill-Windows -> export -BackfillAll -> update-capture-health.ps1
+  v
+check-capture-coverage.ps1 (read-only, by hand)    Jarvis-GitAutoSync (every 30 min, branch infra/cross-laptop-sync)
+```
+### What changed, step by step
+- **Step 2, the hook.** `Stop` is async with `timeout: 60`. `SessionEnd` stays synchronous with `timeout: 30` because a fresh export of the 115.9 MB transcript takes 4.8 to 5.1 seconds and the default budget is 1.5. A named mutex per session stops an async Stop and a SessionEnd from writing two notes (it had: 8 sessions gave 16 notes). The PDF guard is a different hook (PreToolUse); it is not capture.
+- **Step 3, what the hook logs.** Two lines per event: the intent line, then an `export_result` line written before any error is swallowed. From 2026-10-28 22:36 to 2026-10-30 21:14, 75 `export_result` lines: `written` 60, `skipped` 10, `dup` 3, `junk` 2. All 10 skips say "transcript not found" and follow a `SessionEnd` with reason `resume` or `other`: a session that ended before it had a transcript. The activity file's first line carries a byte-order mark.
+- **Step 4, project.** Five ordered rules in `capture-projects.json`, then the leaf of the cwd.
+- **Step 5, the marker.** Unchanged, and it has a hole: if the note is deleted but its `.exported/<id>.done` marker stays, the exporter reports `dup` forever. This happened to `10-02 ENGL 1004 Journal Entry 3` on 2026-10-30.
+- **Step 6, render.** New notes have `status: seed`, `review_state: raw`, no BOM, deduplicated tokens, priced 5.5 models, fenced commands, tool results included. A sampled session's note is 76 KB at the median and 1.35 MB at the largest; the 142 Acer notes total 25.3 MB.
+- **Step 7, the backfill.** Still writes an exit code and no per-export record. Headless `claude -p` runs may leave no hook line (3 of the 8 headless transcripts since 2026-10-17 have none; the cause was not determined). The coverage script walks all 150 transcripts and finds only the deleted note uncovered, so the backfill appears to catch them; that is an inference, not a per-session proof.
+- **Step 8, sync.** `Jarvis-GitAutoSync` commits and pushes to `origin/infra/cross-laptop-sync` every 30 minutes; 874 of the last 974 commits are Auto-sync snapshots. It ended FAILED in 2 of its last 12 runs on 2026-10-30 and recovered.
+### Current State table, refreshed
+| Step | Evidence |
+|---|---|
+| Hook registered | Global settings: Stop, SessionEnd, three PreToolUse; project settings: the two vault guards |
+| Hook fires and records | 51 of 51 Stop and 24 of 24 SessionEnd events since 2026-10-28 22:36 have an `export_result`; 5 of 5 `/clear` exits |
+| Hook speed | 60 written exports: p50 729 ms, p95 1,911 ms, max 2,382 ms. Stop is async, so the user does not wait |
+| Backfill | Last run 21:03 on 2026-10-30, result 0, every 30 minutes |
+| Ground truth | 150 top-level transcripts; 120 have an assistant turn; 119 have exactly one note in the right folder; 30 have no assistant turn (exempt) |
+| Notes | 142 in the Acer tree; 23 have no live transcript and no `review_state` |
+### Still not recorded
+No step records what the backfill exported or skipped, nothing watches for a gap (P9), and nothing reads the notes (P5 to P8).

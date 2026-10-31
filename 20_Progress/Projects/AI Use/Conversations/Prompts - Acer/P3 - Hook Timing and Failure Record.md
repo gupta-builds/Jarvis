@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -77,8 +77,9 @@ Reply with: the timing table with the startup baseline; the new activity-file li
 </report>
 ````
 ## Run Record
-- Ran:
-- Result:
-- Reviewed by owner:
+- Ran: 2026-10-28 from about 22:28, Sonnet 5.5, in the Jarvis directory on the Acer; followed up and closed on 2026-10-29.
+- Result: the hook appends an `export_result` line (`status`, `ms`, `error`) for every Stop and SessionEnd before any error is swallowed. Timed over 76 runs (fresh export 0.9 s at the median transcript, 4.8 to 5.2 s at the largest, 115.9 MB; a repeat about 0.5 s). `Stop` became async with `timeout: 60`; `SessionEnd` stays synchronous with `timeout: 30`. The follow-up found that an async Stop and a SessionEnd wrote two notes per session (8 sessions, 16 notes) and fixed it with a per-session lock. `test-session-hook.ps1` has 31 assertions and passes under both shells. Detail: Corrections in [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
+- Owner checks, answered by the log on 2026-10-30: a real `/clear` writes its line and its outcome (5 of 5 since 2026-10-28 22:36); 51 of 51 Stop and 24 of 24 SessionEnd events have an `export_result`; 60 written exports took 729 ms at p50 and 1,911 ms at p95. The prompt's assumption that the largest transcript was "over 8 MB" was wrong (115.9 MB).
+- Reviewed by owner: not recorded.
 ## Related Notes
 [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]], [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]], [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].

@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-29
+updated: 2026-10-30
 tags:
   - project
   - ai
@@ -106,3 +106,12 @@ This is not a registry to maintain by hand and not a proposal for one. It record
 - **Changed by:** targeted edits to the two entries only; every other key and hook event matches the copy taken before the edit.
 - **2026-10-29, new `PreToolUse` entries:** `C:\Users\anant\.claude\settings.json` now also registers `jarvis-pdf-guard.ps1` for the `Read`, `Bash` and `PowerShell` tools, each behind an `if` filter on PDF-looking calls (`Read(**/*.pdf)`, `Bash(*pdf*)`, `PowerShell(*pdf*)`), timeout 20. It sits in the user file so every project and subagent is covered. It is not a capture hook; it keeps PDFs out of the transcripts that capture exports. Detail in the "PDF guard" bullet of [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
 - **2026-10-29, async and `SessionEnd` together:** the undocumented overlap of an async `Stop` export with `SessionEnd` was tested and was a real defect (two notes per session). The hook now serializes exports per session, so the settings above stand unchanged. See the close-out in [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]].
+### 2026-10-30, re-read of the live registrations
+*Read from `~/.claude/settings.json` and Task Scheduler at about 21:30. The tables above are kept as written.*
+- **Hooks (user level):** `Stop` one entry, async, `timeout: 60`; `SessionEnd` one entry, synchronous, `timeout: 30`; `PreToolUse` three entries (PDF guard on `Read`, `Bash`, `PowerShell`), `timeout: 20`. **Project level:** the write guard and the internship note guard on `Write|Edit|MultiEdit`. No other hook is registered. The event hook (P6) will add its entries here.
+- **Why the registration is user-level.** Project settings cover only sessions started inside the vault; The Plan, Home and UMN Courses are outside it. The owner's rule "skills and hooks live in the Jarvis vault's `.claude` folder only" is therefore met as: **scripts live in the vault, registration is user-level and is made by a script kept in the vault.** The Dell gets the same script, never a hand copy.
+- **Retention:** `cleanupPeriodDays` reads 60. `.last-cleanup` reads 2026-10-31T01:43:16Z. The oldest top-level transcript is dated 2026-09-28 (32 days old) and survived that sweep, so the 30-day limit is gone. The 60-day horizon is first tested on 2026-11-27, 60 days after the oldest surviving transcript.
+- **Tasks (live):** `ConversationCapture-Backfill-Windows` result 0 at 21:03, next 21:33. `Jarvis-GitAutoSync` result **1** at 21:03 (log: committed, then FAILED; 2 of its last 12 runs FAILED). `Jarvis-Syncthing-Health` result **1** at 21:26. `Jarvis-Codex-Daemon-Guard` **Disabled**, last run 2026-10-26 18:57. `Jarvis-WeeklyReview` last run 2026-10-25 13:22 (about seven hours after its 06:00 slot, as on 2026-10-18), result 0, next shown 2026-11-01 05:00. `ThePlan-GitSync` result 0 at 21:23.
+- **Daylight saving.** `Jarvis-WeeklyReview` carries a start boundary of `2026-09-28T06:00:00-05:00`. Daylight saving ends on 2026-11-01, and the task's next run already reads 05:00 local. A new task must be registered with a local time and no fixed offset (build P8).
+- **Planned rows, status:** the conversation digest and review skeleton (P8) and the capture watchdog (P9) are still not registered.
+- **The Plan.** Its notes are tracked in git today. After P4b the folder is ignored by `.gitignore` and `.stignore` (with the `(?d)` prefix), and `.stignore` does not sync, so the Dell needs the same line by hand or from a script.

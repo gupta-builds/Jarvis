@@ -6,7 +6,7 @@ source_os: windows
 title: "Midterm semester review for missed grades"
 started_at: 2026-10-30T20:09:35
 ended_at: 2026-10-30T22:23:40
-exported_at: 2026-10-30T23:33:08
+exported_at: 2026-10-31T00:33:09
 duration_minutes: 134.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
@@ -14,7 +14,7 @@ session_id: b64dbfed-9222-434f-85f7-66c923de93d3
 status: seed
 review_state: raw
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-10-31
 turn_count: 9
 tools_used:
   Bash: 34

@@ -6,7 +6,7 @@ source_os: windows
 title: "Midterm semester review for missed grades"
 started_at: 2026-10-30T20:09:35
 ended_at: 2026-10-30T22:23:40
-exported_at: 2026-10-31T00:33:09
+exported_at: 2026-10-31T01:33:14
 duration_minutes: 134.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

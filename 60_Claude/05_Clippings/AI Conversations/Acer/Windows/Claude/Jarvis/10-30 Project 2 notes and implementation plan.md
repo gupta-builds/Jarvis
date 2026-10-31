@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Project 2 notes and implementation plan"
 started_at: 2026-10-30T17:41:41
-ended_at: 2026-10-30T19:02:30
-exported_at: 2026-10-30T19:03:07
-duration_minutes: 80.8
+ended_at: 2026-10-30T19:09:48
+exported_at: 2026-10-30T19:09:50
+duration_minutes: 88.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a9e46100-945b-4824-a25e-507a231d7cb0
@@ -15,21 +15,21 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-10-30
-turn_count: 9
+turn_count: 11
 tools_used:
-  Bash: 112
-  Edit: 10
+  Bash: 117
+  Edit: 15
   Grep: 2
   PowerShell: 5
   Read: 29
   Write: 12
 tokens:
-  input: 274
-  output: 170016
-  cache_creation: 568667
-  cache_read: 49630634
-  total: 50369591
-cost_usd: 8.938439
+  input: 292
+  output: 181208
+  cache_creation: 584236
+  cache_read: 54508586
+  total: 55274322
+cost_usd: 9.600467
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -13461,6 +13461,48 @@ Now Part 1, built on the helpers the spec added for Project 2 (`strvec_find_last
 
 All four project files and the Lab 5 solution are rewritten. Now the full verification pass on scratch copies in the running container.
 
+All green. Two more checks: the fork-failure paths (never exercised before) and the density and style numbers against the professor's baseline.
+
+The fork-failure test was inconclusive because the container runs as root, and root ignores `ulimit -u`. Retrying as an unprivileged user.
+
+I rewrote the four project files and the Lab 5 solution, and everything passes. Nothing is uploaded.
+
+## Lab 5 (`lab05-code/square_numbers.c`)
+I rebuilt it from the original starter, using `shmem_exercise_v1.c` as the pattern, so it no longer carries my earlier `errno`/`EINTR`/`failed` logic. The split is `chunk_size = ceil(NUMBERS_LEN / (double) n_procs)`, `start = i * chunk_size`, `stop = min(start + chunk_size, NUMBERS_LEN)`, which is what the starter's `min` macro and `-lm` hint at. I tested it on a scratch copy: 5/5 tests (1.0/1.0), and identical output for 1, 2, 3, 4, 5, 7, 9, 11, 40, 41 and 100 workers.
+
+I didn't touch Labs 4, 6 and 7. The project draws on the lecture code (`single_pipe.c`, `pthreads_exercise_v2.c`) instead, and Lab 4 and Lab 6 already follow the professor's patterns.
+
+## Your 8 fixes in `proj2-code`
+1. No `EINTR` loops. Every `wait`, `read` and `write` is a plain `== -1` check with `perror` or `PyErr_*`.
+2. No `PyErr_Occurred()` guards. The three files use the starter's plain `PyErr_SetString(PyExc_OSError, "Failed to read matrix data from file")`.
+3. No `failed` flag. Each error path cleans up, runs `for (j < i) wait(NULL)` and returns, as in `single_pipe.c` and `multi_pipes.c`. The only `ret_val` is the lecture's own tail pattern for the final `wait` loop.
+4. No `split_work`. The `ceil` and `min` split sits inline in each file, using lecture12's `chunk_size`, `start` and `end` names.
+5. The pipe read loop is `int nbytes; while ((nbytes = read(...)) > 0)`, with no `ssize_t` casts and no index check.
+6. In Part 1, `run_piped_command` is `fork`, `dup2` with a check, close all pipe fds, `run_command`, `exit(1)`. The `STDIN_FILENO` special case is gone.
+7. `fflush(stdout)` stays, because Lab 1's `fork_wait.c` has "Prevents duplicate I/O after a fork". The `bars` array, the empty-command validation and the `n_fds + 1` trick are gone. The loop uses the spec's own helpers instead: `strvec_find_last`, `strvec_slice` and `strvec_take`, launching backwards.
+8. Comments are one-liners and the line-length problem is fixed. I renamed `n_procs` to `n_workers` in the pipe file as well, and dropped the extra `a_size`.
+
+## Results
+- **Part 1:** 8/8 under valgrind. A 7-command pipeline, both redirects, append and a 12-command chain behave correctly. A failing `exec` gives exactly 2 prompts. Valgrind with fd tracking is clean.
+- **Part 2:** 18/18 on the revised starter (built with `-Werror`) and also on the old 10/14 files. A sweep of all 9 matrices, 3 modes and 8 worker counts had 0 failures across 216 runs, and each output is byte-identical to the expected file.
+- **Edge cases:** 50 workers on a 6-element matrix works in all three modes. The 8 MB pipe case works. Fd counts and zombies are unchanged after 600 repeated calls. `ceil` imports fine without adding `-lm`.
+- **Error cases:** 0 workers gives `ValueError`, a missing file gives `OSError`, and a bad argument type gives `TypeError`.
+- **Fork failure:** this is now exercised. As an unprivileged user with a low process limit, all three Part 2 modes raised a clean Python exception, and `swish` printed `fork: Resource temporarily unavailable` and kept running. Nothing hung and no processes were left over.
+- **Style:** comment density is 0.14 overall (0.10 in the professor's code). There are no CRLF problems and `-Wextra` shows only the starter's unused `self`.
+
+The only remaining differences from `proj2-original` are my four EDIT files plus the stale `Makefile`, `hadamard_utils.c` and `setup.py` from the 10/14 starter. The autograder replaces those three.
+
+## What you can say in the oral exam
+- **Split:** "I round the chunk size up, and `min` clamps the last one."
+- **Pipe:** "Children write 8-byte structs, and the parent reads until `read` returns 0."
+- **Shared memory:** "Each child writes a separate index of a mapped array."
+- **Threads:** "It's the lecture's struct-argument pattern, and no lock is needed because the index ranges don't overlap."
+
+## Before you upload
+- **Rerun the tests:** run `make test-part1`, `make test-part2` and `make zip` in your own container. My runs were on scratch copies, so no build artifacts are left in your folders.
+- **Not testable here:** the Gradescope hidden tests and its build. The code uses only calls the starter's headers and tests already cover.
+- **Deadline:** the project is due tonight at 11:59pm.
+
 ### Tool Calls
 
 - `Bash`
@@ -14316,6 +14358,379 @@ echo "valgrind:"; printf 'cat /tmp/gatsby.txt | sort | uniq -c | tail -n 2\nexit
 EOF
 docker exec -i cranky_pasteur bash -s < "$SD/v1.sh" 2>&1 | head -120
 ```
+```
+##### Lab 5 (scratch copy)
+gcc -Wall -Werror -g -o square_numbers square_numbers.c -lm
+Test 1) Quiz - QUESTIONS.txt: Passed
+Test 2) Code - square_numbers 1 worker: Passed
+Test 3) Code - square_numbers 2 workers: Passed
+Test 4) Code - square_numbers 3 workers: Passed
+Test 5) Code - square_numbers 4 workers: Passed
+Ran 5/5 Requested Tests
+Passed 5/5 Tests
+Total Score: 1.0/1.0
+53e27fc5 53e27fc5 53e27fc5 53e27fc5 53e27fc5 53e27fc5 53e27fc5 <- same hash for every worker count?
+Number of processes must be positive
+exit=1
+##### Project, revised starter + my EDIT files
+gcc -Wall -Werror -g -c swish.c
+gcc -Wall -Werror -g -c string_vector.c
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Total Score: 8.0/8.0
+Passed 18/18 Tests
+Total Score: 18.0/18.0
+sweep: 216 runs, 0 failures
+tiny/threads (50 workers):
+7, 16, 27 40, 55, -72 
+tiny/pipe (50 workers):
+7, 16, 27 40, 55, -72 
+tiny/shmem (50 workers):
+7, 16, 27 40, 55, -72 
+hadamard_pipe 0 ValueError
+hadamard_pipe 2 OSError
+hadamard_pipe x TypeError
+hadamard_shmem 0 ValueError
+hadamard_shmem 2 OSError
+hadamard_shmem x TypeError
+hadamard_threads 0 ValueError
+hadamard_threads 2 OSError
+hadamard_threads x TypeError
+fopen: No such file or directory
+fopen: No such file or directory
+fopen: No such file or directory
+fds before/after 4 4
+zombies: 0
+8MB pipe case ok
+##### Part 1 extras
+7-cmd:
+@>       1 story
+      3 and
+      6 the
+@> both redirects:
+@> @> 2
+@> append:
+@> @> @> one
+two
+@> bad middle:
+@> exec: No such file or directory
+0
+@> after
+@> 12 chain:
+@> hi
+@> prompt count with failing exec (expect 2):
+2
+valgrind:
+@>       1 The end of the story and the beginning
+      1 the cat and the dog and the bird
+@>
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v2.sh" <<'EOF'
+W=/workspaces/csci4061-fa26
+id -un
+echo "== old (10/14) non-EDIT files, in-place copy of proj2-code"
+rm -rf /tmp/old && cp -r $W/Projects/proj2-code /tmp/old && cd /tmp/old && make clean >/dev/null 2>&1; make 2>&1 | grep -i -E "warning|error"; make test-part1 2>&1 | grep -E "Passed [0-9]"; make test-part2 2>&1 | grep -E "Passed [0-9]"
+echo "== fork failure paths (ulimit -u)"
+cd /tmp/pv/part2
+for mode in pipe shmem threads; do
+  timeout 30 bash -c "ulimit -u \$(( \$(ps -u \$(id -u) -L --no-headers | wc -l) + 6 )); python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin $mode 40 2>&1 >/dev/null | tail -2"; echo "$mode exit=$? (124 would mean hang)"
+done
+echo "zombies: $(ps aux | grep -c '[d]efunct')"
+cd /tmp/pv/part1; timeout 30 bash -c "ulimit -u \$(( \$(ps -u \$(id -u) -L --no-headers | wc -l) + 3 )); printf 'echo a | cat | cat | cat | cat | cat | cat\nexit\n' | ./swish 2>&1 | tail -3"; echo "swish exit=$?"
+echo "== -Wextra on EDIT files"
+cd /tmp/pv/part2; gcc -fsyntax-only -Wall -Wextra -I/usr/include/python3.10 -I. hadamard_pipe.c hadamard_shmem.c hadamard_threads.c 2>&1 | grep warning | grep -v "unused parameter 'self'"
+cd /tmp/pv/part1; gcc -fsyntax-only -Wall -Wextra swish_funcs.c 2>&1 | grep warning | head -5
+echo "== long lines / CRLF"
+cd $W/Projects/proj2-code; awk 'length>100{print FILENAME":"FNR": "length}' part1/swish_funcs.c part2/hadamard_*.c; grep -c $'\r' part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c $W/Labs/lab05-code/square_numbers.c | tr '\n' ' '
+EOF
+docker exec -i cranky_pasteur bash -s < "$SD/v2.sh" 2>&1 | head -60; docker exec -i cranky_pasteur python3 - < "$SD/review4.py" 2>&1 | sed -n '1p;19,30p'
+```
+```
+root
+== old (10/14) non-EDIT files, in-place copy of proj2-code
+gcc -Wall -Werror -g -c swish.c
+gcc -Wall -Werror -g -c string_vector.c
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Passed 18/18 Tests
+== fork failure paths (ulimit -u)
+pipe exit=0 (124 would mean hang)
+shmem exit=0 (124 would mean hang)
+threads exit=0 (124 would mean hang)
+zombies: 0
+@> a
+@> swish exit=0
+== -Wextra on EDIT files
+== long lines / CRLF
+part2/hadamard_extension.c:19: 101
+part1/swish_funcs.c:0 part2/hadamard_pipe.c:0 part2/hadamard_shmem.c:0 part2/hadamard_threads.c:0 /workspaces/csci4061-fa26/Labs/lab05-code/square_numbers.c:0 professor (17 files)         code=1056 comment-lines= 103 ratio=0.10
+starter stubs (4 EDIT)       code=  86 comment-lines= 115 ratio=1.34
+mine (4 EDIT)                code= 468 comment-lines=  67 ratio=0.14
+naf (4 EDIT)                 code= 480 comment-lines= 148 ratio=0.31
+   proj2-code/part1/swish_funcs.c                 99  19 0.19
+   proj2-code/part2/hadamard_pipe.c              160  18 0.11
+   proj2-code/part2/hadamard_shmem.c             102  15 0.15
+   proj2-code/part2/hadamard_threads.c           107  15 0.14
+   proj2-code-naf/part1/swish_funcs.c            102  27 0.26
+   proj2-code-naf/part2/hadamard_pipe.c          149  41 0.28
+   proj2-code-naf/part2/hadamard_shmem.c         114  39 0.34
+   proj2-code-naf/part2/hadamard_threads.c       115  41 0.36
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v3.sh" <<'EOF'
+chmod -R a+rX /tmp/pv
+cd /tmp/pv/part2
+for mode in pipe shmem threads; do
+  timeout 40 runuser -u nobody -- bash -c "ulimit -u 8; cd /tmp/pv/part2; python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin $mode 40 2>&1 >/dev/null | tail -2"
+  echo "$mode exit=${PIPESTATUS[0]}"
+done
+echo "zombies/leftover python: $(ps aux | grep -c '[h]adamard_main')"
+timeout 40 runuser -u nobody -- bash -c "ulimit -u 8; cd /tmp/pv/part1; printf 'echo a | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat\nexit\n' | ./swish 2>&1 | tail -4"
+echo "swish exit=${PIPESTATUS[0]}; leftover swish/cat: $(ps aux | grep -c '[s]wish')"
+EOF
+docker exec -i cranky_pasteur bash -s < "$SD/v3.sh" 2>&1 | head -30
+```
+```
+    hadamard.hadamard_pipe(mat_a_file, mat_b_file, n_workers)
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+pipe exit=0
+    hadamard.hadamard_shmem(mat_a_file, mat_b_file, n_workers)
+BlockingIOError: [Errno 11] Resource temporarily unavailable
+shmem exit=0
+    hadamard.hadamard_threads(mat_a_file, mat_b_file, n_workers)
+OSError: pthread_create failed: Resource temporarily unavailable
+threads exit=0
+zombies/leftover python: 0
+@> fork: Resource temporarily unavailable
+@> swish exit=0; leftover swish/cat: 0
+```
+- `Bash`
+```bash
+docker exec cranky_pasteur bash -c 'rm -rf /tmp/l5 /tmp/pv /tmp/old /tmp/s_a.bin /tmp/s_b.bin /tmp/o.txt /tmp/e.txt /tmp/in1.txt /tmp/in2.txt /tmp/gatsby.txt /tmp/out.txt /tmp/o.txt; cd /workspaces/csci4061-fa26/Projects; diff -rq proj2-original proj2-code | grep -v test_cases; echo ---; find proj2-code -name "*.so" -o -name "build" -o -name "*.egg-info" -o -name swish -o -name test_results | head'
+```
+```
+Files proj2-original/part1/swish_funcs.c and proj2-code/part1/swish_funcs.c differ
+Files proj2-original/part2/Makefile and proj2-code/part2/Makefile differ
+Files proj2-original/part2/hadamard_pipe.c and proj2-code/part2/hadamard_pipe.c differ
+Files proj2-original/part2/hadamard_shmem.c and proj2-code/part2/hadamard_shmem.c differ
+Files proj2-original/part2/hadamard_threads.c and proj2-code/part2/hadamard_threads.c differ
+Files proj2-original/part2/hadamard_utils.c and proj2-code/part2/hadamard_utils.c differ
+Files proj2-original/part2/setup.py and proj2-code/part2/setup.py differ
+---
+```
+
+## You
+
+I reran the tests and everything passes cleanly. This is the final pass to review the minro details, things that might be questionable, things that might not be based of the professor's code/lectures/textbook. Go ahead and review each and every single detail written and make sure that it is based of the professor's writing style and project is perfectly clean and ready to submit. After you are sure, go ahead and create the zipped folder.
+
+## Claude
+
+Final pass: re-reading every line of the five files for anything that isn't lecture or textbook style. I'll apply the small fixes first.
+
+Comment-only edits. I'll re-verify on a scratch copy, then run the real `make zip` in the container.
+
+The zip is built and tested, and it's ready to upload: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\proj2-code.zip` (19 KB, made with `make zip` in your running container).
+
+## Final review
+I re-read all five edited files line by line. Nothing is left over from the earlier slop: no EINTR retries, no `PyErr_Occurred()` guards, no `failed` flags, no `split_work` helper, no TODO or "Step N" comments, no trailing whitespace, no tabs, no CRLF, and every file ends with a newline.
+
+I made four small comment-only edits for oral-exam clarity:
+- **`strvec_take`** now has a comment explaining why it runs in the Part 1 loop.
+- **The pipe `worker` doc comment** now uses the revised starter's own wording.
+- **A one-line comment in each of the pipe, shmem and threads files** says `end` is exclusive. The starter's docs say "last element", but the code is half-open `[start, end)`.
+
+Things that could look questionable and why they stand:
+- **`fflush(stdout)`** is straight from Lab 1's `fork_wait.c` (same comment). Without it, a failing `exec` printed a duplicate `@>` prompt.
+- **The `n_workers == 0` check** exists because the split divides by it. The starter itself only has Python's `assert` for that.
+- **`assert` for matching dimensions** is the starter's own line, kept as the spec allows.
+- **`WIFEXITED`/`WEXITSTATUS`** come from the professor's `lab02-code/redirect_child.c`.
+- **`ceil` and `min`** are the pair the Canvas page points to.
+- **`exit()` with children freeing their copies** is exactly what the spec says for the pipe version.
+
+## Results on the final code
+- **Part 1:** 8/8.
+- **Part 2:** 18/18.
+- **Sweep:** 135 runs across all matrices, all three modes (including threads) and several worker counts, 0 failures. A failing `exec` gives exactly 2 prompts.
+- **Zip contents:** it holds only sources and no `test_cases/`. The four EDIT files match your workspace byte for byte.
+- **Zip rebuilt from scratch:** I unpacked the zip, built it under `-Werror`, and it passed 8/8 and 18/18 with the starter's test cases.
+
+The zip also contains the old 10/14 `Makefile`, `hadamard_utils.c` and `setup.py`. Gradescope replaces those with its own copies, so they don't affect grading. After `make zip`, `proj2-code` holds only sources plus `test_cases/` and the new zip, with no build leftovers.
+
+## Remaining steps
+1. Upload `proj2-code.zip` to Gradescope before 11:59pm tonight.
+2. Add your partner through Gradescope's group option, if you have one.
+3. Compare the autograder score with your local 26/26.
+4. Book your oral exam slot.
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code"; grep -n " $" part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c ../../Labs/lab05-code/square_numbers.c | head; grep -n "TODO\|calude\|Step " part1/swish_funcs.c part2/hadamard_*.c | head; tail -c 50 part2/hadamard_threads.c | od -c | tail -3
+```
+```
+0000040   P   y   _   R   E   T   U   R   N   _   N   O   N   E   ;  \n
+0000060   }  \n
+0000062
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part1\swish_funcs.c`
+```diff
+-         if (i > 0) {
+-             strvec_take(tokens, bar_idx);
+-         }
++         // Drop the command just copied so the next search finds the previous "|"
++         if (i > 0) {
++             strvec_take(tokens, bar_idx);
++         }
+```
+- `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_pipe.c`
+```diff
+-  * Function executed in each child process to compute its portion of the hadamard product
+-  * 'a'
++  * Function called by each child process to perform its portion of work
++  * 'a'
+```
+- `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_pipe.c`
+```diff
+-     // Round up so every element gets covered, last chunk may be smaller
+-     unsigned chunk_size
++     // Round up so every element gets covered, last chunk may be smaller
++     // Worker handles indexes from start up to, but not including, end
++     unsigned chunk_size
+```
+- `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_shmem.c`
+```diff
+-     // Round up so every element gets covered, last chunk may be smaller
+-     unsigned chunk_size
++     // Round up so every element gets covered, last chunk may be smaller
++     // Worker handles indexes from start up to, but not including, end
++     unsigned chunk_size
+```
+- `Edit` -- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\csci4061-fa26\Projects\proj2-code\part2\hadamard_threads.c`
+```diff
+-     // Round up so every element gets covered, last chunk may be smaller
+-     unsigned chunk_size
++     // Round up so every element gets covered, last chunk may be smaller
++     // Worker handles indexes from start up to, but not including, end
++     unsigned chunk_size
+```
+- `Bash`
+```bash
+SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/f1.sh" <<'EOF'
+W=/workspaces/csci4061-fa26/Projects
+rm -rf /tmp/pv && cp -r $W/proj2-original /tmp/pv
+cp $W/proj2-code/part1/swish_funcs.c /tmp/pv/part1/
+cp $W/proj2-code/part2/hadamard_pipe.c $W/proj2-code/part2/hadamard_shmem.c $W/proj2-code/part2/hadamard_threads.c /tmp/pv/part2/
+cd /tmp/pv && make 2>&1 | grep -i -E "warning|error"; make test-part1 2>&1 | grep -E "Passed [0-9]|Total"; make test-part2 2>&1 | grep -E "Passed [0-9]|Total"
+cd part2; n=0; f=0
+for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 3 7 16 33; do
+  python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt
+  n=$((n+1)); cmp -s /tmp/o.txt test_cases/output/mat_$m.txt && [ ! -s /tmp/e.txt ] || { f=$((f+1)); echo FAIL $mode $m $w; }
+done; done; done; echo "sweep $n runs, $f failures"
+cd /tmp/pv/part1; printf 'echo hi | nosuchcmd\nexit\n' | ./swish 2>&1 | grep -o '@>' | wc -l
+cd /; rm -rf /tmp/pv /tmp/o.txt /tmp/e.txt
+echo "===== make zip in the real workspace"
+cd $W/proj2-code && make zip 2>&1 | grep -v "adding:" | tail -5
+ls -la proj2-code.zip; unzip -l proj2-code.zip | awk '{print $4}' | grep -v '^$' | grep -v -E '^(Name|----)$'
+echo "== zip vs workspace files identical?"
+rm -rf /tmp/zt && mkdir /tmp/zt && cd /tmp/zt && unzip -q $W/proj2-code/proj2-code.zip
+for f in part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c; do cmp proj2-code/$f $W/proj2-code/$f && echo "same $f"; done
+echo "== zip unpacked, built and tested with starter test_cases"
+cp -r $W/proj2-original/part1/test_cases proj2-code/part1/; cp -r $W/proj2-original/part2/test_cases proj2-code/part2/
+cd proj2-code && make 2>&1 | grep -i -E "warning|error"; make test-part1 2>&1 | grep -E "Passed [0-9]"; make test-part2 2>&1 | grep -E "Passed [0-9]"
+cd /; rm -rf /tmp/zt
+echo "== workspace state after make zip"; cd $W/proj2-code; find . -type f -not -path "*/test_cases/*" | sort; diff -rq ../proj2-original . | grep -v test_cases
+EOF
+docker exec -i cranky_pasteur bash -s < "$SD/f1.sh" 2>&1 | head -90
+```
+```
+gcc -Wall -Werror -g -c swish.c
+gcc -Wall -Werror -g -c string_vector.c
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Total Score: 8.0/8.0
+Passed 18/18 Tests
+Total Score: 18.0/18.0
+sweep 135 runs, 0 failures
+2
+===== make zip in the real workspace
+rm -rf test_results
+make[1]: Leaving directory '/workspaces/csci4061-fa26/Projects/proj2-code/part2'
+rm -f proj2-code.zip
+cd .. && zip "proj2-code/proj2-code.zip" -r "proj2-code" -x "proj2-code/part1/test_cases/*" "proj2-code/part2/test_cases/*" "proj2-code/.git/*"
+Zip created in proj2-code.zip
+-rw-r--r-- 1 root root 19332 Oct 30 19:08 proj2-code.zip
+proj2-code/
+proj2-code/Makefile
+proj2-code/part1/
+proj2-code/part1/Makefile
+proj2-code/part1/string_vector.c
+proj2-code/part1/string_vector.h
+proj2-code/part1/swish.c
+proj2-code/part1/swish_funcs.c
+proj2-code/part1/swish_funcs.h
+proj2-code/part1/[REDACTED].o
+proj2-code/part1/[REDACTED].o
+proj2-code/part2/
+proj2-code/part2/hadamard.h
+proj2-code/part2/hadamard_extension.c
+proj2-code/part2/hadamard_main.py
+proj2-code/part2/hadamard_pipe.c
+proj2-code/part2/hadamard_shmem.c
+proj2-code/part2/hadamard_threads.c
+proj2-code/part2/hadamard_utils.c
+proj2-code/part2/Makefile
+proj2-code/part2/pyproject.toml
+proj2-code/part2/setup.py
+== zip vs workspace files identical?
+same part1/swish_funcs.c
+same part2/hadamard_pipe.c
+same part2/hadamard_shmem.c
+same part2/hadamard_threads.c
+== zip unpacked, built and tested with starter test_cases
+gcc -Wall -Werror -g -c swish.c
+gcc -Wall -Werror -g -c string_vector.c
+gcc -Wall -Werror -g -c swish_funcs.c
+gcc -Wall -Werror -g -o swish swish.o string_vector.o swish_funcs.o [REDACTED].o
+Passed 8/8 Tests
+Passed 18/18 Tests
+== workspace state after make zip
+./Makefile
+./part1/Makefile
+./part1/string_vector.c
+./part1/string_vector.h
+./part1/swish.c
+./part1/swish_funcs.c
+./part1/swish_funcs.h
+./part1/[REDACTED].o
+./part1/[REDACTED].o
+./part2/Makefile
+./part2/hadamard.h
+./part2/hadamard_extension.c
+./part2/hadamard_main.py
+./part2/hadamard_pipe.c
+./part2/hadamard_shmem.c
+./part2/hadamard_threads.c
+./part2/hadamard_utils.c
+./part2/pyproject.toml
+./part2/setup.py
+./proj2-code.zip
+Files ../proj2-original/part1/swish_funcs.c and ./part1/swish_funcs.c differ
+Files ../proj2-original/part2/Makefile and ./part2/Makefile differ
+Files ../proj2-original/part2/hadamard_pipe.c and ./part2/hadamard_pipe.c differ
+Files ../proj2-original/part2/hadamard_shmem.c and ./part2/hadamard_shmem.c differ
+Files ../proj2-original/part2/hadamard_threads.c and ./part2/hadamard_threads.c differ
+Files ../proj2-original/part2/hadamard_utils.c and ./part2/hadamard_utils.c differ
+Files ../proj2-original/part2/setup.py and ./part2/setup.py differ
+Only in .: proj2-code.zip
+```
 
 ## Actions Taken
 
@@ -14446,4 +14861,9 @@ _None detected_
 - `docker exec cranky_pasteur bash -c 'rm -rf /tmp/rv_mine /tmp/rv_naf /tmp/nf /tmp/t_mine /tmp/t_naf /tmp/o*.txt /tmp/e.txt /tmp/in_dup.txt /tmp/review1.sh; ls /tmp | head; cd /workspaces/csci4061-fa26/Projects; find proj2-code proj2-code-naf -newer proj2-original/Makefile -type f -not -path "*/test_cases/*" | grep -v "\.c$" | head'`
 - `docker exec cranky_pasteur bash -c 'cat /tmp/lab05-original-square_numbers.c; echo ======; cd /workspaces/csci4061-fa26/Labs/lab05-code; ls; diff /tmp/lab05-original-square_numbers.c square_numbers.c | head -5; cat test_cases/tests.json | head -40'`
 - `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v1.sh" <<'EOF' W=/workspaces/csci4061-fa26 echo "##### Lab 5 (scratch copy)" rm -rf /tmp/l5 && cp -r $W/Labs/lab05-code /tmp/l5 && cd /tmp/l5 && make clean >/dev/null 2>&1; make 2>&1 | grep -i -E "warning|error"; make test 2>&1 | grep -E "Passed [0-9]|Total|Test" for n in 5 7 9 11 40 41 100; do ./square_numbers $n | md5sum | cut -c1-8 | tr '\n' ' '; done; echo "<- same hash for every worker count?" ./square_numbers 0; echo "exit=$?" echo "##### Project, revised starter + my EDIT files" rm -rf /tmp/pv && cp -r $W/Projects/proj2-original /tmp/pv cp $W/Projects/proj2-code/part1/swish_funcs.c /tmp/pv/part1/ cp $W/Projects/proj2-code/part2/hadamard_pipe.c $W/Projects/proj2-code/part2/hadamard_shmem.c $W/Projects/proj2-code/part2/hadamard_threads.c /tmp/pv/part2/ cd /tmp/pv && make clean >/dev/null 2>&1 make 2>&1 | grep -i -E "warning|error" make test-part1 2>&1 | grep -E "Passed [0-9]|Total" make test-part2 2>&1 | grep -E "Passed [0-9]|Total|Test .*[Ff]ail" cd part2; n=0; f=0 for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 2 3 5 7 16 33 100; do   python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt   n=$((n+1)); if ! cmp -s /tmp/o.txt test_cases/output/mat_$m.txt || [ -s /tmp/e.txt ]; then f=$((f+1)); echo "FAIL $mode $m $w"; fi done; done; done; echo "sweep: $n runs, $f failures" python3 - <<'PY' import struct open('/tmp/s_a.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',1,2,3,4,5,-6)) open('/tmp/s_b.bin','wb').write(struct.pack('II',2,3)+struct.pack('6i',7,8,9,10,11,12)) PY for mode in threads pipe shmem; do echo "tiny/$mode (50 workers):"; python3 hadamard_main.py /tmp/s_a.bin /tmp/s_b.bin $mode 50 | tr '\n' ' '; echo; done python3 - <<'PY' import hadamard for name in ("hadamard_pipe","hadamard_shmem","hadamard_threads"):     f=getattr(hadamard,name)     for args in (("/tmp/s_a.bin","/tmp/s_b.bin",0),("/nonexistent","/tmp/s_b.bin",2),("/tmp/s_a.bin","/tmp/s_b.bin","x")):         try: f(*args); print(name,"NO EXCEPTION")         except Exception as e: print(name,args[2],type(e).__name__) PY python3 - >/dev/null <<'PY' import hadamard, os, sys a='test_cases/resources/mat_04_a.bin'; b='test_cases/resources/mat_04_b.bin' nfd=lambda: len(os.listdir('/proc/self/fd')) f0=nfd() for fn in (hadamard.hadamard_pipe,hadamard.hadamard_shmem,hadamard.hadamard_threads):     for i in range(200): fn(a,b,8) print("fds before/after",f0,nfd(),file=sys.stderr) PY echo "zombies: $(ps aux | grep -c '[d]efunct')" python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin pipe 4 | cmp - test_cases/output/mat_03.txt && echo "8MB pipe case ok" echo "##### Part 1 extras" cd /tmp/pv/part1; S=./swish printf 'the cat and the dog and the bird\nThe end of the story and the beginning\n' > /tmp/gatsby.txt run() { printf '%s\n' "$@" "exit" | $S 2>&1; } cat > /tmp/in1.txt <<'X' cat /tmp/gatsby.txt | tr -cs A-Za-z \n | tr A-Z a-z | sort | uniq -c | sort -n | tail -n 3 exit X echo "7-cmd:"; $S < /tmp/in1.txt 2>&1 | tr -s '\n' echo "both redirects:"; run 'cat < /tmp/gatsby.txt | sort | uniq | wc -l > /tmp/out.txt' 'cat /tmp/out.txt | cat' echo "append:"; run 'echo one | cat > /tmp/o.txt' 'echo two | cat >> /tmp/o.txt' 'cat /tmp/o.txt | cat' echo "bad middle:"; run 'cat /tmp/gatsby.txt | nosuchcmd | wc -l' 'echo after | cat' echo "12 chain:"; run 'echo hi | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat' echo "prompt count with failing exec (expect 2):"; printf 'echo hi | nosuchcmd\nexit\n' | $S 2>&1 | grep -o '@>' | wc -l echo "valgrind:"; printf 'cat /tmp/gatsby.txt | sort | uniq -c | tail -n 2\nexit\n' > /tmp/in2.txt; valgrind -q --leak-check=full --track-fds=yes $S < /tmp/in2.txt 2>&1 | head -12 EOF docker exec -i cranky_pasteur bash -s < "$SD/v1.sh" 2>&1 | head -120`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v2.sh" <<'EOF' W=/workspaces/csci4061-fa26 id -un echo "== old (10/14) non-EDIT files, in-place copy of proj2-code" rm -rf /tmp/old && cp -r $W/Projects/proj2-code /tmp/old && cd /tmp/old && make clean >/dev/null 2>&1; make 2>&1 | grep -i -E "warning|error"; make test-part1 2>&1 | grep -E "Passed [0-9]"; make test-part2 2>&1 | grep -E "Passed [0-9]" echo "== fork failure paths (ulimit -u)" cd /tmp/pv/part2 for mode in pipe shmem threads; do   timeout 30 bash -c "ulimit -u \$(( \$(ps -u \$(id -u) -L --no-headers | wc -l) + 6 )); python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin $mode 40 2>&1 >/dev/null | tail -2"; echo "$mode exit=$? (124 would mean hang)" done echo "zombies: $(ps aux | grep -c '[d]efunct')" cd /tmp/pv/part1; timeout 30 bash -c "ulimit -u \$(( \$(ps -u \$(id -u) -L --no-headers | wc -l) + 3 )); printf 'echo a | cat | cat | cat | cat | cat | cat\nexit\n' | ./swish 2>&1 | tail -3"; echo "swish exit=$?" echo "== -Wextra on EDIT files" cd /tmp/pv/part2; gcc -fsyntax-only -Wall -Wextra -I/usr/include/python3.10 -I. hadamard_pipe.c hadamard_shmem.c hadamard_threads.c 2>&1 | grep warning | grep -v "unused parameter 'self'" cd /tmp/pv/part1; gcc -fsyntax-only -Wall -Wextra swish_funcs.c 2>&1 | grep warning | head -5 echo "== long lines / CRLF" cd $W/Projects/proj2-code; awk 'length>100{print FILENAME":"FNR": "length}' part1/swish_funcs.c part2/hadamard_*.c; grep -c $'\r' part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c $W/Labs/lab05-code/square_numbers.c | tr '\n' ' ' EOF docker exec -i cranky_pasteur bash -s < "$SD/v2.sh" 2>&1 | head -60; docker exec -i cranky_pasteur python3 - < "$SD/review4.py" 2>&1 | sed -n '1p;19,30p'`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/v3.sh" <<'EOF' chmod -R a+rX /tmp/pv cd /tmp/pv/part2 for mode in pipe shmem threads; do   timeout 40 runuser -u nobody -- bash -c "ulimit -u 8; cd /tmp/pv/part2; python3 hadamard_main.py test_cases/resources/mat_03_a.bin test_cases/resources/mat_03_b.bin $mode 40 2>&1 >/dev/null | tail -2"   echo "$mode exit=${PIPESTATUS[0]}" done echo "zombies/leftover python: $(ps aux | grep -c '[h]adamard_main')" timeout 40 runuser -u nobody -- bash -c "ulimit -u 8; cd /tmp/pv/part1; printf 'echo a | cat | cat | cat | cat | cat | cat | cat | cat | cat | cat\nexit\n' | ./swish 2>&1 | tail -4" echo "swish exit=${PIPESTATUS[0]}; leftover swish/cat: $(ps aux | grep -c '[s]wish')" EOF docker exec -i cranky_pasteur bash -s < "$SD/v3.sh" 2>&1 | head -30`
+- `docker exec cranky_pasteur bash -c 'rm -rf /tmp/l5 /tmp/pv /tmp/old /tmp/s_a.bin /tmp/s_b.bin /tmp/o.txt /tmp/e.txt /tmp/in1.txt /tmp/in2.txt /tmp/gatsby.txt /tmp/out.txt /tmp/o.txt; cd /workspaces/csci4061-fa26/Projects; diff -rq proj2-original proj2-code | grep -v test_cases; echo ---; find proj2-code -name "*.so" -o -name "build" -o -name "*.egg-info" -o -name swish -o -name test_results | head'`
+- `cd "D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4061/csci4061-fa26/Projects/proj2-code"; grep -n " $" part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c ../../Labs/lab05-code/square_numbers.c | head; grep -n "TODO\|calude\|Step " part1/swish_funcs.c part2/hadamard_*.c | head; tail -c 50 part2/hadamard_threads.c | od -c | tail -3`
+- `SD="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a9e46100-945b-4824-a25e-507a231d7cb0/scratchpad"; cat > "$SD/f1.sh" <<'EOF' W=/workspaces/csci4061-fa26/Projects rm -rf /tmp/pv && cp -r $W/proj2-original /tmp/pv cp $W/proj2-code/part1/swish_funcs.c /tmp/pv/part1/ cp $W/proj2-code/part2/hadamard_pipe.c $W/proj2-code/part2/hadamard_shmem.c $W/proj2-code/part2/hadamard_threads.c /tmp/pv/part2/ cd /tmp/pv && make 2>&1 | grep -i -E "warning|error"; make test-part1 2>&1 | grep -E "Passed [0-9]|Total"; make test-part2 2>&1 | grep -E "Passed [0-9]|Total" cd part2; n=0; f=0 for m in 00 01 02 03 04 05 06 07 08; do for mode in threads pipe shmem; do for w in 1 3 7 16 33; do   python3 hadamard_main.py test_cases/resources/mat_${m}_a.bin test_cases/resources/mat_${m}_b.bin $mode $w > /tmp/o.txt 2>/tmp/e.txt   n=$((n+1)); cmp -s /tmp/o.txt test_cases/output/mat_$m.txt && [ ! -s /tmp/e.txt ] || { f=$((f+1)); echo FAIL $mode $m $w; } done; done; done; echo "sweep $n runs, $f failures" cd /tmp/pv/part1; printf 'echo hi | nosuchcmd\nexit\n' | ./swish 2>&1 | grep -o '@>' | wc -l cd /; rm -rf /tmp/pv /tmp/o.txt /tmp/e.txt echo "===== make zip in the real workspace" cd $W/proj2-code && make zip 2>&1 | grep -v "adding:" | tail -5 ls -la proj2-code.zip; unzip -l proj2-code.zip | awk '{print $4}' | grep -v '^$' | grep -v -E '^(Name|----)$' echo "== zip vs workspace files identical?" rm -rf /tmp/zt && mkdir /tmp/zt && cd /tmp/zt && unzip -q $W/proj2-code/proj2-code.zip for f in part1/swish_funcs.c part2/hadamard_pipe.c part2/hadamard_shmem.c part2/hadamard_threads.c; do cmp proj2-code/$f $W/proj2-code/$f && echo "same $f"; done echo "== zip unpacked, built and tested with starter test_cases" cp -r $W/proj2-original/part1/test_cases proj2-code/part1/; cp -r $W/proj2-original/part2/test_cases proj2-code/part2/ cd proj2-code && make 2>&1 | grep -i -E "warning|error"; make test-part1 2>&1 | grep -E "Passed [0-9]"; make test-part2 2>&1 | grep -E "Passed [0-9]" cd /; rm -rf /tmp/zt echo "== workspace state after make zip"; cd $W/proj2-code; find . -type f -not -path "*/test_cases/*" | sort; diff -rq ../proj2-original . | grep -v test_cases EOF docker exec -i cranky_pasteur bash -s < "$SD/f1.sh" 2>&1 | head -90`
 

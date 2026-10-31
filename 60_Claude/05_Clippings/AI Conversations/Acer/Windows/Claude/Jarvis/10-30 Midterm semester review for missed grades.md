@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Midterm semester review for missed grades"
 started_at: 2026-10-30T20:09:35
-ended_at: 2026-10-30T20:26:57
-exported_at: 2026-10-30T20:33:05
-duration_minutes: 17.4
+ended_at: 2026-10-30T21:31:51
+exported_at: 2026-10-30T21:33:04
+duration_minutes: 82.3
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: b64dbfed-9222-434f-85f7-66c923de93d3
@@ -15,24 +15,26 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-10-30
-turn_count: 4
+turn_count: 8
 tools_used:
-  Bash: 18
+  Bash: 34
   Edit: 3
   Glob: 14
-  Grep: 7
-  Read: 29
+  Grep: 8
+  Read: 36
   Write: 1
 tokens:
-  input: 56
-  output: 42909
-  cache_creation: 209952
-  cache_read: 4180569
-  total: 4433486
-cost_usd: 1.687067
+  input: 80
+  output: 73904
+  cache_creation: 260602
+  cache_read: 7178434
+  total: 7513020
+cost_usd: 2.499451
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\agents\\professor.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\Course Production Board — Fall'26.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\CSCI 4061 Board.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4511W\\Assignments\\Written\\Problem Set 1.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4511W\\CSCI 4511W Board.md"
@@ -52,11 +54,16 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\00_How This Folder Works.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Note Type Registry.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Conformance Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Concept Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Courses\\Degree Control Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Decoration Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Frontmatter Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Note Kit Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\excalidraw-mcp\\README.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\vault-lint\\Vault Lint.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Classes\\Concept Template.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Classes\\Degree Control Template.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Workflows\\Courses\\Concept Workflow.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Workflows\\Courses\\Course Production Workflow.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Workflows\\Courses\\Per Class\\CSCI 4061 Workflow.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\05_Clippings\\AI Conversations\\Acer\\Windows\\Claude\\Jarvis\\10-15 Jarvis 30_Order systems gap review.md"
@@ -1314,6 +1321,1081 @@ exit/differences: 1
 2026-10-29 Auto-sync: 2026-10-29 01:03,  102 files changed, 1701 insertions(+), 76 deletio
 ```
 
+## You
+
+
+
+<pasted_content id="b43c">
+Great, great research done. To focus on the things that you mentioned earlier:
+
+1.  The nodes: I think the count that you mention is slightly wrong. It's a lot more than the files that you mentioned. That is, it almost works for us but templates should be half the size of what currently exists. 77 templates is way too much.
+2.  Something that was missed was the A type of notes that I told you, which are:
+    
+    *   week
+    *   lab
+    *   homework
+    *   discussion
+    *   textbook
+    *   exam
+    *   project
+    *   board
+    
+    These are the eight. Something that was missed was concept note and track and audit, so 10 types of notes in total. I think that should definitely be it.  
+      
+    That should not be a textbook. Weekly subboard preparation note, exam material, or project companion: all of these are templates on standards that should be summed up inside the standard. The template should be empty enough on it, less descriptive now, that it could be turned into a map or a weekly support. We do not require separate templates for these purposes. All of these can be summed up in boards or textbook notes or exam note or track and audit. Too many templates regarding this process.  
+      
+    Something that is undecided is archive. While I was looking through the resources folder in UMN, looking through the UMN folder, was a previous classes folder established? The notes should be archived once the folder has been moved to previous classes. Any course that is inside that previous classes folder is an archive class and that is decided now and should be mentioned in the registry as well.  
+      
+    One class workflow that is currently missing is NGMT 3015. Other than that the workflows for courses, CM, are correct and exactly as they should be. These are specified workflows established for both goods. In general only one workflow is applied for learning. This, in general, workflow for any course is going to just be called learning workflow. Any sort of course that we're doing or any sort of learning that's taking place for a specific concept should be following this learning workflow because at the end of it all we're doing is learning new concepts.  
+      
+    The lint flag for any note that doesn't match the standard as unmapped is great. The lint workflow is going to be completely customized and completely upgraded so that any sort of notes that we're writing are going to have a lint check to really make sure that the text written down is correct. I think it's a great way to check it.  
+      
+    Another workflow that should be established is a design workflow. The design workflow that I'm talking about is italics, bolds, highlighting, and using the plugins correctly: the plugins, the settings, and everything. The system is established so that we are doing everything correctly, we're writing the notes cleanly, and making sure that the format is correct for the notes. I don't think that lint might cover the formatting but I don't think it can cover the italics, bold, the style, and the plugin usage.  
+      
+    I wanted to be very specific about using Obsidian settings, using Obsidian plugins, community plugins, the plugins that we make, and the dashboard. The system really focuses on the content inside it. I think we need a workflow for that.  
+      
+    A standard staying under 700 words is a hard limit and I think that should be implemented correctly. Anything that blows should be cut down, what we should do, and what the note should do for that specific thing. Just because 700 words is the limit doesn't mean that the standard should be 700 words. We focus on making the standard short enough for easy understanding.  
+      
+    700 words is a cap so that means that a standard should, on average, be 400 words or 500 words. Only extremely complicated standards for extremely complicated note systems are allowed to go over 700 words. Over 700 words means a hard cap of 1,000 words. Nothing more than 1,000 words is ever written in a standard. That is the hardest CAPS standard and the average is 400 to 700 words. That's literal, and that is what I want to implement.  
+      
+    The workflow seems to be having a problem with restating other notes. This is a particular problem: why is this workflow restating the notes in the first place when the system for the notes has already been established? The workflow should be focusing specifically on the writing material and the course material that we need to work on so it should not be restating other notes. It should be restating the notes that need to be written based on the previous courses that have been worked on.  
+      
+    The professor agent is going to be one of our most useful agents but we are not going to have course-specific skills. For this human workflow we're not going to have skills established for each class. I doubt we're going to have any hooks or commands but we are going to have this professor agent to make sure that we go through the content clearly.  
+      
+    The skills that are going to be established for the courses are going to be generic. The skills are going to be like, "I think I've already established the system so do not rely on the words that I'm just about to be telling you. Rely on what is currently established inside Java. Go through it in detail." What do we require for the Claude system?  
+      
+    This professor agent uses roughly 3 to 4, max 5, skills to list out all 10 types of notes that I will mention to you. All 10 types of notes that I mentioned to you almost come down to just learning the content and writing it out in an explanatory way, and writing it out in a way that Anant understands it. For these the skills are written out to establish these notes in exactly the manner that I need them to be established. The agent uses these skills to establish the note for each and every single course.  
+      
+    If the skills are more than 5 we need to cut them down and we don't need class-specific skills like CS5441. The professor agent uses these generic skills for all the courses. Claude can itself decide, from the session that's taking place, how specified the work is going to be.  
+      
+    Let's be essentialistic about this. I feel like we're not being essentialistic about this. There are way too many systems established and we need to minimize that in a manner that the things that are currently going to be established are going to be golden. They're going to be golden in a way that they do exactly what they're supposed to do. Yes now coming to the decisions
+</pasted_content id="b43c">
+
+
+1. Concept is a first class note type and is our primary learning source to anything. everything is learnt from this file in detail. This is the most crucial note that is designed for anything that is being studied because this is a note that is very carefulyl created with a lot of things in mind while studying. So, the thought process really needs to relfect the learning here in concept notes. The implementation that is done after reading through these concept notes are also going to golden because on everything that was just studied we learnt, implenented and tested ourselves. Then, update the note with missing or more crucial content that was confusing to me, 
+
+2. Do textbook-map, weekly board, preparation, exam-material and project-companion fold into the Board or their parent note? yes
+
+3. Do the per-class workflows become thin addenda, or go away? become thin in a manner that they solely focus on the things that are required for the course specifcally, not overstepping onto the other systems.
+
+4. Is Previous Classes held to the new shapes, or frozen as an archive? this is just an archive folder for the courses. nothing has been worked on inside this course. But the notes inside this folder should simply have the status: archived. 
+
+5.  Which copy of the CSCI 2033 tree and Spring'26 Syllabus is the real one? `40_Resources/UMN/Previous Classes/CSCI 2033` - real one.
+
+## Claude
+
+Your decisions are clear. Before I turn them into a target system, I'm running read-only checks on word counts, the existing design-workflow pieces, the professor agent and the template counts.
+
+I haven't changed anything. Below is the target system as I understand it from your decisions, then the points where your instructions conflict with each other or with the vault.
+
+## Target system for courses
+
+| Layer | Now | Target |
+|---|---|---|
+| Note types | 18 families | **11:** week, lab, homework, discussion, textbook, exam, project, board, concept, track, audit |
+| Course Standards | 16 files | 11 |
+| Course Templates | 15 | 10 (audit has no template today) |
+| Course Workflows | 18 (13 generic and 5 per-class) | 7: one Learning Workflow and 6 thin per-class addenda |
+| Archive | undecided | decided: anything under `Previous Classes/` is `status: archived` |
+| Agent and skills | Scaffold `professor`, no course skills | `professor` plus 3 to 5 generic skills |
+
+- **Your list totals 11, not 10.** The 11 are the eight, plus concept, track and audit. If you meant 10, tell me which one folds in.
+- **Folds I'm taking from your answers:**
+  - textbook-map goes into the Board.
+  - weekly board goes into the Board.
+  - preparation goes into the Board.
+  - exam-material goes into the Exam.
+  - project-companion goes into the Project.
+- **Five course files disappear from each of Standards and Templates:** Textbook Map, Weekly Board, Preparation, Exam Material, and Degree Control (see Q1).
+- **The 13 generic course workflows** collapse into one Learning Workflow.
+- **The six addenda** are CSCI 4511W, 4061, 4521, 5304, Technical Interview, and a new one for MGMT 3015.
+- **Addenda size.** The four CSCI ones are currently 1,457 to 2,056 words each, not the 10 to 15 KB I quoted before. A thin addendum keeps the source folder, the textbook edition, the course quirks (4061's Docker grading, for example), and what to write and where. It drops grading weights, routing tables and the generic rhythm.
+- **Skills.** Four generic skills would cover it:
+  - concept and textbook
+  - week and discussion
+  - lab, homework and project
+  - exam, board, track and audit
+
+  Each skill would tell Claude to read the registry row and live Standard instead of carrying its own rules. `professor.md` needs a rewrite, because it still describes per-course skills like `class-csci4041`.
+
+## Corrections to my earlier numbers
+
+- **77 templates is the whole vault**, not just courses. Only 15 are course templates.
+- **Halving to about 38 can't come from courses.** Courses go from 15 to 10, which makes the vault total 72. The rest sit here:
+  - Career: 14
+  - Capability: 11
+  - AI Toolkit: 9
+  - Frontmatter: 9
+  - Projects: 7
+  - Knowledge: 5
+  - Enumerate: 4
+  - System: 2
+
+  Getting to half means deciding those families too, which is a separate pass.
+
+## Where your instructions conflict with the vault
+
+- **Word cap.**
+  - All 74 Standards already pass 700 words (average 439, longest 699). That count excludes frontmatter, the Spec JSON and tables.
+  - The Note Kit Standard also says "over 700, split the family". That rule is one driver of proliferation. Your rule says cut down instead, so that clause would go.
+  - I can recount including tables and Spec blocks, which is probably where most Standards go over.
+- **Design workflow mostly exists.**
+  - `Decoration` (304 words) covers highlight, bold, labels and callouts. `Plugins Usage` (339 words) covers Dataview, Tasks, cards, Kanban, Meta Bind and Excalidraw. They have Standards of 668 and 606 words. `Jarvis Writing and Formatting` adds a 3,046-word guide.
+  - What's missing is Obsidian settings, community plugin configuration, your own plugins and the dashboard.
+  - The linter already catches some of this, such as dead Dataview paths and the blank-line rules. It can't judge whether a bold or italic is well placed.
+- **"Check the text is correct" can't be fully scripted.** The linter can check structure and the mechanical style rules. It can't check whether the facts are right.
+- **Concept lifecycle.** You described concept notes as study, implement, test yourself, then update with what confused you. I haven't re-read the Concept Standard against that, and I suspect it lacks implementation, self-test and confusions sections.
+- **CSCI 2033 is placed inconsistently.** The real copy sits flat in `Previous Classes/`, while the other CSCI courses sit under `CSCI/`.
+
+## Questions
+
+1. **Control notes.** The 7 root notes (Fall'26 Syllabus, Every Week, UMN Board, Course Production Board, Hit or Miss, Repetitive Things, `_Courses Board`) fit none of your 11 types. I recommend treating them as Boards, so `Degree Control` folds in. Is that right?
+2. **Spring'26 Syllabus.** You named CSCI 2033 but not this one. I recommend keeping the `Previous Classes/` copy, since Spring is past. Is that right?
+3. **Word cap.** Does it count the whole body, including tables and the Spec block, or prose only?
+4. **Design workflow.** Should it merge Decoration and Plugins Usage and add settings and the dashboard, as one workflow? The alternative is adding a third workflow beside them.
+5. **Build order.** I'd go: rules and registry, then the course kit, then archive and dedupe, then the linter, then the design workflow, then `professor` and the skills, then the UMN folder, then the Fall'26 notes. Should I start in that order, or do you want to change it first?
+
+Deletions, merges and the archive status change would all wait for your go-ahead.
+
+### Tool Calls
+
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && python3 - <<'EOF' 2>/dev/null || node -e "console.log('no python')"
+import re,glob,os
+def words(p):
+    t=open(p,encoding='utf-8').read()
+    t=re.sub(r'^---.*?---\n','',t,flags=re.S)
+    t=re.sub(r'```.*?```','',t,flags=re.S)
+    t=re.sub(r'^\|.*$','',t,flags=re.M)
+    return len(t.split())
+rows=[]
+for p in glob.glob('Standards/**/*.md',recursive=True):
+    rows.append((words(p),p))
+rows.sort(reverse=True)
+tot=len(rows)
+print("Standards:",tot,"avg prose words",sum(w for w,_ in rows)//tot)
+print(">700:",sum(1 for w,_ in rows if w>700),">1000:",sum(1 for w,_ in rows if w>1000))
+print("Top 12:")
+for w,p in rows[:12]: print(w,p)
+print("Courses standards:")
+for w,p in sorted(r for r in rows if 'Courses' in r[1]): print(w,os.path.basename(p))
+wf=[(words(p),p) for p in glob.glob('Workflows/Courses/**/*.md',recursive=True)]
+print("Course workflows >350:",sum(1 for w,_ in wf if w>350),"of",len(wf))
+for w,p in sorted(wf,reverse=True)[:7]: print(w,os.path.basename(p))
+EOF
+````
+```
+no python
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && echo "Templates by folder:"; for d in Templates/*/; do printf "  %-32s %s\n" "$d" "$(find "$d" -name '*.md' | wc -l)"; done; echo; echo "Workflows by folder:"; for d in Workflows/*/; do printf "  %-28s %s\n" "$d" "$(find "$d" -name '*.md' | wc -l)"; done; echo; ls Workflows/Toolkit Workflows/System Workflows/Enrichment 2>/dev/null; echo; ls ../60_Claude/07_AI_Information 2>/dev/null | head -20; find .. -name "Jarvis Writing and Formatting.md" -not -path "*/.stversions/*" | head -2
+```
+```
+Templates by folder:
+  Templates/AI Toolkit/            9
+  Templates/Capability/            11
+  Templates/Career/                14
+  Templates/Classes/               15
+  Templates/Enumerate/             4
+  Templates/Frontmatter/           9
+  Templates/Knowledge/             5
+  Templates/Projects/              7
+  Templates/System/                2
+
+Workflows by folder:
+  Workflows/Courses/           18
+  Workflows/Enrichment/        7
+  Workflows/Ingestion/         6
+  Workflows/Internship/        8
+  Workflows/Operations/        1
+  Workflows/Projects/          1
+  Workflows/System/            2
+  Workflows/Toolkit/           5
+
+Workflows/Enrichment:
+Capture to Summary.md
+Decoration.md
+Enrichment.md
+Human Content Writer.md
+Output with Provenance.md
+Plugins Usage.md
+Researcher.md
+
+Workflows/System:
+Building a Note Kit.md
+Conformance on Touch.md
+
+Workflows/Toolkit:
+Conversation Capture.md
+Files Tracking.md
+Graphify Folders.md
+Maintaining Logs.md
+Tools Tracking.md
+
+AI Conversation - Summaries
+AI_CONTEXT.md
+Fable Prompt — Dashboard and Ingestion Pass.md
+How Notes Were Actually Written.md
+How to Use Claude
+How to Write in This Vault.md
+Jarvis OS — North Star.md
+Jarvis Writing and Formatting.md
+North Star — Execution Prompt.md
+Plugins.md
+Session Logs
+Vault Map.md
+Vault Rules — Complete AI Ruleset.md
+Why We Write Notes.md
+../60_Claude/07_AI_Information/Jarvis Writing and Formatting.md
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\agents\professor.md`
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node -e '
+const fs=require("fs"),path=require("path");
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):e.name.endsWith(".md")?[path.join(d,e.name)]:[])}
+function words(p){let t=fs.readFileSync(p,"utf8").replace(/^---[\s\S]*?\n---\n/,"").replace(/```[\s\S]*?```/g,"").split("\n").filter(l=>!l.startsWith("|")).join("\n");return t.split(/\s+/).filter(Boolean).length}
+const st=walk("Standards").map(p=>[words(p),p]).sort((a,b)=>b[0]-a[0]);
+console.log("Standards",st.length,"avg",Math.round(st.reduce((a,b)=>a+b[0],0)/st.length),"over700",st.filter(x=>x[0]>700).length,"over1000",st.filter(x=>x[0]>1000).length);
+console.log("Top 8:");st.slice(0,8).forEach(x=>console.log(" ",x[0],path.basename(x[1])));
+console.log("Course Standards:");st.filter(x=>x[1].includes("Courses")).forEach(x=>console.log(" ",x[0],path.basename(x[1])));
+const wf=walk("Workflows/Courses").map(p=>[words(p),p]).sort((a,b)=>b[0]-a[0]);
+console.log("Course workflows over 350:",wf.filter(x=>x[0]>350).length,"of",wf.length);
+wf.slice(0,7).forEach(x=>console.log(" ",x[0],path.basename(x[1])));
+'
+````
+```
+Standards 74 avg 439 over700 0 over1000 0
+Top 8:
+  699 Action Standard.md
+  699 Daily Note Standard.md
+  662 Note Kit Standard.md
+  614 Brief Standard.md
+  613 Weekly Standard.md
+  611 Concept Standard.md
+  586 Conversations.md
+  586 Frontmatter Standard.md
+Course Standards:
+  613 Weekly Standard.md
+  611 Concept Standard.md
+  557 Board Standard.md
+  523 Textbook Standard.md
+  499 Exam Standard.md
+  492 Weekly Board Standard.md
+  491 Homework Standard.md
+  474 Course Project Standard.md
+  424 Lab Standard.md
+  420 Preparation Standard.md
+  390 Discussion Standard.md
+  376 Exam Material Standard.md
+  365 Textbook Map Standard.md
+  351 Self-Study Track Standard.md
+  308 Degree Control Standard.md
+  287 Degree Audit Standard.md
+Course workflows over 350: 5 of 18
+  2056 CSCI 4061 Workflow.md
+  1890 CSCI 4521 Workflow.md
+  1603 CSCI 4511W Workflow.md
+  1457 CSCI 5304 Workflow.md
+  394 Technical Interview Workflow.md
+  323 Exam Workflow.md
+  316 Course Production Workflow.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Enrichment" && for f in Decoration.md "Plugins Usage.md"; do echo "=== $f ($(wc -w < "$f") words)"; sed -n 1,30p "$f" | cut -c1-300; done; echo; cd ../../Standards && for f in "Decoration Standard.md" "Enrich/Plugins Usage Standard.md"; do echo "=== $f ($(wc -w < "$f") words)"; done; wc -w "../../60_Claude/07_AI_Information/Jarvis Writing and Formatting.md"
+```
+```
+=== Decoration.md (304 words)
+---
+type: system
+status: sprout
+created: 2026-09-15
+updated: 2026-10-16
+tags:
+  - system
+  - workflow
+  - writing
+system_kind: workflow
+serves: "[[Decoration Standard]]"
+trigger: A note's content is final and its markers have not been checked, or a rewrite just finished.
+notes:
+  - "[[Human Content Writer]]"
+  - "[[Plugins Usage]]"
+  - "[[Jarvis Writing and Formatting]]"
+---
+# Decoration
+Add the markers to a finished note so each one carries a job, then remove the ones that do not.
+## Use when
+After the content is written and after any anti-slop pass. Never before: markers added to unsettled content get moved or deleted.
+## Steps
+1. Read [[Decoration Standard]] and open the note's own Standard for its heading names.
+2. List the `##` sections. For each, pick the one definitional claim and wrap it in a single `==highlight==`. Remove any second highlight in the section, except card clozes under `## Flashcards`.
+3. Bold each named concept, entity, or category label at its first introduction, and nowhere else.
+4. Add `*Label:*` to each sub-group introduction.
+5. Turn each real warning, caveat, or summary into the right callout type from the Standard. Merge callouts that touch, and map `INFO` to `NOTE` and `CAUTION` to `WARNING`.
+6. Replace any hand-built table that a Dataview block could list ([[Plugins Usage]]), and put a text paragraph beside every embedded drawing.
+7. Run points 8 to 12 of the Quality Gate in [[Jarvis Writing and Formatting]] and fix what fails.
+## Do not
+=== Plugins Usage.md (339 words)
+---
+type: system
+status: sprout
+created: 2026-09-15
+updated: 2026-10-16
+tags:
+  - system
+  - workflow
+  - plugins
+system_kind: workflow
+serves: "[[Plugins Usage Standard]]"
+trigger: A note needs a live list, a task, a card, a board, a widget, or a diagram.
+notes:
+  - "[[40_Resources/Obsidian/Plugins/00 Plugin Reference Index|Plugin Reference Index]]"
+  - "[[Decoration]]"
+---
+# Plugins Usage
+Add plugin syntax to a note so it returns something real and survives the next folder move.
+## Use when
+Writing or fixing a Dataview block, a Tasks line, a `#cards` card, a Kanban board, a Meta Bind input, or an Excalidraw or Canvas embed.
+## Steps
+1. Name the job in one line, for example "list active projects without a `next:`".
+2. Pick the plugin from the table in [[Plugins Usage Standard]]. If a list or a sentence would do, write that.
+3. Read the plugin's reference note from the [[40_Resources/Obsidian/Plugins/00 Plugin Reference Index|Plugin Reference Index]] for its exact syntax. For templates and dates, `Templater` is the active engine.
+4. For Dataview, open three notes that should match and confirm every field in `WHERE` and `TABLE` exists in them.
+5. Write the smallest block that does the job. Restrict `FROM` to a folder. Add a one-sentence explanation above any DataviewJS.
+6. Confirm every `FROM` path exists as a folder or note today.
+7. Open the note in reading view, or run `node vault-lint.js --path <note>` from [[Vault Lint]], which reports `dead-dataview-from`. An empty result needs a reason beside it.
+8. For cards, write them only after the concept is explained, with `#cards/<track>`. For open questions use `- [ ]` tasks.
+## Do not
+
+=== Decoration Standard.md (668 words)
+=== Enrich/Plugins Usage Standard.md (606 words)
+3046 ../../60_Claude/07_AI_Information/Jarvis Writing and Formatting.md
+```
+
+## You
+
+The note types need clarity: week, lab, homework, discussion, textbook, exam, project, board, concept, track. That's it. 
+
+standards could be targetted to be 15 based on all the sub categories of notes that are being removed. Individual courses do not have individual standards at all. The templates should be 10 exactly the note types that are explained. Workflows are correct. 
+
+The Note Kit Standard also says "over 700, split the family". That rule is one driver of proliferation. Your rule says cut down instead, so that clause would go. - split or cut down - is decided based on the note that is designed. 
+
+ Design workflow mostly exists: incorrect. What i am talking about is a system similar to: `30_Order/System/vault-lint` established inside the systems as scripts and an actual system for designing. So that each and every single note actually implements exactly what you mentioned: ` Obsidian settings, community plugin configuration, your own plugins and the dashboard.` & `The linter already catches some of this, such as dead Dataview paths and the blank-line rules. It can't judge whether a bold or italic is well placed.` we need this to be easy identified and the text that is emphasized is chosen, not just random. Emphasizing on the crucial content. 
+
+Concept lifecycle. You described concept notes as study, implement, test yourself, then update with what confused you. I haven't re-read the Concept Standard against that, and I suspect it lacks implementation, self-test and confusions sections. is extremely thin does not emphasize on it as i have done right now. The previous concepts notes established across jarvis are all mostly trash - ai slop. We need to really emphasize on the learning process that needs to take place for the concept note - a hard rule so that we actually learn. Everything in the note is tested and learnt and proved by updating through the note. 
+
+CSCI 2033 is placed inconsistently. i know. 
+
+questions:
+
+1. Control notes: the notes mentioned just now are evergreen notes, plans, deadline notes, boards and things that are outisde so that they are viewed frequently for core information. So, these are established outside the courses workflow we are talking about. These are those evergreen notes that are read through daily. Might already have a particular standard, tempalte, etc. to this. Needs to really be grouped together based on similar files established across the vault. 
+
+2. Yes, that's right.
+
+3. The word cap currently established is correct that avoids tables, frontmatter and other things. Only focusing on the text that is written inside. that's what the cap is actually about and it is correct. What i do not want to automatically implement is creating more standards if we cross 700 words by defauly, there should be a reconsideration on shortening the standard or creating a new one. This is done carefully and by my approval because systems cannot be bloated in the same way. 
+
+4. Build order. I'd go: rules and registry, then the course kit, then archive and dedupe, then the linter, then the design workflow, then professor and the skills, then the UMN folder, then the Fall'26 notes. Should I start in that order, or do you want to change it first? seems pretty correc to me but misses a few details in it. This build order is not executed by you, this is executed by a new session with no context on the task each time. So, we are going to be writing prompts for this builds to take place correctly. Making sure that these prompts are run perfectly and exactly for the tasks that were just explained. 
+
+Do not write the prompts for the build yet. We are not even close to mapping out the courses entirely. If there is anymore confusion, detail that you need to look at. Go ahead and search for it. Come back with solid information that needs to be clarified for the build that we have just been working towards.
+
+## Claude
+
+I'm continuing in read-only mode. I'll check the Concept kit against your lifecycle, the design and plugin surface, the root evergreen and plan notes, and the archive details.
+
+I'm still read-only and haven't written anything. Most of this answers your questions. A few findings change what the build needs.
+
+## Findings
+
+**1. Why the per-class workflows bloated.**
+- The handoff prompt on the Course Production Board told the session to "match the exact shape and depth" of the CSCI 4511W workflow.
+- It required a course shape paragraph, grading breakdown, routing table, weekly rhythm and assignment sections, all built from the Board. That prompt wrote the restating into them.
+- The same board's rule 4 says "No concept notes. Every course's `Concepts/` folder stays untouched." That now contradicts your concept decision.
+- The board runs 4,190 words, and `Repetitive Things` runs 5,407 words with no frontmatter. Both are existing prompt stores.
+
+**2. Concept notes, measured.**
+- Of 115 concept notes in Degree and Previous Classes, the median is 1,037 words. 74 open with a "Definition" heading and 24 use the old "30-Second Explanation" shape.
+- Only 14 of 29 current Degree concepts have all six Standard headings.
+- Counted by heading: 54 have a self-test section (Mini-Test or Diagnostic), 20 have an implementation or practice section, and 2 have a confusion or open-question section.
+- The Standard has six headings: One-Line Answer, Mechanism, Contrast, Failure Modes, Evidence and Flashcards. It has no implement, test or confusion section.
+- The Workflow's only update step is "after lecture or assessment". `mastery_level` exists, but nothing says what moves it.
+- This only measures structure. It doesn't prove the slop you described.
+
+**3. Note-type vocabulary.**
+- `class_kind` has 16 values now. Your 10 types need 9 of them plus `concept` as its own type.
+- Seven values retire: textbook-map, exam-material, subboard, preparation, syllabus, control and audit.
+- The Frontmatter Standard says a vocabulary change goes in that file first.
+- 36 `lecture` and 36 `book` notes in Degree still use the older `input_kind` names.
+
+**4. Design system gap.**
+- The linter has no emphasis rules at all. It checks blank lines above tables and Dataview blocks, leftover `== ==`, and rules from other Standards. It doesn't check highlight counts, bold, italics or callout types.
+- The Decoration Standard already has countable rules: one highlight per `##` section (Flashcards excepted), a fixed callout set, and no bold on a whole sentence. A script can enforce those. It can't judge what is crucial.
+- Obsidian state:
+  - 11 community plugins are enabled and 26 are installed.
+  - Dataview, Kanban, Meta Bind, Excalidraw and Spaced Repetition aren't in the enabled list, so lazy-plugins probably loads them. I didn't read its config because plugin data files can hold secrets.
+  - The Tasks plugin is in the disabled folder, yet the Plugins Usage Standard and Workflow both tell you to use Tasks.
+  - The theme is AnuPpuccin, with five CSS snippets including `dashboard.css`.
+  - There are 55 notes under `40_Resources/Obsidian` on plugins, settings and the dashboard.
+- All 26 installed plugins have third-party authors. I found no plugin you made.
+
+**5. Archive state.**
+- The nested `CSCI/CSCI 2033` tree is already gone: 0 notes, and git shows no pending change. The flat copy has all 45 notes. One of them, `Preperation.md`, is empty.
+- Previous Classes now has 300 notes. 44 are `archived`. 23 carry `active` or `complete`, which aren't valid for these note types. The rest are seed, sprout or tree.
+- 111 notes link to paths that no longer exist, such as `50_Archive/Previous Classes/`, `10_Areas/UMN/Previous Classes/` and the removed nested 2033 path. They include the Summer 2026 ML Fundamentals plan.
+- The linter has no per-path archive rule. It scans Previous Classes and scores 0 of 385 there, before the 2033 deletion.
+
+**6. Root notes have no common type.** The 7 Degree root notes carry four different typings. Course Production Board, Every Week, UMN Board and `_Courses Board` are `index`. Fall'26 Syllabus is `class` with `input_kind: board`. Hit or Miss is `class` with `control`. Repetitive Things has no frontmatter. Candidate homes already exist in the vault: Plan Standard (`10_Areas/Life/Plans`), Dashboard Standard, Deadline and Habit trackers, Reference Standard. The MOC Standard explicitly excludes Degree and UMN paths.
+
+**7. Prompt precedent.** The vault already has an Agent Prompt Standard, an Agent Prompt Template and a Prompt Cycle workflow. Prompt Cycle holds one prompt in a queue, runs it in a fresh session, reviews the report against the repo, then archives it. They were built for codebases, not vault builds.
+
+## What I need from you
+
+1. **"15 Standards."** Removing Textbook Map, Weekly Board, Preparation, Exam Material, Degree Control and Degree Audit leaves 10 course Standards, one per note type. What are the other 5? Are they shared policies, and which?
+2. **Audit.** It's not in your ten. Where do APAS, Entrepreneurship Minor, Community College and Extra Credits (`UMN/The Plan`) go?
+3. **Root notes.** Which home does each of the 7 get, under your "group by similar files" rule? My lean:
+   - Fall'26 Syllabus: plan.
+   - Every Week: dashboard.
+   - Hit or Miss: tracker or dashboard.
+   - UMN Board and `_Courses Board`: Boards.
+   - Course Production Board: retired once its prompts move.
+   - Repetitive Things: reference.
+4. **Concept lifecycle.**
+   - What counts as "implement" in a non-code course such as MGMT 3015 or CSCI 5304?
+   - What gates seed to sprout to tree: a logged implementation and self-test? The lint can check that those sections exist, not that you actually did the work.
+   - Who writes the first draft: an agent, or the Gemini-paste flow that Board rule 3 currently requires for textbook notes?
+5. **Design system.** Should it check only, suggest placements, or apply them? Is it a second tool beside vault-lint or part of it? And which "plugins we make" do you mean? Should Tasks stay in scope?
+6. **Archive.**
+   - Should the linter drop Previous Classes from scope like `50_Archive`, or only check that `status: archived` is set?
+   - Should CSCI 2033 move into `CSCI/` with its siblings?
+   - Should the 111 stale links be repaired or left alone, given this is frozen?
+   - Did you delete the nested copy yourself?
+7. **Build prompts.** Should they follow the Agent Prompt Standard? Where should they live, and should the Course Production Board be retired? I'd give each prompt an explicit list of files it may create, edit or delete, plus size caps and a "do not restate" rule. Every prompt would end with a report back, checked against the repo as Prompt Cycle does.
+8. **Note Kit Standard wording.** Is this right? "Over 700 words: stop and propose shortening or a new Standard to Anant. Never auto-split. 1,000 is the hard cap. Typical Standards run 400 to 700." And does the "read two real notes first" rule stay?
+
+I haven't read the Dashboard Build Record, the lazy-plugins config, or the exam, discussion, lab and project Standards in full. I'll read those once the answers above are settled.
+
+### Tool Calls
+
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Courses\Concept Standard.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Workflows\Courses\Concept Workflow.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Classes\Concept Template.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Decoration Standard.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "== vault-lint.js size & decoration-related checks"; wc -l 30_Order/System/vault-lint/vault-lint.js 30_Order/System/vault-lint/vault-lint.config.json; grep -n -i -E "highlight|==|callout|bold|\*\*|dataview|archived|em dash|—|skip|out_of_scope" 30_Order/System/vault-lint/vault-lint.js | cut -c1-150 | head -40; echo; echo "== config"; cat 30_Order/System/vault-lint/vault-lint.config.json | head -40
+```
+````
+== vault-lint.js size & decoration-related checks
+  559 30_Order/System/vault-lint/vault-lint.js
+   19 30_Order/System/vault-lint/vault-lint.config.json
+  578 total
+3:// Usage: node vault-lint.js [--root DIR] [--path PREFIX] [--family ID] [--kit] [--specs] [--json FILE] [--list N] [--fix | --dry-run] [--skip PREFI
+4:// --fix is the only mode that writes to notes: it inserts one blank line above a table or dataview block flagged by the two warnings. --dry-run pri
+18:const SKIP_FIX = (typeof opt('skip', '') === 'string' ? opt('skip', '') : '').split(',').map((x) => x.trim()).filter(Boolean);
+20:const CFG = fs.existsSync(cfgFile) ? JSON.parse(fs.readFileSync(cfgFile, 'utf8')) : { out_of_scope: [], tier4: [], template_paths: [] };
+22:const OUT = re(CFG.out_of_scope), T4 = re(CFG.tier4), TPL = re(CFG.template_paths);
+23:const SKIP_DIRS = new Set(['.git', 'node_modules', '.stversions', '__pycache__', '.obsidian']);
+30:    if (e.isDirectory()) { if (SKIP_DIRS.has(e.name)) continue; walk(p); continue; }
+55:  if (text.charCodeAt(0) === 0xFEFF) { out.bom = true; text = text.slice(1); }
+93:  const s = stripCode(lines).map((l) => (l === null ? '' : l)).join('\n');
+98:  sc.forEach((l, i) => { if (l !== null && /^##\s+/.test(l)) hs.push({ title: l.replace(/^##\s+/, '').trim(), i }); });
+104:  for (let j = start; j < sc.length; j++) { if (sc[j] !== null && /^#{1,2}\s+/.test(sc[j])) { end = j; break; } }
+108:// Tables and dataview blocks need a blank line above them when text sits directly over them, or Obsidian does not render them.
+110:// A heading, a closing code fence, a callout title, or the end of an HTML comment above is a block edge and needs no blank line.
+118:    if (/^\s*```/.test(l)) { if (!inF && /^\s*```dataview(js)?\s*$/i.test(l)) dvs.push(i); inF = !inF; continue; }
+122:    if (s.includes('|') && s.trim() !== '' && i + 1 < lines.length) {
+128:    if (i === 0) return true;
+130:    return ps === '' || /^#{1,6}\s/.test(ps) || /^\s*```\s*$/.test(p) || (/^\s*>/.test(p) && /^\[![^\]]+\]/.test(ps)) || p.trim().endsWith('-->');
+137:  const f = mdFiles.find((x) => x.rel === '30_Order/Standards/Frontmatter Standard.md');
+146:    if (sec === 'type' && c.length >= 4 && c[0].startsWith('`')) {
+150:    if (sec === 'status' && c.length >= 3 && c[0].startsWith('`')) {
+185:    if (m.type && m.type !== type) return false;
+186:    if (m.strict_path && m.path && rel !== undefined && !new RegExp(m.path).test(rel)) return false;
+187:    if (m.kind !== null && m.kind !== undefined && VOCAB.types[type] && VOCAB.types[type].kindKey) {
+188:      if (val(note, VOCAB.types[type].kindKey) !== m.kind) return false;
+190:    for (const [k, v] of Object.entries(m.where || {})) if (val(note, k) !== v) return false;
+191:    for (const [k, v] of Object.entries(m.where_not || {})) if (val(note, k) === v) return false;
+200:      if (lm.type && lm.type !== val(note, 'type')) continue;
+203:      for (const [k, v] of Object.entries(lm.where || {})) { const x = val(note, k); if (v === '*' ? x === undefined : x !== v) ok = false; }
+215:const PLACEHOLDER = /<%|%>|\{\{|\}\}|YYYY-MM-DD|==\s*==|\[\[\s*\]\]/;
+226:    if (specificity(cand[0], rel) === specificity(cand[1], rel)) { r.fails.push('6:ambiguous'); r.notes.push('ambiguous: ' + cand.map((c) => c.fam
+228:  } else if (cand.length === 1) spec = cand[0];
+229:  if (spec && spec.match.path && !new RegExp(spec.match.path).test(rel) && !r.fails.includes('6:ambiguous')) { const lg = legacyMatch(n, rel); if 
+232:    if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;
+245:    else if (!VOCAB.types[type] && type !== 'generated' && !GEN_LEGACY.has(type)) add(1, 'type-off-vocab:' + type);
+252:    if (spec && tier !== 3) {
+260:        if (kt === 'list') { if (!e.isList) add(1, 'not-list:' + k); }
+268:        if (kt === 'date' && (e.quoted || !/^\d{4}-\d{2}-\d{2}$/.test(v))) add(1, 'bad-date:' + k);
+269:        if (kt === 'number' && (e.quoted || !/^-?\d+(\.\d+)?$/.test(v))) add(1, 'bad-number:' + k);
+270:        if (kt === 'bool' && !/^(true|false)$/.test(e.raw)) add(1, 'bad-bool:' + k);
+271:        if (kt === 'wikilink' && !/^"\[\[.*\]\]"$/.test(e.raw)) add(1, 'bad-wikilink:' + k);
+
+== config
+{
+  "out_of_scope": [
+    "^50_Archive/",
+    "^\\.git/",
+    "^\\.obsidian/",
+    "^blobs/",
+    "^__pycache__/",
+    "^30_Order/System/sync-workflow/Sync Alert Banner\\.md$"
+  ],
+  "tier4": [
+    "^\\.(claude|agents|codex|cursor|opencode|kiro|firecrawl|vscode|stversions|github)/",
+    "^copilot/",
+    "^20_Progress/AI/[^/]+/.*/(skills|skills-cursor|agents|commands|hooks|rules|context|specs|steering|powers|plans)/",
+    "^60_Claude/05_Clippings/AI Conversations/.*/_(raw|archive)"
+  ],
+  "template_paths": [
+    "^30_Order/Templates/"
+  ]
+}
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && echo "core files:"; ls; echo; echo "community plugins (names only):"; node -e 'const j=require("./community-plugins.json");console.log(j.length+" enabled");console.log(j.join(", "))' 2>&1; echo; echo "plugin dirs:"; ls plugins | wc -l; echo "snippets:"; ls snippets 2>/dev/null; echo "themes:"; ls themes 2>/dev/null; echo "appearance (non-secret keys):"; node -e 'const a=require("./appearance.json");console.log(JSON.stringify(a))' 2>&1 | cut -c1-400
+```
+```
+core files:
+_disabled-plugins
+app.json
+appearance.json
+backlink.json
+bookmarks.json
+canvas.json
+command-palette.json
+community-plugins.json
+core-plugins.json
+graph.json
+hotkeys.json
+page-preview.json
+plugins
+snippets
+switcher.json
+templates.json
+themes
+types.json
+webviewer.json
+workspace.json
+zk-prefixer.json
+
+community plugins (names only):
+11 enabled
+code-styler, file-explorer-plus, lazy-plugins, ninja-cursor, obsidian-latex-suite, obsidian-style-settings, templater-obsidian, url-into-selection, obsidian-local-rest-api, recent-files-obsidian, homepage
+
+plugin dirs:
+26
+snippets:
+dashboard.css
+headerspace.css
+myedits.css
+rainbowfile_colors.css
+readingview.css
+themes:
+AnuPpuccin
+appearance (non-secret keys):
+{"enabledCssSnippets":["dashboard","myedits","rainbowfile_colors","readingview","headerspace"],"cssTheme":"AnuPpuccin","baseFontSizeAction":false}
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian" && find . -maxdepth 2 | head -60; echo; find . -name '*.md' | wc -l; echo "custom plugins authored in vault (manifest in 'we make' plugins?):"; ls ../../.obsidian/plugins | head -60
+```
+```
+.
+./Dashboard
+./Dashboard/Jarvis Build
+./Dashboard/Jarvis Build Overview.md
+./Dashboard/Prompts.md
+./Dashboard/The Plan
+./Dashboard/The Plan Overview.md
+./Data View's
+./Data View's/Inbox Dashboard.md
+./Data View's/Kyle's Second Brain.md
+./Data View's/Obsidian-Excalidraw Plugin Tutorials.md
+./Data View's/Plugins.md
+./Data View's/Tasks Plugin - Review and check your Statuses 2025-12-20 18-37-12.md
+./Data View's/UMN Dashboard.md
+./Jarvis AI Infrastructure - Concepts and Research.md
+./Jarvis Enrichment Engine.md
+./Jarvis Vault Architecture.md
+./MCP-Hub-Index.md
+./Plugins
+./Plugins/00 Plugin Reference Index.md
+./Plugins/AI Automation and Local Interfaces.md
+./Plugins/Appearance Code Math and Reading Experience.md
+./Plugins/Canvas Spatial Maps.md
+./Plugins/Dataview and Dashboards.md
+./Plugins/Errors
+./Plugins/Excalidraw Diagrams and Annotation.md
+./Plugins/Git Recovery and Vault Safety.md
+./Plugins/Omnisearch and Retrieval.md
+./Plugins/Plugin Gaps Recommendations and Verification.md
+./Plugins/Plugin Inventory and Configuration Map.md
+./Plugins/QuickAdd Capture Menu.md
+./Plugins/Search Linking and Navigation.md
+./Plugins/Spaced Repetition and Learning Loops.md
+./Plugins/Tasks Kanban and Project Tracking.md
+./Plugins/Templates Capture and Periodic Notes.md
+./Plugins/Visual Thinking with Canvas and Excalidraw.md
+./Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build).md
+./Second Brain.md
+./Settings
+./Settings/Appearance Theme and CSS Snippets.md
+./Settings/Core Plugins Hotkeys and Defaults.md
+./Settings/File Handling and Properties.md
+./Vault Operating System.md
+
+55
+custom plugins authored in vault (manifest in 'we make' plugins?):
+calendar
+cmdr
+code-styler
+dataview
+excalibrain
+file-explorer-plus
+homepage
+lazy-plugins
+lean-terminal
+multi-column-markdown
+ninja-cursor
+obsidian-excalidraw-plugin
+obsidian-git
+obsidian-kanban
+obsidian-latex-suite
+obsidian-local-rest-api
+obsidian-meta-bind-plugin
+obsidian-spaced-repetition
+obsidian-style-settings
+periodic-notes
+quickadd
+recent-edits
+recent-files-obsidian
+templater-obsidian
+text-extractor
+url-into-selection
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins" && for d in */; do m="$d/manifest.json"; [ -f "$m" ] && node -e 'const j=require(process.argv[1]);console.log(process.argv[2].padEnd(30),(j.version||"").padEnd(10),(j.author||"").slice(0,30))' "./$m" "$d" 2>/dev/null; done; echo; ls ../_disabled-plugins | head -30; echo; sed -n 1,45p "../../40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md" | cut -c1-260
+```
+```
+calendar/                      1.5.10     Liam Cain
+cmdr/                          0.7.0      jsmorabito & phibr0
+code-styler/                   1.1.7      Mayuran Visakan
+dataview/                      0.5.68     Michael Brenan <blacksmithgu@g
+excalibrain/                   0.2.19     Zsolt Viczian
+file-explorer-plus/            1.3.1      kelszo
+homepage/                      4.5.0      novov
+lazy-plugins/                  1.0.24     Alan Grainger
+lean-terminal/                 1.5.0      LeanProductivity
+multi-column-markdown/         0.9.1      Cameron Robinson
+ninja-cursor/                  0.0.14     vorotamoroz
+obsidian-excalidraw-plugin/    2.29.0     Zsolt Viczian
+obsidian-git/                  2.42.0     Vinzent
+obsidian-kanban/               2.0.51     mgmeyers
+obsidian-latex-suite/          1.14.0     artisticat
+obsidian-local-rest-api/       5.5.2      Adam Coddington
+obsidian-meta-bind-plugin/     1.5.1      Moritz Jung
+obsidian-spaced-repetition/    1.15.4     Stephen Mwangi
+obsidian-style-settings/       1.0.9      mgmeyers
+periodic-notes/                0.0.17     Liam Cain
+quickadd/                      2.32.1     Christian B. B. Houmann
+recent-edits/                  1.6.0      Chris Wagner
+recent-files-obsidian/         1.7.10     Tony Grosinger
+templater-obsidian/            2.26.0     SilentVoid
+text-extractor/                0.7.0      Simon Cambier
+url-into-selection/            1.11.4     
+
+obsidian-hover-editor.disabled
+obsidian-tasks-plugin.disabled
+omnisearch.disabled
+
+---
+type: evergreen
+status: sprout
+created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - plugins
+notes:
+  - "[[AI_CONTEXT]]"
+  - "[[HUMAN_WRITING]]"
+  - "[[40_Resources/Obsidian/Vault Operating System]]"
+  - "[[60_Claude/07_AI_Information/Plugins]]"
+  - "[[00 Plugin Reference Index]]"
+  - "[[Cross-Laptop Sync - Build 3 Findings]]"
+---
+# Plugin Inventory and Configuration Map
+
+This is the canonical inventory for Obsidian plugin state in Jarvis.
+
+Do not assume a plugin folder means active behavior. Jarvis has three plugin states that can diverge:
+
+- Directly enabled: listed in `.obsidian/community-plugins.json`.
+- Installed: folder exists under `.obsidian/plugins/`.
+- Lazy-loaded: referenced by Lazy Plugin Loader and likely enabled after a startup delay.
+
+## Core Plugins
+
+| Core plugin | State | Jarvis use |
+|---|---:|---|
+| File explorer | enabled | Folder navigation and visible vault structure. |
+| Search | enabled | Built-in fallback search before creating notes. |
+| Quick switcher | enabled | Fast known-note navigation. |
+| Graph | enabled | Occasional link topology check; not a primary workflow surface. |
+| Backlinks | enabled | Context recovery and unlinked mention review. |
+| Canvas | enabled | Spatial maps made from notes, cards, and groups. |
+| Outgoing links | enabled | Link audit from a note outward. |
+| Tags | enabled | Tag review, especially `#cards`. |
+| Footnotes | enabled | Source/comment support when Markdown footnotes are useful. |
+| Properties | enabled | Frontmatter editing and metadata reliability. |
+| Page preview | enabled | Hover reading; rewards good headings and first paragraphs. |
+| Note composer | enabled | Split/merge only when note boundaries are already clear. |
+| Command palette | enabled | Access to plugin commands without memorizing hotkeys. |
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/UMN/Previous Classes" && echo "status distribution in Previous Classes:"; grep -rhoE "^status: .*" --include=*.md . | sort | uniq -c | sort -rn; echo "notes without status line:"; for f in $(find . -name '*.md' -print0 | xargs -0 -I{} sh -c 'grep -L "^status:" "{}"' | tr ' ' '#' | head -0); do :; done; find . -name '*.md' -print0 | xargs -0 grep -L "^status:" | wc -l; echo; echo "type distribution:"; grep -rhoE "^type: .*" --include=*.md . | sort | uniq -c | sort -rn; echo; cd ../../.. && echo "incoming path-links to the CSCI/CSCI 2033 copy:"; grep -rl "Previous Classes/CSCI/CSCI 2033" --include=*.md . 2>/dev/null | grep -v stversions | head; echo "incoming path-links to the flat copy:"; grep -rl "Previous Classes/CSCI 2033" --include=*.md . 2>/dev/null | grep -v stversions | head; echo; diff "40_Resources/UMN/Previous Classes/CSCI 2033/CSCI 2033 Board.md" "40_Resources/UMN/Previous Classes/CSCI/CSCI 2033/CSCI 2033 Board.md" | head -20
+```
+```
+status distribution in Previous Classes:
+    111 status: sprout
+     87 status: seed
+     44 status: archived
+     33 status: tree
+     12 status: active
+     11 status: complete
+notes without status line:
+2
+
+type distribution:
+    200 type: class
+     87 type: concept
+      7 type: input
+      2 type: reference
+      2 type: dashboard
+      1 type: evergreen
+
+incoming path-links to the CSCI/CSCI 2033 copy:
+./10_Areas/Life/Plans/Summer 2026/ML Fundamentals (2033 + 2230).md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Concepts/Midterm Notes(1).md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Concepts/Python.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Extra notes/Complexity.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Extra notes/Jacobi Method.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Extra notes/Matrix Tools.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Extra notes/Quiz.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Extra notes/Vector Class.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Final.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1.md
+incoming path-links to the flat copy:
+./10_Areas/Life/Enumerate/Weekly/2026-W44.md
+./20_Progress/AI/Claude Code/The Plan/.claude/skills/organize-csci2033.md
+./40_Resources/Obsidian/Data View's/UMN Dashboard.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Compilation system.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Hardware Organization.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Linked list.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Placeholders.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Text files.md
+./40_Resources/UMN/Previous Classes/CSCI 2033/CSCI 2033 Board.md
+./60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-07 Pointers and Addresses merge conflicts.md
+
+diff: '40_Resources/UMN/Previous Classes/CSCI/CSCI 2033/CSCI 2033 Board.md': No such file or directory
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards" && sed -n '/^## Type/,/^## Done/p' "Frontmatter Standard.md" | cut -c1-260 | head -90
+```
+```
+(Bash completed with no output)
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/UMN/Previous Classes" && echo "flat:"; find "CSCI 2033" -name '*.md' | wc -l; echo "nested:"; ls "CSCI/CSCI 2033" 2>&1 | head; find "CSCI/CSCI 2033" -name '*.md' 2>/dev/null | wc -l; git status --short -- . | head -10; echo; grep -n "Previous Classes/CSCI/CSCI 2033" "CSCI 2033/Final.md" | head -3; grep -rn "Previous Classes/CSCI/CSCI 2033" "../../../10_Areas/Life/Plans/Summer 2026/ML Fundamentals (2033 + 2230).md" | head -2 | cut -c1-200
+```
+```
+flat:
+45
+nested:
+ls: cannot access 'CSCI/CSCI 2033': No such file or directory
+0
+
+7:  - "[[50_Archive/Previous Classes/CSCI/CSCI 2033/Midterm - 1|Midterm - 1]]"
+35:Path prefix: `10_Areas/UMN/Previous Classes/CSCI/CSCI 2033/Concepts_old/`
+```
+- `Grep` -- pattern `^#{1,3} ` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Frontmatter Standard.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && for f in "30_Order/Standards/Plan Standard.md" "30_Order/Standards/MOC Standard.md" "30_Order/Standards/Operations/Dashboard Standard.md" "30_Order/Standards/Enrich/Evergreen Standard.md" "30_Order/Standards/Enrich/Reference Standard.md"; do echo "=== $f ($(wc -w <"$f") w)"; sed -n '/^# /,/^## Spec/p' "$f" | head -8 | cut -c1-420; grep -m1 -E '"path":' "$f" | cut -c1-220; done
+```
+```
+=== 30_Order/Standards/Plan Standard.md (772 w)
+# Plan Standard
+==A plan is a note a skill rereads on a schedule; without a stated cadence and a verified status it is a wish list with frontmatter.==
+This is the Standard for `type: plan` notes in `10_Areas/Life/Plans/`. The file keeps its old name until it is renamed Plan Standard. It keeps a plan wired into `/startday`, `/closeday`, and `/weekly-review`. It does not cover the daily or weekly note; those are [[Daily Note Standard]] and [[Periodic Review Note Standard]].
+## Spec
+  "match": {"type": "plan", "kind": null, "path": "^10_Areas/Life/Plans/", "where": {}, "where_not": {}},
+=== 30_Order/Standards/MOC Standard.md (601 w)
+# MOC Standard
+==A MOC earns its name by explaining a folder in prose; a note that is only a query is a dashboard, not a map.==
+This is the Standard for `type: index` notes: the map of a folder or cluster, anywhere in the vault. Whoever creates or substantially changes a note inside a MOC-governed folder updates that MOC in the same session. A MOC has no Workflow for that reason. Query-only pages are [[Dashboard Standard]].
+## Spec
+  "match": {"type": "index", "kind": null, "path": "^(?!20_Progress/Degree/|40_Resources/UMN/|10_Areas/Notes/)", "strict_path": true, "where": {}, "where_not": {}},
+=== 30_Order/Standards/Operations/Dashboard Standard.md (711 w)
+# Dashboard Standard
+==A dashboard answers a question with a live query, so every query must read a folder that exists today and must say what to do with its rows.==
+This is the Standard for `type: dashboard` notes: query dashboards, boards (a query listing a folder), and habit boards. It exists because 55 Dataview `FROM` paths pointed at folders that were renamed or deleted (`10_UMN`, `60_Claude/30_Source_Summaries`, `60_Claude/50_Reviews`, `60_Claude/10_Session_Logs`), and Dataview shows a dead path as an empty table with no error, so nobody noticed. A note that explains a fold
+## Spec
+  "match": {"type": "dashboard", "kind": null, "path": "^(00_Dashboard\\.md$|60_Claude/(?!05_Clippings/)|10_Areas/|20_Progress/)", "where": {}, "where_not": {}},
+=== 30_Order/Standards/Enrich/Evergreen Standard.md (852 w)
+# Evergreen Standard
+==An evergreen note distills a mechanism that outlives any one source. It exists because the idea recurred across sources or work, not because one source was worth keeping.==
+This is the standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` and the identity notes in `10_Areas/Life/Truths of Life/`. A source summary is fixed to one source and never grows; an evergreen is owned knowledge that grows. A course concept is exam-facing and lives under [[Concept Standard]]. Implementation plans and audits kept in this folder are not evergreen notes; see Legacy Shapes.
+## Spec
+  "match": {"type": "evergreen", "kind": "distilled", "path": "^60_Claude/20_Distilled_Notes/", "where": {}, "where_not": {}},
+=== 30_Order/Standards/Enrich/Reference Standard.md (648 w)
+# Reference Standard
+==A reference note is something you look up to do the work, and the hub stays useful only because each entry was added on purpose.==
+This is the standard for `type: reference` notes in `40_Resources/` and the tool hubs in `10_Areas/`: plugin documentation, settings records, tool profiles, link lists, and guides. It is the file for the Reference Standard and keeps the name `Resources` until a link-aware rename. Machine rebuild runbooks and tool setup records are separate families.
+## Spec
+  "match": {"type": "reference", "kind": null, "path": "^(40_Resources|10_Areas)/", "where": {}, "where_not": {}},
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Frontmatter Standard.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "Plans folder:"; ls "10_Areas/Life/Plans" "10_Areas/Life/Plans/Fall 2026" 2>/dev/null | head -30; echo; echo "Deadline-ish / daily-read notes:"; find 10_Areas 00_Dashboard.md -maxdepth 4 -iname "*deadline*" -o -maxdepth 4 -iname "*tracker*" 2>/dev/null | grep -v stversions | head; echo; echo "type distribution of 10_Areas/Life/Plans:"; grep -rhoE "^type: .*" 10_Areas/Life/Plans | sort | uniq -c; echo; echo "Degree root notes' type/class_kind:"; for f in "Fall'26 Syllabus" "Every Week" "UMN Board" "Course Production Board — Fall'26" "Hit or Miss - Miss" "Repetitive Things" "_Courses/_Courses Board"; do printf "%-36s %s | %s | %s\n" "$f" "$(grep -m1 '^type:' "20_Progress/Degree/$f.md")" "$(grep -m1 -E '^(class_kind|input_kind):' "20_Progress/Degree/$f.md")" "$(wc -w < "20_Progress/Degree/$f.md") words"; done
+```
+```
+Plans folder:
+10_Areas/Life/Plans:
+2025
+Fall 2026
+Plans Board.md
+Plans-to-Create.md
+Summer 2026
+Zero-Cost AI Stack
+
+10_Areas/Life/Plans/Fall 2026:
+Anti-Drift Rules.md
+Fall 2026 - The One Thing.md
+Fall 2026 Builds.md
+Fall 2026 Plan.md
+LeetCode & CodePath.md
+Weekly Rhythm.md
+
+Deadline-ish / daily-read notes:
+10_Areas/Career/Internships/Tracker
+10_Areas/Career/Internships/Tracker/Application Tracker.md
+10_Areas/Career/Internships/Tracker/Deadline Tracker.md
+10_Areas/Career/Internships/Tracker/Habit Tracker.md
+10_Areas/Career/Internships/Tracker/Tracker.md
+10_Areas/Career/VISAs & Work Auth/Visa Litigation Tracker.md
+10_Areas/Life/Habits/Habit Tracker Board.md
+
+type distribution of 10_Areas/Life/Plans:
+      1 type: area
+      1 type: brainstorm
+      9 type: evergreen
+      1 type: index
+      1 type: moc
+      5 type: plan
+      1 type: research-dossier
+      1 type: runbook
+
+Degree root notes' type/class_kind:
+Fall'26 Syllabus                     type: class | input_kind: board | 1653 words
+Every Week                           type: index |  | 1627 words
+UMN Board                            type: index |  | 407 words
+Course Production Board — Fall'26  type: index |  | 4190 words
+Hit or Miss - Miss                   type: class | class_kind: control | 1569 words
+Repetitive Things                     |  | 5407 words
+_Courses/_Courses Board              type: index |  | 1150 words
+```
+- `Bash`
+````bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e '
+const fs=require("fs"),p=require("path");
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(p.join(d,e.name)):e.name.endsWith(".md")?[p.join(d,e.name)]:[])}
+const files=[...walk("20_Progress/Degree"),...walk("40_Resources/UMN/Previous Classes")].filter(f=>/^type: concept$/m.test(fs.readFileSync(f,"utf8")));
+const heads={};let w=[],impl=0,test=0,conf=0,code=0;
+for(const f of files){const t=fs.readFileSync(f,"utf8");w.push(t.split(/\s+/).length);
+ for(const m of t.matchAll(/^## (.+)$/gm)){const h=m[1].replace(/==/g,"").trim();heads[h]=(heads[h]||0)+1}
+ if(/^##+ .*(Implement|Code|Practice|Worked)/mi.test(t))impl++;
+ if(/^##+ .*(Mini-Test|Self-Test|Diagnostic|Test Yourself|Quiz)/mi.test(t))test++;
+ if(/^##+ .*(Confus|Open Question|Stuck)/mi.test(t))conf++;
+ if(/```/.test(t))code++;}
+w.sort((a,b)=>a-b);
+console.log("concept notes (type: concept) in Degree + Previous Classes:",files.length,"median words",w[w.length>>1],"min",w[0],"max",w[w.length-1]);
+console.log("with implementation/practice heading:",impl,"| with self-test heading:",test,"| with confusion/open-question heading:",conf,"| with any code block:",code);
+console.log("top headings:");Object.entries(heads).sort((a,b)=>b[1]-a[1]).slice(0,14).forEach(([h,c])=>console.log("  ",c,h));
+const cur=files.filter(f=>f.startsWith("20_Progress"));
+const std=["One-Line Answer","Mechanism","Contrast / What It Is Not","Failure Modes / Misconceptions","Evidence From This Vault","Flashcards"];
+let full=0;for(const f of cur){const t=fs.readFileSync(f,"utf8");if(std.every(h=>t.includes("## "+h)))full++}
+console.log("Degree concepts having all six Standard headings:",full,"of",cur.length);
+'; echo; grep -c "" 30_Order/Standards/Projects/"Agent Prompt Standard.md"; sed -n '/^# /,/^## Spec/p' 30_Order/Standards/Projects/"Agent Prompt Standard.md" | head -8 | cut -c1-500; echo; sed -n 1,30p 30_Order/Workflows/Projects/*Prompt*Cycle*.md 2>/dev/null | cut -c1-300
+````
+```
+concept notes (type: concept) in Degree + Previous Classes: 115 median words 1037 min 63 max 2384
+with implementation/practice heading: 20 | with self-test heading: 54 | with confusion/open-question heading: 2 | with any code block: 61
+top headings:
+   74 Definition
+   70 Flashcards
+   37 MOC
+   24 30-Second Explanation
+   24 Contrast With
+   24 Where It Appears
+   24 Common Mistakes
+   24 Diagnostic Questions
+   22 Mental Model
+   21 One-Line Answer
+   20 Resources
+   17 Teach It To A Beginner
+   17 Mini-Test
+   15 Core Ideas (Textbook)
+Degree concepts having all six Standard headings: 14 of 29
+
+85
+# Agent Prompt Standard
+==A prompt note holds one task for a fresh agent session and everything that session needs, so the run does not depend on what the writer remembers.==
+This is the standard for notes that hold a prompt to paste into Claude Code, Codex, or another agent: the numbered CausalOps prompts and the Internship Building System runs. It covers the prompt note and, in a second Spec, the rolling queue file that holds only the next prompt. The plan a prompt belongs to is a [[Spec and Plan Standard]] note.
+## Spec
+
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - workflow
+system_kind: workflow
+serves: "[[Agent Prompt Standard]]"
+trigger: A build or fix round on a codebase will be run by an agent session.
+notes:
+  - "[[Agent Prompt Template]]"
+  - "[[Spec and Plan Standard]]"
+---
+# Prompt Cycle
+Write the next prompt, run it, review the result against the repo, and archive it, so the queue only ever holds what runs next.
+## Use when
+A project like the internship research loop or CausalOps has a round of agent work to run. The Building System runs are the worked example.
+## Steps
+1. Open the queue note (`Claude Code Prompts`, `Codex Prompts`). It holds the next prompt and only that.
+2. Check the evidence for Why This Exists against the live repo. A hypothesis the queue wrote itself is labeled, and said plainly when it turns out wrong.
+3. Write the prompt from [[Agent Prompt Template]] with scope in Hard Rules and a Report Back section.
+4. Run it in a fresh agent session.
+5. Review Report Back against the repo: the commands and their output, not the agent's summary.
+6. Move the finished prompt and its reviewed result to the Archive note and set its `status` to `complete`.
+7. Rewrite the queue with the next prompt, and add a Log entry to the project note.
+## Do not
+Do not let finished prompts pile up in the queue, hand over an unchecked diagnosis, or accept a report you did not compare to the repo.
+## Done when
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree" && sed -n 1,40p "Course Production Board — Fall'26.md" | cut -c1-280; echo ....; grep -c "^## " "Course Production Board — Fall'26.md"; grep -n "^## \|^### " "Course Production Board — Fall'26.md" | head -30; echo; echo "=== Repetitive Things headings"; grep -n "^#" "Repetitive Things.md" | head -20
+```
+```
+---
+type: index
+status: sprout
+created: 2026-09-21
+updated: 2026-10-09
+tags:
+  - moc
+  - fall2026
+  - courses
+notes:
+  - "[[20_Progress/Degree/Fall'26 Syllabus|Fall'26 Syllabus]]"
+  - "[[CSCI 4511W Workflow]]"
+  - "[[Course Production Workflow]]"
+  - "[[Weekly Workflow]]"
+next: "Dispatch the Mechanical Fixes prompt first (small, unblocks nothing else but is a five-minute win), then CSCI 4061 Week 1/Week 2 since that course has the most real unused source material sitting in its source folder already"
+---
+# Course Production Board - Fall'26
+> [!IMPORTANT] Roster, 2026-10-09
+> The active roster is CSCI 4511W, CSCI 4061, CSCI 4521, CSCI 5304, and MGMT 3015. Five weeks are complete; Week 6 starts Monday, 2026-10-12. Degree planning is fixed for May 2028 in [[APAS]] and [[Fall'26 Syllabus#Path to Graduation]].
+
+==This is the single dispatch board for catching all five active Fall'26 courses up to real, source-grounded weekly/textbook/assignment notes — one task list and one ready-to-paste handoff prompt per unit of work, so any session (this one or a fresh one, any model) can pick up 
+
+## Purpose
+
+Five active Fall'26 courses need their weekly notes, textbook notes, and assignment notes caught up to real class time. [[CSCI 4511W Workflow|CSCI 4511W]] already has the deepest system (a per-class Workflow file, a Board, real weekly/textbook/homework notes) and is being execute
+
+## Non-negotiable rules for every session executing off this board
+
+1. **Read the relevant Standard before writing anything** — [[Weekly Standard]], [[Textbook Standard]], [[Homework Standard]], [[Board Standard]], [[Preparation Standard]] live in `30_Order/Standards/Courses/`. Read [[Course Production Workflow]] once, first, regardless of whic
+2. **Never fabricate live lecture capture.** The `## Lecture` section of a weekly note is protected human source material. Where real slides/PDFs/code/notebooks exist in the course's source folder, use them as the lecture's substance (they are legitimate pre-lecture/lecture sourc
+3. **Textbook notes are Gemini-paste-and-polish, not agent-authored from scratch.** The user runs the reusable NotebookLM/Gemini Notebook prompt (template + a filled CSCI 4511W Chapter 2 instance live in `Repetitive Things.md`, `20_Progress/Degree/`) externally and pastes the raw
+4. **No concept notes.** Every course's `Concepts/` folder (or lack of one) stays untouched by this board's work.
+5. **Search before creating.** Every row below already names the exact file to create or edit — do not duplicate.
+6. **Update this board** when a row is completed: check its box, update the course's Status Snapshot, and note the actual session/date that did the work.
+7. Every stale path below reads `D:\Users\_Anant\...` and must become `D:\_Anant\...` — the old-laptop path is still live in every Board note's Source of Truth section except this pass's fixes.
+
+---
+
+## CSCI 4511W — tracked here, executed elsewhere (not dispatched from this board)
+
+....
+11
+23:## Purpose
+27:## Non-negotiable rules for every session executing off this board
+39:## CSCI 4511W — tracked here, executed elsewhere (not dispatched from this board)
+45:## Mechanical Fixes (one small handoff, covers the in-scope courses)
+78:## System work: per-class Workflow files
+118:## CSCI 4061 — Introduction to Operating Systems
+169:## CSCI 4521 — Applied Machine Learning
+208:## CSCI 5304 — Computational Aspects of Matrix Theory
+250:## MGMT 3015 — Introduction to Entrepreneurship
+295:## Execution order (recommended, not mandatory)
+305:## Links
+
+=== Repetitive Things headings
+2:# Prompts
+3:## Notebook
+17:### Master prompt (reusable — fill the brackets each week, for any future course)
+30:# [Chapter Title]
+31:## Chapter Summary
+33:## Key Concepts
+35:## Full Reading Notes
+37:## Worked Example
+39:## Connections
+42:## Open Questions
+44:## Flashcards
+62:## Codex
+69:### Master prompt (reusable — fill the brackets each week, for any future course)
+82:## What you must be able to do — objective bullets, the week's textbook chapter/lecture linked first
+83:## Key ideas (short) — 3-6 compressed claims, bolding the named concept and the key contrast word
+84:## Concepts created today — new [[Concept - ]] links this week's material justifies, or state plainly that none were needed
+85:## Examples worth keeping — real worked examples/cases from the transcript, never invented ones
+86:## Lecture — one `### N. Title` per real topic break in the transcript, using real date(s); reproduce derivations/proofs/code/examples in full, tab-indenting sub-content
+87:## Textbook integration — the delta beyond lecture, sourced from the landed Lecture/Chapter note(s), linked, stating explicitly any book-ahead-of-lecture or lecture-ahead-of-book gap found during cross-check
+88:## Takeaways (questions to resolve) — 2-5 genuine `- [ ]` open questions answerable by a follow-up read or drill
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\Course Production Board — Fall'26.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "Tasks plugin refs in the design kit:"; grep -c -i "tasks" 30_Order/Standards/Enrich/"Plugins Usage Standard.md" 30_Order/Workflows/Enrichment/"Plugins Usage.md"; echo "stale-path links inside Previous Classes (50_Archive/ or 10_Areas/UMN/ or nested CSCI/CSCI 2033):"; grep -rl -E "50_Archive/Previous Classes|10_Areas/UMN/Previous Classes|Previous Classes/CSCI/CSCI 2033" 40_Resources/UMN 10_Areas --include=*.md | wc -l; echo "empty-file check across 30_Order and UMN top:"; find 30_Order 40_Resources/UMN -maxdepth 3 -name '*.md' -size 0 | head
+```
+```
+Tasks plugin refs in the design kit:
+30_Order/Standards/Enrich/Plugins Usage Standard.md:4
+30_Order/Workflows/Enrichment/Plugins Usage.md:2
+stale-path links inside Previous Classes (50_Archive/ or 10_Areas/UMN/ or nested CSCI/CSCI 2033):
+111
+empty-file check across 30_Order and UMN top:
+40_Resources/UMN/How to Learn.md
+40_Resources/UMN/Implementing The System.md
+40_Resources/UMN/Per Course Design.md
+40_Resources/UMN/Previous Classes/CSCI 2033/Preperation.md
+40_Resources/UMN/System Overview.md
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -1344,4 +2426,20 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs" && grep -n "^## \[2026-10-1[3-7]\]" log.md; echo ---; awk 'NR>=1 && /^## \[2026-10-16\]/{p=1} p{print NR": "$0} /^## \[2026-10-17\]/{if(p) exit}' log.md | head -40 | cut -c1-600`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis" && wc -c "10-17 Jarvis 30_Order rebuild and cleanup.md" && grep -n -E "^## (Claude|User)" "10-17 Jarvis 30_Order rebuild and cleanup.md" | wc -l && tail -c 5500 "10-17 Jarvis 30_Order rebuild and cleanup.md"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/UMN/Previous Classes" && diff -rq "CSCI 2033" "CSCI/CSCI 2033" | head -8; echo "exit/differences: $(diff -rq 'CSCI 2033' 'CSCI/CSCI 2033' | wc -l)"; git log -1 --format="%ad %s" --date=short -- "CSCI 2033" | cut -c1-90; git log -1 --format="%ad %s" --date=short -- "CSCI/CSCI 2033" | cut -c1-90; echo; git log --diff-filter=A --format="%ad" --date=short -- "../How to Learn.md" "../Per Course Design.md" "../System Overview.md" "../Implementing The System.md" | tail -3`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && python3 - <<'EOF' 2>/dev/null || node -e "console.log('no python')" import re,glob,os def words(p):     t=open(p,encoding='utf-8').read()     t=re.sub(r'^---.*?---\n','',t,flags=re.S)     t=re.sub(r'```.*?```','',t,flags=re.S)     t=re.sub(r'^\|.*$','',t,flags=re.M)     return len(t.split()) rows=[] for p in glob.glob('Standards/**/*.md',recursive=True):     rows.append((words(p),p)) rows.sort(reverse=True) tot=len(rows) print("Standards:",tot,"avg prose words",sum(w for w,_ in rows)//tot) print(">700:",sum(1 for w,_ in rows if w>700),">1000:",sum(1 for w,_ in rows if w>1000)) print("Top 12:") for w,p in rows[:12]: print(w,p) print("Courses standards:") for w,p in sorted(r for r in rows if 'Courses' in r[1]): print(w,os.path.basename(p)) wf=[(words(p),p) for p in glob.glob('Workflows/Courses/**/*.md',recursive=True)] print("Course workflows >350:",sum(1 for w,_ in wf if w>350),"of",len(wf)) for w,p in sorted(wf,reverse=True)[:7]: print(w,os.path.basename(p)) EOF````
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && echo "Templates by folder:"; for d in Templates/*/; do printf "  %-32s %s\n" "$d" "$(find "$d" -name '*.md' | wc -l)"; done; echo; echo "Workflows by folder:"; for d in Workflows/*/; do printf "  %-28s %s\n" "$d" "$(find "$d" -name '*.md' | wc -l)"; done; echo; ls Workflows/Toolkit Workflows/System Workflows/Enrichment 2>/dev/null; echo; ls ../60_Claude/07_AI_Information 2>/dev/null | head -20; find .. -name "Jarvis Writing and Formatting.md" -not -path "*/.stversions/*" | head -2`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node -e ' const fs=require("fs"),path=require("path"); function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):e.name.endsWith(".md")?[path.join(d,e.name)]:[])} function words(p){let t=fs.readFileSync(p,"utf8").replace(/^---[\s\S]*?\n---\n/,"").replace(/```[\s\S]*?```/g,"").split("\n").filter(l=>!l.startsWith("|")).join("\n");return t.split(/\s+/).filter(Boolean).length} const st=walk("Standards").map(p=>[words(p),p]).sort((a,b)=>b[0]-a[0]); console.log("Standards",st.length,"avg",Math.round(st.reduce((a,b)=>a+b[0],0)/st.length),"over700",st.filter(x=>x[0]>700).length,"over1000",st.filter(x=>x[0]>1000).length); console.log("Top 8:");st.slice(0,8).forEach(x=>console.log(" ",x[0],path.basename(x[1]))); console.log("Course Standards:");st.filter(x=>x[1].includes("Courses")).forEach(x=>console.log(" ",x[0],path.basename(x[1]))); const wf=walk("Workflows/Courses").map(p=>[words(p),p]).sort((a,b)=>b[0]-a[0]); console.log("Course workflows over 350:",wf.filter(x=>x[0]>350).length,"of",wf.length); wf.slice(0,7).forEach(x=>console.log(" ",x[0],path.basename(x[1]))); '````
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Enrichment" && for f in Decoration.md "Plugins Usage.md"; do echo "=== $f ($(wc -w < "$f") words)"; sed -n 1,30p "$f" | cut -c1-300; done; echo; cd ../../Standards && for f in "Decoration Standard.md" "Enrich/Plugins Usage Standard.md"; do echo "=== $f ($(wc -w < "$f") words)"; done; wc -w "../../60_Claude/07_AI_Information/Jarvis Writing and Formatting.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "== vault-lint.js size & decoration-related checks"; wc -l 30_Order/System/vault-lint/vault-lint.js 30_Order/System/vault-lint/vault-lint.config.json; grep -n -i -E "highlight|==|callout|bold|\*\*|dataview|archived|em dash|—|skip|out_of_scope" 30_Order/System/vault-lint/vault-lint.js | cut -c1-150 | head -40; echo; echo "== config"; cat 30_Order/System/vault-lint/vault-lint.config.json | head -40`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian" && echo "core files:"; ls; echo; echo "community plugins (names only):"; node -e 'const j=require("./community-plugins.json");console.log(j.length+" enabled");console.log(j.join(", "))' 2>&1; echo; echo "plugin dirs:"; ls plugins | wc -l; echo "snippets:"; ls snippets 2>/dev/null; echo "themes:"; ls themes 2>/dev/null; echo "appearance (non-secret keys):"; node -e 'const a=require("./appearance.json");console.log(JSON.stringify(a))' 2>&1 | cut -c1-400`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian" && find . -maxdepth 2 | head -60; echo; find . -name '*.md' | wc -l; echo "custom plugins authored in vault (manifest in 'we make' plugins?):"; ls ../../.obsidian/plugins | head -60`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins" && for d in */; do m="$d/manifest.json"; [ -f "$m" ] && node -e 'const j=require(process.argv[1]);console.log(process.argv[2].padEnd(30),(j.version||"").padEnd(10),(j.author||"").slice(0,30))' "./$m" "$d" 2>/dev/null; done; echo; ls ../_disabled-plugins | head -30; echo; sed -n 1,45p "../../40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md" | cut -c1-260`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/UMN/Previous Classes" && echo "status distribution in Previous Classes:"; grep -rhoE "^status: .*" --include=*.md . | sort | uniq -c | sort -rn; echo "notes without status line:"; for f in $(find . -name '*.md' -print0 | xargs -0 -I{} sh -c 'grep -L "^status:" "{}"' | tr ' ' '#' | head -0); do :; done; find . -name '*.md' -print0 | xargs -0 grep -L "^status:" | wc -l; echo; echo "type distribution:"; grep -rhoE "^type: .*" --include=*.md . | sort | uniq -c | sort -rn; echo; cd ../../.. && echo "incoming path-links to the CSCI/CSCI 2033 copy:"; grep -rl "Previous Classes/CSCI/CSCI 2033" --include=*.md . 2>/dev/null | grep -v stversions | head; echo "incoming path-links to the flat copy:"; grep -rl "Previous Classes/CSCI 2033" --include=*.md . 2>/dev/null | grep -v stversions | head; echo; diff "40_Resources/UMN/Previous Classes/CSCI 2033/CSCI 2033 Board.md" "40_Resources/UMN/Previous Classes/CSCI/CSCI 2033/CSCI 2033 Board.md" | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards" && sed -n '/^## Type/,/^## Done/p' "Frontmatter Standard.md" | cut -c1-260 | head -90`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/UMN/Previous Classes" && echo "flat:"; find "CSCI 2033" -name '*.md' | wc -l; echo "nested:"; ls "CSCI/CSCI 2033" 2>&1 | head; find "CSCI/CSCI 2033" -name '*.md' 2>/dev/null | wc -l; git status --short -- . | head -10; echo; grep -n "Previous Classes/CSCI/CSCI 2033" "CSCI 2033/Final.md" | head -3; grep -rn "Previous Classes/CSCI/CSCI 2033" "../../../10_Areas/Life/Plans/Summer 2026/ML Fundamentals (2033 + 2230).md" | head -2 | cut -c1-200`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for f in "30_Order/Standards/Plan Standard.md" "30_Order/Standards/MOC Standard.md" "30_Order/Standards/Operations/Dashboard Standard.md" "30_Order/Standards/Enrich/Evergreen Standard.md" "30_Order/Standards/Enrich/Reference Standard.md"; do echo "=== $f ($(wc -w <"$f") w)"; sed -n '/^# /,/^## Spec/p' "$f" | head -8 | cut -c1-420; grep -m1 -E '"path":' "$f" | cut -c1-220; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "Plans folder:"; ls "10_Areas/Life/Plans" "10_Areas/Life/Plans/Fall 2026" 2>/dev/null | head -30; echo; echo "Deadline-ish / daily-read notes:"; find 10_Areas 00_Dashboard.md -maxdepth 4 -iname "*deadline*" -o -maxdepth 4 -iname "*tracker*" 2>/dev/null | grep -v stversions | head; echo; echo "type distribution of 10_Areas/Life/Plans:"; grep -rhoE "^type: .*" 10_Areas/Life/Plans | sort | uniq -c; echo; echo "Degree root notes' type/class_kind:"; for f in "Fall'26 Syllabus" "Every Week" "UMN Board" "Course Production Board — Fall'26" "Hit or Miss - Miss" "Repetitive Things" "_Courses/_Courses Board"; do printf "%-36s %s | %s | %s\n" "$f" "$(grep -m1 '^type:' "20_Progress/Degree/$f.md")" "$(grep -m1 -E '^(class_kind|input_kind):' "20_Progress/Degree/$f.md")" "$(wc -w < "20_Progress/Degree/$f.md") words"; done`
+- ````cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e ' const fs=require("fs"),p=require("path"); function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(p.join(d,e.name)):e.name.endsWith(".md")?[p.join(d,e.name)]:[])} const files=[...walk("20_Progress/Degree"),...walk("40_Resources/UMN/Previous Classes")].filter(f=>/^type: concept$/m.test(fs.readFileSync(f,"utf8"))); const heads={};let w=[],impl=0,test=0,conf=0,code=0; for(const f of files){const t=fs.readFileSync(f,"utf8");w.push(t.split(/\s+/).length);  for(const m of t.matchAll(/^## (.+)$/gm)){const h=m[1].replace(/==/g,"").trim();heads[h]=(heads[h]||0)+1}  if(/^##+ .*(Implement|Code|Practice|Worked)/mi.test(t))impl++;  if(/^##+ .*(Mini-Test|Self-Test|Diagnostic|Test Yourself|Quiz)/mi.test(t))test++;  if(/^##+ .*(Confus|Open Question|Stuck)/mi.test(t))conf++;  if(/```/.test(t))code++;} w.sort((a,b)=>a-b); console.log("concept notes (type: concept) in Degree + Previous Classes:",files.length,"median words",w[w.length>>1],"min",w[0],"max",w[w.length-1]); console.log("with implementation/practice heading:",impl,"| with self-test heading:",test,"| with confusion/open-question heading:",conf,"| with any code block:",code); console.log("top headings:");Object.entries(heads).sort((a,b)=>b[1]-a[1]).slice(0,14).forEach(([h,c])=>console.log("  ",c,h)); const cur=files.filter(f=>f.startsWith("20_Progress")); const std=["One-Line Answer","Mechanism","Contrast / What It Is Not","Failure Modes / Misconceptions","Evidence From This Vault","Flashcards"]; let full=0;for(const f of cur){const t=fs.readFileSync(f,"utf8");if(std.every(h=>t.includes("## "+h)))full++} console.log("Degree concepts having all six Standard headings:",full,"of",cur.length); '; echo; grep -c "" 30_Order/Standards/Projects/"Agent Prompt Standard.md"; sed -n '/^# /,/^## Spec/p' 30_Order/Standards/Projects/"Agent Prompt Standard.md" | head -8 | cut -c1-500; echo; sed -n 1,30p 30_Order/Workflows/Projects/*Prompt*Cycle*.md 2>/dev/null | cut -c1-300````
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree" && sed -n 1,40p "Course Production Board — Fall'26.md" | cut -c1-280; echo ....; grep -c "^## " "Course Production Board — Fall'26.md"; grep -n "^## \|^### " "Course Production Board — Fall'26.md" | head -30; echo; echo "=== Repetitive Things headings"; grep -n "^#" "Repetitive Things.md" | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "Tasks plugin refs in the design kit:"; grep -c -i "tasks" 30_Order/Standards/Enrich/"Plugins Usage Standard.md" 30_Order/Workflows/Enrichment/"Plugins Usage.md"; echo "stale-path links inside Previous Classes (50_Archive/ or 10_Areas/UMN/ or nested CSCI/CSCI 2033):"; grep -rl -E "50_Archive/Previous Classes|10_Areas/UMN/Previous Classes|Previous Classes/CSCI/CSCI 2033" 40_Resources/UMN 10_Areas --include=*.md | wc -l; echo "empty-file check across 30_Order and UMN top:"; find 30_Order 40_Resources/UMN -maxdepth 3 -name '*.md' -size 0 | head`
 

@@ -6,7 +6,7 @@ source_os: windows
 title: "Conversation Loop Design postmortem"
 started_at: 2026-10-30T20:23:23
 ended_at: 2026-10-30T22:46:33
-exported_at: 2026-10-31T01:03:23
+exported_at: 2026-10-31T02:03:14
 duration_minutes: 143.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

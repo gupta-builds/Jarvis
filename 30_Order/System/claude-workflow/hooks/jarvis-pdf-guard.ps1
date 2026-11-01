@@ -37,7 +37,7 @@ if ([string]::IsNullOrWhiteSpace($rawInput)) { exit 0 }
 try { $hook = $rawInput | ConvertFrom-Json } catch { exit 0 }
 
 $tool = [string]$hook.tool_name
-$wrapper = "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts/mineru-pdf.ps1"
+$wrapper = (Join-Path (Split-Path -Parent $PSScriptRoot) "scripts\mineru-pdf.ps1") -replace '\\', '/'
 $rule = ""
 $target = "<path to the PDF>"
 

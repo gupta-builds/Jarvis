@@ -6,7 +6,7 @@ source_os: windows
 title: "Giving Claude computer access from terminal"
 started_at: 2026-11-02T03:23:00
 ended_at: 2026-11-02T03:28:17
-exported_at: 2026-11-02T03:33:03
+exported_at: 2026-11-02T04:09:24
 duration_minutes: 5.3
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'

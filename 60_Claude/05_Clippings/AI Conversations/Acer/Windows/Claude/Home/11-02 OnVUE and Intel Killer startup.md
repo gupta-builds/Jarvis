@@ -6,7 +6,7 @@ source_os: windows
 title: "OnVUE and Intel Killer startup"
 started_at: 2026-11-02T20:22:58
 ended_at: 2026-11-02T20:27:46
-exported_at: 2026-11-02T20:33:02
+exported_at: 2026-11-02T21:03:23
 duration_minutes: 4.8
 project: Home
 cwd: 'C:\Users\anant'

@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
-ended_at: 2026-11-04T02:11:17
-exported_at: 2026-11-04T02:11:18
-duration_minutes: 6107.8
+ended_at: 2026-11-04T02:15:42
+exported_at: 2026-11-04T02:33:06
+duration_minutes: 6112.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9

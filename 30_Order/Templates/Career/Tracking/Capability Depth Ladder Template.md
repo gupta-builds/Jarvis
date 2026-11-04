@@ -15,9 +15,7 @@ next:
 ## Core Concepts
 <!-- The load-bearing ideas of this track as a hand-picked list of links. -->
 ## Compare and Discriminate
-<!-- Pairs that are easy to confuse. Each row states the line between them. -->
-| Concept A | Concept B | What to clarify |
-| --- | --- | --- |
+<!-- A table of easy-to-confuse pairs: Concept A, Concept B, What to clarify. Each row states the line between them. -->
 ## 30-Minute Refresher
 <!-- A numbered reading order that restores the track in thirty minutes. -->
 ## 2-Hour Technical Refresher

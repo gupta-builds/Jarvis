@@ -14,7 +14,7 @@ This workspace is an Obsidian vault ("Jarvis") used as a personal knowledge syst
 - `30_Order/` — **Rules and machinery.** Templates, workflows, CLI tools. Read before writing any note; read-only otherwise.
 - `40_Resources/` — **Reference.** Curated guides, concepts, links. Add one backlinked entry at a time; never bulk-dump.
 - `50_Archive/` — **Dead.** Never read, never write.
-- `60_Claude/` — **AI workshop.** Where AI captures, drafts, and distills. Subfolders: `00_Inbox/`, `05_Clippings/` (raw, read-only), `07_AI_Information/` (agent docs + memory), `10_Source_Summaries/`, `20_Distilled_Notes/`, `35_Outputs/`, `40_Project_Briefs/`, `44_Indexes/`, `50_Reviews/`.
+- `60_Claude/` — **AI workshop.** Where AI captures, drafts, and distills. Subfolders: `00_Inbox/`, `05_Clippings/` (raw, read-only), `07_AI_Information/` (agent docs + memory), `10_Source_Summaries/`, `20_Distilled_Notes/`, `30_Reviews/`, `40_Project_Briefs/`, `44_Indexes/`.
 
 ## Write contract (golden rules)
 

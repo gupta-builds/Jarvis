@@ -38,8 +38,8 @@ A second, separate trigger from the drill loop below: "teach me X," "help me und
 3. `60_Claude/07_AI_Information/AI_CONTEXT.md`
 4. `40_Resources/Obsidian/Vault Operating System.md` — for the Capability Engine field schema (`track`, `mastery_level`, `mastery_score`, `last_drilled`, `next_drill`, `drill_interval`, `prerequisites`, `used_in`, `evidence`, `enrichment_status`, `enrichment_level`).
 5. `40_Resources/Obsidian/Jarvis Enrichment Engine.md` — for the enrichment workflow.
-6. `30_Order/Templates/Capability/Jarvis Enrichment Template.md` — for the enrichment section shape.
-7. `30_Order/Templates/Capability/Question Bank Template.md` — for drill question shape.
+6. `30_Order/Workflows/Enrichment/Enrichment.md` and `30_Order/Templates/Career/Evergreen Note Template.md`: for the enrichment steps and section shape (there is no separate Jarvis Enrichment template; the work goes under a `## Jarvis Enrichment` heading).
+7. `30_Order/Templates/Career/Tracking/Capability Question Bank Template.md`: for drill question shape.
 8. The target Field OS board for the concept's track: `60_Claude/44_Indexes/Field OS/{AI|Systems|Algorithms|Career|Trading} Field OS.md`.
 
 Then read the concept note itself.
@@ -119,8 +119,8 @@ Never auto-create empty stubs. Suggest, ask, then create.
 If the note has no Capability Engine fields, or it's a course note without a concept-level treatment, run intake before drilling:
 
 1. Profile the note: word count, headings present, source anchors, backlinks.
-2. Decide enrichment level: `light` (definition + 1 example + drill seeds), `standard` (full Deep Dive Template), `deep` (Deep Dive + worked examples + synthesis + evidence).
-3. Apply the Jarvis Enrichment Template under a `## Jarvis Enrichment` heading via `vault_patch` append. **Preserve the existing note body.** Never rewrite human content during enrichment.
+2. Decide enrichment level: `light` (definition + 1 example + drill seeds), `standard` (the full Evergreen Note Template), `deep` (the Evergreen Note Template + worked examples + synthesis + evidence).
+3. Apply the Evergreen Note Template's sections under a `## Jarvis Enrichment` heading via `vault_patch` append. **Preserve the existing note body.** Never rewrite human content during enrichment.
 4. Add Capability Engine fields to frontmatter: `track`, `difficulty` (1–5), `prerequisites`, `used_in`, `evidence`, `mastery_level: novice`, `mastery_score: 3`, `last_drilled: today`, `next_drill: today + 7`, `drill_interval: 7`, `enrichment_status: enriched`, `enrichment_level: {light|standard|deep}`.
 5. Seed 3–5 flashcards under `## Flashcards` using the vault's `Question::Answer` format with the track tag (e.g. `#CSCI4041`, `#AI`, `#Systems`).
 6. Then run Phase 1 → Phase 4 as normal.

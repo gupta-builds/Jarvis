@@ -38,7 +38,7 @@ Before doing anything, read:
 2. `HUMAN_WRITING.md`
 3. `30_Order/Workflows/Capture to Summary.md`
 4. `30_Order/Standards/Source Summary Standard.md` — the content standard for the note body
-5. `30_Order/Templates/Capability/Clipping Distill Template.md`
+5. `30_Order/Templates/AI Toolkit/Source Summary Template.md`
 
 ---
 

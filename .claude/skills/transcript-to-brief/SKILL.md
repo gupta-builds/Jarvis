@@ -21,7 +21,7 @@ Compresses one transcript into what was decided and what mattered. Runs steps 3 
 Read these, in this order:
 1. `30_Order/Workflows/Ingestion/Meeting Workflow.md`
 2. `30_Order/Standards/Ingestion/Brief Standard.md`
-3. `30_Order/Templates/Capability/Brief Template.md`
+3. `30_Order/Templates/Career/Meetings/Brief Template.md`
 4. `references/example-brief.md` in this skill folder: what a finished brief looks like and why it works
 ## Steps
 ### Step 1: Locate the transcript

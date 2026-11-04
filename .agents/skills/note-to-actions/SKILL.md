@@ -22,7 +22,7 @@ Maps what still needs doing after a meeting. Runs steps 6 to 8 of [[Meeting Work
 Read these, in this order:
 1. `30_Order/Workflows/Ingestion/Meeting Workflow.md`
 2. `30_Order/Standards/Ingestion/Action Standard.md`
-3. `30_Order/Templates/Capability/Action Template.md`
+3. `30_Order/Templates/Career/Meetings/Action Template.md`
 4. `references/example-action.md` in this skill folder: a finished action note and a before-and-after of a paragraph turned into statements
 ## Steps
 ### Step 1: Locate the source

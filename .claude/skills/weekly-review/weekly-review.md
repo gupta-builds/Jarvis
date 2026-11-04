@@ -141,6 +141,8 @@ After creating it, also patch the weekly periodic note at `10_Areas/Life/Enumera
 type: review
 status: complete
 created: YYYY-MM-DD
+updated: YYYY-MM-DD
+review_kind: capability
 week: YYYY-WXX
 tags:
   - review
@@ -160,6 +162,10 @@ notes:
 ## Three-Month Plan Status
 
 [Current month and week in the plan. Table of this month's milestones with ✅ / ⚠️ / ❌ status. One sentence on whether the plan is on track, ahead, or behind, and what the main blocker is.]
+
+## Fall Execution Audit
+
+[Optional and term-specific. From Step 2: the current term's floor commitments, what moved and what slipped, each claim backed by the count or file that proves it. Rename or drop it when the term plan changes.]
 
 ## Enrichment and Drills
 

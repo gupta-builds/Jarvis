@@ -39,11 +39,11 @@ Open every note with YAML using only canonical fields (see `vault-behavior.mdc`)
 
 | Folder | Template intent |
 |---|---|
-| `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` — `## Full Content`, `## Open Questions` (tasks), `## Flashcards` |
-| `10_Areas/UMN/` week notes | `Week Template` — incl. `## Lecture-to-textbook synthesis` |
+| `60_Claude/10_Source_Summaries/` | `30_Order/Templates/AI Toolkit/Source Summary Template.md`: `## Full Content`, `## Open Questions` (tasks), `## Flashcards` |
+| course week notes (`10_Areas/UMN/` no longer exists) | `30_Order/Templates/Classes/Week Template.md`, incl. `## Lecture-to-textbook synthesis` |
 | concept notes | `Concept Template` — one-line answer, mechanism, failure modes, evidence |
-| `40_Resources/` / `20_Distilled_Notes/` | `For Evergreen` body structure |
-| `20_Progress/` | `For Progress` — goal, current state, `next:`, log |
+| `40_Resources/` / `20_Distilled_Notes/` | `30_Order/Templates/Career/Evergreen Note Template.md` body structure |
+| `20_Progress/` | `30_Order/Templates/Projects/Project Status Note Template.md`: goal, current state, `next:`, log |
 
 ## Source-note structure order (Vault Rules Part 9)
 

@@ -5,28 +5,28 @@ source_app: claude-code
 source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
-ended_at: 2026-10-30T21:38:32
-exported_at: 2026-11-01T02:33:17
-duration_minutes: 75.1
+ended_at: 2026-11-03T23:16:52
+exported_at: 2026-11-03T23:33:03
+duration_minutes: 5933.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9
 status: seed
 review_state: raw
 created: 2026-10-30
-updated: 2026-11-01
-turn_count: 6
+updated: 2026-11-03
+turn_count: 8
 tools_used:
-  Bash: 20
+  Bash: 28
   Grep: 13
   Read: 40
 tokens:
-  input: 64
-  output: 24863
-  cache_creation: 247949
-  cache_read: 5616991
-  total: 5889867
-cost_usd: 1.802253
+  input: 74
+  output: 43506
+  cache_creation: 323550
+  cache_read: 5997760
+  total: 6364890
+cost_usd: 2.329184
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -2061,6 +2061,1207 @@ Continue the conversation from where it left off without asking the user any fur
 
 The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
+## You
+
+Templates/Frontmatter deletion: what depends on it has to completely go and all the existing notes that depend on those templates should match this new template that is going to be created (not your job for it to be matched), the whole folder goes so that the template folder is much lighter. The templates creared are with vague names and should be clear names and not confusing for any folder that is created. Clearly says for what purpose exactly. `30_Order/Templates/System/AI` is created for all the extensive templates required in jarvis for any ai systems. Internship is a core jarvis loop so it does not fall under this. The conversation logs, graphify logs or any log templates, any scratch templates, ai templates, for all the things that an ai would create a template for inside this folder should land inside the folder just mentioned. `30_Order/Templates/Enumerate` is solid and nothing is required in it. `30_Order/Templates/Classes` needs to be updated but is not done by you (might already be updated slightly). `30_Order/Templates/Career` should consist of all the possiblt tracking templates, main evergreen note templates, main notes that are created inside the vault is stored here. `30_Order/Templates/Capability` very core jarvis system templates for 60_jarvis folder mainly. Everything inside the folder is either deleted or moved. All the core notes are outside of it and moved to other folders inside the main folder: `30_Order/Templates`. `30_Order/Templates/AI Toolkit` - core ai templates that are created for core ai jobs through the vault. does not consist of logs or other non human reading note templates. Only consist of core human reading ai notes that are required. `30_Order/Templates/Projects` solely based on all the other type of project notes that are created through the vault. Project could mean a lot of things here, so we specify what type of project file is clearly created through the templates itself. 
+
+Now your questions, 
+
+ Standards/Courses, Templates/Classes, Workflows/Courses stay out of these. UMN/SAO (30 notes) and UMN/The Plan (5) mine? no 
+Target size: depends on what the standard is created for. A standard can reference other templates yes but for the job that it needs to get done and what needs to be written down on the note that the template is created of. The rule is not exactly 1 standard 1 template like done in the meeting workflow, that was done because we require three notes there (different types). What a standard could have is a job for 3 templates to cover. Workflow governs over these standards itself. But all the templates created are for sure already in use and will be in use based on the notes already created in the vault. 
+
+Folder rules after the Frontmatter delete: reason for this was that everything was too generic over here and we were creating off way too many templates anyways so what's the point? I would rather not have templates than have tempaltes that i dont use. So, the existing notes should refer the same folder that it always has but to a lot more specific tasks and the type of note that is created of based of the template choosen for the task. Everything has been clearly explained above. 
+
+should conversation exports, dossiers, repo cards and the other machine-written families(logs) leave the fit denominator these are the exact type of notes that need to land inside the folder: `30_Order/Templates/System/AI`. 
+
+Session-log conflict: log that does the job correctly that's it. Update the existing to one work. 
+
+Scope outside 30_Order: you already have too much work in this pass. Focus on just the templates folder and only the templates folder in this pass. 
+
+System folder: should I only make the docs accurate? Or also fix the defects the 10-17 session listed: .mcp.json registers only jarvis, the jarvis-cli report path is obsolete, and the session-continuity hook is not in project settings. The hardcoded paths in git-auto-sync and the hooks mean the folder cannot move without breaking them. the systems folder: `30_Order/System` needs an in depth look at itself and is not covered in this pass. Will be covered in the next pass alongside the notes outside 30_order that were found in the research landed. 
+
+Course-adjacent workflows: Application Document Preparation 1, Internship - Design Rationale and the three big per-class workflows (about 40 KB). The per-class ones are course work, but a 10-17 note recommended removing them. Whose are they? the intership and the course related workflows were updated and removed. Internships ones will later on be updated in much more detail but you are focusing on minimalizing the internship loop templates created itself to exactly fit the job only. 
+
+Cuts from 10-17 still undecided: zero or one-instance kits (cover-letter, job-company, linkedin-post, cheat, tool-map and others). Should the cut list be built from instance counts, or from what you expect to write? these builds should land later on with the internship build that is required in this vault (mentioned inside the notes outside 30_order). This is a task that is for the next pass.
+
+## Claude
+
+I'll start by taking a fresh inventory of `Templates/` with each file's type, size and links. The mapping I build from it needs to match what's on disk now, and the course session may have changed `Classes/` since my last look.
+
+The plan is below. I haven't changed anything yet, and there are six decisions I need from you first. Another session changed `Templates/` at 23:03 tonight. It renamed `Knowledge/` to `Learning/` and moved `For Everything` out of `Frontmatter/`. I've planned around the tree as it is now: 77 files.
+
+## What goes
+- **`Frontmatter/`:** all 8 files, as you asked.
+- **`MOC.md`:** it's a 2025 hub note, not a template, and it links templates that no longer exist.
+- **`Capability/Synthesis Template`:** `Learning/Synthesis Note Template` replaces it.
+- **`Career/Internship/Tracking Template`:** it has 0 references and duplicates `Career/Tracking`, the one the registry uses.
+- **Emptied folders:** `Capability/`, `Learning/`, and the extra `Knowledge/` leftovers.
+
+## Where everything lands
+
+| Folder | Files (old name → new name, or kept) |
+|---|---|
+| **`System/AI/`** (new: machine-written, logs, scratch) | `AI Conversation` → **AI Conversation Export Template**<br>`Tool Logs` → **AI Tool Log Template**<br>`Write Logs` → **AI Write Log Template**<br>`Graphify Notes Template` → **Graphify Repo Map Template**<br>`Learning/Repo Evaluation Template` → **GitHub Repo Card Template** |
+| **`System/`** | `Standard Template` and `Workflow Template`, unchanged |
+| **`AI Toolkit/`** (human-read AI notes only) | `AI Weekly Review` and `AI Monthly Review`, unchanged<br>`Tool Setup Template` → **AI Tool Profile Template**<br>`Clipping Distill Template` → **Source Summary Template**<br>`Audit Report Template` → **Vault Audit Report Template**<br>`Weekly Synthesis Template` → **Vault Weekly Synthesis Template** |
+| **`Career/`** (main notes) | `Deep Dive Template` → **Evergreen Note Template**<br>`Synthesis Note Template` → **Cross-Domain Synthesis Template**<br>`Reference Template` → **Reference Guide Template**<br>`Technical Concept Template` moves in from Projects, same name<br>`Output Template` → **Interview Story Template**<br>`Output Bullet Template` → **Portfolio Bullet Template**<br>`Output One-Pager Template` → **Project One-Pager Template**<br>`MOC Template` → **Folder MOC Template**<br>`Plan Template` → **Standing Plan Template** |
+| **`Career/Meeting/`** | `Transcript`, `Brief` and `Action Template`, names kept. Skills, the agent and the Standards depend on them. |
+| **`Career/Tracking/`** | `Career/Tracking` → **Internship Tracker Template**<br>`List Monthly Log` → **Internship Postings Log Template**<br>`Field OS`, `Depth Ladder` and `Question Bank` → **Capability Field OS / Depth Ladder / Question Bank Template** |
+| **`Career/Internship/`** (the loop) | `Program`, `Contact`, `Applying`, `Interview Prep`, `Cover Letter` get an "Internship" prefix, for example **Internship Contact Template**<br>The two Loop Review templates are already clear<br>`Cheat`, `LinkedIn Post` and `Job & Company` stay as they are for now |
+| **`Projects/`** (only project files, each named by its type) | `Project Note Template` → **Project Status Note Template**<br>`Project Plan` and `Project Spec`, unchanged<br>`Agent Prompt Template` → **Agent Task Prompt Template**<br>`Code Mirror Template` → **Code File Mirror Template**<br>`Machine Runbook Template` → **Machine Setup Runbook Template** |
+| **`Classes/`, `Enumerate/`** | Untouched |
+
+That takes the folder from 77 files to 65, or 50 without the 15 course files. I'd use `git mv` for every move, so history follows the files.
+
+## Decisions I need
+1. **`Learning/` move.** Did you or the course session move `Knowledge/` to `Learning/` at 23:03? My plan empties it into `Career/` and `System/AI/`. Is that fine?
+2. **`For Everything`.** It was deliberately moved out of `Frontmatter/` tonight. It's a blank starter with an empty `type`. Should it be deleted with the folder (my default), or kept as the Inbox fallback?
+3. **Broken links from renames.** Wikilinks resolve by name, so each rename breaks the Registry rows, Standard Spec blocks, Workflows and agent files that name the old template. `vault-lint --kit` would fail until they are fixed. Should I repoint those names inside `30_Order/` in the same pass (my recommendation), or leave them for the next pass?
+4. **Templater folder rules.** Five rules in `.obsidian/plugins/templater-obsidian/data.json` point at the deleted `For Progress`, `For Evergreen` and `For Inputs`. They would error on new notes in those folders. Should I remove them? That is one config edit outside `Templates/`.
+5. **Broken frontmatter.** `Job & Company Template` has an empty `type:`, and `LinkedIn Post Template` has no `output_kind`. You said frontmatter must never be broken. May I fix just those two lines now, with no other content changes?
+6. **Meeting trio folder.** Do you want the Transcript, Brief and Action templates in `Career/Meeting/`? I put them there because you said Career holds the main notes.
+
+## Not touched
+- `Vault Weekly Synthesis Template` still has stale sections: "Three-Month Plan Status" and "Fall Execution Audit".
+- The `Dashboard Standard`, the Registry's dashboard row and `CLAUDE.md` line 46 still name `For Dashboards` and `Frontmatter/`. They are outside `Templates/`, so I'll list them for the next pass unless you say otherwise on question 3.
+- No dossier or scratch template exists. I won't create any.
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && find . -type f | sort | while read f; do printf "%6s  %s\n" "$(wc -c < "$f")" "$f"; done
+```
+```
+  1222  ./AI Toolkit/AI Conversation.md
+  1051  ./AI Toolkit/AI Monthly Review Template.md
+  1107  ./AI Toolkit/AI Weekly Review Template.md
+   958  ./AI Toolkit/Clipping Distill Template.md
+   784  ./AI Toolkit/Deep Dive Template.md
+   682  ./AI Toolkit/Graphify Notes Template.md
+   478  ./AI Toolkit/Tool Logs.md
+   780  ./AI Toolkit/Tool Setup Template.md
+   351  ./AI Toolkit/Write Logs.md
+   982  ./Capability/Action Template.md
+   793  ./Capability/Audit Report Template.md
+  1042  ./Capability/Brief Template.md
+  1296  ./Capability/Depth Ladder Template.md
+  1830  ./Capability/Field OS Template.md
+   685  ./Capability/MOC Template.md
+   398  ./Capability/Output Template.md
+  2040  ./Capability/Question Bank Template.md
+   325  ./Capability/Synthesis Template.md
+   397  ./Capability/Transcript Template.md
+  1355  ./Capability/Weekly Synthesis Template.md
+   947  ./Career/Internship/Applying Template.md
+   598  ./Career/Internship/Cheat Template.md
+   708  ./Career/Internship/Contact Template.md
+   857  ./Career/Internship/Cover Letter Template.md
+  1559  ./Career/Internship/Internship Loop Monthly Review Template.md
+  1553  ./Career/Internship/Internship Loop Weekly Review Template.md
+   999  ./Career/Internship/Interview Prep Template.md
+  1897  ./Career/Internship/Job & Company Template.md
+   456  ./Career/Internship/LinkedIn Post Template.md
+   950  ./Career/Internship/Program Template.md
+  1624  ./Career/Internship/Tracking Template.md
+   691  ./Career/List Monthly Log.md
+   807  ./Career/Plan Template.md
+   562  ./Career/Tracking.md
+  1338  ./Classes/Board or Main Template.md
+   886  ./Classes/Concept Template.md
+   555  ./Classes/Degree Control Template.md
+   544  ./Classes/Discussion Template.md
+   535  ./Classes/Exam Material Template.md
+   717  ./Classes/Exam Sheet Template.md
+   656  ./Classes/Homework Template.md
+   626  ./Classes/Lab Template.md
+   852  ./Classes/Preparation Template.md
+  1005  ./Classes/Project Template.md
+   692  ./Classes/Textbook Map Template.md
+   963  ./Classes/Textbook Template.md
+   642  ./Classes/Track Template.md
+  1167  ./Classes/Week Template.md
+   843  ./Classes/Weekly Board Template.md
+   418  ./Enumerate/Better Month.md
+  1813  ./Enumerate/Better Today.md
+   797  ./Enumerate/Better Weekly.md
+   468  ./Enumerate/Better Year.md
+   129  ./For Everything.md
+   171  ./Frontmatter/For AI.md
+   179  ./Frontmatter/For Brainstorm.md
+   155  ./Frontmatter/For Classes.md
+   177  ./Frontmatter/For Dashboards.md
+  2227  ./Frontmatter/For Evergreen.md
+   171  ./Frontmatter/For Inputs.md
+  1226  ./Frontmatter/For Progress.md
+   165  ./Frontmatter/For Thoughts.md
+   364  ./Learning/Output Bullet Template.md
+   583  ./Learning/Output One-Pager Template.md
+   286  ./Learning/Reference Template.md
+   778  ./Learning/Repo Evaluation Template.md
+   584  ./Learning/Synthesis Note Template.md
+   823  ./MOC.md
+   642  ./Projects/Agent Prompt Template.md
+   411  ./Projects/Code Mirror Template.md
+   545  ./Projects/Machine Runbook Template.md
+   741  ./Projects/Project Note Template.md
+   478  ./Projects/Project Plan Template.md
+   529  ./Projects/Project Spec Template.md
+   774  ./Projects/Technical Concept Template.md
+  1176  ./System/Standard Template.md
+   551  ./System/Workflow Template.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in $(find . -type f -name "*.md" | sort | tr ' ' '?'); do :; done; find . -type f -name "*.md" -print0 | sort -z | while IFS= read -r -d '' f; do t=$(grep -m1 '^type:' "$f" | sed 's/type: *//'); k=$(grep -m1 -E '^[a-z_]+_kind:' "$f" | tr -d '\r'); echo "$f | type=$t | $k"; done
+```
+```
+./AI Toolkit/AI Conversation.md | type=input | input_kind: ai-conversation-summary
+./AI Toolkit/AI Monthly Review Template.md | type=review | review_kind: monthly
+./AI Toolkit/AI Weekly Review Template.md | type=review | review_kind: weekly
+./AI Toolkit/Clipping Distill Template.md | type=input | input_kind:
+./AI Toolkit/Deep Dive Template.md | type=evergreen | evergreen_kind: distilled
+./AI Toolkit/Graphify Notes Template.md | type=reference | reference_kind: repo
+./AI Toolkit/Tool Logs.md | type=system | system_kind: log
+./AI Toolkit/Tool Setup Template.md | type=reference | reference_kind: tool-profile
+./AI Toolkit/Write Logs.md | type=system | system_kind: log
+./Capability/Action Template.md | type=action | 
+./Capability/Audit Report Template.md | type=review | review_kind: audit
+./Capability/Brief Template.md | type=input | input_kind: brief
+./Capability/Depth Ladder Template.md | type=dashboard | dashboard_kind: depth-ladder
+./Capability/Field OS Template.md | type=dashboard | dashboard_kind: field-os
+./Capability/MOC Template.md | type=index | 
+./Capability/Output Template.md | type=output | output_kind: story
+./Capability/Question Bank Template.md | type=dashboard | dashboard_kind: question-bank
+./Capability/Synthesis Template.md | type=evergreen | 
+./Capability/Transcript Template.md | type=input | input_kind: transcript
+./Capability/Weekly Synthesis Template.md | type=review | review_kind: capability
+./Career/Internship/Applying Template.md | type=project | project_kind: project
+./Career/Internship/Cheat Template.md | type=evergreen | evergreen_kind: distilled
+./Career/Internship/Contact Template.md | type=contact | 
+./Career/Internship/Cover Letter Template.md | type=output | output_kind: cover-letter
+./Career/Internship/Internship Loop Monthly Review Template.md | type=review | review_kind: internship-loop
+./Career/Internship/Internship Loop Weekly Review Template.md | type=review | review_kind: internship-loop
+./Career/Internship/Interview Prep Template.md | type=project | project_kind: project
+./Career/Internship/Job & Company Template.md | type= | 
+./Career/Internship/LinkedIn Post Template.md | type=output | 
+./Career/Internship/Program Template.md | type=reference | reference_kind: program
+./Career/Internship/Tracking Template.md | type=tracker | 
+./Career/List Monthly Log.md | type=dashboard | dashboard_kind: dashboard
+./Career/Plan Template.md | type=plan | 
+./Career/Tracking.md | type=tracker | 
+./Classes/Board or Main Template.md | type=class | class_kind: board
+./Classes/Concept Template.md | type=concept | 
+./Classes/Degree Control Template.md | type=class | class_kind: control
+./Classes/Discussion Template.md | type=class | class_kind: discussion
+./Classes/Exam Material Template.md | type=class | class_kind: exam-material
+./Classes/Exam Sheet Template.md | type=class | class_kind: exam
+./Classes/Homework Template.md | type=class | class_kind: homework
+./Classes/Lab Template.md | type=class | class_kind: lab
+./Classes/Preparation Template.md | type=class | class_kind: preparation
+./Classes/Project Template.md | type=class | class_kind: project
+./Classes/Textbook Map Template.md | type=class | class_kind: textbook-map
+./Classes/Textbook Template.md | type=class | class_kind: textbook
+./Classes/Track Template.md | type=class | class_kind: track
+./Classes/Week Template.md | type=class | class_kind: week
+./Classes/Weekly Board Template.md | type=class | class_kind: subboard
+./Enumerate/Better Month.md | type=thought | thought_kind: monthly
+./Enumerate/Better Today.md | type=thought | thought_kind: daily
+./Enumerate/Better Weekly.md | type=thought | thought_kind: weekly
+./Enumerate/Better Year.md | type=thought | thought_kind: yearly
+./For Everything.md | type= | 
+./Frontmatter/For AI.md | type=reference | reference_kind: tool-profile
+./Frontmatter/For Brainstorm.md | type=thought | thought_kind: brainstorm
+./Frontmatter/For Classes.md | type=class | class_kind:
+./Frontmatter/For Dashboards.md | type=dashboard | dashboard_kind: dashboard
+./Frontmatter/For Evergreen.md | type=evergreen | 
+./Frontmatter/For Inputs.md | type=input | input_kind:
+./Frontmatter/For Progress.md | type=project | 
+./Frontmatter/For Thoughts.md | type=thought | thought_kind:
+./Learning/Output Bullet Template.md | type=output | output_kind: bullet
+./Learning/Output One-Pager Template.md | type=output | output_kind: one-pager
+./Learning/Reference Template.md | type=reference | reference_kind:
+./Learning/Repo Evaluation Template.md | type=input | input_kind: repo-card
+./Learning/Synthesis Note Template.md | type=evergreen | evergreen_kind: synthesis
+./MOC.md | type=evergreen | 
+./Projects/Agent Prompt Template.md | type=project | project_kind: prompt
+./Projects/Code Mirror Template.md | type=project | project_kind: code-mirror
+./Projects/Machine Runbook Template.md | type=reference | reference_kind: runbook
+./Projects/Project Note Template.md | type=project | project_kind: project
+./Projects/Project Plan Template.md | type=project | project_kind: plan
+./Projects/Project Spec Template.md | type=project | project_kind: spec
+./Projects/Technical Concept Template.md | type=concept | 
+./System/Standard Template.md | type=system | system_kind: standard
+./System/Workflow Template.md | type=system | system_kind: workflow
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short -- 30_Order | head -50; echo ---; git log --since="2026-10-28" --name-status --format="%h %ad %s" --date=short -- 30_Order/Templates | grep -v "Auto-sync" | head -60; echo ---; git log -8 --format="%h %ad %s" --date=iso -- 30_Order/Templates
+```
+```
+---
+
+R100	30_Order/Templates/Frontmatter/For Everything.md	30_Order/Templates/For Everything.md
+R100	30_Order/Templates/Knowledge/Output Bullet Template.md	30_Order/Templates/Learning/Output Bullet Template.md
+R100	30_Order/Templates/Knowledge/Output One-Pager Template.md	30_Order/Templates/Learning/Output One-Pager Template.md
+R100	30_Order/Templates/Knowledge/Reference Template.md	30_Order/Templates/Learning/Reference Template.md
+R100	30_Order/Templates/Knowledge/Repo Evaluation Template.md	30_Order/Templates/Learning/Repo Evaluation Template.md
+R100	30_Order/Templates/Knowledge/Synthesis Note Template.md	30_Order/Templates/Learning/Synthesis Note Template.md
+---
+0258eb1e 2026-11-03 23:03:03 -0600 Auto-sync: 2026-11-03 23:03,  16 files changed, 2761 insertions(+), 146 deletions(-)
+8780e0b4 2026-10-29 00:03:05 -0500 Auto-sync: 2026-10-29 00:03,  18 files changed, 3172 insertions(+), 96 deletions(-)
+42c23802 2026-10-28 22:33:06 -0500 Auto-sync: 2026-10-28 22:33,  42 files changed, 3466 insertions(+), 451 deletions(-)
+17678fc7 2026-10-26 13:18:35 -0500 Auto-sync: 2026-10-26 13:18,  33 files changed, 975 insertions(+), 265 deletions(-)
+b3494715 2026-10-26 12:18:31 -0500 Auto-sync: 2026-10-26 12:18,  8 files changed, 99 insertions(+), 33 deletions(-)
+d3edd11b 2026-10-17 00:18:10 -0500 Auto-sync: 2026-10-17 00:18,  99 files changed, 2012 insertions(+), 1194 deletions(-)
+98782d0f 2026-10-16 19:48:19 -0500 Auto-sync: 2026-10-16 19:48,  53 files changed, 1879 insertions(+), 822 deletions(-)
+d20706e6 2026-10-16 19:33:19 -0500 Auto-sync: 2026-10-16 19:33,  91 files changed, 3711 insertions(+), 1633 deletions(-)
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in "For Everything.md" "MOC.md" "Learning/Reference Template.md" "Learning/Synthesis Note Template.md" "Capability/Synthesis Template.md" "Career/Tracking.md" "Career/Internship/Tracking Template.md" "Career/List Monthly Log.md"; do echo "=== $f"; cat "$f"; echo; done
+```
+````
+=== For Everything.md
+---
+type:
+status:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+notes: []
+next:
+---
+
+=== MOC.md
+---
+type: evergreen
+status: tree
+created: 2025-12-26
+tags:
+  - evergreen
+notes:
+  - "[[40_Resources/Random]]"
+---
+# Dashboards
+[[40_Resources/Obsidian/Data View's/Inbox Dashboard]]
+[[40_Resources/Obsidian/Data View's/UMN Dashboard]]
+# Previous Templates
+[[CSCI 2011 Template]]
+[[CSCI 2021 Template]]
+[[CSCI 2033 Template]]
+# Headway Templates
+[[Better Month]]
+[[Better Today]]
+[[Better Week]]
+[[Better Year]]
+# Metadata
+[[For Everything]]
+[[For Brainstorm]]
+[[For Classes]]
+[[For Evergreen]]
+[[For Inputs]]
+[[For Progress]]
+[[For Thoughts]]
+# Capability
+[[Clipping Distill Template]]
+[[MOC Template]]
+[[Transcript Template]]
+[[Brief Template]]
+[[Action Template]]
+# Classes
+[[Concept Template]]
+[[Discussion Template]]
+[[Homework Template]]
+[[Lab Template]]
+[[Week Template]]
+[[Project Template]]
+[[Board or Main Template]]
+=== Learning/Reference Template.md
+---
+type: reference
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+reference_kind:
+area: []
+notes: []
+---
+# <% tp.file.title %>
+<!-- First three lines: what this note is for, what this vault uses it for, and when to read it. -->
+
+=== Learning/Synthesis Note Template.md
+---
+type: evergreen
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - evergreen
+  - synthesis
+evergreen_kind: synthesis
+concepts: []
+tracks: []
+---
+# <% tp.file.title %>
+## Core Claim
+<!-- One sentence wrapped in a single highlight: the parallel both domains share. -->
+## Where They Converge
+<!-- The mapping row by row, as a table if rows help. -->
+## Where They Diverge
+<!-- The differences that break a naive transfer. -->
+## Transfer Value
+<!-- What you already know that carries over, written as a drill when possible. -->
+
+=== Capability/Synthesis Template.md
+---
+type: evergreen
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - evergreen
+  - synthesis
+notes: []
+concepts: []
+tracks: []
+---
+# <% tp.file.title %>
+
+## The Connection
+
+## Key Differences
+
+## Shared Mental Model
+
+## Practical Implication
+
+## Evidence In This Vault
+
+=== Career/Tracking.md
+---
+type: tracker
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - internship
+  - tracker
+program:
+contact:
+company:
+url:
+date_noted: <% tp.date.now("YYYY-MM-DD") %>
+date_researched:
+date_created: <% tp.date.now("YYYY-MM-DD") %>
+date_applied:
+date_result:
+result:
+deadline:
+related_notes: []
+next:
+---
+# <% tp.file.title %>
+## Timeline
+<!-- Five dated lines: Noted, Researched, Created, Applied, Result. Unset ones read an em dash. -->
+## Next Action
+<!-- The one physical move now, with the reason. -->
+
+=== Career/Internship/Tracking Template.md
+---
+type: tracker
+program:
+contact:
+company:
+url:
+date_noted:
+date_researched:
+date_created:
+date_applied:
+date_result:
+result:
+deadline:
+related_notes: []
+tags:
+  - internship
+  - tracker
+next:
+---
+# [Role] - [Company]
+==The dated index for this internship — source of truth for "where does this stand" until an Applying note exists (see [[Internship Pipeline]]).== Created only once the paired Program note exists. Lives in `Tracker/Each One/Current/`, moves to `Applied/` when a real application goes out, moves to `Result/` once an outcome lands — set `date_applied`/`date_result`/`result` at the same time.
+## Timeline
+- **Noted:** YYYY-MM-DD
+- **Researched:** -
+- **Created:** YYYY-MM-DD
+- **Internship released**: 
+- **Internship Close**:
+- **Applied:** —
+- **Result:** —
+## Summary
+what is the internship about and how exactly does it prove through all the rules set? Why is it crucial to us - considerate or serious? The details of the internship plus how is it related to what i am currently doing/working on? 
+### Company Information
+Summary and interlinks to the detailed [[Job & Company]] folder. Overview of what the company is about and useful to me
+### Conversation
+The summary of the conversation with recruiter. Along with follow up actions. 
+### Interview Steps
+This header will be written when we get to the stage.
+## Loop Process
+> [!TIMELINE] How long did it take to go across the entire loop? The summary of the process for this particular internship. Keep it short. but visibly appealing. 
+## Next Action
+The single next physical move for this internship — decide, research more, or apply.
+
+=== Career/List Monthly Log.md
+---
+type: dashboard
+dashboard_kind: dashboard
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - internship
+  - list
+month: <% tp.date.now("YYYY-MM") %>
+next:
+---
+# <% tp.file.title %>
+## Postings
+```dataview
+TABLE company, title as "Role", url as "Link", matched_reason as "Why It Matched", status
+FROM "10_Areas/Career/Internships/List/Dossiers"
+WHERE date_found >= date(this.month + "-01") AND date_found < date(this.month + "-01") + dur(1 month)
+SORT date_found DESC
+```
+## Promotion Rule
+<!-- A dossier moves to seed, tree, or archived by the Internship Notes Standard; promotion creates a Program, Contact, and Tracker note. -->
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && find 30_Order/Templates -name "*.md" -print0 | while IFS= read -r -d '' f; do n=$(basename "$f" .md); c=$(grep -rlF "[[$n" --include="*.md" --include="*.mdc" --include="*.json" --include="*.ps1" --include="*.js" 30_Order/Standards 30_Order/Workflows 30_Order/Note\ Type\ Registry.md 30_Order/00_How\ This\ Folder\ Works.md .claude AGENTS.md CLAUDE.md .cursor 2>/dev/null | wc -l); s=$(grep -rlF "$n" 30_Order/Standards 30_Order/Workflows 30_Order/System/vault-lint "30_Order/Note Type Registry.md" .claude 2>/dev/null | wc -l); echo "$s refs | $n"; done | sort -rn
+```
+```
+14 refs | MOC
+12 refs | Tracking
+10 refs | AI Conversation
+7 refs | Project Template
+7 refs | Concept Template
+6 refs | Week Template
+6 refs | Textbook Template
+6 refs | Preparation Template
+5 refs | Homework Template
+5 refs | Discussion Template
+5 refs | Better Today
+4 refs | Transcript Template
+4 refs | Plan Template
+4 refs | Lab Template
+4 refs | Exam Sheet Template
+4 refs | Exam Material Template
+4 refs | Deep Dive Template
+4 refs | Clipping Distill Template
+4 refs | Brief Template
+4 refs | Action Template
+3 refs | Workflow Template
+3 refs | Weekly Board Template
+3 refs | Textbook Map Template
+3 refs | Synthesis Note Template
+3 refs | Standard Template
+3 refs | Repo Evaluation Template
+3 refs | Question Bank Template
+3 refs | Project Note Template
+3 refs | Output Template
+3 refs | Output One-Pager Template
+3 refs | Output Bullet Template
+3 refs | Internship Loop Weekly Review Template
+3 refs | Internship Loop Monthly Review Template
+3 refs | Graphify Notes Template
+3 refs | Board or Main Template
+3 refs | Better Weekly
+3 refs | Applying Template
+3 refs | Agent Prompt Template
+2 refs | Write Logs
+2 refs | Weekly Synthesis Template
+2 refs | Track Template
+2 refs | Tool Setup Template
+2 refs | Tool Logs
+2 refs | Technical Concept Template
+2 refs | Synthesis Template
+2 refs | Reference Template
+2 refs | Project Spec Template
+2 refs | Project Plan Template
+2 refs | Program Template
+2 refs | Machine Runbook Template
+2 refs | MOC Template
+2 refs | Interview Prep Template
+2 refs | For Dashboards
+2 refs | For AI
+2 refs | Field OS Template
+2 refs | Depth Ladder Template
+2 refs | Degree Control Template
+2 refs | Cover Letter Template
+2 refs | Contact Template
+2 refs | Code Mirror Template
+2 refs | Better Year
+2 refs | Better Month
+2 refs | Audit Report Template
+2 refs | AI Weekly Review Template
+2 refs | AI Monthly Review Template
+1 refs | LinkedIn Post Template
+1 refs | Job & Company Template
+1 refs | Cheat Template
+0 refs | Tracking Template
+0 refs | List Monthly Log
+0 refs | For Thoughts
+0 refs | For Progress
+0 refs | For Inputs
+0 refs | For Everything
+0 refs | For Evergreen
+0 refs | For Classes
+0 refs | For Brainstorm
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in Capability/Output* Capability/Field* Capability/Depth* Capability/Question* Capability/Audit* Capability/Weekly* Capability/MOC* Learning/Repo* Learning/Output* Projects/*.md Career/Plan* AI\ Toolkit/Graphify* AI\ Toolkit/Tool\ Setup* AI\ Toolkit/Deep* AI\ Toolkit/Clipping*; do echo "=== $f"; grep -v '^$' "$f" | head -40; done
+```
+````
+=== Capability/Output Template.md
+---
+type: output
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - output
+track: []
+output_kind: story
+source_concepts: []
+---
+# <% tp.file.title %>
+## STAR Format
+<!-- Situation, Task, Action, and Result as four ### headings, each concrete to the project. -->
+## Why This Story Works
+<!-- Three or four reasons an interviewer would care. -->
+=== Capability/Field OS Template.md
+---
+type: dashboard
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - dashboard
+  - field-os
+dashboard_kind: field-os
+track: []
+notes: []
+---
+# <% tp.file.title %>
+## Capability Summary
+<!-- Set track in the frontmatter first; every query below reads it. -->
+```dataview
+TABLE length(rows) AS "Tracked Concepts"
+FROM ""
+WHERE type = "concept" AND contains(track, this.track[0])
+GROUP BY "Track"
+```
+## Overdue Drills
+<!-- Concepts whose next_drill has passed. Review these first. -->
+```dataview
+TABLE mastery_level, difficulty, next_drill, drill_interval
+FROM ""
+WHERE type = "concept" AND contains(track, this.track[0]) AND next_drill AND next_drill < date(today)
+SORT next_drill ASC
+```
+## Recent Progress
+<!-- The ten concepts of this track updated most recently. -->
+```dataview
+TABLE mastery_level, status, updated
+FROM ""
+WHERE type = "concept" AND contains(track, this.track[0])
+SORT updated DESC
+LIMIT 10
+```
+## Open Questions
+<!-- Unresolved questions for this track. Add questions to the Question Bank, not here. -->
+=== Capability/Depth Ladder Template.md
+---
+type: dashboard
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - dashboard
+  - depth-ladder
+dashboard_kind: depth-ladder
+track: []
+notes: []
+---
+# <% tp.file.title %>
+## Core Concepts
+<!-- The load-bearing ideas of this track as a hand-picked list of links. -->
+## Compare and Discriminate
+<!-- Pairs that are easy to confuse. Each row states the line between them. -->
+| Concept A | Concept B | What to clarify |
+| --- | --- | --- |
+## 30-Minute Refresher
+<!-- A numbered reading order that restores the track in thirty minutes. -->
+## 2-Hour Technical Refresher
+<!-- A numbered reading order for a full technical pass. -->
+## Deep Relearning Pass
+<!-- Where to start and the order to work through the track's concept notes. -->
+## Overdue Drills
+<!-- Concepts whose next_drill has passed. -->
+```dataview
+TABLE mastery_level, difficulty, next_drill, drill_interval
+FROM ""
+WHERE type = "concept" AND contains(track, this.track[0]) AND next_drill AND next_drill < date(today)
+SORT next_drill ASC
+```
+## All Tracked Concepts
+<!-- Every concept in this track, for a full audit. -->
+```dataview
+TABLE mastery_level, difficulty, status, next_drill
+FROM ""
+WHERE type = "concept" AND contains(track, this.track[0])
+SORT file.name ASC
+=== Capability/Question Bank Template.md
+---
+type: dashboard
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - dashboard
+  - question-bank
+dashboard_kind: question-bank
+track: []
+notes: []
+---
+# <% tp.file.title %>
+## Open Questions
+<!-- Unanswered questions for this track. Add them as question notes; this list is generated. -->
+```dataview
+TABLE question_status, created
+FROM ""
+WHERE type = "thought" AND contains(tags, "question") AND contains(track, this.track[0]) AND question_kind = "open" AND question_status != "resolved"
+SORT created ASC
+```
+## Misconceptions
+<!-- Wrong beliefs worth correcting. Each states the belief and why it is wrong. -->
+```dataview
+TABLE question_status, created
+FROM ""
+WHERE type = "thought" AND contains(tags, "question") AND contains(track, this.track[0]) AND question_kind = "misconception" AND question_status != "resolved"
+SORT created ASC
+```
+## Oral Exam Prompts
+<!-- Questions to answer cold in an interview or technical discussion. -->
+```dataview
+TABLE question_status, created
+FROM ""
+WHERE type = "thought" AND contains(tags, "question") AND contains(track, this.track[0]) AND question_kind = "oral-exam"
+SORT created ASC
+```
+## Debugging Drills
+<!-- A broken scenario to diagnose down to the root cause. -->
+```dataview
+=== Capability/Audit Report Template.md
+---
+type: review
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - review
+  - audit
+review_kind: audit
+notes: []
+---
+# <% tp.file.title %>
+## Summary
+<!-- What was audited, the date, and the verdict in two or three sentences. -->
+## Scope
+<!-- Optional: the systems covered and what was left out, when the audit spans several. -->
+## Findings
+<!-- One ### per finding: a claim stated plainly, then the count, file, or log row that proves it. -->
+## Priority Queue
+<!-- Ordered next actions, each tied to the finding it answers. Mark owner-only decisions. -->
+## What Changed
+<!-- Optional: files the audit changed, and what it deliberately left alone. -->
+## Open Questions
+<!-- Anything the audit could not settle, as - [ ] tasks. -->
+=== Capability/Weekly Synthesis Template.md
+---
+type: review
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - review
+  - weekly
+review_kind: capability
+week:
+notes: []
+---
+# <% tp.file.title %>
+## What Was Built
+<!-- Dated bullets of what changed, each naming the files. Open the file before claiming it exists. -->
+## Three-Month Plan Status
+<!-- Where the master plan stands against its milestones, with the count or file that proves it. -->
+## Fall Execution Audit
+<!-- Optional: the current term's floor commitments. Rename or delete when the term plan changes. -->
+## Enrichment and Drills
+<!-- Concepts enriched, drills overdue by next_drill, enrichment queue state. Say if the loop did not run. -->
+## Vault Health
+<!-- Structural checks with counts: broken links, missing next, stale boards, sync health. -->
+## Suggested Links
+<!-- Two or three links worth adding, each with the reason. -->
+## Cleanup Candidates
+<!-- Notes or folders worth tidying. Naming one is not authorization to clean it. -->
+## Promotion Candidates
+<!-- Optional: distilled notes stable and reused enough to propose for Areas or Resources. -->
+## Next Week Priorities
+<!-- A short ranked list, ending with the one thing that cannot slip. -->
+## Open Questions
+<!-- Tasks with - [ ]. They carry forward; two sightings in a row become an immediate action. -->
+=== Capability/MOC Template.md
+---
+type: index
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - moc
+notes: []
+next:
+---
+# <% tp.file.title %>
+## Purpose
+<!-- One to three sentences: why this folder exists and who reads it first. -->
+## Map
+<!-- Prose that explains each key note with its link inside the sentence. Never a bare link list. -->
+## Status
+<!-- Optional. A short table of live state. Delete the section if the folder tracks no ongoing work. -->
+## Dataview
+<!-- Optional. Live queries below the prose only, and every FROM folder must exist. Delete if unused. -->
+## Links
+<!-- Optional. Short; most links belong in the Map. Delete if unused. -->
+=== Learning/Repo Evaluation Template.md
+---
+type: input
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - github
+input_kind: repo-card
+source_url:
+verdict:
+notes: []
+---
+# <% tp.file.title %>
+**GitHub:**
+## What it is
+<!-- What the repo does, who maintains it, license, and its core primitives as bullets. -->
+## How Anant uses it
+<!-- The concrete use in a named project, or the reason there is none. -->
+## How to install / run it (Windows)
+<!-- Real commands and runtime versions. Say whether they were run or read from the README. -->
+## Caveats / current state
+<!-- Activity, license, lock-in, limits, and the line Verdict: yes, no, or maybe, with the reason. -->
+## Connects to
+<!-- Links to 40_Resources/CS/Repos and any project or concept it feeds. -->
+=== Learning/Output Bullet Template.md
+---
+type: output
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - output
+track: []
+output_kind: bullet
+source_concepts: []
+---
+# <% tp.file.title %>
+## Portfolio Bullet
+<!-- A bold project line, one dense paragraph, then a Stack line. -->
+## Quantified Impact
+<!-- Measurable facts only, one per bullet. -->
+=== Learning/Output One-Pager Template.md
+---
+type: output
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - output
+track: []
+output_kind: one-pager
+source_concepts: []
+---
+# <% tp.file.title %>
+## Problem
+<!-- The problem this project addresses, in two or three sentences. -->
+## Scope
+<!-- What is built and what is not. -->
+## Architecture
+<!-- The stages or components, in order. -->
+## Stack
+<!-- Languages, services, and tools. -->
+## Success Criteria
+<!-- How you will know it works, as checkable statements. -->
+## Timeline
+<!-- Phases with rough durations. -->
+=== Projects/Agent Prompt Template.md
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: prompt
+task:
+model:
+---
+# <% tp.file.title %>
+## Why This Exists
+<!-- The evidence behind the task, with a path or commit. Say what was verified and what is assumed. -->
+## Hard Rules
+<!-- Scope limits, one line each: what stays untouched, what must stay green, what is out of scope. -->
+## Implementation Order
+<!-- Numbered steps with the files touched, in the order to do them. -->
+## Report Back
+<!-- What the agent must report: files changed, commands run with output, anything it could not do. -->
+=== Projects/Code Mirror Template.md
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: code-mirror
+source_path:
+repo:
+---
+# <% tp.file.title %>
+<!-- Lead: what the file is for, the boundary it owns, and its repo path. Then free sections that follow the code. -->
+## Related Notes
+<!-- Verified links to the neighboring module docs and to the plan or spec. -->
+=== Projects/Machine Runbook Template.md
+---
+type: reference
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+reference_kind: runbook
+---
+# <% tp.file.title %>
+## Why This Note Exists
+<!-- The situation, the machine, and what this note decides that no other note does. Name any note it supersedes. -->
+## Steps
+<!-- Numbered, with the exact command or setting and the expected result. Mark every step that changes state. -->
+## Checkpoints
+<!-- Dated entries, newest last: what ran on which machine and what the output showed. -->
+=== Projects/Project Note Template.md
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: project
+next:
+related_progress: []
+---
+# <% tp.file.title %>
+## Goal
+<!-- One sentence: what done looks like, with one ==highlight==. -->
+## Current State
+<!-- What is true now, dated. Cite file and line, a commit, or command output for code claims. Say what is real, mocked, or blocked. -->
+## Next Action
+<!-- The single next step, the same text as next in the frontmatter. -->
+## Open Questions
+<!-- Tasks only, as - [ ] questions, with a date where a real one exists. -->
+## Log
+<!-- Dated entries, newest last, appended and never edited. A correction is a new entry naming the one it corrects. -->
+=== Projects/Project Plan Template.md
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: plan
+next:
+related_progress: []
+---
+# <% tp.file.title %>
+## Goal
+<!-- The outcome in one sentence, with one ==highlight==. -->
+## Sequence
+<!-- Numbered steps in dependency order, each with how to tell it is done. Name what is out of scope this round. -->
+## Open Questions
+<!-- Tasks only, as - [ ] decisions that block the sequence. -->
+=== Projects/Project Spec Template.md
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: spec
+next:
+related_progress: []
+---
+# <% tp.file.title %>
+## What This Is
+<!-- The closed statement of what the system does and for whom, opening with one ==highlight== sentence. -->
+## Current State
+<!-- What is built versus specified, dated. Cite file and line, a commit, or command output for every code claim. -->
+## Non-Goals
+<!-- What it deliberately does not do, one bullet each. -->
+=== Projects/Technical Concept Template.md
+---
+type: concept
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - concept
+track: []
+used_in: []
+evidence: []
+notes: []
+---
+# <% tp.file.title %>
+## One-Line Answer
+<!-- One sentence with one ==highlight==: what it is and when you reach for it. -->
+## Mechanism
+<!-- Inputs, sequence, limits, and one real example from a project here. For a tool, state the install or run state you verified. -->
+## Contrast / What It Is Not
+<!-- The nearest confusable tool or idea and the line between them. -->
+## Failure Modes / Misconceptions
+<!-- One real way it fails or is misused, anchored with a WARNING callout. -->
+## Evidence From This Vault
+<!-- Verified links to the project note, run, or session where it was used. -->
+=== Career/Plan Template.md
+---
+type: plan
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+deadline:
+review_cadence:
+tags:
+  - plan
+notes: []
+next:
+---
+# <% tp.file.title %>
+## Goal
+<!-- One or two sentences and one metric that proves the goal was hit. -->
+## Timeframe
+<!-- Start date, end date, and the external reason the end date is real. Add a week table past two weeks. -->
+## Systems
+<!-- Checkable tracks, each with a cadence and a done-definition. -->
+## Implementation Status
+<!-- Only what a real file, commit, or tracker confirms. Write "unverified" otherwise. -->
+## Current Progress
+<!-- Append one dated line per review. Never rewrite earlier lines. -->
+## Update Protocol
+<!-- The skill and cadence that revisit this note, and what happens after two missed reviews. -->
+=== AI Toolkit/Graphify Notes Template.md
+---
+type: reference
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - graphify
+reference_kind: repo
+repo:
+mirror_folder:
+last_build:
+notes: []
+next:
+---
+# <% tp.file.title %>
+## Source
+<!-- The repo path, what it contains, and why it was mapped. -->
+## Mirror
+<!-- The graphify-owned folder path and a link to its GRAPH_REPORT. Never hand-edit inside it. -->
+## Last Build
+<!-- Date, command used, and whether docs or PDFs changed since. -->
+## Health Check
+<!-- Dated table: folder .md count, manifest count, graph.json nodes. Add a row each time it runs. -->
+## Open Questions
+<!-- Count gaps or doubts as - [ ] tasks. -->
+=== AI Toolkit/Tool Setup Template.md
+---
+type: reference
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - ai-tools
+reference_kind: tool-profile
+notes: []
+next:
+---
+# <% tp.file.title %>
+## What this is
+<!-- The project, its repo or folder, and why its tool config is mirrored here. -->
+## Sync scope
+<!-- Direction, manifest entry, paths synced, and paths deliberately not synced with the reason. -->
+## What's actually here
+<!-- Counts per folder taken from the folder this pass, and any stale or hand-copied file. -->
+## Verification performed
+<!-- What was opened and compared, on what date, against the live repo and not the mirror. -->
+## Trigger
+<!-- What runs the refresh: a schedule, a hook, or manual. A static dump says none and gives its date. -->
+=== AI Toolkit/Deep Dive Template.md
+---
+type: evergreen
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - evergreen
+evergreen_kind: distilled
+track: []
+notes: []
+---
+# <% tp.file.title %>
+## Core Claim
+<!-- One sentence wrapped in a single highlight: what this note establishes. -->
+## Mechanism
+<!-- How it works in your own words, with named parts in bold. Use a table when mapping two domains. -->
+## Why This Matters Here
+<!-- Two to four sentences naming the project, course, or decision it serves. -->
+## Failure Modes
+<!-- Where it breaks or what it is confused with, anchored by a WARNING callout. -->
+## Evidence
+<!-- Verified links to the source summaries it distills and the work that proves it. -->
+## Related
+<!-- Three to seven genuine neighbors. -->
+=== AI Toolkit/Clipping Distill Template.md
+---
+type: input
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - summary
+input_kind:
+track:
+source_note:
+source_url:
+notes: []
+---
+# <% tp.file.title %> - Summary
+**Source:**
+**Ingested:** <% tp.date.now("YYYY-MM-DD") %>
+**Pages:**
+## Source
+<!-- One to three sentences: what it is, who made it, its stated purpose. -->
+## Key Claims
+<!-- One bullet per distinct claim, key term in bold. -->
+## Full Content
+<!-- The whole source in its own order as ### headings with its exact titles, one highlight each. -->
+## Why It Matters
+<!-- Two to four sentences naming the project, course, or concept this serves. -->
+## Links Into The Vault
+<!-- Verified wikilinks. A target that does not exist yet is labeled (to create). -->
+## Open Questions
+<!-- One - [ ] task per unresolved item. -->
+## Flashcards
+<!-- Three to five cards on #cards/<track> testing mechanism or contrast, written after the body. -->
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 30_Order/Standards/Internship 30_Order/Workflows/Internship 2>/dev/null; echo ---; find 10_Areas/Career -maxdepth 3 -type d 2>/dev/null | head -40; echo ---; for k in "type: tracker" "project_kind: project" "type: contact" "reference_kind: program" "cover-letter" "type: output"; do printf "%s: " "$k"; grep -rl --include=*.md -m1 "^$k\|^output_kind: $k" 10_Areas/Career 20_Progress 2>/dev/null | wc -l; done
+```
+```
+30_Order/Standards/Internship:
+Applying Standard.md
+Career Fair Standard.md
+Contact Standard.md
+Cover Letter Alteration Standard.md
+Deadline and Intake Triage Standard.md
+Internship Loop Review Standard.md
+Internship Notes Standard.md
+Internship Tracker Standard.md
+Interview Prep Standard.md
+Program Standard.md
+Resume Alteration Standard.md
+
+30_Order/Workflows/Internship:
+Application Document Preparation 1.md
+Application Document Preparation.md
+Career Fair Intake.md
+Internship - Design Rationale.md
+Internship Pipeline.md
+Internship Review System.md
+Internship Tracking Workflow.md
+Promotion.md
+---
+10_Areas/Career
+10_Areas/Career/Certifications
+10_Areas/Career/Finance
+10_Areas/Career/Hackathon
+10_Areas/Career/Internships
+10_Areas/Career/Internships/Cheats
+10_Areas/Career/Internships/Contacts
+10_Areas/Career/Internships/Contacts/Each One
+10_Areas/Career/Internships/List
+10_Areas/Career/Internships/List/Dossiers
+10_Areas/Career/Internships/Programs
+10_Areas/Career/Internships/Programs/Considering
+10_Areas/Career/Internships/Programs/Serious
+10_Areas/Career/Internships/Tracker
+10_Areas/Career/Internships/Tracker/Each One
+10_Areas/Career/Mentors
+10_Areas/Career/VISAs & Work Auth
+10_Areas/Career/VISAs & Work Auth/ISSS
+---
+type: tracker: 32
+project_kind: project: 2
+type: contact: 31
+reference_kind: program: 0
+cover-letter: 0
+type: output: 6
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "internship" "30_Order/Note Type Registry.md" | cut -c1-260; echo ---; find . -path ./node_modules -prune -o -name "Internship*Design*" -print 2>/dev/null | head; find . -iname "*Internship Pipeline*" -not -path "./.git/*" 2>/dev/null | head
+```
+```
+55:| internship-dossier | 2 | input / job-dossier | `10_Areas/Career/Internships/List/Dossiers/` | none (bot-written) | [[Internship Notes Standard]] | [[Internship Pipeline]] | built |
+56:| internship-tracker | 1 | tracker | `10_Areas/Career/Internships/Tracker/Each One/` | [[30_Order/Templates/Career/Tracking\|Tracking]] | [[Internship Tracker Standard]] | [[Internship Tracking Workflow]] | built |
+57:| internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Program Template]] | [[Program Standard]] | [[Internship Pipeline]] | built |
+58:| internship-contact | 1 | contact | `10_Areas/Career/Internships/Contacts/Each One/` | [[Contact Template]] | [[Contact Standard]] | [[Internship Pipeline]] | built |
+59:| internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
+60:| career-fair | 2 | input | `20_Progress/Internship/Career Fair/` | none | [[Career Fair Standard]] | [[Career Fair Intake]] | built |
+61:| interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
+62:| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Resume Alteration Standard]] | [[Application Document Preparation]] | built |
+63:| cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Cover Letter Template]] | [[Cover Letter Alteration Standard]] | [[Application Document Preparation]] | built (no instance yet) |
+64:| intake-log | 2 | input / clipping | `10_Areas/Career/Internships/List/Dossiers/_Today/` | none | [[Deadline and Intake Triage Standard]] | none | built |
+65:| deadline-tracker | 2 | dashboard / dashboard | `10_Areas/Career/Internships/Tracker/Deadline Tracker.md` | none | [[Deadline and Intake Triage Standard]] | [[Internship Review System]] | built |
+66:| internship-loop-review-weekly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/` | [[Internship Loop Weekly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |
+67:| internship-loop-review-monthly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/` | [[Internship Loop Monthly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |
+70:| cheat | 1 | project | `20_Progress/Internship/` | [[Cheat Template]] | none until a decision | none | decide |
+74:| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief to Progress]] | built |
+79:| prompt-queue | 1 | project / prompt (`prompt_shape: queue`) | `20_Progress/Internship/Building System/Runs/` | none | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
+81:| technical-concept | 1 | concept | `20_Progress/Projects/`, `20_Progress/Internship/`, `40_Resources/CS/`, `40_Resources/UMN/SAO/` | [[Technical Concept Template]] | [[Technical Concept Standard]] | none | built (no gold example yet) |
+131:Names kept for legacy reasons. Weekly Board Standard also governs course sub-boards. Internship Notes Standard governs dossiers. Better Today, Better Weekly, Better Month and Better Year are the daily and periodic Templates. Humanized Writing Standard is a
+---
+./30_Order/Workflows/Internship/Internship - Design Rationale.md
+./.stversions/60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/08-21 Jarvis internship pipeline audit and setup~20261001-234814.md
+./30_Order/Workflows/Internship/Internship Pipeline.md
+./60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/internship-research-loop/07-30 Fix bugs in internship pipeline and implement dossier standards.md
+./60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/internship-research-loop/08-21 Jarvis internship pipeline audit and setup.md
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -2093,4 +3294,12 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs" && sed -n 414,440p log.md | cut -c1-1800`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis" && f="10-15 converge-jarvis-instruction-layer.md"; for n in 90 94 100 449 583 654 701; do echo "######## line $n"; sed -n "$((n+1)),$((n+12))p" "$f" | cut -c1-1800; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "vault-lint mentions in weekly-review skill: $(grep -c 'vault-lint\|Vault Lint\|fit %' .claude/skills/weekly-review/weekly-review.md)"; echo "--- run-weekly-review.ps1 prompt mentions of lint:"; grep -n -i "lint\|conform" 30_Order/System/claude-workflow/scripts/run-weekly-review.ps1 | head; echo "--- hooks in settings.json (command names only):"; grep -n '"matcher"\|"command"\|"type": "command"' .claude/settings.json | cut -c1-220 | head -20; echo "--- Weekly Synthesis W43 mentions of 30_Order/fit:"; grep -n -i "30_Order\|fit\b\|conform" "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43.md" | cut -c1-300 | head -8; echo "--- Review notes for kit health?"; ls 60_Claude/30_Reviews | head -30`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && find . -type f | sort | while read f; do printf "%6s  %s\n" "$(wc -c < "$f")" "$f"; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in $(find . -type f -name "*.md" | sort | tr ' ' '?'); do :; done; find . -type f -name "*.md" -print0 | sort -z | while IFS= read -r -d '' f; do t=$(grep -m1 '^type:' "$f" | sed 's/type: *//'); k=$(grep -m1 -E '^[a-z_]+_kind:' "$f" | tr -d '\r'); echo "$f | type=$t | $k"; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && git status --short -- 30_Order | head -50; echo ---; git log --since="2026-10-28" --name-status --format="%h %ad %s" --date=short -- 30_Order/Templates | grep -v "Auto-sync" | head -60; echo ---; git log -8 --format="%h %ad %s" --date=iso -- 30_Order/Templates`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in "For Everything.md" "MOC.md" "Learning/Reference Template.md" "Learning/Synthesis Note Template.md" "Capability/Synthesis Template.md" "Career/Tracking.md" "Career/Internship/Tracking Template.md" "Career/List Monthly Log.md"; do echo "=== $f"; cat "$f"; echo; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find 30_Order/Templates -name "*.md" -print0 | while IFS= read -r -d '' f; do n=$(basename "$f" .md); c=$(grep -rlF "[[$n" --include="*.md" --include="*.mdc" --include="*.json" --include="*.ps1" --include="*.js" 30_Order/Standards 30_Order/Workflows 30_Order/Note\ Type\ Registry.md 30_Order/00_How\ This\ Folder\ Works.md .claude AGENTS.md CLAUDE.md .cursor 2>/dev/null | wc -l); s=$(grep -rlF "$n" 30_Order/Standards 30_Order/Workflows 30_Order/System/vault-lint "30_Order/Note Type Registry.md" .claude 2>/dev/null | wc -l); echo "$s refs | $n"; done | sort -rn`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in Capability/Output* Capability/Field* Capability/Depth* Capability/Question* Capability/Audit* Capability/Weekly* Capability/MOC* Learning/Repo* Learning/Output* Projects/*.md Career/Plan* AI\ Toolkit/Graphify* AI\ Toolkit/Tool\ Setup* AI\ Toolkit/Deep* AI\ Toolkit/Clipping*; do echo "=== $f"; grep -v '^$' "$f" | head -40; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 30_Order/Standards/Internship 30_Order/Workflows/Internship 2>/dev/null; echo ---; find 10_Areas/Career -maxdepth 3 -type d 2>/dev/null | head -40; echo ---; for k in "type: tracker" "project_kind: project" "type: contact" "reference_kind: program" "cover-letter" "type: output"; do printf "%s: " "$k"; grep -rl --include=*.md -m1 "^$k\|^output_kind: $k" 10_Areas/Career 20_Progress 2>/dev/null | wc -l; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "internship" "30_Order/Note Type Registry.md" | cut -c1-260; echo ---; find . -path ./node_modules -prune -o -name "Internship*Design*" -print 2>/dev/null | head; find . -iname "*Internship Pipeline*" -not -path "./.git/*" 2>/dev/null | head`
 

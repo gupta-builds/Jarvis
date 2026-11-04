@@ -171,7 +171,7 @@ notes:
 
 ### 5. Log the Session
 
-Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
+Log the session once, at its end, as [[Memory Management]] states: one entry appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran the session, none if nothing changed. Shape:
 
 ```markdown
 ## [YYYY-MM-DD] career | [Task]

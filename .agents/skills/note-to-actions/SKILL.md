@@ -47,7 +47,7 @@ Show the sections and ask "What should change, and what is missing?" Patch by he
 - Action note: `type: action`, `status: active`, `source_note` as a quoted wikilink to the source (filename only), `related_progress`, and `next` as the single statement to close out first.
 - Source brief: make sure its `next` and `## Follow-Up Actions` name the action note. Touch nothing else.
 ### Step 9: Lint and log
-Run `node 30_Order/System/vault-lint/vault-lint.js --path "<folder of the action note>"` and fix every failure for the new note. Append one line to `60_Claude/07_AI_Information/Session Logs/log.md`.
+Run `node 30_Order/System/vault-lint/vault-lint.js --path "<folder of the action note>"` and fix every failure for the new note. Log the session once, as [[Memory Management]] states.
 ### Step 10: Report
 Say where the note is, what `next` is, and what sits under Open Threads.
 ## Quality bar

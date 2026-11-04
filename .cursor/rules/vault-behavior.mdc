@@ -43,7 +43,7 @@ Before saving: no duplicate frontmatter keys; every `notes:` link verified; no `
 
 ## Session close
 
-After meaningful vault changes, append to `60_Claude/07_AI_Information/Session Logs/log.md`:
+At the end of a session that changed something, log it once as [[Memory Management]] states, in this shape:
 
 ```
 ## [YYYY-MM-DD] [operation] | [title]

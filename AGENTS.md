@@ -78,7 +78,7 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 | Map of a folder (MOC) | in the folder it maps | [[MOC Standard]] |
 | Dashboard, board, or Field OS note | `60_Claude/44_Indexes/` | [[Dashboard Standard]] |
 | Anything a tool wrote (graph export, mirror) | its generator's folder, marked `type: generated` | [[Generated Output Standard]] |
-| Session log entry | append to `60_Claude/07_AI_Information/Session Logs/log.md` | [[Log Standard]] |
+| Session log entry | one entry per session, appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran it ([[Memory Management]]) | [[Log Standard]] |
 | New template, standard, workflow, or CLI tool | `30_Order/` (only when explicitly building one) | [[30_Order/00_How This Folder Works|How This Folder Works]] |
 | Visualization for a concept, project, or source | `10_Areas/Excalidraw/` | |
 | Information about the whole vault for any AI tool | `60_Claude/07_AI_Information/` | |
@@ -102,7 +102,7 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 - Use `next:` on project, plan, and active progress notes when a concrete next step exists.
 - For continuity, read [[AI_CONTEXT]], `00_Dashboard.md`, and `Session Logs/log.md` before making assumptions about current state.
 - Do not write AI slop. Follow [[HUMAN_WRITING]]: cut filler, prefer mechanism and contrast, use real examples from this vault, leave notes denser and more human than before.
-- After meaningful vault changes, append a concise continuity entry to `60_Claude/07_AI_Information/Session Logs/log.md` ([[Memory Management]]).
+- At the end of a session that changed something, append one concise continuity entry to `60_Claude/07_AI_Information/Session Logs/log.md`, written by whoever ran the session ([[Memory Management]]). Skills and agents point at this rule instead of appending their own entry. A session that changed nothing adds none.
 - Formatting rules (blank lines, markers, frontmatter, quality gate, safety): [[Jarvis Writing and Formatting]].
 
 ## Retrieval Rules

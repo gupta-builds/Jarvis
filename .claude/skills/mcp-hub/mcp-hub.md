@@ -146,7 +146,7 @@ When a new AI tool needs to read this vault:
 3. Build the wrapper using the Wrapper File Standards above.
 4. Run `/mcp-hub verify {new-tool}` to confirm it resolves.
 5. Run `/mcp-hub context-pack {new-tool}` to confirm the pack builds.
-6. Log the addition in the session log.
+6. Log the addition in the session's one log entry ([[Memory Management]]).
 
 ---
 
@@ -193,7 +193,7 @@ The `/ops` skill should call `/mcp-hub sync` as part of `morning-start` once per
 
 ## Session Log Entry
 
-When the skill modifies wrapper files or writes a context pack, append:
+When the skill modifies wrapper files or writes a context pack, include this in the session's one log entry ([[Memory Management]]):
 
 ```
 ## [YYYY-MM-DD] mcp-hub | [operation]

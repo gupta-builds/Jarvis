@@ -55,7 +55,7 @@ Show the user the decisions, the thread headings, and the Open Questions, and as
 - Brief: `type: input`, `status: sprout`, `input_kind: brief`, `source_note` as a quoted wikilink to the transcript (filename only), `related_progress`, and `next` as the action note's wikilink if one will be made, otherwise `None` with the reason.
 - Transcript: set `next` to the brief's wikilink and `status` to `sprout`. Touch nothing else.
 ### Step 9: Lint and log
-Run `node 30_Order/System/vault-lint/vault-lint.js --path "<folder of the brief>"` and fix every failure for the brief. Append one line to `60_Claude/07_AI_Information/Session Logs/log.md`.
+Run `node 30_Order/System/vault-lint/vault-lint.js --path "<folder of the brief>"` and fix every failure for the brief. Log the session once, as [[Memory Management]] states.
 ### Step 10: Report
 Say where the brief is, how many Open Questions remain, and whether `/note-to-actions` is the next step.
 ## Quality bar

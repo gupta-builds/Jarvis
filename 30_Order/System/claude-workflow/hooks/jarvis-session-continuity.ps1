@@ -79,7 +79,8 @@ Jarvis context-pack policy:
 - For current state: 60_Claude/07_AI_Information/AI_CONTEXT.md, 00_Dashboard.md, then tail of 60_Claude/07_AI_Information/Session Logs/log.md.
 - If unsure where a note goes: write it to 60_Claude/00_Inbox/. Never invent a folder.
 - Load task-specific notes only after the task is clear. Do not dump the vault.
-- Skill directories live at .claude/skills/<gerund-name>/SKILL.md — load SKILL.md first, reference.md only if needed.
+- Skills live in .claude/skills/<name>/ as SKILL.md or <name>.md: load that file first, reference.md only if needed.
+- Session log: at the end of a session that changed something, append one entry to Session Logs/log.md (Memory Management). A skill or agent you run does not append its own.
 - Use Sonnet for normal work, reserve Opus for hard planning or stuck debugging.
 - Desktop is read-first planning/review; Claude Code is the implementation surface; mobile is capture only.
 "@

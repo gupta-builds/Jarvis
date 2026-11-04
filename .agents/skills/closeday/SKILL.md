@@ -73,7 +73,7 @@ Append the End of Day section (template and GREEN/RED rules: [reference.md §1](
 
 ### Step 6 — Log the Session
 
-Append the closeday entry to `60_Claude/07_AI_Information/Session Logs/log.md` using [reference.md §2](reference.md) — it includes `lc_count`, `study_today`, and `wins_done`.
+Log the session once, as [[Memory Management]] states, in the shape given in [reference.md §2](reference.md) — it includes `lc_count`, `study_today`, and `wins_done`.
 
 ## Constraints
 

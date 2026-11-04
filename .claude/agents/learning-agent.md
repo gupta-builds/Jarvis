@@ -172,7 +172,7 @@ After every session, produce a short report:
 2. [Backup if 1 is blocked]
 ```
 
-Append a session log entry:
+Log the session once, at its end, as [[Memory Management]] states: one entry appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran the session, none if nothing changed. Shape:
 
 ```
 ## [YYYY-MM-DD] learn | [Concept Title]

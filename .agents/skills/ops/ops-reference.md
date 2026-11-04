@@ -298,7 +298,7 @@ When no previous Ops Report exists, skip the Comparison section entirely.
 
 ## Session Log
 
-Every ops operation appends a structured entry to `60_Claude/07_AI_Information/Session Logs/log.md` on completion.
+An ops run logs the session once, as [[Memory Management]] states, in the shape below: one entry appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran it, none if nothing changed.
 
 ### Log Entry Format
 

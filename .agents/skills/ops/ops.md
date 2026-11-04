@@ -55,13 +55,13 @@ If you want vault health data alongside your start: run `/startday` then `/ops h
 
 1. Run the Health Check Engine (see `ops-reference.md` §Health Check Engine).
 2. Generate the Ops Report (see `ops-reference.md` §Report Generator).
-3. Append session log entry.
+3. Log the session once ([[Memory Management]]).
 
 #### `capability-audit` (Lightweight)
 
 1. Run the Capability Audit (see `ops-reference.md` §Capability Audit).
 2. Output the capability health section.
-3. Append session log entry.
+3. Log the session once ([[Memory Management]]).
 
 #### `triage` (Standard)
 
@@ -76,7 +76,7 @@ If you want vault health data alongside your start: run `/startday` then `/ops h
    - Overdue drills → present note links for drill session
    - Encoding damage → targeted cleanup (requires user approval)
    - Missing concepts → `/connect-notes` or `/distill-note`
-5. Append session log entry.
+5. Log the session once ([[Memory Management]]).
 
 #### `ingest-batch` (Heavyweight)
 
@@ -87,7 +87,7 @@ If you want vault health data alongside your start: run `/startday` then `/ops h
 5. Stop after a user-configurable batch limit (default: 5) to protect context budget.
 6. When backlog exceeds 10 items, group by likely topic before presenting.
 7. Route produced summaries through existing promotion logic: source summary first, then concept/project/output only when the idea is reusable.
-8. Append session log entry.
+8. Log the session once ([[Memory Management]]).
 
 #### `evening-close` (Deprecated)
 

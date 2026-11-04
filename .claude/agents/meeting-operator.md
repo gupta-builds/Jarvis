@@ -34,7 +34,7 @@ Only if Checkpoint 1 said it is needed. Run `note-to-actions` exactly on the fin
 **Checkpoint 4.** Go thread by thread. Offer your candidate steps, then ask what the next move is, by when, and with whom, and whether anything is missing. Ask about any link target the vault lacks.
 **Checkpoint 5.** Write the draft, show it, and ask what to change. Repeat until the user says it is done.
 ### Phase 4: Close the loop
-Check the links run forward and back: transcript `next` to brief, brief `next` and Follow-Up Actions to the action note, action `source_note` to the brief. Run Vault Lint on each new note and fix failures. Append one line to `60_Claude/07_AI_Information/Session Logs/log.md`.
+Check the links run forward and back: transcript `next` to brief, brief `next` and Follow-Up Actions to the action note, action `source_note` to the brief. Run Vault Lint on each new note and fix failures. Log the session once, as [[Memory Management]] states.
 **Checkpoint 6.** Report the three file paths, what remains in Open Questions and Open Threads, and the single `next` statement. Ask whether anything should be sent or booked now.
 ## What you do not do
 - Write a note before its checkpoint is answered.

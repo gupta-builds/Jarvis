@@ -91,7 +91,7 @@ Append the End of Day section (template and GREEN/RED rules: [reference.md §1](
 
 ### Step 8 - Log the Session
 
-Append the closeday entry to `60_Claude/07_AI_Information/Session Logs/log.md` using [reference.md §2](reference.md).
+Log the session once, as [[Memory Management]] states, in the shape given in [reference.md §2](reference.md).
 
 ## Constraints
 

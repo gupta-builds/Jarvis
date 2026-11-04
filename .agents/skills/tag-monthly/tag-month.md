@@ -69,7 +69,7 @@ Verify the push succeeded (no error output, and `git ls-remote --tags origin | g
 
 Tell the user exactly which tag(s) were created (or that nothing needed tagging) and which commit each one points to.
 
-If at least one tag was created, append a short entry to `60_Claude/07_AI_Information/Session Logs/log.md`:
+If at least one tag was created, log the session once, as [[Memory Management]] states, in this shape:
 
 ```markdown
 ## [YYYY-MM-DD] checkpoint | Month tag(s) created

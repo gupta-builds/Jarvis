@@ -48,7 +48,7 @@ Frontmatter skeletons per source type are in `examples.md`. Verify every `notes:
 
 ## Step 4 — Log the session
 
-Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
+Log the session once, at its end, as [[Memory Management]] states: one entry appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran the session, none if nothing changed. Shape:
 
 ```
 ## [YYYY-MM-DD] ingest | [Source Title]

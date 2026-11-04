@@ -78,7 +78,7 @@ When answering questions:
 
 At the end of each working session:
 
-1. Update `60_Claude/07_AI_Information/Session Logs/log.md` with what was done
+1. Append one entry to `60_Claude/07_AI_Information/Session Logs/log.md`, written by whoever ran the session, none if nothing changed ([[Memory Management]] owns this rule; skills and agents point at it instead of appending their own)
 2. Create or update a summary note if significant work occurred
 3. List outcomes, open questions, and next steps
 4. Optionally run `/closeday` for a daily summary

@@ -167,7 +167,7 @@ notes:
 
 ## Vault Health
 
-[Orphaned notes count. Projects missing next actions (list them). Metadata gaps. Any new notes created this week that have zero links.]
+[Orphaned notes count. Projects missing next actions (list them). Metadata gaps. Any new notes created this week that have zero links. Order health: the block from Step 7.7, pasted unchanged, then one sentence on the fit percentage's change since last week.]
 
 ## Suggested Links
 
@@ -238,9 +238,15 @@ Added 2026-09-28 after Build 8 found real content silently lost in a sync-confli
 
 ---
 
+## Step 7.7: Order Health
+
+Added 2026-11-04 so the vault's fit to its own Standards is recorded every week instead of only when someone runs the linter. From the vault root run `node 30_Order/System/vault-lint/order-health.js`. It is read-only: it runs `vault-lint.js` and `vault-lint.js --kit` into a temporary folder, deletes that folder, and prints one Markdown block (the fit percentage against the 90% target, kit errors and warnings, the families furthest below 100% with their top failure reasons, families with a Spec and no notes, and Standards, Templates and Workflows with no row in the Note Type Registry). Paste that block unchanged under `## Vault Health` in this week's synthesis note, below the other Vault Health lines. Then add one sentence naming how the fit percentage moved since last week's synthesis note (read last week's block for its number; if there is none, say "first recorded week"). Do not run `--fix`, and do not edit any Standard, Template or the Registry from this step: a finding goes into the note and a human decides. The headless run does the same, since the script only reads. Record: [[Vault Lint]].
+
+---
+
 ## Step 8: Log the Session
 
-Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
+Log the session once, at its end, as [[Memory Management]] states: one entry appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran the session, none if nothing changed. Shape:
 
 ```
 ## [YYYY-MM-DD] review | Weekly Synthesis YYYY-WXX

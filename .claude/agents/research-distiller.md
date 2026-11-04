@@ -158,7 +158,7 @@ List any claims worth promoting to `60_Claude/20_Distilled_Notes/`. Do not creat
 
 ## Step 6 — Log Work
 
-Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
+Log the session once, at its end, as [[Memory Management]] states: one entry appended to `60_Claude/07_AI_Information/Session Logs/log.md` by whoever ran the session, none if nothing changed. Shape:
 
 ```
 ## [YYYY-MM-DD] distill | [Source Title]

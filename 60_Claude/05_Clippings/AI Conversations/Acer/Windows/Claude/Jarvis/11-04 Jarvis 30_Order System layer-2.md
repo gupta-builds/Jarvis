@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis 30_Order System layer"
 started_at: 2026-11-04T00:51:49
-ended_at: 2026-11-04T02:33:00
-exported_at: 2026-11-04T02:33:03
-duration_minutes: 101.2
+ended_at: 2026-11-04T02:40:40
+exported_at: 2026-11-04T02:40:42
+duration_minutes: 108.9
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 47d76a58-1c59-42a9-abc9-4719b5979363
@@ -17,41 +17,49 @@ created: 2026-11-04
 updated: 2026-11-04
 turn_count: 7
 tools_used:
-  Bash: 93
-  Edit: 90
+  Bash: 121
+  Edit: 115
   Grep: 17
-  PowerShell: 41
-  Read: 43
-  Write: 17
+  PowerShell: 50
+  Read: 47
+  Write: 23
 tokens:
-  input: 380
-  output: 181936
-  cache_creation: 534000
-  cache_read: 36569076
-  total: 37285392
-cost_usd: 7.613028
+  input: 484
+  output: 232611
+  cache_creation: 620569
+  cache_read: 53891991
+  total: 54745655
+cost_usd: 10.198553
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:\\Users\\anant\\.claude\\projects\\D---Anant-20-Progress-Documents-Jarvis\\memory\\feedback-no-dev-null-in-git-bash.md"
+  - "C:\\Users\\anant\\.claude\\projects\\D---Anant-20-Progress-Documents-Jarvis\\memory\\MEMORY.md"
   - "C:\\Users\\anant\\.claude\\settings.json"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\clean-link-test.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\cursor-paths-test.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\enum-keys.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\functional-checks.ps1"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\hooks-view.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\keys-check.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\link-check.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\link-check2.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\maps-to-check.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\mcp-auth-probe.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\mcp-shape.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\reg-counts.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\registry-test.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\remove-nul.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\scan-links.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\session-log-rewrite.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\sessionstart-test.ps1"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\47d76a58-1c59-42a9-abc9-4719b5979363\\scratchpad\\stale-refs-fix.py"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.agents\\skills\\weekly-review\\weekly-review.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\README.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\weekly-review\\weekly-review.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\AI Loop\\Memory Management.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\System Component Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\Claude Workflow.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\Cowork-Operating-System.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\hooks\\jarvis-session-continuity.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\README.md"
@@ -61,10 +69,12 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\register-weekly-review-task.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\reroute-acer-notes.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\\run-weekly-review.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\cursor-workflow\\Cursor Workflow.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\cursor-workflow\\README.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\cursor-workflow\\scripts\\cursor-db-run.py"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\cursor-workflow\\scripts\\export-cursor-sessions.py"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\excalidraw-mcp\\README.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\jarvis-cli\\Jarvis Ops CLI.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\jarvis-cli\\jarvis.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\jarvis-cli\\jarvis_ops.py"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\jarvis-cli\\README.md"
@@ -75,10 +85,12 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\README.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\check-syncthing-status.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\scripts\\codex-daemon-guard.ps1"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\sync-workflow\\Sync Workflow.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\vault-lint\\order-health.js"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\vault-lint\\Vault Lint.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\vault-lint\\vault-lint.config.json"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\vault-lint\\vault-lint.js"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Career\\Tracking\\Capability Depth Ladder Template.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\AGENTS.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\CLAUDE.md"
 tags:
@@ -3879,6 +3891,174 @@ Session-log wording now points at one rule in the skills, agents and `CLAUDE.md`
 
 Registering SessionStart in the user settings. I'll back up the file and print only the `hooks` section, since `env` and `permissions` may hold secrets.
 
+Phase E, task 17: searching for every old name in tooling files before fixing them.
+
+Writing one script for all the stale-name fixes, with a per-file replacement count.
+
+Task 18: finding what writes the mirrors under `20_Progress/AI`.
+
+Task 19: aligning the Weekly Synthesis Template, its Standard, and the skill.
+
+Task 20 (report only): checking template keys against the seven base keys.
+
+Now the System records. Re-reading `Claude Workflow.md` so my edits match the current text.
+
+Final verification pass: System lint, kit lint, wikilinks in every note I touched, an em-dash scan of my added lines, the collector, and task state.
+
+Last step: one more sync run to commit the final record edits, then confirm git state.
+
+Phases A to E are done. Git, Syncthing, the System fixes, the weekly step, the session-log rule and most stale references are fixed and checked. A few items could not be done or need your decision, listed in sections 3 and 4.
+
+I made one mistake along the way. A Bash command of mine wrote a stray file named `nul` into `30_Order/Templates`, and that made `git-auto-sync` log FAILED at 02:38. I removed the file and the next run succeeded. I saved a note to memory so it does not recur.
+
+## 1. Files changed
+
+**Phase A, git**
+
+| Change | What |
+|---|---|
+| Local `master` created at HEAD and pushed as a fast-forward (`9b63e132..b67ed802`), upstream set to `origin/master`, checked out | Git, no force |
+| `claude-workflow/Claude Workflow.md` | Trigger row now says master tracks origin/master and the infra branch is finished |
+| `claude-workflow/scripts/git-auto-sync.ps1` | Header comment only; it held no machine path to fix |
+
+**Phase B, Syncthing**
+
+| Change | What |
+|---|---|
+| `sync-workflow/scripts/check-syncthing-status.ps1` | A missing "listening" row no longer means "not running" |
+| `sync-workflow/Sync Workflow.md` | Real cause, the fix, and the Codex guard documented |
+
+**Phase C, System fixes**
+
+| Change | What |
+|---|---|
+| Six READMEs renamed with `git mv` | `Claude Workflow.md`, `Cursor Workflow.md`, `Excalidraw MCP.md`, `Jarvis Ops CLI.md`, `Jarvis Memory.md`, `Sync Workflow.md` |
+| Six notes outside System | `Capture Scripts.md` (3 links), `Platform Coverage.md`, `Capture Pipeline - As Built.md`, `Summaries-to-Create.md`, and plain-text paths in `P6` and `P8` |
+| `vault-lint/vault-lint.js` | Duplicate-name check now covers `30_Order/System` |
+| `git rm` of `distilled-sessions.json`, `_retired-2026-07-31/`, `claude-workflow/excalidraw.log` | No script reads them |
+| `jarvis-cli/jarvis.ps1`, `jarvis-cli/jarvis_ops.py`, `jarvis-cli/Jarvis Ops CLI.md` | Python resolution and `\|` link counting fixed, record updated |
+| New `60_Claude/30_Reviews/Ops Reports/Jarvis Ops Report - 2026-11-04 20261104-022308.md` | Written by `report` |
+| `jarvis-memory/registry.py` and `jarvis-memory/Jarvis Memory.md` | Skips `.stversions`, junk values cleaned, record updated |
+| `claude-workflow/Claude Workflow.md` | MCP finding, paths, State, Verify and the sync-failure cause |
+| Nine scripts and configs | `register-jarvis-sync-task.ps1`, `sync-jarvis-silent.vbs`, `reroute-acer-notes.ps1`, `mineru-pdf.ps1`, `run-weekly-review.ps1` and `capture-projects.json` (claude-workflow); `codex-daemon-guard.ps1` (sync-workflow); `export-cursor-sessions.py` and `cursor-db-run.py` (cursor-workflow) |
+| `cursor-workflow/Cursor Workflow.md` | Path derivation recorded |
+| `Jarvis-WeeklyReview` task re-registered | Fixed local 06:00 |
+
+**Phase D, weekly run and session log**
+
+| Change | What |
+|---|---|
+| `.claude/skills/weekly-review/weekly-review.md` and the `.agents` copy | Step 7.7 Order Health, the Vault Health placeholder, and the template alignment |
+| `vault-lint/Vault Lint.md` | Says the weekly review now records the fit |
+| 27 files | The private append instruction is now one line pointing at Memory Management. These are the career-operator, learning-agent, meeting-operator and research-distiller agents, the skills closeday (SKILL and reference), ingesting-clipping, mcp-hub, note-to-actions, ops (ops and ops-reference), tag-monthly, transcript-to-brief and weekly-review, the `.agents` and `.codex` copies, and `.cursor/rules/vault-behavior.mdc` |
+| `CLAUDE.md` (Session End Protocol), `AGENTS.md` (table row and the working rule) | Reworded to match |
+| `claude-workflow/hooks/jarvis-session-continuity.ps1` | Session-start text: one line added for the session-log rule, one skill-path line corrected |
+| `~/.claude/settings.json` | `SessionStart` entry added; backup at `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\[REDACTED]\scratchpad\settings.json.bak-20261104` |
+
+**Phase E, stale references and templates**
+
+| Change | What |
+|---|---|
+| `note-to-actions`, `transcript-to-brief`, `research-distiller`, `learning-agent` (`.claude`, `.agents`, `.codex`) | Stale template paths fixed |
+| `.cursor/rules/note-creation.mdc`, `workspace-context.mdc` | Four template rows and the `60_Claude` folder list corrected |
+| `CLAUDE.md` | The line about `Templates/Frontmatter/` now points at `For Everything` |
+| `.claude/README.md` | Dated check added to the alignment backlog |
+| `Capability Depth Ladder Template.md` | One 120-character comment replaces the table |
+| Weekly-review template alignment | Decision in section 3 |
+
+**Memory:** `feedback-no-dev-null-in-git-bash.md` plus `MEMORY.md`.
+
+## 2. Verification
+
+| Check | Result |
+|---|---|
+| Git | `git status -sb` shows `master...origin/master` with no ahead or behind. HEAD and `origin/master` are both `34b55346` |
+| Next auto-sync | `branch: master` at 02:16, then `Pushed cleanly to origin/master` at 02:29, 02:33, 02:38 and 02:39 |
+| Repo facts | Public, not a fork, `master` unprotected (HTTP 404 on the protection API), no `.github/workflows` on `origin/master`. The last bot commit on master was 2026-09-17 |
+| Commit author | All commits on master since 2026-10-24 use `anantmahi721@gmail.com` (615 since 2026-10-01). 447 earlier ones used `gupt0479@umn.edu`, the latest on 2026-10-17 |
+| `vault-lint --kit` | Exit 0, 0 errors, 11 warnings (was 12; the Depth Ladder one is gone) |
+| `vault-lint --path 30_Order/System/` | 8 of 8, 100%, no new failures |
+| Duplicate-name test | Two `README.md` files in a scratch System tree give `duplicate file name`. The six real READMEs no longer collide |
+| Wikilinks | 193 checked across 20 touched notes; 2 unresolved, both `[[30_Order/Standards/Daily Workflow Standard]]` in the weekly-review skill (not touched by me, in the `.claude` and `.agents` copies) |
+| `order-health.js` | Exit 0, fit 241/5,631 = 4.3%, equal to the whole-vault run. Writes nothing |
+| Test harness | `run-all-tests.ps1`: 18 of 18 passed before the path edits and 18 of 18 after |
+| Syncthing check | Five hand runs: `IN SYNC`, exit 0, banner empty. The scheduled run at 02:36 recorded result 0 |
+| Python path tests | Windows branch resolves against `APPDATA` and `USERPROFILE`; the WSL branch was tested against a fake `/mnt/c/Users` tree and the real WSL home `/home/anant_gupta`. The exporter's WSL branch was not run inside WSL |
+| Other script checks | Parse checks on 8 changed PowerShell files, `Get-CodexCommand` called directly, and `reroute-acer-notes.ps1` dry run (archive root resolved correctly) |
+| SessionStart hook | Fed a valid payload: 1,216 characters of valid JSON inside the vault, nothing outside, no activity-log line written |
+| `jarvis.ps1` | `--help`, `status`, `health`, `links` and `report` all ran. Broken-link count went from 13,218 to 12,744 |
+| `registry.py` | Reader and skip list tested; the database file was not touched. I did not run `index` |
+| Tasks | See the table below |
+| Em dashes | None in text I added |
+
+| Task | State | Last run, result | Next run |
+|---|---|---|---|
+| Jarvis-GitAutoSync | Ready | 02:33, 0 | 03:03 |
+| Jarvis-Syncthing-Health | Ready | 02:36, 0 | every 5 minutes |
+| Jarvis-WeeklyReview | Ready | none, history cleared by re-registration | 2026-11-08 06:00 (was 05:00) |
+| Jarvis-Codex-Daemon-Guard | Disabled | 2026-10-26 18:57, 0 | n/a |
+| ConversationCapture-Backfill-Windows | Ready | 02:33, 0 | 03:03 |
+
+I paused `Jarvis-GitAutoSync` twice (the branch switch and the `git-auto-sync.ps1` edit) and resumed it each time.
+
+**Stale-name search.** I searched for `Templates/Frontmatter`, `Templates/Capability`, `Clipping Distill Template`, `Capability/Question Bank`, `Deep Dive Template`, `Jarvis Enrichment Template`, `35_Outputs` and `50_Reviews`. What remains in tooling files, and why:
+- Raw clippings, session logs and `git-auto-sync.log`: history, left alone.
+- Two accurate "this folder was removed" notes in `ops-reference.md` and `learning-agent.md`.
+- 50 mirror, plan and spec files (listed in the register).
+- Vault notes outside the approved list (listed in the register).
+
+## 3. Decisions for you
+
+- **Delete the `infra/cross-laptop-sync` branch.** Master already holds everything on it. I recommend deleting the remote and local copies, and keeping `backup/[REDACTED]` until the Dell is reconciled. I deleted nothing.
+- **Public repo.** The repo is public and holds about 1,500 commits of AI conversation exports and personal notes. I recommend making it private. The contribution graph still counts private-repo commits if "Include private contributions" is on, so the graph is not a reason to keep it public. I changed nothing.
+- **Verified email.** I cannot confirm `anantmahi721@gmail.com` is verified on your GitHub account. Check GitHub Settings, then Emails. Commits only show on the graph for a verified email. The 447 `gupt0479@umn.edu` commits count only if that address is also on the account.
+- **`jarvis` MCP.** It was refused at session start because Obsidian had restarted at about 00:52 and was not yet listening. The port now answers 200, but the stored header gets 401 from the plugin. Nothing in System can fix that. Compare the key in the Local REST API plugin settings with the `Authorization` header in `.mcp.json`; I did not open or print either. I recommend regenerating the key in the plugin and pasting it into `.mcp.json`.
+- **Weekly Synthesis template.** The skill's Step 6 template wrote 9 sections, but the real notes for W39 to W44 all carry `Fall Execution Audit`, and the Standard lists it as optional. I kept the audit and added it to the skill's template. I also added the missing `updated` and `review_kind: capability` keys to the skill's frontmatter. The Template and the Standard's Spec needed no change.
+- **Enumerate templates (not edited, as you asked).** Better Month, Better Weekly and Better Year lack `notes`. Better Today has all seven keys but body text under Morning Plan, Daily Wins, Daily Floor and Productivity. Do you want those fixed? I recommend adding `notes` to the three and trimming Better Today.
+- **Classes templates (not edited).** 12 of 15 lack `notes` and `Concept Template` lacks `next`. `Degree Control`, `Track` and `Weekly Board` have all seven.
+- **Dead `10_Areas/UMN` Templater rule (not edited).** It is course-owned and points to `Classes/Week Template.md`. I recommend confirming where the course notes live now and repointing it.
+- **WeeklyReview time.** I re-registered it as fixed 06:00. Whether 06:00 survives the next clock change (2027-03-14) cannot be tested now.
+
+## 4. What could not be done
+
+- **Mirrors under `20_Progress/AI`.** The generator is the Unison sync in second-brain-claudekit. Its scripts do not exist at the registered WSL path, `unison` is not installed, and no sync task is registered here, so I could not regenerate them. I listed the files instead.
+- **Step 7.7 in a real weekly run.** It first takes effect on 2026-11-08, and I have not seen a note produced with it.
+- **`index` on the memory registry.** Not run, because it rewrites the database. The stored rows still carry the old junk values and any indexed `.stversions` paths. The fix only takes effect after a reindex, which I recommend (delete the `.sqlite` file first so the old rows go, because `index` never deletes).
+- **Exporter in WSL, `sync-jarvis-silent.vbs` and `register-jarvis-sync-task.ps1`.** Neither could be exercised. This machine's distro is `Ubuntu-24.04`, but both name `Ubuntu`, so they would find nothing here.
+- **Cause of the 11-03 23:03, 23:33 and 11-04 00:33 sync FAILED lines.** The log keeps no git error text, so I could not read them. Each came straight after a successful commit, which fits a live session export changing a file between `git add` and the check. I did not prove that.
+
+## Handoff register (outside System, not edited)
+
+| File | Lines | Item |
+|---|---|---|
+| `60_Claude/44_Indexes/Vault Health Dashboard.md` | 81, 91, 101 | Dataview `FROM "60_Claude/50_Reviews"` (dead path); line 101 should be `30_Reviews/Ops Reports` |
+| `60_Claude/44_Indexes/Claude Layer Index.md` | 51-52 | Same dead query |
+| `60_Claude/30_Reviews/50_Reviews Board.md` | 20 | Same dead query and old filename |
+| `60_Claude/Claude Board.md` | 23 | Links to `50_Reviews` |
+| `60_Claude/07_AI_Information/Plugins.md` | 177-179 | `50_Reviews` and `Headway Templates` |
+| `40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md` | 41-45, 93 | `Templates/Frontmatter/*` and `50_Reviews` |
+| `40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md` | 64 | `Clipping Distill Template` |
+| `40_Resources/Capability/Capability Engine Guide.md` | 106-111 | `Templates/Capability/`, `Deep Dive`, `Question Bank`, `Clipping Distill` |
+| `40_Resources/Capability/AI Roles` (Builder, Connector, Critic, Examiner, Teacher) | 28 each | "Deep Dive Template" |
+| `60_Claude/30_Reviews/Jarvis Enrichment Phase 1 - 2026-04-24.md` | 26 | Dead `Templates/Capability/Jarvis Enrichment Template` link |
+| `.agents/skills/weekly-review/weekly-review.md` | n/a | Older copy: lacks Steps 7.5 and 7.6 |
+| `.agents/skills/source-command-weekly-review/SKILL.md` | n/a | Points at `.Codex/skills/weekly-review.md` (not checked) |
+| `20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem.md` | 56 | Dated statement naming `claude-workflow/README.md`; left as history |
+| 42 mirror files under `20_Progress/AI` | n/a | Stale names; these are Claude Code mirrors of `Jarvis` and `The Plan` plus second-brain-claudekit docs, Cursor mirrors and Kiro mirrors |
+| 8 plan/spec files under `.cursor/plans` and `.kiro/specs` | n/a | Planning artifacts, left as-is |
+| Conformance-operator agent | n/a | Named in the brief; no such agent, skill or file exists |
+
+## 5. Improvement ideas, not done
+
+- Make `git-auto-sync.ps1` log the offending path when `git add` fails, so a `nul`-type file is visible in the log.
+- Add a check to `vault-lint` for Windows reserved file names.
+- The `jarvis-cli` report has no `type` that Vault Lint maps, so it shows as unmapped.
+- Move the host-name map in `export-claude-session.ps1` and `wsl-session-export.ps1` into `capture-projects.json`.
+- Replace the hardcoded `Ubuntu` distro name in the VBS launcher and registration script with detection.
+- The sync log is 3.8 MB of hook and git noise, so a rotation rule would help.
+- Retire the stale `20_Progress/AI` mirror folders or revive a generator.
+- Add stale-name detection to `order-health.js`.
+
 ### Tool Calls
 
 - `Bash`
@@ -6763,31 +6943,1585 @@ $hit = Select-String -Path $log -Pattern 'sessionstart-test' -SimpleMatch -Error
 Write-Output "activity-log lines mentioning the test session: $(@($hit).Count)"
 
 ```
+- `PowerShell`
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\sessionstart-test.ps1 2>&1 | ForEach-Object { $_.ToString() }
+```
+```
+cwd=D:\_Anant\20_Progress\Documents\Jarvis exit=0 outputChars=1216
+  event=SessionStart contextLines=10
+  | - Skills live in .claude/skills/<name>/ as SKILL.md or <name>.md: load that file first, reference.md only if needed.
+  | - Session log: at the end of a session that changed something, append one entry to Session Logs/log.md (Memory Management). A skill or agent you run does not append its own.
+  | - Use Sonnet for normal work, reserve Opus for hard planning or stuck debugging.
+cwd=D:\_Anant\20_Progress\Documents\Jarvis\30_Order exit=0 outputChars=1216
+  event=SessionStart contextLines=10
+  | - Skills live in .claude/skills/<name>/ as SKILL.md or <name>.md: load that file first, reference.md only if needed.
+  | - Session log: at the end of a session that changed something, append one entry to Session Logs/log.md (Memory Management). A skill or agent you run does not append its own.
+  | - Use Sonnet for normal work, reserve Opus for hard planning or stuck debugging.
+cwd=C:\temp\other exit=0 outputChars=0
+activity-log lines mentioning the test session: 0
+```
+- `Bash`
+```bash
+grep -rIn --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules --exclude-dir=05_Clippings --exclude='log.md*' -E 'Templates/Frontmatter|Templates/Capability|Clipping Distill Template|Capability/Question Bank|Deep Dive Template|Jarvis Enrichment Template|Question Bank Template|35_Outputs|50_Reviews' . 2>/dev/null | grep -v '^./20_Progress/AI/\|^./.cursor/plans\|^./.kiro/specs' | cut -c1-230
+```
+```
+./.agents/skills/mcp-hub/mcp-hub.md:100:Build and print the context pack for the named tool. By default, print to chat. With `--write`, save to `60_Claude/00_Inbox/Context Packs/Context Pack — {tool} — YYYY-MM-DD.md` — `60_C
+./.agents/skills/note-to-actions/SKILL.md:25:3. `30_Order/Templates/Capability/Action Template.md`
+./.agents/skills/ops/ops-reference.md:115:`60_Claude/35_Outputs/` was removed (2026-06) and not replaced, so there is no "stalled outputs" dimension right now — skip it rather than scanning a folder that no longer exists.
+./.agents/skills/transcript-to-brief/SKILL.md:24:3. `30_Order/Templates/Capability/Brief Template.md`
+./.agents/skills/transcript-to-brief/SKILL.md:28:Use the argument if given, otherwise the active file, otherwise ask. Confirm the frontmatter is `type: input` and `input_kind: transcript`. If the text is pasted loose with no note,
+./.claude/agents/learning-agent.md:59:6. `30_Order/Templates/Capability/Jarvis Enrichment Template.md` — for the enrichment section shape.
+./.claude/agents/learning-agent.md:60:7. `30_Order/Templates/Capability/Question Bank Template.md` — for drill question shape.
+./.claude/agents/learning-agent.md:127:2. **Evidence gap:** if `evidence:` is empty, suggest a proof artifact to build (interview story, portfolio bullet, project bullet, reusable prompt). `60_Claude/35_Outputs/` was removed (2026
+./.claude/agents/learning-agent.md:140:2. Decide enrichment level: `light` (definition + 1 example + drill seeds), `standard` (full Deep Dive Template), `deep` (Deep Dive + worked examples + synthesis + evidence).
+./.claude/agents/learning-agent.md:141:3. Apply the Jarvis Enrichment Template under a `## Jarvis Enrichment` heading via `vault_patch` append. **Preserve the existing note body.** Never rewrite human content during enrichment.
+./.claude/agents/research-distiller.md:41:5. `30_Order/Templates/Capability/Clipping Distill Template.md`
+./.claude/README.md:109:**2026-06-24 reorg pass.** The vault moved again: `60_Claude/50_Reviews/` → `60_Claude/30_Reviews/` (rename, contents intact), `60_Claude/35_Outputs/` was deleted outright (not replaced — anything that 
+./.claude/README.md:114:- `40_Resources/Obsidian/Jarvis Vault Architecture.md` and `60_Claude/07_AI_Information/Vault Map.md` (the actual folder-role authorities) still describe the pre-reorg structure — `35_Outputs` as live, `5
+./.claude/README.md:116:- `60_Claude/30_Reviews/50_Reviews Board.md` still carries its pre-rename filename (vault content, not `.claude/` — flagged here, not changed here).
+./.claude/README.md:117:- Where a removed `35_Outputs/`-routed artifact should actually land long-term is undecided. Current fallback is `00_Inbox/`; this is a stopgap, not a redesign.
+./.claude/skills/mcp-hub/mcp-hub.md:100:Build and print the context pack for the named tool. By default, print to chat. With `--write`, save to `60_Claude/00_Inbox/Context Packs/Context Pack — {tool} — YYYY-MM-DD.md` — `60_C
+./.claude/skills/note-to-actions/SKILL.md:25:3. `30_Order/Templates/Capability/Action Template.md`
+./.claude/skills/ops/ops-reference.md:115:`60_Claude/35_Outputs/` was removed (2026-06) and not replaced, so there is no "stalled outputs" dimension right now — skip it rather than scanning a folder that no longer exists.
+./.claude/skills/transcript-to-brief/SKILL.md:24:3. `30_Order/Templates/Capability/Brief Template.md`
+./.claude/skills/transcript-to-brief/SKILL.md:28:Use the argument if given, otherwise the active file, otherwise ask. Confirm the frontmatter is `type: input` and `input_kind: transcript`. If the text is pasted loose with no note,
+./.codex/agents/learning-agent.toml:41:6. `30_Order/Templates/Capability/Jarvis Enrichment Template.md` — for the enrichment section shape.
+./.codex/agents/learning-agent.toml:42:7. `30_Order/Templates/Capability/Question Bank Template.md` — for drill question shape.
+./.codex/agents/learning-agent.toml:109:2. **Evidence gap:** if `evidence:` is empty, suggest a proof artifact to build (interview story, portfolio bullet, project bullet, reusable prompt). `60_Claude/35_Outputs/` was removed (202
+./.codex/agents/learning-agent.toml:122:2. Decide enrichment level: `light` (definition + 1 example + drill seeds), `standard` (full Deep Dive Template), `deep` (Deep Dive + worked examples + synthesis + evidence).
+./.codex/agents/learning-agent.toml:123:3. Apply the Jarvis Enrichment Template under a `## Jarvis Enrichment` heading via `vault_patch` append. **Preserve the existing note body.** Never rewrite human content during enrichment.
+./.codex/agents/research-distiller.toml:24:5. `30_Order/Templates/Capability/Clipping Distill Template.md`\r
+./.cursor/rules/note-creation.mdc:42:| `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` — `## Full Content`, `## Open Questions` (tasks), `## Flashcards` |
+./.cursor/rules/workspace-context.mdc:17:- `60_Claude/` — **AI workshop.** Where AI captures, drafts, and distills. Subfolders: `00_Inbox/`, `05_Clippings/` (raw, read-only), `07_AI_Information/` (agent docs + memory), `10_Sourc
+./.obsidian/plugins/file-explorer-plus/data.json:249:        "pattern": "60_Claude/30_Reviews/50_Reviews Board.md",
+./.obsidian/plugins/recent-edits/data.json:499:    "30_Order/Templates/Career/Tracking/Capability Question Bank Template.md": "external",
+./.obsidian/plugins/recent-edits/data.json:1085:    "30_Order/Templates/Career/Tracking/Capability Question Bank Template.md": 1793771440403,
+./.obsidian/plugins/recent-edits/data.json:1672:    "30_Order/Templates/Career/Tracking/Capability Question Bank Template.md": 2046,
+./.obsidian/plugins/recent-files-obsidian/data.json:28:      "basename": "Capability Question Bank Template",
+./.obsidian/plugins/recent-files-obsidian/data.json:29:      "path": "30_Order/Templates/Career/Tracking/Capability Question Bank Template.md"
+./.obsidian/workspace.json:336:    "30_Order/Templates/Career/Tracking/Capability Question Bank Template.md",
+./10_Areas/AI/Setup/Review System.md:25:Three files, all confirmed current by direct read, not by trusting a prior summary of them. [[Review Standard|Review Standard.md]] is the governing content standard: a review must cite the a
+./10_Areas/Life/Plans/Summer 2026/00 - Summer Plans Index.md:25:| `/startday` | [[Daily Operating System]] + [[Final Month Plan (Jul 28 - Sep 1)]]'s current week row + today's calendar | `60_Claude/50_Reviews/Today - YYYY-MM-DD.md
+./10_Areas/Life/Plans/Summer 2026/00 - Summer Plans Index.md:40:- **`60_Claude/50_Reviews/Today - *.md`** = task truth (*what*). Generated daily.
+./10_Areas/Life/Plans/Summer 2026/Final Month Plan (Jul 28 - Sep 1).md:80:This note's `updated:` field bumps every Sunday during `/weekly-review`, and immediately whenever a flagship in the Timeframe table closes or changes. If tw
+./10_Areas/Life/Plans/Summer 2026/Weekly Operating System.md:36:> Answer inside the weekly note (`60_Claude/50_Reviews/Weekly Review YYYY-WXX.md`):
+./20_Progress/Projects/AI Use/Claude Kit/Log.md:172:- **Before copying anything, checked whether the WSL sources being copied were themselves current — they weren't, more extensively than previously known.** The 2026-08-20 findi
+./20_Progress/Projects/AI Use/Claude Kit/Toolkit/Global/What Global.md:28:**2026-08-20 finding, fixed 2026-09-05:** these WSL-global agents and commands were stale relative to the vault's own reorg — `obsidian-architect.md`, `ob
+./20_Progress/Projects/Jarvis & The Plan/AI Learning Across Vaults.md:359:Historical paths such as `60_Indexes`, `30_Source_Summaries`, `10_Session_Logs`, `45_Outputs`, `50_Reviews`, `10_UMN`, and `60_Jarvis` must be resolved agai
+./20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Current State - 2026-10-17.md:40:| `jarvis-cli` | `30_Order/System/jarvis-cli/jarvis.ps1`, `jarvis_ops.py`, README. | Wrapper selects an existing `python` before `py`
+./20_Progress/Projects/Jarvis & The Plan/Jarvis Multi-Agent PKM Plan.md:380:Historical paths such as `60_Indexes`, `30_Source_Summaries`, `10_Session_Logs`, `45_Outputs`, `50_Reviews`, `10_UMN`, and `60_Jarvis` must be resolved ag
+./20_Progress/Projects/Jarvis & The Plan/Jarvis Three-Month Research Engine Master Plan.md:1093:60_Claude/50_Reviews/Benchmarks/
+./20_Progress/Projects/Jarvis & The Plan/Jarvis Three-Month Research Engine Master Plan.md:1213:Historical paths such as `60_Indexes`, `30_Source_Summaries`, `10_Session_Logs`, `45_Outputs`, `50_Reviews`, `10_UMN`, and `60_Jarvis`
+./30_Order/Note Type Registry.md:107:| field-os (Spec ids field-os, depth-ladder, question-bank) | 1 | dashboard / field-os, depth-ladder, question-bank | `60_Claude/44_Indexes/Field OS/` | [[Capability Field OS Template]], [[Capa
+./30_Order/Standards/Operations/Dashboard Standard.md:23:This is the Standard for `type: dashboard` notes: query dashboards, boards (a query listing a folder), and habit boards. It exists because 55 Dataview `FROM` paths pointed a
+./30_Order/Standards/Operations/Dashboard Standard.md:66:| `FROM` a deleted `30_Source_Summaries`, `50_Reviews`, `10_Session_Logs` | `10_Source_Summaries`, `30_Reviews`, `07_AI_Information/Session Logs` | mechanical, then verify |
+./30_Order/Standards/Operations/Field OS Standard.md:15:  - "[[Capability Question Bank Template]]"
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:5562: rename 30_Order/Templates/Capability/Monthly Synthesis Template.md => 10_Areas/AI/Antigravity.md (100%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:5572: rename 30_Order/Templates/{Capability => AI Use}/Clipping Distill Template.md (100%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:5573: rename 30_Order/Templates/{Capability => AI Use}/Deep Dive Template.md (100%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:5574: delete mode 100644 30_Order/Templates/Capability/Weekly Synthesis Template.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:24680: rename 30_Order/Templates/{AI Use => AI Toolkit}/Clipping Distill Template.md (100%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:24681: rename 30_Order/Templates/{AI Use => AI Toolkit}/Deep Dive Template.md (100%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:24687: create mode 100644 30_Order/Templates/Frontmatter/For Dashboards.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:28621: create mode 100644 30_Order/Templates/Capability/Audit Report Template.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:28622: create mode 100644 30_Order/Templates/Capability/Weekly Synthesis Template.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:38580: create mode 100644 30_Order/Templates/Capability/Transcript Template.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:38582: delete mode 100644 30_Order/Templates/Frontmatter/For Transcript.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41026: rename 30_Order/Templates/AI Toolkit/{Clipping Distill Template.md => Source Summary Template.md} (99%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41029: delete mode 100644 30_Order/Templates/Capability/Synthesis Template.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41031: rename 30_Order/Templates/{AI Toolkit/Deep Dive Template.md => Career/Evergreen Note Template.md} (99%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41050: rename 30_Order/Templates/{Capability/Question Bank Template.md => Career/Tracking/Capability Question Bank Template.md} (99%)
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41053: delete mode 100644 30_Order/Templates/Frontmatter/For AI.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41054: delete mode 100644 30_Order/Templates/Frontmatter/For Brainstorm.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41055: delete mode 100644 30_Order/Templates/Frontmatter/For Classes.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41056: delete mode 100644 30_Order/Templates/Frontmatter/For Dashboards.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41057: delete mode 100644 30_Order/Templates/Frontmatter/For Evergreen.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41058: delete mode 100644 30_Order/Templates/Frontmatter/For Inputs.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41059: delete mode 100644 30_Order/Templates/Frontmatter/For Progress.md
+./30_Order/System/claude-workflow/logs/git-auto-sync.log:41060: delete mode 100644 30_Order/Templates/Frontmatter/For Thoughts.md
+./30_Order/System/jarvis-cli/Jarvis Ops CLI.md:36:`report` writes to `60_Claude/30_Reviews/Ops Reports/` (the `REPORT_DIR` constant), the folder that holds the one existing report. It creates the folder if it is missing. Until 202
+./40_Resources/Capability/AI Roles — Builder.md:28:You receive a concept note (or its title + existing content). The note follows the Deep Dive Template.
+./40_Resources/Capability/AI Roles — Connector.md:28:You receive a concept note (or its title + existing content). The note follows the Deep Dive Template. You also need awareness of the vault's five tracks: `ai`, `systems`, `al
+./40_Resources/Capability/AI Roles — Critic.md:28:You receive a concept note (or its title + full content). The note follows the Deep Dive Template. You also need the note's current `status` (seed, sprout, tree) to evaluate agai
+./40_Resources/Capability/AI Roles — Examiner.md:28:You receive a concept note (or its title + existing content). The note follows the Deep Dive Template.
+./40_Resources/Capability/AI Roles — Teacher.md:28:You receive a concept note (or its title + any existing content). The note follows the Deep Dive Template with sections like `What It Is`, `Why It Matters`, `Mental Model`, `For
+./40_Resources/Capability/Capability Engine Guide.md:106:All under `30_Order/Templates/Capability/`:
+./40_Resources/Capability/Capability Engine Guide.md:108:- [[Deep Dive Template]] — enriched concept note with growth-rule sections
+./40_Resources/Capability/Capability Engine Guide.md:111:- [[Question Bank Template]] · [[Field OS Template]] · [[Depth Ladder Template]] · [[Clipping Distill Template]]
+./40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md:120:The vault has `/weekly-review` skill and `60_Claude/50_Reviews/` already. But the review isn't automated.
+./40_Resources/CS/AI/Token Optimization/Claude Optimization Master Setup.md:142:5. **Enrich the concept note** → use the Jarvis Enrichment Template (definition + mechanism + example + contrast + failure modes + drills)
+./40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Architecture and Infrastructure.md:82:`00_Live/Enumerate/{Daily,Weekly,Monthly,Yearly}`, `00_Live/Tracking/{Habits,Finance,Plans,Meals}`, `00_Live/Life OS.md`, `00_Live
+./40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md:35:| Records are stale | `Dashboards Hub` and `Build Plan` still say `next: Run R1, then B1`. The Agentic OS status table says hooks are re
+./40_Resources/Obsidian/Jarvis Vault Architecture.md:193:- The `60_Claude/35_Outputs/` and `60_Claude/50_Reviews/` folders no longer exist. Reviews live in `30_Reviews/`. Reusable deliverables have no dedicated folder; use `40_Pro
+./40_Resources/Obsidian/Plugins/Dataview and Dashboards.md:175:WHERE file.name != "50_Reviews Board"
+./40_Resources/Obsidian/Plugins/Dataview and Dashboards.md:179:*Path corrected 2026-09-20 — was `60_Claude/50_Reviews`, a folder that doesn't exist. The real folder is `60_Claude/30_Reviews`, confirmed to exist and to actually c
+./40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md:99:- **New fix, 2026-09-20:** [[Dataview and Dashboards]] had three query recipes with the same class of dead-path bug — `60_Claude/30_Source_Summar
+./40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md:100:- **New correction, 2026-09-20:** [[Templates Capture and Periodic Notes]]'s Periodic Notes Review Flow table was entirely wrong when checked agai
+./40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md:64:| Source summary | Template | `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` with `input_kind`, `track`, `source_note` | Blocked |
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:36:Two bugs existed, not one. The tracker had already found that `10_UMN` and `60_Claude/30_Source_Summaries` pointed at nonexistent folders. Checking every t
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:41:| `20_Progress` | `30_Order/Templates/Frontmatter/For Progress.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:42:| `40_Resources` | `30_Order/Templates/Frontmatter/For Evergreen.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:43:| `60_Claude/20_Distilled_Notes` | `30_Order/Templates/Frontmatter/For Evergreen.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:44:| `60_Claude/10_Source_Summaries` | `30_Order/Templates/Frontmatter/For Inputs.md` | Fixed: folder was `60_Claude/30_Source_Summaries` (dead path, real fol
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:45:| `60_Claude/40_Project_Briefs` | `30_Order/Templates/Frontmatter/For Progress.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:80:Review notes should pull from [[00_Dashboard]], recent session log entries, open tasks, and active projects. Do not create daily notes in a second folder �
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:82:Separately, `60_Claude/30_Reviews/Weekly Synthesis/` holds a different, unrelated note type — Capability Engine "Weekly Synthesis" notes made from `30_Or
+./40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md:93:- Reviews -> `60_Claude/50_Reviews`.
+./60_Claude/00_Inbox/copilot/copilot-conversations/AI_Second_Brain_Vault_Structure@20260423_203909.md:363:- Daily/weekly reviews → `60_Claude/50_Reviews/`
+./60_Claude/07_AI_Information/AI Conversation - Summaries/[REDACTED] — Summary.md:54:- decision: no for now — keep as research input until a client-facing output lands in `35_
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Cursor Project Brief — Vault OS Upgrade.md:94:- `Clipping Distill Template.md` — 5 headings with zero guidance under any of them. Missing `## Full Content`, `## Flashca
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Cursor Project Brief — Vault OS Upgrade.md:279:**`Clipping Distill Template.md`** — the most-used template. Must match the source ingestion structure in Part 9 of Vault
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Note Writing System — Audit and Roadmap (2026-05-31).md:84:**`Clipping Distill Template.md`** — 5 headings (`## Source`, `## Key Claims`, `## Why It Matters`, `## Links
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Note Writing System — Audit and Roadmap (2026-05-31).md:90:**`Deep Dive Template.md`** — 13 section headings, all empty. No example content. An agent reading `## Teach 
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Note Writing System — Audit and Roadmap (2026-05-31).md:97:- Review notes (`60_Claude/50_Reviews/`) — uses `Better Week.md` from Headway Templates but those are daily/w
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Note Writing System — Audit and Roadmap (2026-05-31).md:123:Priority: **critical**. Every template needs: description under each heading, example content, formatting remi
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Note Writing System — Audit and Roadmap (2026-05-31).md:127:What does a `status: seed` note look like vs `status: sprout` vs `status: tree`? There are 223 notes in the en
+./60_Claude/07_AI_Information/AI Conversation - Summaries/Note Writing System — Audit and Roadmap (2026-05-31).md:167:1. **Rewrite Clipping Distill Template** — match the actual PDF ingestion structure: `## Full Content` with 
+./60_Claude/07_AI_Information/Jarvis OS — North Star.md:53:Highest-leverage content fix; the 2026-05-31 audit already specified it precisely. Every template carries four things, not one: exact frontmatter with correct syntax and
+./60_Claude/07_AI_Information/North Star — Execution Prompt.md:51:Work the template list in the 2026-05-31 audit (`Note Writing System — Audit and Roadmap`). For each shell template (`For Evergreen`, `For Progress`, `Textbook 
+./60_Claude/07_AI_Information/North Star — Execution Prompt.md:60:Write a detailed note at `60_Claude/50_Reviews/North Star Convergence — Change Report 2026-06-XX.md` covering, in prose with tables where they help:
+./60_Claude/07_AI_Information/Plugins.md:177:- Daily: `60_Claude/50_Reviews/Daily`, template `30_Order/Templates/Headway Templates/Better Today.md`.
+./60_Claude/07_AI_Information/Plugins.md:178:- Weekly: `60_Claude/50_Reviews/Weekly`, template `30_Order/Templates/Headway Templates/Better Week.md`.
+./60_Claude/07_AI_Information/Plugins.md:179:- Monthly: `60_Claude/50_Reviews/Monthly`, template `30_Order/Templates/Headway Templates/Better Month.md`.
+./60_Claude/07_AI_Information/Session Logs/Convergence Worklog 2026-06-11.md:22:2. **Clipping Distill Template** — North Star says it is a shell. Reality: already updated with Full Content, Flashcards, source_note hints. Still n
+./60_Claude/07_AI_Information/Session Logs/Convergence Worklog 2026-06-11.md:23:3. **For Evergreen and For Progress** — located in `30_Order/Templates/Frontmatter/`, not root Templates folder. Sections exist but no content guida
+./60_Claude/07_AI_Information/Session Logs/Convergence Worklog 2026-06-11.md:26:6. **Deep Dive Template** — uses `{{date:YYYY-MM-DD}}` (wrong — not Templater syntax). Fix to `2026-06-11`.
+./60_Claude/30_Reviews/50_Reviews Board.md:20:FROM "60_Claude/50_Reviews"
+./60_Claude/30_Reviews/Jarvis Enrichment Phase 1 - 2026-04-24.md:26:- [[30_Order/Templates/Capability/Jarvis Enrichment Template]]
+./60_Claude/30_Reviews/Monthly/Monthly Review — 2026-06.md:104:- `00_Dashboard.md` has at least 4 dead Dataview queries (`10_UMN` ×3, `60_Indexes`, `50_Reviews`) signed off as fixed on 06-11 — the reorganization happened, the
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:56:**`30_Order/Templates/Capability/Deep Dive Template.md`** — critical bug fixed: `{{date:YYYY-MM-DD}}` → `2026-06-11` throughout. Added descriptio
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:58:**`30_Order/Templates/Frontmatter/For Evergreen.md`** — complete rewrite. Added descriptions under all 6 sections with concrete examples from the v
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:60:**`30_Order/Templates/Frontmatter/For Progress.md`** — added descriptions and example content under all 5 sections (Goal, Current State, Next Actio
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:66:**`30_Order/Templates/Capability/Clipping Distill Template.md`** — added descriptions under all 7 sections. Examples use RAG/BOOM vault material.
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:159:- `30_Order/Templates/Capability/Deep Dive Template.md`
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:160:- `30_Order/Templates/Capability/Clipping Distill Template.md`
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:161:- `30_Order/Templates/Frontmatter/For Evergreen.md`
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:162:- `30_Order/Templates/Frontmatter/For Progress.md`
+./60_Claude/30_Reviews/North Star Convergence — Change Report 2026-06-11.md:188:- `60_Claude/50_Reviews/North Star Convergence — Change Report 2026-06-11.md` (this file)
+./60_Claude/30_Reviews/Vault-Audit-2026-05-29.md:76:| `distill-note.md` | Convert messy capture into evergreen note | 3 | Generic distillation template. No integration with the Capability Engine fields (`track`, `mastery_level`, `
+./60_Claude/30_Reviews/Vault-Audit-2026-05-29.md:81:| `closeday.md` | End-of-day summary | 3 | Doesn't run the Capability Audit (the `/ops evening-close` does, but `/closeday` alone doesn't). Creates `60_Claude/50_Reviews/Closeday
+./60_Claude/30_Reviews/Vault-Audit-2026-05-29.md:114:| `60_Claude/50_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W22.md` | Reference | W22 review surfaced: spine ~30% complete, capture folders missing, 223-note enrichment q
+./60_Claude/44_Indexes/Claude Layer Index.md:51:FROM "60_Claude/50_Reviews"
+./60_Claude/44_Indexes/Claude Layer Index.md:52:WHERE file.name != "50_Reviews Board"
+./60_Claude/44_Indexes/Vault Health Dashboard.md:81:FROM "60_Claude/50_Reviews"
+./60_Claude/44_Indexes/Vault Health Dashboard.md:91:FROM "60_Claude/50_Reviews"
+./60_Claude/44_Indexes/Vault Health Dashboard.md:101:FROM "60_Claude/50_Reviews/Ops Reports"
+./60_Claude/Claude Board.md:23:| [[50_Reviews          | 50_Reviews]]          | Weekly reviews, closeday summaries, lint reports           |
+./CLAUDE.md:46:Frontmatter comes from the template, never from memory. Find the note type in [[Note Type Registry]]; it names the Template, Standard, and Workflow. `type`, `status`, and every `*_kind` come only from [[Frontmatter
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates && ls; echo ---; ls Career Career/Meetings Career/Tracking "AI Toolkit" 2>/dev/null | head -60; echo ---For; head -20 "For Everything.md"; grep -n 'For Everything' ../Note\ Type\ Registry.md ../00_How\ This\ Folder\ Works.md 2>/dev/null | head -5
+```
+```
+AI Toolkit
+Career
+Classes
+Enumerate
+For Everything.md
+Projects
+System
+---
+AI Toolkit:
+AI Monthly Review Template.md
+AI Tool Profile Template.md
+AI Weekly Review Template.md
+Source Summary Template.md
+Vault Audit Report Template.md
+Vault Weekly Synthesis Template.md
+
+Career:
+Cross-Domain Synthesis Template.md
+Evergreen Note Template.md
+Folder MOC Template.md
+Internship
+Interview Story Template.md
+Meetings
+Portfolio Bullet Template.md
+Project One-Pager Template.md
+Reference Guide Template.md
+Standing Plan Template.md
+Technical Concept Template.md
+Tracking
+
+Career/Meetings:
+Action Template.md
+Brief Template.md
+Transcript Template.md
+
+Career/Tracking:
+Capability Depth Ladder Template.md
+Capability Field OS Template.md
+Capability Question Bank Template.md
+Internship Postings Log Template.md
+Internship Tracker Template.md
+---For
+---
+type:
+status:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+notes: []
+next:
+---
+../00_How This Folder Works.md:27:2. Copy the Template, read the Standard, follow the Workflow. Every Template starts with the seven keys of [[For Everything]] (`type`, `status`, `created`, `updated`, `tags`, `notes`, `next`), so a note made from any Template also satisfies the base.
+../00_How This Folder Works.md:33:- **`Templates/`**: [[For Everything]] sits at the root as the base every note satisfies. The folders say what a note is for:
+```
+- `Bash`
+```bash
+cat "Career/Evergreen Note Template.md" | head -60; echo ======; grep -rn 'Jarvis Enrichment' /d/_Anant/20_Progress/Documents/Jarvis/30_Order --include=*.md -l | head; sed -n 55,62p /d/_Anant/20_Progress/Documents/Jarvis/.claude/agents/learning-agent.md; sed -n 138,142p /d/_Anant/20_Progress/Documents/Jarvis/.claude/agents/learning-agent.md
+```
+```
+---
+type: evergreen
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - evergreen
+evergreen_kind: distilled
+track: []
+notes: []
+next:
+---
+# <% tp.file.title %>
+## Core Claim
+<!-- One sentence wrapped in a single highlight: what this note establishes. -->
+## Mechanism
+<!-- How it works in your own words, with named parts in bold. Use a table when mapping two domains. -->
+## Why This Matters Here
+<!-- Two to four sentences naming the project, course, or decision it serves. -->
+## Failure Modes
+<!-- Where it breaks or what it is confused with, anchored by a WARNING callout. -->
+## Evidence
+<!-- Verified links to the source summaries it distills and the work that proves it. -->
+## Related
+<!-- Three to seven genuine neighbors. -->
+======
+/d/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Editing Standard.md
+/d/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Enrich/Audit Report Standard.md
+/d/_Anant/20_Progress/Documents/Jarvis/30_Order/Workflows/Enrichment/Enrichment.md
+2. `HUMAN_WRITING.md`
+3. `60_Claude/07_AI_Information/AI_CONTEXT.md`
+4. `40_Resources/Obsidian/Vault Operating System.md` — for the Capability Engine field schema (`track`, `mastery_level`, `mastery_score`, `last_drilled`, `next_drill`, `drill_interval`, `prerequisites`, `used_in`, `evidence`, `enrichment_status`, `enrichment_level`).
+5. `40_Resources/Obsidian/Jarvis Enrichment Engine.md` — for the enrichment workflow.
+6. `30_Order/Templates/Capability/Jarvis Enrichment Template.md` — for the enrichment section shape.
+7. `30_Order/Templates/Capability/Question Bank Template.md` — for drill question shape.
+8. The target Field OS board for the concept's track: `60_Claude/44_Indexes/Field OS/{AI|Systems|Algorithms|Career|Trading} Field OS.md`.
+
+
+1. Profile the note: word count, headings present, source anchors, backlinks.
+2. Decide enrichment level: `light` (definition + 1 example + drill seeds), `standard` (full Deep Dive Template), `deep` (Deep Dive + worked examples + synthesis + evidence).
+3. Apply the Jarvis Enrichment Template under a `## Jarvis Enrichment` heading via `vault_patch` append. **Preserve the existing note body.** Never rewrite human content during enrichment.
+4. Add Capability Engine fields to frontmatter: `track`, `difficulty` (1–5), `prerequisites`, `used_in`, `evidence`, `mastery_level: novice`, `mastery_score: 3`, `last_drilled: today`, `next_drill: today + 7`, `drill_interval: 7`, `enrichment_status: enriched`, `enrichment_level: {light|standard|deep}`.
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order && grep -n 'Jarvis Enrichment\|Deep Dive\|Template' Workflows/Enrichment/Enrichment.md | cut -c1-260 | head -14; echo ---; grep -n 'Jarvis Enrichment' Standards/Editing\ Standard.md Standards/Enrich/Audit\ Report\ Standard.md | cut -c1-260; ls Workflows/Enrichment Standards/Enrich
+```
+```
+14:  - "[[40_Resources/Obsidian/Jarvis Enrichment Engine]]"
+26:5. Append it under `## Jarvis Enrichment` (or `## Addendum YYYY-MM-DD`), leaving the original structure and wording visible.
+---
+Standards/Editing Standard.md:27:3. **Keep the owner's voice.** Add depth under an `## Addendum` or `## Jarvis Enrichment` heading when the content is theirs; correct in place only when it is plainly wrong. Never replace a human note with generic prose ([[Enri
+Standards/Enrich/Audit Report Standard.md:37:    {"path": "^60_Claude/30_Reviews/Jarvis Enrichment Phase 1 . 2026-04-24\\.md$"},
+Standards/Enrich:
+Audit Report Standard.md
+Capability Review Standard.md
+Evergreen Standard.md
+Human Writing Standard.md
+Output Standard.md
+Plugins Usage Standard.md
+Reference Standard.md
+Repo Evaluation Standard.md
+Review Standard.md
+Source Summary Standard.md
+Tracking Standard.md
+
+Workflows/Enrichment:
+Capture to Summary.md
+Decoration.md
+Enrichment.md
+Human Content Writer.md
+Output with Provenance.md
+Plugins Usage.md
+Researcher.md
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis && sed -n 100p .claude/skills/mcp-hub/mcp-hub.md | cut -c150-420; sed -n 28p .claude/skills/transcript-to-brief/SKILL.md | grep -o '.\{80\}\(Templates/Capability\|Frontmatter\|Capability\).\{80\}'; echo ---cursor; sed -n 38,46p .cursor/rules/note-creation.mdc; echo ---ws; sed -n 17p .cursor/rules/workspace-context.mdc; echo ---readme; sed -n 107,118p .claude/README.md | cut -c1-520
+```
+```
+k — {tool} — YYYY-MM-DD.md` — `60_Claude/35_Outputs/` was removed (2026-06) and not replaced, so there is no dedicated deliverables folder right now; Inbox is the unsure-where-it-goes destination per the Write Contract.
+---cursor
+## Template matching (note created outside Obsidian skips Templater — apply by hand)
+
+| Folder | Template intent |
+|---|---|
+| `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` — `## Full Content`, `## Open Questions` (tasks), `## Flashcards` |
+| `10_Areas/UMN/` week notes | `Week Template` — incl. `## Lecture-to-textbook synthesis` |
+| concept notes | `Concept Template` — one-line answer, mechanism, failure modes, evidence |
+| `40_Resources/` / `20_Distilled_Notes/` | `For Evergreen` body structure |
+| `20_Progress/` | `For Progress` — goal, current state, `next:`, log |
+---ws
+- `60_Claude/` — **AI workshop.** Where AI captures, drafts, and distills. Subfolders: `00_Inbox/`, `05_Clippings/` (raw, read-only), `07_AI_Information/` (agent docs + memory), `10_Source_Summaries/`, `20_Distilled_Notes/`, `35_Outputs/`, `40_Project_Briefs/`, `44_Indexes/`, `50_Reviews/`.
+---readme
+## Alignment backlog
+
+**2026-06-24 reorg pass.** The vault moved again: `60_Claude/50_Reviews/` → `60_Claude/30_Reviews/` (rename, contents intact), `60_Claude/35_Outputs/` was deleted outright (not replaced — anything that used to route there now falls back to `60_Claude/00_Inbox/` per the Write Contract's "unsure → Inbox" rule), `40_Resources/CS/AI/` flattened files moved into `Toolkit/`, `Workflows/`, `Gen AI/`, `Prompts/`, `Token Optimization/` subfolders, UMN coursework split (`10_Areas/UMN/` now holds only the current-term b
+
+**Known good, not touched:** `ingesting-clipping/` skill directory, `research-distiller.md`, `anti-slop-editor.md`, `connect-notes.md`, `remove-ai-slop.md`, `rules/human-writing.md`, `commands/*.md` (thin pointers, no embedded paths).
+
+**Still open — out of scope for the 2026-06-24 pass, deliberately:**
+- `40_Resources/Obsidian/Jarvis Vault Architecture.md` and `60_Claude/07_AI_Information/Vault Map.md` (the actual folder-role authorities) still describe the pre-reorg structure — `35_Outputs` as live, `50_Reviews` not `30_Reviews`, all UMN coursework under `10_Areas/UMN`. This file intentionally does not re-describe folder roles (see the "single source of truth" note above), so it was not the place to fix that — the architecture note itself needs the rewrite.
+- `60_Claude/07_AI_Information/Jarvis OS — North Star.md` Part 3.3 cites the MGMT 3001 week notes as the template gold-standard. The vault owner says those notes were ungraded AI output dumped during the course, not a standard to build toward — this claim needs revisiting, not propagated further.
+- `60_Claude/30_Reviews/50_Reviews Board.md` still carries its pre-rename filename (vault content, not `.claude/` — flagged here, not changed here).
+- Where a removed `35_Outputs/`-routed artifact should actually land long-term is undecided. Current fallback is `00_Inbox/`; this is a stopgap, not a redesign.
+```
+- `Bash`
+```bash
+grep -c '35_Outputs\|50_Reviews' "60_Claude/07_AI_Information/Vault Map.md" "40_Resources/Obsidian/Jarvis Vault Architecture.md"; grep -n '35_Outputs\|50_Reviews' "60_Claude/07_AI_Information/Vault Map.md" | cut -c1-160; grep -n 'MGMT 3001' "60_Claude/07_AI_Information/Jarvis OS — North Star.md" | head -2 | cut -c1-160; sed -n 118,130p .claude/README.md | cut -c1-120
+```
+```
+60_Claude/07_AI_Information/Vault Map.md:0
+40_Resources/Obsidian/Jarvis Vault Architecture.md:1
+53:Highest-leverage content fix; the 2026-05-31 audit already specified it precisely. Every template carries four things, not one: exact frontmatter with correc
+
+These four are the explicit subject of the vault owner's planned follow-up conversation about redefining what each folde
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates && ls Classes Projects | head -30; ls /d/_Anant/20_Progress/Documents/Jarvis/10_Areas | head -20; sed -n 1,12p "Career/Technical Concept Template.md" | head -14
+```
+```
+Classes:
+Board or Main Template.md
+Concept Template.md
+Degree Control Template.md
+Discussion Template.md
+Exam Material Template.md
+Exam Sheet Template.md
+Homework Template.md
+Lab Template.md
+Preparation Template.md
+Project Template.md
+Textbook Map Template.md
+Textbook Template.md
+Track Template.md
+Week Template.md
+Weekly Board Template.md
+
+Projects:
+Agent Task Prompt Template.md
+Code File Mirror Template.md
+Machine Setup Runbook Template.md
+Project Plan Template.md
+Project Spec Template.md
+Project Status Note Template.md
+AI
+Career
+Excalidraw
+Jarvis OS Dashboard.canvas
+Life
+Notes
+Summer Grind.md
+Trading
+---
+type: concept
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - concept
+track: []
+used_in: []
+evidence: []
+notes: []
+next:
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order && grep -n 'Evergreen Note Template\|Project Status Note Template\|Week Template' "Note Type Registry.md" | cut -c1-230; grep -n 'Lecture-to-textbook' Templates/Classes/*.md | head -3
+```
+```
+35:| course-week | 1 | class / week | same | [[Week Template]] | [[Weekly Standard]] | [[Weekly Workflow]] | built |
+74:| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Status Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief t
+92:| distilled | 1 | evergreen / distilled | `60_Claude/20_Distilled_Notes/` | [[Evergreen Note Template]] | [[Evergreen Standard]] | [[Summary to Distilled]] | built |
+Templates/Classes/Week Template.md:28:## Lecture-to-textbook synthesis
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis && ls 60_Claude
+```
+```
+00_Inbox
+05_Clippings
+07_AI_Information
+10_Source_Summaries
+20_Distilled_Notes
+30_Reviews
+40_Project_Briefs
+44_Indexes
+Claude Board.md
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\stale-refs-fix.py`
+```
+"""Fix stale template and folder names in tooling files (literal replacements, line endings preserved)."""
+from pathlib import Path
+
+ROOT = Path(r"D:\_Anant\20_Progress\Documents\Jarvis")
+
+CAP = "30_Order/Templates/Capability/"
+RULES = {
+    # note-to-actions and transcript-to-brief, Claude and .agents copies
+    ".claude/skills/note-to-actions/SKILL.md": [(CAP + "Action Template.md", "30_Order/Templates/Career/Meetings/Action Template.md")],
+    ".agents/skills/note-to-actions/SKILL.md": [(CAP + "Action Template.md", "30_Order/Templates/Career/Meetings/Action Template.md")],
+    ".claude/skills/transcript-to-brief/SKILL.md": [(CAP + "Brief Template.md", "30_Order/Templates/Career/Meetings/Brief Template.md")],
+    ".agents/skills/transcript-to-brief/SKILL.md": [(CAP + "Brief Template.md", "30_Order/Templates/Career/Meetings/Brief Template.md")],
+    # research-distiller
+    ".claude/agents/research-distiller.md": [(CAP + "Clipping Distill Template.md", "30_Order/Templates/AI Toolkit/Source Summary Template.md")],
+    ".codex/agents/research-distiller.toml": [(CAP + "Clipping Distill Template.md", "30_Order/Templates/AI Toolkit/Source Summary Template.md")],
+}
+
+LEARN = [
+    ("`" + CAP + "Jarvis Enrichment Template.md` — for the enrichment section shape.",
+     "`30_Order/Workflows/Enrichment/Enrichment.md` and `30_Order/Templates/Career/Evergreen Note Template.md`: for the enrichment steps and section shape (there is no separate Jarvis Enrichment template; the work goes under a `## Jarvis Enrichment` heading)."),
+    ("`" + CAP + "Question Bank Template.md`", "`30_Order/Templates/Career/Tracking/Capability Question Bank Template.md`"),
+    ("`standard` (full Deep Dive Template), `deep` (Deep Dive + worked examples",
+     "`standard` (the full Evergreen Note Template), `deep` (the Evergreen Note Template + worked examples"),
+    ("3. Apply the Jarvis Enrichment Template under a `## Jarvis Enrichment` heading",
+     "3. Apply the Evergreen Note Template's sections under a `## Jarvis Enrichment` heading"),
+]
+RULES[".claude/agents/learning-agent.md"] = LEARN
+RULES[".codex/agents/learning-agent.toml"] = LEARN
+
+RULES[".cursor/rules/note-creation.mdc"] = [
+    ("| `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` — `## Full Content`",
+     "| `60_Claude/10_Source_Summaries/` | `30_Order/Templates/AI Toolkit/Source Summary Template.md`: `## Full Content`"),
+    ("| `10_Areas/UMN/` week notes | `Week Template` — incl.",
+     "| course week notes (`10_Areas/UMN/` no longer exists) | `30_Order/Templates/Classes/Week Template.md`, incl."),
+    ("| `40_Resources/` / `20_Distilled_Notes/` | `For Evergreen` body structure |",
+     "| `40_Resources/` / `20_Distilled_Notes/` | `30_Order/Templates/Career/Evergreen Note Template.md` body structure |"),
+    ("| `20_Progress/` | `For Progress` — goal, current state, `next:`, log |",
+     "| `20_Progress/` | `30_Order/Templates/Projects/Project Status Note Template.md`: goal, current state, `next:`, log |"),
+]
+RULES[".cursor/rules/workspace-context.mdc"] = [
+    ("`10_Source_Summaries/`, `20_Distilled_Notes/`, `35_Outputs/`, `40_Project_Briefs/`, `44_Indexes/`, `50_Reviews/`.",
+     "`10_Source_Summaries/`, `20_Distilled_Notes/`, `30_Reviews/`, `40_Project_Briefs/`, `44_Indexes/`."),
+]
+RULES["CLAUDE.md"] = [
+    ("The frontmatter-only starters in `30_Order/Templates/Frontmatter/` are for Inbox notes with no family.",
+     "[[For Everything]] (the seven base keys, at the root of `30_Order/Templates/`) is the starter for an Inbox note with no family."),
+]
+
+total = 0
+for rel, pairs in RULES.items():
+    p = ROOT / rel
+    text = p.read_bytes().decode("utf-8")
+    new = text
+    done = []
+    for old, rep in pairs:
+        n = new.count(old)
+        if n:
+            new = new.replace(old, rep)
+        done.append(n)
+    if new != text:
+        p.write_bytes(new.encode("utf-8"))
+        total += sum(done)
+    print(("CHANGED " if new != text else "NO-CHANGE"), rel, done)
+print("replacements:", total)
+
+```
+- `PowerShell`
+```powershell
+& "$env:USERPROFILE\.local\bin\python3.13.exe" C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\stale-refs-fix.py
+```
+```
+CHANGED  .claude/skills/note-to-actions/SKILL.md [1]
+CHANGED  .agents/skills/note-to-actions/SKILL.md [1]
+CHANGED  .claude/skills/transcript-to-brief/SKILL.md [1]
+CHANGED  .agents/skills/transcript-to-brief/SKILL.md [1]
+CHANGED  .claude/agents/research-distiller.md [1]
+CHANGED  .codex/agents/research-distiller.toml [1]
+CHANGED  .claude/agents/learning-agent.md [1, 1, 1, 1]
+CHANGED  .codex/agents/learning-agent.toml [1, 1, 1, 1]
+CHANGED  .cursor/rules/note-creation.mdc [1, 1, 1, 1]
+CHANGED  .cursor/rules/workspace-context.mdc [1]
+CHANGED  CLAUDE.md [1]
+replacements: 20
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\README.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\README.md`
+```diff
+- the architecture note itself needs the rewrite.
+- - `60_Claude/07_AI_Information/Jarvis OS
++ the architecture note itself needs the rewrite. *Checked 2026-11-04: the first part is done. `Vault Map.md` no longer names `35_Outputs` or `50_Reviews`, and `Jarvis Vault Architecture.md` mentions them once, to say they no longer exist. I did not re-check the UMN claim.*
++ - `60_Claude/07_AI_Information/Jarvis OS
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\README.md`
+```diff
+- still carries its pre-rename filename (vault content, not `.claude/` — flagged here, not changed here).
++ still carries its pre-rename filename (vault content, not `.claude/` — flagged here, not changed here). *Checked 2026-11-04: still true, and its Dataview query still reads `FROM "60_Claude/50_Reviews"`, so the board lists nothing. Three queries in `60_Claude/44_Indexes/Vault Health Dashboard.md` and two in `Claude Layer Index.md` read the same dead path.*
+```
+- `Bash`
+```bash
+ls "20_Progress/AI" "20_Progress/AI/Claude Code" 2>/dev/null | head -20; echo ---; grep -rIln --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules --exclude-dir=05_Clippings --exclude='log.md*' -E '20_Progress/AI/(Claude Code|Cursor|Kiro)|Unison|unison' 30_Order/System .claude .agents .codex .cursor/rules 2>/dev/null | grep -v '/logs/' | head -20; echo ---header; head -12 "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md" 2>/dev/null | cut -c1-160
+```
+```
+20_Progress/AI:
+Claude Code
+Claude OS Dashboard.canvas
+Claude OS Dashboard.md
+Claude OS.md
+Codex
+Cursor
+Google Skills + AI Pro.md
+Kiro
+
+20_Progress/AI/Claude Code:
+CausalOps
+Github ReadMe
+Jarvis
+MOC.md
+Management.md
+OpsPilot
+Portfolio
+Resq
+Sync - Unison.md
+---
+30_Order/System/claude-workflow/Claude Workflow.md
+30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1
+30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1
+30_Order/System/sync-workflow/Sync Workflow.md
+---header
+---
+name: learning-agent
+description: >
+  Use proactively for two things: (1) drilling concepts via spaced repetition,
+  enriching thin concept notes with Capability Engine fields, and turning
+  course material or fresh ingestions into drillable knowledge — MUST BE USED
+  when a drill is overdue (next_drill < today) or the user asks to be tested
+  on a concept; (2) learning a specific topic by searching this vault only
+  (via jarvis MCP tools / jarvis-cli), never the open web unless explicitly
+  asked — MUST BE USED for "help me learn/understand X" requests instead of
+  answering from general knowledge. Runs the Read → Drill → Update → Suggest
+  Next loop for mode (1); grades honestly against note content, patches
+```
+- `Bash`
+```bash
+sed -n 1,60p "20_Progress/AI/Claude Code/Sync - Unison.md" | cut -c1-240; echo ----; ls "20_Progress/AI/Claude Code/Jarvis" | head; ls -la "20_Progress/AI/Claude Code/Jarvis/.claude" 2>/dev/null | head -5; git log --oneline -3 -- "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md" | cut -c1-100; git check-ignore -v "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md"; echo ---sync log; tail -3 "20_Progress/AI/Claude Code/Jarvis/Sync-Log.md" 2>/dev/null | cut -c1-200
+```
+```
+---
+type: project
+status: active
+created: 2026-07-30
+updated: 2026-08-10
+tags:
+  - claude-code
+  - sync
+  - unison
+  - claude-kit
+notes:
+  - "[[20_Progress/AI/Claude Code/MOC]]"
+  - "[[20_Progress/AI/Claude Code/second-brain-claudekit/Setup]]"
+  - "[[20_Progress/AI/Claude Code/CausalOps/Setup]]"
+  - "[[20_Progress/AI/Claude Code/Jarvis/Setup]]"
+  - "[[20_Progress/AI/Claude Code/Portfolio/Setup]]"
+  - "[[20_Progress/AI/Claude Code/Trading View/Setup]]"
+  - "[[20_Progress/AI/Claude Code/Resq/Setup]]"
+  - "[[20_Progress/AI/Claude Code/OpsPilot/Setup]]"
+  - "[[20_Progress/AI/Claude Code/The Plan/Setup]]"
+  - "[[20_Progress/AI/Claude Code/.claude_windows/Setup]]"
+  - "[[20_Progress/AI/Claude Code/.claude_wsl/Setup]]"
+  - "[[Tool Map]]"
+next: Decide whether/how to reconcile the two home directories' disjoint agents/commands/skills content; otherwise the full rollout is done
+---
+# Sync — Unison, multi-project rollout
+
+This is the **how**: the operational procedure for making the Unison-based `.claude/` sync work across every real project, repeatably, not just the one project (`second-brain-claudekit`) it's already proven on. The **why Unison** research a
+
+(Correction made while writing this: the file was requested as "Sync - Unious.md" — that's not a real word and doesn't match the tool being documented, so this is named `Sync - Unison.md` instead.)
+
+## The verified project map
+
+Confirmed 2026-07-30 by actually running `git remote -v` and listing `.claude/` in every real WSL project directory — not inferred from folder names, not assumed from what's already dumped in this vault. This is the ground truth the rest 
+
+### Existing Jarvis dump folders with a confirmed live WSL source
+
+| Jarvis folder | Real WSL path | git remote | What's actually in `.claude/` | Root `CLAUDE.md`? |
+|---|---|---|---|---|
+| [[20_Progress/AI/Claude Code/second-brain-claudekit/Setup\|second-brain-claudekit]] | `~/projects/ai/claude/second-brain-claudekit` | (this repo itself) | `agents/`, `commands/`, `hooks/`, `settings.json` | yes | 
+| [[20_Progress/AI/Claude Code/CausalOps/Setup\|CausalOps]] | `~/projects/hub/CausalOps` | `gupta-builds/CausalOps` | `agents/`, `commands/`, `hooks/`, `settings.local.json` (no committed `settings.json`) | yes |
+| [[20_Progress/AI/Claude Code/Portfolio/Setup\|Portfolio]] | `~/projects/hub/portfolio` | `gupta-builds/Portfolio` | `agents/`, `commands/`, `docs/`, `CLAUDE.md` (**inside** `.claude/`, not at repo root — different shape from every other
+| [[20_Progress/AI/Claude Code/Trading View/Setup\|Trading View]] | `~/projects/hub/tradingview` | `gupta-builds/TradingView` | `agents/`, `hooks/`, `skills/`, `settings.json`, `settings.local.json` (no `commands/`) | yes |
+| [[20_Progress/AI/Claude Code/Resq/Setup\|Resq]] | `~/projects/hackathon/Resq` | `gupta-builds/Resq` | No `agents/`/`commands/`/`hooks/` at all — this project's `.claude/` is agent-handoff docs: `PRD.md`, `README.md`, `context/`, `playbo
+| [[20_Progress/AI/Claude Code/OpsPilot/Setup\|OpsPilot]] | `~/projects/hackathon/opspilot` | `gupta-builds/opspilot` | Same handoff-doc shape as Resq, plus `workflows/`: `PRD.md`, `README.md`, `context/`, `playbooks/`, `workflows/`, `decis
+| [[20_Progress/AI/Claude Code/Jarvis/Setup\|Jarvis]] | `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude` (this vault's own root) | n/a — not a git repo | `agents/`, `commands/`, `skills/`, `context/`, `rules/`, `settings.json`, `settin
+
+**Every row above except Jarvis itself is a real `.claude/` shape, individually verified — none of them match each other, and none should be assumed to match `second-brain-claudekit`'s shape when building that project's manifest entry.** 
+
+### Confirmed real repos, not yet tracked in this vault at all
+
+| WSL path | git remote | `.claude/` contents | In Jarvis today? |
+|---|---|---|---|
+| `~/projects/work/gupta-builds` | `gupta-builds/gupta-builds` | `settings.local.json` only — nothing else to sync yet | No folder exists |
+| `~/projects/work/internship-research-loop` | `gupta-builds/internship-research-loop` | `agents/`, `skills/`, `settings.json`, `settings.local.json`, root `CLAUDE.md` | No folder exists |
+| `~/projects/umn/boom` | `gupta-builds/boom` | No `.claude/` directory exists in this repo at all | No folder exists |
+| `~/projects/hub/DNA_BJJ_APP`, `~/projects/hub/GymMangment_app_demo` | both `NafCodes/...` (not `gupta-builds`) | Both have `.claude/` | No folder exists |
+
+These are real and confirmed to exist, but adding any of them is a bigger step than onboarding CausalOps/Portfolio/etc. — there's no existing Jarvis folder to migrate, so it's "create a new tracked project" not "wire up sync for an existi
+
+----
+30_Order
+AGENTS.md
+CLAUDE.md
+Setup.md
+total 24
+drwxr-xr-x 1 anant 197609    0 Sep 19 16:10 .
+drwxr-xr-x 1 anant 197609    0 Oct  4 13:03 ..
+-rw-r--r-- 1 anant 197609 9009 Aug 22 05:33 README.md
+drwxr-xr-x 1 anant 197609    0 Sep 19 16:39 agents
+b4981c6e Build 7: catch up Jarvis git history to live vault state on the Acer
+5ab2e279 auto: 2026-08-10 16:00 | 113 files
+---sync log
+```
+- `Bash`
+```bash
+wsl.exe -d Ubuntu-24.04 -e bash -lc 'ls ~/projects/ai/claude/second-brain-claudekit/60_Claude/scripts/ 2>&1 | head -20; echo ---; ls ~/projects/ai/claude/second-brain-claudekit/50_Claude/scripts/ 2>&1 | head; echo ---; which unison 2>&1' 2>&1 | tr -d '\0' | head -40
+```
+```
+ls: cannot access '/home/anant_gupta/projects/ai/claude/second-brain-claudekit/60_Claude/scripts/': No such file or directory
+---
+ls: cannot access '/home/anant_gupta/projects/ai/claude/second-brain-claudekit/50_Claude/scripts/': No such file or directory
+---
+```
+- `Bash`
+```bash
+grep -rIl -E 'Templates/Frontmatter|Templates/Capability|Clipping Distill Template|Deep Dive Template|Jarvis Enrichment Template|Question Bank Template|35_Outputs|50_Reviews' 20_Progress/AI .cursor/plans .kiro/specs 2>/dev/null | sort | sed 's/^/  /'; echo; echo "count: $(grep -rIl -E 'Templates/Frontmatter|Templates/Capability|Clipping Distill Template|Deep Dive Template|Jarvis Enrichment Template|Question Bank Template|35_Outputs|50_Reviews' 20_Progress/AI .cursor/plans .kiro/specs 2>/dev/null | wc -l)"; echo "--- are the 20_Progress/AI mirrors older copies of live files?"; for f in "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md"; do ls -la "$f" | awk '{print $6,$7,$8}'; diff -q "$f" .claude/agents/learning-agent.md | head -1; done
+```
+```
+  .cursor/plans/[REDACTED].plan.md
+  .cursor/plans/[REDACTED].plan.md
+  .kiro/specs/claude-code-ops-layer/design.md
+  .kiro/specs/claude-code-ops-layer/requirements.md
+  .kiro/specs/claude-code-ops-layer/tasks.md
+  .kiro/specs/pkm-capability-engine/design.md
+  .kiro/specs/pkm-capability-engine/requirements.md
+  .kiro/specs/pkm-capability-engine/tasks.md
+  20_Progress/AI/Claude Code/.claude_windows/Setup.md
+  20_Progress/AI/Claude Code/.claude_windows/agents/obsidian-session-archivist.md
+  20_Progress/AI/Claude Code/.claude_windows/commands/obsidian-session-review.md
+  20_Progress/AI/Claude Code/.claude_wsl/agents/obsidian-session-archivist.md
+  20_Progress/AI/Claude Code/.claude_wsl/commands/obsidian-session-review.md
+  20_Progress/AI/Claude Code/.claude_wsl/skills/second-brain-obsidian-integration/SKILL.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/README.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/agents/research-distiller.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/skills/mcp-hub/mcp-hub.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/skills/note-to-actions/note-to-actions.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/skills/ops/ops-reference.md
+  20_Progress/AI/Claude Code/Jarvis/.claude/skills/transcript-to-brief/transcript-to-brief.md
+  20_Progress/AI/Claude Code/Jarvis/AGENTS.md
+  20_Progress/AI/Claude Code/The Plan/.claude/agents/vault-curator.md
+  20_Progress/AI/Claude Code/The Plan/.claude/skills/closeday.md
+  20_Progress/AI/Claude Code/The Plan/.claude/skills/lint-claude-layer.md
+  20_Progress/AI/Claude Code/The Plan/.claude/skills/today.md
+  20_Progress/AI/Claude Code/The Plan/.claude/skills/weekly-review.md
+  20_Progress/AI/Claude Code/The Plan/CLAUDE.md
+  20_Progress/AI/Claude Code/The Plan/Setup.md
+  20_Progress/AI/Claude Code/second-brain-claudekit/_docs/How to/review-system.md
+  20_Progress/AI/Claude Code/second-brain-claudekit/_docs/Jarvis.md
+  20_Progress/AI/Cursor/.cursor_windows/plans/[REDACTED].plan.md
+  20_Progress/AI/Cursor/.cursor_windows/plans/[REDACTED].plan.md
+  20_Progress/AI/Cursor/Jarvis/plans/[REDACTED].plan.md
+  20_Progress/AI/Cursor/Jarvis/plans/[REDACTED].plan.md
+  20_Progress/AI/Cursor/Jarvis/rules/note-creation.mdc
+  20_Progress/AI/Cursor/Jarvis/rules/workspace-context.mdc
+  20_Progress/AI/Kiro/.kiro_wsl/tasks/240654dd3ff4e20b/pkm-capability-engine.meta.json
+  20_Progress/AI/Kiro/Jarvis/specs/claude-code-ops-layer/design.md
+  20_Progress/AI/Kiro/Jarvis/specs/claude-code-ops-layer/requirements.md
+  20_Progress/AI/Kiro/Jarvis/specs/claude-code-ops-layer/tasks.md
+  20_Progress/AI/Kiro/Jarvis/specs/pkm-capability-engine/design.md
+  20_Progress/AI/Kiro/Jarvis/specs/pkm-capability-engine/requirements.md
+  20_Progress/AI/Kiro/Jarvis/specs/pkm-capability-engine/tasks.md
+  20_Progress/AI/Kiro/The Plan/specs/claude-code-ops-layer/design.md
+  20_Progress/AI/Kiro/The Plan/specs/claude-code-ops-layer/requirements.md
+  20_Progress/AI/Kiro/The Plan/specs/claude-code-ops-layer/tasks.md
+  20_Progress/AI/Kiro/The Plan/specs/pkm-capability-engine/design.md
+  20_Progress/AI/Kiro/The Plan/specs/pkm-capability-engine/requirements.md
+  20_Progress/AI/Kiro/The Plan/specs/pkm-capability-engine/tasks.md
+
+count: 50
+--- are the 20_Progress/AI mirrors older copies of live files?
+Sep 5 11:18
+Files '20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md' and .claude/agents/learning-agent.md differ
+```
+- `Bash`
+```bash
+cat "30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md"; echo =======; grep -rln 'Fall Execution Audit' --include=*.md --include=*.json . 2>/dev/null | grep -v '.stversions\|05_Clippings' | head; echo =====; ls "60_Claude/30_Reviews/Weekly Synthesis" | head -20
+```
+```
+---
+type: review
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - review
+  - weekly
+review_kind: capability
+week:
+notes: []
+next:
+---
+# <% tp.file.title %>
+## What Was Built
+<!-- Dated bullets of what changed, each naming the files. Open the file before claiming it exists. -->
+## Three-Month Plan Status
+<!-- Where the master plan stands against its milestones, with the count or file that proves it. -->
+## Fall Execution Audit
+<!-- Optional: the current term's floor commitments. Rename or delete when the term plan changes. -->
+## Enrichment and Drills
+<!-- Concepts enriched, drills overdue by next_drill, enrichment queue state. Say if the loop did not run. -->
+## Vault Health
+<!-- Structural checks with counts: broken links, missing next, stale boards, sync health. -->
+## Suggested Links
+<!-- Two or three links worth adding, each with the reason. -->
+## Cleanup Candidates
+<!-- Notes or folders worth tidying. Naming one is not authorization to clean it. -->
+## Promotion Candidates
+<!-- Optional: distilled notes stable and reused enough to propose for Areas or Resources. -->
+## Next Week Priorities
+<!-- A short ranked list, ending with the one thing that cannot slip. -->
+## Open Questions
+<!-- Tasks with - [ ]. They carry forward; two sightings in a row become an immediate action. -->
+=======
+./.agents/skills/weekly-review/weekly-review.md
+./.claude/skills/weekly-review/weekly-review.md
+./10_Areas/Life/Enumerate/Weekly/2026-W46.md
+./10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md
+./20_Progress/AI/Claude Code/Jarvis/.claude/skills/weekly-review/weekly-review.md
+./30_Order/Standards/Enrich/Capability Review Standard.md
+./30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md
+./40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/_backups/acer-5c-20261017/log.md
+./60_Claude/07_AI_Information/Session Logs/log.md
+./60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W39.md
+=====
+Logs
+Weekly Synthesis Index.md
+Weekly Synthesis — 2026-W17.md
+Weekly Synthesis — 2026-W22.md
+Weekly Synthesis — 2026-W39.md
+Weekly Synthesis — 2026-W40.md
+Weekly Synthesis — 2026-W41.md
+Weekly Synthesis — 2026-W42.md
+Weekly Synthesis — 2026-W43.md
+Weekly Synthesis — 2026-W44.md
+```
+- `Bash`
+```bash
+grep -n 'Fall Execution Audit' .claude/skills/weekly-review/weekly-review.md "30_Order/Standards/Enrich/Capability Review Standard.md" "10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md" "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W39.md" | cut -c1-400; for w in W40 W41 W42 W43 W44; do echo "$w: $(grep -c '^## ' "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-$w.md") headings, audit=$(grep -c 'Fall Execution Audit' "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-$w.md")"; done
+```
+```
+.claude/skills/weekly-review/weekly-review.md:44:## Step 2: Fall Execution Audit
+30_Order/Standards/Enrich/Capability Review Standard.md:36:  "optional_headings": ["Fall Execution Audit", "Promotion Candidates"],
+30_Order/Standards/Enrich/Capability Review Standard.md:47:### Fall Execution Audit
+30_Order/Standards/Enrich/Capability Review Standard.md:69:| W22 note with no `Fall Execution Audit` or `Promotion Candidates` | Leave the optional headings out | none |
+30_Order/Standards/Enrich/Capability Review Standard.md:78:[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W40]]: all eight required headings plus both optional ones, and a Fall Execution Audit that names what slipped.
+10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md:27:- **Sunday, `/weekly-review`**: runs the Fall Execution Audit (internship floor movement, LeetCode/CodePath log health, class deadlines, project shipping, AIIS/mentorship/scholarships/networking against the Systems table), plus vault-health checks (orphans, missing next actions, metadata gaps). Writes a full `Weekly Synthesis — YYYY-WXX.md` note 
+60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W39.md:42:## Fall Execution Audit
+W40: 10 headings, audit=2
+W41: 10 headings, audit=1
+W42: 10 headings, audit=2
+W43: 10 headings, audit=2
+W44: 10 headings, audit=1
+```
+- `Bash`
+```bash
+sed -n 1,18p "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W44.md" | cut -c1-200; grep -n '^## ' "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W44.md"; echo ---std; sed -n 25,50p "30_Order/Standards/Enrich/Capability Review Standard.md" | cut -c1-260
+```
+````
+---
+type: review
+status: complete
+created: 2026-11-01
+week: 2026-W44
+tags:
+  - review
+  - weekly
+notes:
+  - "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index]]"
+  - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan]]"
+  - "[[10_Areas/Life/Enumerate/Weekly/2026-W44]]"
+---
+
+# Weekly Synthesis: 2026-W44
+
+**Headless run.** Fired by the `Jarvis-WeeklyReview` scheduled task at 06:00 with no human present. Step 7.5 (Log Maintenance) is flag-only: nothing was deleted from any log. The Acer rebooted at 02:1
+
+21:## What Was Built
+41:## Three-Month Plan Status
+55:## Fall Execution Audit
+74:## Enrichment and Drills
+78:## Vault Health
+134:## Suggested Links
+142:## Cleanup Candidates
+149:## Promotion Candidates
+153:## Next Week Priorities
+163:## Open Questions
+---std
+This is the standard for the weekly vault review written by `/weekly-review` into `60_Claude/30_Reviews/Weekly Synthesis/`. The skill is the feeder; its Step 6 template already fixes most headings. It is not the AI tools review ([[Review Standard]]). One note 
+## Spec
+```json
+{
+  "family": "capability-review",
+  "tier": 1,
+  "match": {"type": "review", "kind": "capability", "path": "^60_Claude/30_Reviews/Weekly Synthesis/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "complete"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "review_kind", "week", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["What Was Built", "Three-Month Plan Status", "Enrichment and Drills", "Vault Health", "Suggested Links", "Cleanup Candidates", "Next Week Priorities", "Open Questions"],
+  "optional_headings": ["Fall Execution Audit", "Promotion Candidates"],
+  "legacy_match": [
+    {"type": "review", "path": "^60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis . 2026-W\\d+\\.md$"}
+  ]
+}
+```
+## Headings
+### What Was Built
+Dated bullets of what changed, each naming the files. Pull from git, the session log, and recently modified notes, and open the file before claiming it exists.
+### Three-Month Plan Status
+Where the master plan stands against its dated milestones, with the number or file that proves each claim.
+### Fall Execution Audit
+Optional, and term-specific: the audit of the current term's floor commitments (internship floor, interview prep, classes, projects). Rename or drop it when the term plan changes.
+### Enrichment and Drills
+Concepts enriched, drills overdue by `next_drill`, and the state of the enrichment queue. State plainly when the loop has not run.
+````
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
+```diff
+- ## Enrichment and Drills
+- 
+- [How many notes enriched this week.
++ ## Fall Execution Audit
++ 
++ [Optional and term-specific. From Step 2: the current term's floor commitments, what moved and what slipped, each claim backed by the count or file that proves it. Rename or drop it when the term plan changes.]
++ 
++ ## Enrichment and Drills
++ 
++ [How many notes enriched this week.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.agents\skills\weekly-review\weekly-review.md`
+```diff
+- ## Enrichment and Drills
+- 
+- [How many notes enriched this week.
++ ## Fall Execution Audit
++ 
++ [Optional and term-specific. From Step 2: the current term's floor commitments, what moved and what slipped, each claim backed by the count or file that proves it. Rename or drop it when the term plan changes.]
++ 
++ ## Enrichment and Drills
++ 
++ [How many notes enriched this week.
+```
+- `Bash`
+```bash
+sed -n 139,152p .claude/skills/weekly-review/weekly-review.md; sed -n 40,50p .claude/skills/weekly-review/weekly-review.md | cut -c1-200
+```
+````
+```markdown
+---
+type: review
+status: complete
+created: YYYY-MM-DD
+week: YYYY-WXX
+tags:
+  - review
+  - weekly
+notes:
+  - "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index]]"
+---
+
+# Weekly Synthesis — YYYY-WXX
+For each group, note: what was created vs. what was updated, and whether the work has a clear `next:` or outcome.
+
+---
+
+## Step 2: Fall Execution Audit
+
+Check execution tracks against the Systems table and Week-by-Week table in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]. The frame that arbitrates priority is [[10_Areas/Life/Plans/
+
+Do not re-read all plan files — use these specific checks:
+
+### Internship application floor (the one thing)
+````
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
+```diff
+- status: complete
+- created: YYYY-MM-DD
+- week: YYYY-WXX
+- tags:
++ status: complete
++ created: YYYY-MM-DD
++ updated: YYYY-MM-DD
++ review_kind: capability
++ week: YYYY-WXX
++ tags:
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\.agents\skills\weekly-review\weekly-review.md`
+```diff
+- status: complete
+- created: YYYY-MM-DD
+- week: YYYY-WXX
+- tags:
++ status: complete
++ created: YYYY-MM-DD
++ updated: YYYY-MM-DD
++ review_kind: capability
++ week: YYYY-WXX
++ tags:
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Tracking && cat -A "Capability Depth Ladder Template.md" | sed -n 1,60p | cut -c1-220
+```
+````
+---$
+type: dashboard$
+status: active$
+created: <% tp.date.now("YYYY-MM-DD") %>$
+updated: <% tp.date.now("YYYY-MM-DD") %>$
+tags:$
+  - dashboard$
+  - depth-ladder$
+dashboard_kind: depth-ladder$
+track: []$
+notes: []$
+next:$
+---$
+# <% tp.file.title %>$
+## Core Concepts$
+<!-- The load-bearing ideas of this track as a hand-picked list of links. -->$
+## Compare and Discriminate$
+<!-- Pairs that are easy to confuse. Each row states the line between them. -->$
+| Concept A | Concept B | What to clarify |$
+| --- | --- | --- |$
+## 30-Minute Refresher$
+<!-- A numbered reading order that restores the track in thirty minutes. -->$
+## 2-Hour Technical Refresher$
+<!-- A numbered reading order for a full technical pass. -->$
+## Deep Relearning Pass$
+<!-- Where to start and the order to work through the track's concept notes. -->$
+## Overdue Drills$
+<!-- Concepts whose next_drill has passed. -->$
+```dataview$
+TABLE mastery_level, difficulty, next_drill, drill_interval$
+FROM ""$
+WHERE type = "concept" AND contains(track, this.track[0]) AND next_drill AND next_drill < date(today)$
+SORT next_drill ASC$
+```$
+## All Tracked Concepts$
+<!-- Every concept in this track, for a full audit. -->$
+```dataview$
+TABLE mastery_level, difficulty, status, next_drill$
+FROM ""$
+WHERE type = "concept" AND contains(track, this.track[0])$
+SORT file.name ASC$
+```$
+````
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order && grep -rn 'Compare and Discriminate' Standards Workflows Templates | cut -c1-260
+```
+```
+Standards/Operations/Field OS Standard.md:48:  "headings": ["Core Concepts", "Compare and Discriminate", "30-Minute Refresher", "2-Hour Technical Refresher", "Deep Relearning Pass", "Overdue Drills", "All Tracked Concepts"],
+Standards/Operations/Field OS Standard.md:74:`Core Concepts`, `Compare and Discriminate` (a table of Concept A, Concept B, what to clarify), and the three refreshers are hand-picked lists. Only `Overdue Drills` and `All Tracked Concepts` are queries.
+Standards/Operations/Field OS Standard.md:86:| `## Compare and Distinguish` (template stub) | `## Compare and Discriminate` | mechanical |
+Templates/Career/Tracking/Capability Depth Ladder Template.md:17:## Compare and Discriminate
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Career\Tracking\Capability Depth Ladder Template.md`
+```diff
+- <!-- Pairs that are easy to confuse. Each row states the line between them. -->
+- | Concept A | Concept B | What to clarify |
+- | --- | --- | --- ||
++ <!-- A table of easy-to-confuse pairs: Concept A, Concept B, What to clarify. Each row states the line between them. -->
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Career\Tracking\Capability Depth Ladder Template.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Career\Tracking\Capability Depth Ladder Template.md`
+```diff
+- <!-- Pairs that are easy to confuse. Each row states the line between them. -->
+- | Concept A | Concept B | What to clarify |
+- | --- | --- | --- |
+- 
++ <!-- A table of easy-to-confuse pairs: Concept A, Concept B, What to clarify. Each row states the line between them. -->
++ 
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis && sed -n 18p "30_Order/Templates/Career/Tracking/Capability Depth Ladder Template.md" | awk '{print "comment length:", length($0)}'; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | tail -16; echo "exit=${PIPESTATUS[0]}"
+```
+```
+comment length: 120
+Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-weekly has no row in Note Type Registry
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-monthly has no row in Note Type Registry
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-yearly has no row in Note Type Registry
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Wins" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Floor" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Productivity" has body text beyond a comment
+WARN  30_Order/Templates/For Everything.md  template has no type
+WARN  30_Order/Workflows/Ingestion/PDF Extraction.md  workflow is 880 words (limit 350)
+WARN  30_Order/Workflows/Internship/Application Document Preparation 1.md  legacy Workflow (no system_kind)
+WARN  30_Order/Workflows/Toolkit/Graphify Folders.md  serves does not point back to Generated Output Standard
+
+0 errors, 11 warnings
+exit=0
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\keys-check.js`
+```
+// Read-only: which of the seven base keys each template's frontmatter lacks.
+const fs = require('fs'), path = require('path');
+const base = ['type', 'status', 'created', 'updated', 'tags', 'notes', 'next'];
+for (const dir of process.argv.slice(2)) {
+  console.log('== ' + dir);
+  for (const f of fs.readdirSync(dir).filter((x) => x.endsWith('.md')).sort()) {
+    const t = fs.readFileSync(path.join(dir, f), 'utf8').replace(/\r\n/g, '\n');
+    const m = t.match(/^---\n([\s\S]*?)\n---/);
+    const keys = m ? [...m[1].matchAll(/^([A-Za-z_][\w-]*):/gm)].map((x) => x[1]) : [];
+    const miss = base.filter((k) => !keys.includes(k));
+    console.log((miss.length ? 'MISSING ' + miss.join(',') : 'all seven').padEnd(26), f);
+  }
+}
+
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/47d76a58-1c59-42a9-abc9-4719b5979363/scratchpad/keys-check.js" Enumerate Classes; echo; node ../System/vault-lint/vault-lint.js --kit --json /dev/null 2>&1 | grep 'Better Today' | head -2; echo ---templater; node -e "const j=JSON.parse(require('fs').readFileSync('../../.obsidian/plugins/templater-obsidian/data.json','utf8')); for (const r of (j.folder_templates||[])) console.log(r.folder,'->',r.template)" 2>&1 | head -20
+```
+```
+== Enumerate
+MISSING notes              Better Month.md
+all seven                  Better Today.md
+MISSING notes              Better Weekly.md
+MISSING notes              Better Year.md
+== Classes
+MISSING notes              Board or Main Template.md
+MISSING next               Concept Template.md
+all seven                  Degree Control Template.md
+MISSING notes              Discussion Template.md
+MISSING notes              Exam Material Template.md
+MISSING notes              Exam Sheet Template.md
+MISSING notes              Homework Template.md
+MISSING notes              Lab Template.md
+MISSING notes              Preparation Template.md
+MISSING notes              Project Template.md
+MISSING notes              Textbook Map Template.md
+MISSING notes              Textbook Template.md
+all seven                  Track Template.md
+MISSING notes              Week Template.md
+all seven                  Weekly Board Template.md
+
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Wins" has body text beyond a comment
+---templater
+10_Areas/UMN -> 30_Order/Templates/Classes/Week Template.md
+/ -> 30_Order/Templates/For Everything.md
+10_Areas/Career/Internships/Tracker/Each One -> 30_Order/Templates/Career/Tracking/Internship Tracker Template.md
+10_Areas/Career/Internships/Programs -> 30_Order/Templates/Career/Internship/Internship Program Template.md
+10_Areas/Career/Internships/Contacts/Each One -> 30_Order/Templates/Career/Internship/Internship Contact Template.md
+10_Areas/Life/Plans -> 30_Order/Templates/Career/Standing Plan Template.md
+20_Progress/Internship -> 30_Order/Templates/Projects/Project Status Note Template.md
+20_Progress/Internship/Applying -> 30_Order/Templates/Career/Internship/Internship Applying Template.md
+20_Progress/Internship/Cover Letters -> 30_Order/Templates/Career/Internship/Internship Cover Letter Template.md
+20_Progress/Internship/Preperation/Interviews -> 30_Order/Templates/Career/Internship/Internship Interview Prep Template.md
+20_Progress/Projects -> 30_Order/Templates/Projects/Project Status Note Template.md
+20_Progress/Mentorship Program -> 30_Order/Templates/Projects/Project Status Note Template.md
+20_Progress/AI -> 30_Order/Templates/AI Toolkit/AI Tool Profile Template.md
+40_Resources -> 30_Order/Templates/Career/Reference Guide Template.md
+60_Claude/07_AI_Information/AI Conversation - Summaries -> 30_Order/Templates/System/AI/AI Conversation Export Template.md
+60_Claude/10_Source_Summaries -> 30_Order/Templates/AI Toolkit/Source Summary Template.md
+60_Claude/10_Source_Summaries/Github Ingestion -> 30_Order/Templates/System/AI/GitHub Repo Card Template.md
+60_Claude/20_Distilled_Notes -> 30_Order/Templates/Career/Evergreen Note Template.md
+60_Claude/20_Distilled_Notes/Synthesis -> 30_Order/Templates/Career/Cross-Domain Synthesis Template.md
+60_Claude/30_Reviews/AI/Scheduled/Weekly -> 30_Order/Templates/AI Toolkit/AI Weekly Review Template.md
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- SessionEnd also sweeps Cowork sessions. The script also has a SessionStart branch that prints a context-pack reminder, but nothing registers SessionStart | user-level `~/.claude/settings.json`, Stop and SessionEnd only, with an absolute path to the script. Neither the project `.claude/settings.json` nor `settings.local.json` registers it, and no file registers SessionStart, so the context pack is never printed (checked 2026-11-04) |
++ SessionEnd also sweeps Cowork sessions. SessionStart, inside the Jarvis folder only, prints a context-pack reminder (about 1,200 characters: read order, where notes go, the one-entry session-log rule) and writes nothing | user-level `~/.claude/settings.json`: SessionStart (registered 2026-11-04, synchronous, 30 s), Stop (60 s, async) and SessionEnd (30 s), each with an absolute path to the script. Neither the project `.claude/settings.json` nor `settings.local.json` registers it. Until 2026-11-04 SessionStart was registered nowhere, so the reminder never printed |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- Registered for 06:00; on 2026-11-04 Task Scheduler listed the next run as 2026-11-08 05:00, The stored start time is `05:00` with a `-06:00` offset, which fits a one-hour shift at the 2026-11-01 clock change; I did not test the cause | `scripts/register-weekly-review-task.ps1` |
++ Registered for Sunday 06:00. Before 2026-11-04 Task Scheduler listed the next run as 05:00 (stored start `2026-09-28T05:00:00-06:00`, one hour early after the 2026-11-01 clock change). I re-ran the registration script on 2026-11-04 02:2x: the start is now `2026-11-04T06:00:00-06:00` and the next run reads 2026-11-08 06:00. The next clock change (2027-03-14) will show whether 06:00 holds, and the re-registration cleared the task's last-run history. The first run with Step 7.7 (order health) is 2026-11-08 | `scripts/register-weekly-review-task.ps1` |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- the write guard only allows writes to it, and the hooks' own record of a session is the activity log above. The one writer
++ the write guard only allows writes to it. `jarvis-session-activity.jsonl` is hook activity data (event, session id, export outcome), not the session log. The one writer
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- `.mcp.json` at the vault root registers the `jarvis` server only.
++ `.mcp.json` at the vault root (git-ignored) registers the `jarvis` server only: transport `http` to `127.0.0.1:27123` with an `Authorization` header. That port belongs to the Obsidian Local REST API plugin (`obsidian-local-rest-api`, enabled in this vault), so `jarvis` is up only while Obsidian runs with that plugin. On 2026-11-04 it failed to connect at session start with `ECONNREFUSED` because Obsidian had been restarted at about 00:52 and was not yet listening; by 02:15 the port answered 200. A request with the stored header then returned 401, so the stored credential is not accepted by the plugin now (I did not open or print it). Nothing in this folder can fix that: the key in the plugin's settings and the header in `.mcp.json` have to match, and the owner holds both.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- on 2026-11-04 02:2x: the start
++ on 2026-11-04 at about 02:27: the start
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- Machine-specific lines that remain: `scripts/register-jarvis-sync-task.ps1:12` and `scripts/sync-jarvis-silent.vbs:9` (one WSL user's home), `scripts/reroute-acer-notes.ps1:29` (a default archive folder on drive D), the host-name map at `scripts/export-claude-session.ps1:35-36` and `scripts/wsl-session-export.ps1:24-25`, an error message that names one user's `.mineru` folder at `scripts/mineru-pdf.ps1:101`, and `scripts/run-weekly-review.ps1:37`, which expects `claude.exe` in `%USERPROFILE%\.local\bin`. Outside this folder,
++ Fixed on 2026-11-04, so these now come from the script's own location or the environment: `scripts/register-jarvis-sync-task.ps1` and `scripts/sync-jarvis-silent.vbs` (the WSL home is asked from WSL, or `~` in the launcher), `scripts/reroute-acer-notes.ps1` (default archive is `99_Archive` seven folders up from `scripts\`), the error text in `scripts/mineru-pdf.ps1` (`$env:USERPROFILE`), and `scripts/run-weekly-review.ps1` (the default `%USERPROFILE%\.local\bin\claude.exe`, then `claude` on PATH). `git-auto-sync.ps1` and the hooks held no machine path to fix. What still names this machine: the host-name map at `scripts/export-claude-session.ps1:35-36` and `scripts/wsl-session-export.ps1:24-25` (host names, not paths; an unknown host writes nothing), the distro name `Ubuntu` in `scripts/sync-jarvis-silent.vbs` and `scripts/register-jarvis-sync-task.ps1` (this machine's distro is `Ubuntu-24.04`, so those two would find nothing here), and the files in `scripts/test-*.ps1`, which use made-up paths as fixtures. Outside this folder,
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- Tracked leftovers that no script reads, checked by searching every script in this folder on 2026-11-04: `distilled-sessions.json`, `_retired-2026-07-31/` (two session-index JSON files, 30 KB), and `excalidraw.log` (the Excalidraw server writes its log elsewhere now; the ignored copy is in `excalidraw-mcp/`). The only mention is a comment in `jarvis-session-continuity.ps1` saying the index file is gone. The [[System Component Standard]] says no tracked file here is runtime state and that a `_retired-<date>` folder is deleted after a yes, so all three wait for the owner's yes.
++ Removed with `git rm` on 2026-11-04 after a search of every script found no reader: `distilled-sessions.json`, `_retired-2026-07-31/` (two session-index JSON files, 30 KB) and `excalidraw.log` (the Excalidraw server writes its log elsewhere now). The only mention left is a comment in `jarvis-session-continuity.ps1` saying the index file is gone. Git history keeps them. The [[System Component Standard]] says no tracked file here is runtime state.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- I did not find the cause, and the sync-workflow banner reported the failure. Compare the number of Claude Code sessions in `~/.claude/projects` with the notes in the Windows export folder. In a Claude Code session, `/hooks` should list the write guard, the internship guard, the PDF guard (three entries) and the continuity hook (Stop and SessionEnd).
++ I did not find the cause, and the sync-workflow banner reported the failure. The next runs ended `nothing to do` (02:03 and 02:16) and `success` (a commit and a push at 02:29, `branch: master`, `Pushed cleanly to origin/master`). The test harness `scripts/run-all-tests.ps1` ran 18 of 18 passing (nine tests under `pwsh` and `powershell`) before and after the 2026-11-04 path edits. Compare the number of Claude Code sessions in `~/.claude/projects` with the notes in the Windows export folder. In a Claude Code session, `/hooks` should list the write guard, the internship guard, the PDF guard (three entries) and the continuity hook (SessionStart, Stop and SessionEnd). To test SessionStart by hand, pipe `{"hook_event_name":"SessionStart","cwd":"<vault path>"}` into the hook: it prints one JSON object inside the Jarvis folder and nothing elsewhere.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\Sync Workflow.md`
+```diff
+- It is documented here only because its files live in this folder, and it does not feed the sync banner.
++ It finds `codex.cmd` on PATH, then in `CODEX_CMD`, then in npm's global prefix (asked from `npm config get prefix`), then in `%APPDATA%\npm`; it used to fall back to one fixed folder on drive D (fixed 2026-11-04 and tested by calling the function, the task itself is still disabled). It is documented here only because its files live in this folder, and it does not feed the sync banner.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\Sync Workflow.md`
+```diff
+- Five consecutive hand runs afterwards printed `IN SYNC`, exited 0 and left the banner empty.
++ Five consecutive hand runs afterwards printed `IN SYNC`, exited 0 and left the banner empty, and the scheduled task's next run (2026-11-04 02:26) recorded result 0.
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/System && cat "jarvis-cli/Jarvis Ops CLI.md" | sed -n 17,60p
+```
+````
+# Jarvis Ops CLI
+## Purpose
+A small read-only audit CLI for the vault: it reports metadata gaps, broken and ambiguous links, future-dated fields, likely encoding damage, stalled projects, and notes worth enriching. It gives visibility before repair. [[Vault Lint]] is the newer tool and measures fit to the Standards; this one measures general vault health.
+## Trigger
+Run by hand from the vault root, or by an agent through `/ops health-check`:
+```powershell
+.\30_Order\System\jarvis-cli\jarvis.ps1 health
+```
+Commands: `status`, `health`, `context`, `projects`, `links`, `dates`, `encoding`, `enrich-candidates`, `report`. Options: `--limit N` (rows per section, default 25) and `--include-tools` (also scan hidden tool folders). No schedule.
+## Inputs and Outputs
+Reads every Markdown file under the vault root, decoding with `utf-8-sig`. `.git` and `.obsidian` are always skipped; a top-level hidden folder is skipped unless `--include-tools` is passed. `jarvis.ps1` finds the root three folders up from itself, picks `python` (or `py -3`), and passes `--root`.
+- `health`: counts of metadata gaps, future dates, projects with no `next`, duplicate file names, link health, and likely mojibake.
+- `context`: a compact context pack from `Vault Map.md`, `AGENTS.md`, `AI_CONTEXT.md`, `00_Dashboard.md`, and the Architecture note, plus the session log tail and active projects.
+- `projects`: active project notes with a missing `next` or a stale modified date (older than 30 days).
+- `links`: broken and ambiguous wikilinks, with obvious placeholder links filtered in template-heavy zones.
+- `dates`: `created`, `updated`, `reviewed`, `last_drilled`, and `next_drill` later than today's date.
+- `encoding`: common broken smart-punctuation and UTF-8 marker sequences.
+- `enrich-candidates`: ranked notes with missing learning sections, by type, track, and maturity.
+- `report`: writes one diagnostic Markdown file; every other command only prints.
+`report` writes to `60_Claude/30_Reviews/Ops Reports/` (the `REPORT_DIR` constant), the folder that holds the one existing report. It creates the folder if it is missing. Until 2026-11-04 the constant pointed at `60_Claude/50_Reviews/`, a folder that no longer exists, so a run would have recreated it.
+> [!WARNING]
+> `links` and `health` count a wikilink inside a Markdown table as broken when it uses an escaped pipe (`[[Note\|alias]]`), because the target keeps the backslash. On 2026-11-04 it reported 13,218 broken and 2,553 ambiguous links, and the first rows were of that shape. Treat those two numbers as an upper bound until the parser is fixed.
+## State
+None. It keeps no database or cache. The only file it ever creates is the report above.
+## Failure Behavior
+It never edits a note, repairs a link, or normalizes frontmatter. Unreadable files are decoded with replacement characters instead of failing the scan. `jarvis.ps1` exits 1 with "Python was not found on PATH" when neither `python` nor `py` resolves. On 2026-10-17 and again on 2026-11-04 `python` on this machine resolves to the Microsoft Store shim, which prints "Python was not found" and exits nonzero, and `py` is absent. `jarvis.ps1` picks `python` first, so it fails here even though a real Python 3.13 exists at `%USERPROFILE%\.local\bin\python3.13.exe`. Disable the app-execution alias, or call `jarvis_ops.py` with that interpreter and `--root`.
+## Verify
+```powershell
+.\30_Order\System\jarvis-cli\jarvis.ps1 status
+.\30_Order\System\jarvis-cli\jarvis.ps1 links --limit 5
+```
+`status` prints counts. Pick one broken link it reports and confirm by hand that the target is missing. On 2026-11-04 I ran `status` and `links --limit 5` through `python3.13.exe jarvis_ops.py --root <vault>` and both printed. I did not run `report`, because it writes a file into the vault.
+## Retire
+Delete `jarvis.ps1` and `jarvis_ops.py` in one commit that states the reason, and remove the `/ops` references to it. The reports already written stay in the reviews folder.
+````
+- `PowerShell`
+```powershell
+Set-Location D:\_Anant\20_Progress\Documents\Jarvis; powershell -NoProfile -ExecutionPolicy Bypass -File 30_Order\System\jarvis-cli\jarvis.ps1 links --limit 8 2>&1 | Select -First 40 | ForEach-Object { if ($_.Length -gt 200) { $_.Substring(0,200) } else { $_ } }
+```
+```
+# Link Audit
+
+- Broken wikilinks: 12753
+- Ambiguous wikilinks: 2559
+
+## Broken Wikilinks
+Source                                  | Target                                                                 
+--------------------------------------- | -----------------------------------------------------------------------
+00_Dashboard.md                         | 10_Areas/Excalidraw/Claude OS Map|OS Map                               
+10_Areas/AI/Claude Code.md              | 10_Areas/AI/Jarvis OS Dashboard|Jarvis OS Dashboard                    
+10_Areas/AI/Claude Code.md              | Claude OS Map.excalidraw                                               
+10_Areas/AI/Setup/Folder Map.md         | 20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log|its Sync-Log
+10_Areas/AI/Setup/Gaps.md               | Immediate Action                                                       
+10_Areas/AI/Setup/Notes Map.md          | Immediate Action                                                       
+10_Areas/AI/Setup/Notes Map.md          | Immediate Action                                                       
+10_Areas/Career/Hackathon/Hackathons.md | Ultimate Guide to Winning Hackathons.pdf                               
+
+## Ambiguous Wikilinks
+Source                                  | Target                                     | Matches
+--------------------------------------- | ------------------------------------------ | -------
+00_Dashboard.md                         | AGENTS.md                                  | 10     
+00_Dashboard.md                         | AGENTS.md                                  | 10     
+00_Dashboard.md                         | CLAUDE.md                                  | 12     
+00_Dashboard.md                         | CLAUDE.md                                  | 12     
+10_Areas/AI/Setup/Folder Map.md         | Gaps                                       | 2      
+10_Areas/AI/Setup/Folder Map.md         | Gaps                                       | 2      
+10_Areas/AI/Setup/Notes Map.md          | Gaps                                       | 2      
+10_Areas/Career/Hackathon/Hackathons.md | Ultimate Guide to Winning Hackathons (PDF) | 2
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\Jarvis Ops CLI.md`
+```diff
+- `jarvis.ps1` finds the root three folders up from itself, picks `python` (or `py -3`), and passes `--root`.
++ `jarvis.ps1` finds the root three folders up from itself, resolves a working Python, and passes `--root`. The order is: a real install under `%USERPROFILE%\.local\bin` or `%LOCALAPPDATA%\Programs\Python`, then `py -3`, then `python` on PATH. A `python` under `WindowsApps` (the Microsoft Store shim) is never used.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\Jarvis Ops CLI.md`
+```diff
+- > [!WARNING]
+- > `links` and `health` count a wikilink inside a Markdown table as broken when it uses an escaped pipe (`[[Note\|alias]]`), because the target keeps the backslash. On 2026-11-04 it reported 13,218 broken and 2,553 ambiguous links, and the first rows were of that shape. Treat those two numbers as an upper bound until the parser is fixed.
++ > [!WARNING]
++ > The link counts are still large and mostly real. Until 2026-11-04 `links` and `health` also counted a wikilink inside a Markdown table as broken when it used an escaped pipe (`[[Note\|alias]]`), because the target kept the backslash. `clean_wikilink_target` now splits on `\|` as well as `|`, which took the broken count from 13,218 to 12,744 on the same vault (474 links). What remains includes links to `.excalidraw` and PDF files, to `Immediate Action` and other missing notes, and 2,559 ambiguous names such as `AGENTS` (10 matches) and `CLAUDE` (12), so treat the number as a to-do list, not a rate.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\Jarvis Ops CLI.md`
+```diff
+- `jarvis.ps1` exits 1 with "Python was not found on PATH" when neither `python` nor `py` resolves. On 2026-10-17 and again on 2026-11-04 `python` on this machine resolves to the Microsoft Store shim, which prints "Python was not found" and exits nonzero, and `py` is absent. `jarvis.ps1` picks `python` first, so it fails here even though a real Python 3.13 exists at `%USERPROFILE%\.local\bin\python3.13.exe`. Disable the app-execution alias, or call `jarvis_ops.py` with that interpreter and `--root`.
++ `jarvis.ps1` exits 1 with "No working Python found" when none of its candidates works. On this machine `python` resolves to the Microsoft Store shim and `py` is absent, so until 2026-11-04 the launcher failed here although a real Python 3.13 exists at `%USERPROFILE%\.local\bin\python3.13.exe`; it now finds that one first.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\Jarvis Ops CLI.md`
+```diff
+- On 2026-11-04 I ran `status` and `links --limit 5` through `python3.13.exe jarvis_ops.py --root <vault>` and both printed. I did not run `report`, because it writes a file into the vault.
++ On 2026-11-04 I ran `help`, `status`, `health` and `links` through `jarvis.ps1` itself and all printed, then checked `clean_wikilink_target` on five sample targets (an escaped pipe, a plain pipe, a path with an escaped pipe, a heading, a bare name). I also ran `report` once, after confirming `REPORT_DIR` is the existing `60_Claude/30_Reviews/Ops Reports/`: it wrote `Jarvis Ops Report - 2026-11-04 20261104-022308.md` (15 KB) there. That file has no `type` mapping under Vault Lint (the older report there has none either), which is the generator's output shape and not something this record fixes.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\Cursor Workflow.md`
+```diff
+- > The exporter's WSL branch and the Windows fallbacks hardcode the old machine's paths (`C:\Users\Anant Gupta\...`, `/mnt/d/Users/_Anant/10_Areas/...`) at `export-cursor-sessions.py` lines 60 to 61, 68 to 75, 80 and 125, and `cursor-db-run.py` lines 37 to 39 and 80. The Windows branch resolves the vault from the script location, so it is safe; running the script inside WSL is not. The two Windows fallbacks only apply when `APPDATA` or `USERPROFILE` is unset.
++ > Until 2026-11-04 the exporter's WSL branch and its Windows fallbacks named the old machine (`C:\Users\Anant Gupta\...`, `/mnt/d/Users/_Anant/10_Areas/...`, `/home/anant_gupta`), in `export-cursor-sessions.py` and `cursor-db-run.py`. Now the vault comes from the script's own location (four folders up) in both branches. On Windows `APPDATA` and `USERPROFILE` come from the environment (falling back to the home folder). In WSL the Windows profile is `WINDOWS_USERPROFILE` if set, otherwise the first `/mnt/c/Users/*` that has `AppData/Roaming/Cursor`; the WSL home is `Path.home()`; from Windows the WSL home is asked from WSL (`WSL_HOME` overrides). `cursor-db-run.py` builds its Windows Python candidates from `CURSOR_WINDOWS_PYTHON`, `C:\Python313`, and the profile's `AppData\Local` folders. I tested the derivation (a fake `/mnt/c/Users` tree, overrides, this machine's real WSL home `/home/anant_gupta` on distro `Ubuntu-24.04`) but did not run an export, which writes notes and moves the watermark; and I could not run the script inside WSL.
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\link-check2.js`
+````
+// Checks every [[wikilink]] in the notes touched this session resolves (path or basename match). Inline-code examples are skipped.
+const fs = require('fs'), path = require('path');
+const root = 'D:/_Anant/20_Progress/Documents/Jarvis';
+const rels = [];
+(function walk(d) {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    const p = path.join(d, e.name);
+    if (e.isDirectory()) { if (!['.git', '.stversions', 'node_modules'].includes(e.name)) walk(p); }
+    else rels.push(path.relative(root, p).replace(/\\/g, '/').toLowerCase().replace(/\.md$/, ''));
+  }
+})(root);
+const files = [
+  '30_Order/System/claude-workflow/Claude Workflow.md', '30_Order/System/claude-workflow/Cowork-Operating-System.md',
+  '30_Order/System/cursor-workflow/Cursor Workflow.md', '30_Order/System/excalidraw-mcp/Excalidraw MCP.md',
+  '30_Order/System/jarvis-cli/Jarvis Ops CLI.md', '30_Order/System/jarvis-memory/Jarvis Memory.md',
+  '30_Order/System/sync-workflow/Sync Workflow.md', '30_Order/System/vault-lint/Vault Lint.md',
+  '20_Progress/Projects/AI Use/Conversations/Capture Scripts.md', '20_Progress/Projects/AI Use/Conversations/Platform Coverage.md',
+  '20_Progress/Projects/AI Use/Conversations/Capture Pipeline - As Built.md',
+  '60_Claude/07_AI_Information/AI Conversation - Summaries/Summaries-to-Create.md',
+  'CLAUDE.md', 'AGENTS.md', '.claude/skills/weekly-review/weekly-review.md', '.agents/skills/weekly-review/weekly-review.md',
+  '.claude/skills/closeday/SKILL.md', '.claude/skills/ops/ops.md', '.cursor/rules/vault-behavior.mdc', '.claude/README.md',
+];
+let n = 0, bad = 0;
+for (const f of files) {
+  let t = fs.readFileSync(path.join(root, f), 'utf8');
+  t = t.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]*`/g, '');
+  for (const m of t.matchAll(/\[\[([^\]|#\\]+)/g)) {
+    n++;
+    const w = m[1].trim().toLowerCase().replace(/\.md$/, '');
+    if (!rels.some((r) => r === w || r.endsWith('/' + w))) { bad++; console.log('UNRESOLVED', f, '->', m[1]); }
+  }
+}
+console.log('notes checked:', files.length, '| wikilinks checked:', n, '| unresolved:', bad);
+
+````
+- `Bash`
+```bash
+S=/c/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/47d76a58-1c59-42a9-abc9-4719b5979363/scratchpad; echo "== lint System"; node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ 2>&1 | grep -E 'FIT|fit|/[0-9]+ ' | head -4; echo "== kit"; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | tail -1; echo "exit=${PIPESTATUS[0]}"; echo "== wikilinks"; node $S/link-check2.js; echo "== em dash in lines I added (git diff vs last commit + working tree)"; git diff HEAD -U0 | grep '^+' | grep -v '^+++' | grep -c '—'
+```
+```
+== lint System
+FIT: 8/8 = 100.0%
+  tier 2: 8/8 = 100.0%
+By family (fit / total, near-fit, failing checks):
+  system-component                 7/7     100.0%  near    0  
+== kit
+0 errors, 11 warnings
+exit=0
+== wikilinks
+UNRESOLVED .claude/skills/weekly-review/weekly-review.md -> 30_Order/Standards/Daily Workflow Standard
+UNRESOLVED .agents/skills/weekly-review/weekly-review.md -> 30_Order/Standards/Daily Workflow Standard
+notes checked: 20 | wikilinks checked: 193 | unresolved: 2
+== em dash in lines I added (git diff vs last commit + working tree)
+warning: in the working copy of '.claude/README.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '.claude/agents/research-distiller.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-30 Order folder templates and standards cleanup.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/11-03 Syncthing notification settings.md', CRLF will be replaced by LF the next time Git touches it
+6
+```
+- `Bash`
+```bash
+git diff HEAD -U0 2>/dev/null | awk '/^\+\+\+ /{f=$2} /^\+[^+]/ && /—/ {print f ": " substr($0,1,170)}'
+```
+```
+b/.claude/README.md: +- `40_Resources/Obsidian/Jarvis Vault Architecture.md` and `60_Claude/07_AI_Information/Vault Map.md` (the actual folder-role authorities) still describe the pre-reorg s
+b/.claude/README.md: +- `60_Claude/30_Reviews/50_Reviews Board.md` still carries its pre-rename filename (vault content, not `.claude/` — flagged here, not changed here). *Checked 2026-11-0
+b/.claude/agents/learning-agent.md: +7. `30_Order/Templates/Career/Tracking/Capability Question Bank Template.md` — for drill question shape.
+b/.codex/agents/learning-agent.toml: +7. `30_Order/Templates/Career/Tracking/Capability Question Bank Template.md` — for drill question shape.
+b/.cursor/rules/workspace-context.mdc: +- `60_Claude/` — **AI workshop.** Where AI captures, drafts, and distills. Subfolders: `00_Inbox/`, `05_Clippings/` (raw, read-only), `07_AI_Information/` (agent docs 
+b/20_Progress/Degree/Repetitive: +# MGMT 3015 — Remaining Textbook Chapter Build Prompts
+```
+- `Bash`
+```bash
+sed -i 's#Capability Question Bank Template.md` — for drill question shape#Capability Question Bank Template.md`: for drill question shape#' .claude/agents/learning-agent.md .codex/agents/learning-agent.toml && grep -n 'for drill question shape' .claude/agents/learning-agent.md .codex/agents/learning-agent.toml | cut -c1-200; echo "== order-health vs whole vault"; node 30_Order/System/vault-lint/order-health.js | sed -n 1,9p; node 30_Order/System/vault-lint/vault-lint.js 2>&1 | grep -m1 'FIT'; ls /tmp/*order* 2>/dev/null | head -2; echo "== tasks"; powershell -NoProfile -Command "foreach(\$n in 'Jarvis-GitAutoSync','Jarvis-Syncthing-Health','Jarvis-WeeklyReview','Jarvis-Codex-Daemon-Guard','ConversationCapture-Backfill-Windows'){ \$t=Get-ScheduledTask -TaskName \$n; \$i=Get-ScheduledTaskInfo -TaskName \$n; '{0,-38} {1,-9} last={2} result={3} next={4}' -f \$n,\$t.State,\$i.LastRunTime,\$i.LastTaskResult,\$i.NextRunTime }"
+```
+```
+.claude/agents/learning-agent.md:60:7. `30_Order/Templates/Career/Tracking/Capability Question Bank Template.md`: for drill question shape.
+.codex/agents/learning-agent.toml:42:7. `30_Order/Templates/Career/Tracking/Capability Question Bank Template.md`: for drill question shape.
+== order-health vs whole vault
+### Order health (2026-11-04)
+
+Read-only: `node vault-lint.js` and `node vault-lint.js --kit`, plus `30_Order/Note Type Registry.md`. Nothing was fixed.
+
+**Fit:** 241/5631 = 4.3% (target 90%). Below target.
+
+**Kit consistency:** 0 errors, 11 warnings (exit 0).
+
+**Families below 100% fit (67), with the top 3 failure reasons:**
+FIT: 241/5631 = 4.3%
+== tasks
+Jarvis-GitAutoSync                     Ready     last=11/4/2026 2:33:00 AM result=0 next=11/4/2026 3:03:00 AM
+Jarvis-Syncthing-Health                Ready     last=11/4/2026 2:36:46 AM result=0 next=11/4/2026 2:41:45 AM
+Jarvis-WeeklyReview                    Ready     last=11/30/1999 12:00:00 AM result=267011 next=11/8/2026 6:00:00 AM
+Jarvis-Codex-Daemon-Guard              Disabled  last=10/26/2026 6:57:18 PM result=0 next=11/4/2026 2:42:17 AM
+ConversationCapture-Backfill-Windows   Ready     last=11/4/2026 2:33:01 AM result=0 next=11/4/2026 3:03:00 AM
+```
+- `PowerShell`
+```powershell
+Set-Location D:\_Anant\20_Progress\Documents\Jarvis; Get-Content 30_Order\System\claude-workflow\logs\git-auto-sync.log | Where-Object { $_ -match '=== git-auto-sync|Pushed|Committed' } | Select-Object -Last 6 | ForEach-Object { $_.Substring(0,[Math]::Min(150,$_.Length)) }; "--- manual run"; powershell -NoProfile -ExecutionPolicy Bypass -File 30_Order\System\claude-workflow\scripts\git-auto-sync.ps1 | Out-Null; "exit=$LASTEXITCODE"; Get-Content 30_Order\System\claude-workflow\logs\git-auto-sync.log | Where-Object { $_ -match '=== git-auto-sync|Pushed|Committed' } | Select-Object -Last 4 | ForEach-Object { $_.Substring(0,[Math]::Min(150,$_.Length)) }; git status -sb | head -3; "HEAD=$(git rev-parse --short HEAD) origin/master=$(git rev-parse --short origin/master)"; git log -1 --format='author: %ae'; gh repo view --json visibility,isFork -q '.visibility + " fork=" + (.isFork|tostring)'
+```
+```
+[2026-11-04 02:29:04] Pushed cleanly to origin/master.
+[2026-11-04 02:29:04] === git-auto-sync end (success) ===
+[2026-11-04 02:33:01] === git-auto-sync start (branch: master) ===
+[2026-11-04 02:33:04] Committed: Auto-sync: 2026-11-04 02:33,  35 files changed, 4648 insertions(+), 1116 deletions(-)
+[2026-11-04 02:33:08] Pushed cleanly to origin/master.
+[2026-11-04 02:33:08] === git-auto-sync end (success) ===
+--- manual run
+warning: in the working copy of '.claude/README.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '.claude/agents/research-distiller.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-30 Order folder templates and standards cleanup.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/11-03 Syncthing notification settings.md', CRLF will be replaced by LF the next time Git touches it
+error: open("30_Order/Templates/nul"): No such file or directory
+error: unable to index file '30_Order/Templates/nul'
+fatal: adding files failed
+warning: in the working copy of '.claude/README.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '.claude/agents/research-distiller.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-30 Order folder templates and standards cleanup.md', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of '60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/11-03 Syncthing notification settings.md', CRLF will be replaced by LF the next time Git touches it
+exit=1
+[2026-11-04 02:33:08] Pushed cleanly to origin/master.
+[2026-11-04 02:33:08] === git-auto-sync end (success) ===
+[2026-11-04 02:38:05] === git-auto-sync start (branch: master) ===
+[2026-11-04 02:38:07] === git-auto-sync end (FAILED, local changes could not be committed) ===
+## master...origin/master
+ M .agents/skills/note-to-actions/SKILL.md
+ M .agents/skills/transcript-to-brief/SKILL.md
+HEAD=59034821 origin/master=59034821
+author: anantmahi721@gmail.com
+PUBLIC fork=false
+```
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'; $found = Get-ChildItem -LiteralPath $root -Recurse -Force -File -Filter 'nul' -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\(\.git|\.stversions|node_modules)\\' }; $found | Select FullName,Length,CreationTime | Format-List; foreach ($f in $found) { Remove-Item -LiteralPath ('\\?\' + $f.FullName) -Force -ErrorAction Continue; "removed: $($f.FullName) -> still exists: $(Test-Path -LiteralPath ('\\?\' + $f.FullName))" }; "--- other reserved-name strays (con, aux, prn, com1, lpt1)"; Get-ChildItem -LiteralPath $root -Recurse -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^(con|aux|prn|nul|com[1-9]|lpt[1-9])(\..*)?$' -and $_.FullName -notmatch '\\(\.git|\.stversions|node_modules)\\' } | Select -First 5 FullName
+```
+```
+Remove-Item on system path ''\\' is blocked. This path is protected from removal.
+```
+- `PowerShell`
+```powershell
+$root='D:\_Anant\20_Progress\Documents\Jarvis'; Get-ChildItem -LiteralPath $root -Recurse -Force -File -Filter 'nul' -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\(\.git|\.stversions|node_modules)\\' } | Select FullName,Length,CreationTime | Format-List; cd $root; git status --short -- '30_Order/Templates' | head
+```
+```
+FullName     : D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\nul
+Length       : 3329
+CreationTime : 11/4/2026 2:35:55 AM
+
+ M "30_Order/Templates/Career/Tracking/Capability Depth Ladder Template.md"
+?? 30_Order/Templates/nul
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\remove-nul.py`
+```
+"""Remove the one stray file named 'nul' that I created at 30_Order/Templates/nul (kit-lint JSON written by mistake).
+Only deletes that exact path, and only if it is a regular file created today with the size seen at creation."""
+import os, sys, time
+p = "\\\\?\\D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\nul"
+st = os.stat(p)
+print("size", st.st_size, "age seconds", int(time.time() - st.st_ctime))
+if st.st_size != 3329 or time.time() - st.st_ctime > 3600:
+    sys.exit("does not look like my scratch file; not deleting")
+os.remove(p)
+print("removed; exists now:", os.path.exists(p))
+
+```
+- `PowerShell`
+```powershell
+& "$env:USERPROFILE\.local\bin\python3.13.exe" C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\remove-nul.py; Set-Location D:\_Anant\20_Progress\Documents\Jarvis; git status --short | grep -c 'nul$'
+```
+```
+size 3329 age seconds 157
+removed; exists now: False
+1
+```
+- `PowerShell`
+```powershell
+Set-Location D:\_Anant\20_Progress\Documents\Jarvis; git status --short | Select-String 'nul$'; "--- run sync"; powershell -NoProfile -ExecutionPolicy Bypass -File 30_Order\System\claude-workflow\scripts\git-auto-sync.ps1 *> $null; "exit=$LASTEXITCODE"; Get-Content 30_Order\System\claude-workflow\logs\git-auto-sync.log | Where-Object { $_ -match '=== git-auto-sync|Pushed|Committed' } | Select-Object -Last 4 | ForEach-Object { $_.Substring(0,[Math]::Min(150,$_.Length)) }; git status -sb | Select -First 2; "HEAD=$(git rev-parse --short HEAD) origin/master=$(git rev-parse --short origin/master)"
+```
+```
+?? 30_Order/Templates/nul
+--- run sync
+exit=0
+[2026-11-04 02:38:40] === git-auto-sync start (branch: master) ===
+[2026-11-04 02:38:42] Committed: Auto-sync: 2026-11-04 02:38,  22 files changed, 53 insertions(+), 125 deletions(-)
+[2026-11-04 02:38:45] Pushed cleanly to origin/master.
+[2026-11-04 02:38:45] === git-auto-sync end (success) ===
+## master...origin/master
+HEAD=6612b011 origin/master=6612b011
+```
+- `Bash`
+```bash
+git ls-files 30_Order/Templates | grep -c '/nul$'; git show --stat --format=%h HEAD | grep -i '/nul' ; git status --short | head -3; echo "(status clean if nothing above)"; ls 30_Order/Templates
+```
+```
+0
+(status clean if nothing above)
+AI Toolkit
+Career
+Classes
+Enumerate
+For Everything.md
+Projects
+System
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/logs && grep -n 'FAILED' git-auto-sync.log | tail -4 | cut -c1-160; L=$(grep -n '2026-11-04 00:33.*FAILED' git-auto-sync.log | tail -1 | cut -d: -f1); echo "line $L"; sed -n "$((L-14)),${L}p" git-auto-sync.log | cut -c1-200
+```
+```
+41010:[2026-11-03 23:03:06] === git-auto-sync end (FAILED, local changes could not be committed) ===
+41019:[2026-11-03 23:33:06] === git-auto-sync end (FAILED, local changes could not be committed) ===
+41085:[2026-11-04 00:33:04] === git-auto-sync end (FAILED, local changes could not be committed) ===
+41173:[2026-11-04 02:38:07] === git-auto-sync end (FAILED, local changes could not be committed) ===
+line 41085
+[2026-11-04 00:03:10] Committed: Auto-sync: 2026-11-04 00:03,  95 files changed, 6732 insertions(+), 429 deletions(-)
+[2026-11-04 00:03:11]   From https://github.com/gupta-builds/Jarvis
+[2026-11-04 00:03:11]    * branch              infra/cross-laptop-sync -> FETCH_HEAD
+[2026-11-04 00:03:11]   Current branch infra/cross-laptop-sync is up to date.
+[2026-11-04 00:03:12] No real diff to commit, clean, nothing staged.
+[2026-11-04 00:03:15] Pushed cleanly to origin/infra/cross-laptop-sync.
+[2026-11-04 00:03:15] === git-auto-sync end (success) ===
+[2026-11-04 00:03:15] Syncthing folder 'jarvis' paused=False
+[2026-11-04 00:33:02] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
+[2026-11-04 00:33:02] Syncthing folder 'jarvis' paused=True
+[2026-11-04 00:33:04]   [infra/cross-laptop-sync 6c598e4d] Auto-sync: 2026-11-04 00:33,  4 files changed, 608 insertions(+), 9 deletions(-)
+ 4 files changed, 608 insertions(+), 9 deletions(-)
+ create mode 100644 60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis/11-03 Firecrawl API key location.md
+[2026-11-04 00:33:04] Committed: Auto-sync: 2026-11-04 00:33,  4 files changed, 608 insertions(+), 9 deletions(-)
+[2026-11-04 00:33:04] === git-auto-sync end (FAILED, local changes could not be committed) ===
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\git-auto-sync.ps1`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
+```diff
+- I did not find the cause, and the sync-workflow banner reported the failure. The next runs ended
++ The log keeps no git error text for that branch, so I could not read the cause of the 2026-11-03 23:03, 23:33 and 2026-11-04 00:33 failures; each came straight after a successful commit, which fits a tracked file (a live session export) changing between `git add` and the check, but I did not prove that. One cause I did reproduce: at 02:38 on 2026-11-04 a stray file named `nul` (made by a shell command of mine redirecting to `/dev/null` from Git Bash into Node) sat in `30_Order/Templates`; `git add` printed `unable to index file '30_Order/Templates/nul'` and the script ended with the same `FAILED, local changes could not be committed` line. After I deleted that file the next run committed and pushed. Any untracked file with a Windows reserved name (`nul`, `con`, `aux`, `prn`, `com1`) does this, and the sync banner reports it. The sync-workflow banner reported the 00:33 failure. The later runs ended
+```
+- `Bash`
+```bash
+cd /d/_Anant/20_Progress/Documents/Jarvis && node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ 2>&1 | grep -m1 FIT; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | tail -1; M="/c/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/memory"; ls "$M" 2>&1 | head; [ -f "$M/MEMORY.md" ] && cat "$M/MEMORY.md" | head -20
+```
+```
+Exit code 1
+FIT: 8/8 = 100.0%
+0 errors, 11 warnings
+```
+- `Write` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\memory\feedback-no-dev-null-in-git-bash.md`
+```
+---
+name: feedback-no-dev-null-in-git-bash
+description: In Git Bash never pass /dev/null (or redirect to nul) as a file argument to Node or other native tools in the vault; it creates a real file named nul that breaks git-auto-sync.
+metadata:
+  type: feedback
+---
+
+Do not pass `/dev/null` as an argument value to a native program (for example `node vault-lint.js --kit --json /dev/null`) from the Bash tool in the Jarvis vault. Git Bash rewrites it to `nul`, and Node then writes a real file named `nul` in the current folder.
+
+**Why:** On 2026-11-04 this left `30_Order/Templates/nul`. `git add` then failed with "unable to index file", and `git-auto-sync.ps1` ended `FAILED, local changes could not be committed` and stopped syncing until I deleted the file. A Windows reserved name cannot be removed with a normal path; it took Python `os.remove` on a `\\?\` path (PowerShell's Remove-Item on that form is blocked by the harness). See [[feedback-scratch-files-outside-vault]] if that note exists.
+
+**How to apply:** Send unwanted output to a scratchpad file, or drop it with a shell redirect (`> /dev/null` as a redirect is fine, it is only the argument form that misbehaves). After any command that took a path argument, run `git status --short | head` to catch a stray file before auto-sync does.
+
+```
+- `Edit` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\memory\feedback-no-dev-null-in-git-bash.md`
+```diff
+-  See [[feedback-scratch-files-outside-vault]] if that note exists.
++ 
+```
+- `Write` -- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\memory\MEMORY.md`
+```
+- [No /dev/null as an argument in Git Bash](feedback-no-dev-null-in-git-bash.md) — it creates a real `nul` file that makes git-auto-sync FAIL
+
+```
+- `PowerShell`
+```powershell
+Set-Location D:\_Anant\20_Progress\Documents\Jarvis; powershell -NoProfile -ExecutionPolicy Bypass -File 30_Order\System\claude-workflow\scripts\git-auto-sync.ps1 *> $null; "exit=$LASTEXITCODE"; Get-Content 30_Order\System\claude-workflow\logs\git-auto-sync.log | Where-Object { $_ -match '=== git-auto-sync|Pushed|Committed' } | Select-Object -Last 4 | ForEach-Object { $_.Substring(0,[Math]::Min(150,$_.Length)) }; git status -sb | Select -First 2; "HEAD=$(git rev-parse --short HEAD) origin/master=$(git rev-parse --short origin/master)"; git branch -vv | ForEach-Object { $_.Substring(0,[Math]::Min(110,$_.Length)) }; (Get-ScheduledTask Jarvis-GitAutoSync).State
+```
+```
+exit=0
+[2026-11-04 02:39:33] === git-auto-sync start (branch: master) ===
+[2026-11-04 02:39:35] Committed: Auto-sync: 2026-11-04 02:39,  1 file changed, 1 insertion(+), 1 deletion(-)
+[2026-11-04 02:39:38] Pushed cleanly to origin/master.
+[2026-11-04 02:39:38] === git-auto-sync end (success) ===
+## master...origin/master
+HEAD=34b55346 origin/master=34b55346
+  backup/[REDACTED] 37019bbb Auto-sync: 2026-10-17 22:03,  10 files changed, 3487 insertions(
+  infra/cross-laptop-sync            b67ed802 [origin/infra/cross-laptop-sync: ahead 1] Auto-sync: 2026-11-04 
+* master                             34b55346 [origin/master] Auto-sync: 2026-11-04 02:39,  1 file changed, 1 
+Ready
+```
 
 ## Actions Taken
 
 **Files created:**
+- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\memory\feedback-no-dev-null-in-git-bash.md`
+- `C:\Users\anant\.claude\projects\D---Anant-20-Progress-Documents-Jarvis\memory\MEMORY.md`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\clean-link-test.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\cursor-paths-test.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\enum-keys.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\functional-checks.ps1`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\hooks-view.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\keys-check.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\link-check.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\link-check2.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\maps-to-check.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\mcp-auth-probe.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\mcp-shape.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\reg-counts.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\registry-test.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\remove-nul.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\scan-links.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\session-log-rewrite.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\sessionstart-test.ps1`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\47d76a58-1c59-42a9-abc9-4719b5979363\scratchpad\stale-refs-fix.py`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\jarvis.ps1`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\order-health.js`
 
 **Files modified:**
 - `C:\Users\anant\.claude\settings.json`
 - `D:\_Anant\20_Progress\Documents\Jarvis\.agents\skills\weekly-review\weekly-review.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\.claude\README.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Claude Workflow.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\Cowork-Operating-System.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-session-continuity.ps1`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\README.md`
@@ -6796,10 +8530,12 @@ Write-Output "activity-log lines mentioning the test session: $(@($hit).Count)"
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\register-jarvis-sync-task.ps1`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\reroute-acer-notes.ps1`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\run-weekly-review.ps1`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\Cursor Workflow.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\README.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\scripts\cursor-db-run.py`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\cursor-workflow\scripts\export-cursor-sessions.py`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\excalidraw-mcp\README.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\Jarvis Ops CLI.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\jarvis_ops.py`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-cli\README.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\jarvis-memory\Jarvis Memory.md`
@@ -6809,8 +8545,10 @@ Write-Output "activity-log lines mentioning the test session: $(@($hit).Count)"
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\README.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\scripts\codex-daemon-guard.ps1`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\sync-workflow\Sync Workflow.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\Vault Lint.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint\vault-lint.js`
+- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Career\Tracking\Capability Depth Ladder Template.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\AGENTS.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\CLAUDE.md`
 
@@ -6911,4 +8649,32 @@ _None detected_
 - `for p in "60_Claude/07_AI_Information/Jarvis OS — North Star.md" "AGENTS.md" "40_Resources/Obsidian/Jarvis Vault Architecture.md" "60_Claude/07_AI_Information/AI_CONTEXT.md" "00_Dashboard.md" "60_Claude/07_AI_Information/Session Logs/log.md" "60_Claude/00_Inbox"; do [ -e "$p" ] && echo "EXISTS  $p" || echo "MISSING $p"; done; find . -name 'Jarvis OS*North Star*' -not -path './.git/*' -not -path './.stversions/*' 2>/dev/null | head -3; find . -name 'AI_CONTEXT.md' -not -path './.git/*' -not -path './.stversions/*' | head -3; ls .claude/skills | head -40`
 - `cd ~/.claude && cp settings.json /c/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/47d76a58-1c59-42a9-abc9-4719b5979363/scratchpad/settings.json.bak-20261104 && echo backed-up && grep -n '"hooks"\|"Stop"\|"SessionEnd"\|"PreToolUse"\|"SessionStart"' settings.json; L=$(grep -n '"Stop"' settings.json | cut -d: -f1); sed -n "$((L-2)),$((L+22))p" settings.json | cut -c1-200; file settings.json | cut -c1-80; grep -c $'\r' settings.json`
 - `node "/c/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/47d76a58-1c59-42a9-abc9-4719b5979363/scratchpad/hooks-view.js" "$USERPROFILE/.claude/settings.json" | cut -c1-120 | sed 's#-File .*jarvis#-File ...jarvis#'; echo; echo "--- SessionStart payload test (the real hook, a Jarvis cwd and a non-Jarvis cwd)"; cd /d/_Anant/20_Progress/Documents/Jarvis; for cwd in 'D:\\_Anant\\20_Progress\\Documents\\Jarvis' 'C:\\temp\\other'; do echo "{\"hook_event_name\":\"SessionStart\",\"cwd\":\"$cwd\",\"session_id\":\"t1\",\"source\":\"startup\"}" | powershell -NoProfile -ExecutionPolicy Bypass -File 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1 > /tmp/ss.out; echo "cwd=$cwd exit=$? bytes=$(wc -c < /tmp/ss.out)"; node -e "const t=require('fs').readFileSync('/tmp/ss.out','utf8').trim(); if(!t){console.log('  (no output)');process.exit()} const j=JSON.parse(t); console.log('  event:',j.hookSpecificOutput.hookEventName,'| lines:',j.hookSpecificOutput.additionalContext.split('\n').length); console.log('  '+j.hookSpecificOutput.additionalContext.split('\n').slice(5,8).join('\n  '))"; done`
+- `grep -rIn --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules --exclude-dir=05_Clippings --exclude='log.md*' -E 'Templates/Frontmatter|Templates/Capability|Clipping Distill Template|Capability/Question Bank|Deep Dive Template|Jarvis Enrichment Template|Question Bank Template|35_Outputs|50_Reviews' . 2>/dev/null | grep -v '^./20_Progress/AI/\|^./.cursor/plans\|^./.kiro/specs' | cut -c1-230`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates && ls; echo ---; ls Career Career/Meetings Career/Tracking "AI Toolkit" 2>/dev/null | head -60; echo ---For; head -20 "For Everything.md"; grep -n 'For Everything' ../Note\ Type\ Registry.md ../00_How\ This\ Folder\ Works.md 2>/dev/null | head -5`
+- `cat "Career/Evergreen Note Template.md" | head -60; echo ======; grep -rn 'Jarvis Enrichment' /d/_Anant/20_Progress/Documents/Jarvis/30_Order --include=*.md -l | head; sed -n 55,62p /d/_Anant/20_Progress/Documents/Jarvis/.claude/agents/learning-agent.md; sed -n 138,142p /d/_Anant/20_Progress/Documents/Jarvis/.claude/agents/learning-agent.md`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order && grep -n 'Jarvis Enrichment\|Deep Dive\|Template' Workflows/Enrichment/Enrichment.md | cut -c1-260 | head -14; echo ---; grep -n 'Jarvis Enrichment' Standards/Editing\ Standard.md Standards/Enrich/Audit\ Report\ Standard.md | cut -c1-260; ls Workflows/Enrichment Standards/Enrich`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis && sed -n 100p .claude/skills/mcp-hub/mcp-hub.md | cut -c150-420; sed -n 28p .claude/skills/transcript-to-brief/SKILL.md | grep -o '.\{80\}\(Templates/Capability\|Frontmatter\|Capability\).\{80\}'; echo ---cursor; sed -n 38,46p .cursor/rules/note-creation.mdc; echo ---ws; sed -n 17p .cursor/rules/workspace-context.mdc; echo ---readme; sed -n 107,118p .claude/README.md | cut -c1-520`
+- `grep -c '35_Outputs\|50_Reviews' "60_Claude/07_AI_Information/Vault Map.md" "40_Resources/Obsidian/Jarvis Vault Architecture.md"; grep -n '35_Outputs\|50_Reviews' "60_Claude/07_AI_Information/Vault Map.md" | cut -c1-160; grep -n 'MGMT 3001' "60_Claude/07_AI_Information/Jarvis OS — North Star.md" | head -2 | cut -c1-160; sed -n 118,130p .claude/README.md | cut -c1-120`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates && ls Classes Projects | head -30; ls /d/_Anant/20_Progress/Documents/Jarvis/10_Areas | head -20; sed -n 1,12p "Career/Technical Concept Template.md" | head -14`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order && grep -n 'Evergreen Note Template\|Project Status Note Template\|Week Template' "Note Type Registry.md" | cut -c1-230; grep -n 'Lecture-to-textbook' Templates/Classes/*.md | head -3`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis && ls 60_Claude`
+- `ls "20_Progress/AI" "20_Progress/AI/Claude Code" 2>/dev/null | head -20; echo ---; grep -rIln --exclude-dir=.git --exclude-dir=.stversions --exclude-dir=node_modules --exclude-dir=05_Clippings --exclude='log.md*' -E '20_Progress/AI/(Claude Code|Cursor|Kiro)|Unison|unison' 30_Order/System .claude .agents .codex .cursor/rules 2>/dev/null | grep -v '/logs/' | head -20; echo ---header; head -12 "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md" 2>/dev/null | cut -c1-160`
+- `sed -n 1,60p "20_Progress/AI/Claude Code/Sync - Unison.md" | cut -c1-240; echo ----; ls "20_Progress/AI/Claude Code/Jarvis" | head; ls -la "20_Progress/AI/Claude Code/Jarvis/.claude" 2>/dev/null | head -5; git log --oneline -3 -- "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md" | cut -c1-100; git check-ignore -v "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md"; echo ---sync log; tail -3 "20_Progress/AI/Claude Code/Jarvis/Sync-Log.md" 2>/dev/null | cut -c1-200`
+- `wsl.exe -d Ubuntu-24.04 -e bash -lc 'ls ~/projects/ai/claude/second-brain-claudekit/60_Claude/scripts/ 2>&1 | head -20; echo ---; ls ~/projects/ai/claude/second-brain-claudekit/50_Claude/scripts/ 2>&1 | head; echo ---; which unison 2>&1' 2>&1 | tr -d '\0' | head -40`
+- `grep -rIl -E 'Templates/Frontmatter|Templates/Capability|Clipping Distill Template|Deep Dive Template|Jarvis Enrichment Template|Question Bank Template|35_Outputs|50_Reviews' 20_Progress/AI .cursor/plans .kiro/specs 2>/dev/null | sort | sed 's/^/  /'; echo; echo "count: $(grep -rIl -E 'Templates/Frontmatter|Templates/Capability|Clipping Distill Template|Deep Dive Template|Jarvis Enrichment Template|Question Bank Template|35_Outputs|50_Reviews' 20_Progress/AI .cursor/plans .kiro/specs 2>/dev/null | wc -l)"; echo "--- are the 20_Progress/AI mirrors older copies of live files?"; for f in "20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md"; do ls -la "$f" | awk '{print $6,$7,$8}'; diff -q "$f" .claude/agents/learning-agent.md | head -1; done`
+- `cat "30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md"; echo =======; grep -rln 'Fall Execution Audit' --include=*.md --include=*.json . 2>/dev/null | grep -v '.stversions\|05_Clippings' | head; echo =====; ls "60_Claude/30_Reviews/Weekly Synthesis" | head -20`
+- `grep -n 'Fall Execution Audit' .claude/skills/weekly-review/weekly-review.md "30_Order/Standards/Enrich/Capability Review Standard.md" "10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md" "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W39.md" | cut -c1-400; for w in W40 W41 W42 W43 W44; do echo "$w: $(grep -c '^## ' "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-$w.md") headings, audit=$(grep -c 'Fall Execution Audit' "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-$w.md")"; done`
+- `sed -n 1,18p "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W44.md" | cut -c1-200; grep -n '^## ' "60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W44.md"; echo ---std; sed -n 25,50p "30_Order/Standards/Enrich/Capability Review Standard.md" | cut -c1-260`
+- `sed -n 139,152p .claude/skills/weekly-review/weekly-review.md; sed -n 40,50p .claude/skills/weekly-review/weekly-review.md | cut -c1-200`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Tracking && cat -A "Capability Depth Ladder Template.md" | sed -n 1,60p | cut -c1-220`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order && grep -rn 'Compare and Discriminate' Standards Workflows Templates | cut -c1-260`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis && sed -n 18p "30_Order/Templates/Career/Tracking/Capability Depth Ladder Template.md" | awk '{print "comment length:", length($0)}'; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | tail -16; echo "exit=${PIPESTATUS[0]}"`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/47d76a58-1c59-42a9-abc9-4719b5979363/scratchpad/keys-check.js" Enumerate Classes; echo; node ../System/vault-lint/vault-lint.js --kit --json /dev/null 2>&1 | grep 'Better Today' | head -2; echo ---templater; node -e "const j=JSON.parse(require('fs').readFileSync('../../.obsidian/plugins/templater-obsidian/data.json','utf8')); for (const r of (j.folder_templates||[])) console.log(r.folder,'->',r.template)" 2>&1 | head -20`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/System && cat "jarvis-cli/Jarvis Ops CLI.md" | sed -n 17,60p`
+- `S=/c/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/47d76a58-1c59-42a9-abc9-4719b5979363/scratchpad; echo "== lint System"; node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ 2>&1 | grep -E 'FIT|fit|/[0-9]+ ' | head -4; echo "== kit"; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | tail -1; echo "exit=${PIPESTATUS[0]}"; echo "== wikilinks"; node $S/link-check2.js; echo "== em dash in lines I added (git diff vs last commit + working tree)"; git diff HEAD -U0 | grep '^+' | grep -v '^+++' | grep -c '—'`
+- `git diff HEAD -U0 2>/dev/null | awk '/^\+\+\+ /{f=$2} /^\+[^+]/ && /—/ {print f ": " substr($0,1,170)}'`
+- ``sed -i 's#Capability Question Bank Template.md` — for drill question shape#Capability Question Bank Template.md`: for drill question shape#' .claude/agents/learning-agent.md .codex/agents/learning-agent.toml && grep -n 'for drill question shape' .claude/agents/learning-agent.md .codex/agents/learning-agent.toml | cut -c1-200; echo "== order-health vs whole vault"; node 30_Order/System/vault-lint/order-health.js | sed -n 1,9p; node 30_Order/System/vault-lint/vault-lint.js 2>&1 | grep -m1 'FIT'; ls /tmp/*order* 2>/dev/null | head -2; echo "== tasks"; powershell -NoProfile -Command "foreach(\$n in 'Jarvis-GitAutoSync','Jarvis-Syncthing-Health','Jarvis-WeeklyReview','Jarvis-Codex-Daemon-Guard','ConversationCapture-Backfill-Windows'){ \$t=Get-ScheduledTask -TaskName \$n; \$i=Get-ScheduledTaskInfo -TaskName \$n; '{0,-38} {1,-9} last={2} result={3} next={4}' -f \$n,\$t.State,\$i.LastRunTime,\$i.LastTaskResult,\$i.NextRunTime }"``
+- `git ls-files 30_Order/Templates | grep -c '/nul$'; git show --stat --format=%h HEAD | grep -i '/nul' ; git status --short | head -3; echo "(status clean if nothing above)"; ls 30_Order/Templates`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/logs && grep -n 'FAILED' git-auto-sync.log | tail -4 | cut -c1-160; L=$(grep -n '2026-11-04 00:33.*FAILED' git-auto-sync.log | tail -1 | cut -d: -f1); echo "line $L"; sed -n "$((L-14)),${L}p" git-auto-sync.log | cut -c1-200`
+- `cd /d/_Anant/20_Progress/Documents/Jarvis && node 30_Order/System/vault-lint/vault-lint.js --path 30_Order/System/ 2>&1 | grep -m1 FIT; node 30_Order/System/vault-lint/vault-lint.js --kit 2>&1 | tail -1; M="/c/Users/anant/.claude/projects/D---Anant-20-Progress-Documents-Jarvis/memory"; ls "$M" 2>&1 | head; [ -f "$M/MEMORY.md" ] && cat "$M/MEMORY.md" | head -20`
 

@@ -1,38 +1,24 @@
 ---
 type: class
-input_kind: lecture
-status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
+class_kind: week
+status: sprout
+created: 2026-09-21
+updated: 2026-11-04
 tags:
-  - "#class"
-  - "#Lecture"
-next:
+  - class
+  - lecture
+area:
+  - "[[20_Progress/Degree/MGMT 3015/MGMT 3015 Board|MGMT 3015 Board]]"
+  - "[[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]]"
+next: "[[20_Progress/Degree/MGMT 3015/Weekly/Week - 2|Week - 2]]"
 ---
 # Week - 1
 ## What you must be able to do
-<!-- Write four to eight testable abilities. Link the matching chapter first in the finished note. -->
--
--
-## Key ideas (short)
-<!-- Give three to six compressed claims; this is not the full lecture capture. -->
--
-## Concepts created today
-<!-- Add links only for concept notes created from this lecture. -->
--
-## Examples worth keeping
-<!-- Keep concrete lecture examples, cases, or numbers that made an idea click. -->
--
-# Lecture - 1 — Session 1: Course Overview and Introduction (Wed 9/9)
-Source: real slide deck `2026 F3015 S1 Introduction.pptx` (34 slides, Zahra's own speaker notes included), read in full 2026-09-21. No chapter is assigned for this session — pure intro, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
-## What you must be able to do
-- State the three-part definition of entrepreneurship the course uses (innovation, risk-taking, value creation) and explain what each part rules out.
-- Distinguish an idea from an opportunity — name the test that decides which one you have.
+- Using [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]] (previewed here, first assigned for Session 2), state the course's three-part definition of entrepreneurship (innovation, risk-taking, value creation) and explain what each part rules out.
+- Distinguish an idea from an opportunity and name the test that decides which one you have.
 - Walk through the three stages of the entrepreneurial process (discovery, evaluation, exploitation) and say what happens in each.
-- Explain why entrepreneurship matters at the individual, societal, and cross-country level, with real numbers, not just "it creates jobs."
-- Locate every graded deliverable and its weight from memory, and know which two dates matter this week (Profile due 9/21, New Business Idea due 9/25).
+- Explain why entrepreneurship matters at the individual, societal, and cross-country level, with real numbers rather than "it creates jobs."
+- Locate every graded deliverable and its weight from memory, and know the two dates that matter this week (Profile due 9/21, New Business Idea due 9/25).
 - State the one hard boundary in the AI policy: research and ideation are fine, writing the report is not.
 ## Key ideas (short)
 - **Entrepreneurship** is the process of designing, launching, and running a new venture while taking on financial and personal risk to build something valuable — not just "starting a business."
@@ -40,7 +26,7 @@ Source: real slide deck `2026 F3015 S1 Introduction.pptx` (34 slides, Zahra's ow
 - The entrepreneurial process runs **discovery → evaluation → exploitation**, all inside a **context** that shapes what's available to find. This is the course's own structural frame — every later chapter and session slots into one of these three stages.
 - Entrepreneurship is not a fringe activity: ~44% of U.S. GDP and ~46% of the private workforce trace back to small/new businesses, and nearly all net new jobs come from young, fast-growing firms.
 ## Concepts created today
-None yet — concept notes are out of scope for this production pass per [[Course Production Board — Fall'26]].
+None created yet. Candidates once the concept layer is built (see [[20_Progress/Degree/MGMT 3015/Weekly/Weekly Board|Weekly Board]]): [[Concept - Idea vs Opportunity]] (to create), [[Concept - Entrepreneurial Process]] (to create).
 ## Examples worth keeping
 - The five in-class MCQs (all answer **C**), each with Zahra's own stated rationale in the slide notes:
   1. Strongest opportunity = "a painful customer problem people will pay to solve" (not a clever product, a crowded trend, or unused tech).
@@ -51,25 +37,26 @@ None yet — concept notes are out of scope for this production pass per [[Cours
 - GEM-sourced stats (SBA data, approximate): ~44% of U.S. GDP from small business, ~46% of the private workforce employed by small/new firms, nearly all net new jobs trace to young fast-growing firms.
 - Domains entrepreneurship touches, named directly on the slide: Technology & AI, Biotech & Health, Space, Sustainability, Social Equity, Education.
 ## Lecture
-### 1. Live capture — my own notes, 9/9/2026
+**Pre-lecture source notes** are sections 2 to 11, taken from the slide deck. **Live lecture capture** is section 1 and is protected source material, reproduced unchanged. Source: real slide deck `2026 F3015 S1 Introduction.pptx` (34 slides, Zahra's own speaker notes included), read in full 2026-09-21. No chapter is assigned for this session — pure intro, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
+### 1. Live lecture capture — my own notes, 9/9/2026 (Session 1, Wed 9/9)
 Lay out everything about the course in detail:
 - A lot of contribution with people, laying out ideas and do a lot of communication: Writing, presentation (individual and group), quizzes (2) and participation.
 - More than that, makes you really think about the real world. What exactly would you build if you had a startup? Think carefully and in depth throughout this course. Not a lot of concepts are laid out correctly but read through the summaries, form opinions and read the textbook.
-### 2. Course objective and what you'll learn
+### 2. Course objective and what you'll learn (Session 1, Wed 9/9)
 Objective: introduce the core principles of entrepreneurship, with emphasis on turning ideas into viable new ventures. Five stated learning outcomes: generate and evaluate business ideas for feasibility/potential; articulate and defend ideas in writing and face-to-face; design effective business models and strategies; understand the full process from opportunity recognition to launch; learn methods of fundraising and resource acquisition.
-### 3. Course format
+### 3. Course format (Session 1, Wed 9/9)
 Three stated properties: **in person** (meets face-to-face twice weekly in the Carlson classroom), **experiential** (learn by doing — apply ideas to real ventures, not just theory), **collaborative** (lots of group activities in and outside class).
-### 4. What is entrepreneurship?
+### 4. What is entrepreneurship? (Session 1, Wed 9/9)
 Opened with a cold call: "what words come to mind when I mention entrepreneurship?" Then the course's working definition: *the process of designing, launching, and running a new venture, while taking on financial and personal risk in the hope of building something valuable.* Broken into three named parts: **Innovation** (turning a new idea into something people actually use), **Risk-Taking** (committing time and money before the outcome is certain), **Value Creation** (building something worth more than the sum of its parts). MCQs 1-3 (see Examples above) tested this definition against distractor answers built around cleverness, technology novelty, and personality myths.
-### 5. When does an idea become an opportunity?
+### 5. When does an idea become an opportunity? (Session 1, Wed 9/9)
 MCQs 4-5 pushed the idea/opportunity distinction and the "entrepreneurs are made, not born" claim (see Examples). Slide's own framing: "an idea is a beginning — not yet a business," and "great ideas matter, but value determines whether they endure." Closed with a direct instruction: "your first entrepreneurial act today: meet someone new, find one problem worth solving together."
-### 6. Why entrepreneurship matters
+### 6. Why entrepreneurship matters (Session 1, Wed 9/9)
 Three framing questions: for an individual (income, autonomy, purpose), for society (jobs, innovation, community strength), across countries (why some nations are more entrepreneurial than others). Backed with the GDP/workforce/job-creation stats under Examples, then a slide naming the specific domains entrepreneurship now touches (tech/AI, biotech, space, sustainability, social equity, education) — a deliberate widening beyond the "startup founder" stereotype.
-### 7. Entrepreneurship is a process
+### 7. Entrepreneurship is a process (Session 1, Wed 9/9)
 Core structural diagram, shown twice: **Opportunity Discovery → Opportunity Evaluation → Opportunity Exploitation**, all situated inside a **Context**. This exact three-stage-plus-context model reappears as the course's spine — Session 2's paradoxes and Session 5's opportunity-evaluation exercises both sit inside this frame.
-### 8. Class introductions
+### 8. Class introductions (Session 1, Wed 9/9)
 No slide content beyond the header — this was a live, unrecorded-in-slides activity.
-### 9. Logistics, course administration, and policies
+### 9. Logistics, course administration, and policies (Session 1, Wed 9/9)
 - **Professor**: Shaker A. Zahra, Office 3-390 Marilyn C. Nelson Hall, zahra004@umn.edu, (612) 702-1666 (cell), office hours Mon/Wed 4-5pm and by appointment.
 - **TA**: Wayne Chou, 4-169 Marilyn C. Nelson Hall, chou0211@umn.edu, office hours by appointment.
 - **Course materials**: *Entrepreneurship* by Zacharakis, Bygrave & Corbett, 5th ed., via the Inclusive Access program (watch for the `no-reply@verbasoftware.com` opt-out email, often lands in spam; opt-out questions go to inclusiveaccess@umn.edu).
@@ -80,29 +67,33 @@ No slide content beyond the header — this was a live, unrecorded-in-slides act
 - **Class participation**: quality over quantity: being present alone doesn't guarantee a good grade, and excessive absence hurts it. Two participation "passes" are allowed per semester — using one requires emailing the professor at least 1 hour before class.
 - **AI policy**: "You may use AI but must acknowledge" — matches [[MGMT 3015 Board]]'s three-caveat version (credit it, own the accuracy, never let it write the report).
 - **Recording notice (Tennessen Warning)**: all lectures/discussions are recorded for accessibility; audio/video shared only with enrolled students, instructor, and TAs, per FERPA.
-### 10. First assignment: Profile of a Successful Entrepreneur
+### 10. First assignment: Profile of a Successful Entrepreneur (Session 1, Wed 9/9)
 Full breakdown and grading rubric captured directly from the slide — see [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]] for the complete requirements and rubric table; not duplicated here beyond the objective: *"What does it take to be a successful entrepreneur?"*
-### 11. What's next — Carlson 4000-level entrepreneurship courses
+### 11. What's next — Carlson 4000-level entrepreneurship courses (Session 1, Wed 9/9)
 MGMT 4008 (Entrepreneurial Management — running a venture post-founding), MGMT 4080 (Applied Technology Entrepreneurship — team projects on commercializable tech), MGMT 4170 (New Business Feasibility & Planning — full business plan with feasibility research), MGMT 4171/4172 (Entrepreneurship in Action I & II — two-semester hands-on launch sequence). Cross-reference: [[Fall'26 Syllabus]]'s Path to Graduation section already flags MGMT 4171W as the pick that closes both a minor elective and the Writing Intensive gap.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]] (landed and arranged to full [[Textbook Standard]] shape as of 2026-09-21 — corrected 2026-09-28, this link previously pointed to a CSCI 4041 path in error)
-No chapter is formally assigned to Session 1 — it's pure introduction. But the GEM statistics and "why entrepreneurship matters" framing previewed today (Examples above) are exactly Chapter 1's own territory: its table of contents runs "Entrepreneurship and Small Business in the United States," "Entrepreneurial Revolution," "Creative Destruction," and a full "Global Entrepreneurship Monitor" section with GEM's own findings on activity, necessity/opportunity/gender, age distribution, and growth expectations. Chapter 2 opens with "Critical Factors for Starting a New Enterprise" and "Evaluating Opportunities for New Businesses" — the textbook's own version of today's discovery/evaluation/exploitation diagram.
+> Main chapter: [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]], landed and arranged to [[Textbook Standard]] shape. No chapter is assigned to Session 1 itself (see [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]]), so this section is a preview of what the chapter adds, not a record of a reading.
+### Definitions: lecture versus book
+The lecture defines entrepreneurship as designing, launching, and running a venture while taking on financial and personal risk. The book defines an **entrepreneur** as a person who perceives an opportunity and creates an organization to pursue it, and the **entrepreneurial process** as all functions, activities, and actions associated with perceiving opportunities and creating organizations (p. 3). It also opens with Schumpeter's older definition, an entrepreneur as someone who destroys the existing economic order through new products, methods, organizations, or raw materials (p. 2). Neither source uses the other's wording, so the three definitions stay side by side.
+### The statistics on Session 1's slides
+The lecture's "about 44% of U.S. GDP and about 46% of the private workforce" comes from SBA data on slide 16. The book does not repeat those figures. Its job-creation numbers are different: small businesses created 8.4 million net new jobs against 4.4 million for large businesses between 2000 and 2017 (p. 3). Its Global Entrepreneurship Monitor section measures **Total Early-Stage Entrepreneurial Activity** (new ventures up to 3.5 years old, p. 19-20), which counts a different population than the SBA's all-small-business totals, so the two sets of figures should not be compared directly (the chapter note's own callout makes the same point).
+### What the book adds that the lecture skipped
+Survival rates: 81% of establishments survive one year, 65% two, 40% five, and 25% ten (p. 4). The lecture presents entrepreneurship as a process but gives no failure rate. Chapter 2 also supplies the named process model behind the three-stage diagram: the chapter note maps Opportunity Discovery to "Critical Factors for Starting a New Enterprise," Evaluation to "Evaluating Opportunities for New Businesses," and Exploitation to the resource, profit, and "Ingredients" sections (p. 42-59). That mapping is the note's reading, not the book's own statement.
 ## Takeaways (questions to resolve)
-- [ ] What's the actual difference between Opportunity Discovery and Opportunity Evaluation in the book's own terms — today's diagram names the stages but doesn't define the boundary between them.
-- [ ] Chapter 1's GEM section should have the full stat set behind today's "~44% GDP / ~46% workforce" numbers — confirm the real percentages and their source year once the chapter note lands.
-- [ ] Zahra's AI policy says "must acknowledge" any AI-generated material used — confirm the exact acknowledgment format Canvas expects (footnote? separate statement? inline citation?) before the Profile is due.
+- [ ] Verify the SBA ~44% GDP and ~46% workforce figures on slide 16 against an SBA source, since the book does not contain them.
+- [ ] Check in the PDF whether the book itself draws the boundary between Opportunity Discovery and Opportunity Evaluation where the chapter note places it (p. 47), or whether that split is only the note's mapping of the lecture's diagram.
+- [ ] Confirm the exact AI-acknowledgment format Canvas expects (footnote, separate statement, or inline citation) before the Profile is due.
 ## Lecture-to-textbook synthesis
-==Entrepreneurship, in this course's own working definition, is innovation plus risk-taking plus value creation — and an idea only becomes an opportunity once it can create customer value and sustain the venture, not merely because it's original or the founder loves it.==
-*Mechanism:* The three-part definition (innovation, risk-taking, value creation) gives the course a test for every later case and exercise: does this idea actually convert into something people will pay for, sustainably, under real uncertainty? The discovery → evaluation → exploitation process is the operational version of that test — you don't just have an idea, you run it through stages that either confirm or kill it.
-- Lecture example/scenario: MCQ 4 forces the distinction directly — an idea is "a beginning, not yet a business," and only becomes an opportunity "when it can create value for customers and sustain the venture." A founder's passion or a novel technology, by themselves, are explicitly wrong answers.
-- Textbook connection: [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]] — Chapter 2's "Critical Factors for Starting a New Enterprise" and "Evaluating Opportunities for New Businesses" sections formalize what today's three-stage diagram only sketches.
-- Concept links: none yet (concepts out of scope this pass).
+==Entrepreneurship, in this course's working definition, is innovation plus risk-taking plus value creation, and an idea only becomes an opportunity once it can create customer value and sustain the venture, not because it is original or the founder loves it.==
+*Mechanism:* The three-part definition gives the course a test for every later case and exercise: does this idea convert into something people will pay for, sustainably, under real uncertainty? The discovery, evaluation, exploitation process is the operational version of that test, because an idea runs through stages that either confirm or kill it. The book supplies the base rate the lecture leaves out: only about a quarter of establishments reach year ten (p. 4), which is why a test is needed at all.
+- Lecture example/scenario: MCQ 4 forces the distinction directly. An idea is "a beginning, not yet a business," and it becomes an opportunity only "when it can create value for customers and sustain the venture." Founder passion and novel technology, by themselves, are listed as wrong answers.
+- Textbook connection: [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]]. Chapter 1 gives the book's own definition of the entrepreneur (p. 3) and the survival data (p. 4). Chapter 2's process model and Timmons Framework formalize what the lecture's diagram only sketches (see [[20_Progress/Degree/MGMT 3015/Weekly/Week - 2|Week - 2]] for that reconciliation).
+- Concept links: [[Concept - Idea vs Opportunity]] (to create), [[Concept - Entrepreneurial Process]] (to create).
 > [!WARNING]
-> Don't conflate "idea" and "opportunity" the way casual conversation does. The whole course's grading structure (Profile due today's week, New Business Idea next week, then pitches and a written plan) assumes you can tell the difference — an assignment graded on "idea generation" is still being evaluated against the opportunity test, not idea novelty alone.
-
+> Do not conflate "idea" and "opportunity" the way casual conversation does. The course's grading structure (Profile first, New Business Idea next, then pitches and a written plan) assumes you can tell them apart, so an assignment graded on idea generation is still judged against the opportunity test, not novelty alone.
 > [!SUMMARY]
-> Session 1 sets the course's entire vocabulary: entrepreneurship is a testable process (discovery/evaluation/exploitation), not a personality type, and everything graded this semester measures how well you run an idea through that process.
+> Session 1 sets the course's vocabulary: entrepreneurship is a testable process, not a personality type, and everything graded this semester measures how well you run an idea through it.
 ## Flashcards
 #cards/MGMT
 Entrepreneurship (this course's definition)::Designing, launching, and running a new venture while taking on financial and personal risk to build something valuable — built from three parts: innovation, risk-taking, value creation.
@@ -110,26 +101,5 @@ Idea vs. opportunity::An idea is a beginning; it becomes an opportunity only whe
 The three-stage entrepreneurial process::Opportunity Discovery → Opportunity Evaluation → Opportunity Exploitation, all situated inside a Context that shapes what's findable.
 Why "testing an assumption with a real customer" beats "writing a long plan first"::Entrepreneurial action converts assumptions into evidence; small real-world tests limit time/resources at risk compared to planning in a vacuum.
 MGMT 3015's AI policy boundary::AI is allowed for research, ideation, and acknowledged assistance — but the report itself must be the student's own writing; this is stricter than "no restriction".
-
-## Textbook integration
-<!-- State what the textbook adds beyond lecture. Link the actual chapter and name the missing framework or test. -->
-> [!IMPORTANT]
-> Main chapters:
-## Takeaways (questions to resolve)
-<!-- Use real follow-up questions that can be answered by reading or drilling. -->
-- [ ]
-- [ ]
-## Lecture-to-textbook synthesis
-<!-- Use one highlighted definition, then mechanism, lecture example, textbook link, concept links, warning, and summary. -->
-== ==
-*Mechanism:*
-- Lecture example/scenario:
-- Textbook connection:
-- Concept links:
-> [!WARNING]
-> Replace this with the common confusion or failure mode.
-
-> [!SUMMARY]
-> Replace this with what the week is really about in one sentence.
-## Flashcards
-<!-- Add 3–5+ cards to #cards/<course-slug>; test distinctions and mechanisms, not labels. -->
+Lecture definition versus the book's definition of an entrepreneur::The lecture defines entrepreneurship as designing, launching, and running a venture while bearing financial and personal risk (innovation, risk-taking, value creation). The book defines an entrepreneur as a person who perceives an opportunity and creates an organization to pursue it (p. 3), so the lecture emphasizes risk and value, the book emphasizes perceiving and organizing.
+Why the lecture's 44% of GDP and the book's GEM figures do not match::The SBA figures count all established small businesses, while GEM's TEA counts only new ventures up to 3.5 years old (p. 19-20). They measure different populations.

@@ -1,32 +1,53 @@
 ---
 type: class
-input_kind: book
+class_kind: textbook
 status: sprout
 created: 2026-09-09
-updated: 2026-09-21
-area:
-  - "[[MGMT 3015 Board]]"
-  - "[[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]]"
+updated: 2026-11-04
 tags:
-  - "#class"
-  - "#Textbook"
-  - "#MGMT"
-next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Ideas') from Repetitive Things.md — only Chapter 3 has landed so far, Chapter 4 and the whole-note wrap (Chapter Summary, Key Concepts, whole-chapter Flashcards) are still pending"
+  - class
+  - textbook
+area:
+  - "[[20_Progress/Degree/MGMT 3015/MGMT 3015 Board|MGMT 3015 Board]]"
+  - "[[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]]"
+next: "Check Chapter 3 pp. 70-95 for the shape-versus-trigger split, the five-type opportunity taxonomy, and the prolific-recognizer explanation that Week - 3 found in the deck but not in this note, and verify page numbers against the PDF"
 ---
 # Chapter - 3 & 4 — Opportunity Recognition, Shaping, and Reshaping / Prototyping Your Ideas
 **Source:** Zacharakis, Bygrave & Corbett, *Entrepreneurship*, 5th ed. (Wiley, 2019), Chapters 3-4, pp. 70-119.
 **Read from:** `D:\_Anant\10_Areas\UMN\Classes\Minor\MGMT 3015\MGMT 3015 - Entrepreneurship, 5th Edition.pdf`
-**Course role:** Assigned for Session 4 (Mon 9/21, Ch 3 & 4) and Session 5 (Wed 9/23, Ch 3 & 4 cont'd) — moves from idea generation into testing whether an idea is actually an opportunity.
-> [!WARNING] Only Chapter 3 has landed so far
-> This note currently holds only Part 1 of the two-part Gemini Notebook prompt (Chapter 3). Part 2 — Chapter 4 "Prototyping Your Ideas" plus the whole-note wrap (Chapter Summary, Key Concepts, Flashcards spanning both chapters) — is written and ready in `Repetitive Things.md` (### MGMT 3015) but hasn't been run/pasted yet.
-## Chapter 3: Opportunity Recognition, Shaping, and Reshaping
-
+**Course role:** Assigned for Session 4 (Mon 9/21, Ch 3 & 4) and Session 5 (Wed 9/23, Ch 3 & 4 continued), supporting [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]]. Chapter 3 moves from idea generation into testing whether an idea is an opportunity. Chapter 4 is book-only until the Session 8 and 9 deck touches minimum viable products ([[20_Progress/Degree/MGMT 3015/Weekly/Week - 5|Week - 5]]).
+## Chapter Summary
+Transforming creative ideas into viable business opportunities requires systematically evaluating market demand across environmental dimensions and validating customer value through low-cost, iterative prototyping before committing capital.
+*Mechanism:* Ideation relies on gathering customer stimuli and multiplying concepts through collaborative brainstorming, while opportunity evaluation filters these concepts across customer, competitor, supplier, regulatory, and global dimensions. ==Prototyping operationalizes this evaluation by converting abstract customer assumptions into low-fidelity physical models and minimum viable products (MVPs), maximizing validated customer learning per dollar spent while minimizing development risk.==
+## Key Concepts
+- **idea multiplication**: An iterative 4-step framework (gather stimuli, multiply stimuli, create customer concepts, optimize practicality) that expands initial idea seeds into robust business concepts (p. 73-75).
+- **customer anthropology**: An observational research method where founders observe target customers in their natural environment to identify unarticulated pain points without asking leading questions (p. 75).
+- **pain point**: A specific inefficiency, frustration, or unmet need experienced by customers that a venture solves to establish competitive advantage (p. 75).
+- **Primary Target Audience (PTA)**: The core customer segment possessing the most urgent need, highest purchase frequency, and strongest willingness to pay for a venture's offering (p. 77).
+- **Secondary Target Audience (STA)**: Secondary customer groups that find the product appealing and offer future expansion opportunities, but purchase with lower frequency (p. 77-78).
+- **Tertiary Target Audience (TTA)**: An unanticipated customer segment that emerges during operations and presents unexpected growth potential (p. 77-78, 91).
+- **S-curve**: A graphical model tracking technology or market adoption over time, characterized by slow initial growth, rapid acceleration during the adoption window, and eventual market saturation (p. 82-83).
+- **Key Success Factors (KSFs)**: The specific product and service attributes (price, taste, speed, convenience) that dictate customer purchasing decisions within an industry (p. 89).
+- **Competitive Profile Matrix**: An evaluation grid rating a venture against key direct and indirect competitors across KSFs to establish strategic positioning (p. 89-90).
+- **Opportunity Checklist**: A matrix evaluating new venture ideas across seven environmental categories (customers, trends, distribution, competition, vendors, government, global) to distinguish better from weaker opportunities (p. 91-93).
+- **prototyping**: The process of quickly putting together working models to represent ideas, test design assumptions, and gather early customer feedback (p. 103).
+- **low-fidelity prototype**: A rough, low-cost model constructed from basic materials like paper or foam to rapidly test core concepts and extract initial customer reactions (p. 104).
+- **high-fidelity prototype**: A refined model matching the visual appearance, materials, and features of a final commercial product to evaluate production feasibility and pitch investors (p. 104).
+- **looks-like prototype**: A visual model replicating the aesthetics and physical form factor of a product without functional internal mechanics (p. 105-106).
+- **works-like prototype**: A functional model operating like the intended product to demonstrate technical usability without final styling or packaging (p. 106).
+- **paper prototyping**: A low-cost prototyping technique using paper, cardboard, markers, and tape to map user interface flows and wireframes (p. 106-107).
+- **3-D printing**: An additive manufacturing process building physical 3D objects layer-by-layer from digital CAD files (p. 107-109).
+- **Arduino**: An open-source microcontroller platform used to connect sensors and actuators for building functional works-like hardware prototypes (p. 109).
+- **Raspberry Pi**: A low-cost single-board computer running Linux for prototyping computing-intensive electronic products (p. 109).
+- **production prototype**: A late-stage prototype engineered to optimize assembly line efficiency, reduce component counts, and minimize manufacturing costs (p. 111).
+- **co-creation**: A collaborative design process where target customers are engaged early and continuously as co-designers throughout product development (p. 111).
+- **Minimum Viable Product (MVP)**: A version of a new product concept that allows a team to collect the maximum amount of validated learning about customers with the least effort (p. 112-113).
+## Full Reading Notes
+### Chapter 3: Opportunity Recognition, Shaping, and Reshaping
 *Context:* Chapter 3 examines how entrepreneurs transform raw ideas into commercially viable opportunities by evaluating market demand, competitive dynamics, industry value chains, and environmental factors (p. 70-71). The transition from an initial idea to a viable opportunity is an iterative process requiring a series of market tests that escalate founder commitment as validation increases (p. 71).
-
 > [!NOTE]
 > *Lecture vs. Textbook Ideation Methods Comparison:* Session 4 slides outline three distinct ideation methods: (1) Watch/Listen for Opportunity, (2) Use Your Networks via weak ties (citing Mark Granovetter's 1973 *Strength of Weak Ties* study), and (3) Flash of Insight via creative combination. Chapter 3's "From Glimmer to Action" covers overlapping ground but structures ideation differently. The textbook emphasizes personal passion and industry experience, then presents a structured 4-step **idea multiplication** framework adapted from IDEO and Doug Hall (gather stimuli, multiply stimuli, create customer concepts, optimize practicality) (p. 73-76). While gathering stimuli matches Session 4's "watch/listen" method, the textbook does not explicitly isolate weak ties or flashes of insight as separate named sub-frameworks, focusing instead on collaborative team brainstorming and customer observation.
-
-### From Glimmer to Action: How Do I Come Up with a Good Idea?
+#### From Glimmer to Action: How Do I Come Up with a Good Idea?
 *Foundation in Personal Experience & Passion:* Most successful ideas originate in the founder's industry employment or personal experience; for individuals lacking deep professional experience, idea generation begins by identifying personal passions that provide long-term energy (p. 71).
 *AllTrails Case Example:* Russell Cook founded AllTrails ("Yelp for the Outdoors") in 2011 to solve his personal frustration as an amateur hiker finding suitable weekend trails, raising $400,000 from 500 Startups (p. 72). When Google Maps altered its API pricing beyond AllTrails' budget, Cook created a strategic partnership with National Geographic's TOPO! tool to deliver topographic mapping, turning a major threat into a growth driver (p. 72).
 *Sustainable Competitive Advantage:* Simple replication of existing business models (e.g., launching another generic mobile app) routinely fails; ventures require unique features that deliver sustainable competitive advantage (p. 73).
@@ -36,8 +57,7 @@ next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Id
 2. *Multiply stimuli:* Team members share observational findings and brainstorm solutions. The team applies comedy improv rules by responding "Yes, and..." to build upon every suggestion (p. 75-76). Core concepts are placed on wall flip-charts where team members add written enhancements, culminating in a sticky-note voting process to select top concepts (p. 76).
 3. *Create customer concepts:* Developing tangible representations of multiplied ideas to test with target users (p. 75-76).
 4. *Optimize practicality:* Refining customer concepts to balance user desirability with operational and technical feasibility (p. 75-76).
-
-### Is Your Idea an Opportunity?
+#### Is Your Idea an Opportunity?
 *The Five Dimensions of Opportunity Space (Figure 3.2):* Moving from a concept to a viable enterprise requires evaluating five environmental dimensions: (1) customers, (2) competitors, (3) suppliers and vendors, (4) government regulation, and (5) the broader global environment (p. 76-77).
 *1. Customer Analysis & Segmentation:*
 - *Core Customer Definition:* Founders must define their core customer segment rather than targeting entire populations (p. 77).
@@ -63,8 +83,7 @@ next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Id
 - Regulatory compliance, licensing, and taxation impose direct operational costs and create entry barriers (p. 90-91).
 *5. Global Environment:*
 - Global markets expand the PTA/STA/TTA customer base, introduce international competitors, and provide offshore vendor outsourcing options (p. 91).
-
-### The Opportunity Checklist
+#### The Opportunity Checklist
 *Evaluation Framework (Figure 3.10):* The Opportunity Checklist evaluates new venture ideas by comparing characteristics across "Better Opportunities" versus "Weaker Opportunities" across seven environmental categories (p. 91-93):
 - *Customers:*
 - *Identifiable:* Clear "core" customer versus several possible customer groups (p. 92).
@@ -94,28 +113,17 @@ next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Id
 - *Customers:* Interested and accessible versus not interested or accessible (p. 93).
 - *Competition:* Nonexistent or weak versus existing and strong (p. 93).
 - *Vendors:* Eager versus unavailable (p. 93).
-
 > [!NOTE]
-> *Session 5 Evaluation Alignment:* Session 5 slides ("Defining and Evaluating Opportunities") introduce an opportunity evaluation exercise examining target demographics, market gaps, differentiation strategies, and alignment with the United Nations Sustainable Development Goals (SDGs). This matches Chapter 3's Opportunity Checklist focus on customer identification, competitive positioning, and market trends. Full alignment details will be finalized once Session 5 slides are fully integrated in future note wraps.
-
-### "I Don't Have an Opportunity"
+> *Session 5 Evaluation Alignment:* Confirmed against the full Session 5 deck in [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]]. The Mall of America worksheet maps onto the Five Dimensions of Opportunity Space and the Opportunity Checklist, its "list customer groups, then narrow to the top 3" step mirrors the PTA, STA, and TTA segmentation, and its "list similar products and gaps" step mirrors Competitor Analysis and the Competitive Profile Matrix. Neither source uses the other's exact vocabulary.
+#### "I Don't Have an Opportunity"
 *Iterative Refinement & Reshaping:* Identifying weaknesses on the Opportunity Checklist does not require immediate abandonment of an idea; entrepreneurs must refine and reshape their business model based on customer feedback and competitive dynamics (p. 91-92).
 *Avoiding Strategic Rigidity:* Founders should avoid two failure traps: (1) stubbornly adhering to an initial unvalidated concept despite negative market evidence, and (2) prematurely abandoning a venture after minor initial setbacks when reshaping could resolve the weakness (p. 92).
 *Escalation of Market Commitment:* Business planning is a continuous process where low-cost early market tests dictate concept modifications before committing substantial capital (p. 71, 92).
-
-## Examples Worth Keeping
-- **ISlide, Inc. — the chapter's own case study (pp. 95-101, read in full 2026-09-21):** Justin Kittredge founded ISlide (customizable athletic sandals) in January 2013 after thirteen years in the footwear industry, most of it at Reebok. Chapter 2's "80% of Inc. 500 founders start in their current industry" claim is exactly what this case demonstrates in practice — Kittredge's opportunity, and his ability to exploit it within six months, came directly from his manufacturing relationships in China and his product-development background, not a novel idea from outside the field. Used as the subject of [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]] — full profile written there, not duplicated here.
-## Connections
-- Lecture: [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]] (Session 4, ideation methods) — see the > [!NOTE] callouts embedded in the Chapter 3 sections above for the direct lecture/textbook vocabulary comparison.
-- Concept: none yet (concepts out of scope for this production pass per [[Course Production Board — Fall'26]]).
-## Chapter 4: Prototyping Your Ideas
-
+### Chapter 4: Prototyping Your Ideas
 *Context:* Innovation—the creation of new and useful products, services, processes, and business models—lies at the heart of entrepreneurship, yet upwards of 50–90% of innovations fail across industries due to misaligned customer value assumptions (p. 102-103). Prototyping bridges the gap between founder assumptions and customer perception by answering three core questions: whether target customers want the product, how to alter design to enhance market appeal, and how the concept compares against existing solutions (p. 103).
-
 > [!NOTE]
-> *Lecture Schedule Note:* As of 2026-09-28, no class session has covered prototyping (Sessions 4 and 5 focused exclusively on ideation methods and opportunity evaluation). The concepts in Chapter 4 represent book-only material that lecture has not yet reached.
-
-### What Is Prototyping?
+> *Lecture Schedule Note:* Sessions 4 and 5 covered only ideation and opportunity evaluation, so Chapter 4 is book-only for [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]]. The first lecture contact is the Session 8 and 9 deck's willingness-to-pay tests (minimum viable product, landing pages with pricing, pre-orders, crowdfunding), recorded in [[20_Progress/Degree/MGMT 3015/Weekly/Week - 5|Week - 5]].
+#### What Is Prototyping?
 *Definition & Core Purpose:* **Prototyping** is the process of quickly putting together working models (prototypes) to represent ideas, test various aspects of a design, and gather early customer feedback (p. 103). Its primary objective is to obtain actionable customer feedback, forcing founders out into the field to iterate rapidly rather than remaining fixated on unvalidated pet concepts (p. 103).
 *Three-Stage Prototyping Process (Figure 4.1):*
 1. *Representing assumptions:* Materializing implicit hypotheses regarding customer value into physical, visual, or digital models (p. 103-104).
@@ -135,8 +143,7 @@ next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Id
 - *Customer Segments (PTA/STA/TTA):* Low-fidelity prototypes test core Primary Target Audience (PTA) pain points and willingness to pay before expanding to secondary groups.
 - *S-curve:* Early prototyping accelerates validated learning during the initial slow-growth phase (Point 1 to 2), preparing the venture for the rapid adoption window (Point 2 to 3) without incurring heavy fixed costs.
 - *Opportunity Checklist:* Prototyping replaces founder speculation with empirical market evidence across key checklist categories (customer identification, distribution value chain, vendor costs, key success factors).
-
-### Types of Prototyping
+#### Types of Prototyping
 *Media & Technological Platforms:*
 - **paper prototyping**: Representing product concepts using simple materials such as paper, cardboard, markers, and tape to test layout and interface logic at minimal cost (p. 106-107). Widely used in mobile application development to test user interface (UI) wireframes and user experience (UX) flows prior to writing code (p. 107).
 - **3-D printing**: An additive manufacturing technology where computer-controlled tool heads extrude materials (plastic, ceramic, metal) layer-by-layer to construct physical objects from digital CAD files (p. 107-109).
@@ -157,51 +164,26 @@ next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Id
 - *Definition:* Formulated by Eric Ries, a **Minimum Viable Product (MVP)** is that version of a new product concept that allows a team to collect the maximum amount of validated learning about customers with the least effort (p. 112-113).
 - *Mechanism:* Maximizes information learned per dollar spent; focuses on customer engagement first and product development second to avoid building products nobody wants (p. 113-114).
 - *E-Commerce MVP Case:* Nick Swinmurn launched Zappos in 1999 by taking photographs of shoes in local Santa Monica retail stores, posting them on a basic website, purchasing ordered shoes at full retail, and shipping them manually to validate online shoe-buying demand before building inventory or warehouse infrastructure (acquired by Amazon in 2009 for \$1.2 billion) (p. 113).
-
-## Examples Worth Keeping
-### Balanced Snacking / NatureBox Case (Case 4, p. 115-118)
+## Worked Example
+### ISlide, Inc. (Chapter 3's case, pp. 95-101)
+**ISlide, Inc. — the chapter's own case study (pp. 95-101, read in full 2026-09-21):** Justin Kittredge founded ISlide (customizable athletic sandals) in January 2013 after thirteen years in the footwear industry, most of it at Reebok. Chapter 2's "80% of Inc. 500 founders start in their current industry" claim is exactly what this case demonstrates in practice — Kittredge's opportunity, and his ability to exploit it within six months, came directly from his manufacturing relationships in China and his product-development background, not a novel idea from outside the field. Used as the subject of [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]] — full profile written there, not duplicated here.
+### Balanced Snacking / NatureBox (Case 4, pp. 115-118)
 *Founders:* Gautam Gupta and Ken Chen.
 *Context:* Inspired by the direct-to-consumer (D2C) model of The Honest Company, Gupta and Chen sought to offer healthy snack boxes via online subscription, bypassing traditional grocery store shelf slotting fees and distribution channel power dynamics (p. 115-117).
 *MVP Experiment & Execution:* To validate customer willingness to buy snacks online, they set up a simple landing page backed by a Facebook ad featuring a \$22/month subscription offer (p. 118). When over 100 customers signed up immediately, they purchased bulk snacks at Costco, hand-packed variety boxes, printed labels at Staples, and launched a single-page website to fulfill orders (p. 118). This low-cost market test confirmed repeat customer demand for online healthy snacking without incurring custom manufacturing or long-term inventory costs.
-
 ## Connections
-*Lecture Alignment:* Chapter 3 formalizes Session 4's ideation concepts, but Chapter 4's prototyping material represents book-only content as of 2026-09-28 `(pending - no session has covered prototyping yet)`.
-
-## Chapter Summary
-Transforming creative ideas into viable business opportunities requires systematically evaluating market demand across environmental dimensions and validating customer value through low-cost, iterative prototyping before committing capital.
-*Mechanism:* Ideation relies on gathering customer stimuli and multiplying concepts through collaborative brainstorming, while opportunity evaluation filters these concepts across customer, competitor, supplier, regulatory, and global dimensions. ==Prototyping operationalizes this evaluation by converting abstract customer assumptions into low-fidelity physical models and minimum viable products (MVPs), maximizing validated customer learning per dollar spent while minimizing development risk.==
-
-## Key Concepts
-- **idea multiplication**: An iterative 4-step framework (gather stimuli, multiply stimuli, create customer concepts, optimize practicality) that expands initial idea seeds into robust business concepts (p. 73-75).
-- **customer anthropology**: An observational research method where founders observe target customers in their natural environment to identify unarticulated pain points without asking leading questions (p. 75).
-- **pain point**: A specific inefficiency, frustration, or unmet need experienced by customers that a venture solves to establish competitive advantage (p. 75).
-- **Primary Target Audience (PTA)**: The core customer segment possessing the most urgent need, highest purchase frequency, and strongest willingness to pay for a venture's offering (p. 77).
-- **Secondary Target Audience (STA)**: Secondary customer groups that find the product appealing and offer future expansion opportunities, but purchase with lower frequency (p. 77-78).
-- **Tertiary Target Audience (TTA)**: An unanticipated customer segment that emerges during operations and presents unexpected growth potential (p. 77-78, 91).
-- **S-curve**: A graphical model tracking technology or market adoption over time, characterized by slow initial growth, rapid acceleration during the adoption window, and eventual market saturation (p. 82-83).
-- **Key Success Factors (KSFs)**: The specific product and service attributes (price, taste, speed, convenience) that dictate customer purchasing decisions within an industry (p. 89).
-- **Competitive Profile Matrix**: An evaluation grid rating a venture against key direct and indirect competitors across KSFs to establish strategic positioning (p. 89-90).
-- **Opportunity Checklist**: A matrix evaluating new venture ideas across seven environmental categories (customers, trends, distribution, competition, vendors, government, global) to distinguish better from weaker opportunities (p. 91-93).
-- **prototyping**: The process of quickly putting together working models to represent ideas, test design assumptions, and gather early customer feedback (p. 103).
-- **low-fidelity prototype**: A rough, low-cost model constructed from basic materials like paper or foam to rapidly test core concepts and extract initial customer reactions (p. 104).
-- **high-fidelity prototype**: A refined model matching the visual appearance, materials, and features of a final commercial product to evaluate production feasibility and pitch investors (p. 104).
-- **looks-like prototype**: A visual model replicating the aesthetics and physical form factor of a product without functional internal mechanics (p. 105-106).
-- **works-like prototype**: A functional model operating like the intended product to demonstrate technical usability without final styling or packaging (p. 106).
-- **paper prototyping**: A low-cost prototyping technique using paper, cardboard, markers, and tape to map user interface flows and wireframes (p. 106-107).
-- **3-D printing**: An additive manufacturing process building physical 3D objects layer-by-layer from digital CAD files (p. 107-109).
-- **Arduino**: An open-source microcontroller platform used to connect sensors and actuators for building functional works-like hardware prototypes (p. 109).
-- **Raspberry Pi**: A low-cost single-board computer running Linux for prototyping computing-intensive electronic products (p. 109).
-- **production prototype**: A late-stage prototype engineered to optimize assembly line efficiency, reduce component counts, and minimize manufacturing costs (p. 111).
-- **co-creation**: A collaborative design process where target customers are engaged early and continuously as co-designers throughout product development (p. 111).
-- **Minimum Viable Product (MVP)**: A version of a new product concept that allows a team to collect the maximum amount of validated learning about customers with the least effort (p. 112-113).
-
+- *Lecture:* [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]] (Session 4, ideation methods; Session 5, opportunity definition and evaluation). Chapter 3 formalizes Session 4's ideation methods differently (see the comparison callout under Chapter 3) and supplies the named frameworks behind Session 5's worksheet. Chapter 4 prototyping is book-only for that week. [[20_Progress/Degree/MGMT 3015/Weekly/Week - 4|Week - 4]] (Sessions 6 and 7) is the first time the course asks for a pitch built on these ideas, and [[20_Progress/Degree/MGMT 3015/Weekly/Week - 5|Week - 5]] is where the minimum viable product reappears as a willingness-to-pay test.
+- *Textbook:* [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]] supplies the Timmons Framework and "Evaluating Opportunities" material this chapter builds on, and [[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8|Chapter - 8]] reuses the Primary Target Audience logic (p. 225-226) and the Competitive Profile Matrix (p. 226-228) that appear here at p. 77-78 and p. 89-90. Map entry: [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
+- *Assignment:* the ISlide case is the subject of [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]], written there and not duplicated here.
+- *Concepts:* [[Concept - Opportunity Checklist]] (to create), [[Concept - Minimum Viable Product]] (to create), [[Concept - Strength of Weak Ties]] (to create).
 ## Open Questions
 - [ ] How does **customer anthropology** during stimuli gathering differ from traditional survey research when identifying unarticulated customer **pain points**?
 - [ ] Why should a founder construct a **looks-like prototype** or **paper prototype** before investing in a high-fidelity **production prototype**?
 - [ ] How does testing a **Minimum Viable Product (MVP)** validate the **Primary Target Audience (PTA)** assumptions on the **Opportunity Checklist**?
 - [ ] In what ways can **co-creation** prevent a venture from overdeveloping unnecessary product features during the practicality optimization phase?
 - [ ] How does early prototyping help a venture navigate the slow initial adoption phase of the **S-curve** prior to scaling?
-
+- [ ] Check Chapter 3, pp. 70-95, for the shape-versus-trigger split, the five-type opportunity taxonomy, and the "why some people are more prolific at recognizing opportunities" explanation, which [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]] found in the Session 5 deck but not in this note.
+- [ ] Check every page number and definition in this note against the PDF, because it was arranged from Gemini output and has not been source-checked.
 ## Flashcards
 Question::What is the primary operational difference between a works-like prototype and a looks-like prototype? Answer::A **works-like prototype** demonstrates functional mechanics and technical usability without final commercial styling, whereas a **looks-like prototype** replicates visual aesthetics and physical dimensions without internal working electronics (p. 105-106). #cards/MGMT
 Question::How does an MVP maximize learning efficiency according to Eric Ries's framework? Answer::An **MVP** collects the maximum amount of validated customer learning per dollar spent with the least effort, prioritizing customer willingness to pay over premature product engineering (p. 112-113). #cards/MGMT

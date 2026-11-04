@@ -6,10 +6,10 @@ source_os: windows
 title: "MGMT 3015 weekly notes"
 started_at: 2026-11-04T02:35:58
 ended_at: 2026-11-04T13:59:42
-exported_at: 2026-11-04T13:59:43
+exported_at: 2026-11-04T14:51:43
 duration_minutes: 683.7
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: c76cb2c6-8ae8-451e-990f-c5168ae0dab8
 status: seed
 review_state: raw

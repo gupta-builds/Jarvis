@@ -1,11 +1,17 @@
 ---
+type: reference
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - internship
+  - job-company
+reference_kind: company
 company:
 position:
 program:
 contact:
-tags:
-  - internship
-  - job-company
+notes: []
 next:
 ---
 # [Company] - [Position]

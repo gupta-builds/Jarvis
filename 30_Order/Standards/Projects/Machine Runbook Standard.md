@@ -10,7 +10,7 @@ system_kind: standard
 family: machine-runbook
 tier: 1
 maps_to:
-  - "[[Machine Runbook Template]]"
+  - "[[Machine Setup Runbook Template]]"
 used_by: []
 gold_standard: "[[40_Resources/CS/Concepts/New Laptop/Old Laptop Decommission Checklist|Old Laptop Decommission Checklist]]"
 notes:

@@ -11,7 +11,7 @@ system_kind: standard
 family: internship-program
 tier: 1
 maps_to:
-  - "[[Program Template]]"
+  - "[[Internship Program Template]]"
 used_by: []
 gold_standard: "[[10_Areas/Career/Internships/Programs/Serious/2027-Nuro-AI-Platform-SWE]]"
 notes:

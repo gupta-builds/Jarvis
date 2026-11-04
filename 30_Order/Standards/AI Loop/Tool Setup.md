@@ -11,7 +11,7 @@ system_kind: standard
 family: tool-setup
 tier: 1
 maps_to:
-  - "[[30_Order/Templates/AI Toolkit/Tool Setup Template|Tool Setup Template]]"
+  - "[[AI Tool Profile Template]]"
 used_by:
   - "[[Files Tracking]]"
 gold_standard: "[[20_Progress/AI/Claude Code/Jarvis/Setup]]"

@@ -10,7 +10,7 @@ system_kind: standard
 family: plan
 tier: 1
 maps_to:
-  - "[[Plan Template]]"
+  - "[[Standing Plan Template]]"
 used_by:
   - "[[Plan Review Cadence]]"
 gold_standard: "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]"

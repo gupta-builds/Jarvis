@@ -22,7 +22,7 @@ A source sits in `60_Claude/05_Clippings/` (`Web`, `Videos`, `PDFs`) and has no 
 1. Confirm the raw source is in `05_Clippings/` with its frontmatter complete ([[Clipping Standard]]). Pasted text with no home goes there first. Never edit the body.
 2. For a PDF, extract clean text first with [[PDF Extraction]]: run `mineru-pdf.ps1` and read the Markdown it prints. Never `Read` the PDF; a hook blocks it.
 3. Search `10_Source_Summaries/` for an existing summary of this source and extend it instead.
-4. Copy [[Clipping Distill Template]] into the matching folder: `PDF Ingestion/Read/`, `Web Ingestion/`, or `Video Ingestion/`. A GitHub repo uses [[Repo Evaluation Template]] in `Github Ingestion/` instead.
+4. Copy [[Source Summary Template]] into the matching folder: `PDF Ingestion/Read/`, `Web Ingestion/`, or `Video Ingestion/`. A GitHub repo uses [[GitHub Repo Card Template]] in `Github Ingestion/` instead.
 5. Write it from [[Source Summary Standard]]: the source line, every key claim, the full content in the source's order, and why it matters here.
 6. Label the strength of each claim. Say when the source is weak, partial, or one person's opinion, and mark your own inference as inferred.
 7. Wikilink the clipping and any existing concept or project the source touches. Write missing targets in the body as `(to create)`.

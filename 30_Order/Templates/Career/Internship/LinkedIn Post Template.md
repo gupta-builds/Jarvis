@@ -1,13 +1,17 @@
 ---
 type: output
 status: sprout
-created:
-source_concepts: []
-posted_date:
-posted_url:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - linkedin
   - output
+output_kind: post
+source_concepts: []
+posted_date:
+posted_url:
+notes: []
+next:
 ---
 # [Post Title]
 ## Draft

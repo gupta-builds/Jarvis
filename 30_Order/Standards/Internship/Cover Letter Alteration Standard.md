@@ -12,7 +12,7 @@ system_kind: standard
 family: cover-letter
 tier: 1
 maps_to:
-  - "[[Cover Letter Template]]"
+  - "[[Internship Cover Letter Template]]"
 used_by: []
 gold_standard: none
 notes:
@@ -23,7 +23,7 @@ notes:
 ---
 # Cover Letter Alteration Standard
 ==A cover letter recombines approved, evidence-backed fragments for one company, in 250 to 350 words, and invents neither enthusiasm nor company facts.==
-This is the contract behind [[Cover Letter Alteration]]. It governs `Main Cover Letter.md`, the fragment bank, and the per-application DOCX files made from it. A cover letter is read start to finish by a person, so its rules are about selection and length, not keyword order. The bank does not exist yet; the first one built from [[Cover Letter Template]] should replace the empty Gold Standard Example.
+This is the contract behind [[Cover Letter Alteration]]. It governs `Main Cover Letter.md`, the fragment bank, and the per-application DOCX files made from it. A cover letter is read start to finish by a person, so its rules are about selection and length, not keyword order. The bank does not exist yet; the first one built from [[Internship Cover Letter Template]] should replace the empty Gold Standard Example.
 ## Spec
 ```json
 {

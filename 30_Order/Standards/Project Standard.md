@@ -10,7 +10,7 @@ system_kind: standard
 family: project
 tier: 1
 maps_to:
-  - "[[Project Note Template]]"
+  - "[[Project Status Note Template]]"
 used_by:
   - "[[Brief to Progress]]"
 gold_standard: "[[20_Progress/Projects/Jarvis & The Plan/Jarvis|Jarvis]]"

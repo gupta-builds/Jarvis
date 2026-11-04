@@ -10,9 +10,9 @@ system_kind: standard
 family: field-os
 tier: 1
 maps_to:
-  - "[[Field OS Template]]"
-  - "[[Depth Ladder Template]]"
-  - "[[Question Bank Template]]"
+  - "[[Capability Field OS Template]]"
+  - "[[Capability Depth Ladder Template]]"
+  - "[[Capability Question Bank Template]]"
 used_by: []
 gold_standard: "[[AI Field OS]]"
 notes:

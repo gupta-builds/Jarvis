@@ -10,6 +10,7 @@ system_kind: workflow
 serves:
 trigger:
 notes: []
+next:
 ---
 # <% tp.file.title %>
 <!-- One sentence: the outcome this workflow produces. -->

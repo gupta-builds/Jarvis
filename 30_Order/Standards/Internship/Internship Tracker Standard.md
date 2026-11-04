@@ -11,7 +11,7 @@ system_kind: standard
 family: internship-tracker
 tier: 1
 maps_to:
-  - "[[30_Order/Templates/Career/Tracking|Tracking]]"
+  - "[[Internship Tracker Template]]"
 used_by:
   - "[[Internship Tracking Workflow]]"
   - "[[Internship Pipeline]]"

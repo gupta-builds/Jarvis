@@ -9,8 +9,7 @@ tags:
 system_kind: standard
 family: dashboard
 tier: 1
-maps_to:
-  - "[[For Dashboards]]"
+maps_to: []
 used_by: []
 gold_standard: "[[Capability Dashboard]]"
 notes:

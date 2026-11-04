@@ -20,7 +20,7 @@ You would put it on a resume, send it to a mentor, or paste it into an applicati
 ## Steps
 1. Pick the kind: `story`, `bullet`, or `one-pager`. Other kinds have no Standard yet.
 2. List the concepts and project evidence it draws on, such as a distilled note or a project's Current State.
-3. Copy the matching template: [[Output Template]] (story), [[Output Bullet Template]], or [[Output One-Pager Template]].
+3. Copy the matching template: [[Interview Story Template]] (story), [[Portfolio Bullet Template]], or [[Project One-Pager Template]].
 4. Save it next to the project it serves, for example `20_Progress/Projects/Research/BOOM/`. There is no Outputs folder and no Output Index.
 5. Set `source_concepts` to those notes and open each link to confirm it resolves.
 6. Write it tight and concrete for a reader who has no context ([[HUMAN_WRITING]]).

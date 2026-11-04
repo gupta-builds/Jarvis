@@ -10,7 +10,7 @@ system_kind: standard
 family: source-summary
 tier: 1
 maps_to:
-  - "[[Clipping Distill Template]]"
+  - "[[Source Summary Template]]"
 used_by:
   - "[[Capture to Summary]]"
 gold_standard: "[[BASWE 15 AI Engineering Projects That Land Jobs (PDF)]]"

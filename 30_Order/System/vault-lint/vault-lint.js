@@ -436,7 +436,8 @@ function kitCheck() {
     const ms = (n.keys.maps_to && n.keys.maps_to.items) || [];
     for (const m of ms) {
       const mm = m.match(/\[\[([^\]|#]+)/); if (!mm) continue;
-      const tf = files.find((x) => x.rel.replace(/\.md$/i, '').toLowerCase().endsWith(mm[1].trim().toLowerCase()));
+      const want0 = mm[1].trim().toLowerCase();
+      const tf = files.find((x) => { const r0 = x.rel.replace(/\.md$/i, '').toLowerCase(); return r0 === want0 || r0.endsWith('/' + want0); });
       if (!tf) { add('error', f.rel, `maps_to ${m} does not resolve`); continue; }
       const tt = fs.readFileSync(tf.abs, 'utf8'); const tn = parseNote(tt);
       if (/\{\{/.test(tt)) add('error', tf.rel, 'uses {{ }} date syntax (use Templater)');

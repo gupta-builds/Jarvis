@@ -10,7 +10,7 @@ system_kind: standard
 family: moc
 tier: 1
 maps_to:
-  - "[[MOC Template]]"
+  - "[[Folder MOC Template]]"
 used_by: []
 gold_standard: "[[Mentorship Board]]"
 notes:

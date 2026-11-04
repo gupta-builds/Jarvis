@@ -10,7 +10,7 @@ system_kind: standard
 family: agent-prompt
 tier: 1
 maps_to:
-  - "[[Agent Prompt Template]]"
+  - "[[Agent Task Prompt Template]]"
 used_by:
   - "[[Prompt Cycle]]"
 gold_standard: "[[60_Claude/40_Project_Briefs/CausalOps/claude code/ran/01 - Fix MCP Server Deployment and Housekeeping|Prompt 1: Fix the MCP Server Deployment]]"

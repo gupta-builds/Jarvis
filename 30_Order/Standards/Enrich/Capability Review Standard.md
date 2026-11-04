@@ -11,7 +11,7 @@ system_kind: standard
 family: capability-review
 tier: 1
 maps_to:
-  - "[[30_Order/Templates/Capability/Weekly Synthesis Template|Weekly Synthesis Template]]"
+  - "[[Vault Weekly Synthesis Template]]"
 used_by: []
 gold_standard: "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W40]]"
 notes:

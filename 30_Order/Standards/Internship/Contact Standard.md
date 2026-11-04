@@ -11,7 +11,7 @@ system_kind: standard
 family: internship-contact
 tier: 1
 maps_to:
-  - "[[Contact Template]]"
+  - "[[Internship Contact Template]]"
 used_by: []
 gold_standard: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/2027 Software Engineering Internship - Uber]]"
 notes:

@@ -5,35 +5,36 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-11-03T23:31:31
-exported_at: 2026-11-03T23:31:33
-duration_minutes: 13158.9
+ended_at: 2026-11-04T00:00:05
+exported_at: 2026-11-04T00:00:06
+duration_minutes: 13187.4
 project: The Plan
-cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
+cwd: 'D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
 status: seed
 review_state: raw
 created: 2026-10-25
-updated: 2026-11-03
-turn_count: 20
+updated: 2026-11-04
+turn_count: 24
 tools_used:
-  AskUserQuestion: 11
-  Bash: 76
-  Edit: 16
+  AskUserQuestion: 12
+  Bash: 106
+  Edit: 23
   Grep: 1
   mcp__plugin_context7_context7__query-docs: 2
   mcp__plugin_context7_context7__resolve-library-id: 1
   Read: 2
+  Skill: 1
   ToolSearch: 1
   WebSearch: 8
-  Write: 28
+  Write: 42
 tokens:
-  input: 216
-  output: 224597
-  cache_creation: 811163
-  cache_read: 19959977
-  total: 20995953
-cost_usd: 8.637157
+  input: 302
+  output: 319363
+  cache_creation: 960604
+  cache_read: 30505726
+  total: 31785995
+cost_usd: 11.237328
 model:
   - "claude-opus-5-5"
   - "claude-sonnet-5-5"
@@ -41,8 +42,16 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\7776f00ad8139643\\c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd\\scratchpad\\chk.js"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Daily\\2026-10-27.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\00_Live\\Enumerate\\Weekly\\12 Weeks - Sept to Dec.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\Templates\\Daily Dashboard\\Better Month.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\Templates\\Daily Dashboard\\Better Today.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\Templates\\Daily Dashboard\\Better Week.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\30_Order\\Templates\\Daily Dashboard\\Better Year.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Build Plan.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Architecture.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Dashboard Build Hub.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Front End and Visual System.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Plugin Build Prompts.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Research - Outside Sources.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Verification and Risks.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboards Hub.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Decisions Log.md"
@@ -59,6 +68,7 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Day Model and Streak.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Plans Feed.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Verification and Risks.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Postmortem.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Spec - Automation Layers.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Spec - Home and Monthly Dashboards.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Spec - Streak and Daily Note.md"
@@ -11314,12 +11324,4267 @@ Verification and Risks.md | dashes 0 | --- 2 | broken none
 12 Weeks - Sept to Dec.md | dashes 0 | --- 2 | broken none
 ```
 
+## You
+
+This session has run for roughly 2 weeks and holds a lot of content, make sure that the notes listed out current the current build notes only and the design is update the current design that was just discussed. I want eacha nd every single note to be rich with information that was discussed in this session. Because quite literally everything and each single detail was talked about inside this session. Make sure that the design notes you lay out are completely laid out for success and eacha dn every single feature is clearly described per design. The implementation is still required to be designed and will be covered later on and in a different session. Your job here is to make sure that each and every single feauture is defined per the postmortem that was discussed already. make sure that each and every single point is clearly defined. We have covered all edge cases and extremes, even null entries. There should absolutely be no problems with this taks. Let's make sure that we accomplish exactly what we have set it out for in this session 0- designing and updating the dashboard completely for rebuild so that the base is perfectly designed and in use. Perfectly running already and everything closed after this build runs out. Makring everything to be perfectly functional and running. This is the core of the dashboard. 
+
+Now, to answer your questions. 
+
+ plan_start and plan_end for the 12 Weeks plan. I never got the dates. Until they're in the frontmatter, the page shows a banner and no day counter. decided later on. 
+Your yes to the move list in Build Plan. It moves four prompt and step notes into a new Dashboards/Ran. I haven't moved anything. yes cause these already ran. Do not write the prompts. redesign all the notes in the session based on all the content this session holds. The content written out is way too less. A from yesrtday heading was added to the daily note template (the template has not been updated with the build that was just discussed and needs to be updated because it is the core of the entire structure. Here is the folder that you need to modify to make sure that we document each day, week, month and yearly note correctly with the format that is correctly drafted here: `30_Order/Templates/Daily Dashboard`. Go ahead and update these tempaltes along with the notes that are mentioned above and in the folder that we are working inside. Make sure that this pass completely finishes this design process and we mark the end of questionnaire and have marked the entire core base of the dashboard here (design wise). Ready for build and each and every single thing is finished up on. If there is anything left, take care of it by asking me questions or deleting the existing note. Make sure that we are clean and ready for the implementation to take place after this pass. Finish the entire session's goal here. Wrap the session up here. Write out all the content discovered here.
+
+## Claude
+
+I'll start by looking at the template folder and the remaining notes I haven't yet reviewed for currency.
+
+I've recovered the Jarvis page spec and research from git, so I can port every relevant rule to The Plan. Now I'm doing the approved move of the four ran notes.
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates" && ls -la; echo ---; ls -la "Daily Dashboard"; echo ---; wc -c "Daily Dashboard"/*; echo; cd ../.. ; wc -c 30_Order/Templates/*.md | tail -30
+```
+```
+total 20
+drwxr-xr-x 1 anant 197609   0 Oct 13 15:34 .
+drwxr-xr-x 1 anant 197609   0 Oct 13 15:24 ..
+drwxr-xr-x 1 anant 197609   0 Oct 13 15:35 AI
+drwxr-xr-x 1 anant 197609   0 Sep 15 21:21 Classes
+drwxr-xr-x 1 anant 197609   0 Oct 26 14:17 Daily Dashboard
+-rw-r--r-- 1 anant 197609 685 Apr  8  2026 MOC.md
+drwxr-xr-x 1 anant 197609   0 Sep 15 21:21 Metadata
+---
+total 21
+drwxr-xr-x 1 anant 197609    0 Oct 26 14:17 .
+drwxr-xr-x 1 anant 197609    0 Oct 13 15:34 ..
+-rw-r--r-- 1 anant 197609  524 Oct 26 14:09 Better Month.md
+-rw-r--r-- 1 anant 197609 2896 Nov  3 23:37 Better Today.md
+-rw-r--r-- 1 anant 197609  591 Oct 26 14:09 Better Week.md
+-rw-r--r-- 1 anant 197609  199 Oct 26 14:09 Better Year.md
+---
+ 524 Daily Dashboard/Better Month.md
+2896 Daily Dashboard/Better Today.md
+ 591 Daily Dashboard/Better Week.md
+ 199 Daily Dashboard/Better Year.md
+4210 total
+
+685 30_Order/Templates/MOC.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Daily Dashboard" && for f in "Better Today.md" "Better Week.md" "Better Month.md" "Better Year.md"; do echo "=========== $f"; cat -A "$f" | sed 's/\$$//' | head -90; done
+```
+```
+=========== Better Today.md
+---
+type: thought
+thought_kind: reflection
+status: seed
+related_progress:
+  - "[[2026]]"
+tags:
+  - thought
+  - "#journal"
+next:
+---
+# Did you get better today?
+> [!NOTE] Summary:
+## Morning Plan
+<!-- Fill from the active plan: the goal, one 80 task, two to four 20 items, and the do-not list. -->
+*Goal*: ==You get to do==
+1. **80**:
+^I- 
+2. **20**:
+^I- 
+3. **Do Not Do**:
+^I- 
+
+#### From Yesterday
+> Filled out on the previous day for things that need to be done for the next day. 
+
+1. 
+### 80
+> I will [BEHAVIOR] at [TIME] in [LOCATION].
+- [ ] I will ==get out of bed(asap), move around== everyday at *8 am* so that I can become a **morning person**. 
+- [ ] I will ==learn something new(read)== everyday in the *morning* on the *couch* so that I can become a **reader**.
+- [ ] I will ==read mindset content on atoms app== every time I have *nothing to do* so that I donM-bM-^@M-^Yt **doomscroll** on my phone(*17 days left*).
+- [ ] I will ==go outside and study== everyday at *2 pm* in *Lind hall* so that I can **ace my finals**.
+- [ ] 
+### 20
+> After [CURRENT HABIT], I will [NEW HABIT]
+- [ ] I will ==plan my day for 20 minutes== every day on *my table* after ==moving around== in the *morning* so that I can become at **peace with myself**.
+- [ ] I will ==go to the gym at 5:30== everyday after ==class/studying== so that I can become someone **who performs calisthenics**.
+- [ ] I will ==drink 3L of water== everyday and ==creatine== every day so that I can become a **healthy and active person**.
+
+> [!DANGER] **Do NOT do today:**
+## Daily Wins
+
+| Win     | Target | Done                        |
+| ------- | ------ | --------------------------- |
+| Project |        | `INPUT[toggle:win_project]` |
+| Career  |        | `INPUT[toggle:win_career]`  |
+| Cleanup |        | `INPUT[toggle:win_cleanup]` |
+| Review  |        | `INPUT[toggle:win_review]`  |
+## Daily Floor
+
+| Track | Target | Topic | Done                    |
+| ----- | ------ | ----- | ----------------------- |
+|       |        |       | `INPUT[toggle:floor_1]` |
+|       |        |       | `INPUT[toggle:floor_2]` |
+|       |        |       | `INPUT[toggle:floor_3]` |
+## Productivity
+
+**LeetCode today:** `INPUT[number:lc_count]`
+**Study hours:** `INPUT[number:study_today]`
+**Wins hit:** `INPUT[number:wins_done]` / 4
+## Just Write
+> [!IMPORTANT] The Journey to improve is by first coming to exact terms with your own actions, thoughts and mind. Which will only happen if you write daily and understand what exactly do you do. 
+> - Time is Money, Money is not Time. 
+
+> So, what did you think?
+
+> So, what do you do?
+
+> So, what will you do?
+
+
+### Good Habits 
+- [ ] M-bM-^OM-+ *Morning Routine*: 
+- [ ] M-pM-^_M-^TM-< *Read 12 Pages of the book*
+- [ ] 
+### Bad Habits 
+1. *The Basic(~~lol~~)*: Smoking, vaping, masterbating.
+2. 
+## Tomorrow
+> Actions required for tomorrow which are written down the previous night, while closing down the note.
+
+1. =========== Better Week.md
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+related_progress:
+tags:
+  - thought
+  - brainstorm
+next:
+---
+# 52 Weeks
+> [!NOTE] **Summary**: 
+## Goals
+
+## Productivity 
+
+## Good habits 
+
+## Bad habits 
+
+## Fixes
+
+# Check-in
+> [!QUESTION] Rate yourself on focus, health, discipline, and connection: Where did I abandon myself this week? Where did I show up?
+
+Focus: 
+Discipline:
+Connection:
+
+## Review Log
+
+%% Written by /weekly-review, one "### YYYY-Www" entry per week. Do not edit the heading. Format: 30_Order/Standards/Dashboards/Weekly Review. %%
+=========== Better Month.md
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+updated:
+related_progress:
+tags:
+  - thought
+  - brainstorm
+next:
+---
+# What made you better this month? 
+**Summary**:
+
+## Month plan and goals
+
+The few outcomes this month exists to produce.
+
+- 
+
+## Productivity 
+
+## Good habits 
+
+## Bad habits 
+
+## Fixes
+
+## Next Move
+
+- 
+
+## Review Log
+
+%% Written by /monthly-review, one "### YYYY-MM" entry per month. Do not edit the heading. Format: 30_Order/Standards/Dashboards/Monthly Review. %%
+=========== Better Year.md
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+updated:
+related_progress:
+tags:
+  - thought
+next:
+---
+# What made you better this Year?
+
+## Resolution checklist
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && sed -n 1,140p validate.ts; echo ======; grep -n "Review Log\|## \|heading" review.ts sections.ts close.ts | head -50; ls "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows" 2>/dev/null
+```
+```
+import { CATEGORIES, CONFIG } from "./config";
+import { misses, nextLines, normalizeAction } from "./close";
+import { isIsoDate } from "./dates";
+
+export interface Issue {
+	/** Rule number from the Daily Note Schema validator table, 1 to 6. Warnings use 0. */
+	rule: number;
+	severity: "error" | "warning";
+	/** 1-based line number, or null for a whole-file issue. */
+	line: number | null;
+	message: string;
+}
+
+const norm = (p: string) => p.replace(/\\/g, "/");
+
+/** True when a path should be checked as a daily note: it sits in a folder named Daily, or it has an ISO date name. */
+export function isDailyCandidate(path: string): boolean {
+	const p = norm(path);
+	if (!p.toLowerCase().endsWith(".md")) return false;
+	if (/(^|\/)fixtures\//i.test(p)) return false;
+	const name = p.slice(p.lastIndexOf("/") + 1);
+	return /(^|\/)Enumerate\/Daily\/[^/]+$/i.test(p) || /^\d{4}-\d{2}-\d{2}\.md$/.test(name);
+}
+
+/**
+ * The six validator rules of the Daily Note Schema, plus warnings for a next action with no or an unknown type.
+ * Pure: the caller supplies the previous day's text. Reports only; never rewrites.
+ */
+export function validateDaily(path: string, text: string, previousText: string | null): Issue[] {
+	const issues: Issue[] = [];
+	const p = norm(path);
+	const name = p.slice(p.lastIndexOf("/") + 1);
+	const stem = name.replace(/\.md$/i, "");
+
+	if (!/^\d{4}-\d{2}-\d{2}\.md$/.test(name) || !isIsoDate(stem)) {
+		issues.push({ rule: 1, severity: "error", line: null, message: `File name "${name}" is not an ISO date (YYYY-MM-DD.md).` });
+	}
+	if (!p.endsWith(`${CONFIG.dailyFolder}/${name}`)) {
+		issues.push({ rule: 2, severity: "error", line: null, message: `Parent folder is not ${CONFIG.dailyFolder}.` });
+	}
+
+	const lines = text.split("\n");
+	let heading = "";
+	for (let i = 0; i < lines.length; i++) {
+		const raw = (lines[i] ?? "").replace(/\r$/, "");
+		const h = /^##\s+(.*)$/.exec(raw);
+		if (h) heading = (h[1] ?? "").trim().toLowerCase();
+		const box = /^\s*[-*+]\s+\[.\]\s/.test(raw);
+		const cat = /\[cat::\s*([A-Za-z-]*)\s*\]/.exec(raw);
+		const inCategory = (CATEGORIES as readonly string[]).includes(heading);
+		if (cat) {
+			if (!(CATEGORIES as readonly string[]).includes((cat[1] ?? "").toLowerCase())) {
+				issues.push({ rule: 3, severity: "error", line: i + 1, message: `Unknown category "${cat[1] ?? ""}" in a cat field. Allowed: ${CATEGORIES.join(", ")}.` });
+			}
+		} else if (box && inCategory) {
+			issues.push({ rule: 3, severity: "error", line: i + 1, message: "Action line has no cat field, so it is not counted." });
+		}
+	}
+
+	const next = nextLines(text);
+	if (next.length > CONFIG.maxNextActions) {
+		issues.push({ rule: 4, severity: "error", line: (next[CONFIG.maxNextActions]?.line ?? 0) + 1, message: `${next.length} next actions. The limit is ${CONFIG.maxNextActions}.` });
+	}
+	if (previousText !== null) {
+		const before = new Set(nextLines(previousText).map((n) => normalizeAction(n.text)));
+		for (const n of next) {
+			if (before.has(normalizeAction(n.text))) {
+				issues.push({ rule: 5, severity: "error", line: n.line + 1, message: `Repeats a next action from the previous day: "${n.text}".` });
+			}
+		}
+	}
+	for (const m of misses(text)) {
+		if (m.cause !== null && !(CONFIG.causes as readonly string[]).includes(m.cause)) {
+			issues.push({ rule: 6, severity: "error", line: null, message: `Cause "${m.cause}" is not in the allowed list (${CONFIG.causes.join(", ")}).` });
+		}
+	}
+	for (const n of next) {
+		if (n.type === "" || !(CONFIG.nextTypes as readonly string[]).includes(n.type)) {
+			issues.push({ rule: 0, severity: "warning", line: n.line + 1, message: `Next action has ${n.type === "" ? "no type field" : `type "${n.type}"`}. Allowed: ${CONFIG.nextTypes.join(", ")}.` });
+		}
+	}
+	return issues;
+}
+======
+review.ts:168:/** The numeric lines of a Review Log entry, in the format the standards define. Keep, stop, start and decision are added by the reviewer. */
+review.ts:170:	const out = [`### ${r.label}`, ""];
+sections.ts:1:/** Lines under a `## heading`, up to the next `## ` heading. Case-insensitive. */
+sections.ts:2:export function section(text: string, heading: string): string[] {
+sections.ts:9:			on = line.replace(/^##\s+/, "").trim().toLowerCase() === heading.toLowerCase();
+sections.ts:40:/** Up to five bullet lines under `## Next actions`. Comments and empty bullets are skipped. */
+close.ts:9:/** `- [miss:: morning] [cause:: sleep]` lines under `## Evening close`. A miss without a cause has cause null. */
+close.ts:29:/** Every bullet under `## Next actions`, with no cap, so the validator can count past five. */
+D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards:
+Daily Note Schema.md
+Monthly Review.md
+Scheduled Review.md
+Streak Rule.md
+Weekly Review.md
+
+D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows:
+Agentic OS
+Daily Dashboard.md
+Git Sync.md
+Jarvis Move.md
+Run Monthly Review.md
+Run Weekly Review.md
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && for f in "Audit - Dashboard Stack and Phone Checklist.md" "Research - Jarvis Dashboard Findings.md" "Spec - AI Loop.md" "Dashboard Build/Reference - Obsidian API for This Build.md" "Dashboard Build/Research - Obsidian Dashboard Methods.md" "Dashboard Build/Research - Plugin Creation Guide.md" "Dashboard Build/Review - Corrections to Earlier Notes.md" "Dashboard Build/Sonnet 5.5 Prompt Rules.md" "Dashboard Build/Private Use and Sharing.md"; do echo "=========== $f"; sed -n 1,16p "$f" | grep -E "^(type|status|next|updated|created):"; grep -E "^#{1,2} " "$f" | head -14; done
+```
+```
+=========== Audit - Dashboard Stack and Phone Checklist.md
+type: project
+status: seed
+created: 2026-10-14
+next: "Anant runs the phone checklist, then decides the five recommendations"
+# Audit: Dashboard Stack and Phone Checklist
+## How this was checked
+## 1. Which plugins are enabled
+## 2. Recommendations
+## 3. Dataview refresh setting
+## 4. Do git and Obsidian Sync write the same files?
+## 5. Phone checklist (about five minutes)
+## Extras worth doing later
+=========== Research - Jarvis Dashboard Findings.md
+type: input
+status: sprout
+created: 2026-10-12
+next: "Run prompt R1 in Prompts to close the transport and official-spec unknowns"
+# Research: Jarvis Dashboard Findings
+## Where the Jarvis build record lives
+## How the Jarvis dashboard works
+## Why a tick button works inside a table
+## The streak feature: it does not exist in Jarvis
+## Weaknesses to fix, not port
+## The Plan today
+## Constraints that shape the design
+=========== Spec - AI Loop.md
+type: project
+status: sprout
+created: 2026-10-12
+# Spec: AI Loop
+## Update 2026-10-13: what changed since this spec
+## Rule files
+## `60_Jarvis`: two zones, no renames
+## Five skills (each a directory)
+## Four agents
+## Three hooks
+## Toolkit
+## Reference notes
+## Logging (four layers, no new folders)
+## Open points
+=========== Dashboard Build/Reference - Obsidian API for This Build.md
+type: input
+status: sprout
+created: 2026-10-13
+next: "Keep open during every build prompt"
+# Reference: Obsidian API for This Build
+## Registration (main.ts)
+## Views (view/)
+## Reading the vault (data/repo.ts)
+## Writing (data/write.ts)
+## Settings UI (settings.ts)
+## DOM helpers
+## Where the truth is when docs are silent
+=========== Dashboard Build/Research - Obsidian Dashboard Methods.md
+type: input
+status: sprout
+created: 2026-10-12
+next: "Verify the items marked Unverified using Build Steps S0"
+# Research: Obsidian Dashboard Methods
+## Requirement the method must meet
+## Options compared
+## Evidence
+## Conclusion
+=========== Dashboard Build/Research - Plugin Creation Guide.md
+type: input
+status: sprout
+created: 2026-10-13
+# Research: Plugin Creation Guide
+## What a plugin is
+## The sample repo layout
+## Files to copy (from the sample, verbatim values)
+## Develop, test, reload
+## Official guidelines that apply to this plugin
+## Release and sharing mechanics (for later)
+## How Homepage opens a file (from its source)
+## Obsidian Sync and plugins
+## Lazy Plugin Loader
+## BRAT
+## React
+## Unreachable pages
+## Build-day checklist distilled
+=========== Dashboard Build/Review - Corrections to Earlier Notes.md
+type: input
+status: sprout
+created: 2026-10-13
+next: "Apply the corrections marked Patch in the prompts' preamble; edit the older specs only when Anant approves"
+# Review: Corrections to Earlier Notes
+## Conflicts and what wins
+## Items still open
+## What did not change
+=========== Dashboard Build/Sonnet 5.5 Prompt Rules.md
+type: input
+status: sprout
+created: 2026-10-13
+next: "Apply these rules to every prompt in Plugin Build Prompts"
+# Sonnet 5.5 Prompt Rules
+## What the page says and what each prompt does
+## Prompt shape used in this build
+## Choice not covered by the page
+=========== Dashboard Build/Private Use and Sharing.md
+type: input
+status: sprout
+created: 2026-10-13
+next: "Revisit only after the dashboard has run for a month"
+# Private Use and Sharing
+## Direct answer
+## What private means in practice
+## Design choices that keep the plugin shareable later
+## What sharing would require later
+## Would it be useful to someone else
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && cat "Dashboard Build Hub.md"; echo =====ARCH; cat Architecture.md
+```
+````
+---
+type: project
+status: sprout
+created: 2026-10-12
+tags:
+  - dashboard
+  - build
+  - hub
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Research - Obsidian Dashboard Methods]]"
+  - "[[Architecture]]"
+  - "[[Front End and Visual System]]"
+  - "[[Build Steps]]"
+  - "[[Verification and Risks]]"
+  - "[[Build Prompts]]"
+  - "[[Plugin Build Prompts]]"
+  - "[[Research - Plugin Creation Guide]]"
+  - "[[Reference - Obsidian API for This Build]]"
+  - "[[Private Use and Sharing]]"
+  - "[[Review - Corrections to Earlier Notes]]"
+  - "[[Sonnet 5.5 Prompt Rules]]"
+  - "[[Build Log]]"
+  - "[[Decisions Log]]"
+  - "[[Spec - Streak and Daily Note]]"
+next: "Run B1 and B2, then Plugin Build Prompts 1 to 5 in order"
+---
+# Dashboard Build
+
+How the Home dashboard gets built, from data to pixels. The design (what it shows and why) is in [[Dashboards Hub]]. This folder answers the one question left: what is the dashboard made of, if it is not a note, a canvas, a Kanban or a drawing.
+
+## The answer
+
+**A small private Obsidian plugin that draws the dashboard in its own view.** Homepage opens that view at launch on desktop and phone. Every number on screen is computed from the daily notes, which stay plain markdown. Ticking a task in the view edits the checkbox line in the daily note.
+
+Three layers, each replaceable without touching the others:
+
+1. **Data.** Daily notes, `YYYY-MM-DD.md`, with `- [ ]` lines and a `[cat:: ...]` field. Defined in [[Spec - Streak and Daily Note]].
+2. **Engine.** One pure TypeScript module that turns note text into day status, streak and best streak. The plugin and the Claude Code hooks both run this same file. No second implementation exists to drift.
+3. **View.** A plugin view that renders the ring, streak, heatmap, today's ticks and the explore map with plain DOM and inline SVG.
+
+## Why not the alternatives
+
+Short version. The full comparison with sources is in [[Research - Obsidian Dashboard Methods]].
+
+- A markdown note with DataviewJS is what Jarvis did. Dataview is in maintenance mode, DataviewJS views still flicker on refresh, and layout is fought with CSS.
+- Datacore is still a work-in-progress with no confirmed mobile support.
+- Bases cannot draw a ring or a heatmap, and cannot walk a sequence of days to compute a streak.
+
+## Notes in this folder
+
+| Note | Holds |
+|---|---|
+| [[Research - Obsidian Dashboard Methods]] | Every option compared, with sources and what is unverified |
+| [[Architecture]] | Layers, data flow, modules, file layout, where the code lives |
+| [[Front End and Visual System]] | Layout, colours, ring, heatmap, interactions, phone behaviour |
+| [[Build Steps]] | Stages S0 to S6, gates, the dev loop |
+| [[Verification and Risks]] | What is unverified and the exact test for each |
+| [[Plugin Build Prompts]] | The five prompts that build the plugin, with the shared preamble |
+| [[Research - Plugin Creation Guide]] | How a plugin is made: sample repo, manifest, guidelines, dev loop, Homepage and Sync internals |
+| [[Reference - Obsidian API for This Build]] | The exact API used, by module, with what to test |
+| [[Private Use and Sharing]] | Whether the plugin must be shared, and what sharing would need |
+| [[Review - Corrections to Earlier Notes]] | Conflicts between earlier notes and what wins |
+| [[Sonnet 5.5 Prompt Rules]] | How the prompts follow the model guide |
+| [[Build Log]] | Handoff between the five prompts |
+| [[Build Prompts]] | Earlier stage prompts S0 to S6, superseded by Plugin Build Prompts |
+
+## Relation to the earlier build plan
+
+Stage S0 to S6 here replace prompt B3 (Home dashboard and CSS) in [[Build Plan]]. B1 (rename and standards) and B2 (template and streak script) still run first. B2's streak script becomes the engine module in this plugin.
+=====ARCH
+---
+type: project
+status: sprout
+created: 2026-10-12
+tags:
+  - dashboard
+  - architecture
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Research - Obsidian Dashboard Methods]]"
+  - "[[Front End and Visual System]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - AI Loop]]"
+next: "Confirm the code location decision below, then run Build Prompts S0"
+---
+# Architecture
+
+Plugin id `the-plan-dashboard`. Private, never submitted to the community directory. It renders; it does not own data.
+
+## Data flow
+
+```
+daily notes (.md)  --read-->  Repo  -->  Engine (pure)  -->  View (DOM + SVG)
+        ^                                                        |
+        +------------------ vault.process (tick) <---------------+
+```
+
+1. The plugin reads the daily notes folder. Folder path is the only setting.
+2. Each note's text is parsed into per-category counts. The result is cached by file modification time.
+3. The Engine computes day status, streak, best streak, lost days and milestone from those counts.
+4. The View draws. A tick edits one line of one note. Obsidian fires its modify event, the cache entry for that note drops, and the View redraws the affected sections.
+
+Nothing is stored in the plugin except the folder path and the floor (3). No second copy of any number exists.
+
+## Modules
+
+| Module | Imports Obsidian? | Job |
+|---|---|---|
+| `core/parse.ts` | No | Note text to `{ category: { total, done } }`. Reads `- [ ]` and `- [x]` lines and the `[cat:: x]` field. Ignores everything else. |
+| `core/streak.ts` | No | Applies the rule in [[Spec - Streak and Daily Note]]: MET at 3 of 5, one isolated MISS forgiven, two in a row reset, missing note is MISS, today is pending. Returns streak, best, lost days per month, milestone. |
+| `core/toggle.ts` | No | Given note text, a line number and the expected line text, returns the text with that box flipped. Refuses if the line changed. |
+| `data/repo.ts` | Yes | Lists the daily folder, reads files with `vault.cachedRead`, caches by mtime, listens to modify, create, delete and rename. |
+| `data/write.ts` | Yes | Calls `toggle` inside `vault.process`, which is atomic. The only write path. |
+| `view/DashboardView.ts` | Yes | `FileView` for the `.plan` stub or `ItemView` (S0 decides). Lays out sections. |
+| `view/sections/*.ts` | Yes | Hero, Today, Heatmap, Month, NextActions, Explore. Each is a function from data to DOM. |
+| `main.ts` | Yes | Registers the view, the command "The Plan: Open dashboard", and the settings tab. |
+
+The `core/` folder has no Obsidian import. That is what lets the Claude Code hooks and the tests run the same code under Node.
+
+## One engine, two callers
+
+`core/` compiles to a standalone CommonJS bundle, `streak-cli.cjs`. The daily-note validator hook and `/closeday` call it with `node streak-cli.cjs <folder> <date>` and read JSON. The plugin imports the same files. This replaces the earlier "script plus a test comparing it to the DataviewJS". There is one implementation and one test file, so drift cannot happen.
+
+## Write rules
+
+- Only `data/write.ts` writes. It flips one checkbox character.
+- It checks that the line at the given number still equals the line the user saw. If not, it aborts and redraws. This stops a stale phone tap from ticking the wrong task after a sync.
+- It never touches frontmatter, never creates notes, never deletes. The career line and study hours are shown read-only; tapping opens the note at that line.
+- Creating today's note is not the plugin's job. The daily template (B2) and Periodic Notes do that. If today's note is missing, the Hero shows the empty ring and a single "Create today" button that runs the existing template command.
+
+## Reading without a cache problem
+
+`metadataCache` lists list-items with task status but does not expose inline fields such as `[cat:: morning]`. So the plugin reads file text with `cachedRead` and parses lines itself. At 30 to 100 small notes this is milliseconds. A heatmap of 30 days and a streak walk of up to 400 days read each file once, then hit the mtime cache.
+
+## Where the code lives (decision needed)
+
+| Option | Backed up | Syncs to phone | Clutters vault |
+|---|---|---|---|
+| Source in a separate repo, e.g. `D:\_Anant\20_Progress\Projects\the-plan-dashboard`. Build copies `main.js`, `manifest.json`, `styles.css` into `.obsidian/plugins/the-plan-dashboard/`. | Yes (own git) | Via Obsidian Sync plugin setting, to verify | No |
+| Source inside `.obsidian/plugins/the-plan-dashboard/` | No: `.obsidian/` is gitignored | Same | Yes, `node_modules` too |
+| Source in a vault dot-folder | Only after editing `.gitignore` | No | Yes, against the no-clutter rule in AGENTS.md |
+
+**Recommendation: the separate repo.** Only the three built files enter the vault. `node_modules` never does. The engine bundle is copied to `.claude/` for hooks.
+
+## Settings
+
+Stored in the plugin's `data.json`: `dailyFolder` (default `00_Live/Enumerate/Daily`), `floor` (3). That file holds no secrets and is safe to sync.
+
+## Performance budget
+
+- First paint under 300 ms after the vault index is ready on desktop; under 800 ms on the phone.
+- The view waits for `workspace.onLayoutReady` before reading. It never blocks Obsidian startup.
+- Redraw only the section whose inputs changed. A tick redraws Hero and Today only.
+
+## What this architecture deliberately leaves out
+
+No framework (Preact or React). The view is about six sections of DOM and SVG, and a framework adds a build step and a dependency for no gain. No database. No network. No Node or Electron APIs, so the same bundle runs on the phone.
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && cat "Front End and Visual System.md"; echo =====CORR; sed -n 17,80p "Review - Corrections to Earlier Notes.md"; echo =====PRIV; sed -n 17,40p "Private Use and Sharing.md"
+```
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+tags:
+  - dashboard
+  - design
+  - frontend
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Architecture]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Decisions Log]]"
+next: "Build the Hero section first (Build Steps S3), then judge colours on a real screen"
+---
+# Front End and Visual System
+
+What the view looks like and how it behaves. Content order follows [[Spec - Home and Monthly Dashboards]]: streak and ring first.
+
+## Confirmed visual choices (2026-10-12)
+
+| Item | Anant's answer | Rule built from it |
+|---|---|---|
+| Score ring colours | Red, golden orange, light dark green | Red under the floor (0 to 2 categories), golden orange at 3 and 4 (day met), green at 5 |
+| Forgiven days | Counted as lost days in the month | A forgiven MISS adds 0 to streak length, does not reset it, and counts in the month's "lost days" total |
+| Heatmap | Eye pleasing | Single green ramp, soft corners, no harsh borders. Exact shades below. |
+
+"Light dark green" is read as a mid green, softer than a pure signal green. One token (`--pl-ok`) changes it. Everything else is detail for later, once the screen exists.
+
+## Layout
+
+One scrolling column on the phone. Two columns from 900 px wide on desktop. Sections in this order:
+
+1. **Hero.** Large streak number on the left, score ring on the right, best streak and next milestone under the number. The ring centre shows `3/5`.
+2. **Today.** Five category cards in time order. Each card lists its actions with the time on the line. Tap a row to tick. A card turns solid when all its actions are done.
+3. **Career and Study.** The one career line and the study hours line. Read-only; tap opens the note at that line.
+4. **Heatmap.** 30 days, 6 columns by 5 rows on the phone, 10 by 3 on desktop. Tap a cell to open that day's note.
+5. **Month strip.** `Met 17 · Lost 4 · Forgiven 1`, with the top cause tag.
+6. **Next actions.** Up to 5 lines, from the last close.
+7. **Explore.** A radial map: centre "The Plan", first ring Home, Monthly, Life OS, Plans, Jarvis; second ring the notes under each. Tap a node to open the note. Nodes come from links in one note, so editing the map is editing markdown.
+
+## Colour tokens
+
+Defined on `.pl-dash` and overridden for light and dark. Falls back to Obsidian variables so the AnuPpuccin theme still styles text and surfaces.
+
+| Token | Dark | Light | Used for |
+|---|---|---|---|
+| `--pl-bad` | `#E5534B` | `#D63B33` | Ring under floor, missed marker |
+| `--pl-warn` | `#F0A63A` | `#D98A12` | Ring at 3 and 4, forgiven outline |
+| `--pl-ok` | `#5BC98A` | `#2E9E63` | Ring at 5, completed cards |
+| `--pl-heat-0` | `#23282F` | `#E8ECEF` | No data or 0 categories |
+| `--pl-heat-1` | `#1F3B31` | `#CFE9DB` | 1 category |
+| `--pl-heat-2` | `#25523F` | `#A7DBC1` | 2 categories |
+| `--pl-heat-3` | `#2E7050` | `#7CCBA2` | 3 (met) |
+| `--pl-heat-4` | `#3F9468` | `#4FB583` | 4 |
+| `--pl-heat-5` | `#5BC98A` | `#2E9E63` | 5 |
+
+Forgiven day: cell uses its normal shade with a dashed `--pl-warn` outline. Today: a solid outline in the text colour. Missing note: `--pl-heat-0` with a faint diagonal line. Colour is never the only signal: the cell also carries a tooltip with the count.
+
+## Ring
+
+SVG circle, `stroke-dasharray` driven by `done/5`, rotated to start at the top. Colour switches at 3. Transition of `stroke-dashoffset` over 350 ms and a single pulse when the count crosses 3 and again at 5. Respects `prefers-reduced-motion`.
+
+## Streak number and milestones
+
+Number counts MET days in the current run. Under it: `Best 17` and `Next: 21 in 6 days`. Milestones 3, 7, 21, 66, 100 change the number's accent and show a level title. The titles are not chosen yet (see open items in [[Decisions Log]]). The code reads them from one array.
+
+## Interaction rules
+
+- Tap a task row: toggles. The row shows its new state immediately; the file write confirms it.
+- If the write is refused (line changed), the row snaps back and the view redraws from disk. No error dialogs.
+- No drag, no long press, no swipe on tasks. Fewer gestures means fewer phone mistakes.
+- Career line and study hours are read-only on the dashboard. Tapping one opens today's note at that line, so there is one write path (the checkbox toggle).
+- Hit targets 44 px tall on the phone.
+
+## Phone behaviour
+
+- Same bundle, same view. The layout is a CSS grid with one column below 900 px.
+- Homepage gets a separate mobile profile pointing at the same command.
+- Safe-area padding at the bottom so the Obsidian toolbar never covers the Next actions.
+- No hover-only information anywhere.
+
+## Style rules
+
+- Styles live in the plugin's `styles.css`, scoped under `.pl-dash`. Nothing global.
+- DOM is built with `createEl` and `createSvg`. No `innerHTML`, which was the risk flagged in the Jarvis audit.
+- Numbers use a tabular monospace face for the streak and ring, matching the gupta-builds card.
+- The existing `dashboard.css` snippet is not reused. It is retired when Home ships.
+=====CORR
+---
+# Review: Corrections to Earlier Notes
+
+A read-through of every note in `40_Resources/Obsidian/Dashboards` on 2026-10-13. These are the places where an earlier note is now wrong or in conflict. The plugin prompts carry these corrections in their own text, so no prompt depends on an older note being fixed first.
+
+## Conflicts and what wins
+
+| # | Earlier statement | Where | Now | Action |
+|---|---|---|---|---|
+| 1 | Home is DataviewJS with inline SVG on `00_Dashboard.md` | [[Spec - Home and Monthly Dashboards]], B3 in [[Prompts]] | Home is a plugin view. See [[Dashboard Build Hub]] | Patch B3 pointer; B3 is not run |
+| 2 | Streak script is Python in `30_Order/System/streak`; DataviewJS must match it | [[Spec - Streak and Daily Note]], B2 in [[Prompts]] | One TypeScript engine shared by the plugin and the hooks | B2 shrinks to template and QuickAdd steps only |
+| 3 | Ring colours proposed grey, gold, green | [[Spec - Streak and Daily Note]] | Red, golden orange, green (answered 2026-10-12) | Patch the spec line when Anant approves |
+| 4 | Plugin set lists Dataview as core for Home and Multi-Column as dropped | [[Spec - Home and Monthly Dashboards]] | Home no longer needs Dataview or Meta Bind; Meta Bind and Dataview stay for other notes | None |
+| 5 | Dataview refresh 2500 ms risk | [[Spec - Home and Monthly Dashboards]] | Not relevant to the plugin view | None |
+| 6 | Hooks to deny every write under `.obsidian` | B5 in [[Prompts]] | The build deploys three files into `.obsidian/plugins/the-plan-dashboard/` | The write guard must allow that one folder, or the deploy step runs outside Claude Code |
+| 7 | Daily-note validator and `/closeday` call a Python script | B4 and B5 in [[Prompts]] | They call `node streak-cli.cjs` | Update B4 and B5 wording when they run |
+| 8 | `.claude/` is carried by git | [[Research - Jarvis Dashboard Findings]] | `.gitignore` ignores everything except directories and `.md`, plus listed exceptions. `.claude/settings.json`, hook scripts and the engine bundle are not tracked unless whitelisted | Whitelist them in `.gitignore` during B5, with Anant's approval |
+| 9 | The Standing instructions say edits under `.obsidian` need a yes | [[Prompts]] | Still true | Each plugin prompt names its exact write paths and asks once |
+| 10 | Map is a separate canvas and a Home section | [[Spec - Home and Monthly Dashboards]], [[Front End and Visual System]] | The Explore section of the plugin is the primary map. A canvas version is optional later | Keep canvas out of the five prompts |
+| 11 | `first_template_day` is where the streak starts | [[Spec - Streak and Daily Note]] | The engine takes it as the earliest note that has at least one category action | Written into the engine prompt |
+| 12 | Homepage target is `00_Dashboard` | `.obsidian/plugins/homepage/data.json` | Becomes `Dashboard.plan` (or the command) | Set in the last prompt, with approval |
+| 13 | "Three dependencies only" | [[Verification and Risks]] | Four: `obsidian`, `esbuild`, `typescript`, `@types/node`. ESLint is optional | Patched here |
+
+## Items still open
+
+1. Exact action lines (times, locations, identity phrases) for each habit.
+2. Milestone level titles. The prompts use numbers only until titles are chosen.
+3. Whether the 80/20 lines become the Targets section.
+4. Keys section in `40_Resources/CS/Links.md` still needs rotation. Not touched by any prompt.
+5. The Developer policies and Submission requirements pages are unread.
+
+## What did not change
+
+The streak rule, five categories, floor of 3, one forgiven miss, milestones 3, 7, 21, 66, 100, the daily note schema, ISO filenames, the lists-with-category-field tick method, the colour tokens and layout in [[Front End and Visual System]], and the rule that the daily note is the only source of truth.
+=====PRIV
+## Direct answer
+
+**No. You do not have to share the plugin with the Obsidian community, and nothing in this build is submitted anywhere.**
+
+The Submit page ([Submit your plugin](https://docs.obsidian.md/Plugins/Releasing/Submit+your+plugin)) describes submission as the way to put a plugin in the community directory. It is the route for sharing, not a requirement for running a plugin. A plugin runs from any folder `<vault>/.obsidian/plugins/<id>/` that holds `main.js` and `manifest.json`, which is exactly how the official build tutorial tests one ([Build a plugin](https://docs.obsidian.md/Plugins/Getting+started/Build+a+plugin)). The docs do not give a separate "private install" guide, so this is inferred from the tutorial, and every plugin in this vault is laid out that way.
+
+## What private means in practice
+
+| Question | Answer |
+|---|---|
+| Submit to the directory? | No. |
+| Public GitHub repo? | Not needed. A local git repo is enough; a private GitHub repo is optional backup. |
+| How does it reach the phone? | Obsidian Sync with "Active community plugin list" and "Installed community plugin list" on, on both devices. Test with a marker string. |
+| Release process? | None. Build and copy three files. No tags, no GitHub release. |
+| Naming rules? | The manifest rules still apply because Obsidian reads the file: `id` lowercase and hyphens, no `obsidian`, not ending in `plugin`. |
+| Review? | None. The guidelines still apply as the quality bar, because they are the official safety and mobile rules. |
+| Secrets? | The plugin has none. If a BRAT install from a private repo is ever used, it needs a GitHub token, which is a secret and stays out of the vault. |
+
+## Design choices that keep the plugin shareable later
+
+These cost almost nothing now and avoid a rewrite if the plugin is ever worth sharing.
+
+1. Follow the guidelines from the first line: no `innerHTML`, no global `app`, registered events, `Vault.process`, CSS classes and Obsidian variables, sentence case, no default hotkeys.
+2. Keep personal values out of code. The daily folder, the floor, the category list and the milestone numbers live in settings or one config object, not scattered through functions.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards" && cat "Daily Note Schema.md"; echo =====STREAK; sed -n 1,60p "Streak Rule.md"
+```
+````
+---
+type: evergreen
+status: sprout
+created: 2026-10-13
+tags:
+  - standard
+  - daily-note
+notes:
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Streak Rule]]"
+  - "[[Daily Dashboard]]"
+  - "[[Better Today]]"
+  - "[[Naming and Folder Map]]"
+  - "[[Note Types and Frontmatter]]"
+  - "[[Decisions Log]]"
+next: "Confirm the exact action wording, times and locations (open point in the spec)"
+---
+# Daily Note Schema
+
+Source: the Daily note schema, Cause tags and Validator rules sections of [[Spec - Streak and Daily Note]]. The daily note is the only source of truth. Dashboards read it and store nothing, and nothing is wiped at night, so history survives. The skeleton is the template [[Better Today]] (Decision 51). The routine that fills it is the [[Daily Dashboard]] workflow. The streak is computed from this schema by [[Streak Rule]].
+
+## File
+
+`00_Live/Enumerate/Daily/YYYY-MM-DD.md`. The date is the ISO date of the day the note covers (Decision 4, [[Naming and Folder Map]]).
+
+A daily note is created in one of three ways:
+
+| Route | When |
+|---|---|
+| `/closeday` | At the evening close, for tomorrow, with the career line and study topic already filled. |
+| QuickAdd "Set tomorrow's career line" | On the phone, when the note for tomorrow does not exist yet. It creates the note from the template. |
+| Templater from the template | By hand, when neither of the above ran. |
+
+An existing note is never overwritten by any of them.
+
+## Template
+
+Since 2026-10-26 the daily template is `30_Order/Templates/Daily Dashboard/Better Today.md` ([[Better Today]], Decision 51). `Daily Note.md` was deleted. Periodic Notes creates each day's note from it, in `00_Live/Enumerate/Daily`, named `YYYY-MM-DD`. The week, month and year notes come from [[Better Week]], [[Better Month]] and [[Better Year]], named `gggg-[W]ww`, `YYYY-MM` and `YYYY`. The skills `startday` and `closeday` create a missing note as a verbatim copy of Better Today. The daily-auditor and the validator read this schema, not the template.
+
+**Known gap, 2026-10-26.** The engine counts only checkbox lines with a `[cat:: ...]` field under the five category headings. `Better Today.md` has none of them: no `type: daily` frontmatter, no `## Targets` to `## Intake` headings, no `[cat::]` lines. A note made from it shows every category with `total` 0, so the streak cannot move, and `/closeday` has no `## Targets` heading to put the career line under. The note validates (`ok: true`) because the six rules check names, folders and the lines that exist, not whether any exist. Until the template carries the structure below, treat a note with every category at `total` 0 as unscored and say so instead of reporting a streak.
+## Frontmatter
+
+```yaml
+---
+type: daily
+status: seed
+created: YYYY-MM-DD
+study_hours: 0
+---
+```
+
+| Key | Value | Written by |
+|---|---|---|
+| `type` | `daily` | Template |
+| `status` | `seed` at creation. The streak ignores it. | Template |
+| `created` | The note's own date. Templater sets it from the file name. | Template, or the skill when it creates a note outside Obsidian |
+| `study_hours` | A plain number, for example `2.5`. | Anant, by hand or through a Meta Bind input |
+
+No other keys. Ticking state, counts and scores never go in frontmatter ([[Note Types and Frontmatter]], rule 2). Values stay plain and unquoted, because a Meta Bind write can strip quote marks from other values.
+
+## Body order
+
+Headings are exact and appear in this order.
+
+| # | Heading | Holds | Written by |
+|---|---|---|---|
+| 1 | `## Targets` | The career line and the study topic. | `/closeday` the night before, QuickAdd, or Anant |
+| 2 | `## Morning` | Action lines with `[cat:: morning]` | Template. Ticked by Anant or the dashboard. |
+| 3 | `## Study` | Action lines with `[cat:: study]` | Same |
+| 4 | `## Fitness` | Action lines with `[cat:: fitness]` | Same |
+| 5 | `## Mind` | Action lines with `[cat:: mind]` | Same |
+| 6 | `## Career` | Action lines with `[cat:: career]` | Same |
+| 7 | `## Evening close` | One line per missed category | `/closeday` or QuickAdd "Log a miss" |
+| 8 | `## Next actions` | Up to five lines for tomorrow | `/closeday` |
+| 9 | `## Intake` | Reserved, empty | Nothing yet |
+
+### Targets
+
+Two lines, in this order:
+
+```
+- Career line: <one named task>
+- Study topic: <topic>
+```
+
+The career line is one named task, written manually. It is never repeated automatically and must differ from the previous day's career line. The template holds only `- Study topic: `, and the career line is inserted above it by `/closeday` or the QuickAdd choice. A note made by hand has no career line until one is typed, and `/startday` flags that.
+
+### Action lines
+
+Every action is a checkbox line in the defined format, ending with a `cat` field:
+
+```
+- [ ] I will [BEHAVIOR] at [TIME] in [LOCATION] so that I can become [IDENTITY]. [cat:: morning]
+```
+
+The format comes from [[Atomic Habits]] (Decision 9). The `cat` value is one of `morning`, `study`, `fitness`, `mind`, `career`. The count reads the `cat` field, so rewording a line, moving it, or placing it under another heading never changes the score. A line without a `cat` field is not counted, and the validator reports it.
+
+Ticking changes only the character inside the brackets: a space is open, `x` is done.
+
+### Default actions
+
+Set once in the template and revised only through a [[Decisions Log]] entry. The wording, times and locations below are working examples until Anant confirms them.
+
+| Category | Actions | Notes |
+|---|---|---|
+| Morning | Move at 8 am. Read 12 pages in the morning. Plan the day for 20 minutes. | The plan follows the move. |
+| Study | One study block at 2 pm. | The hours go in `study_hours`. |
+| Fitness | Gym at 5:30 pm. Water 3L and creatine. | Calisthenics counts as the gym action. |
+| Mind | Mindset content instead of doomscrolling. No smoking before planning, breakfast and the first task. | The gate is one action, not a day-blocking keystone (Decision 10). |
+| Career | The one named task from Targets. | One line per day. |
+
+A category is done only when all its actions are ticked (Decision 8). Adding an action to a category makes that category harder, so changing the list changes the streak. That is why changes go through the decision log.
+
+### Evening close
+
+One line per missed category, and none for a done category:
+
+```
+- [miss:: morning] [cause:: sleep]
+```
+
+A miss line records the cause for the Monthly count. It does not change the score, which comes only from ticked action lines.
+
+### Next actions
+
+At most five plain list lines, each ending with one type field:
+
+```
+- Review the failed gym plan before 8 am. [type:: failure]
+```
+
+Types: `streak`, `career`, `gym`, `failure` (Decision 17). A task is never repeated from the previous day.
+
+### Intake
+
+Reserved for the automation layers in [[Spec - Automation Layers]]. It stays empty and unbuilt. `/startday` reports it as "Intake: not built".
+
+## Cause tags
+
+`sleep`, `no-plan`, `distracted`, `energy`, `other`. One tag per missed category. A new tag needs an entry in [[Decisions Log]] first. The tag list also lives in three tools, which change together with the log: the QuickAdd "Log a miss" picker, the `/closeday` prompt, and the validator.
+
+## Rules
+
+- Use checkbox lines, never tables, for anything that is ticked. Obsidian does not render task checkboxes inside table cells.
+- Do not wipe a note at night.
+- Do not repeat the career line from the day before.
+- Do not store a streak number, score or grade in a daily note.
+
+## Validator
+
+After any write by Claude to a daily note, check the following and report failures without rewriting the note.
+
+| # | Check |
+|---|---|
+| 1 | The filename is ISO (`YYYY-MM-DD.md`). |
+| 2 | The parent folder is `00_Live/Enumerate/Daily`. |
+| 3 | Every action line has a `cat` field with an allowed value. An action line is a checkbox under one of the five category headings. |
+| 4 | There are at most 5 next actions. |
+| 5 | No next action duplicates one from the previous day. |
+| 6 | Every cause tag is in the allowed list. |
+
+Duplicates are compared after removing the type field, lowercasing, and dropping punctuation. The six rules are implemented in the engine (`plan-cli validate`), which `/closeday` runs after its writes, and in the daily-note validator hook ([[Hook Standard]]). The hook is registered in `.claude/settings.json` and was tested live. The engine also warns, without failing, about a next action with no type or an unknown type. A `%%` comment line under `## Evening close` is not a miss. The hook sees only what Claude writes. Ticks made in the dashboard, edits typed in Obsidian and Sync writes never fire it.
+
+## Example
+
+```markdown
+---
+type: daily
+status: seed
+created: 2026-03-10
+study_hours: 2.5
+---
+## Targets
+
+- Career line: Send the follow-up email to the recruiter
+- Study topic: Graph relations
+
+## Morning
+
+- [x] I will move around at 8 am in my room so that I can become a morning person. [cat:: morning]
+- [x] I will read 12 pages in the morning at my desk so that I can become a reader. [cat:: morning]
+- [ ] I will plan the day for 20 minutes after I move, at my desk, so that I can become someone who runs the day. [cat:: morning]
+
+## Study
+
+- [x] I will study for one block at 2 pm at my desk so that I can become a person who learns every day. [cat:: study]
+
+## Evening close
+
+- [miss:: morning] [cause:: no-plan]
+
+## Next actions
+
+- Write the day plan the night before. [type:: streak]
+```
+
+Morning is not done because one action is open. The other sections are cut for length.
+
+## Open points
+
+- Exact action wording, times, locations and identity phrases.
+- Whether the 80/20 lines in older notes become Targets or are retired. The legacy template is described in [[Better Today]].
+=====STREAK
+---
+type: evergreen
+status: sprout
+created: 2026-10-13
+tags:
+  - standard
+  - streak
+notes:
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Daily Note Schema]]"
+  - "[[30_Order/Standards/Dashboards/Weekly Review|Weekly Review]]"
+  - "[[30_Order/Standards/Dashboards/Monthly Review|Monthly Review]]"
+  - "[[Scheduled Review]]"
+  - "[[Daily Dashboard]]"
+  - "[[Decisions Log]]"
+next: "Show the level titles on the dashboard when the Home view is next changed"
+---
+# Streak Rule
+
+Source: the Day status, Streak rule and Milestones sections of [[Spec - Streak and Daily Note]]. Decisions 3, 7, 8, 13, 31, 32 and 33 in [[Decisions Log]] confirm it. The data this rule reads is defined in [[Daily Note Schema]]. The daily procedure that produces it is [[Daily Dashboard]].
+
+The streak counts days on which at least three of five categories were completed. It tolerates one lost day in a row and no more. It exists to show a plain number, with no praise and no guilt.
+
+## Categories
+
+Five: Morning, Study, Fitness, Mind, Career. The streak counts categories, not individual habits (Decision 7). Each category holds one or more actions, and an action belongs to the category named in its `cat` field.
+
+## Day status
+
+| Term | Rule |
+|---|---|
+| Category done | The category has at least one action and every action in it is ticked. A category with no actions is not done. |
+| MET | At least 3 of the 5 categories are done. |
+| MISS | Fewer than 3 are done, or no daily note exists for that date. |
+| NOT_YET | Today only. Today is never MISS until the date has passed. |
+
+A partly ticked category is not done. Morning has three actions, so ticking two of them scores nothing for Morning (Decision 8).
+
+## Run rules
+
+- One MISS day directly after a MET day is forgiven for now. It adds nothing to the streak and does not reset it.
+- A second MISS in a row ends the run. The streak resets to 0. The earlier forgiven day then no longer shields anything, and the run is treated as ending at the last MET day.
+- After a reset, the next MISS is a new forgiven miss. The count of misses restarts at the reset.
+- **Current streak:** the number of MET days in the current run, plus today if today is MET.
+- **Best streak:** the longest run of closed days. Today is not counted in it until the day has passed, so the current streak can read one higher than the best streak on a day that extends the longest run.
+- **At risk:** yesterday was MISS and today is not yet MET. The dashboard shows "Streak breaks if today is not MET."
+- **First counted day:** the first ISO daily note that contains category actions. Earlier notes never count, and days before it do not exist for the streak.
+- **Forgiven days** count as lost days in the month (Decision 32). They add 0 to the streak length.
+
+## Algorithm
+
+The script `30_Order/System/streak/streak.py` is the reference implementation. The engine `plan-cli`, built from the same code as the dashboard plugin, is what skills, hooks and reviews call (Decision 36). The engine must return the same numbers as the script on the same notes. A parity test enforces it: 200 random histories, and every day of 20 random months through `--today`, all equal ([[Reference - plan-cli]]). If the two ever disagree, the script is right until this note says otherwise.
+
+```
+status[d]   = MET if categories_done(d) >= 3 else MISS   // missing note = MISS
+run         = 0
+best        = 0
+prev_miss   = false
+for d in days from first_template_day to yesterday, in order:
+    if status[d] == MET:
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && P="40_Resources/Obsidian/Dashboards/Jarvis Build"; C=$(git log --format=%h -n1 -- "$P/Jarvis Research - Outside Sources.md"); echo "last touch: $C"; git show "$C^:$P/Jarvis Research - Outside Sources.md" | sed -n 17,200p
+```
+```
+last touch: 362d38f
+---
+# Jarvis Research - Outside Sources
+==What the web and the typed Obsidian documentation say about each specific the Jarvis design leans on, how sure each finding is, and what it changed.== All pages were read on 2026-10-26 through search results and the Obsidian API documentation index. Findings marked Secondary come from a summary and not from the primary page.
+
+## Obsidian plugin API
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| `Vault.process` | Atomically reads, modifies and saves a note. The callback is synchronous and returns the new text. | [Vault.process](https://docs.obsidian.md/Reference/TypeScript+API/Vault/process), [Vault API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/vault.md) | High. Locking against external disk changes is not described. | Every tick and edit uses it, with a stale-line check on top, because atomic does not mean the line is still the one the page saw. |
+| `read` and `cachedRead` | `read` reads from disk and is for content you will modify. `cachedRead` is for display. | [obsidian.d.ts](https://github.com/obsidianmd/obsidian-api/blob/master/obsidian.d.ts) | High | The page displays from `cachedRead`. The edit path re-reads before checking a line. |
+| `processFrontMatter` | Atomically changes a note's frontmatter. The note must be markdown. It can throw a YAML parse error. | [processFrontMatter](https://docs.obsidian.md/Reference/TypeScript+API/FileManager/processFrontMatter) | High | Used only for `lc_count` and `study_today`, with errors handled. |
+| `processFrontMatter` bug report | A forum user reported that from Obsidian 1.5.5 it did not insert the frontmatter delimiters on a new file. No resolution found. | [Forum thread](https://forum.obsidian.md/t/processfronmatter-not-inserting-in-frontmatter/76982) | Low, one report | The create-note path writes the whole frontmatter from the template and does not rely on `processFrontMatter` for a new file. |
+| Vault events at load | `create` also fires for every existing file at initial load. Register inside `Workspace.onLayoutReady`. | [Vault API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/vault.md) | High | The plugin registers `create`, `modify`, `delete` and `rename` inside `onLayoutReady`. |
+| Metadata cache events | `changed` fires when a file is indexed and is not called on rename. | [MetadataCache API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/metadata-cache.md) | High | The tracker count listens to `changed` and to the vault `rename` event. |
+| Views and leaves | `onLayoutReady` runs at once if the layout is ready. `revealLeaf` brings a leaf forward and should be awaited. | [Workspace API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/workspace.md) | High | The open command finds the leaf by type, never stores a view. |
+| Desktop only | A plugin that uses Node modules such as `fs`, `crypto` or `os` must set `isDesktopOnly` to true. | [Submission requirements](https://docs.obsidian.md/Plugins/Releasing/Submission+requirements+for+plugins), [Manifest](https://docs.obsidian.md/Reference/Manifest) | High | `isDesktopOnly: true` is allowed, and version 1 still uses no Node API. |
+| `isDesktopOnly` reset | A forum user reported that a plugin update reset a manually set value. | [Forum thread](https://forum.obsidian.md/t/when-updating-a-plugin-dont-reset-the-isdesktoponly-value-in-manifest-json/108368) | Low, user report | The manifest is checked by `doctor` after each deploy. |
+| Homepage | Runs any Obsidian command when it opens the homepage. | [Homepage listing](https://community.obsidian.md/plugins/homepage) | Medium | The route is a command that opens the plugin view. |
+
+## Layout
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Container query units | `cqw`, `cqh`, `cqi`, `cqb`, `cqmin` and `cqmax` size things relative to a query container. `cqh` needs `container-type: size`. | [Can I use](https://caniuse.com/css-container-query-units), [Frontend Masters](https://frontendmasters.com/blog/container-queries-and-units/) | Medium | Kept as an alternative to measured scaling. |
+| Support | Chromium from about version 105, Firefox from 110, Safari from 16. | [Can I use](https://caniuse.com/mdn-css_types_length_container_query_length_units) | Medium, a dated snapshot | Obsidian's bundled Chromium version is unverified, so measured scaling is the plan. |
+| `clamp()` with container units | No source found for the exact pattern. | | Unverified | Not relied on. |
+
+## Habits and streaks
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Habit time | Lally and colleagues found a median of 66 days to reach automaticity, with a range of 18 to 254 days. | [UCL news, 2009](https://www.ucl.ac.uk/news/2009/aug/how-long-does-it-take-form-habit) | Secondary. The 2010 paper was not retrieved. | The 66 day milestone in the streak table is grounded, and the page does not promise 66 days for everything. |
+| One miss | The researchers reported that missing one opportunity did not materially affect habit formation, while a pattern of skipping did. | The same page and secondary summaries | Secondary | Supports the forgiven isolated miss and the two in a row reset. |
+| Intact streaks | A seven study paper found that highlighting an intact streak increased later engagement more than highlighting a broken one. | [INSEAD](https://www.insead.edu/faculty-research/publications/journal-articles/or-track-how-broken-streaks-affect-consumer) | Medium. Abstract only. | The page shows the intact streak and never a broken count. |
+| Streak freeze | Duolingo reports that a freeze keeps learners engaged. Its numbers are its own and not independently verified. | [Duolingo blog](https://blog.duolingo.com/how-duolingo-streak-builds-habit/) | Low. Company evidence. | One forgiven miss is the design's version of a freeze. No purchasable or stackable freeze. |
+| Vendor claims | A glossary claimed a 20 to 40 percent daily-active lift with no source. | | Not used | Ignored. |
+
+## Time tracking, for reference only
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Time entries list | The Toggl v9 list endpoint takes RFC3339 `start_date` and `end_date` and returns at most 1000 entries. | [Time entries](https://engineering.toggl.com/docs/track/api/time_entries/) | Medium | Jarvis does not call it. The Plan decides how its notes get the data. |
+| Detailed reports | The Reports API pages detailed entries at 50 per call, using response headers for the next page. | [Reports start](https://engineering.toggl.com/docs/track/reports_start/) | Medium | Same. |
+| CSV export | Time entries can be exported as CSV from the Detailed Report page in the web app. | [Exporting data](https://support.toggl.com/en/articles/2564936-exporting-data) | Medium | One way The Plan could build its detailed time log notes. |
+| Detailed CSV by API | No official endpoint path was found. | | Unverified | Not relied on. |
+
+## What was not verified
+- Whether the Homepage plugin has a view kind called "Nothing". The search did not confirm it. The Plan's earlier audit read its settings and saw that kind and a command, so the Jarvis route is the command.
+- Playwright as the real-browser test tool, and the Chromium that Obsidian bundles.
+- The names of Obsidian's theme colour variables. They are confirmed against the live theme in the build.
+- The original Lally paper's exact wording.
+- Whether a controlled study shows that streak freezes help long-term retention.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && P="40_Resources/Obsidian/Dashboards/Jarvis Build"; C=$(git log --format=%h -n1 -- "$P/Jarvis Spec - Dashboard Page.md"); git show "$C^:$P/Jarvis Spec - Dashboard Page.md" | sed -n 17,400p
+```
+````
+  - "[[Jarvis Spec - Carry Forward]]"
+  - "[[Jarvis Research - Outside Sources]]"
+---
+# Jarvis Spec - Dashboard Page
+## What This Is
+==The Jarvis dashboard is one page that never scrolls vertically, shows the whole working day at a glance, lets Anant tick and edit in place, and rewards a day done right with a number that grows.==
+It is a view inside the `jarvis-dashboard` plugin. It replaces `00_Dashboard.md` and `10_Areas/Jarvis OS Dashboard.canvas` ([[Jarvis Decisions Log]] D23). The data it reads is defined in [[Jarvis Spec - Day Model and Streak]]. What it keeps from the old page is in [[Jarvis Spec - Carry Forward]].
+
+## Current State
+Checked on 2026-10-26.
+- The page is a markdown note with DataviewJS, Meta Bind and Multi-Column Markdown, plus a canvas. Homepage opens the canvas. Both hold the same queries by hand, which [[Jarvis Dashboard Build Record]] lists as known drift.
+- The plugin is not built. The Plan's plugin is the reference: a React view with a scaled grid and inline SVG. Its screens have never been shown real data, because its notes were misnamed ([[Jarvis Research - The Plan Parallel Builds]]).
+- It opens only inside Obsidian, full screen, on the Dell and the Acer ([[Jarvis Decisions Log]] D2, D28).
+
+## The rules of the page
+1. **No vertical scroll, anywhere.** The root and every card use `overflow: hidden` on the vertical axis. No `overflow-y: auto` or `scroll` exists in the styles.
+2. **Horizontal scroll only for written text.** A line Anant wrote (an 80, a 20, a Lose, a block title, a proof line) is one row with `white-space: nowrap` and `overflow-x: auto`, scrollbar hidden. It scrolls by wheel, drag, touchpad or keyboard. Numbers, labels, rings, the heatmap, chips and buttons never scroll in either direction.
+3. **The page scales to fit.** The grid and the font size follow the pane size, so every card fits at any full-screen size above a minimum. Below the minimum a plain banner reads "Window too small". Nothing is hidden to make it fit.
+4. **Everything that ticks stays live.** A tick is one click or the space key. The row changes at once, and the redraw from disk confirms or reverts it.
+5. **Everything written can be edited in place.** Double-click a line to edit its text. Enter saves, Escape cancels. The save uses the same stale-line check as a tick, and fields such as `[for:: 80]` are kept ([[Jarvis Decisions Log]] D45).
+6. **Plain words.** No praise and no guilt. A miss reads "Day 2 of miss. Streak breaks tomorrow." with numbers.
+7. **Every number comes from the engine.** The page computes nothing the engine does not.
+
+## Blocks on the page
+| Block | Shows | Source | Interaction |
+|---|---|---|---|
+| Hero | Streak number, builder level with the next milestone and days to go, floor ring (rows done of rows), wins ring (0 to 4), an at-risk line, the seven day row (Monday to Sunday, today outlined) and one line of week totals (wins, floors, problems, study hours) | Engine | None |
+| Today | The 80, then the 20, each a tick row with its plan pointer | Daily note | Tick, double-click to edit, click the pointer to open the plan |
+| Blocks | The block running now, the next one, planned against tracked minutes, then deadlines due in 7 days | `### Blocks` and `[due::]` on weekly Goals | Tick a block, click to open |
+| Loses and carryover | Open Loses oldest first with age and the count out of 7, then carried work from the session log | `## Daily Loses`, `## Carryover from Previous Sessions` | Tick a Lose to `[x]`, double-click to edit |
+| Pipeline | Applications today and this week out of 10, LeetCode out of 5, study hours | Tracker `date_applied`, `lc_count`, `study_today` | Plus and minus on the two numbers |
+| Projects | Three chips, each an active project's `next:` line | Project notes' frontmatter | Click opens the project note |
+| Heatmap | The last 30 days of floor rows done, today outlined, forgiven days dashed, missing notes faint | Engine | Click a day to open its note |
+| Proof | Yesterday's proof line and today's proof field | `[proof::]` | Type one line, Enter saves |
+| Health chip | Green when clean, red with a count otherwise | `validate`, `doctor` | Click opens the list as a note |
+| Links | Chips for the system notes, Mentorship Board and the plan notes | Config | Click opens |
+
+Not on the page: the clippings count (weekly review), the areas table and the old sync banner ([[Jarvis Spec - Carry Forward]]).
+
+## Layout
+Two layouts chosen by pane shape. The wide layout is the target, because the page runs in full-screen Obsidian.
+
+```
++------------------+----------------------------------+------------------+
+| HERO             | TODAY: the 80 and the 20         | LOSES, n of 7    |
+| streak, level    |                                  | and carryover    |
+| floor ring       +----------------------------------+                  |
+| wins ring        | BLOCKS: now, next, due soon      |                  |
+| 7 day row        |                                  |                  |
++------------------+----------------------------------+------------------+
+| PIPELINE: applications, LeetCode, study hours | PROJECTS chips          |
++-----------------------------------------------+-------------------------+
+| HEATMAP, 30 days             | PROOF            | HEALTH chip | LINKS   |
++------------------------------+------------------+-------------+---------+
+```
+
+The compact layout is two columns. It holds the same blocks and appears only when a split or sidebar makes the pane narrow, below about 720 px wide. It is not a phone layout ([[Jarvis Decisions Log]] Correction 7).
+
+Row limits keep each card inside its cell at the minimum font size: the 80 is one row, the 20 at most four, blocks at most eight, visible Loses at most seven (the cap itself), project chips three.
+
+## Scaling and window sizes
+- The root measures its pane with a ResizeObserver. Font size is the smaller of a width term and a height term, clamped between 11 px and 22 px. The constants are fixed in the build against the sizes below.
+- CSS container query units (`cqw`, `cqh`) are an alternative. They are supported in current Chromium, Safari and Firefox ([[Jarvis Research - Outside Sources]]), and Obsidian's embedded Chromium version is unverified, so the plan is measured scaling as The Plan does.
+- Sizes to hold: full-screen Obsidian on each laptop with sidebars closed. Each laptop's real view size is read once with a debug command that prints the view's `clientWidth` and `clientHeight`. Until then the fixtures are 1920 by 1080, 1536 by 864 and 1366 by 768 less about 40 px of window chrome, which are common Windows laptop sizes and are an assumption.
+- Below 11 px the "Window too small" banner shows.
+
+## Visual system
+- Colours are CSS variables defined in `styles.css` under the class prefix `jd-`, mapped to Obsidian's theme variables so light and dark follow the theme. No colour is hard coded in a script, and a test greps the bundle for hex colours, because The Plan's build broke this rule.
+- Tokens: surface, text, muted text, accent, good, warning, bad, and a six step ramp for the heatmap.
+- The floor ring is red at 0 rows done, orange from 1 row to all rows minus one, and green when all rows are done.
+- Big numbers use the monospace font with tabular digits.
+- The ring animates over 350 ms and pulses once when it completes. `prefers-reduced-motion` turns both off.
+- Every interactive row is a button with a visible focus ring and works from the keyboard. The plugin ships no default hotkeys.
+- Text contrast meets 4.5 to 1 in both themes. A test computes it for each token pair.
+- No `innerHTML`, no inline colour styles.
+
+## Delight, kept small
+- **Builder levels.** The title sits beside the streak and changes at 3, 7, 21, 66 and 100. The research on intact streaks is in [[Jarvis Research - Outside Sources]]. The page shows the intact streak and never a "broken" count.
+- **Proof of the day.** Yesterday's proof shows as "Yesterday you proved: ...". Writing today's takes one line.
+- **Heatmap.** Thirty days, ten columns by three rows in the wide layout and six by five in the compact one.
+- **Pipeline momentum.** "Applications this week: 4 of 10", with the gap stated plainly.
+
+## States and errors
+| State | What the page shows |
+|---|---|
+| Today's note is missing | An empty floor ring and a "Create today's note" button that builds `YYYY-MM-DD.md` from the template |
+| A note in the Daily folder is misnamed | A red banner with the file name and the correct name. The engine ignores the note. |
+| A note has a leftover `<% %>` date | A banner naming the note |
+| The window is too small | The banner from rule 3 |
+| Blocks are missing or the calendar was unavailable | "Blocks not loaded today. Run /startday." |
+| More than 7 open Loses | The chip shows 7 of 7 in red and the eighth is refused at close. If older notes already hold more, the page shows the oldest 7 and a "+N more" chip that opens the oldest in its note. |
+| Time records are not defined or unreadable | The Blocks card shows planned time only |
+| The engine and the screen disagree | The health chip turns red and a debug command prints both |
+| The term has ended | A red health chip until the config has a new term |
+
+## Performance
+Cold launch to a visible page in under 2 seconds on both laptops, as in The Plan's budget. A tick redraws the Hero, Today, Pipeline and Heatmap within one second. The Hero and Today render first and the rest follow.
+
+## How the page is tested
+A layout engine is needed, which jsdom does not have. Three layers:
+1. A style test: no `overflow-y: auto` or `scroll` anywhere, and every card has `overflow: hidden`.
+2. A real-browser test: the built bundle in a static harness page under headless Chromium, at the three fixture sizes, asserting that the root and each card have `scrollHeight` not above `clientHeight`, with worst-case fixtures (7 Loses, 4 twenties, 8 blocks, long text lines). Playwright is the candidate. It has not been verified here.
+3. A live check: a debug command in Obsidian prints `scrollHeight` and `clientHeight` for the root and each card at the laptop's real full-screen size.
+
+## Non-Goals
+- No vertical scroll, no tabs and no pop-up pages that scroll.
+- No calls to Google, Todoist, Toggl or any outside service from the plugin.
+- No personal-life content: no health, meals, water or relationships.
+- No phone build and no phone layout.
+- No chart that cannot be read at the minimum size.
+- No default hotkeys.
+
+## Open Questions
+None blocking the build. The real pane sizes are measured at the start of the build, as planned above.
+````
+- `Skill` -- `{"skill":"obsidian-cli"}`
+
+## You
+
+Base directory for this skill: D:\_Anant\20_Progress\Documents\The Plan\.claude\skills\obsidian-cli
+
+# Obsidian CLI
+
+Use the CLI only for behavior that depends on Obsidian's running application,
+indexes, settings, command registry, or developer runtime. Use normal shell
+filesystem tools for ordinary file reads, writes, directory listing, and text
+search.
+
+## Capability probe and fallback
+
+Copilot exposes the terminal-capable executable from the running Obsidian
+installation as <code>COPILOT_OBSIDIAN_CLI</code> when it can resolve one.
+Prefer that exact path over <code>obsidian</code> from <code>PATH</code>, and
+always invoke it as a quoted executable rather than constructing a command
+string. Before relying on the CLI, probe it using the active shell:
+
+~~~bash
+obsidian_cli="${COPILOT_OBSIDIAN_CLI:-obsidian}"
+"$obsidian_cli" version
+~~~
+
+~~~powershell
+$obsidianCli = if ($env:COPILOT_OBSIDIAN_CLI) { $env:COPILOT_OBSIDIAN_CLI } else { "obsidian" }
+& $obsidianCli version
+~~~
+
+A command being present on PATH is not sufficient: the probe must exit
+successfully. Use the selected executable in place of <code>obsidian</code> in
+the examples below, resolving it again in a later shell call when necessary. If
+the probe fails, continue with ordinary filesystem tools where they can satisfy
+the request. Briefly tell the user only when the missing runtime capability
+matters. Do not install Obsidian, change PATH, register the CLI, or raise the
+plugin's minimum Obsidian version on the user's behalf.
+
+The CLI requires a compatible Obsidian installer and a running app. Commands
+can differ by version, so inspect live help before using a command whose syntax
+is not already established:
+
+~~~bash
+obsidian help <command>
+~~~
+
+When a request truly needs the runtime capability and the probe fails, tell the
+user to open Obsidian and enable **Settings → General → Command line
+interface** using a compatible installer. Leave registration and any platform
+repair steps to the user.
+
+## Target precisely
+
+Put <code>vault=&lt;name-or-id&gt;</code> before the command whenever the vault is
+known. Use <code>path=</code> for an exact vault-relative path. Use
+<code>file=</code> only when Obsidian's wikilink-style name resolution is
+desired. Do not rely on the active vault or active file when a precise target
+is available.
+
+~~~bash
+obsidian vault="My Vault" backlinks path="Projects/Plan.md" format=json
+~~~
+
+Parameters use <code>name=value</code>; boolean flags have no value. Quote
+values containing spaces or shell-special characters.
+
+## High-value indexed and configured operations
+
+Use live help for exact parameters, then prefer these families when they add
+meaning beyond raw files:
+
+- Configured daily notes: <code>daily</code>, <code>daily:path</code>,
+  <code>daily:read</code>, <code>daily:append</code>,
+  <code>daily:prepend</code>.
+- Typed properties and parsed metadata: <code>properties</code>,
+  <code>property:read</code>, <code>property:set</code>,
+  <code>property:remove</code>, <code>tags</code>, <code>tag</code>, and
+  <code>aliases</code>. Supply a <code>type=</code> to
+  <code>property:set</code> when the property is not plain text.
+- Tasks: <code>tasks</code> for indexed listing and <code>task</code> with a
+  stable <code>ref=path:line</code> or exact file/line for status changes.
+- Link graph: <code>backlinks</code>, <code>links</code>,
+  <code>unresolved</code>, <code>orphans</code>, and <code>deadends</code>.
+- Bases: <code>bases</code>, <code>base:views</code>, and
+  <code>base:query</code>. Prefer <code>format=json</code> for structured agent
+  consumption.
+- Templates: <code>templates</code> and <code>template:read ... resolve</code>
+  when configured template resolution is required.
+- Live workspace state: <code>tabs ids</code> lists the currently open tabs and
+  their IDs, while <code>workspace ids</code> shows the workspace tree and its
+  item IDs.
+- Link-aware refactors: <code>move</code> and <code>rename</code> when the vault
+  setting to update internal links should be honored.
+
+### Inspect open notes
+
+When the user asks about notes currently open in Obsidian:
+
+~~~bash
+obsidian vault="My Vault" tabs ids
+obsidian vault="My Vault" workspace ids
+~~~
+
+Use <code>tabs ids</code> as the source of truth for open tabs. Keep entries
+verbatim and classify them only when the output provides enough evidence:
+
+- a Markdown note has an explicit vault path ending in <code>.md</code>
+  (case-insensitive)
+- another file-backed tab has an explicit vault path with a different extension
+- a non-file view, such as search, graph, settings, or a plugin view, has no
+  vault path
+
+Do not infer a path from a display title, view type, or tab ID, and do not
+discard entries that cannot be classified. For a request about open notes,
+extract the Markdown paths while retaining the other tabs as workspace context.
+Use <code>workspace ids</code> when tab groups or workspace hierarchy matter. Do
+not substitute <code>recents</code>, which includes files that are no longer open.
+
+If the tab output does not expose paths or view types clearly, correlate its tab
+IDs with this read-only, structured workspace query:
+
+~~~bash
+obsidian vault="My Vault" eval code='JSON.stringify((()=>{const tabs=[];const active=app.workspace.getMostRecentLeaf();app.workspace.iterateAllLeaves(leaf=>{const path=leaf.view.file?.path??null;tabs.push({id:leaf.id,title:leaf.getDisplayText(),viewType:leaf.view.getViewType(),path,kind:path===null?"view":path.toLowerCase().endsWith(".md")?"markdown":"file",active:leaf===active})});return tabs})())'
+~~~
+
+The workspace query also returns sidebar and floating leaves. Only call an entry
+an open tab when its ID appears in <code>tabs ids</code>; retain query-only
+entries separately as workspace context. Preserve tab entries that have no
+matching workspace entry instead of guessing their identity.
+
+If the user asks for the single currently focused note and the tab output does
+not identify it, use a read-only app query:
+
+~~~bash
+obsidian vault="My Vault" eval code="app.workspace.getMostRecentLeaf()?.view.file?.path ?? ''"
+~~~
+
+Use normal filesystem tools only for explicit paths returned by Obsidian, and
+choose a reader appropriate to the file type. Do not read every open note when
+paths or titles alone answer the request.
+
+## Obsidian and plugin commands
+
+<code>commands</code> lists registered command IDs, including commands provided
+by plugins. Filter by an ID prefix, then execute the selected command with
+<code>command id=&lt;command-id&gt;</code>. Never guess a command ID when it can be
+discovered. Do not execute a discovered command whose effect is prohibited by
+the host-session rules below.
+
+~~~bash
+obsidian vault="My Vault" commands filter="my-plugin:"
+obsidian vault="My Vault" command id="my-plugin:run-action"
+~~~
+
+## Plugin and theme development
+
+Use the CLI as the first choice for runtime verification after the normal build
+or test command has produced artifacts:
+
+1. For a plugin other than Copilot, reload with
+   <code>plugin:reload id=&lt;plugin-id&gt;</code> when needed. Never reload the
+   Copilot plugin from a Copilot-hosted agent session.
+2. Inspect <code>dev:errors</code> and <code>dev:console level=error</code>.
+3. Verify UI state with <code>dev:screenshot path=...</code>,
+   <code>dev:dom selector=...</code>, and <code>dev:css selector=...</code>.
+4. Use <code>dev:mobile on</code> only when mobile emulation is relevant, and
+   turn it off afterward.
+
+Read-only <code>eval</code> and <code>dev:cdp</code> queries are appropriate for
+state that the documented inspection commands cannot expose. Keep expressions
+small and return serializable values. Treat any expression or CDP call that
+mutates application state as a risky operation requiring explicit user intent.
+
+## Preserve the host session
+
+Never reload or restart the Obsidian app or window from an agent session. Never
+reload, disable, or uninstall the Copilot plugin that is hosting the agent. In
+particular, do not use:
+
+- any CLI command that reloads or restarts the app, window, or renderer
+- any plugin reload, disable, or uninstall operation targeting Copilot
+- any restricted-mode change
+- a command ID, JavaScript expression, or CDP call that performs an equivalent
+  app, window, renderer, or Copilot-plugin teardown
+
+These actions terminate the in-flight agent and can discard its work. This is a
+hard prohibition, not a confirmation-gated operation. If verification requires
+one, finish all non-destructive checks and tell the user to perform the reload
+manually after the agent session has ended.
+
+## Risky operations require explicit intent
+
+Do not perform the following merely because they are available:
+
+- permanent deletion
+- local-history or Sync restoration
+- publishing or unpublishing
+- plugin or theme installation/uninstallation
+- mutating JavaScript evaluation or CDP calls
+
+Confirm that the user's request clearly authorizes the exact target and effect.
+Prefer reversible variants, such as trash-backed deletion, when they satisfy
+the request. Explicit intent does not override the host-session prohibition
+above.
+
+## Exclusions
+
+Do not teach or use the TUI, clipboard output, undocumented flags, platform
+registration repairs, or CLI equivalents of generic filesystem operations in
+this skill.
+
+## Attribution
+
+Adapted from <code>kepano/obsidian-skills</code> at revision
+<code>[REDACTED]</code>. See <code>LICENSE</code>.
+
+
+## Claude
+
+The destination folder has to exist first, so I'm creating `Dashboards/Ran` (approved) and retrying.
+
+Now I'm updating the four templates in `30_Order/Templates/Daily Dashboard`, keeping your habit lines and wording as they are.
+
+Now I'm fixing the identity list in the 12 Weeks note, because identities match on the exact bold phrase in your habit lines. After that I'm writing the full streak and day-model spec.
+
+Specs are done, and the templates are done. Now I'm rewriting the build-side notes: Architecture, Front End and Visual System, Dashboard Build Hub, and Verification and Risks.
+
+I'm adding the remaining decisions to the log, covering rows 80 to 92 plus corrections. After that I'll update the Hub and the Build Plan.
+
+I'm now finishing the log, AI Loop and Private Use notes. After that I'll check everything and ask about the few stale notes left.
+
+Patching the AI Loop spec so the skills, agent, hook and toolkit rows match the new model.
+
+Almost everything is current now. Three leftovers are stale, so I'm asking before moving or deleting them.
+
+Now the final check across every note and template I touched: dashes, frontmatter, links, and stale references.
+
+The design is finished and ready for the build, and nothing has been built. All the notes are in `Dashboards/`, the templates are updated, and I checked every note and template for em dashes, valid frontmatter and broken links. The only unresolved links point into `60_Jarvis`, which I didn't open.
+
+## Templates (`30_Order/Templates/Daily Dashboard`)
+- **Better Today:**
+  - Your habit lines and wording are kept.
+  - Properties now include `created`, `lc_count`, `study_today` and an empty `slips`.
+  - Wins are four checkbox lines. The Floor table and the Meta Bind inputs are gone.
+  - New headings are `## Time` and `## Career`. Your `#### From Yesterday` block is kept.
+- **Better Week:** adds `Due Friday`, `Scheduled tasks` and a Monday-to-Sunday `Daily log`.
+- **Better Month:** adds `Streaks`.
+- **Better Year:** adds `Identities` and `Plans`.
+- **Review Log headings:** unchanged in the week and month templates.
+
+## Notes
+- **Rewritten:**
+  - Streak and Daily Note: the whole day model, now with nulls and edge cases.
+  - Home and Monthly Dashboards: every block with its empty and error states.
+  - Automation Layers.
+  - Architecture.
+  - Front End and Visual System.
+  - Dashboard Build Hub.
+  - Verification and Risks: 23 test rows and the single acceptance list.
+  - Dashboards Hub: now the source of truth, with 47 features each mapped to a note and a test.
+  - Build Plan.
+  - Build Log.
+- **Extended:** Time Layer, Decisions Log (rows 52 to 92 plus 10 corrections), Spec - AI Loop, and small edits to Private Use and the API reference.
+- **New:**
+  - Postmortem: 12 faults, each with its guard.
+  - Research - Outside Sources.
+- **Moved to `Dashboards/Ran/` with your yes:** Prompts, Build Prompts, Plugin Build Prompts, Build Steps, Review - Corrections, and Research - Jarvis Dashboard Findings. The empty `Daily` folder stays, as you said.
+
+## Changes you didn't ask for
+- **Career strip:** a plugin can't open the Jarvis vault, and a direct read wouldn't work on the phone. So `/startday` writes the Jarvis fields into The Plan's own `## Career` section, and the page reads that.
+- **Identities:** they match on the exact bold phrase in a habit line. In your note those are `doomscroll`, `peace with myself` and `who performs calisthenics`, so I changed the draft identity list in the 12 Weeks note to match. Reword those lines if you want different identity names.
+- **Skills:** the page's Start and Close buttons copy the command, because a plugin can't start a skill.
+
+## Left as it was
+The Daily Note Schema, the Streak Rule, the `startday`/`closeday` skills and the agents still describe the old five-category model. Changing them is a build stage (P1), and each edit is shown to you first.
+
+## Still open
+- **Plan dates:** `plan_start` and `plan_end` are decided later. The page shows a banner until they exist.
+- **Defaults:** rows 69 to 92 in the Decisions Log are my calls and stand unless you change them.
+- **Verification:** none of the 23 test rows has been run, including everything about the phone.
+- **Prompts:** not written. A separate session writes them from these notes, starting at the Dashboards Hub.
+
+### Tool Calls
+
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; "$obs" version 2>&1 | head -3; echo "exit $?"; "$obs" help move 2>&1 | head -12
+```
+```
+1.15.0 (installer 1.13.7)
+exit 0
+
+  move                  Move or rename a file
+    file=<name>         - File name
+    path=<path>         - File path
+    to=<path>           - Destination folder or path (required)
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; "$obs" vault="The Plan" move path="$D/Prompts.md" to="$D/Ran/Prompts.md" 2>&1 | head -5; ls "$D/Ran" 2>&1
+```
+```
+Exit code 2
+
+Error: ENOENT: no such file or directory, rename 'D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Prompts.md' -> 'D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Ran\Prompts.md'
+ls: cannot access '40_Resources/Obsidian/Dashboards/Ran': No such file or directory
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; mkdir "$D/Ran" && for n in "Prompts.md" "Dashboard Build/Build Prompts.md" "Dashboard Build/Plugin Build Prompts.md" "Dashboard Build/Build Steps.md"; do b=$(basename "$n"); "$obs" vault="The Plan" move path="$D/$n" to="$D/Ran/$b" 2>&1 | head -2; done; ls "$D/Ran"; echo ---; grep -rl "\[\[Prompts\]\]\|\[\[Build Steps\]\]\|\[\[Build Prompts\]\]\|\[\[Plugin Build Prompts\]\]" "$D" | head -20
+```
+```
+Moved: 40_Resources/Obsidian/Dashboards/Dashboard Build/Build Prompts.md -> 40_Resources/Obsidian/Dashboards/Ran/Build Prompts.md
+
+
+Build Prompts.md
+Plugin Build Prompts.md
+Prompts.md
+---
+40_Resources/Obsidian/Dashboards/Build Plan.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Build Log.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Build Steps.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Dashboard Build Hub.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Research - Obsidian Dashboard Methods.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Review - Corrections to Earlier Notes.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Sonnet 5.5 Prompt Rules.md
+40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md
+40_Resources/Obsidian/Dashboards/Dashboards Hub.md
+40_Resources/Obsidian/Dashboards/Ran/Build Prompts.md
+40_Resources/Obsidian/Dashboards/Ran/Plugin Build Prompts.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; ls "$D" "$D/Dashboard Build" "$D/Ran"; "$obs" vault="The Plan" move path="$D/Dashboard Build/Build Steps.md" to="$D/Ran/Build Steps.md" 2>&1 | head -3; ls "$D/Ran"
+```
+```
+40_Resources/Obsidian/Dashboards:
+Audit - Dashboard Stack and Phone Checklist.md
+Build Plan.md
+Daily
+Dashboard Build
+Dashboards Hub.md
+Decisions Log.md
+Ran
+Research - Jarvis Dashboard Findings.md
+Spec - AI Loop.md
+Spec - Automation Layers.md
+Spec - Home and Monthly Dashboards.md
+Spec - Streak and Daily Note.md
+Spec - Time Layer.md
+
+40_Resources/Obsidian/Dashboards/Dashboard Build:
+Architecture.md
+Build Log.md
+Dashboard Build Hub.md
+Front End and Visual System.md
+Private Use and Sharing.md
+Reference - Obsidian API for This Build.md
+Research - Obsidian Dashboard Methods.md
+Research - Plugin Creation Guide.md
+Review - Corrections to Earlier Notes.md
+Sonnet 5.5 Prompt Rules.md
+Verification and Risks.md
+
+40_Resources/Obsidian/Dashboards/Ran:
+Build Prompts.md
+Build Steps.md
+Plugin Build Prompts.md
+Prompts.md
+
+Error: File "40_Resources/Obsidian/Dashboards/Dashboard Build/Build Steps.md" not found.
+Build Prompts.md
+Build Steps.md
+Plugin Build Prompts.md
+Prompts.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && P="40_Resources/Obsidian/Dashboards/Jarvis Build"; for n in "Jarvis Architecture" "Jarvis Spec - Day Model and Streak"; do C=$(git log --format=%h -n1 -- "$P/$n.md"); echo "=========== $n"; git show "$C^:$P/$n.md" | sed -n 17,260p; done | cut -c1-600
+```
+````
+=========== Jarvis Architecture
+  - "[[Jarvis Verification and Risks]]"
+  - "[[Jarvis Research - Outside Sources]]"
+---
+# Jarvis Architecture
+## What This Is
+==The Jarvis dashboard is three replaceable layers: the daily notes as data, a pure TypeScript engine, and a React view, plus a command-line program that gives Claude the same numbers the screen shows.==
+It follows the structure of The Plan's plugin, which worked in its tests, and adds guards for the faults that plugin met in practice. The two plugins share no code ([[Jarvis Decisions Log]] D1).
+
+## Current State
+Checked on 2026-10-26.
+- Jarvis is a git repository with remote `https://github.com/gupta-builds/Jarvis.git`. Commits are auto-sync commits. The Dell and the Acer sync through it.
+- `.gitignore` ignores `workspace.json`, caches, the `data.json` of three plugins and `.claude/settings.json`. It does not ignore `.obsidian/plugins/jarvis-dashboard/`. A `git check-ignore` test found `main.js` would be tracked. Twenty-five plugin folders are tracked today.
+- Obsidian Sync is off in the core plugin list.
+- `30_Order/System/` holds `claude-workflow`, `cursor-workflow`, `excalidraw-mcp`, `jarvis-cli`, `jarvis-memory`, `sync-workflow` and `vault-lint`. `jarvis-cli` holds `jarvis.ps1`, `jarvis_ops.py` and a README, so it is taken.
+- The Plan's plugin repository, `D:\_Anant\20_Progress\Projects\the-plan-dashboard`, has 3 commits and no remote. Its engine has 87 tests. Its deployed build predates two later changes. An old copy of `.claude` overwrote its skills and hooks on 2026-10-16 because two laptops auto-synced ([[Jarvis Research - The Plan Parallel Builds]]).
+- Nothing in this note is built.
+
+## Layers
+| Layer | What it is | Replaceable because |
+|---|---|---|
+| Data | Daily notes `YYYY-MM-DD.md` in `10_Areas/Life/Enumerate/Daily/`, the weekly note, tracker notes. Plain markdown. | The plugin can be disabled and nothing is lost |
+| Engine | Pure TypeScript in `src/core/`. It imports nothing from Obsidian or Node. Text in, numbers out. | The plugin and the CLI run the same file |
+| View | A React 19 view that draws the page from the engine's model | It holds no rule of its own |
+| CLI | `dashboard-cli`, the engine bundled for Node | Claude's skills read its JSON and never compute a number |
+
+## Engine modules
+`parse` (lines, fields, headings), `streak` (the rule in [[Jarvis Spec - Day Model and Streak]]), `edit` (replace one line with the stale-line check, keeping LF or CRLF), `config` (floor rows per term, milestones and titles, folder names, term end, the allowlist for The Plan), `periods` (ISO weeks and months), `validate` (the eleven rules), `loses` (open Loses across notes, age, cap), `blocks` (parse `### Blocks`, find now and next, join `[spent::]`), `pipeline` (count `date_applied` in a week), `planTime` (allowlisted extraction from The Plan's text), `model` (everything the page needs in one
+
+## Plugin
+- Id `jarvis-dashboard`. Name "Jarvis dashboard". `isDesktopOnly: true` ([[Jarvis Decisions Log]] D26). Never submitted to the community directory.
+- `isDesktopOnly: true` allows Node and Electron APIs. Version 1 uses none. The Plan is read only through the CLI.
+- Three write primitives and no others, defined in [[Jarvis Spec - Day Model and Streak]]: replace one line, change a frontmatter number, create today's note.
+- Obsidian rules from the research ([[Jarvis Research - Outside Sources]]): register vault events inside `workspace.onLayoutReady`, because `create` also fires for every existing file at load. Read with `read` before a modification and with `cachedRead` for display. Edit with `Vault.process` and `processFrontMatter`, both atomic. Find the view with `getLeavesOfType`, never store a view instance. Use `normalizePath` on every path. Register every event and interval.
+- Reads tracker `date_applied` through the metadata cache and refreshes on the cache's `changed` event, which is not called on rename, so it also listens to the vault `rename` event.
+- Interface rules: no `innerHTML`, `this.app` only, sentence case in the interface, no default hotkeys.
+- React 19 ([[Jarvis Decisions Log]] D25). First paint is measured against the 2 second budget.
+
+## Command-line program
+`dashboard-cli`, bundled for Node and deployed to `30_Order/System/dashboard-cli/` ([[Jarvis Decisions Log]] D43). Each command prints JSON and writes nothing.
+| Command | Prints |
+|---|---|
+| `streak <dailyFolder> <date>` | Current, best, floor rows done, at risk, 30 days of status |
+| `day <dailyFolder> <date>` | One day's lines and marks |
+| `week <date>` | ISO week totals: days, wins, floors, problems, study, applications |
+| `validate <note>` | Breaches of the eleven rules |
+| `loses <dailyFolder>` | Open Loses across notes, age and count out of 7 |
+| `plan-time <date>` | Allowlisted time overview and time log entries from The Plan, or `not_defined` |
+| `doctor` | Misnamed notes, leftover placeholders, plugin version against the repo, the allowlist against The Plan's live headings, skills, agents and hooks present, the term config date |
+
+`doctor` exists because of The Plan's two silent failures: misnamed notes and an overwritten `.claude`.
+
+## Config
+One exported object, per machine where needed.
+| Key | Holds |
+|---|---|
+| `floorRows` | The term table: `application`, `practice`, `class` for Fall 2026 |
+| `termEnd` | 2026-12-24 |
+| `milestones`, `milestoneTitles` | 3, 7, 21, 66, 100 and The Plan's titles |
+| `loseCap` | 7 |
+| `weeklyApplicationTarget` | 10 |
+| `heatDays` | 30 |
+| `dailyFolder`, `weeklyFolder`, `trackerFolder` | The Jarvis folders |
+| `planVaultPath` | The Plan's path, set on each laptop |
+| `planAllowlist` | The headings and the time log folder the reader may take. Empty until The Plan defines them. |
+| `projectChips` | The three project notes whose `next:` shows |
+
+## Repository, build and deploy
+- The repository lives on the Acer ([[Jarvis Decisions Log]] D27). The path is chosen on the Acer when the build starts. The Dell receives only the built files, through git.
+- A private GitHub repository for the source is recommended, because The Plan's plugin repository has no remote and its source exists on one laptop only. It is created only after Anant says yes.
+- Commands: `npm run dev`, `npm test`, `npm run build`, `npm run build:cli`, `npm run deploy`, `npm run deploy:cli`. Deploy copies `main.js`, `manifest.json` and `styles.css` to `.obsidian/plugins/jarvis-dashboard/` and the CLI to `30_Order/System/dashboard-cli/`.
+- The vault copy of the plugin is never edited by hand.
+- A write under `.obsidian` needs Anant's yes each time.
+
+## Tests
+- Golden month fixtures with values worked out by hand before any engine code: a milestone, a forgiven miss, a break, a missing note, a month boundary and a leap year.
+- One unit test per validator rule, per streak edge and per Loses rule (cap, age, `[>]` read as closed).
+- Edit tests: one line changes, LF and CRLF are kept, a stale line is refused, frontmatter bytes stay identical, an edit keeps `[for::]`.
+- The three page tests in [[Jarvis Spec - Dashboard Page]]: style, real browser, live.
+- A reader test: a Plan note with private headings goes in and the output holds only allowlisted fields.
+- A grep test that the bundle has no hard-coded hex colour.
+- A debug command that prints the screen's numbers, compared with `dashboard-cli` for the last 30 days.
+
+## Guards for two laptops
+1. The health chip shows the plugin version and build stamp, and `doctor` compares them with the repo.
+2. `doctor` checks the skills, agents and hooks, so a stale overwrite shows within a day.
+3. A plugin build travels through git. A stale tree on the other laptop can overwrite it, so each release is checked on both laptops.
+4. Jarvis's auto-sync is not changed by this build.
+
+## Non-Goals
+- No shared code with The Plan's plugin.
+- No phone build.
+- No outside service called from the plugin.
+- No community-directory submission.
+- No change to Jarvis's sync or hooks.
+- No validator hook in version 1 ([[Jarvis Decisions Log]] D44).
+
+## Open Questions
+None blocking the build.
+=========== Jarvis Spec - Day Model and Streak
+---
+# Jarvis Spec - Day Model and Streak
+## What This Is
+==A Jarvis day is a daily note made of checkbox lines that the plugin can flip, and a streak that counts the days on which every floor row was done.==
+This note defines the daily note shape the plugin reads, the fields on each line, the Loses lifecycle, the streak rule and the checks that guard them. It sits on top of the [[Daily Note Standard]] and keeps its headings, its Daily Loses line format and its frontmatter keys. It changes how wins and the floor are recorded and how Loses carry. The page rules are in [[Jarvis Spec - Dashboard Page]].
+
+## Current State
+Checked on 2026-10-26.
+- The template [[Better Today]] holds seven frontmatter booleans (`win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1`, `floor_2`, `floor_3`) shown by Meta Bind toggles inside two tables. `lc_count` and `study_today` are typed. `wins_done` and `floors_done` are written by `/closeday`.
+- The 80 and the 20 are checkbox lines under `### 80 - The One Thing` and `### 20 - Supporting Work`. `### Blocks` is a plain list.
+- Daily Loses are task lines with `[why::]`, `[fix::]`, `[from::]` and `[since::]`, and four marks: `[ ]` open, `[x]` made up, `[>]` carried, `[-]` dropped. `/startday` copies an open Lose forward.
+- The dashboard counts the toggles with DataviewJS. Nothing else reads them.
+- Application progress is a field on each tracker note: `date_applied` in `10_Areas/Career/Internships/Tracker/Each One/Current/`. The folder holds 29 notes. [[2026-W44]] records 29 researched and 0 applied. There is no `Applied/` folder.
+- Nothing in this note is built.
+
+## The new daily note shape
+Headings stay as the Standard names them. Only the line formats under them change.
+
+```markdown
+(frontmatter starts)
+type: thought
+thought_kind: daily
+status: active
+day_state: planned
+created: 2026-10-27
+updated: 2026-10-27
+tags:
+  - daily
+lc_count: 0
+study_today: 0
+wins_done: 0
+floors_done: 0
+(frontmatter ends)
+# Did you get better today?
+## Morning Plan
+*Goal*: one line
+### 80 - The One Thing
+- [ ] I will submit 5 applications at 2 pm at my desk. [plan:: Fall 2026 Plan]
+### 20 - Supporting Work
+- [ ] Cover letter for Uber is final. [for:: 80]
+- [ ] Resume tailored for Deloitte. [for:: 80]
+### Blocks
+- [ ] 14:00-16:00 Internship: 5 applications sent [cal:: abc123] [spent:: 95]
+**Do NOT do today:**
+## Daily Wins
+- [ ] Project: Portfolio UI repolished [win:: project]
+- [ ] Career: one application sent [win:: career]
+- [ ] Cleanup: inbox at zero [win:: cleanup]
+- [ ] Review: close the day by 10:30 pm [win:: review]
+## Daily Loses
+- [ ] CSCI 4041: 5 problems logged [why:: opened YouTube first] [fix:: laptop opens on DSA.md] [from:: weekly] [since:: 2026-10-26]
+## Daily Floor
+- [ ] One company moved to Applied [track:: application]
+- [ ] 5 problems logged in Weekly Set [track:: practice]
+- [ ] One class step for CSCI 4061 [track:: class]
+## Productivity
+## Carryover from Previous Sessions
+## End of Day
+## Proof of the day
+- [proof:: Shipped 5 applications with the final cover letter]
+```
+
+## Fields
+| Field | On which line | Holds |
+|---|---|---|
+| `[plan:: name]` | The 80, optional on a 20 | The plan or board note that owns the task, so the line holds no copy of the plan |
+| `[for:: 80]` | Every 20 line | The 80 it serves. A 20 line without it is invalid. |
+| `[cal:: id]` | A Blocks line | The Google Calendar event id, so a moved event updates its line and does not duplicate |
+| `[spent:: minutes]` | A Blocks line | Minutes of tracked time, written at close from The Plan's time records ([[Jarvis Spec - Automation Layer]]) |
+| `[win:: project, career, cleanup, review]` | A wins line | Which win it is. Each value appears once. |
+| `[track:: name]` | A floor line | A floor row name from the term's config table |
+| `[why::]`, `[fix::]`, `[from::]`, `[since::]` | A Lose | Unchanged from the Standard. `from` is `weekly`, `calendar`, `win`, `floor` or `other`. |
+| `[due:: YYYY-MM-DD]` | A weekly Goal line | A deadline the Blocks strip lists for the next 7 days |
+| `[proof:: text]` | One line under `## Proof of the day` | One line of evidence, written at close |
+
+Blocks marks: `[ ]` open, `[x]` done, `[-]` missed with a `[why::]`. Win and floor marks: `[ ]` and `[x]`.
+
+## Floor rows per term
+The rows live in a config table, not in code. A new term changes the table and the plan note.
+
+| Term | Row | Track | Done when |
+|---|---|---|---|
+| Fall 2026 | 1 | `application` | A tracker note has `date_applied` equal to today |
+| Fall 2026 | 2 | `practice` | LeetCode or CodePath reps logged, at least 5 |
+| Fall 2026 | 3 | `class` | One class step finished |
+| Term end | | | 2026-12-24 |
+
+Anant ticks a floor line with evidence. Nothing ticks it for him. The validator warns when the `application` line is ticked and no tracker note has today's `date_applied`, and when `practice` is ticked with `lc_count` under 5. A warning never changes a tick.
+
+## Daily Loses lifecycle
+1. A Lose is written the day it slips, in that day's note, with `since` set to that date.
+2. It is never copied forward. It stays where it happened. The `[>]` carried mark is retired.
+3. It is open until made up (`[x]`) or dropped (`[-]` with a reason in `why`).
+4. The page counts every open Lose across all daily notes, oldest first, with its age (today minus `since`).
+5. The cap is 7 open Loses. At close, an eighth cannot be added until one is made up or dropped. `/closeday` refuses to set `day_state: closed` while more than 7 are open.
+6. At close, `/closeday` recalculates tomorrow from the day's Loses and writes a preview ([[Jarvis Spec - Plans Feed]]). A Lose informs tomorrow. It does not become tomorrow's task by copying.
+7. The plugin can tick a Lose to `[x]`. Everything else about a Lose is written by `/closeday`, which asks for the why and the fix and never invents them.
+8. Older notes may hold `[>]`. The engine treats it as closed history.
+
+## Streak rule
+It is the rule from The Plan's Streak Rule with the floor as the unit.
+1. A day is MET when it has at least one floor line and every floor line is ticked.
+2. A day is MISS when a floor line is open at the day's end, or the note is missing. A missing note is a MISS.
+3. Today is PENDING until midnight, unless it is already MET. The rollover is midnight. A tick after midnight belongs to the new date.
+4. The streak starts on the earliest day whose note has at least one floor line.
+5. Walk from the start day to yesterday. A MET day adds one. An isolated MISS is forgiven: it adds nothing and does not reset. A second MISS in a row resets the run to zero.
+6. The current streak is the run, plus one when today is MET.
+7. The best streak counts closed days only. Today joins it the next day.
+8. A forgiven day counts as a lost day in the month totals.
+9. At risk means yesterday was a MISS and today is not yet MET.
+10. Milestones are 3, 7, 21, 66 and 100, with the titles in [[Jarvis Decisions Log]] D16.
+11. The week is ISO, Monday to Sunday ([[Jarvis Decisions Log]] D33).
+
+The wins score is the count of ticked win lines, from 0 to 4, and is separate. The research behind a forgiven miss and the 66 day milestone is in [[Jarvis Research - Outside Sources]].
+
+## Write primitives
+The plugin has three ways to change a file and no others.
+1. **Replace one line.** Used for a tick, an edit in place and the proof line. It runs inside `Vault.process`, checks that the line at the index still equals the text the page saw, and refuses otherwise. It keeps LF or CRLF as found and changes nothing else.
+2. **Change a frontmatter number.** `lc_count` and `study_today` only, through `processFrontMatter`, with plus and minus buttons.
+3. **Create today's note.** From the template, named `YYYY-MM-DD`, refused if the note exists or the name is not an ISO date.
+
+## Validator rules
+`validate` reports each breach with the line and the rule. It never rewrites a note.
+1. The file name is `YYYY-MM-DD.md`. Any other name in the Daily folder is reported as misnamed.
+2. `created` and `updated` are real dates. A leftover `<% %>` is reported.
+3. Exactly one 80 line.
+4. Two to four 20 lines, each with `[for:: 80]`.
+5. Each floor line has a `[track::]` that is in the term's config table.
+6. Four win lines, one per `[win::]` value.
+7. Each Lose has `[since::]`. A missing `[why::]` reads `(unanswered)`.
+8. On a closed day, `wins_done` and `floors_done` equal the ticked lines, and an End of Day exists.
+9. Each Blocks time reads `HH:MM-HH:MM` and ends after it starts.
+10. A mark other than `[ ]`, `[x]`, `[X]` or `[-]` is reported. A `[>]` in a note from before 2026-10-26 is accepted.
+11. Across all notes, open Loses number at most 7. This is a `doctor` and close-time check, not a per-note check.
+
+## Migration
+Old notes keep the old shape and stay as history ([[Jarvis Decisions Log]] D40). The engine reads only the new shape. A day in the old shape has no floor lines, so it never starts or extends a streak. The page shows the streak start as the first day with a floor line. The template and the Standard patch are listed in [[Jarvis Spec - Carry Forward]].
+
+## Non-Goals
+- No streak for the wins, and no separate streak for a single track.
+- No automatic ticking from a count, a tracker note or a calendar event.
+- No health, meals, water or personal habits. Those belong to The Plan.
+- No copying of an open Lose into another day.
+- No change to any note while this is a design.
+
+## Open Questions
+None blocking the build. Every question was answered or defaulted on 2026-10-26, see [[Jarvis Decisions Log]].
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat src/core/config.ts | head -80; cat manifest.json package.json | head -50; sed -n 1,60p "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Spec - AI Loop.md" | tail -45
+```
+```
+export const CATEGORIES = ["morning", "study", "fitness", "mind", "career"] as const;
+export type Category = (typeof CATEGORIES)[number];
+
+export const CATEGORY_LABEL: Record<Category, string> = {
+	morning: "Morning",
+	study: "Study",
+	fitness: "Fitness",
+	mind: "Mind",
+	career: "Career",
+};
+
+/** Everything personal lives here so no function hard-codes a path or a number. */
+export const CONFIG = {
+	floor: 3,
+	milestones: [3, 7, 21, 66, 100],
+	/** Level title per milestone (Decision 41). Shown by the dashboard when the Home view is next changed. */
+	milestoneTitles: { 3: "The beginning", 7: "Toward 21", 21: "Now it gets hard", 66: "Work pays off", 100: "Consistency, discipline, mindset" } as Record<number, string>,
+	heatDays: 30,
+	dailyFolder: "00_Live/Enumerate/Daily",
+	monthlyFolder: "00_Live/Enumerate/Monthly",
+	yearlyFolder: "00_Live/Enumerate/Yearly",
+	health: "00_Live/Tracking/Habits/Health Tracker.md",
+	finance: "00_Live/Tracking/Habits/Finance Tracker.md",
+	weeklyFolder: "00_Live/Enumerate/Weekly",
+	promotedFolder: "60_Jarvis/10_Promoted_Notes",
+	/** Cause tags a missed category may carry. A new tag needs a Decisions Log entry first. */
+	causes: ["sleep", "no-plan", "distracted", "energy", "other"],
+	/** Types a next action may carry. */
+	nextTypes: ["streak", "career", "gym", "failure"],
+	maxNextActions: 5,
+	/** Letter bands for weekly and monthly percent. First band whose min the percent reaches wins. */
+	gradeBands: [
+		{ min: 90, letter: "A" },
+		{ min: 75, letter: "B" },
+		{ min: 60, letter: "C" },
+		{ min: 40, letter: "D" },
+		{ min: 0, letter: "F" },
+	],
+	links: [
+		{ label: "Life OS", path: "00_Live/Life OS.md" },
+		{ label: "Streak rule", path: "30_Order/Standards/Dashboards/Streak Rule.md" },
+		{ label: "Daily schema", path: "30_Order/Standards/Dashboards/Daily Note Schema.md" },
+		{ label: "Hub", path: "40_Resources/Obsidian/Dashboards/Dashboards Hub.md" },
+	],
+} as const;
+{
+	"id": "the-plan-dashboard",
+	"name": "The Plan dashboard",
+	"version": "0.1.0",
+	"minAppVersion": "1.5.7",
+	"description": "Daily streak, score ring, ticks and heatmap for The Plan.",
+	"author": "Anant",
+	"isDesktopOnly": false
+}
+{
+	"name": "the-plan-dashboard",
+	"version": "0.1.0",
+	"description": "Private Obsidian dashboard for The Plan: streak, score ring, today's ticks, heatmap.",
+	"main": "main.js",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"build:cli": "node esbuild.config.mjs cli",
+		"cli": "node dist/plan-cli.cjs",
+		"deploy:cli": "node scripts/deploy-cli.mjs",
+		"test": "node esbuild.config.mjs cli && node scripts/test.mjs",
+		"preview": "node scripts/preview.mjs",
+		"deploy": "node scripts/deploy.mjs",
+		"version": "node version-bump.mjs && git add manifest.json versions.json"
+	},
+	"dependencies": {
+		"react": "^19.3.0",
+		"react-dom": "^19.3.0"
+	},
+	"devDependencies": {
+		"@types/jsdom": "^21.1.7",
+		"@types/node": "^22.15.17",
+		"@types/react": "^19.3.0",
+		"@types/react-dom": "^19.3.0",
+		"esbuild": "0.25.5",
+		"jsdom": "^24.1.3",
+		"obsidian": "latest",
+		"typescript": "^5.8.3"
+	}
+}
+  - "[[Jarvis Control Center]]"
+  - "[[Jarvis Architectural Decision Register]]"
+  - "[[AGENTS]]"
+  - "[[Agentic OS Standard]]"
+next: "Run the five skills live (see Update 2026-10-13). The hooks are registered and tested."
+---
+# Spec: AI Loop
+
+The daily workflow has five skills, four agents, three hooks and a small toolkit. Every piece links to a reference note holding its source. Official specs for skills, subagents and hooks are checked in prompt R1 before anything is written. Nothing below claims a capability that is built.
+
+## Update 2026-10-13: what changed since this spec
+
+- The five skills exist as directories and were dry-run. They now call the Node engine `plan-cli` and not `streak.py` (Decision 36). The flat Jarvis skill files have been removed.
+- All four agents exist as single read-only files, as [[Research - Platform Facts]] found for the agent form. `career-operator` and `research-distiller` were removed (Decision 45).
+- The three hooks exist as one program, `plan-cli hook`, and are registered in `.claude/settings.json` (Decision 44). This replaces the "scripts in `30_Order/System/hooks`" wording in the early prompts (Decision 50).
+- The streak script is the reference and the test oracle. The toolkit has a reference note per part in `30_Order/Standards/References/`.
+- Open points resolved: hooks run as Node, not PowerShell, because the engine already needs Node. The Jarvis snapshot is written in Jarvis and brought across by `jarvis-dump` (Decision 42). The exact frontmatter, name limits and hook JSON come from the official pages, recorded in [[Skill Standard]], [[Agent Standard]] and [[Hook Standard]].
+- Grade, review cadence and Jarvis review rules are decided in [[Decisions Log]], decisions 36 to 45.
+- Where the rules are now: [[Agentic OS Standard]].
+
+## Rule files
+
+| File | Role |
+|---|---|
+| `AGENTS.md` | The single rule set for every tool (Claude Code, Codex, others) |
+| `CLAUDE.md` | Thin pointer to AGENTS.md plus Claude-only specifics: skills, hooks, tool behaviour. Currently stale (points at `60_Claude/` and `00_Inbox/`, which do not exist). |
+| `30_Order/Standards/` | Rigid content: note types, daily note schema, streak rule, naming, frontmatter, the tool reference notes |
+| `60_Jarvis/` | Two zones, below |
+
+## `60_Jarvis`: two zones, no renames
+
+| Zone | Folders | Job |
+|---|---|---|
+| Governance and staging | `00_Control_Center`, `10_Promoted_Notes`, `20_Decisions`, `40_Archive`, `50_Reviews` | What Jarvis changed, what is trusted, what needs review. The promotion pipeline lands here. |
+| AI knowledge | `01_Prompt_Library`, `30_AI_Information` | How any AI should work in this vault: rules, prompts, session logs, vault map |
+
+A one-page README at the top of `60_Jarvis` states the split. Folder names stay as they are. AGENTS.md allows renames only by an authorized step, and no rename is needed. AI output stays untrusted until reviewed, per [[Jarvis Operating Rules]].
+
+## Five skills (each a directory)
+
+Layout pattern, taken from Jarvis's `startday` skill: `.claude/skills/<name>/SKILL.md` (steps) plus `reference.md` (formats, templates, edge cases). Exact frontmatter fields and size limits come from the official spec confirmed in R1.
+
+| Skill | Job | Reads | Writes |
+|---|---|---|---|
+| `startday` | Show today's targets and streak status. Flag a missing career line or study topic. Pull the day's intake once automation exists. | Yesterday's and today's daily notes, the streak script | The day's plan in today's note only |
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Today.md`
+```
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+related_progress:
+  - "[[2026]]"
+tags:
+  - thought
+  - "#journal"
+next:
+lc_count: 0
+study_today: 0
+slips:
+---
+# Did you get better today?
+> [!NOTE] Summary:
+## Morning Plan
+<!-- Fill from the active plan: the goal, the 80 lines, the 20 lines that support them, and the do-not line. The list below is a summary prompt. The dashboard reads only the lines under ### 80 and ### 20. -->
+*Goal*: ==You get to do==
+1. **80**:
+	- 
+2. **20**:
+	- 
+3. **Do Not Do**:
+	- 
+
+#### From Yesterday
+> Filled out on the previous day for things that need to be done for the next day. 
+
+1. 
+### 80
+> I will [BEHAVIOR] at [TIME] in [LOCATION] so that I can become [IDENTITY].
+- [ ] I will ==get out of bed(asap), move around== everyday at *8 am* so that I can become a **morning person**. 
+- [ ] I will ==learn something new(read)== everyday in the *morning* on the *couch* so that I can become a **reader**.
+- [ ] I will ==read mindset content on atoms app== every time I have *nothing to do* so that I don’t **doomscroll** on my phone(*17 days left*).
+- [ ] I will ==go outside and study== everyday at *2 pm* in *Lind hall* so that I can **ace my finals**.
+- [ ] 
+### 20
+> After [CURRENT HABIT], I will [NEW HABIT] so that I can become [IDENTITY]. Add [for:: 80] when the line supports a named 80.
+- [ ] I will ==plan my day for 20 minutes== every day on *my table* after ==moving around== in the *morning* so that I can become at **peace with myself**.
+- [ ] I will ==go to the gym at 5:30== everyday after ==class/studying== so that I can become someone **who performs calisthenics**.
+- [ ] I will ==drink 3L of water== everyday and ==creatine== every day so that I can become a **healthy and active person**.
+- [ ] 
+
+> [!DANGER] **Do NOT do today:**
+## Daily Wins
+%% Four lines, ticked on the page or here. The name before the colon is the win. The score is how many are ticked, 0 to 4. It never touches the streak. %%
+- [ ] Project: 
+- [ ] Career: 
+- [ ] Cleanup: 
+- [ ] Review: 
+## Productivity
+%% LeetCode count and study hours live in the properties above (lc_count, study_today). The dashboard changes them with plus and minus. Do not type them here. %%
+## Time
+%% Written by /closeday from the time log. Do not type here. Format and rules: Spec - Time Layer. %%
+## Just Write
+> [!IMPORTANT] The Journey to improve is by first coming to exact terms with your own actions, thoughts and mind. Which will only happen if you write daily and understand what exactly do you do. 
+> - Time is Money, Money is not Time. 
+
+> So, what did you think?
+
+> So, what do you do?
+
+> So, what will you do?
+
+
+### Good Habits 
+- [ ] ⏫ *Morning Routine*: 
+- [ ] 🔼 *Read 12 Pages of the book*
+- [ ] 
+### Bad Habits 
+%% The property slips counts today's slips. Leave it empty until the day is logged. 0 means a clean day. %%
+1. *The Basic(~~lol~~)*: Smoking, vaping, masterbating.
+2. 
+## Tomorrow
+> Actions required for tomorrow which are written down the previous night, while closing down the note.
+
+1. 
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Week.md`
+```
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+related_progress:
+tags:
+  - thought
+  - brainstorm
+next:
+---
+# 52 Weeks
+> [!NOTE] **Summary**: 
+## Goals
+
+## Due Friday
+%% What must be done by Friday. One checkbox line each, with a deadline: - [ ] task [due:: YYYY-MM-DD]. The dashboard's Friday strip reads this heading. Fill it from the plan note (Weekly deadlines) at the start of the week. %%
+
+## Scheduled tasks
+%% Things that must run on a set day or time this week. Nothing here runs by itself. It is a list for the review. %%
+
+## Daily log
+%% One line per day, written at the close. Long writing stays in the daily note. An empty line means the day was not logged. %%
+- Monday: 
+- Tuesday: 
+- Wednesday: 
+- Thursday: 
+- Friday: 
+- Saturday: 
+- Sunday: 
+
+## Productivity 
+
+## Good habits 
+
+## Bad habits 
+
+## Fixes
+
+# Check-in
+> [!QUESTION] Rate yourself on focus, health, discipline, and connection: Where did I abandon myself this week? Where did I show up?
+
+Focus: 
+Discipline:
+Connection:
+
+## Review Log
+
+%% Written by /weekly-review, one "### YYYY-Www" entry per week. Do not edit the heading. Format: 30_Order/Standards/Dashboards/Weekly Review. %%
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Month.md`
+```
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+updated:
+related_progress:
+tags:
+  - thought
+  - brainstorm
+next:
+---
+# What made you better this month? 
+**Summary**:
+
+## Month plan and goals
+
+The few outcomes this month exists to produce.
+
+- 
+
+## Streaks
+%% Written by /monthly-review from the engine, never typed: current streak, best streak this month, days MET, and each identity's streak and level. The dashboard's Month view shows the same numbers. %%
+
+## Productivity 
+
+## Good habits 
+
+## Bad habits 
+
+## Fixes
+
+## Next Move
+
+- 
+
+## Review Log
+
+%% Written by /monthly-review, one "### YYYY-MM" entry per month. Do not edit the heading. Format: 30_Order/Standards/Dashboards/Monthly Review. %%
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Year.md`
+```
+---
+type: thought
+thought_kind: reflection
+status: seed
+created: {{date:YYYY-MM-DD}}
+updated:
+related_progress:
+tags:
+  - thought
+next:
+---
+# What made you better this Year?
+
+## Resolution checklist
+
+## Identities
+%% The identities this year was spent forming, each with the highest level reached (The beginning, Toward 21, Now it gets hard, Work pays off, Consistency, discipline, mindset). Written at the year review from the engine's identity numbers. %%
+
+## Plans
+%% One line per plan that ran this year, as a link to its note, with its start and end dates. Example: the 12 weeks plan. %%
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Weekly\12 Weeks - Sept to Dec.md`
+```diff
+- - morning person (seen on 2026-10-27, confirm)
+- - reader (seen on 2026-10-27, confirm)
+- - ace my finals (seen on 2026-10-27, confirm)
+- - at peace with myself (seen on 2026-10-27, confirm)
+- - someone who performs calisthenics (seen on 2026-10-27, confirm)
+- - healthy and active person (seen on 2026-10-27, confirm)
++ - morning person (the bold phrase in the template's habit line, confirm)
++ - reader (confirm)
++ - doomscroll (the bold phrase in the template's 80 line, which names what to stop. Confirm or reword the line.)
++ - ace my finals (confirm)
++ - peace with myself (confirm)
++ - who performs calisthenics (confirm)
++ - healthy and active person (confirm)
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Weekly\12 Weeks - Sept to Dec.md`
+```diff
+- > [!NOTE] Draft structure, written 2026-11-03 by the assistant. The note was empty. The headings are the ones the dashboard reads. Everything under them is yours to write. Nothing here is your content, except the identity phrases copied from the 2026-10-27 note, which are marked.
++ > [!NOTE] Draft structure, written 2026-11-03 by the assistant. The note was empty. The headings are the ones the dashboard reads. Everything under them is yours to write. Nothing here is your content, except the identity phrases copied from the habit lines in `Better Today`, which are marked.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
+````
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - streak
+  - daily-note
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Decisions Log]]"
+  - "[[Atomic Habits]]"
+  - "[[Daily Habit Board]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - Time Layer]]"
+  - "[[Spec - Automation Layers]]"
+  - "[[12 Weeks - Sept to Dec]]"
+  - "[[Better Today]]"
+next: "Anant confirms the defaults in Decisions Log rows 69 to 91. Then Build Plan stage P1 shows each standard and skill patch one at a time."
+---
+# Spec: Streak and Daily Note
+
+## What This Is
+==The daily note is the only source of truth. The habit lines under `### 80` and `### 20` are the data, each ends in an identity, and the streak counts the 80.== The dashboard reads the note and stores nothing. Nothing is wiped at night, so history survives.
+
+This note defines everything the engine (`plan-cli`) must do with a daily note: how it finds sections, how it reads a habit line, what counts as a day, how the streak and the identity streaks are computed, what happens with empty, missing and malformed input, how the page and the skills may change a note, and which checks guard it. It replaces the five-category model of 2026-10-12 (Decision 52). The old rules are kept at the end as history because the engine still runs them for old months until the cutover.
+
+It does not define the screen ([[Spec - Home and Monthly Dashboards]]), time logging ([[Spec - Time Layer]]) or the skills' and Jarvis's feeds ([[Spec - Automation Layers]]).
+
+## Current State
+Checked on 2026-11-03.
+- The daily template is [[Better Today]] and was updated in this design pass. It now has `created`, `lc_count`, `study_today` and `slips` in its properties, checkbox Daily Wins, no Floor table, no Meta Bind inputs, a `## Time` heading, and the `#### From Yesterday` block that Anant added. Notes made before the change keep the Meta Bind shape.
+- The deployed engine reads only `[cat::]` lines under five category headings. No current daily note has them, so the streak reads 0 and nothing can be ticked from the page.
+- The validator hook runs six rules written for the old model.
+- The Standards [[Daily Note Schema]] and [[Streak Rule]] and the skills `startday` and `closeday` still describe the old model. They are patches in Build Plan stage P1 and are not edited here.
+- Nothing in this note is built.
+
+## The day in one picture
+The engine finds a section by its heading text, not by position and not by heading level (default 82). `#### From Yesterday` and `## From yesterday` are the same section.
+
+| Section (heading text) | What it holds | Written by | Counts toward | If missing or empty |
+|---|---|---|---|---|
+| Summary callout (`> [!NOTE] Summary:`) | One line summing up the day | Anant, on the page or in the note | Nothing. Shown on the page (default 81). | Page shows an empty field. No warning. |
+| `Morning Plan` | A summary prompt (`1. **80**:` list) and the Goal line | Anant | Nothing. The engine ignores this list. | No warning |
+| `From Yesterday` | Yesterday's Tomorrow lines as a numbered list | `/startday` | Nothing. Never ticked, never counted (Decision 62). | Treated as zero lines. Warning only if yesterday had Tomorrow lines and this is empty after `/startday` ran. |
+| `80` | Habit lines | Anant. `/startday` proposes from the plan's Habits. | The streak | No lines: the day is MISS and `no_80` is reported (default 74). |
+| `20` | Habit lines that support the 80 | Anant | The 20 score only | No lines: the 20 score is null ("no 20 today"), not 0 percent |
+| Do Not Do callout (`> [!DANGER] **Do NOT do today:**`) | One strong line | Anant, on the page or in the note | Nothing. Shown on the page. | Page shows an empty strip with a prompt |
+| `Daily Wins` | Four checkbox lines: Project, Career, Cleanup, Review | Ticked on the page or in the note | The wins score, 0 to 4 | Fewer than four lines: score over the lines present and `wins_shape` warning |
+| `Productivity` | A comment only. Numbers are properties. | | | Nothing to check |
+| `Time` | The overview that `/closeday` writes | `/closeday` | Nothing ([[Spec - Time Layer]]) | The Time block says "Time not set up" or "Not closed" |
+| `Just Write` | Prompts and free writing | Anant, in the note only | Nothing | Nothing |
+| `Good Habits` | Checkbox lines | Ticked on the page or in the note | The habits score | No lines: null score |
+| `Bad Habits` | A numbered list of what to avoid | Anant | Nothing. The `slips` property is the counter. | Nothing |
+| `Tomorrow` | Lines for tomorrow, written at the close | Anant | Copied under From Yesterday in the next note | Empty is normal |
+
+Properties (frontmatter): `lc_count` and `study_today` are plain numbers, 0 by default. `slips` is a plain number and is empty by default. `created` is the note's own date. `type` stays `thought` and `thought_kind` stays `reflection`. A daily note is recognised by its folder `00_Live/Enumerate/Daily` and its ISO file name, never by `type` (default 83). The engine does not require `type: daily`.
+
+## The habit line
+One checkbox line is one habit:
+
+`- [ ] I will ==behavior== at *time* in *place* so that I can become a **identity**.`
+
+Grammar, so rewording never silently breaks the math:
+1. **A habit** is a checkbox line (`- [ ]`, `- [x]`, `* [ ]`, `+ [ ]`) at the first indent level of its section, with at least one non-space character after the box. A box with nothing after it is a free slot and is ignored in every count.
+2. **Done** means the box holds `x` or `X`. `[-]` means dropped on purpose and the line leaves the count altogether, as if it did not exist. Any other mark (`>`, `/`, `!`, `?`) is open and produces an `unknown_mark` warning.
+3. **Group** (optional). A numbered or bold line above (`1. *Mornings*`) names a group. The template now has none. The engine reports a group when it finds one and works without one.
+4. **Identity** is the last `**bold**` span in the line, trimmed, lowercased, with runs of spaces collapsed and Unicode normalised (NFC), curly and straight apostrophes treated as equal. Emphasis with `==` or single `*` is never an identity.
+5. **No bold span** means `no_identity` (warning). The line still counts toward the day.
+6. **Sub-tasks.** A checkbox indented under a habit is a sub-task. It is not counted, and not shown in version 1.
+7. **Ignored text:** HTML comments (`<!-- -->`), Obsidian comments (`%% %%`), fenced code blocks, blockquote and callout lines (`>`), and anything inside a table. A checkbox in any of these is never a habit. (The 2026-10-13 build found that a `%%` example line was counted as a miss. This rule exists because of it.)
+8. **Fields.** Optional inline fields at the end of the line: `[for:: 80]` on a 20, `[plan:: minutes]` for planned time, `[due:: YYYY-MM-DD]`. The engine reads only these names. A field with a bad value is `bad_field` (warning) and is ignored.
+9. **Emoji and priority marks** (⏫, 🔼) are text. They change nothing.
+10. **Length.** A line longer than 2000 characters still counts. The page shows the first part and scrolls sideways.
+11. **Line endings.** LF and CRLF are both read. A write keeps the file's own ending (see Write rules).
+12. **Duplicates.** Two lines with identical text are two habits. They are told apart by position, never by text alone.
+
+## Day status
+- **MET:** the day has at least one habit under `80` after dropped lines are removed, and every one of them is done.
+- **MISS:** at least one 80 habit is open, or the note has no 80 habit, or no note exists for that date, or the note is empty. Missing note and empty note are both MISS, and they show differently on the page (a Create button against a warning).
+- **PENDING:** today only, until local midnight. A pending day that is already MET shows as MET.
+- **Not started:** a date before `plan_start`. Never counted either way, never drawn as a miss.
+- **Future:** a date after today. Never counted. A note for tomorrow is normal. A note more than 1 day ahead is a `future_note` warning.
+- The 20 is a separate score and never changes the status.
+- The page never shows a 0 where the truth is "not logged" (see Nulls).
+
+## The plan window (Decision 58)
+The streak starts on day 1 of the active plan. Nothing before it counts.
+- The plan note is [[12 Weeks - Sept to Dec]]. Its properties `plan_start` and `plan_end` are `YYYY-MM-DD`. They are not decided yet. Until then the page shows a banner naming the empty property and the streak starts at the first note that has an 80 habit.
+- **Day N of M:** N is the number of calendar days from `plan_start` to today inclusive. M is the number from `plan_start` to `plan_end` inclusive. They are computed from date strings, never from milliseconds, so daylight saving never shifts them.
+- Today before `plan_start`: the Hero shows "Starts in K days" and no streak. After `plan_end`: "Plan ended" and a red health chip until the config names a new plan (default 78).
+- `plan_start` after `plan_end`, a date that does not exist (2026-02-30), a value in the wrong format, or two different plan notes both marked active: `plan_invalid`, with the property named. The streak falls back to the first note with an 80 habit and the banner stays.
+- The week of the plan is the ISO week (Monday to Sunday). A plan that begins mid-week has a short first week.
+- The window is read from the plan note's properties through the metadata cache. If the note is moved or renamed, Obsidian updates the link and the cache. If it is deleted, the banner says so.
+
+## Streak rule (floor with one forgiven miss)
+Unchanged from the engine already built and tested (87 tests, with the Python parity tests). Only the status of a day changes.
+- One MISS between two MET days is forgiven. It adds nothing to the count and does not reset it.
+- Two MISS days in a row end the run. The streak resets to 0, and the forgiven day before them no longer shields anything.
+- After a reset, the next MISS is a new forgiven miss.
+- **Current** is the number of MET days in the current run, from plan day 1, plus today if today is MET.
+- **Best** counts closed days only. Today joins it the next day (Decision 48).
+- **At risk:** yesterday was MISS and today is not yet MET. The page says "Streak breaks if today is not MET."
+- **Forgiven days** are lost days in the month. They add 0 to the streak.
+- Leading misses before the first MET day (days 1 and 2 of the plan, say) start nothing. They are not "forgiven" and do not reset a run that has not begun.
+
+Cases the tests must pin, each with a hand-checked answer:
+| Case | Expected |
+|---|---|
+| Day 1 MET | current 1, best 0 until day 2 closes |
+| MET, MISS, MET | current 2, the MISS forgiven |
+| MET, MISS, MISS | reset to 0 |
+| MISS, MET (plan day 1 missed) | current 1 |
+| MISS, MISS, MET | current 1, no earlier run to lose |
+| A month boundary and a leap day | the streak does not break at the boundary |
+| Today MET, yesterday MISS | at risk is false |
+| A missing note in the middle | MISS, forgiven if isolated |
+| A note with only dropped (`[-]`) 80 lines | MISS and `no_80` |
+| Plan day 1 is today | current 0 or 1, Day 1 of M |
+
+## Identities
+The identity phrase is why a habit exists, so the page treats it as the main point of the line (Decision 57).
+- The identity is the last bold span of an 80 or 20 line. Two lines with the same phrase feed one identity.
+- **Identity day:** an identity is MET on a day when every 80 line carrying it is done (default 71). It is not scored on a day when it has no 80 line, so a rest day for an identity neither helps nor hurts it. The 20 lines carrying it appear as support and never change its status.
+- **Identity streak:** the same rule as the main streak, over the days the identity was scored. One forgiven miss, two in a row reset, best counts closed days only, counted from plan day 1. A day on which the identity was not scored is skipped, not a miss.
+- **Level:** the identity streak against 3, 7, 21, 66 and 100, with the titles of Decision 41: The beginning, Toward 21, Now it gets hard, Work pays off, Consistency, discipline, mindset. Below 3 there is no level, only "Day K of 3".
+- The Hero shows the identity closest to its next level (fewest days to go, ties broken by the longer streak). The Identities block shows all of them.
+- **Listing.** Identities are listed in [[12 Weeks - Sept to Dec]] under Identities. A phrase on a line that is not listed is `unlisted_identity` (warning) and is still counted. A listed identity with no line for 14 days is `idle_identity` (info).
+- **Renaming** an identity changes its key, so its streak would restart. Renaming goes through [[Decisions Log]], and the plan note may list an alias (`old phrase = new phrase`). The engine merges aliases.
+- **Negative identities.** A line may name something to stop ("so that I don't **doomscroll**"). The bold phrase is still its key. It is treated like any other identity. The plan note decides whether to reword it.
+- At most 6 identities are drawn on a laptop and 4 on the phone. More show as "+N more".
+
+## Scores that are not the streak
+| Score | Definition | When the total is 0 |
+|---|---|---|
+| 20 score | 20 habits done over 20 habits present (dropped lines excluded) | Null. The ring shows "no 20 today". |
+| Wins | Ticked win lines, 0 to 4. A win is a line under `Daily Wins` whose name before the first colon is project, career, cleanup or review (case-insensitive). | Null if the section is missing. 0 if the lines exist and none is ticked. |
+| Habits | Good Habits done over lines present | Null |
+| Clean days | Consecutive days whose `slips` is exactly 0, counted back from today if today is logged, else from yesterday. A day with `slips` empty, missing or invalid is not logged and ends the run. | 0, shown as "Log today" when today is empty |
+| LeetCode, study hours | `lc_count`, `study_today` | Null if missing or invalid. The page shows a dash and plus sets it to 1. |
+
+Percentages are whole numbers, rounded half up, and only the engine rounds them. The page never recomputes one.
+
+## Nulls, blanks and invalid input
+The rule is one sentence: a null is never a zero and never a pass.
+
+| Input | Reading | The page shows | Check |
+|---|---|---|---|
+| No file for the date | MISS (past) or PENDING (today) | Empty rings and a Create button | None. This is normal for a skipped day. |
+| 0-byte file | MISS | A warning "empty note" and an Open button | `empty_note` |
+| File without frontmatter | Numbers null. Body still read. | Dashes for numbers | `no_frontmatter` (info) |
+| Frontmatter not closed or invalid YAML | Numbers null. Body still read. | A warning | `bad_frontmatter` |
+| `lc_count: -3`, `abc`, `2.5`, `1e9`, `""` | Invalid, treated as null | A dash | `bad_number` |
+| Number above 999 | Invalid | A dash | `bad_number` |
+| `slips` empty or missing | Not logged | "Log today" | None |
+| `slips: 0` | A clean day | | |
+| `slips: 2` | Two slips, not clean | | |
+| No `### 80` heading | No 80 | MISS banner | `no_80` |
+| Two `### 80` headings | The first is used | A warning | `duplicate_section` |
+| A heading renamed (`### The 80`) | The section is not found, as if it were missing | The MISS banner names the heading it looked for | `no_80` |
+| `Daily Wins` with 3 lines | Score over 3 present | The ring shows 2 of 3 | `wins_shape` |
+| Habit with only a box | A free slot | Not drawn | None |
+| Habit line with no bold span | Counted, no identity | A grey dot instead of a card | `no_identity` |
+| A note of more than 200 KB | Not read | A warning | `too_large` |
+| Binary or non-UTF-8 content | Not read | A warning | `bad_encoding` |
+| A note named `2026-10-27 1.md`, `2026-10-27 (conflict).md`, `*.sync-conflict-*` | Not a daily note | A red banner naming it | `misnamed` |
+| A note named `27-10-2026.md` | Not a daily note | A red banner naming it (this cost ten silent days in October) | `misnamed` |
+| A date that does not exist (`2026-02-30.md`) | Not a daily note | The banner | `misnamed` |
+| A note in another folder with an ISO name | Not read | Listed by `doctor` | `wrong_folder` |
+| Plan dates empty | No window | The banner | `plan_missing` |
+
+## Time and dates
+- A day is a local calendar date on the machine. The page re-reads the date every 30 seconds. A tick at 00:01 belongs to the new date. The rollover is midnight (Decision from the Oct 13 fixed answers).
+- Dates are compared as `YYYY-MM-DD` strings and counted by calendar arithmetic, never by dividing milliseconds, so daylight saving and a changed time zone cannot shift a count.
+- A laptop that changes time zone mid-day can show a different date than the other laptop for a few hours. `doctor` reports the machine's zone and date.
+- A note edited on both laptops before a sync is the stale-line case below.
+- ISO week 53 exists in some years. Week labels use the ISO week-year (`2026-W53`), so a label never mixes years.
+
+## Write rules
+The page and the skills change a note only through these primitives. Each runs inside one `Vault.process` call (atomic), re-reads the file first and refuses, saying why, if the target is no longer what the page showed.
+1. **Tick.** Flip `[ ]` and `[x]` on the line found by section and index. Refuses if the line text at that index is not the text the page showed (stale line).
+2. **Edit line.** Replace the text of one line, keeping its box, its trailing fields and its identity span. An edit that removes a field or the identity span is rejected, and the page says which. A change to the identity phrase is allowed only if the new phrase is entered deliberately in the field the edit shows for it, so a typo cannot rename an identity.
+3. **Set number.** Change `lc_count`, `study_today` or `slips` through `processFrontMatter`. Minimum 0, maximum 999. Plus from null gives 1, minus from null or 0 stays at 0. A frontmatter that cannot be parsed refuses the write.
+4. **Add line.** Append a checkbox or numbered line under a named heading (Tomorrow, an 80 or 20 slot). Fills the first free slot (`- [ ] `) if there is one. Refuses if the heading is missing.
+5. **Set callout line.** Replace the text after the label on the Summary or Do Not Do callout.
+6. **Create.** Create `YYYY-MM-DD.md` for a date from the template [[Better Today]] with `{{date}}` substituted. Refuses a name that is not an ISO calendar date, refuses if the file exists (checked immediately before writing, and the "already exists" error is caught as a refusal, because Periodic Notes may create the same file at the same moment). Creates the folder only if the config says to. After creating, runs `validate` on the result.
+
+Common to all:
+- Preserve the file's line ending (LF or CRLF) and trailing newline, change no other line, and leave frontmatter bytes identical except for the one number.
+- A note open and unsaved in the editor: `Vault.process` works on the file's current content and Obsidian reloads the editor. A change typed in the editor after the page read it makes the stale-line check refuse. The page redraws from disk.
+- A file deleted, renamed or moved between the read and the write: refused with "note changed", and the page redraws.
+- A file locked or read only by the operating system: refused with the error text, never retried in a loop.
+- The sync case: a laptop that wakes with an older copy refuses a tick whose line has moved. The row snaps back. Nothing is merged by guessing.
+- The plugin never deletes a note, never renames one, and never writes outside the daily folder, the weekly note's `Due Friday` ticks and the time log's Add entry ([[Spec - Time Layer]]).
+- Skills use the same rules through the CLI. A skill shows its exact write and waits for a yes (Decision 63).
+
+## Validator rules (daily-note hook and `validate`)
+After any write by Claude, and on demand, report and never rewrite. Errors fail `doctor`. Warnings and info do not.
+| # | Check | Severity |
+|---|---|---|
+| 1 | ISO calendar-date file name | error |
+| 2 | Parent folder is `00_Live/Enumerate/Daily` | error |
+| 3 | At least one 80 habit | error (`no_80`) |
+| 4 | Each habit has an identity | warning (`no_identity`) |
+| 5 | Each identity is listed in the plan note | warning (`unlisted_identity`) |
+| 6 | No leftover `<% %>` or `{{ }}` placeholders | error |
+| 7 | `Daily Wins` has the four lines | warning (`wins_shape`) |
+| 8 | `lc_count`, `study_today` and `slips` are numbers or empty | warning (`bad_number`) |
+| 9 | `Tomorrow` has at most 5 lines | error |
+| 10 | `From Yesterday` equals yesterday's Tomorrow lines after `/startday` | warning |
+| 11 | No `[cat::]` lines in a note on or after the cutover date | info. They are ignored and never deleted. |
+| 12 | Marks are space, `x`, `X` or `-` | warning (`unknown_mark`) |
+| 13 | Frontmatter closes and parses | warning (`bad_frontmatter`) |
+| 14 | Each `[for::]` names an 80 that exists | warning |
+| 15 | A note is not larger than 200 KB and is valid text | warning |
+| 16 | No future note more than 1 day ahead | warning (`future_note`) |
+| 17 | The Summary callout and the Do Not Do callout exist | info |
+| 18 | `## Time` overview matches the time log (after the close) | warning |
+Rules 1, 2 and 6 and the Tomorrow limit are in the engine already. The old rules about `[cat::]`, next-action types, repeats and causes are retired for notes on or after the cutover.
+
+The hook sees only what Claude writes. Ticks made on the page, typing in Obsidian and sync writes never fire it, so the page and `doctor` run the same checks.
+
+## Cutover (default 73)
+- The cutover date is the date of the first note in the new shape. The engine keeps the old five-category path for notes before it, so old months still grade.
+- After plan day 1 the new path is the only one that counts, so old notes never enter the streak.
+- Notes that carry `[cat::]` lines are never rewritten. The 87 notes with Meta Bind inputs stay as history.
+- A note on or after the cutover that uses the old shape is `old_shape` (warning) and counts as no 80.
+
+## What changes in the standards and skills (patches, not made here)
+| Target | Change |
+|---|---|
+| [[Daily Note Schema]] | Replace Body order, Action lines, Evening close, Next actions and Cause tags with the sections above |
+| [[Streak Rule]] | MET is every 80 habit done. Add the plan window, identities, nulls |
+| `startday` | Copy Tomorrow under From Yesterday, propose the 80 from the plan's Habits, never write Targets |
+| `closeday` | Write the `## Time` overview from `plan-cli time`, no Evening close, no Next actions, no Preview |
+| `daily-auditor` | Rules 1 to 18 |
+| The hook | Rules above in place of rules 3 to 6 |
+
+## Non-Goals
+- No categories, no 3-of-5 rule, no cause tags in this version. A cause for a missed day may return as an optional field later and is not designed here.
+- No streak that includes the 20, the wins, the habits or the clean days.
+- No identity levels that are typed by hand.
+- No computing of any number outside the engine.
+- No writing to a note except the six primitives.
+- No change to `plan-cli.cjs` in the vault. The source and tests live in `the-plan-dashboard`.
+- No automatic ticking from a count, a calendar event or a time entry.
+
+## Open Questions
+1. `plan_start` and `plan_end` in [[12 Weeks - Sept to Dec]]. Anant decides them later. Everything above works once they are filled, and works in the fallback until then.
+2. Whether a cause for a MISS comes back later. Not needed for the base.
+
+## History: the five-category rules (superseded 2026-11-03)
+Kept because the engine runs them for notes before the cutover.
+- Five categories (Morning, Study, Fitness, Mind, Career), each with `[cat:: x]` action lines. MET at 3 of 5. A category counted only when every action in it was ticked.
+- The algorithm, which the 87 tests and the Python parity tests pin:
+
+```
+status[d]   = MET if categories_done(d) >= 3 else MISS   // missing note = MISS
+run = 0 ; best = 0 ; prev_miss = false
+for d in days from first_template_day to yesterday, in order:
+    if status[d] == MET:  run += 1 ; best = max(best, run) ; prev_miss = false
+    else:
+        if prev_miss: run = 0 ; prev_miss = false
+        else: prev_miss = true
+today_met = status[today] == MET
+current   = run + (1 if today_met else 0)
+at_risk   = prev_miss and not today_met
+```
+
+- Daily ring: grey at 0 to 2, gold at 3 and 4, green at 5 (Decision 31).
+- Cause tags: sleep, no-plan, distracted, energy, other.
+- Next actions: at most 5, never repeated from the day before, each typed streak, career, gym or failure.
+- The Oct 13 build found that a `%%` example line under Evening close was counted as a miss, which is why comments are ignored above.
+
+````
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
+````
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - home
+  - monthly
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - Time Layer]]"
+  - "[[Spec - Automation Layers]]"
+  - "[[Front End and Visual System]]"
+  - "[[Architecture]]"
+  - "[[Decisions Log]]"
+  - "[[Health Tracker]]"
+  - "[[Finance Tracker]]"
+  - "[[Life OS]]"
+next: "Anant confirms the defaults in Decisions Log rows 69 to 91. Build Plan stage P4 builds this page."
+---
+# Spec: Home and Monthly Dashboards
+
+## What This Is
+==One page that answers what to do now, lets Anant tick, edit short lines and type, keeps all long writing in the daily note, and makes a day done right visible as a number that grows.== This note is the page specification for the plugin `the-plan-dashboard`. It replaces the 2026-10-12 layout, which was read only and scrolled. The data rules are in [[Spec - Streak and Daily Note]]. The colours, type and motion are in [[Front End and Visual System]]. The modules that draw it are in [[Architecture]].
+
+## Current State
+Checked on 2026-11-03.
+- The deployed plugin (built 2026-10-13, React 19 with a scaled grid and inline SVG) draws a read-only page. Its only write is a tick on a `[cat::]` line (`data/write.ts`, `core/toggle.ts`). Today's note has none, so nothing on the page can be changed and the streak reads 0.
+- The page scrolls vertically and has hard-coded colours. It has never been tested at a measured window size or on a phone.
+- The source in `the-plan-dashboard` has three uncommitted changes and no remote. `manifest.json` already has `isDesktopOnly: false`.
+- The page was never shown real data for the first nine days because notes were misnamed `DD-MM-YYYY`. See [[Postmortem]].
+- Nothing in this note is built.
+
+## The rules of the page
+1. **One page, no vertical scroll** on a laptop, anywhere. The root and every card clip vertically. The whole page scales to fit. If the pane is too small the page shows a "Window too small" banner and does not squeeze below a readable size (Decision 55).
+2. **Only written text scrolls, and only sideways.** A line Anant wrote (a habit, a callout line, a Tomorrow line, a Summary) is one row with no wrapping and `overflow-x: auto`, scrollbar hidden. It scrolls by wheel, drag, touchpad or keyboard. Numbers, labels, rings, the heatmap, chips and buttons never scroll in either direction.
+3. **Every number comes from the engine.** The page computes nothing. A test compares the screen with `plan-cli` for 30 days.
+4. **Interactive but short** (Decision 54). Tick anything. Double-click a line to edit it in place. Plus and minus on numbers. Type in the short fields (about 200 characters). Long writing stays in the note, and the page offers Open in note. Anant: "limited to the words so that the main content lands on the daily note."
+5. **The note stays the record.** Disabling the plugin loses the view and none of the data. A note written from the page reads well as plain Markdown.
+6. **Plain, blunt words.** No praise, no guilt. A miss reads "Day 2 of miss. Streak breaks tomorrow."
+7. **Never a silent zero.** A missing, empty or invalid input shows its reason (see the null table in [[Spec - Streak and Daily Note]]). A broken engine shows a red health chip, not an empty page.
+8. **Skills are not run by the page.** A plugin cannot start a Claude skill. The Start and Close buttons show and copy the command (`/startday`, `/closeday`). The skill shows its exact write and waits for a yes (Decision 63, default 77).
+9. **One write at a time.** A write in flight disables the same control until the redraw from disk arrives, so a double click cannot write twice.
+
+## Devices and window sizes
+| Device | Layout | Status |
+|---|---|---|
+| Dell and Acer, Obsidian full screen | One page, all blocks (the wide layout) | The target |
+| A laptop pane narrower than about 720 px (a split or a sidebar open) | The tab layout below | Same code as the phone |
+| iPhone 15 (about 393 by 852 points) | Five tabs, each fits one screen (default 69) | Never run. A gate in [[Verification and Risks]], not a promise. |
+
+- The page reads the pane size, not the device, so a narrow laptop pane gets the tabs too.
+- `manifest.json` has `isDesktopOnly: false`. The Jarvis plugin is desktop only. This one is not, because the phone is in scope (Decision 56).
+- Laptop test sizes: 1920 by 1080, 1536 by 864, and 1366 by 768, each less about 40 px of Obsidian chrome. The chrome figure is an assumption, measured once per laptop with the debug command. Phone test size: 393 by 852 less the status bar and the Obsidian toolbar.
+- Landscape on the phone is not designed. It shows the "Window too small" banner with the numbers.
+
+## Views (Decision 60)
+| View | Where | Holds |
+|---|---|---|
+| Today | The laptop page, always. First tab on the phone. | Hero, 80, 20, identities, Do Not Do, Summary, wins, habits, numbers, From Yesterday, Tomorrow, Friday strip, Career strip |
+| Write | Phone tab only. On a laptop it is part of Today. | Do Not Do, Summary, wins, habits, numbers, Tomorrow, From Yesterday |
+| Week | A laptop block, a phone tab | Seven-day row, the week's streak days, Friday deadlines, the Career strip, a Start review button |
+| Month | A laptop block, a phone tab | Streak heatmap only, the plan day counter, identity streaks (Decision 61) |
+| Time | A laptop block, a phone tab | Tracked against planned time, per project, from [[Spec - Time Layer]] |
+
+On a laptop, Week, Month and Time are blocks on the same page, not a longer page. Their size is fixed, so Today never moves when they load.
+
+## Blocks
+Every block has: what it shows, where the data is from, what a click does, what it shows when empty, null or broken, and its limits.
+
+### Hero
+- **Shows:** the streak (largest number on the page), best streak, Day N of M and days left, the plan name, the identity closest to its next level with its title and days to go, and the at-risk line. A plain banner row appears only when something needs saying.
+- **Data:** engine (`streak`, `plan`, `identities`). **Click:** the streak opens the Streak Rule; the plan name opens [[12 Weeks - Sept to Dec]].
+- **Empty or null:** plan dates empty: "Plan dates not set" and the streak from the first note with an 80 habit. Before `plan_start`: "Starts in K days". After `plan_end`: "Plan ended". No 80 today: "No 80 written for today". Streak 0 with history: "Streak 0. Best 12."
+- **Milestones:** when the streak reaches 3, 7, 21, 66 or 100, the level title replaces the sub-line for the rest of the day and then settles.
+- **Never shows** a "broken streak" count.
+
+### 80 and 20
+- **Shows:** the habit lines, grouped when a group line exists, each with its identity phrase as a small chip. A 20 line shows the 80 it supports when it carries `[for:: 80]`.
+- **Click on the box:** tick. **Double-click the text:** edit in place. **Enter** saves, **Escape** cancels, **Tab** moves to the next line's editor.
+- **Empty:** a free slot is drawn as a dashed "Add a line" row. If the 80 has no habit, the block says "No 80" in red.
+- **Limits:** 8 rows visible in the 80 and 6 in the 20 on a laptop, 5 and 4 on the phone. Beyond that: "+N more" and Open in note. Dropped (`[-]`) lines are hidden. Sub-tasks are not shown.
+- **Long text:** one row, scrolls sideways.
+
+### Identities
+- **Shows:** one card per identity: name, identity streak, level title, and today's 80 lines done of lines. At most 6 on a laptop, 4 on the phone.
+- **Click:** the card scrolls nothing. It highlights that identity's lines in the 80 for 2 seconds. Ticking from the card is not offered, to keep one tick path.
+- **Empty:** no identities listed: "No identities in the plan note yet". A phrase on a line but not in the plan note shows a dashed card "unlisted".
+
+### Do Not Do and Summary
+- **Shows:** Do Not Do as a red strip with one line. Summary as a one-line field under the Hero (default 81). Yesterday's Summary shows as "Yesterday: ...".
+- **Edit:** double-click, 200 characters. Longer text keeps its first line on the page and the rest stays in the note, with Open in note.
+- **Empty:** a muted prompt. The callout is created in the note if it is missing, using the template's wording. If the callout has several lines, only the first is editable here.
+
+### Wins
+- **Shows:** four ticks (Project, Career, Cleanup, Review) and a 0 to 4 ring. The ring never changes the streak.
+- **Null:** if the section is missing, "Wins not in this note" with an Open in note button. If some lines are missing, the ring shows 2 of 3.
+
+### Habits and clean days
+- **Shows:** Good Habits as a row of ticks and a count of ticked over present. Clean days as a number: consecutive days with `slips` at 0.
+- **Slips:** plus and minus for today's `slips`. Empty shows "Log today" and the first click sets 0 (clean) while plus sets 1.
+- **Never shown:** the text of Bad Habits.
+
+### Numbers
+- LeetCode count and study hours with plus and minus. Minimum 0, maximum 999. Null shows a dash.
+
+### From Yesterday and Tomorrow
+- **From Yesterday:** yesterday's Tomorrow lines as chips. Read only. Never ticked, never counted (Decision 62).
+- **Tomorrow:** up to 5 lines. Add by typing and pressing Enter. Edit by double-click. Delete is not offered on the page (a deleted line is deleted in the note).
+- **Empty:** Tomorrow shows an input. From Yesterday shows nothing, not an empty box.
+
+### Friday strip
+- **Shows:** deadlines due by this Friday from the weekly note's `Due Friday` heading, each with days left. The tick writes to the weekly note (default 79).
+- **Empty:** "Nothing due Friday" when the heading exists and is empty. "Weekly note has no Due Friday" when the heading is missing.
+- **Edge:** a deadline with no `[due::]` is listed under "No date". A due date in the past and not ticked is red and says how many days late.
+
+### Career strip
+- **Shows:** applications this week of 10, the next three deadlines, and project next steps (Decision 65). Click opens the Jarvis note.
+- **Data:** read-only, from the Jarvis feed ([[Spec - Automation Layers]]).
+- **Not available:** "Not loaded" when the reader does not exist, the Jarvis vault is not at the configured path, or the reader returns an error. The rest of the page is unaffected.
+
+### Heatmap and Week row
+- **Heatmap:** one square per plan day (the whole plan on the Month view, the last 30 days on Today). Met, miss, forgiven (dashed), today (outlined), not started (hidden), future (hidden), missing note (faint diagonal). Click opens the day's note, or offers Create for a missing past day only when it is today.
+- **Week row:** Monday to Sunday, the ISO week, today outlined. A plan that begins mid-week shows the earlier days as "not started".
+
+### Time
+- See [[Spec - Time Layer]]. Shows tracked against planned time, one bar per project, the last entries as sideways lines, and Add entry. "Time not set up" until `## Time` and the log folder exist.
+
+### Health chip and Links
+- **Health chip:** one chip. Green when `validate` and `doctor` are clean. Red with a count otherwise. Click opens the first fault. It folds in the engine version, the deployed plugin against the repository, skills and hooks present, the plan window and the misnamed notes (default 85).
+- **Links:** Weekly, Monthly, the 12 Weeks note, Dashboards Hub, boards, Jarvis Control Center. From the config.
+
+## Wide layout (laptop, full screen)
+Fixed grid, three columns. Row heights are fixed so the page scales as one piece.
+
+```
++--------------------------------------------------------------------+
+| HERO  Day 38 of 84  Streak 9  Best 12   closest: reader 6 of 7     |
+| SUMMARY (one line)                                                 |
++----------------------+-----------------------+---------------------+
+| 80                   | 20                    | IDENTITIES          |
+|  [x] ... person      |  [ ] ... peace        |  morning person  5  |
+|  [ ] ... finals      |  [ ] ... healthy      |  reader          6  |
+|  [ ] (add a line)    |  [ ] (add a line)     |  ace my finals   4  |
++----------------------+-----------------------+---------------------+
+| DO NOT DO (red strip, one line, edit in place)                      |
++----------------+---------------+--------------+---------------------+
+| WINS 2 of 4    | HABITS  NUMS  | FROM YESTER. | TOMORROW            |
++----------------+---------------+--------------+---------------------+
+| FRIDAY  CAREER | WEEK ROW      | MONTH HEAT   | TIME   HEALTH LINKS |
++--------------------------------------------------------------------+
+```
+The diagram is a proposal for Anant to see on screen. Block positions are decided on real data, not here.
+
+## Tab layout (phone and narrow panes, default 69)
+Bottom bar with five tabs: Today, Write, Week, Month, Time. Today holds the Hero, the 80 and the 20. Write holds Do Not Do, Summary, wins, habits, numbers, Tomorrow and From Yesterday. Week holds the seven-day row, Friday strip and Career strip. Month holds the heatmap and identities. Time holds the Time block. A tab with more lines than fit shows "+N more" and Open in note. No tab scrolls vertically. The last tab opened is remembered per device and never in a note.
+
+## Scaling
+- The design size is a fixed width and height. A `ResizeObserver` on the view's content element sets one scale so the whole page fits the pane. Container query units (`cqw`, `cqh`) are the fallback if measured scaling misbehaves ([[Research - Outside Sources]]).
+- Minimum readable size is a config value. Below it the "Window too small" banner shows the current and needed size.
+- The scale is recomputed on pane resize, sidebar toggle, split, window maximise and a theme or font-size change. An edit in progress keeps its text through a rescale.
+
+## Interaction details
+| Action | Result | Write primitive |
+|---|---|---|
+| Click a box | Ticks or unticks | Tick |
+| Space or Enter on a focused box | Same | Tick |
+| Double-click a line, or F2 on a focused line | Edit in place. Enter saves. Escape cancels. | Edit line |
+| Click plus or minus on a number | Changes it by 1, bounded 0 to 999 | Set number |
+| Type in Tomorrow, press Enter | Adds a line | Add line |
+| Edit Do Not Do or Summary | Replaces the line | Set callout line |
+| Click a heatmap square | Opens that day's note | None |
+| Click Open in note | Opens the note at the heading | None |
+| Click Create (note missing, today) | Creates today's note | Create |
+| Click Start or Close | Copies the command and shows it | None |
+
+- **Refused write:** the row snaps back, shows the reason in one short line for 4 seconds, and the page redraws from disk. The usual cause is a stale line after a sync.
+- **External change while editing:** if the file changes while an in-place editor is open, the editor keeps the typed text, marks itself "note changed", and offers Save anyway (which re-checks) or Discard.
+- **Focus:** a redraw never moves the keyboard focus or closes an open editor unless the edited line was removed.
+- **Undo:** the page has no undo. Obsidian's file recovery and Sync history are the undo. A refused or wrong write is corrected by editing the note.
+- **Keyboard:** every control is reachable by Tab in reading order. Boxes and buttons show a visible focus ring. The plugin ships no default hotkeys.
+
+## States and errors
+| State | What the page shows |
+|---|---|
+| Vault still indexing | A loading skeleton of the grid. No numbers until the engine has read the daily folder. |
+| First run, no daily notes | "No notes yet" and a Create button |
+| No note for today | Empty rings and a Create button |
+| Empty note for today | A warning and an Open button |
+| Misnamed or conflicted note | A red banner naming the file |
+| Placeholder in the note | A red banner naming the note |
+| Plan dates missing or invalid | A banner naming the property (Decision 58) |
+| Plan ended | A red health chip |
+| Window too small | The banner |
+| Jarvis not reachable | The Career strip says "Not loaded" |
+| Time layer not set up | The Time block says so |
+| Engine fault | A red health chip with the first fault |
+| Write refused | The snap-back and the reason |
+| Two dashboard views open | Both draw the same data. A write in one redraws the other. Opening the command again focuses the existing one. |
+| Plugin disabled | The view disappears and the notes are untouched |
+| Obsidian restarts | The view is restored by Homepage or the layout, and the first paint follows the performance rule |
+| Phone in the background | On return the page re-reads the date and redraws |
+| Offline | Nothing changes. The page reads local files. Only the Career strip depends on another vault. |
+
+## Performance
+First paint under 2 seconds on both laptops and under 4 on the phone. The Hero and the 80 load first and the rest follows. A tick redraws the Hero, the 80, the identities, the heatmap and the rings within one second. The Week, Month and Time data load after the first paint. The engine caches by file modification time, so a redraw reads only the changed note.
+
+## Accessibility
+Text contrast of at least 4.5 to 1 in both themes, tested per token pair. Colour is never the only signal: a done line also shows a check, a miss also shows a label, a forgiven day also has a dashed outline. The streak and rings have text equivalents. Reduced motion turns animation off.
+
+## Plugins
+Meta Bind is no longer needed by new notes (Decision 53). Multi-Column Markdown and the `dashboard.css` snippet were only for the retired markdown page. Dataview is still used by boards. Nothing is removed in this build. The decision list for Anant is a stage in [[Build Plan]].
+
+## Map canvas
+Unchanged: an exploration canvas with real edges, not part of the daily page.
+
+## Tests
+1. **Style:** no hex colour in `src/ui/`, every colour a `tp-` token, no `overflow-y: auto` or `scroll` outside the written-text rows.
+2. **Real browser:** the built bundle in headless Chromium at each test size, asserting no vertical scroll on the root or any card, with worst-case fixtures (8 80 lines, 6 identities, long text lines, the largest numbers). jsdom has no layout engine and cannot prove this. Playwright is the candidate and is unverified here.
+3. **Live check:** a debug command in the plugin prints each block's size, the scale and any overflow. Run it inside Obsidian on both laptops and the phone.
+4. **Edit tests:** each write primitive, a stale line refused, an edit that removes a field refused, CRLF kept, a null number, and a note open in the editor.
+5. **Equality:** the page's numbers equal `plan-cli` for 30 days.
+6. **State tests:** one fixture per row of the States table.
+
+## Non-Goals
+- No vertical scroll on a laptop, no second page with different data for the phone.
+- No typing of long text on the page, and no Just Write editor.
+- No streak, level or grade computed in the page.
+- No automation transport, scheduled run or calendar write from the page.
+- No removal of any plugin.
+- No sharing, no community submission ([[Private Use and Sharing]]).
+
+## Open Questions
+1. The block positions on real data, decided at the first look in stage P4.
+2. The measured pane size on each laptop and on the phone.
+
+````
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Time Layer.md`
+```diff
+- ## Failure register
+- | Trigger | Effect | The page shows | Smallest fix |
++ ## Edge cases and nulls
++ A null is never a zero and never a pass, as in [[Spec - Streak and Daily Note]].
++ | Input | Reading | The page shows |
++ |---|---|---|
++ | No log note for the day | No time logged. Tracked is null, not 0. | "No time logged" |
++ | Log note exists with no entries | Tracked 0 and a note | "0 min" and the note |
++ | `## Time` missing in the daily note | The overview is not written yet | "Not closed" |
++ | `## Time` empty after the close | The close found no entries | "Closed with no time" |
++ | Entry end before start, or equal | Invalid, not counted | A warning with the line |
++ | Entry longer than 16 hours | Counted, flagged | A warning |
++ | Entry that crosses midnight | Split in two at 00:00, one in each day's log | Both days show their part |
++ | Two entries overlap | Both counted once each, overlap flagged | A warning naming both |
++ | Entry with no `[proj::]` | Counted under "Other" | A warning |
++ | `[proj::]` name not in the plan note | Counted under its own name | A warning |
++ | Time written as `9:5-10:0` or 12-hour | Invalid | A warning. The Add entry field cannot produce it. |
++ | Day of a daylight saving change | A 23 or 25 hour day. Entries use wall-clock time, so durations across the change are computed from the clock labels and a note is added. | A small note on that day |
++ | Planned time with no `[plan::]` fields | Null | Tracked time only |
++ | Tracked more than planned | Shown plainly as a number over | No praise, no guilt |
++ | A running Toggl timer at the close | Not recorded | "Timer still running" |
++ | Toggl returns more than the page limit | The import pages through the results | Nothing special |
++ | The import returns an entry already in the log | Matched by start, end and label and skipped | The import report counts it as a duplicate |
++ | The log folder is missing | Treated as no time logged | "Time not set up" |
++ 
++ The engine reads a day's log, never a range of dates wider than the week the page shows.
++ 
++ ## Failure register
++ | Trigger | Effect | The page shows | Smallest fix |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Today.md`
+```diff
+- ## Just Write
+- > [!IMPORTANT]
++ ## Career
++ %% Written by /startday from Jarvis, allowlisted fields only (applications this week, next deadlines, project next steps). Do not type here. See Spec - Automation Layers. %%
++ ## Just Write
++ > [!IMPORTANT]
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
+```diff
+- - **Data:** read-only, from the Jarvis feed ([[Spec - Automation Layers]]).
+- - **Not available:** "Not loaded" when the reader does not exist, the Jarvis vault is not at the configured path, or the reader returns an error. The rest of the page is unaffected.
++ - **Data:** read-only, from the `## Career` section of today's note, which `/startday` writes from Jarvis through its allowlisted reader ([[Spec - Automation Layers]]). The plugin never opens the Jarvis vault. That is why the strip works on the phone too (default 92).
++ - **Not available:** "Not loaded" when the section is empty, the Jarvis reader does not exist yet, or `/startday` has not run today. "Loaded 09:12" shows when it was written. The rest of the page is unaffected.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
+```diff
+- | `Time` | The overview that `/closeday` writes | `/closeday` | Nothing ([[Spec - Time Layer]]) | The Time block says "Time not set up" or "Not closed" |
++ | `Time` | The overview that `/closeday` writes | `/closeday` | Nothing ([[Spec - Time Layer]]) | The Time block says "Time not set up" or "Not closed" |
++ | `Career` | Applications this week, next deadlines, project next steps, copied from Jarvis | `/startday` | Nothing ([[Spec - Automation Layers]]) | The Career strip says "Not loaded" |
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Automation Layers.md`
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - automation
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Decisions Log]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - Time Layer]]"
+  - "[[Spec - AI Loop]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+next: "Lay out the task automation (Decision 64) in its own session, then pick the first transport. Everything else here is design for the build stages."
+---
+# Spec: Automation Layers
+
+## What This Is
+==How the daily note gets filled, checked and closed by Claude's skills, how The Plan and Jarvis exchange the few things they share, and where outside tools could attach later.== Plans and tasks from every source should land in one place: The Plan. Today they are scattered across Apple Reminders, Todoist, Google Calendar and Obsidian itself, and the overlap is the mess. This version separates what is decided and designed (the skills, the feeds, the time layer) from what stays a reserved slot (task transports).
+
+## Current State
+Checked on 2026-11-03.
+- Five skills exist (`startday`, `closeday`, `weekly-review`, `monthly-review`, `jarvis-dump`), four read-only agents and three hooks inside `plan-cli`. They were restored on 2026-10-26 after the Oct 16 overwrite and describe the old five-category model ([[Postmortem]]).
+- No unattended run exists. Every review is manual (Decision 40).
+- The Jarvis build has designed a reader that takes only allowlisted headings from The Plan's daily note, and waits on [[Spec - Time Layer]].
+- Nothing here is built.
+
+## Hard constraints (verified)
+- Obsidian Sync owns every note file. Git carries only dot-folders. A cloud automation cannot write a note into the vault: a file committed to GitHub never reaches the working tree (stated in `30_Order/System/git-sync/plan-git-sync.ps1`).
+- Claude Code on the laptop writes files locally, and Obsidian Sync carries them to the phone.
+- AGENTS.md: no inbox. The landing place is a section inside the daily note, not a folder.
+- Obsidian Local REST API is local to the laptop and needs Obsidian open.
+- The laptop runs Windows. Apple Reminders has no native Windows API. How the vault reaches it is unverified.
+- The hooks block writes to the Jarvis vault. Reads are not blocked by name. Whether a Plan session may run the Jarvis reader is an open check ([[Verification and Risks]], row 15).
+- A plugin cannot read another vault and cannot start a skill. Anything that crosses vaults or calls a skill goes through Claude on a laptop.
+
+## The day, step by step
+| Moment | Who | Reads | Writes | Approval |
+|---|---|---|---|---|
+| Morning, note missing | The page's Create, or `/startday` | The template [[Better Today]] | `YYYY-MM-DD.md` | The page: none (a button). The skill: shown, then a yes. |
+| `/startday` | Skill | Yesterday's note, the plan note's Habits, the weekly note, Jarvis through its reader | Copies Tomorrow under From Yesterday, proposes the 80 from the plan, writes `## Career`, on the first day of an ISO week fills `Due Friday` from the plan's Weekly deadlines | Each write is shown and waits for a yes. `dry-run` shows without writing. |
+| Through the day | The page | The note | Ticks, line edits, numbers, short fields, Time entries | None. Each write is refused if the line changed. |
+| `/closeday` | Skill | The day's note, `plan-cli time`, Toggl | Writes `## Time`, imports Toggl entries to the log, runs `validate`. Leaves Tomorrow as Anant wrote it. | Shown, then a yes |
+| Friday | `/weekly-review` | The week through `plan-cli review` | A `### YYYY-Www` entry under Review Log | Shown, then a yes |
+| First of the month | `/monthly-review` | The month through `plan-cli review` | A `### YYYY-MM` entry | Shown, then a yes |
+
+Rules for every skill write: show the exact lines, wait for a yes, support `dry-run`, call the engine for every number, never invent a value, and log nothing outside the note (Decisions 36, 40 and the Agentic OS Standard).
+
+## Layer 1: skills and the page
+Two touchpoints, `/startday` and `/closeday` (Decision 63). The page shows a button for each that copies the command. A midday check is not built. Nothing runs by itself.
+
+## Layer 2: Jarvis and The Plan
+Two vaults, one direction of trust each. Neither reads the other's whole notes.
+| Direction | What | How | Allowlist |
+|---|---|---|---|
+| Jarvis to The Plan | The Career strip: applications this week of 10, the next three deadlines, project next steps | `/startday` runs Jarvis's reader and writes the result under `## Career` in The Plan's daily note (default 92). The page reads The Plan's own note. | Only the fields named. No free text from Jarvis notes beyond a deadline label and a project `next:` line. |
+| The Plan to Jarvis | The `## Time` heading of the daily note, and nothing else | Jarvis's reader | Only that heading. The time log folder is never read (labels may be personal). |
+
+Why through the skill: the plugin cannot open another vault, and a direct read would not work on the phone. The page therefore shows "Not loaded" until the Jarvis reader exists and `/startday` has run.
+
+Consistency of the two daily notes: the `daily-auditor` agent, given the engine's JSON and the reader's output, reports mismatches at `/startday` and `/closeday` (a note present in one vault and missing in the other, different dates, one closed and one open). It reads only and writes nothing. It is told only the allowlisted fields.
+
+AGENTS.md says to ingest only reviewed material from Jarvis. The Career fields are professional status, not Jarvis notes, and `/jarvis-dump` stays the route for whole notes. Anant owns that distinction. The Plan's `Jarvis Review` rules are unchanged (Decisions 38, 42, 43).
+
+## Layer 3: time
+Designed in [[Spec - Time Layer]]. Toggl is pulled at `/closeday` with a yes. The overview is written to the daily note. The log folder holds the detail. Jarvis reads only the overview.
+
+## Layer 4: tasks and outside tools (reserved, Decision 64)
+- **Decided:** Obsidian checkbox lines are the only list for now. The page ticks and edits them.
+- **Not decided:** which tools feed tasks (Google Calendar, Todoist, Reminders, others). Anant: "decided when the automation layer for tasks is laid out."
+- **What a transport must satisfy before it is chosen:**
+  1. A single owner per task type, so two apps never feed one note.
+  2. The landing place is a section of the daily note and not a folder.
+  3. Inbound is pulled by a local Claude run, never pushed by the cloud (see the constraints).
+  4. Read first. Any write to an outside system needs Anant's yes in the session, the calendar guide's rules for events, and a log line.
+  5. A dry run, and a report of duplicates skipped.
+  6. A failure that leaves the note as it was.
+- **Candidates for later:** Google Calendar blocks as read-only timed rows for the day; Todoist tasks proposed as 20 lines at `/startday` with a yes; Apple Reminders as an outbound push for time-anchored habits (8 am, 2 pm, 5:30); Zapier as a bridge. None is built or verified.
+- **Slots reserved:** the 20 section and Tomorrow. The old `Intake` heading is not used.
+
+## Weekly and monthly layers
+- **Weekly:** a Claude run pulls from sources and prefills the week. Today the only sources are the plan note and the weekly note's own `Due Friday` and `Scheduled tasks`. Calendar and Todoist join when Layer 4 is decided.
+- **Monthly (the 1st):** the review runs the close of the previous month: recap, streak status, a frozen recap with static values (Decision 46), the next month's plan skeleton, and a request for the Jarvis snapshot ([[Jarvis Move]]). Daily notes of a finished month stay in place. The archive folder is never touched.
+- **Unattended runs** (Decision 40): designed only after the manual process has run and been proven. A local scheduled task, as the git-sync task already is, is the candidate. A cloud routine cannot see the local vault.
+
+## Notification (Decision 59)
+A banner in the Hero and at launch: Day N of M, days left, this week's Friday deadline. No outside service. A calendar or phone reminder is a later transport and is not designed here.
+
+## Failure register
+| Trigger | Effect | What Anant sees | Smallest fix |
+|---|---|---|---|
+| The Jarvis reader does not exist | No Career strip | "Not loaded" | Build it in the Jarvis stages |
+| Jarvis hooks block the reader from a Plan session | Same | "Not loaded" and the skill's report | Anant allows the read, or runs it from Jarvis |
+| The Plan's headings change | Jarvis finds nothing | `not_defined` in Jarvis's `doctor` | Restore the heading or update Jarvis's allowlist |
+| `/startday` ran twice | `## Career` and From Yesterday written twice | The skill compares and shows nothing to write | The skill replaces its own section and does not append |
+| An old `.claude` overwrites the skills | `/startday` finds nothing | Commands missing, a red health chip | `doctor`, restore from git history |
+| Toggl token expires | No import | "Toggl not loaded" at the close | Reconnect |
+| A skill writes a value the engine did not compute | A wrong number in a note | A validator warning | Skills never compute |
+| Two task systems feed one note | Duplicate tasks | Duplicates in the 20 | Layer 4 rule 1 |
+
+## Non-Goals
+- No transport, scheduled run, calendar write, Todoist or Reminders link in the base.
+- No shared code, folder or database between the two vaults.
+- No plugin that reads Jarvis or starts a skill.
+- No personal content sent to Jarvis. No Jarvis free text sent to The Plan.
+- No write to the archive folder or to `.obsidian` by any skill.
+
+## Open Questions
+1. Which tools feed tasks, decided when Layer 4 is laid out.
+2. The exact wording of the Career fields, agreed with the Jarvis reader when it is built.
+3. Whether the consistency check runs at `/startday` only or at both ends of the day.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Architecture.md`
+````
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - architecture
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Research - Obsidian Dashboard Methods]]"
+  - "[[Research - Outside Sources]]"
+  - "[[Front End and Visual System]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - Time Layer]]"
+  - "[[Spec - AI Loop]]"
+next: "Build Plan stage P0 commits the repository and adds the private remote, then P2 builds the engine against golden fixtures."
+---
+# Architecture
+
+## What This Is
+==Three replaceable layers (the daily notes as data, a pure TypeScript engine, a React view) plus a command-line program that gives Claude the same numbers the screen shows.== The plugin id is `the-plan-dashboard`. It is private and never submitted to the community directory. It renders and edits through a small set of write primitives. It does not own data. This note replaces the 2026-10-12 version, which said "no framework" while the build used React 19.
+
+## Current State
+Checked on 2026-11-03.
+- **Repository** `D:\_Anant\20_Progress\Projects\the-plan-dashboard`: 3 commits, 3 uncommitted changes (`src/core/config.ts`, `src/core/streak.ts`, `tests/engine.test.ts`), no remote. Dependencies: `react` and `react-dom` 19.3, dev: `esbuild` 0.25.5, `typescript` 5.8, `obsidian`, `jsdom`, types. Scripts: `dev`, `build`, `build:cli`, `cli`, `deploy:cli`, `test`, `preview`, `deploy`, `version`.
+- **Manifest** `id: the-plan-dashboard`, version 0.1.0, `minAppVersion` 1.5.7, `isDesktopOnly: false`.
+- **Engine** modules in `src/core/`: `close`, `config`, `dates`, `grade`, `jarvis`, `model`, `parse`, `periods`, `review`, `sections`, `streak`, `tables`, `toggle`, `validate`. `src/data/` holds `repo` and `write`. `src/hooks/` holds `dailyValidator`, `paths`, `secretsGuard`, `types`, `writeGuard`. `src/ui/` holds `App`, `charts`, `hooks`, `sections`, `styles`. `src/view/DashboardView.tsx`, `src/main.ts`, `src/settings.ts`.
+- **Deployed** plugin built 2026-10-13 19:51. `plan-cli.cjs` is deployed to `30_Order/System/plan-cli/`. The deployed plugin lacks the best-streak rule of Decision 48 and the level titles.
+- **Tests** 87 pass with the Python parity tests (200 random histories and 20 random months against `streak.py`).
+- The styles in `src/ui/styles.ts` hard-code colours. The page scrolls.
+- Nothing in the upgrade is built.
+
+## Layers
+| Layer | What it is | Replaceable because |
+|---|---|---|
+| Data | Daily notes `YYYY-MM-DD.md` in `00_Live/Enumerate/Daily/`, the plan note, the weekly note, the time log folder. Plain Markdown. | Disabling the plugin loses the view and none of the data |
+| Engine | Pure TypeScript in `src/core/`. It imports nothing from Obsidian or Node. Text in, numbers out. | The plugin, the CLI and the hooks run the same file |
+| View | A React 19 view that draws the page from the engine's model. It holds no rule of its own. | It can be rewritten without changing a number |
+| CLI | `plan-cli`, the engine bundled for Node | Claude's skills, agents and hooks read its JSON and never compute a number |
+
+## Data flow
+```
+notes (.md) --read--> Repo --> Engine (pure) --> model --> View (React + SVG)
+     ^                                                          |
+     +---------- write primitives (Vault.process) <-------------+
+```
+1. `data/repo.ts` lists the daily folder, reads text with `cachedRead` for display and `read` before a modification, and caches by file modification time.
+2. The engine parses each note, computes day status, streak, identities, scores, plan window and time, and returns one model object.
+3. The view draws the model. A write changes one line of one note. Obsidian fires its `modify` event, the cache entry drops, and the view redraws the affected blocks from disk. The page never trusts its own optimistic state beyond the redraw.
+
+## Engine modules (target)
+| Module | Job |
+|---|---|
+| `parse` | Lines, fields, headings of any level, comments and code fences ignored, frontmatter numbers |
+| `sections` | Find a section by heading text, case-insensitive, any level, first match, duplicate flagged |
+| `habits` (new) | The 80 and 20 lines, groups, marks, identity phrase, sub-tasks, `[for::]` |
+| `identities` (new) | Identity keys, aliases, identity day, identity streak, level |
+| `plan` (new) | `plan_start`, `plan_end`, Day N of M, state (before, running, ended, invalid) |
+| `streak` | The rule in [[Spec - Streak and Daily Note]]. The old five-category path stays for notes before the cutover. |
+| `scores` (new) | 20 score, wins, habits, clean days, numbers, with nulls |
+| `edit` (new) | The six write primitives as pure text functions with the stale-line check, LF and CRLF kept |
+| `toggle` | Kept as the tick inside `edit` |
+| `time` (new) | Parse the log, check the rules, totals by project, tracked against planned |
+| `validate` | The eighteen rules |
+| `periods` | ISO weeks and months |
+| `review`, `grade`, `close` | Kept for the weekly and monthly reviews. `close` loses the Evening close and Next actions parsing for new notes. |
+| `config` | Folder names, milestones and titles, caps, limits, the plan note path, the Jarvis feed fields |
+| `model` | Everything the page needs in one object |
+
+`core/` has no Obsidian import. That is what lets the hooks and the tests run the same code under Node.
+
+## Plugin
+- Registers the view, the command "The Plan: Open dashboard", a settings tab, and the commands for Create today's note and Debug layout. Ships no default hotkeys.
+- Finds its view with `getLeavesOfType`, never stores an instance. Opening the command a second time focuses the existing view.
+- Registers every vault event (`create`, `modify`, `delete`, `rename`) inside `workspace.onLayoutReady`, because `create` also fires for every existing file at load ([[Research - Outside Sources]]).
+- Uses `normalizePath` on every path. Registers every event and interval with the plugin so they clean up.
+- Interface rules: no `innerHTML`, `this.app` only, sentence case, no inline colour styles.
+- `isDesktopOnly: false`, so no Node or Electron API anywhere in the plugin. The CLI may use Node.
+- First paint is measured against the performance budget in [[Spec - Home and Monthly Dashboards]].
+
+## Write primitives
+The plugin and the CLI have six ways to change a file and no others, defined in [[Spec - Streak and Daily Note]]: tick, edit line, set number, add line, set callout line, create. Each runs the pure function from `edit` inside `Vault.process` (or `processFrontMatter` for numbers), re-reads first, and refuses if the target changed. The plugin never deletes, renames or moves a note.
+
+## Command-line program
+`plan-cli`, deployed to `30_Order/System/plan-cli/` by `npm run deploy:cli`. Each command prints JSON and writes nothing unless it is named a writer.
+| Command | Prints |
+|---|---|
+| `streak <dir> <date>` | Current, best, at risk, plan state, 30 days of status |
+| `day <dir> <date>` | One day: habits, marks, identities, scores, nulls, warnings |
+| `identities <dir> <date>` (new) | Each identity's streak, level and days to the next level |
+| `plan` (new) | Day N of M, state, days left |
+| `time <date>` (new) | The log's entries, totals by project, faults |
+| `review <week|month|label> --dir` | Counts, grade, patterns for the reviews |
+| `validate <note>` | Breaches of the eighteen rules |
+| `repeat`, `jarvis-check --vault .` | Kept as they are |
+| `doctor` (new) | Misnamed notes, placeholders, plugin version against the repository, skills, agents and hooks present, the plan window, the machine's date and zone |
+| `hook` | The three hooks |
+`doctor` exists because of The Plan's two silent failures: misnamed notes and an overwritten `.claude` ([[Postmortem]]).
+
+## Config
+One exported object. Nothing personal is hard-coded in a function.
+| Key | Holds |
+|---|---|
+| `dailyFolder`, `weeklyFolder`, `monthlyFolder`, `yearlyFolder`, `timeFolder` | The folders |
+| `planNote` | The path of [[12 Weeks - Sept to Dec]] |
+| `templatePath` | `30_Order/Templates/Daily Dashboard/Better Today.md` |
+| `milestones`, `milestoneTitles` | 3, 7, 21, 66, 100 and the Decision 41 titles |
+| `heatDays` | 30 |
+| `maxTomorrow` | 5 |
+| `maxNumber` | 999 |
+| `rowLimits` | Visible 80, 20 and identity counts for the laptop and the phone |
+| `minReadable` | The smallest font size before the "Window too small" banner |
+| `links` | The Links block |
+| `cutoverDate` | The first new-shape note |
+| `winNames` | project, career, cleanup, review |
+| `careerFields` | The fields `/startday` may write under `## Career` |
+| `jarvisReaderCommand` | How `/startday` calls the Jarvis reader, set once it exists |
+| `gradeBands`, `causes`, `nextTypes` | Kept for the old path and the reviews |
+
+## Repository, build and deploy
+- The repository stays at `D:\_Anant\20_Progress\Projects\the-plan-dashboard`. A private GitHub repository for the source is added only after Anant says yes in the session (Decision 68). Until then the source exists on one laptop only.
+- Commands: `npm run dev`, `npm test`, `npm run build`, `npm run build:cli`, `npm run deploy`, `npm run deploy:cli`. `deploy` copies `main.js`, `manifest.json` and `styles.css` to `.obsidian/plugins/the-plan-dashboard/`. `deploy:cli` copies `plan-cli.cjs`.
+- The vault copy of the plugin and of `plan-cli.cjs` is never edited by hand.
+- A write under `.obsidian` needs Anant's yes each time. The write guard allows only that one plugin folder.
+- The plugin files reach the phone and the other laptop through Obsidian Sync. Git auto-sync carries `.claude` and other dot-folders. A stale tree on the other laptop can overwrite them, which is exactly what happened on 2026-10-16. `doctor` and the health chip are the guard.
+
+## Tests
+- **Golden fixtures first.** Real notes (copies of `2026-10-27.md` and two earlier ones), plus synthetic months for each streak case in [[Spec - Streak and Daily Note]], with answers worked out by hand before any engine code.
+- One unit test per validator rule, per null case, per identity rule, per plan state, per time rule.
+- Edit tests: each primitive, LF and CRLF kept, stale line refused, field kept, identity kept, frontmatter bytes identical except the one number, a note open in the editor, a missing heading, an identical duplicate line.
+- Old tests: all 87 stay green, including the Python parity tests for the old path.
+- The page tests in [[Spec - Home and Monthly Dashboards]]: style, real browser, live check.
+- A grep test that the bundle holds no hard-coded hex colour.
+- A debug command that prints the screen's numbers, compared with `plan-cli` for 30 days.
+- `tsc` clean.
+
+## Guards for two laptops and a phone
+1. The health chip shows the plugin version and build stamp, and `doctor` compares them with the repository.
+2. `doctor` checks that the skills, agents and hooks exist, so a stale overwrite shows within a day.
+3. `doctor` checks the manifest after each deploy, because a user reported a plugin update resetting `isDesktopOnly` ([[Research - Outside Sources]]).
+4. The deploy checks that the three built files equal the repository build.
+5. Each release is checked on the Dell, the Acer and the phone.
+
+## Non-Goals
+- No database, no network, no outside service from the plugin.
+- No Node or Electron API in the plugin.
+- No sharing, release process or community-directory submission ([[Private Use and Sharing]]).
+- No shared code with the Jarvis plugin.
+- No change to Obsidian Sync or git auto-sync settings.
+
+## Open Questions
+1. The private remote, after Anant's yes.
+2. Whether the engine's tick keeps its name `toggle` or moves into `edit` (an implementation detail for the build session).
+
+````
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - design
+  - frontend
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Architecture]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Research - Outside Sources]]"
+  - "[[Decisions Log]]"
+next: "Build the Hero and the 80 block first (stage P3), then judge colours and sizes on a real screen at stage P4."
+---
+# Front End and Visual System
+
+## What This Is
+==How the page looks and moves: colour tokens, the ring, the heatmap, identity cards, type, spacing, motion, the phone, and the tone of every word.== Content and layout are in [[Spec - Home and Monthly Dashboards]]. This note replaces the 2026-10-12 version, which described a scrolling column, five category cards and hard-coded hex colours.
+
+## Current State
+Checked on 2026-11-03. The deployed page was built with colours written into `src/ui/styles.ts` and `sections.tsx`. It scrolls. The ring is out of five categories. The level titles are in the engine and are not shown. None of it has been judged on a real screen with real data.
+
+## Confirmed visual choices
+| Item | Anant's answer | Rule built from it |
+|---|---|---|
+| Ring colours (2026-10-12) | Red, golden orange, light dark green | Red when no 80 habit is done, golden orange when some are, green when all are (a MET day) |
+| Forgiven days | Counted as lost days in the month | Dashed outline on the heatmap, adds 0 to the streak |
+| Heatmap | Eye pleasing, streak count only on the Month view (Decision 61) | One green ramp, soft corners, no harsh borders |
+| One page | No vertical scroll, scaled to fit (Decision 55) | Fixed design grid scaled by one factor |
+| Written text | The only thing that scrolls, sideways only | One row, no wrapping, hidden scrollbar |
+| Tone | Plain, blunt, no praise, no guilt | See Words |
+
+"Light dark green" is read as a mid green, softer than a signal green. One token changes it.
+
+## Tokens
+All colours are CSS variables under `.tp-dash` in `styles.css`. Text and surfaces map to Obsidian's own variables so the AnuPpuccin theme and light or dark mode apply. The semantic colours below are fixed values because themes do not define a heat ramp. No colour is written in any `.ts` or `.tsx` file, and a test greps for `#` colours there. Whether the theme variables exist on the phone is [[Verification and Risks]] row 16.
+
+| Token | Dark | Light | Used for |
+|---|---|---|---|
+| `--tp-text`, `--tp-muted`, `--tp-surface`, `--tp-line` | Obsidian variables | Obsidian variables | Text, secondary text, cards, borders |
+| `--tp-accent` | Obsidian accent | Obsidian accent | Focus ring, links, the streak number |
+| `--tp-bad` | `#E5534B` | `#D63B33` | Ring with nothing done, a miss, the Do Not Do strip, banners |
+| `--tp-warn` | `#F0A63A` | `#D98A12` | Ring partly done, the forgiven outline, a late deadline |
+| `--tp-ok` | `#5BC98A` | `#2E9E63` | Ring complete, a done line |
+| `--tp-heat-0` | `#23282F` | `#E8ECEF` | No data, a miss |
+| `--tp-heat-1` to `--tp-heat-4` | `#1F3B31`, `#25523F`, `#2E7050`, `#3F9468` | `#CFE9DB`, `#A7DBC1`, `#7CCBA2`, `#4FB583` | The ramp for a MET day by share of habits done |
+| `--tp-heat-5` | `#5BC98A` | `#2E9E63` | A MET day with every habit and every 20 done |
+
+The hex values are the 2026-10-12 values and stay until judged on a real screen.
+
+## The rings
+- **Hero ring (the 80):** 80 habits done over present, in the centre `3/4`. Red at 0, golden orange partial, green at all. A day with no 80 shows an empty grey ring with "No 80".
+- **20 ring:** smaller, same colours, "no 20" when there are none.
+- **Wins ring:** four segments, one per win. Never red, because it is not the streak: grey to green.
+- SVG circle, `stroke-dasharray` driven by done over present, rotated to start at the top. A 350 ms transition and a single pulse when the ring completes. `prefers-reduced-motion` turns both off.
+
+## The streak number and levels
+- The streak is the largest thing on the page, in a tabular monospace face (matching the gupta-builds card), with `Best 17` and `Next: 21 in 6 days` under it.
+- Milestones 3, 7, 21, 66 and 100 change the number's accent for the day and show the level title once in the sub-line, then settle: The beginning, Toward 21, Now it gets hard, Work pays off, Consistency, discipline, mindset.
+- Below 3 the sub-line reads "Day K of 3".
+- The page shows the intact streak and never a "broken" count. The research is in [[Research - Outside Sources]].
+
+## Identity cards
+- A card holds the phrase as the title, the identity streak as a number, the level title in muted text, and a row of dots, one per 80 line carrying it, filled when done.
+- The identity closest to a level-up is first and has a thin accent underline. Order is stable within a day so cards do not jump on a tick.
+- An unlisted identity has a dashed border. An idle identity is muted.
+- At most 6 cards on a laptop and 4 on the phone, then "+N more".
+
+## Heatmap
+- One square per plan day on the Month view, the last 30 days on Today. Ten columns by three rows on the laptop, six by five on the phone.
+- Met uses the ramp. A miss uses `--tp-heat-0`. A forgiven miss keeps its colour with a dashed `--tp-warn` outline. Today has a solid outline in the text colour. A missing note has a faint diagonal line. Not started and future days are not drawn.
+- Colour is never the only signal: each square carries a tooltip with the date, the status and the count, and has a text label for screen readers. Square size is a token so the grid fits its card.
+
+## Strips, chips and rows
+- **Do Not Do strip:** `--tp-bad` background tint, one line, sideways scroll for long text, an edit affordance on hover and on focus.
+- **Chips** (From Yesterday, Links, Career): a rounded pill with one line, no wrapping. A long chip scrolls sideways and does not grow.
+- **Habit rows:** a box, the text, the identity chip at the end. The box is 44 px on the phone. A done row shows a check and a muted line.
+- **Banners:** one row at the top, red for a fault and amber for a notice, with the file or property named. At most two at once, then "+N more".
+
+## Type, spacing, motion
+- Two faces: the interface face from the theme, and a tabular monospace for numbers.
+- Sizes follow the scale factor between 11 px and 22 px. Below the minimum readable size the page shows the banner.
+- Spacing is a 4 px grid. Cards have one radius. Surfaces are transparent over the theme background.
+- Motion: ring transition 350 ms, one pulse on completion, a short fade for a snapped-back row. Nothing loops. Reduced motion turns all of it off.
+- Icons are inline SVG, 1.5 px stroke, no icon font.
+
+## Words
+Plain and factual, with numbers.
+| Situation | Text |
+|---|---|
+| A miss | "Day 2 of miss. Streak breaks tomorrow." |
+| At risk | "Streak breaks if today is not MET." |
+| A forgiven day | "Forgiven. Counts as a lost day this month." |
+| No 80 | "No 80 written for today." |
+| Plan dates empty | "Plan dates not set. Streak counts from the first note with an 80." |
+| Refused write | "Line changed. Reloaded." |
+| Not loaded | "Not loaded." |
+| Time not set up | "Time not set up." |
+| Window too small | "Window too small. Needs 1280 by 720, has 900 by 600." |
+| Milestone | "Day 7. Toward 21." |
+Never: praise ("Great job"), guilt ("You failed"), exclamation marks, emoji.
+
+## Phone
+- Same bundle, same view. The tab layout shows below about 720 px of pane width.
+- Hit targets are 44 px tall. No hover-only information. No drag, long press or swipe on rows.
+- Safe-area padding at the bottom so the Obsidian toolbar never covers the tab bar.
+- Landscape shows the "Window too small" banner.
+
+## Style rules
+- Styles live in the plugin's `styles.css`, scoped under `.tp-dash`. Nothing global.
+- DOM is built by React with no `innerHTML`. Any string from a note goes through text content.
+- The existing `dashboard.css` snippet is not reused. It is retired when the page ships and Anant says so.
+- Every interactive element is a real button or input with a visible focus ring.
+
+## Non-Goals
+- No themes of its own, no user-chosen colours, no animation beyond the above.
+- No chart that cannot be read at the minimum size.
+- No image or emoji in the page.
+
+## Open Questions
+The exact hex values and the sizes are decided on a real screen at stage P4.
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && sed -i 's/"Window too small. Needs 1280 by 720, has 900 by 600."/"Window too small. Needs W by H, has W by H." (the numbers are measured, not fixed here)/' "Front End and Visual System.md" && grep -n "Window too small. Needs" "Front End and Visual System.md"
+```
+```
+103:| Window too small | "Window too small. Needs W by H, has W by H." (the numbers are measured, not fixed here) |
+[This command modified 1 file you've previously read: Front End and Visual System.md. Call Read before editing.]
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Dashboard Build Hub.md`
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - build
+  - hub
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Architecture]]"
+  - "[[Front End and Visual System]]"
+  - "[[Verification and Risks]]"
+  - "[[Build Log]]"
+  - "[[Research - Outside Sources]]"
+  - "[[Research - Obsidian Dashboard Methods]]"
+  - "[[Research - Plugin Creation Guide]]"
+  - "[[Reference - Obsidian API for This Build]]"
+  - "[[Private Use and Sharing]]"
+  - "[[Sonnet 5.5 Prompt Rules]]"
+  - "[[Postmortem]]"
+  - "[[Build Plan]]"
+  - "[[Decisions Log]]"
+next: "Build Plan stage P0. The prompts are written in a separate session from these notes."
+---
+# Dashboard Build
+
+## What This Is
+The build-side map: what the dashboard is made of, where the code lives, and which notes a build session reads. What the dashboard shows and why is in [[Dashboards Hub]], which is the source of truth for the design.
+
+## Current State
+Checked on 2026-11-03. The design is finalized for rebuild. The earlier prompts and stage list (R1, B1 to B8, S0 to S6, the five plugin prompts) ran in October and are in `Dashboards/Ran/`. The new stages are P0 to P6 in [[Build Plan]]. No prompt for them is written.
+
+## The answer
+**A small private Obsidian plugin that draws the dashboard in its own view, edits the daily note through a few guarded write primitives, and shares its engine with Claude's skills, agents and hooks.** Homepage opens the view at launch on the Dell, the Acer and the phone. Every number on screen is computed from the notes, which stay plain Markdown.
+
+Three layers plus a command line, each replaceable without touching the others ([[Architecture]]):
+1. **Data.** Daily notes with checkbox habit lines, defined in [[Spec - Streak and Daily Note]].
+2. **Engine.** One pure TypeScript module set, used by the plugin and by `plan-cli`.
+3. **View.** A React 19 view with a scaled grid and inline SVG ([[Front End and Visual System]]).
+4. **CLI.** `plan-cli`, so Claude never computes a number.
+
+## Why not the alternatives
+Short version. The full comparison with sources is in [[Research - Obsidian Dashboard Methods]].
+- A markdown note with DataviewJS is what Jarvis did. Dataview is in maintenance mode, DataviewJS views flicker on refresh, and layout is fought with CSS.
+- Datacore is still a work in progress with no confirmed mobile support.
+- Bases cannot draw a ring or a heatmap and cannot walk a sequence of days to compute a streak.
+
+## Notes in this folder
+| Note | Holds |
+|---|---|
+| [[Architecture]] | Layers, modules, plugin rules, write primitives, CLI, config, repository, build, tests, guards |
+| [[Front End and Visual System]] | Tokens, rings, heatmap, identity cards, type, motion, words, phone |
+| [[Verification and Risks]] | Unverified claims with the test for each, the failure register, acceptance, risks |
+| [[Research - Outside Sources]] | Obsidian API, layout and habit research with sources, confidence and effect |
+| [[Research - Obsidian Dashboard Methods]] | Every dashboard method compared |
+| [[Research - Plugin Creation Guide]] | How a plugin is made: sample repo, manifest, guidelines, dev loop, Homepage and Sync internals |
+| [[Reference - Obsidian API for This Build]] | The exact API used, by module |
+| [[Private Use and Sharing]] | Why the plugin stays private, and what sharing would need |
+| [[Sonnet 5.5 Prompt Rules]] | How the build prompts follow the model guide |
+| [[Postmortem]] | What was built, what failed, why, and the guard for each |
+| [[Build Log]] | Fixed answers and the handoff between build sessions |
+
+The design specs are one level up in `Dashboards/`: [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - Time Layer]], [[Spec - Automation Layers]], [[Spec - AI Loop]], with [[Decisions Log]] and [[Build Plan]].
+
+## Ran
+`Dashboards/Ran/` holds what has already run: [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]] and [[Build Steps]]. They are history. Nothing in them is a current instruction.
+
+## Non-Goals
+No new design lives here. This folder holds how the dashboard is built, not what it shows.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Verification and Risks.md`
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - risks
+  - verification
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Research - Obsidian Dashboard Methods]]"
+  - "[[Research - Outside Sources]]"
+  - "[[Architecture]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Postmortem]]"
+next: "Each build stage fills the rows it can settle. P6 closes the rest."
+---
+# Verification and Risks
+
+## What This Is
+==Every claim in the dashboard design that nobody has tested, the exact test for each, what breaks if it fails, every way the system is known to fail, and the acceptance list for the whole dashboard.== The first build shipped with a table like this and left every row unfilled. No row is closed without the test result written beside it.
+
+## Current State
+Checked on 2026-11-03. Rows 1 to 8 are from the first build and were never run. Rows 9 to 23 came from the upgrade design. No row is closed. The first build's table said "Resolve the S0 tests first"; they were not resolved ([[Postmortem]]).
+
+## Unverified, and how to settle each
+| # | Claim | Test | If it fails | State |
+|---|---|---|---|---|
+| 1 | Homepage can open the plugin view at launch by command | Try the command route first, the file route second | Use whichever passes on all three devices | Open |
+| 2 | Homepage runs the command late enough for the view type to exist | Restart each device five times and check the view opens every time | The plugin opens its own view in `onLayoutReady` as a backup, idempotent | Open |
+| 3 | Obsidian Sync carries `.obsidian/plugins/the-plan-dashboard/` to the phone | Settings, Sync, installed community plugins on. Build with a marker string and read it on the phone. | Copy the three files by hand once per release | Open |
+| 4 | Lazy Plugin Loader does not delay the plugin | Set it to `instant`, check cold start | Remove the plugin from the loader's list | Open |
+| 5 | Homepage's mobile profile is separate and works | Turn on `separateMobile`, set the same command, cold start the phone | Open from a ribbon icon | Open |
+| 6 | `Vault.process` ticks write back and sync without a conflict | Tick on the phone, check the laptop within a minute. Tick on both within seconds. | The stale-line check refuses the second write. That is correct behaviour. | Open. The API is atomic per the documentation. |
+| 7 | The plugins the dashboard needs are enabled on all devices | Settings, Community plugins on each device. `community-plugins.json` lists 12, 31 are installed. | Enable Homepage and QuickAdd | Open |
+| 8 | The Obsidian version on each device supports Homepage 4.5.0 | Compare Homepage's minimum with Settings, About | Update the older device | Open |
+| 9 | The parser reads the real shape of `Better Today`: no group lines, empty slots, comments, callouts, tabs, the last bold span as the identity | Golden test on a copy of `2026-10-27.md`, an older note, and a note with CRLF, hand-checked | Adjust the grammar in [[Spec - Streak and Daily Note]] | Open |
+| 10 | The plugin loads, ticks and edits on the iPhone with `isDesktopOnly: false` | Install on the phone, open, tick, check the laptop within a minute | The phone stays read only until fixed. The laptops do not wait. | Open |
+| 11 | Every phone tab fits about 393 by 852 points with no vertical scroll | The live debug command on the phone, one run per tab | Move blocks between tabs, cap lines with "+N more" | Open |
+| 12 | Obsidian Sync carries `00_Live/Enumerate/Time/` and the plan note properties to the phone | Add a marker entry on a laptop and read it on the phone | Copy by hand | Open |
+| 13 | `plan_start` and `plan_end` exist and are valid | Read the properties of [[12 Weeks - Sept to Dec]] | The banner shows and the streak starts at the first note with an 80 | Open. Anant decides the dates later. |
+| 14 | The Toggl import works with a token the tool holds and no session reads | Run the close in dry-run mode and report success or failure only | Typed entries only | Open |
+| 15 | A Plan session may run the Jarvis reader under the hooks, and the reader emits only allowlisted fields | Run it from a Plan session. Feed it a Jarvis note with private headings and assert none appear. | `/startday` leaves `## Career` empty and the strip says "Not loaded" | Open. Anant allows the read. The reader belongs to the Jarvis build. |
+| 16 | Obsidian's theme variables exist on the laptop and the phone and recolour with the theme | Read the live variables in the developer console on each | Define the colours in `styles.css` | Open |
+| 17 | A plugin cannot start a Claude skill | Search Obsidian's command and URI options once more at build time | The buttons copy the command, as designed | Open |
+| 18 | Periodic Notes uses `YYYY-MM-DD` and the template path, and does not double-create beside the plugin's Create | Create a note both ways on a copy of the settings | Turn off Periodic Notes' auto-create (under `.obsidian`, Anant changes it) | Open |
+| 19 | Playwright runs a headless Chromium test of the built bundle here | Install as a dev dependency, run one assertion | A live check in Obsidian only | Open |
+| 20 | An edit in place keeps the identity span and the fields on an 80 or 20 line | An edit test with each field and with the identity removed | Reject the edit with a reason | Open |
+| 21 | `/startday` writes `## Career` and From Yesterday once and replaces them on a rerun | Run it twice in dry-run and compare | The skill replaces its own section and never appends | Open |
+| 22 | The plugin's Create and the template agree: the same note comes out of both | Create a note both ways and diff them | Create uses the template file only | Open |
+| 23 | `isDesktopOnly` is not reset by a plugin update | `doctor` reads the manifest after each deploy | `doctor` flags it | Open. One user reported it ([[Research - Outside Sources]]). |
+
+Developer policies could not be read. If Anant ever publishes the plugin, read that page then.
+
+## Failure register
+| Trigger | Effect | What Anant sees | Detection | Smallest fix |
+|---|---|---|---|---|
+| A note is named `DD-MM-YYYY` or `YYYY-MM-DD 1` | The engine ignores it. The streak shows zeros. | A red banner naming the note | `validate`, the page, `doctor` | Rename it. This cost ten silent days in October. |
+| An old `.claude` overwrites the skills | `/startday` finds nothing | Commands missing, a red health chip | `doctor` | Restore from git history. This happened on 2026-10-16. |
+| The template is switched without its structure | The streak reads 0 | The banner `no_80` and a red chip | `validate` | Restore the structure. This happened on 2026-10-26 (Decision 51). |
+| Today's note is missing | The day is PENDING, then MISS | An empty ring and a Create button | The engine | Press Create |
+| A leftover `<% %>` or `{{ }}` | Date queries skip the note | A banner | `validate` | Fix the date |
+| Midnight passes during a session | A tick lands on the wrong date | None | The page re-reads the date every 30 seconds | A tick after midnight belongs to the new day |
+| Two devices edit one note | A stale tick is refused | The row snaps back | The line check | Reload the page |
+| The plan note is empty or has no dates | No Day N of M | A banner naming the property | The engine | Fill `plan_start` and `plan_end` |
+| The plan has ended | The floor describes a closed plan | A red health chip | The config and the engine | Name the next plan |
+| A habit line has no identity | The identity card is missing | A grey dot | `validate` | Add the bold phrase |
+| An edit removes a field or the identity | A 20 loses `[for:: 80]` | A refused edit with a reason | The edit path | Edit again |
+| The page and the engine disagree | Wrong numbers | A red health chip | The debug command | Fix the page, never the engine |
+| The window is too small | The page cannot fit | "Window too small" | The size check | Enlarge the window |
+| The phone has an older plugin | Old behaviour | A version mismatch on the chip | `doctor` | Copy the files |
+| The Career section is stale | An old number shows | "Loaded 09:12" next to it | The timestamp | Run `/startday` |
+| The Toggl token expires | No import | "Toggl not loaded" at the close | `/closeday` report | Reconnect |
+| The plugin source exists on one laptop only | A disk loss loses the build | Nothing until it happens | The repository has no remote | Create the private repository (Decision 68) |
+| A comment or code fence holds a checkbox | It is counted as a habit | A wrong count | The parser rule and its test | Ignored by design |
+| `lc_count` is `abc` or negative | The number is wrong | A dash | `validate` | Fix the property |
+| A heading is renamed | The section is not found | The banner names the heading it looked for | `validate` | Restore the heading |
+
+## Acceptance for the whole dashboard
+The only acceptance list. The build is done when every line passes or each failure is a written row above.
+1. The dashboard opens at launch on the Dell, the Acer and the phone with no manual step.
+2. A tick, an edit and a number change each save, and the rings, the streak, the identities and the heatmap update within one second.
+3. The screen's numbers equal `plan-cli` for the last 30 days of notes in the new shape.
+4. On a laptop the root and every card have no vertical overflow at the measured sizes. On the phone every tab has none. Only written text scrolls sideways.
+5. The daily note stays valid Markdown that reads well without the plugin. Disabling the plugin loses the view and none of the data.
+6. Day N of M and the Friday deadline show at launch once the plan dates exist. Until then the banner shows and nothing reads zero without a reason.
+7. A stale line is refused. An edit that removes a field or an identity is rejected with a reason.
+8. Every null case in [[Spec - Streak and Daily Note]] shows its stated text and no zero.
+9. `doctor` reports clean: tooling in place, deployed version equals the repository, plan window valid, manifest correct.
+10. The Career strip and the Time block show data or their "not set up" state, never a blank.
+11. A new daily note made from [[Better Today]] passes `validate` with no error.
+12. All 87 old tests still pass, and the new golden values match a hand check of three real days.
+
+## Risks
+| Risk | Likelihood | Effect | Control |
+|---|---|---|---|
+| The phone has never run the plugin | High | A failure there | Phone faults are rows of their own, and the laptops do not wait |
+| Plugin breaks on an Obsidian update | Low to medium | The page is blank | The fallback is `plan-cli streak` and `plan-cli day`. The notes stay plain Markdown. The old markdown dashboard was retired on 2026-10-14 (Decision 47). |
+| Stale tick after a sync ticks the wrong row | Low | Wrong data | The line text is checked before every write |
+| Daily note renamed late | Medium | Streak empty | The engine reads only `YYYY-MM-DD` names and reports the others |
+| Phone slow on cold start | Medium | Slow Home | The performance budget. The Hero loads first. |
+| Build tooling rot | Low | Cannot rebuild | A small dependency set and a lockfile in the repository |
+| Scope creep into automation | Medium | Delay | Automation is design only until the base has run two clean weeks |
+| Template changes without structure | Medium | Silent zeros | The validator, the banners and the chip |
+| Reading Jarvis from a Plan session is blocked | Medium | No Career strip | Row 15 tests it. The strip says "Not loaded". |
+| The time design changes | High | The time layer waits | "Time not set up" is a normal state |
+| Personal content reaches Jarvis | Low | A breach of the vault boundary | Jarvis reads only the `## Time` heading ([[Spec - Automation Layers]]) |
+| Secrets exposure | Low | | The plugin reads only the daily, weekly, plan and time folders. No other plugin's `data.json` is read. The Toggl token is held by the tool. `40_Resources/CS/Links.md` still lists a Keys section, to rotate separately. |
+| The 12 Weeks note was emptied | Medium | The plan is lost | It is backed up once it has content. It was 0 bytes on 2026-11-03 with no earlier version in git. |
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Research - Outside Sources.md`
+```
+---
+type: input
+status: sprout
+created: 2026-11-03
+updated: 2026-11-03
+tags:
+  - dashboard
+  - research
+  - obsidian-api
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Architecture]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Verification and Risks]]"
+  - "[[Reference - Obsidian API for This Build]]"
+next: "Re-check each Medium and Low row when the build session reaches the stage it affects."
+---
+# Research: Outside Sources
+
+## What This Is
+==What the web and the typed Obsidian documentation say about each specific thing the upgraded design leans on, how sure each finding is, and what it changed.== The findings were gathered on 2026-10-26 for the Jarvis dashboard design, which shares the plugin's API, layout and habit questions, and were checked against this design on 2026-11-03. Findings marked Secondary come from a summary and not from the primary page. The older [[Research - Obsidian Dashboard Methods]] and [[Research - Plugin Creation Guide]] cover which medium to use and how a plugin is made.
+
+## Current State
+Nothing here has been tested in the build. Every Medium or Low row is also a row of [[Verification and Risks]] or a build-time check.
+
+## Obsidian plugin API
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| `Vault.process` | Atomically reads, modifies and saves a note. The callback is synchronous and returns the new text. | [Vault.process](https://docs.obsidian.md/Reference/TypeScript+API/Vault/process), [Vault API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/vault.md) | High. Locking against external disk changes is not described. | Every write uses it, with a stale-line check on top, because atomic does not mean the line is still the one the page saw. |
+| `read` and `cachedRead` | `read` reads from disk and is for content you will modify. `cachedRead` is for display. | [obsidian.d.ts](https://github.com/obsidianmd/obsidian-api/blob/master/obsidian.d.ts) | High | The page displays from `cachedRead`. The edit path re-reads before checking a line. |
+| `processFrontMatter` | Atomically changes a note's frontmatter. The note must be Markdown. It can throw a YAML parse error. | [processFrontMatter](https://docs.obsidian.md/Reference/TypeScript+API/FileManager/processFrontMatter) | High | Used only for `lc_count`, `study_today` and `slips`, with errors handled as refusals. |
+| `processFrontMatter` bug report | A forum user reported that from Obsidian 1.5.5 it did not insert the frontmatter delimiters on a new file. No resolution found. | [Forum thread](https://forum.obsidian.md/t/processfronmatter-not-inserting-in-frontmatter/76982) | Low, one report | Create writes the whole frontmatter from the template and does not rely on `processFrontMatter` for a new file. |
+| Vault events at load | `create` also fires for every existing file at initial load. Register inside `Workspace.onLayoutReady`. | [Vault API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/vault.md) | High | The plugin registers `create`, `modify`, `delete` and `rename` inside `onLayoutReady`. |
+| Metadata cache events | `changed` fires when a file is indexed and is not called on rename. | [MetadataCache API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/metadata-cache.md) | High | The plan note's properties are read from the cache, and the plugin also listens to the vault `rename` event. |
+| Views and leaves | `onLayoutReady` runs at once if the layout is ready. `revealLeaf` brings a leaf forward and should be awaited. | [Workspace API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/workspace.md) | High | The open command finds the leaf by type and never stores a view. |
+| Desktop only | A plugin that uses Node modules such as `fs`, `crypto` or `os` must set `isDesktopOnly` to true. | [Submission requirements](https://docs.obsidian.md/Plugins/Releasing/Submission+requirements+for+plugins), [Manifest](https://docs.obsidian.md/Reference/Manifest) | High | This plugin uses none, so `isDesktopOnly: false` is right and the phone is possible. |
+| `isDesktopOnly` reset | A forum user reported that a plugin update reset a manually set value. | [Forum thread](https://forum.obsidian.md/t/when-updating-a-plugin-dont-reset-the-isdesktoponly-value-in-manifest-json/108368) | Low, user report | `doctor` checks the manifest after each deploy. |
+| Homepage | Runs any Obsidian command when it opens the homepage. | [Homepage listing](https://community.obsidian.md/plugins/homepage) | Medium | The route is a command that opens the plugin view. |
+
+## Layout
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Container query units | `cqw`, `cqh`, `cqi`, `cqb`, `cqmin` and `cqmax` size things relative to a query container. `cqh` needs `container-type: size`. | [Can I use](https://caniuse.com/css-container-query-units), [Frontend Masters](https://frontendmasters.com/blog/container-queries-and-units/) | Medium | Kept as the fallback to measured scaling. |
+| Support | Chromium from about version 105, Firefox from 110, Safari from 16. | [Can I use](https://caniuse.com/mdn-css_types_length_container_query_length_units) | Medium, a dated snapshot | Obsidian's bundled Chromium and the iOS WebKit versions are unverified, so measured scaling is the plan. |
+| `clamp()` with container units | No source found for the exact pattern. | | Unverified | Not relied on. |
+
+## Habits and streaks
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Habit time | Lally and colleagues found a median of 66 days to reach automaticity, with a range of 18 to 254 days. | [UCL news, 2009](https://www.ucl.ac.uk/news/2009/aug/how-long-does-it-take-form-habit) | Secondary. The 2010 paper was not retrieved. | The 66 day milestone is grounded. The page does not promise 66 days for everything. |
+| One miss | The researchers reported that missing one opportunity did not materially affect habit formation, while a pattern of skipping did. | The same page and secondary summaries | Secondary | Supports the forgiven isolated miss and the two in a row reset. |
+| Intact streaks | A seven-study paper found that highlighting an intact streak increased later engagement more than highlighting a broken one. | [INSEAD](https://www.insead.edu/faculty-research/publications/journal-articles/or-track-how-broken-streaks-affect-consumer) | Medium. Abstract only. | The page shows the intact streak and never a broken count. |
+| Streak freeze | Duolingo reports that a freeze keeps learners engaged. Its numbers are its own and not independently verified. | [Duolingo blog](https://blog.duolingo.com/how-duolingo-streak-builds-habit/) | Low. Company evidence. | One forgiven miss is the design's version of a freeze. No purchasable or stackable freeze. |
+| Vendor claims | A glossary claimed a 20 to 40 percent daily-active lift with no source. | | Not used | Ignored. |
+| Identity-based habits | The line format comes from the vault's own note [[Atomic Habits]] ("so that I can become ..."). No outside study was retrieved on identity framing. | The vault | Unverified outside the book | The identity model rests on Anant's own stated purpose for the habits (Decision 57), not on a study. |
+
+## Time tracking, for reference only
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Time entries list | The Toggl v9 list endpoint takes RFC3339 `start_date` and `end_date` and returns at most 1000 entries. | [Time entries](https://engineering.toggl.com/docs/track/api/time_entries/) | Medium | The close pages through results if a day ever exceeds the limit ([[Spec - Time Layer]]). |
+| Detailed reports | The Reports API pages detailed entries at 50 per call, using response headers for the next page. | [Reports start](https://engineering.toggl.com/docs/track/reports_start/) | Medium | The import prefers the time entries list for one day. |
+| CSV export | Time entries can be exported as CSV from the Detailed Report page in the web app. | [Exporting data](https://support.toggl.com/en/articles/2564936-exporting-data) | Medium | A manual fallback for the log. |
+| Detailed CSV by API | No official endpoint path was found. | | Unverified | Not relied on. |
+
+## What was not verified
+- Whether the Homepage plugin has a view kind called "Nothing". The route is a command.
+- Playwright as the real-browser test tool, and the Chromium that Obsidian bundles on each device.
+- The names of Obsidian's theme colour variables on the laptop and the phone. They are read in the live developer console during the build.
+- The original Lally paper's exact wording.
+- Whether a controlled study shows that streak freezes help long-term retention.
+- Whether the iOS app allows the plugin to run a React bundle of this size within the 4 second budget.
+
+## Non-Goals
+No finding here is a decision. Decisions are in [[Decisions Log]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Postmortem.md`
+```
+---
+type: input
+status: sprout
+created: 2026-11-03
+updated: 2026-11-03
+tags:
+  - dashboard
+  - postmortem
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Decisions Log]]"
+  - "[[Build Plan]]"
+  - "[[Verification and Risks]]"
+  - "[[Architecture]]"
+next: "Read before each build stage. Add a row when a new fault is found."
+---
+# Postmortem
+
+## What This Is
+==What the first build of The Plan's dashboard made, where it fell short, why, and the guard now written against each fault.== It is the record behind the upgrade. It was found by reading the Dashboards and Dashboard Build notes, the plugin repository, the git history and the vault on 2026-10-26, and was updated on 2026-11-03.
+
+## Current State
+The first build is finished as a base and failed as a product: the engine, hooks, skills, agents and tests exist and passed, and the page has never shown a real number, cannot be edited and scrolls. The upgrade design in this folder is the answer.
+
+## What was built, and when
+| Date | What | Evidence |
+|---|---|---|
+| 2026-10-12 | Brainstorm and design of the streak, daily note, Home and Monthly pages, AI loop and automation layers. Decisions 1 to 34. | [[Decisions Log]] |
+| 2026-10-13 | ISO rename of 27 daily notes and 4 monthly notes. The engine `plan-cli`, hooks, review tooling and 87 tests with Python parity. The React plugin source with hard-coded colours. | [[Build Log]] |
+| 2026-10-14 | Decisions 47 to 50. The markdown dashboard `00_Dashboard.md` deleted. Hooks registered. The plugin view became the only dashboard. | [[Decisions Log]] |
+| 2026-10-16 | A stale tree from the second laptop overwrote `.claude` skills, agents, hooks, `.gitignore` and `.codex`. | Commit `0b995c5` |
+| 2026-10-26 | The tooling was restored (commit `1e85ccd`). The daily template became `Better Today` (Decision 51) without the engine's structure. | `git log` |
+| 2026-11-03 | The upgrade design: Decisions 52 to 92, the new specs and templates. | This folder |
+
+## What failed, and why
+| # | Fault | Root cause | What it cost | Guard now |
+|---|---|---|---|---|
+| 1 | The dashboard never showed a real number | Periodic Notes created daily notes as `DD-MM-YYYY`. The engine reads only `YYYY-MM-DD`. The first day was `null`. Nothing said so. | About ten days of zeros, and no check that would have caught it | The plugin creates the note and refuses other names. `validate`, the page and `doctor` flag a misnamed note. |
+| 2 | The streak reads 0 | Decision 51 switched the template to `Better Today` without the `[cat::]` structure the engine counts | The streak is meaningless today | The new day model reads the 80 habit lines ([[Spec - Streak and Daily Note]]). The template carries them. The validator reports `no_80`. |
+| 3 | The skills, agents and hooks disappeared | Two laptops auto-synced through git. A stale tree overwrote the dot-folders. | A broken Claude loop from Oct 16 to Oct 26 | `doctor` checks that the tooling exists. The health chip shows it. |
+| 4 | The page cannot be edited | Its only write is a tick on a `[cat::]` line | No interaction at all on today's note | Six write primitives with a stale-line check ([[Architecture]]) |
+| 5 | The deployed plugin lagged the source | The source changed after the Oct 13 build and was never rebuilt or redeployed. The three changes are uncommitted. | The page lacked Decision 48 and the level titles | `doctor` compares the deployed version with the repository. P0 commits and P6 redeploys. |
+| 6 | The source exists on one laptop | No remote | A disk loss would lose the build | A private GitHub repository, with Anant's yes (Decision 68) |
+| 7 | The page scrolls and hard-codes colours | The build prompts asked for plain DOM and the build used React with colours in code. The tests ran in jsdom, which has no layout engine. | A page that does not match the design brief | Tokens, a hex grep, a real-browser test and a live check ([[Spec - Home and Monthly Dashboards]]) |
+| 8 | The verification table was never filled | No prompt owned a row | Every claim stayed unverified | Each row has a test and a stage that owns it ([[Verification and Risks]]) |
+| 9 | The phone was never tested | The phone checklist was written and not run | Unknown behaviour on the iPhone | A phone gate in P6 and rows 10 and 11 |
+| 10 | The 12 Weeks plan note is empty | The note was created on 2026-11-03 with no content. It has no earlier version in git. | The day counter and identities have no source yet | A draft structure in the note, a banner until its dates exist, and a backup once it has content |
+| 11 | A `%%` example line was counted as a miss | The parser read a checkbox inside a comment | A wrong count, found by a test | Comments, code fences and callouts are ignored by rule |
+| 12 | A search for Toggl matched "toggle" | A grep for the word returned the Meta Bind switches | A wrong claim that notes mentioned Toggl | Nothing in either vault mentions Toggl. The time layer is a new design. |
+
+## What worked
+- One engine shared by the plugin, the CLI, the hooks and the skills. There is one implementation of the streak.
+- The stale-line check before a tick, and `Vault.process` for atomic writes.
+- The tests: 87 passing, with parity against the reference script.
+- The hooks as one program, registered and tested live.
+- The rule that a skill shows its exact write and waits for a yes.
+
+## Lessons that shaped the upgrade
+1. A system that cannot say it is broken is worse than one that shows an error. Every empty input now has a stated reading and a stated text.
+2. A template is part of the engine. Changing one without the other breaks the streak silently.
+3. A design is not done when the prompts are written. It is done when each claim has a test and a stage owns it.
+4. Two laptops and a phone share one tree. Anything under a dot-folder can be overwritten by the stale side.
+5. Numbers come from the engine. Skills and pages do not compute.
+
+## Non-Goals
+This note assigns no blame and records no plan. The plan is [[Build Plan]].
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i 's/for the first nine days because/for ten days because/' "Spec - Home and Monthly Dashboards.md" && grep -c "ten days because" "Spec - Home and Monthly Dashboards.md"; grep -n "^| 79 \|^## Proposed" "Decisions Log.md"; sed -n '/^## Proposed/,$p' "Decisions Log.md"
+```
+```
+1
+112:| 79 | Friday deadlines | A heading `## Due Friday` in the weekly note, checkbox lines with `[due::]`. | Anant: everything has a weekly deadline and a daily log. |
+114:## Proposed, not yet confirmed
+## Proposed, not yet confirmed
+
+- Plugin source lives in a separate repo outside the vault, built files copied in. See [[Architecture]].
+- Streak and ring colour hex values in [[Front End and Visual System]].
+- Multi-Column Markdown plugin dropped in favour of a CSS grid snippet.
+- Review records: `60_Jarvis/50_Reviews/Weekly` and `Monthly` hold a saved analysis only on request, `Dashboard` holds verification records, `Agentic OS` holds toolkit audits. See [[Agentic OS Standard]].
+- Google Calendar alarms for 8 am, 2 pm, 5:30 and the evening close: not decided. Anant raised the reminder and Todoist overlap instead. See [[Spec - Automation Layers]].
+[This command modified 1 file you've previously read: Spec - Home and Monthly Dashboards.md. Call Read before editing.]
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
+```diff
+- | 79 | Friday deadlines | A heading `## Due Friday` in the weekly note, checkbox lines with `[due::]`. | Anant: everything has a weekly deadline and a daily log. |
+- 
+- ## Proposed, not yet confirmed
++ | 79 | Friday deadlines | A heading `## Due Friday` in the weekly note, checkbox lines with `[due::]`. | Anant: everything has a weekly deadline and a daily log. |
++ | 80 | Bad Habits | The text is never shown on the page. A `slips` property (empty by default, 0 for a clean day) and plus and minus on the page. Clean days are consecutive days with `slips` exactly 0. | Anant chose "count only". An empty `slips` is not logged and ends the run, so an unedited day is never counted clean. |
++ | 81 | Summary line | The `> [!NOTE] Summary:` callout is the one-line proof of the day, editable on the page, with yesterday's shown as "Yesterday: ...". | The Jarvis design had a proof field. This is The Plan's version. |
++ | 82 | Finding sections | By heading text, case-insensitive, at any level. Group lines under the 80 and 20 are optional. | Anant's template change (`#### From Yesterday`, no group lines) shows headings and groups vary. |
++ | 83 | Daily note type | `type: thought` and `thought_kind: reflection` stay. A daily note is recognised by its folder and ISO name. | The engine never required `type: daily`, and `Better Today` is a reflection note. |
++ | 84 | Template habit lines | The habit lines in `Better Today` are defaults. The week's real 80 are chosen from the plan note's Habits, and `/startday` proposes them for a yes. | Anant: the content is also written by the skills through the day. |
++ | 85 | Nulls | A null is never a zero and never a pass. Each empty, missing or invalid input has a stated reading and text. | See the null table in [[Spec - Streak and Daily Note]]. |
++ | 86 | Limits | At most 6 identity cards on a laptop and 4 on the phone. Visible 80 lines 8 and 20 lines 6 (5 and 4 on the phone). Tomorrow 5. Numbers 0 to 999. Notes up to 200 KB. | "+N more" and Open in note beyond them. |
++ | 87 | Dates | Local calendar date on the machine. String and calendar arithmetic only. ISO week-year labels. | Daylight saving and a changed time zone cannot shift a count. |
++ | 88 | Template properties | `created`, `lc_count: 0`, `study_today: 0` and an empty `slips`. | Updated in `Better Today` on 2026-11-03. |
++ | 89 | Other templates | Week: `Due Friday`, `Scheduled tasks`, `Daily log` (Monday to Sunday). Month: `Streaks`. Year: `Identities`, `Plans`. The Review Log headings are unchanged. | Updated on 2026-11-03. Anant: everything is on a weekly deadline with a daily log. |
++ | 90 | What this pass did not edit | The Standards (`Daily Note Schema`, `Streak Rule`), the skills and the agents still describe the old model. | They are patches in [[Build Plan]] stage P1, each shown and approved first. The templates were edited because Anant asked. |
++ | 91 | Dropped mark | `[-]` removes a habit from every count. Any other mark besides space, `x` and `X` is open with a warning. | A deliberate drop must not break a streak. |
++ | 92 | Career strip route | `/startday` runs Jarvis's allowlisted reader and writes `## Career` in The Plan's daily note. The plugin reads only its own vault. | A plugin cannot open another vault, and a direct read would not work on the phone. Updated in the template on 2026-11-03. |
++ 
++ ## Closed since 2026-10-12
++ | Item | Closed by |
++ |---|---|
++ | The actual action lines, times and identity phrases (open in [[Review - Corrections to Earlier Notes]]) | The habit lines in `Better Today`. Identity phrases are the bold spans. Row 84. |
++ | Milestone level titles | Decision 41, now shown on the page (Decision 57) |
++ | Whether the 80 and 20 lines become the Targets section | They are the data. Targets is retired (Decision 52). |
++ | Where daily notes of a finished month go (Decision 46) | They stay in place. Nothing moves. |
++ | The Intake slot | Not used (Decision 64) |
++ | Prompts B1 to B8 and the plugin prompts | Ran in October. In `Dashboards/Ran/` (Decision 67). |
++ 
++ ## Corrections to earlier statements
++ | # | Earlier statement | Where | Now |
++ |---|---|---|---|
++ | 1 | The streak is five categories, 3 of 5 | [[Streak Rule]], [[Daily Note Schema]], the first Spec | The 80 habit lines (Decision 52). The Standards are patched in P1. |
++ | 2 | "No framework (Preact or React)" | The first Architecture | The plugin is React 19. The Architecture note is corrected. |
++ | 3 | The ring is out of five | The first Front End note | The ring is the 80 habits done over present. |
++ | 4 | Colours are written into the stylesheet in hex | The first Front End note | Tokens, and no hex in the code |
++ | 5 | Home opens on startup on desktop and phone | [[Dashboards Hub]] | Still the aim. The phone is a verification gate. |
++ | 6 | Wins use Meta Bind toggles in `Daily Wins` | `Better Today` | Checkbox lines |
++ | 7 | `Daily Floor` table | `Better Today` | Dropped (Decision 53) |
++ | 8 | A search showed Toggl in the notes | An earlier turn | It matched "toggle". Nothing mentions Toggl. |
++ | 9 | The Jarvis free-form design is mirrored 1 to 1 | The design brief | The Plan has no Loses, floor rows, applications or blocks. Only the page rules, write primitives, validator idea and guards carry over. |
++ | 10 | Section `## Time` already exists | An earlier turn | Added to the template on 2026-11-03. |
++ 
++ ## Proposed, not yet confirmed
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && node -e '
+const fs=require("fs");let t=fs.readFileSync("Decisions Log.md","utf8");
+const i=t.indexOf("## Proposed, not yet confirmed");
+const head=t.slice(0,i);
+const tail=`## Proposed, not yet confirmed
+
+- Streak and ring colour hex values in [[Front End and Visual System]]. They stay until judged on a real screen at stage P4.
+- Multi-Column Markdown plugin dropped in favour of a CSS grid. Nothing is removed in this build (Decision 67 and the plugin list in [[Build Plan]]).
+- Review records: \`60_Jarvis/50_Reviews/Weekly\` and \`Monthly\` hold a saved analysis only on request, \`Dashboard\` holds verification records, \`Agentic OS\` holds toolkit audits. See [[Agentic OS Standard]].
+- Google Calendar alarms for 8 am, 2 pm, 5:30 and the evening close: not decided. Part of the task automation in [[Spec - Automation Layers]], Layer 4.
+`;
+fs.writeFileSync("Decisions Log.md",head+tail);
+' && tail -8 "Decisions Log.md" | cut -c1-120
+```
+```
+| 10 | Section `## Time` already exists | An earlier turn | Added to the template on 2026-11-03. |
+
+## Proposed, not yet confirmed
+
+- Streak and ring colour hex values in [[Front End and Visual System]]. They stay until judged on a real screen at stage
+- Multi-Column Markdown plugin dropped in favour of a CSS grid. Nothing is removed in this build (Decision 67 and the pl
+- Review records: `60_Jarvis/50_Reviews/Weekly` and `Monthly` hold a saved analysis only on request, `Dashboard` holds v
+- Google Calendar alarms for 8 am, 2 pm, 5:30 and the evening close: not decided. Part of the task automation in [[Spec
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -n '/^## Where the built system/,$p' "Dashboards Hub.md" | head -5; grep -n "^## " "Dashboards Hub.md"
+```
+```
+## Where the built system is documented (2026-10-13)
+
+The design above is built in part. The rules and procedures now live in `30_Order`, and this folder keeps the design record.
+
+| Question | Note |
+28:## What is being built (revised 2026-11-03)
+39:## Notes in this folder
+54:## Where the built system is documented (2026-10-13)
+68:## Navigation
+77:## Principles
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+updated: 2026-11-03
+tags:
+  - dashboard
+  - hub
+notes:
+  - "[[Research - Jarvis Dashboard Findings]]"
+  - "[[Decisions Log]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Spec - Home and Monthly Dashboards]]"
+  - "[[Spec - AI Loop]]"
+  - "[[Spec - Automation Layers]]"
+  - "[[Spec - Time Layer]]"
+  - "[[Postmortem]]"
+  - "[[Build Plan]]"
+  - "[[Dashboard Build Hub]]"
+  - "[[Life OS]]"
+  - "[[Agentic OS Standard]]"
+  - "[[Agentic OS]]"
+next: "Design is final. Build Plan stage P0, then a separate session writes the prompts from these notes."
+---
+# Dashboards Hub
+
+## Goal
+==Make The Plan's dashboard editable, correct and final: one page that shows the 80, the 20, the identities and the Day N of M counter from today's real note, with every number from the engine, working on the Dell, the Acer and the iPhone.== This note is the source of truth for the design. Every feature is listed below with the note that defines it. If a note and the table disagree, fix the note and then the table. Jarvis owns work. The Plan owns personal growth: habits, health, money, learning, and one career line a day.
+
+## Status (2026-11-03)
+| Item | State |
+|---|---|
+| Design | Final. Every question was answered or defaulted ([[Decisions Log]] rows 1 to 92). |
+| Templates | Updated: [[Better Today]], [[Better Week]], [[Better Month]], [[Better Year]] |
+| Build | Nothing built. The first build's engine, hooks and skills exist and describe the old model. |
+| Prompts | Not written. A separate session writes them from these notes. |
+| Archive | The first build's prompts and steps are in `Dashboards/Ran/` |
+| Waiting on Anant | `plan_start` and `plan_end` in [[12 Weeks - Sept to Dec]], decided later. The base works without them (banner and fallback). |
+| Waiting on the Jarvis build | The allowlisted reader that fills the Career strip, and its read of the `## Time` heading |
+| Unverified claims | 23 rows in [[Verification and Risks]], each with a test |
+
+## Map of the notes
+| Note | Holds |
+|---|---|
+| [[Decisions Log]] | Every answer, the defaults, what is closed and ten corrections |
+| [[Spec - Streak and Daily Note]] | The daily note, the habit line, day status, plan window, streak, identities, scores, nulls, write rules, validator, cutover |
+| [[Spec - Home and Monthly Dashboards]] | The page: rules, views, every block with its empty and error states, layout, tabs, scaling, interaction, tests |
+| [[Spec - Time Layer]] | The time overview, the time log, entries, Toggl, edge cases |
+| [[Spec - Automation Layers]] | The day step by step, the Jarvis feeds, the task layer slot, weekly and monthly layers |
+| [[Spec - AI Loop]] | Skills, agents, hooks, toolkit, logging |
+| [[Build Plan]] | Where things stand, stages P0 to P6, the move list, patches awaiting approval |
+| [[Postmortem]] | What the first build made and why it fell short |
+| [[Dashboard Build Hub]] | The build-side map: architecture, visual system, verification, research, log |
+| [[Research - Jarvis Dashboard Findings]] | What Jarvis's dashboard was and what to fix, not port (history) |
+| [[Audit - Dashboard Stack and Phone Checklist]] | The stack audit and the phone checklist, the input to the phone gate |
+| `Ran/` | [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]]. History only. |
+
+## Feature inventory
+Each row is one thing the dashboard or its notes must do. Nothing is built that is not here, and nothing here is left without a defining note.
+
+| # | Feature | Defined in | Data source | Test or check |
+|---|---|---|---|---|
+| F1 | Streak from the 80 habit lines, one forgiven miss, two in a row reset | [[Spec - Streak and Daily Note]] | `### 80` lines | Golden cases |
+| F2 | Best streak counts closed days only | [[Spec - Streak and Daily Note]] | Engine | Unit test |
+| F3 | At-risk line | [[Spec - Streak and Daily Note]] | Engine | Unit test |
+| F4 | Day N of M and the plan states (before, running, ended, invalid) | [[Spec - Streak and Daily Note]] | The plan note's properties | Unit test per state |
+| F5 | Launch banner with days left and the Friday deadline | [[Spec - Home and Monthly Dashboards]] | Engine | Page state test |
+| F6 | Identity phrase from the last bold span | [[Spec - Streak and Daily Note]] | Habit lines | Parser tests |
+| F7 | Identity streak and level (3, 7, 21, 66, 100 with titles) | [[Spec - Streak and Daily Note]] | Engine, config | Unit test |
+| F8 | The identity closest to a level-up in the Hero | [[Spec - Home and Monthly Dashboards]] | Engine | Unit test |
+| F9 | The 80 ring | [[Front End and Visual System]] | Engine | `plan-cli` equality |
+| F10 | The 20 ring and score, null when none | [[Spec - Streak and Daily Note]] | `### 20` lines | Unit test |
+| F11 | Wins score 0 to 4 outside the streak | [[Spec - Streak and Daily Note]] | `Daily Wins` | Unit test |
+| F12 | Good habits score | [[Spec - Streak and Daily Note]] | `Good Habits` | Unit test |
+| F13 | Clean days from `slips` | [[Spec - Streak and Daily Note]] | `slips` | Unit test, null cases |
+| F14 | LeetCode and study hours with plus and minus | [[Spec - Home and Monthly Dashboards]] | Properties | Edit tests |
+| F15 | Tick any box | [[Spec - Streak and Daily Note]] | Any checkbox | Edit tests |
+| F16 | Edit a line in place, keeping fields and identity | [[Spec - Streak and Daily Note]] | Any written line | Edit and field tests |
+| F17 | Add a Tomorrow line or fill a free slot | [[Spec - Streak and Daily Note]] | `Tomorrow`, `80`, `20` | Edit tests |
+| F18 | Edit the Do Not Do and Summary lines | [[Spec - Home and Monthly Dashboards]] | The callouts | Edit tests |
+| F19 | Create today's note, ISO names only | [[Spec - Streak and Daily Note]] | The template | Create tests |
+| F20 | From Yesterday chips, copied by `/startday` | [[Spec - Automation Layers]] | Yesterday's Tomorrow | Dry run |
+| F21 | Friday strip from `Due Friday`, tickable | [[Spec - Home and Monthly Dashboards]] | The weekly note | Parse and edit tests |
+| F22 | Seven-day row, ISO week | [[Spec - Home and Monthly Dashboards]] | Engine | `review` command |
+| F23 | Month view: streak heatmap and identity streaks only | [[Spec - Home and Monthly Dashboards]] | Engine | `plan-cli` equality |
+| F24 | Career strip, written by `/startday` from Jarvis | [[Spec - Automation Layers]] | `## Career` | Reader test, "Not loaded" state |
+| F25 | Time block: tracked against planned | [[Spec - Time Layer]] | `## Time`, the log | `plan-cli time` test |
+| F26 | The time log, the overview and the Toggl import | [[Spec - Time Layer]] | The log folder, Toggl | Time tests, dry run |
+| F27 | Health chip and `doctor` | [[Architecture]] | `validate`, `doctor` | `doctor` test |
+| F28 | Banners for misnamed notes, placeholders, plan dates and window size | [[Spec - Home and Monthly Dashboards]] | `validate` | One fixture per state |
+| F29 | No vertical scroll, sideways scroll for written text only | [[Spec - Home and Monthly Dashboards]] | Styles | Three page tests |
+| F30 | Scaling to the pane and the "Window too small" banner | [[Spec - Home and Monthly Dashboards]] | Pane size | Real-browser test |
+| F31 | Phone tabs, each fitting one screen | [[Spec - Home and Monthly Dashboards]] | Pane size | Live check on the phone |
+| F32 | Tokens, light and dark, contrast, reduced motion, keyboard | [[Front End and Visual System]] | `styles.css` | Hex grep, contrast test |
+| F33 | Opens at launch on the Dell, the Acer and the phone | [[Architecture]] | Homepage command | Five restarts each |
+| F34 | `plan-cli` commands (streak, day, identities, plan, time, review, validate, doctor) | [[Architecture]] | Engine | CLI against golden values |
+| F35 | Validator, eighteen rules | [[Spec - Streak and Daily Note]] | Daily notes | One test per rule |
+| F36 | Cutover from the five-category path | [[Spec - Streak and Daily Note]] | Notes before the cutover | The 87 old tests |
+| F37 | Six write primitives with the stale-line check | [[Spec - Streak and Daily Note]] | Notes | Edit tests |
+| F38 | Start and Close buttons that copy the command | [[Spec - Home and Monthly Dashboards]] | | Click test |
+| F39 | The four templates | [[Better Today]], [[Better Week]], [[Better Month]], [[Better Year]] | | Create and validate |
+| F40 | Patches to the Standards, skills and agents | [[Build Plan]] | | Vault Lint, dry runs |
+| F41 | Repository, private remote, deploy | [[Architecture]] | | `doctor`, version stamp |
+| F42 | Two-laptop and phone guards | [[Architecture]] | Vault, repository | `doctor` |
+| F43 | The plugin decision list for Anant | [[Build Plan]] | Plugin counts | Anant fills the record |
+| F44 | Weekly and monthly review integration | [[Spec - Automation Layers]] | `review` | Review dry run |
+| F45 | Consistency check across the two daily notes | [[Spec - Automation Layers]] | Both notes, allowlisted | Fixture with a mismatch |
+| F46 | Null, blank and invalid input handling | [[Spec - Streak and Daily Note]] | All inputs | The null table fixtures |
+| F47 | Archive of what has run | [[Build Plan]] | | Done: `Ran/` |
+
+## What is being built
+- **One editable page.** Opens at launch on the Dell, the Acer and the iPhone. No vertical scroll on a laptop, five tabs on the phone. Tick, edit a line in place, change a number, add a Tomorrow line. Long writing stays in the note. See [[Spec - Home and Monthly Dashboards]].
+- **Day N of M and the identities.** The day counter and streak start on day 1 of [[12 Weeks - Sept to Dec]]. Each habit ends in an identity, and each identity has its own streak and level.
+- **Views.** Today, Week (Friday deadlines), Month (streaks only) and Time.
+- **Streak system.** The 80 habit lines are the streak. A day is MET when every 80 line is ticked. The 20 is a separate score. One miss forgiven, two in a row break it.
+- **Daily note.** `Better Today`, with checkbox Wins, a Time overview, a Career section and a From Yesterday block. The only source of truth.
+- **AI loop.** Five skills, four agents, three hooks and one engine, with the two touchpoints `/startday` and `/closeday`.
+- **Map canvas.** Exploration only, with real edges.
+- **Automation.** The Jarvis and Toggl feeds are designed. Task transports are a reserved slot.
+
+## Where the built system is documented (2026-10-13)
+The rules and procedures live in `30_Order`, and this folder keeps the design record. The Standards below still describe the five-category model until stage P1 patches them.
+
+| Question | Note |
+|---|---|
+| What are the rules of the daily note and the streak? | [[Daily Note Schema]], [[Streak Rule]] (to be patched) and the specs above |
+| What does a weekly or monthly review measure, grade and write? | [[30_Order/Standards/Dashboards/Weekly Review|Weekly Review]], [[30_Order/Standards/Dashboards/Monthly Review|Monthly Review]] |
+| When is a review due and may it run alone? | [[Scheduled Review]] |
+| How is the assistant tooling organised and what may each part write? | [[Agentic OS Standard]] |
+| How are skills, agents and hooks built? | [[Skill Standard]], [[Agent Standard]], [[Hook Standard]] |
+| How do I run the loop? | [[Agentic OS]], [[Daily Dashboard]], [[How to Use Skills]] |
+| What does the engine do and how was it tested? | [[Reference - plan-cli]] |
+
+## Navigation
+The markdown page `00_Dashboard.md` was retired on 2026-10-14 (Decision 47). The active dashboard is the private plugin view `the-plan-dashboard`, opened with the command "Open dashboard" ([[Reference - the-plan-dashboard]]). The links that page held are kept here.
+
+- **Entry points:** [[AI_CONTEXT]], [[AGENTS]], [[AI AGENT]], [[CLAUDE]], [[60_Jarvis/00_Control_Center/Jarvis Control Center|Jarvis Control Center]]
+- **Boards:** [[20_Progress/Projects/Projects Board|Projects Board]], [[20_Progress/UROP/BOOM Board|BOOM Board]], [[60_Jarvis/60_Jarvis Board|Jarvis Board]]
+- **Plan and month:** [[12 Weeks - Sept to Dec]], the current Monthly note in `00_Live/Enumerate/Monthly/`, for example [[2026-10]], and the [[Monthly Dashboard]] that reads the daily notes
+- **Map:** [[Map Canvas.canvas|Map canvas]] (domains, goals and the notes that own them). Not [[Map]], which is the `00_Live` index.
+
+## Principles
+1. Direct, factual language. No praise, no guilt.
+2. One source of truth. The daily note holds the data. Dashboards read.
+3. Computed, not typed. Every dashboard number comes from the engine.
+4. A null is never a zero and never a pass.
+5. Minimal frontmatter. Ticking lists, not tables.
+6. The page edits short text. Long writing stays in the note.
+7. Every tool has a reference note with its source.
+8. No unrequested writes. Anything that touches outside systems waits for approval.
+9. A system that cannot say it is broken is worse than one that shows an error.
+
+## Design is complete when
+- [x] Every question in the sessions is answered or defaulted, with a row in [[Decisions Log]].
+- [x] Every feature has a defining note and a test (the inventory above).
+- [x] Every unverified claim has a test ([[Verification and Risks]]).
+- [x] Every null, blank and invalid input has a stated reading ([[Spec - Streak and Daily Note]]).
+- [x] The templates carry the new structure.
+- [x] The first build's prompts and steps are archived.
+- [x] The first build's faults are recorded with a guard each ([[Postmortem]]).
+- [x] Outside facts are cited with confidence ([[Research - Outside Sources]]).
+- [x] No plugin is removed.
+
+## Open Questions
+None blocking the build. `plan_start` and `plan_end` are decided later by Anant. The defaults in [[Decisions Log]] rows 69 to 92 stand unless Anant changes them.
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/bp.js" <<'EOF'
+const fs=require("fs");let t=fs.readFileSync("Build Plan.md","utf8");
+function rep(a,b){ if(!t.includes(a)) throw new Error("missing: "+a.slice(0,60)); t=t.replace(a,b); }
+rep(`next: "Anant confirms the defaults (Decisions Log rows 69 to 79) and fills plan_start and plan_end in the 12 Weeks note. Then the move list below is shown for a yes, and the prompts are written in a separate session."`,
+`next: "Stage P0. The prompts are written in a separate session from these notes. plan_start and plan_end are decided later."`);
+rep(`| 12 Weeks note | Exists and is empty (0 bytes). It first appears in git on 2026-11-03. | \`git show\` |`,
+`| 12 Weeks note | Was empty (0 bytes) on 2026-11-03 with no earlier version in git. A draft structure was written into it. \`plan_start\` and \`plan_end\` are decided later. | \`git show\` |
+| Templates | Updated on 2026-11-03: Today, Week, Month, Year in \`30_Order/Templates/Daily Dashboard/\` | The files |
+| Ran notes | Moved on 2026-11-03 with Anant's yes: Prompts, Build Prompts, Plugin Build Prompts, Build Steps are in \`Dashboards/Ran/\` | \`ls\` |
+| Standards, skills, agents | Still describe the five-category model. Patches below. | Decision 90 |`);
+rep(`| P0 | **Housekeeping.** Archive what has run, commit the 3 changes after tests, a private remote with Anant's yes, \`plan-cli\` source and deployed copy compared. | Anant's yes on each move and on the remote | The move list is done, \`npm test\` passes, the repo has a remote |`,
+`| P0 | **Housekeeping.** Commit the 3 changes after tests, a private remote with Anant's yes, \`plan-cli\` source and deployed copy compared. The archive move is already done. | Anant's yes on the remote | \`npm test\` passes, the repo has a remote |`);
+const a=t.indexOf("## Move list: what has run"), b=t.indexOf("## Patches awaiting approval");
+t=t.slice(0,a)+`## Archive: what has run (done 2026-11-03)
+Anant said yes on 2026-11-03. The folder \`Dashboards/Ran/\` was created and four notes were moved with link-aware moves. Nothing was deleted.
+
+| Note | Moved from | Why |
+|---|---|---|
+| [[Prompts]] | \`Dashboards/\` | Its sessions ran in October |
+| [[Build Prompts]] | \`Dashboards/Dashboard Build/\` | The R1 to B8 prompts ran |
+| [[Plugin Build Prompts]] | \`Dashboards/Dashboard Build/\` | The five plugin prompts ran and the plugin exists |
+| [[Build Steps]] | \`Dashboards/Dashboard Build/\` | The stages S0 to S6 are replaced by P0 to P6 |
+
+Stays: [[Build Log]] (the new build appends entries), [[Verification and Risks]], [[Architecture]], [[Front End and Visual System]], [[Dashboard Build Hub]], the Research and Reference notes, the Audit note and every Spec. New prompts are written into a fresh \`Prompts\` note in a separate session.
+
+`+t.slice(b);
+rep(`| Target | Change | Stage |
+|---|---|---|`,`| Target | Change | Stage |
+|---|---|---|
+| Skill \`startday\` | Copy Tomorrow under From Yesterday, propose the 80 from the plan, write \`## Career\` from Jarvis, fill \`Due Friday\` on the first day of an ISO week | P1 |
+| Skill \`closeday\` | Write \`## Time\` from \`plan-cli time\`, import Toggl with a yes, no Evening close, no Next actions, no Preview | P1 |`);
+const c=t.indexOf("## Acceptance for the whole dashboard"), d=t.indexOf("## Risks to watch");
+t=t.slice(0,c)+`## Acceptance
+The single acceptance list is in [[Verification and Risks]]. The build is done when every line passes or each failure is a written row.
+
+`+t.slice(d);
+fs.writeFileSync("Build Plan.md",t);
+EOF
+node "$TEMP/bp.js" && grep -n "^## \|^| P[0-6]" "Build Plan.md"
+```
+```
+24:## Goal
+27:## Where things stand (2026-11-03)
+44:## Sequence
+49:| P0 | **Housekeeping.** Commit the 3 changes after tests, a private remote with Anant's yes, `plan-cli` source and deployed copy compared. The archive move is already done. | Anant's yes on the remote | `npm test` passes, the repo has a remote |
+50:| P1 | **The day shape.** Patch the Daily Note Schema, the Streak Rule, `Better Today` (checkbox Wins, no Floor table, `## Time`, `## From yesterday`), `/startday`, `/closeday` and the hook rules. Each edit is shown first and waits for a yes. | P0, defaults confirmed, plan dates filled | `validate` passes on a new note made from the template |
+51:| P2 | **The engine.** Golden fixtures from real notes first. Then parse of the 80 and 20 lines, identities, plan window, the new streak, wins, habits, numbers, `time`, the cutover. CLI commands `streak`, `day`, `identities`, `time`, `doctor`. | P1 | All old tests still pass and the new golden values match a hand check of three real days |
+52:| P3 | **The plugin base.** Rebuild and redeploy. `isDesktopOnly: false`. The four write primitives and Create. The Hero and the Today blocks with ticking and editing. | P2 | A tick, an edit, a stale refusal and a Create, each tested on a copy of a real note |
+53:| P4 | **The page.** All other blocks, scaling, phone tabs, banners, tokens and the five page tests. | P3 | The page tests pass and Anant has seen the page on real data |
+54:| P5 | **The feeds.** Time block, `## Time` write at the close, Toggl import with a yes, the Friday strip, the Career strip from Jarvis. | P4. The Career strip also needs the Jarvis reader. | Each feed shows its "not set up" state when its source is missing, and real data when it is not |
+55:| P6 | **Wire and verify.** Deploy on the Dell, the Acer and the phone, the acceptance list, the plugin list for Anant. | P5 | The acceptance list below passes, or each failure is a written row |
+59:## Start-of-build checks
+64:## Archive: what has run (done 2026-11-03)
+76:## Patches awaiting approval
+92:## Acceptance
+95:## Risks to watch
+105:## Open Questions
+111:## History
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/bp2.js" <<'EOF'
+const fs=require("fs");let t=fs.readFileSync("Build Plan.md","utf8");
+function rep(a,b){ if(!t.includes(a)) throw new Error("missing: "+a.slice(0,70)); t=t.replace(a,b); }
+rep("| P1 | **The day shape.** Patch the Daily Note Schema, the Streak Rule, `Better Today` (checkbox Wins, no Floor table, `## Time`, `## From yesterday`), `/startday`, `/closeday` and the hook rules. Each edit is shown first and waits for a yes. | P0, defaults confirmed, plan dates filled | `validate` passes on a new note made from the template |",
+"| P1 | **The day shape.** The templates are already updated. Patch the Daily Note Schema, the Streak Rule, `/startday`, `/closeday`, `daily-auditor` and the hook rules. Each edit is shown first and waits for a yes. | P0. The plan dates are not needed. | `validate` passes on a new note made from the template |");
+rep("The four write primitives and Create.","The six write primitives.");
+rep("| The acceptance list below passes, or each failure is a written row |","| The acceptance list in [[Verification and Risks]] passes, or each failure is a written row |");
+const a=t.indexOf("## Start-of-build checks"), b=t.indexOf("## Archive: what has run");
+t=t.slice(0,a)+`## Start-of-build checks
+1. The defaults in [[Decisions Log]] rows 69 to 92 stand unless Anant has changed them.
+2. \`plan_start\` and \`plan_end\` in [[12 Weeks - Sept to Dec]] are decided later. The build does not wait for them.
+3. The Dell, the Acer and the phone are available for stage P6.
+4. [[Postmortem]] and [[Verification and Risks]] are read before each stage.
+
+`+t.slice(b);
+const c=t.indexOf("## Open Questions"), d=t.indexOf("## History");
+t=t.slice(0,c)+`## Open Questions
+1. \`plan_start\` and \`plan_end\`, decided later by Anant.
+2. The Toggl source and planned time ([[Spec - Time Layer]]).
+3. When the Jarvis reader exists, so the Career strip can load.
+4. The task automation (Decision 64), laid out in its own session.
+
+`+t.slice(d);
+fs.writeFileSync("Build Plan.md",t);
+EOF
+node "$TEMP/bp2.js" && sed -n 59,64p "Build Plan.md" && sed -n '/^## Open/,/^## History/p' "Build Plan.md"
+```
+```
+## Start-of-build checks
+1. The defaults in [[Decisions Log]] rows 69 to 92 stand unless Anant has changed them.
+2. `plan_start` and `plan_end` in [[12 Weeks - Sept to Dec]] are decided later. The build does not wait for them.
+3. The Dell, the Acer and the phone are available for stage P6.
+4. [[Postmortem]] and [[Verification and Risks]] are read before each stage.
+
+## Open Questions
+1. `plan_start` and `plan_end`, decided later by Anant.
+2. The Toggl source and planned time ([[Spec - Time Layer]]).
+3. When the Jarvis reader exists, so the Career strip can load.
+4. The task automation (Decision 64), laid out in its own session.
+
+## History
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat >> "Dashboard Build/Build Log.md" <<'EOF'
+
+## Fixed answers (2026-11-03, upgrade design)
+These replace the 2026-10-13 table above where they differ. The 2026-10-13 table stays as history.
+
+| Item | Value |
+|---|---|
+| Plugin id | `the-plan-dashboard`, unchanged |
+| Code location | `D:\_Anant\20_Progress\Projects\the-plan-dashboard`, unchanged. A private GitHub remote is added only after Anant says yes (Decision 68). |
+| Stack | TypeScript, React 19, esbuild, `isDesktopOnly: false` |
+| CLI | `plan-cli` in `30_Order/System/plan-cli/`, with new commands `identities`, `plan`, `time`, `doctor` |
+| Devices | The Dell, the Acer and the iPhone 15. Phone is a verification gate, not a promise. |
+| Daily folder | `00_Live/Enumerate/Daily` |
+| Template | `30_Order/Templates/Daily Dashboard/Better Today.md`, updated 2026-11-03 |
+| Streak | Every 80 habit line ticked. One forgiven miss, two in a row reset. Counted from plan day 1. |
+| Plan note | `00_Live/Enumerate/Weekly/12 Weeks - Sept to Dec.md`. `plan_start` and `plan_end` decided later. |
+| Week | ISO, Monday to Sunday |
+| Day rollover | Local midnight. A tick after midnight belongs to the new date. |
+| Touchpoints | `/startday` and `/closeday`. The page buttons copy the command. |
+| Model for every prompt | Sonnet 5.5 |
+| Prompts | Not written. A separate session writes them from the notes in [[Dashboards Hub]]. |
+
+### 2026-11-03, upgrade design finalized
+- Design only. Nothing was built.
+- Written: the specs [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - Time Layer]], [[Spec - Automation Layers]]; [[Architecture]], [[Front End and Visual System]], [[Verification and Risks]], [[Research - Outside Sources]], [[Postmortem]], [[Dashboards Hub]] (the source of truth with 47 features), [[Decisions Log]] rows 52 to 92, [[Build Plan]].
+- Templates updated in `30_Order/Templates/Daily Dashboard/`: Today, Week, Month, Year. The 12 Weeks note got a draft structure.
+- Moved with Anant's yes into `Dashboards/Ran/`: Prompts, Build Prompts, Plugin Build Prompts, Build Steps.
+- Checked: the engine's validator and config, the plugin manifest and package, the git history of the Jarvis design (for the ported rules), the templates as Anant last edited them (Nov 3, 23:37).
+- Not checked: nothing was built, run or tested. The 23 rows of [[Verification and Risks]] are open. The Standards, skills and agents were not edited (Decision 90).
+- The next session must know: the daily note has no `[cat::]` lines, so the old engine path cannot read today's note. The page cannot be proven no-scroll in jsdom. `plan_start` and `plan_end` are empty and that is a supported state.
+EOF
+node -e '
+const fs=require("fs");let t=fs.readFileSync("Dashboard Build/Build Log.md","utf8");
+t=t.replace("next: \"Prompt 1 appends its entry here\"","updated: 2026-11-03\nnext: \"The prompt session reads the 2026-11-03 fixed answers and appends its entry here\"");
+fs.writeFileSync("Dashboard Build/Build Log.md",t);' && sed -n 1,16p "Dashboard Build/Build Log.md"
+```
+```
+---
+type: project
+status: seed
+created: 2026-10-13
+tags:
+  - dashboard
+  - build-log
+notes:
+  - "[[Dashboard Build Hub]]"
+  - "[[Plugin Build Prompts]]"
+  - "[[Verification and Risks]]"
+updated: 2026-11-03
+next: "The prompt session reads the 2026-11-03 fixed answers and appends its entry here"
+---
+# Build Log
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -n '/^## Five skills/,/^## Open points/p' "Spec - AI Loop.md" | head -70
+```
+```
+## Five skills (each a directory)
+
+Layout pattern, taken from Jarvis's `startday` skill: `.claude/skills/<name>/SKILL.md` (steps) plus `reference.md` (formats, templates, edge cases). Exact frontmatter fields and size limits come from the official spec confirmed in R1.
+
+| Skill | Job | Reads | Writes |
+|---|---|---|---|
+| `startday` | Show today's targets and streak status. Flag a missing career line or study topic. Pull the day's intake once automation exists. | Yesterday's and today's daily notes, the streak script | The day's plan in today's note only |
+| `closeday` | Score the five categories. Ask a cause for each miss. Write up to 5 next actions with no repeats. Create tomorrow's note with the career line and study topic. | Today's note, the streak script | Today's evening close and next actions, tomorrow's note |
+| `weekly-review` | Weekly grade, cause counts, one keep, one stop, one start, one decision | The week's daily notes | A Review Log section in the Weekly note |
+| `monthly-review` | Monthly grade, trend, failure causes, request for the Jarvis snapshot | The month's daily notes, the snapshot note | A Review Log section in the Monthly note |
+| `jarvis-dump` | Copy chosen information from the Jarvis vault into `60_Jarvis`. Writes nowhere else. | Jarvis paths, read-only | Copies in `60_Jarvis/10_Promoted_Notes/` |
+
+Retire the flat copies in `.claude/skills/` that came from Jarvis: `closeday.md`, `connect-notes.md`, `context.md`, `distill-note.md`, `ingest-clipping.md`, `lint-claude-layer.md`, `organize-csci2033.md`, `today.md`, `trace-topic.md`, `weekly-review.md`. Keep the third-party skill folders (copilot-*, json-canvas, obsidian-*, openartifacts-publish).
+
+### `jarvis-dump` contract
+
+- Copy, never move. Jarvis is not modified.
+- Needs read access to the Jarvis path and write access to one folder.
+- Each copied note gets frontmatter: `source_path`, `dumped`, `status: unreviewed`.
+- One approval per batch listing the notes to be copied. No silent bulk copies.
+- No clipping, transcript or inbox pipeline, per AGENTS.md.
+
+## Four agents
+
+| Agent | Form | Job |
+|---|---|---|
+| `daily-auditor` | single file | Checks a daily note against the standard. Reports; does not rewrite. |
+| `review-analyst` | single file | Reads a week or month and reports patterns in plain terms, such as the cause tag that costs the most days |
+| `skeptic` | single file | Challenges a plan or decision directly, with no default agreement |
+| `vault-curator` | folder (rules plus checklists) | Keeps links, structure and naming intact against the standards |
+
+Cut: `career-operator` (Jarvis owns career work) and `research-distiller` (The Plan has no ingestion pipeline).
+
+## Three hooks
+
+| Hook | Event | Decision |
+|---|---|---|
+| Write guard | before Write or Edit | Deny new files at the vault root and any write to `50_Archive` or `.obsidian` |
+| Secrets guard | before Read, Bash, Write | Deny reading or printing `.env*`, keys, tokens, credentials. Fail closed on parse errors. |
+| Daily-note validator | after a write to a daily note | Check the validator rules in [[Spec - Streak and Daily Note]]; report failures |
+
+Jarvis hooks run as PowerShell scripts registered in `.claude/settings.json` with `$CLAUDE_PROJECT_DIR` paths, and its write guard fails open on parse errors. The Plan's secrets guard should fail closed. Event names, matcher syntax, input JSON, the deny signal and exit-code behaviour are taken from Anthropic's hooks reference as confirmed in R1.
+
+## Toolkit
+
+| Piece | Why it exists |
+|---|---|
+| Streak script | The LLM does not compute streaks. One script reads daily notes and returns current streak, best streak, today's categories and at-risk status. Skills call it. A test compares it with the Home DataviewJS. |
+| Templater daily template | Creates the ISO-named note with the five category sections |
+| QuickAdd choices | One-tap "set tomorrow's career line" and "log a miss" on phone |
+| Obsidian CLI | Link-aware moves for the ISO rename and checks that need the running app |
+| Reference notes | One per tool, see below |
+| Sync check | Git auto-sync, Obsidian Sync and any Syncthing must not write the same files. Verify before the phone workflow depends on it. |
+
+## Reference notes
+
+One note per skill, agent, hook and script in `30_Order/Standards/References/`. Each links to its tool and holds: official source URL, version or date checked, what the tool depends on, and how it was tested. Tools link back to their reference note. Obsidian wikilinks in both directions.
+
+## Logging (four layers, no new folders)
+
+| Layer | Where | Written by |
+|---|---|---|
+| Daily record | The daily note | `closeday` |
+| Review log | Section in Weekly and Monthly notes | `weekly-review`, `monthly-review` |
+| System changes | `60_Jarvis/20_Decisions/` register | Anant approves each entry |
+| AI session record | `60_Jarvis/30_AI_Information/Session Logs/` | Only with Anant's approval, never silent |
+
+Global rule: no log is written unless a command Anant ran or an approval he gave covers it.
+
+## Open points
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/ai.js" <<'EOF'
+const fs=require("fs");let t=fs.readFileSync("Spec - AI Loop.md","utf8");
+function rep(a,b){ if(!t.includes(a)) throw new Error("missing: "+a.slice(0,70)); t=t.replace(a,b); }
+rep("| `startday` | Show today's targets and streak status. Flag a missing career line or study topic. Pull the day's intake once automation exists. | Yesterday's and today's daily notes, the streak script | The day's plan in today's note only |",
+"| `startday` | Create the note if missing. Copy yesterday's Tomorrow under From Yesterday. Propose the 80 from the plan's Habits. Write `## Career` from Jarvis. On the first day of an ISO week, fill `Due Friday`. Show the streak, the plan day and the identities. | Yesterday's and today's notes, the plan note, the weekly note, `plan-cli`, Jarvis's reader | The sections named, each shown first and replaced on a rerun, never appended |");
+rep("| `closeday` | Score the five categories. Ask a cause for each miss. Write up to 5 next actions with no repeats. Create tomorrow's note with the career line and study topic. | Today's note, the streak script | Today's evening close and next actions, tomorrow's note |",
+"| `closeday` | Show the day's score from the engine. Import Toggl entries to the time log with a yes. Write `## Time`. Run `validate`. Leave Tomorrow as Anant wrote it. | Today's note, `plan-cli`, `plan-cli time`, Toggl | `## Time` and the time log |");
+rep("| `daily-auditor` | single file | Checks a daily note against the standard. Reports; does not rewrite. |",
+"| `daily-auditor` | single file | Checks a daily note against the eighteen rules in [[Spec - Streak and Daily Note]] and the two notes' consistency. Reports; does not rewrite. |");
+rep("| Streak script | The LLM does not compute streaks. One script reads daily notes and returns current streak, best streak, today's categories and at-risk status. Skills call it. A test compares it with the Home DataviewJS. |",
+"| `plan-cli` | The LLM does not compute streaks. One program reads daily notes and returns the streak, the identities, the plan day, the scores and the time. Skills call it. The plugin runs the same engine. |");
+rep("| Templater daily template | Creates the ISO-named note with the five category sections |",
+"| Daily template | `Better Today` creates the ISO-named note with the 80 and 20 sections. Week, Month and Year templates carry the deadline, streak and identity sections. |");
+rep("| QuickAdd choices | One-tap \"set tomorrow's career line\" and \"log a miss\" on phone |",
+"| QuickAdd choices | The old choices (\"set tomorrow's career line\", \"log a miss\") belong to the five-category model. They are reviewed in stage P1. The page replaces them. |");
+rep("| Daily record | The daily note | `closeday` |","| Daily record | The daily note | The page, `startday`, `closeday` |");
+rep("## Update 2026-10-13: what changed since this spec","## Update 2026-11-03: the new day model\nThe skills, the agent and the hook rules change with the day model of [[Spec - Streak and Daily Note]] (Decisions 52, 62, 63). Only `/startday` and `/closeday` are touched by the daily loop. The patches are in [[Build Plan]] stage P1. The rows below already show the target behaviour. The weekly and monthly review skills keep their Review Log entries unchanged. Nothing else in this note changes.\n\n## Update 2026-10-13: what changed since this spec");
+t=t.replace(/(^updated:.*\n)?(next: ")/m,(m,u,n)=>"updated: 2026-11-03\n"+n);
+fs.writeFileSync("Spec - AI Loop.md",t);
+EOF
+node "$TEMP/ai.js" && sed -n 1,20p "Spec - AI Loop.md" | head -20
+```
+```
+---
+type: project
+status: sprout
+created: 2026-10-12
+tags:
+  - dashboard
+  - ai-loop
+  - skills
+  - agents
+  - hooks
+notes:
+  - "[[Dashboards Hub]]"
+  - "[[Decisions Log]]"
+  - "[[Spec - Streak and Daily Note]]"
+  - "[[Jarvis Operating Rules]]"
+  - "[[Jarvis Control Center]]"
+  - "[[Jarvis Architectural Decision Register]]"
+  - "[[AGENTS]]"
+  - "[[Agentic OS Standard]]"
+updated: 2026-11-03
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && grep -c "processFrontMatter" "Reference - Obsidian API for This Build.md"; sed -n '/^## Writing/,/^## Settings/p' "Reference - Obsidian API for This Build.md"; grep -n "Public GitHub" "Private Use and Sharing.md"
+```
+```
+1
+## Writing (data/write.ts)
+
+| API | Fact |
+|---|---|
+| `Vault.process` | `process(file: TFile, fn: (data: string) => string, options?): Promise<string>` since 1.1.0. "Atomically read, modify, and save the contents of a note." The callback is synchronous and returns the new content. |
+| `FileManager.processFrontMatter` | Atomic frontmatter edit. Not used: the plugin never writes frontmatter. |
+
+**Not documented, must be tested:**
+
+1. Whether `Vault.process` fires the `modify` event. Test: tick through the plugin and log events in a dev vault. The redraw logic must not depend on it; redraw after a successful `process` regardless.
+2. Line endings. The docs never mention CRLF. The toggle must detect `\r\n` versus `\n`, split and rejoin with the same separator, and test both.
+3. What happens when the file changes between the user's tap and `process`. The callback re-checks the line text inside `process` and returns the data unchanged if it differs.
+
+## Settings UI (settings.ts)
+28:| Public GitHub repo? | Not needed. A local git repo is enough; a private GitHub repo is optional backup. |
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && node -e '
+const fs=require("fs");
+let t=fs.readFileSync("Reference - Obsidian API for This Build.md","utf8");
+const a="| `FileManager.processFrontMatter` | Atomic frontmatter edit. Not used: the plugin never writes frontmatter. |";
+if(!t.includes(a)) throw new Error("x");
+t=t.replace(a,"| `FileManager.processFrontMatter` | Atomic frontmatter edit. Used from the 2026-11-03 design for the three numbers `lc_count`, `study_today` and `slips` only, and never for a new file. It can throw a YAML error, which is a refused write ([[Research - Outside Sources]]). |");
+t=t.replace("1. Whether `Vault.process` fires the `modify` event.","0. Settled by design on 2026-11-03: the page always redraws from disk after a write and never trusts its own state beyond that.\n1. Whether `Vault.process` fires the `modify` event.");
+fs.writeFileSync("Reference - Obsidian API for This Build.md",t);
+let p=fs.readFileSync("Private Use and Sharing.md","utf8");
+p=p.replace("A local git repo is enough; a private GitHub repo is optional backup.","A private GitHub repo is added as a backup with Anant\u2019s yes, because the source exists on one laptop only (Decision 68). It is never public.");
+fs.writeFileSync("Private Use and Sharing.md",p);
+' && grep -n "Decision 68" "Private Use and Sharing.md" | cut -c1-100
+```
+```
+28:| Public GitHub repo? | Not needed. A private GitHub repo is added as a backup with Anant’s yes
+```
+- `AskUserQuestion` -- `{"questions":[{"question":"Review - Corrections to Earlier Notes (2026-10-13) lists conflicts between the first build\u0027s notes. The upgrade resolved or superseded nearly all of them, and the new Decisions Log has its own corrections table. What should happen to it?","header":"Old corrections","multiSelect":false,"options":[{"label":"Move to Dashboards/Ran (Recommended)","description":"Kept as history, out of the current set. Link-aware move, nothing deleted."},{"label":"Delete it","description":"The Decisions Log corrections table replaces it. Recoverable from git history."},{"label":"Keep it where it is","description":"It stays in Dashboard Build as a current note, though most rows are out of date."}]},{"question":"Research - Jarvis Dashboard Findings (2026-10-12) describes how the old Jarvis dashboard worked and what to fix. The Jarvis dashboard has since been redesigned in Jarvis. What should happen to it?","header":"Old research","multiSelect":false,"options":[{"label":"Move to Dashboards/Ran (Recommended)","description":"History of why the first design was shaped as it was. Out of the current set."},{"label":"Keep it where it is","description":"Stays as a current research note linked from the Hub."},{"label":"Delete it","description":"Recoverable from git history only."}]},{"question":"The empty folder Dashboards/Daily has held nothing since 2026-10-12. Delete it?","header":"Empty folder","multiSelect":false,"options":[{"label":"Delete it (Recommended)","description":"An empty folder is clutter under the vault\u0027s no-scaffolding rule."},{"label":"Keep it","description":"Leave it for a later use."}]}]}`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; "$obs" vault="The Plan" move path="$D/Dashboard Build/Review - Corrections to Earlier Notes.md" to="$D/Ran/Review - Corrections to Earlier Notes.md" 2>&1 | head -2; "$obs" vault="The Plan" move path="$D/Research - Jarvis Dashboard Findings.md" to="$D/Ran/Research - Jarvis Dashboard Findings.md" 2>&1 | head -2; ls "$D/Ran"; ls "$D" "$D/Dashboard Build"
+```
+```
+Build Prompts.md
+Build Steps.md
+Plugin Build Prompts.md
+Prompts.md
+Research - Jarvis Dashboard Findings.md
+Review - Corrections to Earlier Notes.md
+40_Resources/Obsidian/Dashboards:
+Audit - Dashboard Stack and Phone Checklist.md
+Build Plan.md
+Daily
+Dashboard Build
+Dashboards Hub.md
+Decisions Log.md
+Postmortem.md
+Ran
+Spec - AI Loop.md
+Spec - Automation Layers.md
+Spec - Home and Monthly Dashboards.md
+Spec - Streak and Daily Note.md
+Spec - Time Layer.md
+
+40_Resources/Obsidian/Dashboards/Dashboard Build:
+Architecture.md
+Build Log.md
+Dashboard Build Hub.md
+Front End and Visual System.md
+Private Use and Sharing.md
+Reference - Obsidian API for This Build.md
+Research - Obsidian Dashboard Methods.md
+Research - Outside Sources.md
+Research - Plugin Creation Guide.md
+Sonnet 5.5 Prompt Rules.md
+Verification and Risks.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/fin.js" <<'EOF'
+const fs=require("fs");
+function edit(f,pairs){let t=fs.readFileSync(f,"utf8");for(const [a,b] of pairs){if(!t.includes(a))throw new Error(f+": "+a.slice(0,60));t=t.replace(a,b);}fs.writeFileSync(f,t);}
+edit("Dashboards Hub.md",[
+["| [[Research - Jarvis Dashboard Findings]] | What Jarvis's dashboard was and what to fix, not port (history) |\n",""],
+["| `Ran/` | [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]]. History only. |","| `Ran/` | [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]], [[Review - Corrections to Earlier Notes]], [[Research - Jarvis Dashboard Findings]]. History only. |"],
+["  - \"[[Research - Jarvis Dashboard Findings]]\"\n",""],
+["| Archive | The first build's prompts and steps are in `Dashboards/Ran/` |","| Archive | The first build's prompts, steps, corrections review and the old Jarvis research are in `Dashboards/Ran/` |"]]);
+edit("Build Plan.md",[
+["| [[Build Steps]] | `Dashboards/Dashboard Build/` | The stages S0 to S6 are replaced by P0 to P6 |","| [[Build Steps]] | `Dashboards/Dashboard Build/` | The stages S0 to S6 are replaced by P0 to P6 |\n| [[Review - Corrections to Earlier Notes]] | `Dashboards/Dashboard Build/` | Its conflicts are resolved. The Decisions Log has the current corrections. Moved on Anant's yes. |\n| [[Research - Jarvis Dashboard Findings]] | `Dashboards/` | The old Jarvis dashboard research. Moved on Anant's yes. |"],
+["Anant said yes on 2026-11-03. The folder `Dashboards/Ran/` was created and four notes were moved","Anant said yes on 2026-11-03. The folder `Dashboards/Ran/` was created and six notes were moved"]]);
+edit("Dashboard Build/Dashboard Build Hub.md",[["`Dashboards/Ran/` holds what has already run: [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]] and [[Build Steps]]. They are history.","`Dashboards/Ran/` holds what has already run: [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]], [[Review - Corrections to Earlier Notes]] and [[Research - Jarvis Dashboard Findings]]. They are history."]]);
+edit("Decisions Log.md",[["| 67 | Archive of what has run | A `Dashboards/Ran` folder. Each move waits for Anant's yes. Nothing is deleted. | The move list is in [[Build Plan]]. |","| 67 | Archive of what has run | A `Dashboards/Ran` folder. Each move waits for Anant's yes. Nothing is deleted. | Done on 2026-11-03: six notes moved. The empty `Daily` folder was kept at Anant's word. See [[Build Plan]]. |"]]);
+EOF
+node "$TEMP/fin.js" && echo edited
+```
+```
+edited
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's#^  "40_Resources/Obsidian/Dashboards/Spec - Streak and Daily Note.md",#  "40_Resources/Obsidian/Dashboards/Spec - Streak and Daily Note.md","40_Resources/Obsidian/Dashboards/Spec - AI Loop.md","40_Resources/Obsidian/Dashboards/Postmortem.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Architecture.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Front End and Visual System.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Dashboard Build Hub.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Research - Outside Sources.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Build Log.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Private Use and Sharing.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Reference - Obsidian API for This Build.md","30_Order/Templates/Daily Dashboard/Better Today.md","30_Order/Templates/Daily Dashboard/Better Week.md","30_Order/Templates/Daily Dashboard/Better Month.md","30_Order/Templates/Daily Dashboard/Better Year.md",#' "C:/Users/anant/AppData/Local/Temp/claude/7776f00ad8139643/c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd/scratchpad/chk.js" && node "C:/Users/anant/AppData/Local/Temp/claude/7776f00ad8139643/c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd/scratchpad/chk.js"; echo; grep -rn "Decisions Log\]\] rows 69 to 7[0-9]\|rows 69 to 79" 40_Resources/Obsidian/Dashboards 30_Order/Templates 2>/dev/null | cut -c1-140
+```
+```
+Spec - Streak and Daily Note.md | dashes 0 | --- 2 | broken none
+Spec - AI Loop.md | dashes 0 | --- 2 | broken Jarvis Operating Rules; Jarvis Control Center; Jarvis Architectural Decision Register
+Postmortem.md | dashes 0 | --- 2 | broken none
+Architecture.md | dashes 0 | --- 2 | broken none
+Front End and Visual System.md | dashes 0 | --- 2 | broken none
+Dashboard Build Hub.md | dashes 0 | --- 2 | broken none
+Research - Outside Sources.md | dashes 0 | --- 2 | broken none
+Build Log.md | dashes 0 | --- 2 | broken none
+Private Use and Sharing.md | dashes 0 | --- 2 | broken none
+Reference - Obsidian API for This Build.md | dashes 0 | --- 2 | broken none
+Better Today.md | dashes 0 | --- 2 | broken none
+Better Week.md | dashes 0 | --- 2 | broken none
+Better Month.md | dashes 0 | --- 2 | broken none
+Better Year.md | dashes 0 | --- 2 | broken none
+Spec - Home and Monthly Dashboards.md | dashes 0 | --- 2 | broken none
+Spec - Time Layer.md | dashes 0 | --- 2 | broken none
+Spec - Automation Layers.md | dashes 0 | --- 2 | broken none
+Decisions Log.md | dashes 0 | --- 2 | broken Jarvis Architectural Decision Register; Promoted From Jarvis Index
+Build Plan.md | dashes 0 | --- 2 | broken none
+Dashboards Hub.md | dashes 0 | --- 2 | broken AI_CONTEXT; 60_Jarvis/00_Control_Center/Jarvis Control Center; 60_Jarvis/60_Jarvis Board
+Verification and Risks.md | dashes 0 | --- 2 | broken none
+12 Weeks - Sept to Dec.md | dashes 0 | --- 2 | broken none
+
+40_Resources/Obsidian/Dashboards/Decisions Log.md:17:next: "Confirm the defaults in rows 69 to 79 and the items under Proposed, not yet conf
+[This command modified 1 file you've previously read: C:\Users\anant\AppData\Local\Temp\claude\7776f00ad8139643\[REDACTED]\scratchpad\chk.js. Call Read before editing.]
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i 's/rows 69 to 79/rows 69 to 92/; s/rows 69 to 91/rows 69 to 92/' "Decisions Log.md" "Spec - Streak and Daily Note.md" "Spec - Home and Monthly Dashboards.md" && grep -rn "rows 69 to" . --include=*.md | cut -c1-110; echo; git -C ../../.. status --short | grep -v "Jarvis Build" | head -40
+```
+```
+./Build Plan.md:60:1. The defaults in [[Decisions Log]] rows 69 to 92 stand unless Anant has changed them.
+./Dashboards Hub.md:163:None blocking the build. `plan_start` and `plan_end` are decided later by Anant. The d
+./Decisions Log.md:17:next: "Confirm the defaults in rows 69 to 92 and the items under Proposed, not yet confi
+./Spec - Home and Monthly Dashboards.md:21:next: "Anant confirms the defaults in Decisions Log rows 69 to 92. 
+./Spec - Streak and Daily Note.md:20:next: "Anant confirms the defaults in Decisions Log rows 69 to 92. Then B
+
+ M "40_Resources/Obsidian/Dashboards/Build Plan.md"
+ M "40_Resources/Obsidian/Dashboards/Dashboard Build/Dashboard Build Hub.md"
+ D "40_Resources/Obsidian/Dashboards/Dashboard Build/Review - Corrections to Earlier Notes.md"
+ M "40_Resources/Obsidian/Dashboards/Dashboards Hub.md"
+ M "40_Resources/Obsidian/Dashboards/Decisions Log.md"
+ D "40_Resources/Obsidian/Dashboards/Research - Jarvis Dashboard Findings.md"
+ M "40_Resources/Obsidian/Dashboards/Spec - Home and Monthly Dashboards.md"
+ M "40_Resources/Obsidian/Dashboards/Spec - Streak and Daily Note.md"
+?? "40_Resources/Obsidian/Dashboards/Ran/Research - Jarvis Dashboard Findings.md"
+?? "40_Resources/Obsidian/Dashboards/Ran/Review - Corrections to Earlier Notes.md"
+[This command modified 3 files you've previously read: Decisions Log.md, Spec - Home and Monthly Dashboards.md, Spec - Streak and Daily Note.md. Call Read before editing.]
+```
+
 ## Actions Taken
 
 **Files created:**
 - `C:\Users\anant\AppData\Local\Temp\claude\7776f00ad8139643\c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd\scratchpad\chk.js`
 - `D:\_Anant\20_Progress\Documents\The Plan\00_Live\Enumerate\Weekly\12 Weeks - Sept to Dec.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Month.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Today.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Week.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\30_Order\Templates\Daily Dashboard\Better Year.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Build Plan.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Architecture.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Dashboard Build Hub.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Front End and Visual System.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Research - Outside Sources.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Verification and Risks.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Architecture.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
@@ -11333,15 +15598,14 @@ Verification and Risks.md | dashes 0 | --- 2 | broken none
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Verification and Risks.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Postmortem.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Automation Layers.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Home and Monthly Dashboards.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Streak and Daily Note.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Time Layer.md`
 
 **Files modified:**
-- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboard Build\Verification and Risks.md`
-- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Dashboards Hub.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Decisions Log.md`
-- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Spec - Automation Layers.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -11423,4 +15687,34 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && cat > "$TEMP/chk.js" <<'EOF' const fs=require('fs'),path=require('path'); const root=process.cwd(); const files=["40_Resources/Obsidian/Dashboards/Spec - Streak and Daily Note.md","40_Resources/Obsidian/Dashboards/Spec - Home and Monthly Dashboards.md","40_Resources/Obsidian/Dashboards/Spec - Time Layer.md","40_Resources/Obsidian/Dashboards/Spec - Automation Layers.md","40_Resources/Obsidian/Dashboards/Decisions Log.md","40_Resources/Obsidian/Dashboards/Build Plan.md","40_Resources/Obsidian/Dashboards/Dashboards Hub.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Verification and Risks.md","00_Live/Enumerate/Weekly/12 Weeks - Sept to Dec.md"]; const all=[];(function w(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(e.name.startsWith('.')||e.name==='node_modules'||/^(50|60)_/.test(e.name))continue;const p=path.join(d,e.name);e.isDirectory()?w(p):all.push(p)}})(root); const names=new Set(all.map(p=>path.basename(p).replace(/\.md$/,'')));const rels=new Set(all.map(p=>path.relative(root,p).replace(/\\/g,'/').replace(/\.md$/,''))); for(const f of files){const t=fs.readFileSync(f,'utf8');  const dash=(t.match(/[\u2013\u2014]/g)||[]).length;const fm=t.split('\n').filter(l=>l.trim()==='---').length;  const bad=[];for(const m of t.matchAll(/\[\[([^\]|#]+)/g)){const n=m[1].trim();if(!names.has(n)&&!rels.has(n))bad.push(n)}  console.log(path.basename(f),'| dashes',dash,'| ---',fm,'| broken',[...new Set(bad)].join('; ')||'none')} EOF node "$TEMP/chk.js"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i "s#.replace(/\\\\/g,'/')#.split(path.sep).join('/')#" "$TEMP/chk.js" && sed -n 5p "$TEMP/chk.js" | cut -c100-200 && node "$TEMP/chk.js"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && node "C:/Users/anant/AppData/Local/Temp/claude/7776f00ad8139643/c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd/scratchpad/chk.js"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates" && ls -la; echo ---; ls -la "Daily Dashboard"; echo ---; wc -c "Daily Dashboard"/*; echo; cd ../.. ; wc -c 30_Order/Templates/*.md | tail -30`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Templates/Daily Dashboard" && for f in "Better Today.md" "Better Week.md" "Better Month.md" "Better Year.md"; do echo "=========== $f"; cat -A "$f" | sed 's/\$$//' | head -90; done`
+- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src/core" && sed -n 1,140p validate.ts; echo ======; grep -n "Review Log\|## \|heading" review.ts sections.ts close.ts | head -50; ls "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards" "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Workflows" 2>/dev/null`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && for f in "Audit - Dashboard Stack and Phone Checklist.md" "Research - Jarvis Dashboard Findings.md" "Spec - AI Loop.md" "Dashboard Build/Reference - Obsidian API for This Build.md" "Dashboard Build/Research - Obsidian Dashboard Methods.md" "Dashboard Build/Research - Plugin Creation Guide.md" "Dashboard Build/Review - Corrections to Earlier Notes.md" "Dashboard Build/Sonnet 5.5 Prompt Rules.md" "Dashboard Build/Private Use and Sharing.md"; do echo "=========== $f"; sed -n 1,16p "$f" | grep -E "^(type|status|next|updated|created):"; grep -E "^#{1,2} " "$f" | head -14; done`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && cat "Dashboard Build Hub.md"; echo =====ARCH; cat Architecture.md`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && cat "Front End and Visual System.md"; echo =====CORR; sed -n 17,80p "Review - Corrections to Earlier Notes.md"; echo =====PRIV; sed -n 17,40p "Private Use and Sharing.md"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/30_Order/Standards/Dashboards" && cat "Daily Note Schema.md"; echo =====STREAK; sed -n 1,60p "Streak Rule.md"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && P="40_Resources/Obsidian/Dashboards/Jarvis Build"; C=$(git log --format=%h -n1 -- "$P/Jarvis Research - Outside Sources.md"); echo "last touch: $C"; git show "$C^:$P/Jarvis Research - Outside Sources.md" | sed -n 17,200p`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && P="40_Resources/Obsidian/Dashboards/Jarvis Build"; C=$(git log --format=%h -n1 -- "$P/Jarvis Spec - Dashboard Page.md"); git show "$C^:$P/Jarvis Spec - Dashboard Page.md" | sed -n 17,400p`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; "$obs" version 2>&1 | head -3; echo "exit $?"; "$obs" help move 2>&1 | head -12`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; "$obs" vault="The Plan" move path="$D/Prompts.md" to="$D/Ran/Prompts.md" 2>&1 | head -5; ls "$D/Ran" 2>&1`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; mkdir "$D/Ran" && for n in "Prompts.md" "Dashboard Build/Build Prompts.md" "Dashboard Build/Plugin Build Prompts.md" "Dashboard Build/Build Steps.md"; do b=$(basename "$n"); "$obs" vault="The Plan" move path="$D/$n" to="$D/Ran/$b" 2>&1 | head -2; done; ls "$D/Ran"; echo ---; grep -rl "\[\[Prompts\]\]\|\[\[Build Steps\]\]\|\[\[Build Prompts\]\]\|\[\[Plugin Build Prompts\]\]" "$D" | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; ls "$D" "$D/Dashboard Build" "$D/Ran"; "$obs" vault="The Plan" move path="$D/Dashboard Build/Build Steps.md" to="$D/Ran/Build Steps.md" 2>&1 | head -3; ls "$D/Ran"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && P="40_Resources/Obsidian/Dashboards/Jarvis Build"; for n in "Jarvis Architecture" "Jarvis Spec - Day Model and Streak"; do C=$(git log --format=%h -n1 -- "$P/$n.md"); echo "=========== $n"; git show "$C^:$P/$n.md" | sed -n 17,260p; done | cut -c1-600`
+- `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && cat src/core/config.ts | head -80; cat manifest.json package.json | head -50; sed -n 1,60p "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Spec - AI Loop.md" | tail -45`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && sed -i 's/"Window too small. Needs 1280 by 720, has 900 by 600."/"Window too small. Needs W by H, has W by H." (the numbers are measured, not fixed here)/' "Front End and Visual System.md" && grep -n "Window too small. Needs" "Front End and Visual System.md"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i 's/for the first nine days because/for ten days because/' "Spec - Home and Monthly Dashboards.md" && grep -c "ten days because" "Spec - Home and Monthly Dashboards.md"; grep -n "^| 79 \|^## Proposed" "Decisions Log.md"; sed -n '/^## Proposed/,$p' "Decisions Log.md"`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && node -e ' const fs=require("fs");let t=fs.readFileSync("Decisions Log.md","utf8"); const i=t.indexOf("## Proposed, not yet confirmed"); const head=t.slice(0,i); const tail=`## Proposed, not yet confirmed  - Streak and ring colour hex values in [[Front End and Visual System]]. They stay until judged on a real screen at stage P4. - Multi-Column Markdown plugin dropped in favour of a CSS grid. Nothing is removed in this build (Decision 67 and the plugin list in [[Build Plan]]). - Review records: \`60_Jarvis/50_Reviews/Weekly\` and \`Monthly\` hold a saved analysis only on request, \`Dashboard\` holds verification records, \`Agentic OS\` holds toolkit audits. See [[Agentic OS Standard]]. - Google Calendar alarms for 8 am, 2 pm, 5:30 and the evening close: not decided. Part of the task automation in [[Spec - Automation Layers]], Layer 4. `; fs.writeFileSync("Decisions Log.md",head+tail); ' && tail -8 "Decisions Log.md" | cut -c1-120``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -n '/^## Where the built system/,$p' "Dashboards Hub.md" | head -5; grep -n "^## " "Dashboards Hub.md"`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/bp.js" <<'EOF' const fs=require("fs");let t=fs.readFileSync("Build Plan.md","utf8"); function rep(a,b){ if(!t.includes(a)) throw new Error("missing: "+a.slice(0,60)); t=t.replace(a,b); } rep(`next: "Anant confirms the defaults (Decisions Log rows 69 to 79) and fills plan_start and plan_end in the 12 Weeks note. Then the move list below is shown for a yes, and the prompts are written in a separate session."`, `next: "Stage P0. The prompts are written in a separate session from these notes. plan_start and plan_end are decided later."`); rep(`| 12 Weeks note | Exists and is empty (0 bytes). It first appears in git on 2026-11-03. | \`git show\` |`, `| 12 Weeks note | Was empty (0 bytes) on 2026-11-03 with no earlier version in git. A draft structure was written into it. \`plan_start\` and \`plan_end\` are decided later. | \`git show\` | | Templates | Updated on 2026-11-03: Today, Week, Month, Year in \`30_Order/Templates/Daily Dashboard/\` | The files | | Ran notes | Moved on 2026-11-03 with Anant's yes: Prompts, Build Prompts, Plugin Build Prompts, Build Steps are in \`Dashboards/Ran/\` | \`ls\` | | Standards, skills, agents | Still describe the five-category model. Patches below. | Decision 90 |`); rep(`| P0 | **Housekeeping.** Archive what has run, commit the 3 changes after tests, a private remote with Anant's yes, \`plan-cli\` source and deployed copy compared. | Anant's yes on each move and on the remote | The move list is done, \`npm test\` passes, the repo has a remote |`, `| P0 | **Housekeeping.** Commit the 3 changes after tests, a private remote with Anant's yes, \`plan-cli\` source and deployed copy compared. The archive move is already done. | Anant's yes on the remote | \`npm test\` passes, the repo has a remote |`); const a=t.indexOf("## Move list: what has run"), b=t.indexOf("## Patches awaiting approval"); t=t.slice(0,a)+`## Archive: what has run (done 2026-11-03) Anant said yes on 2026-11-03. The folder \`Dashboards/Ran/\` was created and four notes were moved with link-aware moves. Nothing was deleted.  | Note | Moved from | Why | |---|---|---| | [[Prompts]] | \`Dashboards/\` | Its sessions ran in October | | [[Build Prompts]] | \`Dashboards/Dashboard Build/\` | The R1 to B8 prompts ran | | [[Plugin Build Prompts]] | \`Dashboards/Dashboard Build/\` | The five plugin prompts ran and the plugin exists | | [[Build Steps]] | \`Dashboards/Dashboard Build/\` | The stages S0 to S6 are replaced by P0 to P6 |  Stays: [[Build Log]] (the new build appends entries), [[Verification and Risks]], [[Architecture]], [[Front End and Visual System]], [[Dashboard Build Hub]], the Research and Reference notes, the Audit note and every Spec. New prompts are written into a fresh \`Prompts\` note in a separate session.  `+t.slice(b); rep(`| Target | Change | Stage | |---|---|---|`,`| Target | Change | Stage | |---|---|---| | Skill \`startday\` | Copy Tomorrow under From Yesterday, propose the 80 from the plan, write \`## Career\` from Jarvis, fill \`Due Friday\` on the first day of an ISO week | P1 | | Skill \`closeday\` | Write \`## Time\` from \`plan-cli time\`, import Toggl with a yes, no Evening close, no Next actions, no Preview | P1 |`); const c=t.indexOf("## Acceptance for the whole dashboard"), d=t.indexOf("## Risks to watch"); t=t.slice(0,c)+`## Acceptance The single acceptance list is in [[Verification and Risks]]. The build is done when every line passes or each failure is a written row.  `+t.slice(d); fs.writeFileSync("Build Plan.md",t); EOF node "$TEMP/bp.js" && grep -n "^## \|^| P[0-6]" "Build Plan.md"``
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/bp2.js" <<'EOF' const fs=require("fs");let t=fs.readFileSync("Build Plan.md","utf8"); function rep(a,b){ if(!t.includes(a)) throw new Error("missing: "+a.slice(0,70)); t=t.replace(a,b); } rep("| P1 | **The day shape.** Patch the Daily Note Schema, the Streak Rule, `Better Today` (checkbox Wins, no Floor table, `## Time`, `## From yesterday`), `/startday`, `/closeday` and the hook rules. Each edit is shown first and waits for a yes. | P0, defaults confirmed, plan dates filled | `validate` passes on a new note made from the template |", "| P1 | **The day shape.** The templates are already updated. Patch the Daily Note Schema, the Streak Rule, `/startday`, `/closeday`, `daily-auditor` and the hook rules. Each edit is shown first and waits for a yes. | P0. The plan dates are not needed. | `validate` passes on a new note made from the template |"); rep("The four write primitives and Create.","The six write primitives."); rep("| The acceptance list below passes, or each failure is a written row |","| The acceptance list in [[Verification and Risks]] passes, or each failure is a written row |"); const a=t.indexOf("## Start-of-build checks"), b=t.indexOf("## Archive: what has run"); t=t.slice(0,a)+`## Start-of-build checks 1. The defaults in [[Decisions Log]] rows 69 to 92 stand unless Anant has changed them. 2. \`plan_start\` and \`plan_end\` in [[12 Weeks - Sept to Dec]] are decided later. The build does not wait for them. 3. The Dell, the Acer and the phone are available for stage P6. 4. [[Postmortem]] and [[Verification and Risks]] are read before each stage.  `+t.slice(b); const c=t.indexOf("## Open Questions"), d=t.indexOf("## History"); t=t.slice(0,c)+`## Open Questions 1. \`plan_start\` and \`plan_end\`, decided later by Anant. 2. The Toggl source and planned time ([[Spec - Time Layer]]). 3. When the Jarvis reader exists, so the Career strip can load. 4. The task automation (Decision 64), laid out in its own session.  `+t.slice(d); fs.writeFileSync("Build Plan.md",t); EOF node "$TEMP/bp2.js" && sed -n 59,64p "Build Plan.md" && sed -n '/^## Open/,/^## History/p' "Build Plan.md"``
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat >> "Dashboard Build/Build Log.md" <<'EOF'  ## Fixed answers (2026-11-03, upgrade design) These replace the 2026-10-13 table above where they differ. The 2026-10-13 table stays as history.  | Item | Value | |---|---| | Plugin id | `the-plan-dashboard`, unchanged | | Code location | `D:\_Anant\20_Progress\Projects\the-plan-dashboard`, unchanged. A private GitHub remote is added only after Anant says yes (Decision 68). | | Stack | TypeScript, React 19, esbuild, `isDesktopOnly: false` | | CLI | `plan-cli` in `30_Order/System/plan-cli/`, with new commands `identities`, `plan`, `time`, `doctor` | | Devices | The Dell, the Acer and the iPhone 15. Phone is a verification gate, not a promise. | | Daily folder | `00_Live/Enumerate/Daily` | | Template | `30_Order/Templates/Daily Dashboard/Better Today.md`, updated 2026-11-03 | | Streak | Every 80 habit line ticked. One forgiven miss, two in a row reset. Counted from plan day 1. | | Plan note | `00_Live/Enumerate/Weekly/12 Weeks - Sept to Dec.md`. `plan_start` and `plan_end` decided later. | | Week | ISO, Monday to Sunday | | Day rollover | Local midnight. A tick after midnight belongs to the new date. | | Touchpoints | `/startday` and `/closeday`. The page buttons copy the command. | | Model for every prompt | Sonnet 5.5 | | Prompts | Not written. A separate session writes them from the notes in [[Dashboards Hub]]. |  ### 2026-11-03, upgrade design finalized - Design only. Nothing was built. - Written: the specs [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - Time Layer]], [[Spec - Automation Layers]]; [[Architecture]], [[Front End and Visual System]], [[Verification and Risks]], [[Research - Outside Sources]], [[Postmortem]], [[Dashboards Hub]] (the source of truth with 47 features), [[Decisions Log]] rows 52 to 92, [[Build Plan]]. - Templates updated in `30_Order/Templates/Daily Dashboard/`: Today, Week, Month, Year. The 12 Weeks note got a draft structure. - Moved with Anant's yes into `Dashboards/Ran/`: Prompts, Build Prompts, Plugin Build Prompts, Build Steps. - Checked: the engine's validator and config, the plugin manifest and package, the git history of the Jarvis design (for the ported rules), the templates as Anant last edited them (Nov 3, 23:37). - Not checked: nothing was built, run or tested. The 23 rows of [[Verification and Risks]] are open. The Standards, skills and agents were not edited (Decision 90). - The next session must know: the daily note has no `[cat::]` lines, so the old engine path cannot read today's note. The page cannot be proven no-scroll in jsdom. `plan_start` and `plan_end` are empty and that is a supported state. EOF node -e ' const fs=require("fs");let t=fs.readFileSync("Dashboard Build/Build Log.md","utf8"); t=t.replace("next: \"Prompt 1 appends its entry here\"","updated: 2026-11-03\nnext: \"The prompt session reads the 2026-11-03 fixed answers and appends its entry here\""); fs.writeFileSync("Dashboard Build/Build Log.md",t);' && sed -n 1,16p "Dashboard Build/Build Log.md"``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -n '/^## Five skills/,/^## Open points/p' "Spec - AI Loop.md" | head -70`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/ai.js" <<'EOF' const fs=require("fs");let t=fs.readFileSync("Spec - AI Loop.md","utf8"); function rep(a,b){ if(!t.includes(a)) throw new Error("missing: "+a.slice(0,70)); t=t.replace(a,b); } rep("| `startday` | Show today's targets and streak status. Flag a missing career line or study topic. Pull the day's intake once automation exists. | Yesterday's and today's daily notes, the streak script | The day's plan in today's note only |", "| `startday` | Create the note if missing. Copy yesterday's Tomorrow under From Yesterday. Propose the 80 from the plan's Habits. Write `## Career` from Jarvis. On the first day of an ISO week, fill `Due Friday`. Show the streak, the plan day and the identities. | Yesterday's and today's notes, the plan note, the weekly note, `plan-cli`, Jarvis's reader | The sections named, each shown first and replaced on a rerun, never appended |"); rep("| `closeday` | Score the five categories. Ask a cause for each miss. Write up to 5 next actions with no repeats. Create tomorrow's note with the career line and study topic. | Today's note, the streak script | Today's evening close and next actions, tomorrow's note |", "| `closeday` | Show the day's score from the engine. Import Toggl entries to the time log with a yes. Write `## Time`. Run `validate`. Leave Tomorrow as Anant wrote it. | Today's note, `plan-cli`, `plan-cli time`, Toggl | `## Time` and the time log |"); rep("| `daily-auditor` | single file | Checks a daily note against the standard. Reports; does not rewrite. |", "| `daily-auditor` | single file | Checks a daily note against the eighteen rules in [[Spec - Streak and Daily Note]] and the two notes' consistency. Reports; does not rewrite. |"); rep("| Streak script | The LLM does not compute streaks. One script reads daily notes and returns current streak, best streak, today's categories and at-risk status. Skills call it. A test compares it with the Home DataviewJS. |", "| `plan-cli` | The LLM does not compute streaks. One program reads daily notes and returns the streak, the identities, the plan day, the scores and the time. Skills call it. The plugin runs the same engine. |"); rep("| Templater daily template | Creates the ISO-named note with the five category sections |", "| Daily template | `Better Today` creates the ISO-named note with the 80 and 20 sections. Week, Month and Year templates carry the deadline, streak and identity sections. |"); rep("| QuickAdd choices | One-tap \"set tomorrow's career line\" and \"log a miss\" on phone |", "| QuickAdd choices | The old choices (\"set tomorrow's career line\", \"log a miss\") belong to the five-category model. They are reviewed in stage P1. The page replaces them. |"); rep("| Daily record | The daily note | `closeday` |","| Daily record | The daily note | The page, `startday`, `closeday` |"); rep("## Update 2026-10-13: what changed since this spec","## Update 2026-11-03: the new day model\nThe skills, the agent and the hook rules change with the day model of [[Spec - Streak and Daily Note]] (Decisions 52, 62, 63). Only `/startday` and `/closeday` are touched by the daily loop. The patches are in [[Build Plan]] stage P1. The rows below already show the target behaviour. The weekly and monthly review skills keep their Review Log entries unchanged. Nothing else in this note changes.\n\n## Update 2026-10-13: what changed since this spec"); t=t.replace(/(^updated:.*\n)?(next: ")/m,(m,u,n)=>"updated: 2026-11-03\n"+n); fs.writeFileSync("Spec - AI Loop.md",t); EOF node "$TEMP/ai.js" && sed -n 1,20p "Spec - AI Loop.md" | head -20``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && grep -c "processFrontMatter" "Reference - Obsidian API for This Build.md"; sed -n '/^## Writing/,/^## Settings/p' "Reference - Obsidian API for This Build.md"; grep -n "Public GitHub" "Private Use and Sharing.md"`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Dashboard Build" && node -e ' const fs=require("fs"); let t=fs.readFileSync("Reference - Obsidian API for This Build.md","utf8"); const a="| `FileManager.processFrontMatter` | Atomic frontmatter edit. Not used: the plugin never writes frontmatter. |"; if(!t.includes(a)) throw new Error("x"); t=t.replace(a,"| `FileManager.processFrontMatter` | Atomic frontmatter edit. Used from the 2026-11-03 design for the three numbers `lc_count`, `study_today` and `slips` only, and never for a new file. It can throw a YAML error, which is a refused write ([[Research - Outside Sources]]). |"); t=t.replace("1. Whether `Vault.process` fires the `modify` event.","0. Settled by design on 2026-11-03: the page always redraws from disk after a write and never trusts its own state beyond that.\n1. Whether `Vault.process` fires the `modify` event."); fs.writeFileSync("Reference - Obsidian API for This Build.md",t); let p=fs.readFileSync("Private Use and Sharing.md","utf8"); p=p.replace("A local git repo is enough; a private GitHub repo is optional backup.","A private GitHub repo is added as a backup with Anant\u2019s yes, because the source exists on one laptop only (Decision 68). It is never public."); fs.writeFileSync("Private Use and Sharing.md",p); ' && grep -n "Decision 68" "Private Use and Sharing.md" | cut -c1-100``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && obs="${COPILOT_OBSIDIAN_CLI:-obsidian}"; D="40_Resources/Obsidian/Dashboards"; "$obs" vault="The Plan" move path="$D/Dashboard Build/Review - Corrections to Earlier Notes.md" to="$D/Ran/Review - Corrections to Earlier Notes.md" 2>&1 | head -2; "$obs" vault="The Plan" move path="$D/Research - Jarvis Dashboard Findings.md" to="$D/Ran/Research - Jarvis Dashboard Findings.md" 2>&1 | head -2; ls "$D/Ran"; ls "$D" "$D/Dashboard Build"`
+- ``cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && cat > "$TEMP/fin.js" <<'EOF' const fs=require("fs"); function edit(f,pairs){let t=fs.readFileSync(f,"utf8");for(const [a,b] of pairs){if(!t.includes(a))throw new Error(f+": "+a.slice(0,60));t=t.replace(a,b);}fs.writeFileSync(f,t);} edit("Dashboards Hub.md",[ ["| [[Research - Jarvis Dashboard Findings]] | What Jarvis's dashboard was and what to fix, not port (history) |\n",""], ["| `Ran/` | [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]]. History only. |","| `Ran/` | [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]], [[Review - Corrections to Earlier Notes]], [[Research - Jarvis Dashboard Findings]]. History only. |"], ["  - \"[[Research - Jarvis Dashboard Findings]]\"\n",""], ["| Archive | The first build's prompts and steps are in `Dashboards/Ran/` |","| Archive | The first build's prompts, steps, corrections review and the old Jarvis research are in `Dashboards/Ran/` |"]]); edit("Build Plan.md",[ ["| [[Build Steps]] | `Dashboards/Dashboard Build/` | The stages S0 to S6 are replaced by P0 to P6 |","| [[Build Steps]] | `Dashboards/Dashboard Build/` | The stages S0 to S6 are replaced by P0 to P6 |\n| [[Review - Corrections to Earlier Notes]] | `Dashboards/Dashboard Build/` | Its conflicts are resolved. The Decisions Log has the current corrections. Moved on Anant's yes. |\n| [[Research - Jarvis Dashboard Findings]] | `Dashboards/` | The old Jarvis dashboard research. Moved on Anant's yes. |"], ["Anant said yes on 2026-11-03. The folder `Dashboards/Ran/` was created and four notes were moved","Anant said yes on 2026-11-03. The folder `Dashboards/Ran/` was created and six notes were moved"]]); edit("Dashboard Build/Dashboard Build Hub.md",[["`Dashboards/Ran/` holds what has already run: [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]] and [[Build Steps]]. They are history.","`Dashboards/Ran/` holds what has already run: [[Prompts]], [[Build Prompts]], [[Plugin Build Prompts]], [[Build Steps]], [[Review - Corrections to Earlier Notes]] and [[Research - Jarvis Dashboard Findings]]. They are history."]]); edit("Decisions Log.md",[["| 67 | Archive of what has run | A `Dashboards/Ran` folder. Each move waits for Anant's yes. Nothing is deleted. | The move list is in [[Build Plan]]. |","| 67 | Archive of what has run | A `Dashboards/Ran` folder. Each move waits for Anant's yes. Nothing is deleted. | Done on 2026-11-03: six notes moved. The empty `Daily` folder was kept at Anant's word. See [[Build Plan]]. |"]]); EOF node "$TEMP/fin.js" && echo edited``
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -i 's#^  "40_Resources/Obsidian/Dashboards/Spec - Streak and Daily Note.md",#  "40_Resources/Obsidian/Dashboards/Spec - Streak and Daily Note.md","40_Resources/Obsidian/Dashboards/Spec - AI Loop.md","40_Resources/Obsidian/Dashboards/Postmortem.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Architecture.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Front End and Visual System.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Dashboard Build Hub.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Research - Outside Sources.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Build Log.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Private Use and Sharing.md","40_Resources/Obsidian/Dashboards/Dashboard Build/Reference - Obsidian API for This Build.md","30_Order/Templates/Daily Dashboard/Better Today.md","30_Order/Templates/Daily Dashboard/Better Week.md","30_Order/Templates/Daily Dashboard/Better Month.md","30_Order/Templates/Daily Dashboard/Better Year.md",#' "C:/Users/anant/AppData/Local/Temp/claude/7776f00ad8139643/c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd/scratchpad/chk.js" && node "C:/Users/anant/AppData/Local/Temp/claude/7776f00ad8139643/c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd/scratchpad/chk.js"; echo; grep -rn "Decisions Log\]\] rows 69 to 7[0-9]\|rows 69 to 79" 40_Resources/Obsidian/Dashboards 30_Order/Templates 2>/dev/null | cut -c1-140`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && sed -i 's/rows 69 to 79/rows 69 to 92/; s/rows 69 to 91/rows 69 to 92/' "Decisions Log.md" "Spec - Streak and Daily Note.md" "Spec - Home and Monthly Dashboards.md" && grep -rn "rows 69 to" . --include=*.md | cut -c1-110; echo; git -C ../../.. status --short | grep -v "Jarvis Build" | head -40`
 

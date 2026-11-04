@@ -8,6 +8,7 @@ tags:
   - ai-tools
 review_kind: weekly
 notes: []
+next:
 ---
 # <% tp.file.title %>
 ## Period Covered

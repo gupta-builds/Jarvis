@@ -10,9 +10,9 @@ system_kind: standard
 family: output
 tier: 1
 maps_to:
-  - "[[Output Template]]"
-  - "[[Output Bullet Template]]"
-  - "[[Output One-Pager Template]]"
+  - "[[Interview Story Template]]"
+  - "[[Portfolio Bullet Template]]"
+  - "[[Project One-Pager Template]]"
 used_by:
   - "[[Output with Provenance]]"
 gold_standard: "[[Observability Debugging Story]]"
@@ -28,7 +28,7 @@ This is the standard for deliverables made from understanding: an interview stor
 {
   "family": "output-story",
   "tier": 1,
-  "template": "Output Template",
+  "template": "Interview Story Template",
   "match": {"type": "output", "kind": "story", "path": "^20_Progress/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "output_kind", "source_concepts"],
@@ -42,7 +42,7 @@ This is the standard for deliverables made from understanding: an interview stor
 {
   "family": "output-bullet",
   "tier": 1,
-  "template": "Output Bullet Template",
+  "template": "Portfolio Bullet Template",
   "match": {"type": "output", "kind": "bullet", "path": "^20_Progress/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "output_kind", "source_concepts"],
@@ -56,7 +56,7 @@ This is the standard for deliverables made from understanding: an interview stor
 {
   "family": "output-one-pager",
   "tier": 1,
-  "template": "Output One-Pager Template",
+  "template": "Project One-Pager Template",
   "match": {"type": "output", "kind": "one-pager", "path": "^20_Progress/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "output_kind", "source_concepts"],

@@ -19,7 +19,7 @@ Turn summaries into knowledge you understand: your mechanism in your words, not 
 The same idea shows up in two or more summaries, or one summary contains something you will reuse. A comparison of two domains is a synthesis note.
 ## Steps
 1. Search `60_Claude/20_Distilled_Notes/` for the concept. If a note exists, extend it instead of creating a sibling.
-2. Choose the kind. A single idea uses [[Deep Dive Template]] (`evergreen_kind: distilled`). A comparison of two domains uses [[Synthesis Note Template]] and goes in `Synthesis/`.
+2. Choose the kind. A single idea uses [[Evergreen Note Template]] (`evergreen_kind: distilled`). A comparison of two domains uses [[Cross-Domain Synthesis Template]] and goes in `Synthesis/`.
 3. Read [[Evergreen Standard]], then write the claim in one sentence and the mechanism in your own words with one example from your own work.
 4. Record the failure mode, or what the idea is confused with.
 5. Link the summaries it came from under Evidence and its neighbors under Related. Set `status: seed`.

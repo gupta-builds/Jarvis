@@ -7,6 +7,7 @@ tags: []
 project_kind: plan
 next:
 related_progress: []
+notes: []
 ---
 # <% tp.file.title %>
 ## Goal

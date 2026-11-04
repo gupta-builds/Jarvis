@@ -10,7 +10,7 @@ system_kind: standard
 family: code-mirror-doc
 tier: 1
 maps_to:
-  - "[[Code Mirror Template]]"
+  - "[[Code File Mirror Template]]"
 used_by: []
 gold_standard: "[[60_Claude/40_Project_Briefs/CausalOps/Core Modules/schema|schema]]"
 notes:

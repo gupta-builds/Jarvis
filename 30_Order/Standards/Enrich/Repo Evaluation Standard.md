@@ -10,7 +10,7 @@ system_kind: standard
 family: repo-card
 tier: 1
 maps_to:
-  - "[[Repo Evaluation Template]]"
+  - "[[GitHub Repo Card Template]]"
 used_by: []
 gold_standard: "[[60_Claude/10_Source_Summaries/Github Ingestion/AI Starred/agentscope|agentscope]]"
 notes:

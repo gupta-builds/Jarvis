@@ -10,7 +10,7 @@ system_kind: standard
 family: reference-resource
 tier: 1
 maps_to:
-  - "[[Reference Template]]"
+  - "[[Reference Guide Template]]"
 used_by:
   - "[[Promotion]]"
 gold_standard: "[[40_Resources/Obsidian/Plugins/Dataview and Dashboards|Dataview and Dashboards]]"

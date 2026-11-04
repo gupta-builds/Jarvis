@@ -10,8 +10,8 @@ system_kind: standard
 family: distilled
 tier: 1
 maps_to:
-  - "[[Deep Dive Template]]"
-  - "[[Synthesis Note Template]]"
+  - "[[Evergreen Note Template]]"
+  - "[[Cross-Domain Synthesis Template]]"
 used_by:
   - "[[Summary to Distilled]]"
 gold_standard: "[[Observability in Backend vs Evaluation in AI]]"
@@ -28,7 +28,7 @@ This is the standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` an
 {
   "family": "distilled",
   "tier": 1,
-  "template": "Deep Dive Template",
+  "template": "Evergreen Note Template",
   "match": {"type": "evergreen", "kind": "distilled", "path": "^60_Claude/20_Distilled_Notes/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "evergreen_kind", "track", "notes"],
@@ -42,7 +42,7 @@ This is the standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` an
 {
   "family": "synthesis",
   "tier": 1,
-  "template": "Synthesis Note Template",
+  "template": "Cross-Domain Synthesis Template",
   "match": {"type": "evergreen", "kind": "synthesis", "path": "^60_Claude/20_Distilled_Notes/Synthesis/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "evergreen_kind", "concepts", "tracks"],

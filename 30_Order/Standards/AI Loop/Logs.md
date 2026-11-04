@@ -11,8 +11,8 @@ system_kind: standard
 family: log
 tier: 2
 maps_to:
-  - "[[30_Order/Templates/AI Toolkit/Write Logs|Write Logs]]"
-  - "[[30_Order/Templates/AI Toolkit/Tool Logs|Tool Logs]]"
+  - "[[AI Write Log Template]]"
+  - "[[AI Tool Log Template]]"
 used_by:
   - "[[Maintaining Logs]]"
   - "[[Tools Tracking]]"

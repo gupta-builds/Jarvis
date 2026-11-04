@@ -11,7 +11,7 @@ system_kind: standard
 family: interview-prep
 tier: 1
 maps_to:
-  - "[[Interview Prep Template]]"
+  - "[[Internship Interview Prep Template]]"
 used_by: []
 gold_standard: "[[20_Progress/Internship/Preperation/Interviews/ABB Interview Prep]]"
 notes:

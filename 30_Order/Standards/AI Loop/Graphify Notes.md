@@ -11,7 +11,7 @@ system_kind: standard
 family: graphify-note
 tier: 1
 maps_to:
-  - "[[Graphify Notes Template|Graphify Notes Template]]"
+  - "[[Graphify Repo Map Template]]"
 used_by:
   - "[[Graphify Folders]]"
 gold_standard: "[[60_Claude/40_Project_Briefs/Graphify — Internship Research Loop Implementation]]"

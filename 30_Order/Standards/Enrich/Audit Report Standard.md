@@ -11,7 +11,7 @@ system_kind: standard
 family: audit-report
 tier: 1
 maps_to:
-  - "[[30_Order/Templates/Capability/Audit Report Template|Audit Report Template]]"
+  - "[[Vault Audit Report Template]]"
 used_by: []
 gold_standard: "[[60_Claude/20_Distilled_Notes/Jarvis Systems Audit - Retrieval, Sync, and Plugins (2026-08-21)]]"
 notes:

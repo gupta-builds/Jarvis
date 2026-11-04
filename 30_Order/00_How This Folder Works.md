@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-10-16
+updated: 2026-11-03
 tags:
   - system
   - standards
@@ -24,15 +24,20 @@ This is the map for `30_Order`. For voice see [[HUMAN_WRITING]]; for where a not
 - **`System/`** documents the tooling that runs the vault, one record per component ([[System Component Standard]]). [[Vault Lint]] lives here.
 ## Writing a note
 1. Find the family in the registry. No row means no kit: write the note to `60_Claude/00_Inbox/`, or build the kit first ([[Building a Note Kit]]).
-2. Copy the Template, read the Standard, follow the Workflow.
+2. Copy the Template, read the Standard, follow the Workflow. Every Template starts with the seven keys of [[For Everything]] (`type`, `status`, `created`, `updated`, `tags`, `notes`, `next`), so a note made from any Template also satisfies the base.
 3. Before saving, run [[Vault Lint]] on the path. A new note must fit.
 ## Touching an old note
 Most notes predate their Standard. Whenever a session opens one, it brings the note to its Standard in the same edit ([[Conformance on Touch]], [[Editing Standard]]). That is how the vault reaches the 90% fit target of [[Conformance Standard]] without a bulk rewrite.
 ## Folders
-- **`Standards/`**: the foundation policies and cross-cutting Standards sit at the root. `Courses/` holds UMN class note types. `Internship/` holds the career and application pipeline. `Enrich/` holds deepening and reference notes. `Ingestion/` turns raw capture into briefs and actions. `AI Loop/` holds how AI agents operate in the vault: tool selection ([[Tool Calls]]), coordination ([[Orchestration]]), memory ([[Memory Management]]), conversation capture ([[Conversations]]), the raw-to-knowledge decision ([[Knowledge Noting]]), review layers ([[Review System]], [[Per Project Review]]), logs ([[Logs]]), and Graphify mirrors ([[Graphify Notes]]). `Operations/` (daily, periodic, plan, dashboard) and `Projects/` are created when their first Standard is written.
-- **`Templates/`**: `Classes/`, `Career/`, `AI Toolkit/`, `Capability/`, `Enumerate/`, `Frontmatter/`, `System/`. `Projects/` and `Knowledge/` are created when needed.
-- **`Workflows/`**: `Courses/`, `Internship/`, `Enrichment/`, `Ingestion/`, `Toolkit/`, `System/`. `Operations/` is created when needed. [[00_Workflows Index]] lists them.
+- **`Standards/`**: the foundation policies and cross-cutting Standards sit at the root. `Courses/` holds UMN class note types. `Internship/` holds the career and application pipeline. `Enrich/` holds deepening and reference notes. `Ingestion/` turns raw capture into briefs and actions. `AI Loop/` holds how AI agents operate in the vault: tool selection ([[Tool Calls]]), coordination ([[Orchestration]]), memory ([[Memory Management]]), conversation capture ([[Conversations]]), the raw-to-knowledge decision ([[Knowledge Noting]]), review layers ([[Review System]], [[Per Project Review]]), logs ([[Logs]]), and Graphify mirrors ([[Graphify Notes]]). `Operations/` holds the daily, periodic, plan, and dashboard Standards, and `Projects/` holds the project-note Standards.
+- **`Templates/`**: [[For Everything]] sits at the root as the base every note satisfies. The folders say what a note is for:
+  - `Career/` holds the vault's main notes: Evergreen Note, Cross-Domain Synthesis, Reference Guide, Technical Concept, Interview Story, Portfolio Bullet, Project One-Pager, Folder MOC, and Standing Plan. Its `Meetings/` holds the Transcript, Brief, and Action Templates. Its `Tracking/` holds every tracker and dashboard: Internship Tracker, Internship Postings Log, and the three Capability dashboards. Its `Internship/` holds the loop's own notes and reviews.
+  - `Projects/` holds project notes, one per project type: Project Status Note, Project Plan, Project Spec, Agent Task Prompt, Code File Mirror, and Machine Setup Runbook.
+  - `AI Toolkit/` holds the AI notes a person reads: the AI weekly and monthly reviews, AI Tool Profile, Source Summary, Vault Audit Report, and Vault Weekly Synthesis.
+  - `System/` holds the Standard and Workflow Templates. Its `AI/` holds what AI systems write: conversation exports, tool and write logs, Graphify maps, and GitHub repo cards.
+  - `Classes/` is the course set, and `Enumerate/` is wired to Periodic Notes.
+- **`Workflows/`**: `Courses/`, `Internship/`, `Enrichment/`, `Ingestion/`, `Toolkit/`, `Operations/`, `Projects/`, `System/`. [[00_Workflows Index]] lists them.
 ## Naming
-`X Standard` pairs with `X Template` and `X Workflow`, using the same X where practical. No two files here share a name, because wikilinks resolve by name. Never leave a file created and empty; an empty file with a real name looks finished in a directory listing.
+`X Standard` pairs with `X Template` and `X Workflow`, using the same X where practical. A Template's name says which note it makes, so no two names read alike. No two files here share a name, because wikilinks resolve by name. Never leave a file created and empty; an empty file with a real name looks finished in a directory listing.
 ## Adding a note type
 Follow [[Building a Note Kit]]: Standard first, then Template, then a Workflow only if the process repeats. Register the family, lint it, and create one real note from the Template.

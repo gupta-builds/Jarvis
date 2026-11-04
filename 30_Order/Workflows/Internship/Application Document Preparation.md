@@ -21,7 +21,7 @@ Produce one resume and one cover letter for an application with a single approva
 ## Use when
 A Program is ready to be applied to. Promotion to a Program stays document-free; this starts at Tailor. Only Prepare can run today: no drafting skill exists and neither Main file is complete.
 ## Steps
-1. **Prepare.** Create the Applying note from [[Applying Template]] before any document exists: `stage: Preparing`, `date_applied` blank, with program, tracker, contact, and the job URL.
+1. **Prepare.** Create the Applying note from [[Internship Applying Template]] before any document exists: `stage: Preparing`, `date_applied` blank, with program, tracker, contact, and the job URL.
 2. **Draft.** Read `Main Resume.md`, `Main Cover Letter.md`, the Applying note, and linked project notes. If a JD needs a fact that is not sourced, ask the human.
 3. **Plan.** Propose a traceable content plan for each document: which bullets and paragraphs, in what order, what is rephrased, and which JD terms are honest gaps. Write nothing yet.
 4. **Approve.** The human approves both plans in one sitting. Changes return to the plan step, never a partial write.

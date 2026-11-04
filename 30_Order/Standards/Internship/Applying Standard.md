@@ -11,7 +11,7 @@ system_kind: standard
 family: internship-applying
 tier: 1
 maps_to:
-  - "[[Applying Template]]"
+  - "[[Internship Applying Template]]"
 used_by:
   - "[[Application Document Preparation]]"
 gold_standard: none

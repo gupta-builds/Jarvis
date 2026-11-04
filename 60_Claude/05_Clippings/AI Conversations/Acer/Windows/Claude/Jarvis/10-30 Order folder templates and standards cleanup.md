@@ -5,31 +5,47 @@ source_app: claude-code
 source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
-ended_at: 2026-11-03T23:16:52
-exported_at: 2026-11-03T23:33:03
-duration_minutes: 5933.4
+ended_at: 2026-11-03T23:59:42
+exported_at: 2026-11-04T00:03:05
+duration_minutes: 5976.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9
 status: seed
 review_state: raw
 created: 2026-10-30
-updated: 2026-11-03
-turn_count: 8
+updated: 2026-11-04
+turn_count: 10
 tools_used:
-  Bash: 28
-  Grep: 13
-  Read: 40
+  Bash: 63
+  Edit: 12
+  Grep: 15
+  Read: 47
+  Write: 6
 tokens:
-  input: 74
-  output: 43506
-  cache_creation: 323550
-  cache_read: 5997760
-  total: 6364890
-cost_usd: 2.329184
+  input: 164
+  output: 101123
+  cache_creation: 421986
+  cache_read: 13428522
+  total: 13951795
+cost_usd: 4.042354
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\checkrules.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\collapse.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\refmap.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\repoint.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\resolve.js"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\templater-data.new.json"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Frontmatter Standard.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/Job & Company Template.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/LinkedIn Post Template.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\agents\\meeting-operator.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\weekly-review\\weekly-review.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.obsidian\\plugins\\templater-obsidian\\data.json"
@@ -3262,13 +3278,2184 @@ cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "internship" "30_Order
 ./60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/internship-research-loop/08-21 Jarvis internship pipeline audit and setup.md
 ```
 
+## You
+
+My plan empties it into Career/ and System/AI/. Is that fine? yes do it. this will be helpful too. For Everything: is a basic template that each and every single note must satsify inside the vault. Each and every single vault inside the note should have this frontmatter and template in them. So, this is really simplistic and done in a manner that each note is created based of this template by default no matter what template is picked on - so each note satisifies this template. That's why it was moved outside. 
+Should I repoint those names inside 30_Order/ in the same pass (my recommendation)? yes repoint everything to the correct core system that is being established over here on cleanup. Make sure that it is clearly defined. 
+Should I remove them? remove the rules that are currently established and establish rules to follow the folder structure that is being established and just descussed here. So that each and every single basic model (3b or even a simple llm) always created a note based of these templates. Always. You said frontmatter must never be broken. May I fix just those two lines now, yes fix them. All teamples must never have broken frontmatter. Meeting trio folder. Do you want the Transcript, Brief and Action templates in Career/Meeting/? yes that's why it was created. 
+
+Focus on the task at hand over here and note the Vault Weekly Synthesis Template still has stale sections, the other things mentioned. This concerns are covered and clearly covered only after the 30_Order final structure for templates is establshed correctly. Make sure to do the job correctly here. Make no msitakes.
+
+## Claude
+
+Understood. I'll do the folder moves, the renames, the frontmatter fixes, the repointing inside `30_Order/`, and the Templater rules. First I need three things: the universal key baseline that `For Everything` sets, the current Templater config, and what lint hardcodes about template paths.
+
+The heredoc ate a backslash in my script. I'll rewrite it. `Job & Company` turns out to have no type, status or dates at all, so I need the allowed kind values before I fix it.
+
+The registry agrees: `job-company` is reference/company and `linkedin-post` is output/post. I'll fix those two by hand, then add the missing `notes` and `next` keys to the rest by script.
+
+Next I'll add the missing `notes: []` and `next:` to every template I own. The script inserts them just before the closing `---` and touches nothing else.
+
+The shell is stripping backslashes from my heredocs. I'll write the scripts with the Write tool instead.
+
+Dry run looks right: 34 files, 93 replacements, and no course-owned file touched. Applying.
+
+I'll write the alias-collapse as a script file, since inline `node -e` mangles the backslashes.
+
+Templater is v2.26.0, and the schema for ignore rules is `{folder}` objects. Let me read the matcher itself, to see how `/` and specificity are handled.
+
+I'll read the config file directly, so my edit keeps its exact formatting.
+
+I'll validate the staged config before relying on it. It needs to be valid JSON, with every template path and folder real and no duplicate folders.
+
+Only line 439 is the faulty one. It's a one-line, boundary-safe fix:
+
+The `Templates/` restructure is done and the kit check passes, except for the Templater rules. The write guard blocks edits under `.obsidian/`, so those rules aren't live yet.
+
+`vault-lint --kit` reports 0 errors. The 12 warnings were there before, apart from a `type` warning on `For Everything` that is deliberate. All 145 template links in the Registry, Standards and Workflows resolve, and no two files in `30_Order` share a name except the existing READMEs. Nothing is committed; the 30-minute auto-sync will pick it up.
+
+## What `Templates/` looks like now (77 files down to 66)
+- **Deleted:** all of `Frontmatter/`, `MOC.md`, `Capability/Synthesis Template`, and the duplicate `Internship/Tracking Template`.
+- **Root:** `For Everything` stays as the base.
+- **`System/AI/`:** the five machine-written templates (conversation export, tool log, write log, Graphify map, GitHub repo card).
+- **`AI Toolkit/`:** six human-read AI templates.
+- **`Career/`:** nine main-note templates, plus `Meetings/` (your folder), `Tracking/` and `Internship/`.
+- **`Projects/`:** six templates, one per project type.
+- **`Classes/` and `Enumerate/`:** untouched.
+- **Emptied:** `Capability/`, `Learning/` and the leftover empty folders are gone.
+- **Repointed:** I rewrote 93 references across 34 files in `30_Order/`: the Registry, Standards, Workflows and Spec blocks. No course-owned file referenced a renamed template.
+- **Folder map:** `00_How This Folder Works` now defines the new layout, and its stale "created when needed" lines are fixed.
+
+## Frontmatter
+- **Broken frontmatter:** `Job & Company` and `LinkedIn Post` are fixed. `Job & Company` is now reference/company, and `LinkedIn Post` is output/post.
+- **Base keys:** I added the missing `notes` and `next` keys to 37 templates, so every template I own carries all seven `For Everything` keys.
+
+## Not done: Templater rules
+A staged `data.json` is ready. It drops the 5 dead rules, keeps the course rule `10_Areas/UMN` untouched, and adds 25 new ones. A `/` root rule maps everything to `For Everything`, and the other 24 follow the Registry's folders. I confirmed in Templater 2.26 that the nearest folder rule wins and that rules only fire on empty new files. That means Excalidraw files and Syncthing arrivals with content are never overwritten.
+
+I validated the JSON, and every folder and template path in it exists. Tell me to apply it with a shell copy and I will, or copy it yourself from `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\[REDACTED]\scratchpad\templater-data.new.json`. Restart Obsidian afterwards so Templater reloads it.
+
+## Decisions I made that you should know about
+- **Dashboards:** the dashboard family has no template of its own now. The Registry row points at `For Everything`, and the Dashboard Standard's `maps_to` is empty. Lint can't hold the base to `dashboard_kind`, so mapping it would fail the check. Say if you want a dedicated Dashboard template instead.
+- **Lint fix:** one line in `vault-lint.js`, even though `System/` is next pass. Lint matched `[[Concept Template]]` by "ends with" and picked up `Technical Concept Template` once my move changed the sort order. It now matches on a path boundary.
+- **Internship names:** `Applying` became **Internship Applying Template**, to match the Applying Standard. `Cheat`, `LinkedIn Post` and `Job & Company` keep their names for the internship build.
+
+## Left for the next pass
+- **Live files still naming old paths:**
+  - `.claude/skills/transcript-to-brief` and `note-to-actions` point at `Templates/Capability/...`. The meeting trio is now in `Career/Meetings/`, so the skills can't find their templates by path.
+  - `.claude/agents/research-distiller` (`Clipping Distill Template`) and `learning-agent` (a template that never existed, plus `Capability/Question Bank`).
+  - `CLAUDE.md` line 46, `.cursor/rules/note-creation.mdc`, the `.codex` agents, and the mirrors under `20_Progress/AI`.
+- **Templates:** `Vault Weekly Synthesis Template` still has its stale plan sections, and `Capability Depth Ladder Template` has a table that lint warns about.
+- **Course side:** the `10_Areas/UMN` Templater rule points at a folder that doesn't exist. I did not check whether the `Classes/` and `Enumerate/` templates carry the seven base keys.
+
+### Tool Calls
+
+- `Grep` -- pattern `For Everything|universal|every note|required_keys|baseline` path `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Frontmatter Standard.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e '
+const j=JSON.parse(require("fs").readFileSync(".obsidian/plugins/templater-obsidian/data.json","utf8"));
+const o={};for(const k of Object.keys(j)){ if(/folder|template|trigger|enable_|file_templates|startup|user_scripts|syntax|intellisense/i.test(k)) o[k]=j[k];}
+console.log(JSON.stringify(o,null,1));'
+```
+```
+{
+ "templates_folder": "30_Order/Templates",
+ "templates_pairs": [],
+ "trigger_on_file_creation_mode": "folder",
+ "user_scripts_folder": "",
+ "folder_templates": [
+  {
+   "folder": "10_Areas/UMN",
+   "template": "30_Order/Templates/Classes/Week Template.md"
+  },
+  {
+   "folder": "20_Progress",
+   "template": "30_Order/Templates/Frontmatter/For Progress.md"
+  },
+  {
+   "folder": "40_Resources",
+   "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
+  },
+  {
+   "folder": "60_Claude/20_Distilled_Notes",
+   "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
+  },
+  {
+   "folder": "60_Claude/10_Source_Summaries",
+   "template": "30_Order/Templates/Frontmatter/For Inputs.md"
+  },
+  {
+   "folder": "60_Claude/40_Project_Briefs",
+   "template": "30_Order/Templates/Frontmatter/For Progress.md"
+  }
+ ],
+ "file_templates": [],
+ "syntax_highlighting": true,
+ "syntax_highlighting_mobile": false,
+ "enabled_templates_hotkeys": [],
+ "startup_templates": [],
+ "intellisense_render": "1",
+ "ignore_folders_on_creation": []
+}
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && ls; grep -n -i "template" vault-lint.config.json | head -30; grep -n -i "Templates/\|Frontmatter/" vault-lint.js | head -30
+```
+```
+Vault Lint.md
+vault-lint.config.json
+vault-lint.js
+16:  "template_paths": [
+17:    "^30_Order/Templates/"
+481:  for (const f of mdFiles.filter((x) => x.rel.startsWith('30_Order/Templates/') && fs.statSync(x.abs).size > 0)) {
+```
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Frontmatter Standard.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 470,520p vault-lint.js
+```
+```
+      }
+    }
+    const us = (n.keys.used_by && n.keys.used_by.items) || [];
+    for (const u of us) {
+      const mm = u.match(/\[\[([^\]|#]+)/); if (!mm) continue;
+      const wf = mdFiles.find((x) => path.basename(x.rel, '.md').toLowerCase() === mm[1].trim().toLowerCase().split('/').pop());
+      if (!wf) { add('error', f.rel, `used_by ${u} does not resolve`); continue; }
+      const wn = parseNote(fs.readFileSync(wf.abs, 'utf8')); const sv = wn.keys.serves ? wn.keys.serves.raw : '';
+      if (!isPolicy && wn.hasFm && wn.keys.system_kind && !sv.toLowerCase().includes(path.basename(f.rel, '.md').toLowerCase())) add('warn', wf.rel, `serves does not point back to ${path.basename(f.rel, '.md')}`);
+    }
+  }
+  for (const f of mdFiles.filter((x) => x.rel.startsWith('30_Order/Templates/') && fs.statSync(x.abs).size > 0)) {
+    const tn = parseNote(fs.readFileSync(f.abs, 'utf8'));
+    if (!tn.hasFm) { add('warn', f.rel, 'template has no frontmatter'); continue; }
+    const ty = val(tn, 'type');
+    if (!ty) { add('warn', f.rel, 'template has no type'); continue; }
+    if (!VOCAB.types[ty] && ty !== 'generated') { add('error', f.rel, `template type "${ty}" is not in the vocabulary`); continue; }
+    const kk = VOCAB.types[ty] && VOCAB.types[ty].kindKey;
+    const kv = kk ? val(tn, kk) : undefined;
+    if (kv && VOCAB.types[ty].kinds.length && !VOCAB.types[ty].kinds.includes(kv)) add('error', f.rel, `template ${kk}="${kv}" is not in the vocabulary`);
+    const st = val(tn, 'status'); const okSt = VOCAB.statusByType[ty] || [];
+    if (st && okSt.length && !okSt.includes(st)) add('error', f.rel, `template status "${st}" is not allowed for type ${ty}`);
+    if (/\{\{date/.test(fs.readFileSync(f.abs, 'utf8'))) add('error', f.rel, 'template uses {{date}} (use Templater)');
+  }
+  const wfs = mdFiles.filter((f) => f.rel.startsWith('30_Order/Workflows/') && fs.statSync(f.abs).size > 0);
+  for (const f of wfs) {
+    const text = fs.readFileSync(f.abs, 'utf8'); const n = parseNote(text);
+    if (!n.keys.system_kind) { add('warn', f.rel, 'legacy Workflow (no system_kind)'); continue; }
+    if (val(n, 'system_kind') !== 'workflow') continue;
+    const sv = n.keys.serves ? n.keys.serves.raw : ''; const m = sv.match(/\[\[([^\]|#]+)/);
+    if (!m || !resolves(m[1])) add('error', f.rel, 'serves does not resolve');
+    const prose = stripCode(n.bodyLines).filter((l) => l !== null).join(' ').replace(/<!--[\s\S]*?-->/g, '');
+    const words = (prose.match(/\S+/g) || []).length; if (words > 350) add('warn', f.rel, `workflow is ${words} words (limit 350)`);
+    const steps = (n.body.match(/^\d+\.\s/gm) || []).length; if (steps > 9) add('warn', f.rel, `workflow has ${steps} numbered lines (limit 9)`);
+  }
+}
+if (KIT || SPECS_ONLY) { kitCheck(); }
+
+// ---------- report ----------
+const pct = (a, b) => (b ? (100 * a / b).toFixed(1) : '-') + '%';
+if (SPECS_ONLY || KIT) {
+  console.log(`Specs loaded: ${SPECS.length} from ${new Set(SPECS.map((s) => s._file)).size} Standards. Vocabulary parsed: ${VOCAB.ok}`);
+  const errs = kitIssues.filter((i) => i.sev === 'error'), warns = kitIssues.filter((i) => i.sev === 'warn');
+  const only = typeof opt('only', '') === 'string' ? opt('only', '') : '';
+  const show = kitIssues.filter((i) => !only || i.file.includes(only));
+  for (const i of show.sort((a, b) => a.sev.localeCompare(b.sev) || a.file.localeCompare(b.file))) console.log(`${i.sev.toUpperCase()}  ${i.file}  ${i.msg}`);
+  console.log(`\n${errs.length} errors, ${warns.length} warnings`);
+  if (JSON_OUT) fs.writeFileSync(JSON_OUT, JSON.stringify({ specs: SPECS.map((s) => s.family), issues: kitIssues }, null, 1));
+  process.exit(errs.length ? 1 : 0);
+}
+const fit = results.filter((r) => r.pass).length;
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && T=30_Order/Templates && set -e
+mkdir -p "$T/System/AI" "$T/Career/Meeting" "$T/Career/Tracking"
+mv_() { git mv "$T/$1" "$T/$2"; }
+# System/AI
+mv_ "AI Toolkit/AI Conversation.md" "System/AI/AI Conversation Export Template.md"
+mv_ "AI Toolkit/Tool Logs.md" "System/AI/AI Tool Log Template.md"
+mv_ "AI Toolkit/Write Logs.md" "System/AI/AI Write Log Template.md"
+mv_ "AI Toolkit/Graphify Notes Template.md" "System/AI/Graphify Repo Map Template.md"
+mv_ "Learning/Repo Evaluation Template.md" "System/AI/GitHub Repo Card Template.md"
+# AI Toolkit
+mv_ "AI Toolkit/Tool Setup Template.md" "AI Toolkit/AI Tool Profile Template.md"
+mv_ "AI Toolkit/Clipping Distill Template.md" "AI Toolkit/Source Summary Template.md"
+mv_ "Capability/Audit Report Template.md" "AI Toolkit/Vault Audit Report Template.md"
+mv_ "Capability/Weekly Synthesis Template.md" "AI Toolkit/Vault Weekly Synthesis Template.md"
+# Career main notes
+mv_ "AI Toolkit/Deep Dive Template.md" "Career/Evergreen Note Template.md"
+mv_ "Learning/Synthesis Note Template.md" "Career/Cross-Domain Synthesis Template.md"
+mv_ "Learning/Reference Template.md" "Career/Reference Guide Template.md"
+mv_ "Projects/Technical Concept Template.md" "Career/Technical Concept Template.md"
+mv_ "Capability/Output Template.md" "Career/Interview Story Template.md"
+mv_ "Learning/Output Bullet Template.md" "Career/Portfolio Bullet Template.md"
+mv_ "Learning/Output One-Pager Template.md" "Career/Project One-Pager Template.md"
+mv_ "Capability/MOC Template.md" "Career/Folder MOC Template.md"
+mv_ "Career/Plan Template.md" "Career/Standing Plan Template.md"
+# Meeting
+for n in Transcript Brief Action; do mv_ "Capability/$n Template.md" "Career/Meeting/$n Template.md"; done
+# Tracking
+mv_ "Career/Tracking.md" "Career/Tracking/Internship Tracker Template.md"
+mv_ "Career/List Monthly Log.md" "Career/Tracking/Internship Postings Log Template.md"
+mv_ "Capability/Field OS Template.md" "Career/Tracking/Capability Field OS Template.md"
+mv_ "Capability/Depth Ladder Template.md" "Career/Tracking/Capability Depth Ladder Template.md"
+mv_ "Capability/Question Bank Template.md" "Career/Tracking/Capability Question Bank Template.md"
+# Internship loop prefixes
+mv_ "Career/Internship/Program Template.md" "Career/Internship/Internship Program Template.md"
+mv_ "Career/Internship/Contact Template.md" "Career/Internship/Internship Contact Template.md"
+mv_ "Career/Internship/Applying Template.md" "Career/Internship/Internship Applying Template.md"
+mv_ "Career/Internship/Interview Prep Template.md" "Career/Internship/Internship Interview Prep Template.md"
+mv_ "Career/Internship/Cover Letter Template.md" "Career/Internship/Internship Cover Letter Template.md"
+# Projects
+mv_ "Projects/Project Note Template.md" "Projects/Project Status Note Template.md"
+mv_ "Projects/Agent Prompt Template.md" "Projects/Agent Task Prompt Template.md"
+mv_ "Projects/Code Mirror Template.md" "Projects/Code File Mirror Template.md"
+mv_ "Projects/Machine Runbook Template.md" "Projects/Machine Setup Runbook Template.md"
+# Deletions
+git rm -q "$T/Capability/Synthesis Template.md" "$T/Career/Internship/Tracking Template.md" "$T/MOC.md"
+git rm -q -r "$T/Frontmatter"
+echo DONE
+echo "--- leftovers:"; find "$T/Capability" "$T/Learning" "$T/Frontmatter" "$T/Knowledge" -type f 2>/dev/null
+find "$T" -type d -empty
+```
+```
+DONE
+--- leftovers:
+30_Order/Templates/Capability
+30_Order/Templates/Career/Meetings
+30_Order/Templates/Frontmatter
+30_Order/Templates/Learning
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in Career/Meeting/*.md; do git mv "$f" "Career/Meetings/$(basename "$f")"; done && rmdir Career/Meeting Capability Learning Frontmatter 2>&1; find . -type d -empty; echo ---; find . -type f | sort | sed 's|^\./||' | awk '{print}' ; echo; find . -type f | wc -l
+```
+```
+---
+AI Toolkit/AI Monthly Review Template.md
+AI Toolkit/AI Tool Profile Template.md
+AI Toolkit/AI Weekly Review Template.md
+AI Toolkit/Source Summary Template.md
+AI Toolkit/Vault Audit Report Template.md
+AI Toolkit/Vault Weekly Synthesis Template.md
+Career/Cross-Domain Synthesis Template.md
+Career/Evergreen Note Template.md
+Career/Folder MOC Template.md
+Career/Internship/Cheat Template.md
+Career/Internship/Internship Applying Template.md
+Career/Internship/Internship Contact Template.md
+Career/Internship/Internship Cover Letter Template.md
+Career/Internship/Internship Interview Prep Template.md
+Career/Internship/Internship Loop Monthly Review Template.md
+Career/Internship/Internship Loop Weekly Review Template.md
+Career/Internship/Internship Program Template.md
+Career/Internship/Job & Company Template.md
+Career/Internship/LinkedIn Post Template.md
+Career/Interview Story Template.md
+Career/Meetings/Action Template.md
+Career/Meetings/Brief Template.md
+Career/Meetings/Transcript Template.md
+Career/Portfolio Bullet Template.md
+Career/Project One-Pager Template.md
+Career/Reference Guide Template.md
+Career/Standing Plan Template.md
+Career/Technical Concept Template.md
+Career/Tracking/Capability Depth Ladder Template.md
+Career/Tracking/Capability Field OS Template.md
+Career/Tracking/Capability Question Bank Template.md
+Career/Tracking/Internship Postings Log Template.md
+Career/Tracking/Internship Tracker Template.md
+Classes/Board or Main Template.md
+Classes/Concept Template.md
+Classes/Degree Control Template.md
+Classes/Discussion Template.md
+Classes/Exam Material Template.md
+Classes/Exam Sheet Template.md
+Classes/Homework Template.md
+Classes/Lab Template.md
+Classes/Preparation Template.md
+Classes/Project Template.md
+Classes/Textbook Map Template.md
+Classes/Textbook Template.md
+Classes/Track Template.md
+Classes/Week Template.md
+Classes/Weekly Board Template.md
+Enumerate/Better Month.md
+Enumerate/Better Today.md
+Enumerate/Better Weekly.md
+Enumerate/Better Year.md
+For Everything.md
+Projects/Agent Task Prompt Template.md
+Projects/Code File Mirror Template.md
+Projects/Machine Setup Runbook Template.md
+Projects/Project Plan Template.md
+Projects/Project Spec Template.md
+Projects/Project Status Note Template.md
+System/AI/AI Conversation Export Template.md
+System/AI/AI Tool Log Template.md
+System/AI/AI Write Log Template.md
+System/AI/GitHub Repo Card Template.md
+System/AI/Graphify Repo Map Template.md
+System/Standard Template.md
+System/Workflow Template.md
+
+66
+```
+- `Bash`
+```bash
+mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad" && cat > "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js" <<'EOF'
+const fs=require('fs'),path=require('path');
+const root='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates';
+const base=['type','status','created','updated','tags','notes','next'];
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);}
+for(const f of walk(root).sort()){
+  const rel=path.relative(root,f).replace(/\\/g,'/');
+  if(/^(Classes|Enumerate)\//.test(rel)) continue;
+  const t=fs.readFileSync(f,'utf8');
+  const lines=t.split(/\r?\n/);
+  const issues=[];
+  if(t.charCodeAt(0)===0xFEFF) issues.push('BOM');
+  if(/\r/.test(t)) issues.push('CRLF');
+  if(lines[0]!=='---') {issues.push('no-open');console.log(rel,'|',issues.join(','));continue;}
+  const end=lines.indexOf('---',1);
+  if(end<0){issues.push('no-close');console.log(rel,'|',issues.join(','));continue;}
+  const fm=lines.slice(1,end);
+  const keys=fm.filter(l=>/^[A-Za-z_][\w]*:/.test(l)).map(l=>l.split(':')[0]);
+  const dup=keys.filter((k,i)=>keys.indexOf(k)!==i); if(dup.length) issues.push('dup:'+dup);
+  const miss=base.filter(k=>!keys.includes(k)); if(miss.length) issues.push('missing:'+miss.join('+'));
+  const tv=(fm.find(l=>l.startsWith('type:'))||'').replace('type:','').trim(); if(!tv) issues.push('EMPTY-type');
+  if(rel!=='For Everything.md'){const sv=(fm.find(l=>l.startsWith('status:'))||'').replace('status:','').trim(); if(!sv) issues.push('EMPTY-status');}
+  if(fm.some(l=>/\t/.test(l))) issues.push('tab');
+  console.log(rel,'|',issues.join(',')||'ok');
+}
+EOF
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js"; echo ---; echo "=== Job & Company"; head -25 "30_Order/Templates/Career/Internship/Job & Company Template.md"; echo "=== LinkedIn"; cat "30_Order/Templates/Career/Internship/LinkedIn Post Template.md"; echo "=== Cheat"; cat "30_Order/Templates/Career/Internship/Cheat Template.md"
+```
+```
+C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\[REDACTED]\scratchpad\fmaudit.js:6
+  const rel=path.relative(root,f).replace(/\/g,'/');
+                                          ^^^^^^^
+
+SyntaxError: missing ) after argument list
+    at wrapSafe (node:internal/modules/cjs/loader:1804:18)
+    at Module._compile (node:internal/modules/cjs/loader:1846:20)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.19.0
+---
+=== Job & Company
+---
+company:
+position:
+program:
+contact:
+tags:
+  - internship
+  - job-company
+next:
+---
+# [Company] - [Position]
+==Interview-prep-grade research — deeper than the Program note, created only once you're actually ready to apply, not at commit time.== See `Programs/Programs-to-Create.md` for when this gets created and the `[Company]/` subfolder rule past two positions at the same company.
+## Company Mission & Why It Points Toward My Goal
+What the company actually says its mission is, and — concretely, not generically — how pursuing this role moves toward the direction in [[Engineer Edge Roadmap]]. Not "is this a good company" — "why this one, for me."
+## Relevant Projects
+Real, specific company projects or products (not the About page) that connect to something I've built or want to build. Cite what's actually public — an engineering blog post, a launch, a real system — not a guess at what they probably do.
+## Role-Specific Research
+What this specific position actually involves, beyond what the Program note already carries — team context, what a normal day likely looks like, anything the posting or a contact revealed about the actual work.
+## Contact's Contribution
+What the verified contact (linked above) has personally worked on or contributed at this company, per real sourced research — this is what turns a conversation from generic into specific.
+## Interview Talking Points
+- [ ] One real story connecting a project I've built to something this team actually does
+- [ ] One informed question that could only come from having done this research, not a generic "what's the culture like"
+- [ ] The honest answer to "why this company" that isn't just the mission statement read back to them
+## What This Teaches Me
+=== LinkedIn
+---
+type: output
+status: sprout
+created:
+source_concepts: []
+posted_date:
+posted_url:
+tags:
+  - linkedin
+  - output
+---
+# [Post Title]
+## Draft
+The actual post text, ready to paste.
+## Why This Post
+What it's meant to do — which audience, which signal (e.g. "shows I ship," "shows I understand X").
+## Source Material
+- [[ ]] (portfolio blog post or project this is drawn from)
+## Status
+Posted: no. Update `posted_date` and `posted_url` once it's live.
+=== Cheat
+---
+type: evergreen
+evergreen_kind: distilled
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - internship
+  - cheat
+notes: []
+next:
+---
+# <% tp.file.title %>
+## What It Is
+<!-- The trick or shortcut in one sentence, wrapped in a highlight. -->
+## Why It Works
+<!-- The mechanism: what it exploits about how hiring or the platform works. -->
+## How To Use It
+<!-- Concrete steps. -->
+## Failure Modes
+<!-- A WARNING callout on where it stops working or backfires. -->
+## Evidence
+<!-- Links to the real results that produced this cheat. -->
+```
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Frontmatter Standard.md`
+- `Bash`
+```bash
+cd "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad" && sed -i "s#\.replace(/.*,'/')#.split(String.fromCharCode(92)).join('/')#" fmaudit.js && grep -n "relative" fmaudit.js && cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js"
+```
+```
+6:  const rel=path.relative(root,f).split(String.fromCharCode(92)).join('/');
+AI Toolkit/AI Monthly Review Template.md | missing:next
+AI Toolkit/AI Tool Profile Template.md | ok
+AI Toolkit/AI Weekly Review Template.md | missing:next
+AI Toolkit/Source Summary Template.md | missing:next
+AI Toolkit/Vault Audit Report Template.md | missing:next
+AI Toolkit/Vault Weekly Synthesis Template.md | missing:next
+Career/Cross-Domain Synthesis Template.md | missing:notes+next
+Career/Evergreen Note Template.md | missing:next
+Career/Folder MOC Template.md | ok
+Career/Internship/Cheat Template.md | ok
+Career/Internship/Internship Applying Template.md | missing:notes
+Career/Internship/Internship Contact Template.md | missing:notes
+Career/Internship/Internship Cover Letter Template.md | missing:notes
+Career/Internship/Internship Interview Prep Template.md | missing:notes
+Career/Internship/Internship Loop Monthly Review Template.md | ok
+Career/Internship/Internship Loop Weekly Review Template.md | ok
+Career/Internship/Internship Program Template.md | missing:notes+next
+Career/Internship/Job & Company Template.md | missing:type+status+created+updated+notes,EMPTY-type,EMPTY-status
+Career/Internship/LinkedIn Post Template.md | missing:updated+notes+next
+Career/Interview Story Template.md | missing:notes+next
+Career/Meetings/Action Template.md | missing:notes
+Career/Meetings/Brief Template.md | missing:notes
+Career/Meetings/Transcript Template.md | missing:notes
+Career/Portfolio Bullet Template.md | missing:notes+next
+Career/Project One-Pager Template.md | missing:notes+next
+Career/Reference Guide Template.md | missing:next
+Career/Standing Plan Template.md | ok
+Career/Technical Concept Template.md | missing:next
+Career/Tracking/Capability Depth Ladder Template.md | missing:next
+Career/Tracking/Capability Field OS Template.md | missing:next
+Career/Tracking/Capability Question Bank Template.md | missing:next
+Career/Tracking/Internship Postings Log Template.md | missing:notes
+Career/Tracking/Internship Tracker Template.md | missing:notes
+For Everything.md | EMPTY-type
+Projects/Agent Task Prompt Template.md | missing:notes+next
+Projects/Code File Mirror Template.md | missing:notes+next
+Projects/Machine Setup Runbook Template.md | missing:notes+next
+Projects/Project Plan Template.md | missing:notes
+Projects/Project Spec Template.md | missing:notes
+Projects/Project Status Note Template.md | missing:notes
+System/AI/AI Conversation Export Template.md | missing:next
+System/AI/AI Tool Log Template.md | missing:next
+System/AI/AI Write Log Template.md | missing:next
+System/AI/GitHub Repo Card Template.md | missing:next
+System/AI/Graphify Repo Map Template.md | ok
+System/Standard Template.md | missing:next
+System/Workflow Template.md | missing:next
+```
+- `Grep` -- pattern `job-company|linkedin-post` path `D:/_Anant/20_Progress/Documents/Jarvis/30_Order`
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/Job & Company Template.md`
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/LinkedIn Post Template.md`
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/Job & Company Template.md`
+```diff
+- ---
+- company:
+- position:
+- program:
+- contact:
+- tags:
+-   - internship
+-   - job-company
+- next:
+- ---
++ ---
++ type: reference
++ status: seed
++ created: <% tp.date.now("YYYY-MM-DD") %>
++ updated: <% tp.date.now("YYYY-MM-DD") %>
++ tags:
++   - internship
++   - job-company
++ reference_kind: company
++ company:
++ position:
++ program:
++ contact:
++ notes: []
++ next:
++ ---
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/LinkedIn Post Template.md`
+```diff
+- ---
+- type: output
+- status: sprout
+- created:
+- source_concepts: []
+- posted_date:
+- posted_url:
+- tags:
+-   - linkedin
+-   - output
+- ---
++ ---
++ type: output
++ status: sprout
++ created: <% tp.date.now("YYYY-MM-DD") %>
++ updated: <% tp.date.now("YYYY-MM-DD") %>
++ tags:
++   - linkedin
++   - output
++ output_kind: post
++ source_concepts: []
++ posted_date:
++ posted_url:
++ notes: []
++ next:
++ ---
+```
+- `Bash`
+```bash
+cat > "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmfix.js" <<'EOF'
+const fs=require('fs'),path=require('path');
+const root='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates';
+const BS=String.fromCharCode(92);
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);}
+let n=0;
+for(const f of walk(root).sort()){
+  const rel=path.relative(root,f).split(BS).join('/');
+  if(/^(Classes|Enumerate)\//.test(rel)||rel==='For Everything.md') continue;
+  const t=fs.readFileSync(f,'utf8'); const lines=t.split('\n');
+  if(lines[0]!=='---') throw new Error('no fm '+rel);
+  const end=lines.indexOf('---',1); if(end<0) throw new Error('no close '+rel);
+  const keys=lines.slice(1,end).filter(l=>/^[A-Za-z_]\w*:/.test(l)).map(l=>l.split(':')[0]);
+  const add=[]; if(!keys.includes('notes')) add.push('notes: []'); if(!keys.includes('next')) add.push('next:');
+  if(!add.length) continue;
+  lines.splice(end,0,...add); fs.writeFileSync(f,lines.join('\n')); n++; console.log('fixed',rel,'+',add.join(' '));
+}
+console.log(n,'files');
+EOF
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmfix.js" | tail -5 && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js" | grep -v "| ok" ; echo AUDIT-DONE
+```
+```
+fixed System/AI/AI Write Log Template.md + next:
+fixed System/AI/GitHub Repo Card Template.md + next:
+fixed System/Standard Template.md + next:
+fixed System/Workflow Template.md + next:
+37 files
+For Everything.md | EMPTY-type
+AUDIT-DONE
+```
+- `Bash`
+```bash
+cat > "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refscan.js" <<'EOF'
+const fs=require('fs'),path=require('path');
+const root='D:/_Anant/20_Progress/Documents/Jarvis/30_Order';
+const BS=String.fromCharCode(92);
+const MAP={
+'AI Conversation':'AI Conversation Export Template','Tool Logs':'AI Tool Log Template','Write Logs':'AI Write Log Template',
+'Graphify Notes Template':'Graphify Repo Map Template','Repo Evaluation Template':'GitHub Repo Card Template',
+'Tool Setup Template':'AI Tool Profile Template','Clipping Distill Template':'Source Summary Template',
+'Audit Report Template':'Vault Audit Report Template','Weekly Synthesis Template':'Vault Weekly Synthesis Template',
+'Deep Dive Template':'Evergreen Note Template','Synthesis Note Template':'Cross-Domain Synthesis Template',
+'Reference Template':'Reference Guide Template','Output Template':'Interview Story Template',
+'Output Bullet Template':'Portfolio Bullet Template','Output One-Pager Template':'Project One-Pager Template',
+'MOC Template':'Folder MOC Template','Plan Template':'Standing Plan Template','Tracking':'Internship Tracker Template',
+'List Monthly Log':'Internship Postings Log Template','Field OS Template':'Capability Field OS Template',
+'Depth Ladder Template':'Capability Depth Ladder Template','Question Bank Template':'Capability Question Bank Template',
+'Program Template':'Internship Program Template','Contact Template':'Internship Contact Template',
+'Applying Template':'Internship Applying Template','Interview Prep Template':'Internship Interview Prep Template',
+'Cover Letter Template':'Internship Cover Letter Template','Project Note Template':'Project Status Note Template',
+'Agent Prompt Template':'Agent Task Prompt Template','Code Mirror Template':'Code File Mirror Template',
+'Machine Runbook Template':'Machine Setup Runbook Template'};
+const GONE=['Synthesis Template','Tracking Template','For AI','For Brainstorm','For Classes','For Dashboards','For Evergreen','For Inputs','For Progress','For Thoughts','MOC'];
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);}
+const files=walk(root).filter(f=>f.endsWith('.md')||f.endsWith('.json')).map(f=>({f,rel:path.relative(root,f).split(BS).join('/')}))
+ .filter(x=>!/^(Standards\/Courses|Workflows\/Courses|Templates\/Classes|Templates\/Enumerate)\//.test(x.rel));
+const mode=process.argv[2];
+const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+const names=[...Object.keys(MAP),...GONE];
+const out={};
+for(const x of files){
+  const t=fs.readFileSync(x.f,'utf8');
+  t.split('\n').forEach((line,i)=>{
+    for(const n of names){
+      const re=new RegExp('(\\[\\[(?:[^\\]|#]*/)?'+esc(n)+'(?=[\\]|#]))|(`'+esc(n)+'`)|(Templates/[A-Za-z ]+/'+esc(n)+')','g');
+      let m; while((m=re.exec(line))){ (out[n]=out[n]||[]).push(x.rel+':'+(i+1)+'  '+m[0]); }
+    }
+  });
+}
+for(const n of Object.keys(out)) {console.log('## '+n+' ('+out[n].length+')'); out[n].forEach(l=>console.log('  '+l));}
+EOF
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refscan.js" 2>&1 | head -300
+```
+```
+C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\[REDACTED]\scratchpad\refscan.js:25
+const esc=s=>s.replace(/[.*+?^${}()|[\]\]/g,'\$&');
+                       ^
+
+SyntaxError: Invalid regular expression: missing /
+    at wrapSafe (node:internal/modules/cjs/loader:1804:18)
+    at Module._compile (node:internal/modules/cjs/loader:1846:20)
+    at Object..js (node:internal/modules/cjs/loader:2003:10)
+    at Module.load (node:internal/modules/cjs/loader:1594:32)
+    at Module._load (node:internal/modules/cjs/loader:1396:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47
+
+Node.js v24.19.0
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\refmap.js`
+```
+const fs = require('fs'), path = require('path');
+const ROOT = 'D:/_Anant/20_Progress/Documents/Jarvis/30_Order';
+const BS = String.fromCharCode(92);
+
+// old template name (file basename without .md) -> new name
+const MAP = {
+  'AI Conversation': 'AI Conversation Export Template',
+  'Tool Logs': 'AI Tool Log Template',
+  'Write Logs': 'AI Write Log Template',
+  'Graphify Notes Template': 'Graphify Repo Map Template',
+  'Repo Evaluation Template': 'GitHub Repo Card Template',
+  'Tool Setup Template': 'AI Tool Profile Template',
+  'Clipping Distill Template': 'Source Summary Template',
+  'Audit Report Template': 'Vault Audit Report Template',
+  'Weekly Synthesis Template': 'Vault Weekly Synthesis Template',
+  'Deep Dive Template': 'Evergreen Note Template',
+  'Synthesis Note Template': 'Cross-Domain Synthesis Template',
+  'Reference Template': 'Reference Guide Template',
+  'Output Template': 'Interview Story Template',
+  'Output Bullet Template': 'Portfolio Bullet Template',
+  'Output One-Pager Template': 'Project One-Pager Template',
+  'MOC Template': 'Folder MOC Template',
+  'Plan Template': 'Standing Plan Template',
+  'Tracking': 'Internship Tracker Template',
+  'List Monthly Log': 'Internship Postings Log Template',
+  'Field OS Template': 'Capability Field OS Template',
+  'Depth Ladder Template': 'Capability Depth Ladder Template',
+  'Question Bank Template': 'Capability Question Bank Template',
+  'Program Template': 'Internship Program Template',
+  'Contact Template': 'Internship Contact Template',
+  'Applying Template': 'Internship Applying Template',
+  'Interview Prep Template': 'Internship Interview Prep Template',
+  'Cover Letter Template': 'Internship Cover Letter Template',
+  'Project Note Template': 'Project Status Note Template',
+  'Agent Prompt Template': 'Agent Task Prompt Template',
+  'Code Mirror Template': 'Code File Mirror Template',
+  'Machine Runbook Template': 'Machine Setup Runbook Template',
+};
+// deleted templates: no replacement, report only
+const GONE = ['Synthesis Template', 'Tracking Template', 'For AI', 'For Brainstorm', 'For Classes', 'For Dashboards', 'For Evergreen', 'For Inputs', 'For Progress', 'For Thoughts', 'MOC'];
+
+function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]); }
+const EXCLUDE = /^(Standards\/Courses|Workflows\/Courses|Templates\/Classes|Templates\/Enumerate)\//;
+function files() {
+  return walk(ROOT).filter(f => f.endsWith('.md') || f.endsWith('.json'))
+    .map(f => ({ f, rel: path.relative(ROOT, f).split(BS).join('/') }))
+    .filter(x => !EXCLUDE.test(x.rel));
+}
+function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+// wikilink to the name, optionally path-prefixed, followed by ] | or #
+function wikiRe(n) { return new RegExp('(\\[\\[(?:[^\\]|#\\[]*/)?)' + esc(n) + '(?=[\\]|#])', 'g'); }
+// backticked bare name
+function tickRe(n) { return new RegExp('`' + esc(n) + '`', 'g'); }
+module.exports = { MAP, GONE, files, wikiRe, tickRe, esc, ROOT, BS };
+
+if (require.main === module) {
+  const apply = process.argv[2] === 'apply';
+  const names = [...Object.keys(MAP), ...GONE];
+  const report = {};
+  let changed = 0;
+  for (const x of files()) {
+    let t = fs.readFileSync(x.f, 'utf8'); const orig = t;
+    const lines = t.split('\n');
+    lines.forEach((line, i) => {
+      for (const n of names) {
+        for (const re of [wikiRe(n), tickRe(n)]) {
+          let m; re.lastIndex = 0;
+          while ((m = re.exec(line))) (report[n] = report[n] || []).push(x.rel + ':' + (i + 1) + '  ' + line.trim().slice(0, 150));
+        }
+      }
+    });
+    if (apply) {
+      for (const [o, nw] of Object.entries(MAP)) {
+        t = t.replace(wikiRe(o), '$1' + nw);
+        t = t.replace(tickRe(o), '`' + nw + '`');
+      }
+      if (t !== orig) { fs.writeFileSync(x.f, t); changed++; }
+    }
+  }
+  if (!apply) for (const n of Object.keys(report)) { console.log('## ' + n + ' (' + report[n].length + ')'); report[n].forEach(l => console.log('   ' + l)); }
+  else console.log('files changed:', changed);
+}
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refmap.js" 2>&1 | head -260
+```
+```
+## Program Template (2)
+   Note Type Registry.md:57  | internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Program Template]] | [[Program Standard]] | [[Internship 
+   Standards/Internship/Program Standard.md:14  - "[[Program Template]]"
+## Contact Template (2)
+   Note Type Registry.md:58  | internship-contact | 1 | contact | `10_Areas/Career/Internships/Contacts/Each One/` | [[Contact Template]] | [[Contact Standard]] | [[Internship Pip
+   Standards/Internship/Contact Standard.md:14  - "[[Contact Template]]"
+## Applying Template (3)
+   Note Type Registry.md:59  | internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Applying Template]] | [[Applying Standard]] | [[Application Doc
+   Standards/Internship/Applying Standard.md:14  - "[[Applying Template]]"
+   Workflows/Internship/Application Document Preparation.md:24  1. **Prepare.** Create the Applying note from [[Applying Template]] before any document exists: `stage: Preparing`, `date_applied` blank, with program
+## Interview Prep Template (2)
+   Note Type Registry.md:61  | interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Interview Prep Template]] | [[Interview Prep Standard]
+   Standards/Internship/Interview Prep Standard.md:14  - "[[Interview Prep Template]]"
+## Cover Letter Template (3)
+   Note Type Registry.md:63  | cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Cover Letter Template]] | [[Cover Letter Alteration Standard]
+   Standards/Internship/Cover Letter Alteration Standard.md:15  - "[[Cover Letter Template]]"
+   Standards/Internship/Cover Letter Alteration Standard.md:26  This is the contract behind [[Cover Letter Alteration]]. It governs `Main Cover Letter.md`, the fragment bank, and the per-application DOCX files made
+## Project Note Template (4)
+   Note Type Registry.md:74  | project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Note Template]] 
+   Standards/Project Standard.md:13  - "[[Project Note Template]]"
+   Workflows/Ingestion/Brief to Progress.md:14  - "[[Project Note Template]]"
+   Workflows/Ingestion/Brief to Progress.md:24  3. Create the note in its home (`Projects/`, `Internship/`, or `Mentorship Program/`) from [[Project Note Template]]. Read [[Project Standard]] first.
+## Code Mirror Template (2)
+   Note Type Registry.md:77  | code-mirror-doc | 1 | project / code-mirror | `60_Claude/40_Project_Briefs/CausalOps/` | [[Code Mirror Template]] | [[Code Mirror Doc Standard]] | n
+   Standards/Projects/Code Mirror Doc Standard.md:13  - "[[Code Mirror Template]]"
+## Agent Prompt Template (4)
+   Note Type Registry.md:78  | agent-prompt | 1 | project / prompt | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Agent Prompt Template]] | [[Agent Prompt Standard]] | [[Pro
+   Standards/Projects/Agent Prompt Standard.md:13  - "[[Agent Prompt Template]]"
+   Workflows/Projects/Prompt Cycle.md:13  - "[[Agent Prompt Template]]"
+   Workflows/Projects/Prompt Cycle.md:23  3. Write the prompt from [[Agent Prompt Template]] with scope in Hard Rules and a Report Back section.
+## Machine Runbook Template (2)
+   Note Type Registry.md:80  | machine-runbook | 1 | reference / runbook | `40_Resources/CS/` | [[Machine Runbook Template]] | [[Machine Runbook Standard]] | none | built |
+   Standards/Projects/Machine Runbook Standard.md:13  - "[[Machine Runbook Template]]"
+## Clipping Distill Template (3)
+   Note Type Registry.md:89  | source-summary | 1 | input / pdf-summary, web-summary, video-summary | `60_Claude/10_Source_Summaries/PDF Ingestion`, `Web Ingestion`, `Video Ingest
+   Standards/Enrich/Source Summary Standard.md:13  - "[[Clipping Distill Template]]"
+   Workflows/Enrichment/Capture to Summary.md:25  4. Copy [[Clipping Distill Template]] into the matching folder: `PDF Ingestion/Read/`, `Web Ingestion/`, or `Video Ingestion/`. A GitHub repo uses [[R
+## Repo Evaluation Template (3)
+   Note Type Registry.md:90  | repo-card | 1 | input / repo-card | `60_Claude/10_Source_Summaries/Github Ingestion/` | [[Repo Evaluation Template]] | [[Repo Evaluation Standard]] 
+   Standards/Enrich/Repo Evaluation Standard.md:13  - "[[Repo Evaluation Template]]"
+   Workflows/Enrichment/Capture to Summary.md:25  4. Copy [[Clipping Distill Template]] into the matching folder: `PDF Ingestion/Read/`, `Web Ingestion/`, or `Video Ingestion/`. A GitHub repo uses [[R
+## Deep Dive Template (3)
+   Note Type Registry.md:92  | distilled | 1 | evergreen / distilled | `60_Claude/20_Distilled_Notes/` | [[Deep Dive Template]] | [[Evergreen Standard]] | [[Summary to Distilled]]
+   Standards/Enrich/Evergreen Standard.md:13  - "[[Deep Dive Template]]"
+   Workflows/Ingestion/Summary to Distilled.md:22  2. Choose the kind. A single idea uses [[Deep Dive Template]] (`evergreen_kind: distilled`). A comparison of two domains uses [[Synthesis Note Templat
+## Synthesis Note Template (3)
+   Note Type Registry.md:93  | synthesis | 1 | evergreen / synthesis | `60_Claude/20_Distilled_Notes/Synthesis/` | [[Synthesis Note Template]] | [[Evergreen Standard]] | [[Summary
+   Standards/Enrich/Evergreen Standard.md:14  - "[[Synthesis Note Template]]"
+   Workflows/Ingestion/Summary to Distilled.md:22  2. Choose the kind. A single idea uses [[Deep Dive Template]] (`evergreen_kind: distilled`). A comparison of two domains uses [[Synthesis Note Templat
+## Reference Template (2)
+   Note Type Registry.md:95  | reference-resource | 1 | reference | `40_Resources/`, `10_Areas/AI`, `10_Areas/Trading` | [[Reference Template]] | [[Reference Standard]] | [[Promot
+   Standards/Enrich/Reference Standard.md:13  - "[[Reference Template]]"
+## Output Template (3)
+   Note Type Registry.md:96  | output-story | 1 | output / story | next to its project, `20_Progress/` | [[Output Template]] | [[Output Standard]] | [[Output with Provenance]] | b
+   Standards/Enrich/Output Standard.md:13  - "[[Output Template]]"
+   Workflows/Enrichment/Output with Provenance.md:23  3. Copy the matching template: [[Output Template]] (story), [[Output Bullet Template]], or [[Output One-Pager Template]].
+## Output Bullet Template (3)
+   Note Type Registry.md:97  | output-bullet | 1 | output / bullet | same | [[Output Bullet Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
+   Standards/Enrich/Output Standard.md:14  - "[[Output Bullet Template]]"
+   Workflows/Enrichment/Output with Provenance.md:23  3. Copy the matching template: [[Output Template]] (story), [[Output Bullet Template]], or [[Output One-Pager Template]].
+## Output One-Pager Template (3)
+   Note Type Registry.md:98  | output-one-pager | 1 | output / one-pager | same | [[Output One-Pager Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
+   Standards/Enrich/Output Standard.md:15  - "[[Output One-Pager Template]]"
+   Workflows/Enrichment/Output with Provenance.md:23  3. Copy the matching template: [[Output Template]] (story), [[Output Bullet Template]], or [[Output One-Pager Template]].
+## Plan Template (4)
+   Note Type Registry.md:104  | plan | 1 | plan | `10_Areas/Life/Plans/` | [[Plan Template]] | [[Plan Standard]] | [[Plan Review Cadence]] | built |
+   Standards/Plan Standard.md:13  - "[[Plan Template]]"
+   Workflows/Ingestion/Plan Review Cadence.md:14  - "[[Plan Template]]"
+   Workflows/Ingestion/Plan Review Cadence.md:27  6. Creation: follow [[Plans-to-Create]] with [[Plan Template]], and check the Done Conditions of [[Plan Standard]] before the plan counts as finished.
+## MOC Template (2)
+   Note Type Registry.md:105  | moc | 1 | index | any folder | [[MOC Template]] | [[MOC Standard]] | none | built |
+   Standards/MOC Standard.md:13  - "[[MOC Template]]"
+## For Dashboards (2)
+   Note Type Registry.md:106  | dashboard | 1 | dashboard (dashboard, board, habit-board) | `60_Claude/` except `05_Clippings/`, `10_Areas/`, `20_Progress/`, `00_Dashboard.md` | [[
+   Standards/Operations/Dashboard Standard.md:13  - "[[For Dashboards]]"
+## Field OS Template (2)
+   Note Type Registry.md:107  | field-os (Spec ids field-os, depth-ladder, question-bank) | 1 | dashboard / field-os, depth-ladder, question-bank | `60_Claude/44_Indexes/Field OS/`
+   Standards/Operations/Field OS Standard.md:13  - "[[Field OS Template]]"
+## Depth Ladder Template (2)
+   Note Type Registry.md:107  | field-os (Spec ids field-os, depth-ladder, question-bank) | 1 | dashboard / field-os, depth-ladder, question-bank | `60_Claude/44_Indexes/Field OS/`
+   Standards/Operations/Field OS Standard.md:14  - "[[Depth Ladder Template]]"
+## Question Bank Template (2)
+   Note Type Registry.md:107  | field-os (Spec ids field-os, depth-ladder, question-bank) | 1 | dashboard / field-os, depth-ladder, question-bank | `60_Claude/44_Indexes/Field OS/`
+   Standards/Operations/Field OS Standard.md:15  - "[[Question Bank Template]]"
+## AI Conversation (3)
+   Note Type Registry.md:112  | ai-conversation-summary | 1 | input / ai-conversation-summary | `60_Claude/07_AI_Information/AI Conversation - Summaries/` | [[AI Conversation]] | [
+   Standards/AI Loop/Conversations.md:13  - "[[30_Order/Templates/AI Toolkit/AI Conversation|AI Conversation]]"
+   Workflows/Toolkit/Conversation Capture.md:25  3. Create the summary from [[30_Order/Templates/AI Toolkit/AI Conversation|AI Conversation]] in `60_Claude/07_AI_Information/AI Conversation - Summari
+## Tool Logs (2)
+   Note Type Registry.md:113  | log | 2 | system / log | `60_Claude/07_AI_Information/Session Logs/`, `20_Progress/Projects/AI Use/Claude Kit/`, `60_Claude/30_Reviews/AI/Toolkit/` 
+   Standards/AI Loop/Logs.md:15  - "[[30_Order/Templates/AI Toolkit/Tool Logs|Tool Logs]]"
+## Write Logs (2)
+   Note Type Registry.md:113  | log | 2 | system / log | `60_Claude/07_AI_Information/Session Logs/`, `20_Progress/Projects/AI Use/Claude Kit/`, `60_Claude/30_Reviews/AI/Toolkit/` 
+   Standards/AI Loop/Logs.md:14  - "[[30_Order/Templates/AI Toolkit/Write Logs|Write Logs]]"
+## Weekly Synthesis Template (2)
+   Note Type Registry.md:115  | capability-review | 1 | review / capability | `60_Claude/30_Reviews/Weekly Synthesis/` | [[Weekly Synthesis Template]] (not Synthesis Template, whic
+   Standards/Enrich/Capability Review Standard.md:14  - "[[30_Order/Templates/Capability/Weekly Synthesis Template|Weekly Synthesis Template]]"
+## Audit Report Template (2)
+   Note Type Registry.md:116  | audit-report | 1 | review / audit | `60_Claude/30_Reviews/` | [[Audit Report Template]] | [[Audit Report Standard]] | none | built |
+   Standards/Enrich/Audit Report Standard.md:14  - "[[30_Order/Templates/Capability/Audit Report Template|Audit Report Template]]"
+## Graphify Notes Template (3)
+   Note Type Registry.md:118  | graphify-note | 1 | reference / repo | `60_Claude/40_Project_Briefs/` | [[Graphify Notes Template]] | [[Graphify Notes]] | [[Graphify Folders]] | bu
+   Standards/AI Loop/Graphify Notes.md:14  - "[[Graphify Notes Template|Graphify Notes Template]]"
+   Workflows/Toolkit/Graphify Folders.md:26  4. Create the entry note from [[Graphify Notes Template|Graphify Notes Template]] and fill Source, Mirror, and Last Build.
+## Tool Setup Template (2)
+   Note Type Registry.md:119  | tool-setup | 1 | reference / tool-profile | `20_Progress/AI/<Tool>/<Project>/Setup.md` | [[Tool Setup Template]] | [[Tool Setup]] | [[Files Tracking
+   Standards/AI Loop/Tool Setup.md:14  - "[[30_Order/Templates/AI Toolkit/Tool Setup Template|Tool Setup Template]]"
+## Tracking (1)
+   Standards/Internship/Internship Tracker Standard.md:14  - "[[30_Order/Templates/Career/Tracking|Tracking]]"
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -rn --include=*.md --include=*.json -E "Templates/(Capability|Knowledge|Learning|Frontmatter|AI Toolkit|Career|Projects|System|Classes|Enumerate)|Templates/[A-Za-z .&-]+\.md|Frontmatter/" . 2>/dev/null | grep -v -E "^\./(Standards/Courses|Workflows/Courses|Templates/Classes)/|^\./System/(claude-workflow|jarvis-cli|jarvis-memory|sync-workflow)/.*(log|sqlite)" | cut -c1-230
+```
+```
+./00_How This Folder Works.md:33:- **`Templates/`**: `Classes/`, `Career/`, `AI Toolkit/`, `Capability/`, `Enumerate/`, `Frontmatter/`, `System/`. `Projects/` and `Knowledge/` are created when needed.
+./Note Type Registry.md:56:| internship-tracker | 1 | tracker | `10_Areas/Career/Internships/Tracker/Each One/` | [[30_Order/Templates/Career/Tracking\|Tracking]] | [[Internship Tracker Standard]] | [[Internship Tracking Workflow]
+./Standards/AI Loop/Conversations.md:13:  - "[[30_Order/Templates/AI Toolkit/AI Conversation|AI Conversation]]"
+./Standards/AI Loop/Logs.md:14:  - "[[30_Order/Templates/AI Toolkit/Write Logs|Write Logs]]"
+./Standards/AI Loop/Logs.md:15:  - "[[30_Order/Templates/AI Toolkit/Tool Logs|Tool Logs]]"
+./Standards/AI Loop/Tool Setup.md:14:  - "[[30_Order/Templates/AI Toolkit/Tool Setup Template|Tool Setup Template]]"
+./Standards/Enrich/Audit Report Standard.md:14:  - "[[30_Order/Templates/Capability/Audit Report Template|Audit Report Template]]"
+./Standards/Enrich/Capability Review Standard.md:14:  - "[[30_Order/Templates/Capability/Weekly Synthesis Template|Weekly Synthesis Template]]"
+./Standards/Enrich/Review Standard.md:14:  - "[[30_Order/Templates/AI Toolkit/AI Weekly Review Template|AI Weekly Review Template]]"
+./Standards/Enrich/Review Standard.md:15:  - "[[30_Order/Templates/AI Toolkit/AI Monthly Review Template|AI Monthly Review Template]]"
+./Standards/Internship/Internship Tracker Standard.md:14:  - "[[30_Order/Templates/Career/Tracking|Tracking]]"
+./Workflows/Toolkit/Conversation Capture.md:25:3. Create the summary from [[30_Order/Templates/AI Toolkit/AI Conversation|AI Conversation]] in `60_Claude/07_AI_Information/AI Conversation - Summaries/`, named `YYYY-MM-DD-{source-a
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -rn --include=*.md -E "Transcript Template|Brief Template|Action Template|For Everything|Better (Today|Weekly|Month|Year)" . 2>/dev/null | grep -v -E "^\./(Standards/Courses|Workflows/Courses|Templates/Classes)/" | cut -c1-200
+```
+```
+./Note Type Registry.md:82:| transcript | 2 | input / transcript | `20_Progress/`, `10_Areas/` (not `Degree/` or `Career Fair`), in a `Transcripts/` folder | [[Transcript Template]] | [[Transcript Sta
+./Note Type Registry.md:83:| brief | 1 | input / brief | `20_Progress/`, `10_Areas/`, `60_Claude/40_Project_Briefs/` | [[Brief Template]] | [[Brief Standard]] | [[Meeting Workflow]] | built |
+./Note Type Registry.md:84:| action | 1 | action | next to the source note | [[Action Template]] | [[Action Standard]] | [[Meeting Workflow]] | built |
+./Note Type Registry.md:102:| daily-note | 2 | thought / daily | `10_Areas/Life/Enumerate/Daily/` | [[Better Today]] | [[Daily Note Standard]] | [[Daily Close Loop]] | built |
+./Note Type Registry.md:103:| periodic-review-note (Spec ids -weekly, -monthly, -yearly) | 2 | thought / weekly, monthly, yearly | `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, `Yearly/` | [[Better W
+./Note Type Registry.md:131:Names kept for legacy reasons. Weekly Board Standard also governs course sub-boards. Internship Notes Standard governs dossiers. Better Today, Better Weekly, Better Month a
+./Standards/Ingestion/Action Standard.md:13:  - "[[Action Template]]"
+./Standards/Ingestion/Brief Standard.md:13:  - "[[Brief Template]]"
+./Standards/Ingestion/Transcript Standard.md:13:  - "[[Transcript Template]]"
+./Standards/Operations/Daily Note Standard.md:13:  - "[[Better Today]]"
+./Standards/Operations/Daily Note Standard.md:114:None yet. Name the first daily made from [[Better Today]] and closed with `/closeday`. The closest old-shape note is [[2026-10-05]].
+./Standards/Operations/Periodic Review Note Standard.md:13:  - "[[Better Weekly]]"
+./Standards/Operations/Periodic Review Note Standard.md:14:  - "[[Better Month]]"
+./Standards/Operations/Periodic Review Note Standard.md:15:  - "[[Better Year]]"
+./Workflows/Ingestion/Meeting Workflow.md:13:  - "[[Transcript Template]]"
+./Workflows/Ingestion/Meeting Workflow.md:14:  - "[[Brief Template]]"
+./Workflows/Ingestion/Meeting Workflow.md:15:  - "[[Action Template]]"
+./Workflows/Ingestion/Meeting Workflow.md:23:1. Copy [[Transcript Template]] into a `Transcripts/` folder beside the project's meeting notes and paste the raw text in. One conversation per note; cut a
+./Workflows/Ingestion/Meeting Workflow.md:27:5. Copy [[Brief Template]], write the six sections, and set `source_note` to a quoted wikilink to the transcript. Save in a sibling `Briefs/` folder, else 
+./Workflows/Ingestion/Meeting Workflow.md:29:7. Copy [[Action Template]]. The user names the one to three most urgent actions for the To Do callout, the first also as `next`. Then one `##` per brief t
+./Workflows/Operations/Daily Close Loop.md:13:  - "[[Better Today]]"
+./Workflows/Operations/Daily Close Loop.md:24:1. `/startday` finds or creates today's note from [[Better Today]], resolves any leftover `<% %>` date, and never creates it elsewhere.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -rhn --include=*.md -o '"template": *"[^"]*"' Standards | sort | uniq -c | sort -rn | head -60; echo ---; grep -rn --include=*.md -E "^maps_to|^template:" Standards | head -20; echo ---; sed -n 1,25p "Standards/Operations/Dashboard Standard.md"
+```
+````
+      1 59:"template": "Output One-Pager Template"
+      1 46:"template": "Internship Loop Monthly Review Template"
+      1 45:"template": "Synthesis Note Template"
+      1 45:"template": "Output Bullet Template"
+      1 34:"template": "Project Template"
+      1 32:"template": "Internship Loop Weekly Review Template"
+      1 31:"template": "Output Template"
+      1 31:"template": "Deep Dive Template"
+---
+Standards/AI Loop/Conversations.md:12:maps_to:
+Standards/AI Loop/Graphify Notes.md:13:maps_to:
+Standards/AI Loop/Knowledge Noting.md:11:maps_to: []
+Standards/AI Loop/Logs.md:13:maps_to:
+Standards/AI Loop/Memory Management.md:11:maps_to: []
+Standards/AI Loop/Orchestration.md:11:maps_to: []
+Standards/AI Loop/Per Project Review.md:12:maps_to: []
+Standards/AI Loop/Review System.md:12:maps_to: []
+Standards/AI Loop/Tool Calls.md:11:maps_to: []
+Standards/AI Loop/Tool Setup.md:13:maps_to:
+Standards/Conformance Standard.md:11:maps_to: []
+Standards/Courses/Board Standard.md:12:maps_to:
+Standards/Courses/Concept Standard.md:12:maps_to:
+Standards/Courses/Course Project Standard.md:12:maps_to:
+Standards/Courses/Degree Audit Standard.md:12:maps_to: []
+Standards/Courses/Degree Control Standard.md:12:maps_to:
+Standards/Courses/Discussion Standard.md:12:maps_to:
+Standards/Courses/Exam Material Standard.md:12:maps_to:
+Standards/Courses/Exam Standard.md:12:maps_to:
+Standards/Courses/Homework Standard.md:12:maps_to:
+---
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - standards
+system_kind: standard
+family: dashboard
+tier: 1
+maps_to:
+  - "[[For Dashboards]]"
+used_by: []
+gold_standard: "[[Capability Dashboard]]"
+notes:
+  - "[[MOC Standard]]"
+  - "[[Field OS Standard]]"
+  - "[[Jarvis Writing and Formatting]]"
+---
+# Dashboard Standard
+==A dashboard answers a question with a live query, so every query must read a folder that exists today and must say what to do with its rows.==
+This is the Standard for `type: dashboard` notes: query dashboards, boards (a query listing a folder), and habit boards. It exists because 55 Dataview `FROM` paths pointed at folders that were renamed or deleted (`10_UMN`, `60_Claude/30_Source_Summaries`, `60_Claude/50_Reviews`, `60_Claude/10_Session_Logs`), and Dataview shows a dead path as an empty table with no error, so nobody noticed. A note that explains a folder in prose is a MOC ([[MOC Standard]]). Capability dashboards are [[Field OS Standard]].
+## Spec
+```json
+````
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\repoint.js`
+```
+const fs = require('fs'), path = require('path');
+const { MAP, GONE, esc, ROOT, BS } = require('./refmap.js');
+function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]); }
+const COURSE = /^(Standards\/Courses|Workflows\/Courses|Templates\/Classes|Templates\/Enumerate)\//;
+const all = walk(ROOT).filter(f => f.endsWith('.md') || f.endsWith('.json')).map(f => ({ f, rel: path.relative(ROOT, f).split(BS).join('/') }));
+const apply = process.argv[2] === 'apply';
+let changed = 0, hits = 0, courseHits = [];
+
+function rewrite(t) {
+  let n = 0;
+  for (const [o, nw] of Object.entries(MAP)) {
+    const O = esc(o);
+    // [[30_Order/Templates/.../Old  -> [[New  (path form collapses to bare name)
+    t = t.replace(new RegExp('\\[\\[30_Order/Templates/[^\\]|#\\[\\\\]*?/' + O + '(?=[\\]|#\\\\])', 'g'), () => { n++; return '[[' + nw; });
+    // [[Old  -> [[New
+    t = t.replace(new RegExp('\\[\\[' + O + '(?=[\\]|#\\\\])', 'g'), () => { n++; return '[[' + nw; });
+    // alias |Old]]  (optionally escaped pipe in tables)
+    t = t.replace(new RegExp('(\\\\?\\|)' + O + '\\]\\]', 'g'), (m, p) => { n++; return p + nw + ']]'; });
+    // `Old`
+    t = t.replace(new RegExp('`' + O + '`', 'g'), () => { n++; return '`' + nw + '`'; });
+    // "template": "Old"
+    t = t.replace(new RegExp('("template":\\s*")' + O + '(")', 'g'), (m, a, b) => { n++; return a + nw + b; });
+  }
+  return [t, n];
+}
+for (const x of all) {
+  const t = fs.readFileSync(x.f, 'utf8');
+  const [nt, n] = rewrite(t);
+  if (!n) continue;
+  if (COURSE.test(x.rel)) { courseHits.push(x.rel + ' (' + n + ')'); continue; }
+  hits += n; changed++;
+  console.log((apply ? 'changed ' : 'would change ') + x.rel + ' x' + n);
+  if (apply) fs.writeFileSync(x.f, nt);
+}
+console.log(changed + ' files, ' + hits + ' replacements');
+console.log('course-owned files with old names (NOT touched):', courseHits.length ? courseHits.join('; ') : 'none');
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/repoint.js"
+```
+```
+would change Note Type Registry.md x31
+would change Standards/AI Loop/Conversations.md x2
+would change Standards/AI Loop/Graphify Notes.md x2
+would change Standards/AI Loop/Logs.md x4
+would change Standards/AI Loop/Tool Setup.md x2
+would change Standards/Enrich/Audit Report Standard.md x2
+would change Standards/Enrich/Capability Review Standard.md x2
+would change Standards/Enrich/Evergreen Standard.md x4
+would change Standards/Enrich/Output Standard.md x6
+would change Standards/Enrich/Reference Standard.md x1
+would change Standards/Enrich/Repo Evaluation Standard.md x1
+would change Standards/Enrich/Source Summary Standard.md x1
+would change Standards/Internship/Applying Standard.md x1
+would change Standards/Internship/Contact Standard.md x1
+would change Standards/Internship/Cover Letter Alteration Standard.md x2
+would change Standards/Internship/Internship Tracker Standard.md x2
+would change Standards/Internship/Interview Prep Standard.md x1
+would change Standards/Internship/Program Standard.md x1
+would change Standards/MOC Standard.md x1
+would change Standards/Operations/Field OS Standard.md x3
+would change Standards/Plan Standard.md x1
+would change Standards/Project Standard.md x1
+would change Standards/Projects/Agent Prompt Standard.md x1
+would change Standards/Projects/Code Mirror Doc Standard.md x1
+would change Standards/Projects/Machine Runbook Standard.md x1
+would change Workflows/Enrichment/Capture to Summary.md x2
+would change Workflows/Enrichment/Output with Provenance.md x3
+would change Workflows/Ingestion/Brief to Progress.md x2
+would change Workflows/Ingestion/Plan Review Cadence.md x2
+would change Workflows/Ingestion/Summary to Distilled.md x2
+would change Workflows/Internship/Application Document Preparation.md x1
+would change Workflows/Projects/Prompt Cycle.md x2
+would change Workflows/Toolkit/Conversation Capture.md x2
+would change Workflows/Toolkit/Graphify Folders.md x2
+34 files, 93 replacements
+course-owned files with old names (NOT touched): none
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/repoint.js" apply | tail -3; echo ---; git diff --stat -- 30_Order/Standards 30_Order/Workflows "30_Order/Note Type Registry.md" | tail -3; echo --- sample; git diff -U0 -- "30_Order/Note Type Registry.md" | grep '^[+-]|' | sed -n 1,16p | cut -c1-260
+```
+```
+changed Workflows/Toolkit/Graphify Folders.md x2
+34 files, 93 replacements
+course-owned files with old names (NOT touched): none
+---
+ 30_Order/Workflows/Toolkit/Conversation Capture.md |  2 +-
+ 30_Order/Workflows/Toolkit/Graphify Folders.md     |  2 +-
+ 34 files changed, 75 insertions(+), 75 deletions(-)
+--- sample
+-| internship-tracker | 1 | tracker | `10_Areas/Career/Internships/Tracker/Each One/` | [[30_Order/Templates/Career/Tracking\|Tracking]] | [[Internship Tracker Standard]] | [[Internship Tracking Workflow]] | built |
+-| internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Program Template]] | [[Program Standard]] | [[Internship Pipeline]] | built |
+-| internship-contact | 1 | contact | `10_Areas/Career/Internships/Contacts/Each One/` | [[Contact Template]] | [[Contact Standard]] | [[Internship Pipeline]] | built |
+-| internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
++| internship-tracker | 1 | tracker | `10_Areas/Career/Internships/Tracker/Each One/` | [[Internship Tracker Template\|Internship Tracker Template]] | [[Internship Tracker Standard]] | [[Internship Tracking Workflow]] | built |
++| internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Internship Program Template]] | [[Program Standard]] | [[Internship Pipeline]] | built |
++| internship-contact | 1 | contact | `10_Areas/Career/Internships/Contacts/Each One/` | [[Internship Contact Template]] | [[Contact Standard]] | [[Internship Pipeline]] | built |
++| internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Internship Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
+-| interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
++| interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Internship Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
+-| cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Cover Letter Template]] | [[Cover Letter Alteration Standard]] | [[Application Document Preparation]] | built (no instance yet) |
++| cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Internship Cover Letter Template]] | [[Cover Letter Alteration Standard]] | [[Application Document Preparation]] | built (no instance yet) |
+-| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief to Progress]] | built |
++| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Status Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief to Progress]] | built |
+-| code-mirror-doc | 1 | project / code-mirror | `60_Claude/40_Project_Briefs/CausalOps/` | [[Code Mirror Template]] | [[Code Mirror Doc Standard]] | none | built |
+-| agent-prompt | 1 | project / prompt | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Agent Prompt Template]] | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node -e '
+const fs=require("fs"),path=require("path");
+const {MAP}=require("C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refmap.js");
+const news=[...new Set(Object.values(MAP))]; let c=0;
+function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);}
+for(const f of walk(".").filter(f=>f.endsWith(".md")&&/^\.[\\/](Standards|Workflows|Note Type Registry)/.test(f)&&!/Courses/.test(f))){
+ let t=fs.readFileSync(f,"utf8"),o=t;
+ for(const n of news){ const re=new RegExp("\\[\\["+n.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(\\\\?)\\|"+n.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\]\\]","g"); t=t.replace(re,"[["+n+"]]"); }
+ if(t!==o){fs.writeFileSync(f,t);c++;}
+}
+console.log("collapsed in",c,"files");'
+echo ---; grep -n "For Dashboards\|Synthesis Template, which\|not Synthesis" "Note Type Registry.md" | cut -c1-700
+```
+```
+[eval]:8
+ for(const n of news){ const re=new RegExp("\[\["+n.replace(/[.*+?^${}()|[\]\]/g,"\$&")+"(\\?)\|"+n.replace(/[.*+?^${}()|[\]\]/g,"\$&")+"\]\]","g"); t=t.replace(re,"[["+n+"]]"); }
+                                                            ^
+Unterminated regexp literal
+
+SyntaxError: Invalid regular expression: missing /
+    at makeContextifyScript (node:internal/vm:194:14)
+    at compileScript (node:internal/process/execution:388:10)
+    at evalTypeScript (node:internal/process/execution:260:22)
+    at node:internal/main/eval_string:71:3
+
+Node.js v24.19.0
+---
+106:| dashboard | 1 | dashboard (dashboard, board, habit-board) | `60_Claude/` except `05_Clippings/`, `10_Areas/`, `20_Progress/`, `00_Dashboard.md` | [[For Dashboards]] | [[Dashboard Standard]] | none | built |
+115:| capability-review | 1 | review / capability | `60_Claude/30_Reviews/Weekly Synthesis/` | [[Vault Weekly Synthesis Template]] (not Synthesis Template, which is the concept-synthesis template) | [[Capability Review Standard]] | none; the `/weekly-review` skill is the feeder | built |
+```
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\collapse.js`
+```
+const fs = require('fs'), path = require('path');
+const { MAP, esc, ROOT, BS } = require('./refmap.js');
+const news = [...new Set(Object.values(MAP))];
+function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]); }
+let c = 0;
+for (const f of walk(ROOT).filter(f => f.endsWith('.md'))) {
+  const rel = path.relative(ROOT, f).split(BS).join('/');
+  if (!/^(Standards|Workflows|Note Type Registry)/.test(rel) || /Courses/.test(rel)) continue;
+  let t = fs.readFileSync(f, 'utf8'); const o = t;
+  for (const n of news) {
+    const N = esc(n);
+    t = t.replace(new RegExp('\\[\\[' + N + '\\\\?\\|' + N + '\\]\\]', 'g'), '[[' + n + ']]');
+  }
+  if (t !== o) { fs.writeFileSync(f, t); c++; console.log('collapsed', rel); }
+}
+console.log(c, 'files');
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/collapse.js" | tail -12
+```
+```
+collapsed Note Type Registry.md
+collapsed Standards/AI Loop/Conversations.md
+collapsed Standards/AI Loop/Graphify Notes.md
+collapsed Standards/AI Loop/Logs.md
+collapsed Standards/AI Loop/Tool Setup.md
+collapsed Standards/Enrich/Audit Report Standard.md
+collapsed Standards/Enrich/Capability Review Standard.md
+collapsed Standards/Internship/Internship Tracker Standard.md
+collapsed Workflows/Toolkit/Conversation Capture.md
+collapsed Workflows/Toolkit/Graphify Folders.md
+10 files
+```
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
+```diff
+- `00_Dashboard.md` | [[For Dashboards]] | [[Dashboard Standard]]
++ `00_Dashboard.md` | [[For Everything]] (set `type: dashboard`) | [[Dashboard Standard]]
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
+```diff
+-  (not Synthesis Template, which is the concept-synthesis template)
++ 
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md`
+```diff
+-   - "[[For Dashboards]]"
++   - "[[For Everything]]"
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
+```diff
+- 1. Find the family in the registry. No row means no kit: write the note to `60_Claude/00_Inbox/`, or build the kit first ([[Building a Note Kit]]).
+- 2. Copy the Template, read the Standard, follow the Workflow.
++ 1. Find the family in the registry. No row means no kit: write the note to `60_Claude/00_Inbox/`, or build the kit first ([[Building a Note Kit]]).
++ 2. Copy the Template, read the Standard, follow the Workflow. Every Template starts with the seven keys of [[For Everything]] (`type`, `status`, `created`, `updated`, `tags`, `notes`, `next`), so a note made from any Template also satisfies the base.
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
+```diff
+- `Operations/` (daily, periodic, plan, dashboard) and `Projects/` are created when their first Standard is written.
+- - **`Templates/`**: `Classes/`, `Career/`, `AI Toolkit/`, `Capability/`, `Enumerate/`, `Frontmatter/`, `System/`. `Projects/` and `Knowledge/` are created when needed.
+- - **`Workflows/`**: `Courses/`, `Internship/`, `Enrichment/`, `Ingestion/`, `Toolkit/`, `System/`. `Operations/` is created when needed. [[00_Workflows Index]] lists them.
+- ## Naming
+- `X Standard` pairs with `X Template` and `X Workflow`, using the same X where practical. No two files here share a name, because wikilinks resolve by name. Never leave a file created and empty; an empty file with a real name looks finished in a directory listing.
++ `Operations/` holds the daily, periodic, plan, and dashboard Standards, and `Projects/` holds the project-note Standards.
++ - **`Templates/`**: [[For Everything]] sits at the root as the base every note satisfies. The folders say what a note is for:
++   - `Career/` holds the vault's main notes: Evergreen Note, Cross-Domain Synthesis, Reference Guide, Technical Concept, Interview Story, Portfolio Bullet, Project One-Pager, Folder MOC, and Standing Plan. Its `Meetings/` holds the Transcript, Brief, and Action Templates. Its `Tracking/` holds every tracker and dashboard: Internship Tracker, Internship Postings Log, and the three Capability dashboards. Its `Internship/` holds the loop's own notes and reviews.
++   - `Projects/` holds project notes, one per project type: Project Status Note, Project Plan, Project Spec, Agent Task Prompt, Code File Mirror, and Machine Setup Runbook.
++   - `AI Toolkit/` holds the AI notes a person reads: the AI weekly and monthly reviews, AI Tool Profile, Source Summary, Vault Audit Report, and Vault Weekly Synthesis.
++   - `System/` holds the Standard and Workflow Templates. Its `AI/` holds what AI systems write: conversation exports, tool and write logs, Graphify maps, and GitHub repo cards.
++   - `Classes/` is the course set, and `Enumerate/` is wired to Periodic Notes.
++ - **`Workflows/`**: `Courses/`, `Internship/`, `Enrichment/`, `Ingestion/`, `Toolkit/`, `Operations/`, `Projects/`, `System/`. [[00_Workflows Index]] lists them.
++ ## Naming
++ `X Standard` pairs with `X Template` and `X Workflow`, using the same X where practical. A Template's name says which note it makes, so no two names read alike. No two files here share a name, because wikilinks resolve by name. Never leave a file created and empty; an empty file with a real name looks finished in a directory listing.
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && awk -F'|' 'NR>8 && NF>8 {gsub(/^ +| +$/,"",$2);gsub(/^ +| +$/,"",$6);gsub(/^ +| +$/,"",$7); print $2" || "$6" || "$7}' "Note Type Registry.md" | grep -v -i -E "^(class|course|degree|week|textbook|lab|homework|exam|board|discussion|preparation|syllabus)" | cut -c1-300
+```
+```
+Family || Template || Standard
+--- || --- || ---
+family-standard, policy-standard || [[Standard Template]] || [[Note Kit Standard]]
+workflow || [[Workflow Template]] || [[Note Kit Standard]]
+system-guide || none || [[Note Kit Standard]]
+system-component || none || [[System Component Standard]]
+generated-output || none || [[Generated Output Standard]]
+(policies) vocabulary, fit, editing || none || [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]]
+(policy) writing || none || [[Human Writing Standard]], [[Humanized Writing Standard]]
+(policy) decoration || none || [[Decoration Standard]]
+(policy) plugins || none || [[Plugins Usage Standard]]
+Family || Template || Standard
+--- || --- || ---
+Family || Template || Standard
+--- || --- || ---
+internship-dossier || none (bot-written) || [[Internship Notes Standard]]
+internship-tracker || [[Internship Tracker Template]] || [[Internship Tracker Standard]]
+internship-program || [[Internship Program Template]] || [[Program Standard]]
+internship-contact || [[Internship Contact Template]] || [[Contact Standard]]
+internship-applying || [[Internship Applying Template]] || [[Applying Standard]]
+career-fair || none || [[Career Fair Standard]]
+interview-prep || [[Internship Interview Prep Template]] || [[Interview Prep Standard]]
+resume-alteration || none || [[Resume Alteration Standard]]
+cover-letter || [[Internship Cover Letter Template]] || [[Cover Letter Alteration Standard]]
+intake-log || none || [[Deadline and Intake Triage Standard]]
+deadline-tracker || none || [[Deadline and Intake Triage Standard]]
+internship-loop-review-weekly || [[Internship Loop Weekly Review Template]] || [[Internship Loop Review Standard]]
+internship-loop-review-monthly || [[Internship Loop Monthly Review Template]] || [[Internship Loop Review Standard]]
+job-company || [[Job & Company Template]] || none until a first note exists
+linkedin-post || [[LinkedIn Post Template]] || none until a first note exists
+cheat || [[Cheat Template]] || none until a decision
+Family || Template || Standard
+--- || --- || ---
+project || [[Project Status Note Template]] || [[30_Order/Standards/Project Standard
+project-spec || [[Project Spec Template]] || [[Spec and Plan Standard]]
+project-plan || [[Project Plan Template]] || [[Spec and Plan Standard]]
+code-mirror-doc || [[Code File Mirror Template]] || [[Code Mirror Doc Standard]]
+agent-prompt || [[Agent Task Prompt Template]] || [[Agent Prompt Standard]]
+prompt-queue || none || [[Agent Prompt Standard]]
+machine-runbook || [[Machine Setup Runbook Template]] || [[Machine Runbook Standard]]
+technical-concept || [[Technical Concept Template]] || [[Technical Concept Standard]]
+transcript || [[Transcript Template]] || [[Transcript Standard]]
+brief || [[Brief Template]] || [[Brief Standard]]
+action || [[Action Template]] || [[Action Standard]]
+Family || Template || Standard
+--- || --- || ---
+clipping || none (capture tool) || [[Clipping Standard]]
+source-summary || [[Source Summary Template]] || [[Source Summary Standard]]
+repo-card || [[GitHub Repo Card Template]] || [[Repo Evaluation Standard]]
+pdf extraction (policy) || none || [[PDF Extraction Standard]]
+distilled || [[Evergreen Note Template]] || [[Evergreen Standard]]
+synthesis || [[Cross-Domain Synthesis Template]] || [[Evergreen Standard]]
+identity-note || none (2 notes) || [[Evergreen Standard]]
+reference-resource || [[Reference Guide Template]] || [[Reference Standard]]
+output-story || [[Interview Story Template]] || [[Output Standard]]
+output-bullet || [[Portfolio Bullet Template]] || [[Output Standard]]
+output-one-pager || [[Project One-Pager Template]] || [[Output Standard]]
+Family || Template || Standard
+--- || --- || ---
+daily-note || [[Better Today]] || [[Daily Note Standard]]
+periodic-review-note (Spec ids -weekly, -monthly, -yearly) || [[Better Weekly]], [[Better Month]], [[Better Year]] || [[Periodic Review Note Standard]]
+plan || [[Standing Plan Template]] || [[Plan Standard]]
+moc || [[Folder MOC Template]] || [[MOC Standard]]
+dashboard || [[For Everything]] (set `type: dashboard`) || [[Dashboard Standard]]
+field-os (Spec ids field-os, depth-ladder, question-bank) || [[Capability Field OS Template]], [[Capability Depth Ladder Template]], [[Capability Question Bank Template]] || [[Field OS Standard]]
+Family || Template || Standard
+--- || --- || ---
+ai-conversation-export || none (script-written) || [[Conversations]]
+ai-conversation-summary || [[AI Conversation Export Template]] || [[Conversations]]
+log || [[AI Write Log Template]], [[AI Tool Log Template]] || [[Logs]], [[Log Standard]]
+ai-review-weekly, ai-review-monthly || [[AI Weekly Review Template]], [[AI Monthly Review Template]] || [[Review Standard]], [[Review System]]
+capability-review || [[Vault Weekly Synthesis Template]] || [[Capability Review Standard]]
+audit-report || [[Vault Audit Report Template]] || [[Audit Report Standard]]
+project-review || none || [[Per Project Review]]
+graphify-note || [[Graphify Repo Map Template]] || [[Graphify Notes]]
+tool-setup || [[AI Tool Profile Template]] || [[Tool Setup]]
+tool-map || none || none, single living note
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -d */ && echo --- && ls 60_Claude 60_Claude/05_Clippings 60_Claude/30_Reviews 60_Claude/07_AI_Information 2>/dev/null | head -80; echo ---; ls 20_Progress 10_Areas 40_Resources | head -60
+```
+```
+10_Areas/
+20_Progress/
+30_Order/
+40_Resources/
+50_Archive/
+60_Claude/
+Tracker/
+__pycache__/
+blobs/
+copilot/
+---
+60_Claude:
+00_Inbox
+05_Clippings
+07_AI_Information
+10_Source_Summaries
+20_Distilled_Notes
+30_Reviews
+40_Project_Briefs
+44_Indexes
+Claude Board.md
+
+60_Claude/05_Clippings:
+AI Conversations
+Clippings board.md
+PDFs
+Videos
+Web
+
+60_Claude/07_AI_Information:
+AI Conversation - Summaries
+AI_CONTEXT.md
+Fable Prompt — Dashboard and Ingestion Pass.md
+How Notes Were Actually Written.md
+How to Use Claude
+How to Write in This Vault.md
+Jarvis OS — North Star.md
+Jarvis Writing and Formatting.md
+North Star — Execution Prompt.md
+Plugins.md
+Session Logs
+Vault Map.md
+Vault Rules — Complete AI Ruleset.md
+Why We Write Notes.md
+
+60_Claude/30_Reviews:
+50_Reviews Board.md
+AI
+Conversation Capture Layer Audit (2026-10-17).md
+Internship Loop
+Jarvis Enrichment Phase 1 - 2026-04-24.md
+Monthly
+North Star Convergence — Change Report 2026-06-11.md
+Ops Reports
+Today - 2026-06-03.md
+Vault-Audit-2026-05-29.md
+Weekly Synthesis
+---
+10_Areas:
+AI
+Career
+Excalidraw
+Jarvis OS Dashboard.canvas
+Life
+Notes
+Summer Grind.md
+Trading
+
+20_Progress:
+AI
+Degree
+Internship
+Mentorship Program
+Projects
+
+40_Resources:
+CS
+Capability
+Obsidian
+Random.md
+UMN
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian" && cat manifest.json | head -8; grep -o 'get_new_file_template_for_folder[^;]\{0,900\}' main.js | head -2; echo; grep -o '.\{200\}folder_templates.\{600\}' main.js | head -3
+```
+```
+{
+    "id": "templater-obsidian",
+    "name": "Templater",
+    "version": "2.26.0",
+    "description": "Advanced templating and automation using handlebars-like syntax.",
+    "minAppVersion": "1.13.0",
+    "author": "SilentVoid",
+    "authorUrl": "https://github.com/SilentVoid13",
+get_new_file_template_for_folder(t,r){let i=t
+get_new_file_template_for_folder(i.parent,i.extension)
+
+a_version:2,command_timeout:5,templates_folder:"",templates_pairs:[],trigger_on_file_creation_mode:"none",auto_jump_to_cursor:!1,jump_to_cursor_after_file_name:!1,shell_path:"",user_scripts_folder:"",folder_templates:[],file_templates:[],syntax_highlighting:!0,syntax_highlighting_mobile:!1,enabled_templates_hotkeys:[],startup_templates:[],intellisense_render:Ze.RenderDescriptionParameterReturn,ignore_folders_on_creation:[]};var un=class extends ti.PluginSettingTab{constructor(t){super(t.app,t);this.plugin=t;this.icon="templater-icon";this.containerEl.addEventListener("click",i=>{i.target&&"href"in i.target&&i.target.href&&typeof i.target.href=="string"&&i.stopPropagation()},!0);let r=(0,ti.debounce)(()=>this.update(),200,!0);t.registerEvent(this.app.vault.on("create",r)),t.registerEvent(this.app.vault.on(
+ded.",items:this.plugin.settings.ignore_folders_on_creation.map(t=>({name:t.folder,searchable:!1}))}}folderTemplatesGroup(){let t=(r,i,n)=>{new Zi(this.app,this.plugin,r,i,a=>{if(this.plugin.settings.folder_templates.some((s,c)=>s.folder===a&&c!==n))return"This folder already has a template associated with it"}).open()};return{type:"list",addItem:{name:"Add folder template",action:()=>{t({folder:"",template:""},(r,i)=>{this.plugin.settings.folder_templates.push({folder:r,template:i}),this.update(),this.plugin.save_settings()})}},onReorder:(r,i)=>{zi(this.plugin.settings.folder_templates,r,i),this.update(),this.plugin.save_settings()},onDelete:r=>{this.plugin.settings.folder_templates.splice(r,1),this.update(),this.plugin.save_settings()},emptyState:"No folder templates added.",items:this.plugin.settings.f
+ation'"),e.enable_system_commands===!0&&t.push("'Enable system commands'"),Array.isArray(e.startup_templates)&&e.startup_templates.some(n=>n!=="")&&t.push("'Enable startup templates'");let r=e.enable_folder_templates===!0?"folder":e.enable_file_templates===!0?"regex":e.trigger_on_file_creation_mode??"none",i=Object.assign({},gr,e,{data_version:2,trigger_on_file_creation_mode:r,folder_templates:(e.folder_templates??[]).filter(n=>n.folder||n.template),file_templates:(e.file_templates??[]).filter(n=>n.template!==""),templates_pairs:(e.templates_pairs??[]).filter(([n,a])=>n||a),enabled_templates_hotkeys:(e.enabled_templates_hotkeys??[]).filter(n=>Tt(n).template),startup_templates:(e.startup_templates??[]).filter(n=>n),ignore_folders_on_creation:(e.ignore_folders_on_creation??[]).filter(n=>n.folder)});typeof e
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in "10_Areas/Career/Internships/Tracker/Each One" "10_Areas/Career/Internships/Programs" "10_Areas/Career/Internships/Contacts/Each One" "10_Areas/Career/Internships/List/Dossiers" "20_Progress/Internship/Applying" "20_Progress/Internship/Cover Letters" "20_Progress/Internship/Preperation/Interviews" "20_Progress/Internship" "20_Progress/Projects" "20_Progress/Mentorship Program" "20_Progress/AI" "10_Areas/Life/Plans" "40_Resources" "60_Claude/07_AI_Information/AI Conversation - Summaries" "60_Claude/07_AI_Information/Session Logs" "60_Claude/10_Source_Summaries" "60_Claude/10_Source_Summaries/Github Ingestion" "60_Claude/20_Distilled_Notes" "60_Claude/20_Distilled_Notes/Synthesis" "60_Claude/30_Reviews/Weekly Synthesis" "60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly" "60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly" "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/Monthly" "60_Claude/40_Project_Briefs" "60_Claude/44_Indexes/Field OS" "10_Areas/Life/Enumerate"; do [ -d "$d" ] && echo "OK   $d" || echo "MISSING $d"; done; echo ---; ls "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/Monthly" | head -20
+```
+```
+OK   10_Areas/Career/Internships/Tracker/Each One
+OK   10_Areas/Career/Internships/Programs
+OK   10_Areas/Career/Internships/Contacts/Each One
+OK   10_Areas/Career/Internships/List/Dossiers
+OK   20_Progress/Internship/Applying
+OK   20_Progress/Internship/Cover Letters
+OK   20_Progress/Internship/Preperation/Interviews
+OK   20_Progress/Internship
+OK   20_Progress/Projects
+OK   20_Progress/Mentorship Program
+OK   20_Progress/AI
+OK   10_Areas/Life/Plans
+OK   40_Resources
+OK   60_Claude/07_AI_Information/AI Conversation - Summaries
+OK   60_Claude/07_AI_Information/Session Logs
+OK   60_Claude/10_Source_Summaries
+OK   60_Claude/10_Source_Summaries/Github Ingestion
+OK   60_Claude/20_Distilled_Notes
+OK   60_Claude/20_Distilled_Notes/Synthesis
+OK   60_Claude/30_Reviews/Weekly Synthesis
+OK   60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly
+OK   60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly
+OK   60_Claude/30_Reviews/AI
+OK   60_Claude/30_Reviews/Monthly
+OK   60_Claude/40_Project_Briefs
+OK   60_Claude/44_Indexes/Field OS
+OK   10_Areas/Life/Enumerate
+---
+60_Claude/30_Reviews/AI:
+Conversations
+Scheduled
+Toolkit
+
+60_Claude/30_Reviews/Monthly:
+Monthly Review — 2026-06.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian" && grep -o 'get_new_file_template_for_folder(t,r){.\{0,1100\}' main.js | head -1; echo; echo ====; grep -o '.\{0,500\}ignore_folders_on_creation.some.\{0,400\}' main.js | head -2; echo ====; grep -o 'stat.size.\{0,200\}' main.js | head -5
+```
+```
+get_new_file_template_for_folder(t,r){let i=t;for(;i instanceof X.TFolder;){let n=i,a=this.plugin.settings.folder_templates.find(s=>s.folder==n.path&&(r===void 0||Xa(s.template,r)));if(a&&a.template)return a.template;i=i.parent}}get_new_file_template_for_file(t){let r=this.plugin.settings.file_templates.find(i=>new RegExp(i.regex).test(t.path)&&Xa(i.template,t.extension));if(r&&r.template)return r.template}static async on_file_creation(t,r,i){if(!Ve(r).trigger_on_file_creation||!(i instanceof X.TFile))return;let n=i.extension==="md",a=t.plugin.settings.trigger_on_file_creation_mode;if(!n&&a!=="folder"&&a!=="regex")return;let s=(0,X.normalizePath)(t.plugin.settings.templates_folder);if(i.path.includes(s)&&s!=="/")return;for(let h of t.plugin.settings.ignore_folders_on_creation){let m=(0,X.normalizePath)(h.folder);if(i.path.startsWith(m)&&m!=="")return}if(await lt(300),t.files_with_pending_templates.has(i.path)||!n&&i.stat.size!==0)return;let c=await r.vault.read(i),l=n?c.length-(0,X.getFrontMatterInfo)(c).contentStart:c.length;if(l==0&&a==="folder"){if(!(i.parent instanceof X.TFolder))return;let h=t.get_new_file_template_
+
+====
+====
+stat.size!==0)return;let c=await r.vault.read(i),l=n?c.length-(0,X.getFrontMatterInfo)(c).contentStart:c.length;if(l==0&&a==="folder"){if(!(i.parent instanceof X.TFolder))return;let h=t.get_new_file_template_f
+stat.size<=h?await t.overwrite_file_commands(i):console.debug(`Templater skipped parsing ${i.path} because file size exceeds ${h}`)}}async execute_startup_scripts(){if(!!Ve(this.plugin.app).enable_startup_temp
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -R "60_Claude/30_Reviews/AI/Scheduled" | head -12; ls "60_Claude/30_Reviews/AI/Toolkit" | head -5; echo; sed -n 1,30p "30_Order/Templates/System/AI/AI Tool Log Template.md"; echo ======; sed -n 1,30p "30_Order/Templates/System/AI/AI Write Log Template.md"
+```
+```
+60_Claude/30_Reviews/AI/Scheduled:
+Weekly
+
+60_Claude/30_Reviews/AI/Scheduled/Weekly:
+AI Tools Weekly Review — 2026-W34.md
+Tool log.md
+
+---
+type: system
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - log
+  - tool-log
+system_kind: log
+log_shape: row
+feeder: /export-ai-session
+order: newest-last
+scope:
+notes: []
+next:
+---
+# <% tp.file.title %>
+<!-- One row per skill or command use. Outcome is clean, partial, or failed; Skill/Command may be ad-hoc or multiple. -->
+| Date | Project | Skill/Command | What It Did | Outcome | Source |
+|---|---|---|---|---|---|
+======
+---
+type: system
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - log
+system_kind: log
+log_shape: narrative
+feeder:
+order:
+scope:
+notes: []
+next:
+---
+# <% tp.file.title %>
+<!-- Append each entry as ## [YYYY-MM-DD] tag | title, then bullets. Never edit an old entry; a correction is a new entry. -->
+```
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json`
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json`
+```diff
+-     {
+-       "folder": "20_Progress",
+-       "template": "30_Order/Templates/Frontmatter/For Progress.md"
+-     },
+-     {
+-       "folder": "40_Resources",
+-       "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
+-     },
+-     {
+-       "folder": "60_Claude/20_Distilled_Notes",
+-       "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
+-     },
+-     {
+-       "folder": "60_Claude/10_Source_Summaries",
+-       "template": "30_Order/Templates/Frontmatter/For Inputs.md"
+-     },
+-     {
+-       "folder": "60_Claude/40_Project_Briefs",
+-       "template": "30_Order/Templates/Frontmatter/For Progress.md"
+-     }
+-   ],
++     {
++       "folder": "/",
++       "template": "30_Order/Templates/For Everything.md"
++     },
++     {
++       "folder": "10_Areas/Career/Internships/Tracker/Each One",
++       "template": "30_Order/Templates/Career/Tracking/Internship Tracker Template.md"
++     },
++     {
++       "folder": "10_Areas/Career/Internships/Programs",
++       "template": "30_Order/Templates/Career/Internship/Internship Program Template.md"
++     },
++     {
++       "folder": "10_Areas/Career/Internships/Contacts/Each One",
++       "template": "30_Order/Templates/Career/Internship/Internship Contact Template.md"
++     },
++     {
++       "folder": "10_Areas/Life/Plans",
++       "template": "30_Order/Templates/Career/Standing Plan Template.md"
++     },
++     {
++       "folder": "20_Progress/Internship",
++       "template": "30_Order/Templates/Projects/Project Status Note Template.md"
++     },
++     {
++       "folder": "20_Progress/Internship/Applying",
++       "template": "30_Order/Templates/Career/Internship/Internship Applying Template.md"
++     },
++     {
++       "folder": "20_Progress/Internship/Cover Letters",
++       "template": "30_Order/Templates/Career/Internship/Internship Cover Letter Template.md"
++     },
++     {
++       "folder": "20_Progress/Internship/Preperation/Interviews",
++       "template": "30_Order/Templates/Career/Internship/Internship Interview Prep Template.md"
++     },
++     {
++       "folder": "20_Progress/Projects",
++       "template": "30_Order/Templates/Projects/Project Status Note Template.md"
++     },
++     {
++       "folder": "20_Progress/Mentorship Program",
++       "template": "30_Order/Templates/Projects/Project Status Note Template.md"
++     },
++     {
++       "folder": "20_Progress/AI",
++       "template": "30_Order/Templates/AI Toolkit/AI Tool Profile Template.md"
++     },
++     {
++       "folder": "40_Resources",
++       "template": "30_Order/Templates/Career/Reference Guide Template.md"
++     },
++     {
++       "folder": "60_Claude/07_AI_Information/AI Conversation - Summaries",
++       "template": "30_Order/Templates/System/AI/AI Conversation Export Template.md"
++     },
++     {
++       "folder": "60_Claude/10_Source_Summaries",
++       "template": "30_Order/Templates/AI Toolkit/Source Summary Template.md"
++     },
++     {
++       "folder": "60_Claude/10_Source_Summaries/Github Ingestion",
++       "template": "30_Order/Templates/System/AI/GitHub Repo Card Template.md"
++     },
++     {
++       "folder": "60_Claude/20_Distilled_Notes",
++       "template": "30_Order/Templates/Career/Evergreen Note Template.md"
++     },
++     {
++       "folder": "60_Claude/20_Distilled_Notes/Synthesis",
++       "template": "30_Order/Templates/Career/Cross-Domain Synthesis Template.md"
++     },
++     {
++       "folder": "60_Claude/30_Reviews/AI/Scheduled/Weekly",
++       "template": "30_Order/Templates/AI Toolkit/AI Weekly Review Template.md"
++     },
++     {
++       "folder": "60_Claude/30_Reviews/AI/Toolkit",
++       "template": "30_Order/Templates/System/AI/AI Tool Log Template.md"
++     },
++     {
++       "folder": "60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly",
++       "template": "30_Order/Templates/Career/Internship/Internship Loop Weekly Review Template.md"
++     },
++     {
++       "folder": "60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly",
++       "template": "30_Order/Templates/Career/Internship/Internship Loop Monthly Review Template.md"
++     },
++     {
++       "folder": "60_Claude/30_Reviews/Weekly Synthesis",
++       "template": "30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md"
++     },
++     {
++       "folder": "60_Claude/40_Project_Briefs",
++       "template": "30_Order/Templates/Projects/Project Status Note Template.md"
++     },
++     {
++       "folder": "60_Claude/44_Indexes/Field OS",
++       "template": "30_Order/Templates/Career/Tracking/Capability Field OS Template.md"
++     }
++   ],
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\templater-data.new.json`
+```
+{
+  "data_version": 2,
+  "command_timeout": 5,
+  "templates_folder": "30_Order/Templates",
+  "templates_pairs": [],
+  "trigger_on_file_creation_mode": "folder",
+  "auto_jump_to_cursor": true,
+  "jump_to_cursor_after_file_name": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "folder_templates": [
+    {
+      "folder": "10_Areas/UMN",
+      "template": "30_Order/Templates/Classes/Week Template.md"
+    },
+    {
+      "folder": "/",
+      "template": "30_Order/Templates/For Everything.md"
+    },
+    {
+      "folder": "10_Areas/Career/Internships/Tracker/Each One",
+      "template": "30_Order/Templates/Career/Tracking/Internship Tracker Template.md"
+    },
+    {
+      "folder": "10_Areas/Career/Internships/Programs",
+      "template": "30_Order/Templates/Career/Internship/Internship Program Template.md"
+    },
+    {
+      "folder": "10_Areas/Career/Internships/Contacts/Each One",
+      "template": "30_Order/Templates/Career/Internship/Internship Contact Template.md"
+    },
+    {
+      "folder": "10_Areas/Life/Plans",
+      "template": "30_Order/Templates/Career/Standing Plan Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship/Applying",
+      "template": "30_Order/Templates/Career/Internship/Internship Applying Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship/Cover Letters",
+      "template": "30_Order/Templates/Career/Internship/Internship Cover Letter Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship/Preperation/Interviews",
+      "template": "30_Order/Templates/Career/Internship/Internship Interview Prep Template.md"
+    },
+    {
+      "folder": "20_Progress/Projects",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "20_Progress/Mentorship Program",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "20_Progress/AI",
+      "template": "30_Order/Templates/AI Toolkit/AI Tool Profile Template.md"
+    },
+    {
+      "folder": "40_Resources",
+      "template": "30_Order/Templates/Career/Reference Guide Template.md"
+    },
+    {
+      "folder": "60_Claude/07_AI_Information/AI Conversation - Summaries",
+      "template": "30_Order/Templates/System/AI/AI Conversation Export Template.md"
+    },
+    {
+      "folder": "60_Claude/10_Source_Summaries",
+      "template": "30_Order/Templates/AI Toolkit/Source Summary Template.md"
+    },
+    {
+      "folder": "60_Claude/10_Source_Summaries/Github Ingestion",
+      "template": "30_Order/Templates/System/AI/GitHub Repo Card Template.md"
+    },
+    {
+      "folder": "60_Claude/20_Distilled_Notes",
+      "template": "30_Order/Templates/Career/Evergreen Note Template.md"
+    },
+    {
+      "folder": "60_Claude/20_Distilled_Notes/Synthesis",
+      "template": "30_Order/Templates/Career/Cross-Domain Synthesis Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/AI/Scheduled/Weekly",
+      "template": "30_Order/Templates/AI Toolkit/AI Weekly Review Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/AI/Toolkit",
+      "template": "30_Order/Templates/System/AI/AI Tool Log Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly",
+      "template": "30_Order/Templates/Career/Internship/Internship Loop Weekly Review Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly",
+      "template": "30_Order/Templates/Career/Internship/Internship Loop Monthly Review Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/Weekly Synthesis",
+      "template": "30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md"
+    },
+    {
+      "folder": "60_Claude/40_Project_Briefs",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "60_Claude/44_Indexes/Field OS",
+      "template": "30_Order/Templates/Career/Tracking/Capability Field OS Template.md"
+    }
+  ],
+  "file_templates": [],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [],
+  "startup_templates": [],
+  "intellisense_render": "1",
+  "ignore_folders_on_creation": []
+}
+
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\checkrules.js`
+```
+const fs = require('fs');
+const V = 'D:/_Anant/20_Progress/Documents/Jarvis/';
+const j = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+const seen = new Set(); let bad = 0;
+for (const r of j.folder_templates) {
+  const okT = fs.existsSync(V + r.template);
+  const okF = r.folder === '/' || fs.existsSync(V + r.folder);
+  const dup = seen.has(r.folder); seen.add(r.folder);
+  if (!okT || !okF || dup) { bad++; console.log('PROBLEM', r.folder, '->', r.template, { template: okT, folder: okF, dup }); }
+}
+console.log(j.folder_templates.length + ' rules, ' + bad + ' problems');
+// every template file under Templates must be reachable from some rule or be intentionally rule-less
+const used = new Set(j.folder_templates.map(r => r.template));
+function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(d + '/' + e.name) : [d + '/' + e.name]); }
+const all = walk(V + '30_Order/Templates').map(f => f.replace(V, ''));
+console.log('templates with no folder rule (picked by hand):');
+all.filter(f => !used.has(f)).forEach(f => console.log('  ' + f.replace('30_Order/Templates/', '')));
+
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/checkrules.js" "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/templater-data.new.json"
+```
+```
+PROBLEM 10_Areas/UMN -> 30_Order/Templates/Classes/Week Template.md { template: true, folder: false, dup: false }
+26 rules, 1 problems
+templates with no folder rule (picked by hand):
+  AI Toolkit/AI Monthly Review Template.md
+  AI Toolkit/Vault Audit Report Template.md
+  Career/Folder MOC Template.md
+  Career/Internship/Cheat Template.md
+  Career/Internship/Job & Company Template.md
+  Career/Internship/LinkedIn Post Template.md
+  Career/Interview Story Template.md
+  Career/Meetings/Action Template.md
+  Career/Meetings/Brief Template.md
+  Career/Meetings/Transcript Template.md
+  Career/Portfolio Bullet Template.md
+  Career/Project One-Pager Template.md
+  Career/Technical Concept Template.md
+  Career/Tracking/Capability Depth Ladder Template.md
+  Career/Tracking/Capability Question Bank Template.md
+  Career/Tracking/Internship Postings Log Template.md
+  Classes/Board or Main Template.md
+  Classes/Concept Template.md
+  Classes/Degree Control Template.md
+  Classes/Discussion Template.md
+  Classes/Exam Material Template.md
+  Classes/Exam Sheet Template.md
+  Classes/Homework Template.md
+  Classes/Lab Template.md
+  Classes/Preparation Template.md
+  Classes/Project Template.md
+  Classes/Textbook Map Template.md
+  Classes/Textbook Template.md
+  Classes/Track Template.md
+  Classes/Weekly Board Template.md
+  Enumerate/Better Month.md
+  Enumerate/Better Today.md
+  Enumerate/Better Weekly.md
+  Enumerate/Better Year.md
+  Projects/Agent Task Prompt Template.md
+  Projects/Code File Mirror Template.md
+  Projects/Machine Setup Runbook Template.md
+  Projects/Project Plan Template.md
+  Projects/Project Spec Template.md
+  System/AI/AI Write Log Template.md
+  System/AI/Graphify Repo Map Template.md
+  System/Standard Template.md
+  System/Workflow Template.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -60
+```
+```
+Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
+ERROR  30_Order/Templates/Career/Technical Concept Template.md  template missing key course from course-concept
+ERROR  30_Order/Templates/Career/Technical Concept Template.md  template missing key mastery_level from course-concept
+ERROR  30_Order/Templates/Career/Technical Concept Template.md  template missing key prerequisites from course-concept
+ERROR  30_Order/Templates/Career/Technical Concept Template.md  template missing heading flashcards
+ERROR  30_Order/Templates/For Everything.md  template missing key dashboard_kind from dashboard
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-weekly has no row in Note Type Registry
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-monthly has no row in Note Type Registry
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-yearly has no row in Note Type Registry
+WARN  30_Order/Templates/Career/Tracking/Capability Depth Ladder Template.md  template section "Compare and Discriminate" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Wins" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Floor" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Productivity" has body text beyond a comment
+WARN  30_Order/Templates/For Everything.md  template has no type
+WARN  30_Order/Workflows/Ingestion/PDF Extraction.md  workflow is 880 words (limit 350)
+WARN  30_Order/Workflows/Internship/Application Document Preparation 1.md  legacy Workflow (no system_kind)
+WARN  30_Order/Workflows/Toolkit/Graphify Folders.md  serves does not point back to Generated Output Standard
+
+5 errors, 12 warnings
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "template missing\|maps_to\|spec.template\|s.template\|\.template" vault-lint.js | head -30
+```
+```
+22:const OUT = re(CFG.out_of_scope), T4 = re(CFG.tier4), TPL = re(CFG.template_paths);
+436:    const ms = (n.keys.maps_to && n.keys.maps_to.items) || [];
+440:      if (!tf) { add('error', f.rel, `maps_to ${m} does not resolve`); continue; }
+450:        const named = specs.filter((s) => s.template && s.template.toLowerCase() === path.basename(tf.rel, '.md').toLowerCase());
+455:        for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
+459:        for (const w of want) if (!got.includes(w)) add('error', tf.rel, `template missing heading ${w}`);
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 24,60p "Standards/Operations/Dashboard Standard.md"; echo =====; grep -rn '"template"' Standards --include=*.md | grep -v Courses | cut -c1-160; echo ====; grep -n "course-concept" -r Standards/Courses/Concept\ Standard.md | head -3; grep -n '"template"\|maps_to' -A2 Standards/Courses/Concept\ Standard.md | head -12
+```
+````
+## Spec
+```json
+{
+  "family": "dashboard",
+  "tier": 1,
+  "match": {"type": "dashboard", "kind": null, "path": "^(00_Dashboard\\.md$|60_Claude/(?!05_Clippings/)|10_Areas/|20_Progress/)", "where": {}, "where_not": {}},
+  "status": ["active", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "dashboard_kind"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": [],
+  "optional_headings": [],
+  "legacy_match": [
+    {"path": "^60_Claude/44_Indexes/[^/]+\\.md$"},
+    {"path": "^60_Claude/([^/]+/)?[^/]*Board\\.md$"},
+    {"path": "^10_Areas/Life/(Habits|Enumerate)/[^/]*Board\\.md$"}
+  ]
+}
+```
+## Headings
+### Frontmatter
+`type: dashboard`, `dashboard_kind` (`dashboard`, `board`, or `habit-board`), `status` (`active`, or `archived` once retired), dates, `tags`. A habit board keeps the plugin key `kanban-plugin: board` untouched.
+> [!WARNING]
+> Typing a query page `evergreen` or `index`. Sixteen of 21 dashboard-like pages are, so a type query for dashboards misses most of them.
+### Sections
+One `##` per question the page answers, named for the question ("Overdue Drills"). Under it, one sentence says what a row means and what to do about it, then one query. A page with no sentence is a report nobody acts on.
+*Density:* one query per section; no static table that Dataview could generate.
+### Queries
+- Every `FROM` folder exists. Before saving, list each path; a missing folder returns no rows and no error.
+- `FROM ""` is allowed only with a `WHERE type =` filter, because it scans the whole vault.
+- Lists carry a `LIMIT`. Sort on a frontmatter key defined in [[Frontmatter Standard]].
+- Filter on the vocabulary's `type` and `*_kind` values, not on tags a note may not have.
+### Boards
+A board lists one folder: its `FROM` is that folder and its sections are open items, recent items, and a short workflow line. A board whose body is only prose links is a MOC.
+### Habit boards
+Kanban lanes are the `##` headings (`Daily`, `Weekly`, `Paused`). Cards are checkboxes; a card that matches a daily floor row names it exactly.
+## Legacy Shapes
+| Old shape | New shape | Move |
+=====
+Standards/Enrich/Evergreen Standard.md:31:  "template": "Evergreen Note Template",
+Standards/Enrich/Evergreen Standard.md:45:  "template": "Cross-Domain Synthesis Template",
+Standards/Enrich/Output Standard.md:31:  "template": "Interview Story Template",
+Standards/Enrich/Output Standard.md:45:  "template": "Portfolio Bullet Template",
+Standards/Enrich/Output Standard.md:59:  "template": "Project One-Pager Template",
+Standards/Internship/Internship Loop Review Standard.md:32:  "template": "Internship Loop Weekly Review Template",
+Standards/Internship/Internship Loop Review Standard.md:46:  "template": "Internship Loop Monthly Review Template",
+====
+10:family: course-concept
+27:  "family": "course-concept",
+86:- The note passes [[Vault Lint]] for the `course-concept` family.
+12:maps_to:
+13-  - "[[Concept Template]]"
+14-used_by:
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 430,468p vault-lint.js; echo ====; grep -rn "Technical Concept Template" ../../Standards ../../Workflows ../../"Note Type Registry.md" | cut -c1-200; echo ===; sed -n 24,40p "../../Standards/Projects/Technical Concept Standard.md"
+```
+````
+    const g = n.keys.gold_standard;
+    if (g && g.raw && g.raw !== 'none') { const m = g.raw.match(/\[\[([^\]]+)\]\]/); if (!m || !resolves(m[1])) add('error', f.rel, 'gold_standard does not resolve'); }
+    if (!isPolicy && fam && !/\n\|[^\n]*\|/.test(text.slice(text.search(/^##\s+Legacy Shapes/m) >= 0 ? text.search(/^##\s+Legacy Shapes/m) : text.length))) add('error', f.rel, 'Legacy Shapes has no table');
+    const prose = stripCode(n.bodyLines).filter((l) => l !== null && !l.startsWith('|')).join(' ').replace(/<!--[\s\S]*?-->/g, '');
+    const words = (prose.match(/\S+/g) || []).length;
+    if (words > 700) add('warn', f.rel, `prose is ${words} words (limit 700)`);
+    const ms = (n.keys.maps_to && n.keys.maps_to.items) || [];
+    for (const m of ms) {
+      const mm = m.match(/\[\[([^\]|#]+)/); if (!mm) continue;
+      const tf = files.find((x) => x.rel.replace(/\.md$/i, '').toLowerCase().endsWith(mm[1].trim().toLowerCase()));
+      if (!tf) { add('error', f.rel, `maps_to ${m} does not resolve`); continue; }
+      const tt = fs.readFileSync(tf.abs, 'utf8'); const tn = parseNote(tt);
+      if (/\{\{/.test(tt)) add('error', tf.rel, 'uses {{ }} date syntax (use Templater)');
+      let pair = specs;
+      if (specs.length > 1) {
+        const ty = tn.keys.type ? tn.keys.type.raw : null;
+        const kk = ty && VOCAB.types[ty] ? VOCAB.types[ty].kindKey : null;
+        const tk = kk && tn.keys[kk] ? tn.keys[kk].raw : (tn.keys.system_kind ? tn.keys.system_kind.raw : null);
+        pair = specs.filter((s) => s.match && s.match.kind === tk);
+        if (pair.length > 1) pair = pair.filter((s) => !Object.keys(s.match.where || {}).length);
+        const named = specs.filter((s) => s.template && s.template.toLowerCase() === path.basename(tf.rel, '.md').toLowerCase());
+        if (named.length) pair = named;
+        if (!pair.length) pair = specs;
+      }
+      for (const s of pair) {
+        for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
+        const { hs, sc } = h2s(tn.bodyLines); const got = hs.map((h) => norm(h.title));
+        const want = (s.headings || []).map(norm);
+        const allowed = new Set([...want, ...(s.optional_headings || []).map(norm)]);
+        for (const w of want) if (!got.includes(w)) add('error', tf.rel, `template missing heading ${w}`);
+        for (const g2 of got) if (!allowed.has(g2) && specs.length === 1) add('warn', tf.rel, `template has heading not in spec: ${g2}`);
+        hs.forEach((h, i) => {
+          const sb = sectionBody(sc, hs, i).join('\n');
+          const subN = (sb.match(/^###\s+/gm) || []).length; // ### subheadings are allowed; each may carry its own comment
+          const stripped = sb.replace(/<!--[\s\S]*?-->/g, '').replace(/^###\s+.*$/gm, '').replace(/^\s*```[\s\S]*?```/gm, '').trim();
+          if (stripped && !/^(Spec)$/i.test(h.title) && !/^(Log)$/i.test(h.title)) add('warn', tf.rel, `template section "${h.title}" has body text beyond a comment`);
+          const cm = (sb.match(/<!--[\s\S]*?-->/g) || []);
+          if (cm.length > 1 + subN) add('warn', tf.rel, `template section "${h.title}" has ${cm.length} comments (limit ${1 + subN})`);
+          if (cm[0] && cm[0].length > 160) add('warn', tf.rel, `template comment under "${h.title}" is long (${cm[0].length} chars)`);
+====
+../../Standards/Projects/Technical Concept Standard.md:13:  - "[[Technical Concept Template]]"
+../../Note Type Registry.md:81:| technical-concept | 1 | concept | `20_Progress/Projects/`, `20_Progress/Internship/`, `40_Resources/CS/`, `40_Resources/UMN/SAO/` | [[Technical Concept Template]] | [[
+===
+```json
+{
+  "family": "technical-concept",
+  "tier": 1,
+  "match": {"type": "concept", "kind": null, "path": "^(20_Progress/Projects/(?!CS/Portfolio)|20_Progress/Internship/|40_Resources/CS/(?!Concepts/New Laptop)|40_Resources/UMN/SAO/)", "strict_path": true, "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "track", "used_in", "evidence"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "track": "list", "used_in": "list", "evidence": "list"},
+  "headings": ["One-Line Answer", "Mechanism", "Contrast / What It Is Not", "Failure Modes / Misconceptions", "Evidence From This Vault"],
+  "optional_headings": ["Start Here", "Flashcards"]
+}
+```
+## Headings
+### Frontmatter
+`type: concept`. `track` is the domain list (`ai`, `systems`, `trading`, `career`). `used_in` links the projects that apply it and `evidence` links notes that prove it, both `[]` until real. Optional: `notes`, `source_url`. Flashcards are optional here because a tool explainer is often looked up, not studied.
+> [!WARNING]
+> Course-template leftovers: `course:`, `mastery (1/10)`, `topics`, and placeholder links such as `[[HW__ - ...]]`. Jan still carries all three.
+````
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "endsWith(" vault-lint.js | cut -c1-220
+```
+````
+35:const mdFiles = files.filter((f) => f.rel.toLowerCase().endsWith('.md'));
+130:    return ps === '' || /^#{1,6}\s/.test(ps) || /^\s*```\s*$/.test(p) || (/^\s*>/.test(p) && /^\[![^\]]+\]/.test(ps)) || p.trim().endsWith('-->');
+258:        const e = n.keys[k]; const kt0 = (spec.key_types || {})[k] || ''; const opt = kt0.endsWith('?'); const kt = opt ? kt0.slice(0, -1) : kt0;
+265:        const opt = kt0.endsWith('?'); const kt = opt ? kt0.slice(0, -1) : kt0;
+375:    if (text.replace(/\r\n/g, '\n').endsWith('\n\n')) add(5, 'trailing-blank');
+439:      const tf = files.find((x) => x.rel.replace(/\.md$/i, '').toLowerCase().endsWith(mm[1].trim().toLowerCase()));
+````
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
+```diff
+-       const tf = files.find((x) => x.rel.replace(/\.md$/i, '').toLowerCase().endsWith(mm[1].trim().toLowerCase()));
++       const want0 = mm[1].trim().toLowerCase();
++       const tf = files.find((x) => { const r0 = x.rel.replace(/\.md$/i, '').toLowerCase(); return r0 === want0 || r0.endsWith('/' + want0); });
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md`
+```diff
+- maps_to:
+-   - "[[For Everything]]"
+- used_by: []
++ maps_to: []
++ used_by: []
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
+```diff
+- [[For Everything]] (set `type: dashboard`)
++ [[For Everything]] (set `type: dashboard` and `dashboard_kind`)
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -22; echo; echo "=== specs"; node vault-lint.js --specs 2>&1 | tail -4
+```
+```
+Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-weekly has no row in Note Type Registry
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-monthly has no row in Note Type Registry
+WARN  30_Order/Standards/Operations/Periodic Review Note Standard.md  family periodic-review-note-yearly has no row in Note Type Registry
+WARN  30_Order/Templates/Career/Tracking/Capability Depth Ladder Template.md  template section "Compare and Discriminate" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Morning Plan" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Wins" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Daily Floor" has body text beyond a comment
+WARN  30_Order/Templates/Enumerate/Better Today.md  template section "Productivity" has body text beyond a comment
+WARN  30_Order/Templates/For Everything.md  template has no type
+WARN  30_Order/Workflows/Ingestion/PDF Extraction.md  workflow is 880 words (limit 350)
+WARN  30_Order/Workflows/Internship/Application Document Preparation 1.md  legacy Workflow (no system_kind)
+WARN  30_Order/Workflows/Toolkit/Graphify Folders.md  serves does not point back to Generated Output Standard
+
+0 errors, 12 warnings
+
+=== specs
+WARN  30_Order/Workflows/Internship/Application Document Preparation 1.md  legacy Workflow (no system_kind)
+WARN  30_Order/Workflows/Toolkit/Graphify Folders.md  serves does not point back to Generated Output Standard
+
+0 errors, 12 warnings
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "== leftover old refs inside 30_Order (non-course):"; node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refmap.js" | head -20; echo "(end)"; echo; echo "== path-style Templates/ mentions inside 30_Order:"; grep -rn --include=*.md -E "Templates/(Capability|Knowledge|Learning|Frontmatter)|For (AI|Brainstorm|Classes|Dashboards|Evergreen|Inputs|Progress|Thoughts)\b" 30_Order | grep -v -E "Standards/Courses|Workflows/Courses|System/.*(\.log|session)" | cut -c1-180 | head
+```
+```
+== leftover old refs inside 30_Order (non-course):
+(end)
+
+== path-style Templates/ mentions inside 30_Order:
+30_Order/Standards/AI Loop/Knowledge Noting.md:24:This is the decision policy for how raw material turns into knowledge. It does not say what a finished note looks like: [[Source S
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && P='Templates/Frontmatter|Templates/Capability|Templates/Knowledge|For Dashboards|For Evergreen|For Inputs|For Progress|For Thoughts|For Brainstorm|For Classes|For AI\]\]|Clipping Distill Template|Deep Dive Template|Synthesis Note Template|Repo Evaluation Template|Weekly Synthesis Template|Audit Report Template|Tool Setup Template|Graphify Notes Template|Output (Bullet |One-Pager )?Template|MOC Template|Plan Template|Project Note Template|Agent Prompt Template|Code Mirror Template|Machine Runbook Template|Technical Concept Template'; grep -rIl -E "$P" AGENTS.md CLAUDE.md .claude .cursor .kiro .codex 20_Progress/AI 40_Resources 60_Claude/07_AI_Information .obsidian/plugins/file-explorer-plus 2>/dev/null | grep -v "/Session Logs/" | head -40
+```
+```
+CLAUDE.md
+.claude/agents/learning-agent.md
+.claude/agents/research-distiller.md
+.claude/skills/note-to-actions/SKILL.md
+.claude/skills/transcript-to-brief/SKILL.md
+.cursor/plans/[REDACTED].plan.md
+.cursor/plans/[REDACTED].plan.md
+.cursor/rules/note-creation.mdc
+.kiro/specs/pkm-capability-engine/design.md
+.kiro/specs/pkm-capability-engine/requirements.md
+.kiro/specs/pkm-capability-engine/tasks.md
+.codex/agents/learning-agent.toml
+.codex/agents/research-distiller.toml
+20_Progress/AI/Claude Code/.claude_windows/agents/obsidian-session-archivist.md
+20_Progress/AI/Claude Code/.claude_windows/commands/obsidian-session-review.md
+20_Progress/AI/Claude Code/.claude_windows/Setup.md
+20_Progress/AI/Claude Code/.claude_wsl/agents/obsidian-session-archivist.md
+20_Progress/AI/Claude Code/.claude_wsl/commands/obsidian-session-review.md
+20_Progress/AI/Claude Code/Jarvis/.claude/agents/learning-agent.md
+20_Progress/AI/Claude Code/Jarvis/.claude/agents/research-distiller.md
+20_Progress/AI/Claude Code/Jarvis/.claude/skills/note-to-actions/note-to-actions.md
+20_Progress/AI/Claude Code/Jarvis/.claude/skills/transcript-to-brief/transcript-to-brief.md
+20_Progress/AI/Claude Code/second-brain-claudekit/_docs/How to/review-system.md
+20_Progress/AI/Claude Code/second-brain-claudekit/_docs/Jarvis.md
+20_Progress/AI/Cursor/.cursor_windows/plans/[REDACTED].plan.md
+20_Progress/AI/Cursor/.cursor_windows/plans/[REDACTED].plan.md
+20_Progress/AI/Cursor/.cursor_wsl/agents/obsidian-session-archivist.md
+20_Progress/AI/Cursor/Jarvis/plans/[REDACTED].plan.md
+20_Progress/AI/Cursor/Jarvis/plans/[REDACTED].plan.md
+20_Progress/AI/Cursor/Jarvis/rules/note-creation.mdc
+20_Progress/AI/Kiro/.kiro_wsl/tasks/240654dd3ff4e20b/pkm-capability-engine.meta.json
+20_Progress/AI/Kiro/Jarvis/specs/pkm-capability-engine/design.md
+20_Progress/AI/Kiro/Jarvis/specs/pkm-capability-engine/requirements.md
+20_Progress/AI/Kiro/Jarvis/specs/pkm-capability-engine/tasks.md
+20_Progress/AI/Kiro/The Plan/specs/pkm-capability-engine/design.md
+20_Progress/AI/Kiro/The Plan/specs/pkm-capability-engine/requirements.md
+20_Progress/AI/Kiro/The Plan/specs/pkm-capability-engine/tasks.md
+40_Resources/Capability/AI Roles — Builder.md
+40_Resources/Capability/AI Roles — Connector.md
+40_Resources/Capability/AI Roles — Critic.md
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -o -E ".{0,60}(Templates/Knowledge|Templates/Capability|Templates/Frontmatter).{0,60}" "30_Order/Standards/AI Loop/Knowledge Noting.md"; echo ======; P='Templates/Frontmatter|Templates/Capability|Templates/Knowledge|Clipping Distill Template|Deep Dive Template|Synthesis Note Template|Repo Evaluation Template|Weekly Synthesis Template|Audit Report Template|Output (Bullet |One-Pager )?Template|MOC Template|Project Note Template|Agent Prompt Template|Code Mirror Template|Technical Concept Template'; for f in CLAUDE.md .claude/agents/learning-agent.md .claude/agents/research-distiller.md .claude/skills/note-to-actions/SKILL.md .claude/skills/transcript-to-brief/SKILL.md .cursor/rules/note-creation.mdc; do echo "## $f"; grep -n -o -E ".{0,70}($P).{0,50}" "$f" | head -6; done
+```
+```
+======
+## CLAUDE.md
+46:s); do not invent a value. The frontmatter-only starters in `30_Order/Templates/Frontmatter/` are for Inbox notes with no family. Property me
+## .claude/agents/learning-agent.md
+59:6. `30_Order/Templates/Capability/Jarvis Enrichment Template.md` — for the enrich
+60:7. `30_Order/Templates/Capability/Question Bank Template.md` — for drill question
+140:vel: `light` (definition + 1 example + drill seeds), `standard` (full Deep Dive Template), `deep` (Deep Dive + worked examples + synthesis
+## .claude/agents/research-distiller.md
+41:5. `30_Order/Templates/Capability/Clipping Distill Template.md`
+## .claude/skills/note-to-actions/SKILL.md
+25:3. `30_Order/Templates/Capability/Action Template.md`
+## .claude/skills/transcript-to-brief/SKILL.md
+24:3. `30_Order/Templates/Capability/Brief Template.md`
+28:is pasted loose with no note, stop and create it first from `30_Order/Templates/Capability/Transcript Template.md` (Meeting Workflow step 1)
+## .cursor/rules/note-creation.mdc
+42:| `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` — `## Full Content`, `## Open Questions` (task
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -o -E ".{0,80}(For (AI|Brainstorm|Classes|Dashboards|Evergreen|Inputs|Progress|Thoughts)\b).{0,60}" "30_Order/Standards/AI Loop/Knowledge Noting.md"; git status --short | grep -v "^ M \"60_Claude/05_Clippings" | awk '{print $1}' | sort | uniq -c; echo; git status --short -- 30_Order/Templates | awk '{print $1}' | sort | uniq -c
+```
+```
+24:his policy owns the choice between them and the agent's behavior while reading. For AI conversations the same choice is made by [[Conversations]].
+     11 D
+     45 M
+      4 R
+     31 RM
+
+     11 D
+      8 M
+      4 R
+     31 RM
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
+```diff
+- updated: 2026-10-16
++ updated: 2026-11-03
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\resolve.js`
+```
+const fs = require('fs'), path = require('path');
+const ROOT = 'D:/_Anant/20_Progress/Documents/Jarvis/30_Order';
+function walk(d) { return fs.readdirSync(d, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]); }
+const all = walk(ROOT);
+const names = new Set(all.filter(f => f.endsWith('.md')).map(f => path.basename(f, '.md').toLowerCase()));
+// duplicate basenames inside 30_Order (kit rule: no two files share a name)
+const cnt = {}; all.filter(f => f.endsWith('.md')).forEach(f => { const b = path.basename(f, '.md').toLowerCase(); cnt[b] = (cnt[b] || []).concat(f); });
+const dups = Object.entries(cnt).filter(([, v]) => v.length > 1);
+console.log('duplicate names in 30_Order:', dups.length ? dups.map(([k, v]) => k + ' x' + v.length).join('; ') : 'none');
+let bad = 0, total = 0;
+const scope = all.filter(f => f.endsWith('.md') && /Note Type Registry|[\\/]Standards[\\/]|[\\/]Workflows[\\/]|00_How/.test(f) && !/Courses/.test(f));
+for (const f of scope) {
+  const t = fs.readFileSync(f, 'utf8');
+  for (const m of t.matchAll(/\[\[([^\]|#\\]+?)(?:[\\]?\|[^\]]*)?\]\]/g)) {
+    const target = m[1].trim();
+    if (!/(Template|For Everything|Better (Today|Weekly|Month|Year))$/.test(target)) continue;
+    total++;
+    const base = target.split('/').pop().toLowerCase();
+    if (!names.has(base)) { bad++; console.log('UNRESOLVED', path.relative(ROOT, f), '->', target); }
+  }
+}
+console.log(total + ' template links checked, ' + bad + ' unresolved');
+
+```
+- `Bash`
+```bash
+node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/resolve.js"
+```
+```
+duplicate names in 30_Order: readme x6
+145 template links checked, 0 unresolved
+```
+
 ## Actions Taken
 
 **Files created:**
-_None_
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\checkrules.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\collapse.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\refmap.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\repoint.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\resolve.js`
+- `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\templater-data.new.json`
 
 **Files modified:**
-_None_
+- `D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/Job & Company Template.md`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/LinkedIn Post Template.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -3302,4 +5489,39 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in Capability/Output* Capability/Field* Capability/Depth* Capability/Question* Capability/Audit* Capability/Weekly* Capability/MOC* Learning/Repo* Learning/Output* Projects/*.md Career/Plan* AI\ Toolkit/Graphify* AI\ Toolkit/Tool\ Setup* AI\ Toolkit/Deep* AI\ Toolkit/Clipping*; do echo "=== $f"; grep -v '^$' "$f" | head -40; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 30_Order/Standards/Internship 30_Order/Workflows/Internship 2>/dev/null; echo ---; find 10_Areas/Career -maxdepth 3 -type d 2>/dev/null | head -40; echo ---; for k in "type: tracker" "project_kind: project" "type: contact" "reference_kind: program" "cover-letter" "type: output"; do printf "%s: " "$k"; grep -rl --include=*.md -m1 "^$k\|^output_kind: $k" 10_Areas/Career 20_Progress 2>/dev/null | wc -l; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "internship" "30_Order/Note Type Registry.md" | cut -c1-260; echo ---; find . -path ./node_modules -prune -o -name "Internship*Design*" -print 2>/dev/null | head; find . -iname "*Internship Pipeline*" -not -path "./.git/*" 2>/dev/null | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node -e ' const j=JSON.parse(require("fs").readFileSync(".obsidian/plugins/templater-obsidian/data.json","utf8")); const o={};for(const k of Object.keys(j)){ if(/folder|template|trigger|enable_|file_templates|startup|user_scripts|syntax|intellisense/i.test(k)) o[k]=j[k];} console.log(JSON.stringify(o,null,1));'`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && ls; grep -n -i "template" vault-lint.config.json | head -30; grep -n -i "Templates/\|Frontmatter/" vault-lint.js | head -30`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 470,520p vault-lint.js`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && T=30_Order/Templates && set -e mkdir -p "$T/System/AI" "$T/Career/Meeting" "$T/Career/Tracking" mv_() { git mv "$T/$1" "$T/$2"; } # System/AI mv_ "AI Toolkit/AI Conversation.md" "System/AI/AI Conversation Export Template.md" mv_ "AI Toolkit/Tool Logs.md" "System/AI/AI Tool Log Template.md" mv_ "AI Toolkit/Write Logs.md" "System/AI/AI Write Log Template.md" mv_ "AI Toolkit/Graphify Notes Template.md" "System/AI/Graphify Repo Map Template.md" mv_ "Learning/Repo Evaluation Template.md" "System/AI/GitHub Repo Card Template.md" # AI Toolkit mv_ "AI Toolkit/Tool Setup Template.md" "AI Toolkit/AI Tool Profile Template.md" mv_ "AI Toolkit/Clipping Distill Template.md" "AI Toolkit/Source Summary Template.md" mv_ "Capability/Audit Report Template.md" "AI Toolkit/Vault Audit Report Template.md" mv_ "Capability/Weekly Synthesis Template.md" "AI Toolkit/Vault Weekly Synthesis Template.md" # Career main notes mv_ "AI Toolkit/Deep Dive Template.md" "Career/Evergreen Note Template.md" mv_ "Learning/Synthesis Note Template.md" "Career/Cross-Domain Synthesis Template.md" mv_ "Learning/Reference Template.md" "Career/Reference Guide Template.md" mv_ "Projects/Technical Concept Template.md" "Career/Technical Concept Template.md" mv_ "Capability/Output Template.md" "Career/Interview Story Template.md" mv_ "Learning/Output Bullet Template.md" "Career/Portfolio Bullet Template.md" mv_ "Learning/Output One-Pager Template.md" "Career/Project One-Pager Template.md" mv_ "Capability/MOC Template.md" "Career/Folder MOC Template.md" mv_ "Career/Plan Template.md" "Career/Standing Plan Template.md" # Meeting for n in Transcript Brief Action; do mv_ "Capability/$n Template.md" "Career/Meeting/$n Template.md"; done # Tracking mv_ "Career/Tracking.md" "Career/Tracking/Internship Tracker Template.md" mv_ "Career/List Monthly Log.md" "Career/Tracking/Internship Postings Log Template.md" mv_ "Capability/Field OS Template.md" "Career/Tracking/Capability Field OS Template.md" mv_ "Capability/Depth Ladder Template.md" "Career/Tracking/Capability Depth Ladder Template.md" mv_ "Capability/Question Bank Template.md" "Career/Tracking/Capability Question Bank Template.md" # Internship loop prefixes mv_ "Career/Internship/Program Template.md" "Career/Internship/Internship Program Template.md" mv_ "Career/Internship/Contact Template.md" "Career/Internship/Internship Contact Template.md" mv_ "Career/Internship/Applying Template.md" "Career/Internship/Internship Applying Template.md" mv_ "Career/Internship/Interview Prep Template.md" "Career/Internship/Internship Interview Prep Template.md" mv_ "Career/Internship/Cover Letter Template.md" "Career/Internship/Internship Cover Letter Template.md" # Projects mv_ "Projects/Project Note Template.md" "Projects/Project Status Note Template.md" mv_ "Projects/Agent Prompt Template.md" "Projects/Agent Task Prompt Template.md" mv_ "Projects/Code Mirror Template.md" "Projects/Code File Mirror Template.md" mv_ "Projects/Machine Runbook Template.md" "Projects/Machine Setup Runbook Template.md" # Deletions git rm -q "$T/Capability/Synthesis Template.md" "$T/Career/Internship/Tracking Template.md" "$T/MOC.md" git rm -q -r "$T/Frontmatter" echo DONE echo "--- leftovers:"; find "$T/Capability" "$T/Learning" "$T/Frontmatter" "$T/Knowledge" -type f 2>/dev/null find "$T" -type d -empty`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates" && for f in Career/Meeting/*.md; do git mv "$f" "Career/Meetings/$(basename "$f")"; done && rmdir Career/Meeting Capability Learning Frontmatter 2>&1; find . -type d -empty; echo ---; find . -type f | sort | sed 's|^\./||' | awk '{print}' ; echo; find . -type f | wc -l`
+- `mkdir -p "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad" && cat > "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js" <<'EOF' const fs=require('fs'),path=require('path'); const root='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates'; const base=['type','status','created','updated','tags','notes','next']; function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);} for(const f of walk(root).sort()){   const rel=path.relative(root,f).replace(/\\/g,'/');   if(/^(Classes|Enumerate)\//.test(rel)) continue;   const t=fs.readFileSync(f,'utf8');   const lines=t.split(/\r?\n/);   const issues=[];   if(t.charCodeAt(0)===0xFEFF) issues.push('BOM');   if(/\r/.test(t)) issues.push('CRLF');   if(lines[0]!=='---') {issues.push('no-open');console.log(rel,'|',issues.join(','));continue;}   const end=lines.indexOf('---',1);   if(end<0){issues.push('no-close');console.log(rel,'|',issues.join(','));continue;}   const fm=lines.slice(1,end);   const keys=fm.filter(l=>/^[A-Za-z_][\w]*:/.test(l)).map(l=>l.split(':')[0]);   const dup=keys.filter((k,i)=>keys.indexOf(k)!==i); if(dup.length) issues.push('dup:'+dup);   const miss=base.filter(k=>!keys.includes(k)); if(miss.length) issues.push('missing:'+miss.join('+'));   const tv=(fm.find(l=>l.startsWith('type:'))||'').replace('type:','').trim(); if(!tv) issues.push('EMPTY-type');   if(rel!=='For Everything.md'){const sv=(fm.find(l=>l.startsWith('status:'))||'').replace('status:','').trim(); if(!sv) issues.push('EMPTY-status');}   if(fm.some(l=>/\t/.test(l))) issues.push('tab');   console.log(rel,'|',issues.join(',')||'ok'); } EOF cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js"; echo ---; echo "=== Job & Company"; head -25 "30_Order/Templates/Career/Internship/Job & Company Template.md"; echo "=== LinkedIn"; cat "30_Order/Templates/Career/Internship/LinkedIn Post Template.md"; echo "=== Cheat"; cat "30_Order/Templates/Career/Internship/Cheat Template.md"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad" && sed -i "s#\.replace(/.*,'/')#.split(String.fromCharCode(92)).join('/')#" fmaudit.js && grep -n "relative" fmaudit.js && cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js"`
+- `cat > "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmfix.js" <<'EOF' const fs=require('fs'),path=require('path'); const root='D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates'; const BS=String.fromCharCode(92); function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);} let n=0; for(const f of walk(root).sort()){   const rel=path.relative(root,f).split(BS).join('/');   if(/^(Classes|Enumerate)\//.test(rel)||rel==='For Everything.md') continue;   const t=fs.readFileSync(f,'utf8'); const lines=t.split('\n');   if(lines[0]!=='---') throw new Error('no fm '+rel);   const end=lines.indexOf('---',1); if(end<0) throw new Error('no close '+rel);   const keys=lines.slice(1,end).filter(l=>/^[A-Za-z_]\w*:/.test(l)).map(l=>l.split(':')[0]);   const add=[]; if(!keys.includes('notes')) add.push('notes: []'); if(!keys.includes('next')) add.push('next:');   if(!add.length) continue;   lines.splice(end,0,...add); fs.writeFileSync(f,lines.join('\n')); n++; console.log('fixed',rel,'+',add.join(' ')); } console.log(n,'files'); EOF cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmfix.js" | tail -5 && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js" | grep -v "| ok" ; echo AUDIT-DONE`
+- ``cat > "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refscan.js" <<'EOF' const fs=require('fs'),path=require('path'); const root='D:/_Anant/20_Progress/Documents/Jarvis/30_Order'; const BS=String.fromCharCode(92); const MAP={ 'AI Conversation':'AI Conversation Export Template','Tool Logs':'AI Tool Log Template','Write Logs':'AI Write Log Template', 'Graphify Notes Template':'Graphify Repo Map Template','Repo Evaluation Template':'GitHub Repo Card Template', 'Tool Setup Template':'AI Tool Profile Template','Clipping Distill Template':'Source Summary Template', 'Audit Report Template':'Vault Audit Report Template','Weekly Synthesis Template':'Vault Weekly Synthesis Template', 'Deep Dive Template':'Evergreen Note Template','Synthesis Note Template':'Cross-Domain Synthesis Template', 'Reference Template':'Reference Guide Template','Output Template':'Interview Story Template', 'Output Bullet Template':'Portfolio Bullet Template','Output One-Pager Template':'Project One-Pager Template', 'MOC Template':'Folder MOC Template','Plan Template':'Standing Plan Template','Tracking':'Internship Tracker Template', 'List Monthly Log':'Internship Postings Log Template','Field OS Template':'Capability Field OS Template', 'Depth Ladder Template':'Capability Depth Ladder Template','Question Bank Template':'Capability Question Bank Template', 'Program Template':'Internship Program Template','Contact Template':'Internship Contact Template', 'Applying Template':'Internship Applying Template','Interview Prep Template':'Internship Interview Prep Template', 'Cover Letter Template':'Internship Cover Letter Template','Project Note Template':'Project Status Note Template', 'Agent Prompt Template':'Agent Task Prompt Template','Code Mirror Template':'Code File Mirror Template', 'Machine Runbook Template':'Machine Setup Runbook Template'}; const GONE=['Synthesis Template','Tracking Template','For AI','For Brainstorm','For Classes','For Dashboards','For Evergreen','For Inputs','For Progress','For Thoughts','MOC']; function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);} const files=walk(root).filter(f=>f.endsWith('.md')||f.endsWith('.json')).map(f=>({f,rel:path.relative(root,f).split(BS).join('/')}))  .filter(x=>!/^(Standards\/Courses|Workflows\/Courses|Templates\/Classes|Templates\/Enumerate)\//.test(x.rel)); const mode=process.argv[2]; const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); const names=[...Object.keys(MAP),...GONE]; const out={}; for(const x of files){   const t=fs.readFileSync(x.f,'utf8');   t.split('\n').forEach((line,i)=>{     for(const n of names){       const re=new RegExp('(\\[\\[(?:[^\\]|#]*/)?'+esc(n)+'(?=[\\]|#]))|(`'+esc(n)+'`)|(Templates/[A-Za-z ]+/'+esc(n)+')','g');       let m; while((m=re.exec(line))){ (out[n]=out[n]||[]).push(x.rel+':'+(i+1)+'  '+m[0]); }     }   }); } for(const n of Object.keys(out)) {console.log('## '+n+' ('+out[n].length+')'); out[n].forEach(l=>console.log('  '+l));} EOF cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refscan.js" 2>&1 | head -300``
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refmap.js" 2>&1 | head -260`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -rn --include=*.md --include=*.json -E "Templates/(Capability|Knowledge|Learning|Frontmatter|AI Toolkit|Career|Projects|System|Classes|Enumerate)|Templates/[A-Za-z .&-]+\.md|Frontmatter/" . 2>/dev/null | grep -v -E "^\./(Standards/Courses|Workflows/Courses|Templates/Classes)/|^\./System/(claude-workflow|jarvis-cli|jarvis-memory|sync-workflow)/.*(log|sqlite)" | cut -c1-230`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -rn --include=*.md -E "Transcript Template|Brief Template|Action Template|For Everything|Better (Today|Weekly|Month|Year)" . 2>/dev/null | grep -v -E "^\./(Standards/Courses|Workflows/Courses|Templates/Classes)/" | cut -c1-200`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -rhn --include=*.md -o '"template": *"[^"]*"' Standards | sort | uniq -c | sort -rn | head -60; echo ---; grep -rn --include=*.md -E "^maps_to|^template:" Standards | head -20; echo ---; sed -n 1,25p "Standards/Operations/Dashboard Standard.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/repoint.js"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/repoint.js" apply | tail -3; echo ---; git diff --stat -- 30_Order/Standards 30_Order/Workflows "30_Order/Note Type Registry.md" | tail -3; echo --- sample; git diff -U0 -- "30_Order/Note Type Registry.md" | grep '^[+-]|' | sed -n 1,16p | cut -c1-260`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node -e ' const fs=require("fs"),path=require("path"); const {MAP}=require("C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refmap.js"); const news=[...new Set(Object.values(MAP))]; let c=0; function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(d,e.name)):[path.join(d,e.name)]);} for(const f of walk(".").filter(f=>f.endsWith(".md")&&/^\.[\\/](Standards|Workflows|Note Type Registry)/.test(f)&&!/Courses/.test(f))){  let t=fs.readFileSync(f,"utf8"),o=t;  for(const n of news){ const re=new RegExp("\\[\\["+n.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"(\\\\?)\\|"+n.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"\\]\\]","g"); t=t.replace(re,"[["+n+"]]"); }  if(t!==o){fs.writeFileSync(f,t);c++;} } console.log("collapsed in",c,"files");' echo ---; grep -n "For Dashboards\|Synthesis Template, which\|not Synthesis" "Note Type Registry.md" | cut -c1-700`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/collapse.js" | tail -12`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && awk -F'|' 'NR>8 && NF>8 {gsub(/^ +| +$/,"",$2);gsub(/^ +| +$/,"",$6);gsub(/^ +| +$/,"",$7); print $2" || "$6" || "$7}' "Note Type Registry.md" | grep -v -i -E "^(class|course|degree|week|textbook|lab|homework|exam|board|discussion|preparation|syllabus)" | cut -c1-300`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -d */ && echo --- && ls 60_Claude 60_Claude/05_Clippings 60_Claude/30_Reviews 60_Claude/07_AI_Information 2>/dev/null | head -80; echo ---; ls 20_Progress 10_Areas 40_Resources | head -60`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian" && cat manifest.json | head -8; grep -o 'get_new_file_template_for_folder[^;]\{0,900\}' main.js | head -2; echo; grep -o '.\{200\}folder_templates.\{600\}' main.js | head -3`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in "10_Areas/Career/Internships/Tracker/Each One" "10_Areas/Career/Internships/Programs" "10_Areas/Career/Internships/Contacts/Each One" "10_Areas/Career/Internships/List/Dossiers" "20_Progress/Internship/Applying" "20_Progress/Internship/Cover Letters" "20_Progress/Internship/Preperation/Interviews" "20_Progress/Internship" "20_Progress/Projects" "20_Progress/Mentorship Program" "20_Progress/AI" "10_Areas/Life/Plans" "40_Resources" "60_Claude/07_AI_Information/AI Conversation - Summaries" "60_Claude/07_AI_Information/Session Logs" "60_Claude/10_Source_Summaries" "60_Claude/10_Source_Summaries/Github Ingestion" "60_Claude/20_Distilled_Notes" "60_Claude/20_Distilled_Notes/Synthesis" "60_Claude/30_Reviews/Weekly Synthesis" "60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly" "60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly" "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/Monthly" "60_Claude/40_Project_Briefs" "60_Claude/44_Indexes/Field OS" "10_Areas/Life/Enumerate"; do [ -d "$d" ] && echo "OK   $d" || echo "MISSING $d"; done; echo ---; ls "60_Claude/30_Reviews/AI" "60_Claude/30_Reviews/Monthly" | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian" && grep -o 'get_new_file_template_for_folder(t,r){.\{0,1100\}' main.js | head -1; echo; echo ====; grep -o '.\{0,500\}ignore_folders_on_creation.some.\{0,400\}' main.js | head -2; echo ====; grep -o 'stat.size.\{0,200\}' main.js | head -5`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -R "60_Claude/30_Reviews/AI/Scheduled" | head -12; ls "60_Claude/30_Reviews/AI/Toolkit" | head -5; echo; sed -n 1,30p "30_Order/Templates/System/AI/AI Tool Log Template.md"; echo ======; sed -n 1,30p "30_Order/Templates/System/AI/AI Write Log Template.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/checkrules.js" "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/templater-data.new.json"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -60`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "template missing\|maps_to\|spec.template\|s.template\|\.template" vault-lint.js | head -30`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 24,60p "Standards/Operations/Dashboard Standard.md"; echo =====; grep -rn '"template"' Standards --include=*.md | grep -v Courses | cut -c1-160; echo ====; grep -n "course-concept" -r Standards/Courses/Concept\ Standard.md | head -3; grep -n '"template"\|maps_to' -A2 Standards/Courses/Concept\ Standard.md | head -12`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && sed -n 430,468p vault-lint.js; echo ====; grep -rn "Technical Concept Template" ../../Standards ../../Workflows ../../"Note Type Registry.md" | cut -c1-200; echo ===; sed -n 24,40p "../../Standards/Projects/Technical Concept Standard.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "endsWith(" vault-lint.js | cut -c1-220`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | tail -22; echo; echo "=== specs"; node vault-lint.js --specs 2>&1 | tail -4`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && echo "== leftover old refs inside 30_Order (non-course):"; node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/refmap.js" | head -20; echo "(end)"; echo; echo "== path-style Templates/ mentions inside 30_Order:"; grep -rn --include=*.md -E "Templates/(Capability|Knowledge|Learning|Frontmatter)|For (AI|Brainstorm|Classes|Dashboards|Evergreen|Inputs|Progress|Thoughts)\b" 30_Order | grep -v -E "Standards/Courses|Workflows/Courses|System/.*(\.log|session)" | cut -c1-180 | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && P='Templates/Frontmatter|Templates/Capability|Templates/Knowledge|For Dashboards|For Evergreen|For Inputs|For Progress|For Thoughts|For Brainstorm|For Classes|For AI\]\]|Clipping Distill Template|Deep Dive Template|Synthesis Note Template|Repo Evaluation Template|Weekly Synthesis Template|Audit Report Template|Tool Setup Template|Graphify Notes Template|Output (Bullet |One-Pager )?Template|MOC Template|Plan Template|Project Note Template|Agent Prompt Template|Code Mirror Template|Machine Runbook Template|Technical Concept Template'; grep -rIl -E "$P" AGENTS.md CLAUDE.md .claude .cursor .kiro .codex 20_Progress/AI 40_Resources 60_Claude/07_AI_Information .obsidian/plugins/file-explorer-plus 2>/dev/null | grep -v "/Session Logs/" | head -40`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -o -E ".{0,60}(Templates/Knowledge|Templates/Capability|Templates/Frontmatter).{0,60}" "30_Order/Standards/AI Loop/Knowledge Noting.md"; echo ======; P='Templates/Frontmatter|Templates/Capability|Templates/Knowledge|Clipping Distill Template|Deep Dive Template|Synthesis Note Template|Repo Evaluation Template|Weekly Synthesis Template|Audit Report Template|Output (Bullet |One-Pager )?Template|MOC Template|Project Note Template|Agent Prompt Template|Code Mirror Template|Technical Concept Template'; for f in CLAUDE.md .claude/agents/learning-agent.md .claude/agents/research-distiller.md .claude/skills/note-to-actions/SKILL.md .claude/skills/transcript-to-brief/SKILL.md .cursor/rules/note-creation.mdc; do echo "## $f"; grep -n -o -E ".{0,70}($P).{0,50}" "$f" | head -6; done`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -o -E ".{0,80}(For (AI|Brainstorm|Classes|Dashboards|Evergreen|Inputs|Progress|Thoughts)\b).{0,60}" "30_Order/Standards/AI Loop/Knowledge Noting.md"; git status --short | grep -v "^ M \"60_Claude/05_Clippings" | awk '{print $1}' | sort | uniq -c; echo; git status --short -- 30_Order/Templates | awk '{print $1}' | sort | uniq -c`
+- `node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/resolve.js"`
 

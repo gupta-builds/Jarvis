@@ -10,7 +10,7 @@ system_kind: standard
 family: ai-conversation
 tier: 1
 maps_to:
-  - "[[30_Order/Templates/AI Toolkit/AI Conversation|AI Conversation]]"
+  - "[[AI Conversation Export Template]]"
 used_by:
   - "[[Conversation Capture]]"
   - "[[Conversations Loop]]"

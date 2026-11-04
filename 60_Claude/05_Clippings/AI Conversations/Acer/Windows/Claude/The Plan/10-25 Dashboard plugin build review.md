@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-11-04T00:50:31
-exported_at: 2026-11-04T01:33:17
-duration_minutes: 13237.9
+ended_at: 2026-11-04T01:42:13
+exported_at: 2026-11-04T02:03:21
+duration_minutes: 13289.6
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
@@ -15,7 +15,7 @@ status: seed
 review_state: raw
 created: 2026-10-25
 updated: 2026-11-04
-turn_count: 26
+turn_count: 27
 tools_used:
   Agent: 3
   AskUserQuestion: 12
@@ -18126,6 +18126,225 @@ Spec - Streak and Daily Note.md | dashes 0 | --- 2 | stale-Ran 0 | stage-refs 2 
 Spec - Time Layer.md | dashes 0 | --- 2 | stale-Ran 0 | stage-refs 0 | missing: none
 files with a hard problem: 4
 ```
+
+## You
+
+This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.
+
+<system-reminder>
+<tools-used-before-summary>Agent, AskUserQuestion, Bash, Edit, Grep, Read, Skill, ToolSearch, WebFetch, WebSearch, Write, [REDACTED], [REDACTED]</tools-used-before-summary>
+</system-reminder>
+Summary:
+## 1. Primary Request and Intent
+
+**Earlier phases (done).**
+- Phase A: a review of The Plan's Obsidian dashboard plugin, its notes and its builds. This produced the postmortem findings.
+- Phase B: a design questionnaire finalizing the new day model, page, views, time layer and feeds. This produced the Decisions Log rows 52 to 92.
+- Phase C: the design notes were enriched, the four daily templates were updated, the stale notes were archived, and the Postmortem and Research notes were written.
+
+**Current request (Phase D), the user's most recent explicit instruction.**
+Write the prompts for the build in `40_Resources/Obsidian/Dashboards/Builds`. The user said:
+- The folder was rearranged to fit the `Ran` folder inside it.
+- All the notes that are created are outside `Ran`. `Ran` is for files that are expired or post-build.
+- Follow the Sonnet 5.5 prompting guide (https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]) at high effort, and research the official prompting guides too.
+- Write a very clear goal for each heavy-lifting session.
+- Each prompt is a "phase". A phase completes before the next one starts.
+- About 10 phases, though more or fewer is fine. Each prompt must carry very hard material.
+- The last prompt must verify and finish everything left over from all previous builds, read through the entire build, and tell the user briefly where the build stands.
+- Phase 0 must take care of everything "put off for later" in the sessions, by documenting or actually fixing it. Every deferral must be marked and known to that session.
+- Step 1 is to make the dashboard usable (editable) based on all the designed infrastructure.
+- The result must be a concrete base to be practised and complained about, so it can be archived for a later upgrade.
+
+## 2. Key Technical Concepts
+
+**Plugin and engine**
+- Obsidian plugin `the-plan-dashboard`. React 19, esbuild, TypeScript. `isDesktopOnly: false`. Repo at `D:\_Anant\20_Progress\Projects\the-plan-dashboard`.
+- Shared pure engine `plan-cli` (`plan-cli.cjs`, deployed to `30_Order/System/plan-cli/`) used by plugin, CLI, hooks and skills.
+- Tests: 87 existing, run by `scripts/test.mjs` (esbuild bundle + `node --test`). Python parity tests may skip because `python` is a Windows Store stub.
+- Obsidian API: `Vault.process` is atomic. `processFrontMatter` is used only for numbers. Events are registered inside `onLayoutReady`. `cachedRead` is for display and `read` for modification.
+
+**Day model**
+- The 80 and 20 habit lines are the data. A day is MET when every 80 line is ticked. One forgiven miss, and two in a row reset the streak. Best streak counts closed days only.
+- The identity is the last `**bold**` span on a habit line. Levels at 3/7/21/66/100 with fixed titles.
+- Plan window (`plan_start`/`plan_end` in the 12 Weeks note) is empty and decided later. The page shows a banner and a fallback streak.
+- Rule: a null is never a zero and never a pass.
+- Sections are found by heading text at any level. A body runs until the next heading of the same or shallower level. `created` may be blank.
+- Six write primitives with a stale-line check: tick, edit line, set number, add line, set callout line, create.
+- Eighteen validator rules. A cutover keeps the old five-category path for old notes.
+
+**Page and feeds**
+- One page with no vertical scroll. Only written text scrolls, sideways. ResizeObserver scaling. Phone tabs.
+- Time layer: `## Time` overview, `00_Live/Enumerate/Time/YYYY-MM-DD.md` log, entry format `- HH:MM-HH:MM label [proj:: name]`, Toggl import with a yes.
+- Career strip written by `/startday` from Jarvis into `## Career`, because a plugin cannot open another vault or start a skill.
+- `Due Friday` heading in the weekly note.
+- Consistency check across the two daily notes via `daily-auditor`, report only.
+
+**Prompting guidance applied (read 2026-11-04)**
+- Effort: set high in the session.
+- XML tags per content type.
+- The "keep working" and "stop and report" paragraphs from the Sonnet 5.5 page.
+- The verification paragraph ("run a real check that exercises the change").
+- A reversibility block.
+- State in files plus git checkpoints for multi-window work.
+- No hard-coding for test inputs.
+- Hooks for hard rules.
+- Five pre-launch questions for unattended runs.
+- Clear the session after two failed corrections.
+
+## 3. Files and Code Sections
+
+**Created this phase, all in `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Builds\`:**
+
+- **`Build Phases.md`** (type project, `project_kind: plan`). It holds:
+  - Goal, Status, and "How to run a phase". Fresh Claude Code session, Sonnet 5.5, effort high set in the session, `/add-dir` the repo, `/clear` between phases.
+  - The phase table (0 to 10) with one-sentence goals and gates.
+  - The coverage map: phase to features, verification rows and Deferred rows.
+  - The **Shared preamble** in a ```text fence, to be pasted first. It has XML blocks `role`, `project`, `how_this_build_is_run`, `keep_working`, `stop_when_done`, `verification`, `research`, `investigate_before_answering`, `progress`, `safety`, `vault_rules`, `subagents_and_parallel_work`, `when_you_are_stuck`, `questions` and `report`.
+  - A section on how the prompts follow the guidance, plus Non-Goals.
+- **`Deferred Register.md`**: 45 rows (D01 to D45), all Open. Columns are ID, Item, Where pushed off, Owner, Action, State.
+  - Sections: A, decisions and inputs that belong to Anant; B, design items left for their own session; C, verification never run; D, drift found after design; E, reference notes and rules that must follow the build.
+  - Examples:
+    - D01 `plan_start`/`plan_end`.
+    - D04/D05 Toggl.
+    - D07 Keys rotation in `40_Resources/CS/Links.md` (no phase opens it).
+    - D08 private remote.
+    - D12 task automation Layer 4 (Held).
+    - D33 template drift (`# Time` H1, blank `created`).
+    - D34 Ran path drift.
+    - D37 Python parity.
+    - D38 `Dashboards/Daily` empty folder (Held).
+- **`Phase 0 - Sweep and Foundation.md`**: Sweep. No product code changes. The prompt has 9 work packages:
+  - baseline `npm test` and `npm run build`, and commit the 3 uncommitted files locally;
+  - read-only vault state check, including the deployed engine and the Daily folder names;
+  - drift fixes: `Dashboards/Ran` to `Dashboards/Builds/Ran`, heading-level and blank-`created` wording in the specs, and old stage P# to Phase mapping;
+  - make the Deferred Register true;
+  - create the Phase status and Feature status tables (F1 to F47) in the Build Log;
+  - add an Owner phase column to Verification and Risks;
+  - Anant's checklist;
+  - the remote question, with `gh auth status` and a personal-prose check before any push;
+  - append the Build Log entry.
+- **`Phase 1 - Engine Parsing and Edits.md`**:
+  - Fixtures and hand-derived expectations are committed before code.
+  - Deliverables: section finder, habit reader, day reader, the 6 pure edit functions, null and warning codes.
+  - Fixtures must not contain real journal prose.
+- **`Phase 2 - Engine Rules and Scores.md`**: plan window, day status, streak, identities, scores, time module, 18 validator rules, cutover, ISO week-year labels, model object. It requires a before and after record of the old path on 14 old notes, plus a 90-day synthetic check.
+- **`Phase 3 - Command Line, Hooks and Doctor.md`**:
+  - Commands: `streak`, `day`, `identities`, `plan`, `time`, `review` (updated), `validate`, `hook`, `doctor` (10 checks).
+  - Safe deploy of `plan-cli.cjs` with a rollback copy.
+  - Anant's yes is needed before deploy. The hooks must fail closed.
+- **`Phase 4 - Usable Plugin.md`**:
+  - Rebuild the plugin on the new engine.
+  - Live test on one real note, restored byte for byte.
+  - Deploy to `.obsidian/plugins/the-plan-dashboard/` with a yes.
+  - Reload only this plugin via `obsidian plugin:reload`.
+  - Homepage steps for Anant.
+- **`Phase 5 - The Page.md`**:
+  - All blocks, scaling, banners.
+  - Playwright installed and run.
+  - Three page tests, plus an equality test against `plan-cli` for 30 days.
+  - Real pane measurement and first paint.
+- **`Phase 6 - Phone, Tokens and Accessibility.md`**:
+  - Tab layout at 393x852 and 700x800.
+  - Tokens and contrast tests.
+  - Keyboard and reduced motion.
+  - Live theme variables.
+  - Phone steps for Phase 9.
+- **`Phase 7 - Standards, Skills and Templates.md`**:
+  - Patches in groups A to E, shown as numbered diffs, each needing Anant's yes.
+  - Targets: the Standards, skills, `daily-auditor`, review notes.
+  - Fixture dry runs, including a rerun that must replace and not append.
+- **`Phase 8 - Feeds.md`**:
+  - Time block and log, Toggl import script (mock server, live dry run only with a yes, token never read).
+  - Friday strip data and writers.
+  - Career schema, parser and writer.
+  - Consistency check.
+- **`Phase 9 - Deploy and Verify on Devices.md`**:
+  - Deploy, doctor on both laptops, device checklists.
+  - The 12 acceptance items.
+  - Plugin decision list (evidence only, nothing removed).
+  - Reference notes.
+  - A CLAUDE.md diff that needs a yes.
+  - Push only with a yes.
+- **`Phase 10 - Final Verification and Close.md`**:
+  - Reviewer mode: run everything, read the build, set honest states for the 47 features, 23 rows and Register rows.
+  - Fix only small leftovers.
+  - Add a Postmortem "After the upgrade" section.
+  - Ask about archiving the phase notes into `Builds/Ran`.
+  - Close the Build Log.
+  - A brief chat report in a given format.
+
+**Edited this phase**
+- `Dashboard Build/Sonnet 5.5 Prompt Rules.md`: appended "Reading of 2026-11-04: the eleven build phases", a table mapping guidance to application. It includes a note that the helper agent's report was harness-flagged as instruction-shaped and none of it was followed as an instruction. Frontmatter `updated` and `next` were edited.
+- `Decisions Log.md`: added rows 93 to 98 (build prompts; where prompts live; Phase 0; order of phases; handoff via files; commits and pushes). A blank line that split the table was removed.
+- `Dashboards Hub.md`: Status date 2026-11-04. Prompts row now says written. Added Build Phases and Deferred Register to the map. Ran paths changed to `Builds/Ran`. `next` points to Phase 0.
+- `Build Plan.md`: Sequence rewritten as the 11-phase table with links.
+- `Dashboard Build/Build Log.md`: appended the "2026-11-04, build prompts written" entry.
+- `Builds/Prompts.md` (old) was moved to `Builds/Ran/Prompts.md`.
+
+**State of earlier files (unchanged this phase).** Templates in `30_Order/Templates/Daily Dashboard` (user-edited: H1 headings, blank `created`). Specs, Architecture, Front End, Verification (23 rows), Postmortem, Research - Outside Sources, 12 Weeks note draft, and `Builds/Ran` (Build Prompts, Build Steps, Plugin Build Prompts, Research - Jarvis Dashboard Findings, Review - Corrections, Prompts).
+
+## 4. Errors and fixes
+
+- A Bash heredoc containing the literal `.obsidian` was blocked by the PreToolUse hook: "A shell command that writes under .obsidian is blocked. Ask Anant first." Fix: redid those edits with the Edit tool. Avoid typing that string inside Bash commands.
+- An earlier Bash command naming the archive folder was blocked ("50_Archive is never read or written"). Fix: avoid naming it, and exclude `^(50|60)_` folders in scripts.
+- A node heredoc escape (`/\\/g`) broke a regex. Fix: wrote the checker with the Write tool, using `path.sep` and `split().join('/')`.
+- Two awkward lines in the Phase 0 prompt were fixed.
+- A blank line in the Decisions Log split the table after row 92. It was removed.
+- Obsidian CLI `move` failed because the destination folder did not exist (earlier). Fix: create the folder first.
+- No user feedback criticized the work this phase.
+
+## 5. Problem Solving
+
+- Reordered phases so the engine comes before the plugin and the CLI before the skills. This avoids broken skills and a plugin that computes. The usable plugin comes at Phase 4 so Anant can use it early.
+- Placed deferred items in one living register, so Phase 0 verifies them rather than relying on chat memory.
+- Handled the user's template edits by making the specs and the Phase 0 prompt heading-level agnostic and `created`-optional, without editing the templates.
+- Designed safe deploy of `plan-cli.cjs` (rollback copy, test against the hook protocol first), because the hooks run it and fail closed.
+- Chose the Career route via `/startday` so the plugin never opens Jarvis and the strip works on the phone.
+- Ongoing: the last check found leftover stale `Dashboards/Ran` paths and old `stage P#` names, mostly intentional or Phase 0's job. Four files were flagged as "hard problems" only by false positives (links into `60_Jarvis` that the checker skips) or an old `File.base` link in an old note.
+
+## 6. All user messages
+
+1. (Earlier, compacted) The Plan dashboard review request, the Jarvis design session, and the answers to the questionnaires. Summarized in section 1.
+2. "This session has run for roughly 2 weeks ... make sure that the notes listed out ... current build notes only and the design is updated ... each and every single note to be rich ... even null entries ... plan_start and plan_end ... decided later on. ... yes cause these already ran. Do not write the prompts. redesign all the notes ... update these templates ... `30_Order/Templates/Daily Dashboard` ... If there is anything left, take care of it by asking me questions or deleting the existing note ... Wrap the session up here. Write out all the content discovered here."
+3. AskUserQuestion answers: Review - Corrections to Earlier Notes goes to Ran; Research - Jarvis Dashboard Findings goes to Ran; keep the empty `Daily` folder.
+4. **The current request**: "write the prompts for the build now, you are going to write prompts over here: `40_Resources/Obsidian/Dashboards/Builds`. The folder was rearranged to fit the ran folder inside it. So all the note that are created our outside the ran folder. The ran folder is for files that are expired are post build ... Follow this prompting guide for the model sonnet 5.5 on high effort ... `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]`, also research for official prompting guides and write a very clear goal for each heavy lifting session. Each prompt is designed to carry a heavy lifting task ... each prompt is called a phase and each phase is completed only then the next phase is completed ... the last prompt should verify and finish every single thing that is left over from all the previous builds ... simple read through the entire build ... tell me a brief detail of where we currently stand on the build completion. I am thinking 10 phases ... For the starters ... I want to run a p0 phase here first that takes care of all the details that we have said to be carried out later on. Make sure to document and mark each and every single that we pushed off for later ... so that this p0 takes care of it by documenting or actually fixing it ... Step - 1, to actually use it. So, to make it usable we first need to be able to edit and actually use it based on all the infrastructure and designed that is described."
+
+## 7. Pending Tasks
+
+- Finish the leftover consistency work on the new notes, then report to the user. The prompts themselves are written and complete:
+  - Decide whether to clean the stale `Dashboards/Ran` and `stage P#` mentions now or leave them to Phase 0 (Register D34 and D35). Phase 0 is designed to do this sweep. Clean-up now would be optional.
+  - Check whether the `File.base` wikilink in `Research - Obsidian Dashboard Methods.md` is a real broken link (it is an old note).
+- Final report to the user: what was written (13 notes in `Builds/`), the phase list and gates, the key findings, and what the user does next.
+- No phase has run. Phase 0 is next, and it is Anant's to start in a fresh session.
+
+## 8. Current Work
+
+Immediately before this summary request, I had finished writing all 13 prompt notes in `Builds/` and updating the Hub, Build Plan, Decisions Log, Sonnet 5.5 Prompt Rules and Build Log. I had just run the checker script `chk2.js` over every live Dashboards note. It showed:
+- zero em dashes;
+- exactly 2 `---` lines in every file;
+- every phase note and `Build Phases` free of missing links;
+- some leftover `Dashboards/Ran` and `stage P#` strings in older notes, with several occurrences in Phase 0, Phase 10 and the Register being intentional quotes;
+- the "hard problem" count of 4 consisting of false positives from links into the skipped `60_Jarvis` folder and an old `File.base` link.
+
+No tool call was in progress. The final user-facing report had not been written.
+
+## 9. Optional Next Step
+
+Write the plain-text final report to the user, directly in line with the request "write the prompts for the build now". The report should:
+- say all eleven phase prompts, the shared preamble, the coverage map and the Deferred Register are written in `40_Resources/Obsidian/Dashboards/Builds/`;
+- list the phases (0 sweep and foundation; 1 engine parsing and edits; 2 engine rules and scores; 3 CLI, hooks and doctor; 4 usable plugin; 5 the page; 6 phone, tokens and accessibility; 7 Standards, skills and templates; 8 feeds; 9 deploy and verify on devices; 10 final verification and close);
+- note that the old `Prompts` note was moved into `Builds/Ran`;
+- note what was researched (three official pages) and how it was applied;
+- note that no phase has run and nothing was built or tested;
+- note that stale `Dashboards/Ran` and `stage P#` mentions remain in older notes as Phase 0 work (D34 and D35);
+- tell the user to start Phase 0 in a fresh Sonnet 5.5 session at high effort by pasting the shared preamble and then the Phase 0 prompt, and to expect questions at the remote step.
+
+Do not start any build or edit anything further without the user's confirmation.
+
+If you need specific details from before compaction (like exact code snippets, error messages, or content you generated), read the full transcript at: C:\Users\anant\.claude\projects\[REDACTED]\[REDACTED].jsonl
+Continue the conversation from where it left off without asking the user any further questions. Resume directly — do not acknowledge the summary, do not recap what was happening, do not preface with "I'll continue" or similar. Pick up the last task as if the break never happened.
+
+The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
 ## Actions Taken
 

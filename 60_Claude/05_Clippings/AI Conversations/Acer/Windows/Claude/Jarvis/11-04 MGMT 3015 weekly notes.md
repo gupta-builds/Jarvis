@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "MGMT 3015 weekly notes"
 started_at: 2026-11-04T02:35:58
-ended_at: 2026-11-04T13:16:33
-exported_at: 2026-11-04T13:16:34
-duration_minutes: 640.6
+ended_at: 2026-11-04T13:59:42
+exported_at: 2026-11-04T13:59:43
+duration_minutes: 683.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
 session_id: c76cb2c6-8ae8-451e-990f-c5168ae0dab8
@@ -15,7 +15,7 @@ status: seed
 review_state: raw
 created: 2026-11-04
 updated: 2026-11-04
-turn_count: 6
+turn_count: 8
 tools_used:
   Bash: 41
   Edit: 9
@@ -24,12 +24,12 @@ tools_used:
   Read: 29
   Write: 9
 tokens:
-  input: 136
-  output: 124324
-  cache_creation: 637854
-  cache_read: 15992179
-  total: 16754493
-cost_usd: 5.394146
+  input: 140
+  output: 126628
+  cache_creation: 638043
+  cache_read: 16353727
+  total: 17118538
+cost_usd: 5.454105
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -3193,6 +3193,49 @@ node notes.js
 total 301
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint
 ```
+
+## You
+
+Too long too complicated to read and look up to the class. The speaker notes read of the slides directly almost. Our job is to let the audience read the slide where we talk about everything that we wish to talk about. I want the last slide to not talk about what we learnt in this course, i want it to talk about the real world - why? how? who? Why does this product exist, how does this product solve the problem you are facing in why? Who does this product solve this issue for? that's pretty much it about the product and if you think someone would be interested in this let us know. 
+
+So, cut short the speaker notes to not read of the slides and change the closing statement
+
+## Claude
+
+Here is the shorter version. Each slide now has a few spoken lines that add to what's on screen, so the audience reads the slide while you talk. The last slide is rewritten around why, how and who.
+
+## Slide 13: Launch roadmap (about 30 seconds)
+> We don't ask anyone to trust a guess. Before we build, we ask golfers if they'd actually buy. Before we make a single kit, they pay on Kickstarter. So by the time we ship, a thousand golfers have already said yes.
+
+**Look up on:** "a thousand golfers have already said yes."
+
+## Slide 14: Year-3 goals (about 30 seconds)
+> These are our targets, not promises. What I'd point to is what sits behind them. Golfers lose balls and wear them out, so they keep coming back. That's what makes this a business and not a gadget. Forty thousand golfers finally seeing what their swing is doing.
+
+**Look up on:** "a business and not a gadget."
+
+## Slide 15: Closing (about 55 seconds)
+> **Why does PinBall exist?** Golfers want to know how they really hit the ball. The tools that tell them cost hundreds, even thousands of dollars, and you haul them to the range and set them up every time.
+>
+> **How do we solve it?** The sensor is the ball. Hit it, and your phone shows speed, strike and where it went. Nothing to carry. Nothing to set up.
+>
+> **Who is it for?** The golfer grinding at the range who wants to get better and doesn't want to spend $500 to find out. And the coach working with a whole team.
+>
+> *[pause]* If that's you, or someone you know, let us know. **Never lose sight of your game.**
+
+**Look up on:** each bold question as you ask it, then the last line.
+
+At a steady pace this runs about 1:50. The extra 30 to 40 seconds of your 2:30 is room for pauses and for slowing down on the last lines. I deliberately didn't pad it.
+
+## Who would be interested
+The audience that would care most is the one your slides already name:
+- **Frequent range golfers aged 18 to 50 (your stat grinders).** They already pay for practice and want data without a $500 device.
+- **Coaches and school or college teams.** They need data on many players at once, which is the $499/yr plan.
+- **Driving ranges and simulator owners.** Your year-3 venue customers.
+
+I can't tell you whether they would actually buy. Your Q1 2027 survey and test landing page are the real answer, which is why slide 13 leads with them. If someone in the room plays a lot of golf or coaches, they are your best test of the closing line right now.
+
+The earlier slide edits still stand: pick one app price across slides 7, 9, 11 and 16, and recheck the 54% gross margin.
 
 ## Actions Taken
 

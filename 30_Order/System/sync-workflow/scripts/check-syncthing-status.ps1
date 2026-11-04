@@ -204,7 +204,33 @@ try {
             }
         })
     }
+    # 2026-11-04: on the Windows 11 build here the GUI socket on 127.0.0.1:8384
+    # flaps between LISTENING, FIN_WAIT_1 and absent in netstat and
+    # Get-NetTCPConnection while Syncthing serves the GUI and API normally (sampled
+    # every 3 seconds: LISTENING in 1 of 8 samples). A LISTENING-only test then
+    # reported "not running" every few runs, restarted a second instance for no
+    # reason and exited 1. When no listener row exists, the unauthenticated health
+    # endpoint plus a live syncthing process is proof enough that it is running.
+    $apiAnswers = $false
+    $stProcs = @()
     if ($listeners.Count -eq 0) {
+        $stProcs = @(Get-Process -Name syncthing -ErrorAction SilentlyContinue)
+        if ($stProcs.Count -ge 1) {
+            try {
+                $health = Invoke-RestMethod -Uri "$SyncthingUrl/rest/noauth/health" -Method Get -TimeoutSec 5
+                $apiAnswers = ($health.status -eq 'OK')
+            } catch { }
+        }
+    }
+    if ($listeners.Count -eq 0 -and $apiAnswers) {
+        Write-Output "Port 8384 is not listed as LISTENING right now, but the API answers and Syncthing is running; treating it as running."
+        try {
+            $exePath = $stProcs[0].Path
+            if ($exePath -and (Test-Path -LiteralPath $exePath)) {
+                Set-Content -LiteralPath $ExePathCacheFile -Value $exePath -Encoding utf8 -NoNewline
+            }
+        } catch { }
+    } elseif ($listeners.Count -eq 0) {
         # Self-heal (Build 13, 2026-10-06): a Logon-triggered Scheduled Task
         # named "Syncthing" already exists to start it at sign-in, but a
         # logon trigger only fires on an actual Windows logon - it does not

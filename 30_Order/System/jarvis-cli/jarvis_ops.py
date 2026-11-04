@@ -471,7 +471,8 @@ def find_wikilinks(text: str) -> Iterable[str]:
 
 
 def clean_wikilink_target(raw_target: str) -> str:
-    target = raw_target.split("|", 1)[0].split("#", 1)[0].strip()
+    # A wikilink inside a Markdown table escapes its alias pipe as "\|".
+    target = re.split(r"\\?\|", raw_target, maxsplit=1)[0].split("#", 1)[0].strip()
     if target.lower().endswith(".md"):
         target = target[:-3]
     return target

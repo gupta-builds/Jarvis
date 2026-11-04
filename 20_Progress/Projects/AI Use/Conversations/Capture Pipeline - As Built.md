@@ -63,7 +63,7 @@ The seven-step list leaves two records of a run: the activity line (step 3) and 
 ## Other Paths
 - **WSL:** `wsl-session-export.ps1` under `pwsh` in WSL, hooks in `~/.claude/settings.json`, systemd user timer `claude-capture-backfill` every 30 minutes. Acer WSL (`Ubuntu-24.04`) was Stopped on 2026-10-21; its newest note is 2026-10-17.
 - **Cowork:** swept from `%APPDATA%\Claude\local-agent-mode-sessions` on SessionEnd, grouped by month under `<Machine>\Windows\Claude\Cowork\<YYYY-MM>\`. No session after July.
-- **Cursor:** a Windows scheduled task on the Dell, `Jarvis-Cursor-Session-Export`, every 15 minutes, joining agent-transcript JSONL with the SQLite `composerHeaders` table. Not registered on the Acer. See [[30_Order/System/cursor-workflow/README|Cursor Workflow]].
+- **Cursor:** a Windows scheduled task on the Dell, `Jarvis-Cursor-Session-Export`, every 15 minutes, joining agent-transcript JSONL with the SQLite `composerHeaders` table. Not registered on the Acer. See [[30_Order/System/cursor-workflow/Cursor Workflow|Cursor Workflow]].
 ## Non-Goals
 This note does not say what the pipeline should do, does not cover distillation or review, and makes no claim about the Dell or WSL beyond the sources named. Redaction coverage, re-export cost, and Claude Code version drift are open questions in the postmortem, not answered here.
 ## Corrections

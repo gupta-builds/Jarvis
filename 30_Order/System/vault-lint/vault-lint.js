@@ -403,11 +403,14 @@ if (!SPECS_ONLY && !KIT) {
 const kitIssues = [];
 function kitCheck() {
   const add = (sev, file, msg) => kitIssues.push({ sev, file, msg });
-  const o30 = mdFiles.filter((f) => f.rel.startsWith('30_Order/') && !f.rel.startsWith('30_Order/System/'));
+  // The duplicate-name check covers all of 30_Order, System included (the six
+  // same-named README.md files slipped through when System was skipped). The empty-file
+  // check still skips System, where Sync Alert Banner.md is empty by design when healthy.
+  const o30 = mdFiles.filter((f) => f.rel.startsWith('30_Order/'));
   const nameMap = {};
   for (const f of o30) {
     const size = fs.statSync(f.abs).size;
-    if (size === 0) add('error', f.rel, 'empty file');
+    if (size === 0 && !f.rel.startsWith('30_Order/System/')) add('error', f.rel, 'empty file');
     const b = path.basename(f.rel, '.md').toLowerCase();
     (nameMap[b] = nameMap[b] || []).push(f.rel);
   }

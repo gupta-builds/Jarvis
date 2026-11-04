@@ -24,7 +24,7 @@ inside WSL it reads local paths and opens a copied DB if the live one is locked.
 Trigger: NOT a Cursor sessionEnd hook. For vscode-remote+wsl workspaces,
 Cursor loads hooks from the WSL user path (~/.cursor/hooks.json), not the
 Windows one — confirmed in cursor.hooks logs (User config path:
-\\home\\anant_gupta\\.cursor\\hooks.json). A WSL-side sessionEnd cannot
+\\home\\<wsl-user>\\.cursor\\hooks.json). A WSL-side sessionEnd cannot
 reliably open the Windows SQLite store. Automation is a Windows Task
 Scheduler sweep (same eventually-consistent pattern as Cowork).
 
@@ -56,28 +56,41 @@ from redact_secrets import redact_secrets
 SCRIPT_DIR = Path(__file__).resolve().parent
 WORKFLOW_DIR = SCRIPT_DIR.parent
 
+def find_windows_profile_from_wsl(users_root: Path = Path("/mnt/c/Users")) -> Path:
+    """Inside WSL: the Windows user profile that holds Cursor's data.
+
+    WINDOWS_USERPROFILE (a /mnt/c/... path) overrides. Otherwise the first folder
+    under /mnt/c/Users that has AppData/Roaming/Cursor. If none exists the result is
+    a path that does not exist, so a later read fails visibly instead of guessing.
+    """
+    env = os.environ.get("WINDOWS_USERPROFILE")
+    if env:
+        return Path(env)
+    try:
+        for profile in sorted(users_root.iterdir()):
+            if (profile / "AppData" / "Roaming" / "Cursor").is_dir():
+                return profile
+    except OSError:
+        pass
+    return users_root / "no-windows-profile-with-cursor-found"
+
+
+# The vault is four folders above this script (30_Order/System/cursor-workflow/scripts).
+VAULT_CONV = SCRIPT_DIR.parent.parent.parent.parent / "60_Claude" / "05_Clippings" / "AI Conversations"
+
 if os.name == "nt":
-    APPDATA = Path(os.environ.get("APPDATA", r"C:\Users\Anant Gupta\AppData\Roaming"))
-    USERPROFILE = Path(os.environ.get("USERPROFILE", r"C:\Users\Anant Gupta"))
-    DEFAULT_DB = APPDATA / "Cursor" / "User" / "globalStorage" / "state.vscdb"
-    WORKSPACE_STORAGE = APPDATA / "Cursor" / "User" / "workspaceStorage"
-    WIN_CURSOR_PROJECTS = USERPROFILE / ".cursor" / "projects"
-    VAULT_CONV = SCRIPT_DIR.parent.parent.parent.parent / "60_Claude" / "05_Clippings" / "AI Conversations"
+    APPDATA = Path(os.environ.get("APPDATA") or Path.home() / "AppData" / "Roaming")
+    USERPROFILE = Path(os.environ.get("USERPROFILE") or Path.home())
 else:
-    DEFAULT_DB = Path(
-        "/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User/globalStorage/state.vscdb"
-    )
-    WORKSPACE_STORAGE = Path(
-        "/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User/workspaceStorage"
-    )
-    WIN_CURSOR_PROJECTS = Path("/mnt/c/Users/Anant Gupta/.cursor/projects")
-    VAULT_CONV = Path(
-        "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"
-        "/60_Claude/05_Clippings/AI Conversations"
-    )
+    USERPROFILE = find_windows_profile_from_wsl()
+    APPDATA = USERPROFILE / "AppData" / "Roaming"
+
+DEFAULT_DB = APPDATA / "Cursor" / "User" / "globalStorage" / "state.vscdb"
+WORKSPACE_STORAGE = APPDATA / "Cursor" / "User" / "workspaceStorage"
+WIN_CURSOR_PROJECTS = USERPROFILE / ".cursor" / "projects"
 
 STATE_FILE = WORKFLOW_DIR / "cursor-export-state.json"
-WSL_HOME_PROJECTS = Path("/home/anant_gupta/.cursor/projects")  # when running in WSL
+WSL_HOME_PROJECTS = Path.home() / ".cursor" / "projects"  # when running in WSL
 
 
 # --- Helpers ---------------------------------------------------------------
@@ -120,9 +133,38 @@ def detect_wsl_distro() -> str:
     return "Ubuntu"
 
 
+def wsl_home_unc(distro: str) -> Path:
+    """The WSL user's home folder as a Windows UNC path, asked from WSL itself.
+
+    WSL_HOME (a Linux path such as /home/name) overrides the question. If WSL cannot
+    be asked, the first folder under \\\\wsl.localhost\\<distro>\\home that has a
+    .cursor folder is used.
+    """
+    base = Path(rf"\\wsl.localhost\{distro}")
+    home = os.environ.get("WSL_HOME", "").strip()
+    if not home:
+        try:
+            raw = subprocess.check_output(
+                ["wsl", "-d", distro, "-e", "sh", "-c", "echo $HOME"],
+                stderr=subprocess.DEVNULL, timeout=15,
+            )
+            home = raw.decode("utf-8", errors="replace").strip()
+        except (subprocess.SubprocessError, FileNotFoundError, OSError):
+            home = ""
+    if home.startswith("/"):
+        return base / home.lstrip("/").replace("/", "\\")
+    try:
+        for user_dir in sorted((base / "home").iterdir()):
+            if (user_dir / ".cursor").is_dir():
+                return user_dir
+    except OSError:
+        pass
+    return base / "home" / "no-wsl-home-with-cursor-found"
+
+
 def wsl_projects_root(distro: str) -> Path:
     if os.name == "nt":
-        return Path(rf"\\wsl.localhost\{distro}\home\anant_gupta\.cursor\projects")
+        return wsl_home_unc(distro) / ".cursor" / "projects"
     return WSL_HOME_PROJECTS
 
 
@@ -265,7 +307,7 @@ def route_workspace(folder_uri: str) -> tuple[str, str, str]:
         return "wsl", project, path
 
     if lower.startswith("file://wsl$") or lower.startswith("file://wsl%24"):
-        # file://wsl$/Ubuntu/home/anant_gupta/...
+        # file://wsl$/Ubuntu/home/<wsl-user>/...
         rest = raw.split("://", 1)[1]  # wsl$/Ubuntu/home/...
         parts = rest.split("/")
         # drop wsl$ and distro

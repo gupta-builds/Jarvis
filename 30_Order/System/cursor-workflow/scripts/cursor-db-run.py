@@ -31,13 +31,35 @@ def wsl_path_to_windows(path: str) -> str:
     return f"{drive}:\\{rest}"
 
 
+def windows_profile() -> Path | None:
+    """The Windows user profile: USERPROFILE on Windows, WINDOWS_USERPROFILE (a
+    /mnt/c/... path) in WSL, else the first /mnt/c/Users/* that has an AppData folder."""
+    for name in ("USERPROFILE", "WINDOWS_USERPROFILE"):
+        value = os.environ.get(name, "").strip()
+        if value:
+            return Path(value)
+    try:
+        for profile in sorted(Path("/mnt/c/Users").iterdir()):
+            if (profile / "AppData" / "Local").is_dir():
+                return profile
+    except OSError:
+        pass
+    return None
+
+
 def windows_python_candidates() -> list[str]:
     candidates = [
         os.environ.get("CURSOR_WINDOWS_PYTHON", ""),
         r"C:\Python313\python.exe",
-        r"C:\Users\Anant Gupta\AppData\Local\Programs\Python\Python313\python.exe",
-        r"C:\Users\Anant Gupta\AppData\Local\Microsoft\WindowsApps\python.exe",
     ]
+    profile = windows_profile()
+    if profile is not None:
+        local = profile / "AppData" / "Local"
+        try:
+            candidates += [str(p) for p in sorted((local / "Programs" / "Python").glob("Python3*/python.exe"), reverse=True)]
+        except OSError:
+            pass
+        candidates.append(str(local / "Microsoft" / "WindowsApps" / "python.exe"))
     seen: set[str] = set()
     out: list[str] = []
     for c in candidates:
@@ -77,7 +99,7 @@ def main() -> None:
         print(
             "Usage: cursor-db-run.py <script.py> [script args...]\n"
             "Example: cursor-db-run.py list-cursor-composers.py --jarvis-only --limit 5 "
-            "--db '/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User/globalStorage/state.vscdb'",
+            "--db '/mnt/c/Users/<windows-user>/AppData/Roaming/Cursor/User/globalStorage/state.vscdb'",
             file=sys.stderr,
         )
         sys.exit(1)

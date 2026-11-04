@@ -7,9 +7,9 @@
 # again and retry once before giving up and logging the conflict for a human.
 #
 # Operates on whatever branch is currently checked out, deliberately
-# branch-agnostic, so this same script keeps working unchanged once the
-# working tree moves from infra/cross-laptop-sync to master for real
-# day-to-day use (the roadmap's locked-in direct-to-master strategy).
+# branch-agnostic. Since 2026-11-04 that branch is master, tracking
+# origin/master (direct-to-master). The vault root comes from this script's own
+# location (four folders up), never from a fixed path.
 #
 # A dry run with nothing to commit exits 0 with nothing staged, never
 # creates an empty commit.

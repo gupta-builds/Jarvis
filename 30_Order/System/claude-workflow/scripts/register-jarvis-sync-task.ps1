@@ -9,12 +9,19 @@ $TaskName = "SecondBrainClaudekit-JarvisSync"
 $WinLauncherDir = $PSScriptRoot
 $WinLauncher = Join-Path $WinLauncherDir "sync-jarvis-silent.vbs"
 
-$RepoLauncher = "\\wsl.localhost\Ubuntu\home\anant_gupta\projects\ai\claude\second-brain-claudekit\50_Claude\scripts\sync-jarvis-silent.vbs"
+# The repo copy lives in the WSL user's home. Ask WSL for that home instead of
+# naming one user; if WSL cannot be asked, $RepoLauncher stays empty and the
+# Windows-side copy is used as it is.
+$WslHome = (& wsl.exe -d Ubuntu -e sh -c 'echo $HOME' 2>$null | Select-Object -First 1)
+$RepoLauncher = ""
+if ($WslHome -and ([string]$WslHome).StartsWith("/")) {
+    $RepoLauncher = "\\wsl.localhost\Ubuntu" + (([string]$WslHome).Trim() -replace '/', '\') + "\projects\ai\claude\second-brain-claudekit\50_Claude\scripts\sync-jarvis-silent.vbs"
+}
 
 New-Item -ItemType Directory -Path $WinLauncherDir -Force | Out-Null
 
 # Keep the Windows-side copy in sync with the repo source of truth
-if (Test-Path -LiteralPath $RepoLauncher) {
+if ($RepoLauncher -and (Test-Path -LiteralPath $RepoLauncher)) {
     Copy-Item -LiteralPath $RepoLauncher -Destination $WinLauncher -Force
 } elseif (-not (Test-Path -LiteralPath $WinLauncher)) {
     Write-Error "Missing silent launcher at both $RepoLauncher and $WinLauncher"

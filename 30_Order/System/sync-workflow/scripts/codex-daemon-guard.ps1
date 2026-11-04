@@ -47,9 +47,22 @@ function Write-GuardLog {
 function Get-CodexCommand {
     $cmd = Get-Command codex.cmd -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
     if ($cmd) { return $cmd.Source }
-    $fallback = 'D:\AI\npm-global\codex.cmd'
-    if (Test-Path -LiteralPath $fallback) { return $fallback }
-    throw 'codex.cmd not found on PATH or at D:\AI\npm-global'
+    # A scheduled task may not have npm's folder on PATH. Try CODEX_CMD, then npm's
+    # global prefix (asked from npm when it is available), then the default %APPDATA%\npm.
+    $fallbacks = @()
+    if ($env:CODEX_CMD) { $fallbacks += $env:CODEX_CMD }
+    $npm = Get-Command npm.cmd -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($npm) {
+        try {
+            $prefix = (& $npm.Source config get prefix 2>$null | Select-Object -First 1)
+            if ($prefix) { $fallbacks += (Join-Path ([string]$prefix).Trim() 'codex.cmd') }
+        } catch { }
+    }
+    $fallbacks += (Join-Path $env:APPDATA 'npm\codex.cmd')
+    foreach ($fallback in $fallbacks) {
+        if (Test-Path -LiteralPath $fallback) { return $fallback }
+    }
+    throw 'codex.cmd not found on PATH, in CODEX_CMD, in the npm global prefix or in %APPDATA%\npm'
 }
 
 # Windows PowerShell 5.1 turns a native command's stderr into a terminating error under

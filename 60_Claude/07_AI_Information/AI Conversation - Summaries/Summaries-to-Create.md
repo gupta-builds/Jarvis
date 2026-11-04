@@ -25,7 +25,7 @@ Statements only: each names a raw session picked by a signal (what it is about, 
 - [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/09-28 CSCI 5304 lecture note prompts|09-28 CSCI 5304 lecture note prompts]] cost $96 over 55 turns.
 - [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-01 CSCI 4061 course preparation and concept notes|10-01 CSCI 4061 course preparation and concept notes]] cost $76 over 29 turns.
 - [[60_Claude/05_Clippings/AI Conversations/Acer/WSL/Claude/anant_gupta/09-19 Terminal environment research and optimization|09-19 Terminal environment research and optimization]] cost $58 over 25 turns.
-- [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/09-27 Syncthing conflict files across Jarvis laptops|09-27 Syncthing conflict files across Jarvis laptops]] cost $48 over 10 turns and bears on [[30_Order/System/sync-workflow/README|the sync workflow]].
+- [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/09-27 Syncthing conflict files across Jarvis laptops|09-27 Syncthing conflict files across Jarvis laptops]] cost $48 over 10 turns and bears on [[30_Order/System/sync-workflow/Sync Workflow|the sync workflow]].
 - [[60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/09-24 Course catch-up and board notes overhaul|09-24 Course catch-up and board notes overhaul]] cost $46 over 38 turns.
 ## Highest cost on the Dell
 - [[60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis/07-03 jarvis-os-fable-execution|07-03 jarvis-os-fable-execution]] cost $280 in 9 turns, the largest single session in the archive.

@@ -26,7 +26,7 @@ param(
     [string]$NotesRoot = "",
     [string]$TranscriptsRoot = "",
     [string]$RoutingFile = "",
-    [string]$ArchiveRoot = "D:\_Anant\99_Archive\Acer Conversation Reroute 2026-10-22",
+    [string]$ArchiveRoot = "",
     [switch]$Apply
 )
 
@@ -35,7 +35,9 @@ $ErrorActionPreference = "Stop"
 $argNotes = $NotesRoot
 $argTranscripts = $TranscriptsRoot
 $argRouting = $RoutingFile
-$argArchive = $ArchiveRoot
+# Default archive: 99_Archive in the folder three levels above the vault (outside the
+# vault), found from this script's own location (seven folders up from scripts\).
+$argArchive = if ($ArchiveRoot) { $ArchiveRoot } else { [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot "..\..\..\..\..\..\..\99_Archive\Acer Conversation Reroute 2026-10-22")) }
 $doApply = [bool]$Apply
 
 . (Join-Path $PSScriptRoot "export-claude-session.ps1")

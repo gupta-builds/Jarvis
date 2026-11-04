@@ -98,7 +98,7 @@ while ($true) {
     if ($errCode -eq "server_not_running" -and -not $startedServer) {
         $startedServer = $true
         if (-not (Start-MineruServer)) {
-            Write-Output "MINERU ERROR: the server did not start. Run 'mineru server start', then 'mineru server status --json', and read C:\Users\anant\.mineru\logs\doclib.stderr.log."
+            Write-Output "MINERU ERROR: the server did not start. Run 'mineru server start', then 'mineru server status --json', and read $env:USERPROFILE\.mineru\logs\doclib.stderr.log."
             exit 1
         }
         continue

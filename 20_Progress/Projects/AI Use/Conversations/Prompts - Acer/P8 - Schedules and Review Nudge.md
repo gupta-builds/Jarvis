@@ -65,7 +65,7 @@ Before your first tool call, say in one sentence what you are about to do. After
 3. Write the silent VBS launcher and scripts/register-conversation-digest-task.ps1 on the weekly-review pair's pattern, with a local start time and start-when-available.
 4. Test: run the runner for a past week; run it twice and confirm the skeleton is untouched the second time; register with -Apply; run Start-ScheduledTask; read LastTaskResult (must be 0), the log line, and the new files; read the task XML and the next-run time as described in the constraints.
 5. Add the /startday nudge: while the newest AI Tools Weekly Review note has status seed, add "Do the weekly conversation review" to Today's Focus every day, with its age in days once it is over 7, and mention a skipped week.
-6. Update the Schedule section with the new row and a verified result, update the trigger table in 30_Order/System/claude-workflow/README.md, and add the Log line to Conversation Layer.md.
+6. Update the Schedule section with the new row and a verified result, update the trigger table in 30_Order/System/claude-workflow/Claude Workflow.md, and add the Log line to Conversation Layer.md.
 </steps>
 
 <verification>

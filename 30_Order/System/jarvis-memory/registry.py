@@ -28,7 +28,7 @@ import sqlite3
 import sys
 from pathlib import Path
 
-SKIP_TOP = {".git", ".obsidian", ".claude", ".cursor", ".kiro", ".codex", "50_Archive"}
+SKIP_TOP = {".git", ".obsidian", ".claude", ".cursor", ".kiro", ".codex", ".stversions", "50_Archive"}
 SCHEMA_FILE = Path(__file__).with_name("schema.sql")
 DB_FILE = Path(__file__).with_name("registry.sqlite")
 
@@ -74,10 +74,29 @@ def extract_frontmatter(text: str) -> dict[str, str]:
     meta: dict[str, str] = {}
     for line in match.group(1).splitlines():
         kv = re.match(r"^([A-Za-z0-9_ -]+):\s*(.*)$", line)
-        if kv and kv.group(2).strip():
-            value = kv.group(2).strip().strip('"').strip("'")
-            meta.setdefault(kv.group(1).strip(), value)
+        if kv:
+            value = clean_scalar(kv.group(2))
+            if value:
+                meta.setdefault(kv.group(1).strip(), value)
     return meta
+
+
+def clean_scalar(raw: str) -> str:
+    """One frontmatter scalar without its YAML inline comment or empty-list markers.
+
+    Template frontmatter such as `type: # thought | input | class` or `track: []`
+    otherwise lands in the index as a type or track value.
+    """
+    raw = raw.strip()
+    if raw[:1] in ('"', "'"):
+        quote = raw[0]
+        end = raw.find(quote, 1)
+        value = raw[1:end] if end > 0 else raw[1:]
+    else:
+        value = re.sub(r"(^|\s)#.*$", "", raw).strip()
+    if value in ("[]", "{}", "null", "~"):
+        return ""
+    return value.strip()
 
 
 def index(root: Path) -> int:

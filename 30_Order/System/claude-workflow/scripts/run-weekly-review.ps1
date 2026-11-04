@@ -34,7 +34,12 @@ try {
     Write-Log "Starting headless /weekly-review run"
 
     $prompt = "/weekly-review`n`nThis is an unattended, headless run via the Jarvis-WeeklyReview scheduled task - no human is present. Per the skill's own headless rule for Step 7.5 (Log Maintenance): do not delete any log content even if a log is over its cap - only summarize and flag it in this week's synthesis note's Vault Health section for a human to trim later in an interactive session."
-    $claudeExe = "$env:USERPROFILE\.local\bin\claude.exe"
+    $claudeExe = Join-Path $env:USERPROFILE ".local\bin\claude.exe"
+    if (-not (Test-Path $claudeExe)) {
+        # Not in the default install folder: use a claude.exe that PATH resolves, if any.
+        $found = Get-Command claude -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($found) { $claudeExe = $found.Source }
+    }
     if (-not (Test-Path $claudeExe)) {
         Write-Log "EXCEPTION  claude.exe not found at $claudeExe - Task Scheduler cannot rely on PATH resolution"
         exit 1

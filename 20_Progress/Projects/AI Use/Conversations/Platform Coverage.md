@@ -14,7 +14,7 @@ notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Capture Pipeline - As Built|Capture Pipeline]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Legacy Layout and Archives|Legacy Layout and Archives]]"
-  - "[[30_Order/System/cursor-workflow/README|Cursor Workflow]]"
+  - "[[30_Order/System/cursor-workflow/Cursor Workflow|Cursor Workflow]]"
   - "[[10_Areas/AI/Setup/Conversation Map|Conversation Map]]"
 ---
 # Platform Coverage

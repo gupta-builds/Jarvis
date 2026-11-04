@@ -14,8 +14,8 @@ notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Capture Pipeline - As Built|Capture Pipeline]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]]"
-  - "[[30_Order/System/claude-workflow/README|Claude Workflow]]"
-  - "[[30_Order/System/cursor-workflow/README|Cursor Workflow]]"
+  - "[[30_Order/System/claude-workflow/Claude Workflow|Claude Workflow]]"
+  - "[[30_Order/System/cursor-workflow/Cursor Workflow|Cursor Workflow]]"
 ---
 # Capture Scripts
 ## What This Is
@@ -70,7 +70,7 @@ One card per script, as the code stands on 2026-10-21. Paths are relative to `30
 - `scripts/register-jarvis-sync-task.ps1` with `sync-all-silent.vbs` and `sync-jarvis-silent.vbs`: the Unison leg that mirrors `second-brain-claudekit`'s `.claude` layer into the vault.
 - `distilled-sessions.json` and `_retired-2026-07-31/`: leftovers that no script reads.
 ## Cursor
-`30_Order/System/cursor-workflow/scripts/` holds 14 files (Python and PowerShell): `export-cursor-sessions.py` and `sweep-cursor-sessions.ps1` do the work, `redact_secrets.py` is a separate redaction implementation, `register-cursor-export-task.ps1` registers the Dell task. See [[30_Order/System/cursor-workflow/README|Cursor Workflow]].
+`30_Order/System/cursor-workflow/scripts/` holds 14 files (Python and PowerShell): `export-cursor-sessions.py` and `sweep-cursor-sessions.ps1` do the work, `redact_secrets.py` is a separate redaction implementation, `register-cursor-export-task.ps1` registers the Dell task. See [[30_Order/System/cursor-workflow/Cursor Workflow|Cursor Workflow]].
 ## Documented limits the scripts were not written against
 - The exporters parse the transcript JSONL directly. The docs call that format internal and likely to break on any release, and name `transcript_path`, `/export`, and `claude -p --output-format stream-json` as supported routes.
 - The hook reads five fields of a larger payload. Hook events for failures, permission denials, subagent stops, compaction, and loaded instruction files (`PostToolUseFailure`, `PermissionDenied`, `SubagentStop`, `PreCompact`, `InstructionsLoaded`) are not registered.

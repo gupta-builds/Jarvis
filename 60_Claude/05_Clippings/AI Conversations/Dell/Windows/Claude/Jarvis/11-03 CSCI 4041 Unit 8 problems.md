@@ -6,7 +6,7 @@ source_os: windows
 title: "CSCI 4041 Unit 8 problems"
 started_at: 2026-11-03T19:57:29
 ended_at: 2026-11-03T20:56:29
-exported_at: 2026-11-03T22:00:02
+exported_at: 2026-11-03T23:00:13
 duration_minutes: 59
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

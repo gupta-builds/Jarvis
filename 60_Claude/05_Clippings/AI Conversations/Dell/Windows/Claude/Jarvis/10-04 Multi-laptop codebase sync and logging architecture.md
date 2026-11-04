@@ -1,4 +1,4 @@
-﻿---
+---
 type: input
 input_kind: ai-conversation
 source_app: claude-code
@@ -6,12 +6,15 @@ source_os: windows
 title: "Multi-laptop codebase sync and logging architecture"
 started_at: 2026-10-04T14:34:24
 ended_at: 2026-10-14T09:44:01
-exported_at: 2026-10-19T22:30:02
+exported_at: 2026-11-03T23:00:03
 duration_minutes: 14109.6
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: 075cedc3-5257-4629-9761-c6a9cda504a0
-status: raw
+status: seed
+review_state: raw
+created: 2026-10-04
+updated: 2026-11-03
 turn_count: 19
 tools_used:
   Agent: 3
@@ -24,12 +27,12 @@ tools_used:
   Read: 21
   Write: 2
 tokens:
-  input: 258
-  output: 438756
-  cache_creation: 2340982
-  cache_read: 19047407
-  total: 21827403
-cost_usd: 17.561485
+  input: 82
+  output: 119098
+  cache_creation: 693094
+  cache_read: 6251665
+  total: 7063939
+cost_usd: 5.213853
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -86,8 +89,8 @@ Both research passes are running in the background - one on the cross-laptop cod
 
 ### Tool Calls
 
-- `Agent` -- `{"subagent_type":"fork","description":"Research cross-laptop codebase sync history","prompt":"Focus only on the \"codebase/dev-environment sync between the two laptops\" thread of the user\u0027s last message - ignore the Jarvis-logging-failure thread, a parallel fork is covering that.\n\nDo this research (read-only, use mcp__jarvis__* tools, Read, Glob, Grep):\n\n1. Read every note under `40_Resources/CS/Concepts/New Laptop` in the Jarvis vault (D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis). List what\u0027s actually documented: WSL distro/setup, installed tools, terminal setup, repo locations, Tailscale/networking, anything laptop-spec related.\n2. Search the vault (mcp__jarvis__search_query / search_simple, and Grep over the filesystem) for prior brainstorming on this exact problem: terms like \"dev container\", \"devcontainer\", \"remote-ssh\", \"Remote-SSH\", \"Tailscale\", \"two laptops\", \"cross-laptop\", \"codebase sync\", \".claude sync\", \"worktree\", \"git worktree\", \"same page script\", \"sync daemon\". Find any notes (brainstorm, project, thought type) where this was debated before and what conclusion (if any) was reached, including WHY prior attempts (syncing, git-with-gitignore, wired connections) were rejected.\n3. Read the existing memory/project note on cross-laptop sync if you can find a corresponding vault note - search for \"cross-laptop\" or \"sync\" in 20_Progress/ and 60_Claude/07_AI_Information/Session Logs/log.md (recent entries) to see what \"Build 8\" and \"Dell follow-up\" (2026-09-28) actually did - this was about syncing the Jarvis VAULT itself via git auto-sync hooks, which is DIFFERENT from syncing dev repos (second-brain-claudekit, internship-research-loop, The Plan, gupta-builds) and their .claude/ config folders. Confirm this distinction is correct and note any overlap.\n4. Check what currently exists on the new laptop re: the 5 repos the user named (second-brain-claudekit, internship-research-loop, Jarvis, The Plan, gupta-builds) - any notes describing their WSL directory structure, what\u0027s cloned, what\u0027s configured.\n5. Look for any note describing the \"Jarvis as mediator\" two-way unison sync concept for .claude folders / instructional files across repos - this seems to be a previously-stated design intent. Find it if it exists and summarize its current state (designed only? partially built? working?).\n\nReport back (under 700 words, structured with headers, no AI slop, cite file paths):\n- What\u0027s actually configured on each laptop right now (inventory)\n- What\u0027s been debated/tried before for codebase sync specifically, and why each option was rejected or stalled\n- The current state of the \"Jarvis as mediator for .claude sync\" design\n- Any gaps between what the user believes is true and what the notes actually show\n"}`
-- `Agent` -- `{"subagent_type":"fork","description":"Audit Jarvis session/tool-usage logging failures","prompt":"Focus only on the \"where has Jarvis failed at logging/recording AI session and tool usage\" thread of the user\u0027s last message - ignore the cross-laptop codebase sync thread, a parallel fork is covering that.\n\nDo this research (read-only, use mcp__jarvis__* tools, Read, Glob, Grep):\n\n1. Read `10_Areas/AI/Folder Map.md`, `10_Areas/AI/Notes Map.md`, and `10_Areas/AI/Gaps.md` in full (Jarvis vault at D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis). These are flagged as the current source of truth on AI-folder state as of 2026-08-09. Extract every concrete stall/gap listed, especially: WSL/Cowork capture, review system unwired, no cron jobs.\n2. Read `60_Claude/07_AI_Information/AI_CONTEXT.md` and the tail of `60_Claude/07_AI_Information/Session Logs/log.md` (last ~30 entries) - look for patterns of what gets logged vs skipped, how consistently session logs actually get written, and any explicit notes about skill/agent/hook usage NOT being tracked.\n3. Search for and read any notes describing the \"AI Conversation Archive Pipeline\" (Claude Code + Cowork capture via global SessionEnd hook; Kiro/WSL scaffolded but not wired; Cursor built separately) - find the actual note(s), confirm current wiring status for each platform (Claude Code, Cowork, Kiro, Cursor, Codex, Agy/Agy-like tools, Claude chat/claude.ai).\n4. Search for whether skill usage, subagent usage, and hook-firing events are logged ANYWHERE (e.g. does `export-ai-session` skill or any other skill actually produce a durable record of which skills/agents/hooks fired in a session, or is this aspirational/not built). Check `.claude/skills/export-ai-session` or equivalent skill definition files in the repo for what it actually does vs what\u0027s claimed.\n5. Check whether any scheduled/cron jobs exist anywhere in this repo or on the system for vault maintenance, review generation, or log distillation (the Gaps note apparently says \"no cron jobs exist\" - verify current truth, don\u0027t just trust the old note).\n6. Note any explicit \"weekly / monthly / per-session / per-prompt review\" cadence that\u0027s supposed to exist per CLAUDE.md\u0027s Session End Protocol and 30_Order/ workflows - check if `60_Claude/50_Reviews/` and `60_Claude/30_Reviews/Weekly Synthesis/` actually have regular entries or are sparse/stale (there\u0027s an uncommitted file `60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W40.md` per git status - check if prior weeks exist too).\n\nReport back (under 700 words, structured with headers, no AI slop, cite file paths and actual counts/dates where relevant):\n- Per-platform capture status (Claude Code, Cowork, Kiro, Cursor, Codex, chat/claude.ai, and note that local LLM tooling - Ollama/Hermes/Jan/Kronos - has no capture at all yet since it\u0027s not installed)\n- Whether skill/agent/hook usage is tracked anywhere today (likely answer: no - confirm)\n- Review cadence health: are weekly/monthly reviews actually happening on schedule or sporadic\n- Any cron/automation infrastructure that exists today vs what\u0027s aspirational\n- The single biggest concrete gap you\u0027d flag first if asked \"what has Jarvis failed at recording\"\n"}`
+- `Agent` -- ``{"subagent_type":"fork","description":"Research cross-laptop codebase sync history","prompt":"Focus only on the \"codebase/dev-environment sync between the two laptops\" thread of the user\u0027s last message - ignore the Jarvis-logging-failure thread, a parallel fork is covering that.\n\nDo this research (read-only, use mcp__jarvis__* tools, Read, Glob, Grep):\n\n1. Read every note under `40_Resources/CS/Concepts/New Laptop` in the Jarvis vault (D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis). List what\u0027s actually documented: WSL distro/setup, installed tools, terminal setup, repo locations, Tailscale/networking, anything laptop-spec related.\n2. Search the vault (mcp__jarvis__search_query / search_simple, and Grep over the filesystem) for prior brainstorming on this exact problem: terms like \"dev container\", \"devcontainer\", \"remote-ssh\", \"Remote-SSH\", \"Tailscale\", \"two laptops\", \"cross-laptop\", \"codebase sync\", \".claude sync\", \"worktree\", \"git worktree\", \"same page script\", \"sync daemon\". Find any notes (brainstorm, project, thought type) where this was debated before and what conclusion (if any) was reached, including WHY prior attempts (syncing, git-with-gitignore, wired connections) were rejected.\n3. Read the existing memory/project note on cross-laptop sync if you can find a corresponding vault note - search for \"cross-laptop\" or \"sync\" in 20_Progress/ and 60_Claude/07_AI_Information/Session Logs/log.md (recent entries) to see what \"Build 8\" and \"Dell follow-up\" (2026-09-28) actually did - this was about syncing the Jarvis VAULT itself via git auto-sync hooks, which is DIFFERENT from syncing dev repos (second-brain-claudekit, internship-research-loop, The Plan, gupta-builds) and their .claude/ config folders. Confirm this distinction is correct and note any overlap.\n4. Check what currently exists on the new laptop re: the 5 repos the user named (second-brain-claudekit, internship-research-loop, Jarvis, The Plan, gupta-builds) - any notes describing their WSL directory structure, what\u0027s cloned, what\u0027s configured.\n5. Look for any note describing the \"Jarvis as mediator\" two-way unison sync concept for .claude folders / instructional files across repos - this seems to be a previously-stated design intent. Find it if it exists and summarize its current state (designed only? partially built? working?).\n\nReport back (under 700 words, structured with headers, no AI slop, cite file paths):\n- What\u0027s actually configured on each laptop right now (inventory)\n- What\u0027s been debated/tried before for codebase sync specifically, and why each option was rejected or stalled\n- The current state of the \"Jarvis as mediator for .claude sync\" design\n- Any gaps between what the user believes is true and what the notes actually show\n"}``
+- `Agent` -- ``{"subagent_type":"fork","description":"Audit Jarvis session/tool-usage logging failures","prompt":"Focus only on the \"where has Jarvis failed at logging/recording AI session and tool usage\" thread of the user\u0027s last message - ignore the cross-laptop codebase sync thread, a parallel fork is covering that.\n\nDo this research (read-only, use mcp__jarvis__* tools, Read, Glob, Grep):\n\n1. Read `10_Areas/AI/Folder Map.md`, `10_Areas/AI/Notes Map.md`, and `10_Areas/AI/Gaps.md` in full (Jarvis vault at D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis). These are flagged as the current source of truth on AI-folder state as of 2026-08-09. Extract every concrete stall/gap listed, especially: WSL/Cowork capture, review system unwired, no cron jobs.\n2. Read `60_Claude/07_AI_Information/AI_CONTEXT.md` and the tail of `60_Claude/07_AI_Information/Session Logs/log.md` (last ~30 entries) - look for patterns of what gets logged vs skipped, how consistently session logs actually get written, and any explicit notes about skill/agent/hook usage NOT being tracked.\n3. Search for and read any notes describing the \"AI Conversation Archive Pipeline\" (Claude Code + Cowork capture via global SessionEnd hook; Kiro/WSL scaffolded but not wired; Cursor built separately) - find the actual note(s), confirm current wiring status for each platform (Claude Code, Cowork, Kiro, Cursor, Codex, Agy/Agy-like tools, Claude chat/claude.ai).\n4. Search for whether skill usage, subagent usage, and hook-firing events are logged ANYWHERE (e.g. does `export-ai-session` skill or any other skill actually produce a durable record of which skills/agents/hooks fired in a session, or is this aspirational/not built). Check `.claude/skills/export-ai-session` or equivalent skill definition files in the repo for what it actually does vs what\u0027s claimed.\n5. Check whether any scheduled/cron jobs exist anywhere in this repo or on the system for vault maintenance, review generation, or log distillation (the Gaps note apparently says \"no cron jobs exist\" - verify current truth, don\u0027t just trust the old note).\n6. Note any explicit \"weekly / monthly / per-session / per-prompt review\" cadence that\u0027s supposed to exist per CLAUDE.md\u0027s Session End Protocol and 30_Order/ workflows - check if `60_Claude/50_Reviews/` and `60_Claude/30_Reviews/Weekly Synthesis/` actually have regular entries or are sparse/stale (there\u0027s an uncommitted file `60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W40.md` per git status - check if prior weeks exist too).\n\nReport back (under 700 words, structured with headers, no AI slop, cite file paths and actual counts/dates where relevant):\n- Per-platform capture status (Claude Code, Cowork, Kiro, Cursor, Codex, chat/claude.ai, and note that local LLM tooling - Ollama/Hermes/Jan/Kronos - has no capture at all yet since it\u0027s not installed)\n- Whether skill/agent/hook usage is tracked anywhere today (likely answer: no - confirm)\n- Review cadence health: are weekly/monthly reviews actually happening on schedule or sporadic\n- Any cron/automation infrastructure that exists today vs what\u0027s aspirational\n- The single biggest concrete gap you\u0027d flag first if asked \"what has Jarvis failed at recording\"\n"}``
 
 ## You
 
@@ -295,26 +298,26 @@ Per [[feedback_highstakes_infra_small_builds]], each of these gets handed to its
 ```diff
 - **Both laptops now**: git-auto-sync independently coordinating with Syncthing, `Jarvis-Syncthing-Health` running every 5 min on both, correct `fsWatcherDelayS`/versioning settings on both, zero live conflict files on either. **Still open on both**: the leaked OpenAI/Copilot credentials-backup file needs deleting and the underlying key rotating (deleted only on the Acer so far).
 + **Both laptops now**: git-auto-sync independently coordinating with Syncthing, `Jarvis-Syncthing-Health` running every 5 min on both, correct `fsWatcherDelayS`/versioning settings on both, zero live conflict files on either. **Still open on both**: the leaked OpenAI/Copilot credentials-backup file needs deleting and the underlying key rotating (deleted only on the Acer so far).
-
-## Separate thread, 2026-10-04: dev-repo codebase sync (not vault sync) already has an unexecuted answer
-
-User asked whether to sync *dev-repo codebases* (second-brain-claudekit, internship-research-loop, The Plan, gupta-builds — distinct from Jarvis vault sync above) across the two laptops via SSH-remote or a dev container. This isn't a fresh decision: `Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md` (`40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/`), written same-day and not yet run, already specifies Dell-as-host + VS Code Remote-SSH over Tailscale + GitHub-only backup + git worktrees for parallel work — matching a design the user was independently handed. It's built on this memory's own already-settled "codebase sync strategy... rely on git discipline, not new sync tooling" line plus Build 4's concrete incident (a live Next.js app's `.git`/`node_modules`/`.env.local` synced by accident) — i.e. "don't live-sync codebases" was already paid for, not theorized.
-
-Also clarified: `second-brain-claudekit-jarvis-unison-sync.md` (the "`.claude` folder mirrored into Jarvis" mechanism) is **one-way only** (`force_source: true`, WSL checkout → vault, for visibility), not the two-way unison sync the user believed existed. Full verdict + a proposed build list (run Prompt 2; decide one-way-vs-two-way for the `.claude` mirror as its own build; a watchdog layer; Cowork/Kiro wiring; Codex/Agy/chat capture; local-model logging spec) written to [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]] in the vault at `60_Claude/40_Project_Briefs/`.
++ 
++ ## Separate thread, 2026-10-04: dev-repo codebase sync (not vault sync) already has an unexecuted answer
++ 
++ User asked whether to sync *dev-repo codebases* (second-brain-claudekit, internship-research-loop, The Plan, gupta-builds — distinct from Jarvis vault sync above) across the two laptops via SSH-remote or a dev container. This isn't a fresh decision: `Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md` (`40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/`), written same-day and not yet run, already specifies Dell-as-host + VS Code Remote-SSH over Tailscale + GitHub-only backup + git worktrees for parallel work — matching a design the user was independently handed. It's built on this memory's own already-settled "codebase sync strategy... rely on git discipline, not new sync tooling" line plus Build 4's concrete incident (a live Next.js app's `.git`/`node_modules`/`.env.local` synced by accident) — i.e. "don't live-sync codebases" was already paid for, not theorized.
++ 
++ Also clarified: `second-brain-claudekit-jarvis-unison-sync.md` (the "`.claude` folder mirrored into Jarvis" mechanism) is **one-way only** (`force_source: true`, WSL checkout → vault, for visibility), not the two-way unison sync the user believed existed. Full verdict + a proposed build list (run Prompt 2; decide one-way-vs-two-way for the `.claude` mirror as its own build; a watchdog layer; Cowork/Kiro wiring; Codex/Agy/chat capture; local-model logging spec) written to [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]] in the vault at `60_Claude/40_Project_Briefs/`.
 ```
 - `Edit` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\memory\project_ai_conversation_archive.md`
 ```diff
 - **Next / not yet done:** Kiro (Windows + WSL) and Claude Code on WSL have folder scaffolding but no junction, no hook, no parser — WSL has a completely separate `~/.claude` (different Linux home dir), and PowerShell isn't WSL's native runtime, so each needs its own build, not a copy-paste of this one. See [[feedback_permission_classifier_infra_changes]] before attempting any of them solo, and see [[feedback_verify_dont_assume_powershell]] for the idempotency-testing lesson.
 + **Next / not yet done:** Kiro (Windows + WSL) and Claude Code on WSL have folder scaffolding but no junction, no hook, no parser — WSL has a completely separate `~/.claude` (different Linux home dir), and PowerShell isn't WSL's native runtime, so each needs its own build, not a copy-paste of this one. See [[feedback_permission_classifier_infra_changes]] before attempting any of them solo, and see [[feedback_verify_dont_assume_powershell]] for the idempotency-testing lesson.
-
-**Update, 2026-10-04 (re-verified live, not from old notes):** WSL Claude Code capture is actually live now — a hook crash that had stalled it was fixed 2026-08-19, and raw notes exist through at least 08-20 across several repos. **Cowork capture is confirmed dead**, not just "stalled": its `Tool log.md` is 0 bytes and zero Cowork sessions have ever been distilled; last known raw activity 2026-07-24, never independently re-checked since — nobody would know if it resumed or stayed dead. Kiro remains scaffolded-only. Cursor remains the only platform with real distilled summaries end to end. **Skill-usage tracking (`export-ai-session` → `Tool log.md` at `60_Claude/30_Reviews/AI/Toolkit/`) has exactly one row ever, dated 2026-08-19** — the mechanism works but is manual-only (no hook/cron trigger) and nobody has run it since. No pipeline exists at all for Codex, Agy, or claude.ai chat. Full audit + proposed fixes (a watchdog over these mechanisms, since every failure above was caught by a human noticing late, not an alert) in [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]].
++ 
++ **Update, 2026-10-04 (re-verified live, not from old notes):** WSL Claude Code capture is actually live now — a hook crash that had stalled it was fixed 2026-08-19, and raw notes exist through at least 08-20 across several repos. **Cowork capture is confirmed dead**, not just "stalled": its `Tool log.md` is 0 bytes and zero Cowork sessions have ever been distilled; last known raw activity 2026-07-24, never independently re-checked since — nobody would know if it resumed or stayed dead. Kiro remains scaffolded-only. Cursor remains the only platform with real distilled summaries end to end. **Skill-usage tracking (`export-ai-session` → `Tool log.md` at `60_Claude/30_Reviews/AI/Toolkit/`) has exactly one row ever, dated 2026-08-19** — the mechanism works but is manual-only (no hook/cron trigger) and nobody has run it since. No pipeline exists at all for Codex, Agy, or claude.ai chat. Full audit + proposed fixes (a watchdog over these mechanisms, since every failure above was caught by a human noticing late, not an alert) in [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]].
 ```
 - `Edit` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\memory\project_ai_folder_map_2026-08-09.md`
 ```diff
 - Since these three notes are new and unmaintained-yet, treat them as a snapshot that will drift — re-verify specific claims (especially timestamps and "stalled since" dates) before acting on them if this memory or the notes themselves are more than a few weeks old. See [[Vault Note Writing Rules]] and [[Templater Literal Syntax Gotcha]] for related formatting/session lessons from other work in this vault.
 + Since these three notes are new and unmaintained-yet, treat them as a snapshot that will drift — re-verify specific claims (especially timestamps and "stalled since" dates) before acting on them if this memory or the notes themselves are more than a few weeks old. See [[Vault Note Writing Rules]] and [[Templater Literal Syntax Gotcha]] for related formatting/session lessons from other work in this vault.
-
-**Path correction, 2026-10-04:** these three notes now live at `10_Areas/AI/Setup/Folder Map.md`, `Notes Map.md`, `Gaps.md` (moved under a `Setup/` subfolder at some point after 2026-08-09 — not at the bare `10_Areas/AI/` path this memory originally gave). Re-verified live rather than re-read cold: Weekly Synthesis review cadence had a **17-week gap** (W22 → W39) that only closed because `Jarvis-WeeklyReview`, a Scheduled Task its own docs claimed was "registered 2026-09-20," hadn't actually been registered until 2026-09-28; Monthly Review has exactly one entry ever (2026-06); 12 active automation scripts were found with the old laptop's path hardcoded in, silently no-op-ing with no Scheduled Task registered for any of them on the new laptop. The recurring pattern: real logging/review mechanisms exist, but nothing checks whether they're still firing — every catch so far has been a human noticing drift months late. Full detail in [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]].
++ 
++ **Path correction, 2026-10-04:** these three notes now live at `10_Areas/AI/Setup/Folder Map.md`, `Notes Map.md`, `Gaps.md` (moved under a `Setup/` subfolder at some point after 2026-08-09 — not at the bare `10_Areas/AI/` path this memory originally gave). Re-verified live rather than re-read cold: Weekly Synthesis review cadence had a **17-week gap** (W22 → W39) that only closed because `Jarvis-WeeklyReview`, a Scheduled Task its own docs claimed was "registered 2026-09-20," hadn't actually been registered until 2026-09-28; Monthly Review has exactly one entry ever (2026-06); 12 active automation scripts were found with the old laptop's path hardcoded in, silently no-op-ing with no Scheduled Task registered for any of them on the new laptop. The recurring pattern: real logging/review mechanisms exist, but nothing checks whether they're still firing — every catch so far has been a human noticing drift months late. Full detail in [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]].
 ```
 - `Read` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\memory\MEMORY.md`
 - `Edit` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\memory\MEMORY.md`
@@ -399,7 +402,10 @@ You've hit your session limit · resets 4:50pm (America/Chicago)
 - `Grep` -- pattern `laptop` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\internship-research-loop\CLAUDE.md`
 - `Grep` -- pattern `laptop` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\second-brain-claudekit\CLAUDE.md`
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\internship-research-loop\CLAUDE.md`
-- `Bash` -- `powershell -NoProfile -Command "(Get-Item 'D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\internship-research-loop\CLAUDE.md').LastWriteTime; (Get-Item 'D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\second-brain-claudekit\CLAUDE.md').LastWriteTime"`
+- `Bash`
+```bash
+powershell -NoProfile -Command "(Get-Item 'D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\internship-research-loop\CLAUDE.md').LastWriteTime; (Get-Item 'D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\second-brain-claudekit\CLAUDE.md').LastWriteTime"
+```
 ```
 Saturday, September 5, 2026 4:20:04 PM
 Saturday, September 5, 2026 12:30:07 PM
@@ -416,7 +422,7 @@ Saturday, September 5, 2026 12:30:07 PM
 - `mcp__firecrawl__firecrawl_search` -- `{"query":"WSL2 mirrored networking mode reach service running inside WSL from outside network without installing tailscale in WSL","limit":6}`
 - `mcp__firecrawl__firecrawl_search` -- `{"query":"\"mirrored\" networking WSL2 inbound connections firewall Windows Defender port forwarding from outside","limit":6}`
 - `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Codebases\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md`
-```
+````
 ---
 type: project
 status: active
@@ -546,7 +552,7 @@ No new research changed this from the prior brief: Remote-SSH runs VS Code's bac
 - `code.visualstudio.com/docs/remote/tunnels` — Remote Tunnels' VS-Code-must-be-running constraint.
 - This vault: `internship-research-loop-new-laptop-directive.md`, `second-brain-claudekit-new-laptop-directive.md`, `Old Laptop Rebuild - Prompt 1 WSL.md`, `Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md`, `Old Laptop Rebuild - Index.md`, `Cross-Laptop Sync - Known Failure Modes and Prevention.md`.
 
-```
+````
 
 ## You
 
@@ -583,35 +589,35 @@ Per your own instruction, I didn't touch Prompt 2 itself — this note is the in
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\40_Project_Briefs\Codebase Sync Decision and Logging Failure Audit — 2026-10-04.md`
 ```diff
 - ## Verdict: codebase sync between the two laptops
-
-Run [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] as written. This isn't a fresh architecture decision — it already specifies the Dell-as-host, Remote-SSH-over-Tailscale, GitHub-as-backup, worktrees-for-parallel-work design from the pasted suggestion, and it hasn't been run yet. The underlying call ("don't live-sync codebases") was already made and paid for in [[Cross-Laptop Sync - Build Roadmap]]: Build 4 found a live Next.js app's `.git`, `node_modules`, and `.env.local` had synced by accident inside what was assumed to be a curated config folder. That's the concrete failure behind "syncing seems impossible" — it happened once, here, and the fix was "codebases stay GitHub-only," not "try harder to sync them."
-
-**It is not a devcontainer.** A devcontainer defines a portable environment (usually Docker) that runs identically on any host you point it at. Remote-SSH does the opposite: VS Code's backend runs on one physical machine — the Dell — and the Acer is a display into it. Nothing here is portable. If the Dell is off or off Tailscale, you lose access; the design's own fallback is the Acer cloning fresh from GitHub and pushing a branch. A devcontainer could be layered in later for reproducibility, but it answers a different question than the one in front of you.
-
-**Your three worries, answered directly:**
-- *Will you still need `git clone`?* Yes, once — on the Dell, which already has all 18 shared repos checked out. The Acer doesn't need its own full checkout for daily work, since it's editing the Dell's checkout remotely.
-- *Does the Acer's detailed WSL/tool setup stop mattering?* No. [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] uses the Acer's documented state (in `40_Resources/CS/Concepts/New Laptop`) as the target the Dell gets brought up to match — VS Code extensions, git config, Claude Code deny-rules, MCP wiring. The detail becomes the spec, not dead weight.
-- *Does Remote-SSH strand local work?* Only Acer-local things stay Acer-local anyway — the discrete GPU and the planned local models (Ollama/Jan/Hermes/Kronos) are Acer hardware-bound regardless of this decision, not shared-repo work.
-
-**One thing to correct before you proceed:** [[second-brain-claudekit-jarvis-unison-sync]] already exists, but it's a **one-way mirror** (`force_source: true`, WSL checkout → vault) of `.claude/agents`, `.claude/commands`, `.claude/hooks`, `CLAUDE.md`, `README.md`, `_docs` — built for visibility/review, not the two-way unison sync you described wanting. Given Build 4's incident, that's the safer shape and I'd leave it one-way for now. If you actually want true two-way `.claude`-folder sync across repos, that's a separate, narrower, and still-nonzero-risk build — give it its own numbered build the way vault sync got Builds 0–10, don't fold it into running Prompt 2.
-
-**Decision needed from you:** (1) approve running Prompt 2 as-is, and (2) confirm the `.claude` mirror stays one-way, or tell me to scope a two-way version as its own build.
+- 
+- Run [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] as written. This isn't a fresh architecture decision — it already specifies the Dell-as-host, Remote-SSH-over-Tailscale, GitHub-as-backup, worktrees-for-parallel-work design from the pasted suggestion, and it hasn't been run yet. The underlying call ("don't live-sync codebases") was already made and paid for in [[Cross-Laptop Sync - Build Roadmap]]: Build 4 found a live Next.js app's `.git`, `node_modules`, and `.env.local` had synced by accident inside what was assumed to be a curated config folder. That's the concrete failure behind "syncing seems impossible" — it happened once, here, and the fix was "codebases stay GitHub-only," not "try harder to sync them."
+- 
+- **It is not a devcontainer.** A devcontainer defines a portable environment (usually Docker) that runs identically on any host you point it at. Remote-SSH does the opposite: VS Code's backend runs on one physical machine — the Dell — and the Acer is a display into it. Nothing here is portable. If the Dell is off or off Tailscale, you lose access; the design's own fallback is the Acer cloning fresh from GitHub and pushing a branch. A devcontainer could be layered in later for reproducibility, but it answers a different question than the one in front of you.
+- 
+- **Your three worries, answered directly:**
+- - *Will you still need `git clone`?* Yes, once — on the Dell, which already has all 18 shared repos checked out. The Acer doesn't need its own full checkout for daily work, since it's editing the Dell's checkout remotely.
+- - *Does the Acer's detailed WSL/tool setup stop mattering?* No. [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] uses the Acer's documented state (in `40_Resources/CS/Concepts/New Laptop`) as the target the Dell gets brought up to match — VS Code extensions, git config, Claude Code deny-rules, MCP wiring. The detail becomes the spec, not dead weight.
+- - *Does Remote-SSH strand local work?* Only Acer-local things stay Acer-local anyway — the discrete GPU and the planned local models (Ollama/Jan/Hermes/Kronos) are Acer hardware-bound regardless of this decision, not shared-repo work.
+- 
+- **One thing to correct before you proceed:** [[second-brain-claudekit-jarvis-unison-sync]] already exists, but it's a **one-way mirror** (`force_source: true`, WSL checkout → vault) of `.claude/agents`, `.claude/commands`, `.claude/hooks`, `CLAUDE.md`, `README.md`, `_docs` — built for visibility/review, not the two-way unison sync you described wanting. Given Build 4's incident, that's the safer shape and I'd leave it one-way for now. If you actually want true two-way `.claude`-folder sync across repos, that's a separate, narrower, and still-nonzero-risk build — give it its own numbered build the way vault sync got Builds 0–10, don't fold it into running Prompt 2.
+- 
+- **Decision needed from you:** (1) approve running Prompt 2 as-is, and (2) confirm the `.claude` mirror stays one-way, or tell me to scope a two-way version as its own build.
 + ## Verdict: codebase sync between the two laptops
-
-**Superseded, 2026-10-04 — see [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]].** The short version below still holds; the detailed, research-backed lock-down (Tailscale placement, Tailscale SSH vs OpenSSH, the `.wslconfig` stay-awake fix neither prompt currently sets, retiring the existing dual-checkout model, and more) lives in that note now, not here.
-
-Run [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] (as rewritten per the locked note above, not as originally written). This isn't a fresh architecture decision — it already specifies the Dell-as-host, Remote-SSH-over-Tailscale, GitHub-as-backup, worktrees-for-parallel-work design from the pasted suggestion. The underlying call ("don't live-sync codebases") was already made and paid for in [[Cross-Laptop Sync - Build Roadmap]]: Build 4 found a live Next.js app's `.git`, `node_modules`, and `.env.local` had synced by accident inside what was assumed to be a curated config folder. That's the concrete failure behind "syncing seems impossible" — it happened once, here, and the fix was "codebases stay GitHub-only," not "try harder to sync them."
-
-**It is not a devcontainer.** A devcontainer defines a portable environment (usually Docker) that runs identically on any host you point it at. Remote-SSH does the opposite: VS Code's backend runs on one physical machine — the Dell — and the Acer is a display into it. Nothing here is portable. If the Dell is off or off Tailscale, you lose access; the design's own fallback is the Acer cloning fresh from GitHub and pushing a branch. A devcontainer could be layered in later for reproducibility, but it answers a different question than the one in front of you.
-
-**Your three worries, answered directly:**
-- *Will you still need `git clone`?* Yes, once — on the Dell, which already has all 18 shared repos checked out. The Acer doesn't need its own full checkout for daily work, since it's editing the Dell's checkout remotely.
-- *Does the Acer's detailed WSL/tool setup stop mattering?* No. [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] uses the Acer's documented state (in `40_Resources/CS/Concepts/New Laptop`) as the target the Dell gets brought up to match — VS Code extensions, git config, Claude Code deny-rules, MCP wiring. The detail becomes the spec, not dead weight.
-- *Does Remote-SSH strand local work?* Only Acer-local things stay Acer-local anyway — the discrete GPU and the planned local models (Ollama/Jan/Hermes/Kronos) are Acer hardware-bound regardless of this decision, not shared-repo work.
-
-**One thing to correct before you proceed:** [[second-brain-claudekit-jarvis-unison-sync]] already exists, but it's a **one-way mirror** (`force_source: true`, WSL checkout → vault) of `.claude/agents`, `.claude/commands`, `.claude/hooks`, `CLAUDE.md`, `README.md`, `_docs` — built for visibility/review, not the two-way unison sync you described wanting. Given Build 4's incident, that's the safer shape and I'd leave it one-way for now. If you actually want true two-way `.claude`-folder sync across repos, that's a separate, narrower, and still-nonzero-risk build — give it its own numbered build the way vault sync got Builds 0–10, don't fold it into running Prompt 2.
-
-**Decision needed from you:** (1) approve the rewritten Prompt 2, incorporating the ten locked decisions in the superseding note, and (2) confirm the `.claude` mirror stays one-way, or tell me to scope a two-way version as its own build.
++ 
++ **Superseded, 2026-10-04 — see [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]].** The short version below still holds; the detailed, research-backed lock-down (Tailscale placement, Tailscale SSH vs OpenSSH, the `.wslconfig` stay-awake fix neither prompt currently sets, retiring the existing dual-checkout model, and more) lives in that note now, not here.
++ 
++ Run [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] (as rewritten per the locked note above, not as originally written). This isn't a fresh architecture decision — it already specifies the Dell-as-host, Remote-SSH-over-Tailscale, GitHub-as-backup, worktrees-for-parallel-work design from the pasted suggestion. The underlying call ("don't live-sync codebases") was already made and paid for in [[Cross-Laptop Sync - Build Roadmap]]: Build 4 found a live Next.js app's `.git`, `node_modules`, and `.env.local` had synced by accident inside what was assumed to be a curated config folder. That's the concrete failure behind "syncing seems impossible" — it happened once, here, and the fix was "codebases stay GitHub-only," not "try harder to sync them."
++ 
++ **It is not a devcontainer.** A devcontainer defines a portable environment (usually Docker) that runs identically on any host you point it at. Remote-SSH does the opposite: VS Code's backend runs on one physical machine — the Dell — and the Acer is a display into it. Nothing here is portable. If the Dell is off or off Tailscale, you lose access; the design's own fallback is the Acer cloning fresh from GitHub and pushing a branch. A devcontainer could be layered in later for reproducibility, but it answers a different question than the one in front of you.
++ 
++ **Your three worries, answered directly:**
++ - *Will you still need `git clone`?* Yes, once — on the Dell, which already has all 18 shared repos checked out. The Acer doesn't need its own full checkout for daily work, since it's editing the Dell's checkout remotely.
++ - *Does the Acer's detailed WSL/tool setup stop mattering?* No. [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] uses the Acer's documented state (in `40_Resources/CS/Concepts/New Laptop`) as the target the Dell gets brought up to match — VS Code extensions, git config, Claude Code deny-rules, MCP wiring. The detail becomes the spec, not dead weight.
++ - *Does Remote-SSH strand local work?* Only Acer-local things stay Acer-local anyway — the discrete GPU and the planned local models (Ollama/Jan/Hermes/Kronos) are Acer hardware-bound regardless of this decision, not shared-repo work.
++ 
++ **One thing to correct before you proceed:** [[second-brain-claudekit-jarvis-unison-sync]] already exists, but it's a **one-way mirror** (`force_source: true`, WSL checkout → vault) of `.claude/agents`, `.claude/commands`, `.claude/hooks`, `CLAUDE.md`, `README.md`, `_docs` — built for visibility/review, not the two-way unison sync you described wanting. Given Build 4's incident, that's the safer shape and I'd leave it one-way for now. If you actually want true two-way `.claude`-folder sync across repos, that's a separate, narrower, and still-nonzero-risk build — give it its own numbered build the way vault sync got Builds 0–10, don't fold it into running Prompt 2.
++ 
++ **Decision needed from you:** (1) approve the rewritten Prompt 2, incorporating the ten locked decisions in the superseding note, and (2) confirm the `.claude` mirror stays one-way, or tell me to scope a two-way version as its own build.
 ```
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\40_Project_Briefs\Codebase Sync Decision and Logging Failure Audit — 2026-10-04.md`
 ```diff
@@ -621,35 +627,35 @@ Run [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] (as rewrit
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\40_Project_Briefs\Codebase Sync Decision and Logging Failure Audit — 2026-10-04.md`
 ```diff
 - notes:
-  - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 4 Findings]]"
-  - "[[second-brain-claudekit-jarvis-unison-sync]]"
-  - "[[Folder Map]]"
-  - "[[Gaps]]"
-next: "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
+-   - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
+-   - "[[Cross-Laptop Sync - Build Roadmap]]"
+-   - "[[Cross-Laptop Sync - Build 4 Findings]]"
+-   - "[[second-brain-claudekit-jarvis-unison-sync]]"
+-   - "[[Folder Map]]"
+-   - "[[Gaps]]"
+- next: "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
 + notes:
-  - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-  - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
-  - "[[Cross-Laptop Sync - Build Roadmap]]"
-  - "[[Cross-Laptop Sync - Build 4 Findings]]"
-  - "[[second-brain-claudekit-jarvis-unison-sync]]"
-  - "[[Folder Map]]"
-  - "[[Gaps]]"
-next: "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
++   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
++   - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
++   - "[[Cross-Laptop Sync - Build Roadmap]]"
++   - "[[Cross-Laptop Sync - Build 4 Findings]]"
++   - "[[second-brain-claudekit-jarvis-unison-sync]]"
++   - "[[Folder Map]]"
++   - "[[Gaps]]"
++ next: "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
 ```
 - `Edit` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\memory\project_jarvis_cross_laptop_sync.md`
 ```diff
 - Also clarified: `second-brain-claudekit-jarvis-unison-sync.md` (the "`.claude` folder mirrored into Jarvis" mechanism) is **one-way only** (`force_source: true`, WSL checkout → vault, for visibility), not the two-way unison sync the user believed existed. Full verdict + a proposed build list (run Prompt 2; decide one-way-vs-two-way for the `.claude` mirror as its own build; a watchdog layer; Cowork/Kiro wiring; Codex/Agy/chat capture; local-model logging spec) written to [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]] in the vault at `60_Claude/40_Project_Briefs/`.
 + Also clarified: `second-brain-claudekit-jarvis-unison-sync.md` (the "`.claude` folder mirrored into Jarvis" mechanism) is **one-way only** (`force_source: true`, WSL checkout → vault, for visibility), not the two-way unison sync the user believed existed. Full verdict + a proposed build list (run Prompt 2; decide one-way-vs-two-way for the `.claude` mirror as its own build; a watchdog layer; Cowork/Kiro wiring; Codex/Agy/chat capture; local-model logging spec) written to [[Codebase Sync Decision and Logging Failure Audit — 2026-10-04]] in the vault at `60_Claude/40_Project_Briefs/`.
-
-**Deep-dive follow-up, same day:** after a second AI session (reviewing Prompt 2 + this memory's history + live web research) pushed back with real, specific objections, did a full research pass (live-reading both Old Laptop Rebuild prompts in full, both repos' actual completion-gate notes, and checking every external claim against current Tailscale/Microsoft docs rather than trusting either session's assertions) and wrote the locked answer to [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]] at `40_Resources/CS/Concepts/New Laptop/Codebases/`. Ten locked decisions, two of which correct real errors neither prior session caught:
-- **The stay-awake fix neither prompt actually sets** (the most important finding): Prompt 2 defers "WSL idle timeouts" to Prompt 1, but Prompt 1's own `.wslconfig` target-state list never includes any idle-timeout setting at all. Confirmed via Microsoft's own docs + a dated (April 2026) community report: `vmIdleTimeout=-1` alone does **not** keep a distro alive past its 15-second `instanceIdleTimeout` even with systemd/sshd running — both settings are required together. Without this, the whole single-canonical-host design silently fails minutes after the last interactive WSL session closes.
-- **Tailscale SSH should be primary, not just "an option"** — confirmed it needs zero VS Code-side config (`ssh host` works normally once `tailscale up --ssh` is on), and it resolves the SSH-host-key-churn risk automatically (Tailscale's control plane redistributes host keys) — something plain OpenSSH+keys can't do. Keep the already-planned OpenSSH server only as fallback.
-- Confirmed Tailscale-inside-WSL-only (never also on Windows) was already correct in Prompt 2 — the official warning is specifically about running it on *both* at once (double-encapsulation/MTU failure), not about WSL alone.
-- Confirmed the vault's own mirrored `CLAUDE.md` copies for both repos are stale (`20_Progress/AI/Claude Code/{repo}/CLAUDE.md`, both last written 2026-09-05) and do **not** contain the "Two-laptop workflow" sections the directive notes cite as living in the real repo (added 2026-09-26) — a live example of the one-way-mirror staleness risk, not just a theoretical one.
-- `internship-research-loop`'s real, dated completion gate (`gh auth status` on "the new laptop," `acer-predator/<topic>` branch requirement) needs an explicit superseded-by note once the single-host model lands; `second-brain-claudekit`'s gate has no equivalent laptop-specific assumptions and needs no change.
-- Concrete pnpm/uv worktree settings resolved: `virtualStoreType: global` for `second-brain-claudekit` (pnpm's own docs name this exact scenario), uv's hardlink cache needs same-filesystem verification (already satisfied by the "never work from `/mnt/c` or `/mnt/d`" rule, but unverified).
++ 
++ **Deep-dive follow-up, same day:** after a second AI session (reviewing Prompt 2 + this memory's history + live web research) pushed back with real, specific objections, did a full research pass (live-reading both Old Laptop Rebuild prompts in full, both repos' actual completion-gate notes, and checking every external claim against current Tailscale/Microsoft docs rather than trusting either session's assertions) and wrote the locked answer to [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]] at `40_Resources/CS/Concepts/New Laptop/Codebases/`. Ten locked decisions, two of which correct real errors neither prior session caught:
++ - **The stay-awake fix neither prompt actually sets** (the most important finding): Prompt 2 defers "WSL idle timeouts" to Prompt 1, but Prompt 1's own `.wslconfig` target-state list never includes any idle-timeout setting at all. Confirmed via Microsoft's own docs + a dated (April 2026) community report: `vmIdleTimeout=-1` alone does **not** keep a distro alive past its 15-second `instanceIdleTimeout` even with systemd/sshd running — both settings are required together. Without this, the whole single-canonical-host design silently fails minutes after the last interactive WSL session closes.
++ - **Tailscale SSH should be primary, not just "an option"** — confirmed it needs zero VS Code-side config (`ssh host` works normally once `tailscale up --ssh` is on), and it resolves the SSH-host-key-churn risk automatically (Tailscale's control plane redistributes host keys) — something plain OpenSSH+keys can't do. Keep the already-planned OpenSSH server only as fallback.
++ - Confirmed Tailscale-inside-WSL-only (never also on Windows) was already correct in Prompt 2 — the official warning is specifically about running it on *both* at once (double-encapsulation/MTU failure), not about WSL alone.
++ - Confirmed the vault's own mirrored `CLAUDE.md` copies for both repos are stale (`20_Progress/AI/Claude Code/{repo}/CLAUDE.md`, both last written 2026-09-05) and do **not** contain the "Two-laptop workflow" sections the directive notes cite as living in the real repo (added 2026-09-26) — a live example of the one-way-mirror staleness risk, not just a theoretical one.
++ - `internship-research-loop`'s real, dated completion gate (`gh auth status` on "the new laptop," `acer-predator/<topic>` branch requirement) needs an explicit superseded-by note once the single-host model lands; `second-brain-claudekit`'s gate has no equivalent laptop-specific assumptions and needs no change.
++ - Concrete pnpm/uv worktree settings resolved: `virtualStoreType: global` for `second-brain-claudekit` (pnpm's own docs name this exact scenario), uv's hardlink cache needs same-filesystem verification (already satisfied by the "never work from `/mnt/c` or `/mnt/d`" rule, but unverified).
 ```
 - `Edit` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\memory\MEMORY.md`
 ```diff
@@ -876,7 +882,7 @@ I've kicked off a deep read of the full `Old Laptop Rebuild` project — the Ind
 
 - `Glob` -- pattern `40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/**/*.md` path `D:\Users\_Anant\10_Areas\Documents\Jarvis`
 - `Glob` -- pattern `40_Resources/CS/Concepts/New Laptop/*.md` path `D:\Users\_Anant\10_Areas\Documents\Jarvis`
-- `Agent` -- `{"subagent_type":"fork","description":"Deep-read Old Laptop Rebuild project state","prompt":"The user just pasted a dictated, somewhat garbled message asking to: (1) write up everything discussed in this whole session so far - precautions, rules, instructions, especially that git worktrees are now a MUST for all dev work across the two laptops; (2) get a detailed, current understanding of the Tailscale cross-laptop setup - they recall Tailscale was brought up on both laptops before, hit a WSL login/systemd block, and hasn\u0027t been touched since; (3) figure out exactly where the whole \"Old Laptop Rebuild\" / two-laptop DevSpace project currently stands, and what remains to happen in future builds/phases; (4) they mention \"the AI conversations and doc folder... noted down inside Second Brain cloud cap\" still isn\u0027t done - this is almost certainly a mangled reference to the AI Conversation Archive Pipeline project (see memory: project_ai_conversation_archive.md) not the laptop rebuild, so don\u0027t force it into the rebuild findings, just note it as a separate still-open item if it comes up; (5) overall goal right now is getting the dev environment (not AI workflow, that\u0027s \"later\") fully working across both laptops without errors, specifically git/VS Code/WSL/package parity.\n\nYour job: read, in full, the following files under D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\ and report back a tight synthesis (NOT raw dumps) - I need the actual current state, not a file-by-file summary.\n\nRead these (use the Read tool with full absolute paths, allow_large if needed):\n1. `Old Laptop Rebuild - Index.md` (the master index - was partially read before, re-read in full)\n2. `Runs\\Old Laptop Rebuild - Runs Index.md`\n3. `Runs\\Build 1 WSL\\Old Laptop Rebuild - Build 1 WSL Findings.md`\n4. `Runs\\Build 2 VS Code and Two-Laptop\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md`\n5. `Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`\n6. `Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`\n7. `Runs\\Build 4 Windows Toolkit\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`\n8. `Runs\\Build 5 WSL and D Drive\\Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive).md`\n9. `Runs\\Build 5 WSL and D Drive\\Old Laptop Rebuild - Build 5 WSL and D Drive Findings.md`\n10. `WSL Parity\\Acer Session Handoff - Toolkit Sync (Build 5b).md`\n11. `WSL Parity\\WSL Toolkit Config Reference.md`\n12. `C Drive Bloat - Failure Log and Prevention Rules.md`\n13. `Old Laptop Rebuild - Build 2 Acer Handoff.md` (already read in main conversation - skim only for anything new)\n14. `Old Laptop Rebuild - Build 2 SSH Runbook.md` (already read in main conversation - skim only for anything new)\n15. `Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build).md`\n16. `Old Laptop Rebuild - C Drive AI Platforms Audit (future build).md`\n17. Also read `D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Codebases\\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md` in full (it was flagged as read-but-too-large-to-show earlier this session - get the actual locked decisions list, especially anything about git worktrees being mandatory, and the full postmortem).\n\nThen investigate the sync-conflict evidence:\n18. List the directory `D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\_backups\\sync-conflicts-20261013\\` (already know the file list from a glob: conflict copies exist for MANIFEST, VERSIONS, Installations, Codebases Locked Decisions, SSH Runbook, Build 4 Prompt, Build 4 Windows Toolkit Findings, Build 5 Prompt, Build 1 WSL Findings, Prompt 1 WSL, Build 2 VS Code Findings, Prompt 2 VS Code Workflow, Build 3 Windows Cleanup Findings, Build 3b C Drive Snapshot, Windows Prompts Build 3/4, Index History, Runs Index, C Drive Bloat Failure Log - all dated 2026-10-13-144400). Diff one or two representative conflict files (e.g. the Codebases Locked Decisions one and the SSH Runbook one) against their current live counterparts to characterize what kind of divergence actually happened (content loss? harmless duplicate? which side won?). This is a real-world case study of the exact \"two uncoordinated writers\" problem already discussed theoretically this session - find out what actually happened.\n19. Also check `Runs\\_backups\\Old Laptop Rebuild - Index (Build 4 session copy 2026-10-13).md` and `Runs\\_backups\\Old Laptop Rebuild - Index (WSL session copy 2026-10-14).md` and `Runs\\_backups\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings (pre-merge 2026-10-14).md` - these look like manual snapshot/merge artifacts from running parallel Claude sessions on Dell vs WSL during this very project. Characterize briefly what this reveals about how session-parallelism was actually handled in practice (was it ad hoc, did it work, any close calls).\n20. Read `Runs\\Old Laptop Rebuild - Index History (to 2026-10-12).md` for anything materially different from the current Index not already captured.\n\nDo NOT read the Acer Dotfile Snapshot or WSL Parity/golden dotfile tree files (yazi plugin READMEs etc) - those are vendored config, not project notes, irrelevant to this task.\n\nReport back, in this structure, under 900 words:\n- **Tailscale/SSH status**: exact current state (what\u0027s confirmed working, what\u0027s blocked, what\u0027s awaiting user action e.g. \"wait for stable WSL 3.0.2\"), as of the most recent build.\n- **Git worktree policy**: is \"worktrees mandatory for all parallel dev work\" actually a locked decision already, verbatim-ish, and where it\u0027s recorded.\n- **Build-by-build status**: one line each for Build 1 through 5(b) - done/blocked/partial, with the single most important unresolved item per build.\n- **Sync-conflict case study**: what actually happened on 2026-10-13, whether anything was lost, how it was resolved, and whether the `_backups` folder itself is now clutter that should be dealt with.\n- **What\u0027s explicitly deferred to a future build**: list each (Anant Folder Consolidation, C Drive AI Platforms Audit, anything else) with one line on why it\u0027s deferred.\n- **Single most important next action** per the Index/Runs Index\u0027s own stated `next:` fields - do not invent one, report what the notes themselves say.\n\nKeep it dense and factual - no filler, no AI-slop phrasing. This report is for me (the orchestrating Claude) to use in writing a consolidated status note back into the vault and answering the user, so prioritize facts and exact file/line evidence over narrative."}`
+- `Agent` -- ``{"subagent_type":"fork","description":"Deep-read Old Laptop Rebuild project state","prompt":"The user just pasted a dictated, somewhat garbled message asking to: (1) write up everything discussed in this whole session so far - precautions, rules, instructions, especially that git worktrees are now a MUST for all dev work across the two laptops; (2) get a detailed, current understanding of the Tailscale cross-laptop setup - they recall Tailscale was brought up on both laptops before, hit a WSL login/systemd block, and hasn\u0027t been touched since; (3) figure out exactly where the whole \"Old Laptop Rebuild\" / two-laptop DevSpace project currently stands, and what remains to happen in future builds/phases; (4) they mention \"the AI conversations and doc folder... noted down inside Second Brain cloud cap\" still isn\u0027t done - this is almost certainly a mangled reference to the AI Conversation Archive Pipeline project (see memory: project_ai_conversation_archive.md) not the laptop rebuild, so don\u0027t force it into the rebuild findings, just note it as a separate still-open item if it comes up; (5) overall goal right now is getting the dev environment (not AI workflow, that\u0027s \"later\") fully working across both laptops without errors, specifically git/VS Code/WSL/package parity.\n\nYour job: read, in full, the following files under D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\ and report back a tight synthesis (NOT raw dumps) - I need the actual current state, not a file-by-file summary.\n\nRead these (use the Read tool with full absolute paths, allow_large if needed):\n1. `Old Laptop Rebuild - Index.md` (the master index - was partially read before, re-read in full)\n2. `Runs\\Old Laptop Rebuild - Runs Index.md`\n3. `Runs\\Build 1 WSL\\Old Laptop Rebuild - Build 1 WSL Findings.md`\n4. `Runs\\Build 2 VS Code and Two-Laptop\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md`\n5. `Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`\n6. `Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`\n7. `Runs\\Build 4 Windows Toolkit\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`\n8. `Runs\\Build 5 WSL and D Drive\\Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive).md`\n9. `Runs\\Build 5 WSL and D Drive\\Old Laptop Rebuild - Build 5 WSL and D Drive Findings.md`\n10. `WSL Parity\\Acer Session Handoff - Toolkit Sync (Build 5b).md`\n11. `WSL Parity\\WSL Toolkit Config Reference.md`\n12. `C Drive Bloat - Failure Log and Prevention Rules.md`\n13. `Old Laptop Rebuild - Build 2 Acer Handoff.md` (already read in main conversation - skim only for anything new)\n14. `Old Laptop Rebuild - Build 2 SSH Runbook.md` (already read in main conversation - skim only for anything new)\n15. `Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build).md`\n16. `Old Laptop Rebuild - C Drive AI Platforms Audit (future build).md`\n17. Also read `D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Codebases\\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md` in full (it was flagged as read-but-too-large-to-show earlier this session - get the actual locked decisions list, especially anything about git worktrees being mandatory, and the full postmortem).\n\nThen investigate the sync-conflict evidence:\n18. List the directory `D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\_backups\\sync-conflicts-20261013\\` (already know the file list from a glob: conflict copies exist for MANIFEST, VERSIONS, Installations, Codebases Locked Decisions, SSH Runbook, Build 4 Prompt, Build 4 Windows Toolkit Findings, Build 5 Prompt, Build 1 WSL Findings, Prompt 1 WSL, Build 2 VS Code Findings, Prompt 2 VS Code Workflow, Build 3 Windows Cleanup Findings, Build 3b C Drive Snapshot, Windows Prompts Build 3/4, Index History, Runs Index, C Drive Bloat Failure Log - all dated 2026-10-13-144400). Diff one or two representative conflict files (e.g. the Codebases Locked Decisions one and the SSH Runbook one) against their current live counterparts to characterize what kind of divergence actually happened (content loss? harmless duplicate? which side won?). This is a real-world case study of the exact \"two uncoordinated writers\" problem already discussed theoretically this session - find out what actually happened.\n19. Also check `Runs\\_backups\\Old Laptop Rebuild - Index (Build 4 session copy 2026-10-13).md` and `Runs\\_backups\\Old Laptop Rebuild - Index (WSL session copy 2026-10-14).md` and `Runs\\_backups\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings (pre-merge 2026-10-14).md` - these look like manual snapshot/merge artifacts from running parallel Claude sessions on Dell vs WSL during this very project. Characterize briefly what this reveals about how session-parallelism was actually handled in practice (was it ad hoc, did it work, any close calls).\n20. Read `Runs\\Old Laptop Rebuild - Index History (to 2026-10-12).md` for anything materially different from the current Index not already captured.\n\nDo NOT read the Acer Dotfile Snapshot or WSL Parity/golden dotfile tree files (yazi plugin READMEs etc) - those are vendored config, not project notes, irrelevant to this task.\n\nReport back, in this structure, under 900 words:\n- **Tailscale/SSH status**: exact current state (what\u0027s confirmed working, what\u0027s blocked, what\u0027s awaiting user action e.g. \"wait for stable WSL 3.0.2\"), as of the most recent build.\n- **Git worktree policy**: is \"worktrees mandatory for all parallel dev work\" actually a locked decision already, verbatim-ish, and where it\u0027s recorded.\n- **Build-by-build status**: one line each for Build 1 through 5(b) - done/blocked/partial, with the single most important unresolved item per build.\n- **Sync-conflict case study**: what actually happened on 2026-10-13, whether anything was lost, how it was resolved, and whether the `_backups` folder itself is now clutter that should be dealt with.\n- **What\u0027s explicitly deferred to a future build**: list each (Anant Folder Consolidation, C Drive AI Platforms Audit, anything else) with one line on why it\u0027s deferred.\n- **Single most important next action** per the Index/Runs Index\u0027s own stated `next:` fields - do not invent one, report what the notes themselves say.\n\nKeep it dense and factual - no filler, no AI-slop phrasing. This report is for me (the orchestrating Claude) to use in writing a consolidated status note back into the vault and answering the user, so prioritize facts and exact file/line evidence over narrative."}``
 
 ## You
 
@@ -974,30 +980,30 @@ On 2026-10-13, two Dell sessions edited the same rebuild notes at once (one thro
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 SSH Runbook.md`
 ```diff
 - created: 2026-10-07
-updated: 2026-10-11
-course: Life
-track:
-  - laptop
-  - wsl
-tags:
-  - note
-related:
-  - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
-  - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
-next: Await stable WSL with the binfmt fix; then recheck systemd and continue Phase 4 from the already-live Tailscale state
+- updated: 2026-10-11
+- course: Life
+- track:
+-   - laptop
+-   - wsl
+- tags:
+-   - note
+- related:
+-   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
+-   - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
+- next: Await stable WSL with the binfmt fix; then recheck systemd and continue Phase 4 from the already-live Tailscale state
 + created: 2026-10-07
-updated: 2026-10-14
-course: Life
-track:
-  - laptop
-  - wsl
-tags:
-  - note
-related:
-  - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
-  - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
-  - "[[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]]"
-next: "Binfmt fix confirmed 2026-10-13 (Build 5): systemd is healthy, Phase 4 is unblocked. Still open: verify the Acer's offered SSH host-key fingerprint against the one Tailscale's admin console advertises before accepting (never done yet), then the Acer clone/worktree inventory, large Git transfer test, VS Code Tunnel sign-in, port-2222 fallback decision, and a `~/tools/sync-check` run from the Acer."
++ updated: 2026-10-14
++ course: Life
++ track:
++   - laptop
++   - wsl
++ tags:
++   - note
++ related:
++   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
++   - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
++   - "[[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]]"
++ next: "Binfmt fix confirmed 2026-10-13 (Build 5): systemd is healthy, Phase 4 is unblocked. Still open: verify the Acer's offered SSH host-key fingerprint against the one Tailscale's admin console advertises before accepting (never done yet), then the Acer clone/worktree inventory, large Git transfer test, VS Code Tunnel sign-in, port-2222 fallback decision, and a `~/tools/sync-check` run from the Acer."
 ```
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 SSH Runbook.md`
 ```diff
@@ -1012,53 +1018,56 @@ next: "Binfmt fix confirmed 2026-10-13 (Build 5): systemd is healthy, Phase 4 is
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Codebases\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md`
 ```diff
 - related:
-  - "[[Old Laptop Rebuild - Index]]"
-  - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-  - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
-  - "[[internship-research-loop-new-laptop-directive]]"
-  - "[[second-brain-claudekit-new-laptop-directive]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-next: "Fold these ten locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
----
+-   - "[[Old Laptop Rebuild - Index]]"
+-   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
+-   - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
+-   - "[[internship-research-loop-new-laptop-directive]]"
+-   - "[[second-brain-claudekit-new-laptop-directive]]"
+-   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+- next: "Fold these ten locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
+- ---
 + related:
-  - "[[Old Laptop Rebuild - Index]]"
-  - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-  - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
-  - "[[internship-research-loop-new-laptop-directive]]"
-  - "[[second-brain-claudekit-new-laptop-directive]]"
-  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-updated: 2026-10-14
-next: "Fold these eleven locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
----
++   - "[[Old Laptop Rebuild - Index]]"
++   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
++   - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
++   - "[[internship-research-loop-new-laptop-directive]]"
++   - "[[second-brain-claudekit-new-laptop-directive]]"
++   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
++ updated: 2026-10-14
++ next: "Fold these eleven locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
++ ---
 ```
 - `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Codebases\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md`
 ```diff
 - ## Decision 10 — this is not a devcontainer, and nothing here changes that
-No new research changed this from the prior brief: Remote-SSH runs VS Code's backend on one specific physical machine; nothing here is portable or reproducible across hosts the way a devcontainer definition would be. If reproducibility across unrelated machines is ever wanted later, that's an additive, separate project — not a reason to delay this one.
-
----
+- No new research changed this from the prior brief: Remote-SSH runs VS Code's backend on one specific physical machine; nothing here is portable or reproducible across hosts the way a devcontainer definition would be. If reproducibility across unrelated machines is ever wanted later, that's an additive, separate project — not a reason to delay this one.
+- 
+- ---
 + ## Decision 10 — this is not a devcontainer, and nothing here changes that
-No new research changed this from the prior brief: Remote-SSH runs VS Code's backend on one specific physical machine; nothing here is portable or reproducible across hosts the way a devcontainer definition would be. If reproducibility across unrelated machines is ever wanted later, that's an additive, separate project — not a reason to delay this one.
-
-## Decision 11 — concurrent-session model: one filesystem, not a sync race; separation is by task, not by physical machine
-
-> [!NOTE] Added 2026-10-14, from a planning-session Q&A, not yet exercised live
-> This decision answers "what actually happens if the Dell and the Acer touch the same checkout at once" and "where does global config/conversation state land" — both came up as open questions and have a precise mechanical answer, not a "depends."
-
-Under the single-canonical-host design there is **one filesystem** for everything under `~/projects` on the Dell. A Remote-SSH session driven from the Acer is not a second copy racing the Dell's — it is a second live process pointed at the exact same files. This is a narrower, more dangerous failure mode than the vaults' own Syncthing sync-conflict mechanic (see the case study below): a plain concurrent save on the same checkout has **no conflict-copy safety net at all**, it just silently overwrites.
-
-- **Worktree separation is by concurrently-active task, not by which physical machine is driving.** Decision 4's `<machine>/<topic>` branch naming is attribution, not the actual safety mechanism — the mechanism is that each concurrently-active session gets its own `git worktree add` directory, so two editors never share an inode. If a Dell-native session and an Acer-driven Remote-SSH session are ever open on the same branch/checkout path at the same time, that is the violation, regardless of whose name is on the branch.
-- **No automated lock enforces "one session owns a branch at a time."** This is a discipline rule, not software — nothing warns you when it's violated. The planned `~/tools/sync-check` (SSH Runbook step 4.9) reports branch/ahead-behind/dirty state, not "is a live session currently open elsewhere" — that gap stays open.
-- **Global Claude Code config (`~/.claude/settings.json`, `~/.claude.json`, skills, memory) follows the execution host, not the human's physical seat.** A Remote-SSH session into `dell-wsl` always reads the Dell's global config, never the Acer's, because the `claude`/`codex` process and the Remote-SSH workspace-extension host both run on the Dell. Build 2 item 5 already closed the one safety-critical gap this caused (Acer's secret-file deny-rules were missing from the Dell's `~/.claude/settings.json`; now applied). Any other Acer-only global skill/setting still will not appear on the Dell — nothing syncs this going forward, by the same one-way-visibility-only logic as the `.claude`-mirror decision elsewhere in this vault.
-- **Conversation transcripts land wherever the process ran, not wherever the human sat.** A Claude Code session driven from the Acer via Remote-SSH writes its transcript to the Dell's `~/.claude/projects/...`, same as a native Dell session. This should mean the existing WSL Claude Code capture pipeline (see memory `project_ai_conversation_archive.md`) already covers Remote-SSH-driven sessions — not yet live-verified for that specific trigger path, so confirm rather than assume. Acer-only local work (never touching `~/projects` on the Dell) needs the Acer's own separate capture pipeline, which is a distinct, unverified item.
-
-**Real-world precedent for the "no safety net" risk, from this vault's own history, not hypothetical:** two Dell-side Claude Code sessions editing the Old Laptop Rebuild notes concurrently on 2026-10-13 produced 15 Syncthing `.sync-conflict-*` files (see `Runs\_backups\sync-conflicts-20261013\`). No content was lost there only because Syncthing was watching those files and wrote conflict copies — the exact protection a plain code checkout under this design does not have. The Index's own response was procedural ("one owner per note" — only the session closing a build edits the Index/Runs Index) rather than technical, because no technical lock exists. The same discipline-not-software gap applies to code worktrees.
-
----
++ No new research changed this from the prior brief: Remote-SSH runs VS Code's backend on one specific physical machine; nothing here is portable or reproducible across hosts the way a devcontainer definition would be. If reproducibility across unrelated machines is ever wanted later, that's an additive, separate project — not a reason to delay this one.
++ 
++ ## Decision 11 — concurrent-session model: one filesystem, not a sync race; separation is by task, not by physical machine
++ 
++ > [!NOTE] Added 2026-10-14, from a planning-session Q&A, not yet exercised live
++ > This decision answers "what actually happens if the Dell and the Acer touch the same checkout at once" and "where does global config/conversation state land" — both came up as open questions and have a precise mechanical answer, not a "depends."
++ 
++ Under the single-canonical-host design there is **one filesystem** for everything under `~/projects` on the Dell. A Remote-SSH session driven from the Acer is not a second copy racing the Dell's — it is a second live process pointed at the exact same files. This is a narrower, more dangerous failure mode than the vaults' own Syncthing sync-conflict mechanic (see the case study below): a plain concurrent save on the same checkout has **no conflict-copy safety net at all**, it just silently overwrites.
++ 
++ - **Worktree separation is by concurrently-active task, not by which physical machine is driving.** Decision 4's `<machine>/<topic>` branch naming is attribution, not the actual safety mechanism — the mechanism is that each concurrently-active session gets its own `git worktree add` directory, so two editors never share an inode. If a Dell-native session and an Acer-driven Remote-SSH session are ever open on the same branch/checkout path at the same time, that is the violation, regardless of whose name is on the branch.
++ - **No automated lock enforces "one session owns a branch at a time."** This is a discipline rule, not software — nothing warns you when it's violated. The planned `~/tools/sync-check` (SSH Runbook step 4.9) reports branch/ahead-behind/dirty state, not "is a live session currently open elsewhere" — that gap stays open.
++ - **Global Claude Code config (`~/.claude/settings.json`, `~/.claude.json`, skills, memory) follows the execution host, not the human's physical seat.** A Remote-SSH session into `dell-wsl` always reads the Dell's global config, never the Acer's, because the `claude`/`codex` process and the Remote-SSH workspace-extension host both run on the Dell. Build 2 item 5 already closed the one safety-critical gap this caused (Acer's secret-file deny-rules were missing from the Dell's `~/.claude/settings.json`; now applied). Any other Acer-only global skill/setting still will not appear on the Dell — nothing syncs this going forward, by the same one-way-visibility-only logic as the `.claude`-mirror decision elsewhere in this vault.
++ - **Conversation transcripts land wherever the process ran, not wherever the human sat.** A Claude Code session driven from the Acer via Remote-SSH writes its transcript to the Dell's `~/.claude/projects/...`, same as a native Dell session. This should mean the existing WSL Claude Code capture pipeline (see memory `project_ai_conversation_archive.md`) already covers Remote-SSH-driven sessions — not yet live-verified for that specific trigger path, so confirm rather than assume. Acer-only local work (never touching `~/projects` on the Dell) needs the Acer's own separate capture pipeline, which is a distinct, unverified item.
++ 
++ **Real-world precedent for the "no safety net" risk, from this vault's own history, not hypothetical:** two Dell-side Claude Code sessions editing the Old Laptop Rebuild notes concurrently on 2026-10-13 produced 15 Syncthing `.sync-conflict-*` files (see `Runs\_backups\sync-conflicts-20261013\`). No content was lost there only because Syncthing was watching those files and wrote conflict copies — the exact protection a plain code checkout under this design does not have. The Index's own response was procedural ("one owner per note" — only the session closing a build edits the Index/Runs Index) rather than technical, because no technical lock exists. The same discipline-not-software gap applies to code worktrees.
++ 
++ ---
 ```
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 SSH Runbook.md`
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md`
-- `Bash` -- `wc -l "D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md"`
+- `Bash`
+```bash
+wc -l "D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md"
+```
 ```
 1757 D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md
 ```
@@ -1068,7 +1077,7 @@ Under the single-canonical-host design there is **one filesystem** for everythin
 ```diff
 - 2026-10-14 - Dell audit and reorganisation of Old Laptop Rebuild: read every note in the folder and its parent, live-checked the Dell, merged the three Index/Build 4 versions that two Dell sessions had written in parallel (Windows copy was renamed _Rebuild - Index), filed Build 4 into Runs (Phases 1 to 4 done, Build 4b open), archived 21 sync-conflict copies after merging their unique content, fixed two stale Installations bullets and the apply-configs latest pointer, and wrote Dell and Acer open-work ledgers in the Index. Found: Cursor not reinstalled, fresh WSL export not done (tar still in D:\WSL\Installers), .NET 8 still present, catalog and agent guide not written, Acer has run nothing from the folder.
 + 2026-10-14 - Dell audit and reorganisation of Old Laptop Rebuild: read every note in the folder and its parent, live-checked the Dell, merged the three Index/Build 4 versions that two Dell sessions had written in parallel (Windows copy was renamed _Rebuild - Index), filed Build 4 into Runs (Phases 1 to 4 done, Build 4b open), archived 21 sync-conflict copies after merging their unique content, fixed two stale Installations bullets and the apply-configs latest pointer, and wrote Dell and Acer open-work ledgers in the Index. Found: Cursor not reinstalled, fresh WSL export not done (tar still in D:\WSL\Installers), .NET 8 still present, catalog and agent guide not written, Acer has run nothing from the folder.
-2026-10-14 - Planning-session Q&A on the two-laptop concurrent-session model (no live changes run): clarified that a Remote-SSH session into dell-wsl shares one filesystem with a native Dell session, not two copies racing - the real risk is two live processes on the same checkout with no conflict-copy safety net, and worktree separation must be by concurrently-active task, not by physical machine. Confirmed global Claude Code config and conversation transcripts both follow the execution host (the Dell), never the human's physical seat. Verified against live notes rather than a stale cached read: the SSH Runbook already carried a 2026-10-13 Gate correction closing the systemd-binfmt item, so no edit was needed there; added this session's analysis as Decision 11 to [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]], citing the real 2026-10-13 sync-conflict incident (15 files, no content lost, Syncthing's conflict-copy mechanic caught it) as precedent for why code worktrees need the same discipline since git has no equivalent safety net.
++ 2026-10-14 - Planning-session Q&A on the two-laptop concurrent-session model (no live changes run): clarified that a Remote-SSH session into dell-wsl shares one filesystem with a native Dell session, not two copies racing - the real risk is two live processes on the same checkout with no conflict-copy safety net, and worktree separation must be by concurrently-active task, not by physical machine. Confirmed global Claude Code config and conversation transcripts both follow the execution host (the Dell), never the human's physical seat. Verified against live notes rather than a stale cached read: the SSH Runbook already carried a 2026-10-13 Gate correction closing the systemd-binfmt item, so no edit was needed there; added this session's analysis as Decision 11 to [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]], citing the real 2026-10-13 sync-conflict incident (15 files, no content lost, Syncthing's conflict-copy mechanic caught it) as precedent for why code worktrees need the same discipline since git has no equivalent safety net.
 ```
 
 ## Actions Taken
@@ -1091,5 +1100,4 @@ _None detected_
 **Commands run:**
 - `powershell -NoProfile -Command "(Get-Item 'D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\internship-research-loop\CLAUDE.md').LastWriteTime; (Get-Item 'D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code\second-brain-claudekit\CLAUDE.md').LastWriteTime"`
 - `wc -l "D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md"`
-
 

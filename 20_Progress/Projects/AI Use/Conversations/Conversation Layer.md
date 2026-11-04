@@ -8,7 +8,7 @@ tags:
   - ai
   - conversations
 project_kind: project
-next: P0 to P4 are closed and the design notes are rewritten to current truth (2026-10-30). Run P5, the first weekly review by hand for 2026-W43, then P4b (The Plan stays local to the Acer, with an approval gate), then P6 to P8. Owner: decide the deleted-note policy before P6, confirm the Scratch folder, and run the 60-day retention test on 2026-11-27. The two P3 hook checks are answered by the log.
+next: P0 to P4 are closed and the design notes are rewritten to current truth (2026-10-30). Run P5, the first weekly review by hand for 2026-W43, then P4b (The Plan stays local to the Acer, with an approval gate), then P6 to P8. Owner decide the deleted-note policy before P6, confirm the Scratch folder, and run the 60-day retention test on 2026-11-27. The two P3 hook checks are answered by the log.
 related_progress:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Research Plan|Conversation Loop Research Plan]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
@@ -19,6 +19,7 @@ notes:
   - "[[60_Claude/30_Reviews/Conversation Capture Layer Audit (2026-10-17)|Conversation Capture Layer Audit]]"
   - "[[60_Claude/05_Clippings/AI Conversations/README|AI Conversations README]]"
 ---
+
 # Conversation Layer
 ## Goal
 ==Every Claude Code session on the Acer (Windows) becomes one redacted note with its tool calls and files, a log proves each capture ran, and a weekly review turns the pile of notes into one change a week that makes the next session better. The Dell and the other platforms follow once the Acer loop runs.==

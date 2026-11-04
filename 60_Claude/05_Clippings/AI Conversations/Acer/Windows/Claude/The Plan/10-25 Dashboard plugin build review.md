@@ -5,11 +5,11 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-11-04T00:00:05
-exported_at: 2026-11-04T00:00:06
-duration_minutes: 13187.4
+ended_at: 2026-11-04T00:03:07
+exported_at: 2026-11-04T00:03:12
+duration_minutes: 13190.5
 project: The Plan
-cwd: 'D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards'
+cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
 status: seed
 review_state: raw

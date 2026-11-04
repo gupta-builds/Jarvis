@@ -103,7 +103,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | periodic-review-note (Spec ids -weekly, -monthly, -yearly) | 2 | thought / weekly, monthly, yearly | `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, `Yearly/` | [[Better Weekly]], [[Better Month]], [[Better Year]] | [[Periodic Review Note Standard]] | none | built |
 | plan | 1 | plan | `10_Areas/Life/Plans/` | [[Standing Plan Template]] | [[Plan Standard]] | [[Plan Review Cadence]] | built |
 | moc | 1 | index | any folder | [[Folder MOC Template]] | [[MOC Standard]] | none | built |
-| dashboard | 1 | dashboard (dashboard, board, habit-board) | `60_Claude/` except `05_Clippings/`, `10_Areas/`, `20_Progress/`, `00_Dashboard.md` | [[For Everything]] (set `type: dashboard` and `dashboard_kind`) | [[Dashboard Standard]] | none | built |
+| dashboard | 1 | dashboard (dashboard, board, habit-board) | `60_Claude/` except `05_Clippings/`, `10_Areas/`, `20_Progress/`, `00_Dashboard.md` | [[Dashboard Template]] | [[Dashboard Standard]] | none | built |
 | field-os (Spec ids field-os, depth-ladder, question-bank) | 1 | dashboard / field-os, depth-ladder, question-bank | `60_Claude/44_Indexes/Field OS/` | [[Capability Field OS Template]], [[Capability Depth Ladder Template]], [[Capability Question Bank Template]] | [[Field OS Standard]] | none | built |
 ## AI operations
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |

@@ -14,24 +14,108 @@
       "template": "30_Order/Templates/Classes/Week Template.md"
     },
     {
-      "folder": "20_Progress",
-      "template": "30_Order/Templates/Frontmatter/For Progress.md"
+      "folder": "/",
+      "template": "30_Order/Templates/For Everything.md"
+    },
+    {
+      "folder": "10_Areas/Career/Internships/Tracker/Each One",
+      "template": "30_Order/Templates/Career/Tracking/Internship Tracker Template.md"
+    },
+    {
+      "folder": "10_Areas/Career/Internships/Programs",
+      "template": "30_Order/Templates/Career/Internship/Internship Program Template.md"
+    },
+    {
+      "folder": "10_Areas/Career/Internships/Contacts/Each One",
+      "template": "30_Order/Templates/Career/Internship/Internship Contact Template.md"
+    },
+    {
+      "folder": "10_Areas/Life/Plans",
+      "template": "30_Order/Templates/Career/Standing Plan Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship/Applying",
+      "template": "30_Order/Templates/Career/Internship/Internship Applying Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship/Cover Letters",
+      "template": "30_Order/Templates/Career/Internship/Internship Cover Letter Template.md"
+    },
+    {
+      "folder": "20_Progress/Internship/Preperation/Interviews",
+      "template": "30_Order/Templates/Career/Internship/Internship Interview Prep Template.md"
+    },
+    {
+      "folder": "20_Progress/Projects",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "20_Progress/Mentorship Program",
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "20_Progress/AI",
+      "template": "30_Order/Templates/AI Toolkit/AI Tool Profile Template.md"
     },
     {
       "folder": "40_Resources",
-      "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
+      "template": "30_Order/Templates/Career/Reference Guide Template.md"
     },
     {
-      "folder": "60_Claude/20_Distilled_Notes",
-      "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
+      "folder": "60_Claude/07_AI_Information/AI Conversation - Summaries",
+      "template": "30_Order/Templates/System/AI/AI Conversation Export Template.md"
     },
     {
       "folder": "60_Claude/10_Source_Summaries",
-      "template": "30_Order/Templates/Frontmatter/For Inputs.md"
+      "template": "30_Order/Templates/AI Toolkit/Source Summary Template.md"
+    },
+    {
+      "folder": "60_Claude/10_Source_Summaries/Github Ingestion",
+      "template": "30_Order/Templates/System/AI/GitHub Repo Card Template.md"
+    },
+    {
+      "folder": "60_Claude/20_Distilled_Notes",
+      "template": "30_Order/Templates/Career/Evergreen Note Template.md"
+    },
+    {
+      "folder": "60_Claude/20_Distilled_Notes/Synthesis",
+      "template": "30_Order/Templates/Career/Cross-Domain Synthesis Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/AI/Scheduled/Weekly",
+      "template": "30_Order/Templates/AI Toolkit/AI Weekly Review Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/AI/Toolkit",
+      "template": "30_Order/Templates/System/AI/AI Tool Log Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly",
+      "template": "30_Order/Templates/Career/Internship/Internship Loop Weekly Review Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly",
+      "template": "30_Order/Templates/Career/Internship/Internship Loop Monthly Review Template.md"
+    },
+    {
+      "folder": "60_Claude/30_Reviews/Weekly Synthesis",
+      "template": "30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md"
     },
     {
       "folder": "60_Claude/40_Project_Briefs",
-      "template": "30_Order/Templates/Frontmatter/For Progress.md"
+      "template": "30_Order/Templates/Projects/Project Status Note Template.md"
+    },
+    {
+      "folder": "60_Claude/44_Indexes",
+      "template": "30_Order/Templates/System/Dashboard Template.md"
+    },
+    {
+      "folder": "60_Claude/44_Indexes/Field OS",
+      "template": "30_Order/Templates/Career/Tracking/Capability Field OS Template.md"
     }
   ],
   "file_templates": [],

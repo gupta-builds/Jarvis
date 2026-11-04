@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-07-05
-updated: 2026-10-17
+updated: 2026-11-04
 tags:
   - system
   - tooling
@@ -19,11 +19,11 @@ A local install of the `mcp-excalidraw-server` npm package so Claude Code can dr
 ## Trigger
 Two separate processes. The canvas server holds the live scene in memory and serves a browser UI; you start it yourself with `npm run canvas` from this folder (the script is `node node_modules/mcp-excalidraw-server/dist/server.js`). The MCP server runs over stdio from Claude Code and talks to the canvas server. The drawing workflow is the `/excalidraw-diagram` command and the skill in `.claude/skills/mcp-hub/excalidraw-diagram.md`.
 > [!WARNING]
-> The vault's `.mcp.json` registers only the `jarvis` server on 2026-10-17. The `excalidraw` server is not registered there, so Claude Code does not start it from the project file. Register it before relying on it.
+> The vault's `.mcp.json` registers only the `jarvis` server (checked by listing its server names on 2026-10-17 and again on 2026-11-04). The `excalidraw` server is not registered there, so Claude Code does not start it from the project file. Register it before relying on it.
 ## Inputs and Outputs
-Reads the diagram instructions from Claude Code tool calls. The package documentation says the canvas listens on `http://127.0.0.1:3000` (the `PORT` variable overrides it) and that the MCP server reaches it through `EXPRESS_SERVER_URL`; I could not check this because the package is not installed on this machine. Tools that need a browser (screenshots, viewport, image export) need the canvas open; element tools work without it. The result is exported with `export_scene` as JSON and linked from the note it supports. The plugin setting `useExcalidrawExtension` is `true`, so plain `.excalidraw` files open natively. Today the vault holds three `.excalidraw.md` notes in `10_Areas/Excalidraw/` and one plain `.excalidraw` file in `10_Areas/AI/`, so export has not followed one convention.
+Reads the diagram instructions from Claude Code tool calls. The package documentation says the canvas listens on `http://127.0.0.1:3000` (the `PORT` variable overrides it) and that the MCP server reaches it through `EXPRESS_SERVER_URL`; I could not check this because the package is not installed on this machine. Tools that need a browser (screenshots, viewport, image export) need the canvas open; element tools work without it. The result is exported with `export_scene` as JSON and linked from the note it supports. The plugin setting `useExcalidrawExtension` is `true`, so plain `.excalidraw` files open natively. On 2026-11-04 the vault held 11 `.excalidraw.md` notes in `10_Areas/Excalidraw/` and two plain `.excalidraw` files (`10_Areas/AI/Claude OS Map.excalidraw` and one under `20_Progress/Internship/Building System/`), so export has not followed one convention.
 ## State
-`package.json` and `package-lock.json` are tracked. `node_modules/` and `*.log` in this folder are ignored by git, and the canvas keeps its scene only in memory, so a restart clears an unexported drawing. `excalidraw.log` is the server's log.
+`package.json` and `package-lock.json` are tracked. `node_modules/` (root `.gitignore` line 197) and `excalidraw.log` (line 206) are ignored by git, and the canvas keeps its scene only in memory, so a restart clears an unexported drawing. `excalidraw.log` (421 bytes on 2026-11-04) is the server's log. A second, tracked `excalidraw.log` sits in `claude-workflow/` and is covered in that record.
 ## Failure Behavior
 Not checked: the package is not installed here. A missing canvas does not stop element tools, but screenshot and export calls fail until a browser is open on the canvas URL. The server is third-party code; a crash shows in `excalidraw.log` and nothing in the vault depends on it staying up.
 ## Verify
@@ -32,6 +32,6 @@ cd 30_Order\System\excalidraw-mcp
 npm install
 npm run canvas
 ```
-Open the canvas URL in a browser, then run `/excalidraw-diagram` on a small test and confirm a drawing file appears under `10_Areas/` and is linked from a note. `Test-Path 30_Order\System\excalidraw-mcp\node_modules` is false on a machine that has never run `npm install`.
+Open the canvas URL in a browser, then run `/excalidraw-diagram` on a small test and confirm a drawing file appears under `10_Areas/` and is linked from a note. `Test-Path 30_Order\System\excalidraw-mcp\node_modules` is false on a machine that has never run `npm install`; it was false on 2026-11-04, so the failure behavior above is still unchecked.
 ## Retire
 Remove the `excalidraw` entry from the MCP settings, stop the canvas process, then delete this folder in one commit that states the reason. Existing drawing files under `10_Areas/` stay. To update instead of retire, run `npm update mcp-excalidraw-server` from this folder.

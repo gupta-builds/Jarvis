@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
-ended_at: 2026-11-03T23:59:42
-exported_at: 2026-11-04T00:03:05
-duration_minutes: 5976.2
+ended_at: 2026-11-04T00:49:20
+exported_at: 2026-11-04T01:03:08
+duration_minutes: 6025.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9
@@ -15,23 +15,25 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-11-04
-turn_count: 10
+turn_count: 12
 tools_used:
-  Bash: 63
-  Edit: 12
+  Agent: 2
+  Bash: 68
+  Edit: 18
   Grep: 15
-  Read: 47
-  Write: 6
+  Read: 49
+  Write: 7
 tokens:
-  input: 164
-  output: 101123
-  cache_creation: 421986
-  cache_read: 13428522
-  total: 13951795
-cost_usd: 4.042354
+  input: 180
+  output: 122042
+  cache_creation: 457344
+  cache_read: 15328345
+  total: 15907911
+cost_usd: 4.58299
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/templater-data.new.json"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\checkrules.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\collapse.js"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\00d1c727c342200b\\a775e6e4-6194-4396-aeb0-86292cf5f2c9\\scratchpad\\refmap.js"
@@ -46,6 +48,8 @@ files_touched:
   - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint/vault-lint.js"
   - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/Job & Company Template.md"
   - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/Career/Internship/LinkedIn Post Template.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/System/Dashboard Template.md"
+  - "D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/44_Indexes/Capability Dashboard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\agents\\meeting-operator.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.claude\\skills\\weekly-review\\weekly-review.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\.obsidian\\plugins\\templater-obsidian\\data.json"
@@ -5438,6 +5442,268 @@ duplicate names in 30_Order: readme x6
 145 template links checked, 0 unresolved
 ```
 
+## You
+
+I validated the JSON, and every folder and template path in it exists. Tell me to apply it with a shell copy and I will, or copy it yourself from C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\[REDACTED]\scratchpad\templater-data.new.json. Restart Obsidian afterwards so Templater reloads it.
+
+This step needs to take place first once these: 5 dead rules, have been clearly established to be followed as designed and explained. 
+
+Dashboard template: is something that should exist here: `30_Order/Templates/System/Dashboard Template` (created). Go ahead and design it to follow the dahsboard created and follow a generic template. Lint fix: one line in vault-lint.js, even though System/ is next pass. Lint matched [[Concept Template]] by "ends with" and picked up Technical Concept Template once my move changed the sort order. It now matches on a path boundary. taken care of in the next build. Internship names:  got it. 
+
+
+
+<pasted_content id="520e">
+Left for the next pass
+
+- Live files still naming old paths:
+  - .claude/skills/transcript-to-brief and note-to-actions point at Templates/Capability/.... The meeting trio is now in Career/Meetings/, so the skills can't find their templates by path.
+  - .claude/agents/research-distiller (Clipping Distill Template) and learning-agent (a template that never existed, plus Capability/Question Bank).
+  - CLAUDE.md line 46, .cursor/rules/note-creation.mdc, the .codex agents, and the mirrors under 20_Progress/AI.
+- Templates: Vault Weekly Synthesis Template still has its stale plan sections, and Capability Depth Ladder Template has a table that lint warns about.
+- Course side: the 10_Areas/UMN Templater rule points at a folder that doesn't exist. I did not check whether the Classes/ and Enumerate/ templates carry the seven base keys.
+</pasted_content id="520e">
+
+
+Needs to be taken care of in a new session, you are required to now write a prompt inside this terminal (output tokens). Write a prompt based on this prompting guide: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]`, use the prompting guide as a resource and play a role of a professional prompting engineer to write this prompt. This pormpt needs to take care of the system updates and fixes that need to be taken place for jarvis. This prompt is run for the model sonnet 5.5 on high effort. Make sure to write the prompt following the prompting guide. Cover the above topics mentioned and things that we have mentioned to be taken care in the next pass. Solely focus on the Systems folder here and fixes required inside it.
+
+## Claude
+
+Three things to do, in this order. I'll apply the Templater rules first. I'll design the Dashboard Template and wire it into the Registry, the Dashboard Standard and the Templater rules, so the config I apply already includes it. Then I'll fetch the prompting guide and write the prompt for the next session. To begin, I'll fetch the guide and check what exists at the Dashboard Template path.
+
+Next I'll wire it into the Dashboard Standard, the Registry, the folder map and the staged Templater rules.
+
+Everything you asked me to do before the prompt is done and verified. I've left the prompt itself for the end.
+
+## Done
+- **Templater rules are live.** I backed up the old `data.json` to the scratchpad, copied the new one with a shell command, and compared the two files byte for byte. It now has 27 rules and no `Frontmatter` reference. The one flagged rule is the existing `10_Areas/UMN` rule, which is the course session's. **Restart Obsidian** so Templater reloads it.
+- **`System/Dashboard Template` is designed.**
+  - It follows the Capability Dashboard's shape: frontmatter, then one question per section, each with a one-sentence comment and one Dataview query.
+  - It has two starter sections, "Open Items" and "Recently Updated".
+  - Its queries use `FROM ""` with a `type` filter, as the Dashboard Standard allows.
+  - The Dashboard Standard, the Registry, the folder map and the Templater rules all point at it. `60_Claude/44_Indexes` now defaults to it.
+  - I listed its two sections as `optional_headings` in the Dashboard Spec. Lint only enforces headings on dashboard notes when `headings` is non-empty, so existing dashboards are unaffected.
+- **Checks pass.** `vault-lint --kit` shows 0 errors and 12 warnings. All 146 template links resolve. Every template's frontmatter is valid, apart from `For Everything`, which is blank by design.
+
+I'll leave the one-line lint fix in place and list it in the prompt as already applied, so the next session verifies it and records it instead of redoing it.
+
+## The prompt
+It follows both Sonnet guides. Structure comes from the Sonnet 5 page: XML sections, context first, the task last. The 5.5 page supplies the carry-through, scope and verification paragraphs. The scope clause is deliberately narrow, as you asked.
+
+```text
+<role>
+You maintain the System layer of Jarvis, a personal Obsidian vault at D:\_Anant\20_Progress\Documents\Jarvis. This session audits and repairs D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System, the folder that holds and documents the tooling that runs the vault.
+</role>
+
+<context>
+The facts below come from research on 2026-10-17 and 2026-11-03. Treat each one as a claim: open the file or run a read-only command before you rely on it or repeat it.
+
+How 30_Order works: every note starts from a Template, is shaped by a Standard, and runs through a Workflow. System/ is the exception. It holds one record per tooling component (see System Component Standard) plus the tool files themselves.
+
+A previous pass rebuilt Templates/ and repointed the Registry, Standards and Workflows. Do not redo it. State after that pass: the Frontmatter template folder is deleted, Templates/System/Dashboard Template exists, Templater folder rules are replaced, and "node vault-lint.js --kit" reports 0 errors.
+
+System/ today holds about 86 files, of which 9 are notes. Components: claude-workflow (hooks, session exporter, git-auto-sync, run-weekly-review.ps1, mineru-pdf.ps1), jarvis-memory (a SQLite MCP skeleton with status, search and reindex only; no embeddings, no graph), jarvis-cli (jarvis.ps1, jarvis_ops.py), sync-workflow (Syncthing health, Sync Alert Banner), cursor-workflow, excalidraw-mcp, and vault-lint (vault-lint.js, vault-lint.config.json, Vault Lint.md).
+
+Reported runtime state: scheduled tasks Jarvis-WeeklyReview (Sundays 06:00, headless), Jarvis-GitAutoSync (every 30 minutes; the Acer is the only git writer and the Dell copy is disabled), and Jarvis-Syncthing-Health. Hooks in .claude/settings.json: PreToolUse jarvis-write-guard.ps1 on Write|Edit|MultiEdit, PostToolUse jarvis-internship-note-guard.ps1. jarvis-pdf-guard.ps1 and jarvis-session-continuity.ps1 exist in System; the continuity hook was not registered on the Acer.
+
+The owner's design goals for the whole system: keep the order from going stale with a weekly scheduled run; improve the system from the day-to-day note edits through a review loop; keep exactly one session-log mechanism that does its job correctly; keep documentation and tooling in the same edit so neither goes stale.
+</context>
+
+<scope>
+Edit only files inside 30_Order\System. Read anywhere in the vault. Anything that needs a change outside System goes into the handoff register in your final report and is not edited. The owner can widen this scope in their next message.
+Apply every task below to every component in System, not only the first one you open.
+</scope>
+
+<tasks>
+1. Inventory. List every file under System with its size, whether git tracks it, and its role: component record, tool or script, state, log, or data. Check each component has exactly one record in the shape of Vault Lint.md (Purpose, Trigger, Inputs and Outputs, State, Failure Behavior, Verify, Retire) and that its claims match reality. Run "node vault-lint.js --path 30_Order/System/" from System\vault-lint and read the result.
+2. Names. README.md appears 6 times and the kit rule says no two files in 30_Order share a name. Find what links to each one, then rename or fold each into its component record without breaking a link.
+3. Known defects. Verify each, fix it if the fix lives inside System, otherwise register it: (a) the jarvis-cli report output points at an obsolete path; (b) jarvis-memory documentation must state exactly what exists today and no more; (c) .mcp.json registers only the server "jarvis" (check by listing server names only, never print values); (d) the session-continuity hook is not registered; (e) a large log (about 3 MB) and a SQLite file (about 2.6 MB) sit inside a documentation folder, so record whether they are git-ignored and propose where they belong.
+4. Hardcoded paths. List every absolute or machine-specific path in System scripts, hooks and configs, with file and line. Classify each as user-specific, vault-relative, or derivable from the script's own location. Do not move System. Do not edit git-auto-sync or any hook script that is currently registered; document their paths in the component record and list them for the owner.
+5. Vault Lint and the weekly run. Vault Lint.md says the weekly review records the fit percentage, yet the weekly-review skill and run-weekly-review.ps1 never call the linter. Confirm that with a search, then correct the record so it states the truth. Verify the lint fix already applied at vault-lint.js around line 439 (maps_to now matches on a path boundary) and record it in Vault Lint.md. Design the weekly order-health step as a read-only report: "vault-lint --kit" plus the fit summary, with the top failure reasons per family, families under 50% fit, registry rows without files, and files without registry rows. Put the collector script inside System, test it by running it by hand, and write the exact report location and format into the record. A review reports and proposes; it does not fix. If calling it needs a change in the weekly-review skill (outside System), put the exact lines in the handoff register.
+6. Session log. Find every script, hook and record in System that writes, exports or promises to write the session log. State which single mechanism actually works, align the System records and scripts to describe only that one, and register conflicting instructions found outside System (CLAUDE.md Session End Protocol, AGENTS.md, Conformance on Touch step 9, the meeting-operator agent).
+7. Scheduled tasks. Read the real state with Get-ScheduledTask and Get-ScheduledTaskInfo for names starting with Jarvis, read-only. Correct every record whose trigger, schedule or machine claim differs.
+</tasks>
+
+<handoff_register_seed>
+Known items outside System. Verify each, then list it with file and line in your report. Do not edit them: CLAUDE.md line 46 still names Templates/Frontmatter; .claude/skills/transcript-to-brief and note-to-actions point at Templates/Capability/ (the meeting trio now lives in Templates/Career/Meetings/); .claude/agents/research-distiller cites Clipping Distill Template (now Source Summary Template); .claude/agents/learning-agent cites a template that never existed plus Capability/Question Bank (now Career/Tracking/Capability Question Bank Template); .cursor/rules/note-creation.mdc; the .codex agents; the mirrors under 20_Progress/AI; Templates/AI Toolkit/Vault Weekly Synthesis Template still carries stale plan sections; Templates/Career/Tracking/Capability Depth Ladder Template triggers a lint warning; the Templater rule for 10_Areas/UMN points at a folder that does not exist; Classes/ and Enumerate/ templates have not been checked against the seven base keys of Templates/For Everything.
+</handoff_register_seed>
+
+<rules>
+Keep working until every task is done or blocked, and stop to ask only when you cannot continue without the owner or before a risky step. When the work is done and checked, stop and report. Do not add features, files, docs or refactors that were not asked for; mention them at the end instead.
+Take local, reversible actions freely. Ask first before deleting or rotating any file, changing a scheduled task, registering a hook, editing .mcp.json or settings files, running git commands that change history or push, or anything visible outside this machine.
+Never open or print secret files (.env*, .credentials.json, literal values in .mcp.json, SSH keys). Never read a PDF with a file reader; use the MinerU script named in AGENTS.md.
+Read a file before you make any claim about it. Call independent tools in parallel. Work directly; do not spawn subagents for this task.
+Write no summary, log or scratch file into the vault. Put temporary scripts in the session scratchpad. In this shell, inline "node -e" mangles backslashes, so write scripts to files.
+Follow HUMAN_WRITING in every note you edit. Never use an em dash.
+</rules>
+
+<verification>
+Before you report a change as done, run a real check that exercises it: the changed script in a non-mutating mode, "node vault-lint.js --kit" (must exit 0), "node vault-lint.js --path 30_Order/System/", and a link check that every wikilink you touched resolves. A syntax check alone does not count. If a check cannot run here, say which one and why instead of reporting the change as done.
+</verification>
+
+<report>
+End with a short report in plain prose and tables: (1) files changed, one line each; (2) verification output for each check; (3) decisions for the owner, each with your recommendation; (4) the handoff register with file and line. No filler, no recap of the brief.
+</report>
+
+Start with task 1 and 7 together, since both are read-only, then work through the rest in order.
+```
+
+Where I interpreted your scope:
+- You asked for the pasted outside-`System` items to be covered, and also for the prompt to focus only on `System`. I resolved that by making them a handoff register the session verifies and lists with file and line, without editing them.
+- If you'd rather have that session fix them, change the `<scope>` line to include `.claude/`, `CLAUDE.md` and `Templates/`. Nothing else in the prompt needs to change.
+- For `git-auto-sync` and the registered hooks, the session documents the hardcoded paths and lists them for you without editing them. Those scripts are critical to the vault and can't be tested safely before their next run.
+
+### Tool Calls
+
+- `Agent` -- `{"description":"Fetch Sonnet 5.5 prompting guide","subagent_type":"web-fetch","prompt":"Fetch https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED] and return the page\u0027s guidance in full, not a short summary. I am about to write a long agentic prompt for Claude Sonnet 5.5 running at high effort, so I need every concrete recommendation, grouped by topic: how to structure and order the prompt, how to state goals and constraints, how explicit instructions should be, how to handle agentic and tool-use work, verification and stopping criteria, scope control and overeagerness, parallel tool calls, effort level, formatting and output style, what to avoid (for example emphatic capitals or over-prompting), and any example prompt snippets or XML-tag conventions the page recommends. Keep the page\u0027s own wording for any rule or snippet. If the page cannot be fetched, say so plainly."}`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && ls -la Templates/System; echo ---; wc -c "Templates/System/Dashboard Template.md" 2>&1; cat "Templates/System/Dashboard Template.md" 2>&1 | head -40; echo ---; find . -iname "Dashboard Template*"; echo --- gold; find ../60_Claude -iname "Capability Dashboard*" | head
+```
+```
+total 13
+drwxr-xr-x 1 anant 197609    0 Nov  4 00:36 .
+drwxr-xr-x 1 anant 197609    0 Nov  3 23:49 ..
+drwxr-xr-x 1 anant 197609    0 Nov  3 23:49 AI
+-rw-r--r-- 1 anant 197609    0 Nov  4 00:35 Dashboard Template.md
+-rw-r--r-- 1 anant 197609 1182 Nov  3 23:50 Standard Template.md
+-rw-r--r-- 1 anant 197609  557 Nov  3 23:50 Workflow Template.md
+---
+0 Templates/System/Dashboard Template.md
+---
+./Templates/System/Dashboard Template.md
+--- gold
+../60_Claude/44_Indexes/Capability Dashboard.md
+```
+- `Agent` -- `{"description":"Fetch Sonnet 5 prompting guide","subagent_type":"web-fetch","prompt":"Fetch https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED] and return its guidance in full, not a short summary, grouped by topic, keeping the page\u0027s own wording for every rule and every example snippet. I am writing a long agentic prompt for Claude Sonnet 5.5 at high effort, so I especially need: how to structure and order the prompt, how explicit and literal instructions should be, how to state goals, constraints and success criteria, handling of context and long documents, agentic/tool-use and parallel tool-call guidance, verification and stopping, scope and overeagerness control, subagent use, formatting and output style (including length and markdown), tone and wording to avoid (emphasis, absolutes, negative instructions), and whether XML tags or examples are recommended. If the page cannot be fetched, say so plainly."}`
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/60_Claude/44_Indexes/Capability Dashboard.md`
+- `Read` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md`
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "optional_headings\|spec.headings\|\.headings" vault-lint.js | cut -c1-240
+```
+```
+279:  if (tier === 1 && spec && (spec.headings || []).length) {
+280:    const { hs, sc } = h2s(body); const want = spec.headings; let pos = -1; let ok = true;
+458:        const want = (s.headings || []).map(norm);
+459:        const allowed = new Set([...want, ...(s.optional_headings || []).map(norm)]);
+```
+- `Write` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/System/Dashboard Template.md`
+````
+---
+type: dashboard
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - dashboard
+dashboard_kind: dashboard
+notes: []
+next:
+---
+# <% tp.file.title %>
+<!-- One sentence: the question this page answers and who opens it. Rename each section below to the question it answers. -->
+## Open Items
+<!-- One sentence: what a row means and what to do about it. Point FROM at a folder that exists, or keep FROM "" with a WHERE type filter. -->
+```dataview
+TABLE status, next, updated
+FROM ""
+WHERE type = "project" AND status = "active"
+SORT updated DESC
+LIMIT 20
+```
+## Recently Updated
+<!-- One sentence: why the latest ten rows matter and what a stale one means. Sort on a frontmatter key from the Frontmatter Standard. -->
+```dataview
+TABLE type, status, updated
+FROM ""
+WHERE type = "project"
+SORT updated DESC
+LIMIT 10
+```
+
+````
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md`
+```diff
+- maps_to: []
+- used_by: []
++ maps_to:
++   - "[[Dashboard Template]]"
++ used_by: []
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Standards/Operations/Dashboard Standard.md`
+```diff
+-   "headings": [],
+-   "optional_headings": [],
+-   "legacy_match": [
+-     {"path": "^60_Claude/44_Indexes/[^/]+\\.md$"},
++   "headings": [],
++   "optional_headings": ["Open Items", "Recently Updated"],
++   "legacy_match": [
++     {"path": "^60_Claude/44_Indexes/[^/]+\\.md$"},
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
+```diff
+- [[For Everything]] (set `type: dashboard` and `dashboard_kind`)
++ [[Dashboard Template]]
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
+```diff
+-   - `System/` holds the Standard and Workflow Templates. Its `AI/` holds
++   - `System/` holds the Standard, Workflow, and Dashboard Templates. Its `AI/` holds
+```
+- `Edit` -- `C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/templater-data.new.json`
+```diff
+-     {
+-       "folder": "60_Claude/44_Indexes/Field OS",
++     {
++       "folder": "60_Claude/44_Indexes",
++       "template": "30_Order/Templates/System/Dashboard Template.md"
++     },
++     {
++       "folder": "60_Claude/44_Indexes/Field OS",
+```
+- `Bash`
+```bash
+S="C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad"; D="D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json"; cd "D:/_Anant/20_Progress/Documents/Jarvis" && cp "$D" "$S/templater-data.BACKUP-before-2026-11-04.json" && node "$S/checkrules.js" "$S/templater-data.new.json" | head -4 && cp "$S/templater-data.new.json" "$D" && cmp "$S/templater-data.new.json" "$D" && echo "APPLIED, identical to staged file" && node -e 'const j=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));console.log("live rules:",j.folder_templates.length,"| mode:",j.trigger_on_file_creation_mode,"| old Frontmatter refs:",JSON.stringify(j).includes("Frontmatter"))' "$D"
+```
+```
+PROBLEM 10_Areas/UMN -> 30_Order/Templates/Classes/Week Template.md { template: true, folder: false, dup: false }
+27 rules, 1 problems
+templates with no folder rule (picked by hand):
+  AI Toolkit/AI Monthly Review Template.md
+APPLIED, identical to staged file
+live rules: 27 | mode: folder | old Frontmatter refs: false
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -v "Periodic Review\|Better Today\|PDF Extraction\|Application Document Preparation 1\|Graphify Folders" ; echo; awk 'length>0' "../../Templates/System/Dashboard Template.md" | grep -n "<!--" | awk '{print length($0)}' | tr '\n' ' '
+```
+```
+Specs loaded: 76 from 58 Standards. Vocabulary parsed: true
+WARN  30_Order/Templates/Career/Tracking/Capability Depth Ladder Template.md  template section "Compare and Discriminate" has body text beyond a comment
+WARN  30_Order/Templates/For Everything.md  template has no type
+
+0 errors, 12 warnings
+
+128 145 141
+```
+- `Edit` -- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/System/Dashboard Template.md`
+```diff
+- <!-- One sentence: what a row means and what to do about it. Point FROM at a folder that exists, or keep FROM "" with a WHERE type filter. -->
++ <!-- One sentence: what a row means and what to do about it. Point FROM at an existing folder, or keep FROM "" with a type filter. -->
+```
+- `Bash`
+```bash
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -o '<!--.*-->' "Templates/System/Dashboard Template.md" | awk '{print length($0)}' | tr '\n' ' '; echo; cd System/vault-lint && node vault-lint.js --kit | tail -1; node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/resolve.js"; node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js" | grep -v "| ok"
+```
+```
+125 134 138 
+0 errors, 12 warnings
+duplicate names in 30_Order: readme x6
+146 template links checked, 0 unresolved
+For Everything.md | EMPTY-type
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -5447,8 +5713,10 @@ duplicate names in 30_Order: readme x6
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\repoint.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\resolve.js`
 - `C:\Users\anant\AppData\Local\Temp\claude\00d1c727c342200b\a775e6e4-6194-4396-aeb0-86292cf5f2c9\scratchpad\templater-data.new.json`
+- `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Templates/System/Dashboard Template.md`
 
 **Files modified:**
+- `C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/templater-data.new.json`
 - `D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json`
 - `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/00_How This Folder Works.md`
 - `D:/_Anant/20_Progress/Documents/Jarvis/30_Order/Note Type Registry.md`
@@ -5524,4 +5792,9 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -o -E ".{0,60}(Templates/Knowledge|Templates/Capability|Templates/Frontmatter).{0,60}" "30_Order/Standards/AI Loop/Knowledge Noting.md"; echo ======; P='Templates/Frontmatter|Templates/Capability|Templates/Knowledge|Clipping Distill Template|Deep Dive Template|Synthesis Note Template|Repo Evaluation Template|Weekly Synthesis Template|Audit Report Template|Output (Bullet |One-Pager )?Template|MOC Template|Project Note Template|Agent Prompt Template|Code Mirror Template|Technical Concept Template'; for f in CLAUDE.md .claude/agents/learning-agent.md .claude/agents/research-distiller.md .claude/skills/note-to-actions/SKILL.md .claude/skills/transcript-to-brief/SKILL.md .cursor/rules/note-creation.mdc; do echo "## $f"; grep -n -o -E ".{0,70}($P).{0,50}" "$f" | head -6; done`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -o -E ".{0,80}(For (AI|Brainstorm|Classes|Dashboards|Evergreen|Inputs|Progress|Thoughts)\b).{0,60}" "30_Order/Standards/AI Loop/Knowledge Noting.md"; git status --short | grep -v "^ M \"60_Claude/05_Clippings" | awk '{print $1}' | sort | uniq -c; echo; git status --short -- 30_Order/Templates | awk '{print $1}' | sort | uniq -c`
 - `node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/resolve.js"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && ls -la Templates/System; echo ---; wc -c "Templates/System/Dashboard Template.md" 2>&1; cat "Templates/System/Dashboard Template.md" 2>&1 | head -40; echo ---; find . -iname "Dashboard Template*"; echo --- gold; find ../60_Claude -iname "Capability Dashboard*" | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && grep -n "optional_headings\|spec.headings\|\.headings" vault-lint.js | cut -c1-240`
+- `S="C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad"; D="D:/_Anant/20_Progress/Documents/Jarvis/.obsidian/plugins/templater-obsidian/data.json"; cd "D:/_Anant/20_Progress/Documents/Jarvis" && cp "$D" "$S/templater-data.BACKUP-before-2026-11-04.json" && node "$S/checkrules.js" "$S/templater-data.new.json" | head -4 && cp "$S/templater-data.new.json" "$D" && cmp "$S/templater-data.new.json" "$D" && echo "APPLIED, identical to staged file" && node -e 'const j=JSON.parse(require("fs").readFileSync(process.argv[1],"utf8"));console.log("live rules:",j.folder_templates.length,"| mode:",j.trigger_on_file_creation_mode,"| old Frontmatter refs:",JSON.stringify(j).includes("Frontmatter"))' "$D"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --kit 2>&1 | grep -v "Periodic Review\|Better Today\|PDF Extraction\|Application Document Preparation 1\|Graphify Folders" ; echo; awk 'length>0' "../../Templates/System/Dashboard Template.md" | grep -n "<!--" | awk '{print length($0)}' | tr '\n' ' '`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && grep -o '<!--.*-->' "Templates/System/Dashboard Template.md" | awk '{print length($0)}' | tr '\n' ' '; echo; cd System/vault-lint && node vault-lint.js --kit | tail -1; node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/resolve.js"; node "C:/Users/anant/AppData/Local/Temp/claude/00d1c727c342200b/a775e6e4-6194-4396-aeb0-86292cf5f2c9/scratchpad/fmaudit.js" | grep -v "| ok"`
 

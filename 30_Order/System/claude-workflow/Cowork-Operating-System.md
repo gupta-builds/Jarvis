@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-06-05
-updated: 2026-10-17
+updated: 2026-11-04
 tags:
   - system
   - cowork
@@ -64,7 +64,7 @@ From [[40_Resources/Obsidian/Jarvis Vault Architecture]] and `CLAUDE.md`:
 5. Read `HUMAN_WRITING.md` before any prose meant for the vault, and follow the Template and Standard for the note type in `30_Order/`.
 6. `50_Archive/` is never read or written unless explicitly instructed.
 7. `60_Claude/` is the AI workshop; promote stable knowledge to `40_Resources/` or `10_Areas/` when appropriate.
-8. Log meaningful sessions: append a short entry to the session log when the task changed vault state or setup.
+8. Log meaningful sessions: at the end of the session, append one entry to `60_Claude/07_AI_Information/Session Logs/log.md` when the task changed vault state or setup, and skip it when nothing changed (the rule is in [[Memory Management]]). You are the only writer of that entry; no hook or script writes it for you.
 ## 6. Session discipline
 1. Scope: do only what the user asked. No drive-by refactors.
 2. Verify writes: after creating or editing a note, read back the changed section through jarvis.

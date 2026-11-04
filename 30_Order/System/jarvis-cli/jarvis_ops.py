@@ -20,7 +20,7 @@ from typing import Iterable
 
 TODAY = dt.date.today()
 DATE_FIELDS = {"created", "updated", "reviewed", "last_drilled", "next_drill"}
-REPORT_DIR = Path("60_Claude/50_Reviews/Ops Reports")
+REPORT_DIR = Path("60_Claude/30_Reviews/Ops Reports")
 SESSION_LOG = Path("60_Claude/07_AI_Information/Session Logs/log.md")
 CONTEXT_FILES = [
     Path("60_Claude/07_AI_Information/Vault Map.md"),

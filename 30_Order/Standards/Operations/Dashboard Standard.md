@@ -9,7 +9,8 @@ tags:
 system_kind: standard
 family: dashboard
 tier: 1
-maps_to: []
+maps_to:
+  - "[[Dashboard Template]]"
 used_by: []
 gold_standard: "[[Capability Dashboard]]"
 notes:
@@ -30,7 +31,7 @@ This is the Standard for `type: dashboard` notes: query dashboards, boards (a qu
   "required_keys": ["type", "status", "created", "updated", "tags", "dashboard_kind"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
   "headings": [],
-  "optional_headings": [],
+  "optional_headings": ["Open Items", "Recently Updated"],
   "legacy_match": [
     {"path": "^60_Claude/44_Indexes/[^/]+\\.md$"},
     {"path": "^60_Claude/([^/]+/)?[^/]*Board\\.md$"},

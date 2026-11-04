@@ -34,7 +34,7 @@ Most notes predate their Standard. Whenever a session opens one, it brings the n
   - `Career/` holds the vault's main notes: Evergreen Note, Cross-Domain Synthesis, Reference Guide, Technical Concept, Interview Story, Portfolio Bullet, Project One-Pager, Folder MOC, and Standing Plan. Its `Meetings/` holds the Transcript, Brief, and Action Templates. Its `Tracking/` holds every tracker and dashboard: Internship Tracker, Internship Postings Log, and the three Capability dashboards. Its `Internship/` holds the loop's own notes and reviews.
   - `Projects/` holds project notes, one per project type: Project Status Note, Project Plan, Project Spec, Agent Task Prompt, Code File Mirror, and Machine Setup Runbook.
   - `AI Toolkit/` holds the AI notes a person reads: the AI weekly and monthly reviews, AI Tool Profile, Source Summary, Vault Audit Report, and Vault Weekly Synthesis.
-  - `System/` holds the Standard and Workflow Templates. Its `AI/` holds what AI systems write: conversation exports, tool and write logs, Graphify maps, and GitHub repo cards.
+  - `System/` holds the Standard, Workflow, and Dashboard Templates. Its `AI/` holds what AI systems write: conversation exports, tool and write logs, Graphify maps, and GitHub repo cards.
   - `Classes/` is the course set, and `Enumerate/` is wired to Periodic Notes.
 - **`Workflows/`**: `Courses/`, `Internship/`, `Enrichment/`, `Ingestion/`, `Toolkit/`, `Operations/`, `Projects/`, `System/`. [[00_Workflows Index]] lists them.
 ## Naming

@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-07-05
-updated: 2026-10-17
+updated: 2026-11-04
 tags:
   - system
   - tooling
@@ -30,7 +30,7 @@ Two stores joined on `composerId`, which equals the JSONL file name:
 Output goes to `60_Claude/05_Clippings/AI Conversations/WSL/Cursor/<project>/` or `.../Windows/Cursor/<project>/`, chosen from the workspace URI, plus a flat `_raw_jsonl/<session_id>.jsonl` copy. Commands and tool inputs pass through `redact_secrets.py` before they reach a note. Exporter modes: `--backfill` (every session present in both stores, idempotent), `--sweep` (rows newer than the saved watermark), `--composer-id <uuid>` (one session), and `--archive-old` (move flat pre-rewrite notes into `_archive-pre-fix/`, never delete). The older bubble-store scripts (`export-cursor-composer.py`, `list-cursor-composers.py`, `dump-composer-raw.py`, `cursor-db-run.py`, `append-exported-composer.py`) are legacy and not the live path. The `scripts/_*.ps1` files are one-off test and registration helpers.
 Skip rule: no `composerHeaders` row, `isDraft`, `isArchived`, `isSubagent`, or no real assistant turn in the JSONL. Dedup: the flat `_raw_jsonl/<session_id>.jsonl`, or a `session_id:` already present in a project note.
 > [!WARNING]
-> The exporter's WSL branch and the Windows fallbacks hardcode the old machine's paths (`C:\Users\Anant Gupta\...`, `/mnt/d/Users/_Anant/10_Areas/...`). The Windows branch resolves the vault from the script location, so it is safe; running the script inside WSL is not.
+> The exporter's WSL branch and the Windows fallbacks hardcode the old machine's paths (`C:\Users\Anant Gupta\...`, `/mnt/d/Users/_Anant/10_Areas/...`) at `export-cursor-sessions.py` lines 60 to 61, 68 to 75, 80 and 125, and `cursor-db-run.py` lines 37 to 39 and 80. The Windows branch resolves the vault from the script location, so it is safe; running the script inside WSL is not. The two Windows fallbacks only apply when `APPDATA` or `USERPROFILE` is unset.
 ## State
 `cursor-export-state.json` holds the sweep watermark and `logs/sweep-YYYY-MM-DD.log` holds the run log. Both are ignored by git (`.gitignore` lines for `cursor-export-state.json` and `logs/*.log`). `exported-cursor-composers.json` is a tracked legacy index read only by `append-exported-composer.py` and `composer_index.py`.
 ## Failure Behavior
@@ -41,6 +41,6 @@ Get-ScheduledTask -TaskName Jarvis-Cursor-Session-Export | Get-ScheduledTaskInfo
 Get-Content 30_Order\System\cursor-workflow\logs\sweep-$(Get-Date -Format yyyy-MM-dd).log -Tail 5
 py 30_Order\System\cursor-workflow\scripts\export-cursor-sessions.py --composer-id <uuid>
 ```
-The log's last line reads `Exit code: 0`. Compare the count of `agent-transcripts` sessions with the notes under `AI Conversations/*/Cursor/`. On 2026-10-17 this machine had no registered task, no state file, and no sweep logs, so the sweep runs on another machine or not at all.
+The log's last line reads `Exit code: 0`. Compare the count of `agent-transcripts` sessions with the notes under `AI Conversations/*/Cursor/`. On 2026-10-17 and again on 2026-11-04 this machine had no registered task, no state file, and no sweep logs (the `logs/` folder is empty), so the sweep runs on another machine or not at all.
 ## Retire
 Run `Unregister-ScheduledTask -TaskName Jarvis-Cursor-Session-Export`, then delete this folder's scripts in one commit that states the reason. The existing notes in the archive stay; they are raw records.

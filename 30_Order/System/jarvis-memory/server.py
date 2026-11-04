@@ -10,7 +10,7 @@ memory, and the answer engine from the three-month plan are added here as new
 Run standalone for a smoke test:
     python server.py        # starts the stdio MCP server
 
-Configured in .mcp.json as the `jarvis-memory` server. Requires `pip install mcp`.
+Not registered in the vault's .mcp.json today (only `jarvis` is). Requires `pip install mcp`.
 """
 
 from __future__ import annotations

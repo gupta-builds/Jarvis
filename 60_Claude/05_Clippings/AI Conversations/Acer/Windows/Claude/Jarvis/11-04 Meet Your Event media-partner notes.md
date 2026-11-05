@@ -6,7 +6,7 @@ source_os: windows
 title: "Meet Your Event media-partner notes"
 started_at: 2026-11-04T18:46:11
 ended_at: 2026-11-04T18:53:36
-exported_at: 2026-11-04T21:03:03
+exported_at: 2026-11-04T22:03:07
 duration_minutes: 7.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

@@ -6,7 +6,7 @@ source_os: windows
 title: "Syncthing notification settings"
 started_at: 2026-11-03T23:28:46
 ended_at: 2026-11-03T23:34:30
-exported_at: 2026-11-04T20:33:19
+exported_at: 2026-11-04T21:33:18
 duration_minutes: 5.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

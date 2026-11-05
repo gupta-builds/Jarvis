@@ -6,7 +6,7 @@ source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
 ended_at: 2026-11-04T02:15:42
-exported_at: 2026-11-05T03:33:22
+exported_at: 2026-11-05T04:33:12
 duration_minutes: 6112.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

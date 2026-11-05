@@ -6,7 +6,7 @@ source_os: windows
 title: "Meet Your Event media-partner notes"
 started_at: 2026-11-04T18:46:11
 ended_at: 2026-11-04T18:53:36
-exported_at: 2026-11-04T23:03:03
+exported_at: 2026-11-05T00:03:08
 duration_minutes: 7.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
@@ -14,7 +14,7 @@ session_id: cc9c70cf-8ebc-42c1-96ff-936ea618c883
 status: seed
 review_state: raw
 created: 2026-11-04
-updated: 2026-11-04
+updated: 2026-11-05
 turn_count: 2
 tools_used:
   Glob: 4

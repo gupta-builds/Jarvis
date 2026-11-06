@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-30
+updated: 2026-11-05
 tags:
   - project
   - ai
@@ -16,7 +16,7 @@ model: claude-sonnet-5-5
 Run by Sonnet 5.5 inside the directory: `D:\_Anant\20_Progress\Documents\Jarvis`
 Suggested effort: high. It registers a global hook that runs on every tool call, so the design must be right.
 Follow this prompting guide to lay it out correctly: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5`
-Status of this draft: refreshed on 2026-10-30 from the design postmortem and a second pass that re-read the hooks reference and tested the machine. Run it only after P5 (the hand review) has reported what made coding hard, P4b (The Plan stays local) is done, and the owner has answered the deleted-note policy. It replaces the 2026-10-22 draft, which had the hook store 200 characters of each prompt and compute `claims_done` and `verified_after_last_edit` at Stop time.
+Status of this draft: refreshed on 2026-10-30 from the design postmortem and a second pass that re-read the hooks reference and tested the machine. Run it only after P5 (the hand review) has reported what made coding hard. P4b is done and the deleted-note policy is answered (both 2026-11-05, details in the context below). It replaces the 2026-10-22 draft, which had the hook store 200 characters of each prompt and compute `claims_done` and `verified_after_last_edit` at Stop time.
 ## Prompt - P6 Event Capture Hook
 ````
 <role>
@@ -33,11 +33,12 @@ Verified in the Claude Code hooks reference on 2026-10-30 (https://code.claude.c
 - Matching hooks run in parallel and PostToolUse fires concurrently for parallel tool calls. Async hooks cannot change Claude's behavior and their timeout is not enforced. Under claude -p, async hooks still running at teardown are killed.
 - Stdout of a UserPromptSubmit hook is added to the model's context, so the script must print nothing to stdout.
 - Measured on this Acer: Node v24.19.0 starts and appends one line in 57 ms at p50 and 213 ms at p95 (60 runs). 100 simultaneous appends of 3.0 KB and of 3.9 KB left 0 torn lines in 200. PowerShell starts in about 219 ms.
-- git check-ignore -v on 30_Order/System/claude-workflow/logs/events-GUPTA-BUILDS.jsonl exits 1: the file would be tracked and synced. .gitignore and .stignore list named log files only.
-- The existing registrations are in C:\Users\anant\.claude\settings.json: Stop (async, timeout 60), SessionEnd (timeout 30), three PreToolUse entries for the PDF guard (timeout 20). Leave them alone.
+- Since 2026-11-05 the root .gitignore holds events-*.jsonl, so git ignores an events file (git check-ignore -v names the line). .stignore does not hold it, so Syncthing would still copy an events file to the Dell.
+- The existing registrations are in C:\Users\anant\.claude\settings.json: Stop (async, timeout 60), SessionEnd (timeout 30), SessionStart (jarvis-session-continuity.ps1, timeout 30), three PreToolUse entries for the PDF guard (timeout 20). Leave them alone.
 - C:\Users\anant\.claude\jarvis-session-activity.jsonl begins with a byte-order mark on its first line. Your own file must not.
 
-Owner decisions: raw events stay on each machine and are local only. Every directory the owner uses with Claude Code is tracked, with a project name from capture-projects.json. The record holds NO prompt text, no assistant text, no tool output and no pasted content (a working default the owner may veto). Scripts live in the vault; registration is user-level in settings.json, made by a script kept in the vault, because The Plan, Home and UMN Courses sit outside the vault. The Plan's session notes stay local to the Acer (P4b).
+Owner decisions: raw events stay on each machine and are local only. Every directory the owner uses with Claude Code is tracked, with a project name from capture-projects.json. The record holds NO prompt text, no assistant text, no tool output and no pasted content (a working default the owner may veto). Scripts live in the vault; registration is user-level in settings.json, made by a script kept in the vault, because The Plan, Home and UMN Courses sit outside the vault. Conversation notes under 60_Claude/05_Clippings/AI Conversations are ignored by git (owner, 2026-11-05) and keep syncing between the laptops through Syncthing; that decision is about notes and does not apply to raw events, which stay per machine.
+D:\AI\Conversations is a new, empty directory outside the vault for files saved outside it. The owner is still setting it up, and capture-projects.json has no rule for it yet. Read the rules from the routing file at run time and never hardcode project names; a cwd that matches no rule gets the file's fallback. Take a row's project only from the routing file, because check-capture-coverage.ps1 disagrees with the exporter for one session started in D:\ (cause not determined).
 </context>
 
 <goal>
@@ -50,7 +51,7 @@ One deterministic hook script and its tests, registered globally for the events 
 - Common row: v (schema version, 1), ts, machine, session_id, agent ("main" or the agent_id), prompt_id or null, event, cwd, project, claude_version when available. Key by session, agent and prompt_id; a row with no prompt_id is written with null.
 - One appendFileSync of one line under 4 KB per event, written without a byte-order mark. A failure to write goes to %LOCALAPPDATA%\claude-capture\events-fallback.log.
 - Build in 30_Order/System/claude-workflow/hooks/ (the script and a lib folder) with node --test tests beside the existing scripts. No dependencies. Edit only the "hooks" block of C:\Users\anant\.claude\settings.json, with targeted edits after copying it to the scratchpad, and leave the existing entries alone. The edit is made by a registration script kept in 30_Order/System/claude-workflow/scripts/ (dry run unless -Apply, refuses other hosts, backs up first), not by hand.
-- Add ignore lines for events-*.jsonl and the fallback log to .gitignore and to .stignore (with the (?d) prefix like its neighbors) BEFORE the first write. Prove them with git check-ignore -v. Note that .stignore does not sync, so the Dell needs the same lines later.
+- The events-*.jsonl line is already in .gitignore (2026-11-05); re-prove it with git check-ignore -v. Add events-*.jsonl to .stignore (with the (?d) prefix like its neighbors) BEFORE the first write, because raw events stay per machine and Syncthing would otherwise copy them. The fallback log sits under %LOCALAPPDATA%, outside the vault, and needs no line. Note that .stignore does not sync, so the Dell needs the same line later.
 - Never open .credentials.json, .env files, or history.jsonl text (counting its lines per session for the smoke test is allowed).
 - Do not run git commit or git push. Notes you patch: no em dashes, no blank line after a heading, path-qualified wikilinks.
 - When the work the user asked for is done and checked, stop and report. Don't add features, tests, files, docs or refactors that weren't asked for. If you think one would help, mention it at the end instead of doing it.
@@ -62,7 +63,7 @@ Before your first tool call, say in one sentence what you are about to do. After
 </progress_updates>
 
 <steps>
-1. Ignore lines first. Add events-*.jsonl and the fallback log to .gitignore and .stignore, then prove them with git check-ignore -v on a would-be events file name. Only then continue.
+1. Ignore lines first. Prove the .gitignore line with git check-ignore -v on a would-be events file name, add events-*.jsonl to .stignore, and read the line back. Only then continue.
 2. Key capture. Register a temporary logger (in the scratchpad, not the vault) that records only field names and value types per event for about an hour of normal use, with the real settings backed up. Answer, with counts: which of the 33 events fire; whether a subagent's rows carry the parent's prompt_id; whether a typed /clear fires UserPromptSubmit; whether InstructionsLoaded fires at session start with no prompt_id; whether PermissionDenied appears. Remove the logger. Pin the observed field lists as fixtures in a schema test so a release that renames a field fails a test.
 3. Write the script and lib: parse stdin, resolve the project through the routing file's rules (reimplement them in Node and share one fixture file of cases with the PowerShell routing test so the two cannot drift), classify the event, append. Per-event fields follow the Per-Prompt Record fact-row table. A parse error or unknown payload writes a hook_error row (stage and a short error_class) to the same file and one line to stderr. Silence is never an outcome.
 4. Tests (node --test, synthetic fixtures): one expected row per event type; empty stdout for every event; garbage and empty stdin give a hook_error row and exit 0; no row ever contains prompt text or a tool_response body; no byte-order mark; the 4 KB cap; JARVIS_EVENTS_OFF=1; routing fixtures; and 50 concurrent processes leave 50 intact lines.

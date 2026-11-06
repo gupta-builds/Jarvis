@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-30
+updated: 2026-11-05
 tags:
   - project
   - ai
@@ -34,7 +34,7 @@ Read from Task Scheduler on 2026-10-30 (re-read in step 1; the Acer may have cha
 - Jarvis-Syncthing-Health: every 5 minutes, last result 1 at 21:26. Record it; do not change it.
 - Jarvis-Codex-Daemon-Guard: Disabled, last run 2026-10-26 18:57. Record it.
 - ThePlan-GitSync: every 15 minutes, result 0.
-- Jarvis-WeeklyReview: weekly, registered with a start boundary of 2026-09-28T06:00:00-05:00. Daylight saving ends on 2026-11-01 and its next run already reads 05:00 local. It ran at 13:15 on 2026-10-18 and 13:22 on 2026-10-25 (about seven hours late, because the laptop was off at 06:00 and the task starts when available). That review covers concept mastery, not conversations.
+- Jarvis-WeeklyReview: weekly on Sunday. It was registered with a start boundary of 2026-09-28T06:00:00-05:00 and ran at 13:15 on 2026-10-18 and 13:22 on 2026-10-25 (about seven hours late, because the laptop was off at 06:00 and the task starts when available). Read on 2026-11-05, it is already re-registered: start boundary 2026-11-05T06:00:00 with no UTC offset, StartWhenAvailable true, next run 2026-11-08 06:00, LastTaskResult 267011 (not yet run since re-registration; scripts/register-weekly-review-task.ps1 had an uncommitted edit). That review covers concept mastery, not conversations. Its daylight-saving problem is fixed, so register only the new digest task and leave this one alone.
 - Free minutes for new tasks: not :03, :33, :08, :23, :38, :53, :12, :27, :42, :57, nor the Syncthing grid.
 
 Inputs from earlier phases (refresh): P7's digest command and output path (it rebuilds the current and the previous ISO week on every run and writes a separate key file); P5's weekly note naming ("AI Tools Weekly Review - <year>-W<week>" in 60_Claude/30_Reviews/AI/Scheduled/Weekly/); the owner's answers on nudge timing.
@@ -47,7 +47,7 @@ A scheduled task generates the digest (current and previous week) and creates th
 <constraints>
 - Acer only; the register script refuses other hosts and is a dry run unless -Apply. The scheduled task makes no model call and does not touch Jarvis-WeeklyReview, Jarvis-GitAutoSync, Jarvis-Syncthing-Health, Jarvis-Codex-Daemon-Guard or the backfill task.
 - Default: the digest runs Sundays at 21:00 and starts when available, so a closed laptop catches up on the next boot; the time is a parameter. The task must use a start time without a UTC offset. After registering, read the task's XML and report the start boundary, and report what Task Scheduler shows as the next run for the Sunday after 2026-11-01.
-- The runner takes a lock, writes logs/conversation-digest.log (add ignore lines for it in .gitignore and .stignore and prove them with git check-ignore -v), and exits non-zero if the digest fails. Create the skeleton only if no note exists; never overwrite an edited note. The skeleton and the toast never name a The Plan prompt.
+- The runner takes a lock, writes logs/conversation-digest.log (.gitignore already ignores it since 2026-11-05; add the line to .stignore, which is per machine, and prove the .gitignore line with git check-ignore -v), and exits non-zero if the digest fails. Create the skeleton only if no note exists; never overwrite an edited note. The skeleton and the toast never name a prompt by title, path or link, for any project; session id and turn number only (owner, 2026-11-05: conversation notes stay local and the skeleton is pushed to a public repo).
 - The /startday nudge edits .claude/skills/starting-day/SKILL.md (confirm the path and the Unison sync direction first: read register-jarvis-sync-task.ps1 and sync-jarvis-silent.vbs; if Unison could overwrite the skill, stop and ask).
 - Do not edit Standards, Templates or Workflows, or 00_Dashboard.md. Never open .credentials.json or .env files. Do not run git commit or git push.
 - Notes: no em dashes, no blank line after a heading, path-qualified wikilinks.

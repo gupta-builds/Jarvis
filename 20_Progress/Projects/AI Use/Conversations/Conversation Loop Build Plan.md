@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-30
+updated: 2026-11-05
 tags:
   - project
   - ai
   - conversations
   - build
 project_kind: plan
-next: P4 is done and the plan below is rewritten to it. Next is P5, the first weekly review by hand for 2026-W43, with no new code; then P4b (The Plan stays local to the Acer, with an approval gate), then P6 to P8. The Dell does not start until the Dell gate below is true.
+next: P4 is done and the plan below is rewritten to it. Next is P5, the first weekly review by hand for 2026-W43, with no new code, once its prompt carries the session-id rule from the 2026-11-05 Corrections; then P6 to P8. P4b is closed for the Acer (the whole conversation tree is untracked). The Dell does not start until the Dell gate below is true.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]]"
@@ -125,3 +125,15 @@ Platforms other than Claude Code on the Acer until the Acer loop runs end to end
 | B6 local reviewer pilot | P13 (stage A) and P16 (stage B) |
 | B7 `/insights` skill | cut; a manual monthly step |
 | B9 Dell rollout | P14 |
+## Corrections
+*2026-11-05. The text above is kept as written on 2026-10-30. Each line names the postmortem finding that caused it. Owner decision of 2026-11-05: every AI conversation note stays on the machine that wrote it; only finalized and review notes are published; history in earlier commits is accepted as is.*
+- **Finish line A5 (postmortem 15).** "The Plan stays on the Acer" becomes "No conversation note is tracked by git." State: done on the Acer on 2026-11-05. `.gitignore` ignores `60_Claude/05_Clippings/AI Conversations/*` except `README.md`; `git rm -r --cached` took 1,673 files out of the Acer's index and `git ls-files` for the tree now lists only `README.md`; 1,698 files are still on disk. The auto-sync commit that publishes the removal runs at the next :03 or :33 tick.
+- **P4b row and its "What each remaining phase must do" paragraph (postmortem 15, 16, 17).** The phase is closed for the Acer and widened from The Plan's folder to the whole tree (Acer, Dell, legacy `Windows/`, Cowork, Cursor). The 23 `.md` files and 27 markers in the text above were 1,673 files in the end. The remote is public (`gh repo view`, 2026-11-05). The history question is answered: no purge (postmortem 17). Left over and owner's: the Dell's own index and the `.stignore` lines (postmortem 16).
+- **"Done when" for P4b.** The `git check-ignore -v` and `git ls-files` parts hold. The coverage script is not fully green, and was not before: 132 ok of 135, 2 with no note (`851dec9c`, the deleted note, and the running session) and 1 in `Unknown` (postmortem 18).
+- **P5 (postmortem 15).** The sample sheet and the weekly note name every prompt by session id and turn number, for all projects. The prompt's "The Plan rows excepted" is out of date.
+- **P6 (postmortem 1, 16, 18).** `events-*.jsonl` is already ignored by git; add the `.stignore` line and prove both. Add `SessionStart` to the hook table. Do not take a row's project from the coverage script until the `D:\` routing is settled.
+- **P7 (postmortem 15).** No project prints a session note title or path; ids and turn numbers only. Count the `junk` export status beside `skipped`.
+- **P8 (postmortem 14, 16).** `Jarvis-WeeklyReview` now reads start `2026-11-05T06:00:00` with `StartWhenAvailable` true, so register only the digest task and read the live trigger first. `conversation-digest.log` is already ignored by git.
+- **The Dell gate (postmortem 16).** Add a row: the Dell's index is untracked the same way before its git writer runs again, and the `.stignore` decision is made on both laptops.
+- **Open Questions.** Answered by the owner's decision: "Should Home (17 notes) stay local like The Plan?" (yes, the whole tree is local) and "should The Plan's history be purged" (no). Added: the `.stignore` lines; the Dell index; the folder for a session started in `D:\`.
+- **Facts that moved.** 167 top-level transcripts, 135 with an assistant turn, 156 Acer notes; the `SessionStart` hook; 153 `export_result` lines for 154 Stop and SessionEnd events since 2026-10-28 22:36. See the postmortem's Corrections.

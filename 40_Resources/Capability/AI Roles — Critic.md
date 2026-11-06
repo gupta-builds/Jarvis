@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2025-07-18
-updated: 2025-07-18
+updated: 2026-11-05
 tags:
   - capability
   - ai-role
@@ -25,7 +25,7 @@ Your job: review a concept note and identify specific weaknesses. You are not re
 
 ### Input
 
-You receive a concept note (or its title + full content). The note follows the Deep Dive Template. You also need the note's current `status` (seed, sprout, tree) to evaluate against the growth rule.
+You receive a concept note (or its title + full content). The note follows the Evergreen Note Template. You also need the note's current `status` (seed, sprout, tree) to evaluate against the growth rule.
 
 ### What You Identify
 

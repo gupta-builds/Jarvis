@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-31
-updated: 2026-09-19
+updated: 2026-11-05
 tags:
   - evergreen
   - system
@@ -61,7 +61,7 @@ Format syntax available in any choice: `{{DATE}}`, `{{VALUE}}` (selection), `{{F
 | Inbox thought | Capture | `60_Claude/00_Inbox/` | Dated, timestamped bullet | **Live** |
 | Flashcard candidate | Capture | current note | `#review` callout, not a finished card | **Live** |
 | Source clipping | Template | `60_Claude/05_Clippings/` | Raw container; content pasted, not rewritten | Blocked — no template file yet |
-| Source summary | Template | `60_Claude/10_Source_Summaries/` | `Clipping Distill Template` with `input_kind`, `track`, `source_note` | Blocked |
+| Source summary | Template | `60_Claude/10_Source_Summaries/` | `Source Summary Template` with `input_kind`, `track`, `source_note` | Blocked |
 | Concept note | Template | `60_Claude/20_Distilled_Notes/` | `Concept Template` with `track`, mechanism scaffold | Blocked |
 | Project note | Template | `20_Progress/` | `For Progress` with `next:` prompt | Blocked |
 ## How To Build The Remaining Four (Template-Type) Choices

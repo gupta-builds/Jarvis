@@ -2,13 +2,13 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-30
+updated: 2026-11-05
 tags:
   - project
   - ai
   - conversations
 project_kind: project
-next: P0 to P4 are closed and the design notes are rewritten to current truth (2026-10-30). Run P5, the first weekly review by hand for 2026-W43, then P4b (The Plan stays local to the Acer, with an approval gate), then P6 to P8. Owner decide the deleted-note policy before P6, confirm the Scratch folder, and run the 60-day retention test on 2026-11-27. The two P3 hook checks are answered by the log.
+next: P0 to P4 are closed and checked again on 2026-11-05; P4b is done for the Acer (no conversation note is tracked by git any more; the postmortem's Corrections list what P5 to P8 must change). Run P5, the first weekly review by hand for 2026-W43, with session ids only in the published note, then P6 to P8. Owner decides the deleted-note policy before P6, the folder for sessions started in D:\, the .stignore lines and the Dell index, and runs the 60-day retention test on 2026-11-27.
 related_progress:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Research Plan|Conversation Loop Research Plan]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
@@ -50,6 +50,11 @@ In plain terms, in order. (1) **P5:** do the first weekly review by hand for 202
 - [x] Which local models to pull, and whether `/insights` goes before or after the pilot? Answered 2026-10-30: no local model until stage B behind its gate; a Claude-assisted pass runs first; `/insights` is a manual monthly step. The weekly time budget is measured by P5.
 - [x] Owner decisions of 2026-10-30: rewrite the spec notes to current truth with change logs and correct the history notes in layers; run the hand review (P5) before building; The Plan's notes stay local to the Acer; the second reviewer is staged (Claude-assisted now, local model after every platform is captured).
 - [ ] Still the owner's, with the recommendation in each: the deleted-note policy; whether Home stays local; whether to purge The Plan from git history; whether the stage A pass may read The Plan; whether raw events drop prompt text; the wording of the vault-only hooks decision; the ledger metric rule; the digest and reminder timing; the Review System wording. Full list with reasons: [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]], Open Questions, and the Build Plan's Open Questions.
+- [x] Owner decision of 2026-11-05: every AI conversation note stays on the machine that wrote it and only finalized and review notes are published. Done on the Acer: `.gitignore` ignores the whole `AI Conversations` tree except its README, 1,673 tracked files were removed from the index (files kept on disk), and the history already pushed is accepted as is. This answers the earlier questions on Home and on purging The Plan's history. The repo is public (checked 2026-11-05).
+- [ ] Add `(?d)60_Claude/05_Clippings/AI Conversations/**` to `.stignore` on each laptop, so the notes are per machine for Syncthing too? Not done; the notes still sync between the Acer and the Dell.
+- [ ] Run the same untrack on the Dell before its git writer is re-enabled, or a pull of the deletion commit may delete its copies.
+- [ ] Which folder should a session started in `D:\` get? One note sits in `Unknown`, and the coverage script expects `Jarvis`.
+- [ ] May a first-failure note in a published weekly note quote a prompt? Recommended: session id and turn number only.
 - [ ] Which of the two empty `How to Use Claude` notes (`How to Run Plugins & Tools`, `How to Use Skill Map`) belong to this project? They are not conversation notes and were left empty.
 ## Log
 - **2026-10-21:** Measured the live layer against the Acer's own transcripts, wrote the postmortem and the as-built records in this folder, filled the empty notes in the five locations listed above, and corrected two counts in the 2026-10-17 audit. Standards in `30_Order` left untouched.

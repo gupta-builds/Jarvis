@@ -245,3 +245,20 @@ excalidraw.log
 
 # Machine-local OpenCode alias container; canonical files remain in copilot/skills.
 /.opencode/skills/
+
+# AI conversation notes stay on the machine that wrote them (owner decision, 2026-11-05).
+# Every exporter note, session index, tool usage rollup and .exported marker under
+# AI Conversations (Acer, Dell, the legacy Windows trees, Claude Code, Cowork, Cursor,
+# Codex) holds redacted prompts, tool results and file paths from every project,
+# The Plan and Home included. This is a public repo, so none of it is published.
+# Only finalized notes are: the summaries in 07_AI_Information/AI Conversation -
+# Summaries, the weekly and monthly reviews in 30_Reviews/AI, and the README below.
+# An ignore line does not untrack files already in the index. Those were removed with
+# `git rm -r --cached` on 2026-11-05; the files stay on disk and in git history.
+60_Claude/05_Clippings/AI Conversations/*
+!60_Claude/05_Clippings/AI Conversations/README.md
+
+# Raw per-event rows of the conversation loop (P6) and the digest runner's log (P8).
+# Per-machine facts with file paths and session ids, so they are ignored before the first write.
+30_Order/System/claude-workflow/logs/events-*.jsonl
+30_Order/System/claude-workflow/logs/conversation-digest.log

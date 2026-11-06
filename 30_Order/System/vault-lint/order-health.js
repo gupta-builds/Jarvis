@@ -64,9 +64,30 @@ const noRow = kitFiles
   .filter((f) => !inRegistry.has(path.basename(f, '.md').toLowerCase()))
   .sort();
 
+// ---- files git cannot add (Windows reserved names and unsafe names) ----
+// A stray file named nul, con or aux, or one with a trailing dot or space, makes `git add -A` fail on
+// Windows and stops git-auto-sync for every later run until it is removed. Read-only: this only lists them.
+const RESERVED = /^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\..*)?$/i;
+const unsafe = [];
+(function scan(d) {
+  let entries;
+  try { entries = fs.readdirSync(d, { withFileTypes: true }); } catch { return; }
+  for (const e of entries) {
+    const p = path.join(d, e.name);
+    let why = null;
+    if (RESERVED.test(e.name)) why = 'reserved Windows name';
+    else if (/[. ]$/.test(e.name)) why = 'trailing dot or space';
+    else if (/[<>:"|?*\x00-\x1f]/.test(e.name)) why = 'illegal character';
+    else if (p.length >= 260) why = `path is ${p.length} characters (limit 259 without long-path support)`;
+    if (why) unsafe.push(`${path.relative(ROOT, p).split(path.sep).join('/')}: ${why}`);
+    if (e.isDirectory() && !['.git', '.stversions', 'node_modules'].includes(e.name)) scan(p);
+  }
+})(ROOT);
+
 // ---- print ----
 const out = [];
-const today = new Date().toISOString().slice(0, 10);
+const now = new Date();
+const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`; // local date, not UTC
 const total = fit.data.total, passN = fit.data.fit;
 out.push(`### Order health (${today})`);
 out.push('');
@@ -94,11 +115,15 @@ out.push('');
 out.push(`**Standards, Templates and Workflows with no row in the Note Type Registry (${noRow.length}):**`);
 if (noRow.length) { out.push(''); for (const f of noRow) out.push(`- ${f}`); } else out.push(' none.');
 out.push('');
+out.push(`**Files git cannot add (${unsafe.length}):**${unsafe.length ? '' : ' none.'}`);
+if (unsafe.length) { out.push(''); for (const u of unsafe.slice(0, 20)) out.push(`- ${u}`); if (unsafe.length > 20) out.push(`- and ${unsafe.length - 20} more`); }
+out.push('');
 out.push('**Proposed, not applied:**');
 const gap = failing.find(([k]) => k !== '(unmapped)');
 if (gap) out.push(`- For the largest gap in a mapped family (${gap[0]}), run \`node 30_Order/System/vault-lint/vault-lint.js --family ${gap[0]} --list 20\` and fix the top reason by hand.`);
 if (errs.length) out.push('- Resolve each kit error above before the next Standard change.');
 if (withoutFiles.length) out.push('- For each family with no notes, confirm the Standard is still needed or that its `match.path` still points at real notes.');
 if (noRow.length) out.push('- For each file with no registry row, add a row to the Note Type Registry or link it from an existing row.');
-if (!failing.length && !errs.length && !withoutFiles.length && !noRow.length) out.push('- Nothing to propose.');
+if (unsafe.length) out.push('- Remove or rename each file git cannot add before the next git-auto-sync run (a reserved name needs the `\\\\?\\` form of its path to delete), because one such file stops the sync.');
+if (!failing.length && !errs.length && !withoutFiles.length && !noRow.length && !unsafe.length) out.push('- Nothing to propose.');
 console.log(out.join('\n'));

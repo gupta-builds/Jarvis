@@ -2,7 +2,7 @@
 type: review
 status: sprout
 created: 2026-10-30
-updated: 2026-10-30
+updated: 2026-11-05
 tags:
   - review
   - audit
@@ -126,6 +126,29 @@ Counted on the Acer this session, names and numbers only, no text printed: trans
 **Evidence.** `Jarvis-WeeklyReview` was registered at `06:00-05:00`; Task Scheduler's next run reads 2026-11-01 05:00 because daylight saving ends that day, and the task ran about seven hours late on both observed Sundays (13:15 on 10-18, 13:22 on 10-25). `Jarvis-GitAutoSync` ended FAILED in 2 of its last 12 runs and returned 1 at 21:03; `Jarvis-Syncthing-Health` returned 1 at 21:26; `Jarvis-Codex-Daemon-Guard` is Disabled. All 10 `skipped` export results say "transcript not found" and follow `SessionEnd` with reason `resume` or `other`: sessions that ended before they had a transcript. The activity log's first line carries a byte-order mark.
 **Decision: change.** P8 registers in local time with no fixed offset and records what it saw; P7 and P9 classify the expected-empty skips and strip the BOM. See [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]].
 **I would change my mind if** two more weeks show no FAILED runs and no drift; then these become a one-line check, not a design rule.
+### 15. Privacy scope (added 2026-11-05): every conversation note stays local, and the published notes must stop naming them
+**How it fails.** The ignore rule hides the session notes, but the weekly note, the digest and the ledger are published, and they name session notes by title or path for every project except The Plan. A title comes from the first prompt, so the leak survives the ignore rule.
+**Evidence.**
+- `git ls-files "60_Claude/05_Clippings/AI Conversations"` listed 1,674 files before this pass (Dell 1,021, Acer 423, legacy `Windows/` 229, `README.md` 1) and 1 after `git rm -r --cached` (`README.md`). `find` counted 1,698 files on disk before and after, so nothing was deleted.
+- `gh repo view gupta-builds/Jarvis --json visibility` returns `PUBLIC`. The 2026-10-30 pass wrote "visibility not checked". The `.gitignore` header comment already said "This is a public repo".
+- [[20_Progress/Projects/AI Use/Conversations/Prompts - Acer/P7 - Weekly Digest|P7]] says "Other projects may print vault-relative paths", and the P5 prompt's check says "every table row links to a real note (The Plan rows excepted)". Tracked file names such as `10-02 CSCI 4511W textbook and weekly notes weeks 1–4.md` were prompt-derived titles.
+**Decision: change.** Done: `.gitignore` now ignores everything under `60_Claude/05_Clippings/AI Conversations/` except `README.md`, plus `events-*.jsonl` and `conversation-digest.log`; `git check-ignore --no-index` names the rule for a The Plan note, a Dell `.exported` marker, a legacy `Windows/Cowork` note and a `00 - Session Index.md`, and not for the README. Still to do: the weekly note, the digest and the ledger name a prompt by session id and turn number for every project, with no title, link, path or quote. The P5 and P7 prompts must say so (see What P5 to P8 must change in Corrections). Design and Build Plan have dated Corrections.
+**I would change my mind if** the owner decides the published notes may link local session notes and accepts dead links on GitHub; then only the quote rule remains.
+### 16. Machine scope (added 2026-11-05): untracking is per laptop, and Syncthing still carries the notes
+**How it fails.** "Local to the machine" holds for GitHub from the Acer only. The Dell's own index still tracks these files. If the Dell's git writer is switched on, it pulls the deletion commit, git deletes those files in its working tree, and Syncthing may carry the deletion to the Acer (inferred, not tested).
+**Evidence.** `git-auto-sync.ps1` line 339: "Each laptop owns its Git index. A synced ignore file cannot untrack an already tracked junction there". [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]] row for `Jarvis-GitAutoSync`: "the Acer is the only git writer since 2026-10-22". `.stignore` lines 65, 66 and 134 list only `_raw_jsonl`, `_raw_composer` and `00 - Capture Health.md` for this tree, so exporter notes still sync. `.gitignore` is not in `.stignore`, so the new rule reaches the Dell by itself; the untrack does not.
+**Decision: change.** Before the Dell's writer is re-enabled, run the same `git rm -r --cached` on the Dell. Whether to add `(?d)60_Claude/05_Clippings/AI Conversations/**` to `.stignore` on each laptop (it is per device) is the owner's: it makes the notes strictly per machine, and it stops Dell notes reaching the Acer. I did not touch `.stignore`, because it changes live sync and the Failure Mode 17 deadlock came from this kind of line.
+**I would change my mind if** the Dell's git writer is retired for good; then only the `.stignore` question remains.
+### 17. History (added 2026-11-05): the notes stay in earlier commits on a public remote
+**How it fails.** Someone reads "ignored" as "gone from GitHub".
+**Evidence.** `git log --oneline` on the tree lists 1,042 commits, 224 of them on the Acer `The Plan` folder; `git ls-tree -r HEAD` before the untrack held 25 `.md` files under Acer `The Plan` and 4 under Dell `The Plan`. The remote is public (finding 15). No secret scan was run.
+**Decision: keep.** The owner said on 2026-11-05 that history "doesn't really matter that much", so no `git filter-repo` and no force push. The rule from here on is that no new conversation note reaches the remote. The earlier question of purging The Plan's history is answered by this.
+**I would change my mind if** a secret or a private-life passage turns up in an old commit; a purge is destructive and outward-facing, so it would need the owner's explicit go.
+### 18. Routing (added 2026-11-05): a session started in `D:\` lands in `Unknown`, and the coverage script disagrees
+**How it fails.** A session from the drive root gets a folder that is not in the tracked list, and the coverage check reports a wrong folder it cannot fix.
+**Evidence.** `check-capture-coverage.ps1` (read-only, 2026-11-05): 167 top-level transcripts, 135 with an assistant turn, 132 ok, 2 with no note, 1 in the wrong folder. The wrong-folder session `fc3b5326` sits in `Unknown`; the script expects `Jarvis`. All 37 `cwd` values in its transcript are `D:\`. `capture-projects.json` has five rules and `"fallback": "leaf"`, none for `D:\`. `Unknown/` holds one note, `11-02 OnVUE secure browser test.md`. The two with no note are `851dec9c` (the known deleted note, finding 11) and this session, which is still running.
+**Decision: change.** The owner chooses a folder for `D:\` sessions (a rule in the routing file, or accept `Unknown`). Why the script expects `Jarvis` was not determined; P6 must not key a row's project from the coverage script until the two agree.
+**I would change my mind if** `D:\` sessions stay a single case; then one line in the hub's Open Questions is enough.
 ## Priority Queue
 1. P5, the first hand review of 2026-W43, before anything else is built (findings 4, 12). It costs about an hour and no code.
 2. P4b: The Plan stays local to the Acer. Ignore lines, untrack, check the Dell, and the history question (finding 9, owner decision of 2026-10-30).
@@ -152,3 +175,51 @@ Second pass (the owner's request to update every note against the sources and th
 - [ ] Accept a start-when-available Sunday 21:00 digest, a daily `/startday` and toast nudge, and a gap line for a missed week (finding 7).
 - [ ] Reword Review System line 45 in P10 so scheduled preparation is allowed and scheduled judgment is not (finding 7).
 - [ ] Confirm on or after 2026-11-27 that transcripts dated 2026-09-28 or later survive the 60-day sweep (finding 9).
+- [ ] Add `(?d)60_Claude/05_Clippings/AI Conversations/**` to `.stignore` on each laptop, so the notes are per machine for Syncthing too? Today they still sync between the Acer and the Dell (finding 16).
+- [ ] Run the same `git rm -r --cached` on the Dell before its git writer is ever re-enabled (finding 16).
+- [ ] Which folder should a session started in `D:\` get: a routing rule, or leave `Unknown`? (finding 18)
+- [ ] May a first-failure note in a published weekly note quote a prompt, or only name it by session id and turn? Recommended: id and turn only (finding 15).
+## Corrections
+*2026-11-05, a third pass. The text above is kept as written on 2026-10-30; findings 15 to 18 are new. Owner decision of 2026-11-05: every AI conversation note stays on the machine that wrote it, and only finalized and review notes are published.*
+### Findings 1 to 14: were the actions taken?
+Checked by opening the note or running the check named. "Spec" means the change is written into a note and the code is a later phase.
+
+| # | Action the postmortem required | Found on 2026-11-05 | State |
+|---|---|---|---|
+| 1 | Rows keyed by session, agent, prompt or null; no prompt text; ignore lines before the first write | [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] line 27 ("never hold prompt text"); P6 lines 50, 53 and 65; `events-*.jsonl` now ignored (`git check-ignore` names the rule) | Spec done; code at P6 |
+| 2 | Coverage line as "every typed prompt has a row", two-week rebuild, `agent_lines_kept_7d` cut | P7 lines 31 and 35; Per-Prompt Record line 79 (`agent_lines_kept_7d` cut); Design change log | Spec done; code at P7 |
+| 3 | Second reviewer staged, not cut | Design "How the second reviewer is staged" | Done in notes |
+| 4 | Blind pass, shuffled sheet, no reason column, registry's eight headings | Weekly Review Protocol step 2 (line 35); P5 lines 44 and 61 | Done in notes; P5 not yet run |
+| 5 | Digest counts as the ledger metric for rule-backed codes | Design Decisions table; Monthly Review Protocol line 28 | Done in notes |
+| 6 | `/insights` skill cut, manual monthly step | Design L5 row | Done in notes |
+| 7 | Start-when-available digest, nudge, gap line; reword Review System line 45 in P10 | P8 lines 49 and 50; line 45 of Review System still reads "Nothing runs on its own", which P10 owns. The live `Jarvis-WeeklyReview` trigger now reads start `2026-11-05T06:00:00` (no offset), `StartWhenAvailable` True, next run 2026-11-08 06:00 | Spec done; P8 and P10 pending |
+| 8 | Acceptance lines and the seeded drill | Build Plan P6 and P11 rows | Done in notes |
+| 9 | The Plan stays local; scripts in vault, registration by script; Dell gate | Build Plan A5 was "Not done: 23 `.md` files are in git". Now done and widened (finding 15) | Done 2026-11-05 for the Acer |
+| 10 | Seed list feeds P6 to P8 | Build Plan P6 to P8 rows | Done in notes |
+| 11 | Deleted-note policy | `check-capture-coverage.ps1` still reports `851dec9c` as no-note | Open, owner |
+| 12 | Sample sheet without reasons | Same as 4 | Done in notes |
+| 13 | Source figures corrected | Not re-opened this pass | Not reviewed |
+| 14 | Local-time registration, BOM strip, expected-empty skips | Weekly task trigger as in row 7; P7 line 35 (BOM); P7 and P9 prompts for skips | Task done; rest spec |
+
+### P0 to P4: are they complete?
+- **P0.** `cleanupPeriodDays` is 60 in `~/.claude/settings.json`; the snapshot folder `D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22` holds 272 `.jsonl` files, as the hub log says. The oldest top-level transcript is dated 2026-09-28, so the 30-day sweep no longer removes it. The 60-day test stays on 2026-11-27.
+- **P1.** Not re-run. The `run-all-tests.ps1` result (8 of 8) was not repeated this pass.
+- **P2.** `capture-projects.json` has the five rules. `check-capture-coverage.ps1` now reports 132 ok of 135 (finding 18).
+- **P3.** `~/.claude/jarvis-session-activity.jsonl`: since 2026-10-28 22:36 there are 96 `Stop` and 58 `SessionEnd` events and 153 `export_result` lines (122 written, 24 skipped, 3 dup, 4 junk). That is one fewer than the 154 events, and this session is still open. Written exports took 791 ms at p50, 2,155 ms at p95 and 2,887 ms at most (122 runs), against 729, 1,911 and 2,382 on 2026-10-30. Hooks registered: `Stop` async 60 s, `SessionEnd` sync 30 s, three `PreToolUse`, and a `SessionStart` hook (`jarvis-session-continuity.ps1`, sync 30 s) that the 2026-10-30 hub text did not list.
+- **P4.** This note, its Design and Build Plan layers, and the hub lines exist and match the findings above.
+
+### Numbers that moved since 2026-10-30
+167 top-level transcripts (was 150), 135 with an assistant turn (was 120), 156 notes in the Acer tree (was 142; Jarvis 101, Home 20, The Plan 23, Scratch 6, UMN Courses 5, Unknown 1). The hub, Build Plan and Design still quote the 2026-10-30 figures and are labeled with that date.
+
+### Hook reference re-check
+Fetched `https://code.claude.com/docs/en/hooks.md` as a targeted query, so only excerpts came back. Re-confirmed: `agent_id` and `agent_type` identify the subagent a hook fires in; "The transcript file is written asynchronously and may lag the in-memory conversation" and `last_assistant_message` on `Stop` is the field for the final text. **Not re-confirmed:** the `prompt_id` row came back as "UUID identifying the user prompt currently being processed" without the sentence "Absent until the first user input" that finding 1 quotes; the headless async teardown, the auto-mode limit of `PermissionDenied`, and the parallel-hooks sentence were not in the excerpts. P6's one-hour key capture stays the test, and finding 1's null `prompt_id` key stays as a safe default.
+
+### What P5 to P8 must change
+Not edited here, as the task says.
+- **P5** (check line 71 and the Sources step): replace "every table row links to a real note (The Plan rows excepted)" with session id and turn number for every project, and no quote of a prompt in the published weekly note (finding 15).
+- **P6:** its ignore step is partly done (`events-*.jsonl` is in `.gitignore`); it still adds the `.stignore` line and proves both. Do not take a row's project from the coverage script until finding 18 is settled. Pin `SessionStart` to the hooks table. The key capture must also re-check `prompt_id` (above).
+- **P7** (line 38): drop "Other projects may print vault-relative paths"; no project prints a session note title or path. Count the `junk` export status as a class beside `skipped`.
+- **P8:** the weekly review task already starts at local 06:00 with `StartWhenAvailable`; read the live trigger first and register only the digest task. `conversation-digest.log` is already ignored by git; the `.stignore` line is still needed.
+
+### Priority Queue, amended
+P4b is no longer a phase: its Acer work is done (ignore rule, untrack), the history question is answered (kept, finding 17), and what is left is the Dell index and `.stignore` (finding 16), both owner decisions. Order stays: P5 (after the line-71 fix), the deleted-note policy, P6, P7, P8.

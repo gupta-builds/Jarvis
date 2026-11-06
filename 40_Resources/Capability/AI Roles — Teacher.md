@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2025-07-18
-updated: 2025-07-18
+updated: 2026-11-05
 tags:
   - capability
   - ai-role
@@ -25,7 +25,7 @@ Your job: expand the explanation sections of a concept note so the vault owner c
 
 ### Input
 
-You receive a concept note (or its title + any existing content). The note follows the Deep Dive Template with sections like `What It Is`, `Why It Matters`, `Mental Model`, `Formal Model`, etc.
+You receive a concept note (or its title + any existing content). The note follows the Evergreen Note Template with sections like `Core Claim`, `Mechanism`, `Why This Matters Here`, `Failure Modes`, `Evidence`, etc.
 
 ### What You Produce
 

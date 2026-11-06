@@ -690,16 +690,15 @@ def write_report(root: Path, ctx: dict[str, object], limit: int) -> Path:
 
     lines = [
         "---",
-        "type: review",
-        "status: complete",
+        # A tool wrote this file, so it follows the Generated Output Standard: type generated,
+        # the tool's name, the kind of output, and no status.
+        "type: generated",
+        "generator: jarvis-cli",
+        "gen_kind: report",
         f"created: {TODAY.isoformat()}",
         "tags:",
-        "  - review",
         "  - ops",
         "  - vault-health",
-        "notes:",
-        "  - \"[[00_Dashboard]]\"",
-        "  - \"[[60_Claude/44_Indexes/Vault Health Dashboard]]\"",
         "---",
         "",
         f"# Jarvis Ops Report - {TODAY.isoformat()}",

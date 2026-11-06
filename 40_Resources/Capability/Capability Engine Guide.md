@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-11-05
 tags:
   - evergreen
   - system
@@ -103,12 +103,12 @@ Dataview is read-only. Base files let you edit metadata from a table view withou
 
 ## Templates
 
-All under `30_Order/Templates/Capability/`:
+These now sit in several folders of `30_Order/Templates/`; the [[Note Type Registry]] names the folder of each:
 
-- [[Deep Dive Template]] — enriched concept note with growth-rule sections
+- [[Evergreen Note Template]] — enriched concept note with growth-rule sections
 - [[Output Template]] — output artifact (story, bullet, demo, brief, prompt)
 - [[Synthesis Template]] — cross-track bridging note
-- [[Question Bank Template]] · [[Field OS Template]] · [[Depth Ladder Template]] · [[Clipping Distill Template]]
+- [[Capability Question Bank Template]] · [[Capability Field OS Template]] · [[Capability Depth Ladder Template]] · [[Source Summary Template]]
 
 ## AI Roles
 

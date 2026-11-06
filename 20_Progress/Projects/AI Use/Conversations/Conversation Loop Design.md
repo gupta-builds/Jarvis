@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-30
+updated: 2026-11-05
 tags:
   - project
   - ai
   - conversations
   - design
 project_kind: spec
-next: Run P5 (the first weekly review by hand, no new code), then P4b (The Plan privacy fix, with the owner's approval gate), then P6 to P8 as written in the Build Plan.
+next: Run P5 (the first weekly review by hand, no new code) after the session-id rule in the 2026-11-05 Corrections is applied to its prompt, then P6 to P8 as written in the Build Plan. The Acer's privacy work (old P4b) is done; the Dell index and .stignore are owner decisions.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]]"
@@ -129,3 +129,11 @@ Recursive self-improvement, automatic rule writing, a score or leaderboard for s
 - **L5 (postmortem 6).** Skill cut; manual monthly step. The report folder is swept at `cleanupPeriodDays`, which is 60 on the Acer, not 30.
 - **Scope (postmortem 9 and the owner).** The Plan stays local; registration is user-level; the Dell follows the Acer by a gate.
 - **Sources (pass 2).** Tang et al. v2 reports inter-rater agreement 0.78 and judge accuracy 0.82 (earlier notes said 0.83 and 0.81); Gloaguen et al. v3 says "no significant effect"; the Anthropic quote "not a drop-in replacement for careful human review" carries the qualifier "on high-stakes infrastructure". Details in [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources|Conversation Loop Sources]].
+## Corrections
+*2026-11-05. The text above is kept as written on 2026-10-30. Each line names the postmortem finding that caused it. Owner decision of 2026-11-05: every AI conversation note stays on the machine that wrote it; only finalized and review notes are published.*
+- **Decisions table, row "The Plan's session notes stay local to the Acer" (postmortem 15).** Widened to every conversation note: all projects, both machines, all platforms. `.gitignore` ignores `60_Claude/05_Clippings/AI Conversations/*` except its `README.md`, and the 1,673 tracked files were removed from the Acer's git index on 2026-11-05 (the files stay on disk). The Dell's index and `.stignore` are not done (postmortem 16).
+- **Decisions table, row "Synced notes refer to The Plan prompts by session id only" (postmortem 15).** Now every prompt, for every project: the weekly note, the digest and the ledger name a prompt by session id and turn number, with no title, link, path or quote, because a note's title is its first prompt and the remote is public (checked 2026-11-05).
+- **Risks table, row "Prompt privacy" (postmortem 15, 17).** Mitigation is now: conversation notes are ignored by git, published notes carry ids only, and history is accepted as is (owner), so the earlier commits still hold the redacted exports.
+- **L0 row and Decisions row on ignore lines (postmortem 1, 16).** `events-*.jsonl` and `conversation-digest.log` are already in `.gitignore` and proved with `git check-ignore`; the `.stignore` lines remain P6 and P8 work.
+- **Current State (postmortem 18 and the recount).** Figures dated 2026-10-30 have moved: 167 top-level transcripts, 135 with an assistant turn, 132 with one note in the right folder, 2 with no note, 1 in `Unknown` (a session started in `D:\`). The hook list gains a `SessionStart` hook (`jarvis-session-continuity.ps1`).
+- **Open decisions (postmortem 16, 18).** Added: whether `.stignore` also makes the tree per machine; which folder a `D:\` session gets.

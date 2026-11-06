@@ -2,7 +2,7 @@
 type: project
 status: paused
 created: 2026-04-24
-updated: 2026-10-17
+updated: 2026-11-05
 tags:
   - project
   - jarvis
@@ -1090,7 +1090,7 @@ jarvis graph-neighborhood "topic"
 ```
 ### Evaluation
 ```text
-60_Claude/50_Reviews/Benchmarks/
+60_Claude/30_Reviews/Benchmarks/
 60_Claude/60_Indexes/Jarvis Benchmark Dashboard.md
 ```
 ### Context Packs

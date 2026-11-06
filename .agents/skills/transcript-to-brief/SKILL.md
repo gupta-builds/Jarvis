@@ -25,7 +25,7 @@ Read these, in this order:
 4. `references/example-brief.md` in this skill folder: what a finished brief looks like and why it works
 ## Steps
 ### Step 1: Locate the transcript
-Use the argument if given, otherwise the active file, otherwise ask. Confirm the frontmatter is `type: input` and `input_kind: transcript`. If the text is pasted loose with no note, stop and create it first from `30_Order/Templates/Capability/Transcript Template.md` (Meeting Workflow step 1).
+Use the argument if given, otherwise the active file, otherwise ask. Confirm the frontmatter is `type: input` and `input_kind: transcript`. If the text is pasted loose with no note, stop and create it first from `30_Order/Templates/Career/Meetings/Transcript Template.md` (Meeting Workflow step 1).
 Glob the sibling `Briefs/` folder and grep for the transcript's name in `source_note`. If a brief exists, ask whether to update it or stop.
 ### Step 2: Gather context
 Search the vault, never `50_Archive/`:

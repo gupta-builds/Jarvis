@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-11-05
 tags:
   - evergreen
   - system
@@ -174,9 +174,9 @@ Use Periodic Notes for structured reviews, not random daily-note creation.
 
 Vault settings:
 
-- Daily: `60_Claude/50_Reviews/Daily`, template `30_Order/Templates/Headway Templates/Better Today.md`.
-- Weekly: `60_Claude/50_Reviews/Weekly`, template `30_Order/Templates/Headway Templates/Better Week.md`.
-- Monthly: `60_Claude/50_Reviews/Monthly`, template `30_Order/Templates/Headway Templates/Better Month.md`.
+- Daily: `10_Areas/Life/Enumerate/Daily`, template `30_Order/Templates/Enumerate/Better Today.md`.
+- Weekly: `10_Areas/Life/Enumerate/Weekly`, template `30_Order/Templates/Enumerate/Better Weekly.md`.
+- Monthly: `10_Areas/Life/Enumerate/Monthly`, template `30_Order/Templates/Enumerate/Better Month.md`.
 - Yearly is disabled.
 
 Agent rules:

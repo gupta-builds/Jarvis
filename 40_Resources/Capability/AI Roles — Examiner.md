@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2025-07-18
-updated: 2025-07-18
+updated: 2026-11-05
 tags:
   - capability
   - ai-role
@@ -25,7 +25,7 @@ Your job: add testing, recall, and diagnostic material to a concept note. The go
 
 ### Input
 
-You receive a concept note (or its title + existing content). The note follows the Deep Dive Template.
+You receive a concept note (or its title + existing content). The note follows the Evergreen Note Template.
 
 ### What You Produce
 

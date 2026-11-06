@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-20
+updated: 2026-11-05
 tags:
   - evergreen
   - system
@@ -38,11 +38,11 @@ Two bugs existed, not one. The tracker had already found that `10_UMN` and `60_C
 | Folder | Template | Verified this session |
 |---|---|---|
 | `10_Areas/UMN` | `30_Order/Templates/Classes/Week Template.md` | Template file exists. **The folder itself does not exist yet** — this vault's real UMN coursework material lives outside the vault (see the `10_Areas/UMN` routing convention in [[AGENTS]]); the entry is correctly pointed but dormant until a note is actually created there. |
-| `20_Progress` | `30_Order/Templates/Frontmatter/For Progress.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
-| `40_Resources` | `30_Order/Templates/Frontmatter/For Evergreen.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
-| `60_Claude/20_Distilled_Notes` | `30_Order/Templates/Frontmatter/For Evergreen.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
-| `60_Claude/10_Source_Summaries` | `30_Order/Templates/Frontmatter/For Inputs.md` | Fixed: folder was `60_Claude/30_Source_Summaries` (dead path, real folder is `10_Source_Summaries`) **and** template was `Metadata/For Inputs.md` (nonexistent path) — both wrong. |
-| `60_Claude/40_Project_Briefs` | `30_Order/Templates/Frontmatter/For Progress.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
+| `20_Progress` | `30_Order/Templates/Projects/Project Status Note Template.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
+| `40_Resources` | `30_Order/Templates/Career/Reference Guide Template.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
+| `60_Claude/20_Distilled_Notes` | `30_Order/Templates/Career/Evergreen Note Template.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
+| `60_Claude/10_Source_Summaries` | `30_Order/Templates/AI Toolkit/Source Summary Template.md` | Fixed: folder was `60_Claude/30_Source_Summaries` (dead path, real folder is `10_Source_Summaries`) **and** template was `Metadata/For Inputs.md` (nonexistent path) — both wrong. |
+| `60_Claude/40_Project_Briefs` | `30_Order/Templates/Projects/Project Status Note Template.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
 
 All six template target files were confirmed to exist on disk after the fix; all five real target folders (everything but the not-yet-created `10_Areas/UMN`) were confirmed to exist. Edited via a Node script (not the Edit/Write tool — `.obsidian/` files trigger a Write Contract hook false-positive) and validated with `node -e "JSON.parse(...)"` plus a BOM check, per this vault's standard `.obsidian/` edit workaround.
 
@@ -79,7 +79,7 @@ All four active templates and all four active folders were confirmed to exist on
 
 Review notes should pull from [[00_Dashboard]], recent session log entries, open tasks, and active projects. Do not create daily notes in a second folder — `60_Claude/50_Reviews/` (what this note previously claimed) does not exist and was never the real destination.
 
-Separately, `60_Claude/30_Reviews/Weekly Synthesis/` holds a different, unrelated note type — Capability Engine "Weekly Synthesis" notes made from `30_Order/Templates/Capability/Weekly Synthesis Template.md`, not something Periodic Notes produces. Don't conflate the two: Periodic Notes owns the daily/weekly/monthly/yearly personal cadence notes; Weekly Synthesis is a manually-created knowledge-synthesis artifact.
+Separately, `60_Claude/30_Reviews/Weekly Synthesis/` holds a different, unrelated note type — Capability Engine "Weekly Synthesis" notes made from `30_Order/Templates/AI Toolkit/Vault Weekly Synthesis Template.md`, not something Periodic Notes produces. Don't conflate the two: Periodic Notes owns the daily/weekly/monthly/yearly personal cadence notes; Weekly Synthesis is a manually-created knowledge-synthesis artifact.
 
 ## Capture Destination Rules
 
@@ -90,7 +90,7 @@ Use [[Agent Operating Guide]] as the full folder map. The short rule:
 - Source-grounded summary -> `60_Claude/10_Source_Summaries`.
 - Durable synthesis -> `60_Claude/20_Distilled_Notes` or `40_Resources`.
 - Active execution -> `20_Progress`.
-- Reviews -> `60_Claude/50_Reviews`.
+- Reviews -> `60_Claude/30_Reviews`.
 
 The failure mode is mixing raw capture and durable synthesis in the same note. That makes source claims hard to audit later.
 

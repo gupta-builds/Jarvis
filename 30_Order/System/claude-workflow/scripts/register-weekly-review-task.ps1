@@ -20,6 +20,12 @@ $action = New-ScheduledTaskAction `
     -Argument "//B `"$Launcher`""
 
 $trigger = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At "06:00"
+# New-ScheduledTaskTrigger stores the start with the UTC offset of the day it ran
+# (for example 06:00-06:00). Task Scheduler then keeps that offset, so after a clock
+# change the task fires an hour early or late (it ran at 05:00 after 2026-11-01).
+# A start time with no offset is stored as plain local time and follows the clock,
+# so write it that way.
+$trigger.StartBoundary = (Get-Date).ToString("yyyy-MM-dd") + "T06:00:00"
 
 $settings = New-ScheduledTaskSettingsSet `
     -AllowStartIfOnBatteries `

@@ -9,4 +9,4 @@ Use this skill when the user asks to run the migrated source command `closeday`.
 
 ## Command Template
 
-Read `.Codex/skills/closeday/SKILL.md` and execute every step exactly as written. Do not explain the skill or ask for confirmation — just run it.
+Read `.agents/skills/closeday/SKILL.md` and execute every step exactly as written. Do not explain the skill or ask for confirmation — just run it.

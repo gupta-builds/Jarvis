@@ -20,7 +20,7 @@ The Claude-generated knowledge layer. All assistant outputs live here.
 | [[20_Distilled_Notes  | 20_Distilled_Notes]]  | Evergreen knowledge artifacts from conversations           |
 | [[30_Source_Summaries | 30_Source_Summaries]] | Distillations from 60_Claude/05_Clippings/ ingestion       |
 | [[40_Project_Briefs   | 40_Project_Briefs]]   | Decision docs, project plans, career briefs                |
-| [[50_Reviews          | 50_Reviews]]          | Weekly reviews, closeday summaries, lint reports           |
+| [[30_Reviews          | 30_Reviews]]          | Weekly reviews, closeday summaries, lint reports           |
 | [[60_Indexes          | 60_Indexes]]          | Index files for browsing                                   |
 ## Recent Activity
 ```dataview

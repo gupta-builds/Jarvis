@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-05-28
-updated: 2026-10-15
+updated: 2026-11-05
 tags:
   - claude
   - ai-workflow
@@ -117,7 +117,7 @@ For Cowork specifically: start every session by asking Claude to read the contex
 
 ### 5. Schedule A Weekly Review (Cowork Scheduled Task)
 
-The vault has `/weekly-review` skill and `60_Claude/50_Reviews/` already. But the review isn't automated.
+The vault has `/weekly-review` skill and `60_Claude/30_Reviews/` already. But the review isn't automated.
 
 Use Cowork scheduled tasks: every Sunday at 7 PM, trigger a session that:
 1. Runs `/ops health-check`
@@ -139,7 +139,7 @@ The infrastructure for this is already built. The workflow just needs to be acti
 2. **Run `/trace-topic "topic"`** → maps what you know, what's prerequisite, what's missing
 3. **Pull sources** → add to `60_Claude/05_Clippings/`
 4. **Run `/ingest-clipping "filename.md"`** → creates source summary, enriches related notes, adds backlinks
-5. **Enrich the concept note** → use the Jarvis Enrichment Template (definition + mechanism + example + contrast + failure modes + drills)
+5. **Enrich the concept note** → add it under a `## Jarvis Enrichment` heading (definition + mechanism + example + contrast + failure modes + drills)
 6. **Create drills** → add flashcard-style questions, schedule with `next_drill` field
 7. **Build proof** → link to a project that uses the concept under `used_in`
 

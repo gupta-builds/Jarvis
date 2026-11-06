@@ -2,7 +2,7 @@
 type: index
 status: active
 created: 2026-04-08
-updated: 2026-04-24
+updated: 2026-11-05
 tags:
   - index
 notes:
@@ -48,7 +48,7 @@ LIMIT 20
 
 ```dataview
 TABLE file.folder AS Folder, created, status
-FROM "60_Claude/50_Reviews"
+FROM "60_Claude/30_Reviews"
 WHERE file.name != "50_Reviews Board"
 SORT file.mtime DESC
 LIMIT 20

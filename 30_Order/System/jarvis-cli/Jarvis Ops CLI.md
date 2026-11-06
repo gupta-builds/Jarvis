@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-04-24
-updated: 2026-11-04
+updated: 2026-11-05
 tags:
   - system
   - tooling
@@ -45,6 +45,6 @@ It never edits a note, repairs a link, or normalizes frontmatter. Unreadable fil
 .\30_Order\System\jarvis-cli\jarvis.ps1 status
 .\30_Order\System\jarvis-cli\jarvis.ps1 links --limit 5
 ```
-`status` prints counts. Pick one broken link it reports and confirm by hand that the target is missing. On 2026-11-04 I ran `help`, `status`, `health` and `links` through `jarvis.ps1` itself and all printed, then checked `clean_wikilink_target` on five sample targets (an escaped pipe, a plain pipe, a path with an escaped pipe, a heading, a bare name). I also ran `report` once, after confirming `REPORT_DIR` is the existing `60_Claude/30_Reviews/Ops Reports/`: it wrote `Jarvis Ops Report - 2026-11-04 20261104-022308.md` (15 KB) there. That file has no `type` mapping under Vault Lint (the older report there has none either), which is the generator's output shape and not something this record fixes.
+`status` prints counts. Pick one broken link it reports and confirm by hand that the target is missing. On 2026-11-04 I ran `help`, `status`, `health` and `links` through `jarvis.ps1` itself and all printed, then checked `clean_wikilink_target` on five sample targets (an escaped pipe, a plain pipe, a path with an escaped pipe, a heading, a bare name). I also ran `report` once, after confirming `REPORT_DIR` is the existing `60_Claude/30_Reviews/Ops Reports/`: it wrote `Jarvis Ops Report - 2026-11-04 20261104-022308.md` (15 KB) there. On 2026-11-05 the generator's frontmatter was changed to the shape the [[Generated Output Standard]] defines (`type: generated`, `generator: jarvis-cli`, `gen_kind: report`, `created`, `tags`, no `status`); `generated` and `gen_kind: report` already exist in the [[Frontmatter Standard]], so nothing new was invented. Both existing reports in the folder were rewritten to that frontmatter (bodies untouched; originals saved to the session scratchpad), and `node vault-lint.js --path "60_Claude/30_Reviews/Ops Reports/"` now maps them: 2 of 2 fit in family `generated-output`. A fresh `report` run was linted too (3 of 3). `--root` only counts when that folder holds `00_Dashboard.md` and `.obsidian`; otherwise the CLI falls back to the current folder and then to its own location, so a test run pointed at a scratch folder writes into the real vault.
 ## Retire
 Delete `jarvis.ps1` and `jarvis_ops.py` in one commit that states the reason, and remove the `/ops` references to it. The reports already written stay in the reviews folder.

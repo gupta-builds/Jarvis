@@ -2,7 +2,7 @@
 type: index
 status: active
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-11-05
 tags:
   - index
   - dashboard
@@ -78,7 +78,7 @@ LIMIT 20
 
 ```dataview
 TABLE created AS "Date", critical_count AS "Critical", high_count AS "High", carry_forward_count AS "Carried"
-FROM "60_Claude/50_Reviews"
+FROM "60_Claude/30_Reviews"
 WHERE contains(tags, "ops-health")
 SORT created DESC
 LIMIT 5
@@ -88,7 +88,7 @@ LIMIT 5
 
 ```dataview
 TABLE created AS "Date", status
-FROM "60_Claude/50_Reviews"
+FROM "60_Claude/30_Reviews"
 WHERE contains(tags, "ops") AND contains(tags, "plan")
 SORT created DESC
 LIMIT 5
@@ -98,7 +98,7 @@ LIMIT 5
 
 ```dataview
 TABLE file.ctime AS "Generated"
-FROM "60_Claude/50_Reviews/Ops Reports"
+FROM "60_Claude/30_Reviews/Ops Reports"
 SORT file.ctime DESC
 LIMIT 5
 ```

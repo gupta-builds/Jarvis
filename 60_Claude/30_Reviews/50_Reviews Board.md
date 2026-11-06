@@ -17,7 +17,7 @@ Weekly reviews, daily summaries, and system health checks.
 
 ```dataview
 TABLE created, status, type
-FROM "60_Claude/50_Reviews"
+FROM "60_Claude/30_Reviews"
 SORT file.mtime DESC
 LIMIT 10
 ```

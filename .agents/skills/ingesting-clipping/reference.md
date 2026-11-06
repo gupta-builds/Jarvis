@@ -16,7 +16,7 @@ Deep detail loaded only when a source type needs it. SKILL.md is the entry point
 
 ## 1. Overview
 
-One source → one complete note. Read the whole source with the method for its type, capture everything (§6), then write per `30_Order/Standards/Source Summary Standard.md`. Each method below names its failure mode and the fallback to take — taking the fallback is mandatory, not optional.
+One source → one complete note. Read the whole source with the method for its type, capture everything (§6), then write per `30_Order/Standards/Enrich/Source Summary Standard.md`. Each method below names its failure mode and the fallback to take — taking the fallback is mandatory, not optional.
 
 ---
 
@@ -102,7 +102,7 @@ The first call gives real metadata (stars, last push, license) instead of trusti
 
 **Before saving, run the gate — do not save until it passes:**
 
-- The **Done Conditions** checklist in `30_Order/Standards/Source Summary Standard.md`.
+- The **Done Conditions** checklist in `30_Order/Standards/Enrich/Source Summary Standard.md`.
 - The 16-point quality gate in `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` Part 12.
 
 These live in their source files on purpose — run them there, do not copy them here.

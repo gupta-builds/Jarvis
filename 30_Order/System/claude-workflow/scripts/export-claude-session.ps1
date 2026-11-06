@@ -31,11 +31,22 @@ $ConvRoot = Join-Path $VaultRoot "60_Claude\05_Clippings\AI Conversations"
 # Machine taken from the host name. An unknown host writes nothing (see the
 # dispatch block at the bottom).
 function Get-CaptureMachine {
-    switch ([Environment]::MachineName.ToLowerInvariant()) {
-        'desktop-3vbg0jh' { return 'Dell' }
-        'gupta-builds' { return 'Acer' }
-        default { return $null }
+    # Host name -> machine folder, from the "machines" map in capture-projects.json (one level
+    # above this folder). A host that is not in the map returns $null, so nothing is written.
+    # If the file is missing, invalid or has no map, the host name itself is used, so a
+    # hand-edit mistake there cannot silently stop capture.
+    $hostName = [Environment]::MachineName.ToLowerInvariant()
+    try {
+        $cfg = Get-Content -LiteralPath (Join-Path $PSScriptRoot "..\capture-projects.json") -Raw -Encoding UTF8 -ErrorAction Stop | ConvertFrom-Json
+        if ($cfg.machines) {
+            foreach ($p in $cfg.machines.PSObject.Properties) {
+                if ($p.Name.ToLowerInvariant() -eq $hostName) { return [string]$p.Value }
+            }
+            return $null
+        }
     }
+    catch { }
+    return $hostName
 }
 $Machine = Get-CaptureMachine
 # TEST ONLY: JARVIS_CAPTURE_OUTROOT replaces the computed OutRoot, so tests and

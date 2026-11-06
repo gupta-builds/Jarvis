@@ -5,5 +5,5 @@ Option Explicit
 Dim sh
 Set sh = CreateObject("WScript.Shell")
 ' Same command the scheduled task previously ran directly:
-'   wsl.exe -d Ubuntu -- bash -lc ".../sync-jarvis.sh"
-sh.Run "wsl.exe -d Ubuntu -- bash -lc ""~/projects/ai/claude/second-brain-claudekit/60_Claude/scripts/sync-jarvis.sh""", 0, False
+'   wsl.exe -e bash -lc ".../sync-jarvis.sh"
+sh.Run "wsl.exe -e bash -lc ""~/projects/ai/claude/second-brain-claudekit/60_Claude/scripts/sync-jarvis.sh""", 0, False

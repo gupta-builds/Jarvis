@@ -122,7 +122,7 @@ The jarvis-cli at `30_Order/System/jarvis-cli/jarvis.ps1` is the primary scan to
 
 **CLI fallback:**
 - If `jarvis.ps1` fails or is unavailable, fall back to MCP-based scanning.
-- Log the fallback reason to the session log: "CLI unavailable: [reason]. Falling back to MCP search."
+- Put the fallback reason ("CLI unavailable: [reason]. Falling back to MCP search.") in the session's one log entry ([[Memory Management]]).
 - Note in the Ops Report that CLI was not used.
 
 ### 6. MCP Retry Policy
@@ -136,7 +136,7 @@ When an Obsidian MCP tool call fails:
 ### 7. Error Handling
 
 If any sub-skill or sub-operation fails during a composite workflow:
-1. Log the error to the session log with the operation name and error description.
+1. Put the error, with the operation name and error description, in the session's one log entry ([[Memory Management]]).
 2. Skip the failed step.
 3. Continue with remaining operations.
 4. Include a "Skipped Steps" note in the final output.

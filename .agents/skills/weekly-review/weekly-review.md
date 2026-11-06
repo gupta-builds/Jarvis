@@ -150,53 +150,31 @@ tags:
 notes:
   - "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index]]"
 ---
-
-# Weekly Synthesis — YYYY-WXX
-
+# Weekly Synthesis: YYYY-WXX
 [One sentence: the defining theme of this week. Not a list — a statement.]
-
 ## What Was Built
-
 [Describe actual completed work. Be specific: file names, note counts, which skill/agent/command now works. Skip anything that was just planned but not done.]
-
 ## Three-Month Plan Status
-
 [Current month and week in the plan. Table of this month's milestones with ✅ / ⚠️ / ❌ status. One sentence on whether the plan is on track, ahead, or behind, and what the main blocker is.]
-
 ## Fall Execution Audit
-
 [Optional and term-specific. From Step 2: the current term's floor commitments, what moved and what slipped, each claim backed by the count or file that proves it. Rename or drop it when the term plan changes.]
-
 ## Enrichment and Drills
-
 [How many notes enriched this week. Overdue drills if any. Which track needs the most attention next week. Total enriched-to-date vs. the 100-note end-of-three-months target.]
-
 ## Vault Health
-
 [Orphaned notes count. Projects missing next actions (list them). Metadata gaps. Any new notes created this week that have zero links. Order health: the block from Step 7.7, pasted unchanged, then one sentence on the fit percentage's change since last week.]
-
 ## Suggested Links
-
-[3–5 concrete link suggestions: "[[Note A]] should link to [[Note B]] because..." Only suggest links that don't already exist and that would add genuine navigational value.]
-
+[3–5 concrete link suggestions: "Note A should link to Note B because..." (plain text, no brackets, so no dead link is written) Only suggest links that don't already exist and that would add genuine navigational value.]
 ## Cleanup Candidates
-
 [2–4 notes that should be deleted, merged, or archived. Must state the specific reason — duplicate, stale, superseded, orphan that nobody will ever read.]
-
 ## Promotion Candidates
-
 [From Step 4.5 — status:tree notes from this week that pass the 3-line bar (grounded, stable, useful outside Jarvis). One line each: note path + one-sentence reason. "None this week" is a valid, honest answer.]
-
 ## Next Week Priorities
-
 [Exactly 3 priorities, tied to the master plan. Each one is a specific action, not a vague theme. Format: "Priority: [what]. Why now: [reason tied to plan]. Output: [what file or command exists when it's done]."]
-
 ## Open Questions
-
 [2–3 genuine unresolved questions this week surfaced — about the build plan, the vault, or Anant's direction. Not rhetorical. Things that need a decision or more information before proceeding.]
 ```
 
-**Writing rules:** Follow `HUMAN_WRITING.md`. Every sentence in this note must carry information. No filler. If a section has nothing meaningful to say, write one honest sentence saying so ("No conversations were captured this week. The capture folders still don't exist.") rather than padding.
+**Writing rules:** Follow `HUMAN_WRITING.md`. Write the note with zero blank lines, exactly as the template above is laid out ([[Jarvis Writing and Formatting]], Blank Lines Rule): no blank line after the frontmatter, under a heading or between sections, and one only after a callout or above a table. Every sentence in this note must carry information. No filler. If a section has nothing meaningful to say, write one honest sentence saying so ("No conversations were captured this week. The capture folders still don't exist.") rather than padding.
 
 ---
 

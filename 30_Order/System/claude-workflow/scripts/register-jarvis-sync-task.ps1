@@ -12,10 +12,32 @@ $WinLauncher = Join-Path $WinLauncherDir "sync-jarvis-silent.vbs"
 # The repo copy lives in the WSL user's home. Ask WSL for that home instead of
 # naming one user; if WSL cannot be asked, $RepoLauncher stays empty and the
 # Windows-side copy is used as it is.
-$WslHome = (& wsl.exe -d Ubuntu -e sh -c 'echo $HOME' 2>$null | Select-Object -First 1)
+function Get-WslDistro {
+    # The distro name is detected, never assumed (this machine's is Ubuntu-24.04, not Ubuntu).
+    # WSL_DISTRO overrides. Otherwise the first name that `wsl.exe -l -q` lists is the default
+    # distro; that command writes UTF-16, so the console encoding is switched to match while it
+    # runs and restored after. docker-desktop helper distros are skipped, and a candidate must
+    # actually run a command before it is accepted.
+    if ($env:WSL_DISTRO) { return $env:WSL_DISTRO }
+    $previous = [Console]::OutputEncoding
+    $names = @()
+    try {
+        [Console]::OutputEncoding = [System.Text.Encoding]::Unicode
+        $names = @(& wsl.exe -l -q 2>$null | ForEach-Object { ([string]$_).Trim([char]0, [char]0xFEFF, ' ', "`r", "`n") } | Where-Object { $_ })
+    } catch { $names = @() } finally { [Console]::OutputEncoding = $previous }
+    foreach ($name in $names) {
+        if ($name -match '^docker-desktop') { continue }
+        & wsl.exe -d $name -e true 2>$null | Out-Null
+        if ($LASTEXITCODE -eq 0) { return $name }
+    }
+    return $null
+}
+
+$WslDistro = Get-WslDistro
+$WslHome = if ($WslDistro) { (& wsl.exe -d $WslDistro -e sh -c 'echo $HOME' 2>$null | Select-Object -First 1) } else { $null }
 $RepoLauncher = ""
-if ($WslHome -and ([string]$WslHome).StartsWith("/")) {
-    $RepoLauncher = "\\wsl.localhost\Ubuntu" + (([string]$WslHome).Trim() -replace '/', '\') + "\projects\ai\claude\second-brain-claudekit\50_Claude\scripts\sync-jarvis-silent.vbs"
+if ($WslDistro -and $WslHome -and ([string]$WslHome).StartsWith("/")) {
+    $RepoLauncher = "\\wsl.localhost\$WslDistro" + (([string]$WslHome).Trim() -replace '/', '\') + "\projects\ai\claude\second-brain-claudekit\50_Claude\scripts\sync-jarvis-silent.vbs"
 }
 
 New-Item -ItemType Directory -Path $WinLauncherDir -Force | Out-Null

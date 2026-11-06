@@ -20,10 +20,21 @@ $ErrorActionPreference = "Stop"
 # create-if-missing, and -DryRun.
 $VaultRoot = (Resolve-Path (Join-Path $PSScriptRoot "../../../..")).Path
 $ConvRoot = Join-Path $VaultRoot "60_Claude/05_Clippings/AI Conversations"
-$Machine = switch ([Environment]::MachineName.ToLowerInvariant()) {
-    'desktop-3vbg0jh' { 'Dell' }
-    'gupta-builds' { 'Acer' }
-    default { $null }
+# Host name -> machine folder from the "machines" map in capture-projects.json. A host that is
+# not in the map writes nothing; a missing or invalid file falls back to the host name itself.
+$Machine = & {
+    $hostName = [Environment]::MachineName.ToLowerInvariant()
+    try {
+        $cfg = Get-Content -LiteralPath (Join-Path $PSScriptRoot "../capture-projects.json") -Raw -Encoding UTF8 -ErrorAction Stop | ConvertFrom-Json
+        if ($cfg.machines) {
+            foreach ($p in $cfg.machines.PSObject.Properties) {
+                if ($p.Name.ToLowerInvariant() -eq $hostName) { return [string]$p.Value }
+            }
+            return $null
+        }
+    }
+    catch { }
+    return $hostName
 }
 if (-not $Machine) {
     # Unknown host: write nothing, leave one line in a local (unsynced) log.

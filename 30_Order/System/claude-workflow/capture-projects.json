@@ -7,6 +7,10 @@
     "{home}": "USERPROFILE",
     "{localappdata}": "LOCALAPPDATA"
   },
+  "machines": {
+    "desktop-3vbg0jh": "Dell",
+    "gupta-builds": "Acer"
+  },
   "rules": [
     { "project": "Jarvis", "match": "under", "path": "{vault}" },
     { "project": "The Plan", "match": "under", "path": "{vault}\\..\\The Plan" },

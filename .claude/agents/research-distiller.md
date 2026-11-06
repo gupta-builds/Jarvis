@@ -36,8 +36,8 @@ Use this agent (not `/ingest-clipping`) when:
 Before doing anything, read:
 1. `60_Claude/07_AI_Information/AI_CONTEXT.md`
 2. `HUMAN_WRITING.md`
-3. `30_Order/Workflows/Capture to Summary.md`
-4. `30_Order/Standards/Source Summary Standard.md` — the content standard for the note body
+3. `30_Order/Workflows/Enrichment/Capture to Summary.md`
+4. `30_Order/Standards/Enrich/Source Summary Standard.md` — the content standard for the note body
 5. `30_Order/Templates/AI Toolkit/Source Summary Template.md`
 
 ---
@@ -119,7 +119,7 @@ The goal: every line in the source appears in the note in some form. After inges
 
 File location: `60_Claude/10_Source_Summaries/[Subfolder]/[Descriptive Title] ([type]).md`
 
-> **Read `30_Order/Standards/Source Summary Standard.md` before writing the note body.** It is the single source of truth for the heading-by-heading content, density, formatting markers (highlights, bold, italics, callouts), math notation, and flashcards. Do not duplicate those rules here.
+> **Read `30_Order/Standards/Enrich/Source Summary Standard.md` before writing the note body.** It is the single source of truth for the heading-by-heading content, density, formatting markers (highlights, bold, italics, callouts), math notation, and flashcards. Do not duplicate those rules here.
 
 Frontmatter skeleton (never duplicate a key; verify every `notes:` wikilink exists):
 ```yaml
@@ -173,4 +173,4 @@ Log the session once, at its end, as [[Memory Management]] states: one entry app
 
 ## Before Saving
 
-Run the Done Conditions in `30_Order/Standards/Source Summary Standard.md` and the 16-point quality gate in `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` Part 12. Do not save until both pass.
+Run the Done Conditions in `30_Order/Standards/Enrich/Source Summary Standard.md` and the 16-point quality gate in `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` Part 12. Do not save until both pass.

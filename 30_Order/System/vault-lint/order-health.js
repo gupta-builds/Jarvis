@@ -84,6 +84,57 @@ const unsafe = [];
   }
 })(ROOT);
 
+// ---- template, Standard and Workflow names that do not resolve ----
+// Tooling files (skills, agents, rules, CLAUDE.md, AGENTS.md) and the Note Type Registry name kit files
+// by path, wikilink or backticked name. A name that no kit file carries any more sends an agent to a
+// file that is not there (the Capability, Frontmatter and Clipping Distill names did this). Read-only.
+const kitNames = new Set(kitFiles.filter((f) => kitDirs.some((d) => f.startsWith(d))).map((f) => path.basename(f, '.md').toLowerCase()));
+const kitPaths = new Set(kitFiles.map((f) => f.toLowerCase()));
+const toolingFiles = [];
+const addTooling = (rel, exts) => {
+  const abs = path.join(ROOT, rel);
+  if (!fs.existsSync(abs)) return;
+  if (fs.statSync(abs).isFile()) { toolingFiles.push(rel); return; }
+  (function walk(d) {
+    for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+      const p = path.join(d, e.name);
+      if (e.isDirectory()) { if (e.name !== 'node_modules') walk(p); }
+      else if (exts.some((x) => e.name.endsWith(x))) toolingFiles.push(path.relative(ROOT, p).split(path.sep).join('/'));
+    }
+  })(abs);
+};
+for (const [rel, exts] of [['.claude', ['.md']], ['.agents', ['.md']], ['.codex', ['.toml']], ['.cursor/rules', ['.mdc']], ['CLAUDE.md', []], ['AGENTS.md', []], ['30_Order/Note Type Registry.md', []]]) addTooling(rel, exts);
+const allNames = new Set(); // every note name in the vault, so a wikilink to a note outside the kit still resolves
+(function walk(d) {
+  for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+    if (e.isDirectory()) { if (!['.git', '.stversions', 'node_modules'].includes(e.name)) walk(path.join(d, e.name)); }
+    else if (e.name.endsWith('.md')) allNames.add(path.basename(e.name, '.md').toLowerCase());
+  }
+})(ROOT);
+const unresolved = [];
+const NAME = /(?:^|[^A-Za-z])((?:[A-Z][\w&'-]*\s){0,6}[A-Z][\w&'-]*\s(?:Template|Standard|Workflow))\b/;
+const skip = (n) => /[<>{}*]|\.\.\.|YYYY|\bX\b/.test(n);
+for (const rel of toolingFiles) {
+  const text = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+  const seen = new Set();
+  const note = (name, why) => { const k = name + '|' + why; if (!seen.has(k)) { seen.add(k); unresolved.push(`${rel}: ${name} (${why})`); } };
+  for (const m of text.matchAll(/30_Order\/(?:Templates|Standards|Workflows)\/[^`\]|"')\n·]+?\.md/g)) {
+    if (skip(m[0]) || m[0].includes('  ')) continue;
+    if (!kitPaths.has(m[0].toLowerCase())) note(m[0], 'path does not exist');
+  }
+  for (const m of text.matchAll(/\[\[([^\]|#\\]+)/g)) {
+    const n = m[1].trim(); const base = path.basename(n).replace(/\.md$/i, '');
+    if (!/(Template|Standard|Workflow)$/.test(base) || skip(n) || /^30_Order\/(?:Templates|Standards|Workflows)\//.test(n)) continue;
+    if (!allNames.has(base.toLowerCase())) note(n, 'wikilink, no note of that name');
+  }
+  for (const m of text.matchAll(/`([^`\n]+)`/g)) {
+    const c = m[1].trim();
+    if (c.includes('/') || c.includes('\\') || c.includes('.') || skip(c)) continue;
+    const mm = c.match(NAME);
+    if (mm && mm[0].trim().length === c.length && !kitNames.has(c.toLowerCase())) note(c, 'backticked name');
+  }
+}
+
 // ---- print ----
 const out = [];
 const now = new Date();
@@ -118,12 +169,16 @@ out.push('');
 out.push(`**Files git cannot add (${unsafe.length}):**${unsafe.length ? '' : ' none.'}`);
 if (unsafe.length) { out.push(''); for (const u of unsafe.slice(0, 20)) out.push(`- ${u}`); if (unsafe.length > 20) out.push(`- and ${unsafe.length - 20} more`); }
 out.push('');
+out.push(`**Template, Standard and Workflow names in tooling files that no kit file carries (${unresolved.length}):**${unresolved.length ? '' : ' none.'}`);
+if (unresolved.length) { out.push(''); for (const u of unresolved.slice(0, 25)) out.push(`- ${u}`); if (unresolved.length > 25) out.push(`- and ${unresolved.length - 25} more`); }
+out.push('');
 out.push('**Proposed, not applied:**');
 const gap = failing.find(([k]) => k !== '(unmapped)');
 if (gap) out.push(`- For the largest gap in a mapped family (${gap[0]}), run \`node 30_Order/System/vault-lint/vault-lint.js --family ${gap[0]} --list 20\` and fix the top reason by hand.`);
 if (errs.length) out.push('- Resolve each kit error above before the next Standard change.');
 if (withoutFiles.length) out.push('- For each family with no notes, confirm the Standard is still needed or that its `match.path` still points at real notes.');
 if (noRow.length) out.push('- For each file with no registry row, add a row to the Note Type Registry or link it from an existing row.');
+if (unresolved.length) out.push('- For each unresolved name, point the tooling file at the current kit file (see the Registry), or remove the sentence if the file has no successor.');
 if (unsafe.length) out.push('- Remove or rename each file git cannot add before the next git-auto-sync run (a reserved name needs the `\\\\?\\` form of its path to delete), because one such file stops the sync.');
-if (!failing.length && !errs.length && !withoutFiles.length && !noRow.length && !unsafe.length) out.push('- Nothing to propose.');
+if (!failing.length && !errs.length && !withoutFiles.length && !noRow.length && !unsafe.length && !unresolved.length) out.push('- Nothing to propose.');
 console.log(out.join('\n'));

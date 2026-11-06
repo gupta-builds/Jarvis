@@ -24,7 +24,7 @@ Turn one raw source into one complete summary note. After ingestion the user sho
 | `github.com/<owner>/<repo>` URL or clip | `gh api` / GitHub MCP tools — README + file tree, never the rendered page (reference §6) | `10_Source_Summaries/Github Ingestion/` |
 | `.md` in `05_Clippings/Web/` | `Read` tool | `10_Source_Summaries/Web Ingestion/` |
 | `.md` in `05_Clippings/Videos/` | `Read` tool | `10_Source_Summaries/Video Ingestion/` |
-| `.md` in `05_Clippings/AI Conversations/` | Not handled here — use `/export-ai-session` (Codex) or follow `30_Order/Workflows/Conversation Capture.md` by hand. Output goes to `60_Claude/07_AI_Information/AI Conversation - Summaries/` with its own decision-focused template, not this skill's generic Source Summary Standard. |
+| `.md` in `05_Clippings/AI Conversations/` | Not handled here — use `/export-ai-session` (Codex) or follow `30_Order/Workflows/Toolkit/Conversation Capture.md` by hand. Output goes to `60_Claude/07_AI_Information/AI Conversation - Summaries/` with its own decision-focused template, not this skill's generic Source Summary Standard. |
 
 If no path is given, list `60_Claude/05_Clippings/` subfolders and ask.
 
@@ -42,7 +42,7 @@ The goal: **every line in the source appears in the note in some form.** Map the
 
 Filename: `[Descriptive Title] ([type]).md` in the routed subfolder.
 
-> **Read `30_Order/Standards/Source Summary Standard.md` before writing the note body.** It is the single source of truth for what goes under each heading, density, plugin syntax (highlights, bold, italics, callouts, math), and flashcard rules. Do not duplicate those rules here.
+> **Read `30_Order/Standards/Enrich/Source Summary Standard.md` before writing the note body.** It is the single source of truth for what goes under each heading, density, plugin syntax (highlights, bold, italics, callouts, math), and flashcard rules. Do not duplicate those rules here.
 
 Frontmatter skeletons per source type are in `examples.md`. Verify every `notes:` wikilink exists (Grep) before saving; never duplicate a frontmatter key.
 
@@ -67,7 +67,7 @@ Tell the user: link to the created summary, page count processed, any blank/scan
 
 ## Before saving
 
-Run the Done Conditions in `30_Order/Standards/Source Summary Standard.md` and the 16-point quality gate in `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` Part 12. Do not save until both pass.
+Run the Done Conditions in `30_Order/Standards/Enrich/Source Summary Standard.md` and the 16-point quality gate in `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` Part 12. Do not save until both pass.
 
 ## Safety rules
 

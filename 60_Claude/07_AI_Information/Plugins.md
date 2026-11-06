@@ -177,7 +177,7 @@ Vault settings:
 - Daily: `10_Areas/Life/Enumerate/Daily`, template `30_Order/Templates/Enumerate/Better Today.md`.
 - Weekly: `10_Areas/Life/Enumerate/Weekly`, template `30_Order/Templates/Enumerate/Better Weekly.md`.
 - Monthly: `10_Areas/Life/Enumerate/Monthly`, template `30_Order/Templates/Enumerate/Better Month.md`.
-- Yearly is disabled.
+- Yearly: `10_Areas/Life/Enumerate/Yearly`, template `30_Order/Templates/Enumerate/Better Year.md`. Quarterly is not configured.
 
 Agent rules:
 

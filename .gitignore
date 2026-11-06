@@ -100,6 +100,8 @@ mcp.env
 # run's own log entry look like a real diff for the NEXT run to commit, an
 # infinite self-referential loop. Found during Build 7 testing.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
+30_Order/System/claude-workflow/logs/git-auto-sync.log.1
+30_Order/System/claude-workflow/logs/git-auto-sync.log.tmp
 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
 # Sync Alert Banner.md (Build 11, 2026-10-04) - the live, per-machine half of
 # the Dashboard sync-alert mechanism, embedded into 00_Dashboard.md via

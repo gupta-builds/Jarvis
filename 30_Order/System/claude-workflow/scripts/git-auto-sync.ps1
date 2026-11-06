@@ -129,7 +129,9 @@ function Test-AnyFileRecentlyModified {
             $p = $p.Trim().Trim('"')
             $full = Join-Path $VaultRoot $p
             if (-not (Test-Path -LiteralPath $full -PathType Leaf)) { continue }
-            $age = ($now - (Get-Item -LiteralPath $full).LastWriteTime).TotalSeconds
+            # -Force: a hidden tracked file (.stignore) otherwise throws here and the run died
+            # silently with no end line (found 2026-11-05).
+            $age = ($now - (Get-Item -LiteralPath $full -Force).LastWriteTime).TotalSeconds
             if ($age -lt $HotFileThresholdSeconds) {
                 Write-SyncLog "File '$p' was written to $([math]::Round($age,1))s ago (under the ${HotFileThresholdSeconds}s threshold), deferring this run rather than racing an in-progress save."
                 return $true
@@ -362,6 +364,63 @@ function Remove-TrackedSkillAliases {
     }
 }
 
+function Get-UnsafeNames {
+    # Read-only pre-flight (2026-11-05). On Windows a file named nul, con, prn, aux, com1-9
+    # or lpt1-9 (with or without an extension), a name ending in a dot or a space, or a name
+    # with an illegal character makes `git add -A` abort, and every later run then ends
+    # FAILED until someone removes it (a stray nul stopped the sync on 2026-11-04). This only
+    # lists such names. It never deletes or renames anything.
+    param([string]$Root)
+    $reserved = '^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\..*)?$'
+    $found = [System.Collections.Generic.List[string]]::new()
+    $stack = [System.Collections.Generic.Stack[string]]::new()
+    $stack.Push($Root)
+    while ($stack.Count -gt 0) {
+        $dir = $stack.Pop()
+        foreach ($entry in [System.IO.Directory]::EnumerateFileSystemEntries($dir)) {
+            $name = [System.IO.Path]::GetFileName($entry)
+            if ($name -match $reserved -or $name -match '[. ]$' -or $name -match '[<>:"|?*\x00-\x1f]') {
+                $found.Add($entry)
+            }
+            if ([System.IO.Directory]::Exists($entry) -and @('.git', '.stversions', 'node_modules') -notcontains $name) {
+                if (-not ([System.IO.File]::GetAttributes($entry) -band [System.IO.FileAttributes]::ReparsePoint)) { $stack.Push($entry) }
+            }
+        }
+    }
+    return $found
+}
+
+function Invoke-LogCap {
+    # Called inside the run lock, so nothing else is appending. Past $MaxBytes the whole log
+    # moves to git-auto-sync.log.1 (one previous generation, replaced each time) and only the
+    # newest $KeepLines lines stay in git-auto-sync.log. Both files are in .gitignore and .stignore.
+    param([int64]$MaxBytes = 1048576, [int]$KeepLines = 2000)
+    try {
+        if (-not (Test-Path -LiteralPath $LogFile)) { return }
+        $size = (Get-Item -LiteralPath $LogFile).Length
+        if ($size -le $MaxBytes) { return }
+        # Byte level on purpose: older lines were written in a legacy code page and must not be re-decoded.
+        $bytes = [System.IO.File]::ReadAllBytes($LogFile)
+        $seen = 0
+        $start = 0
+        for ($i = $bytes.Length - 2; $i -ge 0; $i--) {
+            if ($bytes[$i] -eq 10) {
+                $seen++
+                if ($seen -ge $KeepLines) { $start = $i + 1; break }
+            }
+        }
+        Copy-Item -LiteralPath $LogFile -Destination "$LogFile.1" -Force
+        $tmp = "$LogFile.tmp"
+        $keep = New-Object byte[] ($bytes.Length - $start)
+        [System.Array]::Copy($bytes, $start, $keep, 0, $keep.Length)
+        [System.IO.File]::WriteAllBytes($tmp, $keep)
+        Move-Item -LiteralPath $tmp -Destination $LogFile -Force
+        Write-SyncLog "Log capped: was $([math]::Round($size / 1KB)) KB, kept the newest $KeepLines lines, previous generation in git-auto-sync.log.1."
+    } catch {
+        Write-SyncLog "Log cap failed (non-fatal): $($_.Exception.Message)"
+    }
+}
+
 function Invoke-GitAutoSync {
     Set-Location $VaultRoot
 
@@ -382,6 +441,7 @@ function Invoke-GitAutoSync {
         Remove-Item $LockFile -Force
     }
     New-Item -ItemType File -Path $LockFile -Force | Out-Null
+    Invoke-LogCap
 
     $pausedSyncthing = $false
     try {
@@ -392,6 +452,14 @@ function Invoke-GitAutoSync {
             Write-SyncLog "git's own index.lock is held (most likely obsidian-git's own background commit/status poll mid-operation), deferring to next tick rather than racing it."
             Write-SyncLog "=== git-auto-sync end (deferred, git index locked) ==="
             exit 0
+        }
+
+        $unsafeNames = @(Get-UnsafeNames -Root "$VaultRoot")
+        if ($unsafeNames.Count -gt 0) {
+            Write-SyncLog "Files git cannot add (Windows reserved or unsafe names). Nothing was deleted or renamed; remove or rename them by hand:"
+            foreach ($u in ($unsafeNames | Select-Object -First 20)) { Write-SyncLog "  $u" }
+            Write-SyncLog "=== git-auto-sync end (FAILED, unsafe file name: $($unsafeNames[0])) ==="
+            exit 1
         }
 
         if (-not (Test-SyncthingIdle)) {
@@ -471,6 +539,12 @@ function Invoke-GitAutoSync {
 
         Write-SyncLog "=== git-auto-sync end (success) ==="
         exit 0
+    } catch {
+        # Any unexpected error used to end the run with no end line and exit code 0, which the
+        # health check cannot see. Log it and fail loudly instead.
+        Write-SyncLog "Unexpected error at script line $($_.InvocationInfo.ScriptLineNumber): $($_.Exception.Message)"
+        Write-SyncLog "=== git-auto-sync end (FAILED, unexpected error) ==="
+        exit 1
     } finally {
         if ($pausedSyncthing) {
             Set-SyncthingFolderPaused -Paused $false

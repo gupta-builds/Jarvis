@@ -159,6 +159,8 @@
 // machine's log through Syncthing; git commit history already carries the real cross-machine
 // record). Excluding the log and any conflict-copy variant, added 2026-09-20.
 (?d)30_Order/System/claude-workflow/logs/git-auto-sync.log
+(?d)30_Order/System/claude-workflow/logs/git-auto-sync.log.1
+(?d)30_Order/System/claude-workflow/logs/git-auto-sync.log.tmp
 (?d)30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
 
 // internship-note-guard.jsonl - same per-machine reasoning as git-auto-sync.log

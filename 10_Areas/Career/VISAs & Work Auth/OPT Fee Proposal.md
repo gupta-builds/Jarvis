@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-05
+reviewed: 2026-11-05
 tags:
   - career
   - visa
@@ -82,6 +82,8 @@ The two recent examples give a range, and they are analogies, not forecasts.
 Both examples land before the Jan 31, 2028 date when I could ask ISSS for my post-graduation OPT I-20, and the fast example lands before a March 2027 pre-completion request. The fee applies to recommendations dated on or after the effective date. So I plan as if the fee could apply, and I watch the rule rather than assume it will stall ([[2028 Graduation Timeline]]).
 ## How To Comment
 Comments are filed on regulations.gov under docket ICEB-2026-0100, must say which section they address and why, and must reach DHS by 11:59 PM Eastern on November 9. Emails and letters are not accepted as comments. Comments become public with whatever personal information is in them. Students can comment on the real effect on access to training and the school's ability to pay, which the notice invites.
+### Where The Comment Period Stands
+==A comment period decides nothing; it builds the record DHS must answer before it can finalize.== On November 2 the OPT fee docket held 4,844 comments, against 27,123 on the proposal to end the 60-day grace period (regulations.gov counts as reported by an immigration law firm's tracker, so secondary). Under the Administrative Procedure Act DHS must consider significant comments and respond to them in a final rule. It does not count votes, so one specific comment with data DHS lacked can matter more than many form letters. Comments close Monday, November 9 at 11:59 PM Eastern, and the separate paperwork window runs to December 7. After November 9 nothing sets a deadline for a final rule, so the two analogies above remain the only timing evidence. I found no UMN statement on the fee or on a UMN comment ([[Current News]]).
 ## Words Used In This Note
 - *Notice of proposed rulemaking:* the government's announcement of a rule it wants to make.
 - *Comment period:* the time when the public may write to the government about a proposal.

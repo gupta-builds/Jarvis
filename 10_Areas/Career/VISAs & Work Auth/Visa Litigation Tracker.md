@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-05
+reviewed: 2026-11-05
 tags:
   - career
   - visa
@@ -26,8 +26,8 @@ A court case matters to me because a judge can pause or cancel a government rule
 ## The Cases
 | Case | Court and number | Judge or panel | Subject | Last verified event | Next event |
 | --- | --- | --- | --- | --- | --- |
-| AAU et al. v. DHS | D. Mass. 1:26-cv-14520 | Kobick | CPT broadcast messages | Oct 19: government's extension to Oct 28 granted | Oct 28 response; **Nov 6, 3:00 PM hearing** |
-| Presidents' Alliance et al. v. DHS | D. Mass. 1:26-cv-13799 | Saylor | Duration of status rule | Sept 14: effective date postponed; Oct 16 schedule order | Oct 26 briefs; Nov 2 replies |
+| AAU et al. v. DHS | D. Mass. 1:26-cv-14520 | Kobick | CPT broadcast messages | Oct 28: government opposition (ECF 27). Nov 4: plaintiffs' reply (ECF 32) | **Nov 6, 3:00 PM hearing**; no ruling date |
+| Presidents' Alliance et al. v. DHS | D. Mass. 1:26-cv-13799 | Saylor | Duration of status rule | Oct 30: summary-judgment motion and supplemental brief. Nov 2: DHS reply | A ruling, no date |
 | Same case, on appeal | 1st Cir. 26-2112 | Not yet assigned in the entries read | Duration of status rule | Oct 19: expedited schedule set | **Nov 9** government brief |
 | State of California v. Mullin | D. Mass. 1:25-cv-13829 | Sorokin | $100,000 payment | June 8: judgment, guidance vacated | None, appealed |
 | Same case, on appeal | 1st Cir. 26-1699 | Barron, Gelpí, Rikelman on the stay | $100,000 payment | Sept 21: reconsideration denied | Briefing and decision |
@@ -41,10 +41,11 @@ Two pairs of cases are easy to confuse. The CPT case and the duration of status 
 ## Dates To Watch
 | Date | Event |
 | --- | --- |
-| Oct 26 | Supplemental summary-judgment briefs, duration of status (district) |
+| Oct 30 | Done: summary-judgment motion and supplemental brief, duration of status (district) |
 | Oct 27 | Case management conference, Global Nurse Force |
-| Oct 28 | Government's response to the CPT injunction motion |
-| Nov 2 | Replies, duration of status (district) |
+| Oct 28 | Done: government's opposition to the CPT injunction motion (ECF 27) |
+| Nov 2 | Done: DHS reply, duration of status (district) |
+| Nov 4 | Done: plaintiffs' reply, CPT case (ECF 32) |
 | Nov 6, 3:00 PM | Hearing on the CPT injunction and stay, Courtroom 3 |
 | Nov 9 | Government's brief, First Circuit, duration of status; OPT fee comments close |
 | Jan 14, 2027 | Hearing on the stay of proceedings, Global Nurse Force |

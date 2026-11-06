@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-05
+reviewed: 2026-11-05
 tags:
   - career
   - visa
@@ -29,6 +29,20 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 > Each resource below carries one ==highlighted== line: the single fact it gave that the others did not.
 ## The Golden Source
 ==The single most useful source for my own situation is the transcript of my October 23 meeting with an ISSS advisor, because it records what my own school actually says and does.== It is kept untouched at [[October Meeting Transcript]], summarized in [[ISSS October Meeting Brief]], and its facts are carried into the notes mapped from [[VISA Plan]]. Its main points: CPT for elective internships is paused and nobody knows the outcome, pre-completion OPT is an option decided at the window, USCIS takes about five months, premium processing costs about $1,800 and takes up to 30 business days, the OPT fee is still in its comment period, an internship physically abroad is outside F-1 work rules, and projects or unpaid work must not be described as jobs.
+## What Changed Since Oct 23
+> [!NOTE]
+> Rechecked on 2026-11-05. The CPT hearing has not happened: it is Friday, Nov 6 at 3:00 PM Eastern, and the docket sets no ruling date. Items below come from the CourtListener docket and from news summaries of it (HenryKnows, Immigration Analytics), which are secondary, so open the linked filing before relying on a detail.
+
+1. **CPT case, AAU v. DHS**
+	Oct 28: the Justice Department filed a 27-page opposition (ECF 27) arguing no standing, no final agency action, interpretive guidance and not a legislative rule, and no irreparable harm. Nov 4: the plaintiffs filed a 21-page reply (ECF 32) and asked for a public phone line to the hearing, which the government did not oppose. No ruling, no stay. Detail in [[CPT Lawsuit]].
+2. **OPT fee**
+	Still only a proposal. The docket held 4,844 comments on Nov 2, against 27,123 on the proposal to end the 60-day grace period. Comments close Monday, Nov 9. Nothing is decided and no date is set for a final rule ([[OPT Fee Proposal]]).
+3. **Duration of status**
+	Still postponed. The district case went to summary judgment: DOJ moved on Oct 30, the plaintiffs filed a supplemental brief the same day, and DHS replied on Nov 2 asking for judgment or a remand without vacatur ([[Duration of Status Rule]]).
+4. **UMN**
+	The ISSS CPT page (last updated Sept 3) and the CSE co-op international page both still say CPT applications are paused. I found no UMN statement on the lawsuit or the OPT fee.
+5. **Forms**
+	USCIS still accepts the 08/21/25 edition of Form I-765 and is not accepting the 09/15/26 edition built for the postponed rule, so the 60-day OPT windows apply.
 ## Where Things Stand
 ==ICE did not change the CPT regulation. It changed how DSOs must read it through two broadcast messages, and a court has not yet touched that.==
 - *Blocked by a court:* the duration of status rule (since Sept 14) and the $100,000 H-1B payment (vacated June 8, in effect since the First Circuit denied a stay on July 24, appeals pending).
@@ -41,7 +55,7 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 
 | Date | Event | Verified from | Confidence | What could move it |
 | --- | --- | --- | --- | --- |
-| 2026-10-28 | Government response due on CPT injunction motion | CPT docket, order of Oct 19 | High | Another extension request |
+| 2026-10-28 | Government opposition to CPT injunction motion, filed (ECF 27). Plaintiffs' reply filed Nov 4 (ECF 32) | CPT docket | Done | None |
 | 2026-11-06, 3:00 PM | CPT injunction hearing, Courtroom 3, Judge Kobick | CPT docket, notice of Oct 13 | High for the hearing, none for a ruling date | Continuance; ruling could come the same day or later |
 | 2026-11-09 | OPT fee comments close | Federal Register, ICE BCM 2610-02, DHS release | High (three agreeing primary sources) | Rare, but DHS can reopen or extend |
 | 2026-11-09 | Government brief due, First Circuit duration of status appeal | First Circuit docket 26-2112, Oct 19 entry | High | Expedited schedule can shift |
@@ -206,7 +220,7 @@ Older entries from the first pass:
 ## Open Questions
 - [ ] Ask ISSS in writing whether any non-required CPT for a CS major is possible during the pause, and whether any CS course carries a required experience 📅 2026-10-30
 - [ ] Ask ISSS whether remote work for a foreign employer, done while outside the U.S. over the summer, is allowed under the pause; no source I read answers this
-- [ ] Check the CPT docket after Nov 6 for an order, and again after Oct 28 for the government's opposition brief
+- [ ] Check the CPT docket after Nov 6 for an order (the Oct 28 opposition and Nov 4 reply are logged in [[CPT Lawsuit]])
 - [ ] Check USCIS's Case Processing Times page for I-765 OPT yourself; it blocked automated access. The CPT complaint cites it as showing 80 percent done within five months as of Sept 28, which corroborates the direction but is a party's citation
 - [ ] Read the OPT fee notice's transition language and decide whether to file a comment by Nov 9
 - [ ] Ask the CS department and ISSS whether UMN would pay, pass on, or decline the OPT fee if it is finalized

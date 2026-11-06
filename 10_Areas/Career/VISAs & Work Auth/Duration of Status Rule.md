@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-05
+reviewed: 2026-11-05
 tags:
   - career
   - visa
@@ -67,6 +67,8 @@ DHS's reasons are in the rule's executive summary. F admissions were over 1.8 mi
 	The government filed notice of appeal on September 30. At an October 2 conference it said it would ask the First Circuit to expedite and wanted district proceedings paused. The government's assented motion to expedite was ruled on October 9, and on October 19 the First Circuit set an expedited schedule with the government's brief due November 9. In the entries I read the government asked only to expedite and did not seek to lift the order.
 4. **The district schedule**
 	The administrative record is due October 23, supplemental summary-judgment briefs October 26, and replies November 2, according to the Presidents' Alliance. The plaintiffs want a prompt final judgment so the issues travel together.
+5. **Update, November 5**
+	The schedule slipped to October 30. The Justice Department moved for summary judgment, saying DHS considered nearly 22,000 public comments, and the plaintiffs filed a supplemental brief asking the court to vacate the rule. DHS replied on November 2 asking for judgment or, failing that, a remand without vacatur. These dates and contents come from a news summary of the docket (ECF 66, 67, 69, 70), not the filings. No decision date is set, and the November 9 First Circuit brief date was not rechecked.
 The appeal does not revive the rule. It stays blocked while the litigation continues, so the 60-day rules are the operative ones ([[Visa Litigation Tracker]]).
 ## What Is Wrong On The Internet
 - The eCFR "current" view of 8 CFR 214.2 prints the postponed rule's wording, including a 30-day OPT filing window, so it misstates the operative law. The version dated July 1 shows 60 days.

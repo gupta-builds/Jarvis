@@ -178,7 +178,7 @@ function Invoke-PullRebase {
         if ($output -match 'untracked working tree files would be overwritten') {
             Write-SyncLog "Untracked local file(s) collide with an incoming commit - committing them locally first, then retrying the pull once."
             git rebase --abort 2>&1 | Out-Null
-            git add -A | Out-Null
+            $null = Invoke-GitAddAll
             git diff --cached --quiet
             if ($LASTEXITCODE -ne 0) {
                 git commit -m "Auto-sync: pre-pull commit of untracked file(s) colliding with an incoming change" 2>&1 | ForEach-Object { $_.ToString() } | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
@@ -248,8 +248,30 @@ function Test-WorkingTreeHasConflictMarkers {
     return (Get-ConflictMarkerFiles).Count -gt 0
 }
 
+function Invoke-GitAddAll {
+    # Stages everything and, when git refuses, logs git's own error text and the
+    # offending path. Before 2026-11-05 this output was thrown away, so a file git
+    # cannot index (a stray file named nul, con or aux on Windows, found 2026-11-04)
+    # only showed up as "local changes could not be committed" with no reason.
+    $out = @(git add -A 2>&1 | ForEach-Object { $_.ToString() })
+    $exit = $LASTEXITCODE
+    if ($exit -ne 0) {
+        Write-SyncLog "git add -A failed (exit $exit):"
+        foreach ($line in $out) {
+            if ($line -and $line -notmatch '^warning: in the working copy') { Write-SyncLog "  $line" }
+        }
+        $paths = @($out | ForEach-Object {
+            if ($_ -match "unable to index file '([^']+)'") { $Matches[1] }
+            elseif ($_ -match 'error: open\("([^"]+)"\)') { $Matches[1] }
+            elseif ($_ -match "error: '([^']+)' does not have a commit checked out") { $Matches[1] }
+        } | Select-Object -Unique)
+        foreach ($p in $paths) { Write-SyncLog "  offending path: $p" }
+    }
+    return ($exit -eq 0)
+}
+
 function Test-HasRealChanges {
-    git add -A | Out-Null
+    $null = Invoke-GitAddAll
     git diff --cached --quiet
     return ($LASTEXITCODE -ne 0)
 }
@@ -399,7 +421,11 @@ function Invoke-GitAutoSync {
         git diff --quiet
         $unstaged = $LASTEXITCODE
         git diff --cached --quiet
-        if (($unstaged -ne 0) -or ($LASTEXITCODE -ne 0)) {
+        $staged = $LASTEXITCODE
+        if (($unstaged -ne 0) -or ($staged -ne 0)) {
+            # Say which files are left, so the log shows the cause (2026-11-05).
+            Write-SyncLog "Left after the commit step: unstaged changes=$($unstaged -ne 0), staged changes=$($staged -ne 0). git status (first 15 paths):"
+            @(git status --short 2>&1 | ForEach-Object { $_.ToString() } | Select-Object -First 15) | ForEach-Object { Write-SyncLog "  $_" }
             Write-SyncLog "=== git-auto-sync end (FAILED, local changes could not be committed) ==="
             exit 1
         }

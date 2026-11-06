@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-05
+reviewed: 2026-11-05
 tags:
   - career
   - visa
@@ -35,8 +35,9 @@ Four organizations that represent universities asked a federal court to cancel t
 | Defendants | DHS, ICE, DOJ, and their heads in official capacity |
 | Plaintiffs' counsel | Jenner & Block LLP |
 | Hearing | November 6, 2026, 3:00 PM, Courtroom 3, on the motion for a preliminary injunction and stay |
-| Government response due | October 28, 2026 (extended on October 19) |
-| Ruling so far | None. No temporary restraining order, no stay |
+| Government response | Filed October 28, 2026 (ECF 27, 27 pages), after an extension on October 19 |
+| Plaintiffs' reply | Filed November 4, 2026 (ECF 32, 21 pages) |
+| Ruling so far | None as of November 5. No temporary restraining order, no stay, no date for a ruling |
 ## The Parties
 ==The plaintiffs are associations suing for their members, and the University of Minnesota, Twin Cities is on AAU's published member list, so a ruling covering AAU's members would plausibly reach my school.== The AAU describes itself in the complaint as 71 research universities in the United States and Canada, 69 of them American. The Presidents' Alliance represents close to 600 colleges in forty-two states, the District of Columbia, and Puerto Rico. AICUM represents 55 private colleges in Massachusetts. NAFSA has more than 9,000 members at more than 2,300 institutions, including the DSOs themselves ([[SEVP and DSOs]]).
 The defendants include the Department of Justice and the Attorney General because the messages warn of penalties for "providing false information," and perjury is prosecuted by DOJ. The scope of any order is not decided: the plaintiffs ask for relief as to themselves, their members, and the members' employees and students, so whether students at non-member schools benefit depends on what the judge grants.
@@ -76,6 +77,24 @@ The complaint also answers the obvious fallback of pre-completion OPT. It is not
 2. **October 13** A notice set the hearing for November 6 at 3:00 PM in Courtroom 3.
 3. **October 19** The government appeared and moved to extend its response deadline to October 28, which the judge granted. The motion's original deadline had been October 19.
 4. **October 23** Routine notices of appearance and withdrawal. No substantive order.
+5. **October 28** The government filed its opposition to the motion for a preliminary injunction and stay (ECF 27).
+6. **October 30** The court allowed the plaintiffs to file a reply.
+7. **November 4** The plaintiffs filed their reply (ECF 32) and asked the court to open a public phone line for the hearing (ECF 30). The government took no position. The docket shows an order on that request the same day, but I could not read its text, so whether a line exists is unconfirmed.
+## The Government's Defense
+==The government's brief leads with procedural arguments, that the court should not reach the meaning of "integral" at all, and it leaves schools one opening on the merits.== The October 28 opposition is 27 pages. I read it through a text extraction of the PDF, so the page cites come from that extraction; check a quote against the PDF before relying on it.
+1. **No standing**
+	The plaintiffs have not shown a concrete, imminent injury to themselves or their members (page 8).
+2. **No final agency action**
+	The broadcasts are guidance that does not set rights or obligations, so the Administrative Procedure Act gives no review (page 11).
+3. **Interpretive, not legislative**
+	The broadcasts "clarify" 8 CFR 214.2(f)(10)(i), which the government says "has always required" CPT to be integral to an established curriculum, so no notice and comment was needed (pages 15 and 22).
+4. **No irreparable harm, and not retroactive**
+	The harms are "remote and speculative," and the broadcasts are "prospective interpretations" and "mere reminders" (page 17).
+5. **Equities and relief**
+	The balance of equities and the public interest favor the government, and the court should deny the motion in full (pages 19 and 24).
+It also concedes the point that matters to me: schools "can continue to authorize CPT for international students provided the training is truly integral to their program of study," and students remain eligible for OPT for "additional training not required for their degree" (pages 7 and 10). That matches the broadcast's own line that the school defines what its degree requires ([[CPT Broadcast Messages]]).
+## The Plaintiffs' Reply
+The November 4 reply, 21 pages, argues the broadcasts changed a decades-old policy that let schools authorize credit-bearing CPT that is not required, rather than restating the rule. It answers the government's "mere reminder" framing directly. My source for its contents is a news summary of the filing, not the filing.
 ## What Each Outcome Would Mean
 This section is analysis, not source text.
 - *Stay or injunction granted:* the August messages are postponed or barred for the covered plaintiffs and their members. A school like UMN could return to the credit-or-required reading, but ISSS would still need to rebuild its process. The government can appeal, and in the duration of status case it filed its appeal 16 days after losing ([[Duration of Status Rule]]).
@@ -90,7 +109,7 @@ This section is analysis, not source text.
 - *Arbitrary and capricious:* a legal term for an agency decision that is not reasoned or explained.
 - *Retroactive:* applied to things that happened before the rule.
 ## Open Questions
-- [ ] Read the government's October 28 response when it posts to see its defense of "required of all students"
+- [x] Read the government's October 28 response to see its defense of "required of all students": done 2026-11-05 via text extraction, see The Government's Defense. Read the PDF itself before the hearing if the exact wording matters
 - [ ] Check the docket after November 6 for an order, a bench ruling, or a supplemental briefing schedule
 - [ ] Confirm whether UMN is a member of the Presidents' Alliance, which would add a second route to coverage
 ## Sources

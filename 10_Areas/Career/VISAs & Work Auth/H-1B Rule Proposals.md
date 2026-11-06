@@ -34,6 +34,7 @@ Several government proposals this year would make hiring a foreign graduate on a
 | End of the 60-day grace period | 91 FR 57807, Sept 11, 2026 | USCIS-2026-0364, 1615-AD22 | Due Nov 10 | Proposed |
 | 9-11 biometric fee on extensions | 91 FR 51360, Aug 10, 2026 | Final rule | None | Effective Sept 9, 2026 |
 | Mandatory e-filing | 91 FR 51924, Aug 11, 2026 | Interim final rule | Closed Oct 13 | Effective Aug 11, 2026 |
+Comment counts on regulations.gov as of November 2, from a law firm's tracker (secondary): 27,123 on the grace period, 416 on deference, and 4,844 on the OPT fee ([[OPT Fee Proposal]]). The grace period closes November 10 and deference November 13.
 ## The $103,265 Fee
 ==The fee is a cost-recovery charge on every cap-subject petition, set by dividing about $8.78 billion in claimed multi-agency costs by 85,000 expected petitions, so it prices the whole immigration system onto each new H-1B.== The notice's footnote does the arithmetic: $8,777,488,035 divided by 85,000 is $103,264.57, rounded to the nearest $5.
 - *Who pays:* all cap-subject petitions, including those eligible for the master's exemption. Cap-exempt filings such as a university's are excluded.

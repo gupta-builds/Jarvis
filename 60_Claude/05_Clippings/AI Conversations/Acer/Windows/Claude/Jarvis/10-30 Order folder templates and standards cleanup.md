@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Order folder templates and standards cleanup"
 started_at: 2026-10-30T20:23:29
-ended_at: 2026-11-04T02:15:42
-exported_at: 2026-11-05T19:33:18
-duration_minutes: 6112.2
+ended_at: 2026-11-05T20:19:29
+exported_at: 2026-11-05T20:32:58
+duration_minutes: 8636
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a775e6e4-6194-4396-aeb0-86292cf5f2c9
@@ -15,7 +15,7 @@ status: seed
 review_state: raw
 created: 2026-10-30
 updated: 2026-11-05
-turn_count: 18
+turn_count: 20
 tools_used:
   Agent: 2
   AskUserQuestion: 1
@@ -26,12 +26,12 @@ tools_used:
   Read: 49
   Write: 7
 tokens:
-  input: 188
-  output: 143170
-  cache_creation: 534469
-  cache_read: 15662379
-  total: 16340206
-cost_usd: 5.13619
+  input: 190
+  output: 161605
+  cache_creation: 631328
+  cache_read: 15692246
+  total: 16485369
+cost_usd: 5.710967
 model:
   - "claude-sonnet-5-5"
 files_touched:
@@ -6585,6 +6585,277 @@ README.md
 Sync Alert Banner.md
 scripts
 ```
+
+## You
+
+```
+
+<pasted_content id="520e">
+Phases A to E are done. Git, Syncthing, the System fixes, the weekly step, the session-log rule and most stale references are fixed and checked. A few items could not be done or need your decision, listed in sections 3 and 4.
+
+I made one mistake along the way. A Bash command of mine wrote a stray file named nul into 30_Order/Templates, and that made git-auto-sync log FAILED at 02:38. I removed the file and the next run succeeded. I saved a note to memory so it does not recur.
+
+1. Files changed
+
+Phase A, git
+
+┌────────────────────────────────────────────────────────────────┬────────────────────────────────┐
+│                             Change                             │              What              │
+├────────────────────────────────────────────────────────────────┼────────────────────────────────┤
+│ Local master created at HEAD and pushed as a fast-forward      │                                │
+│ (9b63e132..b67ed802), upstream set to origin/master, checked   │ Git, no force                  │
+│ out                                                            │                                │
+├────────────────────────────────────────────────────────────────┼────────────────────────────────┤
+│                                                                │ Trigger row now says master    │
+│ claude-workflow/Claude Workflow.md│ tracks origin/master and the   │
+│                                                                │ infra branch is fin──────────────────────────────────┼────────────────────────────────┤
+│ claude-workflow/scripts/git-auto-sync.ps1                      │ Header comment only                                  │ no machine path to fix         │
+└────────────────────────────────────────────────────────────────┴────────────────────
+Phase B, Syncthing                                                                    
+┌──────────────────────────────────────────────────┬──────────────────────────────────                     Change               What                      │
+├──────────────────────────────────────────────────┼──────────────────────────────────sync-workflow/scripts/check-syncthistening" row no longer means     │
+│                                                  │ "not running"                    ────────────────────────────────────────────────────────────────────┤
+│ sync-workflow/Sync Workflow.md                   │ Real cause, the fix, and the Code                                                                    │
+└──────────────────────────────────────────────────┴──────────────────────────────────
+Phase C, System fixes                                                                 
+Change: Six READMEs renamed with git mv                                               at: Claude Workflow.md, Cursor WorJarvis Ops CLI.md, Jarvis Memory.md,
+  Sync Workflow.md                                                                    ──────────────────────────────────
+Change: Six notes outside System                                                      at: Capture Scripts.md (3 links),  Pipeline - As Built.md,
+  Summaries-to-Create.md, and plain-text paths in P6 and P8                           ──────────────────────────────────
+Change: vault-lint/vault-lint.js                                                      at: Duplicate-name check now cover
+────────────────────────────────────────                                              ange: git rm of distilled-sessionsclaude-workflow/excalidraw.log
+What: No script reads them                                                            ──────────────────────────────────
+Change: jarvis-cli/jarvis.ps1, jarvis-cli/jarvis_ops.py, jarvis-cli/Jarvis Ops CLI.md at: Python resolution and | link c
+────────────────────────────────────────                                              ange: New 60_Claude/30_Reviews/Ops2026-11-04 20261104-022308.md
+What: Written by report                                                               ──────────────────────────────────
+Change: jarvis-memory/registry.py and jarvis-memory/Jarvis Memory.md                  at: Skips .stversions, junk values
+────────────────────────────────────────                                              ange: claude-workflow/Claude Workf
+What: MCP finding, paths, State, Verify and the sync-failure cause                    ──────────────────────────────────
+Change: Nine scripts and configs                                                      at: register-jarvis-sync-task.ps1,ute-acer-notes.ps1, mineru-pdf.ps1,
+  run-weekly-review.ps1 and capture-projects.json (claude-workflow); codex-daemon-guar(sync-workflow); export-cursor-ses (cursor-workflow)
+────────────────────────────────────────                                              ange: cursor-workflow/Cursor Workf
+What: Path derivation recorded                                                        ──────────────────────────────────
+Change: Jarvis-WeeklyReview task re-registered                                        at: Fixed local 06:00
+                                                                                      ase D, weekly run and session log
+                                                                                      ange: .claude/skills/weekly-reviewents copy
+What: Step 7.7 Order Health, the Vault Health placeholder, and the template alignment ──────────────────────────────────
+Change: vault-lint/Vault Lint.md                                                      at: Says the weekly review now rec
+────────────────────────────────────────                                              ange: 27 files
+What: The private append instruction is now one line pointing at Memory Management. Thcareer-operator, learning-agent, mdistiller agents, the skills closeday                                                                                      (SKILL and reference), ingesting-cions, ops (ops and ops-reference),
+  tag-monthly, transcript-to-brief and weekly-review, the .agents and .codex copies, a.cursor/rules/vault-behavior.mdc
+────────────────────────────────────────                                              ange: CLAUDE.md (Session End Protod the working rule)
+What: Reworded to match                                                               ──────────────────────────────────
+Change: claude-workflow/hooks/jarvis-session-continuity.ps1                           at: Session-start text: one line a, one skill-path line corrected
+────────────────────────────────────────                                              ange: ~/.claude/settings.json
+What: SessionStart entry added; backup at                                             C:\Users\anant\AppData\Local\Temp\[REDACTED]\scratchpad\settings.json.bak-20261104                                                      
+Phase E, stale references and templates                                               
+┌─────────────────────────────────────────────────────────┬───────────────────────────                        Change               What                  │
+├─────────────────────────────────────────────────────────┼───────────────────────────note-to-actions, transcript-to-bri                                 │
+│ research-distiller, learning-agent (.claude, .agents,   │ Stale template paths fixed.codex)                                                            │
+├─────────────────────────────────────────────────────────┼───────────────────────────.cursor/rules/note-creation.mdc, wtemplate rows and the 60_Claude  │
+│                                                         │ folder list corrected     ───────────────────────────────────────────────────────────────────┤
+│ CLAUDE.md                                               │ The line about Templates/F                                  points at For Everything         │
+├─────────────────────────────────────────────────────────┼───────────────────────────.claude/README.md                  check added to the alignment    │
+│                                                         │ backlog                   ───────────────────────────────────────────────────────────────────┤
+│ Capability Depth Ladder Template.md                     │ One 120-character comment                                   able                             │
+├─────────────────────────────────────────────────────────┼───────────────────────────Weekly-review template alignment  ion in section 3                 │
+└─────────────────────────────────────────────────────────┴───────────────────────────
+Memory: feedback-no-dev-null-in-git-bash.md plus MEMORY.md.                           
+2. Verification                                                                       
+┌──────────────────────┬──────────────────────────────────────────────────────────────       Check         │                                             │
+├──────────────────────┼──────────────────────────────────────────────────────────────Git                  │ git status ter with no ahead or behind.     │
+│                      │ HEAD and origin/master are both 34b55346                     ─────────────────────┼─────────────────────────────────────────────┤
+│ Next auto-sync       │ branch: master at 02:16, then Pushed cleanly to origin/master                     │ 02:33, 02:3                                 │
+├──────────────────────┼──────────────────────────────────────────────────────────────                     │ Public, notHTTP 404 on the protection API), │
+│ Repo facts           │  no .github/workflows on origin/master. The last bot commit o                     │ was 2026-09                                 │
+├──────────────────────┼──────────────────────────────────────────────────────────────                     │ All commitsse anantmahi721@gmail.com (615   │
+│ Commit author        │ since 2026-10-01). 447 earlier ones used gupt0479@umn.edu, th                     │  2026-10-17                                 │
+├──────────────────────┼──────────────────────────────────────────────────────────────vault-lint --kit     │ Exit 0, 0 ehe Depth Ladder one is gone)     │
+├──────────────────────┼──────────────────────────────────────────────────────────────vault-lint --path    │ 8 of 8, 100                                 │
+│ 30_Order/System/     │                                                              ─────────────────────┼─────────────────────────────────────────────┤
+│ Duplicate-name test  │ Two README.md files in a scratch System tree give duplicate f                     │ The six rea                                 │
+├──────────────────────┼──────────────────────────────────────────────────────────────                     │ 193 checkednresolved, both                  │
+│ Wikilinks            │ [[30_Order/Standards/Daily Workflow Standard]] in the weekly-                     │ skill (not  and .agents copies)             │
+├──────────────────────┼──────────────────────────────────────────────────────────────order-health.js      │ Exit 0, fithe whole-vault run. Writes       │
+│                      │ nothing                                                      ─────────────────────┼─────────────────────────────────────────────┤
+│ Test harness         │ run-all-tests.ps1: 18 of 18 passed before the path edits and                      │ after                                       │
+├──────────────────────┼──────────────────────────────────────────────────────────────Syncthing check      │ Five hand rempty. The scheduled run at      │
+│                      │ 02:36 recorded result 0                                      ─────────────────────┼─────────────────────────────────────────────┤
+│                      │ Windows branch resolves against APPDATA and USERPROFILE; the Python path tests    │ was tested ree and the real WSL home        │
+│                      │ /home/anant_gupta. The exporter's WSL branch was not run insi─────────────────────┼─────────────────────────────────────────────┤
+│                      │ Parse checks on 8 changed PowerShell files, Get-CodexCommand Other script checks  │ directly, a run (archive root resolved      │
+│                      │ correctly)                                                   ─────────────────────┼─────────────────────────────────────────────┤
+│ SessionStart hook    │ Fed a valid payload: 1,216 characters of valid JSON inside th                     │ nothing outitten                            │
+├──────────────────────┼──────────────────────────────────────────────────────────────jarvis.ps1           │ --help, sta all ran. Broken-link count went │
+│                      │  from 13,218 to 12,744                                       ─────────────────────┼─────────────────────────────────────────────┤
+│ registry.py          │ Reader and skip list tested; the database file was not touche                     │ not run ind                                 │
+├──────────────────────┼──────────────────────────────────────────────────────────────Tasks                │ See the tab                                 │
+├──────────────────────┼──────────────────────────────────────────────────────────────Em dashes            │ None in tex                                 │
+└──────────────────────┴──────────────────────────────────────────────────────────────
+┌──────────────────────────────────────┬──────────┬───────────────────────────┬───────                Task               result      │     Next run      │
+├──────────────────────────────────────┼──────────┼───────────────────────────┼───────Jarvis-GitAutoSync                             │ 03:03             │
+├──────────────────────────────────────┼──────────┼───────────────────────────┼───────Jarvis-Syncthing-Health                        │ every 5 minutes   │
+├──────────────────────────────────────┼──────────┼───────────────────────────┼───────Jarvis-WeeklyReview                cleared by  │ 2026-11-08 06:00  │
+│                                      │          │ re-registration           │ (was 0───────────────────────────────────────────────┼───────────────────┤
+│ Jarvis-Codex-Daemon-Guard            │ Disabled │ 2026-10-26 18:57, 0       │ n/a   ───────────────────────────────────────────────┼───────────────────┤
+│ ConversationCapture-Backfill-Windows │ Ready    │ 02:33, 0                  │ 03:03 ───────────────────────────────────────────────┴───────────────────┘
+                                                                                      paused Jarvis-GitAutoSync twice (tauto-sync.ps1 edit) and resumed iteach time.                                                                            
+Stale-name search. I searched for Templates/Frontmatter, Templates/Capability, Clippinmplate, Capability/Question Bank, richment Template, 35_Outputs and50_Reviews. What remains in tooling files, and why:                                   Raw clippings, session logs and git alone.
+- Two accurate "this folder was removed" notes in ops-reference.md and learning-agent.50 mirror, plan and spec files (li
+- Vault notes outside the approved list (listed in the register).                     
+3. Decisions for you                                                                  
+- Delete the infra/cross-laptop-sync branch. Master already holds everything on it. I deleting the remote and local [REDACTED] until the Dellis reconciled. I deleted nothing.                                                   Public repo. The repo is public anf AI conversation exports andpersonal notes. I recommend making it private. The contribution graph still counts pcommits if "Include private contriis not a reason to keep it public. Ichanged nothing.                                                                    Verified email. I cannot confirm afied on your GitHub account. CheckGitHub Settings, then Emails. Commits only show on the graph for a verified email. Tgupt0479@umn.edu commits count onlthe account.
+- jarvis MCP. It was refused at session start because Obsidian had restarted at about not yet listening. The port now ander gets 401 from the plugin. Nothing in System can fix that. Compare the key in the Local REST API plugin settings with tAuthorization header in .mcp.json;er. I recommend regenerating the keyin the plugin and pasting it into .mcp.json.                                        Weekly Synthesis template. The skisections, but the real notes for W39to W44 all carry Fall Execution Audit, and the Standard lists it as optional. I keptadded it to the skill's template. ted and review_kind: capability keysto the skill's frontmatter. The Template and the Standard's Spec needed no change.  Enumerate templates (not edited, aetter Weekly and Better Year lacknotes. Better Today has all seven keys but body text under Morning Plan, Daily Wins,Productivity. Do you want those fi to the three and trimming BetterToday.                                                                              Classes templates (not edited). 12 Template lacks next. Degree Control, Track and Weekly Board have all seven.                                              Dead 10_Areas/UMN Templater rule (ed and points to Classes/WeekTemplate.md. I recommend confirming where the course notes live now and repointing iWeeklyReview time. I re-registered6:00 survives the next clock change(2027-03-14) cannot be tested now.                                                  
+4. What could not be done                                                             
+- Mirrors under 20_Progress/AI. The generator is the Unison sync in second-brain-claudscripts do not exist at the registinstalled, and no sync task isregistered here, so I could not regenerate them. I listed the files instead.        Step 7.7 in a real weekly run. It -08, and I have not seen a noteproduced with it.                                                                   index on the memory registry. Not database. The stored rows still carry the old junk values and any indexed .stversions paths. The fix only takes effect aftwhich I recommend (delete the .sqls go, because index never deletes).
+- Exporter in WSL, sync-jarvis-silent.vbs and register-jarvis-sync-task.ps1. Neither cexercised. This machine's distro i Ubuntu, so they would find nothinghere.                                                                               Cause of the 11-03 23:03, 23:33 anes. The log keeps no git error text,so I could not read them. Each came straight after a successful commit, which fits aexport changing a file between git prove that.
+                                                                                      ndoff register (outside System, no
+                                                                                      le: 60_Claude/44_Indexes/Vault Hea
+Lines: 81, 91, 101                                                                    em: Dataview FROM "60_Claude/50_Reshould be 30_Reviews/Ops Reports
+────────────────────────────────────────                                              le: 60_Claude/44_Indexes/Claude La
+Lines: 51-52                                                                          em: Same dead query
+────────────────────────────────────────                                              le: 60_Claude/30_Reviews/50_Review
+Lines: 20                                                                             em: Same dead query and old filena
+────────────────────────────────────────                                              le: 60_Claude/Claude Board.md
+Lines: 23                                                                             em: Links to 50_Reviews
+────────────────────────────────────────                                              le: 60_Claude/07_AI_Information/Pl
+Lines: 177-179                                                                        em: 50_Reviews and Headway Templat
+────────────────────────────────────────                                              le: 40_Resources/Obsidian/Plugins/c Notes.md
+Lines: 41-45, 93                                                                      em: Templates/Frontmatter/* and 50
+────────────────────────────────────────                                              le: 40_Resources/Obsidian/Plugins/
+Lines: 64                                                                             em: Clipping Distill Template
+────────────────────────────────────────                                              le: 40_Resources/Capability/Capabi
+Lines: 106-111                                                                        em: Templates/Capability/, Deep Diistill
+────────────────────────────────────────                                              le: 40_Resources/Capability/AI Rolc, Examiner, Teacher)
+Lines: 28 each                                                                        em: "Deep Dive Template"
+────────────────────────────────────────                                              le: 60_Claude/30_Reviews/Jarvis En.md
+Lines: 26                                                                             em: Dead Templates/Capability/Jarv
+────────────────────────────────────────                                              le: .agents/skills/weekly-review/w
+Lines: n/a                                                                            em: Older copy: lacks Steps 7.5 an
+────────────────────────────────────────                                              le: .agents/skills/source-command-
+Lines: n/a                                                                            em: Points at .Codex/skills/weekly
+────────────────────────────────────────                                              le: 20_Progress/Projects/AI Use/Cor Postmortem.md
+Lines: 56                                                                             em: Dated statement naming claude-istory
+────────────────────────────────────────                                              le: 42 mirror files under 20_Progr
+Lines: n/a                                                                            em: Stale names; these are Claude e Plan plus second-brain-claudekit
+  docs, Cursor mirrors and Kiro mirrors                                               ──────────────────────────────────
+File: 8 plan/spec files under .cursor/plans and .kiro/specs                           nes: n/a
+Item: Planning artifacts, left as-is                                                  ──────────────────────────────────
+File: Conformance-operator agent                                                      nes: n/a
+Item: Named in the brief; no such agent, skill or file exists                         
+5. Improvement ideas, not done                                                        
+- Make git-auto-sync.ps1 log the offending path when git add fails, so a nul-type filethe log.
+- Add a check to vault-lint for Windows reserved file names.                          The jarvis-cli report has no type hows as unmapped.
+- Move the host-name map in export-claude-session.ps1 and wsl-session-export.ps1 into capture-projects.json.
+- Replace the hardcoded Ubuntu distro name in the VBS launcher and registration script with detection.
+- The sync log is 3.8 MB of hook ande would help.
+- Retire the stale 20_Progress/AI mirror folders or revive a generator.
+- Add stale-name detection to order-
+</pasted_content id="520e">
+
+```, output provided by the session on the follow up prompt. I noticed that github and firecrawl mcps are inactive or not estbalished on this laptop for claude and other ai platforms (taking place in another session now). We need to write a follow up prompt for the same session to finish the task that it was provided. Making sure that all the systems currently are clearly established with absolutely no errors. So, we can finally work on making the systems more meaninfgul based on everything in the vault. Everything discussed in this session that needed to be taken care for the systems folder should be wrapped up by now and in this follow up prompt. After this, we are going to work towards designing and making sure that the systems created are sticking down correctly. The order for creating the systems is unclear and the systems to create these systems is also unclear. That's why we are in this process of making sure that all the existing ones are taken care of. So, that we have clarity on what exactly to take place next. make sure that this follow up prompt is going to take care of everything that we have mentioned so far in this session. 
+
+Now, before we send over the prompt to the session, are there actions required on my end to make sure that everything has been finished and finalized? Before the prompt is sent over tell me the actions required before sending over the prompt so that i implement them and then prompt takes care of everything else that was missed upon. Provide the prompt based on the prompting guide which has already been provided to you. Make no mistakes here.
+
+## Claude
+
+You need to do four things before you send the prompt. I've baked my defaults into the prompt for everything else.
+
+## What you need to do first
+
+1. **Finish the MCP session first.** It's setting up the GitHub and Firecrawl servers. This prompt is told not to touch `.mcp.json`, `~/.claude.json` or the MCP settings, but two sessions editing the same machine at once is the main way to get a new error.
+   - The `jarvis` server is the Obsidian Local REST API plugin, and it's refusing the connection with a 401.
+   - Regenerate the key in the plugin settings and paste it into `.mcp.json` yourself. The session can't read it, because secrets are off limits.
+   - Then restart Obsidian and Claude Code.
+2. **Three GitHub web settings.** Only you can change these:
+   - **Email:** go to Settings, then Emails, and confirm `anantmahi721@gmail.com` is verified. The graph counts a commit only if its email is verified on the account.
+   - **Older commits:** the session reports about 447 older commits under a `gupt0479@umn.edu` address. Add that address if you can still verify it, and they'll count too.
+   - **Visibility:** the repo is public and holds your AI conversation exports and personal notes. I recommend making it private under Settings, General, Danger Zone. If you do, turn on "Include private contributions on my profile" so the graph keeps counting.
+3. **Tell the course session two things:** the dead `10_Areas/UMN` Templater rule, and that `Classes/Week Template` lacks the `next` key. Both belong to the course part, so this prompt doesn't touch them.
+4. **Strike or change any of these defaults** I put in the prompt, before you send it:
+   - **Branch:** delete `infra/cross-laptop-sync` on GitHub and locally, but keep `backup/[REDACTED]`. The prompt says to do this only after proving `master` contains the branch.
+   - **Memory registry:** back up the memory registry database, then rebuild it. It still holds junk values and `.stversions` rows, and the index command never deletes old rows.
+   - **Test report:** keep the report file the session wrote during testing, and fix its frontmatter and the `jarvis-cli` report generator so future reports fit.
+   - **Dead paths:** fix dead path and template names in about nine vault notes, and nothing else in them. Do not bring those notes up to their Standard.
+   - **Left alone:** the `20_Progress/AI` mirrors, `Templates/Enumerate`, the WSL exporter and launchers, and the one-time live weekly run. The weekly run first fires on Sunday 2026-11-08 at 06:00. Check the Weekly Synthesis note on Monday.
+   - **Session log:** write exactly one session-log entry at the end, which tests the new rule.
+
+```text
+<role>
+You are the Jarvis System maintainer who finished Phases A to E. This is the closing pass. Its goal is a System that runs with no known errors, and a clear map of what to build next. Work on Windows with PowerShell and Node.
+</role>
+
+<context>
+Your last report is the baseline. Treat every fact in it as a claim to re-check: time has passed (today is 2026-11-05), Jarvis-GitAutoSync has committed to master every 30 minutes, and the owner is running a separate session that sets up the GitHub and Firecrawl MCP servers on this laptop.
+
+Leftovers from your report: the infra/cross-laptop-sync branch still exists on origin and locally; git-auto-sync failed at 2026-11-03 23:03 and 23:33 and its log keeps no git error text; a stray file named nul once made a sync log FAILED; registry.sqlite still holds old junk type values and .stversions paths; the report written by "jarvis-cli report" has no type, so lint calls it unmapped; the WSL exporter, sync-jarvis-silent.vbs and register-jarvis-sync-task.ps1 were never exercised; .agents/skills/weekly-review is an older copy without Steps 7.5 to 7.7; Step 7.7 has not run in a real weekly run, and Jarvis-WeeklyReview next fires 2026-11-08 06:00. Vault notes outside the tooling still carry dead paths and names. Your handoff register named: Vault Health.md (Dataview FROM "60_Claude/50_Reviews", lines 81, 91, 101), Claude Layer Index.md (51-52), the review note at 60_Claude/30_Reviews/ line 20, Claude Board.md (23), a Plan note in 07_AI_Information (177-179), two notes under 40_Resources/Obsidian/Plugins (41-45, 93 and 64), 40_Resources/Capability (106-111 and the AI Roles notes at line 28), the Jarvis Enrichment note in 30_Reviews (26), and .agents/skills/source-command-* (points at .Codex/skills/weekly...).
+</context>
+
+<scope_and_approvals>
+Do not touch: .mcp.json, any MCP entry in any file, ~/.claude.json, ~/.claude/settings.json, GitHub or Firecrawl configuration, the Local REST API key (another session owns these). Do not edit or read: 50_Archive, 60_Claude/05_Clippings, AI conversation exports, session logs (except task 15), 20_Progress/AI mirrors, .cursor/plans, .kiro/specs, Templates/Enumerate, Templates/Classes, Standards/Courses, Workflows/Courses, any Templater rule, or the dated postmortem note under 20_Progress/Projects/AI Use.
+Approved without asking again: deleting origin/infra/cross-laptop-sync and the local copy after task 2's proof; pausing and resuming Jarvis-GitAutoSync for the git-auto-sync.ps1 edit; backing up and rebuilding the memory registry; editing the vault notes in task 9 for the named stale references only; one session-log entry in task 15.
+Not approved, so list as a proposal: force pushes, deleting backup/[REDACTED], history rewriting, any other deletion, repo visibility changes, a live run of run-weekly-review.ps1 if it has no dry mode.
+Apply each task to every matching file, not only the first one you open.
+</scope_and_approvals>
+
+<tasks>
+Phase F, re-baseline (read-only, run together first).
+1. Report git status -sb, the last 3 commits, the last 5 auto-sync log outcomes, Get-ScheduledTask and Get-ScheduledTaskInfo for every Jarvis-* and ConversationCapture task, "node vault-lint.js --kit", and a scan of the vault tree for stray files and Windows reserved names (nul, con, prn, aux, com1-9, lpt1-9, trailing dot or space). Stop and tell the owner if anything is worse than your last report.
+
+Phase G, git leftovers.
+2. Prove origin/master contains origin/infra/cross-laptop-sync (git merge-base --is-ancestor). Delete the remote branch and the local one. Keep backup/[REDACTED]. Update Claude Workflow and Sync Workflow to say only master exists.
+3. Pause the task. In git-auto-sync.ps1, make every failed git step (add, commit, pull, push) log git's own error text and the offending path. Run run-all-tests.ps1 before and after, run the script once by hand, resume the task, and confirm the next scheduled run. Read the log for the 2026-11-03 23:03 and 23:33 failures and say what it can and cannot tell you. Check whether rotate-sync-logs.ps1 is registered and ran, and report the log sizes.
+4. Add a reserved-name and stray-file section to order-health.js ("files git cannot add"). Keep it read-only.
+
+Phase H, System leftovers.
+5. Memory registry: confirm no process holds registry.sqlite and that it is git-ignored. Copy it to the scratchpad, delete it, run the index command, then run status. Compare counts and the type values with the backup and confirm no .stversions paths remain. If the rebuild fails, restore the backup and say so.
+6. jarvis-cli report: make jarvis_ops.py write frontmatter that the Frontmatter Standard and Generated Output Standard define (use only existing type and *_kind values; if none fits, propose one and do not invent it). Bring the existing report file in 60_Claude/30_Reviews/Ops Reports to that shape, then confirm lint maps it.
+7. WSL exporter, sync-jarvis-silent.vbs, register-jarvis-sync-task.ps1: leave them in place and change no behavior. Make sure their records say "not exercised on this machine" with the reason, and list what a later test needs.
+
+Phase I, stale references in vault notes.
+8. Search the vault, excluding the scope exclusions, for these old names and replace each with the current one: Templates/Frontmatter/* with For Everything or the family's Template; Templates/Capability/{Action,Brief,Transcript} with Templates/Career/Meetings/; Clipping Distill Template with Source Summary Template; Deep Dive Template with Evergreen Note Template; Capability/Question Bank with Capability Question Bank Template; 50_Reviews with 30_Reviews; 35_Outputs with a statement that outputs live next to the project they serve. A name with no current equivalent (Jarvis Enrichment Template, Headway Template) is removed from the sentence and listed in the report.
+9. Edit only the reference. Do not bring those notes up to their Standard in this pass. Patch by heading, keep frontmatter, bump updated. Every Dataview FROM you touch must name a folder that exists today; list it before saving. Run "node vault-lint.js --path" on each touched note before and after and report any new failure.
+10. Bring .agents/skills/weekly-review in line with .claude (Steps 7.5, 7.6, 7.7), and check where .agents/skills/source-command-* points. Fix a wrong path and report the rest.
+11. Check that the weekly-review skill's output frontmatter and headings satisfy the Vault Weekly Synthesis Standard's Spec, and run "node vault-lint.js --path" on the latest real Weekly Synthesis note as a sample.
+
+Phase J, proof.
+12. Weekly run: if run-weekly-review.ps1 has a dry or no-write mode, use it. Otherwise do not run it. Run order-health.js by hand and show the block the skill will paste. Print Jarvis-WeeklyReview's StartBoundary and trigger flags and confirm it has no UTC offset or time-zone sync, which is what survives the clock change on 2027-03-14. Say plainly that the first real run is Sunday 2026-11-08 06:00.
+13. Git: git status shows master tracking origin/master with nothing ahead or behind and no untracked stray files; both are at the same commit.
+14. Final checks listed under verification.
+15. Append exactly one entry to 60_Claude/07_AI_Information/Session Logs/log.md in the format Memory Management defines, as this session's record. This also tests the rule.
+
+Phase K, build map (analysis only, in the report; write no file).
+16. From what you have read and run, produce: (a) a table of every System component with status (works and verified, works untested, partial, not built, disabled), the evidence, and its dependencies; (b) how a new note type becomes a working kit today (Building a Note Kit, Note Kit Standard, Registry, vault-lint --kit, Conformance on Touch, weekly order-health), marking each step automatic or manual and naming the gaps; (c) a numbered build order of at most 8 items for the next phase, each with its prerequisite and done-condition, covering at least the review loop that learns from daily edits, the path from 4.3% fit towards the 90% target, the unmapped notes, the internship build, and the MCP layer; (d) open questions the owner must answer.
+</tasks>
+
+<rules>
+Keep working until every task is done or blocked. When the work is done and checked, stop and report. Do not add features, files or docs that were not asked for; list them at the end.
+Take local, reversible actions freely. Back up every file you replace outside git into the session scratchpad. Never force push or rewrite history.
+Auto-sync commits whatever is on disk every 30 minutes, so finish each file in one edit.
+Never redirect to NUL or nul. In PowerShell use $null or Out-Null. Run git status after any redirect and remove any stray file you created. Never open or print secrets (.env*, tokens, .mcp.json values, Syncthing or REST keys). Never read a PDF with a file reader.
+Read before you claim. Run independent tools in parallel. Work directly; do not spawn subagents.
+Put scripts in the session scratchpad; write them to files because inline "node -e" mangles backslashes. Follow HUMAN_WRITING. Never use an em dash.
+</rules>
+
+<verification>
+Run a real check for each change; a syntax check alone does not count:
+- node vault-lint.js --kit exits 0, and node vault-lint.js --path 30_Order/System/ has no new failure.
+- run-all-tests.ps1 passes all tests after the git-auto-sync edit.
+- Every touched Dataview FROM and wikilink resolves.
+- Get-ScheduledTaskInfo for every Jarvis-* task shows result 0 and the expected NextRunTime.
+- git status is clean on master and equals origin/master; the vault tree has no stray or reserved-name file.
+- The stale-name search returns only the excluded areas.
+If a check cannot run here, name it and why, and do not report the change as done.
+</verification>
+
+<report>
+End with a short report in plain prose and tables: (1) files changed, one line each, by phase; (2) verification output per check; (3) decisions for the owner with your recommendation; (4) what could not be done and why; (5) the Phase K build map. No filler, no recap of the brief.
+</report>
+
+Start with Phase F task 1, then work through the phases in order.
+```
+
+For the build map, I asked for analysis in the report and not a file, because of your no-unrequested-files rule. If you want the map saved in the vault, say where and I'll add a line for it.
 
 ## Actions Taken
 

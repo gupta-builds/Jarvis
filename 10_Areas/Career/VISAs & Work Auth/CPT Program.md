@@ -52,6 +52,7 @@ The difference decides my case. A CS student taking an optional internship cours
 - Plaintiffs including the AAU, of which the University of Minnesota is a member, are asking for a stay and injunction. The hearing is November 6 and the government's response is due October 28.
 - Many schools have narrowed or paused CPT. The plaintiffs' filings name sixteen, and UMN, which is not among them, has also paused every application.
 - The regulation itself is unchanged, and so is the CPT definition that the OPT fee proposal repeats. That proposal covers OPT only and says it "does not address CPT" ([[OPT Fee Proposal]]).
+- Rechecked 2026-11-05: the ISSS CPT page (last updated September 3) and the CSE co-op international page both still say CPT applications are paused. The government's October 28 court filing says schools can keep authorizing CPT that is "truly integral" to the program, which is the same opening as a required-for-everyone course ([[CPT Lawsuit]]).
 ## UMN Snapshot
 This is the state of UMN's pages in September 2026 and is queued for a rewrite.
 1. **The pause**

@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-11-05
-reviewed: 2026-11-05
+updated: 2026-11-07
+reviewed: 2026-11-07
 tags:
   - career
   - visa
@@ -21,9 +21,9 @@ notes:
   - "[[Junior Year Internship Decision]]"
 ---
 # CPT Lawsuit
-Four higher-education groups sued the federal government on October 5, 2026 over the August CPT messages, and the first court date is November 6. This note records the case itself: who is suing, what each count argues, the 35-year history the plaintiffs rely on, and what the docket shows so far. Read it before the hearing, again after the government's response, and once more after any order.
+Four higher-education groups sued the federal government on October 5, 2026 over the August CPT messages. The first court date, November 6, has passed, and as of November 7 I found no ruling. This note records the case itself: who is suing, what each count argues, the 35-year history the plaintiffs rely on, and what the docket shows so far. Read it again after any order.
 ## In Plain Words
-Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge will hear whether to pause the guidance while the case continues. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge heard arguments on whether to pause the guidance while the case continues, and the ruling is still to come. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
 ## The Case At A Glance
 | Item | Detail |
 | --- | --- |
@@ -34,10 +34,10 @@ Four organizations that represent universities asked a federal court to cancel t
 | Plaintiffs | AAU, Presidents' Alliance on Higher Education and Immigration, AICUM, NAFSA |
 | Defendants | DHS, ICE, DOJ, and their heads in official capacity |
 | Plaintiffs' counsel | Jenner & Block LLP |
-| Hearing | November 6, 2026, 3:00 PM, Courtroom 3, on the motion for a preliminary injunction and stay |
+| Hearing | Held November 6, 2026, 3:00 PM, Courtroom 3, on the motion for a preliminary injunction and stay. The court allowed public audio access with advance registration |
 | Government response | Filed October 28, 2026 (ECF 27, 27 pages), after an extension on October 19 |
 | Plaintiffs' reply | Filed November 4, 2026 (ECF 32, 21 pages) |
-| Ruling so far | None as of November 5. No temporary restraining order, no stay, no date for a ruling |
+| Ruling so far | None found as of November 7. No temporary restraining order, no stay, no announced date for a ruling. No account of what the judge said at the hearing was public in the sources I could reach |
 ## The Parties
 ==The plaintiffs are associations suing for their members, and the University of Minnesota, Twin Cities is on AAU's published member list, so a ruling covering AAU's members would plausibly reach my school.== The AAU describes itself in the complaint as 71 research universities in the United States and Canada, 69 of them American. The Presidents' Alliance represents close to 600 colleges in forty-two states, the District of Columbia, and Puerto Rico. AICUM represents 55 private colleges in Massachusetts. NAFSA has more than 9,000 members at more than 2,300 institutions, including the DSOs themselves ([[SEVP and DSOs]]).
 The defendants include the Department of Justice and the Attorney General because the messages warn of penalties for "providing false information," and perjury is prosecuted by DOJ. The scope of any order is not decided: the plaintiffs ask for relief as to themselves, their members, and the members' employees and students, so whether students at non-member schools benefit depends on what the judge grants.
@@ -79,7 +79,8 @@ The complaint also answers the obvious fallback of pre-completion OPT. It is not
 4. **October 23** Routine notices of appearance and withdrawal. No substantive order.
 5. **October 28** The government filed its opposition to the motion for a preliminary injunction and stay (ECF 27).
 6. **October 30** The court allowed the plaintiffs to file a reply.
-7. **November 4** The plaintiffs filed their reply (ECF 32) and asked the court to open a public phone line for the hearing (ECF 30). The government took no position. The docket shows an order on that request the same day, but I could not read its text, so whether a line exists is unconfirmed.
+7. **November 4** The plaintiffs filed their reply (ECF 32) and asked the court to open a public phone line for the hearing (ECF 30). The judge granted it the same day (ECF 31), and the public had to register in advance on the court's form.
+8. **November 6** The docket shows a "Motion Hearing" entry for this date, so the hearing took place. When I read the CourtListener copy on November 7, the entry had no clerk's notes and no order beneath it. That copy is a RECAP mirror of PACER and can lag, so a ruling or minute entry may exist that it does not show.
 ## The Government's Defense
 ==The government's brief leads with procedural arguments, that the court should not reach the meaning of "integral" at all, and it leaves schools one opening on the merits.== The October 28 opposition is 27 pages. I read it through a text extraction of the PDF, so the page cites come from that extraction; check a quote against the PDF before relying on it.
 1. **No standing**
@@ -94,7 +95,18 @@ The complaint also answers the obvious fallback of pre-completion OPT. It is not
 	The balance of equities and the public interest favor the government, and the court should deny the motion in full (pages 19 and 24).
 It also concedes the point that matters to me: schools "can continue to authorize CPT for international students provided the training is truly integral to their program of study," and students remain eligible for OPT for "additional training not required for their degree" (pages 7 and 10). That matches the broadcast's own line that the school defines what its degree requires ([[CPT Broadcast Messages]]).
 ## The Plaintiffs' Reply
-The November 4 reply, 21 pages, argues the broadcasts changed a decades-old policy that let schools authorize credit-bearing CPT that is not required, rather than restating the rule. It answers the government's "mere reminder" framing directly. My source for its contents is a news summary of the filing, not the filing.
+The November 4 reply is 21 pages, and I read the filing itself on November 7 (ECF 32, from CourtListener). Its core is that the government's whole opposition "rests on the premise that the Broadcasts do nothing new," and the reply answers each step.
+1. **A new policy, not a reminder**
+	For decades the position was that training qualifies if students earn academic credit, or if the school requires it for the degree. The reply cites the 1991 rule (56 Fed. Reg. 27,211), the 2014 DSO training slide ("required by the curriculum or, if not required, the student must receive credit"), and member declarations. The broadcasts allow only training required of every student, "if its absence would make the attainment of a degree an impossibility."
+2. **Standing**
+	The government does not contest that the associations meet the membership tests. Its only point is that members are not injured because schools can still authorize integral CPT, which the reply says assumes the broadcasts changed nothing. The broadcasts are addressed directly to DSOs and threaten "both the institution and individual DSO" with liability.
+3. **Final agency action and harm**
+	The plaintiffs filed fifteen declarations. The reply says the government never acknowledges them. Examples: Columbia denied CPT to over 120 students, and Grinnell lost its credit-bearing internship route because it requires practical training for no degree.
+4. **The regulation itself**
+	The government agrees the rule "has always required" CPT to be integral to an established curriculum. The reply says nothing in it limits "integral" to required-of-everyone training, and a State Department manual the government cites says only "in most cases."
+5. **Relief**
+	The reply asks the court to stay the broadcasts under section 705 and enjoin enforcement. It argues a stay alone is not enough because the government says "the regulation is clear."
+For me the useful distinction is between two possible wins. A win on the plaintiffs' reading would restore the credit pathway, so a for-credit internship course at UMN could work again. Only a school-required practicum, the government's own opening, works if the plaintiffs lose ([[CPT Broadcast Messages]]).
 ## What Each Outcome Would Mean
 This section is analysis, not source text.
 - *Stay or injunction granted:* the August messages are postponed or barred for the covered plaintiffs and their members. A school like UMN could return to the credit-or-required reading, but ISSS would still need to rebuild its process. The government can appeal, and in the duration of status case it filed its appeal 16 days after losing ([[Duration of Status Rule]]).
@@ -110,10 +122,13 @@ This section is analysis, not source text.
 - *Retroactive:* applied to things that happened before the rule.
 ## Open Questions
 - [x] Read the government's October 28 response to see its defense of "required of all students": done 2026-11-05 via text extraction, see The Government's Defense. Read the PDF itself before the hearing if the exact wording matters
-- [ ] Check the docket after November 6 for an order, a bench ruling, or a supplemental briefing schedule
+- [ ] Check the docket again for an order, a bench ruling, or a supplemental briefing schedule: nothing found on 2026-11-07, hearing held 2026-11-06 📅 2026-11-09
+- [ ] Get an account of the hearing itself (NAFSA, Presidents' Alliance, or a transcript order) and log what the judge asked each side 📅 2026-11-10
 - [ ] Confirm whether UMN is a member of the Presidents' Alliance, which would add a second route to coverage
 ## Sources
 - [CourtListener docket](https://www.courtlistener.com/docket/74919449/association-of-american-universities-v-us-department-of-homeland/): the live record, a RECAP copy of PACER.
 - [Complaint, hosted by NAFSA](https://www.nafsa.org/sites/default/files/media/document/CPT%20Complaint%20AAU%20v.%20DHS%20.pdf) and [memorandum in support, hosted by AAU](https://www.aau.edu/uploads/files/general/Memo-in-Support-of-PI-and-Stay-AAU-v-DHS.pdf): the party filings.
-- [NAFSA litigation page](https://www.nafsa.org/legal-defense-CPT): plaintiffs' summary, last updated October 8.
+- [NAFSA litigation page](https://www.nafsa.org/legal-defense-CPT): plaintiffs' summary, last updated November 5 and still describing the hearing as upcoming.
+- [Presidents' Alliance CPT litigation page](https://www.presidentsalliance.org/cpt-litigation/): lists the filings and links the October 28 opposition and November 4 reply as PDFs. Its page was modified on the afternoon of November 6 and lists no outcome.
+- [Plaintiffs' reply, ECF 32](https://www.courtlistener.com/docket/74919449/32/association-of-american-universities-v-us-department-of-homeland/): read in full on 2026-11-07.
 - [AAU member universities](https://www.aau.edu/who-we-are/our-members): lists the University of Minnesota, Twin Cities.

@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-11-05
-reviewed: 2026-11-05
+updated: 2026-11-07
+reviewed: 2026-11-07
 tags:
   - career
   - visa
@@ -67,14 +67,14 @@ Three lanes run in parallel, with decision points.
 2. **Lane 2: apply to internships anyway.** Answer the authorization question "yes" and "yes," filter with Handshake's work-authorization setting, and accept nothing until the authorization route exists in writing.
 3. **Lane 3: portfolio and contacts** for the senior-year search ([[Portfolio]]).
 - *Gate 1, October 30, 2026:* ISSS answers my written questions. No reply is logged in the vault as of November 5. The follow-up is prepared in [[ISSS November Meeting Prep]].
-- *Gate 2, November 6, 2026:* the CPT hearing, 3:00 PM Eastern. Read any order and ISSS's response. A written order may come after the hearing, not at it.
+- *Gate 2, November 6, 2026:* the CPT hearing, held at 3:00 PM Eastern. No ruling was found by November 7. Watch the docket for an order and ISSS's response. A written order may come days or weeks after the hearing.
 - *Gate 3, December 2026:* check whether ISSS has announced its pre-completion process and whether the OPT fee became a final rule.
 - *Gate 4, February 2027:* if I hold an offer, apply my rules below. This is when the ISSS request window opens for a May start.
 - *Gate 5, early March 2027:* a mid-June start needs the ISSS request about March 8. After this, pre-completion OPT is too slow.
 ### My Rules For Pre-Completion OPT
 I use it only if all are true: a written offer in computer science, a start date that fits premium processing, $2,250 budgeted (or the employer pays), at least about 9 months left afterward, the fee rule checked, and ISSS's confirmation. Otherwise the answer is no for this summer.
 ## Where To Apply
-Status on 2026-11-05: 0 applications sent, 29 postings waiting in `Tracker/Each One/Current/`, 0 interviews. ==The authorization route has to exist before I accept an offer, not before I apply, so every unsent application costs me an offer chance for no legal reason.== This section sets one screen and an order of attack. The daily mechanism is the plan's own rule, one company moved from `Current/` to `Applied/` per day ([[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]).
+Status on 2026-11-07: 0 applications sent, 29 postings waiting in `Tracker/Each One/Current/`, 0 interviews. ==The authorization route has to exist before I accept an offer, not before I apply, so every unsent application costs me an offer chance for no legal reason.== This section sets one screen and an order of attack. The daily mechanism is the plan's own rule, one company moved from `Current/` to `Applied/` per day ([[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]).
 ### The Screen
 1. **Role:** software, data, AI/ML, or infrastructure work directly related to the CS major, because OPT must relate to the major.
 2. **Drop only on an explicit negative:** US-person, export-control, security-clearance, or "OPT/CPT not accepted" text. "No visa sponsorship" alone means no H-1B and is not a reason to skip ([[Companies giving OPT & CPT]]).

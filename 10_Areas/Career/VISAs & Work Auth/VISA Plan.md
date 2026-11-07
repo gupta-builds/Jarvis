@@ -2,7 +2,7 @@
 type: index
 status: sprout
 created: 2026-10-23
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - moc
   - career
@@ -64,8 +64,8 @@ The 2026 rule changes are explained once each. The [[Visa Litigation Tracker]] l
 ### How We Proceed
 1. **Now: email ISSS in writing and book the follow-up**
 	No reply to the October 30 questions is logged in this vault. Send the draft in [[ISSS November Meeting Prep]]: whether the pause covers only elective CPT, whether a required CS practical training course is possible, how an internship abroad affects status, what UMN will do about the fee, and the CIP code on my I-20.
-2. **November 6: watch the CPT hearing**
-	The government opposed on October 28 and the plaintiffs replied on November 4. The hearing is Friday, November 6 at 3:00 PM Eastern, and no ruling date is set. Update [[CPT Lawsuit]] and the tracker the same day.
+2. **Now: watch for the CPT ruling**
+	The government opposed on October 28, the plaintiffs replied on November 4, and the hearing was held Friday, November 6. I found no ruling and no account of the hearing as of November 7, and no ruling date is set. Update [[CPT Lawsuit]] and the tracker the same day.
 3. **By November 9: decide on an OPT fee comment**
 	Anyone can file a comment on regulations.gov under docket ICEB-2026-0100. A student comment about lost access is what the record lacks.
 4. **December 2026: check two announcements**
@@ -80,16 +80,16 @@ The 2026 rule changes are explained once each. The [[Visa Litigation Tracker]] l
 Three layers keep the folder honest. The status notes, [[F-1 Visa]], [[OPT Program]], [[CPT Program]], and [[H1B Visa]], hold the rules that rarely change. The research notes capture one government action each in depth. The time-sensitive notes, [[Visa Litigation Tracker]] and [[Current News]], hold dates and links and go stale first.
 When news lands, the update path is short. A CPT order changes [[CPT Lawsuit]], [[CPT Program]], [[Junior Year Internship Decision]], and this plan. A final fee rule changes [[OPT Fee Proposal]], [[Pre-Completion OPT]], and the timeline. The transcript behind this plan's newest facts is [[October Meeting Transcript]].
 ## Status
-| Item | State on 2026-11-05 | Next date | Note |
+| Item | State on 2026-11-07 | Next date | Note |
 | --- | --- | --- | --- |
 | Post-completion OPT | Not yet in the window | Jan 31, 2028 ISSS request | [[OPT Playbook]] |
 | Pre-completion OPT | ISSS process not yet announced | About Mar 8, 2027 for a mid-June start | [[Pre-Completion OPT]] |
 | STEM OPT | After 12 months of OPT | Mar 31, 2029 if the card ends Jul 9, 2029 | [[STEM OPT Extension]] |
-| CPT at UMN | Elective CPT paused, ISSS pages unchanged since Sept 3 | Nov 6 hearing, 3:00 PM | [[CPT Lawsuit]] |
-| OPT fee | Proposed only, 4,844 comments by Nov 2 | Comments close Mon Nov 9 | [[OPT Fee Proposal]] |
+| CPT at UMN | Elective CPT paused, ISSS pages unchanged since Sept 3 | Hearing held Nov 6, ruling pending | [[CPT Lawsuit]] |
+| OPT fee | Proposed only, 6.81K comments on Nov 7 | Comments close Mon Nov 9 | [[OPT Fee Proposal]] |
 | ISSS follow-up | Email drafted, meeting not yet booked | Week of Nov 9 | [[ISSS November Meeting Prep]] |
 | Internship applications | 0 sent, 29 waiting in Current/ | First batch of 10 by Nov 15 | [[Junior Year Internship Decision]] |
-| Fixed-end-date rule | Postponed by court, on appeal | Nov 9 government brief | [[Duration of Status Rule]] |
+| Fixed-end-date rule | Postponed by court, on appeal; government asked on Nov 3 to hold the appeal 30 days | District ruling "imminent" per NAFSA, no date | [[Duration of Status Rule]] |
 | H-1B plan | Levers mapped | Mar 2028 registration | [[H-1B Odds Plan]] |
 ## Dataview
 ```dataview

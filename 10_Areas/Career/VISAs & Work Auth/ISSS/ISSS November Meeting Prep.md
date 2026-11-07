@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-11-05
-updated: 2026-11-05
-reviewed: 2026-11-05
+updated: 2026-11-07
+reviewed: 2026-11-07
 tags:
   - career
   - visa
@@ -24,20 +24,20 @@ notes:
   - "[[Junior Year Internship Decision]]"
   - "[[Visa Litigation Tracker]]"
   - "[[Current News]]"
-next: "Send the email below on 2026-11-06, book the meeting for the week of 2026-11-09, and bring the CPT hearing outcome to it"
+next: "Send the email below by 2026-11-09, book the meeting for the week of 2026-11-09, and bring any CPT ruling to it"
 ---
 # ISSS November Meeting Prep
 This is the prep sheet for my second ISSS meeting, planned for the week of November 9, after the CPT hearing on November 6 and the OPT fee comment deadline on November 9. [[ISSS Meeting]] and [[ISSS October Meeting Brief]] cover the first meeting. Read "What Is Established About CPT" and "Questions" the night before, and send the email at the bottom now, because a written reply protects me and a verbal one does not ([[SEVP and DSOs]]).
-## Where Things Stand On 2026-11-05
+## Where Things Stand On 2026-11-07
 > [!NOTE]
-> The CPT hearing has not happened yet. It is Friday, November 6 at 3:00 PM Eastern in Boston, and the docket sets no date for a ruling.
+> The CPT hearing was held on Friday, November 6. I found no ruling and no public account of what the judge said, and the CourtListener copy of the docket can lag. Treat "no order yet" as the working state until the docket or NAFSA says otherwise.
 
 | Item | State | Next |
 | --- | --- | --- |
-| CPT guidance | In force. ISSS and CSE co-op pages still say CPT applications are paused (ISSS page last updated Sept 3) | Nov 6 hearing |
-| CPT lawsuit | Government opposed on Oct 28, plaintiffs replied on Nov 4, no order | A ruling, no date |
-| OPT fee | Proposal only, 4,844 comments by Nov 2 | Comments close Monday Nov 9, paperwork comments Dec 7 |
-| Duration of status | Rule postponed, summary judgment briefed, appeal pending | A ruling, no date |
+| CPT guidance | In force. ISSS and CSE co-op pages still say CPT applications are paused (ISSS page last updated Sept 3, unchanged on Nov 7) | A ruling on the motion |
+| CPT lawsuit | Government opposed on Oct 28, plaintiffs replied on Nov 4, hearing held Nov 6, no order found | A ruling, no date |
+| OPT fee | Proposal only, 6.81K comments on Nov 7 (4,844 on Nov 2) | Comments close Monday Nov 9, paperwork comments Dec 7 |
+| Duration of status | Rule postponed, summary judgment briefed, appeal pending; the government asked the First Circuit on Nov 3 to hold it 30 days | A district ruling, no date |
 | My applications | 0 sent, 29 waiting in `Current/`, 0 interviews | [[Junior Year Internship Decision]] |
 ## What Is Established About CPT
 ==The regulation did not change; the guidance did; a court has not touched the guidance; and both sides leave schools one opening, a training that is truly required of everyone in a program.==
@@ -48,7 +48,7 @@ This is the prep sheet for my second ISSS meeting, planned for the week of Novem
 4. **The government's own brief leaves the opening.** Its October 28 filing says schools can keep authorizing CPT "provided the training is truly integral to their program of study" and sends other training to OPT ([[CPT Lawsuit]]).
 5. **UMN has paused.** The ISSS CPT page and the CSE co-op international page both still say so on November 5.
 ### Not Settled
-1. Whether the judge rules on November 6 or later, and how wide any relief reaches. UMN belongs to the AAU, one of four plaintiffs, but the relief asked for covers members and their students, and the judge decides the scope.
+1. When the judge rules, since the hearing is over and no date was announced, and how wide any relief reaches. UMN belongs to the AAU, one of four plaintiffs, but the relief asked for covers members and their students, and the judge decides the scope.
 2. Whether and how fast ISSS restarts after a ruling. The advisor said on October 23 she had "genuinely no idea."
 3. Whether any UMN program has, or could create, a training required of every student.
 4. How ISSS treats CPT already on an I-20 from before August.
@@ -101,7 +101,7 @@ Thank you for meeting with me on October 23. It helped a lot. I am a junior in C
 So that you can answer in writing if that is easier, these are my main questions:
 1. Is the CPT pause for all applications, or only for elective, for-credit internships? The call and the ISSS page worded it differently.
 2. Does any UMN program, including Computer Science or the CSE co-op, require a practical training experience of every student? If not, is anyone considering it, and who would decide?
-3. If the court grants relief on November 6, how will ISSS decide when to restart CPT, and how will students be told?
+3. If the court grants relief, how will ISSS decide when to restart CPT, including an existing for-credit internship course, and how will students be told?
 4. When will ISSS publish its pre-completion OPT request process, and what turnaround should I plan for?
 5. Has UMN decided whether to comment on the proposed OPT fee by November 9, and what it would do if the fee is finalized?
 6. Which UMN summer roles, for example UROP or faculty research, count as on-campus employment for me?
@@ -119,9 +119,10 @@ Anant Gupta
 | End date, CIP code | [[2028 Graduation Timeline]], [[F-1 Visa]] |
 | Rule changes and notices | [[Visa Litigation Tracker]], [[Current News]] |
 ## Open Questions
-- [ ] Send the email above 📅 2026-11-06
+- [ ] Send the email above 📅 2026-11-09
 - [ ] Book the meeting for the week of November 9 📅 2026-11-09
-- [ ] Record the hearing outcome in [[CPT Lawsuit]] and [[Visa Litigation Tracker]] the same day 📅 2026-11-06
+- [x] Record the hearing in [[CPT Lawsuit]] and [[Visa Litigation Tracker]]: done 2026-11-07, outcome still unknown
+- [ ] Re-check the CPT docket for an order before the meeting 📅 2026-11-09
 - [ ] Decide whether to file an OPT fee comment, which closes Monday 📅 2026-11-09
 ## Sources
 - [CourtListener docket, AAU v. DHS](https://www.courtlistener.com/docket/74919449/association-of-american-universities-v-us-department-of-homeland/): hearing, opposition (ECF 27), reply (ECF 32).

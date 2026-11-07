@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-11-05
-reviewed: 2026-11-05
+updated: 2026-11-07
+reviewed: 2026-11-07
 tags:
   - career
   - visa
@@ -31,7 +31,17 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 ==The single most useful source for my own situation is the transcript of my October 23 meeting with an ISSS advisor, because it records what my own school actually says and does.== It is kept untouched at [[October Meeting Transcript]], summarized in [[ISSS October Meeting Brief]], and its facts are carried into the notes mapped from [[VISA Plan]]. Its main points: CPT for elective internships is paused and nobody knows the outcome, pre-completion OPT is an option decided at the window, USCIS takes about five months, premium processing costs about $1,800 and takes up to 30 business days, the OPT fee is still in its comment period, an internship physically abroad is outside F-1 work rules, and projects or unpaid work must not be described as jobs.
 ## What Changed Since Oct 23
 > [!NOTE]
-> Rechecked on 2026-11-05. The CPT hearing has not happened: it is Friday, Nov 6 at 3:00 PM Eastern, and the docket sets no ruling date. Items below come from the CourtListener docket and from news summaries of it (HenryKnows, Immigration Analytics), which are secondary, so open the linked filing before relying on a detail.
+> Rechecked on 2026-11-07. The CPT hearing was held on Friday, Nov 6 at 3:00 PM Eastern. I found no ruling and no account of what the judge said. Items below come from the CourtListener docket, agency and association pages, and news summaries (HenryKnows, Immigration Analytics), so open the linked filing before relying on a detail.
+### Since Nov 5
+1. **CPT hearing held, nothing decided that I can see**
+	The docket shows a "Motion Hearing" entry on Nov 6 with no order under it in the CourtListener copy, which can lag PACER. NAFSA's litigation page (last updated Nov 5) and the Presidents' Alliance page (modified the afternoon of Nov 6) list no outcome. I read the plaintiffs' reply itself: the core is that for decades CPT meant credit-bearing or required, and the broadcasts cut it to required-of-everyone ([[CPT Lawsuit]]).
+2. **OPT fee comments: 6,810 by Nov 7**
+	The regulations.gov docket (ICEB-2026-0100) showed 6.81K published comments and still read "Open for Comments." That is up from 4,844 on Nov 2, so about 2,000 in five days. It closes Monday, Nov 9 at 11:59 PM Eastern ([[OPT Fee Proposal]]).
+3. **Duration of status: the government asked the First Circuit to wait**
+	On Nov 3 the government moved to hold the appeal for 30 days and suspend the briefing schedule, which would put off the Nov 9 brief. NAFSA calls a final decision in the district court "imminent." The rule stays blocked ([[Duration of Status Rule]]).
+4. **UMN, unchanged**
+	The ISSS CPT page still says "Last updated: September 3, 2026," and the ISSS news page has no CPT or OPT item. The only banner says the duration of status rule is paused by a lawsuit.
+### Nov 5 findings
 
 1. **CPT case, AAU v. DHS**
 	Oct 28: the Justice Department filed a 27-page opposition (ECF 27) arguing no standing, no final agency action, interpretive guidance and not a legislative rule, and no irreparable harm. Nov 4: the plaintiffs filed a 21-page reply (ECF 32) and asked for a public phone line to the hearing, which the government did not oppose. No ruling, no stay. Detail in [[CPT Lawsuit]].
@@ -46,7 +56,7 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 ## Where Things Stand
 ==ICE did not change the CPT regulation. It changed how DSOs must read it through two broadcast messages, and a court has not yet touched that.==
 - *Blocked by a court:* the duration of status rule (since Sept 14) and the $100,000 H-1B payment (vacated June 8, in effect since the First Circuit denied a stay on July 24, appeals pending).
-- *In force and untested:* the CPT guidance. The first court date is Nov 6.
+- *In force, argued but not ruled on:* the CPT guidance. The hearing was Nov 6 and no ruling was found by Nov 7.
 - *Proposed, not law:* the $70,000 and $30,000 OPT fees, the $103,265 H-1B petition fee, the DOL wage rule.
 - *Finalized in the last 30 days:* the end of automatic EAD extensions for renewals (Oct 14; the interim version has applied since Oct 30, 2025).
 ## How Real Are The Dates
@@ -56,9 +66,9 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 | Date | Event | Verified from | Confidence | What could move it |
 | --- | --- | --- | --- | --- |
 | 2026-10-28 | Government opposition to CPT injunction motion, filed (ECF 27). Plaintiffs' reply filed Nov 4 (ECF 32) | CPT docket | Done | None |
-| 2026-11-06, 3:00 PM | CPT injunction hearing, Courtroom 3, Judge Kobick | CPT docket, notice of Oct 13 | High for the hearing, none for a ruling date | Continuance; ruling could come the same day or later |
+| 2026-11-06, 3:00 PM | CPT injunction hearing, Courtroom 3, Judge Kobick: held | CPT docket "Motion Hearing" entry | Done, outcome not found | Ruling could come days or weeks later |
 | 2026-11-09 | OPT fee comments close | Federal Register, ICE BCM 2610-02, DHS release | High (three agreeing primary sources) | Rare, but DHS can reopen or extend |
-| 2026-11-09 | Government brief due, First Circuit duration of status appeal | First Circuit docket 26-2112, Oct 19 entry | High | Expedited schedule can shift |
+| 2026-11-09 | Government brief due, First Circuit duration of status appeal, unless the Nov 3 motion to hold the appeal 30 days is granted | First Circuit docket 26-2112; NAFSA page of Nov 5 | Medium, a ruling on the motion is not logged | The motion itself |
 | 2026-11-10 | 60-day grace period comments close | Federal Register 91 FR 57807 | High | Same |
 | 2026-11-13 | Comments close on removing deference to prior approvals | Federal Register 91 FR 65119 | High | Same |
 | 2026-12-07 | OPT fee paperwork comments close | Federal Register 91 FR 64566 | High | Same |
@@ -220,7 +230,7 @@ Older entries from the first pass:
 ## Open Questions
 - [ ] Ask ISSS in writing whether any non-required CPT for a CS major is possible during the pause, and whether any CS course carries a required experience 📅 2026-10-30
 - [ ] Ask ISSS whether remote work for a foreign employer, done while outside the U.S. over the summer, is allowed under the pause; no source I read answers this
-- [ ] Check the CPT docket after Nov 6 for an order (the Oct 28 opposition and Nov 4 reply are logged in [[CPT Lawsuit]])
+- [ ] Check the CPT docket again for an order: the Nov 6 hearing was held and nothing was found on Nov 7 (the Oct 28 opposition and Nov 4 reply are logged in [[CPT Lawsuit]]) 📅 2026-11-09
 - [ ] Check USCIS's Case Processing Times page for I-765 OPT yourself; it blocked automated access. The CPT complaint cites it as showing 80 percent done within five months as of Sept 28, which corroborates the direction but is a party's citation
 - [ ] Read the OPT fee notice's transition language and decide whether to file a comment by Nov 9
 - [ ] Ask the CS department and ISSS whether UMN would pay, pass on, or decline the OPT fee if it is finalized

@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-11-05
-reviewed: 2026-11-05
+updated: 2026-11-07
+reviewed: 2026-11-07
 tags:
   - career
   - visa
@@ -26,9 +26,9 @@ A court case matters to me because a judge can pause or cancel a government rule
 ## The Cases
 | Case | Court and number | Judge or panel | Subject | Last verified event | Next event |
 | --- | --- | --- | --- | --- | --- |
-| AAU et al. v. DHS | D. Mass. 1:26-cv-14520 | Kobick | CPT broadcast messages | Oct 28: government opposition (ECF 27). Nov 4: plaintiffs' reply (ECF 32) | **Nov 6, 3:00 PM hearing**; no ruling date |
+| AAU et al. v. DHS | D. Mass. 1:26-cv-14520 | Kobick | CPT broadcast messages | Oct 28: government opposition (ECF 27). Nov 4: plaintiffs' reply (ECF 32). Nov 6: hearing held, no ruling found by Nov 7 | A ruling or order, no date announced |
 | Presidents' Alliance et al. v. DHS | D. Mass. 1:26-cv-13799 | Saylor | Duration of status rule | Oct 30: summary-judgment motion and supplemental brief. Nov 2: DHS reply | A ruling, no date |
-| Same case, on appeal | 1st Cir. 26-2112 | Not yet assigned in the entries read | Duration of status rule | Oct 19: expedited schedule set | **Nov 9** government brief |
+| Same case, on appeal | 1st Cir. 26-2112 | Not yet assigned in the entries read | Duration of status rule | Oct 19: expedited schedule set. Nov 3: government moved to hold the appeal 30 days | **Nov 9** government brief, unless the hold is granted |
 | State of California v. Mullin | D. Mass. 1:25-cv-13829 | Sorokin | $100,000 payment | June 8: judgment, guidance vacated | None, appealed |
 | Same case, on appeal | 1st Cir. 26-1699 | Barron, Gelpí, Rikelman on the stay | $100,000 payment | Sept 21: reconsideration denied | Briefing and decision |
 | Global Nurse Force v. Trump | N.D. Cal. 4:25-cv-08454 | Gilliam | $100,000 payment | Sept 30: preliminary injunction granted in part | Oct 27 conference; Jan 14, 2027 hearing on a stay of proceedings |
@@ -46,8 +46,9 @@ Two pairs of cases are easy to confuse. The CPT case and the duration of status 
 | Oct 28 | Done: government's opposition to the CPT injunction motion (ECF 27) |
 | Nov 2 | Done: DHS reply, duration of status (district) |
 | Nov 4 | Done: plaintiffs' reply, CPT case (ECF 32) |
-| Nov 6, 3:00 PM | Hearing on the CPT injunction and stay, Courtroom 3 |
-| Nov 9 | Government's brief, First Circuit, duration of status; OPT fee comments close |
+| Nov 6, 3:00 PM | Done: hearing on the CPT injunction and stay, Courtroom 3. Outcome not found as of Nov 7 |
+| Nov 3 | Done: government's motion in the First Circuit to hold the duration of status appeal 30 days |
+| Nov 9 | Government's brief, First Circuit, duration of status, unless held; OPT fee comments close |
 | Jan 14, 2027 | Hearing on the stay of proceedings, Global Nurse Force |
 | Sept 21, 2027 | Proclamation 11069 restriction expires unless renewed |
 ## What The Rulings Mean
@@ -61,7 +62,8 @@ Two pairs of cases are easy to confuse. The CPT case and the duration of status 
 ## How I Check
 CourtListener hosts RECAP copies of PACER dockets, free, and the links in the sources below open each one. The copies can lag the court, and new entries show when someone buys the document, so the live federal docket is authoritative. The Presidents' Alliance and NAFSA keep plaintiff-side summaries, and I treat them as pointers, not proof ([[Current News]]).
 ## Open Questions
-- [ ] Update this note after the Oct 28 response and Nov 6 hearing in the CPT case 📅 2026-11-07
+- [x] Update this note after the Oct 28 response and Nov 6 hearing in the CPT case: done 2026-11-07, hearing outcome still unknown
+- [ ] Re-check the CPT docket for an order 📅 2026-11-09
 - [ ] Confirm the First Circuit panel for 26-2112 when one is assigned
 - [ ] Find out what the 2025 case Presidents' Alliance v. Bondi, No. 1:25-cv-11109, challenged, since the CPT complaint cites it
 ## Sources

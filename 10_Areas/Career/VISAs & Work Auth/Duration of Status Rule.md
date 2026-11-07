@@ -2,8 +2,8 @@
 type: reference
 status: seed
 created: 2026-10-23
-updated: 2026-11-05
-reviewed: 2026-11-05
+updated: 2026-11-07
+reviewed: 2026-11-07
 tags:
   - career
   - visa
@@ -36,7 +36,7 @@ For me the worry is paperwork and timing. If the rule returns, OPT windows would
 | Proposed | August 28, 2025, 90 FR 42070 |
 | Original effective date | September 15, 2026 |
 | Status | Effective date postponed by a federal court on September 14, 2026 |
-| Appeal | First Circuit No. 26-2112, expedited, government brief due November 9 |
+| Appeal | First Circuit No. 26-2112, expedited, government brief due November 9, but on November 3 the government asked the court to hold the appeal 30 days |
 ## What Duration Of Status Was
 ==Duration of status meant an F-1 student was admitted with no end date and could stay for as long as they kept studying or doing authorized practical training, plus a grace period.== The I-94 read "D/S." The fixed-period rule changes that so every F admission carries an Admit Until Date, and anyone needing more time must ask for it.
 DHS's reasons are in the rule's executive summary. F admissions were over 1.8 million in fiscal 2024, up more than 11 percent from 2023 and far above roughly 260,000 in the 1980-81 school year. DHS says D/S does not give officers enough chances to verify that students are doing only what the status allows, it found over 2,100 people who first entered as F-1 students between 2000 and 2010 still in active F-1 status as of April 2025, and it points to the post-9/11 push to track students through SEVIS. It concludes that admission for D/S "is not appropriate" and returns F-1 to the practice before 1979 ([[SEVP and DSOs]]).
@@ -69,6 +69,8 @@ DHS's reasons are in the rule's executive summary. F admissions were over 1.8 mi
 	The administrative record is due October 23, supplemental summary-judgment briefs October 26, and replies November 2, according to the Presidents' Alliance. The plaintiffs want a prompt final judgment so the issues travel together.
 5. **Update, November 5**
 	The schedule slipped to October 30. The Justice Department moved for summary judgment, saying DHS considered nearly 22,000 public comments, and the plaintiffs filed a supplemental brief asking the court to vacate the rule. DHS replied on November 2 asking for judgment or, failing that, a remand without vacatur. These dates and contents come from a news summary of the docket (ECF 66, 67, 69, 70), not the filings. No decision date is set, and the November 9 First Circuit brief date was not rechecked.
+6. **Update, November 7**
+	NAFSA's page (updated November 5) says that on November 3 the government asked the First Circuit not to consider the appeal for 30 days and to suspend briefing, so the district court can reach a final judgment and the two can be appealed together. NAFSA calls the district decision "imminent." I found no ruling on that motion. If the hold is granted, the November 9 brief date no longer binds.
 The appeal does not revive the rule. It stays blocked while the litigation continues, so the 60-day rules are the operative ones ([[Visa Litigation Tracker]]).
 ## What Is Wrong On The Internet
 - The eCFR "current" view of 8 CFR 214.2 prints the postponed rule's wording, including a 30-day OPT filing window, so it misstates the operative law. The version dated July 1 shows 60 days.
@@ -87,7 +89,7 @@ This section is analysis.
 - *Injunction:* a court order that bars the government from doing something.
 - *Appeal:* asking a higher court to review a ruling.
 ## Open Questions
-- [ ] Watch First Circuit No. 26-2112 for a ruling after the government's November 9 brief 📅 2026-11-09
+- [ ] Watch First Circuit No. 26-2112 for a ruling on the November 3 motion to hold the appeal, and for the district court's final judgment 📅 2026-11-09
 - [ ] Ask ISSS whether it will publish a decision tree for students who graduate in 2028 if the rule returns
 ## Sources
 - [Federal Register final rule, 91 FR 44976](https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant): the rule and its executive summary.

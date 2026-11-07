@@ -38,7 +38,8 @@ def c4_make_windows(rows=7, cols=6, k=4):
 
 C4_WINDOWS = c4_make_windows()           # the 69 windows of the 7 x 6 board, built once
 C4_WEIGHTS = [0, 1, 4, 16]               # weight of a window holding 0, 1, 2 or 3 stones of one player
-C4_SCALE = len(C4_WINDOWS) * C4_WEIGHTS[3] + 1   # bigger than any sum of weights, keeps eval inside (-1, 1)
+C4_PARITY = 10                           # bonus for a threat on the row its owner gets in the endgame
+C4_SCALE = 2 * (len(C4_WINDOWS) * C4_WEIGHTS[3] + 42 * C4_PARITY + 1)   # keeps a heuristic score well inside (-1, 1)
 C4_NEAR_WIN = 0.9                        # value of a position that is a win by force one ply past the cutoff
 
 def c4_playable(state, square):
@@ -82,6 +83,15 @@ def c4_good_eval(state):
             return -C4_NEAR_WIN
         if len(now_x) >= 2:
             return C4_NEAR_WIN
+
+    # parity: the board has 7 rows, so when the columns fill up X gets the even heights (even row numbers
+    # here, since row 7 is the bottom) and O gets the odd ones; a threat on your own parity is worth more
+    for square in threats['X']:
+        if square[0] % 2 == 0:
+            score += C4_PARITY
+    for square in threats['O']:
+        if square[0] % 2 == 1:
+            score -= C4_PARITY
     return score / C4_SCALE              # normalize into (-1, 1)
 
 def c4_good_eval_o(state):
@@ -163,16 +173,13 @@ def gomoku_playout(game, state, max_plies):
         return game.utility(state, player)
     return 0                                             # playout cut short, count it as a draw
 
-def better_gomoku_player(game, state):
+def better_gomoku_player(game, state, iterations=200, max_plies=20):
     """Monte Carlo tree search with forward pruning and a biased playout policy (2b)
 
     Same four steps as monte_carlo_tree_search in games.py, with three changes:
     only squares next to a stone are children, playouts win or block when they can
     and stop after max_plies, and a win or block at the root is played immediately.
     """
-    iterations = 400
-    max_plies = 30
-
     candidates = gomoku_candidates(game, state)
     forced = gomoku_forced_move(game, state, candidates)
     if forced is not None:                               # no need to search, the move is forced

@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-06
 tags:
   - system
   - standards
@@ -52,15 +52,16 @@ Under `## Spec`, one fenced `json` block per family. The linter reads it, so it 
 | `match.where`, `match.where_not` | Equality tests on other frontmatter keys |
 | `match.path` | Allowed folder (regex). A note of the right type in the wrong folder fails placement instead of vanishing as unmapped |
 | `match.strict_path` | `true` means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed |
-| `headings` | `##` titles, required and in order |
+| `headings` | `##` titles, required and in order. An empty list means the family's headings are not enforced on notes |
+| `optional_headings` | `##` titles a note may carry. They keep the Template check clean and are not enforced on notes |
 | `key_types` | `date`, `number`, `list`, `text`, `bool`, `wikilink`; a `?` suffix (`"date?"`) means the key must exist but may be blank |
 | `legacy_match` | Optional list recognizing older notes, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape` |
 | `skip_checks` | Check numbers from [[Conformance Standard]] that do not apply, such as `[5]` for raw machine exports. Machine-written families only; say why in the Standard |
 | `template` | The Template file a Spec belongs to, when a Standard holds several Specs |
 ## Template anatomy
-- Every required key is present. Predictable values are filled (`status: sprout`). Dates use `<% tp.date.now("YYYY-MM-DD") %>`; `{{date}}` is not allowed. A value never lists choices (`a | b | c`).
+- Every required key is present, plus the base keys of [[For Everything]] (`notes`, `next`) when the Spec does not require them. Predictable values are filled (`status: sprout`). Dates use `<% tp.date.now("YYYY-MM-DD") %>`; `{{date}}` is not allowed. A value never lists choices (`a | b | c`).
 - The title is `# <% tp.file.title %>`. Each spec heading follows in order with exactly one `<!-- -->` line of at most 140 characters saying what goes there.
-- No example prose, no `== ==`, no `[[ ]]`, no empty list stubs, no gold-standard link. Examples belong in the Standard.
+- No example prose, no `== ==`, no `[[ ]]`, no empty list stubs other than `notes: []`, no gold-standard link. Examples belong in the Standard.
 - File name `X Template.md` (or `X.md` inside a `Templates/` subfolder), paired with `X Standard.md`.
 ## Workflow anatomy
 Frontmatter adds `serves` (wikilink to the Standard) and `trigger` (one line). Body headings: `Use when`, `Steps` (numbered, at most nine), optional `Do not`, `Done when`. Under 350 words. Name the skill, command, or agent that automates a step.

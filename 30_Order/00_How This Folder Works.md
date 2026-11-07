@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-11-03
+updated: 2026-11-06
 tags:
   - system
   - standards
@@ -18,7 +18,7 @@ notes:
 This is the map for `30_Order`. For voice see [[HUMAN_WRITING]]; for where a note goes see [[40_Resources/Obsidian/Jarvis Vault Architecture]]. This folder holds the shape of every note and nothing else: no knowledge, no course material, no attachments.
 ## The parts
 - **[[Note Type Registry]]** lists every note family with its tier, folder, and kit. Start here.
-- **`Standards/`** are the rules for a family: the machine-readable Spec (keys, values, headings, folder), what each heading holds, how older shapes upgrade (Legacy Shapes), and a real Gold Standard Example. [[Frontmatter Standard]] is the one vocabulary for `type` and `status`.
+- **`Standards/`** are the rules for a note type. A family Standard holds the machine-readable Spec (keys, values, headings, folder), what each heading holds, how older shapes upgrade (Legacy Shapes), the Done Conditions, and a Gold Standard Example: a real note that shows the shape, or `none` when no note does yet. A policy Standard (vocabulary, fit, writing, AI operation) has no Spec or Template and governs how the work is done. [[Frontmatter Standard]] is the one vocabulary for `type` and `status`.
 - **`Templates/`** are the empty scaffold: the Spec's keys and headings with one comment line each, no example prose, and the title and dates from Templater.
 - **`Workflows/`** are the repeated process around a note: when it is made, what updates it, what it links to next. A family without a repeated process has no Workflow.
 - **`System/`** documents the tooling that runs the vault, one record per component ([[System Component Standard]]). [[Vault Lint]] lives here.
@@ -29,7 +29,7 @@ This is the map for `30_Order`. For voice see [[HUMAN_WRITING]]; for where a not
 ## Touching an old note
 Most notes predate their Standard. Whenever a session opens one, it brings the note to its Standard in the same edit ([[Conformance on Touch]], [[Editing Standard]]). That is how the vault reaches the 90% fit target of [[Conformance Standard]] without a bulk rewrite.
 ## Folders
-- **`Standards/`**: the foundation policies and cross-cutting Standards sit at the root. `Courses/` holds UMN class note types. `Internship/` holds the career and application pipeline. `Enrich/` holds deepening and reference notes. `Ingestion/` turns raw capture into briefs and actions. `AI Loop/` holds how AI agents operate in the vault: tool selection ([[Tool Calls]]), coordination ([[Orchestration]]), memory ([[Memory Management]]), conversation capture ([[Conversations]]), the raw-to-knowledge decision ([[Knowledge Noting]]), review layers ([[Review System]], [[Per Project Review]]), logs ([[Logs]]), and Graphify mirrors ([[Graphify Notes]]). `Operations/` holds the daily, periodic, plan, and dashboard Standards, and `Projects/` holds the project-note Standards.
+- **`Standards/`**: the root holds the foundation policies ([[Note Kit Standard]], [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]], [[Decoration Standard]], [[Log Standard]]) and the cross-cutting family Standards ([[Project Standard]], [[Plan Standard]], [[MOC Standard]], [[Generated Output Standard]], [[System Component Standard]]). `Courses/` holds UMN class note types. `Internship/` holds the career and application pipeline. `Enrich/` holds the source summary, evergreen, reference, output, review, audit and repo Standards, the writing and plugin policies, and the retired Tracking Standard redirect. `Ingestion/` turns raw capture into clippings, transcripts, briefs and actions, and holds the PDF extraction and application-writing policies. `AI Loop/` holds how AI agents operate in the vault: tool selection ([[Tool Calls]]), coordination ([[Orchestration]]), memory ([[Memory Management]]), conversation capture ([[Conversations]]), the raw-to-knowledge decision ([[Knowledge Noting]]), review layers ([[30_Order/Standards/AI Loop/Review System|Review System]], [[Per Project Review]]), logs ([[30_Order/Standards/AI Loop/Logs|Logs]]), tool profiles ([[Tool Setup]]), and Graphify mirrors ([[Graphify Notes]]). `Operations/` holds the daily, periodic, dashboard and Field OS Standards, and `Projects/` holds the spec and plan, agent prompt, code mirror, machine runbook and technical concept Standards.
 - **`Templates/`**: [[For Everything]] sits at the root as the base every note satisfies. The folders say what a note is for:
   - `Career/` holds the vault's main notes: Evergreen Note, Cross-Domain Synthesis, Reference Guide, Technical Concept, Interview Story, Portfolio Bullet, Project One-Pager, Folder MOC, and Standing Plan. Its `Meetings/` holds the Transcript, Brief, and Action Templates. Its `Tracking/` holds every tracker and dashboard: Internship Tracker, Internship Postings Log, and the three Capability dashboards. Its `Internship/` holds the loop's own notes and reviews.
   - `Projects/` holds project notes, one per project type: Project Status Note, Project Plan, Project Spec, Agent Task Prompt, Code File Mirror, and Machine Setup Runbook.

@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-11-06
 tags:
   - evergreen
   - system
@@ -15,7 +15,7 @@ notes:
 # How to Write in This Vault
 One page pointing to the three real answers — this file is a map, not a restatement of any of them.
 **Voice vs. mechanics:** [[HUMAN_WRITING]] governs how prose sounds — concrete, compressed, honest about uncertainty, no AI-slop framing. [[Jarvis Writing and Formatting]] governs how that voice gets expressed in Obsidian specifically — blank-line rules, frontmatter shape, wikilinks, `==highlight==`/`**bold**` as real SR-cloze markers, callouts, flashcard syntax. Read voice before mechanics; mechanics cannot rescue vague writing.
-**Content shape per note type:** `30_Order/Standards/` is where "what goes in a concept note" or "what goes in a course project note" actually lives — not in this file. Every note type has its own Standard (`Concept Standard`, `Course Week Standard`, `Project Standard`, etc., split by domain into `Standards/Courses/`, `Standards/Enrich/`, `Standards/Ingestion/`, `Standards/Internship/`, plus general ones at root). Read the matching Standard before writing that note type — it names the real Done Conditions and points to a Gold Standard Example.
+**Content shape per note type:** `30_Order/Standards/` is where "what goes in a concept note" or "what goes in a course project note" actually lives, not in this file. [[Note Type Registry]] names the Standard for each note family. The Standards are split by domain into `Standards/Courses/`, `Enrich/`, `Ingestion/`, `Internship/`, `Operations/`, `Projects/` and `AI Loop/`, plus general ones at the root. Read the matching Standard before writing that note type. It names the Done Conditions and points to a Gold Standard Example when a real note shows the shape.
 **Templates and workflows:** `30_Order/Templates/` gives the empty starting scaffold each Standard maps to. `30_Order/Workflows/` gives the process layer — when in a real sequence of events a note gets created, what triggers updating it, what it connects to next. See [[30_Order/00_How This Folder Works|00_How This Folder Works]] for how the three pieces fit together.
 ## Before You Write Anything
 - Read the Standard for this note type, not just the template.

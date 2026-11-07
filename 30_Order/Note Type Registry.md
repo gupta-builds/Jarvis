@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-10-28
+updated: 2026-11-06
 tags:
   - system
   - registry
@@ -25,7 +25,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | system-component | 2 | system / spec | `30_Order/System/` | none | [[System Component Standard]] | none | built |
 | generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built |
 | (policies) vocabulary, fit, editing | none | system / standard | `30_Order/Standards/` | none | [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]] | [[Conformance on Touch]] | built |
-| (policy) writing | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Human Writing Standard]], [[Humanized Writing Standard]] | [[Human Content Writer]], [[Researcher]] | built |
+| (policy) writing | none | system / standard | `30_Order/Standards/Enrich/`, `30_Order/Standards/Ingestion/` | none | [[Human Writing Standard]], [[Humanized Writing Standard]] | [[Human Content Writer]], [[Researcher]] | built |
 | (policy) decoration | none | system / standard | `30_Order/Standards/` | none | [[Decoration Standard]] | [[Decoration]] | built |
 | (policy) plugins | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Plugins Usage Standard]] | [[Plugins Usage]] | built |
 ## Courses

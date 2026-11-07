@@ -9,19 +9,23 @@ tags:
   - homework
 area:
   - "[[CSCI 4511W Board]]"
+deadline: 2026-11-06
 next: "Put the writeup answers for 1a, 1b, 1c, 2a, 3a, 3b into one PDF (typed is fine, see Requirements); read through the code once so you can explain it in the TA code review; submit ps3.py and the writeup; book the code review within 10 days of the due date."
 ---
 # Problem Set - 3
 ## Overview
-Problem Set 3 covers adversarial search: Tic-Tac-Toe and Connect 4 with minimax, alpha-beta and an evaluation function (Problem 1), Monte Carlo tree search on Gomoku (Problem 2), and pruning in an expectimax tree (Problem 3). The code part is the modified [[20_Progress/Degree/CSCI 4511W/Assignments/Code/ps3.py|ps3.py]], and the written part is Problems 1a to 1c, 2a, 3a and 3b below. The PDF is dated October 28, 2026 and gives no due date or upload location, so the due date is not verified. The Board says a TA code review for the coding part must happen within 10 days of the due date.
+Problem Set 3 covers adversarial search: Tic-Tac-Toe and Connect 4 with minimax, alpha-beta and an evaluation function (Problem 1), Monte Carlo tree search on Gomoku (Problem 2), and pruning in an expectimax tree (Problem 3). The code part is the modified [[20_Progress/Degree/CSCI 4511W/Assignments/Code/ps3.py|ps3.py]], and the written part is Problems 1a to 1c, 2a, 3a and 3b below. The PDF is dated October 28, 2026 and gives no due date or upload location. Lecture 16 (Nov 4), slide 2, says "PS3 due Friday", which is Nov 6, 2026; no time of day is given. The same slide says "Code reviews incoming! Groups assigned in Canvas." The Board says a TA code review for the coding part must happen within 10 days of the due date, and past lectures (3, 10, 11, 12) announced Canvas sign-ups for the PS1 and PS2 reviews. Whether every student must do the PS3 review is not stated in any local source, so check Canvas.
 ## Requirements
 Source: `HW & Exams/HW/ps3.pdf`, both pages, in the course folder `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`.
 ### Must submit
-- [ ] `ps3.py`, the professor's file with the code below filled in (the PDF says to modify the provided ps3.py and submit that).
-- [ ] A writeup with the answers to 1a, 1b, 1c (12 points for Problem 1, 1d is code only), 2a (12 points for Problem 2) and 3a, 3b (8 points). Format: the PS3 PDF only says "writeup". The one explicit rule in the course files is in `ps1.pdf`: submit written answers "as a pdf", "any method", "it does not need to be Latex", and handwriting can lose points only if it cannot be read. So a typed PDF is allowed and handwriting is not required. The Board says problem sets are "submitted individually online" (Gradescope), and Lecture 02 has no format rule. Confirm with course staff if you want PS3 confirmed in writing.
-- [ ] `c4_good_eval` written, and `problem_1c` returning `(n_x, n_o)` from 2 games as X and 2 games as O against the random agent, alpha-beta cutoff depth 4.
-- [ ] `problem_1d` returning `(n_x, n_o)` from 8 games against the MCTS agent: 4 as X and 4 as O, four games at depth limit 2 and four at depth limit 3.
-- [ ] `better_gomoku_player` written, and `problem_2b` returning `(n_x, n_o)` from 4 games against a random agent: 2 as X and 2 as O, each game under one minute.
+Two files:
+- [ ] `ps3.py`, the professor's file with the code filled in. The PDF says to modify the provided `ps3.py` and submit that. It already holds `c4_good_eval`, `problem_1c`, `problem_1d`, `better_gomoku_player` and `problem_2b`.
+- [ ] The writeup as one PDF with the answers to 1a, 1b, 1c, 2a, 3a and 3b. The PS3 PDF only says "writeup". The one explicit format rule in the course files is in `ps1.pdf`: "as a pdf", "any method", "it does not need to be Latex", and handwriting can lose points only if it cannot be read. So a typed PDF is allowed. Confirm with course staff if you want PS3 confirmed in writing.
+### Code checks inside ps3.py
+These are what the grader looks at in `ps3.py`; they are not separate uploads.
+- `problem_1c` returns `(n_x, n_o)` from 2 games as X and 2 as O against the random agent, alpha-beta cutoff depth 4.
+- `problem_1d` returns `(n_x, n_o)` from 8 games against the MCTS agent: 4 as X and 4 as O, four at depth limit 2 and four at depth limit 3.
+- `problem_2b` returns `(n_x, n_o)` from 4 games against a random agent: 2 as X and 2 as O, each game under one minute.
 ### Must demonstrate
 - [ ] 1a: 4 to 5 sentences. 1b: 3 to 4 sentences for the plan and 2 to 3 sentences for why it works. 1c: 2 to 3 sentences describing the eval and 2 to 3 sentences on why it should do well. 2a: 2 to 3 sentences.
 ### Must not do
@@ -29,23 +33,27 @@ Source: `HW & Exams/HW/ps3.pdf`, both pages, in the course folder `D:\_Anant\10_
 - The PDF states no separate AI-tool rule. This draft was built only from the course folder, and you still have to understand it before you submit it as your own.
 ## Work log
 ### Writeup answers
-Short on purpose, in the sentence counts the PDF asks for. Moves are `(row, column)`; the Connect 4 board has 7 rows and 6 columns, row 7 is the bottom, and the agent is X and moves first.
+This is the student's own wording from the pasted humanized draft, with the corrections listed below. Sentence counts follow the PDF. The identifiers in backticks are plain text in the Word file.
 #### 1a
-Minimax only compares win, draw and loss, and with perfect play every first move is a draw, so all nine squares have value 0. The center is better only against a weak opponent, and the agent assumes the opponent never errs. `alpha_beta_search` replaces its best move only when `v > best_score`, so a tie keeps the first move in the list. That move is `(1, 1)`, the corner, so the agent plays it by list order, not because it is better.
+Minimax only considers win, draw and loss. With optimal play every first move is a draw, so all nine moves have a value of 0. The center is a better move, but only against a bad opponent. `alpha_beta_search` only updates its best move when `v > best_score`, so with a tie the first move in the list, `(1, 1)`, is kept. The agent plays that move because of the order of the list, not because it is a better move.
 #### 1b
-Plan: I play O, and the agent opens in column 3 and keeps stacking it. I play `(7,1)`, then block its stack with `(5,3)` once it has two discs there. Then I play `(6,1)`, `(5,1)`, `(4,1)` for four in column 1, and the agent never blocks.
+Moves are written (row, column), and the agent is X and moves first.
 
-Why it works: the search calls the eval on finished games, and `c4_silly_eval` only adds square weights, so it scores my four in a column as about 0 and sees no threat or loss. The agent is deterministic, so the same moves always get the same replies.
+I am playing as O. The agent plays in column 3 and keeps stacking it. I play `(7,1)`, then block its column with `(5,3)` once it has 2 discs there. Then I play `(6,1)`, `(5,1)` and `(4,1)` to get four in column 1, and the agent never blocks me.
+
+The search also evaluates finished games, and `c4_silly_eval` only adds up the weights of each square, so it gives my four in a column a value of about 0 and sees no loss. The agent is also deterministic, so the same moves always get the same replies and this wins every game.
 #### 1c
-`c4_good_eval` is a weighted sum over the 69 windows of four squares: a window holding only one player's stones is worth 1, 4 or 16 to that player for 1, 2 or 3 stones. A finished game returns its utility, a threat that can be played at once returns 0.9, and the score is scaled into (-1, 1). A threat on the row that player gets at the end of the game earns a small bonus.
+`c4_good_eval` is a weighted sum over the 69 windows of four squares. A window with only one player's stones is worth 1, 4 or 16 to that player for 1, 2 or 3 stones. A finished game returns its utility, a threat that can be played immediately returns 0.9, a threat on the row that player gets at the end of the game earns a small bonus, and the score is scaled between -1 and 1.
 
-Every window is a way to still make four, so the score tracks winning chances and favors the center. Unlike the silly eval it recognizes wins and playable threats at the cutoff, and it won 100 of 100 games as X and 100 of 100 as O against the random agent.
+Every window is a way to still get four in a row, so the value shows how likely each player is to win, and the center is favored. Unlike the silly eval, it knows when there is a win and when there is a threat that can be played immediately. It won 100/100 games as X and 100/100 as O against the random agent.
 #### 2a
-Gomoku has 240 squares, so the root gets 240 children and `ucb` is infinite for an unvisited child, which leaves only about 4 playouts per move (1000 / 240). Each `simulate` playout is `random.choice` play of about 108 plies, so its winner barely depends on the first move. The estimates are noise: in my test the agent failed to block an open four 8 of 8 times.
+Gomoku has 240 squares, so the root has 240 children, and `ucb` is infinite for any unvisited child, so there are only around 4 playouts per move (1000/240). Each `simulate` plays roughly 108 plies using `random.choice`, so the winner is barely affected by the first move and the estimates are noisy. In my testing, the agent failed to block an open four 8/8 times.
 #### 3a
-No. Without an upper bound, an unseen child of a chance node can be arbitrarily large, so no partial average bounds the node, and pruning needs such a bound. Example: the root max node has chance nodes A (leaves 5 and 5, so A = 5) and B (probabilities 1/2 and 1/2, first leaf 0, second leaf x unseen). B = x/2 is 50 if x = 100 but 0 if x = 0, so x must be read.
+No. If there is no upper bound, an unseen child of a chance node could be arbitrarily large, so there is no partial average that lets us prune. Say the root is a max node with chance nodes A and B, each with probabilities 1/2 and 1/2. A has children 5 and 5, so A = 5. B has first child 0 and second child x, which we have not seen, so B = x/2. If x = 100 then B = 50, and if x = 0 then B = 0, so we have to look at x and cannot prune.
 #### 3b
-Yes. With leaves in [0, 1], a chance node with seen children (p_i, v_i) is at most the sum of p_i v_i plus (1 minus the sum of p_i), so it can be cut once that bound is no better than the best sibling. Example: A has leaves 0.8 and 0.6 (probability 1/2 each), so A = 0.7; B's first leaf is 0.2, so B is at most 0.5(0.2) + 0.5(1) = 0.6, below 0.7, and B's second leaf is pruned.
+Yes. Since the leaves are between 0 and 1, a chance node with some seen children (probabilities p_i, values v_i) is at most Σ p_i v_i + (1 - Σ p_i). We can prune once this bound is not better than our best sibling. Say A has children 0.8 and 0.6, each with probability 1/2, so A = 0.7. B has first child 0.2, so B is at most 0.5(0.2) + 0.5(1) = 0.6, which is less than 0.7, so the second child of B can be pruned.
+
+Corrections made to the pasted draft: 1b, the last sentence mixed "no threat or loss" with "deterministic", so it is now two clear reasons. 1c, "weighted average" is "weighted sum" (the code adds window weights and divides by one constant), and the description and the reason are each three sentences. 2a, trimmed to three sentences as the PDF asks. 3a, A's probabilities are stated and the conclusion "cannot prune" is added. 3b, "less than the sum" is "at most", and B's probabilities are stated.
 ### Coding reasoning
 Everything is in [[20_Progress/Degree/CSCI 4511W/Assignments/Code/ps3.py|ps3.py]]. The professor's starter is kept as given (`c4_silly_eval`, `ab_cutoff_player`, `problem_1a`, `problem_1b`, `problem_2a`, `main`); two import lines were added (`random`, and `MCT_Node` and `ucb` from `aima.utils`). New code uses the style of the CSCI 4041 lecture notebooks: small functions, a one-line docstring on each, and a short comment beside any line that needs one.
 

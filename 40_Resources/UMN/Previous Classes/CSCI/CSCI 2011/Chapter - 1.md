@@ -53,7 +53,7 @@ Atomic Propositions break down English sentences into basic, indivisible stateme
 - [[Main Examples#Propositional Logic|Examples]]
 ### [[Main Examples]]
 ### Logic Gates
-Logic circuits visually represent propositional logic statements. They break down complex logical tasks into elementary logic functions using logic gates. ![[Pasted image 20251023130412.png]]
+Logic circuits visually represent propositional logic statements. They break down complex logical tasks into elementary logic functions using logic gates. ![[10_Areas/Captures/F'25/Files/Pasted image 20251023130412.png]]
 1. **NOT gate (Inverter)**: Takes a single input and outputs its negation (NOT).
 	- Symbol: a triangle with a small circle at the output.
 2. **OR gate**: Takes two inputs and outputs the disjunction (OR) of the inputs.
@@ -62,7 +62,7 @@ Logic circuits visually represent propositional logic statements. They break dow
 	- Symbol: straight-edged shape.
 4. **Instructions for Constructing Logic Circuits**: Identify all variables and note which are negated. Insert NOT gates for each negated variable. Group variables connected by AND operations using AND gates. Combine groups connected by OR operations using OR gates. 
 	- When drawing: Use the standard symbols for NOT, AND, and OR gates. Label inputs clearly. Optional: label outputs of gates for clarity. Focus on the structure of the circuit rather than artistic quality.
-![[Pasted image 20251023130820.png]]
+![[10_Areas/Captures/F'25/Files/Pasted image 20251023130820.png]]
 ## 1.3
 ### Propositional Equivalences
 Logical Operators and Analogies:
@@ -112,7 +112,7 @@ Tautology and Contradiction: A tautology is a proposition that is always true. A
 10. **De Morgan’s Laws**: These laws are especially important for negating compound propositions.
 	- $( \neg (P \land Q) \equiv \neg P \lor \neg Q )$ 
 	- $( \neg (P \lor Q) \equiv \neg P \land \neg Q )$
-11. Conditional & Biconditional statements: ![[Pasted image 20251023133901.png]]
+11. Conditional & Biconditional statements: ![[10_Areas/Captures/F'25/Files/Pasted image 20251023133901.png]]
 - Using Truth Tables to Show Equivalence: Truth tables show that two propositions are logically equivalent if their truth values match in every case. Additional Equivalences Involving Conditionals and Biconditionals, some equivalences involve conditional statements (if-then) and biconditional statements (if and only if). These do not have special names and must be written out explicitly in proofs.
 ## 1.4
 ### Predicates
@@ -135,7 +135,7 @@ Assigning values: ( R(2, -1, 5) ) is false since $( 2 + (-1) = 1 \neq 5 )$.
 ### Quantifiers
 A propositional function $( P(x) )$ is not a proposition until it has a truth value. Previously, truth values were assigned by substituting specific values for x. Quantifiers allow us to form propositions without assigning specific values by expressing statements about all or some elements in the domain. 
 - An element for which P(x) is false is called a **counterexample** to ∀xP(x)
-![[Pasted image 20251023154229.png]]
+![[10_Areas/Captures/F'25/Files/Pasted image 20251023154229.png]]
 1. **Universal Quantifier $((\forall))$**
 	Symbol: $(\forall)$ (an upside-down “A”)
 	*Meaning*: “For all x,  P(x) is true.”

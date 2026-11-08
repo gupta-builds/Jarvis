@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-07
 tags:
   - system
   - standards
@@ -14,7 +14,7 @@ maps_to:
   - "[[Better Month]]"
   - "[[Better Year]]"
 used_by: []
-gold_standard: none
+gold_standard: "[[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]"
 notes:
   - "[[Daily Note Standard]]"
   - "[[Frontmatter Standard]]"
@@ -22,7 +22,7 @@ notes:
 ---
 # Periodic Review Note Standard
 ==A weekly, monthly, or yearly note is the personal ledger of a period: short, dated, and linked to the review that holds the evidence.==
-This is the Standard for the notes in `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, and `Yearly/`. `/weekly-review` creates or patches the weekly note after it writes the Weekly Synthesis; the synthesis holds the audit, and this note holds the summary, goals, and fixes. Daily notes are [[Daily Note Standard]].
+This is the Standard for the notes in `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, and `Yearly/`. It is not the Weekly Synthesis, which holds the audit ([[Capability Review Standard]]), and not the daily note ([[Daily Note Standard]]). This note holds the summary, goals, and fixes, and no health, money, or relationship content: that belongs in The Plan ([[AGENTS]], golden rule 6).
 ## Spec
 ```json
 {
@@ -63,43 +63,89 @@ This is the Standard for the notes in `10_Areas/Life/Enumerate/Weekly/`, `Monthl
   "legacy_match": [{"path": "^10_Areas/Life/Enumerate/Yearly/"}]
 }
 ```
+
+| Item | Rule |
+|---|---|
+| Allowed folders | `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, or `Yearly/`, by kind. |
+| File name | The period: `2026-W44`, `2026-06`, `2026`. The title is the file name. |
+| Kind | `type: thought` with `thought_kind: weekly`, `monthly`, or `yearly`, and `period` equal to the file name. |
+| Status | `sprout` while filled, `complete` once reviewed. |
 ## Headings
 ### Frontmatter
-`type: thought`, `thought_kind` (`weekly`, `monthly`, or `yearly`), `period` (`2026-W41`, `2026-06`, `2026`), `status` (`sprout` while filled, `complete` once reviewed), `created`, `updated`, `tags` (the kind), `next`. A weekly note adds `review`, a quoted link to its Weekly Synthesis, set by `/weekly-review`. The title is the file name. Below it, `> [!NOTE] Summary:` holds one sentence of the period.
-> [!WARNING]
-> An empty `created`. The 2026-W27 weekly has none, so it cannot be placed on a timeline.
+- **Write:** `thought_kind`, `period`, `status`, `created`, `updated`, `tags` (the kind), `next`. A weekly note adds `review`, a quoted link to its Weekly Synthesis. Below the title, `> [!NOTE] Summary:` holds one sentence of the period.
+- **Length:** one line per key; one summary sentence.
+- **Never:** `thought_kind: reflection` or a missing `period`. The note then matches no kind and cannot be placed on a timeline.
+- **Right:** `period: "2026-W44"`
+- **Wrong:** `thought_kind: reflection`
 ### Goals (weekly)
-The top items of the week, 80 first, taken from the synthesis. Each is a checkable outcome.
-### Productivity (weekly, monthly)
-What actually landed, with the note, commit, or number that shows it.
-*Density:* evidence, not mood. "Only 5 daily notes in 18 days" is evidence; "a productive week" is not.
+- **Write:** the top items of the week, 80 first, taken from the Weekly Synthesis. Each is a checkable outcome.
+- **Length:** five to eight items.
+- **Never:** a goal with no way to tell it is done.
+- **Right:** `- [ ] CSCI 4061 Project 2 submitted by Fri 10/30.`
+- **Wrong:** None seen.
+### Productivity (weekly and monthly)
+- **Write:** what actually landed, with the note, commit, or number that shows it.
+- **Length:** three to six lines.
+- **Never:** mood. "A productive week" is not evidence.
+- **Right:** None yet.
+- **Wrong:** None seen.
 ### Good habits and Bad habits (weekly)
-One or two specific lines each, named by behavior.
-### Fixes (weekly, monthly)
-Each fix is one concrete change, not a wish.
-> [!WARNING]
-> A fix such as "be more disciplined". Write "run LeetCode before opening a browser tab".
-### Check-in (weekly, optional)
-Focus and discipline on the work, one line each. Health and relationship prompts belong in The Plan ([[AGENTS]], golden rule 6).
+- **Write:** specific behaviors, named by what happened.
+- **Length:** one or two lines each.
+- **Never:** a trait ("disciplined").
+- **Right:** None yet.
+- **Wrong:** None seen.
+### Fixes (weekly and monthly)
+- **Write:** each fix is one concrete change.
+- **Length:** three to five lines.
+- **Never:** a wish such as "be more disciplined".
+- **Right:** `Put the four assessment outcomes and the Project 2 and Lab 7 Gradescope status on their Boards.`
+- **Wrong:** None seen.
+### Check-in (weekly)
+- **Write:** optional. Focus and discipline on the work, one line each.
+- **Length:** two lines.
+- **Never:** health or relationship prompts. They belong in The Plan.
+- **Right:** `Focus:`
+- **Wrong:** `> [!QUESTION] Rate yourself on focus, health, discipline, and connection`
 ### Resolution checklist and Recap (yearly)
-Builder goals, each with a measurable end state. Recap is added in December. Personal-life resolutions (gym, cooking, finances) live in The Plan.
+- **Write:** builder goals, each with a measurable end state. Recap is added in December.
+- **Length:** a checklist of up to ten goals.
+- **Never:** personal-life resolutions (gym, cooking, finances). They live in The Plan.
+- **Right:** None yet.
+- **Wrong:** `# What made you better this Year?`
+### Rules
+| Rule | Why | Enforced by |
+|---|---|---|
+| `thought_kind` and `period` are set, and `period` matches the file name | The kind and the timeline come from them | Lint, check 1 |
+| Weekly: Goals and Fixes are filled from the synthesis, and `review` links it | The synthesis holds the evidence | Reader |
+| No health, money, or relationship content | Jarvis holds execution, not personal life | Reader |
+| Sections hold evidence, not mood | "Only 5 daily notes in 18 days" is evidence; "a productive week" is not | Reader |
+| The four weekly headings appear (Tier 2 does not enforce them) | `/weekly-review` patches by section name | Reader |
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
-| `thought_kind: reflection` | `weekly`, `monthly`, or `yearly` by folder | mechanical |
-| No `period` | From the file name | mechanical |
-| `# 52 Weeks`, `# What made you better this month?` as the title | The file name; keep the question as a one-line callout if wanted | mechanical |
-| `> [!NOTE] **Summary**:` | `> [!NOTE] Summary:` | mechanical |
-| `related_progress` holding a Weekly Synthesis link | `review` | mechanical |
-| `# Check-in` as a top-level heading | `## Check-in`, focus and discipline only | judgment |
-| `# Recap` as a top-level heading | `## Recap` | mechanical |
-| `tags: ["#brainstorm"]` | `[weekly]`, `[monthly]`, or `[yearly]` | mechanical |
-| `status: seed` | `sprout`, or `complete` after review | mechanical |
-| Gym, cooking, or finance resolutions in `Resolutions'26` | Move to The Plan | judgment |
+| `thought_kind: reflection` (Monthly and Yearly notes) | `weekly`, `monthly`, or `yearly` by folder | Mechanical |
+| No `period` | From the file name | Mechanical |
+| `# 52 Weeks`, `# What made you better this month?` as the title | The file name; keep the question as a one-line callout if wanted | Mechanical |
+| `> [!NOTE] **Summary**:` | `> [!NOTE] Summary:` | Mechanical |
+| `related_progress` holding a Weekly Synthesis link | `review` | Mechanical |
+| `# Check-in` or `# Recap` as a top-level heading | `## Check-in` (focus and discipline only), `## Recap` | Mechanical |
+| `tags: ["#brainstorm"]` | `[weekly]`, `[monthly]`, or `[yearly]` | Mechanical |
+| `status: seed` | `sprout`, or `complete` after review | Mechanical |
+| Gym, cooking, or finance resolutions in `Resolutions'26` | Move to The Plan | Judgment |
 ## Done Conditions
 - Frontmatter passes the Spec for its kind, with `period` matching the file name.
 - Weekly: Goals and Fixes are filled from the synthesis and `review` links it.
 - No health, money, or relationship content.
 - Sections hold evidence, not mood.
+- The note passes [[Vault Lint]] for its kind.
 ## Gold Standard Example
-None yet: no note has `thought_kind: weekly` and `period`. The closest weekly is [[2026-W39]], with a one-sentence summary, a link to its synthesis, evidenced Goals, and concrete Fixes, in the old shape.
+[[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]: `thought_kind`, `period`, a quoted `review` link, a one-sentence summary, checkable Goals, and concrete Fixes. It does not pass lint: 13 extra blank lines, and its Productivity, Good habits, and Bad habits sections still hold only the template comment.
+Measured 2026-11-07: weekly 9 notes, 1 passes (`2026-W45`, an unfilled template); monthly 1 note and yearly 2 notes, none pass.
+
+| Note | Folder | Strength | Lacks |
+|---|---|---|---|
+| 2026-W44 (gold) | `10_Areas/Life/Enumerate/Weekly/` | Goals and Fixes with evidence | Blank lines; three sections empty |
+| 2026-W45 | `10_Areas/Life/Enumerate/Weekly/` | Passes lint | Unfilled |
+| 2026-06 | `10_Areas/Life/Enumerate/Monthly/` | The first monthly | `thought_kind: reflection`, no `period`, `#` in tags |
+| 2026 | `10_Areas/Life/Enumerate/Yearly/` | The first yearly | Same, and an empty `updated` |

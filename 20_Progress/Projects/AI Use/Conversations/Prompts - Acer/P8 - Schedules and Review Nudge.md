@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - project
   - ai
@@ -16,7 +16,7 @@ model: claude-sonnet-5-5
 Run by Sonnet 5.5 inside the directory: `D:\_Anant\20_Progress\Documents\Jarvis`
 Suggested effort: medium.
 Follow this prompting guide to lay it out correctly: `https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5-5`
-Status of this draft: refreshed on 2026-10-30 from the design postmortem and a re-read of Task Scheduler. Do not run it until P7 works by hand. Refresh the task list from Capture Registration's Schedule section, which is the source of truth for timings. It replaces the 2026-10-22 draft, which assumed a fixed 21:00 slot with no daylight-saving check and a nudge that appeared only on Sunday to Tuesday.
+Status of this draft: refreshed on 2026-10-30 from the design postmortem and a re-read of Task Scheduler (observations about the other tasks refreshed 2026-11-07). Do not run it until P7 works by hand. Refresh the task list from Capture Registration's Schedule section, which is the source of truth for timings. It replaces the 2026-10-22 draft, which assumed a fixed 21:00 slot with no daylight-saving check and a nudge that appeared only on Sunday to Tuesday.
 ## Prompt - P8 Schedules and Review Nudge
 ````
 <role>
@@ -30,8 +30,8 @@ Read first: 20_Progress/Projects/AI Use/Conversations/Capture Registration.md, s
 
 Read from Task Scheduler on 2026-10-30 (re-read in step 1; the Acer may have changed):
 - ConversationCapture-Backfill-Windows: every 30 minutes, last result 0 at 21:03.
-- Jarvis-GitAutoSync: every 30 minutes, last result 1 at 21:03. Its log shows "Committed" and then "FAILED, local changes could not be committed"; 2 of its last 12 runs ended FAILED and the next run recovered. Record it; do not change this task.
-- Jarvis-Syncthing-Health: every 5 minutes, last result 1 at 21:26. Record it; do not change it.
+- Jarvis-GitAutoSync: every 30 minutes. On 2026-10-30 its last result was 1 and 2 of its last 12 runs ended FAILED. The cause was found and the script fixed on 2026-11-05 (a stray file named nul stopped git add; the script now lists offending paths, pre-flights for reserved Windows names and caps its log). Read on 2026-11-07: last result 0 at 20:33, next run 21:03. Record the current result; do not change this task.
+- Jarvis-Syncthing-Health: every 5 minutes. On 2026-10-30 its last result was 1 at 21:26. Read on 2026-11-07: last result 0 at 20:36. Record the current result; do not change it.
 - Jarvis-Codex-Daemon-Guard: Disabled, last run 2026-10-26 18:57. Record it.
 - ThePlan-GitSync: every 15 minutes, result 0.
 - Jarvis-WeeklyReview: weekly on Sunday. It was registered with a start boundary of 2026-09-28T06:00:00-05:00 and ran at 13:15 on 2026-10-18 and 13:22 on 2026-10-25 (about seven hours late, because the laptop was off at 06:00 and the task starts when available). Read on 2026-11-05, it is already re-registered: start boundary 2026-11-05T06:00:00 with no UTC offset, StartWhenAvailable true, next run 2026-11-08 06:00, LastTaskResult 267011 (not yet run since re-registration; scripts/register-weekly-review-task.ps1 had an uncommitted edit). That review covers concept mastery, not conversations. Its daylight-saving problem is fixed, so register only the new digest task and leave this one alone.
@@ -60,7 +60,7 @@ Before your first tool call, say in one sentence what you are about to do. After
 </progress_updates>
 
 <steps>
-1. Re-read the live scheduled tasks (name, state, triggers, start boundary, last result, next run) and compare with the Schedule section and the list above; correct the section where it differs, and record the three observations (GitAutoSync FAILED runs, Syncthing-Health result 1, Codex guard Disabled) without changing those tasks.
+1. Re-read the live scheduled tasks (name, state, triggers, start boundary, last result, next run) and compare with the Schedule section and the list above; correct the section where it differs, and record the live result of GitAutoSync and Syncthing-Health and that the Codex guard is Disabled, without changing those tasks. If either result is again non-zero, record the log line that explains it.
 2. Write scripts/run-conversation-digest.ps1: compute the current ISO week (parameter -Week to override), call the P7 digest for it and the previous week, then create the weekly skeleton for the week that is ending from the AI Weekly Review Template with the template placeholders rendered by the script, status seed, Period Covered filled, and a link to the digest. If the previous week has no review note and no skeleton, add a gap line to the digest and keep the streak count. Toast on success and on failure.
 3. Write the silent VBS launcher and scripts/register-conversation-digest-task.ps1 on the weekly-review pair's pattern, with a local start time and start-when-available.
 4. Test: run the runner for a past week; run it twice and confirm the skeleton is untouched the second time; register with -Apply; run Start-ScheduledTask; read LastTaskResult (must be 0), the log line, and the new files; read the task XML and the next-run time as described in the constraints.
@@ -73,7 +73,7 @@ When you change code that can be run, built, or type-checked, run a real check t
 </verification>
 
 <report>
-Reply with: the corrected timetable; the registered task's trigger, start boundary and LastTaskResult; the skeleton path and proof that a second run left it untouched; the startday diff and toast text; the three observations; and anything the owner must decide, such as a different day or time. Under 300 words.
+Reply with: the corrected timetable; the registered task's trigger, start boundary and LastTaskResult; the skeleton path and proof that a second run left it untouched; the startday diff and toast text; the live results of the other tasks; and anything the owner must decide, such as a different day or time. Under 300 words.
 </report>
 ````
 ## Run Record

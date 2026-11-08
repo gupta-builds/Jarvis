@@ -2,7 +2,7 @@
 type: review
 status: sprout
 created: 2026-10-30
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - review
   - audit
@@ -223,3 +223,5 @@ Not edited here, as the task says.
 
 ### Priority Queue, amended
 P4b is no longer a phase: its Acer work is done (ignore rule, untrack), the history question is answered (kept, finding 17), and what is left is the Dell index and `.stignore` (finding 16), both owner decisions. Order stays: P5 (after the line-71 fix), the deleted-note policy, P6, P7, P8.
+### Open Questions, answered 2026-11-07
+Answered by the owner: deleted-note policy (not recreated; hard delete, marker kept); Home stays local; no purge of The Plan's history; the stage A pass never reads The Plan prompts; raw events hold no prompt text; scripts live in the vault with user-level registration made by a vault script; the `/insights` headless test is skipped and `/insights` stays a manual monthly step; no `.stignore` line for the conversation tree; the Dell index is untracked only if its git writer is enabled; `D:\AI\Conversations` is routing rule `Outside Vault` (added today); a first-failure note never quotes or paraphrases a prompt. Finding 18's cause: `Get-ProjectName` trims `D:\` to `D:`, and `Split-Path` resolves it against the caller's working directory. Still open: the ledger metric rule, the digest and reminder timing, the Review System wording. The review protocols need a proposed-deletions step; it is listed in the hub's Open Questions.

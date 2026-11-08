@@ -6,8 +6,8 @@ updated: 2025-10-13
 area:
   - "[[C Language]]"
   - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1]]"
-  - "[[Linked list]]"
-  - "[[Text files]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Linked list]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Text files]]"
 tags:
   - "#class"
   - "#Textbook"
@@ -120,7 +120,7 @@ sptr->gpa = 3.5;
 // (can use strcpy to init its value):
 strcpy(sptr->name, "Lars");
 ```
-![[Pasted image 20251001145211.png]]
+![[10_Areas/Captures/F'25/Files/Pasted image 20251001145211.png]]
 #### Array of Structs
 ```c
 struct studentT classroom1[40];   // an array of 40 struct studentT
@@ -167,7 +167,7 @@ void updateAges(struct studentT *classroom, int size) {
 }
 ```
 #### Self-Referential Structs
-A struct can be defined with fields whose type is a pointer to the same `struct` type. A **[[Linked list]]** is one way to implement a **list abstract data type**. A list represents a sequence of elements that are ordered by their position in the list.
+A struct can be defined with fields whose type is a pointer to the same `struct` type. A **[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Linked list]]** is one way to implement a **list abstract data type**. A list represents a sequence of elements that are ordered by their position in the list.
 ```c
 struct node {
     int data;           // used to store a list element's data value
@@ -198,7 +198,7 @@ The C functions `getchar` and `putchar` respectively read or write a single 
 ch = getchar();  // read in the next char value from stdin
 putchar(ch);     // write the value of ch to stdout
 ```
-#### [[Text files]]
+#### [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Text files]]
 To read or write a file in C, follow these steps:
 1. _Declare_ a `FILE *` variable:
 ```c

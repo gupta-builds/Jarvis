@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-08-23
-updated: 2026-10-16
+updated: 2026-11-07
 tags:
   - system
   - standards
@@ -24,7 +24,7 @@ notes:
 ---
 # Internship Loop Review Standard
 ==A review checks the loop's real output against what it was designed to do, citing the files and counts it actually read, never a summary of dossier counts alone.==
-This is the content standard for the Weekly Discovery Review and the Monthly Promotion Review in `60_Claude/30_Reviews/Internship Loop/Scheduled/`. It inherits [[Review Standard]] unchanged: cite the rows and files read, "nothing to report" is a valid finding, Decided Fixes holds only items at 100% clarity, and a review that finds a bug is not authorization to patch code. The Weekly review covers pipeline step 1 (automated discovery, which fails in reproducible, bug-shaped ways). The Monthly review covers steps 2 to 9 (human judgment, which stalls). A third check, the Deadline Sweep, runs every three days on its own; both reviews cite its latest output instead of rebuilding deadlines by hand.
+This is the Standard for the Weekly Discovery Review and the Monthly Promotion Review in `60_Claude/30_Reviews/Internship Loop/Scheduled/`. It inherits [[Review Standard]]: cite the rows and files read, "nothing to report" is a valid finding, Decided Fixes holds only items at 100% clarity, and a review that finds a bug is not authorization to patch code. The Weekly review covers pipeline step 1 (automated discovery, which fails in reproducible, bug-shaped ways). The Monthly review covers steps 2 to 9 (human judgment, which stalls). It is not the Deadline Sweep, which both reviews cite ([[Deadline and Intake Triage Standard]]).
 ## Spec
 ```json
 {
@@ -54,44 +54,77 @@ This is the content standard for the Weekly Discovery Review and the Monthly Pro
   "optional_headings": []
 }
 ```
+
+| Item | Rule |
+|---|---|
+| Allowed folders | `60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/` or `Monthly/`. |
+| File name | The review type, a separator, then the ISO week (`2026-W36`) or month (`2026-09`): `Internship Loop Weekly Review` or `Internship Loop Monthly Review`. |
+| Kind | `type: review` with `review_kind: internship-loop`. |
+| Status | `sprout` while open, `complete` once filed in the Reviews MOC. |
 ## Headings
-Frontmatter: `type: review`, `review_kind: internship-loop`, `status` `sprout` while open and `complete` once filed in the MOC. File names keep the existing pattern: the review type, a separator, then the ISO week (`2026-W36`) or month (`2026-09`); see the Gold Standard Example.
-### Weekly Discovery Review
-| Heading | Holds |
-|---|---|
-| Period Covered | The exact range, even when it is not seven days |
-| Sources Reviewed | Four boxes, always: sampled dossier paths, Dossiers MOC capacity table, Excluded log, latest Deadline Sweep. An unread source is unchecked with a reason, never omitted |
-| Sample & Method | Sample size and how it was chosen. Anything a script can count (field compliance, `matched_reason`) is grepped across the whole corpus |
-| Gate Conformance | The sample against the four hard gates: timing, US location, OPT, CS relevance. Cite file and gate |
-| Standard Conformance | [[Internship Notes Standard]] fraction, counted, not estimated |
-| Priority Classification Accuracy | Whether each sampled posting sits in the right bucket |
-| Resource-Limit Health | Bucket counts against the 50 threshold and issues that should have fired |
-| Deadline Sweep Citation | The latest sweep's Already Over and Soon buckets, with its header date |
-| Findings, Decided Fixes, Open Questions | As in [[Review Standard]] |
-| Immediate Actions | Anything that cannot wait a period, including a regression producing bad output now |
-| Next Period's Watch List | What to recheck, including promoted carryovers |
-### Monthly Promotion Review
-| Heading | Holds |
-|---|---|
-| Sources Reviewed | Every folder opened: Programs, Contacts, Tracker, Applying, Preperation, and the latest sweep |
-| Pipeline Checklist | The month graded against the Pipeline's Done When |
-| Per-Program Trace | Noted to result for each note trio, flagging stalls |
-| Deadline Sweep Reconciliation | A real query of every live Program's deadline against the sweep's Already Over bucket, never a hand-built list |
-| Application Census | Counted Ended, Missed, Serious, Considering, not yet reached out, and not yet researched, each with its query |
-| Health Check | Applications submitted against 500 by 2026-12-31, days left, required rate, actual rate. State the gap every time it is still true |
-| Note-Shape Conformance | Program, Contact, Tracker, and Applying notes against their Standards, naming checks that were blocked |
-> [!WARNING]
-> Carryover Escalation: an Open Question or Finding that appears in the same slot in two consecutive reviews of one type is promoted to the next review's Immediate Actions, not carried a third time.
+### Frontmatter
+- **Write:** `type: review`, `review_kind: internship-loop`, `status`, dates, `tags`, `notes` linking the Standards and the previous review, and `next`.
+- **Length:** one line per key.
+- **Never:** `type: evergreen` with tags `review` and `internship`. All four existing reviews have it, so none is found as a review.
+- **Right:** None yet.
+- **Wrong:** `type: evergreen`
+### Weekly: Period Covered and Sources Reviewed
+- **Write:** the exact range, even when it is not seven days. Four source boxes, always: sampled dossier paths, the Dossiers MOC capacity table, the Excluded log, the latest Deadline Sweep. An unread source is unchecked with a reason, never omitted.
+- **Length:** one sentence for the range; one line per source.
+- **Never:** a source that was not opened, ticked.
+- **Right:** `2026-08-24 through 2026-09-04 (12 days, not 7`
+- **Wrong:** None seen.
+### Weekly: Sample & Method, Gate Conformance, Standard Conformance
+- **Write:** sample size and how it was chosen (anything a script can count is grepped across the whole corpus); the sample against the four hard gates (timing, US location, OPT, CS relevance), citing file and gate; the [[Internship Notes Standard]] fraction, counted.
+- **Length:** a paragraph per section.
+- **Never:** an estimated count, or Gate and Priority merged into one heading.
+- **Right:** `Exact corpus-wide counts (287 live dossiers,`
+- **Wrong:** `## Gate & Priority-Classification Conformance`
+### Weekly: Priority Classification Accuracy, Resource-Limit Health, Deadline Sweep Citation
+- **Write:** whether each sampled posting sits in the right bucket; bucket counts against the 50 threshold and issues that should have fired; the latest sweep's Already Over and Soon buckets, with its header date.
+- **Length:** a short paragraph or table each.
+- **Never:** a deadline list rebuilt by hand. Cite the sweep.
+- **Right:** `**One real miss, high confidence:**`
+- **Wrong:** None seen.
+### Monthly: Pipeline Checklist, Per-Program Trace, Deadline Sweep Reconciliation
+- **Write:** the month graded against the Pipeline's Done When; noted to result for each note trio, flagging stalls; a real query of every live Program's deadline against the sweep's Already Over bucket.
+- **Length:** a table or one paragraph per batch.
+- **Never:** a hand-built deadline list.
+- **Right:** `confirmed by absence, not inferred.`
+- **Wrong:** None seen.
+### Monthly: Application Census, Health Check, Note-Shape Conformance
+- **Write:** counted Ended, Missed, Serious, Considering, not yet reached out, and not yet researched, each with its query. Applications submitted against 500 by 2026-12-31, days left, required rate, actual rate, with the gap stated every time it is still true. Program, Contact, Tracker, and Applying notes against their Standards, naming checks that were blocked.
+- **Length:** a table plus two sentences.
+- **Never:** a section left out. Both existing monthly notes lack all three.
+- **Right:** None yet.
+- **Wrong:** None seen.
+### Findings, Immediate Actions, Decided Fixes, Open Questions, Next Period's Watch List
+- **Write:** as in [[Review Standard]]. Immediate Actions holds anything that cannot wait a period, including a regression producing bad output now, and any item that appeared in the same slot of two consecutive reviews of one type.
+- **Length:** one bullet each.
+- **Never:** a third carry of the same item.
+- **Right:** None yet.
+- **Wrong:** None seen.
+### Rules
+| Rule | Why | Enforced by |
+|---|---|---|
+| The thirteen headings of the kind appear in order and none is empty | A review is read and compared by section | Lint, check 2 |
+| `review_kind: internship-loop` and `type: review` | The reviews are found by kind | Lint, check 1 |
+| Every claim traces to a file, count, or log row, and counts are never estimated | Estimates repeat the drift the review should catch | Reader |
+| Carryover Escalation: an Open Question or Finding in the same slot of two consecutive reviews of one type moves to the next Immediate Actions | A third carry is a decision nobody made | Reader |
+| The Weekly review checks all four sources; the Monthly review names what it could not check | A silent gap looks like a clean result | Reader |
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
-| `type: evergreen` with tags `review`, `internship` | `type: review`, `review_kind: internship-loop` | mechanical |
-| Weekly note with "Gate & Priority-Classification Conformance" merged | Split into Gate Conformance and Priority Classification Accuracy | judgment |
-| Weekly note with no Deadline Sweep Citation or Immediate Actions | Add both | judgment |
+| `type: evergreen` with tags `review`, `internship` (all four) | `type: review`, `review_kind: internship-loop` | Mechanical |
+| Weekly note with "Gate & Priority-Classification Conformance" merged | Split into Gate Conformance and Priority Classification Accuracy | Judgment |
+| Weekly note with no Deadline Sweep Citation or Immediate Actions | Add both | Judgment |
+| Monthly note with "Note-Shape Conformance - Provisional" and no Application Census, Health Check, or Deadline Sweep Reconciliation | Add the three; drop the suffix | Judgment |
 ## Done Conditions
 - Every claim traces to a file, count, or log row, and counts are never estimated.
 - The Weekly review checks all four sources, and the Monthly review names what it could not check.
 - Decided Fixes holds only items at 100% clarity, and any two-sighting item sits in Immediate Actions.
 - The review is linked from the Reviews MOC and reflected in the Main Log.
+- The note passes [[Vault Lint]] for its kind.
 ## Gold Standard Example
-[[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship Loop Weekly Review — 2026-W34]]: the first real review, notable for what a full-corpus grep found that a sample would have missed. It predates the review type and the Immediate Actions section.
+[[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship Loop Weekly Review — 2026-W34]]: the first real review, notable for what a full-corpus grep found that a sample would have missed. It does not pass lint: it is typed `evergreen`, and lacks Deadline Sweep Citation and Immediate Actions.
+Measured 2026-11-07: weekly 2 notes, monthly 2 notes; none pass.

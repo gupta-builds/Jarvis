@@ -24,10 +24,10 @@ notes:
 scanf("%d", p); // Read an integer, store at address p
 ```
 [[Mallac and free functions]] 
-[[Placeholders]]
+[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Placeholders]]
 ## Arrays 
-[[Static and dynamic]]
-[[Two Dimensional Arrays]]
+[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Static and dynamic]]
+[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Two Dimensional Arrays]]
 # C use
 ## How to write projects?
 Splitting into **multiple files** (common in bigger projects).

@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - project
   - ai
   - conversations
   - build
 project_kind: plan
-next: P4 is done and the plan below is rewritten to it. Next is P5, the first weekly review by hand for 2026-W43, with no new code, once its prompt carries the session-id rule from the 2026-11-05 Corrections; then P6 to P8. P4b is closed for the Acer (the whole conversation tree is untracked). The Dell does not start until the Dell gate below is true.
+next: P4 is done. Next is P5, the first hand review for 2026-W43, W44 and W45 (one note and one sheet per week; W45 only after Sunday 2026-11-08), then P6 to P8, each already corrected to the owner's decisions of 2026-11-07 (see Corrections). The two review protocols still need a proposed-deletions step before P10. The Dell does not start until the Dell gate below is true.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem|Conversation Loop Design Postmortem]]"
@@ -137,3 +137,10 @@ Platforms other than Claude Code on the Acer until the Acer loop runs end to end
 - **The Dell gate (postmortem 16).** Add a row: the Dell's index is untracked the same way before its git writer runs again, and the `.stignore` decision is made on both laptops.
 - **Open Questions.** Answered by the owner's decision: "Should Home (17 notes) stay local like The Plan?" (yes, the whole tree is local) and "should The Plan's history be purged" (no). Added: the `.stignore` lines; the Dell index; the folder for a session started in `D:\`.
 - **Facts that moved.** 167 top-level transcripts, 135 with an assistant turn, 156 Acer notes; the `SessionStart` hook; 153 `export_result` lines for 154 Stop and SessionEnd events since 2026-10-28 22:36. See the postmortem's Corrections.
+- **Corrections of 2026-11-07 (owner's answers).** Open Questions answered: a deliberately deleted note is not recreated by capture (hard delete, marker kept, so the digest counts it as deleted); Home and all other conversation notes stay local; The Plan's history is not purged; the stage A pass (P13) never reads The Plan prompts; no `claude -p "/insights"` test, `/insights` stays manual and monthly; the weekly time budget is still measured by P5.
+- **P5.** Covers 2026-W43, W44 and W45, Acer notes only: one note and one sheet per week, one ledger row and one change in total at the end, W45 only after Sunday 2026-11-08. First-failure notes name the failure and code with no quote and no paraphrase.
+- **P6.** Raw events hold no prompt text and the registration wording is final (both confirmed). `D:\AI\Conversations` is now routing rule `Outside Vault` in `capture-projects.json`; a bare `D:\` stays `Unknown`. The coverage disagreement came from `Get-ProjectName` and `Split-Path` resolving `D:` against the caller's working directory; the exporter is not fixed.
+- **P7.** Only the Jarvis project prints file paths; every other project prints counts. The digest and its key are published.
+- **P8.** `Jarvis-GitAutoSync` and `Jarvis-Syncthing-Health` both read result 0 on 2026-11-07; the earlier FAILED runs came from a stray `nul` file and the script was fixed on 2026-11-05.
+- **P10 and the protocols.** Add to the Weekly and Monthly Review Protocols a proposed-deletions step (the owner approves each item; hard delete, marker kept; scope: junk and empty notes, old unsampled notes, duplicate and legacy trees, raw `_raw_jsonl` copies). Tell Capture Pipeline - As Built that a missing note with a marker is expected. Remember that a note deleted from now on is not in git.
+- **Dell gate and `.stignore`.** No `.stignore` line for the conversation tree (syncing the notes is the core loop). The Dell index is untracked only if its git writer is enabled.

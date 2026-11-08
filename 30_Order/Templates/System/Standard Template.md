@@ -17,8 +17,9 @@ next:
 ---
 # <% tp.file.title %>
 <!-- One sentence wrapped in ==highlight==: the rule this Standard exists to enforce. -->
-<!-- Up to three sentences: what it governs, what it does not, and why it exists. -->
+<!-- Up to three sentences: what the note is, what it is not (link the neighbor family), and why it exists. No process steps. -->
 ## Spec
+<!-- Valid JSON for the linter, then a table of Allowed folders, File name, Kind and Status in words. -->
 ```json
 {
   "family": "",
@@ -32,10 +33,16 @@ next:
 }
 ```
 ## Headings
-<!-- One ### per spec heading: what it holds, a *Density:* line, and at most one WARNING from a real note. -->
+<!-- Entries in order: Frontmatter, one per spec heading, then Rules. Each entry is at most 180 words, table rows excluded. -->
+### Frontmatter
+<!-- Five bullets: Write, Length (a number), Never (with the reason), Right and Wrong, both quoted from real notes. -->
+### Section
+<!-- Repeat for every spec heading. If no real note of the family exists yet, say so instead of inventing a quote. -->
+### Rules
+<!-- A table: Rule, Why, Enforced by (Lint with the check number, or Reader). Steps and triggers belong in the Workflow. -->
 ## Legacy Shapes
-<!-- A table: old shape, new shape, and whether the move is mechanical or judgment. -->
+<!-- A table: old shape, new shape, Mechanical or Judgment. Name the real notes that carry each old shape. -->
 ## Done Conditions
-<!-- Checkable bullets a script or a reader can verify. -->
+<!-- Checkable bullets a script or a reader can verify, ending with the Vault Lint line for the family. -->
 ## Gold Standard Example
-<!-- A wikilink to an existing note and one sentence on why it qualifies. -->
+<!-- A link to a note that exists and passes lint, or what is missing. Then a table: Note, Folder, Strength, Lacks. -->

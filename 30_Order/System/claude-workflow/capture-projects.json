@@ -16,7 +16,8 @@
     { "project": "The Plan", "match": "under", "path": "{vault}\\..\\The Plan" },
     { "project": "UMN Courses", "match": "under", "path": "{root}\\10_Areas\\UMN" },
     { "project": "Home", "match": "exact", "path": "{home}" },
-    { "project": "Scratch", "match": "under", "path": "{localappdata}\\Temp\\claude" }
+    { "project": "Scratch", "match": "under", "path": "{localappdata}\\Temp\\claude" },
+    { "project": "Outside Vault", "match": "under", "path": "D:\\AI\\Conversations" }
   ],
   "fallback": "leaf"
 }

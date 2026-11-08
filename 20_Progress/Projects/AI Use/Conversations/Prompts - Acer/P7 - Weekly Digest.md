@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-11-05
+updated: 2026-11-07
 tags:
   - project
   - ai
@@ -35,7 +35,7 @@ Verified 2026-10-30:
 - C:\Users\anant\.claude\jarvis-session-activity.jsonl begins with a byte-order mark on its first line; strip it before parsing.
 - Over a coded sample of 25 prompts a rate is too noisy to judge; ledger metrics for a code with a rule are the digest's counts per 100 prompts over ALL prompts of the period, so print the count and the number of prompts together.
 - agent_lines_kept_7d is cut: 874 of 974 commits in 30 days are 30-minute Auto-sync snapshots. Do not compute it.
-- Privacy (owner, 2026-11-05: conversation notes stay local and only finalized and review notes are published): for every project, a prompt is named by session id and turn number only. No session note title, no link, no note path, no quote. For The Plan print counts, not file paths. Other projects may still print the vault-relative paths of files Claude read or edited.
+- Privacy (owner, 2026-11-05: conversation notes stay local and only finalized and review notes are published): for every project, a prompt is named by session id and turn number only. No session note title, no link, no note path, no quote. File paths of files Claude read or edited (owner, 2026-11-07): only the Jarvis project prints vault-relative paths. Every other project (The Plan, Home, UMN Courses, Scratch, Outside Vault, Unknown) prints counts only. The digest and its key are published.
 
 Inputs from earlier phases (refresh): the fact-row field list pinned by P6; the sample rules P5 used by hand and its list of what made coding hard; the owner's weekly-note mapping.
 </context>
@@ -45,7 +45,7 @@ A tested script that, given an ISO week (default: the current and the previous o
 </goal>
 
 <constraints>
-- No prompt text, no assistant text, no pasted content, no session note titles, paths or links for any project, and no The Plan file paths, in any output. Reason: it is pushed to a public repo and syncs.
+- No prompt text, no assistant text, no pasted content, no session note titles, paths or links for any project, and no file paths from any project except Jarvis, in any output. Reason: it is pushed to a public repo and syncs.
 - history.jsonl is read only to count typed prompts per session and day. Never copy a line, never print one.
 - Tolerate missing fields and list the Claude Code versions seen. Deterministic, no network, no model call, finish two weeks in under 30 seconds (a working ceiling).
 - One writer per generated note: overwrite the week's digest and key in place. Thresholds for flags live in an editable JSON config, each with a comment saying it is a working rule.
@@ -64,7 +64,7 @@ Before your first tool call, say in one sentence what you are about to do. After
 1. Define each flag as code with thresholds in the config. E1: the same tool with a near-identical target three or more times in a row. E2: the largest tool results, files read twice, context size per prompt. E3: InstructionsLoaded rows against an editable list of files expected per project. E4: PermissionDenied rows (auto mode only; say so in the digest). E5: no fact rows for a prompt that exists in the transcript. S6: a tool error with no change of approach. S7: claims_done (a regex list in an editable JSON file) with verified_after_last_edit false (any Bash or PowerShell row with a test, lint or build command after the last Edit or Write row of the same prompt). The pushback hint: a pushback word in the next prompt AND a re-edit of the same target within two prompts, because SWE-chat found pushback in 50 percent of turns and a bare keyword would flag half of everything.
 2. Write the script. Choose the language (Node suits the event file) and say why in one line.
 3. Write the sections in this order: coverage line (typed prompts counted against prompts with rows, extra rows by source class, folded prompts, expected-empty skips); counts per rule flag per 100 prompts with n, and the prompt ids; five largest starting contexts; ten largest tool results; files read twice; tool errors per tool with interrupts counted apart; skills, subagents and MCP tools used and never used (from the installed lists under .claude); instruction files loaded; compactions and permission denials; versions seen; the missed-week gap line and the streak; the review sample.
-4. Tests: a synthetic fact-row file with known flags and a golden digest and key; idempotence; missing fields; an empty week; a week with a gap; a BOM on the activity log's first line; an expected-empty skip; a folded prompt; a The Plan prompt and a Jarvis prompt (assert that no session note title, path, link or quote appears); a junk export result; a deleted note with its marker; the provisional label on the current week.
+4. Tests: a synthetic fact-row file with known flags and a golden digest and key; idempotence; missing fields; an empty week; a week with a gap; a BOM on the activity log's first line; an expected-empty skip; a folded prompt; a Jarvis prompt, a The Plan prompt and a Home prompt (assert that no session note title, link or quote appears for any of them, and that a file path appears only for the Jarvis prompt); a junk export result; a deleted note with its marker; the provisional label on the current week.
 5. Validate on real rows: give the owner ten sampled prompts with the digest's counts beside them so they can check by hand. Do not mark them equal yourself.
 6. Time the run on two weeks of rows.
 7. Patch Weekly Review Protocol (a dated Change Log line pointing at the digest path), Capture Scripts (a card), and add the Log line to Conversation Layer.md.

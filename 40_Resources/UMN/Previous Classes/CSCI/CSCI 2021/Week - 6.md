@@ -169,7 +169,7 @@ We study machine code and assembly not to write it but to understand what our C 
 [[#3.1]] - History
 [[#3.2]] - Basics
 [[#3.3]] - **Assembly Suffix**
-![[Pasted image 20251102175737.png]]
+![[10_Areas/Captures/F'25/Files/Pasted image 20251102175737.png]]
 Note the **overlap**: 
 	- `%eax` is bottom 32 bits of `%rax`.  
 	- `%ax` is bottom 16 bits of `%eax`, and therefore of `%rax`.

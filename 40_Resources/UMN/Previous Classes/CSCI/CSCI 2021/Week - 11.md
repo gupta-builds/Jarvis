@@ -109,7 +109,7 @@ This section addresses performance bottlenecks caused by how intermediate result
 		- Accessing data with a large stride (e.g., accessing columns of a large 2D array stored in row-major order) has **poor spatial locality**.
 2. **Locality of Instruction Fetches**: Programs typically exhibit good temporal and spatial locality when fetching instructions, especially within tight loops.
 ### 6.3 The Memory Hierarchy
-The **memory hierarchy** is an organization of storage devices into a pyramid, with smaller, faster, and more expensive storage at the top (near the CPU) and larger, slower, and cheaper storage at the bottom. ![[Pasted image 20251202131830.png]]
+The **memory hierarchy** is an organization of storage devices into a pyramid, with smaller, faster, and more expensive storage at the top (near the CPU) and larger, slower, and cheaper storage at the bottom. ![[10_Areas/Captures/F'25/Files/Pasted image 20251202131830.png]]
 1. **Caching in the Memory Hierarchy**: The hierarchy relies on **caching**, where storage at level k acts as a cache for storage at level k+1.
 	- **Blocks:** Data is copied between adjacent levels in fixed-size transfer units called **blocks**. Block size generally increases lower down the hierarchy to amortize slower access times.
 	 - **Cache Hit:** The requested data object is found in the cache at level k (fast).

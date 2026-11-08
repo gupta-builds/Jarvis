@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-06-01
-updated: 2026-10-16
+updated: 2026-11-07
 tags:
   - system
   - standards
@@ -21,7 +21,7 @@ notes:
 ---
 # Project Standard
 ==A project note says what is true now, the one next move, and what already happened, so the dashboard and the next session can pick it up without asking.==
-This is the standard for the status page of a project in `20_Progress/`: an outcome, an honest present, one next move, and a dated log. A plan or spec for the project is a [[Spec and Plan Standard]] note, a prompt is an [[Agent Prompt Standard]] note, and a running build record is a log under [[Log Standard]].
+This is the Standard for the status page of one project in `20_Progress/`: an outcome, an honest present, one next move, and a dated log. It is not the plan or spec behind the project ([[Spec and Plan Standard]]), not a prompt ([[Agent Prompt Standard]]), and not a running build record, which is a log ([[Logs]]).
 ## Spec
 ```json
 {
@@ -36,39 +36,76 @@ This is the standard for the status page of a project in `20_Progress/`: an outc
   "optional_headings": ["Corrections", "Related Notes"]
 }
 ```
+
+| Item | Rule |
+|---|---|
+| Allowed folders | `20_Progress/Projects/`, `20_Progress/Internship/`, or `20_Progress/Mentorship Program/`. |
+| File name | The project's name. Unique in the vault; the title line equals it. |
+| Kind | `type: project` with `project_kind: project`. A spec, plan, code mirror, or prompt has another `project_kind`. |
+| Status | `active` while work continues, `paused` with a reason in Current State, `complete` when the Goal is met, `archived` when abandoned or superseded. |
 ## Headings
 ### Frontmatter
-`project_kind: project`. `status` is `active`, `paused`, `complete`, or `archived`. `next` is the single next move, mirrored in `## Next Action`, and is `none` when the project is complete or archived. `related_progress` links the plan or spec. `deadline` is set only if a real one exists.
-> [!WARNING]
-> An `active` project with an empty `next`. Eight active notes had none, and the dashboard cannot surface them.
+- **Write:** `project_kind: project`, `status`, and `next`, the single next move, mirrored in `## Next Action` and `none` when the project is complete or archived. `related_progress` links the plan or spec. `deadline` only if a real one exists.
+- **Length:** one line per key.
+- **Never:** an `active` project with an empty `next`. Eight active notes had none, and the dashboard could not surface them.
+- **Right:** `next: Complete J0 by reconciling host ownership and evidence gaps in the current-state inventory.`
+- **Wrong:** `status: sprout`
 ### Goal
-One sentence: what done looks like, as the `==highlight==` anchor.
-> [!WARNING]
-> A feature list instead of a finish line.
+- **Write:** what done looks like, as the `==highlight==` anchor.
+- **Length:** one sentence.
+- **Never:** a feature list instead of a finish line.
+- **Right:** `==Build a source-grounded technical knowledge and execution system whose tools share current context and whose workflows work across the two laptops.==`
+- **Wrong:** None seen.
 ### Current State
-What is true now, dated, with the key blocker bold. Claims about code or a live system cite a file and line, a commit hash, or a command's output, and say what is real, mocked, or blocked.
-*Density:* the honest present, a short paragraph or a few bullets.
-> [!WARNING]
-> A "verified" claim older than the code it describes. Re-check it or date it.
+- **Write:** what is true now, dated, with the key blocker in bold. A claim about code or a live system cites a file and line, a commit hash, or a command's output, and says what is real, mocked, or blocked.
+- **Length:** a short paragraph or a few bullets.
+- **Never:** a "verified" claim older than the code it describes. Re-check it or date it.
+- **Right:** `On October 17, Anant reports Syncthing working, internship research off, conversation syncing off, and no ingestion pipeline running on this laptop.`
+- **Wrong:** None seen.
 ### Next Action
-The single next step, the same text as `next`. Multi-step work belongs in the plan.
+- **Write:** the single next step, the same text as `next`.
+- **Length:** one sentence.
+- **Never:** multi-step work. That belongs in the plan.
+- **Right:** `Complete J0 by reconciling host ownership and evidence gaps in the current-state inventory.`
+- **Wrong:** None seen.
 ### Open Questions
-`- [ ]` tasks, with a date where a real one exists.
+- **Write:** `- [ ]` tasks, with a date where a real one exists.
+- **Length:** one sentence each; as many as are open.
+- **Never:** a question the note already answers.
+- **Right:** `- [ ] Which host owns each repo, capture source, scheduled task, and memory index?`
+- **Wrong:** None seen.
 ### Log
-Dated entries, newest last: `- **YYYY-MM-DD:** what changed`. Append only. A correction is a new entry that names the entry it corrects; the original line stays.
+- **Write:** dated entries, newest last: `- **YYYY-MM-DD:** what changed`. A correction is a new entry that names the entry it corrects; the original line stays.
+- **Length:** one to three sentences per entry.
+- **Never:** an edited or deleted old entry.
+- **Right:** `- **2026-10-17:** Created a bounded build history, dated current-state inventory, dependency-ordered restoration plan, and AI infrastructure research reference.`
+- **Wrong:** None seen.
 ### Corrections
-Optional. When a whole earlier section turned out wrong, keep it and add a dated correction here that says what was wrong and what replaced it.
+- **Write:** optional. When a whole earlier section turned out wrong, keep it and add a dated correction here that says what was wrong and what replaced it.
+- **Length:** one `###` per correction, a short paragraph each.
+- **Never:** a silent rewrite of the original.
+- **Right:** `### 2026-10-17: current status versus original vision`
+- **Wrong:** None seen.
+### Rules
+| Rule | Why | Enforced by |
+|---|---|---|
+| The five headings appear in order and none is empty | The dashboard and `/startday` read sections by name | Lint, check 2 |
+| `project_kind`, `status`, and `next` are set | A project with no `next` is invisible to the dashboard | Lint, check 1 |
+| `next` equals the text under `## Next Action` | Two places for one step drift apart | Reader |
+| Current State is dated and cites evidence for code claims | An undated claim cannot be re-checked | Reader |
+| The Log is append-only | The history shows whether the project is drifting | Reader |
+| An active project has a Log entry within the review cadence ([[Per Project Review]]) | A project nobody touches is stalled, not active | Reader |
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
-| No `project_kind` | `project_kind: project`, or `spec`, `plan`, `code-mirror`, `prompt` by what the note is | Judgment |
-| `status` of sprout, seed, tree, static, current, in-progress, pending | `active` while work continues, else `paused` | Judgment |
+| No `project_kind` (most of the 91 notes) | `project_kind: project`, or `spec`, `plan`, `code-mirror`, `prompt` by what the note is | Judgment |
+| `status` of sprout (17 notes), seed, tree, static, current, in-progress, pending | `active` while work continues, else `paused` | Judgment |
 | `status` of dead, stale, idle, Withdrawn, or a superseded note still `active` | `archived` (`paused` for idle) | Judgment |
 | `status: completed` or a quoted `"archived"` | `complete` or `archived`, unquoted | Mechanical |
-| `next:` missing or empty on an active note | The next move, or `none` if complete | Judgment |
+| `next:` missing or empty on an active note (Portfolio, Learning Tracker tool) | The next move, or `none` if complete | Judgment |
 | What this is, Why this exists, Current State (date), Next Steps, Session blocks | Goal, Current State, Next Action, Log (Session blocks become Log entries) | Judgment |
-| Hackathon retrospective: Elevator Pitch, What We Built, What Went Wrong, Continuation Plan | Pitch to Goal, build and architecture to Current State, lessons to one Log entry, Continuation Plan to Next Action | Judgment |
-| A dated chronological build record (System - Build Log) | Not a project note: `type: system`, `system_kind: log`, per [[Log Standard]] | Judgment |
+| Hackathon retrospective: Elevator Pitch, What We Built, What Went Wrong, Continuation Plan | Pitch to Goal, build to Current State, lessons to one Log entry, Continuation Plan to Next Action | Judgment |
+| A dated chronological build record (System - Build Log) | Not a project note: `type: system`, `system_kind: log`, per [[Logs]] | Judgment |
 | Course-template keys (`course`, `mastery (1/10)`, `topics`) | Remove | Mechanical |
 ## Done Conditions
 - `project_kind`, `status`, and `next` are set, and `next` equals `## Next Action`.
@@ -76,4 +113,12 @@ Optional. When a whole earlier section turned out wrong, keep it and add a dated
 - The plan or spec is linked in `related_progress`.
 - The Log is append-only, and the note passes [[Vault Lint]] for the `project` family.
 ## Gold Standard Example
-[[20_Progress/Projects/Jarvis & The Plan/Jarvis|Jarvis]]: a one-line north star, a canonical plan link, and a live `next` mirrored in the body. It still lacks `project_kind` and the five headings, which Legacy Shapes adds.
+[[20_Progress/Projects/Jarvis & The Plan/Jarvis|Jarvis]] passes lint: a highlighted Goal, a dated Current State that names its evidence notes, one live `next` mirrored in Next Action, open questions as tasks, a Log, and dated Corrections that keep the April record.
+Measured 2026-11-07 with `--family project`: 91 notes, 1 passes. Most failures are a missing `project_kind` (89) and missing headings (88).
+
+| Note | Folder | Strength | Lacks |
+|---|---|---|---|
+| Jarvis (gold) | `20_Progress/Projects/Jarvis & The Plan/` | All five headings, Corrections | Nothing found |
+| Conversation Layer | `20_Progress/Projects/AI Use/Conversations/` | Right shape | Blank line after the frontmatter |
+| System Design Practice | `20_Progress/Internship/Preperation/System Design/` | Real content | `project_kind`, `#` in tags |
+| adx | `20_Progress/Mentorship Program/Ahnaf/adx/` | Real content | `project_kind`, Current State, Open Questions |

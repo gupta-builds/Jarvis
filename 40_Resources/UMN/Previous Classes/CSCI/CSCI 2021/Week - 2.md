@@ -7,8 +7,8 @@ area:
   - "[[C Language]]"
   - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1]]"
   - "[[Mallac and free functions]]"
-  - "[[Static and dynamic]]"
-  - "[[Two Dimensional Arrays]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Static and dynamic]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Two Dimensional Arrays]]"
 tags:
   - "#class"
   - "#DIS"
@@ -168,7 +168,7 @@ We recommend using the `[i]` syntax to access the elements of a dynamically al
 d_array[0] = 8; // put 8 in index 0 of the d_array
 *d_array = 8;   // in the location pointed to by d_array store 8
 ```
-Inside the function, it doesn’t matter whether the array came from, the *base address is only passed*: [[Static and dynamic]] 
+Inside the function, it doesn’t matter whether the array came from, the *base address is only passed*: [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Static and dynamic]] 
 - a **static declaration** (`int s_array[20];` → memory on stack), or
 - a **dynamic allocation** (`int *d_array = malloc(...);` → memory on heap).
 ### 2.5
@@ -217,7 +217,7 @@ for (i = 0; i < 50; i++) {  // for each row i
     }
 }
 ```
-- The parameter points to the argument’s array elements and therefore the function can change values stored in the passed array.[[Two Dimensional Arrays]]
+- The parameter points to the argument’s array elements and therefore the function can change values stored in the passed array.[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Two Dimensional Arrays]]
 	`#define COLS  (100)`- The column dimension must be specified in the parameter definition of a 2D array so that the compiler can calculate the offset from the base address of the 2D array to the start of a particular row of elements.
 - Statically allocated 2D arrays are arranged in memory in **row-major order**, meaning that all of row 0’s elements come first, followed by all of row 1’s elements, and so on.
 - A single call to `malloc` allocates the total number of bytes needed to store the _N x M_ array of values:
@@ -227,13 +227,13 @@ two_d_array = malloc(sizeof(int) * N * M);
 ```
 #### Dynamically allocate 2D Arrays
 - Method 1: **Single malloc and Function Parameters**
-	- The programmer must explicitly compute the offset into the contiguous chunk of heap memory using a function of row and column index values (`[i*M + j]`, where `M` is the column dimension). [[Two Dimensional Arrays]] 
+	- The programmer must explicitly compute the offset into the contiguous chunk of heap memory using a function of row and column index values (`[i*M + j]`, where `M` is the column dimension). [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Two Dimensional Arrays]] 
 - Method 2: **The Programmer-Friendly Way**
-	- Stores the array as an array of _N_ 1D arrays (one 1D array per row). It requires _N+1_ calls to `malloc`: one `malloc` for the array of row arrays, and one `malloc` for each of the _N_ row’s column arrays. [[Two Dimensional Arrays]]
+	- Stores the array as an array of _N_ 1D arrays (one 1D array per row). It requires _N+1_ calls to `malloc`: one `malloc` for the array of row arrays, and one `malloc` for each of the _N_ row’s column arrays. [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Two Dimensional Arrays]]
 	- Use if want to access individual elements in the matric of arrays.
 	- Once allocated, individual elements of the 2D array can be accessed using double-indexing notation. `two_d_array[i][j] = 0;`
 - Method 3: **An Array of Arrays and Function Parameters**
-	- The array argument’s type is `int **` (a pointer to a pointer to an `int`), and the function parameter matches its argument’s type. Additionally, row and column sizes should be passed to the function. Because this is a different type from method 1, both array types cannot use a common function. [[Two Dimensional Arrays]]
+	- The array argument’s type is `int **` (a pointer to a pointer to an `int`), and the function parameter matches its argument’s type. Additionally, row and column sizes should be passed to the function. Because this is a different type from method 1, both array types cannot use a common function. [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Two Dimensional Arrays]]
 
 ---
 
@@ -257,7 +257,7 @@ bool is_attending_class = true;
 ### [[#Pointer]] 
 Memory Addresses as Values. Functions may need addresses to modify variables outside their scope (e.g., swap). 
 - For **pointers**: The special NULL pointer is false, all others true
-![[Pasted image 20251001023344.png]]
+![[10_Areas/Captures/F'25/Files/Pasted image 20251001023344.png]]
 ### [[#Heap Memory]]
 - **32-bit machine:** 2³² = 4 GiB addressable memory.
 - **64-bit machine:** 2⁶⁴ = 16 exabytes.

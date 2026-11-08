@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-06-01
-updated: 2026-10-16
+updated: 2026-11-07
 tags:
   - system
   - standards
@@ -22,7 +22,7 @@ notes:
 ---
 # Evergreen Standard
 ==An evergreen note distills a mechanism that outlives any one source. It exists because the idea recurred across sources or work, not because one source was worth keeping.==
-This is the standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` and the identity notes in `10_Areas/Life/Truths of Life/`. A source summary is fixed to one source and never grows; an evergreen is owned knowledge that grows. A course concept is exam-facing and lives under [[Concept Standard]]. Implementation plans and audits kept in this folder are not evergreen notes; see Legacy Shapes.
+This is the Standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` and the identity notes in `10_Areas/Life/Truths of Life/`. It is not a source summary, which is fixed to one source and never grows ([[Source Summary Standard]]), and not a course concept, which is exam-facing ([[Concept Standard]]). Implementation plans and audits kept in the distilled folder are not evergreen notes.
 ## Spec
 ```json
 {
@@ -65,41 +65,109 @@ This is the standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` an
   "legacy_match": [{"type": "evergreen", "path": "^10_Areas/Life/Truths of Life/"}]
 }
 ```
+
+| Item | Rule |
+|---|---|
+| Allowed folders | Distilled: `60_Claude/20_Distilled_Notes/`. Synthesis: `60_Claude/20_Distilled_Notes/Synthesis/`. Identity: `10_Areas/Life/Truths of Life/`. |
+| File name | The idea, or `A vs B` for a synthesis (`Rust Ownership vs OCaml Immutability`). Unique in the vault. |
+| Kind | `type: evergreen` with `evergreen_kind: distilled`, `synthesis`, or `identity`. |
+| Status | `seed` on first write. `tree` only after the idea has been reused in other work. |
 ## Headings
 ### Frontmatter
-`type: evergreen`, `evergreen_kind` (`distilled`, `synthesis`, or `identity`), `status: seed` on first write and `tree` only after the idea has been reused, `track`, and `notes` linking the summaries and neighbors it came from. A synthesis note sets `concepts` and `tracks` (lists) for the ideas and domains it joins.
-> [!WARNING]
-> `status: tree` on first write, or an empty `notes:` that leaves the note out of every backlink.
+- **Write:** `evergreen_kind`, `track`, and `notes` linking the summaries and neighbors it came from. A synthesis sets `concepts` and `tracks` (lists) for the ideas and domains it joins.
+- **Length:** one line per key; `notes` holds every source.
+- **Never:** `status: tree` on first write, or an empty `notes:`. Both leave the note out of every backlink.
+- **Right:** `tracks:`
+- **Wrong:** `type: concept`
 ### Core Claim
-One sentence in `==highlight==` stating what the note establishes. A topic label is not a claim.
+- **Write:** what the note establishes, in `==highlight==`. A synthesis states the one parallel both domains share.
+- **Length:** one sentence.
+- **Never:** a topic label. A claim says something that could be wrong.
+- **Right:** `Two type systems that prevent bugs at compile time, but through different mechanisms.`
+- **Wrong:** `## Deep Dive`
 ### Mechanism
-How it works, in your own words, with named parts in bold and `$...$` for notation. Use a table when mapping two domains row by row.
-*Density:* the bulk of the note. [[BOOM]] explains why Redis sits beside Kafka (fast internal handoff against a public stream), not just that both exist.
+- **Write:** how it works, in your own words, with named parts in bold and `$...$` for notation. Use a table when mapping two domains row by row.
+- **Length:** the bulk of the note.
+- **Never:** a restatement of the source. The mechanism is what survives without it.
+- **Right:** `Rust prevents data races and use-after-free through **ownership and borrowing**.`
+- **Wrong:** None seen.
 ### Why This Matters Here
-Two to four sentences naming the project, course, or decision it serves.
+- **Write:** the project, course, or decision it serves.
+- **Length:** two to four sentences.
+- **Never:** "valuable resource" padding.
+- **Right:** None yet.
+- **Wrong:** None seen.
 ### Failure Modes
-Where the mechanism breaks, or the neighbor it is confused with, anchored by a `> [!WARNING]` when a real trap exists.
+- **Write:** where the mechanism breaks, or the neighbor it is confused with, anchored by a `> [!WARNING]` when a real trap exists.
+- **Length:** one to three modes.
+- **Never:** generic risks that apply to every idea.
+- **Right:** `**The essay's central "proof" does not hold up and should not be cited as evidence.**`
+- **Wrong:** None seen.
 ### Evidence
-Verified wikilinks to the summaries it distills and the work that proves it.
+- **Write:** verified wikilinks to the summaries it distills and the work that proves it.
+- **Length:** every source, and the work that used the idea.
+- **Never:** a link to a note that does not exist.
+- **Right:** None yet.
+- **Wrong:** None seen.
 ### Related
-Three to seven genuine neighbors. Not every keyword.
-### Synthesis headings
-*Core Claim:* the one parallel both domains share. *Where They Converge* and *Where They Diverge:* the mapping, with a table if rows help. *Transfer Value:* what you already know that carries over, as a drill when possible.
-### Identity notes
-Builder-identity evidence only. A dated `## Log` entry of one or two dense sentences, each pointing at shipped work, appended in the weekly, monthly, and yearly review.
+- **Write:** genuine neighbors.
+- **Length:** three to seven links.
+- **Never:** every keyword.
+- **Right:** None yet.
+- **Wrong:** None seen.
+### Where They Converge
+- **Write:** the mapping between the two domains, as a table if rows help.
+- **Length:** a short paragraph or a table.
+- **Never:** a restatement of Core Claim.
+- **Right:** `Both languages force you to think about data flow explicitly:`
+- **Wrong:** `## The Structural Parallel`
+### Where They Diverge
+- **Write:** where the parallel breaks.
+- **Length:** a short list.
+- **Never:** a divergence that is only a difference of vocabulary.
+- **Right:** `- Rust allows mutation but controls it. OCaml discourages mutation entirely.`
+- **Wrong:** None seen.
+### Transfer Value
+- **Write:** what you already know that carries over, as a drill when possible.
+- **Length:** a short list.
+- **Never:** a vague "useful in many fields".
+- **Right:** `- Why immutability makes concurrent code safer (OCaml insight applied to Rust)`
+- **Wrong:** `## The Key Insight`
+### Log (identity notes)
+- **Write:** builder-identity evidence only: a dated entry pointing at shipped work, added in the weekly, monthly, and yearly review.
+- **Length:** one or two dense sentences per entry.
+- **Never:** aspiration or personal reflection. Those belong in The Plan.
+- **Right:** None yet.
+- **Wrong:** None seen.
+### Rules
+| Rule | Why | Enforced by |
+|---|---|---|
+| Headings for the kind appear in order and are not empty | Retrieval reads sections by name | Lint, check 2 |
+| `evergreen_kind` is set and `notes` is a list | The three kinds are found by kind | Lint, check 1 |
+| One highlight in the Core Claim | The highlight is the card or the claim a reader keeps | Reader |
+| Search `20_Distilled_Notes/` first and extend before creating a sibling | Two notes on one idea split the backlinks | Reader |
+| An identity line traces to completed, logged work | Aspiration is not evidence | Reader |
+| `Evidence` and `Related` links resolve | A dead link is an unproven claim | Lint, check 3 |
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
-| April `type: concept` deep dives (`Career Strategy`, `AI-Assisted Trading`, `Index Fund Investing`, `Mentorship and Networking`, `Scarcity Imprint`) with `Deep Dive`, `Diagnostic Questions`, drill dates | `type: evergreen`, `evergreen_kind: distilled`, the six headings; drop drill keys unless the drill loop is run | judgment |
-| Synthesis notes with `The Parallel`, `The Key Insight`, `Transfer Drill` | `Core Claim`, `Where They Converge`, `Where They Diverge`, `Transfer Value`; add `evergreen_kind: synthesis` | judgment |
-| `Synthesis Index`, `Distilled Notes Board` | Retype `index` or `dashboard` | mechanical |
-| `Sources - Plan/*` implementation plans, audits, restructure plans | Not evergreen; retype by use (`project_kind: plan`, `review_kind: audit`) | judgment |
-| `The Plan/*` staging notes | Move out when The Plan takes them | judgment, needs a yes |
-| `Identities`, `Personality` | Add `evergreen_kind: identity` | mechanical |
+| `type: concept` deep dives (`Career Strategy`, `AI-Assisted Trading`, `Index Fund Investing`, `Mentorship and Networking`, `Scarcity Imprint`) with `Deep Dive`, `Diagnostic Questions`, drill keys | `type: evergreen`, `evergreen_kind: distilled`, the six headings; drop drill keys unless the drill loop is run | Judgment |
+| Synthesis notes with `The Parallel`, `The Key Insight`, `Transfer Drill` | `Core Claim`, `Where They Converge`, `Where They Diverge`, `Transfer Value`; add `evergreen_kind: synthesis` | Judgment |
+| `Synthesis Index`, `Distilled Notes Board` | Retype `index` or `dashboard` | Mechanical |
+| `Sources - Plan/*` implementation plans, audits, restructure plans | Not evergreen; retype by use (`project_kind: plan`, `review_kind: audit`) | Judgment |
+| `The Plan/*` staging notes | Move out when The Plan takes them | Judgment, needs a yes |
+| `Identities`, `Personality` | Add `evergreen_kind: identity` | Mechanical |
 ## Done Conditions
 - A reader learns the mechanism without opening the sources.
 - One highlight, a named use, a failure mode, and a contrast where one exists.
 - `Evidence` and `Related` resolve, and gaps are stated.
 - The note passes [[Vault Lint]] for its kind.
 ## Gold Standard Example
-[[Observability in Backend vs Evaluation in AI]]: one parallel claim, a mapping of backend concept to ML analog, and a named transfer drill. It predates the current synthesis headings, which the Legacy Shapes table maps.
+[[Observability in Backend vs Evaluation in AI]]: one parallel claim, a mapping of backend concept to ML analog, and a named transfer drill. It does not pass lint: it predates `evergreen_kind` and the current synthesis headings.
+Measured 2026-11-07: distilled 15 notes, synthesis 4, identity 2; none pass. No distilled note has the six headings yet.
+
+| Note | Folder | Strength | Lacks |
+|---|---|---|---|
+| Observability in Backend vs Evaluation in AI (gold) | `60_Claude/20_Distilled_Notes/Synthesis/` | Parallel, mapping, transfer drill | `evergreen_kind`, `Core Claim`, `Where They Converge` |
+| Rust Ownership vs OCaml Immutability | `60_Claude/20_Distilled_Notes/Synthesis/` | Has Converge, Diverge, Transfer Value | `evergreen_kind`, `Core Claim`, one dead frontmatter link |
+| Identities | `10_Areas/Life/Truths of Life/` | A scope rule | `evergreen_kind`; the Log is empty |

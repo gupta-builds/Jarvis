@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-11-07
 tags:
   - system
   - standards
@@ -19,7 +19,7 @@ notes:
 ---
 # Frontmatter Standard
 ==One closed vocabulary decides every note's `type` and `status`. Anything finer is a `*_kind` key, anything pipeline-specific is a scoped key, and nothing else becomes a new value.==
-This is the canonical schema for note properties in Jarvis. Before it, the type and status lists lived in CLAUDE.md, Vault Operating System, and the templates, and the three disagreed (8, 12, and about 20 types, against 40+ in the notes). Vault Operating System now points here. A property that matters to one family only is defined in that family's Standard, not in this file.
+This is the canonical schema for note properties in Jarvis, and the linter reads its tables. It is not the place for a property that matters to one family only: that is defined in the family's Standard. Before it, the type and status lists lived in CLAUDE.md, Vault Operating System, and the templates, and the three disagreed.
 ## type
 Seventeen values. A note has exactly one.
 
@@ -72,16 +72,18 @@ Required on every Tier 1 and Tier 2 note. Tier rules are in [[Conformance Standa
 | `updated` | date | `YYYY-MM-DD`, set on a meaningful change only |
 | `tags` | list | No `#`, no folder replicas; `[]` is allowed |
 Optional everywhere: `notes` (list of wikilinks), `next` (text), `area`, `source_url`, `deadline` (date), `reviewed` (date), `track` (list), `source_status`, `related_progress`. The capability keys (`prerequisites`, `used_in`, `evidence`, `mastery_level`, `next_drill`, `drill_interval`, `question_status`, `source_concepts`) apply to the families that define them.
-## YAML typing rules
-- Numbers are bare: `mastery_level: 0`, never `"0"`. A quoted number turns into text in Properties and sorts as text in Dataview.
-- Dates are bare ISO: `created: 2026-10-16`. A quoted date breaks date sorting the same way.
-- Wikilinks are quoted strings: `"[[Note]]"`. Lists of them use one quoted item per line.
-- Empty relational fields are `[]`. Empty scalars are left blank, never `""`.
-- Keys are `snake_case` with no spaces or parentheses. No duplicate keys. `---` appears only twice in a file, to open and close the frontmatter.
-- Files are UTF-8, LF, with no byte-order mark.
-- Every wikilink in frontmatter points at a file that exists. A stub belongs in the body, labeled `(to create)`.
-## Scoped keys
-A key defined by one family stays in that family. Examples: `deadline_posted`, `matched_reason`, `result` (internship notes), `decision_count` (conversation summaries), `tools_used` (Claude Code exports), `generator` and `source` (generated notes). Dormant today: `enrichment_status` and `enrichment_level` are defined by the Enrichment workflow and no note uses them. Add them only while running that workflow.
+## Rules
+| Rule | Why | Enforced by |
+|---|---|---|
+| Numbers are bare: `mastery_level: 0` | A quoted number becomes text in Properties and sorts as text in Dataview | Lint, check 1 (`bad-number`) |
+| Dates are bare ISO: `created: 2026-10-16` | A quoted date breaks date sorting the same way | Lint, check 1 (`bad-date`) |
+| Wikilinks are quoted strings, one per line in a list | An unquoted link is parsed as a nested list | Lint, check 1 (`bad-wikilink` where typed) |
+| Empty relational fields are `[]`; empty scalars are left blank, never `""` | A quoted empty string is a value | Reader |
+| Keys are `snake_case`, with no duplicates | Obsidian gives one property name one type vault-wide | Lint, check 1 (`duplicate-key`) |
+| `---` appears only twice in a file; UTF-8, LF, no byte-order mark | A stray rule or BOM breaks the frontmatter parse | Lint, checks 1 and 5 (`bom`, `hr-in-body`) |
+| Every wikilink in frontmatter points at a file that exists; a stub goes in the body labeled `(to create)` | A dead frontmatter link is a dead graph edge | Lint, check 3 (`dead-frontmatter-links`) |
+| A key defined by one family stays in that family (`deadline_posted`, `decision_count`, `generator`) | A scoped key in the universal list would require every note to carry it | Reader |
+| A new type, status, or kind is added to this file first, with the reason, before any template uses it | The linter reads the tables here, not the templates | Kit |
 ## Legacy values
 When a session touches an old note it replaces these. See [[Conformance on Touch]].
 

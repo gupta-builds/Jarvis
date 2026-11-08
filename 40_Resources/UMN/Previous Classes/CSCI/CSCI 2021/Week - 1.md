@@ -6,8 +6,8 @@ updated: 2025-09-25
 area:
   - "[[C Language]]"
   - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1]]"
-  - "[[Compilation system]]"
-  - "[[Hardware Organization]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Compilation system]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Hardware Organization]]"
 tags:
   - "#CSAPP"
   - "#DIS"
@@ -17,9 +17,9 @@ next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 2]]"
 ---
 # Textbook (CSAPP 1.1-1.6, DIS 1.1-1.4)
 ## CSAPP #CSAPP 
-The programs that perform the four phases (preprocessor, compiler, assembler, and linker)are known collectively as the [[Compilation system]]. Once your `hello.c` program is compiled into an executable file `hello`, you can run it from a command-line interpreter called a **shell**. 
+The programs that perform the four phases (preprocessor, compiler, assembler, and linker)are known collectively as the [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Compilation system]]. Once your `hello.c` program is compiled into an executable file `hello`, you can run it from a command-line interpreter called a **shell**. 
 
-[[Hardware Organization]]: To understand what's happening under the hood, we need a basic model of the hardware.
+[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Hardware Organization]]: To understand what's happening under the hood, we need a basic model of the hardware.
 
 **Running the** **hello** **program involves these steps:**
 1. You type `./hello` on the keyboard, and the shell program reads it into memory.

@@ -433,9 +433,17 @@ function kitCheck() {
     const g = n.keys.gold_standard;
     if (g && g.raw && g.raw !== 'none') { const m = g.raw.match(/\[\[([^\]]+)\]\]/); if (!m || !resolves(m[1])) add('error', f.rel, 'gold_standard does not resolve'); }
     if (!isPolicy && fam && !/\n\|[^\n]*\|/.test(text.slice(text.search(/^##\s+Legacy Shapes/m) >= 0 ? text.search(/^##\s+Legacy Shapes/m) : text.length))) add('error', f.rel, 'Legacy Shapes has no table');
-    const prose = stripCode(n.bodyLines).filter((l) => l !== null && !l.startsWith('|')).join(' ').replace(/<!--[\s\S]*?-->/g, '');
-    const words = (prose.match(/\S+/g) || []).length;
-    if (words > 700) add('warn', f.rel, `prose is ${words} words (limit 700)`);
+    // Word limits (Note Kit Standard): 2000 words per Standard with tables counted, and 180 words per ### entry with table rows left out.
+    // Fenced code (the Spec block) and HTML comments never count.
+    const text2 = stripCode(n.bodyLines).filter((l) => l !== null).join('\n').replace(/<!--[\s\S]*?-->/g, '');
+    const wordsAll = (text2.match(/\S+/g) || []).length;
+    if (wordsAll > 2000) add('warn', f.rel, `Standard is ${wordsAll} words (limit 2000, tables included)`);
+    for (const ent of text2.split(/^### /m).slice(1)) {
+      const el = ent.split('\n'); const title = el[0].trim(); const rest = [];
+      for (const l of el.slice(1)) { if (/^## /.test(l)) break; rest.push(l); }
+      const ew = (rest.filter((l) => !l.startsWith('|')).join(' ').match(/\S+/g) || []).length;
+      if (ew > 180) add('warn', f.rel, `entry "${title}" is ${ew} words (limit 180, table rows not counted)`);
+    }
     const ms = (n.keys.maps_to && n.keys.maps_to.items) || [];
     for (const m of ms) {
       const mm = m.match(/\[\[([^\]|#]+)/); if (!mm) continue;

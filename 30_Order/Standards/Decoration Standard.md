@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-15
-updated: 2026-10-29
+updated: 2026-11-07
 tags:
   - system
   - standards
@@ -20,12 +20,18 @@ notes:
 ---
 # Decoration Standard
 ==Every marker in a note tells review, search, or the reader what to do with a line. A marker that carries no job is removed.==
-This is the standard for the markers inside a note body: highlight, bold, italic labels, callouts, tables, embeds, math, and code. It gives counts and triggers that a reviewer can check. Syntax and blank-line rules stay in [[Jarvis Writing and Formatting]]; card syntax and plugin choice are in [[Plugins Usage Standard]].
+This is the Standard for the markers inside a note body: highlight, bold, italic labels, callouts, tables, embeds, math, and code. It gives counts and triggers that a reviewer can check. It is not the syntax and blank-line rules ([[Jarvis Writing and Formatting]]) and not the choice of plugin or card syntax ([[Plugins Usage Standard]]).
 ## Markers
-- **Highlight.** Exactly one `==highlight==` per `##` section, on the one most important definitional claim. In a note tagged `#cards` it becomes a cloze card, so a second highlight makes an accidental flashcard. Under `## Flashcards` each card carries its own cloze, which is the one exception.
-- **Bold.** A named concept, entity, or category label, on its first introduction. In a `#cards` section every bold term is a cloze. Never a whole sentence and never general emphasis.
-- **Italic label.** `*Mechanism:*`, `*Failure mode:*`, `*Interview value:*` introduce a sub-group. It is not a cloze.
-- **Numbered items with a bold title.** `1. **Title**` with the sub-content indented by a tab, not spaces.
+| Marker | Use | Never | Enforced by |
+|---|---|---|---|
+| `==highlight==` | Exactly one per `##` section, on the one most important definitional claim. In a note tagged `#cards` it becomes a cloze card | A second highlight in a section: it makes an accidental flashcard. The one exception is `## Flashcards`, where each card carries its own cloze | Reader |
+| **Bold** | A named concept, entity, or category label, on first introduction. In a `#cards` section every bold term is a cloze | A whole sentence, or general emphasis | Reader |
+| *Italic label* | `*Mechanism:*`, `*Failure mode:*`, `*Interview value:*` introduce a sub-group | Using it as a cloze | Reader |
+| Numbered item with a bold title | `1. **Title**`, with sub-content indented by a tab | Spaces for the indent | Reader |
+| Table | Compare rows | A list Dataview could derive from frontmatter. That is a query, not a hand-built table | Reader; the blank line above a table is Lint, check 5 (warning) |
+| Embed (Excalidraw, Canvas) | Sits beside a paragraph that states the mechanism in words | An image-only diagram: it is invisible to search | Reader |
+| Math | `$...$` with a sentence saying what it means; `$$...$$` only for an equation worth its own line | Bare notation | Reader |
+| Code block | A language identifier, kept short | Raw source material in a durable note. Long captures go to `60_Claude/05_Clippings/` or a source summary | Reader |
 ## Callouts
 | Type | Use when |
 |---|---|
@@ -35,13 +41,20 @@ This is the standard for the markers inside a note body: highlight, bold, italic
 | `QUESTION` | An unresolved question or known gap |
 | `SUMMARY` | A section or source summary |
 | `EXAMPLE` | A worked example |
-`IMPORTANT` and `DANGER` appear in [[HUMAN_WRITING]] for its do and do-not pair. `INFO`, `CAUTION`, and `DECISION` appear in older notes and are not in the documented set: add no new ones, and when touching a note map `INFO` to `NOTE` and `CAUTION` to `WARNING`. Do not stack callouts. One blank line follows a callout before prose, and that is the only blank line allowed.
-## Tables, embeds, math, code
-- A table compares rows. A list that Dataview can derive from frontmatter is a query, not a hand-built table. A table and a dataview block need one blank line above them when text sits directly over them, or Obsidian does not render them; Vault Lint warns, and does not fail the note ([[Jarvis Writing and Formatting]]).
-- An Excalidraw or Canvas embed sits beside a paragraph that states the mechanism in words. An image-only diagram is invisible to search.
-- Notation goes in `$...$` with a sentence saying what it means. Use `$$...$$` only for an equation worth reading on its own line.
-- Code blocks carry a language identifier and stay short.
-- Raw source material does not belong in a durable note. Long captures go to `60_Claude/05_Clippings/` or a source summary.
+`IMPORTANT` and `DANGER` appear in [[HUMAN_WRITING]] for its do and do-not pair. `INFO`, `CAUTION`, and `DECISION` appear in older notes and are not in the documented set: add no new ones, and when touching a note map `INFO` to `NOTE` and `CAUTION` to `WARNING`. Callouts are not stacked, and one blank line follows a callout before prose.
+## Examples
+### Highlight
+- **Right:** `UNIX exposes hardware and kernel services to every program through one disciplined boundary, the ==system call interface==`
+- **Wrong:** None seen.
+### Bold
+- **Right:** `- **kernel**: Software that provides the core operating system environment and resource control (p. 1).`
+- **Wrong:** None seen.
+### Italic label
+- **Right:** `*Mechanism:* The kernel is the only software allowed to touch hardware directly.`
+- **Wrong:** None seen.
+### Callout
+- **Right:** `> [!NOTE]`
+- **Wrong:** `> [!INFO] The textbook assumes no antiparallel edges`
 ## Done Conditions
 - Every `##` section outside `## Flashcards` holds exactly one `==...==`.
 - Every callout type is in the table above, no two callouts touch, and each is followed by one blank line and prose, or ends its section.
@@ -50,4 +63,4 @@ This is the standard for the markers inside a note body: highlight, bold, italic
 - No hand-built table lists rows that a Dataview block could generate.
 - Points 8 to 12 of the Quality Gate in [[Jarvis Writing and Formatting]] pass.
 ## Gold Standard Example
-[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]: six of its seven sections hold exactly one highlight, its `NOTE` callouts carry real caveats (the thread-local `errno`), and its cards use cloze highlights. Its Key Concepts list highlights every term, which breaks the one-per-section rule and is the thing to fix on the next touch.
+[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]: six of its seven sections hold exactly one highlight (measured 2026-11-07; Connections holds none), its `NOTE` callouts carry real caveats, and its cards use cloze highlights. It does not pass lint: `input_kind: book` and `#` in its tags are old shapes. The `INFO` callout in `CSCI 4041/Textbook/Chapter - 24` is the thing to fix on its next touch.

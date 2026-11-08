@@ -14,7 +14,7 @@ notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Capture Pipeline - As Built|Capture Pipeline]]"
   - "[[30_Order/Standards/AI Loop/Logs|Logs]]"
-  - "[[30_Order/Standards/Log Standard|Log Standard]]"
+  - "[[30_Order/Standards/AI Loop/Logs|Logs]]"
   - "[[30_Order/Workflows/Toolkit/Maintaining Logs|Maintaining Logs]]"
 ---
 # Conversation Layer Logs
@@ -41,7 +41,7 @@ Two things to read off the table. The activity log and the markers are the only 
 | Summary backlog | `60_Claude/07_AI_Information/AI Conversation - Summaries/Summaries-to-Create.md` | a person, per [[30_Order/Workflows/Ingestion/Conversations Loop|Conversations Loop]] | 0 bytes from 2026-07-30 until seeded on 2026-10-21 |
 | Distilled-session ledger | `30_Order/System/claude-workflow/distilled-sessions.json` | the old skill | one entry, 2026-08-19; no script reads it |
 | AI tools reviews | `60_Claude/30_Reviews/AI/Scheduled/Weekly/` | `/weekly-review` was meant to feed it | one file, W34 |
-| Session log | `60_Claude/07_AI_Information/Session Logs/log.md` | agents at session end ([[30_Order/Standards/AI Loop/Memory Management|Memory Management]]) | 312,764 bytes, about three times the 100 KB rotation line in [[30_Order/Standards/Log Standard|Log Standard]]; no heading-form entries between 2026-10-02 and 2026-10-17 |
+| Session log | `60_Claude/07_AI_Information/Session Logs/log.md` | agents at session end ([[30_Order/Standards/AI Loop/Memory Management|Memory Management]]) | 312,764 bytes, about three times the 100 KB rotation line in [[30_Order/Standards/AI Loop/Logs|Logs]]; no heading-form entries between 2026-10-02 and 2026-10-17 |
 | Claude Kit log | `20_Progress/Projects/AI Use/Claude Kit/Log.md` | agents | 76,498 bytes, narrative |
 ## Logs of neighbors
 - `30_Order/System/claude-workflow/logs/git-auto-sync.log`: 3.37 MB, one block per run, ignored by git. The commit subjects (`Auto-sync: 2026-10-21 19:03, 6 files changed`) are the readable trace that notes were committed.
@@ -55,7 +55,7 @@ Two things to read off the table. The activity log and the markers are the only 
 - `~/.claude/file-history/`: 761 files of pre-edit copies, swept at 30 days. Useful for the output check in the weekly review; not captured.
 - What runs and what is written now, with sizes: [[20_Progress/Projects/AI Use/Conversations/Machine Audit 2026-10-22|Machine Audit 2026-10-22]].
 ## Rules on file that these records do not meet
-[[30_Order/Standards/Log Standard|Log Standard]] says every log names its feeder, and that a silent log is investigated. [[30_Order/Standards/AI Loop/Logs|Logs]] defines three shapes (narrative, row, machine) and says a machine log carries no frontmatter. The activity log and the health state file are machine logs in all but name, and neither is described in either Standard. These Standards are scratchpads until the research lands, so this is a note of the gap, not a violation.
+[[30_Order/Standards/AI Loop/Logs|Logs]] says every log names its feeder, and that a silent log is investigated. [[30_Order/Standards/AI Loop/Logs|Logs]] defines three shapes (narrative, row, machine) and says a machine log carries no frontmatter. The activity log and the health state file are machine logs in all but name, and neither is described in either Standard. These Standards are scratchpads until the research lands, so this is a note of the gap, not a violation.
 ## Non-Goals
 Not a design for new logs. The logs the 2026-10-09 tracking session proposed (a per-machine script-run log, a session ledger, a tool and hook utilization log) are not listed because none exists.
 ## Corrections
@@ -63,7 +63,7 @@ Not a design for new logs. The logs the 2026-10-09 tracking session proposed (a 
 - **Session activity** (`~/.claude/jarvis-session-activity.jsonl`) is 110,961 bytes and 355 lines (first line 2026-10-17). Line types counted: `Stop` 175, `SessionEnd` 100, `export_result` 75, `pdf_guard` 2; 3 lines were not classified, and the first, byte-order-marked line is one of the lines a strict counter loses. `export_result` is new since 2026-10-28 22:36: `{timestamp, event, session_id, status, ms, error}` with `status` `written`, `dup`, `junk`, `legacy`, `error`, `skipped` or `no_status`. `pdf_guard` is new since 2026-10-29: `{timestamp, event, session_id, tool, rule}` with no path. The file still lives outside the vault, still has no reader, and its first line carries a byte-order mark. It is the one record that says the hook ran, now with its outcome.
 - **Markers:** 188 `.exported/*.done` files across the five Acer project folders.
 - **Capture Health:** `00 - Capture Health.md` is 1,355 bytes; the state files `capture-health-windows.json` (1,888) and `-wsl.json` (1,523) are current. The Windows backfill's last 20 rows are all exit 0; the exit code is still all it records.
-- **Session log** (`60_Claude/07_AI_Information/Session Logs/log.md`) is 325,570 bytes, about three times the 100 KB rotation line in the Log Standard, up from 312,764. **Summaries-to-Create** is 5,672 bytes, no longer empty.
+- **Session log** (`60_Claude/07_AI_Information/Session Logs/log.md`) is 325,570 bytes, about three times the 100 KB rotation line in Logs, up from 312,764. **Summaries-to-Create** is 5,672 bytes, no longer empty.
 - **`git-auto-sync.log`** is 3.67 MB (it was 3.37 MB). It records FAILED runs without a reason line; 2 of the last 12 runs on 2026-10-30 ended FAILED.
 - **`weekly-review.log`** is 481 bytes (it was four lines for the runs of 2026-10-11 and 10-18). Task Scheduler shows the run of 2026-10-25 at 13:22 with result 0.
 - **`~/.claude/history.jsonl`** is 639,198 bytes (it was 442,355). It is never opened; the digest only counts its lines.

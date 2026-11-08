@@ -20,7 +20,7 @@ Per `Application Document Preparation`'s `prepare` step — this skill runs *for
 Hand it the Applying note's path. It reads the JD/fit/networking fields, `Main Resume.md`/`Main Cover Letter.md`, drafts, and returns a content plan for approval — it does not write past that point.
 
 ### 3. Relay the plan for approval
-Present `applying`'s content plan to the user exactly as returned. On approval, the plan moves to the Humanizer gate (`30_Order/Standards/Humanized Writing Standard`) — still manual as of this writing (the Humanizer gate itself has no automated tooling yet); flag that clearly rather than assuming it's been run.
+Present `applying`'s content plan to the user exactly as returned. On approval, the plan moves to the Humanizer gate (`30_Order/Standards/Human Writing Standard`) — still manual as of this writing (the Humanizer gate itself has no automated tooling yet); flag that clearly rather than assuming it's been run.
 
 ### 4. Write — real tooling now exists (added 2026-09-06)
 

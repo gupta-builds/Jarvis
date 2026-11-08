@@ -14,7 +14,7 @@ notes:
   - "[[Humanizer]]"
   - "[[Resume Alteration Standard]]"
   - "[[Cover Letter Alteration Standard]]"
-  - "[[Humanized Writing Standard]]"
+  - "[[Human Writing Standard]]"
   - "[[30_Order/Workflows/Internship/Application Document Preparation]]"
   - "[[Resume & Cover Letter - ATS Research Log]]"
 next: "Rebuild Resumes/Main Resume.md into evidence-tagged bullets — the one blocker every downstream note (Standards §2, both Cursor skills' Prerequisite section) is waiting on. See #Status below."
@@ -33,7 +33,7 @@ The resume/cover-letter system now spans nine vault notes plus two repo-side Cur
 ## The Enforceable Layer — what a skill/agent/human must actually do
 - [[Resume Alteration Standard]] — the resume contract: source-of-truth hierarchy, evidence-only claims (fail-closed), the tailoring boundary, the external-source register (§4, reorganized 2026-08-29 into ATS-vendor / company-and-program / university-and-association groups), file/naming/overwrite rules, the approval gate, and the sourced ATS format & keyword baseline (§8).
 - [[Cover Letter Alteration Standard]] — the mirrored cover-letter contract: same evidence rule, narrative selection and length instead of bullet ordering, its own §7 source register.
-- [[Humanized Writing Standard]] — the tone/style checklist both Standards defer to; a document can pass every rule above and still fail this gate for how it reads.
+- [[Human Writing Standard]] — the tone/style checklist both Standards defer to; a document can pass every rule above and still fail this gate for how it reads.
 
 ## The Workflow Layer — when each of the above actually runs
 - [[30_Order/Workflows/Internship/Application Document Preparation]] — the `prepare → draft → plan → approve → humanize → write → link → apply` sequence that ties the Design and Enforceable layers to a real Applying note.

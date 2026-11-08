@@ -22,16 +22,16 @@ notes:
 ==Every marker in a note tells review, search, or the reader what to do with a line. A marker that carries no job is removed.==
 This is the Standard for the markers inside a note body: highlight, bold, italic labels, callouts, tables, embeds, math, and code. It gives counts and triggers that a reviewer can check. It is not the syntax and blank-line rules ([[Jarvis Writing and Formatting]]) and not the choice of plugin or card syntax ([[Plugins Usage Standard]]).
 ## Markers
-| Marker | Use | Never | Enforced by |
-|---|---|---|---|
-| `==highlight==` | Exactly one per `##` section, on the one most important definitional claim. In a note tagged `#cards` it becomes a cloze card | A second highlight in a section: it makes an accidental flashcard. The one exception is `## Flashcards`, where each card carries its own cloze | Reader |
-| **Bold** | A named concept, entity, or category label, on first introduction. In a `#cards` section every bold term is a cloze | A whole sentence, or general emphasis | Reader |
-| *Italic label* | `*Mechanism:*`, `*Failure mode:*`, `*Interview value:*` introduce a sub-group | Using it as a cloze | Reader |
-| Numbered item with a bold title | `1. **Title**`, with sub-content indented by a tab | Spaces for the indent | Reader |
-| Table | Compare rows | A list Dataview could derive from frontmatter. That is a query, not a hand-built table | Reader; the blank line above a table is Lint, check 5 (warning) |
-| Embed (Excalidraw, Canvas) | Sits beside a paragraph that states the mechanism in words | An image-only diagram: it is invisible to search | Reader |
-| Math | `$...$` with a sentence saying what it means; `$$...$$` only for an equation worth its own line | Bare notation | Reader |
-| Code block | A language identifier, kept short | Raw source material in a durable note. Long captures go to `60_Claude/05_Clippings/` or a source summary | Reader |
+| Marker | Use | Never | Why | Enforced by |
+|---|---|---|---|---|
+| `==highlight==` | Exactly one per `##` section, on the one most important definitional claim. In a note tagged `#cards` it becomes a cloze card | A second highlight in a section: it makes an accidental flashcard. The one exception is `## Flashcards`, where each card carries its own cloze | A highlight is a cloze in a #cards note, so an extra one is an accidental flashcard | Reader |
+| **Bold** | A named concept, entity, or category label, on first introduction. In a `#cards` section every bold term is a cloze | A whole sentence, or general emphasis | Bold marks a term to remember, and a cloze in a card section | Reader |
+| *Italic label* | `*Mechanism:*`, `*Failure mode:*`, `*Interview value:*` introduce a sub-group | Using it as a cloze | The label names a sub-group; a card needs a cloze, a label is not one | Reader |
+| Numbered item with a bold title | `1. **Title**`, with sub-content indented by a tab | Spaces for the indent | A tab keeps sub-content nested when Obsidian renders the list | Reader |
+| Table | Compare rows | A list Dataview could derive from frontmatter. That is a query, not a hand-built table | A hand-built table drifts from the notes it lists | Reader; the blank line above a table is Lint, check 5 (warning) |
+| Embed (Excalidraw, Canvas) | Sits beside a paragraph that states the mechanism in words | An image-only diagram: it is invisible to search | Search reads words, not drawings | Reader |
+| Math | `$...$` with a sentence saying what it means; `$$...$$` only for an equation worth its own line | Bare notation | Search and the reader cannot read bare notation | Reader |
+| Code block | A language identifier, kept short | Raw source material in a durable note. Long captures go to `60_Claude/05_Clippings/` or a source summary | A language identifier lets tools highlight the block | Reader |
 ## Callouts
 | Type | Use when |
 |---|---|

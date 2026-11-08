@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-04-24
-updated: 2026-10-17
+updated: 2026-11-07
 tags:
   - project
   - jarvis
@@ -22,6 +22,7 @@ project_kind: project
 related_progress:
   - '[[Jarvis Restoration Build Plan]]'
   - '[[Builds - Jarvis]]'
+  - '[[Jarvis Order Rebuild Design]]'
 ---
 # Jarvis
 ## Goal
@@ -35,6 +36,7 @@ Complete J0 by reconciling host ownership and evidence gaps in the current-state
 - [ ] Which host owns each repo, capture source, scheduled task, and memory index?
 - [ ] Which paused workflow should resume first after its completion gates pass?
 ## Log
+- **2026-11-07:** The `30_Order` layer was rebuilt in three passes (Templates, System, then 55 non-course Standards on one anatomy). The decisions, research, measurements and the Workflow handoff are in [[Jarvis Order Rebuild Design]]. The J0 next action above is unchanged.
 - **2026-10-17:** Created a bounded build history, dated current-state inventory, dependency-ordered restoration plan, and AI infrastructure research reference. Added dated corrections to earlier designs. No runtime configuration or service was changed by this documentation work.
 ## Corrections
 ### 2026-10-17: current status versus original vision

@@ -14,7 +14,7 @@ notes:
   - "[[Internship Pipeline]]"
   - "[[Resume Alteration Standard]]"
   - "[[Cover Letter Alteration Standard]]"
-  - "[[Humanized Writing Standard]]"
+  - "[[Human Writing Standard]]"
 ---
 # Application Document Preparation
 Produce one resume and one cover letter for an application with a single approval, and tie them to the Applying note.

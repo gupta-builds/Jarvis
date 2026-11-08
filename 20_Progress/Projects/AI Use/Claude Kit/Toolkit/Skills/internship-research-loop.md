@@ -65,7 +65,7 @@ A repo-scoped convention checker, explicitly *not* a general code review — che
 **File:** `.claude/skills/tailoring-application/SKILL.md`
 **Trigger:** `/tailoring-application`
 
-Thin entry point over the `applying` agent. Its very first instruction (step "0") is a hard stop-check: read the vault's `Resume & Cover Letter - System Map.md` Status section, and if `Main Resume.md` is still filler or `Main Cover Letter.md` doesn't exist, stop and say so rather than invoking `applying` against fake content. **Currently blocked for exactly that reason as of this writing.** Relays `applying`'s content plan to the human for approval, then flags that the downstream Humanizer gate (`30_Order/Standards/Humanized Writing Standard`) and the actual write/link steps are still manual — not automated yet.
+Thin entry point over the `applying` agent. Its very first instruction (step "0") is a hard stop-check: read the vault's `Resume & Cover Letter - System Map.md` Status section, and if `Main Resume.md` is still filler or `Main Cover Letter.md` doesn't exist, stop and say so rather than invoking `applying` against fake content. **Currently blocked for exactly that reason as of this writing.** Relays `applying`'s content plan to the human for approval, then flags that the downstream Humanizer gate (`30_Order/Standards/Human Writing Standard`) and the actual write/link steps are still manual — not automated yet.
 
 **Use case:** a real Applying note exists (`status: Preparing`) and its documents need drafting — not runnable correctly until the resume/cover-letter block clears.
 

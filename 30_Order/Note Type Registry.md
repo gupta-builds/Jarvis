@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-11-06
+updated: 2026-11-07
 tags:
   - system
   - registry
@@ -25,7 +25,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | system-component | 2 | system / spec | `30_Order/System/` | none | [[System Component Standard]] | none | built |
 | generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built |
 | (policies) vocabulary, fit, editing | none | system / standard | `30_Order/Standards/` | none | [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]] | [[Conformance on Touch]] | built |
-| (policy) writing | none | system / standard | `30_Order/Standards/Enrich/`, `30_Order/Standards/Ingestion/` | none | [[Human Writing Standard]], [[Humanized Writing Standard]] | [[Human Content Writer]], [[Researcher]] | built |
+| (policy) writing | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Human Writing Standard]] (also holds the three application-document checks) | [[Human Content Writer]], [[Researcher]], [[Application Document Preparation]] | built |
 | (policy) decoration | none | system / standard | `30_Order/Standards/` | none | [[Decoration Standard]] | [[Decoration]] | built |
 | (policy) plugins | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Plugins Usage Standard]] | [[Plugins Usage]] | built |
 ## Courses
@@ -100,7 +100,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|
 | daily-note | 2 | thought / daily | `10_Areas/Life/Enumerate/Daily/` | [[Better Today]] | [[Daily Note Standard]] | [[Daily Close Loop]] | built |
-| periodic-review-note (Spec ids -weekly, -monthly, -yearly) | 2 | thought / weekly, monthly, yearly | `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, `Yearly/` | [[Better Weekly]], [[Better Month]], [[Better Year]] | [[Periodic Review Note Standard]] | none | built |
+| periodic-review-note-weekly, periodic-review-note-monthly, periodic-review-note-yearly | 2 | thought / weekly, monthly, yearly | `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, `Yearly/` | [[Better Weekly]], [[Better Month]], [[Better Year]] | [[Periodic Review Note Standard]] | none | built |
 | plan | 1 | plan | `10_Areas/Life/Plans/` | [[Standing Plan Template]] | [[Plan Standard]] | [[Plan Review Cadence]] | built |
 | moc | 1 | index | any folder | [[Folder MOC Template]] | [[MOC Standard]] | none | built |
 | dashboard | 1 | dashboard (dashboard, board, habit-board) | `60_Claude/` except `05_Clippings/`, `10_Areas/`, `20_Progress/`, `00_Dashboard.md` | [[Dashboard Template]] | [[Dashboard Standard]] | none | built |
@@ -110,11 +110,15 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 |---|---|---|---|---|---|---|---|
 | ai-conversation-export | 2 | input / ai-conversation | `60_Claude/05_Clippings/AI Conversations/` | none (script-written) | [[Conversations]] | [[Conversation Capture]], [[Conversations Loop]] | built |
 | ai-conversation-summary | 1 | input / ai-conversation-summary | `60_Claude/07_AI_Information/AI Conversation - Summaries/` | [[AI Conversation Export Template]] | [[Conversations]] | [[Conversation Capture]], [[Conversations Loop]] | built |
-| log | 2 | system / log | `60_Claude/07_AI_Information/Session Logs/`, `20_Progress/Projects/AI Use/Claude Kit/`, `60_Claude/30_Reviews/AI/Toolkit/` | [[AI Write Log Template]], [[AI Tool Log Template]] | [[Logs]], [[Log Standard]] | [[Maintaining Logs]], [[Tools Tracking]] | built |
+| log | 2 | system / log | `60_Claude/07_AI_Information/Session Logs/`, `20_Progress/Projects/AI Use/Claude Kit/`, `60_Claude/30_Reviews/AI/Toolkit/` | [[AI Write Log Template]], [[AI Tool Log Template]] | [[Logs]] (also decides whether a log earns a file, and when it rotates) | [[Maintaining Logs]], [[Tools Tracking]] | built |
 | ai-review-weekly, ai-review-monthly | 1 | review / weekly, monthly | `60_Claude/30_Reviews/AI/Scheduled/` | [[AI Weekly Review Template]], [[AI Monthly Review Template]] | [[Review Standard]], [[Review System]] | none | built |
 | capability-review | 1 | review / capability | `60_Claude/30_Reviews/Weekly Synthesis/` | [[Vault Weekly Synthesis Template]] | [[Capability Review Standard]] | none; the `/weekly-review` skill is the feeder | built |
 | audit-report | 1 | review / audit | `60_Claude/30_Reviews/` | [[Vault Audit Report Template]] | [[Audit Report Standard]] | none | built |
 | project-review | policy | log entry in the project note | the project's own `## Log` | none | [[Per Project Review]] | none | built |
+| (policy) knowledge noting | none | none | n/a | none | [[Knowledge Noting]] | [[Capture to Summary]], [[Summary to Distilled]] | built |
+| (policy) memory management | none | none | n/a | none | [[Memory Management]] | [[Maintaining Logs]] | built |
+| (policy) orchestration | none | none | `.claude/agents/` | none | [[Orchestration]] | none | built |
+| (policy) tool calls | none | none | n/a | none | [[Tool Calls]] | none | built |
 | graphify-note | 1 | reference / repo | `60_Claude/40_Project_Briefs/` | [[Graphify Repo Map Template]] | [[Graphify Notes]] | [[Graphify Folders]] | built |
 | tool-setup | 1 | reference / tool-profile | `20_Progress/AI/<Tool>/<Project>/Setup.md` | [[AI Tool Profile Template]] | [[Tool Setup]] | [[Files Tracking]] | built |
 | tool-map | n/a | index (one note) | `20_Progress/Projects/AI Use/Claude Kit/Tool Map.md` | none | none, single living note | [[Tools Tracking]] | decide |
@@ -128,4 +132,4 @@ Paths below are not measured for fit. They are the same patterns as `vault-lint.
 | `50_Archive/`, `.git/`, `.obsidian/` | Never read or measured |
 | `30_Order/Templates/` | Checked by `--kit`, not as notes |
 ## Aliases
-Names kept for legacy reasons. Weekly Board Standard also governs course sub-boards. Internship Notes Standard governs dossiers. Better Today, Better Weekly, Better Month and Better Year are the daily and periodic Templates. Humanized Writing Standard is a short internship-specific pointer to Human Writing Standard.
+Names kept for legacy reasons. Weekly Board Standard also governs course sub-boards. Internship Notes Standard governs dossiers. Better Today, Better Weekly, Better Month and Better Year are the daily and periodic Templates. The tone checks for resumes and cover letters live in Human Writing Standard.

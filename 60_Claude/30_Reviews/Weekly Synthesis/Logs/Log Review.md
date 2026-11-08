@@ -7,16 +7,16 @@ tags:
   - system
   - log
 notes:
-  - "[[30_Order/Standards/Log Standard]]"
+  - "[[30_Order/Standards/AI Loop/Logs]]"
   - "[[Cross-Laptop Sync - Build Roadmap]]"
   - "[[.claude/skills/weekly-review/weekly-review]]"
 ---
 # Log Review
-==This log tracks what got trimmed from every other managed log in the vault and why — a real, ongoing, dateable stream of events per [[30_Order/Standards/Log Standard]], not an archive of the raw lines themselves.== Trigger: the `/weekly-review` skill's Log Review step, run by the `Jarvis-WeeklyReview` Scheduled Task, registered independently on each laptop, idempotent against duplicate weekly runs.
+==This log tracks what got trimmed from every other managed log in the vault and why — a real, ongoing, dateable stream of events per [[30_Order/Standards/AI Loop/Logs]], not an archive of the raw lines themselves.== Trigger: the `/weekly-review` skill's Log Review step, run by the `Jarvis-WeeklyReview` Scheduled Task, registered independently on each laptop, idempotent against duplicate weekly runs.
 ## Why This Log Exists Instead Of An Archive File Per Log
 Build 5 (2026-09-19) rotated the Sync-Log files by moving old lines into a same-shaped `Sync-Log-Archive-<date>.md` file. That solved nothing structurally — the archive is still a file Obsidian has to index, and it grew right back to unmanageable size, which is exactly why this note exists a day later. The replacement rule, locked in 2026-09-20: when a managed log exceeds its line cap, the excess is **summarized in prose here, then deleted outright** — never moved to a second file. A summary answers "what happened," which is what anyone re-reading this later actually wants; a raw archive of `OK exit=0` lines never got reread once, by anyone, the whole time Build 5's archives existed.
 ## Managed Logs Registry
-Every log this note's trigger reads and trims. Adding a new one requires checking it isn't already covered by an existing entry's real scope, per the Log Standard.
+Every log this note's trigger reads and trims. Adding a new one requires checking it isn't already covered by an existing entry's real scope, per Logs.
 
 | Log | Path | Kind | Cap | Trim Rule |
 |---|---|---|---|---|
@@ -27,7 +27,7 @@ Every log this note's trigger reads and trims. Adding a new one requires checkin
 | Cursor sweep logs | `30_Order/System/cursor-workflow/logs/sweep-<date>.log` (one file per day) | Mechanical, daily cron-style sweep | Last 14 days | Older files: summarize+delete the file entirely, not trim within it |
 | `Run Log.md` | `10_Areas/Career/Internships/List/Run Log.md` | Small dashboard-shaped log, not currently bloated (17 lines as of 2026-09-20) | 500 lines | Monitor only until it crosses the cap |
 | `Main Log.md` | `10_Areas/Career/Internships/Tracker/Main Log.md` | Small index-shaped log (74 lines) | 500 lines | Monitor only |
-| `Claude Kit/Log.md` | `20_Progress/Projects/AI Use/Claude Kit/Log.md` | **Curated, gold-standard per the Log Standard** (192 lines, dense hand-quality entries) | 3000 lines | Monitor only — do not trim without a human reviewing what's actually being cut; this is high-value content, not noise |
+| `Claude Kit/Log.md` | `20_Progress/Projects/AI Use/Claude Kit/Log.md` | **Curated, gold-standard per Logs** (192 lines, dense hand-quality entries) | 3000 lines | Monitor only — do not trim without a human reviewing what's actually being cut; this is high-value content, not noise |
 | Main Session Log | `60_Claude/07_AI_Information/Session Logs/log.md` | **Curated**, cited throughout the vault (1441 lines) | 3000 lines | Monitor only, same reasoning as Claude Kit/Log |
 | `Tool log.md` (×2: Windows Claude Code, AI Tools review) | `60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Tool log.md`, `60_Claude/30_Reviews/AI/Tools/Tool log.md` | Small (0 and 33 lines) | 500 lines | Monitor only |
 | `BOOM/Logs.md`, `System - Build Log.md`, `ATS Research Log.md` | see [[Cross-Laptop Sync - Build Roadmap]]'s sibling notes for exact paths | Moderate project logs (141-218 lines), not currently bloated | 1000 lines | Monitor only |
@@ -113,6 +113,6 @@ Total removed: 33,588 lines across the 10 files. `second-brain-claudekit`'s one 
 ## [2026-09-20] log-review | _All-Projects-Sync-Log.md trimmed to 500 log lines (14-line frontmatter/header preserved)
 Before trim: 5340 total lines (14 header + 5326 log lines). Removed: 4826 log lines, spanning roughly 2026-08-10 14:11 through 2026-09-20 03:04 — the combined one-line-per-project-per-run view of the same 10 projects covered individually above. All entries in the removed range read `OK` in this file's compact per-project format; no `CONFLICTS`, `TRANSFER ERRORS`, or `SKIPPED` lines found in the removed portion (the historical 2026-08-10 conflict burst documented in the archive-cleanup entry above was already outside this file's live tail by the time of this trim, having been captured in the now-deleted combined archive instead). After trim: 514 lines (14 header + 500 log lines, most recent runs preserved, roughly 2026-09-20 08:19 onward).
 ## Sources
-- [[30_Order/Standards/Log Standard]] — heading format, append-only rule, trigger-naming requirement
+- [[30_Order/Standards/AI Loop/Logs]] — heading format, append-only rule, trigger-naming requirement
 - [[Cross-Laptop Sync - Build 5 Findings]] — the prior archive-based rotation approach this note's design deliberately replaces
 - [[Sync - Unison]] — `-fat` flag history, referenced for the one 2026-07-30 transfer-error anomaly above

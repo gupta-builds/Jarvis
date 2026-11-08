@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2025-07-18
-updated: 2026-10-25
+updated: 2026-11-08
 tags:
   - index
   - capability
@@ -49,3 +49,4 @@ Use [[Weekly Synthesis Template]] to generate new review notes. The template inc
 | 2026-W42 | [[Weekly Synthesis — 2026-W42]] | Old Laptop Rebuild documentation closed out; a live session-export sync conflict found and resolved mid-review (merge pushed pending human confirmation); CSCI 5304's midterm date still unreconciled 4 days out; applications frozen 23 days, daily floor down to one unfilled stub in seven days, fourth review running |
 | 2026-W43 | [[Weekly Synthesis — 2026-W43]] | Exam week: CSCI 4521, 5304, 4061 coursework and the conversation-layer docs landed, but internship tracker frozen at 29/0/0 for 29 days (fifth review at zero) and no daily note for seven days; Dell offline so Syncthing reads NOT IN SYNC; a `.stignore` entry W42 reported adding was missing and was re-added |
 | 2026-W44 | [[Weekly Synthesis — 2026-W44]] | Catch-up week: first call with Jesse, CSCI 4061 Project 2 and Lab 7 built, but the tracker is still 29/0/0 (sixth review at zero, 38 days frozen), one unfilled daily stub in seven days, CSCI 5304 untouched; sync IN SYNC with no conflicts, one git/Syncthing ignore-file asymmetry (`lean-terminal/data.json`) left for a human |
+| 2026-W45 | [[Weekly Synthesis — 2026-W45]] | Coursework and work-authorization week: CSCI 4061 Lab 8 and Project 3, CSCI 4511W Week 8 and Problem Set 3, MGMT 3015 Weeks 1 to 5 and 11 visa notes landed, but the tracker is still 29/0/0 (seventh review at zero, 45 days frozen), one unfilled daily stub in seven days, CSCI 5304 and 4521 untouched; Dell run, IN SYNC with no conflicts, the Dell false-outage alert cleared, whole-vault fit flat at 4.2% |

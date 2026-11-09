@@ -8,9 +8,9 @@ tags:
   - daily
 cssclasses:
   - dashboard
-today_focus: ""
-today_80: ""
-today_20: ""
+today_focus: "Ship the first application: Uber from Current/ to Applied/"
+today_80: "Send the Uber application on Main Resume.md with a one-company letter"
+today_20: "ISSS email, OPT fee comments (close today), CSCI 4061 board upload status, Midterm 2 prep"
 notes:
   - "[[CLAUDE.md]]"
   - "[[AGENTS.md]]"

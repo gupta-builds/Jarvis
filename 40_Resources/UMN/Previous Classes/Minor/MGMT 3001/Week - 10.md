@@ -7,7 +7,7 @@ updated: 2026-04-27
 area:
   - "[[UMN Board]]"
   - "[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/MGMT 3001 Board]]"
-  - "[[Chapter - 16|Chapter - 16]]"
+  - "[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 16|Chapter - 16]]"
   - "[[Conflict and Negotiation|Conflict and Negotiation]]"
 tags:
   - "#class"
@@ -131,7 +131,7 @@ The lecture closes by warning that culture affects position and process. Watch f
 - Low-context vs high-context norms.
 
 ## Textbook integration
-[[Chapter - 16|Chapter - 16]] reinforces that conflict can be destructive or constructive. It also connects conflict and negotiation: negotiation is one common way to resolve conflict once interests differ.
+[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 16|Chapter - 16]] reinforces that conflict can be destructive or constructive. It also connects conflict and negotiation: negotiation is one common way to resolve conflict once interests differ.
 
 ## Leadership / entrepreneurship / speaking links
 ### Leadership link
@@ -153,7 +153,7 @@ The lecture closes by warning that culture affects position and process. Watch f
 - ==Definition anchor: conflict begins when one party perceives that its interests are being opposed or harmed by another party.==
 - *Mechanism:* the lecture separates positions from interests, then shows how conflict style depends on assertiveness, cooperativeness, issue importance, relationship importance, power, and time.
 - Lecture examples/scenarios: cognitive/task conflict can improve creativity and decision quality; affective/relationship conflict pulls attention away from the task and into threat reduction, power seeking, or subgroup protection.
-- Textbook connection: [[Chapter - 16|Chapter - 16]] reinforces conflict styles, task vs relationship conflict, BATNA, reservation value, bargaining zone, and negotiation mistakes.
+- Textbook connection: [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 16|Chapter - 16]] reinforces conflict styles, task vs relationship conflict, BATNA, reservation value, bargaining zone, and negotiation mistakes.
 - Concept links: [[Conflict and Negotiation|Conflict and Negotiation]], [[Teams and Team Effectiveness|Teams and Team Effectiveness]], [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Concepts/Decision Making|Decision Making]].
 > [!TIP]
 > In a negotiation prompt, identify position, interest, BATNA, reservation value, and bargaining zone before recommending an offer.

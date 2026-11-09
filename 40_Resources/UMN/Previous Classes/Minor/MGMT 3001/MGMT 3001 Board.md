@@ -76,7 +76,7 @@ SORT created ASC
 - [[50_Archive/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 13|Chapter - 13]]
 - [[50_Archive/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 14|Chapter - 14]]
 - [[50_Archive/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 15|Chapter - 15]]
-- [[Chapter - 16|Chapter - 16]]
+- [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 16|Chapter - 16]]
 - [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 17|Chapter - 17]]
 ## Resources
 ### Links

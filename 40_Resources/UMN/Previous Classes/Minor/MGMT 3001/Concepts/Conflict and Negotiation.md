@@ -10,7 +10,7 @@ topics:
   - negotiation
 related:
   - "[[50_Archive/Previous Classes/Minor/MGMT 3001/Week - 10|Week - 10]]"
-  - "[[Chapter - 16|Chapter - 16]]"
+  - "[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 16|Chapter - 16]]"
 ---
 # Conflict and Negotiation
 
@@ -20,7 +20,7 @@ related:
 
 ## Source map
 - Lecture: [[50_Archive/Previous Classes/Minor/MGMT 3001/Week - 10|Week - 10]], `Module 10.pdf`, and `en-Conflict and Negotiation Lecture.txt`.
-- Textbook: [[Chapter - 16|Chapter - 16]].
+- Textbook: [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 16|Chapter - 16]].
 
 ## Why it matters
 - Conflict is inevitable in organizations because people have different goals, roles, incentives, identities, and resources.

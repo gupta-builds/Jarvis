@@ -277,9 +277,522 @@ _Lecture Framing (Lec15 & Lec16):_
 
 Why does reading from a `SOCK_STREAM` socket require a loop rather than assuming a single `read()` retrieves the entire message?::`SOCK_STREAM` provides a continuous byte stream with no message boundaries; the kernel may deliver data across arbitrary chunk sizes regardless of how many bytes were passed to the sender's `write()`. #cards/csci4061 ==How does shutdown() differ fundamentally from close() when operating on a socket descriptor?==::close() only tears down the socket endpoint once all duplicated file descriptors referencing it are closed, whereas shutdown() deactivates communication immediately regardless of reference count and permits unidirectional shutdown (such as SHUT_WR). #cards/csci4061 What is the structural difference between big-endian and little-endian byte ordering for multi-byte integers?::Big-endian stores the most significant byte at the lowest memory address, whereas little-endian stores the least significant byte at the lowest memory address. #cards/csci4061 Why must network applications convert port numbers and IP addresses using `htons()` and `htonl()` before sending them across a socket?::Internet protocols mandate big-endian network byte order; host architectures using little-endian (e.g., Intel x86) must reverse integer byte order so remote hosts interpret values consistently. #cards/csci4061 Why must pointers to `struct sockaddr_in` and `struct sockaddr_in6` be cast to `struct sockaddr *` when passed to socket system calls?::The socket API defines generic `struct sockaddr` as a polymorphic interface accepting domain-specific address structures of varying lengths and internal layouts. #cards/csci4061 How do `inet_ntop()` and `inet_pton()` improve upon legacy functions `inet_addr()` and `inet_ntoa()`?::`inet_ntop()` and `inet_pton()` provide protocol-independent address conversion supporting both IPv4 (AF_INET) and IPv6 (AF_INET6) with safe buffer size parameters. #cards/csci4061
 # 16.3.3 to 16.3.4
+````
+### 16.3.3 Address Lookup
+Network configuration information can be maintained in static system files (such as `/etc/hosts`, `/etc/services`, `/etc/protocols`, `/etc/networks`) or managed dynamically through network directory services such as the Domain Name System (DNS) or Network Information Service (NIS) (p. 597). The POSIX network database interfaces abstract these underlying storage backends behind standardized lookup APIs declared in `<netdb.h>` (p. 597).
+*Historical Network Databases & Iterators (`<netdb.h>`):*
+Each administrative database provides sequential scanning (`get*ent`), file rewind/open with a `stayopen` persistence flag (`set*ent`), and closing (`end*ent`) primitives (pp. 597–599; Table 6.6):
+1. Host Database (`/etc/hosts`):
+```c
+struct hostent *gethostent(void);
+void sethostent(int stayopen);
+void endhostent(void);
+````
 
+All return a pointer to a statically allocated **struct hostent** on success, or NULL on error (p. 597). The structure contains: `char *h_name` (canonical host name), `char **h_aliases` (array of alternative host name aliases), `int h_addrtype` (address family, e.g., `AF_INET`), `int h_length` (address byte length), and `char **h_addr_list` (array of pointers to network addresses in network byte order) (pp. 597–598). Legacy lookup functions **gethostbyname** and **gethostbyaddr** originally belonged to this interface but are obsolete and removed from SUSv4 (p. 597). 2. Networks Database (`/etc/networks`):
+
+```
+struct netent *getnetbyaddr(uint32_t net, int type);
+struct netent *getnetbyname(const char *name);
+struct netent *getnetent(void);
+void setnetent(int stayopen);
+void endnetent(void);
+```
+
+Returns a pointer to **struct netent** containing: `char *n_name` (network name), `char **n_aliases` (alias pointers), `int n_addrtype` (address family), and `uint32_t n_net` (network number in network byte order) (p. 598). 3. Protocols Database (`/etc/protocols`):
+
+```
+struct protoent *getprotobyname(const char *name);
+struct protoent *getprotobynumber(int proto);
+struct protoent *getprotoent(void);
+void setprotoent(int stayopen);
+void endprotoent(void);
+```
+
+Returns a pointer to **struct protoent** containing: `char *p_name` (official protocol name), `char **p_aliases` (alias pointers), and `int p_proto` (assigned protocol number) (p. 598). 4. Services Database (`/etc/services`):
+
+```
+struct servent *getservbyname(const char *name, const char *proto);
+struct servent *getservbyport(int port, const char *proto);
+struct servent *getservent(void);
+void setservent(int stayopen);
+void endservent(void);
+```
+
+Returns a pointer to **struct servent** containing: `char *s_name` (service name), `char **s_aliases` (alias pointers), `int s_port` (port number in network byte order), and `char *s_proto` (protocol name) (pp. 598–599). _getaddrinfo and freeaddrinfo Functions:_ The POSIX.1 **getaddrinfo** function replaces `gethostbyname` and `getservbyname`, translating host names and service names into socket addresses in a protocol-independent manner (p. 599).
+
+```
+#include <sys/socket.h>
+#include <netdb.h>
+
+int getaddrinfo(const char *restrict host,
+                const char *restrict service,
+                const struct addrinfo *restrict hint,
+                struct addrinfo **restrict res);
+void freeaddrinfo(struct addrinfo *ai);
+```
+
+`getaddrinfo()` returns 0 on success, or a nonzero error code on failure (p. 599). Either `host` (node name or dotted-decimal string) or `service` (service name or decimal port string) must be supplied; if one is omitted, it must be passed as NULL (p. 599). ==The getaddrinfo function dynamically allocates and returns a linked list of addrinfo structures matching the requested host and service criteria, which must be completely deallocated by passing the head pointer to freeaddrinfo to prevent memory leaks.== _struct addrinfo Definition:_
+
+```
+struct addrinfo {
+    int              ai_flags;     /* customize behavior */
+    int              ai_family;    /* address family: AF_INET, AF_INET6, AF_UNSPEC */
+    int              ai_socktype;  /* socket type: SOCK_STREAM, SOCK_DGRAM */
+    int              ai_protocol;  /* protocol: IPPROTO_TCP, IPPROTO_UDP, or 0 */
+    socklen_t        ai_addrlen;   /* length in bytes of socket address */
+    struct sockaddr *ai_addr;      /* pointer to socket address structure */
+    char            *ai_canonname; /* canonical name of host */
+    struct addrinfo *ai_next;      /* pointer to next element in linked list */
+    /* ... */
+};
+```
+
+_Filtering via the hint Argument:_ Callers pass a template `hint` to filter address generation; only `ai_flags`, `ai_family`, `ai_socktype`, and `ai_protocol` may be populated in `hint`, while all other integer fields must be 0 and pointer fields NULL (p. 600). _ai_flags Bitmask Flags (Figure 16.7):_
+
+- **AI_ADDRCONFIG**: Queries only for address types (IPv4 or IPv6) currently configured on the local system (p. 600).
+- **AI_ALL**: Returns both IPv4 and IPv6 addresses when used with `AI_V4MAPPED` (p. 600).
+- **AI_CANONNAME**: Instructs `getaddrinfo` to populate `ai_canonname` in the first returned structure with the canonical host name (p. 600).
+- **AI_NUMERICHOST**: Prevents name resolution, treating `host` strictly as a numeric address string (p. 600).
+- **AI_NUMERICSERV**: Prevents service lookup, treating `service` strictly as a decimal port number (p. 600).
+- **AI_PASSIVE**: Indicates the socket address will be bound to accept incoming connections (`INADDR_ANY` / `IN6ADDR_ANY_INIT` if `host` is NULL) (p. 600).
+- **AI_V4MAPPED**: If no IPv6 addresses match, returns IPv4 addresses mapped in IPv6 format (p. 600). _Error Translation via gai_strerror:_ Errors from `getaddrinfo()` cannot be decoded with `perror()` or `strerror()` because return codes do not correspond to `errno` values (p. 600).
+
+```
+#include <netdb.h>
+
+const char *gai_strerror(int error);
+```
+
+Returns a pointer to a descriptive error message corresponding to the nonzero error integer returned by `getaddrinfo()` (p. 600). _getnameinfo Function:_ The inverse of `getaddrinfo`, **getnameinfo** translates a binary `sockaddr` into human-readable host and service name strings (p. 600).
+
+```
+#include <sys/socket.h>
+#include <netdb.h>
+
+int getnameinfo(const struct sockaddr *restrict addr, socklen_t alen,
+                char *restrict host, socklen_t hostlen,
+                char *restrict service, socklen_t servlen,
+                int flags);
+```
+
+Returns 0 on success, or a nonzero error code on failure (pp. 600–601). Callers supply destination buffers and lengths; if `host` or `service` is not needed, pass NULL and length 0 (p. 601). _getnameinfo Flags (Figure 16.8):_
+
+- **NI_DGRAM**: Indicates datagram service to disambiguate services having identical port numbers across TCP and UDP (p. 601).
+- **NI_NAMEREQD**: Returns an error if the host name cannot be resolved from its address (p. 601).
+- **NI_NOFQDN**: Truncates fully qualified domain names, returning only the local host node name (p. 601).
+- **NI_NUMERICHOST**: Returns the numeric IP address string instead of resolving the host name (p. 601).
+- **NI_NUMERICSCOPE**: Returns numeric scope ID for IPv6 addresses instead of its name (p. 601).
+- **NI_NUMERICSERV**: Returns decimal port number string instead of looking up service name (p. 601). _Figure 16.9 Code (Print Host and Service Information):_
+
+```
+#include "apue.h"
+#if defined(SOLARIS)
+#include <netinet/in.h>
+#endif
+#include <netdb.h>
+#include <arpa/inet.h>
+#if defined(BSD)
+#include <sys/socket.h>
+#include <netinet/in.h>
+#endif
+
+void
+print_family(struct addrinfo *aip)
+{
+    printf(" family ");
+    switch (aip->ai_family) {
+    case AF_INET:
+        printf("inet");
+        break;
+    case AF_INET6:
+        printf("inet6");
+        break;
+    case AF_UNIX:
+        printf("unix");
+        break;
+    case AF_UNSPEC:
+        printf("unspecified");
+        break;
+    default:
+        printf("unknown");
+    }
+}
+
+void
+print_type(struct addrinfo *aip)
+{
+    printf(" type ");
+    switch (aip->ai_socktype) {
+    case SOCK_STREAM:
+        printf("stream");
+        break;
+    case SOCK_DGRAM:
+        printf("datagram");
+        break;
+    case SOCK_SEQPACKET:
+        printf("seqpacket");
+        break;
+    case SOCK_RAW:
+        printf("raw");
+        break;
+    default:
+        printf("unknown (%d)", aip->ai_socktype);
+    }
+}
+
+void
+print_protocol(struct addrinfo *aip)
+{
+    printf(" protocol ");
+    switch (aip->ai_protocol) {
+    case 0:
+        printf("default");
+        break;
+    case IPPROTO_TCP:
+        printf("TCP");
+        break;
+    case IPPROTO_UDP:
+        printf("UDP");
+        break;
+    case IPPROTO_RAW:
+        printf("raw");
+        break;
+    default:
+        printf("unknown (%d)", aip->ai_protocol);
+    }
+}
+
+void
+print_flags(struct addrinfo *aip)
+{
+    printf("flags");
+    if (aip->ai_flags == 0) {
+        printf(" 0");
+    } else {
+        if (aip->ai_flags & AI_PASSIVE)
+            printf(" passive");
+        if (aip->ai_flags & AI_CANONNAME)
+            printf(" canon");
+        if (aip->ai_flags & AI_NUMERICHOST)
+            printf(" numhost");
+        if (aip->ai_flags & AI_NUMERICSERV)
+            printf(" numserv");
+        if (aip->ai_flags & AI_V4MAPPED)
+            printf(" v4mapped");
+        if (aip->ai_flags & AI_ALL)
+            printf(" all");
+    }
+}
+
+int
+main(int argc, char *argv[])
+{
+    struct addrinfo      *ailist, *aip;
+    struct addrinfo      hint;
+    struct sockaddr_in   *sinp;
+    const char           *addr;
+    int                  err;
+    char                 abuf[INET_ADDRSTRLEN];
+
+    if (argc != 3)
+        err_quit("usage: %s nodename service", argv);
+    hint.ai_flags = AI_CANONNAME;
+    hint.ai_family = 0;
+    hint.ai_socktype = 0;
+    hint.ai_protocol = 0;
+    hint.ai_addrlen = 0;
+    hint.ai_canonname = NULL;
+    hint.ai_addr = NULL;
+    hint.ai_next = NULL;
+    if ((err = getaddrinfo(argv, argv, &hint, &ailist)) != 0)
+        err_quit("getaddrinfo error: %s", gai_strerror(err));
+    for (aip = ailist; aip != NULL; aip = aip->ai_next) {
+        print_flags(aip);
+        print_family(aip);
+        print_type(aip);
+        print_protocol(aip);
+        printf("\n\thost %s", aip->ai_canonname?aip->ai_canonname:"-");
+        if (aip->ai_family == AF_INET) {
+            sinp = (struct sockaddr_in *)aip->ai_addr;
+            addr = inet_ntop(AF_INET, &sinp->sin_addr, abuf,
+              INET_ADDRSTRLEN);
+            printf(" address %s", addr?addr:"unknown");
+            printf(" port %d", ntohs(sinp->sin_port));
+        }
+        printf("\n");
+    }
+    exit(0);
+}
+```
+
+### 16.3.4 Associating Addresses with Sockets
+
+While client sockets rarely require explicit local addresses (the operating system assigns an ephemeral port and outbound interface automatically upon connection), server processes must associate a well-known local address with their socket endpoint so clients can discover and rendezvous with them (p. 604; Lec16). _The bind System Call:_
+
+```
+#include <sys/socket.h>
+
+int bind(int sockfd, const struct sockaddr *addr, socklen_t len);
+```
+
+Returns: 0 on success, -1 on error (p. 604). Associates local network address `addr` of length `len` with socket descriptor `sockfd` (p. 604). _Four System Restrictions on bind:_
+
+1. Local Validity: The address must belong to a network interface configured on the host machine; arbitrary foreign IP addresses cannot be bound (p. 604).
+2. Family Consistency: The address format must match the address family specified when `socket()` was created (p. 604).
+3. Privileged Port Boundary: Port numbers strictly below 1,024 are reserved system ports and cannot be bound unless the process executes with superuser privilege (p. 605; Lec15/Lec16).
+4. Address Uniqueness: In general, only one active socket endpoint can be bound to a specific IP address and port combination simultaneously (p. 605). _Wildcard Address Binding via INADDR_ANY:_ In the IPv4 Internet domain (`AF_INET`), setting `sin_addr.s_addr = htonl(INADDR_ANY)` instructs the kernel to bind the socket endpoint across all active network interfaces on the host (p. 604; Lec16). This wildcard binding ensures the server accepts packets addressed to any network interface card (NIC) or IP address associated with the host machine (p. 604; Lec16). _Inspecting Bound and Peer Addresses:_
+
+```
+#include <sys/socket.h>
+
+int getsockname(int sockfd, struct sockaddr *restrict addr,
+                socklen_t *restrict alenp);
+int getpeername(int sockfd, struct sockaddr *restrict addr,
+                socklen_t *restrict alenp);
+```
+
+Both return 0 on success, or -1 on error (p. 605).
+
+- **getsockname**: Retrieves the local address currently bound to `sockfd` into buffer `addr`, setting `*alenp` to the actual byte size of the address returned (truncated if the provided buffer is too small); behavior is undefined if no address is bound (p. 605).
+- **getpeername**: Retrieves the foreign address of the remote peer connected to `sockfd` (p. 605). NEW KEY CONCEPTS
+- **struct hostent**: Structure holding host name aliases, address family type, address length, and an array of binary host network address pointers (p. 597).
+- **gethostent**: Iterator returning sequential entries from the system host database (p. 597).
+- **sethostent**: Function opening or rewinding the host database, optionally keeping it open across queries (p. 597).
+- **endhostent**: Function closing the system host database file (p. 597).
+- **gethostbyname**: Obsolete function looking up host database entries by host name string (p. 597).
+- **gethostbyaddr**: Obsolete function looking up host database entries by binary network address (p. 597).
+- **struct netent**: Structure storing network name strings, aliases, address types, and binary network numbers (p. 598).
+- **getnetbyaddr**: Function retrieving network database entries by network number (p. 598).
+- **getnetbyname**: Function retrieving network database entries by network name string (p. 598).
+- **getnetent**: Iterator returning sequential records from the networks database (p. 598).
+- **setnetent**: Function opening or rewinding the networks database (p. 598).
+- **endnetent**: Function closing the networks database file (p. 598).
+- **struct protoent**: Structure storing official protocol name strings, aliases, and protocol numbers (p. 598).
+- **getprotobyname**: Function querying protocol database records by protocol name (p. 598).
+- **getprotobynumber**: Function querying protocol database records by protocol integer number (p. 598).
+- **getprotoent**: Iterator returning sequential records from the protocol database (p. 598).
+- **setprotoent**: Function opening or rewinding the protocol database (p. 598).
+- **endprotoent**: Function closing the protocol database file (p. 598).
+- **struct servent**: Structure storing service names, aliases, port numbers, and protocol names (p. 598).
+- **getservbyname**: Function querying service database records by service name and protocol string (p. 598).
+- **getservbyport**: Function querying service database records by port number and protocol string (p. 598).
+- **getservent**: Iterator returning sequential records from the services database (p. 598).
+- **setservent**: Function opening or rewinding the services database (p. 598).
+- **endservent**: Function closing the services database file (p. 598).
+- **getaddrinfo**: Protocol-independent function translating host and service names into a linked list of socket addresses (p. 599).
+- **freeaddrinfo**: Function deallocating a linked list of addrinfo structures returned by getaddrinfo (p. 599).
+- **struct addrinfo**: Linked-list node structure holding socket configuration criteria, socket address pointers, and canonical names (pp. 599–600).
+- **AI_ADDRCONFIG**: Flag restricting getaddrinfo queries to locally configured address families (p. 600).
+- **AI_ALL**: Flag directing getaddrinfo to return both IPv4 and IPv6 addresses when used with AI_V4MAPPED (p. 600).
+- **AI_CANONNAME**: Flag requesting getaddrinfo to populate the canonical host name in the first addrinfo node (p. 600).
+- **AI_NUMERICHOST**: Flag instructing getaddrinfo to parse the host argument as a numeric address without name resolution (p. 600).
+- **AI_NUMERICSERV**: Flag instructing getaddrinfo to parse the service argument as a numeric port without service lookup (p. 600).
+- **AI_PASSIVE**: Flag indicating generated socket addresses will be bound to listen for incoming connections (p. 600).
+- **AI_V4MAPPED**: Flag instructing getaddrinfo to return IPv4 addresses mapped as IPv6 addresses if no native IPv6 addresses exist (p. 600).
+- **gai_strerror**: Function returning descriptive error message strings corresponding to getaddrinfo error return codes (p. 600).
+- **getnameinfo**: Protocol-independent function converting socket address structures into host and service name strings (p. 600).
+- **NI_DGRAM**: Flag instructing getnameinfo that the service is datagram-based (UDP) rather than stream-based (TCP) (p. 601).
+- **NI_NAMEREQD**: Flag causing getnameinfo to return an error if a host name cannot be resolved (p. 601).
+- **NI_NOFQDN**: Flag directing getnameinfo to omit the domain portion of a fully qualified domain name for local hosts (p. 601).
+- **NI_NUMERICHOST**: Flag directing getnameinfo to return the numeric address string rather than looking up the host name (p. 601).
+- **NI_NUMERICSCOPE**: Flag directing getnameinfo to return the numeric scope ID for IPv6 addresses (p. 601).
+- **NI_NUMERICSERV**: Flag directing getnameinfo to return the decimal port number string rather than looking up the service name (p. 601).
+- **bind**: System call associating a local protocol address and port number with a socket descriptor (p. 604; Lec16).
+- **INADDR_ANY**: Wildcard IPv4 address constant binding a socket to all available network interfaces on the host (p. 604; Lec16).
+- **getsockname**: System call querying the local address currently bound to a socket descriptor (p. 605).
+- **getpeername**: System call querying the remote peer address connected to a socket descriptor (p. 605). WORKED EXAMPLE ADDITION A trace of Figure 16.9 executing `./a.out harry nfs` details how `getaddrinfo` parses configuration hints and formats multi-protocol query results:
+
+1. _Setting Hints:_ In `main()`, the program zeros all fields of `hint` and assigns `hint.ai_flags = AI_CANONNAME` while leaving `ai_family = 0`, `ai_socktype = 0`, and `ai_protocol = 0` to request all supported address families and transport protocols that offer the `"nfs"` service (p. 601, 603).
+2. _Executing getaddrinfo:_ The call `getaddrinfo("harry", "nfs", &hint, &ailist)` queries the host name database for node `"harry"` and the services database for service `"nfs"`. Because NFS is supported across multiple transport layers, `getaddrinfo` dynamically constructs a linked list containing two `struct addrinfo` records (pp. 603–604).
+3. _First Linked Node (TCP Stream):_
+
+- `aip->ai_flags`: Contains `AI_CANONNAME` (printed by `print_flags()` as `flags canon`).
+- `aip->ai_family`: Contains `AF_INET` (printed by `print_family()` as `family inet`).
+- `aip->ai_socktype`: Contains `SOCK_STREAM` (printed by `print_type()` as `type stream`).
+- `aip->ai_protocol`: Contains `IPPROTO_TCP` (printed by `print_protocol()` as `protocol TCP`).
+- `aip->ai_canonname`: Points to string `"harry"` (printed as `host harry`).
+- `aip->ai_addr`: Points to a `struct sockaddr_in` where `sin_addr` stores IPv4 address `192.168.1.99` (converted via `inet_ntop()` to text) and `sin_port` stores port 2049 in network byte order (converted via `ntohs()` to host integer 2049).
+- Printed Line 1: `flags canon family inet type stream protocol TCP`
+- Printed Line 2: `\thost harry address 192.168.1.99 port 2049`
+
+4. _Second Linked Node (UDP Datagram):_
+
+- `aip->ai_next`: Points to the second record; `ai_canonname` is NULL (only the first node populates the canonical name).
+- `aip->ai_socktype`: Contains `SOCK_DGRAM` (printed as `type datagram`).
+- `aip->ai_protocol`: Contains `IPPROTO_UDP` (printed as `protocol UDP`).
+- `aip->ai_addr`: Points to a `struct sockaddr_in` with identical IP `192.168.1.99` and port 2049.
+- Printed Line 3: `flags canon family inet type datagram protocol UDP`
+- Printed Line 4: `\thost harry address 192.168.1.99 port 2049`
+
+5. _Termination:_ The loop terminates when `aip->ai_next == NULL`. (Note: APUE Figure 16.9 omits `freeaddrinfo(ailist)` before `exit(0)`, which is safe on process exit but constitutes a memory leak in long-running applications) (p. 600, 604). CONNECTIONS ADDITION
+
+- _Lecture Emphasis vs. Book Coverage:_ Lec16 (slides 4–8, 12–17, 21–22) emphasized manual `struct sockaddr_in` setup for socket binding and transmission, focusing on setting `sin_family = AF_INET`, converting ports via `htons()`, and binding to `htonl(INADDR_ANY)` in server code (`question_server_udp.c`) versus specifying target IPs via `inet_pton()` in client code (`question_client_udp.c`). The lecture skipped the database iterator functions (`gethostent`, `getnetent`, `getprotoent`, `getservent`), `getaddrinfo` flags (`AI_V4MAPPED`, `AI_ADDRCONFIG`), `getnameinfo`, `getsockname`, and `getpeername`. Note that DNS architecture (hierarchical resolution, root/TLD servers, UDP lookups on port 53) and port management concepts are lecture-only material with no corresponding section in APUE Chapter 16.
+- _Concrete Implementation Context:_ Lec16 slides 12–17 and Project 3 / socket labs make `bind()` concrete by contrasting server and client descriptor roles: UDP/TCP servers must explicitly invoke `bind()` with a well-known port so that incoming packets or connection requests find the process, whereas client processes omit `bind()`, allowing the kernel to assign an ephemeral port automatically upon calling `sendto()` or `connect()`. NEW FLASHCARDS Why can error return codes from `getaddrinfo()` not be decoded using `perror()` or `strerror()`?::`getaddrinfo()` does not set global `errno` on failure; it returns custom integer error codes that must be decoded by passing them to `gai_strerror()`. #cards/csci4061 What is the functional purpose of specifying the `AI_PASSIVE` flag in `struct addrinfo`'s `ai_flags`?::It instructs `getaddrinfo()` that the returned socket address is intended for a server to bind and listen; if the host argument is NULL, the IP address is automatically set to the wildcard address (`INADDR_ANY` or `IN6ADDR_ANY_INIT`). #cards/csci4061 Why must a linked list of `addrinfo` structures returned by `getaddrinfo()` be freed using `freeaddrinfo()`?::`getaddrinfo()` dynamically allocates memory for the linked list structures, address buffers, and canonical name strings on the heap; calling `freeaddrinfo()` traverses and frees all associated records. #cards/csci4061 What occurs when a server binds a socket using `INADDR_ANY` as its IPv4 address?::The kernel binds the socket to all active network interfaces on the host machine, enabling the server to receive packets arriving on any configured network interface card or IP address. #cards/csci4061 What restrictions are imposed on the port number when calling `bind()` on a socket?::Port numbers below 1,024 are reserved privileged ports requiring superuser execution permissions, and the port cannot already be bound to another active socket on the same interface unless address reuse options are enabled. #cards/csci4061
 # 16.4
+````
+### 16.4 Connection Establishment
+For connection-oriented network services (`SOCK_STREAM` or `SOCK_SEQPACKET`), an end-to-end communication channel must be established between the client requesting service and the server providing service before data exchange can begin (p. 605).
+*The connect System Call (`<sys/socket.h>`):*
+```c
+int connect(int sockfd, const struct sockaddr *addr, socklen_t len);
+````
 
+Returns 0 on success, or -1 on error (p. 605). The `addr` argument specifies the foreign server address; if `sockfd` is not explicitly bound to a local address, `connect()` automatically binds an ephemeral port and local interface on behalf of the caller (p. 606). _Transient Connection Failures:_ Connection attempts can fail due to temporary network conditions: the destination host may be rebooting, the target server process may not yet have bound its address, or the server's pending connection queue may be full (p. 606). Robust clients must handle transient error returns using retry logic (p. 606). _Exponential Backoff and the Portability Trap (Figures 16.10 & 16.11):_ An **exponential backoff** algorithm delays retries by progressively doubling sleep intervals after failed attempts (p. 606). Figure 16.10 implements exponential backoff on a single socket descriptor:
+
+```
+#include "apue.h"
+#include <sys/socket.h>
+
+#define MAXSLEEP 128
+
+int
+connect_retry(int sockfd, const struct sockaddr *addr, socklen_t alen)
+{
+    int numsec;
+
+    /*
+     * Try to connect with exponential backoff.
+     */
+    for (numsec = 1; numsec <= MAXSLEEP; numsec <<= 1) {
+        if (connect(sockfd, addr, alen) == 0) {
+            /*
+             * Connection accepted.
+             */
+            return(0);
+        }
+
+        /*
+         * Delay before trying again.
+         */
+        if (numsec <= MAXSLEEP/2)
+            sleep(numsec);
+    }
+    return(-1);
+}
+```
+
+_The Portability Bug:_ Figure 16.10 works on Linux and Solaris, but fails on FreeBSD and Mac OS X because BSD-derived TCP protocol engines permanently latch the socket state as failed after an initial unsuccessful connection attempt (p. 607). Under SUSv4, socket state becomes undefined following a failed `connect()`. Consequently, portable code must close the failed descriptor and allocate a brand new socket via `socket()` on each retry iteration (Figure 16.11, pp. 607–608):
+
+```
+#include "apue.h"
+#include <sys/socket.h>
+
+#define MAXSLEEP 128
+
+int
+connect_retry(int domain, int type, int protocol,
+              const struct sockaddr *addr, socklen_t alen)
+{
+    int numsec, fd;
+
+    /*
+     * Try to connect with exponential backoff.
+     */
+    for (numsec = 1; numsec <= MAXSLEEP; numsec <<= 1) {
+        if ((fd = socket(domain, type, protocol)) < 0)
+            return(-1);
+        if (connect(fd, addr, alen) == 0) {
+            /*
+             * Connection accepted.
+             */
+            return(fd);
+        }
+        close(fd);
+
+        /*
+         * Delay before trying again.
+         */
+        if (numsec <= MAXSLEEP/2)
+            sleep(numsec);
+    }
+    return(-1);
+}
+```
+
+_Nonblocking Connect and Datagram Optimization:_
+
+- In nonblocking mode (`O_NONBLOCK`), `connect()` returns -1 immediately with `errno` set to `EINPROGRESS`; the process uses `select()` or `poll()` to wait for the descriptor to become writable, indicating connection completion (p. 608).
+- Connectionless Optimization: Calling `connect()` on a `SOCK_DGRAM` socket does not establish a network handshake; instead, it records the peer address in the kernel so subsequent `send()` and `recv()` calls omit destination addresses and filter out incoming datagrams from all other senders (p. 608). _The listen System Call (`<sys/socket.h>`):_
+
+```
+int listen(int sockfd, int backlog);
+```
+
+Returns 0 on success, or -1 on error (p. 608). Converts an unconnected socket descriptor into a passive listening endpoint willing to receive incoming connection requests (p. 608).
+
+- The `backlog` parameter provides a hint to the operating system regarding the maximum count of pending, unaccepted connection requests to enqueue in the kernel queue (p. 608).
+- System limits: The maximum value is bounded by **SOMAXCONN** in `<sys/socket.h>` (Solaris ignores `SOMAXCONN`, enforcing a protocol-defined default of 128 for TCP) (p. 608).
+- Queue saturation: Once the pending queue is full, the operating system rejects additional incoming client connect requests until the application drains the queue (p. 608). _The accept System Call (`<sys/socket.h>`):_
+
+```
+int accept(int sockfd, struct sockaddr *restrict addr, socklen_t *restrict len);
+```
+
+Returns a new connected socket descriptor on success, or -1 on error (p. 608). ==The accept function dequeues the next completed connection request and returns a brand-new socket descriptor connected directly to the client, while the original listening descriptor remains open and unmodified to receive subsequent connection requests.==
+
+- Address extraction: If `addr` and `len` are non-null, the kernel copies the client's network address into buffer `addr` and updates `*len` with its actual byte size; callers unconcerned with client identity pass both arguments as NULL (p. 608).
+- Blocking behavior: If no connection requests are pending in the queue, `accept()` suspends the calling thread until a client connects; if `sockfd` is nonblocking, `accept()` returns -1 with `errno` set to `EAGAIN` or `EWOULDBLOCK` (pp. 608–609).
+- Multiplexing integration: In `select()` or `poll()`, a listening socket appears readable whenever an incoming connect request is pending, allowing servers to avoid blocking inside `accept()` (p. 609). _Figure 16.12 Code (Server Initialization Helper):_
+
+```
+#include "apue.h"
+#include <errno.h>
+#include <sys/socket.h>
+
+int
+initserver(int type, const struct sockaddr *addr, socklen_t alen, int qlen)
+{
+    int fd;
+    int err = 0;
+
+    if ((fd = socket(addr->sa_family, type, 0)) < 0)
+        return(-1);
+    if (bind(fd, addr, alen) < 0)
+        goto errout;
+    if (type == SOCK_STREAM || type == SOCK_SEQPACKET) {
+        if (listen(fd, qlen) < 0)
+            goto errout;
+    }
+    return(fd);
+
+errout:
+    err = errno;
+    close(fd);
+    errno = err;
+    return(-1);
+}
+```
+
+NEW KEY CONCEPTS
+
+- **connect**: System call initiating an active transport handshake on a client socket to link with a specified server address (p. 605).
+- **exponential backoff**: Retry strategy doubling the delay interval between successive failed connection attempts to avoid congesting recovering servers (p. 606).
+- **listen**: System call transitioning a bound socket into passive listening mode to accept incoming client connections (p. 608).
+- **backlog**: Parameter to listen() specifying the kernel's queue limit for pending, unaccepted connection requests (p. 608).
+- **SOMAXCONN**: System header constant in `<sys/socket.h>` defining the maximum permissible backlog queue size (p. 608).
+- **accept**: System call extracting a pending connection request from a listening queue and instantiating a new connected socket descriptor (p. 608).
+- **initserver**: Reusable server abstraction helper function encapsulating socket creation, address binding, and listen activation (p. 609). WORKED EXAMPLE ADDITION A trace of Figures 16.10 and 16.12 illustrates client retry progression and passive server socket setup:
+
+1. _Client Exponential Backoff Trace (Figure 16.10):_ A client attempts to connect to a heavily loaded server with `MAXSLEEP = 128`. Loop variable `numsec` tracks delay intervals via bitwise left-shift (`numsec <<= 1`):
+
+- Attempt 1: `numsec = 1`. `connect()` fails. Since `numsec <= 64` (`MAXSLEEP/2`), the process calls `sleep(1)`.
+- Attempt 2: `numsec = 2`. `connect()` fails. The process calls `sleep(2)`.
+- Attempt 3: `numsec = 4`. `connect()` fails. The process calls `sleep(4)`.
+- Attempt 4: `numsec = 8`. `connect()` fails. The process calls `sleep(8)`.
+- Attempt 5: `numsec = 16`. `connect()` fails. The process calls `sleep(16)`.
+- Attempt 6: `numsec = 32`. `connect()` fails. The process calls `sleep(32)`.
+- Attempt 7: `numsec = 64`. `connect()` fails. The process calls `sleep(64)`. Cumulative sleep time reaches $1+2+4+8+16+32+64 = 127$ seconds (~2 minutes).
+- Attempt 8: `numsec = 128`. `connect()` fails. Because `numsec > 64`, no further sleep occurs; the loop terminates and returns -1.
+
+2. _Server Endpoint Initialization (Figure 16.12):_ A server invokes `initserver(SOCK_STREAM, addr, alen, 10)` to establish a passive TCP listener:
+
+- `socket()` allocates socket descriptor `fd` using address family `addr->sa_family` (e.g., `AF_INET`).
+- `bind()` binds the well-known network address and port in `addr` of size `alen` to `fd`. If binding fails (e.g., port in use), execution branches to `errout`, saving `errno`, closing `fd`, and returning -1.
+- `listen()` evaluates `type == SOCK_STREAM`, invoking `listen(fd, 10)` to mark `fd` as passive with a backlog of 10 incoming requests.
+- Returns active listener `fd`, ready to be monitored via `select()` or passed to `accept()`. CONNECTIONS ADDITION
+- _Lecture Emphasis vs. Book Coverage:_ Lec17 (slides 3–9) and class examples (`question_client_tcp.c`, `question_server_tcp.c`) emphasized the complete TCP socket lifecycle: client calls `socket()` $\rightarrow$ `connect()` $\rightarrow$ `write()`/`read()` $\rightarrow$ `close()`, while server calls `socket()` $\rightarrow$ `bind()` $\rightarrow$ `listen()` $\rightarrow$ enters an `accept()` loop spawning per-client communication $\rightarrow$ `close(client_fd)`. The lecture heavily emphasized the descriptor distinction: the listening socket descriptor exists solely to accept connections, while `accept()` instantiates a distinct active communication descriptor per client. The professor skipped exponential backoff retry algorithms (Figures 16.10–16.11), `SOMAXCONN` implementation differences, and datagram-based `connect()` optimizations. Relevant cross-chapter links include Chapter 14 (Advanced I/O) for multiplexing `select()` on listening descriptors, and Chapter 10 (Signals) for slow system call interruption (`EINTR`) during blocking `accept()`.
+- _Concrete Lab & Project 3 Implementation:_ Lec17 and Project 3 make connection establishment concrete by implementing concurrent TCP servers: after `accept()` yields a new client file descriptor, multi-process servers call `fork()` where the child closes the listening socket and services the client, while the parent closes the client socket and immediately resumes waiting in `accept()`, demonstrating why both descriptors must be managed independently to prevent descriptor leaks. NEW FLASHCARDS Why is closing and reopening a new socket descriptor required when retrying a failed `connect()` call portably?::On BSD-based platforms (FreeBSD, Mac OS X), the state of a TCP socket descriptor becomes permanently undefined after a failed connection attempt, causing successive `connect()` calls on the same descriptor to fail unconditionally. #cards/csci4061 What is the function of the `backlog` argument in the `listen()` system call?::It provides a hint to the operating system kernel specifying the maximum number of outstanding, unaccepted client connection requests that can be enqueued before new connection requests are rejected. #cards/csci4061 How do the file descriptors involved in a server's call to `accept()` differ in role and state?::The file descriptor passed into `accept()` is a passive listening socket that remains open to receive future connection requests, whereas the descriptor returned by `accept()` is a new active socket dedicated to communicating with the connected client. #cards/csci4061 What optimization is achieved by calling `connect()` on a connectionless datagram socket (`SOCK_DGRAM`)?::It records the peer address in the kernel, enabling the application to use standard `read()`, `write()`, `send()`, and `recv()` without specifying the destination address on every transfer, while ignoring datagrams from all other senders. #cards/csci4061
 # 16.5
 
 # 16.6 to 16.9

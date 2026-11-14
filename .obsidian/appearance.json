@@ -7,5 +7,6 @@
     "headerspace"
   ],
   "cssTheme": "AnuPpuccin",
-  "baseFontSizeAction": false
+  "baseFontSizeAction": false,
+  "showRibbon": true
 }

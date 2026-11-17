@@ -72,9 +72,15 @@ function Add-ActivityLine {
 }
 
 if ($eventName -eq "SessionStart" -and (Test-IsInsideJarvis -Path $cwd)) {
+    # Keep this file pure ASCII. This script has no BOM, so Windows PowerShell 5.1
+    # reads it as cp1252: a literal em dash becomes three characters, the last a
+    # curly quote that the console code page (437) emits as a bare ASCII quote,
+    # which ends the JSON string early and breaks the hook output. The vault
+    # filename really contains an em dash, so build it from its code point.
+    $emDash = [string][char]0x2014
     $context = @"
 Jarvis context-pack policy:
-- Read first: 60_Claude/07_AI_Information/Jarvis OS — North Star.md (strategy spine), then AGENTS.md (write contract + routing), then 40_Resources/Obsidian/Jarvis Vault Architecture.md (folder placement).
+- Read first: 60_Claude/07_AI_Information/Jarvis OS $emDash North Star.md (strategy spine), then AGENTS.md (write contract + routing), then 40_Resources/Obsidian/Jarvis Vault Architecture.md (folder placement).
 - Before writing any note: read 30_Order/ (Templates + Workflows for the note type).
 - For current state: 60_Claude/07_AI_Information/AI_CONTEXT.md, 00_Dashboard.md, then tail of 60_Claude/07_AI_Information/Session Logs/log.md.
 - If unsure where a note goes: write it to 60_Claude/00_Inbox/. Never invent a folder.
@@ -85,12 +91,17 @@ Jarvis context-pack policy:
 - Desktop is read-first planning/review; Claude Code is the implementation surface; mobile is capture only.
 "@
 
-    @{
+    $json = @{
         hookSpecificOutput = @{
             hookEventName = "SessionStart"
             additionalContext = $context
         }
     } | ConvertTo-Json -Depth 5 -Compress
+
+    # Escape every non-ASCII character as \uXXXX so the output bytes are ASCII
+    # whatever the console output code page is. JSON parsers decode them back.
+    $json = [regex]::Replace($json, '[^\x00-\x7F]', { param($m) '\u{0:x4}' -f [int][char]$m.Value })
+    $json
 
     exit 0
 }

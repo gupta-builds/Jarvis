@@ -9,14 +9,14 @@ tags:
   - homework
 area:
   - "[[CSCI 4511W Board]]"
-next: "Confirm the Writing 3 due date on Canvas, create the Overleaf project from main.tex and citations.bib below, compile and check the pre-submit list, fix the AI-use footnote so it states what you really did, then submit the PDF"
+next: "Paste the updated main.tex and citations.bib below into the Overleaf project, recompile and confirm 0 errors, click the four reference links, fix the AI-use footnote so it states what you really did, confirm the due date on Canvas, then submit the PDF"
 ---
 # Writing - 3
 ## Overview
-The project proposal, which is the first of the final project's written parts: one author, under 650 words by my own limit (the prompt says 600 to 700), written in LaTeX on Overleaf and submitted as a PDF on Canvas. The project is a mini-AlphaZero for 6x6 Othello: a small value network trained by self-play inside MCTS, compared with hand-crafted evaluation functions.
+The project proposal, which is the first of the final project's written parts: one author, 650 to 700 words by my own limit (the prompt says 600 to 700), written in LaTeX on Overleaf and submitted as a PDF on Canvas. The project is a mini-AlphaZero for 6x6 Othello: a small value network trained by self-play inside MCTS, compared with hand-crafted evaluation functions.
 The due date is not verified. Lecture 15 (Nov 2) only says "Proposal will be due soon", and no local source gives a date, so `deadline` is left empty. The Board puts Writing 4 (the literature review) at Nov 25 and the final project at Dec 18.
 ## Requirements
-Source: the Canvas prompt for Writing 3, the Canvas "Final Project Information" page, and the professor's Discord answers, all pasted 2026-11-16, plus two instructions from the student the same day: under 650 words, and references that are recent and officially published.
+Source: the Canvas prompt for Writing 3, the Canvas "Final Project Information" page, and the professor's Discord answers, all pasted 2026-11-16, plus the student's instructions the same day: references that are recent and officially published, and a length of more than 650 and fewer than 700 words (this replaced an earlier "under 650" after the humanized rewrite).
 ### Writing 3 prompt (verbatim)
 > This writing assignment is the first part of your project. Write a short proposal for your project reporting on any initial work you might have done. The report should include: team members (a pair submits one paper and says which parts each wrote); a brief description of the problem and why it is interesting; the approach; the software you'll write or use; preliminary work or results (if any); how you will evaluate your solution; a time frame; bibliographic references to a few relevant papers (3 or 4). The expected length is around 600-700 words. For a group of 2, 800-900. If you use generative AI to assist with your work, we expect you to acknowledge that.
 ### Rubric
@@ -30,7 +30,7 @@ Source: the Canvas prompt for Writing 3, the Canvas "Final Project Information" 
 ### Checklist
 **Must submit**
 - [ ] One PDF on Canvas, compiled from LaTeX on Overleaf.
-- [ ] Under 650 words in total by an Overleaf-style count (headings and footnote included), and about 600 words of prose so the professor's range still holds.
+- [ ] More than 650 and fewer than 700 words, by both counts: prose alone and prose plus headings and footnote.
 - [ ] Team members, problem and why it is interesting, approach, software, preliminary work, evaluation, time frame, references.
 - [ ] 3 or 4 references, each cited in the text, as proper BibTeX entries in `citations.bib`.
 - [ ] A footnote that states how much generative AI was used.
@@ -65,19 +65,20 @@ The first draft cited four papers from 2006 to 2018 (Kocsis and Szepesvári, Bro
 
 | Key | Entry | Venue confirmed on | What I read in it |
 | --- | --- | --- | --- |
-| `wu2025minizero` | Wu et al., MiniZero, IEEE Transactions on Games 17(1), 125 to 137, March 2025 | Author page listing vol. 17 no. 1 pp. 125 to 137 (Mar. 2025); the AVI paper's reference list agrees | Setup (8x8 Othello, 3 residual blocks, 200 simulations for AlphaZero, 2 and 16 for Gumbel, one machine with four GTX 1080 Ti GPUs), Sections IV-B and IV-C (equal-training-time result), progressive simulation, conclusion |
-| `scheiermann2023alphazero` | Scheiermann and Konen, IEEE Transactions on Games 15(4), 637 to 647, Dec 2023 (online 15 Sep 2022), doi 10.1109/TG.2022.3206733 | IEEE Xplore page (volume, issue, pages, DOI) | Introduction, Edax comparison and related work (Section V-C), computation times, the MCTS-inside-training experiments, conclusion |
-| `tsai2026regret` | Tsai et al., Regret-Guided Search Control, ICLR 2026 | OpenReview forum Eoiu5iJD71 ("ICLR 2026 Poster") and the arXiv comment "Accepted by ... ICLR 2026" | Experiment section (10x10 Othello, 3 blocks, 200 simulations, Elo against an AlphaZero reference, 95% intervals), Ludii alpha-beta baselines, the "about 150 GPU hours" cost statement, discussion |
-| `boige2026avi` | Boige, Boumaza and Scherrer, Approximate Value Iteration in Self-Play, arXiv:2609.09094, Sept 2026 | arXiv header (v1, 08 Sep 2026, cs.AI) | Introduction, problem formulation, experimental setup (oracle metrics, match protocol, cross-inference), results and limitations |
+| `10510513` | Wu et al., MiniZero, IEEE Transactions on Games 17(1), 125 to 137, March 2025, doi 10.1109/TG.2024.3394900 | IEEE Xplore document 10510513 (volume 17, issue 1, March 2025, pages 125 to 137, DOI, online 30 April 2024) | Setup (8x8 Othello, 3 residual blocks, 200 simulations for AlphaZero, 2 and 16 for Gumbel, one machine with four GTX 1080 Ti GPUs), Sections IV-B and IV-C (equal-training-time result), progressive simulation, conclusion |
+| `9893320` | Scheiermann and Konen, IEEE Transactions on Games 15(4), 637 to 647, Dec 2023 (online 15 Sep 2022), doi 10.1109/TG.2022.3206733 | IEEE Xplore page (volume, issue, pages, DOI) | Introduction, Edax comparison and related work (Section V-C), computation times, the MCTS-inside-training experiments, conclusion |
+| `tsai2026regretguided` | Tsai et al., Regret-Guided Search Control, ICLR 2026 | OpenReview forum Eoiu5iJD71, re-opened 2026-11-16 ("ICLR 2026 Poster", five authors in this order), and the arXiv comment "Accepted by ... ICLR 2026" | Experiment section (10x10 Othello, 3 blocks, 200 simulations, Elo against an AlphaZero reference, 95% intervals), Ludii alpha-beta baselines, the "about 150 GPU hours" cost statement, discussion |
+| `boige2026surprisingeffectivenessapproximatevalue` | Boige, Boumaza and Scherrer, Approximate Value Iteration in Self-Play, arXiv:2609.09094, Sept 2026 | arXiv abstract page, re-opened 2026-11-16 (submitted 8 Sep 2026, cs.AI, authors Raphael Boige, Amine Boumaza, Bruno Scherrer; the `.bib` spells the first name as arXiv does, and the paper's own text writes Raphaël) | Introduction, problem formulation, experimental setup (oracle metrics, match protocol, cross-inference), results and limitations |
 
 - How much I read: the tool returned the passages most relevant to specific questions (setup, results, discussion, related work). I did not read every page or the appendices in full. The claims in the draft are limited to what those passages state.
-- `boige2026avi` is a preprint with no peer review. If an all-peer-reviewed list is preferred, swap it for Pgx (below). It is cited once, for the cross-inference test.
-- MiniZero's arXiv version is from 2023 and the journal issue is March 2025. The `.bib` uses the journal data. Scheiermann and Konen appeared online in 2022 and in the December 2023 issue. The `.bib` uses 2023.
+- The Boige et al. entry is a preprint with no peer review. If an all-peer-reviewed list is preferred, swap it for Pgx (below). It is cited once, for the cross-inference test.
+- MiniZero's arXiv version is from 2023, it was published online 30 April 2024, and the issue is March 2025. The `.bib` uses the issue year, 2025. IEEE's page shows six of the seven authors without signing in, and the seventh (Yun-Jui Tsai) comes from the arXiv listing and the AVI paper's reference list. Scheiermann and Konen appeared online in 2022 and in the December 2023 issue. The `.bib` uses 2023.
 - Not used in the proposal, saved for Writing 4: Pgx (Koyamada et al., NeurIPS 2023 Datasets and Benchmarks; includes 8x8 Othello, and an AlphaZero baseline that took 11.4 hours on one A4000 GPU; JAX only), Gumbel AlphaZero (Danihelka et al., ICLR 2022; I have not opened it), Go-Exploit (arXiv 2302.12359), Othello-GPT (Li et al., ICLR 2023, arXiv 2210.13382), and RMCTS (arXiv 2601.01301, Othello timings, preprint). The original AlphaZero papers are background for the final report, not the proposal.
 ### Format and template check
 - **Citation guide** (`How to Cite in LaTeX (Citation Guide).pdf`, updated for Fall 2026): the `.bib` file must be named `citations.bib`; end the document with `\bibliographystyle{plainurl}` and `\bibliography{citations}`; load `xurl` for URLs; cite with `\cite{key}` before the sentence's period; separate several keys with a comma; uncited entries do not print. It also says to cite shared links when citing an AI conversation as a source. This proposal discloses AI use in a footnote and does not cite AI output as a source.
-- **TA tutorial** (`HW & Exams/HW/main.tex` and `rf1.bib`): entries use `author` with `and`, brace-protected capitals in titles, `@article` with journal, volume, number, pages, year, and `@inproceedings` with booktitle, pages, year. The new `.bib` follows that shape.
-- **Writing 2 as submitted** (the compiled PDF): title and author in the header on every page, `Writing #2` title block with the author and `CSCI 4511W`, numbered headings `1.` to `3.`, the AI footnote on the first sentence, a numbered reference list. This draft keeps the same preamble. Writing 2 used `acm` because the TA tutorial used it. The Writing 3 prompt names no template or style, so this draft follows the Fall 2026 citation guide (`plainurl`). To match Writing 2 instead, change the one line `\bibliographystyle{plainurl}` to `\bibliographystyle{acm}` and move each `url` into `note = {\url{...}}`.
+- **TA tutorial** (`HW & Exams/HW/main.tex` and `rf1.bib`): entries use `author` with `and`, brace-protected capitals in titles (`{\TeX}`), `@article` with journal, volume, number, pages, year, and `@inproceedings` with booktitle, pages, year. The `.bib` entries are now the publishers' own exports, which have the same shape.
+- **Writing 1 as submitted** (the compiled PDF, `plainurl`): its references printed as "Author. Title. URL: https://...". An arXiv entry printed "arXiv preprint arXiv:2503.14734, 2025. URL: ...". Writing 3 now follows the same style, and the DOIs print as links.
+- **Writing 2 as submitted** (the compiled PDF): title and author in the header on every page, `Writing #2` title block with the author and `CSCI 4511W`, numbered headings `1.` to `3.`, the AI footnote on the first sentence, a numbered reference list. This draft keeps the same preamble. Writing 2 used `acm` because the TA tutorial used it. The Writing 3 prompt names no template or style, so this draft follows the Fall 2026 citation guide (`plainurl`). Switching to `acm` is not recommended now: `acm` has no `url` or `doi` field, so the links would disappear from the reference list.
 - The Writing 3 prompt links no `acmtemplate.tex`, and none was seen.
 ### Claim to source
 | Claim in the draft | Where it comes from |
@@ -91,11 +92,30 @@ The first draft cited four papers from 2006 to 2018 (Kocsis and Szepesvári, Bro
 | Cross-inference: keep search and policy fixed, swap only the value function | Boige et al., Section 4.3 and 5.2 |
 | Elo ratings with 95 percent confidence intervals | Wu et al., Figures 3 and 4; Tsai et al., Figure 4 |
 | `aima-python` has the game interface, alpha-beta cutoff, a baseline MCTS and no Othello | `games.py` listing above |
-| PS3: 100 of 100 as each color against random, 65 to 77 of 100 against the course MCTS | PS3 note, Verification table (`c4_good_eval`: 100 and 100; depth 2: 65 and 76; depth 3: 76 and 77). I did not re-run these. |
+| PS3: with depth-4 alpha-beta, 100 of 100 as each color against random; with depth 2 or 3, 65 to 77 of 100 against the course MCTS | PS3 note, Verification table (depth 4 against random: 100 and 100; depth 2 against MCTS: 65 and 76; depth 3: 76 and 77). The MCTS games were not at depth 4, so the draft now says "with depth 2 or 3". I did not re-run these. |
 | 8, 10, 14, 8 and 10 hours add to 50 | Final project page: about 50 hours |
 | Nov 25 literature review, Dec 18 final report | Board schedule |
+### Humanized text pass (2026-11-16)
+The student pasted a reworded version of the body. Its structure and wording are kept. Only these items were changed, each because it was wrong or inconsistent:
+- **Preliminary Work, factual error:** "Promising work on Othello includes Problem Set 3" is wrong, because PS3 was Connect 4 and Gomoku. It now reads "The related groundwork is Problem Set 3".
+- **Preliminary Work, numbers:** "With depth-4 alpha-beta search it won ... and 65 to 77 of 100 games against the course MCTS agent" implied depth 4 for both results. The MCTS games were at depth 2 and 3, so the sentence now says "with depth 2 or 3".
+- **Voice:** the pasted Software and Preliminary Work used "the author ... his own game class". The rest of the proposal is first person ("mine", "I will borrow"), and the pronoun was an assumption. Both sections are back to first person.
+- **Approach, content:** the pasted sentence listed the trained agent among the "baseline agents". It now says the study compares several agents, names the baselines, and then describes the trained agent. "CNN" is spelled out once.
+- **Approach, citation:** "the Othello studies indicate" cited one paper, so it now names "the Othello results of Wu et al." with its citation.
+- **Software, accuracy:** the library "supplies" the `Game` interface (it does not implement the project's game), and "since the library has no Othello" replaces the ambiguous "does not have it".
+- **Spelling and typography:** "Alpha Zero" is "AlphaZero"; "9x9" and similar are `9$\times$9` as in the earlier draft; "handcrafted" and "hand-crafted" are one spelling; "depth limited" is "depth-limited"; "+" in "mobility + corner control" is "and".
+- **Length:** three small trims ("In order to", "by comparing it with", "also" and "yet") so both counts stay between 650 and 700.
+- Left as pasted: the Team Members paragraph and footnote, the Problem opening, the Evaluation section, the Time Frame section, and the sentence structure everywhere else.
+### First Overleaf compile (2026-11-16)
+The first compile produced a PDF (`CSCI_4511W_Writing___3.pdf`, 2 pages, read with MinerU and as a rendered image) and a log with 2 errors and 1 info message.
+- **Errors, both in `output.bbl`:** "Is \usepackage{hyperref} missing?" at bbl lines 13 and 25, where the `\href` command is undefined. Cause: `plainurl` prints a `doi` field as `\href{https://doi.org/...}{\path{doi:...}}`, and the preamble did not load `hyperref`. Evidence in the PDF: references [2] and [4] printed the DOI twice ("https://doi.org/10.1109/TG.2022.3206733 doi:10.1109/TG.2022.3206733"). Fix: `\usepackage[hidelinks]{hyperref}`, loaded before `xurl`, so each DOI prints once as a clickable link without colored boxes.
+- **Broken arXiv link:** reference [1] printed its URL as "https://arxiv.org/abs/2609.090" and "94." on the next line. `xurl` allows a break inside the number, and with no `hyperref` the PDF had no real link, so a viewer only picked up the first line. That produced the arXiv message "Article identifier '2609.090' not recognized". The correct address is https://arxiv.org/abs/2609.09094 (opened and confirmed). With `hyperref`, the whole address is one link even when it wraps.
+- **Info message:** "Underfull \hbox (badness 1178)" in `output.bbl` line 10, the loose first-line spacing in reference [2] ("Johannes Scheiermann and Wolfgang Konen. AlphaZero-inspired game learning: Faster train-ing..."). Fix: `\setlength{\emergencystretch}{3em}`, which only acts on paragraphs that cannot otherwise be set well.
+- **Citations replaced by the publishers' own exports:** the student pasted the IEEE exports for Scheiermann and Konen (key `9893320`) and for MiniZero (key `10510513`), and the OpenReview export for Tsai et al. (key `tsai2026regretguided`). The arXiv entry is arXiv's own export (`https://arxiv.org/bibtex/2609.09094`, key `boige2026surprisingeffectivenessapproximatevalue`, with `eprint`, `archivePrefix` and `primaryClass`). My earlier hand-written entries had differences (for example a changed ICLR booktitle and an `howpublished` arXiv line), so they are gone. A script compares every field of the four entries with those exports and finds no difference.
+- **The only edit to the exports:** braces around acronyms and proper names in three titles (`{AlphaZero}`, `{MCTS}`, `{MiniZero}`, `{MuZero}`, `{Go}`, `{Othello}`, `{Atari}`). Without them `plainurl` lowercases the words, as the TA tutorial's `{\TeX}` example shows. The printed data is unchanged. The `keywords` fields stay as exported, and BibTeX ignores them.
+- **`\cite` keys** in `main.tex` now match the new keys. The text is unchanged, so the word counts below are unchanged.
 ### Draft main.tex
-The preamble is the Writing 2 preamble (10pt article class, 1 inch margins, header with title left and author right on every page, centered page number, `N.` headings), with `xurl` for the citation guide. Only the title, sections and bibliography heading changed.
+The preamble is the Writing 2 preamble (10pt article class, 1 inch margins, header with title left and author right on every page, centered page number, `N.` headings), with `hyperref` and `xurl` for the citation guide and `plainurl`. The body is the student's humanized version with the corrections above.
 ```latex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -105,7 +125,9 @@ The preamble is the Writing 2 preamble (10pt article class, 1 inch margins, head
  margin=1in,
 }
 \setlength{\headheight}{12.5pt}
+\setlength{\emergencystretch}{3em}
 \usepackage{titling}
+\usepackage[hidelinks]{hyperref}
 \usepackage{xurl}
 
 \title{Writing \#3: Project Proposal}
@@ -158,25 +180,25 @@ This is an individual project by Anant Gupta, so all of the work and writing is 
 
 A game-playing program cannot search to the end of a game, so at its depth limit it replaces the unknown result with an evaluation function. Writing a good one by hand is hard. In Othello, counting my discs minus yours can mislead mid-game, because the squares held and the moves available often matter more. Every weight in a hand-written function is a guess.
 
-AlphaZero-style systems learn the evaluator from self-play, but they are expensive: recent experiments on 9$\times$9 Go, 10$\times$10 Othello, and 11$\times$11 Hex needed about 150 GPU hours per run \cite{tsai2026regret}. An agent trained in under two hours on a standard CPU beat the Othello program Edax up to level 7 \cite{scheiermann2023alphazero}, and on 8$\times$8 Othello a Gumbel AlphaZero variant with two simulations per move reached similar strength to AlphaZero with 200 simulations at equal training time \cite{wu2025minizero}. My question: \emph{with a laptop-sized budget, can a small value network trained by self-play beat a hand-designed evaluation function at 6$\times$6 Othello under an equal time budget?}
+AlphaZero-style learning is also possible for an evaluation function, although it is expensive. Recent experiments on 9$\times$9 Go, 10$\times$10 Othello, and 11$\times$11 Hex needed about 150 GPU hours per run \cite{tsai2026regretguided}, while an agent trained in under two hours on a standard CPU beat the Othello program Edax up to level 7 \cite{9893320}. Still, on 8$\times$8 Othello a Gumbel AlphaZero variant with two simulations per move reached similar strength to AlphaZero with 200 simulations at equal training time \cite{10510513}. My question is: \emph{with a laptop-sized budget, can a small value network trained by self-play beat a hand-designed evaluation function at 6$\times$6 Othello under an equal time budget?}
 
 \section{Approach}
 
-The baselines are a random player, a greedy player, plain MCTS with random playouts, and depth-limited alpha-beta search with three hand-crafted evaluations (disc difference, square weights, and mobility plus corners). The learned agent is a small convolutional network with a value output and a move-probability output, used inside MCTS. It plays itself, and each finished game yields examples of a position, the search's visit counts, and the result. Simulations are the main cost, so I will keep them few per move, as the Othello results above suggest is workable \cite{wu2025minizero}.
+The study will compare several agents. The baselines are random, greedy, plain MCTS with random playouts, and depth-limited alpha-beta search with three hand-crafted evaluation functions (disc difference, square weights, and mobility and corner control). The trained agent uses a small convolutional neural network (CNN) with a value head and a move-probability head that is integrated into the MCTS algorithm. It will then be used in self-play, where each completed game provides data about the position, search visit counts, and game outcome. As simulations are the most costly component of this work, the number of simulations per move will be limited, as the Othello results of Wu et al.~\cite{10510513} indicate this is reasonable.
 
-To separate value from search, I will borrow the cross-inference test of Boige et al.~\cite{boige2026avi}: keep one search and policy fixed and swap only the value function.
+To separate the value from the search, I will borrow the cross-inference test of Boige et al.~\cite{boige2026surprisingeffectivenessapproximatevalue}: keep one search and policy fixed and swap only the value function.
 
 \section{Software}
 
-Everything is in Python. The course's \texttt{aima-python} library supplies the \texttt{Game} interface, alpha-beta cutoff search, and a baseline MCTS, but has no Othello, so I will write my own game class and test it on positions worked out by hand. The network and self-play loop use PyTorch on one laptop GPU. Code, seeds, and logs will be kept.
+Python will be used for the whole project. The course's \texttt{aima-python} library will supply the \texttt{Game} interface and the alpha-beta cutoff search as well as a naive MCTS. Since the library has no Othello, I will write my own game class and test it against positions analyzed by hand. The neural network and self-play loop will be implemented with PyTorch, running on a single laptop GPU. All code, seeds, and logs will be archived.
 
 \section{Preliminary Work}
 
-I have not started on Othello, so there are no Othello results yet. The relevant groundwork is Problem Set 3, where I designed a hand-crafted Connect 4 evaluation. With depth-4 alpha-beta search it won 100 of 100 games as each color against a random player, and 65 to 77 of 100 games against the course MCTS agent, depending on color and depth. It also gave me a match-playing harness.
+I have not started Othello, so no results exist for that game. The related groundwork is Problem Set 3, where I created a hand-crafted Connect 4 evaluation. With depth-4 alpha-beta search it won 100 of 100 games as each color against a random player, and with depth 2 or 3 it won 65 to 77 of 100 games against the course MCTS agent, depending on color and depth. The effort gave me a match-playing harness.
 
 \section{Evaluation}
 
-All agents play a round robin of 200 games per pairing. Each game starts from a random four-move opening, played twice with colors swapped, and every agent gets the same time per move. I will report win rates (a draw counts as half) with 95 percent confidence intervals, plus Elo ratings, as recent AlphaZero studies do \cite{tsai2026regret,wu2025minizero}.
+All agents play a round robin of 200 games per pairing. Each game starts from a random four-move opening, played twice with colors swapped, and every agent gets the same time per move. I will report win rates (a draw counts as half) with 95 percent confidence intervals, plus Elo ratings, as recent AlphaZero studies do \cite{tsai2026regretguided,10510513}.
 
 Success means the learned agent beats the strongest hand-crafted agent with an interval excluding 50 percent. A loss is still a result: ablations (value only, policy only, both, more simulations) will show which part a small budget cannot reproduce.
 
@@ -191,44 +213,47 @@ The budget is about 50 hours. Reading the papers takes 8 hours, through November
 \end{document}
 ```
 ### Reference file (citations.bib)
-Create it as a new file in Overleaf named exactly `citations.bib`, because `main.tex` ends with `\bibliography{citations}`.
+Create it as a new file in Overleaf named exactly `citations.bib`, because `main.tex` ends with `\bibliography{citations}`. The entries are the publishers' own exports (see "First Overleaf compile"), in alphabetical order by first author, which is the order `plainurl` prints them in: [1] Boige, [2] Scheiermann, [3] Tsai, [4] Wu.
 ```bibtex
-@article{wu2025minizero,
-  author  = {Ti-Rong Wu and Hung Guei and Pei-Chiun Peng and Po-Wei Huang and Ting Han Wei and Chung-Chin Shih and Yun-Jui Tsai},
-  title   = {{MiniZero}: Comparative Analysis of {AlphaZero} and {MuZero} on {Go}, {Othello}, and {Atari} Games},
-  journal = {IEEE Transactions on Games},
-  volume  = {17},
-  number  = {1},
-  pages   = {125--137},
-  year    = {2025}
+@misc{boige2026surprisingeffectivenessapproximatevalue,
+      title={The Surprising Effectiveness of Approximate Value Iteration in Self-Play},
+      author={Raphael Boige and Amine Boumaza and Bruno Scherrer},
+      year={2026},
+      eprint={2609.09094},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2609.09094},
 }
 
-@article{scheiermann2023alphazero,
-  author  = {Johannes Scheiermann and Wolfgang Konen},
-  title   = {{AlphaZero}-Inspired Game Learning: Faster Training by Using {MCTS} Only at Test Time},
-  journal = {IEEE Transactions on Games},
-  volume  = {15},
-  number  = {4},
-  pages   = {637--647},
-  year    = {2023},
-  doi     = {10.1109/TG.2022.3206733}
+@ARTICLE{9893320,
+  author={Scheiermann, Johannes and Konen, Wolfgang},
+  journal={IEEE Transactions on Games},
+  title={{AlphaZero}-Inspired Game Learning: Faster Training by Using {MCTS} Only at Test Time},
+  year={2023},
+  volume={15},
+  number={4},
+  pages={637-647},
+  keywords={Games;Training;Planning;Prediction algorithms;Silver;Wrapping;Task analysis;Board games;MCTS;Monte Carlo methods;N-tuple systems;othello;reinforcement learning;temporal difference learning},
+  doi={10.1109/TG.2022.3206733}}
+
+@inproceedings{tsai2026regretguided,
+title={Regret-Guided Search Control for Efficient Learning in {AlphaZero}},
+author={Yun-Jui Tsai and Wei-Yu Chen and Yan-Ru Ju and Yu-Hung Chang and Ti-Rong Wu},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=Eoiu5iJD71}
 }
 
-@inproceedings{tsai2026regret,
-  author    = {Yun-Jui Tsai and Wei-Yu Chen and Yan-Ru Ju and Yu-Hung Chang and Ti-Rong Wu},
-  title     = {Regret-Guided Search Control for Efficient Learning in {AlphaZero}},
-  booktitle = {The Fourteenth International Conference on Learning Representations ({ICLR} 2026)},
-  year      = {2026},
-  url       = {https://openreview.net/forum?id=Eoiu5iJD71}
-}
-
-@misc{boige2026avi,
-  author       = {Rapha{\"e}l Boige and Amine Boumaza and Bruno Scherrer},
-  title        = {The Surprising Effectiveness of Approximate Value Iteration in Self-Play},
-  year         = {2026},
-  howpublished = {arXiv preprint arXiv:2609.09094},
-  url          = {https://arxiv.org/abs/2609.09094}
-}
+@ARTICLE{10510513,
+  author={Wu, Ti-Rong and Guei, Hung and Peng, Pei-Chiun and Huang, Po-Wei and Wei, Ting Han and Shih, Chung-Chin and Tsai, Yun-Jui},
+  journal={IEEE Transactions on Games},
+  title={{MiniZero}: Comparative Analysis of {AlphaZero} and {MuZero} on {Go}, {Othello}, and {Atari} Games},
+  year={2025},
+  volume={17},
+  number={1},
+  pages={125-137},
+  keywords={Games;Training;Computational modeling;Optimization;Servers;Task analysis;Planning;AlphaZero;Atari games;deep reinforcement learning;Go;Gumbel AlphaZero;Gumbel MuZero;MuZero},
+  doi={10.1109/TG.2024.3394900}}
 ```
 ### Overleaf steps
 1. On overleaf.com choose **New Project**, then **Blank Project**, and name it `Writing 3 - Othello Proposal`.
@@ -238,17 +263,19 @@ Create it as a new file in Overleaf named exactly `citations.bib`, because `main
 5. Click **Recompile**. If the PDF shows `[?]`, use **Recompile from scratch** once.
 6. Open **Word Count** and check the total. Then go through the pre-submit list, download the PDF and upload it on Canvas.
 ### Checks run in this vault (no LaTeX engine used)
-A script read both blocks on 2026-11-16 using the course environment's Python. This is a lint, not a compile.
-- Passed (21 checks): every `\cite` key is in the `.bib` and every `.bib` key is cited; no space inside the multi-key cite; braces balance in both files; `\begin` and `\end` match; `\makeatletter` is paired; plain ASCII with no dash characters; no bare `%`, `&`, `_` or `#` in the prose; no citation after a sentence period (`et al.~\cite` keeps the abbreviation spacing); dollar signs are even; `plainurl`, `citations` and `xurl` are present; no `\url` inside a `note`; four entries, all dated 2023 or later; each entry has the fields its type needs.
-- *Word count:* 602 words of prose, 27 in the footnote and 10 in the headings. The Overleaf-style total (prose, headings and footnote) is 639, and 647 with the title block. Per section: Team Members 17, Problem 168, Approach 116, Software 58, Preliminary Work 69, Evaluation 95, Time Frame 79. Overleaf's own counter may differ by a few words, since it treats inline math differently, so check it in step 6.
-- *Not checked:* page count, header and layout, `plainurl` formatting, and BibTeX warnings. These need a real compile in Overleaf. With the Writing 2 preamble I expect about 1.5 pages, which is an estimate.
+A script read both blocks on 2026-11-16 using the course environment's Python. This is a lint, not a compile. The first real compile (see above) is what exposed the `hyperref` problem that a lint could not see.
+- Passed (27 checks): every `\cite` key is in the `.bib` and every `.bib` key is cited; no space inside the multi-key cite; braces balance in both files; `\begin` and `\end` match; `\makeatletter` is paired; plain ASCII with no dash characters; no bare `%`, `&`, `_` or `#` in the prose; no citation after a sentence period (`et al.~\cite` keeps the abbreviation spacing); dollar signs are even; `plainurl` and `citations` are present; `hyperref` is loaded before `xurl`; `\emergencystretch` is set; no `\url` inside the `.bib`; four entries; for each entry the type and every official field (7, 8, 5 and 8 fields) match the publisher's export; prose above 650 words and prose plus headings and footnote below 700.
+- *Word count:* 653 words of prose, 27 in the footnote and 10 in the headings. Prose plus headings and footnote is 690, and 698 with the title block. A second counter that splits on spaces gives the same three numbers. Per section: Team Members 17, Problem 172, Approach 141, Software 74, Preliminary Work 75, Evaluation 95, Time Frame 79. Overleaf's own counter may differ by a few words, since it treats inline math differently, so check it in step 6. The target is more than 650 and fewer than 700.
+- *Not checked:* the recompile with these fixes. Expected, not verified: 0 errors; the reference list shows the DOIs once each as "doi:10.1109/..." links; the arXiv entry shows "arXiv:2609.09094 [cs.AI]" (a link) and the URL (the arXiv export has both `eprint` and `url`); the PDF stays at 2 pages, as the first compile did.
 ### Pre-submit checks
 - [ ] The Canvas due date and time are confirmed, and the PDF is uploaded before them.
-- [ ] Overleaf's word count is under 650.
+- [ ] Overleaf's word count is above 650 and below 700 (and, if it counts differently from the table above, the prose alone is still above 650).
 - [ ] Header on every page, with `Writing #3: Project Proposal` on the left and `Anant Gupta` on the right.
 - [ ] Headings read `1. Team Members` through `7. Time Frame`, then `8. References`.
-- [ ] References lists four numbered entries, with the two URLs and the DOI readable, and no `[?]` appears.
-- [ ] The Logs panel shows no `Citation ... undefined`, no `Undefined control sequence` and no missing `plainurl.bst` message.
+- [ ] References lists four numbered entries, in the order Boige, Scheiermann, Tsai, Wu, and no `[?]` appears.
+- [ ] Each DOI prints once, and the AlphaZero, MCTS, MiniZero, MuZero, Go, Othello and Atari names keep their capitals in the titles.
+- [ ] Click each of the four links in the PDF: the arXiv link opens `arxiv.org/abs/2609.09094`, the OpenReview link opens the ICLR 2026 poster page, and the two DOIs open the IEEE pages.
+- [ ] The Logs panel shows 0 errors, no `Citation ... undefined`, no `Undefined control sequence` and no `\href` message. An Underfull or Overfull `\hbox` warning is acceptable.
 - [ ] The AI-use footnote matches what really happened. Edit it if you did more or less than it says.
 - [ ] Every sentence is something I can defend. Re-read the Preliminary Work numbers against the PS3 note.
 ### Open items and risks

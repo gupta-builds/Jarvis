@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -43,8 +43,3 @@ Describes NSP as a binary classification task run alongside MLM during pretraini
 - [ ] Verify §6.4-§6.4.2 page numbers against the rendered PDF.
 - [ ] §6.4.3 (Training) is immediately adjacent but not in this week's assigned range (ENLP 6.4 only, not 6.4.3) — confirmed out of scope, not a gap, though it's the section [[20_Progress/Degree/CSCI 4521/Textbook/ENLP/Chapter - 7|Chapter 7's]] `[CLS]`-token reference points to; worth reading informally if a quiz question needs that detail.
 - [ ] Check `Code/Lectures/Week 6 - 10/2.5 modern text embeddings.ipynb` directly to confirm whether the course's hands-on work uses a pretrained BERT model (e.g. via Hugging Face) or stays at the conceptual level for this particular lecture.
-## Flashcards
-What specific problem does Masked Language Modeling solve that a naive bidirectional Transformer couldn't?::Naive bidirectional conditioning in a multi-layer Transformer lets a token indirectly "see itself" through stacked self-attention; masking the token and predicting it from context sidesteps this. #cards/csci4521
-What is BERT's masking strategy for a token selected for the ~15% masking rate?::80% of the time replace it with `[MASK]`, 10% of the time replace it with a random word, 10% of the time leave it unchanged — the model is never told which case applies. #cards/csci4521
-What does Next Sentence Prediction train the model to do, and why is the real-next-sentence replaced randomly half the time?::Predict whether sentence B truly follows sentence A; replacing the real next sentence with a random one 50% of the time keeps the binary classification task balanced. #cards/csci4521
-Why can GPT not use future context the way BERT can?::GPT uses only the Transformer Decoder with a standard next-word-prediction objective, so while reading a token it can only attend to previously-seen tokens — it is unidirectional by construction. #cards/csci4521

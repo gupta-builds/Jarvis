@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -39,7 +39,3 @@ Opens by motivating the shift to neural-network-based embeddings: efficiency/spe
 - [ ] Verify §3.2 page numbers against the rendered PDF.
 - [ ] §3.1's count-based models (PMI, dimensionality reduction, random indexing) are referenced here but are not themselves part of this week's assigned reading — confirmed out of scope per the Board's schedule, not a gap, but worth reading if a quiz question references "count-based vs. predictive" directly.
 - [ ] Check `Code/Lectures/Week 6 - 10/2.5 modern text embeddings.ipynb` directly to confirm whether the course implements Word2Vec, GloVe, or both, and whether it uses a pretrained embedding table rather than training either model from scratch.
-## Flashcards
-What is the difference between Word2Vec's CBOW and Skip-gram objectives?::CBOW predicts the target word from its surrounding context; Skip-gram predicts the surrounding context words given the target word — same architecture, reversed prediction direction. #cards/csci4521
-What does GloVe's training objective directly fit, and how does that differ from Word2Vec's approach?::GloVe fits the dot product of two word vectors (plus bias terms) to the log of their co-occurrence count, an explicit objective; Word2Vec instead learns vectors implicitly through a word-prediction task. #cards/csci4521
-What surprising theoretical connection does this section name between Skip-gram and count-based models?::Levy & Goldberg (2014b) proved Skip-gram is equivalent to an implicit factorization of a PMI co-occurrence matrix — so the predictive and count-based approaches are more mathematically related than their training procedures suggest. #cards/csci4521

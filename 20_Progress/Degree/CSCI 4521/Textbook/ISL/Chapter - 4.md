@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -50,9 +50,3 @@ Builds on the same Eq. 4.15 but factorizes $f_k(x)$ across coordinates instead o
 - [ ] Verify the §4.4 page numbers above against the actual rendered PDF (taken from `pdftotext -layout`, which can misorder multi-column figure captions).
 - [ ] Confirm whether LEC 3.1's "GMM" treatment follows this section's generative-classifier framing (supervised, known labels) or jumps straight to the unsupervised Gaussian Mixture Model setting — these use the same Gaussian-density machinery but solve different problems (known vs. latent class labels), and conflating them would be a real error to catch once the live capture lands.
 - [ ] No local lecture deck or notebook has been checked yet for whether the course's own LEC 3.1 treatment matches this textbook's LDA→QDA→Naive-Bayes progression or jumps straight to GMM — check `Lectures/Week - 6/3.1 advanced clustering, lda, gmm.pptx.pdf` and `Code/Lectures/Week 6 - 10/3.1 gaussian mixture models.ipynb` directly.
-## Flashcards
-What does a generative classifier model that a discriminative one (like logistic regression) does not?::It models each class's own distribution of the predictors, $f_k(X)=\Pr(X\mid Y=k)$, then uses Bayes' theorem to get $\Pr(Y=k\mid X)$ — rather than modeling that posterior directly. #cards/csci4521
-Why is LDA's decision boundary linear but QDA's is quadratic?::LDA assumes one shared covariance matrix across classes, which cancels the quadratic $x^\top\Sigma^{-1}x$ term when comparing two classes' discriminants; QDA's per-class $\Sigma_k$ leaves that quadratic term in, since it doesn't cancel across classes. #cards/csci4521
-When should you prefer LDA over QDA, and why?::When there isn't much training data, since LDA's shared-covariance assumption costs far fewer parameters ($p(p+1)/2$ vs. $K\cdot p(p+1)/2$) and therefore has much lower variance, even if it introduces some bias if the classes' true covariances differ. #cards/csci4521
-What specific extra assumption turns QDA into Naive Bayes?::Naive Bayes further assumes each class's covariance matrix is diagonal (predictors independent within class) — it's QDA with all off-diagonal covariance terms forced to zero. #cards/csci4521
-Why can naive Bayes still perform well even though real predictors are rarely independent?::The independence assumption introduces bias but sharply reduces variance, since it replaces estimating one full joint density with estimating several easy 1-D densities — a good trade when $n$ is small relative to $p$. #cards/csci4521

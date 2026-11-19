@@ -1,6 +1,6 @@
 ---
 type: class
-input_kind: lecture
+class_kind: week
 status: seed
 created: 2026-09-08
 updated: 2026-10-05
@@ -12,8 +12,8 @@ area:
   - "[[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3|DLB Chapter 3]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5|DLB Chapter 5]]"
 tags:
-  - "#class"
-  - "#Lecture"
+  - class
+  - lecture
 next: "Add protected Week 1 live capture if available and verify the unreadable Week 1 PDF deck in a text-accessible reader."
 ---
 # CSCI 4521 — Week 1
@@ -60,7 +60,6 @@ No protected human live capture is present in this file. The notes below are fro
 - Concept links: None created in this build.
 > [!WARNING]
 > A nearest point in unnormalized coordinates can be “nearest” mainly because one feature has a larger numerical range; that is a representation decision, not evidence about the label.
-
 > [!SUMMARY]
 > Week 1 moves from inspecting tabular data to a concrete distance-based classifier, with normalization as part of the model rather than cosmetic preprocessing.
 ## Flashcards

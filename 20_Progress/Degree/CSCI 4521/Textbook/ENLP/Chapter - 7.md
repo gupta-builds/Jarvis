@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -42,7 +42,3 @@ Motivates direct sentence training as the fix for BoW's word-order blindness. Wa
 ## Open Questions
 - [ ] Verify §7.1.1-§7.1.2 page numbers against the rendered PDF.
 - [ ] Confirm whether the course's `2.1`/`2.2` notebooks implement plain unweighted bag-of-words, tf-idf-weighted averaging, or go as far as Skip-Thought-style sentence training — the notebook filenames ("tf-idf vectorization," "text classification") suggest the course stays at the §7.1.1 bag-of-words/tf-idf level without covering Skip-Thought/Quick-Thoughts, but this is unverified until the notebooks are opened and the live lecture capture lands.
-## Flashcards
-What is the core limitation of bag-of-words sentence representations?::They discard word order by construction, which makes them unsuitable for tasks where order carries meaning, such as sentiment analysis, language inference, or generation tasks like machine translation. #cards/csci4521
-How does Skip-Thought learn a sentence representation, and what does Quick-Thoughts change?::Skip-Thought encodes a sentence with an RNN and decodes (generates) the predicted next sentence; Quick-Thoughts replaces that expensive generation step with a cheaper classification task — selecting the correct next sentence from sampled candidates — making it more scalable. #cards/csci4521
-What are the two common ways to get a sentence embedding from a pretrained language model like BERT?::Use a single contextualized token embedding (e.g. the `[CLS]` token) as the sentence representation, or average all the token embeddings in the sentence. #cards/csci4521

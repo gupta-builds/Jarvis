@@ -1,6 +1,6 @@
 ---
 type: class
-input_kind: lecture
+class_kind: week
 status: seed
 created: 2026-09-15
 updated: 2026-10-05
@@ -11,8 +11,8 @@ area:
   - "[[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5|DLB Chapter 5]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3|DLB Chapter 3]]"
 tags:
-  - "#class"
-  - "#Lecture"
+  - class
+  - lecture
 next: "Add protected Week 2 live capture and verify the 1.2/1.3 PDF decks in a text-accessible reader before calling this week reconciled."
 ---
 # CSCI 4521 — Week 2
@@ -60,7 +60,6 @@ No protected human live capture is present. These notes come from `1.2 NN Classi
 - Concept links: None created in this build.
 > [!WARNING]
 > A favorable training score—or a favorable single random split—is not evidence that a $K$ value generalizes; the held-out procedure and preprocessing choices are part of the claim.
-
 > [!SUMMARY]
 > Week 2 turns nearest-neighbor classification into an evaluation problem: choose $K$ from withheld-data behavior, not from how completely a model remembers its training rows.
 ## Flashcards

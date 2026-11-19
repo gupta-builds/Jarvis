@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -41,9 +41,3 @@ Opens with the breast-cancer-subtype and market-segmentation motivating examples
 - [ ] Verify the USArrests PC1/PC2 loading table (p. 508) against the rendered PDF directly — the extracted text's column alignment for Table 12.1 is ambiguous (Murder/UrbanPop/Rape labels and their PC1/PC2 values may be shifted by one row in the `pdftotext -layout` output used here).
 - [ ] Confirm whether LEC 2.3/2.4 present PCA via the eigendecomposition route (this chapter's primary framing) or the SVD route ([[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5|DLB Chapter 5]]'s primary framing) once live lecture capture lands — the two are mathematically equivalent but the professor's board work will favor one.
 - [ ] §12.4.2 (Hierarchical Clustering) and §12.4.3 (Practical Issues in Clustering) are not in this course's assigned reading per the Board's schedule — confirmed out of scope for Weeks 5-6, not a gap.
-## Flashcards
-What exactly does the first principal component maximize, and under what constraint?::The sample variance of $Z_1=\sum_j\phi_{j1}X_j$, subject to the loading vector being normalized: $\sum_j\phi_{j1}^2=1$. #cards/csci4521
-What is the chapter's own one-sentence contrast between PCA and clustering?::PCA finds a low-dimensional representation explaining most of the variance; clustering finds homogeneous subgroups among the observations — different goals, not interchangeable dimensionality-reduction tools. #cards/csci4521
-Why isn't K-means guaranteed to find the globally best clustering?::Minimizing the K-means objective exactly would require checking on the order of $K^n$ partitions, which is infeasible; the standard algorithm only guarantees convergence to a local optimum, which depends on the random initial assignment. #cards/csci4521
-What practical step compensates for K-means landing on a local optimum?::Run the algorithm multiple times from different random initial cluster assignments, then keep the result with the smallest objective value (total within-cluster variation). #cards/csci4521
-What two equivalent ways can you describe what the first $M$ principal components give you?::The $M$ directions of maximal variance in the data, or equivalently the best (least-squares) $M$-dimensional linear approximation to the data — two views of the same solution. #cards/csci4521

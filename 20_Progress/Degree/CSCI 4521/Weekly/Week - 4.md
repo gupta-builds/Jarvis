@@ -67,7 +67,6 @@ No protected human live capture is present yet. LEC 1.5 notes come from `Lecture
 - Concept links: None created in this build.
 > [!WARNING]
 > Answering a quiz question about "bias" with the wrong sense of the word — the textbook reading and the lecture both use the term this week, but for genuinely unrelated concepts.
-
 > [!SUMMARY]
 > Week 4 closes Unit 1 by naming kNN's real computational cost and how to reduce it (KD-trees, LSH), names data bias as a distinct ethics concern from statistical estimator bias, and opens Unit 2 by giving text data a precise, computable notion of "similar" via bag-of-words and cosine similarity.
 ## Flashcards

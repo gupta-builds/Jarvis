@@ -1,6 +1,6 @@
 ---
 type: class
-input_kind: board
+class_kind: board
 status: sprout
 created: 2026-09-07
 updated: 2026-09-15
@@ -8,8 +8,8 @@ area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
 tags:
-  - "#class"
-next: "Confirm on Canvas that the instructor, TAs, meeting time, and location below are actually current for Fall'26 - the source PDF is dated Fall 2025. Separately, save the ENLP/Linear Algebra Notes/PyTorch intro series resources locally once found on Canvas."
+  - class
+next: "Confirm the instructor, TAs, meeting time and location on Canvas (the source PDF is dated Fall 2025). Save the Linear Algebra Notes and the PyTorch intro series locally. Drop the Quiz 4 and Quiz 5 solution files in the source Quizzes/ folder."
 ---
 # CSCI 4521 — Applied Machine Learning
 Fall'26, 3 credits. CSCI-designated Technical Elective. Per [[APAS]] this is the class that closes Upper-Division Major Credits exactly at 19/19 - nothing else in the current plan does that on its own. Syllabus read in full from the source folder, 2026-09-10.

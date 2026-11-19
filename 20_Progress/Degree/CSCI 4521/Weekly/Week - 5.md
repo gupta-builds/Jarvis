@@ -12,7 +12,7 @@ area:
 tags:
   - class
   - lecture
-next: "Add protected Week 5 live capture and open the 2.2 notebook directly; capture Quiz 2's real content once reviewed."
+next: "Add protected Week 5 live capture and open the 2.2 notebook directly; fill [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 2|Quiz - 2]]'s Mistakes and Gaps."
 ---
 # CSCI 4521 — Week 5
 ## What you must be able to do
@@ -43,7 +43,7 @@ This week's assigned reading (ISL §12.4, DLB §5.8 intro + §5.8.2, and a repea
 ## Takeaways (questions to resolve)
 - [ ] Open `2.2 text classification.ipynb` directly to capture its real predicted-topic results, any reported classification accuracy, and the "best/worst closest story" examples the ChimeIn prompt asks for.
 - [ ] Add protected Week 5 live capture, including HW1 submission discussion and any real class feedback on the UseNet classification exercise.
-- [ ] Capture Quiz 2's real content once reviewed or returned.
+- [ ] Fill [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 2|Quiz - 2]]'s Mistakes and Gaps from the returned copy. The key is written up there. It tests PCA, which the Board schedules a week later.
 ## Lecture-to-textbook synthesis
 ==Week 5 is a deliberate practice week: no new mechanism is introduced, and the real test of understanding is whether Week 4's tf-idf/stop-words/stemming/cosine-similarity toolkit still works cleanly on a genuinely messy real-world dataset (20,000 UseNet posts) rather than a three-sentence toy example.==
 *Mechanism:* the same pipeline from Week 4 (tokenize → vectorize → weight by tf-idf → measure cosine similarity) is applied unchanged; what changes is the dataset's scale and noise, which is the actual point of a "practice" lecture — a technique that works on a clean three-word toy sentence has to prove it still works once sentence length, vocabulary size, and topic overlap are realistic.
@@ -52,7 +52,6 @@ This week's assigned reading (ISL §12.4, DLB §5.8 intro + §5.8.2, and a repea
 - Concept links: None created in this build.
 > [!WARNING]
 > Treating this week as "nothing to study" because no new formula appears — the quiz style this course uses (interpret results on a new dataset) means a practice week is exactly the kind of week likely to be tested directly.
-
 > [!SUMMARY]
 > Week 5 is the bridge between learning the NLP toolkit (Week 4) and needing it to actually work at real scale (the 20-newsgroups UseNet dataset), while the assigned reading looks ahead to Week 6's clustering unit.
 ## Flashcards

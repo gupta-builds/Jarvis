@@ -11,7 +11,7 @@ area:
 tags:
   - class
   - lecture
-next: "Add protected Week 3 live capture (especially the ChimeIn COVID example's actual computed numbers and the class's own precision/recall discussion) and confirm Quiz 1's real content once reviewed."
+next: "Add protected Week 3 live capture (especially the ChimeIn COVID example's actual computed numbers and the class's own precision/recall discussion) and fill [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 1|Quiz - 1]]'s Mistakes and Gaps."
 ---
 # CSCI 4521 — Week 3
 ## What you must be able to do
@@ -19,7 +19,7 @@ next: "Add protected Week 3 live capture (especially the ChimeIn COVID example's
 - Build a binary confusion matrix (TP/FP/TN/FN) from raw classification counts and name which cell corresponds to Type I vs. Type II error.
 - Compute accuracy, precision, recall, and F1 from a confusion matrix, and state which metric to prioritize when false positives and false negatives have different real-world costs.
 - Explain why accuracy alone is misleading on unbalanced data.
-- State Quiz 1's actual scope once reviewed (not yet captured in this note).
+- Quiz 1 scope, from its solution key: kNN distance and $k$, overfitting and bias-variance, regression vs classification, confusion-matrix metrics, Bayes error and feature scaling. See [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 1|Quiz - 1]].
 ## Key ideas (short)
 - **Type I vs. Type II error:** a false positive is Type I (false alarm); a false negative is Type II (miss) — precision targets Type I, recall targets Type II.
 - **Accuracy's two named failure modes:** unbalanced data (a trivial majority-class predictor can score high) and blending Type I/II errors that may have very different real costs.
@@ -46,7 +46,7 @@ No protected human live capture is present yet. These notes come directly from `
 [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]]'s §2.2 bias-variance decomposition and test-MSE framing is the formal backing for LEC 1.4's "overfitting dos and don'ts" — the deck's practical advice (hold out test data, avoid overly flexible models) is exactly what the textbook's bias-variance trade-off predicts will reduce test error. The textbook does not cover the confusion-matrix/precision/recall/F1 material directly in the assigned §2.1-2.3 range — that material is lecture-original for this course, grounded in the deck itself rather than this week's textbook reading (which, per the Board, is ISL §2.2 only — a continuation of Weeks 1-2's reading, not new material).
 ## Takeaways (questions to resolve)
 - [ ] Add protected Week 3 live capture — in particular, the actual computed accuracy/precision/recall/F1 numbers for the COVID-19 example and whatever the class concluded about which metric matters most for medical diagnosis.
-- [ ] Capture Quiz 1's real content once reviewed or returned — this vault has no record of it yet, and the Board itself logs a pattern of printed quiz-cadence anomalies in this course's sibling course ([[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304]]), so confirm Quiz 1 happened in class as scheduled rather than assuming it.
+- [ ] Fill [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 1|Quiz - 1]]'s Mistakes and Gaps from the returned copy. The solution key is written up there, but the key has no record of your answers.
 - [ ] Confirm whether the deck's listed "other metrics" (Fowlkes-Mallows, Cohen's Kappa, MCC, etc.) are quiz-testable or purely enrichment — the deck itself doesn't derive them, which may mean they're out of scope.
 ## Lecture-to-textbook synthesis
 ==A confusion matrix's four cells are not symmetric in cost — precision and recall each isolate a different one of the two error types, and the "right" metric to optimize depends on which error type is actually expensive in the task at hand.==
@@ -56,7 +56,6 @@ No protected human live capture is present yet. These notes come directly from `
 - Concept links: None created in this build.
 > [!WARNING]
 > Reporting only accuracy on an unbalanced dataset, or picking F1 by default without asking whether a false positive or a false negative is actually worse in the specific task — the deck's own COVID example is built exactly to make students notice recall matters more than precision there, not to teach "always use F1."
-
 > [!SUMMARY]
 > Week 3 turns "is this classifier good" into a question with more than one right answer depending on which of the two error types the task actually penalizes — accuracy, precision, recall, and F1 each answer a different version of that question.
 ## Flashcards

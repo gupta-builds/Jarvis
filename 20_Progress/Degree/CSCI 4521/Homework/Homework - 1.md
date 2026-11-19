@@ -1,14 +1,14 @@
 ---
 type: class
-input_kind: homework
-status: active
+class_kind: homework
+status: sprout
 created: 2026-10-05
 updated: 2026-10-06
 area:
   - "[[CSCI 4521 Board]]"
 deadline: 2026-10-05
 tags:
-  - "#class"
+  - class
   - "#Homework"
 next: "Restart and Run All in the notebook, build the 3 page Word report from the Report Content section, export to PDF, then submit the PDF and the notebook on Canvas inside the 24-hour grace window."
 ---

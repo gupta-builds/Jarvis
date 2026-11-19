@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-05
-updated: 2026-10-21
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -77,15 +77,3 @@ Figure 5.9 is the chapter's own illustration: 1 relevant dimension with 10 regio
 - [ ] Verify the exact DLB §5.1–§5.2 edition, section boundaries, and normal-equation assumptions in `DLB Textbook CSCI 4521.pdf` with a text-accessible reader (page numbers above came from `pdftotext -layout`, not a rendered page view — spot-check a few against the actual PDF pages).
 - [ ] Check whether the live Week 2 lecture explicitly connects $K$ selection to capacity, effective capacity, or only empirical test accuracy.
 - [ ] Confirm whether LEC 2.3/2.4/2.5 (Weeks 5-6) frame PCA/k-means via the SVD derivation this chapter uses, or via the more elementary treatment in [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 12|ISL Chapter 12]] — the two textbooks derive the same mechanism differently and the live lecture capture (not yet added) should say which one the professor actually used on the board.
-## Flashcards
-What must be specified to say that a program learns?::Its task $T$, performance measure $P$, and experience $E$, with improved $P$ on $T$ after $E$. #cards/csci4521
-Why must a test set be separate from the training set?::Training performance can reflect memorization; independent test examples estimate generalization to unseen data. #cards/csci4521
-What is the difference between representational and effective capacity?::Representational capacity is the function family the model can express; effective capacity is the portion reached in practice under its optimization procedure. #cards/csci4521
-What does weight decay change in a learning objective?::It adds a penalty such as $\lambda w^\top w$ that favors smaller parameters and can reduce effective capacity. #cards/csci4521
-Why is the sample variance $\hat\sigma_m^2$ (divide by $m$) biased but $\tilde\sigma_m^2$ (divide by $m-1$) unbiased?::$\hat\sigma_m^2$'s expectation comes out $\frac{m-1}{m}\sigma^2$, short by a factor that shrinks as $m$ grows; dividing by $m-1$ instead of $m$ exactly cancels that shortfall. #cards/csci4521
-What single fact makes "minimize cross-entropy" and "maximize likelihood" the same optimization?::Minimizing $D_{KL}(\hat p_{data}\|p_{model})$ reduces to minimizing $-E_{x\sim\hat p_{data}}[\log p_{model}(x)]$ because the other KL term depends only on the data, not the model — so it drops out of the optimization. #cards/csci4521
-What does the Bayesian approach do instead of picking one point estimate of $\theta$?::It integrates predictions over the full posterior distribution over $\theta$, weighting each possible value by its posterior probability — this is what protects it against overfitting with limited data. #cards/csci4521
-Why does PCA's projection $z=xW$ have a diagonal covariance?::$W$ is built from the right singular vectors of the (centered) design matrix $X=U\Lambda W^\top$; using $U^\top U=I$ and $W^\top W=I$, $\mathrm{Var}[z]$ reduces algebraically to $\frac{1}{m-1}\Lambda^2$, which is diagonal by construction. #cards/csci4521
-What is the one-hot code k-means produces, and why is it called sparse?::A length-$k$ vector with a single 1 (the assigned cluster) and the rest 0 — sparse because almost every entry is zero for every input, the most extreme case of a sparse representation. #cards/csci4521
-Why is clustering called "ill-posed" even when the algorithm runs correctly?::There's no single objective criterion for which clustering is "correct" — a cars/trucks dataset can be split validly by color, by vehicle type, or into four finer groups, and nothing in the data alone picks one as right. #cards/csci4521
-Why does the curse of dimensionality break "look at nearby training points" strategies?::The number of distinct regions grows as $O(v^d)$ with dimension $d$; past a modest $d$, almost every region has zero training examples, so there's nothing nearby to generalize from. #cards/csci4521

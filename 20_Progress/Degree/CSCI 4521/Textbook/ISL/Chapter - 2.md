@@ -1,15 +1,15 @@
 ---
 type: class
-input_kind: book
+class_kind: textbook
 status: sprout
 created: 2026-10-05
-updated: 2026-10-05
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
 tags:
-  - "#class"
-  - "#Textbook"
+  - class
+  - textbook
 next: "Verify ISL §2.1–§2.3 against the local PDF in a text-accessible reader, then reconcile this note with Week 1–2 live capture."
 ---
 # ISL Chapter 2 — Statistical Learning (§2.1–§2.3)
@@ -30,7 +30,7 @@ next: "Verify ISL §2.1–§2.3 against the local PDF in a text-accessible reade
 - **NumPy arrays:** `np.array`, `.shape`, `.ndim`, and `.dtype` represent and inspect numerical data; `reshape` can share the underlying array rather than make an independent copy.
 - **pandas indexing:** `.iloc` selects by integer position, while `.loc` selects by label or Boolean condition. Confusing them changes the selection rule, not merely the spelling.
 - **Plots as model checks:** Matplotlib axes support line, scatter, contour, and image plots; pandas summaries and plots expose distributions, missingness, and relationships before modeling.
-## Examples Worth Keeping
+## Worked Example
 - In the chapter's simulated Income example, a linear plane misses curved structure, while an overly rough thin-plate spline can pass through the training points and fit noise. The useful comparison is test behavior, not the zero training error of the rough surface.
 - The classification discussion contrasts $K=1$, which can achieve zero training error by following individual points, with a very large $K$, which washes out local class structure. The selection target is low test error.
 - The lab's `Auto` data workflow uses `pd.read_csv`, `dropna`, `.loc`, `.iloc`, `describe`, scatterplots, boxplots, histograms, and scatter-matrix views to inspect a table before fitting a model.
@@ -41,8 +41,3 @@ next: "Verify ISL §2.1–§2.3 against the local PDF in a text-accessible reade
 ## Open Questions
 - [ ] Verify the exact ISL edition and page anchors for §2.1–§2.3 in `ISL Textbook CSCI 4521.pdf` using a text-accessible PDF reader.
 - [ ] Reconcile whether the instructor's Week 1–2 use of normalization followed the book's lab convention or a separate lecture convention.
-## Flashcards
-Why is low training MSE not enough to select a model?::A flexible method can fit random training noise; test MSE estimates error on new data and reveals that failure. #cards/csci4521
-What distinguishes parametric from non-parametric estimation?::A parametric method fixes a functional form and estimates its parameters; a non-parametric method relaxes that form but generally needs more data to estimate the relationship. #cards/csci4521
-What changes when $K$ in $K$NN is very small versus very large?::Small $K$ follows local points closely and tends toward low bias/high variance; large $K$ smooths neighborhoods and can miss local class structure. #cards/csci4521
-What is the operational difference between `.loc` and `.iloc`?::`.loc` selects with labels or Boolean conditions, whereas `.iloc` selects by integer position. #cards/csci4521

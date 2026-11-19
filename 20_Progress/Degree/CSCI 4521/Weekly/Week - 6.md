@@ -66,7 +66,7 @@ No protected human live capture is present yet. LEC 2.3 notes come from `Lecture
 - [ ] Resolve the "Linear Algebra Notes" gap: the k-means deck's own closing slide links to "linear algebra notes from 2033" (presumably CSCI 2033, a prerequisite course per [[CSCI 5304 Board]]'s own reference to the same course) — check whether the user has existing CSCI 2033 notes in this vault that satisfy the Board's flagged gap, or whether this is a separate handout that genuinely needs to be located on Canvas.
 - [ ] Open the four companion notebooks directly (`2.3`/`2.4`×2/`2.5`) to capture real computed output: the k-means word-cloud result, the iris/newsgroups PCA explained-variance numbers, and the embedding-similarity example from LEC 2.5's practice notebook.
 - [ ] Add protected Week 6 live capture, especially any in-class resolution of the "why is this problem related to the SVD" claim LEC 2.4 asserts but doesn't prove on the slide.
-- [ ] Confirm whether Quiz 3 (this Thursday, 10/15 per the printed schedule — note this is the same week, not the following one, since this course's quiz cadence is Thursdays) tests this week's unsupervised-learning content or Week 7's upcoming LDA/GMM material; the Unit 2 recap slide at the end of LEC 2.5 is the professor's own suggested scope.
+- [x] Quiz 3 was Thu 10/22, not 10/15, and covered k-means, covariance, GMM, LDA and embeddings. See [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 3|Quiz - 3]].
 ## Lecture-to-textbook synthesis
 ==PCA and k-means both compress unlabeled data, but by genuinely different criteria (maximum retained variance vs. minimum within-group distance) — and in both cases, the professor's own worked examples (the elbow test, the six-run local-optima comparison) demonstrate that "how many components/clusters" has no formula answer, only a heuristic one.==
 *Mechanism:* PCA solves $\max_c\|Xc\|^2$ s.t. $\|c\|=1$ via the eigendecomposition of $XX^\top$ (equivalently SVD), producing a ranked sequence of orthogonal directions; k-means solves $\min_{C_1,\dots,C_k}\sum_k W(C_k)$ via iterative centroid-reassignment, producing a one-hot cluster label per point. Both objectives trivially "improve" by adding more components/clusters, which is exactly why neither can be optimized by just checking the objective value — the elbow method substitutes a visual slope-change heuristic for an actual stopping rule.
@@ -75,7 +75,6 @@ No protected human live capture is present yet. LEC 2.3 notes come from `Lecture
 - Concept links: None created in this build.
 > [!WARNING]
 > Assuming PCA's explained-variance ratio or k-means' within-cluster variation has an optimal value to solve for — both metrics monotonically improve with more components/clusters by construction, so "pick the one that maximizes/minimizes this" is not a valid stopping rule.
-
 > [!SUMMARY]
 > Week 6 is this course's linear-algebra-heaviest week: PCA and k-means are introduced as the two core unsupervised methods, both requiring a heuristic (not formula-driven) choice of how much structure to keep, while LEC 2.5 closes Unit 2 by tracing word embeddings from Word2Vec through GloVe to BERT.
 ## Flashcards

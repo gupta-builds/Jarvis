@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-05
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -42,8 +42,3 @@ Section-by-section anchors (pp. 31-48): §2.1 Scalars/Vectors/Matrices/Tensors (
 ## Open Questions
 - [ ] Verify the exact edition, section page anchors, and numerical-computation caveat in `DLB Textbook CSCI 4521.pdf` with a text-accessible reader.
 - [ ] Work one concrete $Ax=b$ example and identify whether the target is inside the column space before using an inverse formula.
-## Flashcards
-Why is $AB$ different from $A\odot B$?::$AB$ sums row–column products and requires compatible inner dimensions; $A\odot B$ multiplies matching entries of same-shaped arrays. #cards/csci4521
-What does the column space decide in $Ax=b$?::It is the set of reachable outputs; a solution exists only if $b$ lies in the span of $A$'s columns. #cards/csci4521
-Why is $x=A^{-1}b$ not the default numerical recipe?::It is an algebraic identity when the inverse exists, but forming an inverse can amplify floating-point error; direct solvers are preferred. #cards/csci4521
-How does SVD differ from eigendecomposition?::SVD factorizes any real rectangular matrix as $UDV^\top$; eigendecomposition concerns square matrices and their eigenvectors. #cards/csci4521

@@ -1,13 +1,13 @@
 ---
 type: class
-input_kind: preparation
+class_kind: preparation
 status: sprout
 created: 2026-09-10
 updated: 2026-09-15
 area:
   - "[[CSCI 4521 Board]]"
 tags:
-  - "#class"
+  - class
 next: "Confirm on Canvas that the Fall 2025-dated syllabus (instructor, meeting time, TAs) is actually current for this semester, per CSCI 4521 Board's warning"
 ---
 # CSCI 4521 — Preparation

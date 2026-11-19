@@ -3,7 +3,7 @@ type: class
 class_kind: textbook
 status: sprout
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
@@ -43,8 +43,3 @@ Short section tracing VSM's lineage: originated for document modeling in informa
 ## Open Questions
 - [ ] Verify §1.1-§1.3 page numbers against the actual rendered PDF (taken from `pdftotext -layout`, whose page-break markers can be slightly offset from true page boundaries).
 - [ ] No local lecture deck or notebook has been checked for whether LEC 2.1/2.2 (`Lectures/Week - 4/2.1 text data, intro to nlp.pptx.pdf`, `2.2 nlp practice.pptx.pdf`, and the companion notebooks `2.1 tf-idf vectorization, sklearn.ipynb`, `2.2 text classification.ipynb`) actually open with this same one-hot-to-VSM framing or jump straight into practical tf-idf vectorization — check directly once building the Week 4/5 weekly notes' live-capture sections.
-## Flashcards
-What two distinct problems does character-level (ASCII) word representation have?::It encodes no semantic similarity between words (even synonyms get unrelated bit patterns), and its size scales with word length rather than being fixed. #cards/csci4521
-What does one-hot representation fix, and what does it leave unfixed?::It fixes the variable-size problem (every word gets the same-length vector); it does not fix the no-similarity problem, since every pair of distinct words is still maximally dissimilar by construction. #cards/csci4521
-What is the defining property of a Vector Space Model that one-hot encoding lacks?::Distance in the space corresponds to semantic similarity — words with related meanings end up spatially close, which one-hot's one-axis-per-word structure cannot represent. #cards/csci4521
-Where did the Vector Space Model originate, and how did it reach word-level representation?::It originated in information retrieval for modeling documents (Salton et al., 1975); later researchers (Schütze 1993, Lund et al. 1995, Landauer & Dumais 1997) extended it from documents to words. #cards/csci4521

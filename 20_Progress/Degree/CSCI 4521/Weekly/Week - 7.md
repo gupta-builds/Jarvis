@@ -12,7 +12,7 @@ area:
 tags:
   - class
   - lecture
-next: "Add protected Week 7 live capture; Quiz 3 is today (10/22) — confirm its real scope and content once sat/returned, and whether it covers this week's LDA/GMM or stays within Week 6's PCA/k-means/embeddings per the LEC 2.5 recap slide."
+next: "Add protected Week 7 live capture; fill [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 3|Quiz - 3]]'s Mistakes and Gaps from the returned copy."
 ---
 # CSCI 4521 — Week 7
 ## What you must be able to do
@@ -49,7 +49,7 @@ No protected human live capture is present yet. These notes come directly from `
 ## Textbook integration
 [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 4|ISL Chapter 4]]'s §4.4.1-§4.4.2 gives the exact algebra the lecture asserts but compresses — the full derivation from Bayes' theorem through the Gaussian density to the linear discriminant function $\delta_k(x)$, including the worked $p=1$ numeric example (Bayes error 10.6% vs. LDA 11.1%) the lecture deck doesn't reproduce. §4.4.3 is the lecture's own cited source for QDA, including the real parameter-count argument ($K\cdot p(p+1)/2$ for QDA vs. a shared $p(p+1)/2$ for LDA) that formalizes the lecture's "QDA is more flexible but costs more" claim. **Real gap, not filled this build:** neither [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 4|ISL Chapter 4]] nor [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5|DLB Chapter 5]] covers Gaussian Mixture Models or Expectation-Maximization — the Board's own assigned reading for this week (ISL 4.4, DLB 5.4.2, 5.11.1) stops at the supervised LDA/QDA/Naive-Bayes material and the general bias/curse-of-dimensionality framing; GMM itself is lecture-original content for this course, sourced here directly from the deck rather than from an assigned textbook section. [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5|DLB Chapter 5]]'s §5.4.2 (bias) and §5.11.1 (curse of dimensionality) connect to this week only indirectly — the curse-of-dimensionality framing is the general case of QDA's parameter-count cost, worth citing on a quiz that asks "why prefer LDA over QDA with limited data," but the lecture itself never names "curse of dimensionality" directly.
 ## Takeaways (questions to resolve)
-- [ ] Confirm Quiz 3's real scope today — the LEC 2.5 Unit 2 recap slide (end of Week 6) suggests the quiz may test PCA/k-means/embeddings rather than this week's LDA/GMM content, since quizzes are described as testing "the prior two weeks," and Week 7's own Tuesday lecture (LDA/GMM) may be too recent to be in scope. Do not assume either way without checking.
+- [x] Quiz 3 scope confirmed from its key: k-means, elbow, covariance, GMM, LDA and embeddings. Fill Mistakes and Gaps in [[20_Progress/Degree/CSCI 4521/Quizzes/Quiz - 3|Quiz - 3]].
 - [ ] Open `3.1 gaussian mixture models.ipynb` directly to capture the real Mickey-Mouse and overlapping-distribution clustering results, and any reported log-likelihood or cluster-probability numbers.
 - [ ] Add protected Week 7 live capture, especially the class's own sketched answers to the two PCA/k-means-failure activities.
 - [ ] Consider whether a concept note for Gaussian Mixture Models (or LDA/QDA together) is now warranted, given GMM's genuine complexity and its status as lecture-original (not textbook-backed) content — per the Workflow's concept-note discipline, this would need to recur or prove load-bearing beyond this one week before it earns a dedicated note; flagged here as a candidate, not created.
@@ -61,7 +61,6 @@ No protected human live capture is present yet. These notes come directly from `
 - Concept links: None created in this build.
 > [!WARNING]
 > Treating GMM as "just k-means with extra steps" rather than noticing the actual mechanism change — GMM assigns points by Gaussian likelihood (a genuinely different rule from nearest-centroid-by-distance), which is exactly what lets it handle anisotropic and overlapping clusters k-means cannot.
-
 > [!SUMMARY]
 > Week 7 extends both of Week 6's unsupervised methods into forms that model covariance explicitly: LDA/QDA for supervised classification (known labels, Gaussian-per-class) and GMM for unsupervised clustering (unknown labels, Gaussian-per-cluster via EM) — the shared thread is that assuming one covariance for everything buys simplicity, and assuming a separate covariance per group buys flexibility at a real cost.
 ## Flashcards

@@ -3,13 +3,13 @@ type: class
 class_kind: textbook-map
 status: sprout
 created: 2026-09-10
-updated: 2026-10-22
+updated: 2026-11-19
 area:
   - "[[CSCI 4521 Board]]"
 tags:
   - class
   - textbook
-next: "Verify all page numbers below against the rendered PDFs directly (built from pdftotext -layout output, not a rendered page view); open the four companion notebooks from Weeks 5-7 to capture their real computed output."
+next: "Run each Week 8-11 note's NotebookLM prompt from Repetitive Things and reconcile. Rebuild the legacy Week 1-7 notes (ISL Chapter 2 and DLB Chapter 3 lack Full Reading Notes) to the new Textbook Standard."
 ---
 # CSCI 4521 — Textbook Map
 ## Purpose
@@ -37,9 +37,20 @@ Navigation and coverage ledger for the course's assigned readings across three t
 | ISL Ch. 4 §4.4 (LDA, QDA, Naive Bayes) | [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 4|ISL Chapter 4]] | Week 7 — Oct 20/22 | prepared — landed 2026-10-22, read directly from the PDF, includes the real Bayes-error-vs-LDA-error worked numbers |
 | DLB Ch. 5 §5.4.2 (Bias), §5.11.1 (Curse of Dimensionality) | [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5|DLB Chapter 5]] | Week 7 — Oct 20/22 | prepared — landed 2026-10-22 |
 | Gaussian Mixture Models / Expectation-Maximization | none — not in any assigned textbook section | Week 7 — Oct 20/22 (lecture-only) | **confirmed out of scope for this course's three textbooks** — LEC 3.1 teaches GMM directly from the deck; neither ISL nor DLB's assigned ranges cover it. Not a gap to fill from memory; sourced in [[20_Progress/Degree/CSCI 4521/Weekly/Week - 7|Week 7]] from the lecture deck itself. |
-| Later scheduled material (PyTorch intro series, ISL 3.1–3.3/3.5/6.2–6.4, DLB 5.7.1/5.9, and everything from Week 8 onward) | [[CSCI 4521 Board]] | Weeks 8–16 | not started |
+| ISL Ch. 3 §§3.1–3.2 | [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 3|ISL Chapter 3]] | Week 8 — Oct 27/29 | prepared — landed 2026-11-19 from MinerU pages 79-99. §3.2.2 (F-statistic, selection, prediction) was skimmed. NotebookLM re-run pending |
+| ISL Ch. 3 §§3.3–3.5 | [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 3 (Part 2)|ISL Chapter 3 (Part 2)]] | Week 8 and Week 9 (LEC 3.4) | prepared — landed 2026-11-19 from pages 100-124. NotebookLM re-run pending |
+| ISL Ch. 6 §§6.1–6.2 | [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 6|ISL Chapter 6]] | Week 8 and Week 9 | prepared — landed 2026-11-19 from pages 239-260. Lasso-vs-ridge comparison figures summarized only |
+| ISL Ch. 6 §§6.3–6.4 | [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 6 (Part 2)|ISL Chapter 6 (Part 2)]] | Week 8 | prepared — landed 2026-11-19 from pages 261-274 |
+| ISL Ch. 4 §4.3 (and §4.3.5) | [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 4 (Part 2)|ISL Chapter 4 (Part 2)]] | Week 10 and Week 11 | prepared — landed 2026-11-19 from pages 147-154 |
+| DLB Ch. 5 §5.7.1, §5.9, §5.10 | [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5 (Part 2)|DLB Chapter 5 (Part 2)]] | Week 8, Week 9, Week 10 | prepared — landed 2026-11-19 from pages 155 and 165-169. §5.5 is in the existing Chapter - 5 note |
+| DLB Ch. 6 §6.1, §6.2 (to §6.2.2.2) | [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 6|DLB Chapter 6]] | Week 10 and Week 11 | prepared — landed 2026-11-19 from pages 185-197. Softmax (§6.2.2.3) belongs to Week 13 |
+| DLB Ch. 8 §8.3.1–§8.3.2 | [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 8|DLB Chapter 8]] | Week 10 | prepared — landed 2026-11-19 from pages 309-313. Nesterov (§8.3.3) not covered |
+| ISL 11.7.1 (Week 10) and the PyTorch intro series (Week 8) | none — not covered | Week 8 and Week 10 | **not started.** The PyTorch series is still not found locally. ISL 11.7.1 was not read |
+| Later scheduled material (Weeks 12–16: ISL 10.1–10.5, DLB Ch. 6–12 blocks) | [[CSCI 4521 Board]] | Weeks 12–16 | not started |
 ## Status
 Weeks 1-2's four chapter notes remain `needs review` pending a page-level PDF verification pass (unchanged from the prior build). Weeks 3-7 are now substantially landed as of 2026-10-22: Week 3 needed no new textbook note (its ISL §2.2 reading is already inside the Week 1-2 canonical note); Weeks 4-7 together added six new canonical chapter notes (ISL Ch. 4, ISL Ch. 12, ENLP Ch. 1, ENLP Ch. 3, ENLP Ch. 6, ENLP Ch. 7) and extended two existing ones (DLB Ch. 2 with a Full Reading Notes section connecting §2.7-2.8 to Week 6; DLB Ch. 5 extended from §5.1-5.2 to also cover §5.4-5.6, §5.8, §5.11.1). All six new notes and both extensions were built by reading the actual PDFs directly via `pdftotext -layout` extraction (this environment has no PDF-rendering tool, but text extraction works cleanly on all three books) — not from NotebookLM, not from memory. Two real, confirmed gaps remain open: the "Linear Algebra Notes" handout (Week 6) is still not locally found, though a promising lead surfaced this build (the k-means lecture deck's own closing slide links to "linear algebra notes from 2033," i.e. possibly CSCI 2033 material already in this vault — not yet checked); and Gaussian Mixture Models (Week 7's LEC 3.1) has no textbook backing in any of the three assigned books at all, confirmed lecture-original content, not a note-building gap. Four companion notebooks from Weeks 5-7 (`2.2 text classification`, `2.3 k-means clustering`, `2.4 PCA on iris/newsgroups`, `2.5 modern text embeddings`, `3.1 gaussian mixture models`) have not yet been opened to capture their real computed output — this is the next concrete production step once practice-exam prep resumes.
+## Rebuild queue
+The Week 1 to 7 chapter notes predate the 2026-11-19 Textbook Standard. They have no flashcards now, but none has a Reading Guide, and the Week 1 to 7 notes were built from `pdftotext`, not NotebookLM. Re-run them in this order as each week is revisited: [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|ISL Chapter 2]], [[20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3|DLB Chapter 3]], then the rest. The Week 8 to 11 notes were written from MinerU extractions because NotebookLM was unavailable that session, and each carries a re-run task in Open Questions.
 ## Dataview
 ```dataview
 TABLE status, next

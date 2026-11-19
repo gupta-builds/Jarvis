@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-11-07
-reviewed: 2026-11-07
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -32,6 +32,20 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 ## What Changed Since Oct 23
 > [!NOTE]
 > Rechecked on 2026-11-07. The CPT hearing was held on Friday, Nov 6 at 3:00 PM Eastern. I found no ruling and no account of what the judge said. Items below come from the CourtListener docket, agency and association pages, and news summaries (HenryKnows, Immigration Analytics), so open the linked filing before relying on a detail.
+### Nov 13 to Nov 18
+> [!IMPORTANT]
+> Two rulings landed in 48 hours and both are in force today. I read the orders themselves (Dkt. 73 and Dkt. 36) on 2026-11-18. Neither is permanent, because both can be appealed.
+
+1. **Duration of status rule vacated, Nov 16**
+	Judge Saylor granted summary judgment and cancelled the whole rule in an eight-page order (Dkt. 73). Open-ended admission and the 60-day windows are the law. The government has about 60 days to appeal, to roughly Jan 15, 2027, and I found no appeal. NAFSA's and the Presidents' Alliance's pages were last updated Nov 16 ([[Duration of Status Rule]]).
+2. **First Circuit holds the old appeal, Nov 13**
+	It granted the government's request to hold its appeal of the September order for 30 days, which ends about Dec 13. The final judgment likely makes that appeal moot.
+3. **CPT guidance stayed, Nov 17**
+	Judge Kobick stayed both August broadcasts nationwide and enjoined them for the plaintiffs' members and their students (Dkt. 36). An appeal is due about Jan 16, 2027 ([[CPT Lawsuit]]).
+4. **UMN: CPT reopens Nov 23, D/S hub not yet updated**
+	The ISSS duration of status hub and OPT pages were last updated Sept 15 and still say the rule is paused. ISSS's student email (received by Nov 19) says the rule "continues to not be in effect," that ISSS will monitor for an appeal, and that it will resume both required and elective CPT, with the MyISSS form opening Monday, Nov 23. The ISSS CPT page was updated Nov 18. UMN had paused CPT without revoking authorizations already granted (Anant, Nov 18).
+5. **OPT fee**
+	Comments closed Nov 9. I did not recheck the final comment count. A final rule has no date ([[OPT Fee Proposal]]).
 ### Since Nov 5
 1. **CPT hearing held, nothing decided that I can see**
 	The docket shows a "Motion Hearing" entry on Nov 6 with no order under it in the CourtListener copy, which can lag PACER. NAFSA's litigation page (last updated Nov 5) and the Presidents' Alliance page (modified the afternoon of Nov 6) list no outcome. I read the plaintiffs' reply itself: the core is that for decades CPT meant credit-bearing or required, and the broadcasts cut it to required-of-everyone ([[CPT Lawsuit]]).
@@ -54,9 +68,9 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 5. **Forms**
 	USCIS still accepts the 08/21/25 edition of Form I-765 and is not accepting the 09/15/26 edition built for the postponed rule, so the 60-day OPT windows apply.
 ## Where Things Stand
-==ICE did not change the CPT regulation. It changed how DSOs must read it through two broadcast messages, and a court has not yet touched that.==
-- *Blocked by a court:* the duration of status rule (since Sept 14) and the $100,000 H-1B payment (vacated June 8, in effect since the First Circuit denied a stay on July 24, appeals pending).
-- *In force, argued but not ruled on:* the CPT guidance. The hearing was Nov 6 and no ruling was found by Nov 7.
+==ICE did not change the CPT regulation. It changed how DSOs must read it through two broadcast messages, and on November 17 a court stayed that, temporarily.==
+- *Cancelled or blocked by a court:* the duration of status rule (postponed Sept 14, vacated Nov 16, appealable) and the $100,000 H-1B payment (vacated June 8, in effect since the First Circuit denied a stay on July 24, appeals pending).
+- *Stayed, temporarily:* the CPT guidance. The Nov 17 order is appealable until about Jan 16, 2027, and ISSS has said it resumes CPT requests on Nov 23.
 - *Proposed, not law:* the $70,000 and $30,000 OPT fees, the $103,265 H-1B petition fee, the DOL wage rule.
 - *Finalized in the last 30 days:* the end of automatic EAD extensions for renewals (Oct 14; the interim version has applied since Oct 30, 2025).
 ## How Real Are The Dates
@@ -66,15 +80,20 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 | Date | Event | Verified from | Confidence | What could move it |
 | --- | --- | --- | --- | --- |
 | 2026-10-28 | Government opposition to CPT injunction motion, filed (ECF 27). Plaintiffs' reply filed Nov 4 (ECF 32) | CPT docket | Done | None |
-| 2026-11-06, 3:00 PM | CPT injunction hearing, Courtroom 3, Judge Kobick: held | CPT docket "Motion Hearing" entry | Done, outcome not found | Ruling could come days or weeks later |
+| 2026-11-06, 3:00 PM | CPT injunction hearing, Courtroom 3, Judge Kobick: held | CPT docket "Motion Hearing" entry | Done, order issued Nov 17 | An appeal, due about Jan 16, 2027 |
 | 2026-11-09 | OPT fee comments close | Federal Register, ICE BCM 2610-02, DHS release | High (three agreeing primary sources) | Rare, but DHS can reopen or extend |
-| 2026-11-09 | Government brief due, First Circuit duration of status appeal, unless the Nov 3 motion to hold the appeal 30 days is granted | First Circuit docket 26-2112; NAFSA page of Nov 5 | Medium, a ruling on the motion is not logged | The motion itself |
+| 2026-11-09 | Government brief due, First Circuit duration of status appeal, unless the Nov 3 motion to hold the appeal 30 days is granted | First Circuit docket 26-2112; NAFSA page of Nov 5 | Done: the First Circuit granted the hold on Nov 13, so this date no longer binds | None |
+| 2026-11-16 | Duration of status rule vacated, Dkt. 73 | Court order, NAFSA, Presidents' Alliance | Done | An appeal and a stay request |
+| 2026-11-17 | CPT broadcasts stayed nationwide, injunction for members, Dkt. 36 | Court order, Presidents' Alliance | Done | An appeal and a stay request |
+| About 2026-12-13 | First Circuit hold on the old duration of status appeal ends | NAFSA page of Nov 16 | Medium, 30 days from Nov 13 | A new filing after the final judgment |
+| About 2027-01-15 | Government deadline to appeal the duration of status judgment | Immigration Analytics, Fed. R. App. P. 4(a)(1)(B) | Medium, assumes judgment entered Nov 16 | The judgment entry date |
+| About 2027-01-16 | Government deadline to appeal the CPT order | Same rule, from Nov 17 | Medium | Same |
 | 2026-11-10 | 60-day grace period comments close | Federal Register 91 FR 57807 | High | Same |
 | 2026-11-13 | Comments close on removing deference to prior approvals | Federal Register 91 FR 65119 | High | Same |
 | 2026-12-07 | OPT fee paperwork comments close | Federal Register 91 FR 64566 | High | Same |
 | 2027-09-21 | Proclamation 11069 restriction ends | Proclamation text, 91 FR 60497 | High as written, low as a forecast | Already renewed once, a second renewal is plausible but unannounced |
 | Unknown | Final OPT fee rule | Nothing set | None | Effective 60 days after publication of a final rule |
-| Unknown | Ruling on CPT motion; First Circuit and Ninth Circuit H-1B rulings | Dockets show no ruling dates | None | Court discretion |
+| Unknown | First Circuit and Ninth Circuit H-1B rulings | Dockets show no ruling dates | None | Court discretion |
 ## CPT Guidance
 1. **BCM 2608-01, Aug 12, 2026** ([ICE PDF](https://www.ice.gov/doclib/sevis/pdf/bcm260801.pdf))
 	*Weight:* primary. Read from the PDF itself.

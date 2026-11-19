@@ -11,6 +11,15 @@ notes:
   - "[[00 - Claude Code Build Kit — Index]]"
   - "[[08 - Build Phases & Milestones]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "calls Gemini 2.5 Flash" (Phase 0); "Add the Groq fallback behind the router" (Phase 6) | Shipped chain: Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded (`src/lib/model-router.ts:50-68`). |
+> | DRIFT: "Upstash per-IP rate limit (~50/day + ~10/min burst)" (Phase 1) | Chat: sliding 10 per 60 s and 100 per 24 h (`src/app/api/chat/route.ts:41,47`); orby-comment: 3 per 60 s (`src/app/api/orby-comment/route.ts:56`). |
+> | DRIFT: "stateless HMAC-signed httpOnly cookie issued on page load and verified at the edge" (Phase 1) | Cookie is issued by `POST /api/chat-token` only after Cloudflare Turnstile verification (`src/app/api/chat-token/route.ts:109,138-148`; widget in `src/components/ChatTokenInit.tsx:6-11`). It is verified inside the route handler (`chat/route.ts:101`); `src/proxy.ts:40-41` excludes `api/chat` and `proxy.ts:5` only guards `/studio`. |
+> | DRIFT: "scaffold `eval/`" (Phase 3) | Directory is `evals/` (`evals/promptfooconfig.yaml`). |
+> | DRIFT: "Commit the phase" workflow (How to use these) | Repo rule: "Committing git — user manages all commits" (`AGENTS.md:247`). |
+
 # Per-Phase Build Prompts
 Copy-paste prompts for Claude Code (Sonnet 4.8), one per phase from [[08 - Build Phases & Milestones]]. There are eight implementation prompts (Phase 0–7) plus a launch checklist (Phase 8) that is mostly verification. Run each in its own session.
 ## How to use these

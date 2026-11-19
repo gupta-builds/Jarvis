@@ -11,6 +11,12 @@ tags:
   - "#portfolio"
 next: "Add metadata exports to each App Router route, starting with the root layout and the portfolio home page"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | STATUS · "zero metadata exports, no `sitemap.ts`, no `robots.ts`, no OpenGraph tags anywhere in `src/app/`" (§Why This Exists) | Now in working tree, uncommitted, not deployed: root `metadata` + `metadataBase` (`src/app/layout.tsx:24-25`, modified-uncommitted); `alternates.canonical` + `openGraph` url/siteName/locale (`src/app/(portfolio)/layout.tsx:26-33`, modified-uncommitted); `src/app/robots.ts:3-12`, `src/app/sitemap.ts:3-16`, `src/app/privacy/page.tsx` are untracked. Live fetch 2026-11-19: `/sitemap.xml` and `/privacy` return 404; homepage HTML has no `application/ld+json` and no `rel="canonical"`. |
+> | STATUS · "`src/app/studio/**` — can stay minimal/noindex" (§Phase 1) | No `noindex`/`robots:` metadata exists anywhere under `src/` (rg `noindex\|robots:` → no matches outside `src/app/robots.ts`). |
+
 # Agent-Ready Infrastructure Build Plan
 ## Why This Exists
 [[Web Ingestion Implementation#Agent-Ready Infrastructure (AEO + MCP) - BUILD|Web Ingestion Implementation's Agent-Ready Infrastructure section]] proposed making the portfolio site agent-readable — structured content an AI agent (ChatGPT, Perplexity, a crawler) can actually parse, versus a page built only for human eyes. [[00_Execution]] confirmed the gap is real and currently **completely empty**: [[architecture/01-nextjs-routes|the route tree]] has zero metadata exports, no `sitemap.ts`, no `robots.ts`, no OpenGraph tags anywhere in `src/app/`. This is the concrete build that closes that gap.

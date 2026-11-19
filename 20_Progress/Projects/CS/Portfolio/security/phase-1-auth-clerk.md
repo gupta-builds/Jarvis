@@ -9,6 +9,13 @@ tags:
   - auth
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX · "**File:** `middleware.ts` at project root (or `src/middleware.ts` — check which `next.config.ts` loads)" (§Step 2) | Only `src/proxy.ts` exists (Next.js 16 proxy convention); no `middleware.ts` anywhere. |
+> | FACT-FIX · `if (isStudioRoute(req)) auth().protect();` and the `config.matcher` snippet (§Step 2) | `await auth.protect()` inside an async `clerkMiddleware` callback (`src/proxy.ts:7-11`); matcher adds exclusions for api/health, api/error-report, api/chat (`:38-43`); `proxy()` skips Clerk for non-studio paths (`:25-27`) and passes Clerk a stub event (`:13-22`). |
+> | FACT-FIX · `const { userId } = await auth(); if (!userId) redirect('/sign-in');` (§Step 3 `StudioLayout`) | Layout calls `await auth.protect()` as its first statement (`src/app/studio/layout.tsx:10`); no `redirect('/sign-in')`. |
+
 # Phase 1 — Authentication & Clerk Fix
 
 > **Scope:** Clerk guards `/studio` only. Orby/chat is public — no Clerk needed there. The only problem is the dark-mode rendering of the sign-in page.

@@ -17,6 +17,14 @@ notes:
   - "[[ui-fixes-index]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "`useLogoTexture` … (**not** `logoTexture.ts` as previously guessed — the real file is `src/hooks/useLogoTexture.ts`)" (Current code table) | Both exist. `src/hooks/useLogoTexture.ts` is a wrapper that imports from `@/lib/logoTexture` (`src/hooks/useLogoTexture.ts:10`); the rasterizer helpers live in `src/lib/logoTexture.ts`. The earlier guess was not wrong about where rasterizing code lives. |
+> | "regenerate `LOGO_GLYPH_SVG_PATH` … from the design trace tool" (Target §2, Files to modify 1) | The file's own header says the path was "extracted verbatim from a vectorizer.ai trace" of a user-provided reference image (`src/lib/logoGlyphPath.ts:1-4`); it does not name any in-repo trace tool. A regeneration needs a new trace/reference image from the user. |
+>
+> Status now: the whole logo system is built but uncommitted — `HeaderLogo.tsx`, `HeaderLogoCanvas.tsx`, `useLogoTexture.ts`, `useAnimationGate.ts`, `src/lib/logoGlyphPath.ts`, `src/lib/logoTexture.ts` and `src/app/icon.svg` show as untracked (`??`) and `Footer.tsx` as modified. Confirmed still true: `<HeaderLogo show={true} />` at `Footer.tsx:43` (only non-test importer, `Footer.tsx:4`), plain-text wordmark at `HeaderScrolling.tsx:145` and `:205`, no `HeaderLogo` anywhere under `src/components/lab`, `CANVAS_CSS_PX = 32` (`HeaderLogoCanvas.tsx:41`), `FALLBACK_CSS_PX = 32` (`HeaderLogoFallback.tsx:33`), `icon.svg` viewBox `0 0 236 236` with no filter/blur/shadow.
+
 # UI Fix 06 — Logo & Footer
 
 > **Status:** open (footer sizing is a real, small gap; the "glow when Lab open" premise did not survive a repo check — see below)

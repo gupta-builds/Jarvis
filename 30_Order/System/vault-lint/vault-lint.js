@@ -91,7 +91,8 @@ function stripCode(lines) { // remove fenced code, return {lines (with fenced re
 }
 function cleanProse(lines) {
   const s = stripCode(lines).map((l) => (l === null ? '' : l)).join('\n');
-  return s.replace(/<!--[\s\S]*?-->/g, '').replace(/%%[\s\S]*?%%/g, '').replace(/`[^`\n]*`/g, '');
+  // LaTeX such as \mathcal{N}} is not a template placeholder, so math spans are dropped before the placeholder check
+  return s.replace(/<!--[\s\S]*?-->/g, '').replace(/%%[\s\S]*?%%/g, '').replace(/`[^`\n]*`/g, '').replace(/\$\$[\s\S]*?\$\$/g, '').replace(/\$[^$\n]+\$/g, '');
 }
 function h2s(lines) {
   const sc = stripCode(lines); const hs = [];
@@ -375,6 +376,11 @@ function check(rel, text) {
     if (text.replace(/\r\n/g, '\n').endsWith('\n\n')) add(5, 'trailing-blank');
     const pl = cleanProse(body);
     if (PLACEHOLDER.test(pl)) add(5, 'unresolved-placeholder');
+  }
+  // warnings only (never change fit): a Standard's Spec can set forbid_cards and max_words
+  if (spec && tier !== 3) {
+    if (spec.forbid_cards) { const nc = (stripCode(body).map((l) => (l === null ? '' : l)).join('\n').match(/#cards\//g) || []).length; if (nc) r.warns.push('cards-in-note:' + nc); }
+    if (spec.max_words) { const wc2 = (body.join('\n').match(/\S+/g) || []).length; if (wc2 > spec.max_words) r.warns.push('over-word-budget:' + wc2 + '>' + spec.max_words); }
   }
   if (spec && Array.isArray(spec.skip_checks) && spec.skip_checks.length) { r.fails = r.fails.filter((f) => !spec.skip_checks.includes(parseInt(f, 10))); if (spec.skip_checks.includes(5)) r.warns = []; }
   r.pass = r.fails.length === 0;

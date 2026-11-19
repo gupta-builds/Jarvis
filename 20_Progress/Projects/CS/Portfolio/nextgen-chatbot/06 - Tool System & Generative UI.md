@@ -11,6 +11,15 @@ notes:
   - "[[00 - Nextgen Chatbot — Build Plan]]"
   - "[[04 - Orby Integration]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows record implementation status only; the six tool names match the code.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "`navigate(sectionId)` … `sectionId` is a **closed enum** built from Sanity nav links" (§The closed tool set) | Closed enum is real but hard-coded: 9 values hero, about, experience, projects, skills, education, certifications, blog, contact (`src/lib/chat-tools.ts:163-173`). Input also carries `orbyMessage`, `itemSlug`, `itemIndex`; all six tools set `strict: true` (`chat-tools.ts:208-234,:234,:271,:302,:335,:414,:447`) |
+> | STATUS (matches design): "`showProject` and `navigate` use exact, closed enums" (§Open questions) | `showProject.slug` and `showExperience.id` are `z.enum` built per request from catalog slugs / `_id`s, with a `__none__` sentinel when empty (`chat-tools.ts:179-205,:267-270,:298-300`) |
+> | DRIFT: "Use the Vercel AI SDK for layer 3 only — the streaming + generative-UI render plumbing" (§Open questions) | AI SDK v6 (`ai ^6.0.199`, `package.json`) is used server-side only (`streamText`, `tool`, `stepCountIs`). The browser stream is a hand-rolled line protocol: `0:` text, `a:` tool result, `t:` replacement text, `m:` orbyMessage, `d:` finish, `e:` error (`src/app/api/chat/route.ts:351-357`), not the AI SDK UI stream |
+> | STATUS (matches design): markdown prose via react-markdown + remark-gfm (§Output rendering) | Shipped: `src/components/lab/ChatThread.tsx:5-6,185`; deps `react-markdown ^10.1.0`, `remark-gfm ^4.0.1` (`package.json`) |
+
 # Tool System & Generative UI
 This note owns the tool layer and the generative UI it drives. It is the fix for premortem failure 3 (weak free-model tool-calling breaking the wow feature). The design principle: assume the model is unreliable at structured output and make the system robust anyway.
 ## Why tools, not just text

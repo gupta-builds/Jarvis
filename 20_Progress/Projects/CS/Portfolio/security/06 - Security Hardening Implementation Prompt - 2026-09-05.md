@@ -16,6 +16,17 @@ notes:
   - "[[security/manual-actions]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Annotations only; original text below is unchanged. The prompt text is a historical instruction set; rows mark where its stated "current state" has since changed.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | NOW-FIXED (present in repo; commit status not verified) — Task 2 "nothing tells the router this provider just had a soft failure … There is no cooldown set" | Implemented as specified: if `sanitized.cleanText !== accText` and provider is not groq, `redis.set("chat:cooldown:${provider}", "1", { ex: 30 })` plus log `chat.tool_leak.cooldown_set` with `provider`, `sessionId` (`src/app/api/chat/route.ts:540-555`). Groq in-stream check untouched (`:504-515`). |
+> | NOW-FIXED (present in repo; commit status not verified) — Task 3 "never verifies the HMAC session cookie" in `/api/orby-comment` | `src/app/api/orby-comment/route.ts:73-74` `verifyToken` → 401 "Unauthorized"; positioned after UA (`:62`) and origin (`:68`) checks, before the limiter (`:82`). |
+> | NOW-FIXED (present in repo; commit status not verified) — Task 6 plain `console.warn("[chat] Upstash unreachable — rate limiting skipped", err)` | Replaced by `console.log(JSON.stringify({ event: "chat.ratelimit.fail_open", ip }))` (`route.ts:221`) and `orby-comment.ratelimit.fail_open` in the idle route (`orby-comment/route.ts:88`). Fail-open control flow kept. |
+> | NOW-FIXED (working tree, uncommitted) — out-of-scope items "restoring blocking `eval-gate.yml` CI and wiring Semgrep" | `eval-gate.yml` is modified/uncommitted, no `continue-on-error` key, `--fail-on-error` at `:25`. `.github/workflows/semgrep.yml` exists, untracked (`:23-29`, `--error`). `.github/dependabot.yml` also exists, untracked (not mentioned in this note). |
+> | DRIFT — Task 7 / "Building the actual `/privacy` page … a separate prompt"; "AI-Use Policy Content" is a placeholder | A page exists at `src/app/privacy/page.tsx` listing the providers (Cerebras `zai-glm-4.7` `:147`, Mistral `mistral-small-latest` `:149`, Mistral privacy link `:184`). Tracked/untracked status not verified. The placeholder section in this note is still unfilled. |
+
 # Security Hardening Implementation Prompt — 2026-09-05
 
 > **One narrow, execution-ready task.** Notes 11 and 12 are the wide reference (verified-status tables, external research, OWASP cross-reference) — this note does not repeat them. This note picks exactly six things out of them (plus one dashboard gate they share) that the user named as the current "security layer thin → tightened" bridge, re-verifies each personally against live code/live DNS one more time, resolves the one open ambiguity (Cloudflare), and turns the result into a single implementation prompt Cursor can execute in one sitting. Read notes 11/12 for background; read this note to actually do the work.

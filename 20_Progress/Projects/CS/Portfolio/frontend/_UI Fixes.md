@@ -17,6 +17,14 @@ notes:
   - "[[ui-fixes-tasks]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "Pinned lock-screen on scroll: open", "Border/edge background effect: open", "Cards emerge from space: open" (§3 Projects table) | Code exists, uncommitted: pin and emerge in `src/lib/gsap/projects-pin.ts` (untracked, wired `ProjectsSlider.tsx:15`, `:223`); background in the `projects-edge` mode of `ObsidianBackgroundCanvas.tsx:619-649` with contract `src/lib/background-mode.ts`. The "border/edge" row is realised as the warp/starfield/hyperspace sequence from [[ui-fix-04-projects-section]] §3, not CSS (no edge CSS in `globals.css`). Runtime behavior not verified. |
+> | "Auto-play scope … confirmed in [[ui-fixes-requirements]]" (§3) | Not recorded there: [[ui-fixes-requirements]] Fix Area 6 item 5 still says "Auto-play first 3 projects still valid; manual nav to all 9 preserved". The resolution lives in [[ui-fix-04-projects-section]] §5 and [[ui-fixes-design]] Fix 6. Code matches the resolution: `ProjectsSlider.tsx:281-287` cycles `(prev + 1) % safeProjects.length` with no cap. The count "9" depends on Sanity data and was not verified. |
+> | "A first refinement pass already shipped; … the remaining camera-bias fix" (§1 sphere click row) | The camera-bias blend is also in the working tree: `FORM_CLICK_CAMERA_BIAS_WEIGHT = 0.65` (`ObsidianBackgroundCanvas.tsx:85`, blend `:737-739`), uncommitted; visual result not verified. |
+> | "Components: Logo component (header + tab), `Footer.tsx`, `PortfolioLab.tsx` (tab state)" (§5) | `HeaderLogo` is imported only by `Footer.tsx:4` (rendered `:43`); the header wordmark is plain text (`HeaderScrolling.tsx:145`, `:205`) and `src/components/lab` has no logo. |
+
 # UI Fixes — Master Note
 
 ### Per-component build specs (implementation-ready)

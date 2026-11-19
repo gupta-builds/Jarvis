@@ -15,6 +15,16 @@ notes:
   - "[[BUILD-STATUS]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "Auto-play first 3 projects still valid; manual nav to all 9 preserved" (Fix Area 6, Problem item 5) | Auto-play has no cap: `ProjectsSlider.tsx:281-287` advances `(prev + 1) % safeProjects.length` every `AUTO_PLAY_INTERVAL_MS` (5000 ms, `:160`), pausing `AUTO_PLAY_RESUME_DELAY_MS` (10000 ms, `:161`) after interaction. The resolution ("keep cycling all projects") is recorded in [[ui-fix-04-projects-section]] §5 and [[ui-fixes-design]] Fix 6, not here; the Success Criteria below do not restate the cap. The number "9" depends on Sanity data and was not verified. |
+> | "ScrollTrigger pin on `#projects`", "cards animate opacity + subtle scale", "Exact border effect visual — needs mood reference" (Fix Area 6) | Pin and emerge exist in `src/lib/gsap/projects-pin.ts` (untracked, wired at `ProjectsSlider.tsx:15` and `:223`). The border/edge effect was replaced by the three-beat background sequence in [[ui-fix-04-projects-section]] §3, implemented as the `projects-edge` mode of `ObsidianBackgroundCanvas.tsx` (`:619-649`); there is no edge CSS in `globals.css`. Built but uncommitted; runtime not verified. |
+> | "Connectors become **rope** …" (Fix Area 7b item 3) and "Bachelor's deformity **tracks dot**" (item 5); Open Question 3 "SVG path vs R3F tube vs GSAP morph" | Already built: `StretchingLine` (`EducationFlowchart.tsx:267`, per-frame `QuadraticBezierCurve3`, drei `Line` imported `:3`) and `collegeDistortForT` (`:41`, used at `:197`). Open Question 3 is moot — R3F quadratic Bezier plus drei `Line` is in place. Still unbuilt: pin/spring entry (no `gsap` in either Education file), the +0.5 s dot delay (`TravellingDot` wraps with `% 1` at `:363`, no pause), and distort smoothing (direct assignment `:199-200`, so College snaps at loop restart). |
+> | "**No glow difference** between tab open vs closed"; Components "Header logo, Lab tab logo, `Footer.tsx`" (Fix Area 8) | `HeaderLogo` is rendered only in `Footer.tsx:43` (only non-test importer, `:4`); the header wordmark is plain text (`HeaderScrolling.tsx:145`, `:205`) and `src/components/lab` has no logo. `src/app/icon.svg` contains no filter/blur/shadow. Footer logo is leftmost beside "Anant's Hub" but fixed at 32 px (`HeaderLogoCanvas.tsx:41`, `HeaderLogoFallback.tsx:33`). |
+> | "Growable textarea (July) — verify built state"; "Chat bubble `break-words` for long tokens" (Fix Area 4, Problem items 2 and 4) | Both built: `MAX_LINES = 3` (`ChatInputBar.tsx:14`) with `resize()` (`:27-33`); `break-words` at `ChatThread.tsx:162`. The vertical-centering bug is still real (`items-end` at `ChatInputBar.tsx:82`). |
+> | "CSP enforcement — Verify shipped" (Fix Area 9) | Enforced: `next.config.ts:50-52` ("ENFORCED: violations will block resources", `Content-Security-Policy` header); no `Report-Only` header in that file. |
+
 # Frontend UI Fixes — Requirements
 
 > **Updated:** 2026-09-05 from localhost walkthrough + screenshots.

@@ -13,6 +13,18 @@ tags:
   - concept
 related: []
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Annotations only; original text below is unchanged. This note records June 2026 observations; rows below mark where the Kiro analysis no longer matches the repo.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX — "Cerebras (`gpt-oss-120b`) does not reliably use structured tool calling" (Kiro, Problem 1 + Summary) | Cerebras model in the router is `zai-glm-4.7` (`src/lib/model-router.ts:55`); eval provider is also `openai:chat:zai-glm-4.7` (`evals/promptfooconfig.yaml:7`). |
+> | FACT-FIX — "Z.ai GLM 4.7 … It's not configured anywhere in your codebase" (Kiro, Problem 6) | Configured as the Cerebras leg: `model-router.ts:55`. |
+> | NOW-FIXED (present in repo; commit status not verified) — "The sanitizer regex looks for `\"tool\"` as the first key, not `\"function\"`" (Kiro, Problem 1) | `src/lib/chat-sanitizer.ts:45` strips `{ "function": "..." }`; `:47` strips `{ "name": "navigate" \| "showProject" \| "showExperience" \| "lookupFact" \| "getResume" \| "contact" }`; `:72` handles the `{ "navigate": { "sectionId" } }` wrapper. |
+> | NOW-FIXED (partial; present in repo) — "The router only fails over on exceptions … no concept of 'tool calling failed, try the next provider'" (Kiro, Problem 3) | Still true for in-turn failover (only Groq has a soft-fail check, `model-router.ts:194-217`). Added since: after a turn whose text the sanitizer had to strip, `chat:cooldown:${provider}` is set for 30 s so the next turn skips that provider (`src/app/api/chat/route.ts:540-555`). |
+> | FACT-FIX — "Your plan says the chain should be Azure → Cerebras → Groq → Mistral" (Kiro, Problem 3) | Live chain is Cerebras → Groq → Mistral → degraded; no Azure in `src/` (`model-router.ts:2,52-68`). Kiro's point that Azure was never implemented is accurate. |
+> | DRIFT — "fixed-prompt system … injects 'FIXED PROMPT — NAVIGATION IS DETERMINISTIC … call navigate({\"sectionId\":\"skills\"})'" (Kiro, Problem 4) | Confirmed and generalised: directive built as `FIXED PROMPT — NAVIGATION IS DETERMINISTIC … you MUST call navigate(${JSON.stringify(navTarget)})` (`route.ts:247-251`); recruiter "What are his top skills?" → `{ sectionId: "skills" }` (`src/lib/fixed-prompts.ts:83`). |
+
 # Problems with Portfolio Lab
 ## One-Line Answer
 == ==

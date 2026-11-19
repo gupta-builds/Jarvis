@@ -5,6 +5,14 @@ created: 2026-06-15
 tags: [portfolio, security, manual, dashboard]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX · "HTTP Headers: add `Authorization` → `Bearer <your SANITY_REVALIDATE_SECRET value>`" (§6E) | The handler reads no Authorization header. It validates Sanity's webhook signature via `parseBody(req, SANITY_REVALIDATE_SECRET)` + `isValidSignature` (`src/app/api/revalidate/route.ts:3,17-24`); its docstring says `Secret: <SANITY_REVALIDATE_SECRET>` (`:8-10`), i.e. the webhook's Secret field. |
+> | FACT-FIX · "Required variables and their correct names (verify against your actual `.env.local`)" (§4A table) | Code also reads (names only): `NEXT_PUBLIC_BASE_URL` (`src/lib/request-guards.ts:50`), `NEXT_PUBLIC_SANITY_API_VERSION` (`src/sanity/env.ts:2`, has default), `NEXT_PUBLIC_SANITY_STUDIO_URL` (`src/sanity/lib/client.ts:10`, has default), `DEV_BYPASS_IP` (`src/app/api/chat/route.ts:181`, `src/app/api/orby-comment/route.ts:79`; skips rate limiting when the request IP equals it). |
+> | FACT-FIX · "Set up Turnstile + siteverify Worker \| Claude Code (P6-A)" (§Summary table) | Verification is a direct fetch to Cloudflare siteverify (`src/app/api/chat-token/route.ts:11-15,35`; modified-uncommitted); Worker is not in the runtime path (`README.md:55-60`). |
+> | STATUS · "switch to the **Production** instance key (starts with `pk_live_`)" (§1A) and "`/studio` — should redirect to Clerk sign-in" (§5D) | `next.config.ts:7` hardcodes Clerk FAPI `decent-tick-22.clerk.accounts.dev`. Live fetch 2026-11-19: `GET /studio` with `Accept: text/html` → 307 to `decent-tick-22.clerk.accounts.dev/v1/client/handshake`; plain `curl` (no Accept header) → 404. |
+
 # Manual Actions — Security Pass
 
 > Everything in this file requires you to open a dashboard, browser, or terminal — it cannot be done by Claude Code alone. Work through this alongside [[claude-code-prompts]].

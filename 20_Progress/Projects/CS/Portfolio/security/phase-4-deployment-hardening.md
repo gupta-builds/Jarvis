@@ -5,6 +5,17 @@ created: 2026-06-15
 tags: [portfolio, security, deployment, vercel, headers]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | STATUS · "CSP header is `Content-Security-Policy` (enforced), not `Content-Security-Policy-Report-Only`" (§Acceptance criteria, unticked) | Met: `{ key: "Content-Security-Policy", value: csp }` (`next.config.ts:52`). |
+> | FACT-FIX · "`script-src`: `'self' 'unsafe-eval'` (Three.js/WebGL requires `unsafe-eval`)" (§Step 1) | `script-src 'self' 'unsafe-inline'`, plus `'unsafe-eval'` only when `isDev`, plus the Clerk FAPI host and `https://challenges.cloudflare.com` (`next.config.ts:3,13`). |
+> | FACT-FIX · "`img-src`: `'self' data: blob: https://cdn.sanity.io https://images.clerk.dev`" (§Step 1) | `'self' data: blob: https://cdn.sanity.io https://images.unsplash.com https://img.clerk.com https://*.cloudinary.com` (`next.config.ts:19`). |
+> | FACT-FIX · "`connect-src`: ... `https://*.clerk.com https://api.groq.com https://*.cerebras.ai https://*.mistral.ai https://*.upstash.io`" and "`wss://*.sanity.io`" (§Step 1) | `'self' https://*.sanity.io https://*.api.sanity.io https://decent-tick-22.clerk.accounts.dev https://challenges.cloudflare.com` (`next.config.ts:25`; Clerk host hardcoded at `:7`). No AI-provider, Upstash, or `wss:` entries (those calls are server-side). |
+> | FACT-FIX · "`font-src`: `'self' https://fonts.gstatic.com`" (§Step 1) | `font-src 'self' data:` (`next.config.ts:17`; fonts self-hosted via `next/font`, comment `:16`). |
+> | FACT-FIX · "`frame-src`: `'none'`" (§Step 1) | `frame-src https://challenges.cloudflare.com` (`next.config.ts:27`). Also set: `default-src 'self'`, `frame-ancestors 'none'`, `base-uri 'self'`, `form-action 'self'`, `object-src 'none'`, and `upgrade-insecure-requests` in production (`:10,28-32`). |
+> | FACT-FIX · `{ key: 'X-Frame-Options', value: 'SAMEORIGIN' }` and `X-DNS-Prefetch-Control: on` (§Step 3) | `X-Frame-Options` is `DENY` (`next.config.ts:41`); no `X-DNS-Prefetch-Control` header is defined (rg over `next.config.ts` → no match). |
+
 # Phase 4 — Pre-Deployment Hardening
 
 > Run every step before pushing to `main`. None of these are optional.

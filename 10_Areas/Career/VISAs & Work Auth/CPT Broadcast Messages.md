@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -21,6 +21,9 @@ notes:
   - "[[Junior Year Internship Decision]]"
 ---
 # CPT Broadcast Messages
+> [!IMPORTANT]
+> **Status on 2026-11-18.** Both messages are STAYED nationwide by Judge Kobick's November 17 order, "such that those broadcasts may not be enforced or applied pending judicial review." The text below is what the messages said, not what DHS may enforce today. The order is temporary ([[CPT Lawsuit]]).
+
 Two unsigned emails to school officials in August 2026 are the entire reason my school stopped approving CPT. This note captures both in full, section by section, so I never have to rely on someone else's summary of them. Read it before arguing about what the government "announced," and again after any court ruling to see which sentences survived.
 ## In Plain Words
 A **broadcast message** is an email that a government office sends to every school official in the country. These two went to the people at every college who sign international students' papers. They said, in effect: from now on, only approve CPT if the training is required for every student in the degree, and if you approve anything else, your school could lose its right to enroll international students and you could face penalties for false statements. The government also called them "reminders," as if nothing had changed, which is the heart of the lawsuit. At UMN, the result is that ISSS stopped approving elective CPT ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).

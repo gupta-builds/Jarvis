@@ -5,6 +5,18 @@ created: 2026-06-12
 tags: [portfolio, chatbot, tools, function-calling]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | `NavigateResult = { section: string; scrollId: string }` (§Tool Result Types) | `{ ok: true; sectionId: string; orbyMessage: string \| null; itemSlug?; itemIndex? }` (`src/lib/chat-tools.ts:74-80`). Tool input is `{ sectionId (enum), orbyMessage, itemSlug \| null, itemIndex \| null }`, `strict: true` (`chat-tools.ts:208-234`) |
+> | `ShowProjectResult = { project: Project \| null }`, `ShowExperienceResult = { experience: Experience \| null }` (§Tool Result Types) | `{ ok: true, project } \| { ok: false, error }` and same shape for experience (`chat-tools.ts:82-88`). Inputs: `slug` and `id` are `z.enum` built per request from the catalog (`:196-205,:267,:298`) |
+> | `LookupFactResult = { fact: string; source: string }` (§Tool Result Types) | `{ records: [{ type, id, title, snippet }] }`, max 5 matches (`chat-tools.ts:90-97,:390,:398`) |
+> | `GetResumeResult = { url: string }`; getResume "Get resume download link" (§The 6 Tools, §Tool Result Types) | `{ name, role, topSkills, keyProjects, currentExperience }`, a proof-pack summary built from the catalog, no URL (`chat-tools.ts:99-105,:410-440`) |
+> | `ContactResult = { email: string; formAvailable: boolean }` (§Tool Result Types) | `{ action: "open_contact" }` (`chat-tools.ts:107`, `:450`) |
+> | "All results are discriminated unions" (§Tool Result Types) | Only `showProject` / `showExperience` use an `ok` discriminant (`chat-tools.ts:82-88`); the others are plain object types |
+> | Key Exports lists `getSanityClient()`, `SECTION_IDS`, `NONE_SENTINEL`, `toEnum()` (§Key Exports) | These are module-private (`chat-tools.ts:116,163,179,181`). Exported: `Catalog` (`:28`), the six result types (`:74-107`), `buildChatTools` (`:192`), `ChatTools` (`:467`) |
+> | "`SECTION_IDS` Map: Maps tool section names to actual DOM scroll targets" (§SECTION_IDS Map) | It is a hard-coded `as const` tuple of 9 ids: hero, about, experience, projects, skills, education, certifications, blog, contact (`chat-tools.ts:163-173`), used as the `navigate` enum (`:213`) |
+
 # Orby's Closed Tool Set
 
 > [[../INDEX|← Back to Index]] · [[00-orby-overview|Orby Overview]]

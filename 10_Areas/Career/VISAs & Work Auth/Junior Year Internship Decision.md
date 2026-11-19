@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-11-07
-reviewed: 2026-11-07
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -28,6 +28,9 @@ next: "Send the first batch of 10 applications by 2026-11-15, send the ISSS emai
 ---
 # Junior Year Internship Decision
 I want a real internship in summer 2027, and the usual route, CPT, is paused at my school. This note lays out every legal route I found, what each one costs in months, money, and waiting time, and a plan with dated decision points. It was rebuilt after the ISSS meeting, which made pre-completion OPT a live option instead of a last resort. Read it before accepting any offer that starts before graduation, and again after the November 6 court hearing.
+> [!IMPORTANT]
+> **Update, 2026-11-19.** ISSS's student email says CPT requests, required and elective, resume on Monday, November 23. That moves CPT from "paused" to my first route, and pre-completion OPT to the fallback. The sections below were written while CPT was paused, so read them with that change in mind ([[CPT Program]], [[CPT Lawsuit]]).
+
 ## In Plain Words
 As an F-1 student I may not take an off-campus job just because someone offers it. Someone has to authorize it first, and the authorization has to be in my hands before the first day. For an internship before I graduate there are two ways: CPT, which my school signs, and pre-completion OPT, which the government issues. CPT is paused. So the question is whether to use pre-completion OPT, or find another lawful route.
 ==The decision is not whether to intern but which authorization route to build the summer around, because the route has to exist before the employer's start date and no offer can create it.==
@@ -45,7 +48,7 @@ As an F-1 student I may not take an off-campus job just because someone offers i
 | On-campus work, including research | Incident to status | Modest pay, 20 hours in term | Yes | Core lane |
 | Pre-completion OPT | ISSS recommendation, then USCIS card | OPT months, $2,250 with premium, fee-rule risk | Opens about March 2027 | Real option, decide at the window |
 | Internship physically abroad | Not tied to F-1 work rules | Travel, enrollment and re-entry questions | Yes | Real option, confirm with ISSS |
-| CPT | DSO authorization | None once available | Paused for elective CPT | Wait and keep ready |
+| CPT | DSO authorization | None | Reopens Mon Nov 23, 2026, on a court stay, with appeal risk | First route once I hold an offer |
 | Remote work from inside the U.S. | Counts as U.S. employment | Not authorized without CPT or OPT | No | Do not do |
 | Unpaid or volunteer U.S. internship | May still count as employment | Can harm OPT eligibility | Unanswered | Do not do without ISSS in writing |
 | Hardship work permit | USCIS | 4 to 7 months, needs an unforeseen change | Rarely | Not a plan |
@@ -58,7 +61,7 @@ As an F-1 student I may not take an off-campus job just because someone offers i
 3. **Internship abroad**
 	The advisor said I am not tied by F-1 regulations while physically in another country, whether home or elsewhere. I still need to ask how it affects my enrollment, my summer status, and re-entry.
 4. **CPT**
-	It is the best route when open: no OPT months and no fee. It returns only through a court order, a required practical training course, or DHS withdrawing the guidance. At UMN it used to take about 2 weeks if I was registered for the course and my advisor agreed ([[CPT Program]], [[CPT Lawsuit]]).
+	It is the best route when open: no OPT months and no fee. It returned through a court order in force from November 17, and ISSS resumes requests on November 23. The risk is an appeal. At UMN it used to take about 2 weeks if I was registered for the course and my advisor agreed ([[CPT Program]], [[CPT Lawsuit]]).
 5. **No internship**
 	A research role or a shipped project plus networking is a weaker resume line than an internship but costs no authorization ([[Summer Grind]]). Projects must be labelled as projects.
 ## The Plan
@@ -67,7 +70,7 @@ Three lanes run in parallel, with decision points.
 2. **Lane 2: apply to internships anyway.** Answer the authorization question "yes" and "yes," filter with Handshake's work-authorization setting, and accept nothing until the authorization route exists in writing.
 3. **Lane 3: portfolio and contacts** for the senior-year search ([[Portfolio]]).
 - *Gate 1, October 30, 2026:* ISSS answers my written questions. No reply is logged in the vault as of November 5. The follow-up is prepared in [[ISSS November Meeting Prep]].
-- *Gate 2, November 6, 2026:* the CPT hearing, held at 3:00 PM Eastern. No ruling was found by November 7. Watch the docket for an order and ISSS's response. A written order may come days or weeks after the hearing.
+- *Gate 2, November 17, 2026:* done. Judge Kobick stayed the August CPT messages nationwide and enjoined them for the plaintiffs' members and their students. ISSS's student email says it resumes required and elective CPT requests on Monday, November 23, and UMN did not revoke authorizations already granted. CPT is now my first route for a summer 2027 internship, with pre-completion OPT as the fallback. The next steps are my meeting with ISSS and a possible government appeal due about January 16, 2027 ([[CPT Lawsuit]], [[Questions for Next Meeting]]).
 - *Gate 3, December 2026:* check whether ISSS has announced its pre-completion process and whether the OPT fee became a final rule.
 - *Gate 4, February 2027:* if I hold an offer, apply my rules below. This is when the ISSS request window opens for a May start.
 - *Gate 5, early March 2027:* a mid-June start needs the ISSS request about March 8. After this, pre-completion OPT is too slow.

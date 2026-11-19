@@ -16,6 +16,17 @@ notes:
   - "[[ui-fixes-index]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "`src/lib/gsap/projects-pin.ts` — NOT YET BUILT — this is the actual missing piece" (Files to modify); "Confirmed does not exist" (Current code table) | It exists: 139 lines, untracked (`?? src/lib/gsap/`). `useProjectsPin()` is imported at `ProjectsSlider.tsx:15` and called at `:223`. |
+> | "no ScrollTrigger pin exists for `#projects` at all yet (grep … `ProjectsSlider.tsx` finds nothing)" | The grep is still literally true (ScrollTrigger is registered in `Providers.tsx:10` and used in `projects-pin.ts`), but the pin exists: trigger `#projects`, `start "top top"`, `end "+=100%"`, `pin: true`, `scrub: 1`, `anticipatePin: 1`. Emerge is built on `data-projects-emerge` wrappers (`ProjectsSlider.tsx:390`, `:412`, `:450`): scale 0.92→1 and blur 8px→0, center opacity 0→1 at timeline 0.2, sides 0→0.35 at 0.3. |
+> | "registers `ScrollTrigger`" (Files table) / "import ScrollTrigger … and register it" (Implementation prompt step 1) | `projects-pin.ts` imports `ScrollTrigger` but never calls `registerPlugin`; its header says not to re-register. The only registration is `Providers.tsx:10`. |
+> | "`background:mode` … dispatched from that same `onUpdate`" (§3 Trigger wiring) — described as not yet wired | Wired in `projects-pin.ts`: `warp-out` with `progress = p / 0.35`, `settled` after 0.35, `hyperspace-exit` from `onLeave`, `settled` from `onEnterBack`, `idle` from `onLeaveBack`. Contract in `src/lib/background-mode.ts` (untracked); listener `ObsidianBackgroundCanvas.tsx:619-649`. |
+> | "`ProjectsSlider.tsx` (491 lines)", auto-play "~line 277–284", "a 1,296-line file" (second prompt) | `ProjectsSlider.tsx` is 505 lines; auto-play `setInterval` is at `:281-287` with `AUTO_PLAY_INTERVAL_MS` / `AUTO_PLAY_RESUME_DELAY_MS` at `:160-161`; `ObsidianBackgroundCanvas.tsx` is 1628 lines. |
+>
+> Status now: pin, emerge, `projects-edge` background mode and reduced-motion gating are present in code but uncommitted (`ProjectsSlider.tsx` and `ObsidianBackgroundCanvas.tsx` modified; `projects-pin.ts` and `background-mode.ts` untracked); runtime behavior was not verified. Reduced motion: the pin hook only runs under `(prefers-reduced-motion: no-preference)`, and the canvas listener is a no-op when `reducedMotion` is true (`:619-622`). Confirmed unchanged: auto-play cycles all projects (`(prev + 1) % safeProjects.length`, `:281-287`) — no cap; no edge/border pulse CSS in `globals.css` (grep: no matches).
+
 # UI Fix 04 — Projects Section (Pinned Cinematic Lock)
 
 > **Status:** open (carousel exists and is more capable than previously documented; no pin/emerge/edge effect)

@@ -1,6 +1,6 @@
 ---
 type: input
-status: seed
+status: sprout
 created: 2026-10-23
 input_kind: transcript
 source_url:

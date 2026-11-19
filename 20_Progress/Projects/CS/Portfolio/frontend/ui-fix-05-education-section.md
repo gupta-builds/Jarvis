@@ -17,6 +17,14 @@ notes:
   - "[[ui-fixes-index]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "`src/lib/gsap/` isn't a directory yet" (Target §2, Task 5.2) | The directory exists and holds `src/lib/gsap/projects-pin.ts` (139 lines, untracked). It is a working ScrollTrigger pin hook (`useProjectsPin`: `start "top top"`, `end "+=100%"`, `pin: true`, `scrub: 1`, `anticipatePin: 1`, `gsap.matchMedia` no-preference only) — use it as the sibling template for `education-pin.ts`. `education-pin.ts` itself does not exist; `src/lib/gsap/` contains only `projects-pin.ts`. |
+> | "animate each blob's mesh POSITION … additive to the existing distort stagger" (Target §2 / Implementation prompt item 2) | Constraint not mentioned in the note: `EduBlob`'s `useFrame` calls `meshRef.current.position.set(px, py, 0)` every frame from `BASE_POS` plus float sines (`src/components/EducationFlowchart.tsx:179`), so a GSAP tween on `mesh.position` is overwritten each frame. The bounce needs an offset applied inside that math or a parent group, not a direct mesh-position tween. |
+>
+> Status now: Education pin and spring bounce remain unbuilt (no `gsap`/`ScrollTrigger` reference in `EducationFlowchart.tsx` or `EducationSection.tsx`). Confirmed unchanged in the working tree: `collegeDistortForT` `:41`, `StretchingLine` `:267`, `TravellingDot` `:347` with the loop wrap `% 1` at `:363` (no pause), and the direct `distort` assignment at `:199-200` (the loop-restart snap). Both files are modified-uncommitted.
+
 # UI Fix 05 — Education Section (Spring, Rope, Dot-Sync Deform)
 
 > **Status:** partial — more is already built than earlier drafts of this note claimed

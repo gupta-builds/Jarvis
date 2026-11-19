@@ -5,6 +5,18 @@ created: 2026-06-12
 tags: [portfolio, chatbot, api, security, rate-limiting]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | Gate order 1 origin, 2 HMAC, 3 rate limit, 4 scraper block (§Security Gate Stack) | Actual order in `POST`: scraper UA block 403 (`src/app/api/chat/route.ts:87-88`) → Origin/Referer 403 (`:94-95`) → HMAC `chat_token` cookie 401 (`:100-102`) → body validation 400 (`:122-168`) → rate limit 429 (`:192-215`) |
+> | `limiter: Ratelimit.slidingWindow(10, '10 s')` for burst (§Rate Limiting) | `Ratelimit.slidingWindow(10, "60 s")`, prefix `chat:burst` (`route.ts:41`); daily `slidingWindow(100, "24 h")` is correct (`route.ts:47`). Rate limiting fails open if Upstash is unreachable (`route.ts:219-221`) |
+> | `const redis = Redis.fromEnv()` (§Rate Limiting) | `new Redis({ url: process.env.UPSTASH_REDIS_REST_URL!, token: process.env.UPSTASH_REDIS_REST_TOKEN! })` (`route.ts:34-37`) |
+> | Key Exports table lists `redis`, `burstLimit`, `dailyLimit`, `isAllowedOrigin()` as `route.ts` exports (§Key Exports) | `route.ts` exports only `POST` (`route.ts:84`); `redis`/limiters are module-private (`:34,:39,:44`); `isAllowedOrigin` and `BLOCKED_UA` live in `src/lib/request-guards.ts` (imported `route.ts:19`) |
+> | "`getSanityClient()` → `fetchCatalog()` → `buildSystemPrompt()`" and "`routeChat({ messages, systemPrompt, tools })`" (§Request Flow) | Route calls `fetchCatalog()` then `buildSystemPrompt(persona, catalog)` and `buildChatTools(catalog)` (`route.ts:236-240`); `routeChat({ system, messages, tools, maxOutputTokens: 800, stopWhen: stepCountIs(5), abortSignal, persona, userMessage, sessionId })` (`route.ts:321-331`) |
+> | "Try Gemini 2.5 Flash … On quota error → try Groq → On Groq quota error → `getDegradedText()`" (§Request Flow) | No Gemini. Chain Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → `degraded` (or `cooldown`) (`src/lib/model-router.ts:48-70,254-273`) |
+> | "On page load, `ChatTokenInit` component calls `GET /api/chat-token`" (§HMAC Token Flow) | `ChatTokenInit` does `POST /api/chat-token` with a `turnstileToken` (`src/components/ChatTokenInit.tsx:25-30`); server verifies it with Cloudflare siteverify before issuing the cookie (`src/app/api/chat-token/route.ts:15,109`). `GET` is a legacy / local-dev path (`ChatTokenInit.tsx:46`, `chat-token/route.ts:71`). Token TTL 1 h (`src/lib/chat-token.ts:1`), cookie `httpOnly`, `sameSite: "strict"`, `maxAge: 3600` (`chat-token/route.ts:96-99,164-167`) |
+> | "Injects full Sanity catalog as grounding context"; "Formats catalog: profile, experience, projects, skills, education, certs, achievements" (§System Prompt Construction, §Request Flow) | Prompt gets a compact index, not full records: projects (`_id,title,slug,tagline`), experience without descriptions, top-60 skill names, education, certs, achievements; no `profile` key (`src/lib/chat-context.ts:67,103-136`; `CHAT_CATALOG_QUERY` `src/sanity/lib/queries.ts:190-211`). Full records come on demand via tools |
+
 # Chatbot API Route
 
 > [[../INDEX|← Back to Index]] · [[00-orby-overview|Orby Overview]]

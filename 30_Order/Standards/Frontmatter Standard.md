@@ -28,7 +28,7 @@ Seventeen values. A note has exactly one.
 | `input` | Captured or source-derived: a clip, summary, transcript, brief | `input_kind` | clipping, source-summary, pdf-summary, web-summary, video-summary, repo-card, transcript, brief, ai-conversation, ai-conversation-summary, job-dossier |
 | `evergreen` | Distilled claim you understand and reuse | `evergreen_kind` | distilled, synthesis, identity |
 | `concept` | One course or technical concept with mechanism and contrast | none | none |
-| `class` | A course workspace note (week, lab, board, textbook) | `class_kind` | week, textbook, textbook-map, lab, homework, exam, exam-material, board, subboard, discussion, preparation, project, syllabus, control, track, audit |
+| `class` | A course workspace note (week, lab, board, textbook) | `class_kind` | week, textbook, textbook-map, lab, homework, exam, exam-material, quiz, board, subboard, discussion, preparation, project, syllabus, control, track, audit |
 | `project` | Active work with an outcome and a `next:` | `project_kind` | project, spec, plan, code-mirror, prompt |
 | `plan` | A standing plan with a review cadence | none | none |
 | `thought` | Personal working notes: daily, weekly, reflection | `thought_kind` | daily, weekly, monthly, yearly, reflection, brainstorm |

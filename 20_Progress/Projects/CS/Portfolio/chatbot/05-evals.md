@@ -5,6 +5,11 @@ created: 2026-06-12
 tags: [portfolio, chatbot, evals, testing, promptfoo]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "GitHub Actions runs `pnpm eval` as a required check before deploy. Eval failures block the PR." (§CI Gate) | `.github/workflows/eval-gate.yml` runs `pnpm exec promptfoo eval --config evals/promptfooconfig.yaml --delay 12000 --fail-on-error` only when the `CEREBRAS_API_KEY` secret is non-empty (`eval-gate.yml:23-25`); otherwise it prints a warning and skips (`:26-28`). `continue-on-error: true` was removed only in the uncommitted working tree (`git diff` of that file). Whether it is a required check depends on GitHub branch protection, which is not visible from the repo |
+
 # Eval Suite
 
 > [[../INDEX|← Back to Index]] · [[00-orby-overview|Orby Overview]]

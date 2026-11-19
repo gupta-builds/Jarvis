@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -151,7 +151,7 @@ The advisor's strongest warning was about how I describe projects and unpaid wor
 | Using up the OPT before graduation | Pre-OPT deducts even if I do not work | Follow my choosing rules |
 | A USCIS hold for my country | A January 2026 memo paused applications from some countries; USCIS marks it as no longer in effect because of court orders, but ISSS still warns about it | Check whether my country of birth or citizenship is on the December 2025 list and ask ISSS |
 | The $70,000 school fee | The school may decline, pass it on, or stop recommending | Ask ISSS what UMN will do and watch the rule |
-| The duration-of-status rule returns | OPT windows shrink to 30 days and an extension application may be needed | Read [[Duration of Status Rule]] |
+| The duration-of-status rule returns | A court vacated it on Nov 16, 2026, and the government can appeal until about Jan 15, 2027. If it returned, OPT windows would shrink to 30 days and an extension application may be needed | Watch [[Visa Litigation Tracker]] and read [[Duration of Status Rule]] |
 | Photos or biometrics | USCIS changed its photo policy in December 2025 | Follow the form and be ready for a biometrics appointment |
 ## Checklists
 ### Before Summer 2027

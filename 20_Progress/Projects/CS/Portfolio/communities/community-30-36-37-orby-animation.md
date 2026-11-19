@@ -5,6 +5,18 @@ created: 2026-06-12
 tags: [portfolio, graph, community, orby, animation, speech]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "OrbyState — 'idle' \| 'thinking' \| 'speaking' \| 'navigating' \| ..." | `intro`, `pointing`, `roaming`, `section-comment`, `exitingLeft`, `departingLeft`, `returningRight`, `goodbye`, `reducedMotion`, `chat-nav-home`, `chat-nav-arrival` (`src/components/orby/useOrbyState.ts:8-19`) |
+> | "OrbyStateResult — { state: OrbyState; message: string \| null }" | `{ state, speechText: string \| null, showArrow: boolean }` (`useOrbyState.ts:21-25`) |
+> | "PositionModifiers — { x, y, scale } for Orby position tweaks" | `{ sidebarOpen: boolean; isMobile: boolean }` (`useOrbyState.ts:27-30`) |
+> | "PanelOrbyState — 'idle' \| 'thinking' \| 'speaking'"; "OrbyCanvasProps — canvas size, className, state" | `PanelOrbyState` is `"idle" \| "thinking" \| "responding"` (`src/components/lab/PanelOrby.tsx:8`). `OrbyCanvasProps` is `{ pose?: OrbyPose; speaking?: boolean; size?: number }` (`src/components/orby/OrbyCanvas.tsx:414-418`) |
+> | "`prefersReducedMotion()`" and `useTypedText()` listed under `OrbySpeechCloud.tsx` | Both are in `src/components/orby/useTypedText.ts` (`prefersReducedMotion` `:9`, `useTypedText` `:22`) |
+> | Phase 7 table: `SECTION_TRIGGERS` / `SECTION_COPY` "Scaffolded"; "Section entry detection \| `useActiveSection.ts` \| Hook exists"; "Phase 7 = wire `useActiveSection` → `useOrbyState` → `OrbySpeechCloud`" | Already wired differently: `useOrbyState` itself runs an `IntersectionObserver` over `SECTION_TRIGGERS` (`useOrbyState.ts:56,241-253`) and `Orby.tsx` renders `OrbySpeechCloud` (`:438`). No `useActiveSection` reference exists under `src/components/orby/` (rg) |
+
 # Communities 30, 36, 37 — Orby Animation Layer
 
 > [[../INDEX|← Back to Index]] · [[../communities/community-overview|All Communities]]

@@ -18,6 +18,15 @@ notes:
   - "[[05 - Per-Phase Build Prompts]]"
 next: "Fix .mcp.json (Sanity + Clerk + jarvis) per [[01 - MCP Servers and the .mcp.json Fix]], then run Phase 0 prompt from [[05 - Per-Phase Build Prompts]]."
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Your current `.claude/` (from the screenshot) has agents `frontend-builder, sanity-schema, security-reviewer, test-runner, three-artist`" (§What to add) | `.claude/agents/` now also holds `ai-engineer.md` and `eval-runner.md`; `.claude/commands/` also holds `eval.md` and `ship-check.md`. `.claude/` and `.mcp.json` are gitignored (`.gitignore:7`, `.gitignore:11`). |
+> | DRIFT: "Hooks: keep Biome-on-edit and a typecheck Stop hook" (§What to add) | No `.claude/settings.json` exists. `.claude/settings.local.json` has only `permissions` and `enabledMcpjsonServers`. Shipped hooks are Cursor-side: `.cursor/hooks.json:4,10,22` (sessionStart, afterFileEdit, beforeShellExecution); none of `.cursor/hooks/*.mjs` runs Biome or tsc. |
+> | DRIFT: "add `jarvis` (or use direct reads), `sanity`, `clerk`, and `upstash` to a correct `.mcp.json` at the repo root" (§What to add) | Root `.mcp.json` exists with 9 servers: context7, sanity, clerk, upstash, vercel, jarvis, jarvis-fs, the-plan, github. |
+> | DRIFT: "Commit the phase." / "Commit per phase" (§How the build runs, §Token strategy) | Repo rule: "Committing git — user manages all commits" (`AGENTS.md:247`). |
+> | DRIFT (context): kit assumes a Claude-Code-only system | A Cursor-native system also exists: 15 agent files in `.cursor/agents/`, plus `.cursor/{rules,skills,commands,hooks}` and `.cursor/ORCHESTRATION.md`. |
+
 # Claude Code Build Kit — Index
 This folder is the operating kit that lets Claude Code (Sonnet 4.8) build the nextgen chatbot from the design notes, one phase per prompt, with minimum tokens. The design lives in `nextgen-chatbot/`; this folder is *how the executor uses it*. The design notes are the source of truth — Claude Code reads them, it does not re-derive them.
 ## The model: design in the vault, build in WSL

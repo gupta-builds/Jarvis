@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -42,7 +42,7 @@ This is the whole CPT fight in one picture. The regulation did not change in Aug
 | CBP | Customs and Border Protection, inside DHS | Admits me at the airport and records my I-94 |
 | Department of Labor | Sets wage levels and approves job conditions | Its wage data decides my H-1B lottery weight |
 | State Department | Issues visas at consulates abroad | Issues the F-1 visa stamp |
-| Courts | Judges who can pause or cancel agency actions | Currently hold the fates of CPT guidance and the duration-of-status rule |
+| Courts | Judges who can pause or cancel agency actions | Stayed the CPT guidance (Nov 17) and cancelled the duration-of-status rule (Nov 16), and both rulings can be appealed |
 | My school's DSO | A designated school official at UMN's ISSS office | Signs my I-20 and recommends CPT or OPT |
 ## Visa, Status, And Work Permission Are Three Different Things
 ==The most common beginner mistake is to treat the F-1 visa, F-1 status, and permission to work as one thing; they are three separate things issued by three different offices.==
@@ -74,13 +74,13 @@ So I can be in perfect F-1 status and still be forbidden to start an internship.
 1. **Proposal.** The agency publishes a **Notice of Proposed Rulemaking** (NPRM). It says what the agency wants to do and why, and sets a deadline for public comments.
 2. **Comment period.** Anyone, such as students, schools, and companies, can write comments on regulations.gov. The advisor explained this in the meeting: people and organizations send letters saying why a rule is good or bad, and the government is supposed to look at all of them and respond before finalizing ([[ISSS October Meeting Brief]]).
 3. **Final rule.** The agency publishes the final rule with an effective date, often 30 to 60 days later. The OPT fee proposal says 60 days.
-4. **Lawsuits.** Groups can sue, arguing the agency broke the law. A judge may pause the rule, which is what happened to the duration-of-status rule.
+4. **Lawsuits.** Groups can sue, arguing the agency broke the law. A judge may pause the rule, which is what happened to the duration-of-status rule on September 14, or cancel it, which is what the same judge did on November 16.
 An **interim final rule** skips step 2: it takes effect right away and the comments come after. The end of automatic work-permit extensions was done this way.
 ## How Long Rules Have Taken
 | Rule | Proposed | Final | Days | Note |
 | --- | --- | --- | --- | --- |
 | Weighted H-1B lottery | Sept 24, 2025 | Dec 29, 2025 | 96 | In force Feb 27, 2026 |
-| Duration of status | Aug 28, 2025 | July 17, 2026 | 323 | Postponed by a court Sept 14, 2026 |
+| Duration of status | Aug 28, 2025 | July 17, 2026 | 323 | Postponed by a court Sept 14, 2026, vacated Nov 16, 2026 |
 | OPT fee | Oct 8, 2026 | Not yet | Open | Comments close Nov 9 |
 ### What These Numbers Mean
 Two recent examples took 96 and 323 days, and the advisor says the second took "almost a year." Applying those two gaps to the OPT fee proposal would put a final rule between mid-January and late August 2027, and an effective date 60 days later, roughly mid-March to late October 2027. That is only an analogy, not a forecast. It does say one thing clearly: the fee could be in force before I request my post-graduation OPT in early 2028 ([[OPT Fee Proposal]]).

@@ -7,6 +7,11 @@ sync: managed
 tags: [portfolio, sanity, cms, groq, content]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "A token is exposed to client code outside the controlled live-content setup." (§Failure modes) | The live-content setup itself exposes it: `src/sanity/lib/live.ts:13-14` passes the SAME `process.env.SANITY_API_TOKEN` as both `serverToken` and `browserToken` to `defineLive`. Treat that token as browser-visible; a separate read-only viewer token would be safer. |
+
 # 02 Sanity Content Model and Query Flow
 
 ## Purpose
@@ -81,10 +86,10 @@ graphify affected "PROFILE_QUERY" --depth 3
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
-- This subsystem: **22 files / 102 nodes / 294 touching edges**
-- Leading communities: `schemaTypes/index.ts` (35), `types/index.ts` (31), `queries.ts` (10), `PortfolioContent.tsx` (7), `sanityFetch` (5), `chat-tools.ts` (4)
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
+- This subsystem: **22 files / 102 nodes / 295 touching edges**
+- Leading communities: `chat-tools.ts` (41), `types/index.ts` (31), `queries.ts` (9), `PortfolioContent.tsx` (8), `ExperienceCard.tsx` (4), `(portfolio)/page.tsx` (2)
 
 ### High-connectivity symbols
 
@@ -93,7 +98,7 @@ graphify affected "PROFILE_QUERY" --depth 3
 - `queries.ts` — `src/sanity/lib/queries.ts:L1` (degree 24)
 - `schemaTypes/index.ts` — `src/sanity/schemaTypes/index.ts:L1` (degree 22)
 - `live.ts` — `src/sanity/lib/live.ts:L1` (degree 20)
-- `urlFor()` — `src/sanity/lib/image.ts:L9` (degree 15)
+- `urlFor()` — `src/sanity/lib/image.ts:L9` (degree 16)
 - `image.ts` — `src/sanity/lib/image.ts:L1` (degree 13)
 - `sanity.config.ts` — `sanity.config.ts:L1` (degree 11)
 - `server-client.ts` — `src/sanity/lib/server-client.ts:L1` (degree 10)

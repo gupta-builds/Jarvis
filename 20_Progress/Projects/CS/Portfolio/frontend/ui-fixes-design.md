@@ -14,6 +14,14 @@ notes:
   - "[[_UI Fixes]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "[NEW] gsap/projects-pin.ts — pin + emerge + side drift" (Component Dependency Map) | The file exists (139 lines, untracked) and covers pin, emerge and `background:mode` dispatch. Side drift is not in it: it is `useSpaceFloat` in `ProjectsSlider.tsx:210-218`. |
+> | "[NEW] gsap/education-pin.ts + rope geometry + dot-sync distort" (Component Dependency Map) | Only `education-pin.ts` is new (absent; `src/lib/gsap/` holds only `projects-pin.ts`). Rope geometry (`StretchingLine`, `EducationFlowchart.tsx:267`) and dot-sync distort (`collegeDistortForT`, `:41`) already exist. |
+> | "Projects pin: GSAP ScrollTrigger / Framer (card emerge)"; "Projects drift: Framer Motion repeat"; "Education rope: SVG + GSAP draw" (Animation Library Matrix) | Emerge is a GSAP timeline in `projects-pin.ts` (center and sides tweens). Drift is `useSpaceFloat` (`ProjectsSlider.tsx:210-218`); there is no `repeat:` in that file. The rope is R3F (`QuadraticBezierCurve3` plus drei `Line`, `EducationFlowchart.tsx:3`, `:267`), not SVG, so the "Education blob/Rope desync" risk row about publishing blob screen coords does not apply to the current implementation. |
+> | "`background:mode` → { mode: 'idle' … 'about-pin' … 'projects-edge' … 'click-scatter' }" (Cross-component signaling) | Contract exists in `src/lib/background-mode.ts` (untracked, same four modes); listener `ObsidianBackgroundCanvas.tsx:619-649` consumes only `projects-edge`. The shared `useSectionPin` hook proposal was not built; `useProjectsPin` is a bespoke hook. |
+
 # Frontend UI Fixes — Design
 
 > **Updated:** 2026-09-05. Architecture companion to [[ui-fixes-requirements]].

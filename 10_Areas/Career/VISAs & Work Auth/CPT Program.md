@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -47,7 +47,15 @@ The advisor said ISSS did not generally do pre-completion OPT before the last tw
 ## Two Readings Of "Integral"
 Until August 2026 the working reading was two pathways: training that earns academic credit qualifies even if it is elective, and non-credit training qualifies if it is required for the degree. Since August SEVP says only training required of every student in the curriculum qualifies. The reasons each side gives, the 1991 rulemaking history, and the pending challenge are in [[CPT Lawsuit]], and the exact words of the new reading are in [[CPT Broadcast Messages]].
 The difference decides my case. A CS student taking an optional internship course for credit fit the old reading and fails the new one.
-## Where CPT Stands On 2026-10-23
+## Where CPT Stands On 2026-11-18
+> [!IMPORTANT]
+> The August messages are stayed and ISSS reopens CPT requests on Monday, November 23. Do not start any CPT without the endorsed I-20 in hand.
+
+- Judge Kobick's November 17 order (Dkt. 36) stays the August 12 and 24 messages nationwide. It also enjoins DHS from applying their reading against the plaintiffs' members, including those members' students, for approvals made before and after the messages ([[CPT Lawsuit]]).
+- The regulation is unchanged, and the order did not decide what "integral" correctly means. It held that SEVP changed a 35-year reading without admitting it.
+- UMN paused CPT in the fall and did not revoke authorizations already granted (Anant, November 18). ISSS's student email (received by November 19) says it will resume processing **both required and elective** CPT, with the CPT Request form in MyISSS available **Monday, November 23**, and that litigation is ongoing. The ISSS CPT page was last updated November 18 and no longer says CPT is paused.
+- The order is temporary. An appeal is due about January 16, 2027, and a stay pending appeal would revive the messages.
+## Where CPT Stood On 2026-10-23, Before The Order
 - The August 12 and 24 messages are in force. No court has stayed them.
 - Plaintiffs including the AAU, of which the University of Minnesota is a member, are asking for a stay and injunction. The hearing is November 6 and the government's response is due October 28.
 - Many schools have narrowed or paused CPT. The plaintiffs' filings name sixteen, and UMN, which is not among them, has also paused every application.
@@ -64,7 +72,7 @@ This is the state of UMN's pages in September 2026 and is queued for a rewrite.
 4. **The CSE co-op route**
 	The College of Science and Engineering co-op runs CPT through a co-op course, CSE 4896, which the student must be registered for before ISSS approves. The CSE page quotes about 10 business days at ISSS plus 2 to 5 at the co-op office, carries the same pause banner, and says to start the application only after accepting an offer.
 ## What Is Left For A CS Major
-I understand my degree has no required internship, which I have not yet verified with the department. If that holds, no CPT is available to me today. It would return in three ways: a court order that restores the credit pathway, a UMN curriculum change that makes a practical-training course mandatory for everyone in a program, or DHS withdrawing the guidance. None is scheduled except the November 6 hearing. In the meantime the advisor's answer is that pre-completion OPT remains available, and an internship physically abroad is outside F-1 work rules ([[Junior Year Internship Decision]], [[Pre-Completion OPT]]).
+I understand my degree has no required internship, which I have not yet verified with the department. If that holds, no CPT is available to me today. It would return in three ways: a court order that restores the credit pathway, a UMN curriculum change that makes a practical-training course mandatory for everyone in a program, or DHS withdrawing the guidance. The court route happened: the November 17 order stays the guidance, and ISSS announced that it resumes required and elective CPT requests on November 23, so a CS student can use CPT again. The open question is whether an appeal reverses it. In the meantime the advisor's answer is that pre-completion OPT remains available, and an internship physically abroad is outside F-1 work rules ([[Junior Year Internship Decision]], [[Pre-Completion OPT]]).
 ## Words Used In This Note
 - *Integral:* essential to completeness, as the government now defines it, so the training must be required of everyone in the degree.
 - *Elective:* optional. A course I may take but need not take to graduate.
@@ -77,7 +85,9 @@ I understand my degree has no required internship, which I have not yet verified
 - Accumulating a year of full-time CPT without knowing it ends post-completion OPT eligibility.
 ## Open Questions
 - [ ] Ask ISSS and the CS department whether any required practical training exists in my program, and how the pause treats an elective for-credit course 📅 2026-10-30
-- [ ] Ask ISSS what happens to CPT already on an I-20 started before August
+- [x] Ask ISSS what happens to CPT already on an I-20 started before August: UMN did not revoke it (Anant, 2026-11-18); get this in writing
+- [x] Ask ISSS when it will restart CPT after the November 17 order: Monday, November 23, per its email
+- [ ] Ask ISSS which CPT course and registration deadline apply for a summer 2027 start, whether the process changed, and what happens to CPT approved after Nov 23 if an appeal reverses the order 📅 2026-11-25
 ## Sources
 - [8 CFR 214.2(f)(10), version dated July 1, 2026](https://www.ecfr.gov/on/2026-07-01/title-8/chapter-I/subchapter-B/part-214/section-214.2).
 - [ISSS CPT page](https://isss.umn.edu/fstudents/employment/cpt) and [special situations](https://isss.umn.edu/fstudents/employment/cpt/special-situations), both updated September 3, 2026.

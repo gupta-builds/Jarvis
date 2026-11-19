@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-11-07
-reviewed: 2026-11-07
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -22,7 +22,10 @@ notes:
   - "[[Current News]]"
 ---
 # OPT Fee Proposal
-On October 8, 2026 ICE proposed charging schools $70,000 for a student's first OPT and $30,000 for each later one. It is the largest threat to the plan I am building, because I will ask for OPT in early 2028 and a final rule could be in force by then. This note captures the proposal from the Federal Register text: what it says, how DHS justifies it, the numbers it uses, what it admits, and how to comment. Read it before the November 9 comment deadline and whenever a final rule is announced.
+> [!NOTE]
+> **Status on 2026-11-18.** The comment period closed on November 9, about 32 days after the October 8 proposal by my count. A final rule has no date. The judge in the duration of status case called a 32-day comment period "barely legal" at the September 3 hearing, which is a remark and not a ruling ([[Duration of Status Rule]]).
+
+On October 8, 2026 ICE proposed charging schools $70,000 for a student's first OPT and $30,000 for each later one. It is the largest threat to the plan I am building, because I will ask for OPT in early 2028 and a final rule could be in force by then. This note captures the proposal from the Federal Register text: what it says, how DHS justifies it, the numbers it uses, what it admits, and how to comment. Read it whenever a final rule is announced. The November 9 comment deadline has passed.
 ## In Plain Words
 The government has proposed a new charge for OPT. It would not be billed to me. The school would pay $70,000 the first time it recommends a student for any OPT and $30,000 for each later recommendation, and the school's international office could not even enter the recommendation until it was paid. The proposal does not say the school must absorb the cost, so UMN could pay it, charge it to students or employers, or stop recommending OPT.
 A "proposal" is not a rule yet. The ISSS advisor walked me through what happens next: there is a comment period that ends November 9, the government must read and answer the comments, and only then does it publish a final rule that usually starts about 60 days later. She does not expect fast action, because the end-of-duration-of-status rule took "almost a year." I checked: from proposal to final it took 323 days, while the weighted H-1B lottery rule took 96. Her advice was to focus on the application process and decide when I am applying ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).

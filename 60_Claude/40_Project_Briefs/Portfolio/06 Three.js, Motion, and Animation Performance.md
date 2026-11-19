@@ -75,8 +75,8 @@ graphify path "detectWebGL2Support()" "HeaderLogoCanvas.tsx"
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **22 files / 149 nodes / 340 touching edges**
 - Leading communities: `ObsidianBackgroundCanvas.tsx` (23), `HeaderLogoCanvas.tsx` (22), `EducationFlowchart.tsx` (21), `logoTexture.ts` (15), `HeaderLogo.tsx` (14), `HeaderLogoCanvas.useFrame.property.test.tsx` (12)
 

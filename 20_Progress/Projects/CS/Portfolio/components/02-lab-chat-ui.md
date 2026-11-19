@@ -5,6 +5,19 @@ created: 2026-06-12
 tags: [portfolio, components, lab, chat, UI]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "type ChatMessage = { id; role; content: string; toolResults?: ToolResult[] }"; "type ToolResult = { toolName: string; result: unknown }" | `ChatMessage` is `{ id, role: "user" \| "assistant", text: string, timestamp: number, toolResults? }`; `ToolResult.result` is `Record<string, unknown>` (`src/components/lab/ChatThread.tsx:10-21`) |
+> | "type PanelOrbyState = 'idle' \| 'thinking' \| 'speaking'" | `"idle" \| "thinking" \| "responding"` (`src/components/lab/PanelOrby.tsx:8`) |
+> | "type MODES = 'chat' \| 'proof'"; "`MODES` / `MODE_DESCRIPTIONS`"; "`type LabMode = 'chat' \| 'proof'`" | No `MODE_DESCRIPTIONS` in `src`; `MODES` exists only as a test-local const (`src/components/__tests__/portfolio-lab.test.ts:6`). `LabMode = "Recruiter" \| "Builder" \| "Research" \| "Skeptic"` (`src/lib/lab-data.ts:3`) |
+> | "`LAB_CHIPS: LabChip[]`"; "`LAB_RESPONSES: LabResponse[]`"; "`generateProofPack(): EvidenceItem[]`" | `LAB_CHIPS: Record<LabMode, LabChip[]>` (`lab-data.ts:26`); `LAB_RESPONSES: Record<string, LabResponse>` (`:98`); `generateProofPack(mode: LabMode): string` (`:347`) |
+> | "`const CHIPS: LabChip[]  // from lib/lab-data.ts`" (SuggestedChips) | `CHIPS` is local to the component, `Record<Persona, string[]>` (`src/components/lab/SuggestedChips.tsx:11`); it imports only `Persona` from `./PersonaSelector` (`:4`), not `lib/lab-data` |
+> | "`const POWER_PROMPTS: string[]`"; "Shown in a collapsible block" | `POWER_PROMPTS` is a record keyed by persona (`PowerPromptBlock.tsx:12`), read via `POWER_PROMPTS[persona]` (`:27`); rendered only for recruiter and ceo (`PortfolioLab.tsx:332-333`) |
+> | "`const PERSONA_CONFIG: Record<Persona, { label; icon; description }>`"; "Switching persona clears chat history" | `PERSONA_CONFIG` is an array of `{ id, label, icon }` with no `description` (`PersonaSelector.tsx:12-14`). Switching persona stores the current thread in `perPersonaMessages` (`PortfolioLab.tsx:55-68`) rather than clearing it |
+
 # Lab / Chat UI
 
 > [[../INDEX|← Back to Index]] · [[00-overview|Component Map]]

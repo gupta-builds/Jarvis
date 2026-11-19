@@ -20,7 +20,7 @@ notes:
 ---
 # Exam Material Standard
 ==Exam material tests you instead of holding what you read: every item has a source, an answer you can mark, and a place in the exam's real scope.==
-This is the standard for study material built for an assessment: drill banks, practice sets with solutions, review maps, and print-notes sheets (`class_kind: exam-material`). The sheet for one exam is [[Exam Standard]]. Graded quiz copies and practice-quiz copies (MATH 2230 `Quiz - N`, `Practice Quiz - N`) are typed homework today and stay under [[Homework Standard]].
+This is the standard for study material built for an assessment: drill banks, practice sets with solutions, review maps, and print-notes sheets (`class_kind: exam-material`). The sheet for one exam is [[Exam Standard]]. A quiz cheatsheet (`Quiz - N Cheatsheet`) is exam material: Scope, then Items as one block per topic with a summary and links. A graded quiz in a course with a Quizzes folder is a `quiz` note ([[Quiz Standard]]). Quiz copies in other courses (MATH 2230 `Quiz - N`, `Practice Quiz - N`) stay typed homework under [[Homework Standard]].
 ## Spec
 ```json
 {
@@ -64,7 +64,8 @@ Optional. Cards on `#cards/<course-slug>` for the gaps the bank exposed, not for
 | Print-notes sheet (CSCI 2041 Midterm: topic reference, no Scope) | Add a Scope paragraph | Judgment |
 | Solutions only (`Solution 1` to `Solution 5`) | Items and Answer Key headings around them | Judgment |
 | `tags: ["#class", "#exam"]` | `tags: [class, exam-material]` | Mechanical |
-| Quiz copy typed homework | Stays homework | None |
+| Quiz copy typed homework (no Quizzes folder) | Stays homework | None |
+| Quiz copy typed homework (CSCI 4521 style Quizzes folder) | `class_kind: quiz` | Judgment, see [[Quiz Standard]] |
 ## Done Conditions
 - A Scope paragraph names the exam, the source of the items, and the weeks covered.
 - Items and answers are separate, and answers show reasoning.

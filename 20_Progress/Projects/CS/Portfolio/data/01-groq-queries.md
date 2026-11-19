@@ -5,6 +5,23 @@ created: 2026-06-12
 tags: [portfolio, sanity, groq, queries]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "All queries defined in `src/sanity/lib/queries.ts`" | `queries.ts` exports 13 `*_QUERY` consts (`PROFILE:4`, `SITE_SETTINGS:42`, `NAVIGATION:58`, `PROJECTS:73`, `SKILLS:99`, `EXPERIENCE:112`, `EDUCATION:150`, `CERTIFICATIONS:156`, `ACHIEVEMENTS:162`, `BLOG:168`, `PROJECT_BY_SLUG:174`, `EXPERIENCE_BY_ID:182`, `CHAT_CATALOG:190`). `ABOUT_QUERY`, `CONTACT_QUERY`, `EDUCATION_SECTION_QUERY`, `CERTS_SECTION_QUERY`, `ACHIEVEMENTS_SECTION_QUERY`, `BLOG_SECTION_QUERY` are inline in `src/components/sections/*Section.tsx` (`About:7`, `Contact:5`, `Education:7`, `Certifications:12`, `Achievements:9`, `Blog:8`) |
+> | PROFILE_QUERY: `*[_type == "profile"][0]{ firstName, lastName, headline, bio, avatar …, socialLinks, skills, ... }` | Real (`queries.ts:4-40`): `coalesce(*[_type=="profile" && _id=="singleton-profile"][0], *[_type=="profile"][0]){ _id, firstName, …, shortBio, fullBio, profileImage, …, socialLinks{…}, yearsOfExperience, stats[]{label,value,summary} }` — no `bio`, `avatar`, `skills` projected. The `longBio` / `highlights` example does not match the schema (`fullBio`, `profile.ts:76`) |
+> | EXPERIENCE_QUERY: `order(startDate desc){ _id, company, role, startDate, endDate, current, description, tags, category }` | Real (`queries.ts:112-148`): `order(order asc, startDate desc)`; fields `position`, `employmentType`, `tenure`, computed `current`, `responsibilities[]`, `achievements[]`, `technologies[]->{…}`, `companyLogo`, `companyWebsite` |
+> | PROJECTS_QUERY: `order(order asc){ _id, title, slug, description, techStack, … }` | Real (`queries.ts:73-97`): `order(order asc, title asc)`; `slug{ current }`, `tagline`, `summary`, `coverImage`, `technologies[]->{…}`, `category`, `liveUrl`, `githubUrl`, `"featured": coalesce(featured, false)`, `order` |
+> | SKILLS_QUERY: `order(order asc){ _id, name, category, proficiency, icon, featured }` | Real (`queries.ts:99-110`): `order(category asc, name asc)`; `percentage`, `yearsOfExperience`, `"tone": coalesce(tone, "neutral")`, `color` — no `icon` / `featured` / `order` projected |
+> | EDUCATION_QUERY: `order(endDate desc){ _id, institution, degree, field, … }` | Real (`queries.ts:150-154`): `order(startDate desc)`; field is `fieldOfStudy`; also `current`, `gpa`, `logo` |
+> | SITE_SETTINGS_QUERY: `*[_type == "siteSettings"][0]{ siteTitle, siteDescription, email, resumeUrl, socialLinks }` | Real (`queries.ts:42-56`): `coalesce` over three singleton ids; projects `siteTitle`, `siteDescription`, `siteLogo`, `showBlog`, `_createdAt`, `_updatedAt` |
+> | NAVIGATION_QUERY: `*[_type == "navigation"][0]{ items[]{ label, href, external } }` | Real (`queries.ts:58-71`): `*[_type=="navigation"] \| order(order asc){ _id, title, href, icon, "isExternal": select(…), order }` — one doc per link |
+> | "Contact Queries" (`_type == "contact"`, `status == "new"`, `priority == "high"`) | No `contact` document type (`schemaTypes/index.ts:13-26`); the real `CONTACT_QUERY` (`ContactSection.tsx:5`) projects the `profile` singleton (`email`, `location`, `socialLinks{…}`) |
+> | CHAT_CATALOG_QUERY: `{ "profile": …, "experience": … }` | Real keys (`queries.ts:190-211`): `projects`, `experience`, `skills`, `education`, `certifications`, `achievements` — no `profile` |
+> | Blog examples using `content`, `featured == true`, `author->` | `blog.ts` has no `content`, `featured`, or `author` field (it has `externalUrl`, `readTime`, `featuredImage`, `tags`); real `BLOG_QUERY` is `order(publishedAt desc)[0...6]` (`queries.ts:168-172`) |
+
 # GROQ Queries Reference
 
 > [[../INDEX|← Back to Index]] · [[../architecture/02-sanity-cms|Sanity CMS]]

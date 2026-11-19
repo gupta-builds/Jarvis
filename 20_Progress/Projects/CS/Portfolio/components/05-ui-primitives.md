@@ -5,6 +5,17 @@ created: 2026-06-12
 tags: [portfolio, components, shadcn, radix, primitives]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "Card — `src/components/ui/card.tsx`", "Dropdown Menu — `ui/dropdown-menu.tsx`", "Chart — `ui/chart.tsx`", "Tooltip — `ui/tooltip.tsx`", "Spinner — `ui/spinner.tsx`", "Input — `src/components/ui/`" | None exist. `src/components/ui/` contains `comet-card.tsx`, `layout-text-flip.tsx`, `sheet.tsx`, `sidebar.tsx`, `space-rail.tsx`, `split-heading.tsx` (+ `__tests__`). `card.tsx` / `spinner.tsx` are absent from `git ls-tree 89cd2c0e`; no `recharts` dependency in `package.json` (rg) |
+> | "function Sidebar(); function SidebarToggle(); … SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel" (`ui/sidebar.tsx`) | `ui/sidebar.tsx` exports only `Sidebar, SidebarContent, SidebarProvider, useSidebar` (`:266`). `SidebarToggle` is `src/components/SidebarToggle.tsx:6` (imports `useSidebar` from `./ui/sidebar`, `:4`) |
+> | "`useIridescentEffect(ref: RefObject<HTMLElement>, opts?: UseIridescentEffectOptions): void`" with `intensity?`, `colors?` | `useIridescentEffect(options: { gradientAlpha?: number } = {}): { ref: RefObject<HTMLDivElement \| null> }` (`src/hooks/useIridescentEffect.ts:5-16`) |
+> | "Used on: profile name in Hero, social buttons in Contact, nav links" | Call sites: `HeroContent.tsx:42`, `ContactPanel.tsx:44`, `SkillsSectionClient.tsx:192`, `ProjectsSlider.tsx:28`; none in `HeaderScrolling.tsx` (rg) |
+> | Hooks table lists 4 hooks | Also in `src/hooks/`: `use-space-float.ts:59` (`useSpaceFloat`), `useAnimationGate.ts:84`, `useLogoTexture.ts:44`; `ui/space-rail.tsx:49` (`SpaceRail`) and `ui/split-heading.tsx:31` (`SplitHeading`) are also unlisted primitives |
+
 # UI Primitives
 
 > [[../INDEX|← Back to Index]] · [[00-overview|Component Map]]

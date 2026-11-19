@@ -15,48 +15,41 @@ Workflow: fresh Gemini Notebook chat per chapter, upload that chapter's sources,
 - Every part still gets the full ROLE/PROCESS/FORMATTING_RULES/OUTPUT_CONTRACT scaffolding in full; only SOURCES and SCOPE get leaner as a discipline, never truncated by cutting a required section.
 
 ### Master prompt (reusable — fill the brackets each week, for any future course)
+**Revised 2026-11-19 to match the new [[Textbook Standard]].** One prompt covers about 10 book pages or one section group, never a whole chapter. The output is capped at 2,500 words, carries a `Reading Guide` of page-level tasks, marks the hardest topics with `[EXPLAIN?]` so the callout can be written after the output lands, and has no flashcards. A chapter that needs more becomes `Chapter - N (Part 2)` with its own prompt in the same Notebook chat. Fill the brackets, measure the result (it must stay under 3,000 characters), and paste. The older lecture-only prompts in `Week - 1 (Prompts)` keep their original wording and predate this change.
 ```
-You are producing a source-grounded study note for a university course, in Obsidian-flavored Markdown, for personal study only — not a graded submission, so course AI-use policy on essays/coding does not apply, but you must still never invent facts beyond the attached sources.
+You are writing a source-grounded study note for a university course, in Obsidian Markdown, for personal study only. Never state anything the attached sources do not support.
 
-SOURCES AND PRIORITY
-1. PRIMARY, load-bearing source: [TEXTBOOK NAME], Chapter [N] — "[CHAPTER TITLE]". The note's structure and depth come from this chapter, in the book's own order.
-2. SECONDARY, emphasis source: [LECTURE FILE NAME(S)]. Use this only to decide what to expand, which vocabulary/function names/examples the professor used verbatim, what the professor has NOT yet covered, and — importantly — whether the professor pulled in content that technically belongs to a different chapter (flag this explicitly, don't silently fold it into the wrong chapter's note).
-3. BACKGROUND, non-content source: [DISCUSSION/POLICY FILE NAME]. Do not summarize this as chapter content — it is course-policy context only.
+SOURCES
+1. PRIMARY: [BOOK], Chapter [N] "[TITLE]", pages [PAGE RANGE] only. Structure and depth come from these pages, in the book's order.
+2. SECONDARY: [LECTURE FILE]. Use it only to decide what to stress and to flag content that belongs to another chapter.
 
 SCOPE
-Cover every part of this chapter that discusses these real functions/concepts, taken from the actual lecture: [LIST OF REAL FUNCTION NAMES / CONCEPTS]. Find the book's own subsection numbers and titles yourself from the uploaded PDF — do not assume any subsection numbering I give you is correct if it conflicts with what you see in the source.
+Only: [SECTION NUMBERS AND SHORT PHRASES]. Ignore the rest of the chapter. Use the book's own section numbers and titles.
 
-STRUCTURE — output exactly these headings in this order, nothing added or removed:
+LENGTH
+Total output 1,500 to 2,500 words. Compress by dropping repetition and asides. Keep every definition, equation, named example and code listing the scope needs.
+
+OUTPUT: exactly these headings, in this order, nothing added
 # [Chapter Title]
 ## Chapter Summary
-One sentence claim with exactly one ==highlighted== phrase, then "*Mechanism:*" explaining how the claim works.
+One sentence claim with exactly one ==highlight==, then "*Mechanism:*" (problem, assumptions, procedure, result, limit).
+## Reading Guide
+One "- [ ]" task per instruction: "Read pp. X-Y (section): why", "Study Figure N.M: what to notice", "Run or trace the listing on p. X", "Try Exercise N". Use real page numbers from the source.
 ## Key Concepts
-Every named term from the chapter, **bolded** on first use, one line each: what it means and why it matters to the chapter's argument.
+Each term **bold** on first use: meaning, role, and the condition that prevents misuse.
 ## Full Reading Notes
-One ### subheading per numbered subsection, using the book's own subsection numbers and titles verbatim. Every distinct claim, example, and piece of reasoning in that subsection must appear in some form — if I could learn something from re-reading the original PDF that isn't in your note, the note has failed. Reproduce named examples, numbered lists, function signatures, and code excerpts in full (as fenced code where the book gives code), don't compress into "etc."
+One ### per section in book order, with page numbers. After each of the 3 to 6 hardest topics, add the line "[EXPLAIN?]" and nothing else.
 ## Worked Example
-One end-to-end example (use the chapter's own running example if it has one) that ties the whole section's concepts together.
+One source-grounded example with its real numbers or code.
 ## Connections
-- Lecture: what the lecture(s) emphasized from this material, which real function names/examples appeared on slides vs. only in the book, and whether the lecture pulled in content that technically belongs to a different chapter (name that chapter).
-- Textbook: nothing to fill here yet, leave the line as "(pending next chapter)".
+Lecture: what the lecture stressed and any content from another chapter. Textbook: "(pending)".
 ## Open Questions
-3–5 items as Markdown tasks ("- [ ] ...") — genuine unresolved questions or self-test prompts a student should be able to answer after really understanding this material, not busywork.
-## Flashcards
-5–8 cards testing mechanisms and contrasts, not labels. Format: "Question::Answer #cards/ai" one per line, or multiline with "?" separator for longer answers.
+3 to 5 "- [ ]" items.
 
-FORMATTING RULES (violating these is a failure, not a style choice)
-- Zero blank lines between a heading and its first line of content, and zero blank lines between consecutive list items or sections.
-- ==highlight== markers: exactly one per major ## heading, reserved for the single most important definitional claim in that section.
-- **bold**: named concepts/functions/terms on first introduction only, not general emphasis.
-- *label:* italics for sub-category intro labels like *Mechanism:* or *Pitfall:*.
-- No marketing or filler language: avoid words like "transformative," "powerful," "seamless," "leverage," "comprehensive," "unlock," "landscape," "journey" — say the actual mechanism instead.
-- No sentence that could be pasted into a generic study-guide site unchanged. Every sentence should carry a mechanism, example, contrast, or explicit uncertainty.
-- Cite page numbers for direct definitions or close paraphrases, in parentheses.
+FORMATTING
+No blank lines between a heading and its content. One ==highlight== per ## section. No filler words ("powerful", "comprehensive", "leverage"). Cite pages in parentheses. No flashcards.
 
-OUTPUT CONTRACT
-Return the entire note as a single fenced Markdown code block (```markdown ... ```) so nothing gets reinterpreted by the chat UI when copied into Obsidian. Do not add commentary before or after the code block.
-
-Before answering, silently verify: every numbered subsection in the scope has its own ### heading; every bolded term is actually defined; the highlight count per ## section is exactly one; the code block is the entire response.
+Return the entire note as one fenced markdown code block and nothing else.
 ```
 
 ## Codex

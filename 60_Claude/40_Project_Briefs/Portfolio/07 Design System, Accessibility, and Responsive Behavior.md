@@ -7,6 +7,11 @@ sync: managed
 tags: [portfolio, css, design-system, accessibility, responsive]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "`CometCard` provides bounded 3D hover tilt with `default`, `dark`, and `large` variants. Dark/large variants cap tilt at eight degrees; reduced motion disables tilt." (§Component primitives) | Variants are `"default" \| "dark" \| "subtle" \| "ghost"` (`src/components/ui/comet-card.tsx:13`); there is no `large`. Only `subtle`/`ghost` are capped, at 6 degrees (`comet-card.tsx:31-35`). `dark` uses `rotateDepth` default 17.5 (`:16`) unless callers override. The file has no `matchMedia`/reduced-motion logic (0 matches). |
+
 # 07 Design System, Accessibility, and Responsive Behavior
 
 ## Purpose
@@ -71,10 +76,10 @@ rg -n "cosmic-card|float-btn|section-kicker|section-backdrop|orbit-chip" src/app
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **14 files / 52 nodes / 199 touching edges**
-- Leading communities: `cn` (17), `HeaderScrolling.tsx` (15), `comet-card.tsx` (7), `HeroContent.tsx` (3), `PortfolioContent.tsx` (3), `utils.ts` (3)
+- Leading communities: `cn` (17), `react` (15), `comet-card.tsx` (7), `utils.ts` (5), `PortfolioContent.tsx` (3), `HeaderLogo.tsx` (2)
 
 ### High-connectivity symbols
 

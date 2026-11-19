@@ -5,6 +5,21 @@ created: 2026-06-12
 tags: [portfolio, components, orby, 3D, animation]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "function OrbyArrow(props: OrbyArrowProps)" and "function getPose()" as `Orby.tsx` exports (Orby.tsx — Community 32) | `Orby.tsx` has a single default export `Orby` (`src/components/orby/Orby.tsx:72`). `OrbyArrow` lives in `orby/OrbyArrow.tsx:14`. No `getPose` symbol in `src` (rg) |
+> | Component tree: "`OrbyCanvas.tsx` └─ `OrbyModel.tsx` └─ `OrbyArrow.tsx`" | `Orby.tsx` renders `OrbyCanvas` (`:432`), `OrbySpeechCloud` (`:438`) and `OrbyArrow` (`:450`) as siblings; `OrbyCanvas.tsx` does not reference `OrbyModel` (rg) |
+> | "OrbyModel.tsx — Uses `useFrame` for scroll-driven animations"; "Reads `useScrollProgress()`" | `OrbyModel.tsx` imports `motion/react` and `cn` only (`:3-4`) — no `useFrame`, no `useScrollProgress`. `useFrame` is in `OrbyCanvas.tsx:3,24`; `Orby.tsx:18` imports `getRawScrollProgress` |
+> | "type OrbyState = 'idle' \| 'thinking' \| 'speaking' \| 'navigating' \| ..."; "type OrbyStateResult = { state; message: string \| null }" | `OrbyState` = `intro`, `pointing`, `roaming`, `section-comment`, `exitingLeft`, `departingLeft`, `returningRight`, `goodbye`, `reducedMotion`, `chat-nav-home`, `chat-nav-arrival` (`src/components/orby/useOrbyState.ts:8-19`); `OrbyStateResult = { state, speechText: string \| null, showArrow: boolean }` (`:21-25`) |
+> | "type PositionModifiers = { x: number; y: number; scale: number }"; "function useOrbyState(): OrbyStateResult" | `PositionModifiers = { sidebarOpen: boolean; isMobile: boolean }` (`useOrbyState.ts:27-30`); `useOrbyState(_modifiers?: PositionModifiers)` (`:90`) |
+> | "const SECTION_COPY: Record<string, string[]>"; "const SECTION_TRIGGERS: string[]" | `SECTION_TRIGGERS: Record<string, string>` (`useOrbyState.ts:56`); `SECTION_COPY` is a plain object keyed by section (`:45`, used at `:57`) |
+> | "`SECTION_COPY` and `SECTION_TRIGGERS` … already partially scaffolded for Phase 7"; "`docs/ORBY.md` spec" | Implemented, not scaffolded: an observer loop over `SECTION_TRIGGERS` fires section comments (`useOrbyState.ts:241-245`). `docs/ORBY.md` does not exist in the repo |
+> | "`OrbySpeechCloud` … Hooks used: `prefersReducedMotion()`" | `prefersReducedMotion` is a function inside `src/components/orby/useTypedText.ts:9` (used `:29`), not `OrbySpeechCloud.tsx` |
+> | "`useScrollProgress` … Returns normalized scroll progress (0–1)" | File exports four functions: `clamp` (`:9`), `lerp` (`:16`), `getRawScrollProgress` (`:24`), `useScrollProgress` (`:37`) in `src/components/orby/useScrollProgress.ts` |
+
 # Orby Companion Components
 
 > [[../INDEX|← Back to Index]] · [[00-overview|Component Map]]

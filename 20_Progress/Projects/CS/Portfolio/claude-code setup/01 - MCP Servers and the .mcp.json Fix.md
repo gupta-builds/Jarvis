@@ -11,6 +11,15 @@ notes:
   - "[[00 - Claude Code Build Kit — Index]]"
   - "[[02 - Deploy Security Checklist]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Your file is `.claude/mcp.json`." (§Why your config doesn't render) | `.claude/mcp.json` does not exist; root `.mcp.json` does (gitignored, `.gitignore:11`). |
+> | DRIFT: working `.mcp.json` lists 4 servers: context7, sanity, clerk, upstash (§The working .mcp.json) | Shipped root `.mcp.json` has 9: context7, sanity, clerk, upstash, vercel, jarvis, jarvis-fs, the-plan, github. `sanity` and `vercel` are HTTP-type entries, not `npx` commands. |
+> | DRIFT: "Preferred: skip jarvis, read the files directly." (§jarvis MCP and the WSL→Windows gotcha) | Shipped config defines both `jarvis` (HTTP) and `jarvis-fs` (a filesystem server over the vault mount), plus `the-plan`. |
+> | DRIFT: "GitHub and Vercel MCPs you already have as Desktop connectors; add them here too only if you want…" | Both are in `.mcp.json` (`github`, `vercel`). |
+> | FACT-FIX: n/a (config wiring) | `enabledMcpjsonServers` in `.claude/settings.local.json` lists `the-plan-fs`, which is not defined in `.mcp.json`. |
+
 # MCP Servers and the .mcp.json Fix
 This note owns the MCP setup for the WSL repo and fixes the "Sanity/Clerk don't render" problem. Claude Code's project MCPs come from `.mcp.json`, not from the Desktop connectors — so what works in Cowork does not automatically work in the repo.
 ## Why your config doesn't render (the likely causes, in order)

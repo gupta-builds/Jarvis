@@ -12,6 +12,22 @@ notes:
   - "[[02 - Premortem & Failure Defenses]]"
   - "[[02 - Deploy Security Checklist]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. **Implementation status: the Azure leg never landed; shipped chain is Cerebras → Groq → Mistral → degraded** (`src/lib/model-router.ts:48-70`; no `azure` in `src/` or `package.json`). Rows below only record shipped divergence and status.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Azure OpenAI (GPT-4o-mini) → Cerebras → Groq → Mistral → degraded mode"; "Resolved for v1: Primary = Azure OpenAI `gpt-4o-mini`" | Primary is Cerebras `zai-glm-4.7`, then Groq `llama-3.3-70b-versatile`, then Mistral `mistral-small-latest` (`model-router.ts:55,61,68`); providers use `@ai-sdk/openai` (Cerebras), `@ai-sdk/groq`, `@ai-sdk/mistral` (`model-router.ts:19-21`) |
+> | DRIFT: "Cerebras `gpt-oss-120b`", "Groq `llama-3.1-8b-instant`", "Mistral `mistral-small`" | Models in code differ: `zai-glm-4.7`, `llama-3.3-70b-versatile`, `mistral-small-latest` (`model-router.ts:55,61,68`) |
+> | DRIFT: "First ~10 messages → Azure (premium) … Beyond ~10 → transparently fall to the free chain" (§Budget tiering) | Counter `chat:session:{sessionId}:count`, TTL 3600; after 10 messages routing starts at Groq and skips Cerebras (`model-router.ts:6-7,120-124`). `sessionId` is the token's `iat` (`src/app/api/chat/route.ts:106-107`) |
+> | DRIFT: "Cap `max_tokens` per reply (~300–400)" (§Cost levers 3) | `maxOutputTokens: 800` (`route.ts:325`) |
+> | DRIFT: "Cache the persona drop-down questions … TTL 24h or bust on a Sanity publish webhook" (§Cost levers 1) | Cache covers every normalized question per persona (`chat:v2:{persona}:{q}`) and fixed prompts (`chat:v2:fixed:{persona}:{promptId}`) (`route.ts:257-262`); TTL 86400 (`:622`). No webhook bust: `/api/revalidate` only calls `revalidatePath("/")` (`src/app/api/revalidate/route.ts:31`) |
+> | DRIFT: failover "on any 429 / quota / 5xx / network / timeout" with a short Upstash cooldown (§The failover router) | Any thrown error cools the provider: 30 s default, retry hints parsed up to 120 s (`model-router.ts:228-250`); extra `cooldown` result when all legs are cooling (`:254-271`); Groq `tool_use_failed` is detected and cascaded (`:196-217`) |
+> | STATUS (matches design): "~75–100 messages/IP/day … plus a burst limit (~10/min)" and "env-gated allowlist" for dev | 100 per 24 h and 10 per 60 s sliding windows (`route.ts:41,47`); dev bypass is the `DEV_BYPASS_IP` env var (`route.ts:181`); limiter fails open if Upstash is down (`route.ts:219-221`) |
+> | DRIFT: "block scraper user-agents in middleware" (§Rate limiting) | `BLOCKED_UA` is checked inside the route handlers (`src/lib/request-guards.ts:8`; `route.ts:87`; `src/app/api/orby-comment/route.ts`); `src/proxy.ts` is Clerk middleware whose matcher excludes `api/chat` (`proxy.ts:1,40-41`) |
+> | DRIFT: "short-lived stateless HMAC-signed httpOnly cookie issued on page load and verified at the edge" (§Origin-locking) | Issued by `POST /api/chat-token` only after Cloudflare Turnstile siteverify (`src/app/api/chat-token/route.ts:15,109`); `GET` is legacy / local dev without a Turnstile secret (`:71`). Verified in the Node route handler by `verifyToken` (`route.ts:101`); TTL 1 h (`src/lib/chat-token.ts:1`) |
+> | DRIFT: "an output guard that blocks/regenerates hateful, inappropriate, or impersonating output" (§Content safety) | Not found: only a tool-call-leak sanitizer on output (`route.ts:540`, `src/lib/chat-sanitizer.ts`). The prompt-level non-overridable rule exists (`src/lib/chat-context.ts:161`) |
+> | DRIFT: "max-tool-step cap (~4)" and "hard timeout on every model and tool call" (§Cost controls) | `stepCountIs(5)` (`route.ts:326`); no timeout / `maxDuration` found in `src/app/api` or `src/lib` (grep); only `abortSignal: req.signal` (`route.ts:329`) |
+
 # Model Layer, Rate Limiting & Abuse
 This note owns the bottom layer (the model providers) and the gates around it: how it stays free, stays up under traffic, and cannot be abused. It is the fix for premortem failures 2, 5, and 6. The model call is the least interesting part; the budget tiering, failover, and gates are the work.
 ## The finalized plan (2026-06-14)

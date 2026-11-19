@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
   "sourceRepository": "/home/anant_gupta/projects/hub/portfolio",
-  "sourceCommit": "5f29675591f06f839442539f223ac151f78d9035",
+  "sourceCommit": "9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23",
   "files": {
-    "00 Portfolio — Codebase Map.md": "a5bb66e7b5da635d396a8a9fe3bd8095b464e84715d6327f1d9f17562c3ee535",
-    "01 Routing, Rendering, and Server Boundaries.md": "326dbf7c613ddd1b38cadbbcd5342a6cf43d4f84aeb19fee03bc0439e14b06e9",
-    "02 Sanity Content Model and Query Flow.md": "64e6432ca874ae666159ec04c5ccd480a59c8ec0613a6d0cca403689362d210a",
-    "03 Page Composition and Content Sections.md": "7409bd1e071cbc9374f219cbf1b8cb73e62a790a5f5e56e3b759953ad37d67d0",
-    "04 Portfolio Lab — Agent Runtime and Grounding.md": "a0eea6ba86a5f85c93228429c4366832499d9512e8c7da8d508061e97b5415c1",
-    "05 API Security, Auth, Rate Limits, and Degraded Mode.md": "dee96cb1163a084d3ab19d9dd4b8b9badd0b86b61dbb975bc4bdb5843031a572",
-    "06 Three.js, Motion, and Animation Performance.md": "3ed8204645228263eafb9a0fc57804f50678910706e9d0c39cc0a49dbde6e5b3",
-    "07 Design System, Accessibility, and Responsive Behavior.md": "9b2427abd658cf90e567af3cf59911ef089e05cb1e0a6d1e1bd0577c119717bc",
-    "08 Orby State, Navigation, and Commentary.md": "67fa3d1cdf38095a156638650f4dfef7dc666d9f2767fdd85b5229cf27a8375c",
-    "09 Testing, Prompt Evals, and Quality Gates.md": "c25d9ba59f0196e9fa1a279216b248a6f5119c70b5b25a59f0bc03d83ee97005",
-    "10 Deployment, Preview, and Operational Runbook.md": "19ad24d88e224a0b0fda6a6cf11422cc07fa243f16dd6dc0f6e48a6fa00e70b7"
+    "00 Portfolio — Codebase Map.md": "29c77811dbf5f0b6a59cac9075d5f2bff4d8c4078398dca926293251c932bc07",
+    "01 Routing, Rendering, and Server Boundaries.md": "4162a9c1e4447064bef5b37d8fb11421329628ecf81533a2981fece4c63d9ba6",
+    "02 Sanity Content Model and Query Flow.md": "921db0844d6086df6b8a0ffdec4d3d2ab041a0200a602e20fc3b98051b003a42",
+    "03 Page Composition and Content Sections.md": "88d1cb9d1f1ab9e93331ae0bcfb08f38340b665316609fc60c44d3f31835a89e",
+    "04 Portfolio Lab — Agent Runtime and Grounding.md": "09ab93a292ba121d3cfda5214a28ee8610907ffa8c9a41eae1349232417f3440",
+    "05 API Security, Auth, Rate Limits, and Degraded Mode.md": "122dba2369804ba314c117fce6c93f61f2ab9c079f81a39f2e04fab9a73df500",
+    "06 Three.js, Motion, and Animation Performance.md": "1bdff1d03fa6061653f62b997b1377c6035e37f017e8494ada969de3169090bf",
+    "07 Design System, Accessibility, and Responsive Behavior.md": "19fb48603b5a066673db40aec59fb40981e118c464b026011f7f68656c8ded86",
+    "08 Orby State, Navigation, and Commentary.md": "56c5c0b11e684d268f9695e4caaa323b0d4427ba942da4ada4b683c3bf9f55bf",
+    "09 Testing, Prompt Evals, and Quality Gates.md": "cf9307419d751580b3439f4696053a7658826e8fcc8fc19772a61aff8135c2a3",
+    "10 Deployment, Preview, and Operational Runbook.md": "0f5fb77b8546189a44d53b2883b3dadff0a6fa95d5fbd2f9f16eebb867bbaef1"
   }
 }

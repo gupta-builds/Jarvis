@@ -9,6 +9,11 @@ tags:
   - backend
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | STATUS · "**CSP is Report-Only.** There is a TODO comment in `next.config.ts` ... Enforcement is done in Phase 4." (§What Claude Code found) | Now enforced: header key `Content-Security-Policy` (`next.config.ts:52`), comment "ENFORCED" at `:50`; file committed and unmodified. `connect-src` has `https://*.sanity.io` and `https://*.api.sanity.io` (`:25`), matching the acceptance box. |
+
 # Phase 2 — Sanity Backend Lockdown
 
 > Goal: No visitor can mutate Sanity data. Read-only for the world; writes only via authenticated Studio.

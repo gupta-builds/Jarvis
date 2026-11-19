@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -38,7 +38,7 @@ DHS leans on this purpose in its current rulemaking. The OPT fee notice says the
 2. **SEVIS record**
 	The government database the DSO updates. For OPT, the recommendation must be entered in SEVIS before the student can apply to USCIS, and the student must then receive a new I-20 showing it ([[OPT Program]]).
 3. **Form I-94**
-	The arrival and departure record. Today it shows "D/S" (duration of status). Under the postponed fixed-period rule it would show an Admit Until Date instead ([[Duration of Status Rule]]).
+	The arrival and departure record. Today it shows "D/S" (duration of status). Under the fixed-period rule, which a court vacated on November 16, 2026, it would have shown an Admit Until Date instead. The rule never took effect, so my I-94 should still say "D/S"; I check it at i94.cbp.dhs.gov ([[Duration of Status Rule]]).
 4. **Employment Authorization Document (Form I-766)**
 	The work permit USCIS issues for OPT, STEM OPT, and the rare hardship category. CPT does not use one: the August broadcast says students "are not expected to obtain EADs for this training" ([[EAD and OPT Processing]]).
 ## Maintaining Status
@@ -51,14 +51,14 @@ DHS leans on this purpose in its current rulemaking. The OPT fee notice says the
 - *On-campus assistantships:* work under a scholarship, fellowship, or assistantship counts as part of the academic program for the full-course-of-study test.
 ## Time Limits And Grace Periods
 The rules in force today are the duration of status rules. A student may enter up to 30 days before the program start date and stay while pursuing a full course of study or authorized practical training. After studies and any practical training end there is a 60-day period to prepare for departure or transfer, and 15 days if the DSO authorized a withdrawal. A student who fails to maintain status gets no departure period.
-The fixed-period rule would replace this with an Admit Until Date of up to four years plus 30 days to arrive and 30 days to depart. A federal court postponed it on September 14, so the 60-day period is the operative one for now ([[Duration of Status Rule]]). Dates in this note and in [[2028 Graduation Timeline]] use the 60-day rules and flag where the 30-day version would change them.
+The fixed-period rule would replace this with an Admit Until Date of up to four years plus 30 days to arrive and 30 days to depart. A federal court postponed it on September 14 and vacated it on November 16, so the 60-day period is the operative one, unless the government wins an appeal ([[Duration of Status Rule]]). Dates in this note and in [[2028 Graduation Timeline]] use the 60-day rules and flag where the 30-day version would change them.
 > [!WARNING]
-> The "current" eCFR view of 8 CFR 214.2 already prints the postponed rule's 30-day OPT filing and start-date wording. Use the version dated 2026-07-01 for the rules actually in force.
+> The "current" eCFR view of 8 CFR 214.2 printed the postponed rule's 30-day OPT filing and start-date wording when I last checked, before the November 16 vacatur. Use the version dated 2026-07-01 for the rules actually in force.
 ## Who Decides What
 | Decision | Decided by | Paper trail |
 | --- | --- | --- |
 | I-20 issue and endorsement, CPT authorization, OPT recommendation, program extension, reduced course load | The school's DSO ([[SEVP and DSOs]]) | I-20 and SEVIS |
-| OPT and STEM OPT work permit, hardship work permit, reinstatement, extension of stay under the postponed rule | USCIS | Forms I-765 and I-539 |
+| OPT and STEM OPT work permit, hardship work permit, reinstatement, extension of stay if the vacated rule returns | USCIS | Forms I-765 and I-539 |
 | Admission, Admit Until Date, and whether a returning student is admitted | CBP at the port of entry | Form I-94 |
 | School certification, broadcast messages, and what counts as a compliant DSO decision | SEVP, a program inside ICE | Broadcast messages |
 ## Where I Stand

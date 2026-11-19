@@ -1,3 +1,11 @@
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "`ProjectsSlider.tsx`, `projects-pin.ts` (new)" (Per-component specs, row 4) | `src/lib/gsap/projects-pin.ts` exists (139 lines, untracked) and is wired at `ProjectsSlider.tsx:15` and `:223`. |
+> | "`frontend/Ran/` — prior shipped round" (Cross-references) | No `Ran/` folder exists in `frontend/` (listing: `Prompt.md`, `_UI Fixes.md`, `_archive/`, `ui-fix-01` to `08`, the `ui-fixes-*` trio and index). The archive README describes `Ran/00`–`16` as the 17-note overhaul plan, now at `_archive/frontend-overhaul-plan-2026-06/`. |
+> | "`frontend/claude-code-setup/` — process/tooling only" | No `claude-code-setup` folder exists in `frontend/` or `_archive/`. `_archive/` holds `frontend-overhaul-plan-2026-06/`, `r-phase-execution-kit-2026-06/`, `ui-fixes-prompt-passes-2026-07/`, `BUILD-STATUS.md` and `README.md`. |
+> | "`frontend/claude-prompt-ui-fixes-*.md` — prior prompt generations" | Not at `frontend/`. The four files (`claude-prompt-ui-fixes-analysis.md`, `-audit-pass.md`, `-implementation.md`, `-pass-3.md`) are in `_archive/ui-fixes-prompt-passes-2026-07/`. |
+
 # Frontend UI Fixes — Component Index
 
 > **Folder:** `20_Progress/Projects/CS/Portfolio/frontend/`

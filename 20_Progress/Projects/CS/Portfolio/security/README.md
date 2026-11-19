@@ -5,6 +5,16 @@ updated: 2026-06-15
 tags: [portfolio, security, index]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX · "Two tokens: `SANITY_SERVER_API_TOKEN` (server fetch, no CDN) and `SANITY_API_TOKEN` (browserToken for Live API)" (§Sanity) | App runtime reads only `SANITY_API_TOKEN`: `src/sanity/lib/live.ts:13-14` (serverToken and browserToken), `src/sanity/lib/server-client.ts:16-17`, `src/app/api/health/route.ts:11`. `SANITY_SERVER_API_TOKEN` appears only as an optional fallback in `scripts/patch-sanity-content.mjs:34`. |
+> | FACT-FIX · "Public routes: `/`, `/sign-in`, `/sign-up`, `/api/sanity(.*)`, `/api/draft-mode(.*)`, `/api/chat(.*)`" (§Authentication) | No public-route list exists. `src/proxy.ts:5` defines only `isStudioRoute` (`/studio(.*)`); `proxy()` returns `NextResponse.next()` for every non-studio path (`:25-27`); `auth.protect()` runs only for studio (`:7-10`). Matcher excludes api/health, api/error-report, api/chat (`:40-41`). |
+> | FACT-FIX · "**CSP: `Content-Security-Policy-Report-Only` — NOT enforced.**" and phase-map "CSP still Report-Only" (§Security Headers, §Phase Map, §two things before launch) | Header key is `Content-Security-Policy` (`next.config.ts:52`; comment "ENFORCED" at `:50`); file committed and unmodified. Live fetch 2026-11-19: response carries a `content-security-policy` header. |
+> | STATUS · "`/api/health` is Clerk-gated — fix for UptimeRobot" (§Phase Map row 5, §two things before launch) | `src/proxy.ts:40-41` excludes `api/health`, and non-studio paths skip Clerk (`:25-27`). Route exists (`src/app/api/health/route.ts:3-24`). Live fetch 2026-11-19: `GET https://anantgupta.dev/api/health` → 200. |
+> | DRIFT · "Origin check covers localhost:3000, localhost:3001, `NEXT_PUBLIC_BASE_URL`, and `VERCEL_URL`" (§Chatbot) | Also `NEXT_PUBLIC_SITE_URL` (`src/lib/request-guards.ts:53-54`; file untracked). |
+> | DRIFT · "Per-provider 30s cooldown in Upstash on failure" (§Chatbot) | 30s default, raised up to a 120s cap from provider retry hints (`src/lib/model-router.ts:228-250`). |
+
 # Portfolio Security — Master Index
 
 > Ground truth as of 2026-06-15. Every finding verified against actual source files — not guesses.

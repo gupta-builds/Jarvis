@@ -7,6 +7,11 @@ sync: managed
 tags: [portfolio, nextjs, app-router, rendering]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "`ChatTokenInit` bootstraps the HMAC-protected chat cookie" (§Boundary rules) | Incomplete: `ChatTokenInit` renders an invisible Cloudflare Turnstile widget and posts its token to `/api/chat-token` (`src/components/ChatTokenInit.tsx:6-11,20-29`). The route verifies Turnstile before signing the cookie; this is required outside development/test (`src/app/api/chat-token/route.ts:8-9,138-148`). |
+
 # 01 Routing, Rendering, and Server Boundaries
 
 ## Purpose
@@ -74,10 +79,10 @@ graphify affected "Providers()" --relation call --depth 2
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **27 files / 90 nodes / 235 touching edges**
-- Leading communities: `orby-comment/route.ts` (15), `next` (13), `chat/__tests__/route.test.ts` (11), `chat/route.ts` (9), `sanityFetch` (7), `@clerk/nextjs` (6)
+- Leading communities: `next` (19), `app/layout.tsx` (16), `chat/__tests__/route.test.ts` (11), `chat/route.ts` (9), `chat-token.ts` (8), `orby-comment/route.ts` (7)
 
 ### High-connectivity symbols
 

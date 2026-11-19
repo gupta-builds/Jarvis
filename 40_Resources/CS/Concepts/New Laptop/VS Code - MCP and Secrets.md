@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-11-18
 course: Life
 track:
   - laptop
@@ -15,6 +15,7 @@ notes:
   - "[[VS Code - Install Loop]]"
   - "[[VS Code - Windows]]"
   - "[[Jarvis MCP and REST API Setup]]"
+  - "[[Cursor - VS Code Parity]]"
 next: "Store THE_PLAN_API_KEY with sync-mcp.ps1 -SetSecret, then port the registry to WSL"
 ---
 # VS Code - MCP and Secrets
@@ -70,5 +71,7 @@ Assume it is March 2027 and the setup has failed. The likely causes, with the gu
 	A new secret file type, or an agent other than Claude. *Guard:* add patterns to the deny list and the global git ignore together.
 8. **WSL drifting behind Windows**
 	WSL is not manually verified yet. *Next:* WSL reads the same registry at `/mnt/c/Users/anant/.config/mcp/mcp.json` through a bash port of the sync script.
+## Cursor (added 2026-11-18)
+Cursor now mirrors the VS Code setup, including MCP: `jarvis` and `the-plan` stay on the same bridge, and Context7 and Firecrawl were added directly to Cursor's own MCP file, outside the registry. Both read `CONTEXT7_API_KEY` and `FIRECRAWL_API_KEY` from the environment Cursor inherits. In WSL the key store is `~/.mcp.env`, loaded only by the `launch.sh` wrappers, and Cursor has no wrapper, so a key stored there does not reach Cursor by itself. The route to pick, and the stale plaintext-key file that was deliberately not copied, are in [[Cursor - VS Code Parity]].
 ## Sources
 [Claude Code MCP scopes and env expansion](https://code.claude.com/docs/en/mcp), [Claude Code permissions](https://code.claude.com/docs/en/permissions), [VS Code MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers), [WSLENV](https://learn.microsoft.com/en-us/windows/wsl/filesystems), [rulesync](https://github.com/dyoshikawa/rulesync), [Ruler](https://github.com/intellectronica/ruler), [dotenv for VS Code](https://marketplace.visualstudio.com/items?itemName=dotenv.dotenv-vscode), Codex CLI `codex mcp add --help` (0.155.1).

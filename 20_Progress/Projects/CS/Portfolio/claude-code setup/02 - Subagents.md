@@ -10,6 +10,15 @@ tags:
 notes:
   - "[[00 - Claude Code Build Kit — Index]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "the Gemini→Groq router with degraded mode" / "(Gemini primary, Groq fallback, degraded mode when both are exhausted)" (§New agent 1) | Shipped router is Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded (`src/lib/model-router.ts:50-68`). `.claude/agents/ai-engineer.md:3,14,37,81` still say Gemini. |
+> | DRIFT: "Drop this file at `.claude/agents/ai-engineer.md`" | File exists but its scope names `src/lib/ai/` (`ai-engineer.md:23`); that directory does not exist. Chat code is flat in `src/lib/` (`chat-*.ts`, `model-router.ts`, `personas/`). |
+> | DRIFT: "sanity-schema — fixes the slug fields and any content shape the grounding tools need" (§Existing five) | `.claude/agents/sanity-schema.md:3,7`: "Does NOT modify schema files in src/sanity/schemaTypes/"; it also references `src/lib/localContent.ts`, which does not exist. |
+> | DRIFT: eval-runner "Run `promptfoo eval`" | `.claude/agents/eval-runner.md:21-22` own `evals/` and a top-level `promptfoo.yaml`; the real config is `evals/promptfooconfig.yaml`. |
+> | DRIFT (context): roster is "five you already have" plus two | `.claude/agents/` has 7 files; `.cursor/agents/` separately has 15 (Conductor, Guardian, Brand, Safety, Recorder, specialists). |
+
 # Subagents
 This note owns the subagent roster for the build. Subagents matter for token cost: each runs in its own context window, so delegating heavy work keeps the main thread lean. Add two new agents to the five you already have.
 ## Existing five (how they're used here)

@@ -13,6 +13,20 @@ notes:
   - "[[04 - Eval Harness — promptfoo]]"
 next: "Extend the starter grounding.yaml cases (now in [[04 - Eval Harness — promptfoo]]) to full 30-50 coverage once live Sanity content is pulled directly, rather than from vault-known project names"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Annotations only; original text below is unchanged. The decision to use promptfoo (not deepeval) is not disputed.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX — "`eval/promptfooconfig.yaml` + `eval/cases/*.yaml` layout" (§What Already Exists) | Directory is `evals/`: `evals/promptfooconfig.yaml` plus flat case files `grounding`, `refusal`, `injection`, `fail-safe`, `tool-correctness`, `persona-warmth` (`.yaml`) and `evals/personas/{ceo,friend,recruiter,weirdo}-warmth.yaml`. No `eval/cases/`. |
+> | FACT-FIX — "`.github/workflows/eval.yml` that runs `promptfoo eval --fail-on-error`" | Workflow is `.github/workflows/eval-gate.yml`; runs `promptfoo eval --config evals/promptfooconfig.yaml --delay 12000 --fail-on-error` (`:25`). File is modified/uncommitted per `git status`; no `continue-on-error` key in the working-tree copy. |
+> | FACT-FIX — "2-3 `llm-rubric` graders, Gemini + one other free model" (§What Already Exists) | Every judge/provider id is `openai:chat:zai-glm-4.7`: `evals/promptfooconfig.yaml:7`, `evals/persona-warmth.yaml:9,23`, `evals/personas/ceo-warmth.yaml:47,70,95,119` (and the other three persona files). No Gemini or Mistral id anywhere under `evals/`. |
+> | FACT-FIX — starter set of 7: "unsupported AWS cert / production ML deployment / FAANG employment as refusal cases" (§What actually landed #1) | `evals/grounding.yaml` has 32 cases: 28 `grounding:` + 4 `refusal:` (FAANG employer `:87`, salary, patent, Stanford). AWS is a *positive* skill case (`grounding.yaml:69-71`). No AWS-cert or production-ML refusal case exists. |
+> | FACT-FIX — "CausalOps" (§What actually landed #1) | Project name/case is "CasualOps" (`evals/grounding.yaml:15-17`). |
+> | DRIFT — "eval set is ~45-55 cases total" (§What actually landed #2) | `description:` counts per file: grounding 32, refusal 3, injection 3, fail-safe 4, tool-correctness 4, persona-warmth 2, personas ceo 4 / recruiter 4 / weirdo 5 / friend 4 = 65 total. |
+> | DRIFT — "grounding category gated on an aggregate **0.8 faithfulness threshold**" (§What actually landed #2) | `grounding.yaml` uses per-case `icontains` assertions (e.g. `:9`); no `threshold` / `context-faithfulness` / `llm-rubric` in it — those only appear in the persona-warmth files. |
+> | DRIFT — "Genuinely still open: pulling … directly from Sanity" | `grounding.yaml` header says "Live Sanity snapshot, refreshed 2026-09-05" (hand-maintained snapshot, still not an automated pull); the prompt catalog is inline in `evals/promptfooconfig.yaml`. |
+
 # Orby Golden Eval Dataset (Grounding Cases)
 ## Correcting a Verdict, Not Re-Litigating the Build
 [[PDF's Ingestion Implementation#Orby (Portfolio): Model Regression Detection for Eval - BUILD|PDF's Ingestion Implementation's Orby eval section]] proposed deepeval + GitHub Actions as a net-new "missing eval layer" for [[04 - Orby Integration]], and [[00_Execution]] confirmed that as a real gap after checking five build files (`04 - Orby Integration`, `09 - Orby Fixes`, `12 - Orby Friction Fixes`, `16 - Orby Enhancement + Codebase Audit`, `frontend/claude-code-setup/05 - Orby Final Polish Prompts`). **That check missed two files sitting in this same `nextgen-chatbot/` folder: [[07 - Evaluation & Observability]] and its build-kit companion [[04 - Eval Harness — promptfoo]].** Both already exist, both already specify a full CI-gated eval harness for Orby — using **promptfoo**, not deepeval, wired into GitHub Actions with deterministic assertions plus an `llm-rubric` judge council for persona quality.

@@ -5,6 +5,17 @@ created: 2026-06-12
 tags: [portfolio, graph, god-nodes, architecture]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "`getLocalDataForQuery()` … `src/lib/localContent.ts:L546`" (Top 20, rank 8) | `src/lib/localContent.ts` does not exist; no non-test `getLocalDataForQuery` / `hasUsableData` / `loadLocalQueryResult` symbol in `src` (the former two names appear only in negative tests, e.g. `src/components/__tests__/codebase-cleanup-preservation.test.ts:78-79`). Last commit touching the file: `0f01ae9` |
+> | "`CLAUDE.md — Claude's Source of Truth` … `CLAUDE.md:L1`", "`docs/ORBY.md`" (rank 11, 13) | Neither file exists at HEAD (`ls CLAUDE.md docs/ORBY.md` fails); `docs/` now holds only `docs/knowledge/portfolio/*` |
+> | "`getServerClient()` — The only way to write to Sanity (contact form submissions, draft mode)… Shared between contact form Server Action and Orby chat tools" (Deep Dives) | No contact form or Server Action (`src/app/actions/` is empty; no `submitContactForm` in `src`). Only importers are `src/lib/chat-context.ts:5` and `src/lib/chat-tools.ts:18`, both reads via `.withConfig({ stega: { enabled: false } })`; client is `useCdn:false`, `perspective:"published"` (`src/sanity/lib/server-client.ts:27,29`) |
+> | "`sanityFetch()` … `live.ts:L41`", "`getServerClient()` … `server-client.ts:L13`", "`PROJECTS_QUERYResult` … `types/index.ts:L797`" | Line drift: `export const sanityFetch` is `src/sanity/lib/live.ts:40`; `export function getServerClient` is `server-client.ts:14`; `export type PROJECTS_QUERYResult` is `src/sanity/types/index.ts:806` |
+> | "`Orby / RB: Scroll Companion Concept` … `docs/ORBY.md`" (Deep Dives) | Source doc is gone; the scroll-triggered section messages it specified are implemented via an observer loop over `SECTION_TRIGGERS` in `src/components/orby/useOrbyState.ts:56,241-245` |
+
 # God Nodes — Most Connected Abstractions
 
 > [[INDEX|← Back to Index]]

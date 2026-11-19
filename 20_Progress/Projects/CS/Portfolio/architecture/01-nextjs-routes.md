@@ -5,6 +5,22 @@ created: 2026-06-12
 tags: [portfolio, nextjs, app-router, routes]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "layout.tsx — Root layout — fonts, Providers, ChatTokenInit" (Route Tree); "`RootLayout()` — wraps with `Providers`, `ThemeProvider`, `ChatTokenInit`" | Root layout renders `ClerkProvider` → `Providers` + Vercel `Analytics` (`src/app/layout.tsx:40,45,46`). `ChatTokenInit` is mounted in `src/app/(portfolio)/layout.tsx:58` |
+> | "`Providers()` — ClerkProvider + SidebarProvider" | `Providers` = `ThemeProvider` + `ReactLenis` (`src/components/Providers.tsx:65-81`). `ClerkProvider` is in `layout.tsx:40`; `SidebarProvider` is in `(portfolio)/layout.tsx:51` |
+> | "Portfolio layout — ObsidianBackground, AppSidebar, HeaderScrolling" | Layout renders `SidebarProvider`, `AppSidebar side="right"`, `SidebarToggle`, `OrbyLoader`, `ChatTokenInit`, `SanityLive` and `generateMetadata` (`(portfolio)/layout.tsx:11,51-59`). `HeaderScrolling` and `ObsidianBackground` are rendered by `PortfolioContent` (`src/components/PortfolioContent.tsx:40-41`) |
+> | "Loads `ObsidianBackground` via `next/dynamic` (SSR: false)" (Portfolio Layout) | The `dynamic(..., { ssr: false })` lives in the wrapper `src/components/three/ObsidianBackground.tsx:5-9` (default export), used from `PortfolioContent.tsx:41` |
+> | "Home() … No data fetching directly … Wraps in `<Suspense>` for streaming" | `Home()` awaits `sanityFetch` for `PROFILE_QUERY` and `SITE_SETTINGS_QUERY` (`page.tsx:95-96`), emits JSON-LD (`:106`); there is no `Suspense` in `page.tsx` |
+> | "`PortfolioContent()` … Calls `sanityFetch()` for every section query in parallel" | Only `NAVIGATION_QUERY` + `PROJECTS_QUERY` (`PortfolioContent.tsx:25-26`); sections fetch themselves (e.g. `HeroSection.tsx:7`, `AboutSection.tsx:27-29`) |
+> | "`submitContactForm()` — `src/app/actions/submit-contact-form.ts` … Writes to Sanity via `getServerClient()`" | File does not exist; `src/app/actions/` is empty; not present in `git ls-tree 89cd2c0e`; no `submitContactForm` in `src` |
+> | "Two proxy files exist — only one is active: `proxy.ts` (root) … `src/proxy.ts`"; "`isPublicRoute` allows all portfolio routes" | Only `src/proxy.ts` exists; it defines `isStudioRoute` only (`:5`) — no `isPublicRoute`. `proxy()` returns `NextResponse.next()` for non-studio paths (`:24-26`) |
+> | "zero metadata exports, no `sitemap.ts`, no `robots.ts`, no OpenGraph tags anywhere" (Agent-Readable Surface) | Now present: root `metadata` (`src/app/layout.tsx:24`), `generateMetadata` with canonical/openGraph/twitter (`(portfolio)/layout.tsx:11,26-36`), `src/app/privacy/page.tsx:4`, `src/app/sitemap.ts`, `src/app/robots.ts`, JSON-LD `<script>` (`page.tsx:106`) |
+> | API Routes list: `chat`, `chat-token`, `draft-mode/{enable,disable}` only; no `/privacy` | Also exist: `api/orby-comment`, `api/health`, `api/error-report`, `api/revalidate`, route `/privacy`, `icon.svg`; no `error.tsx` / `loading.tsx` / `not-found.tsx` anywhere in `src/app` |
+
 # Next.js App Router
 
 > [[../INDEX|← Back to Index]] · [[00-overview|Architecture Overview]]

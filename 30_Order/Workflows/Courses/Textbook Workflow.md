@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-20
-updated: 2026-10-16
+updated: 2026-11-19
 tags:
   - system
   - workflow
@@ -16,20 +16,20 @@ notes:
   - "[[Course Production Workflow]]"
 ---
 # Textbook Workflow
-Land each assigned chapter as a source-checked note before the related lecture, so concept preparation can get ahead of class.
+Land each assigned chapter as a short, source-checked note before the related lecture, so concept preparation can get ahead of class.
 ## Use when
 The Textbook Map lists the section as assigned and the PDF or other authoritative source is available.
 ## Steps
-1. Read [[Textbook Standard]], the course Board, and the Map entry. Confirm the title, edition, chapter or section, assigned date, and local source file.
-2. If the source is missing, record a marked preparation task and ask for the file. Never write chapter content from memory.
-3. Extract the chapter's pages from a PDF source with [[PDF Extraction]] (`mineru-pdf.ps1 -Pages`), and read that Markdown, never the PDF. Then run the NotebookLM prompt from [[Repetitive Things]] on the landed source. Treat the output as draft material.
-4. Check definitions, claims, equations, examples, and section boundaries against the source. Move anything uncertain to Open Questions; do not repair it with general knowledge.
-5. Create the note from [[Textbook Template]]: fill the source header, one summary highlight, key concepts, reading notes in source order, a worked example, and mechanism and contrast cards.
-6. Link the matching week and the Map entry. Create or update concepts only through [[Concept Workflow]].
-7. Update the Map status and seed the week's pre-lecture note. After lecture, add a dated correction with attribution; do not overwrite the textbook account.
-8. Run [[Vault Lint]] on the path and fix what it reports.
+1. Read [[Textbook Standard]], the course Board and the Map entry. Confirm the edition, section range, week and local source file. If the source is missing, record a task and ask. Never write from memory.
+2. Extract the pages with [[PDF Extraction]] (`mineru-pdf.ps1 -Pages`) and read that Markdown, never the PDF. Note the page of every figure, listing and exercise.
+3. Size the scope. One prompt covers about 10 book pages or one section group, never a whole chapter. A chapter that would pass 3,000 words becomes parts, each with its own prompt and note.
+4. Run the prompt from [[Repetitive Things]], one Notebook chat per chapter. Treat the output as draft, and use what lands instead of rewriting it from the model's own knowledge.
+5. Check definitions, equations, examples and pages against the extraction. Move anything uncertain to Open Questions.
+6. Create the note from [[Textbook Template]]: source header, Reading Guide of page-level `- [ ]` tasks, summary, concepts, reading notes in source order and a worked example. Add a `> [!EXPLAIN]` callout under each hard topic and no flashcards.
+7. Link the week and the Map entry, and update the Map status. Create concepts only through [[Concept Workflow]].
+8. After lecture, add a dated correction with attribution. Then run [[Vault Lint]], which warns on cards, over 3,000 words and missing headings.
 ## Do not
-Do not paste NotebookLM output blind, expose private source content the workflow does not need, or let a generic `Chapter - 1` link resolve to another course. Stop and ask when the schedule and syllabus disagree on the mapping.
+Do not paste NotebookLM output blind, add flashcards, or pass the word budget. Stop and ask when the schedule and syllabus disagree.
 ## Done when
-- The note is source-checked, readable, and mapped to the right week and section.
-- Concepts, links, cards, Map status, and the pre-lecture queue are updated.
+- The note is source-checked, under budget, and tells the reader what to read, look at and try.
+- Links and Map status are updated.

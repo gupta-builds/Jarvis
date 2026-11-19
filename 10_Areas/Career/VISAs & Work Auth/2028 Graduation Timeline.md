@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -37,7 +37,7 @@ This is the dated route from now to an H-1B start for a student who finishes in 
 | Early 2027 | Decide the summer 2027 route | Pre-completion OPT needs a written offer and a March start | [[Junior Year Internship Decision]] |
 | Mar 6 to Mar 22, 2027 | If I use pre-completion OPT for a mid-June start: ask ISSS (Mar 8), file with USCIS (about Mar 22), decision with premium by about May 3 | 100 and 90 days before a June 14 start | [[Pre-Completion OPT]] |
 | Mar 2027 | FY2028 H-1B registration happens (forecast). Not mine, but it shows how the weighting plays out. The report on renewing the $100,000 payment is due 30 days after the draw | Registration ran Mar 4 to 19 in 2026 | [[H-1B Lottery]] |
-| Mar 18, 2027 | The date in the fixed-end-date rule after which OPT filers need an extension application, if that rule returns | Fixed in the rule's text | [[Duration of Status Rule]] |
+| Mar 18, 2027 | Matters only if the fixed-end-date rule returns. A court vacated that rule on Nov 16, 2026, and the government can appeal until about Jan 15, 2027. The rule's text fixes this as the last day OPT filers could skip an extension application | Fixed in the rule's text | [[Duration of Status Rule]] |
 | Summer 2027 | Authorized work only | Each route has its own gate | [[F-1 Employment Options]] |
 | Sept 21, 2027 | The $100,000 payment proclamation expires unless renewed | Proclamation text | [[H-1B 100K Payment]] |
 | Fall 2027 | Recruit for full-time jobs. Ask each employer about E-Verify, training plans, H-1B registration, and wage level | The employer shapes the STEM extension and the lottery | [[H-1B Odds Plan]] |
@@ -65,9 +65,9 @@ This is the dated route from now to an H-1B start for a student who finishes in 
 1. **The OPT fee is finalized, or not**
 	If a final rule takes effect before my recommendation date, my school must pay $70,000 before it can enter the recommendation, and it may pass the cost on. The advisor said ISSS does not know the timing. The two recent comparisons (96 and 323 days from proposal to final rule) put an effective date between about March and October 2027 ([[OPT Fee Proposal]]).
 2. **The fixed-end-date rule returns, or not**
-	If it does, the March 18, 2027 exemption will already have passed, so I should expect an extension-of-stay application with OPT, 30-day windows, and a 30-day departure period ([[Duration of Status Rule]]).
+	A court vacated it on November 16, 2026, so today none of this applies. It returns only if the government wins a stay or a reversal on appeal, or writes a new rule, which at the first rule's pace would take most of a year. If it does return, the March 18, 2027 exemption will already have passed, so I should expect an extension-of-stay application with OPT, 30-day windows, and a 30-day departure period ([[Duration of Status Rule]]).
 3. **CPT is restored, or not**
-	It decides the summer 2027 route. It does not change the 2028 steps, except that pre-completion OPT would use months and trigger the fee early ([[CPT Lawsuit]]).
+	It decides the summer 2027 route. It does not change the 2028 steps, except that pre-completion OPT would use months and trigger the fee early. A court stayed the August guidance on November 17, and ISSS's student email (received by November 19) says it resumes required and elective CPT requests on November 23 while the litigation continues ([[CPT Lawsuit]]).
 4. **The proclamation is renewed in September 2027, or lapses**
 	An in-country change of status is not covered either way ([[H-1B 100K Payment]]).
 ## Job-Specific Rules

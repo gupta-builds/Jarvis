@@ -5,6 +5,19 @@ tags: [portfolio, codebase-map, MOC]
 created: 2026-06-12
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> This map was generated from a stale graph snapshot. The linked `architecture/`, `components/`, `data/`, `chatbot/`, `communities/` notes inherit these errors; each carries its own correction callout. Corrections to THIS note:
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "Commit `89cd2c0e` · 141 files · 99 communities · 1,230 nodes" | Repo HEAD is `5f29675` (23+ commits later, plus ~115 uncommitted entries). Repo-native graph (`graphify-out/GRAPH_REPORT.md`, 2026-11-18): **219 files · 1,193 nodes · 2,201 edges · 71 communities**. Several files this map documents (`localContent.ts`, `contact.ts`, `submit-contact-form.ts`, `ContactForm.tsx`, `ui/card.tsx`, `ui/chart.tsx`, `ui/dropdown-menu.tsx`, `ui/spinner.tsx`) were deleted *before* `89cd2c0e`. |
+> | AEO & SEO "(not yet built)" | **Split state.** Phase 1 SEO basics exist in the working tree but are **uncommitted / not deployed**: root + `(portfolio)/layout.tsx` metadata (canonical, OpenGraph), JSON-LD (`Person`/`ProfilePage`/`WebSite` in `(portfolio)/page.tsx`), `src/app/sitemap.ts`, `src/app/robots.ts` (single `*` rule), `/privacy`. **AEO (Phase 2) is not built**: no `public/llms.txt`, no per-bot robots rules, no `SoftwareApplication` JSON-LD, no OG image route. |
+> | "Sanity Schemas — 11 document types" | **10** document types: profile, project, skill, experience, education, certification, achievement, blog, siteSettings, navigation. There is no `contact` type. |
+> | Orby model chain "Gemini → Groq → degraded" | `src/lib/model-router.ts`: **Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded**. No Gemini anywhere in `src/`. |
+> | God node `getLocalDataForQuery()` / "Local fallback data hub" | The local-content fallback was removed (`localContent.ts` deleted). `src/sanity/lib/live.ts` now falls back only to a bare `client.fetch`, with no local data and no timeout or error boundary. |
+>
+> Use `graphify-out/GRAPH_REPORT.md` and `docs/knowledge/portfolio/*` **in the repo** as the current map; treat the graph-derived notes here as historical.
+
 # Portfolio Codebase — Knowledge Map
 
 > Auto-generated from graphify knowledge graph · Commit `89cd2c0e` · 141 files · 129,597 words

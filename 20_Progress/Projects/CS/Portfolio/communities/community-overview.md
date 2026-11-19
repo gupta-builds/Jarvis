@@ -5,6 +5,23 @@ created: 2026-06-12
 tags: [portfolio, graph, communities, overview]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | Community 48/57: "`clerk`, `config`, `event`, `isPublicRoute`, `proxy()`" | `src/proxy.ts` has `isStudioRoute` (`:5`), `clerk`, `event`, `proxy()` (`:24`), `config` (`:38`); no `isPublicRoute` symbol in `src` (rg); no root `proxy.ts` |
+> | Community 53: "`amoebaIdx`, `content`, `formingIdx`, `stableIdx`" | None of `amoebaIdx` / `formingIdx` / `stableIdx` exist in `src` (rg) |
+> | Community 29: "`getCategoryColor()`", "`CATEGORY_COLORS`" under ExperienceSection | They live in `src/lib/category-colors.ts:20,1`, not in ExperienceSection/ExperienceCard; no component imports `getCategoryColor` (rg) |
+> | Community 12: "`CANONICAL_READOUTS`"; Community 23: "`BLOB_COLORS`, `BLOB_ICONS`, `BLOB_SIZES`, `BLOB_VARIANTS`" | None of these symbols exist in `src` (rg) |
+> | Community 13: "`getGlareOverlay()`, `getInnerCard()`" | Exist only as test helpers (`src/components/ui/__tests__/comet-card.test.tsx:101`), not in `CertificationsSection.tsx` |
+> | Community 32: "`Orby()`, `OrbyArrow()`, `getPose()`"; Community 9: "`SECTION_IDS`" | No `getPose` symbol in `src` (rg); `OrbyArrow` is its own file `src/components/orby/OrbyArrow.tsx:14`. `SECTION_IDS` is not in `HeaderScrolling.tsx`; it is a const in `src/hooks/useActiveSection.ts:4` and `src/lib/chat-tools.ts:163` |
+> | Community 22: "`useIsMobile()`, `CAM_END`, `CAM_START`, `clamp01()` …" | `useIsMobile` is `src/hooks/use-mobile.ts:5`; `CAM_START`/`CAM_END`/`clamp01`/`createRing`/etc. are module-private in `ObsidianBackgroundCanvas.tsx` (`:101,103,191,241`) |
+> | UI Primitive communities 24 (dropdown), 28 (Chart/Recharts), 47 (Card) | `ui/dropdown-menu.tsx`, `ui/chart.tsx`, `ui/card.tsx` do not exist; `src/components/ui/` = `comet-card`, `layout-text-flip`, `sheet`, `sidebar`, `space-rail`, `split-heading`; no `recharts` dependency in `package.json` (`recharts` appears in `src` only inside a test file string) |
+> | Community 0: "`asBoolean()`, `asNumber()`, `getLocalAchievements`" ("Local content / type utilities") | No such symbols in `src` (rg); `src/lib/localContent.ts` is gone (last touched in `0f01ae9`) |
+> | Community 2: "`builder`, `serverClient`, `assertValue()` …" | `builder` is a non-exported const in `src/sanity/lib/image.ts:7` (only `urlFor` is exported, `:9`); `serverClient` is not a source symbol (only in a test); the real export is `getServerClient()` (`server-client.ts:14`) |
+> | Community 11: "CLAUDE.md sections" | `CLAUDE.md` does not exist at repo root; `docs/` contains only `docs/knowledge/portfolio/` |
+
 # All 99 Communities — Overview
 
 > [[../INDEX|← Back to Index]]

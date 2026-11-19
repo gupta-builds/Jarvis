@@ -13,6 +13,18 @@ tags:
   - concept
 related: []
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Annotations only; original text below is unchanged. Design intent (fixed-prompt answers, personas, tone) is the author's choice and not marked as error.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT — "The `/api/chat` response shape is fixed: `{ displayText, orbyMessage, navigate: {…}, card? }`" (§Fix 1) | Not implemented as one object. The route streams prefixed lines: `0:` text (`src/app/api/chat/route.ts:301`), `a:` tool result (`:271`), `t:` clean-text replacement (`:563`), `m:` orby message (`:600`), `d:` finish (`:606`), `e:` error (`:648`). `displayText` exists only as a local typing-animation variable (`src/components/orby/useTypedText.ts:26`, `OrbySpeechCloud.tsx:38`), not a response field. |
+> | FACT-FIX — "free-typed questions still go live through the Azure→free chain" (§Token-optimization update); "Azure OpenAI and the OpenAI-compatible backups all support this" (§Fix 1) | No Azure provider in `src/`. Live chain is Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded (`src/lib/model-router.ts:2,52-68`). |
+> | DRIFT — "Resolve the real Sanity slugs for each named item" incl. the NSP experience entry (§Fix 4, P2) | NSP target is a hard-coded array index, not a slug: `navTarget: { sectionId: "experience", itemIndex: 1 }` (`src/lib/fixed-prompts.ts:99`). Project slugs used: `boom`, `jarvis-os` (`:125,175`), `ai-market-analyzer` for TradingView (`:73,159`). |
+> | DRIFT — CEO "What problems is he solving?" → "What I read or do" (GitHub) section (§Fix 4 CEO #4) | Maps to `navTarget: { sectionId: "blog" }` (`src/lib/fixed-prompts.ts:141`). No section titled "What I read or do" was found in `src/`. |
+> | DRIFT — Friend "Did Anant vibe code this portfolio?" → NO; "built it himself" (§Fix 4 Friend #3) | The `answerBrief` adds wording not in this note: "It was not a solo flex either. The Orby AI companion especially became a saga." and "hand-built the bulk" (`src/lib/fixed-prompts.ts:67`). |
+> | NOW-FIXED — cache the answer per `(persona, promptId)` (§Token-optimization update) | Implemented: `chat:v2:fixed:${persona}:${promptId}` (`src/app/api/chat/route.ts:257-259`); fixed prompts match via `findFixedPrompt` and the `navTarget` is injected as a hard directive (`route.ts:247-251`). "Tell me the BOOM story" is replaced by "What is Orby exactly?" (`fixed-prompts.ts:56`). |
+
 # 09 - Orby Fixes
 > Implementation plan for the Portfolio Lab sidebar chatbot UI overhaul. Branch: `Chatbot`.
 ## Problems to be fixed

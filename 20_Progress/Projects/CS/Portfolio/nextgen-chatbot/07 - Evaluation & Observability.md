@@ -13,6 +13,17 @@ notes:
   - "[[04 - Eval Harness — promptfoo]]"
   - "[[10 - Orby Golden Eval Dataset (Grounding Cases)]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows record implementation status only.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: ">0.8 of grounding cases must pass, not just zero-tolerance per case" (§The eval set) | No aggregate threshold or `derivedMetrics` in `evals/` (grep; the only `threshold:` keys are per-rubric `llm-rubric` values in the persona files). Runs use `--fail-on-error` (`package.json` `eval` script; `.github/workflows/eval-gate.yml:25`), i.e. any failing case fails the run |
+> | DRIFT: "judge council … 2–3 rubric passes … optionally across Gemini and one other free model" (§Judge council) | Every `llm-rubric` judge uses one provider, `openai:chat:zai-glm-4.7` on Cerebras (e.g. `evals/persona-warmth.yaml:9,23`, `evals/personas/friend-warmth.yaml:50`); per-rubric thresholds range 0.50–0.75. No Gemini. Eval target is the same Cerebras model (`evals/promptfooconfig.yaml:7-11`), so Groq and Mistral legs are not evaluated |
+> | STATUS: "30-50 case golden dataset" (§The eval set) | `evals/grounding.yaml` has 32 tests; suite is 48 tests across six top-level files plus 17 in `evals/personas/*-warmth.yaml` (counted as `^- description:` entries) |
+> | DRIFT: "which model answered (Gemini / Groq fallback / degraded mode)" (§Observability) | Logged and header-reported provider is `cerebras` / `groq` / `mistral`, or `cooldown` / `degraded`, or `cache` (`src/app/api/chat/route.ts:335-342,314,661-667`) |
+> | DRIFT: trace "the grounded facts injected, every tool call and its validation result" (§Observability) | Structured logs `chat.request`, `chat.tool` (tool name, id, persona, sessionId only), `chat.turn.complete` (provider, tokens, latency) (`route.ts:335,463-469,633-641`); grounded facts and validation results are not logged |
+> | STATUS: promptfoo gates deploy in CI (§The harness) | Workflow runs only if the `CEREBRAS_API_KEY` secret is non-empty, else skips with a warning (`eval-gate.yml:23-28`); `continue-on-error: true` was removed only in the uncommitted working tree |
+
 # Evaluation & Observability
 This note owns how we know the assistant works and how we notice when it stops. It is the fix for premortem failure 8 (silent degradation). On a portfolio there is no user filing bugs — the feedback loop is broken by default, so we manufacture one with evals and traces.
 ## Why not Vitest for the AI checks

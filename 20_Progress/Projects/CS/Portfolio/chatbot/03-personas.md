@@ -5,6 +5,11 @@ created: 2026-06-12
 tags: [portfolio, chatbot, personas, orby]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | `export const PERSONA_BLOCKS: Record<Persona, string>` and `export const PERSONAS: Persona[]` (§Persona Index) | `PERSONAS` is a readonly `as const` tuple (`src/lib/personas/index.ts:6`); `PERSONA_BLOCKS` is module-private, not exported (`index.ts:9`); `getPersonaBlock` is the accessor (`index.ts:16-17`). Invalid or missing persona falls back to `"friend"` in the route (`src/app/api/chat/route.ts:174-176`) |
+
 # Orby Personas
 
 > [[../INDEX|← Back to Index]] · [[00-orby-overview|Orby Overview]]

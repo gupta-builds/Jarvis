@@ -5,6 +5,13 @@ created: 2026-06-16
 tags: [portfolio, security, cloudflare, deployment, domain]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX · "Turnstile siteverify Worker (for /api/chat-token)" and "Verify Turnstile token (calls CF siteverify Worker)" (§Updated architecture diagram; §Part 3) | `/api/chat-token` calls Cloudflare's siteverify URL directly (`src/app/api/chat-token/route.ts:11-15,35`; comment "no custom Worker intermediary"; file modified-uncommitted). `README.md:55-60` says the Worker is retained in the Cloudflare account but not in the runtime path. `workers/turnstile-siteverify/src/index.js` and `wrangler.toml` are deleted in the working tree (uncommitted). |
+> | FACT-FIX · "They call your `/api/draft-mode` (or a revalidate endpoint) with `SANITY_REVALIDATE_SECRET`" (§Sanity webhooks) | Revalidate is `POST /api/revalidate`, which verifies Sanity's webhook signature with `parseBody(req, SANITY_REVALIDATE_SECRET)` (`src/app/api/revalidate/route.ts:3,17-24`). `/api/draft-mode/enable` is a separate GET gated by `?secret=` (`src/app/api/draft-mode/enable/route.ts:10`). |
+> | STATUS · "`www.anantgupta.dev` redirects to apex (or vice versa — be consistent)" (§Acceptance criteria) | Live fetch 2026-11-19: `GET https://www.anantgupta.dev/` → HTTP 200, no redirect (not yet met). |
+
 # Cloudflare Strategy — anantgupta.dev
 
 > Decisions on OAuth, webhooks, Vercel vs Cloudflare hosting, and how to use Cloudflare to its full value without over-engineering a personal portfolio.

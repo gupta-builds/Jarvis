@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-11-07
-reviewed: 2026-11-07
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -21,9 +21,11 @@ notes:
   - "[[Junior Year Internship Decision]]"
 ---
 # CPT Lawsuit
-Four higher-education groups sued the federal government on October 5, 2026 over the August CPT messages. The first court date, November 6, has passed, and as of November 7 I found no ruling. This note records the case itself: who is suing, what each count argues, the 35-year history the plaintiffs rely on, and what the docket shows so far. Read it again after any order.
+Four higher-education groups sued the federal government on October 5, 2026 over the August CPT messages, and on November 17 the judge stayed those messages nationwide and enjoined them for the plaintiffs' members. This note records the case itself: who is suing, what each count argues, the 35-year history the plaintiffs rely on, what the judge ordered and why, and what is still open. The order is temporary, so read this note again after any appeal or any move by ISSS.
+> [!IMPORTANT]
+> **Status on 2026-11-18.** The order is Dkt. 36, a 24-page Memorandum and Order that I read in full. It is a *preliminary* order, not a final judgment, and the government has until about **January 16, 2027** to appeal. I found no appeal. UMN paused CPT this fall but did not revoke authorizations already granted, and ISSS's student email (received by November 19) says it will resume processing both required and elective CPT, with the CPT Request form in MyISSS available **Monday, November 23**.
 ## In Plain Words
-Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge heard arguments on whether to pause the guidance while the case continues, and the ruling is still to come. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge heard arguments on whether to pause the guidance while the case continues, and on November 17 she granted it. The pause is temporary, it does not end the case, and it does not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
 ## The Case At A Glance
 | Item | Detail |
 | --- | --- |
@@ -37,10 +39,13 @@ Four organizations that represent universities asked a federal court to cancel t
 | Hearing | Held November 6, 2026, 3:00 PM, Courtroom 3, on the motion for a preliminary injunction and stay. The court allowed public audio access with advance registration |
 | Government response | Filed October 28, 2026 (ECF 27, 27 pages), after an extension on October 19 |
 | Plaintiffs' reply | Filed November 4, 2026 (ECF 32, 21 pages) |
-| Ruling so far | None found as of November 7. No temporary restraining order, no stay, no announced date for a ruling. No account of what the judge said at the hearing was public in the sources I could reach |
+| Order | **November 17, 2026**, Memorandum and Order (Dkt. 36, 24 pages): the motion for a stay and a preliminary injunction is GRANTED |
+| What it does | The August 12 and August 24 broadcasts are STAYED nationwide, "such that those broadcasts may not be enforced or applied pending judicial review." DHS and ICE are also ENJOINED from carrying out the broadcasts' reading of 8 CFR 214.2(f)(10)(i) against the plaintiffs and each of their members, "including their members' employees and students, both prospectively and with respect to conduct and approvals that occurred prior to the issuance of those broadcasts" |
+| What it refused | The plaintiffs' request that DHS rescind adverse actions already taken, and their request that DHS give written notice of the order to every SEVP-certified school |
+| Appeal | None found as of November 18. A notice of appeal is due about January 16, 2027, 60 days after the order |
 ## The Parties
 ==The plaintiffs are associations suing for their members, and the University of Minnesota, Twin Cities is on AAU's published member list, so a ruling covering AAU's members would plausibly reach my school.== The AAU describes itself in the complaint as 71 research universities in the United States and Canada, 69 of them American. The Presidents' Alliance represents close to 600 colleges in forty-two states, the District of Columbia, and Puerto Rico. AICUM represents 55 private colleges in Massachusetts. NAFSA has more than 9,000 members at more than 2,300 institutions, including the DSOs themselves ([[SEVP and DSOs]]).
-The defendants include the Department of Justice and the Attorney General because the messages warn of penalties for "providing false information," and perjury is prosecuted by DOJ. The scope of any order is not decided: the plaintiffs ask for relief as to themselves, their members, and the members' employees and students, so whether students at non-member schools benefit depends on what the judge grants.
+The defendants include the Department of Justice and the Attorney General because the messages warn of penalties for "providing false information," and perjury is prosecuted by DOJ. The judge split the relief in two: the stay reaches every school, while the injunction reaches the plaintiffs' members and their employees and students. Whether UMN counts as a covered member is the open question for ISSS, because AAU's list names UMN but I have not seen how the order treats membership.
 ## The Four Counts
 Every count arises under the Administrative Procedure Act, which lets a court set aside agency action that is arbitrary, contrary to law, or issued without required procedure.
 1. **Arbitrary and capricious**
@@ -81,6 +86,29 @@ The complaint also answers the obvious fallback of pre-completion OPT. It is not
 6. **October 30** The court allowed the plaintiffs to file a reply.
 7. **November 4** The plaintiffs filed their reply (ECF 32) and asked the court to open a public phone line for the hearing (ECF 30). The judge granted it the same day (ECF 31), and the public had to register in advance on the court's form.
 8. **November 6** The docket shows a "Motion Hearing" entry for this date, so the hearing took place. When I read the CourtListener copy on November 7, the entry had no clerk's notes and no order beneath it. That copy is a RECAP mirror of PACER and can lag, so a ruling or minute entry may exist that it does not show.
+9. **November 17** Judge Kobick granted the motion for a stay and a preliminary injunction (Dkt. 36). The Presidents' Alliance posted the order and excerpts the same day.
+## The November 17 Order
+==The judge decided only that the broadcasts are likely arbitrary and capricious, because SEVP changed a 35-year reading of the regulation without admitting it or weighing who relied on it, and she did not decide what "integral" correctly means.== She wrote: "Correct or not, this new interpretation is inconsistent with the government's previous position." That leaves DHS free to explain the change or to write a proper rule.
+1. **Standing**
+	The plaintiffs sue for their members, and the broadcasts are addressed to DSOs and warn of "administrative or legal consequences" and of schools "losing certification." The government said members were not injured because schools may still authorize integral CPT. The judge answered that this assumes the broadcasts changed nothing, which the record disproves, and that no enforcement action has to happen first.
+2. **Final agency action**
+	Both messages are reviewable, despite their disclaimers that they are not "a rule or a final action." She called that "boilerplate" that "is not dispositive" where the guidance adopts a concrete reading with immediate consequences and uses mandatory language.
+3. **The change in position**
+	Since 1991 the government read the regulation to include training "where students are awarded academic credits," and repeated it in 1992 cables, a 2013 newsletter, and DSO training through 2022. The August 12 message was titled a "Reminder" and never addressed that history. SEVP also did not weigh reliance: schools built curricula and employer partnerships on the old reading, and students "chose an institution's program and paid for that program with the expectation that the institution could authorize CPT."
+4. **Harm and equities**
+	Fifteen declarations showed it: Columbia denied CPT to over 120 students, Grinnell lost internships for at least thirteen, and Cornell and Michigan State lost students. The compliance costs cannot be recovered, and the threat of losing SEVP certification is itself harm. She added that "there is generally no public interest in the perpetuation of unlawful agency action."
+5. **Scope**
+	The stay under section 705 reaches everyone because it "operates only on the agency action itself," and a party-specific order would create "chaos and confusion." The injunction is limited to the plaintiffs and their members, with their employees and students, for past and future approvals.
+6. **What she refused**
+	She would not order DHS to undo adverse actions, because the plaintiffs identified none and "mere implementation of that standard does not, at least on this record, amount to an adverse action." She would not order notice to every school, because that is "untethered to the plaintiffs," citing Trump v. CASA.
+What she did not decide: the plaintiffs' other three counts (retroactivity, contrary to law, procedurally invalid). She said she "need not consider" them. She also noted the government's new argument about a canon of interpretation, reverse ejusdem generis, which neither broadcast mentions, and said judges generally review an agency on the reasons it gave at the time.
+## What The Order Means For Me
+This section is analysis, not source text.
+- *Legally:* the August messages cannot be enforced anywhere, so the pre-August reading, where elective for-credit training counts, is the one DHS must apply.
+- *At UMN:* ISSS did restart. Its student email says it will resume processing both required and elective CPT, with the MyISSS form opening Monday, November 23, and it notes that litigation is ongoing. UMN paused CPT this fall without revoking authorizations already granted. Schools differ: a DSO on Reddit, whom I cannot verify, said his SEVP representative told him to cancel existing CPT and that he will not restart this semester because the order is temporary, while a commenter listed other schools that said they never rescinded approved CPT.
+- *The risk is an appeal:* the government has until about January 16, 2027, and in the duration of status case it appealed 16 days after losing. A stay pending appeal would revive the messages ([[Duration of Status Rule]]).
+- *The catch in the win:* it rests on procedure. DHS can acknowledge the change and explain it, or write the rule through notice and comment.
+- *Summer 2027:* CPT stays upside until ISSS says it is open. Pre-completion OPT remains the fallback in [[Junior Year Internship Decision]].
 ## The Government's Defense
 ==The government's brief leads with procedural arguments, that the court should not reach the meaning of "integral" at all, and it leaves schools one opening on the merits.== The October 28 opposition is 27 pages. I read it through a text extraction of the PDF, so the page cites come from that extraction; check a quote against the PDF before relying on it.
 1. **No standing**
@@ -107,8 +135,8 @@ The November 4 reply is 21 pages, and I read the filing itself on November 7 (EC
 5. **Relief**
 	The reply asks the court to stay the broadcasts under section 705 and enjoin enforcement. It argues a stay alone is not enough because the government says "the regulation is clear."
 For me the useful distinction is between two possible wins. A win on the plaintiffs' reading would restore the credit pathway, so a for-credit internship course at UMN could work again. Only a school-required practicum, the government's own opening, works if the plaintiffs lose ([[CPT Broadcast Messages]]).
-## What Each Outcome Would Mean
-This section is analysis, not source text.
+## What Each Outcome Would Have Meant
+This section is analysis, not source text, and I wrote it before the order. The first outcome, a stay or injunction, is the one that happened.
 - *Stay or injunction granted:* the August messages are postponed or barred for the covered plaintiffs and their members. A school like UMN could return to the credit-or-required reading, but ISSS would still need to rebuild its process. The government can appeal, and in the duration of status case it filed its appeal 16 days after losing ([[Duration of Status Rule]]).
 - *Denied:* the guidance stays in force while the case continues, and schools remain where they are.
 - *Partial:* relief limited to plaintiffs' members would leave students elsewhere unprotected.
@@ -122,10 +150,14 @@ This section is analysis, not source text.
 - *Retroactive:* applied to things that happened before the rule.
 ## Open Questions
 - [x] Read the government's October 28 response to see its defense of "required of all students": done 2026-11-05 via text extraction, see The Government's Defense. Read the PDF itself before the hearing if the exact wording matters
-- [ ] Check the docket again for an order, a bench ruling, or a supplemental briefing schedule: nothing found on 2026-11-07, hearing held 2026-11-06 📅 2026-11-09
+- [x] Check the docket again for an order, a bench ruling, or a supplemental briefing schedule: granted 2026-11-17, Dkt. 36 📅 2026-11-09
+- [ ] Watch for a notice of appeal or a stay motion in the First Circuit, due about 2027-01-16 📅 2026-12-15
+- [x] Ask ISSS when it will restart CPT: its email says Monday, November 23
+- [ ] Ask ISSS whether UMN counts as a covered member for the injunction, and what happens to CPT approved after Nov 23 if an appeal reverses the order 📅 2026-11-25
 - [ ] Get an account of the hearing itself (NAFSA, Presidents' Alliance, or a transcript order) and log what the judge asked each side 📅 2026-11-10
 - [ ] Confirm whether UMN is a member of the Presidents' Alliance, which would add a second route to coverage
 ## Sources
+- [Memorandum and Order, Dkt. 36](https://www.presidentsalliance.org/wp-content/uploads/2026/11/0036.-11-17-2026-District-Judge-Julia-E.-Kobick-MEMORANDUM-AND-ORDER-ON-PLAINTIFFS-MOTION-FOR-A-PRELIMINARY-INJUNCT.pdf), November 17, 2026: read in full from my own copy of the PDF. The [Presidents' Alliance CPT page](https://www.presidentsalliance.org/cpt-litigation/) summarizes it and links every filing.
 - [CourtListener docket](https://www.courtlistener.com/docket/74919449/association-of-american-universities-v-us-department-of-homeland/): the live record, a RECAP copy of PACER.
 - [Complaint, hosted by NAFSA](https://www.nafsa.org/sites/default/files/media/document/CPT%20Complaint%20AAU%20v.%20DHS%20.pdf) and [memorandum in support, hosted by AAU](https://www.aau.edu/uploads/files/general/Memo-in-Support-of-PI-and-Stay-AAU-v-DHS.pdf): the party filings.
 - [NAFSA litigation page](https://www.nafsa.org/legal-defense-CPT): plaintiffs' summary, last updated November 5 and still describing the hearing as upcoming.

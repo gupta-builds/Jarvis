@@ -5,6 +5,18 @@ created: 2026-06-12
 tags: [portfolio, components, map]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "AppSidebar.tsx # App sidebar wrapper" | File is `src/components/app-sidebar.tsx` (exports `AppSidebar`; imported at `src/app/(portfolio)/layout.tsx:2`) |
+> | "EducationEntry.tsx # Single education entry"; "ContactForm.tsx # Contact form" | Neither file exists in `src/components/`; no `EducationEntry` or `ContactForm` symbol in `src` (rg). `ContactForm.tsx` is also absent from `git ls-tree 89cd2c0e` |
+> | "Providers.tsx # ClerkProvider + SidebarProvider" | `Providers` = `ThemeProvider` + `ReactLenis` (`src/components/Providers.tsx:65-81`). `ClerkProvider` is `src/app/layout.tsx:40`; `SidebarProvider` is `src/app/(portfolio)/layout.tsx:51` |
+> | "cards/ # Reusable card components"; "ui/ # shadcn + custom primitives" | `cards/` holds only `ExperienceCard.tsx`. `ui/` holds `comet-card`, `layout-text-flip`, `sheet`, `sidebar`, `space-rail`, `split-heading` (+ `__tests__`) — no `card.tsx`, `spinner.tsx`, `dropdown-menu.tsx`, `chart.tsx` |
+> | Tree / "Quick Reference by Community" (`useIridescentEffect` in Community 3) | `useIridescentEffect` is a hook in `src/hooks/useIridescentEffect.ts`, not under `src/components/` |
+> | Tree lists only the files shown | Present in repo but missing from the tree: `SidebarAwareContent.tsx`, `TelemetryDetail.tsx`, `chat/ChatErrorBoundary.tsx`, `lab/ProofPack.tsx`, `lab/cards/{ExperienceEvidenceCard,ProjectEvidenceCard,ToolResultRenderer}.tsx`, `three/{HeaderLogo,HeaderLogoCanvas,HeaderLogoFallback}.tsx`, `three/liquidMetalMaterial.ts`, `orby/{OrbyModel,OrbySpeechCloud,useOrbyIdleCommentary,useScrollProgress,useTypedText}`, `sections/{AboutSectionClient,ExperienceSectionClient,SkillsCapabilityGraph}.tsx` |
+
 # Component Map
 
 > [[../INDEX|← Back to Index]]

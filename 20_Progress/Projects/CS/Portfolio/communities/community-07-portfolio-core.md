@@ -5,6 +5,15 @@ created: 2026-06-12
 tags: [portfolio, graph, community, core, sanity, sections]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "`hasUsableData()` — validates Sanity result shape"; "`loadLocalQueryResult()` — fallback loader" | Neither exists in `src` (rg). `src/sanity/lib/live.ts` now has only `createFetchFallback()` (`:19`, bare `client.fetch`, used when `SANITY_API_TOKEN` is absent `:8,:40`) and a no-op `SanityLive` fallback (`:44`). The LOCAL-DATA fallback (`localContent.ts`) is gone (last touched in `0f01ae9`); there is still no timeout, try/catch, or error boundary around `sanityFetch` |
+> | "`Home()` — entry point, renders PortfolioContent in Suspense" | `src/app/(portfolio)/page.tsx` has no `Suspense` (rg); `Home()` awaits `sanityFetch` for `PROFILE_QUERY` + `SITE_SETTINGS_QUERY` (`:95-96`) |
+> | "`PortfolioContent()` — server component, orchestrates all section fetches"; "calls `sanityFetch` × N queries (one per section) and passes results down as props" | `PortfolioContent` fetches only `NAVIGATION_QUERY` + `PROJECTS_QUERY` (`src/components/PortfolioContent.tsx:25-26`); sections fetch their own data (e.g. `SkillsSection.tsx:7`, `ContactSection.tsx:22`, `AchievementsSection.tsx:16`) |
+
 # Community 7 — Portfolio Core
 
 > [[../INDEX|← Back to Index]] · [[../communities/community-overview|All Communities]]

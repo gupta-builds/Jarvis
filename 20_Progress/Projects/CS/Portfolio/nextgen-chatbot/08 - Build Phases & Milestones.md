@@ -11,6 +11,18 @@ notes:
   - "[[00 - Nextgen Chatbot — Build Plan]]"
   - "[[02 - Premortem & Failure Defenses]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. **Implementation status:** phases 0–7 have code in the repo (Phase 8 launch readiness not verified); the shipped model chain is Cerebras → Groq → Mistral → degraded, not Gemini → Groq. Rows record divergence only.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: Phase 0 "calling Gemini"; Phase 6 "Add Groq fallback" | No Gemini in `src/`. Chain Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded, with an extra `cooldown` mode (`src/lib/model-router.ts:48-70,103-110`) |
+> | DRIFT: Phase 1 "Upstash per-IP cap (~50/day + burst)" | 100 per 24 h and 10 per 60 s sliding windows (`src/app/api/chat/route.ts:41,47`) |
+> | DRIFT (not implemented): Phase 1 "model/tool timeouts" and "max-tool-step cap" | Step cap is `stepCountIs(5)` (`route.ts:326`); no timeout / `maxDuration` in `src/app/api` or `src/lib` (grep), only `abortSignal: req.signal` (`route.ts:329`) |
+> | DRIFT: Phase 3 "Write the 15–20 eval checks" | 48 tests in six top-level `evals/*.yaml` files plus 17 in `evals/personas/` (counted as `^- description:` entries) |
+> | DRIFT: Phase 4 "Add the output guard" | No content-safety output guard found; only a tool-call-leak sanitizer (`route.ts:540`, `src/lib/chat-sanitizer.ts`) |
+> | STATUS: Phase 7 "Wire Orby" | Wiring code present: `navigate` with `orbyMessage`, client nav event once per turn (`src/lib/chat-tools.ts:208-234`; `src/components/lab/PortfolioLab.tsx:35,195-199`). Acceptance ("scrolls once and Orby speaks on arrival") not verified here |
+> | STATUS: Phase 1 "signed session token" | Token issuance is gated by Cloudflare Turnstile via `POST /api/chat-token` (`src/app/api/chat-token/route.ts:15,109`), which the note does not mention |
+
 # Build Phases & Milestones
 This note owns the order we build in. The rule: each phase ships something that works end to end and closes the premortem failures it is responsible for. A phase is not done until its defense exists — not just its feature. Build in WSL with Claude Code (the two-machine rule); this note is the plan, the repo is the executor.
 ## Why this order

@@ -5,6 +5,17 @@ created: 2026-06-12
 tags: [portfolio, graph, community, chatbot, backend]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "`burstLimit` — sliding window rate limiter (10 req / 10s)" | `Ratelimit.slidingWindow(10, "60 s")` (`src/app/api/chat/route.ts:39-41`); `dailyLimit` is `slidingWindow(100, "24 h")` (`:45-47`) |
+> | "`google` — Gemini AI SDK instance"; "`isQuotaError()`"; "`routeChat()` — routes to Gemini → Groq → degraded" | No `google` const or `isQuotaError` symbol in `src` (rg). `routeChat` (`src/lib/model-router.ts:116`) walks Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded (`model-router.ts:50-68`; comment at `route.ts:320`) |
+> | "`getServerClient()` — write-authorized Sanity client"; "`getServerClient()` is shared with contact form Server Action" | Token-bearing client with `useCdn:false`, `perspective:"published"` (`src/sanity/lib/server-client.ts:23-34`); only importers are `src/lib/chat-context.ts:5` and `src/lib/chat-tools.ts:18` (both call `.withConfig({ stega: { enabled: false } })`) — no contact form Server Action exists |
+> | "`submit-contact-form.ts`, `submitContactForm()`"; "`ContactForm.tsx`, `ContactForm()`" | None exist in `src` (rg); `src/app/actions/` is empty; absent from `git ls-tree 89cd2c0e` |
+> | "`isAllowedOrigin()` — origin allowlist check" (API Route sub-system) | Defined in `src/lib/request-guards.ts:41` and imported by `route.ts:19`; the route also first rejects `BLOCKED_UA` (`route.ts:87`) and then verifies the `chat_token` cookie (`:100-101`) |
+
 # Community 1 — Chatbot Backend
 
 > [[../INDEX|← Back to Index]] · [[../communities/community-overview|All Communities]]

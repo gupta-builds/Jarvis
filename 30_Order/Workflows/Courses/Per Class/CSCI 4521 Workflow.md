@@ -3,7 +3,7 @@ type: system
 system_kind: guide
 status: sprout
 created: 2026-10-21
-updated: 2026-10-21
+updated: 2026-11-19
 tags:
   - system
   - workflow
@@ -16,6 +16,7 @@ notes:
   - "[[Concept Workflow]]"
   - "[[Homework Workflow]]"
   - "[[Exam Workflow]]"
+  - "[[Quiz Workflow]]"
   - "[[CSCI 4521 Board]]"
 ---
 # CSCI 4521 Workflow
@@ -26,10 +27,10 @@ No midterm or final exam exists for this course - grading is Homework 1-4 (40%, 
 | Course work | Template/workflow | Note purpose |
 |---|---|---|
 | Weekly lecture | [[Week Template]] / [[Weekly Workflow]] | Pre-lecture source prep (deck + companion notebook), protected live capture, post-lecture reconciliation against the textbook |
-| Textbook chapter | [[Textbook Template]] / [[Textbook Workflow]] | Source-checked chapter note built directly from the real ISL/DLB/ENLP PDF, one canonical note per book-and-chapter even when a chapter spans weeks |
+| Textbook chapter | [[Textbook Template]] / [[Textbook Workflow]] | Short (under 3,000 words) NotebookLM-built note per section group, with a Reading Guide and EXPLAIN callouts and no flashcards. A long chapter becomes `Chapter - N (Part 2)` |
 | Concept or cross-cutting mechanism | [[Concept Template]] / [[Concept Workflow]] | None exist yet for this course - see Concept-note discipline below before creating the first one |
 | Homework | [[Homework Template]] / [[Homework Workflow]] | The notebook's real computed numbers/figures plus the written report's actual claims - never the assignment prompt restated |
-| Quiz practice | [[Exam Material Template]] / [[Exam Workflow]] | A drill bank of interpret-the-result questions on an unfamiliar dataset, matching the quiz's real format (see Quiz-period workflow below) - quizzes themselves are not a `class_kind: exam` sheet, since there is no scope-and-format exam day to track, just a recurring graded checkpoint |
+| Quiz | [[Quiz Template]] / [[Quiz Workflow]], and [[Exam Material Template]] for the cheatsheet | Per quiz, under `20_Progress/Degree/CSCI 4521/Quizzes/`: `Quiz - N Cheatsheet` before it, `Quiz - N` (questions, worked solutions, sources, misses) after it. No scope-and-format exam day exists, so there is no `class_kind: exam` sheet |
 | Final Project | [[Project Template]] / [[Projects Workflow]] | Proposal, concept links to the units it draws from, work log - no Project folder exists yet; create one once the interest-form/proposal step (Week 9+) actually starts |
 | Course preparation | [[Preparation Template]] / [[Preparation Workflow]] | Grading leverage, weekly time budget, real traps - this course's own [[20_Progress/Degree/CSCI 4521/Preparation|Preparation]] note is the working example |
 ## Source hierarchy and trust
@@ -37,14 +38,14 @@ No midterm or final exam exists for this course - grading is Homework 1-4 (40%, 
 2. The professor's own course-schedule spreadsheet (linked from [[CSCI 4521 Board]]'s Source of Truth section) is the real week-by-week calendar - the syllabus PDF itself has no dates, only five topic units. Trust the spreadsheet over any date inferred from the syllabus's unit list.
 3. The local CSCI 4521 source folder (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\`) controls the three textbook PDFs, lecture slide decks, companion `.ipynb` notebooks, and homework files. **Correction made 2026-10-21 on the Board:** the ENLP PDF (`Textbook & Resources/ENLP Textbook CSCI 4521.pdf`) is already present locally - the Textbook Map already had this right, but the Board's Source of Truth paragraph still claimed it was missing until this pass fixed it. Don't let a stale "missing" label block building an ENLP chapter note.
 4. Per lecture, a real deck outranks a companion notebook for the *concept* framing, but the notebook outranks the deck for *real computed numbers* (accuracy figures, predicted classes, plot behavior) - never invent a number the deck doesn't show when a notebook exists with the real one, and vice versa never flatten a notebook's real narrative arc (e.g. 1.1's normalization-changes-the-prediction finding) into a generic restatement of the deck's framing.
-5. Textbook notes are built directly from the real ISL/DLB/ENLP PDF, section by section, with the text extracted by MinerU per [[PDF Extraction]] (never `Read` on the PDF) - this course has no established NotebookLM prompt library the way CSCI 4511W/5304 do, and no local PDF-text-extraction blocker either (confirmed working as of the 2026-10-21 build pass, superseding the Textbook Map's older "needs review - PDF text check pending" status on the four Week 1-2 chapter notes).
+5. Textbook notes follow the NotebookLM route in [[Textbook Workflow]] and [[Repetitive Things]]: MinerU extracts the pages ([[PDF Extraction]], never `Read` on the PDF), one short prompt per section group runs in Notebook, and the output is checked against the extraction. Chapters written before 2026-11-19 (Weeks 1 to 7) were built directly from the PDF and are marked for a Notebook re-run when their Part is next touched. Weeks 8 to 11 were written from MinerU extractions on 2026-11-19 because Notebook was not available that session.
 6. User live lecture capture in each week note's `## Lecture` section records what was actually said/emphasized in the live-coded Colab session and must be preserved; it does not silently override the textbook, and the textbook does not silently override it either when the two add different things.
 7. Existing vault notes provide continuity and style, not authority, when they conflict with a primary source above.
 If a live source and an existing note disagree, update the note with the dated correction and keep the source distinction visible, the way this section's ENLP correction is now logged. Never silently choose between two disagreeing primary sources; mark the conflict and ask.
 ## Weekly operating rhythm
 ### Before the lecture
 1. Read the Board's Schedule row for the week and the matching entry in [[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]] - the map states which book-and-section is assigned and whether that chapter's note is landed.
-2. If the chapter note doesn't exist yet, that's the week's first production task: parse the chapter's pages from the actual ISL/DLB/ENLP PDF with [[PDF Extraction]] (`-Pages`), read it section by section, and build the note directly, following [[Textbook Standard]]'s shape (Chapter Summary, Key Concepts, Examples Worth Keeping, Connections, Open Questions, Flashcards).
+2. If the chapter note doesn't exist yet, that is the week's first production task: extract the pages with [[PDF Extraction]] (`-Pages`), run the Notebook prompt, and build the note to [[Textbook Standard]] (Chapter Summary, Reading Guide, Key Concepts, Full Reading Notes with EXPLAIN callouts, Worked Example, Connections, Open Questions). No flashcards.
 3. Check the lecture source folder for that week's real deck(s) and companion notebook(s) before assuming only a deck exists - a lecture with no deck (the 1.1 pattern) is not a gap, the notebook is primary; verify this directly rather than concluding "no source" the way an earlier pass on this course once did.
 4. Create/update the week note before class from the schedule, textbook note, and whatever source files already exist, under a pre-lecture scaffold labeled `Pre-lecture source notes` in the Lecture area, per [[Course Production Workflow]].
 ### During the lecture
@@ -62,12 +63,13 @@ Student-led, proposal + presentation + code, roughly 2x a single homework's weig
 ## Concept-note discipline
 Zero concept notes exist for this course as of 2026-10-21 - the Weekly and Textbook layers have carried the material so far. Create the first one only once a mechanism has recurred across multiple lectures/weeks and genuinely needs its own reusable, cross-referenced treatment beyond what a Weekly or Textbook note already gives it - the strongest early candidates, not yet created, are **bias-variance tradeoff** (the throughline of Lectures 1.2-1.5, directly tested by the kNN-k-sweep notebook) and **the five named bias types in ML data** (Lecture 1.5's ethics unit, which the Board flags as graded quiz material). Follow [[Concept Standard]]'s full bar exactly - no bland restated-fact header, no section kept just because the template has a slot for it; cut anything that would only repeat the Mechanism in different words.
 ## Quiz-period workflow
-Quizzes are biweekly, in class, two pages of notes allowed, and explicitly framed by the syllabus as "interpret this method's results on a new dataset" rather than textbook recall - this changes what counts as useful prep. When a quiz is announced or its date is close:
-1. Confirm its real scope from the Board's Schedule row (which lecture range falls in the two-week window since the last quiz) rather than assuming "everything so far."
-2. Build the quiz's study material as an [[Exam Material Template]] note (`class_kind: exam-material`) under `20_Progress/Degree/CSCI 4521/Quiz/` (create this folder on first use) - a short Scope paragraph naming the quiz, the weeks it covers, and where the items came from, then numbered interpret-a-result drills grouped by topic (never a plain fact-recall quiz, matching the real format), with an Answer Key kept separate so the bank can be used cold.
-3. Deepen any Concepts-layer note that's genuinely load-bearing for that window before drilling - don't turn every Weekly note into a cram note.
-4. After the quiz, log what actually tripped you up in [[20_Progress/Degree/CSCI 4521/Preparation|Preparation]]'s traps section, and feed any recurring pattern into the next quiz's drill bank.
-5. If a graded quiz copy itself gets filed (not a drill bank, the actual submitted/returned quiz), it stays under [[Homework Standard]] per [[Exam Material Standard]]'s own legacy-shape note - do not create a `class_kind: exam` sheet for it, since there is no single exam-day scope-and-format record to build; that family is reserved for the midterm/final shape this course doesn't have.
+Quizzes are biweekly, in class, two pages of notes allowed, and framed as "interpret this method's results on a new dataset". Each quiz leaves two notes in `Quizzes/`, per [[Quiz Workflow]]:
+1. Confirm the scope from the Board's schedule row (the lectures since the previous quiz). The five scheduled quizzes fall on weeks 3, 5, 7, 9 and 11 (9/24, 10/8, 10/22, 11/5, 11/19). The syllabus says six, and the sixth is not visible in the schedule.
+2. Before the quiz, `Quiz - N Cheatsheet` ([[Exam Material Template]]): one block per topic with the formulas, the code shape and links to the week, textbook note and concept.
+3. After the quiz, `Quiz - N` ([[Quiz Template]]): each question with its worked solution and a `*Sources:*` line linking the week, textbook note, slide, notebook, homework and concept.
+4. Mistakes and Gaps feeds [[20_Progress/Degree/CSCI 4521/Preparation|Preparation]]'s traps and the next cheatsheet. Cards only for real misses.
+## Study loop
+Reading and testing are tracked, not assumed. Each textbook note's Reading Guide and each week's Takeaways are `- [ ]` tasks, cards live only on week, concept and quiz notes, and the `coach` agent ([[Orchestration]]) reads the checkbox counts, the spaced-repetition review data and the quiz Mistakes and Gaps sections to report what was read, what was drilled, and where the weak and strong topics are. It asks questions and grades them against the notes. It never marks something done on the student's behalf.
 ## Status and handoff
 Use `seed` for a newly created scaffold, `sprout` for a source-grounded working note, `tree` only once a note is stable and unlikely to need further structural change. Every active note should leave a concrete `next`: source to read, lecture to live-capture, assignment step, or link to verify.
 ## Stop-and-ask conditions

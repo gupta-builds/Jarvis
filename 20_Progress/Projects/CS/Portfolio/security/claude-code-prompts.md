@@ -5,6 +5,17 @@ created: 2026-06-15
 tags: [portfolio, security, claude-code, prompts]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX · "There are two proxy/middleware files: proxy.ts at the project root and src/proxy.ts" (P1-A) | Only `src/proxy.ts` exists; no root `proxy.ts`, `middleware.ts`, or `src/middleware.ts`. |
+> | FACT-FIX · "auth().protect()" (P1-C, P1-D) | Code uses `await auth.protect()` (`src/proxy.ts:9`, `src/app/studio/layout.tsx:10`). |
+> | FACT-FIX · "Confirm it includes wss://*.sanity.io" (P2-E) | `connect-src` is `'self' https://*.sanity.io https://*.api.sanity.io https://decent-tick-22.clerk.accounts.dev https://challenges.cloudflare.com` (`next.config.ts:25`); no `wss:` entry exists in the file. |
+> | DRIFT · "log a warning with console.warn('[chat] Upstash unreachable — rate limiting skipped')" (P3-D) | Limiter catch logs `console.log(JSON.stringify({ event: "chat.ratelimit.fail_open", ip }))` (`src/app/api/chat/route.ts:219-221`; modified-uncommitted). `redis.get(cacheKey)` (`route.ts:262`) and `redis.incr`/`expire` in `routeChat` (`src/lib/model-router.ts:121-122`) have no try/catch. |
+> | DRIFT · "The checks object should include: server, ai_primary, ai_fallback, chat_secret, upstash, sanity_token" (P5-B) | Health route also has `ai_tertiary` (`MISTRAL_API_KEY`) and `ai_primary` is `CEREBRAS_API_KEY` (`src/app/api/health/route.ts:4-12`). |
+> | FACT-FIX · "Confirm the siteverify Worker URL is stored as an env var, not hardcoded" (P6-A) | No Worker URL is read; `chat-token` fetches `https://challenges.cloudflare.com/turnstile/v0/siteverify` directly (`src/app/api/chat-token/route.ts:11-15,35`; modified-uncommitted). |
+> | STATUS · "Expected: 200, (headers present), 302, 401, 403, {\"status\":\"ok\"}" (P5-D, `/studio` → 302) | Live fetch 2026-11-19: `/studio` plain `curl` → 404; with `Accept: text/html` → 307 to Clerk handshake; `/api/health` → 200; `www` → 200 (P6-E allows 200). |
+
 # Claude Code Prompts — Security Pass
 
 > Every prompt in this file is written for Claude Code running inside the portfolio repo. Copy each block verbatim into Claude Code, run it, verify the output matches the expected result, then move to the next.

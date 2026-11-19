@@ -11,6 +11,14 @@ notes:
   - "[[00 - Claude Code Build Kit — Index]]"
   - "[[04 - Eval Harness — promptfoo]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "In `.claude/settings.json`:" (hooks JSON) (§Hooks: what runs when) | `.claude/settings.json` does not exist. `.claude/settings.local.json` keys: `permissions`, `enabledMcpjsonServers` only. |
+> | DRIFT: "PostToolUse (Biome on edit)… (Already in your kit.)" and "Stop (typecheck)" | No Biome-on-edit or typecheck-on-Stop hook exists. Only Cursor hooks exist: `.cursor/hooks.json:4,10,22` → `session-context.mjs`, `record-edit.mjs`, `guard-pr.mjs`; none runs Biome or tsc. |
+> | DRIFT: "Optional `/ship-check` that chains `/typecheck` → `pnpm build` → `/eval` → `security-reviewer`" | Shipped `.claude/commands/ship-check.md:12-15` runs `pnpm typegen`, `pnpm typecheck`, `pnpm lint`, then `pnpm build` before eval and security review. `eval.md` and `ship-check.md` both exist. |
+> | DRIFT: "run it through `/eval`… and as a CI gate" | CI gate exists: `.github/workflows/eval-gate.yml` (only workflow besides untracked `semgrep.yml`); see note 04 for its drift. |
+
 # Commands and Hooks
 This note owns the slash commands and the `settings.json` hooks for the build. The principle: cheap deterministic gates run automatically and often; expensive LLM evals run on demand and at deploy, never on every edit.
 ## New command: /eval

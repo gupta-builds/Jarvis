@@ -5,6 +5,19 @@ created: 2026-06-12
 tags: [portfolio, architecture, overview]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "Next.js 16.1.1 App Router" (Stack) | `"next": "16.2.9"` (`package.json:54`; installed 16.2.9). React stays `19.2.3` (`:57`) |
+> | "AI \| Gemini 2.5 Flash → Groq → degraded" (Stack); "routeChat() → Gemini → Groq → degraded" (Data Flow); "Gemini → Groq → degraded routing" (Key Files) | Chain is Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded (`src/lib/model-router.ts:2`, `:50-68`). No `gemini` string appears anywhere in `src` (rg) |
+> | "`GEMINI_API_KEY` — primary AI model"; "`GROQ_API_KEY` — fallback AI model" (Environment Variables) | No `GEMINI_API_KEY`. Keys read by the router: `CEREBRAS_API_KEY`, `GROQ_API_KEY`, `MISTRAL_API_KEY` (`model-router.ts:52,60,67`). Other server vars read in `src` and missing from the list: `SANITY_API_TOKEN`, `SANITY_REVALIDATE_SECRET`, `TURNSTILE_SECRET_KEY`, `DEV_BYPASS_IP`; `NEXT_PUBLIC_TURNSTILE_SITE_KEY` and `NEXT_PUBLIC_SANITY_*` are intentionally public |
+> | "`proxy.ts` / `src/proxy.ts` \| Clerk auth proxy" (Key Files) | Root `proxy.ts` and any `src/middleware.ts` do not exist; the only proxy is `src/proxy.ts` (`isStudioRoute` `:5`, `proxy()` `:24`, `config` `:38`) |
+> | "`PortfolioContent()` … `sanityFetch()` × N queries … renders all sections" (Data Flow) | `PortfolioContent` fetches only `NAVIGATION_QUERY` + `PROJECTS_QUERY` (`src/components/PortfolioContent.tsx:25-26`); `Home()` fetches `PROFILE_QUERY` + `SITE_SETTINGS_QUERY` (`src/app/(portfolio)/page.tsx:95-96`); each section component fetches its own data |
+> | "pnpm typegen → pnpm typecheck → pnpm lint → pnpm build" (Build Pipeline) | `build` already runs `pnpm typegen && pnpm typecheck && next build` (`package.json:7`); `lint` is `npx @biomejs/biome check .` (`:9`) |
+> | "POST /api/chat … isAllowedOrigin() gate" (Data Flow) | Route first rejects `BLOCKED_UA` (`src/app/api/chat/route.ts:87`), then `isAllowedOrigin` (`:94`, imported from `src/lib/request-guards.ts` `:19`), then verifies the `chat_token` cookie (`:101`) |
+
 # Architecture Overview
 
 > [[../INDEX|← Back to Index]]

@@ -1,8 +1,8 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
+updated: 2026-11-18
 reviewed: 2026-10-23
 tags:
   - career
@@ -24,7 +24,7 @@ notes:
   - "[[US Immigration Rules Explained]]"
 ---
 # H-1B Odds Plan
-The H-1B lottery looks like pure luck, but several parts of it are decided by choices I make before the draw. This note lists every lever I found in official sources, shows the numbers behind the biggest one (the wage level), and sets a dated plan so that by March 2028 I have done everything within my control. Read it before any job negotiation, any decision about a master's degree, and each January before the registration window.
+The H-1B lottery looks like pure luck, but several parts of it are decided by choices I make before the draw. This note lists every lever I found in official sources, shows the numbers behind the biggest one (the wage level), and sets a dated plan so that by March 2028 I have done everything within my control. Read it before any job negotiation and each January before the registration window. The master's degree lever was closed on 2026-11-18 (see Lever 2).
 ## In Plain Words
 The **H-1B** is a work visa tied to a specific job at a specific employer. There is a yearly limit, the **cap**, of 65,000 new workers plus 20,000 more for people with a U.S. master's degree or higher. More employers ask than there are slots, so the government draws registrations at random, like a raffle.
 Since the 2027 fiscal year the raffle gives **tickets by wage level**. Each registration goes in once at level I, twice at level II, three times at level III, and four times at level IV. A **wage level** is just a tier, I to IV, that compares what an employer offers with what the Department of Labor says people in that job and city earn. My offer, and where the job is located, decide my tier.
@@ -33,7 +33,7 @@ Since the 2027 fiscal year the raffle gives **tickets by wage level**. Each regi
 | Lever | What it does | Evidence | My cost | When I act |
 | --- | --- | --- | --- | --- |
 | Higher wage level | 1 to 4 tickets per draw | Weighting rule; modeled odds 15.3% at level I to 61.2% at level IV | Choosing and negotiating jobs | Fall 2027 offers |
-| A U.S. master's degree | A second chance in the 20,000-slot pool | USCIS rule: two-stage selection; 66.1% of FY2027 registrants had one | Tuition and time | Decide before senior year |
+| A U.S. master's degree | A second chance in the 20,000-slot pool | USCIS rule: two-stage selection; 66.1% of FY2027 registrants had one | Tuition and time | Closed 2026-11-18: not pursuing a master's |
 | More draws | Each OPT year can be a new registration | OPT 12 months plus STEM 24 months | Employer must register me each March | March 2028, 2029, 2030 |
 | A cap-exempt employer | No draw at all | USCIS: universities, affiliated nonprofits, nonprofit and government research | Role and pay may differ | Search during 2027 |
 | O-1A visa | No cap, no draw | USCIS: 3 of 8 criteria, no annual limit | Evidence and legal cost | Build evidence from now |
@@ -79,8 +79,11 @@ So the same $150,000 is a level IV job in the Twin Cities and would not clear le
 2. The Department of Labor has proposed moving the four floors from about the 17th, 34th, 50th, and 67th percentiles of local wages to the 34th, 52nd, 70th, and 88th. If that is finalized, a salary that is level IV today would be about level III (my inference from the percentiles) ([[H-1B Rule Proposals]]).
 3. Pay must fit the job. The employer must show evidence for the level it picked, and a mismatch between registration and petition can cause a rejection.
 ## Lever 2: A U.S. Master's Degree
+> [!NOTE] Closed 2026-11-18
+> I decided not to pursue a master's at UMN or anywhere after graduating, so this lever is off. The explanation below stays as reference for why it exists. The extra credits in my course plan are for knowledge, not for a degree.
+
 USCIS fills the cap in two stages. It first draws from everyone, including people eligible for the master's exemption. Then it draws more from the remaining master's-eligible people to fill the 20,000 slots. In DHS's words the final rule keeps this "to keep a higher chance of beneficiaries with a qualifying U.S. master's degree or higher of being selected."
-The proclamation reports that master's holders rose from 45.1 to 66.1 percent of registrants in one year, so the crowd with this advantage is getting bigger. The degree must come from a U.S. institution of higher education. I do not yet know whether UMN offers a combined bachelor's-to-master's program that adds only a year, so that is a question for my advisor. The master's route also resets my practical training: a new degree level gives another 12 months of OPT ([[OPT Program]]).
+The proclamation reports that master's holders rose from 45.1 to 66.1 percent of registrants in one year, so the crowd with this advantage is getting bigger. The degree must come from a U.S. institution of higher education. UMN does have a computer science integrated bachelor's and master's program (checked 2026-11-18), with a March 1 deadline for a fall start. I am not pursuing it. The master's route also resets my practical training: a new degree level gives another 12 months of OPT ([[OPT Program]]).
 ## Lever 3: More Than One Draw
 OPT gives 12 months and the STEM extension gives 24 more, so an employer can register me in March 2028, March 2029, and March 2030, if I keep an employer who is willing each year. Draws are not guaranteed to be independent, so this table is an illustration and not a forecast.
 ### The Illustration
@@ -127,7 +130,7 @@ The government says it wants to reduce H-1B use by IT staffing and outsourcing f
 ## The Calendar
 | When | What I do |
 | --- | --- |
-| Now to Dec 2026 | Ask ISSS about a combined master's, and start an evidence file for O-1A (projects, research, reviews, talks) |
+| Now to Dec 2026 | Start an evidence file for O-1A (projects, research, reviews, talks). The combined master's question is closed. |
 | Spring 2027 | Research cap-exempt employers (university labs, nonprofit research) as a parallel track |
 | Fall 2027 | Recruit for full-time roles. Ask the employer questions above, and negotiate to the highest wage level the offer can reach |
 | Jan 2028 | Confirm the employer will register me in March |
@@ -140,7 +143,7 @@ If I am selected in March 2028, the H-1B starts October 1, 2028, which ends my F
 ## What I Cannot Control
 The draw itself, the wage rule proposal, a $103,265 petition fee that employers may refuse to pay, and the status of the $100,000 payment, which does not apply to a granted in-country change of status. A weaker market for entry-level hires may also shrink the pool of employers willing to register.
 ## Open Questions
-- [ ] Ask ISSS and the CS department about a combined bachelor's-to-master's program at UMN 📅 2026-11-15
+- [-] Ask ISSS and the CS department about a combined bachelor's-to-master's program at UMN. Closed 2026-11-18: the program exists and I am not pursuing a master's. 📅 2026-11-15
 - [ ] Look up the wage thresholds for the occupation code and city of each target employer 📅 2027-09-01
 - [ ] Check whether my country is on the State Department's list for E-2 eligibility
 - [ ] Find the actual FY2027 selection counts by wage level when USCIS publishes them

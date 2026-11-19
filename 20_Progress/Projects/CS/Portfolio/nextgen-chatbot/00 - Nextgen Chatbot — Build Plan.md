@@ -16,6 +16,14 @@ notes:
   - "[[02 - Premortem & Failure Defenses]]"
 next: "Phase 0 — stand up /api/chat calling Gemini behind an origin-locked route, plain text only. See [[08 - Build Phases & Milestones]]."
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows only correct status claims about the code or record where shipped code diverged.
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "Planning only. No code." (§Current State) | Implemented: `src/app/api/chat/route.ts`, `src/lib/model-router.ts`, `src/lib/chat-tools.ts` (6 tools), `src/lib/chat-context.ts`, `src/lib/personas/`, `src/lib/degraded-responses.ts`, `evals/`, `.github/workflows/eval-gate.yml` |
+> | FACT-FIX: frontmatter `next` and §Next Action "Phase 0 — stand up `/api/chat` calling Gemini" | Phase 0 is long past; no Gemini anywhere in `src/`. Shipped chain is Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded (`src/lib/model-router.ts:48-70`). Frontmatter left untouched |
+> | DRIFT: "the agent emits a `navigate(sectionId)` tool call"; section ids "from that Sanity nav link" (§How Orby fits) | Shipped `navigate` takes `{ sectionId, orbyMessage, itemSlug, itemIndex }` and `sectionId` is a hard-coded 9-value enum, not read from Sanity (`src/lib/chat-tools.ts:163-173,208-234`) |
+
 # Nextgen Chatbot — Build Plan
 This is the spine note for the portfolio's AI assistant. It owns *what we are building and why*; each layer's *how* lives in its own note, linked below. Read this first, then the layer note for whatever you are about to build.
 ## Goal

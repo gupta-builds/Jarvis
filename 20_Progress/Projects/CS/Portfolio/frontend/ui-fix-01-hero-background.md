@@ -16,6 +16,13 @@ notes:
   - "[[ui-fixes-index]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "`ObsidianBackgroundCanvas.tsx` (1196 lines)" and the "~line N" references (`randomOffsetInSphere` ~212, click `onClick` ~475, hit-mesh ~1052, `FORM_CLICK_*` constants ~79-80) | The file is now 1628 lines (it gained the `projects-edge` mode, plan comment at `:104-130`). Current anchors: `randomOffsetInSphere` `:267`, `formRetrigger.current = true` `:593`, `FORM_CLICK_BIAS_STRENGTH` `:83`, hit-mesh `PLANET_RADIUS * 1.1` `:1483`. Treat every line number in this note as stale; grep the symbol instead. |
+> | "Refinement pass 2 … Fix: blend a genuine toward-camera vector" (presented as the pending prompt) | Already present in the working tree: `FORM_CLICK_CAMERA_BIAS_WEIGHT = 0.65` (`ObsidianBackgroundCanvas.tsx:85`) and the toward-camera blend (`:737-739`). Status: built, uncommitted; visual result not verified here. |
+> | "Background mode API … later phase, do not build yet" (Target §4) | The bus now exists: `src/lib/background-mode.ts` (untracked) defines `BACKGROUND_MODE_EVENT` and `dispatchBackgroundMode`, and `ObsidianBackgroundCanvas.tsx:619-649` listens for it. Only `projects-edge` is consumed; `click-scatter` and `about-pin` are in the type union but have no consumer branch (any other mode resets projects state, `:624-629`). |
+
 # UI Fix 01 — Hero & Background Sphere
 
 > **Status:** partial (scatter intro exists; click lacks perceptible depth; overlay gap needs repro)

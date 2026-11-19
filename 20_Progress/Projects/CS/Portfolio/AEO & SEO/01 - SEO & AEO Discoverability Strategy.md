@@ -18,6 +18,17 @@ next: Export GSC impressions/clicks/queries for anantgupta.dev, then implement
   sitemap.ts + robots.ts + metadataBase
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | STATUS · "Root `src/app/layout.tsx` has **no** metadata export. No `metadataBase`, no `alternates.canonical`." (§Current Status, Phase 1) | In working tree, uncommitted, not deployed: `metadataBase` (`src/app/layout.tsx:24-25`) and `alternates: { canonical: "/" }` (`src/app/(portfolio)/layout.tsx:26`); both files modified-uncommitted. |
+> | STATUS · "**Not shipped.** No `src/app/sitemap.ts` or `src/app/robots.ts` in repo." (§Current Status, Phase 2) | Both exist, untracked (`src/app/sitemap.ts:3-16`, `src/app/robots.ts:3-12`); robots has one `*` rule only (`robots.ts:5-10`), no per-bot AI rules. Live fetch 2026-11-19: `/sitemap.xml` → 404. |
+> | STATUS · "**Not shipped.** No `/privacy` (or similar) route under `src/app/`." (§Current Status, Phase 4) | `src/app/privacy/page.tsx` exists, untracked. Live fetch 2026-11-19: `/privacy` → 404. |
+> | STATUS · "No JSON-LD / `schema.org` structured data anywhere in `src/app/`" (§Additional gaps) | `ProfilePage`/`Person`/`WebSite` `@graph` in working tree, uncommitted (`src/app/(portfolio)/page.tsx:67-76,105-111`). No `SoftwareApplication` node anywhere in `src/`. Live fetch 2026-11-19: homepage HTML has no `application/ld+json`. `public/llms.txt` still absent (`public/` holds only file.svg, globe.svg, next.svg, vercel.svg, window.svg). |
+> | FACT-FIX · "AI providers (Gemini/Groq/Mistral per [[chatbot/02-model-router]])" (§Phase 5A step 4) | Chain is Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` (`src/lib/model-router.ts:55,61,68`). No Gemini key is read. |
+> | DRIFT · "Closed tool layer: navigate, showProject, showExperience, lookupFact" (§Structured Data Spec 3, `featureList`) | Six tools are defined: navigate, showProject, showExperience, lookupFact, getResume, contact (`src/lib/chat-tools.ts:208,263,294,329,410,443`); matches the six-tool sentence in §Priority 1, not the 4-item `featureList` draft. |
+> | DRIFT · `"jobTitle": "Computer Science Student & AI/Full-Stack Builder"` and placeholder `sameAs` URLs (§Structured Data Spec 1) | Working-tree JSON-LD has no `jobTitle`; `sameAs` is built from non-empty github/linkedin/twitter/website only (`src/app/(portfolio)/page.tsx:20-24,55-58`); `Person.image` is added from `profileImage` (`page.tsx:51-53`). |
+
 # SEO & AEO Discoverability Strategy
 
 > Extends [[AEO & SEO/00 - Agent-Ready Infrastructure Build Plan|00 - Agent-Ready Infrastructure Build Plan]] with a verified status check (2026-09-05), updated market data, concrete structured-data specs, crawler policy, content strategy, and a Phase 5+ action plan. Does **not** duplicate the original build order — read [[AEO & SEO/00 - Agent-Ready Infrastructure Build Plan|00]] for the July 2026 baseline.

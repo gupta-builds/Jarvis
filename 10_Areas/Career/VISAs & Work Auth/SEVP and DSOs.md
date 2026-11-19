@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -44,7 +44,7 @@ BCM 2608-01 tells employers, DSOs, students, and the public to report suspected 
 The plaintiffs report that at least one DSO with more than twenty years of experience considered resigning, and that others became reluctant to authorize even training they believed plainly qualified. Yale's office states that since August 24 it processes CPT only when the training is required of all students in the program. UMN paused every application. Those are separate institutional decisions made under the same threat.
 The OPT fee proposal shifts the same pressure to a new point. Under it a DSO cannot enter an OPT recommendation in SEVIS until the school has paid, so the school's willingness to pay becomes the gate ([[OPT Fee Proposal]]).
 > [!NOTE]
-> A court order in the CPT case would bind the government, but each school would still decide how fast to restart authorizations, as the fear of retroactive scrutiny the plaintiffs describe does not vanish on the day of a ruling. Expect ISSS to move after a ruling, not with it.
+> The November 17 CPT order binds the government (a nationwide stay, plus an injunction for the plaintiffs' members), but each school would still decide how fast to restart authorizations, as the fear of retroactive scrutiny the plaintiffs describe does not vanish on the day of a ruling. Expect ISSS to move after a ruling, not with it.
 ## Words Used In This Note
 - *SEVP:* the Student and Exchange Visitor Program, an office inside ICE.
 - *SEVIS:* the database where my record lives.

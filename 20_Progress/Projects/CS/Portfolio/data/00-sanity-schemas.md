@@ -5,6 +5,24 @@ created: 2026-06-12
 tags: [portfolio, sanity, schemas, CMS]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "// 11 document types registered:" incl. `import { contact } from './contact'` | 10 types; `src/sanity/schemaTypes/index.ts:13-26` has no `contact`; `contact.ts` does not exist |
+> | "### contact … Fields: name, email, message, submittedAt, status, priority" | No `contact` document type (see above); no Server Action writes submissions |
+> | profile: "Main bio, headline, avatar, about text, social links" | Fields: `shortBio` (`profile.ts:66`), `fullBio` (`:76`), `aboutSummary` (`:82`), `profileImage` (`:90`), `stats[]` (`:159`); no `avatar` field |
+> | experience: "Fields: company, role, startDate, endDate, current (bool), description, tags, category" | `position` (`experience.ts:16`, not `role`), `tenure` (`:51`), `description` (`:67`), `technologies` refs (`:85`); no `role`, `current`, `tags` or `category` field in the schema |
+> | project: "Fields: title, slug, description, techStack, liveUrl, githubUrl, featured, category, order, coverImage" | `summary` (`project.ts:34`) and `technologies` refs (`:52`) replace `description`/`techStack`; also `tagline` (`:26`) |
+> | skill: "Fields: name, category, proficiency, icon, featured, order" | No `icon`/`featured`/`order`; adds `percentage` (`skill.ts:55`), `yearsOfExperience` (`:64`), `tone` (`:71`), `color` (`:91`) |
+> | education: "Fields: institution, degree, field, …" | `fieldOfStudy` (`education.ts:21`); also `current` (`:34`), `gpa` (`:39`), `achievements` (`:48`) |
+> | achievement: "Fields: title, description, date, featured, icon" | No `icon`; has `type` (`achievement.ts:16`), `issuer` (`:37`), `image` (`:51`), `url` (`:56`), `order` (`:65`) |
+> | blog: "Fields: title, slug, publishedAt, excerpt, content (portable text), category, tags, featured, coverImage" | No `content` or `featured`; has `externalUrl` (`blog.ts:29`), `readTime` (`:50`), `featuredImage` (`:55`) — posts are external links |
+> | siteSettings: "Fields: siteTitle, siteDescription, email, resumeUrl, socialLinks" | Only `siteTitle` (`siteSettings.ts:11`), `siteDescription` (`:16`), `siteLogo` (`:23`), `showBlog` (`:28`) |
+> | navigation: "Fields: items (array of { label, href, external })" | One document per link: `title` (`navigation.ts:11`), `href` (`:18`), `isExternal` (`:34`), `linkType` (`:41`), plus `icon` (`:26`), `order` (`:59`) |
+> | "type SanityQueries = Record<string, unknown>" (Generated Types) | `SanityQueries` is an `interface` inside a `declare module "@sanity/client"` augmentation (`src/sanity/types/index.ts:1109-1110`) keyed by query string → `*_QUERYResult`, not a `Record<string, unknown>` alias |
+
 # Sanity Schemas
 
 > [[../INDEX|← Back to Index]] · [[../architecture/02-sanity-cms|Sanity CMS]]

@@ -5,6 +5,15 @@ created: 2026-06-12
 tags: [portfolio, orby, chatbot, AI]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "`GEMINI_API_KEY` # Primary model (Gemini 2.5 Flash)" and phase 0 "`/api/chat` pipe (Gemini, server-only key)" (§Key Server-Side Env Vars, §Build Phases) | No Gemini anywhere in `src/`. Model keys read are `CEREBRAS_API_KEY`, `GROQ_API_KEY`, `MISTRAL_API_KEY` (`src/lib/model-router.ts:52,60,67`); primary is Cerebras `zai-glm-4.7` (`model-router.ts:55`) |
+> | Env list is only GEMINI, GROQ, `CHAT_TOKEN_SECRET`, Upstash x2 (§Key Server-Side Env Vars) | Also read: `DEV_BYPASS_IP` (`src/app/api/chat/route.ts:181`), `TURNSTILE_SECRET_KEY` (`src/app/api/chat-token/route.ts:7`), `NEXT_PUBLIC_BASE_URL` / `NEXT_PUBLIC_SITE_URL` / `VERCEL_URL` (`src/lib/request-guards.ts:50,53,57`). Names only; `NEXT_PUBLIC_TURNSTILE_SITE_KEY` is the public client key (`src/components/ChatTokenInit.tsx:20`) |
+> | Phase 6 "Groq fallback + degraded mode" (§Build Phases) | Shipped chain is Cerebras → Groq → Mistral, then `degraded`, or `cooldown` when every leg is cooling down (`model-router.ts:48-70,103-110,254-273`) |
+> | Phase 7 "Wire Orby navigation … 🔜 Next" (§Build Phases) | Wiring code exists: `navigate` tool carries `orbyMessage` (`src/lib/chat-tools.ts:215`), `PortfolioLab.tsx` scrolls and dispatches the nav event once per turn (`src/components/lab/PortfolioLab.tsx:35,195-199`); tests `src/components/__tests__/orby-chat-nav.test.ts` and `orby-section-messages.test.ts` exist. Acceptance status not verified |
+> | "`docs/ORBY.md` — full Phase 7 implementation spec" (§Spec Document) | `docs/ORBY.md` is not in the working tree or in `HEAD`; `docs/` currently holds only untracked `knowledge/` |
+
 # Orby — AI Chatbot Overview
 
 > [[../INDEX|← Back to Index]]

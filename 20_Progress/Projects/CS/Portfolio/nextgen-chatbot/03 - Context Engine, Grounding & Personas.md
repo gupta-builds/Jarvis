@@ -11,6 +11,15 @@ notes:
   - "[[00 - Nextgen Chatbot — Build Plan]]"
   - "[[02 - Premortem & Failure Defenses]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows record implementation status only; the refusal string and weirdo opener below match the code (`src/lib/chat-context.ts:159`, `src/lib/personas/weirdo.ts:3`).
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Friend — fixed chip … `Did Anant vibe code this portfolio?`" as the fixed prompt (§Finalized fixed prompts) | Shipped as part of 16 author-specified chips, 4 per persona (`src/lib/fixed-prompts.ts:3,47-173`; vibe-code chip at `:64`). Each has a deterministic `navTarget` injected as a hard `navigate(...)` directive plus an `answerBrief` (`src/app/api/chat/route.ts:233,245-252`) |
+> | DRIFT: "the agent detects the persona marker embedded in the prompt and locks into that persona" (§power-prompts) | Detection is client-side on paste: `[Recruiter lens]` / `[CEO lens]` set the persona in `src/components/lab/ChatInputBar.tsx:72-77`; the route only validates the persona value and defaults to `"friend"` (`route.ts:174-176`) |
+> | DRIFT: "Live, not snapshotted … Grounding reads current Sanity (or rebuilds on a Sanity publish webhook)" (§Grounding rule 2) | Each uncached turn fetches live via `fetchCatalog()` (`route.ts:236`), but answers are cached per persona + question for 24 h (`chat:v2:*`, `route.ts:257-262,622`); `/api/revalidate` only calls `revalidatePath("/")` (`src/app/api/revalidate/route.ts:31`) and nothing else in `src/` clears the cache |
+> | STATUS (matches design): two-tier grounding (§Open questions) | Shipped: always-on compact catalog in the prompt (`src/lib/chat-context.ts:103-136`, skills capped at top 60 `:67-100`); full records on demand via `showProject` / `showExperience` / `lookupFact` (`src/lib/chat-tools.ts:263,294,329`) |
+
 # Context Engine, Grounding & Personas
 This note owns the layer that decides *what the model is allowed to know and how it should sound*: grounding (so it cannot lie about me), the refusal rule, and the four personas. It is the defense against premortem failures 1, 6, and 7. This is the part that makes the assistant credible instead of a gimmick.
 ## Grounding: structured, live, refusal-first

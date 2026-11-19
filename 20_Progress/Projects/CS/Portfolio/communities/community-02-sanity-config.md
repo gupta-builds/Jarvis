@@ -5,6 +5,15 @@ created: 2026-06-12
 tags: [portfolio, graph, community, sanity, config]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "All 11 schema type files are reachable from this community… `navigation.ts`, `contact.ts`" | 10 schema types (`src/sanity/schemaTypes/index.ts:13-26`); `contact.ts` does not exist and is absent from `git ls-tree 89cd2c0e` |
+> | "`serverClient` (alias)" (Server Client) | No `serverClient` source symbol (it appears only in `src/components/__tests__/codebase-cleanup-bug-condition.test.ts`); the export is `getServerClient()` (`src/sanity/lib/server-client.ts:14`) |
+> | "`env.ts` — `projectId`, `dataset`, `assertValue()`"; "`builder` — imageUrlBuilder instance" | `env.ts` exports `apiVersion` (`:1`), `dataset` (`:4`), `projectId` (`:9`); `assertValue` is a private function (`env.ts:14`). `builder` is a private const in `src/sanity/lib/image.ts:7`; only `urlFor` is exported (`:9`) |
+
 # Community 2 — Sanity Config
 
 > [[../INDEX|← Back to Index]] · [[../communities/community-overview|All Communities]]

@@ -61,6 +61,7 @@ produce      outputs next to the project they serve
 | [[Course Production Workflow]] | A course starts, a term is reset, or a week of course notes is due to be produced. | [[Degree Control Standard]] |
 | [[Discussion Workflow]] | A discussion section, paper discussion, reading conversation, or participation task is scheduled. | [[Discussion Standard]] |
 | [[Exam Workflow]] | An exam, long quiz, or final is announced, and again when its results return. | [[Exam Standard]] |
+| [[Quiz Workflow]] | A quiz is announced, and again when its solutions or graded copy land. | [[Quiz Standard]] |
 | [[Homework Workflow]] | A problem set, coding or written assignment, journal entry, or short quiz is assigned. | [[Homework Standard]] |
 | [[Lab Workflow]] | A lab prompt and starter files are available, or a lab session just happened. | [[Lab Standard]] |
 | [[CSCI 4061 Workflow]] | Course-specific production plan |  |

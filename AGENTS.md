@@ -40,6 +40,7 @@ Every note written into this vault follows a Standard, a Template, and (where on
 - Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
 - Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
 - Before saving, run [[Vault Lint]] on the note. When you open an older note for any reason, bring it to its Standard in the same edit ([[Conformance on Touch]]).
+- **System drift.** `30_Order/` is meant to improve with the notes. When a Standard, Template, Workflow or lint rule is outdated, contradicts the source, or blocks the note you are writing, say so in chat in one line, name the file, and fix it in the same session once the user agrees. Never work around it silently and never leave the note and the Standard disagreeing.
 - If no template exists for the note type, do not improvise. Say so, and design the Standard, then the Template, then the Workflow, in that order ([[30_Order/00_How This Folder Works|How This Folder Works]]). Until then, write the note to `60_Claude/00_Inbox/`.
 
 ## Write Contract
@@ -96,6 +97,7 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 - **Codex model routing:** use the global `base` profile for bounded, routine work with explicit inputs and acceptance criteria. Use `deep` before consequential architecture, hard debugging, security or code review, cross-source synthesis, important decisions, or difficult coursework. If base work becomes cross-cutting or difficult to verify, stop and ask to continue in `deep`; do not silently change model behavior.
 - **Codex output:** never use an em dash. Use complete sentences with proper grammar; do not omit words that carry meaning.
 - **PDFs: MinerU only.** Run `powershell -NoProfile -ExecutionPolicy Bypass -File D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts/mineru-pdf.ps1 "<pdf>"` (add `-Pages 120-135` for a chapter, `-Tier advanced` for a scan or dense math), then read the Markdown it prints. It starts the MinerU server if the server is stopped, so a stopped server is never a reason to use another reader. Never open a PDF with a file-read tool, `pdftotext`, `pypdf` or similar: a whole-PDF read stores 25 to 50 MB of base64 in the transcript. In Claude Code a hook blocks these; Codex, Cursor and Kiro follow this as a rule. Procedure and failure handling: [[PDF Extraction]].
+- **Flashcards are for misses.** Cards (`#cards/<course-slug>`) go only on week, concept, project, exam and quiz notes, and only for something the user missed or struggled with. Textbook, board, preparation and other notes carry none.
 - Search before creating a note. Prefer extending an existing canonical note over making duplicates.
 - Preserve frontmatter and use the vault schema fields consistently. Update `updated:` when a note changes meaningfully.
 - Prefer Obsidian wikilinks for internal references.

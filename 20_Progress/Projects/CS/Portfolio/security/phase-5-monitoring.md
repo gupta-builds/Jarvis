@@ -5,6 +5,14 @@ created: 2026-06-15
 tags: [portfolio, security, monitoring, vercel, observability]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | STATUS · "Critical correction: `/api/health` is Clerk-protected" and the Option A matcher snippet (§Critical correction) | Resolved: `src/proxy.ts:40-41` excludes `api/health` and `api/error-report`; non-studio paths bypass Clerk (`:25-27`). Live fetch 2026-11-19: `GET https://anantgupta.dev/api/health` → 200. |
+> | FACT-FIX · `ai_primary: Boolean(process.env.CEREBRAS_API_KEY ?? process.env.GEMINI_API_KEY)` (§Step 1) | `ai_primary: Boolean(process.env.CEREBRAS_API_KEY)` (`src/app/api/health/route.ts:6`); adds `ai_tertiary: Boolean(process.env.MISTRAL_API_KEY)` (`:8`). No Gemini key is read. |
+> | DRIFT · `/api/error-report` snippet logging `body.error`, `body.stack`, `body.component` unmodified (§Step 2) | Route type-checks and truncates: error 500, stack 1000, component 200 chars (`src/app/api/error-report/route.ts:10,13,17`); returns 204 (`:24`). |
+> | STATUS · "Studio redirect ... Expected: 302 or 307" (§Step 3 smoke tests) | Live fetch 2026-11-19: `/studio` plain `curl` → 404; with `Accept: text/html` → 307 to `decent-tick-22.clerk.accounts.dev` handshake. |
+
 # Phase 5 — Runtime Monitoring & Incident Response
 
 > The site is live. These steps ensure you know when something breaks before a recruiter finds it.

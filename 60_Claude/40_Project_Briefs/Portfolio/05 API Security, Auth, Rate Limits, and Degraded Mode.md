@@ -7,6 +7,11 @@ sync: managed
 tags: [portfolio, security, api, auth, rate-limit]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "`ChatTokenInit` exists only to initialize this browser-to-server trust token" (§Token boundary) | It also hosts the invisible Cloudflare Turnstile widget (`src/components/ChatTokenInit.tsx:6-11`). `/api/chat-token` issues the cookie only after Turnstile siteverify, required outside development/test (`src/app/api/chat-token/route.ts:8-9,138-148`); cookie is `httpOnly`, `sameSite: "strict"` (`route.ts:96-98`). The note mentions Turnstile only as a CSP origin. |
+
 # 05 API Security, Auth, Rate Limits, and Degraded Mode
 
 ## Purpose
@@ -75,10 +80,10 @@ graphify affected "isAllowedOrigin()" --depth 3
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **14 files / 64 nodes / 156 touching edges**
-- Leading communities: `orby-comment/route.ts` (25), `chat/__tests__/route.test.ts` (11), `chat/route.ts` (10), `next` (6), `next.config.ts` (4), `error-report/route.ts` (3)
+- Leading communities: `next` (16), `chat-token.ts` (13), `orby-comment/route.ts` (12), `chat/__tests__/route.test.ts` (11), `chat/route.ts` (10), `app/layout.tsx` (2)
 
 ### High-connectivity symbols
 

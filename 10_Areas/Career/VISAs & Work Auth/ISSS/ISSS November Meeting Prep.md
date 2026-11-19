@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-11-05
-updated: 2026-11-07
-reviewed: 2026-11-07
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -14,6 +14,7 @@ area:
   - career
 notes:
   - "[[VISA Plan]]"
+  - "[[Questions for Next Meeting]]"
   - "[[ISSS Meeting]]"
   - "[[ISSS October Meeting Brief]]"
   - "[[CPT Program]]"
@@ -24,10 +25,13 @@ notes:
   - "[[Junior Year Internship Decision]]"
   - "[[Visa Litigation Tracker]]"
   - "[[Current News]]"
-next: "Send the email below by 2026-11-09, book the meeting for the week of 2026-11-09, and bring any CPT ruling to it"
+next: "Use Questions for Next Meeting for the meeting the week of 2026-11-23. This sheet stays as the record of the CPT and pre-completion questions asked before the rulings"
 ---
 # ISSS November Meeting Prep
 This is the prep sheet for my second ISSS meeting, planned for the week of November 9, after the CPT hearing on November 6 and the OPT fee comment deadline on November 9. [[ISSS Meeting]] and [[ISSS October Meeting Brief]] cover the first meeting. Read "What Is Established About CPT" and "Questions" the night before, and send the email at the bottom now, because a written reply protects me and a verbal one does not ([[SEVP and DSOs]]).
+> [!IMPORTANT]
+> **Superseded in part on 2026-11-18.** Both rulings this sheet waited on have landed: the CPT guidance was stayed on November 17 and the duration of status rule was vacated on November 16. The meeting that follows is planned in [[Questions for Next Meeting]], which carries over the questions still open. Read this sheet for the reasoning behind the CPT and pre-completion questions, and treat "Where Things Stand" below as a record of November 7.
+
 ## Where Things Stand On 2026-11-07
 > [!NOTE]
 > The CPT hearing was held on Friday, November 6. I found no ruling and no public account of what the judge said, and the CourtListener copy of the docket can lag. Treat "no order yet" as the working state until the docket or NAFSA says otherwise.

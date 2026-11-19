@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -32,7 +32,7 @@ The rule for F-1 students is simple to state: no work unless a specific exceptio
 | Option | Who authorizes | Where and when | Hours | Status on 2026-10-23 |
 | --- | --- | --- | --- | --- |
 | On-campus employment | Incident to status, no application | School premises or an educationally affiliated site | 20 a week in session, full-time in breaks | Open |
-| Curricular practical training | The school's DSO | Before graduation, one employer and period per authorization | Part-time or full-time as authorized | UMN paused all applications; only required experiences considered |
+| Curricular practical training | The school's DSO | Before graduation, one employer and period per authorization | Part-time or full-time as authorized | UMN paused all applications and did not revoke earlier approvals; a court stayed the guidance on Nov 17, and ISSS resumes required and elective CPT requests on Nov 23 |
 | Pre-completion OPT | USCIS after a DSO recommendation | Before graduation, any related job | 20 in session, full-time in breaks | Open, with costs |
 | Post-completion OPT | USCIS after a DSO recommendation | After the program ends | Part-time or full-time | Open |
 | STEM OPT extension | USCIS after a DSO recommendation | After 12 months of post-completion OPT | At least 20 a week | Open |
@@ -43,7 +43,7 @@ The rule for F-1 students is simple to state: no work unless a specific exceptio
 Work at an off-campus location counts only when the educational affiliation is associated with the school's established curriculum or related to contractually funded research projects at the post-graduate level. The post-graduate wording is easy to miss. It means an undergraduate cannot assume a company that funds a university lab project qualifies. The employment must also not displace United States residents, and the student may work full-time when school is not in session or during the annual vacation.
 ISSS adds that students cannot hold work-study positions and that on-campus eligibility ends on the day all degree requirements are complete. A student who applied for post-completion OPT but does not finish by the date on that application loses on-campus eligibility, unless the job is related to their field and the OPT is authorized. This is the only option that works the summer after junior year without a USCIS wait, and it is the one least affected by the 2026 changes ([[Junior Year Internship Decision]]).
 ## Curricular Practical Training
-CPT is authorized by the DSO, not USCIS, and it is employer-specific and date-specific. The 2026 dispute is about what makes a training "integral to an established curriculum." Full detail lives in [[CPT Program]], the [[CPT Broadcast Messages]], and the [[CPT Lawsuit]]. The short version is that SEVP now says only training required of every student in the degree qualifies, and UMN has paused every application while it reviews that guidance.
+CPT is authorized by the DSO, not USCIS, and it is employer-specific and date-specific. The 2026 dispute is about what makes a training "integral to an established curriculum." Full detail lives in [[CPT Program]], the [[CPT Broadcast Messages]], and the [[CPT Lawsuit]]. The short version is that SEVP now says only training required of every student in the degree qualifies, and UMN has paused every application while it reviews that guidance. A court stayed that guidance on November 17, and ISSS announced that it resumes required and elective CPT requests on November 23.
 ## Optional Practical Training
 OPT is the USCIS-issued work permit for training directly related to the major. A DSO recommends it, the student files Form I-765, and employment cannot start before the approved start date on the card ([[EAD and OPT Processing]]). It comes in three forms. [[Pre-Completion OPT]] is used during the degree, [[OPT Program|post-completion OPT]] after it, and the [[STEM OPT Extension]] adds 24 months for eligible STEM degrees. All OPT is capped at 12 months per education level, and time used before graduation is deducted. Two ISSS facts from the meeting matter here. During the school term, pre-completion OPT is only part-time (20 hours a week or less), and that 20 hours includes any on-campus job. And a part-time stretch in term and a full-time stretch in the summer are two separate applications.
 ## Hardship And International Organizations

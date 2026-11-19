@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-11-07
-reviewed: 2026-11-07
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -18,6 +18,7 @@ notes:
   - "[[Duration of Status Rule]]"
   - "[[H-1B 100K Payment]]"
   - "[[Current News]]"
+  - "[[Questions for Next Meeting]]"
 ---
 # Visa Litigation Tracker
 Four lawsuits and four appeals decide, in practice, which of the 2026 rules reach me, and each has its own judge, record, and calendar. This note is the single table of all of them with the next dated event, plus a glossary of the rulings that appear on the dockets. Read it first when checking whether something has changed, and update it in the same session as any new ruling.
@@ -26,9 +27,9 @@ A court case matters to me because a judge can pause or cancel a government rule
 ## The Cases
 | Case | Court and number | Judge or panel | Subject | Last verified event | Next event |
 | --- | --- | --- | --- | --- | --- |
-| AAU et al. v. DHS | D. Mass. 1:26-cv-14520 | Kobick | CPT broadcast messages | Oct 28: government opposition (ECF 27). Nov 4: plaintiffs' reply (ECF 32). Nov 6: hearing held, no ruling found by Nov 7 | A ruling or order, no date announced |
-| Presidents' Alliance et al. v. DHS | D. Mass. 1:26-cv-13799 | Saylor | Duration of status rule | Oct 30: summary-judgment motion and supplemental brief. Nov 2: DHS reply | A ruling, no date |
-| Same case, on appeal | 1st Cir. 26-2112 | Not yet assigned in the entries read | Duration of status rule | Oct 19: expedited schedule set. Nov 3: government moved to hold the appeal 30 days | **Nov 9** government brief, unless the hold is granted |
+| AAU et al. v. DHS | D. Mass. 1:26-cv-14520 | Kobick | CPT broadcast messages | Oct 28: government opposition (ECF 27). Nov 4: plaintiffs' reply (ECF 32). Nov 6: hearing held. Nov 17: Judge Kobick granted a nationwide stay of the Aug 12 and Aug 24 broadcasts and a preliminary injunction for the plaintiffs' members, their employees and students (Dkt. 36, read in full). ISSS emailed that it resumes required and elective CPT requests Nov 23 | Appeal deadline about Jan 16, 2027; watch for an appeal, a stay request, or an SEVP response |
+| Presidents' Alliance et al. v. DHS | D. Mass. 1:26-cv-13799 | Saylor | Duration of status rule | Oct 30: summary-judgment motion and supplemental brief. Nov 2: DHS reply. **Nov 16: summary judgment for plaintiffs, rule vacated (Dkt. 73)** | Government appeal, if any, due about Jan 15, 2027. None found as of Nov 18 |
+| Same case, on appeal | 1st Cir. 26-2112 | Not yet assigned in the entries read | Duration of status rule | Nov 3: government moved to hold the appeal. Nov 13: granted for 30 days | Hold ends about Dec 13. Likely moot, since the final judgment replaced the September order |
 | State of California v. Mullin | D. Mass. 1:25-cv-13829 | Sorokin | $100,000 payment | June 8: judgment, guidance vacated | None, appealed |
 | Same case, on appeal | 1st Cir. 26-1699 | Barron, Gelpí, Rikelman on the stay | $100,000 payment | Sept 21: reconsideration denied | Briefing and decision |
 | Global Nurse Force v. Trump | N.D. Cal. 4:25-cv-08454 | Gilliam | $100,000 payment | Sept 30: preliminary injunction granted in part | Oct 27 conference; Jan 14, 2027 hearing on a stay of proceedings |
@@ -48,13 +49,19 @@ Two pairs of cases are easy to confuse. The CPT case and the duration of status 
 | Nov 4 | Done: plaintiffs' reply, CPT case (ECF 32) |
 | Nov 6, 3:00 PM | Done: hearing on the CPT injunction and stay, Courtroom 3. Outcome not found as of Nov 7 |
 | Nov 3 | Done: government's motion in the First Circuit to hold the duration of status appeal 30 days |
-| Nov 9 | Government's brief, First Circuit, duration of status, unless held; OPT fee comments close |
+| Nov 9 | Was the government's brief date in the First Circuit, duration of status. The Nov 13 hold suspended it. OPT fee comments close |
+| Nov 13 | Done: First Circuit held the duration of status appeal 30 days |
+| Nov 16 | Done: duration of status rule vacated, district court |
+| Nov 17 | Done: CPT stay and injunction, Judge Kobick (Dkt. 36) |
+| About Jan 16, 2027 | Deadline for the government to appeal the CPT preliminary injunction |
+| About Dec 13 | Duration of status appeal hold ends |
+| About Jan 15, 2027 | Deadline for the government to appeal the duration of status judgment, if judgment was entered Nov 16 |
 | Jan 14, 2027 | Hearing on the stay of proceedings, Global Nurse Force |
 | Sept 21, 2027 | Proclamation 11069 restriction expires unless renewed |
 ## What The Rulings Mean
-- *Postponement under section 705:* a court delays the effective date of an agency action while a challenge proceeds. This is what happened to the duration of status rule. The rule exists but cannot take effect.
+- *Postponement under section 705:* a court delays the effective date of an agency action while a challenge proceeds. This is what happened to the duration of status rule on Sept 14, before the final ruling replaced it with vacatur.
 - *Preliminary injunction:* an order barring the government from enforcing something against the plaintiffs, temporarily, based on the likelihood of winning and the harm without it. The docket calls the duration of status order one, and the Global Nurse Force order was granted in part.
-- *Summary judgment and vacatur:* a final merits decision. Vacatur sets the agency action aside completely, as in the $100,000 payment guidance on June 8.
+- *Summary judgment and vacatur:* a final merits decision. Vacatur sets the agency action aside completely, as with the $100,000 payment guidance on June 8 and the duration of status rule on Nov 16. An appeal does not undo it unless a court stays it.
 - *Administrative stay:* a short pause so a higher court can consider a longer one. The district judge in the California case used one before the First Circuit ruled.
 - *Stay pending appeal:* a request that a ruling not take effect while the loser appeals. The First Circuit denied it on July 24.
 - *Rule 28(j) letter:* a short notice to an appeals court of new authority. The D.C. Circuit parties have filed three of them.
@@ -63,7 +70,9 @@ Two pairs of cases are easy to confuse. The CPT case and the duration of status 
 CourtListener hosts RECAP copies of PACER dockets, free, and the links in the sources below open each one. The copies can lag the court, and new entries show when someone buys the document, so the live federal docket is authoritative. The Presidents' Alliance and NAFSA keep plaintiff-side summaries, and I treat them as pointers, not proof ([[Current News]]).
 ## Open Questions
 - [x] Update this note after the Oct 28 response and Nov 6 hearing in the CPT case: done 2026-11-07, hearing outcome still unknown
-- [ ] Re-check the CPT docket for an order 📅 2026-11-09
+- [x] Re-check the CPT docket for an order: granted Nov 17, order read 📅 2026-11-09
+- [ ] Update [[CPT Lawsuit]] and [[CPT Program]] from the Nov 17 order
+- [ ] Watch for an appeal or stay motion in the duration of status case 📅 2026-12-13
 - [ ] Confirm the First Circuit panel for 26-2112 when one is assigned
 - [ ] Find out what the 2025 case Presidents' Alliance v. Bondi, No. 1:25-cv-11109, challenged, since the CPT complaint cites it
 ## Sources

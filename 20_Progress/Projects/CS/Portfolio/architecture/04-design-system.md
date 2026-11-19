@@ -5,6 +5,18 @@ created: 2026-06-12
 tags: [portfolio, design-system, tailwind, css, components]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | ".cosmic-card Contract" CSS block (bg `0.78`, `blur(12px)`, `translateY(-2px)`, `transition`) | Actual `.cosmic-card` (`src/app/globals.css:227-240`): 135deg gradient `rgba(9,10,18,0.72)` → `rgba(14,16,28,0.82)`, `backdrop-filter: blur(16px)`, inset-highlight + 2-layer shadow; no `transform` or `transition` in that block. No `.cosmic-card:hover` rule exists anywhere in `globals.css` (only `.cosmic-card`, `--dark`, `--subtle` and `:root:not(.dark)` light overrides at `:227,242,257,474,487,500`); lift/tilt comes from `CometCard` |
+> | "`<CometCard variant=\"default\" \| \"dark\" \| \"subtle\" …>`"; "`variant`: `default` \| `dark` \| `subtle`" | `type CometCardVariant = "default" \| "dark" \| "subtle" \| "ghost"` (`src/components/ui/comet-card.tsx:13`); also props `rotateDepth` (default 17.5), `translateDepth`, `glareIntensity` |
+> | "`dark` variant: more opaque, max 8° tilt"; "`large` variant: max 8° tilt" | No `large` variant (`comet-card.tsx:13`). The built-in cap is 6° for `subtle`/`ghost` only (`:31-35`); 8° on dark cards is passed per call site, e.g. `<CometCard variant="dark" rotateDepth={8}>` in `src/components/sections/CertificationsSection.tsx:50` |
+> | "Respects `prefers-reduced-motion` — disables tilt" (CometCard Behavior) | No `reduced` / `prefers-reduced-motion` match in `comet-card.tsx` (rg); only a global `@media (prefers-reduced-motion: reduce)` block at `globals.css:714` |
+> | "Community 24 — Dropdown menus; Community 47 — Card, CardHeader…; Community 28 — Chart (Recharts-based)" | `ui/dropdown-menu.tsx`, `ui/card.tsx`, `ui/chart.tsx` do not exist (`src/components/ui/` = comet-card, layout-text-flip, sheet, sidebar, space-rail, split-heading); no `recharts` in `package.json` |
+> | Fonts: `ubuntu`, `lora` | Still true, but `--font-sans` / `--font-display` / `--font-mono` are aliases to `--font-ubuntu` / `--font-lora` / `--font-ubuntu` (`globals.css:11-13`) |
+
 # Design System
 
 > [[../INDEX|← Back to Index]]

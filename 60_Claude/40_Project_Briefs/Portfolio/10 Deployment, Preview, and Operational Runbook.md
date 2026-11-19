@@ -7,6 +7,13 @@ sync: managed
 tags: [portfolio, deployment, operations, graphify, obsidian]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "docs/knowledge/portfolio/*.md  canonical rich notes, tracked" and "portfolio-knowledge.json  stable ownership manifest, tracked" (§Curated Graphify → Jarvis sync) | `docs/` is untracked (`git ls-files docs` empty; `?? docs/`). The manifest is `docs/knowledge/portfolio/portfolio-knowledge.json` (`scripts/portfolio-knowledge-sync.mjs:14`); no repo-root file. `scripts/build-codebase-atlas.mjs`, `install-portfolio-knowledge-hooks.mjs`, `portfolio-knowledge-sync.mjs` are untracked (`??`) though `package.json:16-20` calls them. |
+> | FACT-FIX: Environment groups (§Environment groups) omit several names read in code | Also read: `TURNSTILE_SECRET_KEY` (`src/app/api/chat-token/route.ts:7`), `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (`src/components/ChatTokenInit.tsx:20`), `SANITY_REVALIDATE_SECRET` (`src/app/api/revalidate/route.ts:20`), `DEV_BYPASS_IP` (`src/app/api/chat/route.ts:181`), `NEXT_PUBLIC_SANITY_STUDIO_URL` (`src/sanity/lib/client.ts:10`), `SANITY_SERVER_API_TOKEN` (`scripts/patch-sanity-content.mjs:34`), `VERCEL_TOKEN` (`scripts/set-preview-env.mjs:15`). |
+> | FACT-FIX: "Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`" (§Live Graphify Snapshot) | `9cb1959` is a real commit but not an ancestor of `post-frontend` @ `5f29675`; `git branch -a --contains 9cb1959` lists only `chore/cursor-agent-tooling`. `graphify-out/graph.json` `built_at_commit` is `9cb1959` (1193 nodes, 2201 links). |
+
 # 10 Deployment, Preview, and Operational Runbook
 
 ## Purpose
@@ -109,10 +116,10 @@ graphify check-update .
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **12 files / 229 nodes / 571 touching edges**
-- Leading communities: `dependencies` (36), `portfolio-knowledge-sync.mjs` (35), `build-codebase-atlas.mjs` (34), `package.json` (27), `devDependencies` (21), `scripts` (16)
+- Leading communities: `dependencies` (36), `portfolio-knowledge-sync.mjs` (35), `build-codebase-atlas.mjs` (34), `package.json` (22), `devDependencies` (21), `scripts` (16)
 
 ### High-connectivity symbols
 

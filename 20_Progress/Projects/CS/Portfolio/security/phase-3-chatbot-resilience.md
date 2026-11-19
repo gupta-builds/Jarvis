@@ -5,6 +5,14 @@ created: 2026-06-15
 tags: [portfolio, security, chatbot, orby, rate-limiting]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX · "**Content limit is shorter than 2000 chars.**" (§Corrected ground truth) | Limit is 4000: `m.content.length > 4000` (`src/app/api/chat/route.ts:160`; file modified-uncommitted). Messages cap is 20 (`:127`). |
+> | FACT-FIX · "`persona` must be one of the valid personas — default to `'recruiter'` if invalid" (§Step 5) | Default is `"friend"` (`src/app/api/chat/route.ts:174-176`); `PERSONAS` is `["recruiter", "friend", "weirdo", "ceo"]` (`src/lib/personas/index.ts:6`). |
+> | DRIFT · "Upstash downtime degrades gracefully (logs warning, allows request) — not a 500" (§Acceptance criteria) | Only the rate limiter is guarded (`route.ts:190-221`, logs `chat.ratelimit.fail_open` via `console.log`). `redis.get(cacheKey)` (`route.ts:262`) and `redis.incr`/`expire` (`src/lib/model-router.ts:121-122`) are outside any try/catch; behaviour on Redis outage not tested. |
+> | DRIFT · `const ALLOWED_ORIGINS = ['http://localhost:3000', process.env.NEXT_PUBLIC_SITE_URL]` (§Step 7) | `isAllowedOrigin()` lives in `src/lib/request-guards.ts:41-73` (file untracked) and also allows localhost:3001, `NEXT_PUBLIC_BASE_URL`, and `https://${VERCEL_URL}` (`:45-58`). |
+
 # Phase 3 — Chatbot Resilience & Security
 
 > Goal: Orby must not break under load, abuse, or model failure. API keys must never leak.

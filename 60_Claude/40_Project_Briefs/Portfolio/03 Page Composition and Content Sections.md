@@ -7,6 +7,12 @@ sync: managed
 tags: [portfolio, sections, components, content-flow]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "a stable lower-case `id` that agrees with header links, chat `SECTION_IDS`, fixed prompts, and Orby triggers" (§Shared composition contracts) | `SECTION_IDS` (`src/lib/chat-tools.ts:163-173`) has 9 ids (hero, about, experience, projects, skills, education, certifications, blog, contact) and omits `achievements`, whose section has `id="achievements"` (`src/components/sections/AchievementsSection.tsx:24`). |
+> | FACT-FIX: "Every section uses the documented code-style kicker." (§Shared composition contracts) | `AchievementsSection.tsx` has no `section-kicker` (0 matches for `kicker` in the file). |
+
 # 03 Page Composition and Content Sections
 
 ## Purpose
@@ -82,10 +88,10 @@ graphify path "SKILLS_QUERY" "SkillsCapabilityGraph()"
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **21 files / 116 nodes / 380 touching edges**
-- Leading communities: `EducationFlowchart.tsx` (21), `SkillsCapabilityGraph.tsx` (17), `PortfolioContent.tsx` (15), `AboutTelemetry.tsx` (12), `SkillsSectionClient.tsx` (10), `BlogSection.tsx` (9)
+- Leading communities: `EducationFlowchart.tsx` (21), `PortfolioContent.tsx` (17), `SkillsCapabilityGraph.tsx` (17), `AboutTelemetry.tsx` (12), `HeroContent.tsx` (12), `SkillsSectionClient.tsx` (11)
 
 ### High-connectivity symbols
 

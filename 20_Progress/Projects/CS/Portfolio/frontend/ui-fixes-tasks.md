@@ -14,6 +14,13 @@ notes:
   - "[[_UI Fixes]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "Task 4.1 — Files: … new `src/lib/gsap/projects-pin.ts`" | The file exists (139 lines, untracked) and is wired: `ProjectsSlider.tsx:15` (import), `:223` (call), `data-projects-emerge` at `:390`, `:412`, `:450`. Built but uncommitted; runtime not verified. |
+> | "Task 4.2 — Files: `globals.css` (or scoped style)"; "the edge effect is genuinely new CSS" | No edge/border pulse CSS exists in `globals.css` (grep: no matches). The periphery effect was superseded by the background sequence in [[ui-fix-04-projects-section]] §3, implemented as the `projects-edge` mode in `ObsidianBackgroundCanvas.tsx` (`:619-649`). |
+> | "Task 3.4 — Wire background:mode about-pin … match existing orby:navigate pub/sub pattern" | The bus exists: `BACKGROUND_MODE_EVENT` and `dispatchBackgroundMode` in `src/lib/background-mode.ts` (untracked); the listener (`ObsidianBackgroundCanvas.tsx:619-649`) handles only `projects-edge`. `about-pin` has no consumer branch (any other mode resets projects state, `:624-629`). |
+
 # Frontend UI Fixes — Tasks & Build Prompts
 
 > **Updated:** 2026-09-05. Each task includes a **copy-paste implementation prompt** referencing [[ui-fixes-requirements]] and [[ui-fixes-design]].

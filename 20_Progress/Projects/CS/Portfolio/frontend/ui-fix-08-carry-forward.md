@@ -17,6 +17,14 @@ notes:
   - "[[ui-fixes-index]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "Prioritize: 7.2 break-words, 7.3 skills graph, 7.1 mobile repro." (Implementation prompt) | `break-words` is already on the user bubble: `src/components/lab/ChatThread.tsx:162` (`"ml-auto max-w-[80%] rounded-xl px-3 py-2 break-words"`). Task 7.2 is a regression check only, not open work (matches [[ui-fix-07-portfolio-lab]]). |
+> | "partial — toggle may be wired but light tokens incomplete" (Dark mode status) | The toggle is not wired: `src/components/HeaderScrolling.tsx:118` is a bare `useTheme();` with the result discarded, and no `setTheme` call exists anywhere in non-test `src/`. |
+> | "CSP enforcement … Status: verify shipped (report-only vs enforce)" | Enforced: `next.config.ts:50-52` (comment "ENFORCED: violations will block resources", header `{ key: "Content-Security-Policy", value: csp }`); no `Report-Only` header exists in that file. |
+> | "Experience — line clamp … Status: partial" | `src/components/cards/ExperienceCard.tsx` contains no `line-clamp`, `max-h-` or `overflow-y` (grep: no matches), so none of the clamp or scroll work listed here is present in that file. |
+
 # UI Fix 08 — Carry-Forward (July Items Still Valid)
 
 > **Status:** mixed partial/open

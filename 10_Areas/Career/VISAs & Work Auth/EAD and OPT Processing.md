@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -46,7 +46,7 @@ USCIS has accepted premium processing for pre-completion, post-completion, and S
 The final rule "Removal of Automatic Extensions for Certain Employment Authorization Documents," effective October 14, 2026, finalizes an interim rule published October 30, 2025 without change. Before the interim rule, a timely renewal application could extend an expiring work permit for up to 540 days. A renewal filed on or after October 30, 2025 no longer does, unless the Code of Federal Regulations, another law, or a notice for Temporary Protected Status says so. It does not affect permits extended before that date.
 I did not find OPT, STEM OPT, or F-1 named in the rule. The STEM 180-day extension lives in a different provision, 8 CFR 274a.12(b)(6)(iv), which USCIS's OPT page and the October 8 OPT fee notice still describe, so I read the STEM extension as unaffected. That is a reading, not a USCIS statement ([[STEM OPT Extension]]).
 ## The Fixed-Period Rule's Effect
-If the postponed duration of status rule takes effect, a student needing OPT beyond the I-20 end date must apply for an extension of stay on Form I-539 and apply for employment authorization at the same time. A student already in the country under duration of status on the effective date who files for post-completion OPT or STEM OPT on or before March 18, 2027 is exempt from the extension-of-stay application, a date fixed in the rule's text that DHS may extend. A student who travels and is readmitted under the fixed period before filing is not exempt ([[Duration of Status Rule]]).
+A court vacated the duration of status rule on November 16, 2026, so none of this applies today, and it matters only if the government wins on appeal. If the rule returns, a student needing OPT beyond the I-20 end date must apply for an extension of stay on Form I-539 and apply for employment authorization at the same time. A student already in the country under duration of status on the effective date who files for post-completion OPT or STEM OPT on or before March 18, 2027 is exempt from the extension-of-stay application, a date fixed in the rule's text that DHS may extend. A student who travels and is readmitted under the fixed period before filing is not exempt ([[Duration of Status Rule]]).
 ## Words Used In This Note
 - *EAD:* Employment Authorization Document, the work permit card.
 - *Request for evidence:* a USCIS letter asking for more documents; it stops the clock.

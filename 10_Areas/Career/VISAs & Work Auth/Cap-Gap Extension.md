@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -53,7 +53,7 @@ It also extends the dependents' stay. If the petition is approved, the extension
 ## Interactions
 - *STEM OPT:* a student with a cap-gap extension may apply for the STEM extension during it, but not once the cap-gap has ended through a denied petition and the 60-day period has begun ([[STEM OPT Extension]]).
 - *Unemployment limits:* initial OPT allows 90 days, with 60 more under STEM OPT for 150 in all.
-- *The fixed-period rule:* DHS's transition guidance says cap-gap students need no extension of stay and remain in F-1 until approval or April 1 ([[Duration of Status Rule]]).
+- *The fixed-period rule (vacated November 16, 2026, so this matters only if it returns):* DHS's transition guidance says cap-gap students need no extension of stay and remain in F-1 until approval or April 1 ([[Duration of Status Rule]]).
 - *The page is dated:* USCIS's cap-gap page was last updated January 17, 2025 and still uses duration of status wording, so re-check it if the fixed-period rule returns.
 ## What It Means For My Plan
 For a May 2028 graduate, the first registration is in March 2028, while I am still a student. If I am selected, the petition is filed from April 1, 2028 and the H-1B starts October 1, 2028, which replaces my F-1 and any unused OPT. Cap-gap matters more in later years: a student whose OPT ends between April 1 and October 1 and whose employer files on time keeps working through the gap ([[H-1B Odds Plan]]).

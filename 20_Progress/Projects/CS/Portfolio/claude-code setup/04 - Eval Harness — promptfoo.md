@@ -12,6 +12,14 @@ notes:
   - "[[07 - Evaluation & Observability]]"
   - "[[10 - Orby Golden Eval Dataset (Grounding Cases)]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Run with `promptfoo eval -c eval/promptfooconfig.yaml`" and layout `eval/…cases/…rubrics/` (§Install and layout) | Directory is `evals/`, flat: `evals/promptfooconfig.yaml`, `{fail-safe,grounding,injection,persona-warmth,refusal,tool-correctness}.yaml`, `evals/personas/*-warmth.yaml`, `evals/fixtures/`; no `cases/` or `rubrics/`. Script: `package.json:15` (`pnpm eval`, `--delay 12000 --fail-on-error`). |
+> | DRIFT: "provider: google:gemini-2.5-flash" and "openrouter:deepseek/deepseek-r1" (§The judge council) | Judge is Cerebras `openai:chat:zai-glm-4.7` with `apiKeyEnvar: CEREBRAS_API_KEY` (`evals/promptfooconfig.yaml:6-11`, `evals/persona-warmth.yaml`); single judge, per-assertion `threshold: 0.7` (`evals/persona-warmth.yaml:7,21`). No Google/OpenRouter reference in `.github`, `evals`, or `package.json`. |
+> | DRIFT: "tag: grounding / threshold: 0.8" (§Faithfulness threshold) | No aggregate grounding threshold in `evals/*.yaml`; the only `threshold` values are 0.7 in `persona-warmth.yaml`. |
+> | DRIFT: CI sketch `.github/workflows/eval.yml`, `GOOGLE_API_KEY`, `OPENROUTER_API_KEY`, `pnpm promptfoo eval -c eval/… --fail-on-error` (§CI gate) | Shipped `.github/workflows/eval-gate.yml:12,25`: secret `CEREBRAS_API_KEY`, `pnpm exec promptfoo eval --config evals/promptfooconfig.yaml --delay 12000 --fail-on-error`. That is the working tree; committed HEAD has `continue-on-error: true` (line 12) and no `--fail-on-error`. |
+
 # Eval Harness — promptfoo
 This note owns the concrete promptfoo setup that implements the eval design in [[07 - Evaluation & Observability]]. That note says *what* to test; this says *how to wire it*. promptfoo is the de facto 2026 standard (MIT, OpenAI-acquired), so we do not hand-roll a judge.
 ## Install and layout

@@ -10,6 +10,16 @@ tags:
 notes:
   - "[[00 - Nextgen Chatbot — Build Plan]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows only record where shipped code diverged or a stated status is not true of the code today.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Gemini 2.5 Flash primary, Groq Llama fallback" (§Model providers; stack diagram) | Gemini never landed. Shipped chain: Cerebras `zai-glm-4.7` → Groq `llama-3.3-70b-versatile` → Mistral `mistral-small-latest` → degraded / cooldown (`src/lib/model-router.ts:48-70,103-110`) |
+> | DRIFT: "a max-step cap (e.g. 4 tool calls)" and "a per-request token budget" (§Agent runtime) | `stopWhen: stepCountIs(5)` and `maxOutputTokens: 800` for chat (`src/app/api/chat/route.ts:325-326`); idle comment route uses 1 step and 40 tokens (`src/app/api/orby-comment/route.ts:98-99`) |
+> | DRIFT: "one retry with backoff on transient failure" (§Agent runtime) | `maxRetries: 0`; provider-to-provider failover with a Redis cooldown instead (`model-router.ts:186,152,250`) |
+> | DRIFT (not implemented): "a timeout on every model and tool call" (§Agent runtime) | No `maxDuration`, `AbortSignal.timeout` or `setTimeout` in `src/app/api` or `src/lib` (grep); only `abortSignal: req.signal` is passed (`route.ts:329`) |
+> | DRIFT: "the section IDs come straight from Sanity nav links" (§Tool layer) | `SECTION_IDS` is a hard-coded 9-value tuple (`src/lib/chat-tools.ts:163-173`); `showProject` slugs and `showExperience` ids are the parts built from Sanity per request (`:196-205`) |
+
 # Layered Architecture
 This note owns the architecture thesis: the model SDK is the *bottom* layer, and everything that makes the assistant good sits above it. It maps the professional agent stack onto our portfolio and says, per layer, what the minimal-but-real version is. Other notes implement individual layers; this one is the map.
 ## The thesis: build above the SDK

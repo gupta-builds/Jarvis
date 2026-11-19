@@ -7,6 +7,12 @@ sync: managed
 tags: [portfolio, architecture, graphify, ai-context]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`" (§Live Graphify Snapshot) | `9cb1959` is a real commit (`git cat-file -t` = commit) but NOT an ancestor of checked-out `post-frontend` @ `5f29675`; `git branch -a --contains 9cb1959` lists only `chore/cursor-agent-tooling` (local + origin). `graphify-out/graph.json` has `built_at_commit` `9cb1959`, 1193 nodes, 2201 links, so the graph describes that branch, not this checkout. |
+> | FACT-FIX: frontmatter `canonical: docs/knowledge/portfolio/00 Portfolio — Codebase Map.md` | The file exists on disk but `docs/` is untracked: `git ls-files docs` is empty and `git status` shows `?? docs/`. |
+
 # 00 Portfolio — Codebase Map
 
 This is the entry point for humans and agents. The application is a Next.js 16 App Router portfolio with Sanity-backed content, a grounded AI lab, and an R3F space interface. Use this map to choose a subsystem note before opening implementation files.
@@ -95,10 +101,10 @@ graphify path "PortfolioContent()" "POST()"
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **6 files / 159 nodes / 519 touching edges**
-- Leading communities: `dependencies` (36), `package.json` (27), `devDependencies` (21), `scripts` (16), `Anant Gupta Portfolio` (9), `sanityFetch` (8)
+- Leading communities: `dependencies` (36), `package.json` (22), `devDependencies` (21), `scripts` (16), `Anant Gupta Portfolio` (9), `app/layout.tsx` (8)
 
 ### High-connectivity symbols
 

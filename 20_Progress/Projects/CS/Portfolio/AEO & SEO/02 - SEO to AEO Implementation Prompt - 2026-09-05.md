@@ -14,6 +14,15 @@ notes:
   - "[[security/06 - Security Hardening Implementation Prompt - 2026-09-05]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | STATUS · "Tasks shipped (1–6)" / "✅ Shipped" (§Phase 1 Completion) | Built in working tree, uncommitted, not deployed. Untracked: `src/app/sitemap.ts`, `src/app/robots.ts`, `src/app/privacy/`. Modified-uncommitted: `src/app/layout.tsx`, `src/app/(portfolio)/layout.tsx`, `src/app/(portfolio)/page.tsx`. Live fetch 2026-11-19: `/sitemap.xml` and `/privacy` → 404; homepage HTML has no `application/ld+json` and no `rel="canonical"`. |
+> | STATUS · "Phase 2 (Tasks 7–10) not started" (§Phase 1 Completion) | Confirmed not built: `src/app/robots.ts:5-10` has only the `*` rule; no `SoftwareApplication` in `src/`; no `public/llms.txt`. Live fetch 2026-11-19: `/llms.txt` → 404. |
+> | FACT-FIX · "verify the actual current persona list and tool list against src/lib/personas.ts and src/lib/chat-tools.ts" (§Task 8) | `src/lib/personas.ts` does not exist; personas are in `src/lib/personas/index.ts:6` (`recruiter`, `friend`, `weirdo`, `ceo`). Tools: `src/lib/chat-tools.ts:208,263,294,329,410,443`. |
+> | DRIFT · "session message counts / cooldown TTLs only; no chat transcript DB" (§Task 3 fallback path) | No transcript DB holds, but answers are also cached in Redis: key `chat:v2:<persona>:<normalized question>` stores response text with `{ ex: 86400 }` (`src/app/api/chat/route.ts:258-259,622`; file modified-uncommitted). |
+> | DRIFT · "Deviations from spec" lists only `jobTitle`, `sameAs`, OG sizing | Also added: `Person.image` from `profileImage` (`src/app/(portfolio)/page.tsx:51-53`) and `dateModified: new Date().toISOString()` (`page.tsx:76`). |
+
 # SEO to AEO Implementation Prompt — 2026-09-05
 
 > **One narrow, execution-ready task, strictly sequenced.** Notes 00 and 01 are the wide reference (market research, full structured-data drafts, award-directory research, entity-building analysis) — this note does not repeat them. Note 01 is phased 5A–5E across five concerns in parallel; this note collapses that into a strict two-phase build a coding agent can actually execute in one sitting: ship the SEO basics first, only then layer AEO on top. Read note 01 for the "why" and the full research citations; read this note to actually build it.

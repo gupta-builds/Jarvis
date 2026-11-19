@@ -83,10 +83,10 @@ graphify affected "buildChatTools()" --depth 3
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **25 files / 131 nodes / 309 touching edges**
-- Leading communities: `chat/route.ts` (21), `PortfolioLab.tsx` (20), `personas/index.ts` (17), `lucide-react` (15), `chat-tools.ts` (14), `chat-context.ts` (12)
+- Leading communities: `chat-tools.ts` (25), `chat/route.ts` (21), `PortfolioLab.tsx` (20), `personas/index.ts` (17), `ToolResultRenderer.tsx` (15), `orby-comment/route.ts` (10)
 
 ### High-connectivity symbols
 

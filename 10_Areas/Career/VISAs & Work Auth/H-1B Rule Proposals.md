@@ -1,8 +1,8 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
+updated: 2026-11-18
 reviewed: 2026-10-23
 tags:
   - career

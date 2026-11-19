@@ -39,6 +39,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | course-homework | 1 | class / homework | same | [[Homework Template]] | [[Homework Standard]] | [[Homework Workflow]] | built |
 | course-exam | 1 | class / exam | `20_Progress/Degree/`, `40_Resources/UMN/Previous Classes/`, `10_Areas/Notes/` | [[Exam Sheet Template]] | [[Exam Standard]] | [[Exam Workflow]] | built |
 | course-exam-material | 1 | class / exam-material | same | [[Exam Material Template]] | [[Exam Material Standard]] | none (steps in [[Exam Workflow]]) | built |
+| course-quiz | 1 | class / quiz | same | [[Quiz Template]] | [[Quiz Standard]] | [[Quiz Workflow]] | built |
 | course-board | 1 | class / board | same | [[Board or Main Template]] | [[Board Standard]] | [[Board Workflow]] | built |
 | course-subboard | 1 | class / subboard | same | [[Weekly Board Template]] | [[Weekly Board Standard]] | [[Weekly Board Workflow]] | built |
 | course-discussion | 1 | class / discussion | same | [[Discussion Template]] | [[Discussion Standard]] | [[Discussion Workflow]] | built |

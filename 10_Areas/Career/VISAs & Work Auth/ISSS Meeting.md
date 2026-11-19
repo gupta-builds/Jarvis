@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -22,7 +22,8 @@ notes:
   - "[[ISSS October Meeting Brief]]"
   - "[[October Meeting Transcript]]"
   - "[[ISSS November Meeting Prep]]"
-next: "The meeting happened on 2026-10-23. Use the Brief for what was said and the table below for which prepared questions are still open. The follow-up is prepared in ISSS November Meeting Prep"
+  - "[[Questions for Next Meeting]]"
+next: "The meeting happened on 2026-10-23. Use the Brief for what was said and the table below for which prepared questions are still open. The follow-ups are in ISSS November Meeting Prep and Questions for Next Meeting"
 ---
 # ISSS Meeting
 This is the prep sheet for my meeting with a career professional who works with international students at UMN. It holds the whole research brief on one page and the questions ranked by what each answer would change. Read the first two sections now, keep the question list open during the call, and use the last section afterward to route the transcript into the 22 notes in [[VISA Plan]].

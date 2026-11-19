@@ -5,6 +5,22 @@ created: 2026-06-12
 tags: [portfolio, components, sections]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "All sections are server components that receive data from `PortfolioContent()` via `sanityFetch()`" | `PortfolioContent` only fetches `NAVIGATION_QUERY` + `PROJECTS_QUERY` (`PortfolioContent.tsx:25-26`). Each section fetches its own data (e.g. `HeroSection.tsx:7`, `SkillsSection.tsx:7`, `ExperienceSection.tsx:8`, `ContactSection.tsx:22`). Client halves exist: `AboutSectionClient`, `ExperienceSectionClient`, `SkillsSectionClient`, `SkillsCapabilityGraph`, `HeroContent`, `ProfileImage` all start with `"use client"` |
+> | Hero: "Query: `PROFILE_QUERY`, `SITE_SETTINGS_QUERY`" | `HeroSection` fetches only `PROFILE_QUERY` (`HeroSection.tsx:7`). `AboutSection` fetches `ABOUT_QUERY` + `SKILLS_QUERY` + `PROJECTS_QUERY` (`AboutSection.tsx:27-29`) |
+> | About: `CANONICAL_READOUTS`, `CanonicalReadout`, `findStat()` | None of the three exist in `src` (rg). `AboutTelemetry.tsx` has `STAT_ICONS` (`:13`), `SPARKLINE_BARS` (`:16`) and `TelemetryCard` |
+> | Experience: "`getCategoryColor()` — color by employment category"; "`CATEGORY_COLORS`, `EMPLOYMENT_LABELS`" (ExperienceSection / ExperienceCard) | `getCategoryColor` and a `CATEGORY_COLORS` map live in `src/lib/category-colors.ts:20,1`; no component imports `getCategoryColor` (rg). `ExperienceCard.tsx` only owns `EMPLOYMENT_LABELS` (`:15`); `SkillsSectionClient.tsx:24` and `SkillsCapabilityGraph.tsx:13` keep their own local `CATEGORY_COLORS` |
+> | Projects: "`ProjectsSlider()` — 3D carousel inside R3F canvas"; "Uses `Float` from drei"; "elastic spring (`@react-spring/web`)" | `ProjectsSlider.tsx` is DOM + GSAP: `gsap`, `Draggable`, `InertiaPlugin` (`:3-6,19`), `useProjectsPin` (`:15`), `useSpaceFloat` (`:12,210-223`). No `@react-three` / `Canvas` / drei `Float` there, and `@react-spring/web` is not in `package.json` |
+> | Education: "`EducationEntry.tsx`"; "Uses `MeshDistortMaterial` + `Float` from drei"; "`BLOB_COLORS`, `BLOB_ICONS`, `BLOB_SIZES`, `BLOB_VARIANTS`, `BlobVariant`" | No `EducationEntry` file or symbol. `EducationFlowchart.tsx` is R3F (`Canvas` `:4,522`) and imports `Html, Line, MeshDistortMaterial` from drei (`:3`) — not drei `Float` (its float is a local animation section, `:58`); no `BLOB_*` / `BlobVariant` symbols exist (rg). `FlowchartItem` exists (`:83`) |
+> | Certifications: "`getGlareOverlay()`, `getInnerCard()`"; "`glare`, `inner` — CSS ref targets" | Not in `CertificationsSection.tsx`; `getGlareOverlay` / `getInnerCard` exist only as test helpers (`src/components/ui/__tests__/comet-card.test.tsx:101`) |
+> | Contact: "`ContactForm.tsx`"; "`ContactForm()` — form calling `submitContactForm()` Server Action" | No `ContactForm` component or `submitContactForm` in `src`; `src/app/actions/` is empty |
+> | Contact: "`formatCategory()`, `normalizeCategoryKey()` — helpers" (`ContactPanel`) | Defined in `src/lib/utils.ts` and used by `SkillsSectionClient.tsx` / `SkillsCapabilityGraph.tsx` — not in `ContactPanel.tsx` (rg) |
+> | Navigation: "`SECTION_IDS` — section scroll targets" (`HeaderScrolling.tsx`) | Not in `HeaderScrolling.tsx` (rg). `SECTION_IDS` consts exist in `src/hooks/useActiveSection.ts:4` and `src/lib/chat-tools.ts:163`. `HeaderScrolling.tsx` has `CORE_NAV` (`:27`), `NavItem` (`:16`), `isExternalHref` (`:39`), `buildNavItems` (`:45`) |
+
 # Page Sections
 
 > [[../INDEX|← Back to Index]] · [[00-overview|Component Map]]

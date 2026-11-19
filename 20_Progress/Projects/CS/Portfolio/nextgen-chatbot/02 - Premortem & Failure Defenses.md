@@ -10,6 +10,15 @@ tags:
 notes:
   - "[[00 - Nextgen Chatbot — Build Plan]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows record implementation status where a defense shipped differently or has no code yet.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: #2 "a router with a fallback (Groq)" / "Gemini's free daily cap" | Gemini never landed. Router is Cerebras → Groq → Mistral → degraded, plus a `cooldown` mode when all legs are cooling down (`src/lib/model-router.ts:48-70,254-273`) |
+> | DRIFT: #6 "an input/output guard" | Input side: HTML strip, 4000-char cap, `system`-role rejection (`src/app/api/chat/route.ts:150,160,170-171`); output side: only a tool-call-leak sanitizer (`route.ts:540`, `src/lib/chat-sanitizer.ts`). No content-safety output guard found (grep of `route.ts`, `chat-sanitizer.ts`, `chat-context.ts` for guard/moderation/hate). Prompt-level rule exists: `chat-context.ts:161` |
+> | DRIFT: #7 "grounding reads live Sanity (or rebuilds on Sanity publish webhook), never a one-time snapshot" | Each uncached turn calls `fetchCatalog()` (`route.ts:236`), but answers are cached per persona + question for 24 h (`chat:v2:*`, `route.ts:257-262,622`) and `/api/revalidate` only calls `revalidatePath("/")`, never clears that cache (`src/app/api/revalidate/route.ts:31`) |
+> | DRIFT: #8 "15–20 scripted question/expected-behavior checks" | `evals/` holds 48 tests across the six top-level files (grounding 32, fail-safe 4, tool-correctness 4, injection 3, refusal 3, persona-warmth 2) plus 17 in `evals/personas/*-warmth.yaml` (counted as `^- description:` entries) |
+
 # Premortem & Failure Defenses
 Written by imagining it is six months out and the assistant failed, then working backwards. Each failure has a concrete story, the defense, and the note that owns the fix. This is the most important note in the set — we already paid for skipping this thinking once (the RAG approach). Read it before building anything.
 ## Why a premortem

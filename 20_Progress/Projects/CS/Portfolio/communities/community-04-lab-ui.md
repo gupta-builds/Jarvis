@@ -5,6 +5,18 @@ created: 2026-06-12
 tags: [portfolio, graph, community, lab, UI, chat]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Graph-derived snapshot (stale); see INDEX correction + repo `graphify-out/GRAPH_REPORT.md`.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | "`PanelOrbyState` — type: `'idle' \| 'thinking' \| 'speaking'`" | `"idle" \| "thinking" \| "responding"` (`src/components/lab/PanelOrby.tsx:8`) |
+> | "`MODES` — chat vs proof mode union type"; "`MODE_DESCRIPTIONS`"; "`LabMode` — `'chat' \| 'proof'`" | No `MODE_DESCRIPTIONS` in `src`; `MODES` is only a test-local const (`src/components/__tests__/portfolio-lab.test.ts:6`). `LabMode = "Recruiter" \| "Builder" \| "Research" \| "Skeptic"` (`src/lib/lab-data.ts:3`) |
+> | "`PERSONA_CONFIG` — `Record<Persona, { label, icon, description }>`" | Array of `{ id, label, icon }`, no `description` (`src/components/lab/PersonaSelector.tsx:12-14`) |
+> | "`CHIPS` — array of `LabChip` from lab-data"; "`POWER_PROMPTS` — string array of deep questions" | `CHIPS: Record<Persona, string[]>` is local (`SuggestedChips.tsx:11`); `POWER_PROMPTS` is a persona-keyed record (`PowerPromptBlock.tsx:12`) |
+> | "`ToolResult` — type: `{ toolName: string; result: unknown }`"; "`ChatMessage` — type: `{ id, role, content, toolResults? }`" | `ToolResult.result: Record<string, unknown>`; `ChatMessage` has `text` and `timestamp`, not `content` (`src/components/lab/ChatThread.tsx:10-21`) |
+> | "`LAB_CHIPS` — suggested chip definitions"; "`generateProofPack()` — builds proof pack items" | `LAB_CHIPS: Record<LabMode, LabChip[]>` (`src/lib/lab-data.ts:26`); `generateProofPack(mode: LabMode): string` (`:347`) |
+
 # Community 4 — Lab / Chat UI
 
 > [[../INDEX|← Back to Index]] · [[../communities/community-overview|All Communities]]

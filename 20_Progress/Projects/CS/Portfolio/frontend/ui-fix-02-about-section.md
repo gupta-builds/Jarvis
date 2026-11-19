@@ -17,6 +17,13 @@ notes:
   - "[[ui-fix-03-about-telemetry]]"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | "No sync with About scroll — confirmed, `background:mode` CustomEvent system doesn't exist yet" (Current code table; also Implementation prompt step 4) | The event bus now exists: `src/lib/background-mode.ts` (untracked) exports `BACKGROUND_MODE_EVENT` and `dispatchBackgroundMode()`, and `ObsidianBackgroundCanvas.tsx:619-649` listens. It consumes only `projects-edge`; `about-pin` is in the `BackgroundMode` union but has no consumer branch (`:624-629`). Still true: no About-scroll sync and no `about-pin.ts` (`src/lib/gsap/` contains only `projects-pin.ts`). |
+>
+> Status unchanged and re-confirmed: About is still open — `#about` at `AboutSection.tsx:37`, `expanded` state at `AboutSectionClient.tsx:94`, the only `onClick` at `:139`, and no `gsap`/`ScrollTrigger` in `AboutSectionClient.tsx`.
+
 # UI Fix 02 — About Section (Pinned Scroll + Summary)
 
 > **Status:** open (no ScrollTrigger pin; bio expand button-only — both confirmed live 2026-09-05)

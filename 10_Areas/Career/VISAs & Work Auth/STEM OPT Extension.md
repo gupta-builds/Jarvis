@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -59,7 +59,7 @@ The OPT fee notice gives DHS's numbers. DHS projected in 2016 that STEM OPT woul
 DHS also says employer attestations on the I-983 are not verified unless there is a site visit, and it describes site visits finding clusters of employers with identical websites and shared personnel. It quotes the presidential proclamation's unemployment rates for recent graduates, 6.1 percent for computer science majors and 7.5 percent for computer engineering, and argues OPT labor adds to that pressure. These are the government's claims, and the notice is a proposal.
 ## What Is Proposed
 - A fee of $30,000 on the school for each OPT recommendation after the first, which includes a STEM extension.
-- A fixed-period admission rule, now postponed, that would require an extension-of-stay application to take the extension ([[Duration of Status Rule]]).
+- A fixed-period admission rule, vacated by a court on November 16 and appealable, that would require an extension-of-stay application to take the extension ([[Duration of Status Rule]]).
 ## What It Means For Me
 - Computer science is on the list, so the extension should be available if the I-20 shows 11.0701 or another listed code.
 - The first post-graduation employer should be in E-Verify and willing to sign an I-983, or I must plan to change employers with a new I-983 within 10 days of starting.

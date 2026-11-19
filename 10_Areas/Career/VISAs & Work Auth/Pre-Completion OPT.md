@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-19
+reviewed: 2026-11-19
 tags:
   - career
   - visa
@@ -24,7 +24,10 @@ notes:
   - "[[Junior Year Internship Decision]]"
 ---
 # Pre-Completion OPT
-Pre-completion OPT is the work permit I can use for an internship before I graduate, and now that CPT is paused it is the main legal route to a summer 2027 internship. This note explains how it works in plain terms, what UMN's advisor and web page say about it, and what it costs in OPT months, money, and waiting time. The step-by-step dates are in [[OPT Playbook]]. Read this one first to decide whether to use it.
+> [!NOTE]
+> **Status on 2026-11-18.** A court stayed the August CPT guidance on November 17, and ISSS resumes CPT requests on November 23. CPT is now the first route, and pre-completion OPT is the fallback if an appeal reverses the order or CPT does not fit an offer ([[CPT Lawsuit]]).
+
+Pre-completion OPT is the work permit I can use for an internship before I graduate, and whenever CPT is unavailable it is the main legal route to a summer 2027 internship. This note explains how it works in plain terms, what UMN's advisor and web page say about it, and what it costs in OPT months, money, and waiting time. The step-by-step dates are in [[OPT Playbook]]. Read this one first to decide whether to use it.
 ## In Plain Words
 **OPT** is a work permit from USCIS for an F-1 student. The "pre-completion" kind is used **before** I finish my degree, for example in a summer. I get 12 months of OPT for my bachelor's degree in total. Any pre-completion time I use is taken out of those 12 months, so it leaves less for after graduation.
 ==The advisor called pre-completion OPT "certainly an option," ISSS confirms I need no job offer to apply, and the real price is the OPT months it uses up, the money, and a wait that is longer than the 90-day window to apply.== UMN seldom used it before this fall, because CPT was easy. That is why there is no workshop, only a web page.

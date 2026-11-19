@@ -7,6 +7,12 @@ sync: managed
 tags: [portfolio, tests, evals, ci, quality]
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> | This note says | Repo reality |
+> |---|---|
+> | FACT-FIX: "Workflows under `.github/workflows` run build/eval/security automation." (§CI ownership) | Only two workflows exist: `eval-gate.yml` (promptfoo, tracked, modified) and `semgrep.yml` (untracked). No workflow runs lint, typecheck, tests, or build. `.github/dependabot.yml` is also untracked (`git ls-files .github` lists only `eval-gate.yml`). |
+> | FACT-FIX: eval CI behavior (§Promptfoo evals / CI ownership) | Working tree `eval-gate.yml:25` runs `pnpm exec promptfoo eval --config evals/promptfooconfig.yaml --delay 12000 --fail-on-error` with `CEREBRAS_API_KEY` (`:12`); committed HEAD has `continue-on-error: true` (advisory) and no `--fail-on-error`. |
+
 # 09 Testing, Prompt Evals, and Quality Gates
 
 ## Purpose
@@ -76,10 +82,10 @@ graphify affected "POST()" --depth 2
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **71 files / 202 nodes / 362 touching edges**
-- Leading communities: `vitest` (31), `biome.json` (26), `compilerOptions` (20), `orby-chat-nav.test.ts` (13), `HeaderLogoCanvas.useFrame.property.test.tsx` (12), `chat/__tests__/route.test.ts` (11)
+- Leading communities: `vitest` (32), `biome.json` (26), `compilerOptions` (20), `orby-chat-nav.test.ts` (13), `HeaderLogoCanvas.useFrame.property.test.tsx` (12), `chat/__tests__/route.test.ts` (11)
 
 ### High-connectivity symbols
 

@@ -16,15 +16,15 @@ next:
 **Course role:**
 ## Chapter Summary
 <!-- The chapter's one-sentence claim with exactly one ==highlight==, then a *Mechanism:* line. -->
+## Reading Guide
+<!-- One - [ ] task per instruction: read these pages, study this figure, run this code, try this question, each with why. -->
 ## Key Concepts
 <!-- Each concept defined in context, with its role and the condition that prevents misuse. -->
 ## Full Reading Notes
-<!-- The chapter section by section in the source's own order, with page anchors. -->
+<!-- The chapter section by section in the source's order, with page anchors. Under each hard topic add > [!EXPLAIN] Explanation of the above topic: ... -->
 ## Worked Example
 <!-- Source-grounded examples, numbers, or code traces, and why each matters. -->
 ## Connections
 <!-- Links to the real lecture week, Textbook Map entry, and concept notes. -->
 ## Open Questions
 <!-- Unverified or missing material as - [ ] tasks. -->
-## Flashcards
-<!-- Three to eight cards on #cards/<course-slug> testing mechanism, condition, and contrast. -->

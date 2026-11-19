@@ -46,6 +46,7 @@ Four stated objectives: develop the capacity to generate, filter, and recognize 
 ## Grading Breakdown
 > [!WARNING] "Course assignments are not weighted" is a Canvas display artifact, not the real policy
 > The syllabus page itself states "Course assignments are not weighted" - this is Canvas's own generic disclaimer that the instructor didn't use Canvas's native weighted-assignment-groups feature, not a claim that grades are unweighted in practice. The actual percentage breakdown below comes from the separate "Course Overview and How This Course Works" page, which explicitly sums to 100% - treat that table, not the syllabus page's boilerplate line, as the real grading structure.
+
 | Component                            | Type                         | Weight   | Due             |
 | ------------------------------------ | ---------------------------- | -------- | --------------- |
 | Profile of a Successful Entrepreneur | Individual, 2 pages          | 5%       | 9/21            |
@@ -65,6 +66,7 @@ Cover assigned readings and cases, course slides, and class discussions - format
 Full 28-session schedule, pasted directly from the Canvas Modules page 2026-09-09. Chapter references are to the 5th ed. textbook; per-chapter detail lives in [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]], not repeated here. The Week column gives the calendar week (Week - 1 starts Mon 9/7) and links the week notes that exist, listed in [[20_Progress/Degree/MGMT 3015/Weekly/Weekly Board|Weekly Board]].
 > [!WARNING] Two dates break the course's own Mon/Wed pattern - verified against the real 2026 calendar, not assumed
 > Every other session date in the source matches its stated weekday exactly. Two don't: **Session 6 is dated 9/25, which is a Friday**, not Monday or Wednesday; **Session 16 is dated 10/31, which is a Saturday.** Neither is a plausible class day for this course. Session 16 almost certainly should be **Mon 11/2** - it sits exactly where the Mon/Wed pattern predicts between confirmed Wed 10/28 and confirmed Wed 11/4. Session 6 has no equally clean fix (the pattern predicts Mon 9/28, two days after confirmed Wed 9/23 and five before confirmed Wed 9/30) - it may be a genuine off-cycle informal session tied to the 9/25 assignment deadline, not a typo. Confirm both directly on Canvas before trusting them for planning.
+
 | # | Date | Module | Topic | Reading | Due | Week |
 |---|---|---|---|---|---|---|
 | 1 | Wed 9/9 | Start Here | Course Overview and Introduction | — | — | [[20_Progress/Degree/MGMT 3015/Weekly/Week - 1\|Week - 1]] |

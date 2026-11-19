@@ -11,6 +11,15 @@ notes:
   - "[[00 - Nextgen Chatbot — Build Plan]]"
   - "[[06 - Tool System & Generative UI]]"
 ---
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Design intent below is unchanged. Rows record implementation status only.
+> | This note says | Repo reality |
+> |---|---|
+> | DRIFT: "Model emits one `navigate(sectionId)` tool call. `sectionId` is constrained to the closed enum of Sanity nav links" (§The deterministic pipeline) | Shipped `navigate` input is `{ sectionId, orbyMessage, itemSlug, itemIndex }`, `strict: true`; `sectionId` is a hard-coded 9-value enum (`src/lib/chat-tools.ts:163-173,208-234`). `orbyMessage` is a plain `z.string()` with "Under 120 chars" only in its description, not enforced (`:215-219`) |
+> | STATUS: "One navigation per turn" (§Sequencing and edge cases) | Enforced client-side: `navFiredRef` fires the nav event once per turn (`src/components/lab/PortfolioLab.tsx:35,78,197-199`) |
+> | DRIFT: fail-safe "A broken tool call degrades to a plain text reply" (§Fail-safe behavior) | The route also recovers from malformed calls: `sanitizeChatText` extracts a leaked section id / `orbyMessage` from text and emits a synthetic `sanitizer-nav` tool result or an `m:` event (`src/app/api/chat/route.ts:540,566-600`) |
+> | STATUS (matches design): degraded mode uses "canned persona-appropriate lines for navigation" (§Orby's message) | Shipped: `getDegradedNavigation` / `getDegradedOrbyMessage` stream a `deg-nav` navigate result (`src/lib/degraded-responses.ts:32,193`; `route.ts:374-391`) |
+
 # Orby Integration
 This note owns how Orby connects to the chatbot. It is the fix for premortem failure 4 (intent/page desync). The whole feature is one deterministic pipeline; the danger is wiring it loosely through three triggers instead of one.
 ## Two channels that must stay separate

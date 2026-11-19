@@ -70,10 +70,10 @@ graphify affected "useOrbyIdleCommentary()" --depth 3
 
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
-- Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1147 nodes / 2163 edges**
+- Graph commit: `9cb1959bdeaafdd8567f9c8d34ae6451ecdc4d23`
+- Whole graph: **1193 nodes / 2201 edges**
 - This subsystem: **12 files / 62 nodes / 150 touching edges**
-- Leading communities: `useOrbyState.ts` (16), `Orby.tsx` (13), `orby-comment/route.ts` (11), `OrbySpeechCloud.tsx` (8), `OrbyCanvas.tsx` (7), `utils.ts` (7)
+- Leading communities: `Orby.tsx` (13), `useOrbyState.ts` (11), `OrbySpeechCloud.tsx` (8), `orby-comment/route.ts` (7), `OrbyCanvas.tsx` (7), `utils.ts` (7)
 
 ### High-connectivity symbols
 

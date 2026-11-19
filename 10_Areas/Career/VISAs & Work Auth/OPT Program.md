@@ -1,9 +1,9 @@
 ---
 type: reference
-status: seed
+status: sprout
 created: 2026-10-23
-updated: 2026-10-23
-reviewed: 2026-10-23
+updated: 2026-11-18
+reviewed: 2026-11-18
 tags:
   - career
   - visa
@@ -55,7 +55,7 @@ ISSS's page has five steps. The detail with dates is in [[OPT Playbook]].
 ## What 2026 Changed Or Proposes
 - A proposed fee of $70,000 for first OPT and $30,000 for each later OPT, charged to the school ([[OPT Fee Proposal]]).
 - A final rule that ends automatic extensions for renewal work permits. It does not name OPT ([[EAD and OPT Processing]]).
-- A fixed-end-date rule that would shrink the post-completion windows to 30 days and add an extension-of-stay application. A court postponed it ([[Duration of Status Rule]]).
+- A fixed-end-date rule that would shrink the post-completion windows to 30 days and add an extension-of-stay application. A court postponed it on September 14 and vacated it on November 16, so today the 60-day windows apply, and the government can appeal until about January 15, 2027 ([[Duration of Status Rule]]).
 - Slow processing: about 5 months is now normal, according to ISSS, and USCIS data cited in the CPT complaint agree.
 - A USCIS pause on applications from some countries, in a January 2026 memo that USCIS now marks as no longer in effect because of court orders, though ISSS still warns about it.
 ## The Costs

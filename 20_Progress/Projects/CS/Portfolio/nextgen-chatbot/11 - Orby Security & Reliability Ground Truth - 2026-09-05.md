@@ -21,6 +21,19 @@ notes:
 next: "Restore blocking promptfoo CI gate; verify dashboard-only security items; fix Orby tool-call quality gate in router"
 ---
 
+> [!warning] Correction pass 2026-11-19 — verified against repo `post-frontend` @ `5f29675` + uncommitted working tree
+> Annotations only; original text below is unchanged. Rows marked NOW-FIXED were open on 2026-09-05 and are present in the repo today. Where noted, files are untracked/modified (uncommitted) — present in the working tree is not the same as shipped.
+>
+> | This note says | Repo reality |
+> |---|---|
+> | NOW-FIXED (working tree, uncommitted) — "CI is advisory (`continue-on-error: true`)"; "`.github/workflows/eval-gate.yml:12`" (§Exec Summary #2, Premortem #8, Eval table) | `eval-gate.yml` is modified/uncommitted; it has no `continue-on-error` key. `--fail-on-error` at `:25`; skip-if-no-key warning at `:27-28` (note said lines 28-30). Line 12 is now `CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}`. |
+> | NOW-FIXED (working tree, uncommitted) — "Semgrep … not wired — no workflow, no config" (§Eval table, P1 #8) | `.github/workflows/semgrep.yml` exists (untracked): `semgrep scan` with `p/owasp-top-ten`, `p/nextjs`, `p/typescript`, `p/react`, `p/secrets` and `--error` (`:23-29`). |
+> | NOW-FIXED (present in repo; commit status not verified) — "`/api/orby-comment` has no HMAC" (§Phase 3, Premortem #5, P0 #3, Residual Risk #1); "README claims both chat routes validate cookie; code does not" | `src/app/api/orby-comment/route.ts:73-74` calls `verifyToken(token)` and returns 401 "Unauthorized"; order is UA (`:62`) → origin (`:68`) → token (`:73`) → limiter (`:82`). README line `README.md:47` now matches. |
+> | NOW-FIXED (partial; present in repo) — P0 #1 "if response has no structured tool results but sanitizer detects tool JSON in text, treat as provider failure and cascade to Groq/Mistral" | Implemented as a next-turn cooldown only: when the sanitizer changed the text and provider is not groq, `chat:cooldown:${provider}` is set for 30 s and `chat.tool_leak.cooldown_set` logged (`src/app/api/chat/route.ts:540-555`). No in-turn cascade: router's only soft-fail check is still Groq-specific (`src/lib/model-router.ts:194-217`). |
+> | NOW-FIXED (present in repo) — Upstash outage "Rate limiting skipped (fail-open)" `route.ts:219-222` | Behavior unchanged; the catch now logs a structured event `chat.ratelimit.fail_open` with `ip` (`route.ts:221`); same pattern `orby-comment.ratelimit.fail_open` at `orby-comment/route.ts:88`. |
+> | FACT-FIX — "Warmth rubrics in `evals/personas/*.yaml` still reference `mistral:mistral-large-latest`" (§Mistral key status, Eval table) | All judge ids are `openai:chat:zai-glm-4.7` (`evals/personas/ceo-warmth.yaml:47`, `friend-warmth.yaml:50`, `recruiter-warmth.yaml:50`, `weirdo-warmth.yaml:48`, `evals/persona-warmth.yaml:9`). No `mistral` string under `evals/`. |
+> | DRIFT — "`{ displayText, orbyMessage, navigate, card }` … Not implemented as single object" (§Orby Fix Log) | Still accurate: wire format is `0:` / `a:` / `t:` / `m:` / `d:` / `e:` lines (`route.ts:301,271,563,600,606,648`). No row needed beyond confirming. |
+
 # Orby Security & Reliability Ground Truth — 2026-09-05
 
 > **CORRECTION 2026-09-05:** This note supersedes stale claims in [[security/README]] (last verified 2026-06-15), [[05 - Model Layer, Rate Limiting & Abuse]] (Azure-primary plan), graphify snapshot `chatbot/02-model-router.md` (Gemini→Groq at commit `89cd2c0e`), and parts of [[00 - Nextgen Chatbot — Build Plan]] ("Planning only. No code."). **Do not delete or archive those notes.** Treat this file as the current verified ground truth for Orby reliability, security posture, deployment readiness, and provider chain. Re-verify against live repo HEAD before the next major launch decision.

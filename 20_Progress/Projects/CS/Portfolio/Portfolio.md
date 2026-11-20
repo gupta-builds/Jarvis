@@ -12,6 +12,9 @@ tags:
   - "#evergreen"
 next:
 ---
+> [!warning] Correction pass 2026-11-20 — hub note from June; the repo tree below is historical
+> The tree in §Repo (`api/chatkit`, `sanity.client.ts`, `sanity/schemaTypes`, `(site)`) is a June sketch. Live routes are `src/app/(portfolio)`, `api/chat`, `api/chat-token`, `api/orby-comment`, `studio`, `privacy`, `robots.ts`, `sitemap.ts`. There is no `chatkit`. Current maps: [[INDEX]], [[ui-fixes-index]], and `docs/knowledge/portfolio/*` in the repo. Leave the body as the original design dump; do not treat it as the file tree.
+
 ## Dev / Data Portfolio Website with Embedded AI Agent
 _(Smaller “side” project that’s fast to build and good for branding)_
 **Inspiration from blog:**

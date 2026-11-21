@@ -1,21 +1,23 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".codex/skills/cover-letter-alteration/SKILL.md"
 type: "document"
-community: "_fake_http_get"
-location: "L37"
+community: "Steps"
+location: "L27"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/Steps
 ---
 
 # Steps
 
 ## Connections
-- [[1. Take the input_4]] - `contains` [EXTRACTED]
-- [[2. Ask two concrete questions_1]] - `contains` [EXTRACTED]
-- [[3. Invoke contact research and show findings — before writing anything_2]] - `contains` [EXTRACTED]
-- [[4. On explicit go-ahead only, write all three notes together_1]] - `contains` [EXTRACTED]
-- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[1. Take the input_3]] - `contains` [EXTRACTED]
+- [[2. Gather evidence]] - `contains` [EXTRACTED]
+- [[3. Propose the content plan — before writing anything]] - `contains` [EXTRACTED]
+- [[4. Humanizer gate]] - `contains` [EXTRACTED]
+- [[5. Write the file]] - `contains` [EXTRACTED]
+- [[6. Link back]] - `contains` [EXTRACTED]
+- [[cover-letter-alteration]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/Steps

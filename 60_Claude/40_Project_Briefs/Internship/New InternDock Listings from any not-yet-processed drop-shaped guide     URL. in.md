@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L345"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # New InternDock Listings from any not-yet-processed drop-shaped guide     URL. in
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[discover_interndock()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/recheckpy
+#graphify/rationale #graphify/EXTRACTED #community/run_pipelinepy

@@ -1,21 +1,21 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "revalidate.py"
 location: "L731"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/revalidatepy
 ---
 
 # file_github_issue()
 
 ## Connections
-- [[main()_5]] - `calls` [EXTRACTED]
-- [[main()_6]] - `calls` [EXTRACTED]
+- [[main()_8]] - `calls` [EXTRACTED]
+- [[main()_9]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[revalidate.py]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/revalidatepy

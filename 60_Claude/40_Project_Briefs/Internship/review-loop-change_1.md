@@ -1,20 +1,22 @@
 ---
-source_file: ".cursor/skills/review-loop-change/SKILL.md"
+source_file: ".codex/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "What to check"
-location: "L12"
+community: "/review-loop-change"
+location: "L7"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community//review-loop-change
 ---
 
-# review-loop-change
+# /review-loop-change
 
 ## Connections
-- [[Output format_9]] - `contains` [EXTRACTED]
-- [[SKILL_12]] - `contains` [EXTRACTED]
+- [[Output format_12]] - `contains` [EXTRACTED]
+- [[Reference_5]] - `contains` [EXTRACTED]
+- [[Run the mechanical half first (added 2026-09-06)_1]] - `contains` [EXTRACTED]
+- [[SKILL_15]] - `contains` [EXTRACTED]
 - [[What to check_1]] - `contains` [EXTRACTED]
-- [[Why a skill, not a subagent, for this repo]] - `contains` [EXTRACTED]
+- [[Why a skill, not an agent, for this repo_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community//review-loop-change

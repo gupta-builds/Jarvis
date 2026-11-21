@@ -1,12 +1,12 @@
 ---
 source_file: "core/run_log.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L20"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # load_recent_runs()
@@ -20,4 +20,4 @@ tags:
 - [[test_load_recent_runs_on_missing_file_returns_empty()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

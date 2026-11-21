@@ -1,22 +1,22 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "vault_root"
+community: "scan_dossiers"
 location: "L157"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/scan_dossiers
 ---
 
 # scan_dossiers()
 
 ## Connections
 - [[Frontmatter dicts of every dossier file actually present in the vault     checko]] - `rationale_for` [EXTRACTED]
-- [[Path_3]] - `calls` [EXTRACTED]
+- [[Path_4]] - `calls` [EXTRACTED]
 - [[find_regressions()]] - `calls` [EXTRACTED]
-- [[main()_5]] - `calls` [EXTRACTED]
-- [[main()_7]] - `calls` [EXTRACTED]
+- [[main()_8]] - `calls` [EXTRACTED]
+- [[main()_10]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[revalidate.py]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
@@ -27,4 +27,4 @@ tags:
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/vault_root
+#graphify/code #graphify/EXTRACTED #community/scan_dossiers

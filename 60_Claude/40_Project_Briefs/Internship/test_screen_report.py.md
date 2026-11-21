@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_screen_report.py"
 type: "code"
-community: "vault_root"
+community: "scan_dossiers"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/scan_dossiers
 ---
 
 # test_screen_report.py
@@ -22,4 +22,4 @@ tags:
 - [[test_build_report_ranks_preferred_first_then_recency_and_excludes_viewed()]] - `contains` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/vault_root
+#graphify/code #graphify/EXTRACTED #community/scan_dossiers

@@ -91,3 +91,14 @@ Expect a possible AGENTS.md rebase overlap between PR 1 (line 78 bullet) and PR 
 
 ## Recovery directory
 `~/.local/state/internship-loop/recovery-2026-11-21/`: `AGENTS.md.patch`, `SHA256SUMS`, `branch-and-master.bundle`, `docs-codex/`, `stash-shas.txt`, `stash0.patch`, `stash1.patch`, `status-porcelain.txt`.
+
+### Completion pass (Dell, 2026-11-21) - supersedes "NOT pushed" and "Needs Anant" above
+
+P1 is complete. The Acer session stopped at the hook decision; Anant told the Dell session to finish it.
+
+- **Hook fix shipped.** `scripts/hooks/pre-push` now runs `unset GIT_DIR GIT_WORK_TREE GIT_INDEX_FILE GIT_PREFIX` before pytest (commit 26881eb, in PR 15) and is installed to `.git/hooks/pre-push`. The first push after it passed 499 tests with `core.bare=false` and the user config intact.
+- **Pushed with tests green:** `chore/single-host-worktree-workflow` (499), `docs/codex-agent-memory` (499), `fix/deadline-quota-and-reseed` (529). `master` on GitHub is still dc5edc1.
+- **Two stale lines fixed** (the ones listed as out of scope above): the README sentence about "both laptops" now describes the single-host worktree flow (PR 15), and `docs/codex/ACCESS.md` now says the hook fails closed (PR 16).
+- **PRs open, all MERGEABLE:** #15 chore (workflow doc, hook fix, README), #16 docs (Codex docs), #17 fix (deadline stamping, quota-shortfall fix, reseed hardening). None merged yet.
+- **Still for Anant:** merge in order 15, 16, 17 with `gh pr merge <n> --rebase`, then unlock and remove the three worktrees per the commands above. The worktrees stay locked until then.
+- **Open item carried forward:** the Jarvis vault repo is public and tracks `Cover Letters/`. This gates P7 and P9.

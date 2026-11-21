@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "writer.py"
+community: "test_posting_page.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/test_posting_pagepy
 ---
 
 # test_posting_page.py
@@ -45,4 +45,4 @@ tags:
 - [[test_phd_only_exclusion_rejects_explicit_equivalent_phrasing()]] - `contains` [EXTRACTED]
 - [[test_phd_only_exclusion_rejects_real_optiver_text()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy

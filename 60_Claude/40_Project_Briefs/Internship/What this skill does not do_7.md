@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".codex/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "_fake_http_get"
-location: "L64"
+community: "Generating a cover letter .docx"
+location: "L39"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/Generating_a_cover_letter_docx
 ---
 
 # What this skill does not do
 
 ## Connections
-- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx

@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "_fake_http_get_only_interndock"
+community: "cross_source_key"
 location: "L645"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/_fake_http_get_only_interndock
+  - community/cross_source_key
 ---
 
 # Renders + validates each new listing; writes the ones that pass into     the Jar
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[validate_and_write()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/_fake_http_get_only_interndock
+#graphify/rationale #graphify/EXTRACTED #community/cross_source_key

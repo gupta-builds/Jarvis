@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/review-loop-change/scripts/check_conventions.py"
 type: "code"
-community: "check_freehire_schema"
+community: "check_conventions.py"
 location: "L67"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_freehire_schema
+  - community/check_conventionspy
 ---
 
 # DiffHunk
@@ -19,4 +19,4 @@ tags:
 - [[check_conventions.py]] - `contains` [EXTRACTED]
 - [[parse_diff()]] - `references` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_freehire_schema
+#graphify/code #graphify/EXTRACTED #community/check_conventionspy

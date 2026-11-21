@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-cover-letter-docx/scripts/generate_cover_letter_docx.py"
 type: "code"
-community: "test_extract_content_renders_real_section_names_as_headings"
+community: "ContentPlan"
 location: "L125"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_extract_content_renders_real_section_names_as_headings
+  - community/ContentPlan
 ---
 
 # build_cover_letter()
@@ -17,4 +17,4 @@ tags:
 - [[_validate()]] - `calls` [EXTRACTED]
 - [[generate_cover_letter_docx.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_extract_content_renders_real_section_names_as_headings
+#graphify/code #graphify/EXTRACTED #community/ContentPlan

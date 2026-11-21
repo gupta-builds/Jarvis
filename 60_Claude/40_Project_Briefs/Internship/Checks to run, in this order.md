@@ -2,7 +2,7 @@
 source_file: ".claude/agents/loop-verifier.md"
 type: "document"
 community: "Checks to run, in this order"
-location: "L11"
+location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED

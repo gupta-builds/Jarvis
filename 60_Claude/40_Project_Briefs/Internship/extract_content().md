@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "code"
-community: "writer.py"
+community: "extract_content"
 location: "L284"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/extract_content
 ---
 
 # extract_content()
@@ -30,4 +30,4 @@ tags:
 - [[test_posting_page.py]] - `imports` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/extract_content

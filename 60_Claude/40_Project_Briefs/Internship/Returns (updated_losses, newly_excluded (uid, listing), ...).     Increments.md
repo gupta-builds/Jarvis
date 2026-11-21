@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L384"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # Returns (updated_losses, newly_excluded: [(uid, listing), ...]).     Increments
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[update_debate_losses()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/recheckpy
+#graphify/rationale #graphify/EXTRACTED #community/run_pipelinepy

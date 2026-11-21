@@ -1,18 +1,18 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "build_frontmatter"
+community: "test_writer.py"
 location: "L176"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_writerpy
 ---
 
 # write_dossier()
 
 ## Connections
-- [[Path_3]] - `references` [EXTRACTED]
+- [[Path_4]] - `references` [EXTRACTED]
 - [[Writes an already-rendered, already-validated dossier into its     priority-buck]] - `rationale_for` [EXTRACTED]
 - [[dossier_filename()]] - `calls` [EXTRACTED]
 - [[load_dossier_uids()]] - `calls` [EXTRACTED]
@@ -31,4 +31,4 @@ tags:
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/build_frontmatter
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

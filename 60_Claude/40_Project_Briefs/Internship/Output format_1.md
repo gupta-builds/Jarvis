@@ -2,7 +2,7 @@
 source_file: ".claude/agents/contact-researcher.md"
 type: "document"
 community: "contact-researcher.md"
-location: "L56"
+location: "L70"
 tags:
   - graphify/document
   - graphify/EXTRACTED

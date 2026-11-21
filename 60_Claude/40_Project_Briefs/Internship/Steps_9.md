@@ -1,23 +1,20 @@
 ---
-source_file: ".cursor/skills/resume-alteration/SKILL.md"
+source_file: ".codex/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "Steps"
-location: "L27"
+community: "Generating a cover letter .docx"
+location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/Generating_a_cover_letter_docx
 ---
 
 # Steps
 
 ## Connections
-- [[1. Take the input_5]] - `contains` [EXTRACTED]
-- [[2. Gather evidence_1]] - `contains` [EXTRACTED]
-- [[3. Propose the content plan — before writing anything_1]] - `contains` [EXTRACTED]
-- [[4. Humanizer gate_1]] - `contains` [EXTRACTED]
-- [[5. Write the file_1]] - `contains` [EXTRACTED]
-- [[6. Link back_1]] - `contains` [EXTRACTED]
-- [[resume-alteration]] - `contains` [EXTRACTED]
+- [[1. `python-docx` (low freedom)_2]] - `contains` [EXTRACTED]
+- [[2. Build the `ContentPlan` (medium freedom — shape fixed, wording is the approved content verbatim)_1]] - `contains` [EXTRACTED]
+- [[3. Generate, verify, report (low freedom)_2]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx

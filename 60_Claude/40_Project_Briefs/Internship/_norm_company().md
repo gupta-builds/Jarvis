@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "code"
-community: "stage1_reject"
+community: "classify"
 location: "L93"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/classify
 ---
 
 # _norm_company()
@@ -19,4 +19,4 @@ tags:
 - [[identity.py]] - `contains` [EXTRACTED]
 - [[is_quant_finance_company()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/classify

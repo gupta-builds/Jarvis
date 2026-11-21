@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "vault_root"
+community: "stage1_reject"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/stage1_reject
 ---
 
 # stage1_reject()
@@ -32,4 +32,4 @@ tags:
 - [[test_stage1_rejects_real_databricks_product_management_title()]] - `calls` [EXTRACTED]
 - [[test_stage1_rejects_real_investor_relations_title()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/vault_root
+#graphify/code #graphify/EXTRACTED #community/stage1_reject

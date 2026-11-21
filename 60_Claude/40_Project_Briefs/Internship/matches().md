@@ -1,12 +1,12 @@
 ---
 source_file: "core/filter.py"
 type: "code"
-community: "write_dossier"
+community: "matches"
 location: "L87"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/matches
 ---
 
 # matches()
@@ -60,4 +60,4 @@ tags:
 - [[test_zshah101_should_match()]] - `calls` [EXTRACTED]
 - [[test_zshah101_should_reject()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/matches

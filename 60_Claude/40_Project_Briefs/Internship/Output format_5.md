@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/skills/generating-resume-docx/SKILL.md"
+source_file: ".claude/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "schema_drift.py"
+community: "Generating a cover letter .docx"
 location: "L29"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/schema_driftpy
+  - community/Generating_a_cover_letter_docx
 ---
 
 # Output format
 
 ## Connections
-- [[Generating a resume .docx]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/schema_driftpy
+#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx

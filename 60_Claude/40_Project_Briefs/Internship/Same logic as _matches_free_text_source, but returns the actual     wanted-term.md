@@ -1,12 +1,12 @@
 ---
 source_file: "core/filter.py"
 type: "rationale"
-community: "write_dossier"
+community: "filter.py"
 location: "L281"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/filterpy
 ---
 
 # Same logic as _matches_free_text_source, but returns the actual     wanted-term
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[matched_term_in_free_text()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/write_dossier
+#graphify/rationale #graphify/EXTRACTED #community/filterpy

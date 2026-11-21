@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "test_write_dossier_different_uid_same_role_company_gets_collision_suffix"
+community: "test_relevance.py"
 location: "L176"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+  - community/test_relevancepy
 ---
 
 # stage2_confirm()
@@ -41,4 +41,4 @@ tags:
 - [[test_stage2_still_rejects_real_keybank_content_on_coincidental_tool_list_mention()]] - `calls` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+#graphify/code #graphify/EXTRACTED #community/test_relevancepy

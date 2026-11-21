@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/applying.md"
 type: "document"
-community: "check_interndock_sitemap"
+community: "applying.md"
 location: "L25"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_interndock_sitemap
+  - community/applyingmd
 ---
 
 # Steps
@@ -18,4 +18,4 @@ tags:
 - [[4. Stop for approval]] - `contains` [EXTRACTED]
 - [[applying]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_interndock_sitemap
+#graphify/document #graphify/EXTRACTED #community/applyingmd

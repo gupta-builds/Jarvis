@@ -1,5 +1,5 @@
 ---
-source_file: ".cursor/skills/resume-alteration/SKILL.md"
+source_file: ".codex/skills/resume-alteration/SKILL.md"
 type: "document"
 community: "Steps"
 location: "L16"

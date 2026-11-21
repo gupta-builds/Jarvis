@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/loop-health-check/SKILL.md"
+source_file: ".codex/skills/contact-researcher/SKILL.md"
 type: "document"
-community: "Checks to run, in this order"
-location: "L46"
+community: "contact-researcher"
+location: "L63"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Checks_to_run_in_this_order
+  - community/contact-researcher
 ---
 
 # Output format
 
 ## Connections
-- [[loop-health-check]] - `contains` [EXTRACTED]
+- [[contact-researcher_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_reseed.py"
 type: "code"
-community: "interndock.py"
+community: "test_reseed.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/interndockpy
+  - community/test_reseedpy
 ---
 
 # test_reseed.py
@@ -31,4 +31,4 @@ tags:
 - [[test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()]] - `contains` [EXTRACTED]
 - [[test_unions_scratch_and_real_ids()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/interndockpy
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

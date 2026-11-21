@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "rationale"
-community: "vault_root"
+community: "scan_dossiers"
 location: "L27"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/scan_dossiers
 ---
 
 # Dumps None as a blank scalar (matching the plan's `field:` empty style     inste
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_FrontmatterDumper]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/vault_root
+#graphify/rationale #graphify/EXTRACTED #community/scan_dossiers

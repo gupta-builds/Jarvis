@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_company_cache.py"
 type: "code"
-community: "stage1_reject"
+community: "test_company_cache.py"
 location: "L70"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_company_cachepy
 ---
 
 # test_load_expired_entry_returns_none()
@@ -16,4 +16,4 @@ tags:
 - [[save()]] - `calls` [EXTRACTED]
 - [[test_company_cache.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

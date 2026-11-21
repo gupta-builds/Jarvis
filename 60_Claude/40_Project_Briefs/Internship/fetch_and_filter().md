@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L602"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # fetch_and_filter()
@@ -19,4 +19,4 @@ tags:
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 - [[stage1_reject()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

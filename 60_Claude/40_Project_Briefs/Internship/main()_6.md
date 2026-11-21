@@ -1,19 +1,28 @@
 ---
-source_file: "revalidate.py"
+source_file: "enrich.py"
 type: "code"
-community: "commit_and_push_with_retry"
-location: "L83"
+community: "test_enrich.py"
+location: "L136"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/test_enrichpy
 ---
 
 # main()
 
 ## Connections
-- [[file_github_issue()]] - `calls` [EXTRACTED]
-- [[find_regressions()]] - `calls` [EXTRACTED]
-- [[revalidate.py]] - `contains` [EXTRACTED]
+- [[_search_and_filter()]] - `calls` [EXTRACTED]
+- [[enrich.py]] - `contains` [EXTRACTED]
+- [[extract_bylines()]] - `calls` [EXTRACTED]
+- [[fc_scrape()]] - `calls` [EXTRACTED]
+- [[fc_search()]] - `calls` [EXTRACTED]
+- [[github_org_members()]] - `calls` [EXTRACTED]
+- [[infer_email()]] - `calls` [EXTRACTED]
+- [[linkedin_recruiter_snippet()]] - `calls` [EXTRACTED]
+- [[mx_ok()]] - `calls` [EXTRACTED]
+- [[read_dossier()]] - `calls` [EXTRACTED]
+- [[replace_enrichment()]] - `calls` [EXTRACTED]
+- [[trim()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/test_enrichpy

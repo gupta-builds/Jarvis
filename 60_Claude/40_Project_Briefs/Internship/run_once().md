@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L745"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # run_once()
@@ -50,4 +50,4 @@ tags:
 - [[update_zero_match_streaks()]] - `calls` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

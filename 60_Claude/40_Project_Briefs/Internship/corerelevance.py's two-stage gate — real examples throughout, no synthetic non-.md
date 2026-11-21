@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "rationale"
-community: "test_write_dossier_different_uid_same_role_company_gets_collision_suffix"
+community: "test_relevance.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+  - community/test_relevancepy
 ---
 
 # core/relevance.py's two-stage gate — real examples throughout, no synthetic non-
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_relevance.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+#graphify/rationale #graphify/EXTRACTED #community/test_relevancepy

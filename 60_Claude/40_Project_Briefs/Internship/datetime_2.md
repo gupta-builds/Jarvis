@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "interndock.py"
+community: "test_reseed.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/interndockpy
+  - community/test_reseedpy
 ---
 
 # datetime
@@ -14,4 +14,4 @@ tags:
 - [[reseed.py]] - `imports_from` [EXTRACTED]
 - [[run_reseed()]] - `references` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/interndockpy
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

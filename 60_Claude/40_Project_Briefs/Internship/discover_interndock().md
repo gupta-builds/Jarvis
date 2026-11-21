@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L344"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # discover_interndock()
@@ -20,4 +20,4 @@ tags:
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 - [[save_interndock_seen_guides()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

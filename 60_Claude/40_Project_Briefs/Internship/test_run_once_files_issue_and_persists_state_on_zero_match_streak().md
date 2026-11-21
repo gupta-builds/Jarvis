@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_zero_match_alert.py"
 type: "code"
-community: "build_frontmatter"
+community: "test_zero_match_alert.py"
 location: "L98"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_zero_match_alertpy
 ---
 
 # test_run_once_files_issue_and_persists_state_on_zero_match_streak()
@@ -16,4 +16,4 @@ tags:
 - [[_run_once_kwargs()]] - `calls` [INFERRED]
 - [[test_zero_match_alert.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/build_frontmatter
+#graphify/code #graphify/EXTRACTED #community/test_zero_match_alertpy

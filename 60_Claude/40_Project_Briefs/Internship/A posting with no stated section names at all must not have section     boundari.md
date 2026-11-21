@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "rationale"
-community: "writer.py"
+community: "extract_content"
 location: "L345"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/extract_content
 ---
 
 # A posting with no stated section names at all must not have section     boundari
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_extract_content_with_no_internal_structure_stays_one_block()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/writerpy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

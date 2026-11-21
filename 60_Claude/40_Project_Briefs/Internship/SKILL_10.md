@@ -1,19 +1,18 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".codex/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "_fake_http_get"
+community: "Generating a resume .docx"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/Generating_a_resume_docx
 ---
 
 # SKILL.md
 
 ## Connections
-- [[SKILL_7]] - `references` [EXTRACTED]
-- [[note-templates_1]] - `references` [EXTRACTED]
-- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[Generating a resume .docx_1]] - `contains` [EXTRACTED]
+- [[resume-reference_1]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

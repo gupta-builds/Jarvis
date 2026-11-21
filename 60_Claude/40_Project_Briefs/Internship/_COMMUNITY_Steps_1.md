@@ -1,24 +1,22 @@
 ---
 type: community
-members: 11
+members: 9
 ---
 
 # Steps
 
-**Members:** 11 nodes
+**Members:** 9 nodes
 
 ## Members
-- [[1. Take the input_3]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[2. Gather evidence]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[3. Propose the content plan — before writing anything]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[4. Humanizer gate]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[5. Write the file]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[6. Link back]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[Prerequisite — read this before running_1]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[SKILL_8]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[Steps_7]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[What this skill does not do_6]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
-- [[cover-letter-alteration]] - document - .cursor/skills/cover-letter-alteration/SKILL.md
+- [[1. Take the input]] - document - .claude/agents/promotion.md
+- [[2. Ask two concrete questions — same shape as `promote-dossier`]] - document - .claude/agents/promotion.md
+- [[3. Invoke contact research and show findings — before writing anything]] - document - .claude/agents/promotion.md
+- [[4. On explicit go-ahead only, invoke the writers in order]] - document - .claude/agents/promotion.md
+- [[Prerequisite_2]] - document - .claude/agents/promotion.md
+- [[Steps_2]] - document - .claude/agents/promotion.md
+- [[What this agent does not do]] - document - .claude/agents/promotion.md
+- [[Why this exists — a real, confirmed gap]] - document - .claude/agents/promotion.md
+- [[promotion]] - document - .claude/agents/promotion.md
 
 ## Live Query (requires Dataview plugin)
 

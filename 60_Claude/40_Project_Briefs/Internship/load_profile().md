@@ -1,12 +1,12 @@
 ---
 source_file: "core/filter.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L10"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # load_profile()
@@ -21,4 +21,4 @@ tags:
 - [[test_identity.py]] - `imports` [EXTRACTED]
 - [[test_run_pipeline.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

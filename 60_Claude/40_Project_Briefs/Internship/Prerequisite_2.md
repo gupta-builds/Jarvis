@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/promotion.md"
 type: "document"
-community: "check_greenhouse_schema"
+community: "Steps"
 location: "L14"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_greenhouse_schema
+  - community/Steps
 ---
 
 # Prerequisite
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[promotion]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_greenhouse_schema
+#graphify/document #graphify/EXTRACTED #community/Steps

@@ -1,0 +1,19 @@
+---
+source_file: "README.md"
+type: "document"
+community: "Two-laptop Git workflow (single host, one worktree per task)"
+location: "L1"
+tags:
+  - graphify/document
+  - graphify/EXTRACTED
+  - community/Two-laptop_Git_workflow_single_host_one_worktree_per_task
+---
+
+# internship-research-loop
+
+## Connections
+- [[Local dev]] - `contains` [EXTRACTED]
+- [[README]] - `contains` [EXTRACTED]
+- [[Status]] - `contains` [EXTRACTED]
+
+#graphify/document #graphify/EXTRACTED #community/Two-laptop_Git_workflow_single_host_one_worktree_per_task

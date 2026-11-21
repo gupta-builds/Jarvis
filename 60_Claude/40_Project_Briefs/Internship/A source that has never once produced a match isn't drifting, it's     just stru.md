@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_zero_match_alert.py"
 type: "rationale"
-community: "build_frontmatter"
+community: "test_zero_match_alert.py"
 location: "L26"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_zero_match_alertpy
 ---
 
 # A source that has never once produced a match isn't drifting, it's     just stru
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_zero_match_streak_never_alerts_if_source_never_matched()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/build_frontmatter
+#graphify/rationale #graphify/EXTRACTED #community/test_zero_match_alertpy

@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "code"
-community: "interndock.py"
+community: "test_reseed.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/interndockpy
+  - community/test_reseedpy
 ---
 
 # reseed.py
@@ -23,4 +23,4 @@ tags:
 - [[run_reseed()]] - `contains` [EXTRACTED]
 - [[test_reseed.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/interndockpy
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

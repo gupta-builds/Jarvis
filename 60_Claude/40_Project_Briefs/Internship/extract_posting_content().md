@@ -1,12 +1,12 @@
 ---
 source_file: "revalidate.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "revalidate.py"
 location: "L36"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/revalidatepy
 ---
 
 # extract_posting_content()
@@ -19,4 +19,4 @@ tags:
 - [[test_extract_posting_content_from_thin_dossier()]] - `calls` [EXTRACTED]
 - [[test_revalidate.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/revalidatepy

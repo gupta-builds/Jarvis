@@ -1,12 +1,12 @@
 ---
-source_file: ".cursor/skills/contact-researcher/SKILL.md"
+source_file: ".codex/skills/contact-researcher/SKILL.md"
 type: "document"
-community: "_fake_http_get"
+community: "contact-researcher"
 location: "L46"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/contact-researcher
 ---
 
 # Hard line (non-negotiable, inherited from enrich.py's own docstring)
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[contact-researcher_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

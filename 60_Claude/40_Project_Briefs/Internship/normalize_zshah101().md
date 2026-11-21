@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "code"
-community: "write_dossier"
+community: "matches"
 location: "L100"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/matches
 ---
 
 # normalize_zshah101()
@@ -27,4 +27,4 @@ tags:
 - [[test_zshah101_should_match()]] - `calls` [EXTRACTED]
 - [[test_zshah101_should_reject()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/matches

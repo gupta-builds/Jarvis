@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "_fake_http_get_only_interndock"
+community: "cross_source_key"
 location: "L75"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/_fake_http_get_only_interndock
+  - community/cross_source_key
 ---
 
 # test_url_live_rejects_on_request_exception()
@@ -15,4 +15,4 @@ tags:
 - [[check_url_live()]] - `calls` [EXTRACTED]
 - [[test_validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/_fake_http_get_only_interndock
+#graphify/code #graphify/EXTRACTED #community/cross_source_key

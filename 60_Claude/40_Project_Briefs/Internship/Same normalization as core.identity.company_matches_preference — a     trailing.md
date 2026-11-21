@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "rationale"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L160"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # Same normalization as core.identity.company_matches_preference — a     trailing
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_classify_quant_finance_company_check_is_punctuation_insensitive()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/rationale #graphify/EXTRACTED #community/classify

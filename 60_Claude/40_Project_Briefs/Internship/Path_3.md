@@ -1,20 +1,18 @@
 ---
 source_file: ""
 type: "code"
-community: "build_frontmatter"
+community: "test_reseed.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_reseedpy
 ---
 
 # Path
 
 ## Connections
-- [[load_dossier_uids()]] - `calls` [EXTRACTED]
-- [[move_dossier_to_viewed()]] - `references` [EXTRACTED]
-- [[save_dossier_uids()]] - `calls` [EXTRACTED]
-- [[scan_dossiers()]] - `calls` [EXTRACTED]
-- [[write_dossier()]] - `references` [EXTRACTED]
+- [[_merge_dict_json()]] - `references` [EXTRACTED]
+- [[_union_json_list()]] - `references` [EXTRACTED]
+- [[run_reseed()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/build_frontmatter
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

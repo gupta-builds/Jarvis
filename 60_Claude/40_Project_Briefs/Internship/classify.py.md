@@ -1,12 +1,12 @@
 ---
 source_file: "core/classify.py"
 type: "code"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # classify.py
@@ -22,4 +22,4 @@ tags:
 - [[screen_report.py]] - `imports_from` [EXTRACTED]
 - [[test_classify.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/code #graphify/EXTRACTED #community/classify

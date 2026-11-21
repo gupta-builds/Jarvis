@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/review-loop-change/SKILL.md"
+source_file: ".codex/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "What to check"
-location: "L46"
+community: "Generating a cover letter .docx"
+location: "L29"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community/Generating_a_cover_letter_docx
 ---
 
 # Output format
 
 ## Connections
-- [[review-loop-change_1]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx

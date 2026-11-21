@@ -1,12 +1,12 @@
 ---
-source_file: ".cursor/skills/promote-dossier/reference/note-templates.md"
+source_file: ".codex/skills/promote-dossier/reference/note-templates.md"
 type: "document"
-community: "_fake_http_get"
+community: "promote-dossier note templates"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/promote-dossier_note_templates
 ---
 
 # promote-dossier note templates
@@ -19,4 +19,4 @@ tags:
 - [[Cross-linking summary (all three notes, written together, in one sitting)_1]] - `contains` [EXTRACTED]
 - [[note-templates_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/promote-dossier_note_templates

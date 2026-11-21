@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/promotion.md"
 type: "document"
-community: "check_greenhouse_schema"
+community: "Steps"
 location: "L42"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_greenhouse_schema
+  - community/Steps
 ---
 
 # What this agent does not do
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[promotion]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_greenhouse_schema
+#graphify/document #graphify/EXTRACTED #community/Steps

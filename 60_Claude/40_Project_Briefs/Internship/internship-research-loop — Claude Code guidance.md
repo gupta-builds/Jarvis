@@ -12,12 +12,12 @@ tags:
 # internship-research-loop — Claude Code guidance
 
 ## Connections
-- [[Agent vs. more Python — the actual judgment call for each]] - `contains` [EXTRACTED]
-- [[Auto-mode classifier notes (this repo only)]] - `contains` [EXTRACTED]
+- [[Agent vs. more Python — the actual judgment call for each_1]] - `contains` [EXTRACTED]
+- [[Auto-mode classifier notes (this repo only)_1]] - `contains` [EXTRACTED]
 - [[CLAUDE]] - `contains` [EXTRACTED]
-- [[Conventions this codebase enforces — read before touching core, ingestion, vault_writer, run_pipeline.py, or recheck.py]] - `contains` [EXTRACTED]
-- [[Note-template contracts (for `promote-dossier`, `promotion`, and any future vault-writing code)]] - `contains` [EXTRACTED]
-- [[Skills and agents available in this repo]] - `contains` [EXTRACTED]
+- [[Conventions this codebase enforces — read before touching core, ingestion, vault_writer, run_pipeline.py, or recheck.py_1]] - `contains` [EXTRACTED]
+- [[Note-template contracts (for `promote-dossier`, `promotion`, and any future vault-writing code)_1]] - `contains` [EXTRACTED]
+- [[Skills and agents available in this repo_1]] - `contains` [EXTRACTED]
 - [[`.clauderules` — steering wrappers, same pattern as the Jarvis vault's]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/internship-research-loop__Claude_Code_guidance

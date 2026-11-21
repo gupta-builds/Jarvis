@@ -1,12 +1,12 @@
 ---
 source_file: "core/filter.py"
 type: "code"
-community: "write_dossier"
+community: "filter.py"
 location: "L303"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/filterpy
 ---
 
 # _matches_free_text_source()
@@ -17,4 +17,4 @@ tags:
 - [[test_filter.py]] - `imports` [EXTRACTED]
 - [[test_matched_term_in_free_text_agrees_with_bool_matcher()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/filterpy

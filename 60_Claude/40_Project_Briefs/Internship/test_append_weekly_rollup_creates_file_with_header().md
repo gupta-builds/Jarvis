@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_log.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # test_append_weekly_rollup_creates_file_with_header()
@@ -15,4 +15,4 @@ tags:
 - [[append_weekly_rollup()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_reseed.py"
 type: "code"
-community: "interndock.py"
+community: "test_reseed.py"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/interndockpy
+  - community/test_reseedpy
 ---
 
 # _page_with()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_reseed.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/interndockpy
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

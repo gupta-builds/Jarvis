@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/program-writer.md"
 type: "document"
-community: "check_ashby_schema"
+community: "program-writer.md"
 location: "L29"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_ashby_schema
+  - community/program-writermd
 ---
 
 # Prep Checklist — generated from real content, never a bare `- [ ]`
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[program-writer]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_ashby_schema
+#graphify/document #graphify/EXTRACTED #community/program-writermd

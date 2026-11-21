@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "writer.py"
+community: "test_posting_page.py"
 location: "L136"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/test_posting_pagepy
 ---
 
 # test_content_fetch_url_leaves_zipline_path_urls_alone()
@@ -15,4 +15,4 @@ tags:
 - [[_content_fetch_url()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy

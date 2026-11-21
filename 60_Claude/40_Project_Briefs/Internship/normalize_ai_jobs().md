@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "code"
-community: "write_dossier"
+community: "normalize.py"
 location: "L231"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/normalizepy
 ---
 
 # normalize_ai_jobs()
@@ -20,4 +20,4 @@ tags:
 - [[test_filter.py]] - `imports` [EXTRACTED]
 - [[test_normalize_ai_jobs_maps_fields_and_matches_real_intern_record()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/normalizepy

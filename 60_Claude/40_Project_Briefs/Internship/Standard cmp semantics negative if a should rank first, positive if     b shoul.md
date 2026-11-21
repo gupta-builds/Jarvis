@@ -1,12 +1,12 @@
 ---
 source_file: "core/debate.py"
 type: "rationale"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L31"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # Standard cmp semantics: negative if a should rank first, positive if     b shoul
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[debate_compare()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/rationale #graphify/EXTRACTED #community/classify

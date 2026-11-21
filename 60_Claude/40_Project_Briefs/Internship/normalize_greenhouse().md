@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "code"
-community: "write_dossier"
+community: "normalize.py"
 location: "L146"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/normalizepy
 ---
 
 # normalize_greenhouse()
@@ -21,4 +21,4 @@ tags:
 - [[test_filter.py]] - `imports` [EXTRACTED]
 - [[test_normalize_greenhouse_strips_html_and_maps_fields()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/normalizepy

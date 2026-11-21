@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "rationale"
-community: "_fake_http_get_only_interndock"
+community: "test_run_pipeline.py"
 location: "L1045"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/_fake_http_get_only_interndock
+  - community/test_run_pipelinepy
 ---
 
 # Every other source returns empty (in its own real response shape) —     isolates
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_fake_http_get_only_interndock()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/_fake_http_get_only_interndock
+#graphify/rationale #graphify/EXTRACTED #community/test_run_pipelinepy

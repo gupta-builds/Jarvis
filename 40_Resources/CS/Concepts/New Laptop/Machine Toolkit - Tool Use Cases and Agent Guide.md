@@ -244,3 +244,8 @@ Gotchas: silent installs skip the location picker (use `--location D:\Apps\<Name
 | Shell startup stays fast | `Measure-Command { pwsh -NoProfile -Command exit }` versus `Measure-Command { pwsh -Command exit }` |
 | The catalog is fresh | `facts.generated` in `tool-catalog-<host>.json`; rebuild with `40-build-catalog.ps1` when older than the last install |
 | New secrets never enter a shell rc | `grep -c "API_KEY=" ~/.bashrc` must print 0 |
+
+
+## Update 2026-11-21 - branch naming
+
+The Git rows above that say `<machine>/<topic>` are out of date. Use `git switch -c <feature|fix|docs|chore>/<topic>` for a branch, and make a worktree with `git worktree add ~/projects/work/.worktrees/<repo>-<type>-<topic> <branch>`. Never put the machine name in a branch. See `Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem`.

@@ -29,7 +29,7 @@ members: 37
 - [[commit_and_push_with_retry()]] - code - core/git_ops.py
 - [[datetime_1]] - code
 - [[git_ops.py]] - code - core/git_ops.py
-- [[main()_5]] - code - recheck.py
+- [[main()_8]] - code - recheck.py
 - [[plan_removals is the recheck's whole decision surface — pure, tested offline.]] - rationale - tests/test_recheck.py
 - [[plan_removals()]] - code - recheck.py
 - [[remote_and_clones()]] - code - tests/test_git_ops.py
@@ -54,17 +54,18 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 12 edges to [[_COMMUNITY_recheck.py]]
+- 8 edges to [[_COMMUNITY_normalize.py]]
+- 4 edges to [[_COMMUNITY_run_pipeline.py]]
+- 2 edges to [[_COMMUNITY_test_run_pipeline.py]]
 - 2 edges to [[_COMMUNITY_test_writer.py]]
-- 2 edges to [[_COMMUNITY_build_frontmatter]]
-- 1 edge to [[_COMMUNITY_plan_removals]]
+- 1 edge to [[_COMMUNITY__run_once_kwargs]]
 - 1 edge to [[_COMMUNITY_test_schema_drift.py]]
-- 1 edge to [[_COMMUNITY_commit_and_push_with_retry_1]]
-- 1 edge to [[_COMMUNITY_vault_root_1]]
+- 1 edge to [[_COMMUNITY_revalidate.py]]
+- 1 edge to [[_COMMUNITY_scan_dossiers]]
 
 ## Top bridge nodes
-- [[main()_5]] - degree 8, connects to 4 communities
-- [[GitPushError]] - degree 8, connects to 3 communities
-- [[git_ops.py]] - degree 8, connects to 2 communities
-- [[commit_and_push_with_retry()]] - degree 13, connects to 1 community
-- [[plan_removals()]] - degree 10, connects to 1 community
+- [[GitPushError]] - degree 8, connects to 4 communities
+- [[main()_8]] - degree 8, connects to 4 communities
+- [[git_ops.py]] - degree 8, connects to 3 communities
+- [[commit_and_push_with_retry()]] - degree 13, connects to 2 communities
+- [[_commit_log()]] - degree 5, connects to 2 communities

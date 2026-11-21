@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "render_dossier"
+community: "test_validate.py"
 location: "L162"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/render_dossier
+  - community/test_validatepy
 ---
 
 # test_format_compliance_rejects_trailing_blank_line_after_callout()
@@ -17,4 +17,4 @@ tags:
 - [[render_dossier()]] - `calls` [EXTRACTED]
 - [[test_validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/render_dossier
+#graphify/code #graphify/EXTRACTED #community/test_validatepy

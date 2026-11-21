@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # datetime
@@ -14,4 +14,4 @@ tags:
 - [[run_once()]] - `references` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

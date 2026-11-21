@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L603"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # Returns {source_name: {"fetch_count": int, "matched": [Listing, ...]}}.     excl
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[fetch_and_filter()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/recheckpy
+#graphify/rationale #graphify/EXTRACTED #community/run_pipelinepy

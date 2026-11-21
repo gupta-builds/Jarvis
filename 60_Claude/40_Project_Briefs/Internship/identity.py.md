@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "code"
-community: "stage1_reject"
+community: "test_identity.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_identitypy
 ---
 
 # identity.py
@@ -29,4 +29,4 @@ tags:
 - [[validate.py]] - `imports_from` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/test_identitypy

@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/agents/program-writer.md"
+source_file: ".claude/agents/cover-letter-builder.md"
 type: "document"
-community: "check_ashby_schema"
-location: "L48"
+community: "Steps"
+location: "L95"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_ashby_schema
+  - community/Steps
 ---
 
 # What you do not do
 
 ## Connections
-- [[program-writer]] - `contains` [EXTRACTED]
+- [[cover-letter-builder]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_ashby_schema
+#graphify/document #graphify/EXTRACTED #community/Steps

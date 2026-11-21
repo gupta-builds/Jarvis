@@ -1,12 +1,12 @@
 ---
 source_file: "core/company_cache.py"
 type: "code"
-community: "stage1_reject"
+community: "test_company_cache.py"
 location: "L55"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_company_cachepy
 ---
 
 # load()
@@ -27,4 +27,4 @@ tags:
 - [[test_save_load_round_trip_preserves_every_field()]] - `calls` [EXTRACTED]
 - [[test_save_uses_normalized_company_as_filename()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

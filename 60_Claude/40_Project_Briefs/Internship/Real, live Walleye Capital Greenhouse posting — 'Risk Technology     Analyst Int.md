@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "rationale"
-community: "vault_root"
+community: "stage1_reject"
 location: "L48"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/stage1_reject
 ---
 
 # Real, live Walleye Capital Greenhouse posting — 'Risk Technology     Analyst Int
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_stage1_does_not_reject_real_risk_technology_analyst_title()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/vault_root
+#graphify/rationale #graphify/EXTRACTED #community/stage1_reject

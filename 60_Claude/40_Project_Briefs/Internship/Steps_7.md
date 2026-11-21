@@ -1,8 +1,8 @@
 ---
-source_file: ".cursor/skills/cover-letter-alteration/SKILL.md"
+source_file: ".claude/skills/testing/SKILL.md"
 type: "document"
 community: "Steps"
-location: "L27"
+location: "L15"
 tags:
   - graphify/document
   - graphify/EXTRACTED
@@ -12,12 +12,9 @@ tags:
 # Steps
 
 ## Connections
-- [[1. Take the input_3]] - `contains` [EXTRACTED]
-- [[2. Gather evidence]] - `contains` [EXTRACTED]
-- [[3. Propose the content plan — before writing anything]] - `contains` [EXTRACTED]
-- [[4. Humanizer gate]] - `contains` [EXTRACTED]
-- [[5. Write the file]] - `contains` [EXTRACTED]
-- [[6. Link back]] - `contains` [EXTRACTED]
-- [[cover-letter-alteration]] - `contains` [EXTRACTED]
+- [[testing]] - `contains` [EXTRACTED]
+- [[1. Take the input_2]] - `contains` [EXTRACTED]
+- [[2. Invoke `testing-tools`]] - `contains` [EXTRACTED]
+- [[3. Relay its report as-is]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Steps

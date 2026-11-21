@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_company_cache.py"
 type: "rationale"
-community: "stage1_reject"
+community: "test_company_cache.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_company_cachepy
 ---
 
 # core/company_cache.py — the per-company enrichment cache alongside enrich.py. Al
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_company_cache.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/stage1_reject
+#graphify/rationale #graphify/EXTRACTED #community/test_company_cachepy

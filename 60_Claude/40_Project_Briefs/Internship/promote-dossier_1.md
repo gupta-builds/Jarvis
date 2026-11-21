@@ -1,21 +1,21 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".codex/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "_fake_http_get"
-location: "L11"
+community: "Worked example — one full `/promote-dossier` run"
+location: "L7"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/Worked_example__one_full_/promote-dossier_run
 ---
 
-# promote-dossier
+# /promote-dossier
 
 ## Connections
 - [[Note templates_1]] - `contains` [EXTRACTED]
 - [[Prerequisite — read this before running_2]] - `contains` [EXTRACTED]
-- [[SKILL_10]] - `contains` [EXTRACTED]
-- [[Steps_8]] - `contains` [EXTRACTED]
-- [[What this skill does not do_7]] - `contains` [EXTRACTED]
+- [[SKILL_12]] - `contains` [EXTRACTED]
+- [[Steps_11]] - `contains` [EXTRACTED]
+- [[What this skill does not do_9]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/Worked_example__one_full_/promote-dossier_run

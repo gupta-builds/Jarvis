@@ -1,12 +1,12 @@
 ---
 source_file: "core/filter.py"
 type: "code"
-community: "write_dossier"
+community: "filter.py"
 location: "L198"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/filterpy
 ---
 
 # _matches_vanshb03()
@@ -17,4 +17,4 @@ tags:
 - [[filter.py]] - `contains` [EXTRACTED]
 - [[matches()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/filterpy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_write_gate_failures.py"
 type: "code"
-community: "validate.py"
+community: "test_write_gate_failures.py"
 location: "L27"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/validatepy
+  - community/test_write_gate_failurespy
 ---
 
 # _rejection()
@@ -19,4 +19,4 @@ tags:
 - [[test_write_gate_failures.py]] - `contains` [EXTRACTED]
 - [[test_written_uid_clears_prior_failure_history()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/validatepy
+#graphify/code #graphify/EXTRACTED #community/test_write_gate_failurespy

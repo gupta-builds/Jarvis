@@ -1,19 +1,18 @@
 ---
-source_file: "screen_report.py"
+source_file: "grade_resume.py"
 type: "code"
-community: "vault_root"
-location: "L65"
+community: "grade"
+location: "L57"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/grade
 ---
 
 # main()
 
 ## Connections
-- [[build_report()]] - `calls` [EXTRACTED]
-- [[scan_dossiers()]] - `calls` [EXTRACTED]
-- [[screen_report.py]] - `contains` [EXTRACTED]
+- [[grade()]] - `calls` [EXTRACTED]
+- [[grade_resume.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/vault_root
+#graphify/code #graphify/EXTRACTED #community/grade

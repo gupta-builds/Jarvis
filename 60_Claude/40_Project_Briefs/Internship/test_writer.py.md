@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_writer.py"
 type: "code"
-community: "build_frontmatter"
+community: "test_writer.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_writerpy
 ---
 
 # test_writer.py
@@ -46,4 +46,4 @@ tags:
 - [[write_dossier()]] - `imports` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/build_frontmatter
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

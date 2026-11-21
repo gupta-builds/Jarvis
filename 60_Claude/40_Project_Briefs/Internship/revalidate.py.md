@@ -1,12 +1,12 @@
 ---
 source_file: "revalidate.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "revalidate.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/revalidatepy
 ---
 
 # revalidate.py
@@ -18,7 +18,7 @@ tags:
 - [[filter.py]] - `imports_from` [EXTRACTED]
 - [[find_regressions()]] - `contains` [EXTRACTED]
 - [[location_eligible()]] - `imports` [EXTRACTED]
-- [[main()_6]] - `contains` [EXTRACTED]
+- [[main()_9]] - `contains` [EXTRACTED]
 - [[relevance.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[scan_dossiers()]] - `imports` [EXTRACTED]
@@ -27,4 +27,4 @@ tags:
 - [[test_revalidate.py]] - `imports_from` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/revalidatepy

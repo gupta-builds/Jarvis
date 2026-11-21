@@ -1,21 +1,20 @@
 ---
-source_file: ".claude/skills/promote-dossier/SKILL.md"
+source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "/promote-dossier"
-location: "L35"
+community: "Generating a resume .docx"
+location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community//promote-dossier
+  - community/Generating_a_resume_docx
 ---
 
 # Steps
 
 ## Connections
-- [[promote-dossier]] - `contains` [EXTRACTED]
-- [[1. Take the input_1]] - `contains` [EXTRACTED]
-- [[2. Ask two concrete questions]] - `contains` [EXTRACTED]
-- [[3. Invoke contact research and show findings — before writing anything_1]] - `contains` [EXTRACTED]
-- [[4. On explicit go-ahead only, write all three notes together]] - `contains` [EXTRACTED]
+- [[1. `python-docx` (low freedom)_1]] - `contains` [EXTRACTED]
+- [[2. Build the `ResumePlan` (medium freedom)]] - `contains` [EXTRACTED]
+- [[3. Generate, verify, report (low freedom)_1]] - `contains` [EXTRACTED]
+- [[Generating a resume .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community//promote-dossier
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

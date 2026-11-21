@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[enrich.py]] - `contains` [EXTRACTED]
-- [[main()_3]] - `calls` [EXTRACTED]
+- [[main()_6]] - `calls` [EXTRACTED]
 - [[test_enrich.py]] - `imports` [EXTRACTED]
 - [[test_infer_email()]] - `calls` [EXTRACTED]
 

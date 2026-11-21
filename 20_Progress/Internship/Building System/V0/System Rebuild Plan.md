@@ -8,9 +8,10 @@ tags:
   - research-loop
   - system-rebuild
 project_kind: plan
-next: "Anant answers the five Open Questions and the verdict tables at the Phase 1 checkpoint. Phase 2 starts only after that reply."
+next: "Anant answers the Phase 1b interview, one area at a time, starting with the daily apply loop. Phase 2 starts only after a second go at Checkpoint 2."
 related_progress: []
 notes:
+  - "[[Instruction Notes Rewrite Plan]]"
   - "[[Weekend Build]]"
   - "[[Source of Truth]]"
   - "[[Dossier Corrections]]"
@@ -20,7 +21,7 @@ notes:
 ---
 # System Rebuild Plan
 ## Goal
-==Cut the internship kit from 31 files to 18 so that every Standard matches what the research loop really writes and what Weekend Build decided, every rule can fail a real note, and no note type survives without an instance or a use this week.==
+==Cut the internship kit from 31 files to 20, add a System record set for the loop, and write every Standard, Template, Workflow and record from what the system will do from Sunday on, so that each matches the code, each rule can fail a real note, and no note type survives without an instance or a use this week.==
 ## Current State
 Audited read-only on 2026-11-21 with `node vault-lint.js` (node v24.20.0, 77 Specs from 59 Standards), the code repo read through WSL, and frontmatter surveys of the instance folders. Dossier bodies were not read, so nothing in them was followed. The premise that the Standards are long is mostly false: the 11 Standards run 854 to 1,346 words against a 2,000 limit and `--kit` prints no warning for any of them. The real problems are drift from the code, 0% fit on every instance family, and overlap between files.
 ### Hypotheses
@@ -64,21 +65,21 @@ The writer (`vault_writer/writer.py` `build_frontmatter`, 17 keys) and the gate 
 | Internship Notes Standard | Makes dossier frontmatter and folder states checkable | Code writer, Pipeline, Weekend Build step 1 | 354, 0% | KEEP. Rewrite to the code, `tier`, `resume_variant`, `letter_mode`, `date_applied`, the eight folders. Target about 1,000 words. |
 | Career Fair Standard | Keeps raw fair captures untouched and sends every posting to a dossier | Career Fair Intake | 4, 0% | MERGE into Internship Notes Standard as a second Spec. Its naming rule duplicates the dossier file-name rule. |
 | Internship Tracker Standard | One dated record per application | Tracking Workflow, planned `mark_applied` | 32, 0%, none applied | KEEP. `program` and `contact` become optional for the fast lane. Absorbs the Tracking Workflow rules. About 750 words. |
-| Applying Standard | Live hub for one prepared application | Application Document Preparation | 1 (withdrawn), 0% | KEEP, apply lane only, about 700 words. Stays `built (unexercised)`. |
-| Program Standard | Static research on one internship | Pipeline | 31, 0% | KEEP. Required keys fall from 23 to about 14: `deadline_real`, `applying_note`, `benefits` are 0 of 31 filled, `wave` 9, `opens_date` 4. About 800 words. |
-| Contact Standard | Outreach file for one internship | Pipeline | 30, 0%. `email` filled on 1, `last_contact_date` on 0, so no outreach has been logged | KEEP, optional on the fast lane. About 650 words. |
+| Applying Standard | Live hub for one prepared application | Application Document Preparation | 1 (withdrawn), 0% | KEEP for tier 1 and tier 2 (Operator decision 11), about 700 words. Stays `built (unexercised)`. |
+| Program Standard | Static research on one internship | Pipeline, `program-writer` agent | 31, 0% | KEEP for tier 1 and tier 2. Required keys fall from 23 to about 14: `deadline_real`, `applying_note`, `benefits` are 0 of 31 filled, `wave` 9, `opens_date` 4. About 800 words. |
+| Contact Standard | Outreach file for one internship | Pipeline, `contact-researcher` | 30, 0%. `email` filled on 1, `last_contact_date` on 0, so no outreach has been logged | KEEP, one per internship, for tier 1 and tier 2. About 650 words. |
 | Resume Alteration Standard | Evidence rule and resume bank | Application Document Preparation | 0 match | MERGE into a new Application Documents Standard. Adds `resume_variant`. |
 | Cover Letter Alteration Standard | Fragment bank and letter length rule | Application Document Preparation | 0 | MERGE into the same Standard. Adds `letter_mode`. Target about 1,150 words with two Specs. |
-| Deadline and Intake Triage Standard | Governs two notes of the manual sweep | Review System, Ready to Screen link | 3, 0%. Last sweep 2026-10-04 | CUT. Dashboard Standard covers `Deadline Tracker`. The intake log has no Workflow and no reader. |
-| Internship Loop Review Standard | Checks the bot's output and promotion stalls | Review System, cron | 4, 0%. None since 2026-09. The 2026-09-12 fire failed with a 401. | KEEP, thinner. Drop the 500 target and the 150/170 thresholds, which Weekend Build replaces. About 950 words. |
-| Interview Prep Standard | Spoken plan for one interview | None | 0 match | CUT. Project Standard covers a prep note. Rebuild from git when the first interview is booked. |
+| Deadline and Intake Triage Standard | Governs two notes of the manual sweep | Review System, Ready to Screen link | 3, 0%. Last sweep 2026-10-04 | CUT (Operator decision 18). The deadline map becomes a weekly generated note covered by Generated Output Standard, and the intake log has no reader. |
+| Internship Loop Review Standard | Checks the bot's output and promotion stalls | Review System | 4, 0%. None since 2026-09. Run by hand. | KEEP, thinner. Weekly shows three numbers, Monthly four decisions (Operator decisions 15 and 16). About 950 words. |
+| Interview Prep Standard | Spoken plan for one interview | None today; Operator decision 17 makes the prep note part of the interview step | 0 match | KEEP (Operator decision 17), rebuilt to the new Applying and Tracker fields. About 750 words. |
 ### Workflow verdicts
 | File | Words | Verdict |
 |---|---|---|
 | Internship Pipeline | 403 | KEEP, rewrite to 350 or fewer, two lanes. Folds in the transition conditions of Design Rationale. |
 | Application Document Preparation | 325 | KEEP. Adds classification and the archive step. |
 | Career Fair Intake | 260 | KEEP, now serves Internship Notes Standard. |
-| Internship Review System | 404 | KEEP, trim to 350 or fewer. Cron mechanics move to one line. |
+| Internship Review System | 404 | KEEP, trim to 350 or fewer. Says plainly that the reviews are run by hand and claims no schedule (Operator decision 16). |
 | Internship Tracking Workflow | 301 | MERGE into Pipeline and Tracker Standard, then CUT. Its Friday pass reads `Applying/_This Week.md`, which does not exist. |
 | Internship - Design Rationale | 1,191 | CUT after the transition table moves into Pipeline. Source of Truth and the Build Log hold the reasoning. |
 | Application Document Preparation 1 | 59 | CUT. A redirect stub linked only from the Workflows Index and Order Rebuild Design. |
@@ -135,35 +136,181 @@ None of these were touched. Dispositions are suggestions for Anant.
 ### Findings outside the instructions
 - The AI Toolkit hypothesis came out false. Its six templates are the AI reviews, tool profile, source summary, audit report and weekly synthesis, and the registry sends the loop's reviews to the Internship Loop templates. Only `30_Order/System/vault-lint` is relevant, and it works.
 - Graphify folder: the 2026-08-22 handoff shows 350 uncommitted deletions that the hourly snapshot would have committed without review, and an open manifest-ownership bug. Recommendation: leave the folder alone, mark it out of scope for fit in the lint config as a follow-up, and if it is ever pruned, regenerate at the source and review a `git diff --stat` first. One of its nodes is named `CLAUDE.md` and loads into sessions as if it were instructions.
+### Phase 1b: instruction-note families
+Source: the Codex ledger `Instruction Notes Rewrite Plan` (read 2026-11-21, 36 KB, still being updated) and the general Standards for MOC, Dashboard, Logs, Generated Output, Reference, Plan, Action and Project. The test: an internship Standard is warranted only if the loop, a skill or a named agent writes or reads the family by fixed fields. Fixed-field readers found: the writer links `Dossiers MOC` and `Viewed/Removed Dossiers MOC` from every dossier, the code writes `Run Log` and the two Excluded logs, `startday` expects counts from `Tracker/Tracker.md`, and the promote-dossier skill reference names `Mimic`. None needs fields beyond what a general Standard supplies, so no instruction-note family gets an internship Standard.
+
+| Family | Notes | Job | Covering Standard, Template, Workflow | Gap | Verdict |
+|---|---|---|---|---|---|
+| How-to guides: Applications-to-Create, Programs-to-Create | 2 | Tell a person how to do a pipeline step | Reference Standard allows guides, but both restate Workflow steps. No Template, no Workflow of their own. | Nothing says a how-to belongs in a Workflow. Programs-to-Create also holds the Job & Company spec (two jobs). | MERGE into Application Document Preparation and Pipeline, then cut the notes |
+| Application dashboards: Now, Application Tracker, Tracker kanban | 3 | Show in-flight and applied applications | Dashboard Standard, Dashboard Template, no Workflow | The queries read `Applied/` and `Result/` folders that do not exist and read `status` as the funnel stage. The kanban has no query and only the `startday` skill reads it. Only reader is Dataview for the first two. | KEEP one, `Now`, reading Tracker `Applied/` plus tier 1 Applying notes. MERGE the other two into it. |
+| Whole-loop status: Internship - Dashboard, Internships Hub, Main Log | 3 | Tell Anant where the loop stands | Dashboard Standard for the first, Logs Standard for a log, Action Standard for a queue | Hub and Dashboard compete. Main Log does three jobs: escalation queue, dated census, cadence history. | KEEP Dashboard. MERGE Hub into it. SPLIT Main Log: open escalations stay, history goes to the Build Log or git. |
+| Folder MOCs: Dossiers MOC, Programs MOC, Contacts MOC | 3 | Map a folder, and count it | MOC Standard (`type: index`, prose Purpose and Map), Folder MOC Template, no Workflow | All three are Dataview queries typed `evergreen`. Dossiers MOC mixes a map with a capacity query and is a fixed path the writer links. Programs MOC and Contacts MOC have Dataview as their only reader. | KEEP Dossiers MOC as a real MOC and move its capacity view to the Dashboard. Programs MOC and Contacts MOC: decide in the interview. |
+| Entry and navigation: README, Links & Interlinks | 2 | Map the folders, list links | MOC Standard, Reference Standard with `reference_kind: link-hub` | README is a map plus a changelog (two jobs). | KEEP both, rewritten to those Standards. Drop the changelog. |
+| Outreach reference: Mimic, Outreach Discovery & Automation Status, Networking Strategies | 3 | Message bank, tool status, nothing | Reference Standard with `reference_kind: resource` | Networking Strategies is 0 bytes. The status note mixes a tool choice with a dated status snapshot. | KEEP Mimic. Status note: keep the tool choice, drop the snapshot. Networking Strategies: ask. |
+| Cheats: LinkedIn Premium, Resume Tailoring cheat | 2 | Tactics and search operators | Reference Standard with `reference_kind: research` | Both overlap each other and Mimic. Registry row `cheat` points at the wrong folder. | KEEP as reference once the registry row is cut. Split each by topic. |
+| Generated log: Run Log | 1 | Weekly roll-up of the bot's runs | Generated Output Standard (`type: generated`, `gen_kind: report`, no `status`) | The code (`core/run_log.py`) writes its own frontmatter and header without `type: generated`. No reader. | KEEP as generated. Code follow-up. |
+| Deadline Tracker | 1 | Group posting and personal deadlines | Dashboard Standard | Two jobs: a current sweep and August history. No frontmatter. | HELD with Deadline and Intake Triage Standard |
+| Seed stubs: 5 under Resumes, 5 under Cover Letters | 10 | Nothing | None. They match no family. | Zero inbound links, zero tool references. | CUT. Ledger marks this as an ask. |
+Notes that do two or more jobs: Programs-to-Create, Main Log, Dossiers MOC, README, Internships Hub, Deadline Tracker, Outreach Discovery & Automation Status, LinkedIn Premium. Families whose only reader is Dataview: Programs MOC, Contacts MOC, Application Tracker, `Now`.
+### Phase 1b: the loop's System kit
+Read: System Component Standard in full; the seven existing `spec` records (Jarvis Memory and Vault Lint in full, Sync Workflow's Trigger section, and the headings, `trigger` and `owner` lines of Claude Workflow, Cursor Workflow, Excalidraw MCP and Jarvis Ops CLI; I did not read the others in full); and in the loop repo through WSL the five workflows, `run_pipeline.py`, `recheck.py`, `screen_report.py`, `core/git_ops.py`, `core/run_log.py`, `vault_writer/`, `docs/PIPELINE_CONTRACT.md`, `CLAUDE.md` and the agent files. The repo is public. Its default branch is `master` and its code is changing today under Weekend Build, so every record must be verified against merged code when written.
+
+| Component | Runs | Writes to | Built | Record |
+|---|---|---|---|---|
+| Hourly run: `run.yml`, `run_pipeline.py`, plus manual `reseed.yml` | Cron `0 * * * *` UTC, dispatch; reseed by dispatch with a typed confirmation | Dossiers into the Jarvis repo; `state/*.json` and `logs/runs.jsonl` into the loop repo; issues `dossier-ready`; `gh workflow disable run` at the hard pause | Yes | A: Internship Loop Run |
+| Dossier writer and write gate: `vault_writer/` | Inside the run | The dossier frontmatter and body | Yes | A |
+| Limits and the pause: quota 2/1/1/2, bucket 50, thresholds, hard pause 300, `MAX_DEBATE_LOSSES` 48 | Inside the run | Issues, the pause | Yes, today at 300 and not 200 | A |
+| Seen-mark and state: `commit_and_push_with_retry` | Inside the run | Pushes to `master` with one retry; nothing is marked seen if the push fails | Yes | A |
+| Run Log and the two Excluded logs: `core/run_log.py` | Inside the run | `List/Run Log`, `List/Excluded - Losing The Debate`, `List/Excluded - Failed The Write Gate` | Yes, with a file name mismatch | A |
+| Daily recheck: `recheck.yml` | Cron `30 6 * * *` UTC | Moves closed postings to `Viewed/`; `logs/rechecks.jsonl`; issue on a mass-deletion brake or push failure | Yes | B: Internship Loop Upkeep |
+| Weekly revalidate: `revalidate.yml` | Cron `0 8 * * 1` UTC | One digest issue, no vault write | Yes | B |
+| Promotion agents and skills: `/promote-dossier`, `/promote-manual-find`, `promotion`, `program-writer`, `tracking`, `contact-researcher`, `applying` | Human started, consent gated | Program, Contact, Tracker and Applying notes into the vault | Yes, `applying` blocked | C: Internship Promotion Agents |
+| Apply Queue, `mark_applied`, follow-up note, `Archived/` mover, resume variants, letter bank, document gates, `companies.yml` | Planned | Generated notes, dossier moves, Tracker, `Now` row, packet archive | No | D: Internship Apply Lane, status `seed` |
+| `test.yml` | Push and pull request | Nothing in either vault | Yes | None: writes to neither the vault nor a public repo |
+| `screen_report.py` | Manual CLI, read-only | Stdout | Yes | None until it is extended into the Apply Queue |
+| `jarvis-internship-note-guard.ps1` hook | PostToolUse in the vault | `claude-workflow/logs/internship-note-guard.jsonl`, 1 line since 2026-10-04 | Yes | Already inside the Claude Workflow record. See Corrections. |
+| Weekly and monthly review schedule | Claimed cron in Internship Review System | Review notes and the Main Log | Unknown. No scheduled task found in the repo or the vault scripts I read. | Ask in the interview |
+Decision offered to Anant, with the cost of each. One record per component would give about ten files that repeat the same checkout, token and state paragraphs and drift apart. One record for the loop would be a single file to open, but `status` is per file, so planned work cannot be marked `seed` inside a built record, which the brief forbids. Recommended: four records in one folder `30_Order/System/internship-loop/`, grouped by failure domain, A to D above. Cost: four files to keep current instead of one.
+System needs one Workflow. Real failure behind it: the same field list now lives in six places (the vault Specs, the vault Templates, the PowerShell guard, the loop repo `CLAUDE.md`, the promote-dossier skill reference, the four note-writing agents) and they already disagree. Proposed name `Loop Contract Change`, 350 words or fewer: change the Spec first, then the Template, the guard list, the loop contract and the agents, then run `--kit`. The registry row for system-component would name it.
+System Component Standard fit for a component that runs on GitHub Actions. System drift, one line each, none applied yet:
+- Trigger: say the runner (GitHub-hosted) and that cron times are UTC, not "on which machine".
+- State: the loop tracks `state/` and `logs/` in its own repo on purpose, committed by the workflow, so the rule "name the ignore rule" needs an alternative for state tracked by design.
+- Failure Behavior: name every secret by name and how its expiry is checked. `JARVIS_PUSH_TOKEN` was created 2026-07-17 and the last scheduled runs were in September.
+- Allowed folders: one folder may hold several related records.
+- Registry row for system-component has Workflow `none`, which changes with the new Workflow.
+### Phase 1b: target kit after the interview
+| Group | Files | Target size |
+|---|---|---|
+| Standards, 8 | Internship Notes (dossier plus career-fair capture Specs), Tracker, Applying, Program, Contact, Application Documents (resume and cover-letter Specs, replaces Resume and Cover Letter Alteration), Loop Review (weekly and monthly Specs), Interview Prep | 650 to 1,150 words each, no entry over 180 |
+| Templates, 8 | Applying, Contact, Cover Letter, Program, Loop Weekly Review, Loop Monthly Review, Tracker, Interview Prep | The Spec keys and headings, one comment line each |
+| Workflows, 5 | Internship Pipeline, Application Document Preparation, Career Fair Intake, Internship Review System, and new Loop Contract Change in System | 350 words or fewer, each ending in `Done when` |
+| System records, 4 | Internship Loop Run, Internship Loop Upkeep, Internship Promotion Agents, Internship Apply Lane (`seed`) in `30_Order/System/internship-loop/` | About 700 to 1,000 words each, seven headings, D about 500 |
+| Instruction-note families, 30 notes | No new Standard. They follow MOC, Dashboard, Reference, Generated Output and Logs Standards per the family table. | Codex rewrites them against the kit |
+| Gone | Career Fair Standard and Cover Letter Alteration Standard (merged), Deadline and Intake Triage Standard, Cheat, Job & Company, LinkedIn Post and Postings Log Templates, Internship Tracking Workflow (merged), Design Rationale, the redirect stub, Promotion (moved out) | |
+### Phase 1b: Content Needed
+Unknowns are closed by an Operator decision, or named as still open for Checkpoint 2.
+
+| File | Must state | Source | Status |
+|---|---|---|---|
+| Internship Notes Standard | Eight folders and the move into each; the target frontmatter with `tier`, `starred`, `resume_variant`, `letter_mode`, `date_applied`, `review_state`; one deadline field; `company` is the host employer; link dossiers by file name; `Archived/` moves set `removed_date` and `removed_reason`; `_Career Fair/` rules; ready to apply | `writer.py`, Weekend Build, Dossier Corrections, decisions Q2, Q4, Q8, Q10, Q18, Q19 | Closed |
+| Internship Tracker Standard | Created at apply time in `Applied/`; `program` and `contact` optional; follow-up lines at 7 and 14 days in the Timeline; result values; private and git-ignored | Q1, Q9, Q10, Q19 | Closed. Open: whether the Tracker copies `tier`, `starred`, `resume_variant`, `letter_mode` so `Now` needs no join. |
+| Applying Standard | Tier 1 and tier 2 only; its fields; read by `Now` | Q11 | Closed. Open: the `Now` columns. |
+| Program Standard | Tier 1 and tier 2, created beforehand by the promotion agent; the 14 keys that stay | Q13, fill rates | Closed. The key cut is my proposal. |
+| Contact Standard | One per internship, tier 1 and tier 2; Anant writes outreach from Mimic; `contact-researcher` finds sourced names and links | Q13 | Closed |
+| Application Documents Standard | Variant from the role folder with override; letter by tier; approval before anything is sent, tier 3 included; packet contents; private | Q11, Q12 | Closed. Open: packet folder name and how approval is recorded. |
+| Internship Loop Review Standard | Weekly three numbers, Monthly four decisions, run by hand | Q15, Q16 | Closed |
+| Interview Prep Standard | Prep note when an interview is booked; agent drafts JD analysis and questions, Anant writes pitch and answers | Q17 | Closed |
+| Templates (8) | The Spec keys and headings | The Standards above | Closed once the Standards are final |
+| Internship Pipeline | Tier 3 fast lane; tier 1 and tier 2 apply lane with Program and Contact created beforehand; steps 1 to 9; `Done when` | Q1, Q11, Q13 | Closed |
+| Application Document Preparation | The eight steps, with approval for every tier and the archive step | Q11, Weekend Build | Closed |
+| Career Fair Intake | The manual lane; transcripts private | Existing Workflow, Q19 | Closed |
+| Internship Review System | By hand, Friday and the 1st, no schedule claimed | Q16 | Closed |
+| Loop Contract Change (new) | Change the Spec, Template, guard list, loop contract and agents in order, then run `--kit` | This plan | Draft known |
+| System records A and B | Seven headings from the workflows and code; failures and the banner | Repo, Q14, Q18 | Closed except: how the token expiry is checked, and the banner mechanism (see Contracts) |
+| System record C | Which agents write which notes, consent gates, tier 2 batch creation | Repo `CLAUDE.md`, Q13 | Closed. Batch creation is not a capability the agents have today. |
+| System record D (seed) | The planned parts and that none is built | Weekend Build, Q6 to Q19 | Closed as plan |
+| Instruction-note families | Which general Standard each follows | Family table, Q6, Q13 | Closed. The content of each note is Codex's and Anant's. |
 ## Non-Goals
 - No edit to any instance note, the code repo, `.claude`, `.codex`, `.cursor`, `.agents`, `.obsidian`, `50_Archive` or the vault root.
 - No new note type, no instance clean-up, no redesign of the binding decisions.
 - No change to the Frontmatter Standard vocabulary. The proposed mapping fits the existing tables.
 ## Decisions
 Binding decisions from Weekend Build are encoded as written: `tier` replaces `preference_tier`; the dossier states are the four role folders, `Viewed/`, `_Career Fair/`, `Applied/`, `Archived/`, with the last two excluded from counts; tier 2 and 3 need no Program or Contact; `resume_variant` and `letter_mode` classify each application; the eight step sequence and the evidence rule stay; applying produces `date_applied`, a Tracker note, a `Now.md` row and an archive copy with follow-ups at 7 and 14 days.
-Proposed, not yet approved: dossier `status` is `seed` for a new find, `tree` once promoted, `archived` for `Applied/`, `Archived/` and `Viewed/`, with `review_state` for human review. `Archived/` sits under `List/Dossiers/`, which Weekend Build still lists as an open question.
+### Operator decisions
+- 2026-11-21, Q1 fast lane records: yes. Tier 3 skips the Applying note. The Tracker is created at apply time straight into `Applied/`, with `program` and `contact` optional. `Now` reads those Trackers plus tier 1 Applying notes. The Commit-time Tracker rule in Pipeline and in the Tracker Standard changes. I read the wording as tier 1 and tier 2 both get an Applying note, and confirm it in the Documents batch.
+- 2026-11-21, Q2 dossier vocabulary: `status` is `seed`, `tree` or `archived`, with `archived` for `Applied/`, `Archived/` and `Viewed/`, plus `review_state` and `tier`. The code repo is told later to write `type`, `input_kind` and `status: seed`. The 354 old dossiers stay at 0% until a scripted fix is approved separately. `unreviewed` and `removed` are not added to Frontmatter Standard.
+- 2026-11-21, Q3 verdict tables approved as written. Interview Prep Standard and Deadline and Intake Triage Standard stay cut candidates until the interview shows what an interview and the daily deadline check need.
+- 2026-11-21, Q4 `company` holds the host employer. The intermediary is named in the body.
+- 2026-11-21, Q5 keep Weekly and Monthly reviews, thin, with limits read from Source of Truth.
+- 2026-11-21, drift items approved: the registry qualifier after a kit state, the 350-word Workflow limit, and 16 internship rows.
+- Assumption, not approved: `Archived/` sits under `List/Dossiers/`, as Weekend Build proposes and still lists as an open question.
+- 2026-11-21, apply loop (Q6): the first screens are the Apply Queue note and the Internship Dashboard. The dashboard shows today's tasks, what shipped yesterday and this week, the streak and the monthly goals (read from the daily note and the weekly Goals note, not from loop files), the next action and open tasks of each starred internship, and a pending-actions list.
+- 2026-11-21, apply loop (Q7): the Apply Queue row is dossier link, company, tier, role folder, deadline, `resume_variant`, `letter_mode`, estimated minutes (25, 12, 5 by tier), ordered by tier, soonest deadline, newest posting, then resume overlap; top 3, 10 and 30 per tier on Sunday, about 10 a day after.
+- 2026-11-21, apply loop (Q8): a dossier is ready to apply when its posting text was captured, its deadline has not lapsed, it was not rejected at Screen for PhD, clearance or citizenship, `resume_variant` and `letter_mode` are set, and for tier 1 a Program note exists.
+- 2026-11-21, apply loop (Q9): at apply the dossier gets `date_applied` and moves to `Applied/`, a Tracker is created in `Applied/` linking the dossier, a row appears in `Now`, the exact resume, letter and posting are archived, and follow-up dates at 7 and 14 days are set. Anant calls this the minimum.
+- 2026-11-21, apply loop (Q10): an internship is starred by a `starred` field Anant sets on the dossier, copied to the Tracker at apply time. The pending list is a follow-up due at 7 or 14 days, a letter awaiting approval, a deadline within 3 days, an interview booked. Anant writes follow-ups from Mimic and logs each as a dated line in the Tracker Timeline.
+- 2026-11-21, documents (Q11): tier 1 and tier 2 both get an Applying note. The resume variant is set by the loop from the role folder (1 - AI & ML is `ai`, 2 - Fullstack is `fullstack`, 3 - CyS & Finance is `systems`, Other takes the closest) and Anant can override it on the Apply Queue row. Tier 1 gets a tailored letter, tier 2 a bank letter plus one company hook, tier 3 no letter. Anant approves everything before it is sent, tier 3 resumes included.
+- 2026-11-21, documents (Q12): the archived packet is private. Packets and `Cover Letters/` are git-ignored. Which other folders are public was settled by the public view decision below.
+- 2026-11-21, programs and contacts (Q13): tier 1 and tier 2 both get a Program and a Contact note; only tier 3 skips them. This overrides the fast lane of Weekend Build for tier 2. Tier 2 Program and Contact notes are created beforehand, in batches by the promotion agent, so apply day only prepares documents and submits. A Contact note is one per internship, as today. Anant writes outreach from Mimic; `contact-researcher` finds sourced names and LinkedIn people-search links. Programs MOC and Contacts MOC stay as prose MOCs under MOC Standard, and the empty Networking Strategies note is cut.
+- 2026-11-21, loop health (Q14): failures reach Anant as a GitHub issue plus a banner on the Internship Dashboard showing the last successful run time and turning to a warning when stale. The failures in scope: no successful hourly run in 3 hours, the hard pause, a failed push such as an expired `JARVIS_PUSH_TOKEN`, a write-gate rejection storm, the recheck mass-deletion brake, a source returning zero matches.
+- 2026-11-21, loop health (Q15): the weekly review shows three numbers: new dossiers written this week by tier against quota; applications submitted this week and follow-ups overdue; days since the last successful hourly run with failed runs counted. The monthly review decides whether any company moves tier in `companies.yml`, whether quota or limits change, which sources to add or drop, and whether the loop keeps running.
+- 2026-11-21, loop health (Q16): no review is on a schedule. Anant runs them by hand.
+- 2026-11-21, interviews (Q17): when an interview is booked, a prep note exists in `Preperation/Interviews/` linked from the Applying note, with the format, JD analysis mapped to Anant's projects, a pitch, talking points, questions to ask and an After the Interview debrief within a day, and the Tracker's Interview Steps section is updated. An agent drafts the JD analysis and the questions; Anant writes the pitch and the answers. Interview Prep Standard and Template stay.
+- 2026-11-21, deadlines (Q18): no daily deadline check. The deadline map is a weekly note generated by the loop with no LLM, listing every recorded deadline per application in buckets. A lapsed dossier moves to `Archived/` every day automatically, with `removed_date` and `removed_reason: deadline lapsed`.
+- 2026-11-21, public view (Q19): dossiers and docs are public. Programs, Trackers, Applying, Contacts, Cover Letters, packets, interview prep and career fair transcripts are private and git-ignored. Dossiers keep `tier`, `starred`, `resume_variant` and `letter_mode` and stay public, and only `Applied/` is ignored. The view-only page shows company, title, locations, terms, deadline, posting link and matched reason, and no tier, starred or application status.
 ## Sequence
 1. Re-read each file just before editing it and compare its modified time with this audit. Stop and report if it changed. Done when no edit ran on a stale read.
 2. Registry definition line: allow a parenthetical qualifier after a kit state, since rows already use three. No Frontmatter Standard change. Done when `--kit` still reports 0 errors.
 3. Rewrite Internship Notes Standard with the Career Fair Spec merged in. Done when `--path 30_Order/Standards/Internship/` fits and `--specs` matches the blocks written.
-4. Rewrite Tracker, Applying, Program, Contact one at a time, each followed by the same two lint runs.
+4. Rewrite Tracker, Applying, Program, Contact and Interview Prep one at a time, each followed by the same two lint runs.
 5. Create Application Documents Standard from the Resume and Cover Letter Standards, then Loop Review Standard thinner.
 6. Rebuild the seven kept Templates from their Specs, one comment line per heading.
 7. Rebuild Pipeline (fast lane and apply lane), Application Document Preparation, Career Fair Intake and Review System at 350 words or fewer, each ending in `Done when`. Move Promotion.
 8. For each approved cut, search the vault except `50_Archive` for its name, repair every link, list every `.claude`, `.codex`, `.cursor` and `.agents` reference as a follow-up, then delete. A first search found no such reference to any cut file.
 9. Update registry rows, keeping `built (unexercised)` and `built (no instance yet)` until an instance exists.
 10. Run `--kit`, `--specs`, `--path 30_Order/` and `--path "20_Progress/Internship/Building System/"`, then read two real notes per kept family against the new Standard.
-11. Update Current State with the dated outcome and append one entry at the end of System - Build Log.
-Target after Phase 2: 7 Standards, 4 Workflows, 7 Templates, 74 Specs from 55 Standards.
+11. After the loop repo's Weekend Build code has merged, write the four System records A to D and the Loop Contract Change Workflow. Verify each record once against real output (`gh run list` and `git log` on both repos) and write the date in it. Done when each record has all seven headings and a Verify that ran.
+12. Apply the instruction-note family verdicts only as Standards, Templates, Workflows and registry rows. No instruction note is edited by this session; the Codex session rewrites them against the kit. Update the registry rows for the System records and the new Workflow.
+13. Update Current State with the dated outcome and append one entry at the end of System - Build Log.
+Target after Phase 2: 8 Standards (Notes, Tracker, Applying, Program, Contact, Application Documents, Loop Review, Interview Prep), 4 Workflows in `Internship/` plus Loop Contract Change in System, 8 Templates, 4 System records, no new instruction-note Standard. `--specs` is expected to read 75 Specs from 56 Standards. After the Codex pass I re-read its rewritten notes and correct the kit where they disagree.
+## Contracts
+What the code or a skill must write, in exact names. State is where the contract stands today.
+### Dossier frontmatter written by the loop
+| Key | Value | Written by | State |
+|---|---|---|---|
+| type, input_kind | `input`, `job-dossier` | Loop writer | Not written today. Code prompt needed. |
+| company | The host employer as the posting names it | Loop writer | Written. The Montenson and Acds cases show the rule is not applied. |
+| title, url, source, terms, locations, target_year, date_posted, date_found | As today | Loop writer | Written |
+| deadline_posted or own_deadline | Exactly one; `own_deadline` is `date_found` plus 7 days | Loop writer | Written and gated in `validate.py` |
+| matched_reason | One sentence naming the signal, never the bare word `matched` | Loop writer | Six of nine sources write the bare word |
+| status, review_state | `seed`, `unreviewed` | Loop writer | Writes `unreviewed` as `status` today |
+| tier | 1, 2 or 3 from `companies.yml`, replaces `preference_tier` | Loop writer | Planned, Weekend Build step 4 |
+| resume_variant, letter_mode | `ai`, `fullstack`, `systems`, `other`; `tailored`, `bank`, `none` | Loop writer | Planned, Weekend Build step 10 |
+| starred | `true` or blank, set by Anant | Anant | New |
+| next, notes, tags | Blank; the Dossiers MOC link; `internship`, `auto-discovered`, `company/<slug>` | Loop writer | Written |
+| date_applied | Set when the application is submitted; the dossier moves to `Applied/` | `mark_applied` | Planned |
+| screened_date, screened_decision, screened_reason | `pass` or `reject` with the signal | A person or skill at Screen | Zero dossiers carry them |
+| removed_date, removed_reason, status `archived` | Set on a move to `Viewed/` (closed posting) or `Archived/` (`removed_reason: deadline lapsed`) | Recheck, daily | Writes `status: removed` today; the `Archived/` mover is planned |
+### Folders and fixed paths
+- Dossier folders under `10_Areas/Career/Internships/List/Dossiers/`: `1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, `Other`, `Viewed`, `_Career Fair`, `Applied`, `Archived`. The hard pause total counts the four role folders and `_Career Fair`; `Viewed`, `Applied` and `Archived` are excluded; a bucket's 50 counts that role folder only. The code counts the four role folders only today.
+- Fixed links the writer emits: `10_Areas/Career/Internships/List/Dossiers MOC` and `10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC`. Renaming either breaks every dossier.
+- Log files under `List/`: the code writes `Run Log` and two Excluded logs. The Excluded log it names with an em dash does not match the hyphen file in the vault, so the next write may create a second file. Code or vault file name must change.
+- Tracker created by `mark_applied`: `10_Areas/Career/Internships/Tracker/Each One/Applied/<dossier file name>.md`, `status: active`, `date_applied` set, `related_notes` linking the dossier, `program` and `contact` blank unless the tier 1 or tier 2 notes exist. The file name rule is a draft.
+- Packet archive, draft path `20_Progress/Internship/Sent/<dossier file name>/` holding the resume and letter DOCX and the posting text. Private. The folder name is open.
+### Generated notes
+- Apply Queue: `type: generated`, `gen_kind: report`, `generator`. Row: dossier link, company, tier, role folder, deadline, `resume_variant`, `letter_mode`, estimated minutes. Ordered by tier, soonest deadline, newest posting, resume overlap. Top 3, 10 and 30 per tier on Sunday, about 10 a day after.
+- Follow-up note: lists Trackers whose `date_applied` plus 7 or plus 14 days has arrived with no follow-up line in the Timeline. Zero LLM. Anant writes the follow-up and logs a dated Timeline line.
+- Weekly deadline map, regenerated each Monday by the loop with no LLM, at `10_Areas/Career/Internships/Tracker/Deadline Tracker.md`: buckets Already Over, Soon, Next Week, Next Month, Later, from live dossiers, Program `deadline_posted` and `deadline_real`, and Tracker `deadline`. `type: generated`, `gen_kind: report`.
+- Loop status: a generated note with `last_run`, `last_success`, `paused` and `dossier_total`, read by the Internship Dashboard banner. Writing it every run costs one commit per run in the public vault repo. Writing it only on change cannot show a stale run. Open for Checkpoint 2.
+- `Now` rows: read Tracker `Applied/` plus tier 1 and tier 2 Applying notes. Columns are open.
+### Git and privacy follow-up, not done by this session
+- Git-ignore, in the vault repo: `20_Progress/Internship/Cover Letters/`, `20_Progress/Internship/Sent/`, `20_Progress/Internship/Applying/`, `20_Progress/Internship/Preperation/`, `20_Progress/Internship/Career Fair/`, `10_Areas/Career/Internships/Programs/`, `10_Areas/Career/Internships/Tracker/Each One/` and `10_Areas/Career/Internships/List/Dossiers/Applied/`. `Resumes/` and `Contacts/` are already ignored. Files already tracked need `git rm --cached`, and the public history already holds them.
+- The loop builds its cross-source duplicate keys from the dossiers in its checkout of the public repo. Ignoring `Applied/` removes applied dossiers from that view, so an applied role could be written again under another source.
+- The PostToolUse guard `jarvis-internship-note-guard.ps1` must read its required keys from the Specs and not from its own copy.
+- Issues the loop files: label `dossier-ready` and title `<N> new dossier(s) ready for /promote-dossier` are confirmed in `run.yml`. The other issue titles are in `run_pipeline.py` and `recheck.py` and are not listed here yet.
 ## Open Questions
-- [ ] Fast lane records: tier 2 and 3 get no Applying note, the Tracker is created at apply time straight into `Applied/` with `program` and `contact` optional, and `Now.md` reads those Trackers plus tier 1 Applying notes. This changes the Commit-time Tracker rule and `Now.md`. Recommended: yes.
-- [ ] Dossier vocabulary: accept the proposed `status` mapping and `tier`, and accept that the code repo must write `type`, `input_kind`, `status: seed` and `review_state` or new dossiers fail lint. The 354 old ones stay at 0% until a scripted fix is approved. The alternative is adding `unreviewed` and `removed` to the Frontmatter Standard. Recommended: the mapping.
-- [ ] Verdict tables: approve as written or name the rows to flip. The two I am least sure of are Interview Prep (CUT, but interviews will follow Sunday's applications) and Deadline Tracker (CUT the Standard, since the sweep stopped on 2026-10-04 and the Apply Queue replaces it).
-- [ ] Should `company` hold the host employer or the placement intermediary (Acds, Apprenticely)? Recommended: the host employer, with the intermediary named in the body.
-- [ ] Loop reviews: keep both Weekly and Monthly thin, or keep only Weekly? No review exists after 2026-09 and the cron failed on 2026-09-12. Recommended: keep both thin and read limits from Source of Truth.
+- [x] Fast lane records. Answered 2026-11-21: yes, tier 3 skips the Applying note.
+- [x] Dossier vocabulary. Answered 2026-11-21: accept the mapping.
+- [x] Verdict tables. Answered 2026-11-21: approved, with Interview Prep and Deadline and Intake Triage held.
+- [x] `company` for intermediaries. Answered 2026-11-21: the host employer.
+- [x] Loop reviews. Answered 2026-11-21: keep both, thin.
+- [x] Interview area 1, the daily apply loop. Answered 2026-11-21, decisions Q6 to Q10.
+- [x] Interview area 2, documents. Answered 2026-11-21, decisions Q11 and Q12.
+- [x] Interview area 3, programs, contacts and networking. Answered 2026-11-21, decision Q13.
+- [x] Interview area 4, loop health and reviews. Answered 2026-11-21, decisions Q14 to Q16.
+- [x] Interview area 5, interviews and the deadline check. Answered 2026-11-21, decisions Q17 and Q18.
+- [x] Interview area 6, the public view. Answered 2026-11-21, decision Q19.
+- [ ] Checkpoint 2: tier 2 now gets Program, Contact, Applying and Tracker notes and Anant approves every document, tier 3 included. Weekend Build's 12 and 5 minute estimates assumed neither. Re-estimate Sunday.
+- [ ] Checkpoint 2: ignoring `Applied/` hides applied dossiers from the loop's duplicate check. Accept the gap, or let the loop read applied dossiers from a private list instead.
+- [ ] Checkpoint 2: the loop status note needs a commit per run, or the dashboard banner cannot detect a stale run. Pick one.
+- [ ] Checkpoint 2: packet folder name, how approval is recorded, the `Now` columns, and whether the Tracker copies `tier`, `starred`, `resume_variant` and `letter_mode`.
+## Corrections
+- 2026-11-21: Phase 1 treated lint and the Workflows as the only consumers of the kit Standards. Wrong. The PostToolUse hook `jarvis-internship-note-guard.ps1` hardcodes the required keys for dossier, Program, Contact, Tracker and Applying notes, and the loop repo's `CLAUDE.md`, the promote-dossier skill reference and the agents `program-writer`, `tracking`, `promotion` and `applying` hold more copies of the same lists. Found by reading the hook and the repo in Phase 1b. Effect: Program, Contact, Tracker and Applying now have named writers, so KEEP rests on firmer ground, but a field change touches six places and the copies already disagree (the guard asks for `deadline_real`, filled on 0 of 31 Programs, and has no `stage`).
+- 2026-11-21: Phase 1 said a first search found no tooling reference to any cut file. That search covered the vault's `.claude`, `.codex`, `.cursor` and `.agents`. The loop repo's own agents do cite the files: `tracking` cites Internship Tracking Workflow and Internship Tracker Standard, `applying` cites Application Document Preparation, and `CLAUDE.md` cites the Tracker and Applying Standards. These are follow-ups for the loop repo when Internship Tracking Workflow is merged and cut.
 ## Evidence
 - Lint 2026-11-21: `--specs` 77 Specs from 59 Standards; `--kit` 0 errors, 8 warnings; family runs for the 13 internship families; folder runs for Standards, Workflows, Dossiers, Tracker, Contacts, Programs, `20_Progress/Internship/`, the reviews folder and the Graphify folder.
 - Code, read through WSL on 2026-11-21: `vault_writer/writer.py` lines 73 to 125 and 230 to 295, `vault_writer/validate.py`, `vault_writer/templates/dossier.md.j2`, `run_pipeline.py` `count_dossiers_by_bucket` at line 243.
+- Phase 1b reads 2026-11-21: Codex ledger `Instruction Notes Rewrite Plan` (updated 02:56), System Component Standard and the System records, loop repo `.github/workflows` (all five), `docs/PIPELINE_CONTRACT.md`, `CLAUDE.md`, agent headers, `core/git_ops.py`, `core/run_log.py`, `screen_report.py`, `recheck.py`, `run_pipeline.py` constants and `run_once` head, `jarvis-internship-note-guard.ps1`, the root `.gitignore`, `git ls-files` counts for internship paths.
 - Vault surveys 2026-11-21: dossier frontmatter keys and values (357 files with frontmatter), deadline dates per folder, Program, Contact and Tracker fill rates, Dossier Corrections items re-checked against the live files.
 ## Related Notes
 - [[Weekend Build]] owns the binding decisions and [[Source of Truth]] owns the limits and gates.

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "code"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # test_debate_compare_skips_bucket_fill_need_for_same_bucket_pair()
@@ -17,4 +17,4 @@ tags:
 - [[debate_compare()]] - `calls` [EXTRACTED]
 - [[test_debate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/code #graphify/EXTRACTED #community/classify

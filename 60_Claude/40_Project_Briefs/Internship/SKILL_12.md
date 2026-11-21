@@ -1,17 +1,18 @@
 ---
-source_file: ".cursor/skills/review-loop-change/SKILL.md"
+source_file: ".codex/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "What to check"
+community: "Worked example — one full `/promote-dossier` run"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community/Worked_example__one_full_/promote-dossier_run
 ---
 
 # SKILL.md
 
 ## Connections
-- [[review-loop-change_1]] - `contains` [EXTRACTED]
+- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[worked-example_1]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community/Worked_example__one_full_/promote-dossier_run

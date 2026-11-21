@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/agents/loop-verifier.md"
+source_file: ".claude/agents/cover-letter-builder.md"
 type: "document"
-community: "Checks to run, in this order"
-location: "L39"
+community: "Steps"
+location: "L75"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Checks_to_run_in_this_order
+  - community/Steps
 ---
 
 # Output format
 
 ## Connections
-- [[loop-verifier]] - `contains` [EXTRACTED]
+- [[cover-letter-builder]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order
+#graphify/document #graphify/EXTRACTED #community/Steps

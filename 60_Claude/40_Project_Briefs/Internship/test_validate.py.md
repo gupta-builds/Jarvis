@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "render_dossier"
+community: "test_validate.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/render_dossier
+  - community/test_validatepy
 ---
 
 # test_validate.py
@@ -15,7 +15,7 @@ tags:
 - [[_ok_response()]] - `contains` [EXTRACTED]
 - [[check_format_compliance()]] - `imports` [EXTRACTED]
 - [[check_not_duplicate()]] - `imports` [EXTRACTED]
-- [[check_required_fields()_1]] - `imports` [EXTRACTED]
+- [[check_required_fields()_2]] - `imports` [EXTRACTED]
 - [[check_url_live()]] - `imports` [EXTRACTED]
 - [[listing()]] - `contains` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
@@ -49,4 +49,4 @@ tags:
 - [[validate.py]] - `imports_from` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/render_dossier
+#graphify/code #graphify/EXTRACTED #community/test_validatepy

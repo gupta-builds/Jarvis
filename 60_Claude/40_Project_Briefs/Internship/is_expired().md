@@ -1,12 +1,12 @@
 ---
 source_file: "core/company_cache.py"
 type: "code"
-community: "stage1_reject"
+community: "test_company_cache.py"
 location: "L44"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_company_cachepy
 ---
 
 # is_expired()
@@ -22,4 +22,4 @@ tags:
 - [[test_is_expired_true_for_unparseable_date()]] - `calls` [EXTRACTED]
 - [[test_is_expired_true_one_day_past_ttl_boundary()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

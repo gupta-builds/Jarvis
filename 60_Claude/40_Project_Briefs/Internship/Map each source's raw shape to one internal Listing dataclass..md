@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "rationale"
-community: "write_dossier"
+community: "normalize.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/normalizepy
 ---
 
 # Map each source's raw shape to one internal Listing dataclass.
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[normalize.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/write_dossier
+#graphify/rationale #graphify/EXTRACTED #community/normalizepy

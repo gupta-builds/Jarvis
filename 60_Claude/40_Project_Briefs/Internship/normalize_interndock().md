@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/interndock.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L127"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # normalize_interndock()
@@ -17,4 +17,4 @@ tags:
 - [[interndock.py]] - `contains` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/rules/hooks.md"
 type: "document"
-community: "check_all"
+community: "hooks.md"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_all
+  - community/hooksmd
 ---
 
 # hooks.md
@@ -16,4 +16,4 @@ tags:
 - [[jarvis_1]] - `references` [EXTRACTED]
 - [[mcp-permissions]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_all
+#graphify/document #graphify/EXTRACTED #community/hooksmd

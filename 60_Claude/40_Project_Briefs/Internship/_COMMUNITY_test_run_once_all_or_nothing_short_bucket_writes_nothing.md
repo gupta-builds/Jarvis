@@ -23,9 +23,9 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 3 edges to [[_COMMUNITY_test_writer.py]]
+- 3 edges to [[_COMMUNITY_test_run_pipeline.py]]
 - 2 edges to [[_COMMUNITY_normalize_simplify]]
-- 2 edges to [[_COMMUNITY_plan_removals]]
+- 2 edges to [[_COMMUNITY__run_once_kwargs]]
 
 ## Top bridge nodes
 - [[test_run_once_all_or_nothing_short_bucket_writes_nothing()]] - degree 5, connects to 3 communities

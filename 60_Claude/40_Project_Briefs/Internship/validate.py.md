@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "code"
-community: "_fake_http_get_only_interndock"
+community: "cross_source_key"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/_fake_http_get_only_interndock
+  - community/cross_source_key
 ---
 
 # validate.py
@@ -19,7 +19,7 @@ tags:
 - [[check_cross_source_duplicate()]] - `contains` [EXTRACTED]
 - [[check_format_compliance()]] - `contains` [EXTRACTED]
 - [[check_not_duplicate()]] - `contains` [EXTRACTED]
-- [[check_required_fields()_1]] - `contains` [EXTRACTED]
+- [[check_required_fields()_2]] - `contains` [EXTRACTED]
 - [[check_url_live()]] - `contains` [EXTRACTED]
 - [[cross_source_key()]] - `imports` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
@@ -27,4 +27,4 @@ tags:
 - [[test_validate.py]] - `imports_from` [EXTRACTED]
 - [[validate()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/_fake_http_get_only_interndock
+#graphify/code #graphify/EXTRACTED #community/cross_source_key

@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "rationale"
-community: "_fake_http_get_only_interndock"
+community: "cross_source_key"
 location: "L124"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/_fake_http_get_only_interndock
+  - community/cross_source_key
 ---
 
 # Runs all checks in the plan's order, fail-closed on the first failure.     Short
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[validate()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/_fake_http_get_only_interndock
+#graphify/rationale #graphify/EXTRACTED #community/cross_source_key

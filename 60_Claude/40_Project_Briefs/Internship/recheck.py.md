@@ -1,12 +1,12 @@
 ---
 source_file: "recheck.py"
 type: "code"
-community: "recheck.py"
+community: "normalize.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/normalizepy
 ---
 
 # recheck.py
@@ -28,7 +28,7 @@ tags:
 - [[file_github_issue()]] - `imports` [EXTRACTED]
 - [[git_ops.py]] - `imports_from` [EXTRACTED]
 - [[load_dossier_uids()]] - `imports` [EXTRACTED]
-- [[main()_5]] - `contains` [EXTRACTED]
+- [[main()_8]] - `contains` [EXTRACTED]
 - [[move_dossier_to_viewed()]] - `imports` [EXTRACTED]
 - [[plan_removals()]] - `contains` [EXTRACTED]
 - [[run_log.py]] - `imports_from` [EXTRACTED]
@@ -38,4 +38,4 @@ tags:
 - [[test_recheck.py]] - `imports_from` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/normalizepy

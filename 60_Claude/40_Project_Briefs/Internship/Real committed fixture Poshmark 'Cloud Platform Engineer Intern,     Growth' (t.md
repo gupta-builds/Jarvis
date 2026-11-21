@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "rationale"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L41"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # Real committed fixture: Poshmark 'Cloud Platform Engineer Intern,     Growth' (t
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_classify_fullstack_from_real_vanshb03_fixture()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/rationale #graphify/EXTRACTED #community/classify

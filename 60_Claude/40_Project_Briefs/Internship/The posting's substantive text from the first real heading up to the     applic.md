@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "writer.py"
+community: "extract_content"
 location: "L285"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/extract_content
 ---
 
 # The posting's substantive text: from the first real heading up to the     applic
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[extract_content()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/writerpy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

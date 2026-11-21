@@ -1,43 +1,32 @@
 ---
 type: community
-members: 30
+members: 19
 ---
 
 # stage1_reject
 
-**Members:** 30 nodes
+**Members:** 19 nodes
 
 ## Members
-- [[Layer 3 — stable dedup keys for a Listing.  Both remaining sources carry a stabl]] - rationale - core/identity.py
-- [[None on no cache file, corruptmalformed JSON, or an entry older than     `ttl_]] - rationale - core/company_cache.py
-- [[On-demand company-enrichment cache — sits alongside enrich.py (Layer 5, manual-C]] - rationale - core/company_cache.py
-- [[OptiverOPTIVER must share one file, not silently duplicate — same     normaliza]] - rationale - tests/test_company_cache.py
-- [[Path_1]] - code
-- [[Pure — no filesystem. `checked_date` is an ISO date string (as `save()`     stam]] - rationale - core/company_cache.py
-- [[Runnable self-check a real write - read - simulated-expiry cycle,     against]] - rationale - core/company_cache.py
-- [[Stamps `checked` to today and writes `company` as the given display     name (no]] - rationale - core/company_cache.py
-- [[_cache_path()]] - code - core/company_cache.py
-- [[_norm_company()]] - code - core/identity.py
-- [[company_cache.py]] - code - core/company_cache.py
-- [[corecompany_cache.py — the per-company enrichment cache alongside enrich.py. Al]] - rationale - tests/test_company_cache.py
-- [[demo()]] - code - core/company_cache.py
-- [[identity.py]] - code - core/identity.py
-- [[is_expired()]] - code - core/company_cache.py
-- [[load()]] - code - core/company_cache.py
-- [[save()]] - code - core/company_cache.py
-- [[test_company_cache.py]] - code - tests/test_company_cache.py
-- [[test_is_expired_false_exactly_at_ttl_boundary()]] - code - tests/test_company_cache.py
-- [[test_is_expired_false_for_todays_date()]] - code - tests/test_company_cache.py
-- [[test_is_expired_true_for_unparseable_date()]] - code - tests/test_company_cache.py
-- [[test_is_expired_true_one_day_past_ttl_boundary()]] - code - tests/test_company_cache.py
-- [[test_load_corrupt_json_returns_none_not_raise()]] - code - tests/test_company_cache.py
-- [[test_load_expired_entry_returns_none()]] - code - tests/test_company_cache.py
-- [[test_load_missing_file_returns_none()]] - code - tests/test_company_cache.py
-- [[test_load_non_dict_json_returns_none()]] - code - tests/test_company_cache.py
-- [[test_load_within_ttl_still_returns_data()]] - code - tests/test_company_cache.py
-- [[test_save_creates_cache_dir_if_missing()]] - code - tests/test_company_cache.py
-- [[test_save_load_round_trip_preserves_every_field()]] - code - tests/test_company_cache.py
-- [[test_save_uses_normalized_company_as_filename()]] - code - tests/test_company_cache.py
+- [[A genuine software-engineering-track rotational program that names     actual en]] - rationale - tests/test_relevance.py
+- [[Real committed fixture (testsfixturessimplifyjobs.json) — Grant     Thornton ']] - rationale - tests/test_relevance.py
+- [[Real, live Conagra Brands posting (SimplifyJobs, found 2026-07-27,     still in]] - rationale - tests/test_relevance.py
+- [[Real, live Databricks posting (AIJobs, found 2026-07-26) — genuinely     PM work]] - rationale - tests/test_relevance.py
+- [[Real, live FC Cincinnati Greenhouse posting (fccincinnati board,     2026-07-26)]] - rationale - tests/test_relevance.py
+- [[Real, live Walleye Capital Greenhouse posting (walleyecapital-external-students]] - rationale - tests/test_relevance.py
+- [[Real, live Walleye Capital Greenhouse posting — 'Risk Technology     Analyst Int]] - rationale - tests/test_relevance.py
+- [[True if this listing's titleraw_text is unambiguously non-software —     reject]] - rationale - core/relevance.py
+- [[_simplify_titled()]] - code - tests/test_relevance.py
+- [[stage1_reject()]] - code - core/relevance.py
+- [[test_stage1_does_not_reject_engineering_track_rotational_program()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_plain_software_titles()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_product_engineer_titles()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_real_risk_technology_analyst_title()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_real_tax_technology_intern()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_academy_performance_analyst_title()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_conagra_demand_science_rotational_title()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_databricks_product_management_title()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_investor_relations_title()]] - code - tests/test_relevance.py
 
 ## Live Query (requires Dataview plugin)
 
@@ -47,16 +36,17 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 4 edges to [[_COMMUNITY_test_write_dossier_creates_missing_dossiers_dir]]
-- 4 edges to [[_COMMUNITY_test_render_dossier_shows_real_rendered_frontmatter_with_preference_match]]
-- 2 edges to [[_COMMUNITY__fake_http_get_only_interndock]]
+- 11 edges to [[_COMMUNITY_test_relevance.py]]
+- 3 edges to [[_COMMUNITY_run_pipeline.py]]
+- 2 edges to [[_COMMUNITY_revalidate.py]]
+- 1 edge to [[_COMMUNITY_relevance.py]]
+- 1 edge to [[_COMMUNITY_test_posting_page.py]]
+- 1 edge to [[_COMMUNITY_extract_content]]
 - 1 edge to [[_COMMUNITY_normalize_simplify]]
-- 1 edge to [[_COMMUNITY_recheck.py]]
-- 1 edge to [[_COMMUNITY_test_debate_losses.py]]
-- 1 edge to [[_COMMUNITY_interndock.py]]
-- 1 edge to [[_COMMUNITY_test_writer.py]]
-- 1 edge to [[_COMMUNITY_writer.py_1]]
 
 ## Top bridge nodes
-- [[identity.py]] - degree 16, connects to 9 communities
-- [[_norm_company()]] - degree 6, connects to 2 communities
+- [[stage1_reject()]] - degree 19, connects to 6 communities
+- [[test_stage1_does_not_reject_real_tax_technology_intern()]] - degree 5, connects to 2 communities
+- [[test_stage1_rejects_real_academy_performance_analyst_title()]] - degree 3, connects to 1 community
+- [[test_stage1_rejects_real_investor_relations_title()]] - degree 3, connects to 1 community
+- [[test_stage1_does_not_reject_real_risk_technology_analyst_title()]] - degree 3, connects to 1 community

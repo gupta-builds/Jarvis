@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_zero_match_alert.py"
 type: "code"
-community: "build_frontmatter"
+community: "test_zero_match_alert.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_zero_match_alertpy
 ---
 
 # test_zero_match_alert.py
@@ -26,4 +26,4 @@ tags:
 - [[test_zero_match_streak_resets_on_a_real_match_and_marks_ever_matched()]] - `contains` [EXTRACTED]
 - [[test_zero_match_streak_unaffected_by_a_zero_fetch_run()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/build_frontmatter
+#graphify/code #graphify/EXTRACTED #community/test_zero_match_alertpy

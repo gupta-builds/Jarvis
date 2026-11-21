@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "test_writer.py"
+community: "test_run_pipeline.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_writerpy
+  - community/test_run_pipelinepy
 ---
 
 # test_run_pipeline.py
@@ -104,4 +104,4 @@ tags:
 - [[test_write_gate_failures.py]] - `imports_from` [EXTRACTED]
 - [[test_zero_match_alert.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_writerpy
+#graphify/code #graphify/EXTRACTED #community/test_run_pipelinepy

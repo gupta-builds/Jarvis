@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "check_freehire_schema"
+community: "check_conventions.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_freehire_schema
+  - community/check_conventionspy
 ---
 
 # Namespace
@@ -13,4 +13,4 @@ tags:
 ## Connections
 - [[get_diff()]] - `references` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_freehire_schema
+#graphify/code #graphify/EXTRACTED #community/check_conventionspy

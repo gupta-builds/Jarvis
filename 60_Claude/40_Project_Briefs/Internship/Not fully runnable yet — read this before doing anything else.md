@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/applying.md"
 type: "document"
-community: "check_interndock_sitemap"
+community: "applying.md"
 location: "L10"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_interndock_sitemap
+  - community/applyingmd
 ---
 
 # Not fully runnable yet — read this before doing anything else
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[applying]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_interndock_sitemap
+#graphify/document #graphify/EXTRACTED #community/applyingmd

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_write_gate_failures.py"
 type: "code"
-community: "plan_removals"
+community: "_run_once_kwargs"
 location: "L140"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/_run_once_kwargs
 ---
 
 # test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold()
@@ -18,4 +18,4 @@ tags:
 - [[compute_uid()]] - `calls` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/plan_removals
+#graphify/code #graphify/EXTRACTED #community/_run_once_kwargs

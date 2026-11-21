@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_write_gate_failures.py"
 type: "code"
-community: "validate.py"
+community: "test_write_gate_failures.py"
 location: "L57"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/validatepy
+  - community/test_write_gate_failurespy
 ---
 
 # test_checks_outside_write_gate_failure_checks_are_ignored()
@@ -16,4 +16,4 @@ tags:
 - [[required_fieldsformat_compliance (systemic, our own bug) and     not_duplicate]] - `rationale_for` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/validatepy
+#graphify/code #graphify/EXTRACTED #community/test_write_gate_failurespy

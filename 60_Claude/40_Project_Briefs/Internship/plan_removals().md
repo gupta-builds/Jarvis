@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[{uid, path, reason} for dossiers whose posting closed. A source that     faile]] - `rationale_for` [EXTRACTED]
-- [[main()_5]] - `calls` [EXTRACTED]
+- [[main()_8]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `contains` [EXTRACTED]
 - [[test_absent_from_feed_is_removed()]] - `calls` [EXTRACTED]
 - [[test_active_false_upstream_is_removed()]] - `calls` [EXTRACTED]

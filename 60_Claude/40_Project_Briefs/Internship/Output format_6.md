@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/skills/review-loop-change/SKILL.md"
+source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "What to check"
-location: "L49"
+community: "Generating a resume .docx"
+location: "L29"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community/Generating_a_resume_docx
 ---
 
 # Output format
 
 ## Connections
-- [[review-loop-change]] - `contains` [EXTRACTED]
+- [[Generating a resume .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

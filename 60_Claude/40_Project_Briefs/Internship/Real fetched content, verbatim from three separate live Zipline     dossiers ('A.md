@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "rationale"
-community: "writer.py"
+community: "extract_content"
 location: "L146"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/extract_content
 ---
 
 # Real fetched content, verbatim from three separate live Zipline     dossiers ('A
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_extract_content_treats_real_zipline_board_index_as_unconfirmed()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/writerpy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

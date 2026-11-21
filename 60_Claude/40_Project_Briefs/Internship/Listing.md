@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "code"
-community: "write_dossier"
+community: "matches"
 location: "L9"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/matches
 ---
 
 # Listing
@@ -51,4 +51,4 @@ tags:
 - [[test_run_pipeline.py]] - `imports` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/matches

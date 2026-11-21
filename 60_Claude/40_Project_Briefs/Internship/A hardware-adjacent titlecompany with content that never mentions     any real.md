@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "rationale"
-community: "test_write_dossier_different_uid_same_role_company_gets_collision_suffix"
+community: "test_relevance.py"
 location: "L176"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+  - community/test_relevancepy
 ---
 
 # A hardware-adjacent title/company with content that never mentions     any real
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_stage2_rejects_adjacent_field_with_no_software_signal()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+#graphify/rationale #graphify/EXTRACTED #community/test_relevancepy

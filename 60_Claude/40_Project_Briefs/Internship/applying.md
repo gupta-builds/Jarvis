@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/applying.md"
 type: "document"
-community: "check_interndock_sitemap"
+community: "applying.md"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_interndock_sitemap
+  - community/applyingmd
 ---
 
 # applying.md
@@ -19,4 +19,4 @@ tags:
 - [[The evidence rule — the one thing that overrides everything else]] - `contains` [EXTRACTED]
 - [[What you do not do]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_interndock_sitemap
+#graphify/document #graphify/EXTRACTED #community/applyingmd

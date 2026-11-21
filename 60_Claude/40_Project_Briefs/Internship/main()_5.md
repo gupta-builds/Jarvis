@@ -1,24 +1,23 @@
 ---
-source_file: "recheck.py"
+source_file: ".codex/skills/review-loop-change/scripts/check_conventions.py"
 type: "code"
-community: "commit_and_push_with_retry"
-location: "L97"
+community: "check_conventions.py"
+location: "L206"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/check_conventionspy
 ---
 
 # main()
 
 ## Connections
-- [[_commit_log()]] - `calls` [EXTRACTED]
-- [[commit_and_push_with_retry()]] - `calls` [EXTRACTED]
-- [[file_github_issue()]] - `calls` [EXTRACTED]
-- [[load_dossier_uids()]] - `calls` [EXTRACTED]
-- [[move_dossier_to_viewed()]] - `calls` [EXTRACTED]
-- [[plan_removals()]] - `calls` [EXTRACTED]
-- [[recheck.py]] - `contains` [EXTRACTED]
-- [[scan_dossiers()]] - `calls` [EXTRACTED]
+- [[check_1_zero_llm()_1]] - `calls` [EXTRACTED]
+- [[check_2_permissive_default()_1]] - `calls` [EXTRACTED]
+- [[check_3_write_gate_order()_1]] - `calls` [EXTRACTED]
+- [[check_4_cited_real_data()_1]] - `calls` [EXTRACTED]
+- [[check_conventions.py_1]] - `contains` [EXTRACTED]
+- [[get_diff()_1]] - `calls` [EXTRACTED]
+- [[parse_diff()_1]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/check_conventionspy

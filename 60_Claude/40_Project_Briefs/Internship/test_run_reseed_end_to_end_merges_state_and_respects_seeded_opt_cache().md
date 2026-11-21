@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_reseed.py"
 type: "code"
-community: "interndock.py"
+community: "normalize_simplify"
 location: "L84"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/interndockpy
+  - community/normalize_simplify
 ---
 
 # test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()
@@ -19,4 +19,4 @@ tags:
 - [[run_reseed()]] - `calls` [EXTRACTED]
 - [[test_reseed.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/interndockpy
+#graphify/code #graphify/EXTRACTED #community/normalize_simplify

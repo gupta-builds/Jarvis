@@ -1,8 +1,8 @@
 ---
-source_file: ".claude/skills/testing/SKILL.md"
+source_file: ".claude/skills/promoting-manual-find/SKILL.md"
 type: "document"
 community: "Steps"
-location: "L15"
+location: "L14"
 tags:
   - graphify/document
   - graphify/EXTRACTED
@@ -12,9 +12,10 @@ tags:
 # Steps
 
 ## Connections
-- [[testing]] - `contains` [EXTRACTED]
-- [[1. Take the input_2]] - `contains` [EXTRACTED]
-- [[2. Invoke `testing-tools`]] - `contains` [EXTRACTED]
-- [[3. Relay its report as-is]] - `contains` [EXTRACTED]
+- [[promoting-manual-find]] - `contains` [EXTRACTED]
+- [[1. Collect the lead]] - `contains` [EXTRACTED]
+- [[2. Confirm Step 2 (the fit test) already happened]] - `contains` [EXTRACTED]
+- [[3. Hand off to `promotion`]] - `contains` [EXTRACTED]
+- [[4. Report back]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Steps

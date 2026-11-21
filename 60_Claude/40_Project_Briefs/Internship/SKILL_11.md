@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/resume-alteration/SKILL.md"
+source_file: ".codex/skills/loop-health-check/SKILL.md"
 type: "document"
-community: "Steps"
+community: "Checks to run, in this order"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/Checks_to_run_in_this_order
 ---
 
 # SKILL.md
 
 ## Connections
-- [[resume-alteration]] - `contains` [EXTRACTED]
+- [[loop-health-check]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order

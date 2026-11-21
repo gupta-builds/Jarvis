@@ -16,7 +16,7 @@ tags:
 - [[Mode 2 — Maintenance (an existing Tracker note, one of four real triggers)]] - `contains` [EXTRACTED]
 - [[Prerequisite_3]] - `contains` [EXTRACTED]
 - [[The one invariant you exist to protect]] - `contains` [EXTRACTED]
-- [[What you do not do_3]] - `contains` [EXTRACTED]
+- [[What you do not do_4]] - `contains` [EXTRACTED]
 - [[What you report back_1]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/trackingmd

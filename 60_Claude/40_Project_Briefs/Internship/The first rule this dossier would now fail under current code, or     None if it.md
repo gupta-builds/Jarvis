@@ -1,12 +1,12 @@
 ---
 source_file: "revalidate.py"
 type: "rationale"
-community: "commit_and_push_with_retry"
+community: "revalidate.py"
 location: "L47"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/revalidatepy
 ---
 
 # The first rule this dossier would now fail under current code, or     None if it
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[check_dossier()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/rationale #graphify/EXTRACTED #community/revalidatepy

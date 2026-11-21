@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "test_writer.py"
+community: "test_run_pipeline.py"
 location: "L404"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_writerpy
+  - community/test_run_pipelinepy
 ---
 
 # test_build_matched_reason_vanshb03_no_sponsorship_omits_it()
@@ -16,4 +16,4 @@ tags:
 - [[normalize_vanshb03()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_writerpy
+#graphify/code #graphify/EXTRACTED #community/test_run_pipelinepy

@@ -1,14 +1,15 @@
 ---
 type: community
-members: 6
+members: 7
 ---
 
 # contact-researcher.md
 
-**Members:** 6 nodes
+**Members:** 7 nodes
 
 ## Members
 - [[Hard line (non-negotiable, inherited from enrich.py's own docstring)]] - document - .claude/agents/contact-researcher.md
+- [[Memory — company research cache (added 2026-09-08)]] - document - .claude/agents/contact-researcher.md
 - [[Output format_1]] - document - .claude/agents/contact-researcher.md
 - [[The one rule that overrides everything else]] - document - .claude/agents/contact-researcher.md
 - [[What to look for, and how to report each]] - document - .claude/agents/contact-researcher.md

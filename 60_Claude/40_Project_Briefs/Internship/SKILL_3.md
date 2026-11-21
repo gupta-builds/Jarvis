@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/promoting-manual-find/SKILL.md"
 type: "document"
-community: "check_lever_schema"
+community: "Steps"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_lever_schema
+  - community/Steps
 ---
 
 # SKILL.md
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[promoting-manual-find]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_lever_schema
+#graphify/document #graphify/EXTRACTED #community/Steps

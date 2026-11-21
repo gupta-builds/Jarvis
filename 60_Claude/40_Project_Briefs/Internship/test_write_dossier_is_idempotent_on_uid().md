@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_writer.py"
 type: "code"
-community: "build_frontmatter"
+community: "test_writer.py"
 location: "L83"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/build_frontmatter
+  - community/test_writerpy
 ---
 
 # test_write_dossier_is_idempotent_on_uid()
@@ -16,4 +16,4 @@ tags:
 - [[test_writer.py]] - `contains` [EXTRACTED]
 - [[write_dossier()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/build_frontmatter
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

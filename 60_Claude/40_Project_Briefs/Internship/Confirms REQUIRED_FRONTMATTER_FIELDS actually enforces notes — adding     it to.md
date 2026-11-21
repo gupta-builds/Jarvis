@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "rationale"
-community: "render_dossier"
+community: "test_validate.py"
 location: "L204"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/render_dossier
+  - community/test_validatepy
 ---
 
 # Confirms REQUIRED_FRONTMATTER_FIELDS actually enforces notes: — adding     it to
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_format_compliance_rejects_missing_notes_field()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/render_dossier
+#graphify/rationale #graphify/EXTRACTED #community/test_validatepy

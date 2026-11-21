@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/program-writer.md"
 type: "document"
-community: "check_ashby_schema"
+community: "program-writer.md"
 location: "L37"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/check_ashby_schema
+  - community/program-writermd
 ---
 
 # What you report back
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[program-writer]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/check_ashby_schema
+#graphify/document #graphify/EXTRACTED #community/program-writermd

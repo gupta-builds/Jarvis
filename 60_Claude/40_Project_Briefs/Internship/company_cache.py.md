@@ -1,12 +1,12 @@
 ---
 source_file: "core/company_cache.py"
 type: "code"
-community: "stage1_reject"
+community: "test_company_cache.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_company_cachepy
 ---
 
 # company_cache.py
@@ -22,4 +22,4 @@ tags:
 - [[save()]] - `contains` [EXTRACTED]
 - [[test_company_cache.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

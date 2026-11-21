@@ -1,12 +1,12 @@
 ---
 source_file: "core/company_cache.py"
 type: "rationale"
-community: "stage1_reject"
+community: "test_company_cache.py"
 location: "L45"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_company_cachepy
 ---
 
 # Pure — no filesystem. `checked_date` is an ISO date string (as `save()`     stam
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[is_expired()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/stage1_reject
+#graphify/rationale #graphify/EXTRACTED #community/test_company_cachepy

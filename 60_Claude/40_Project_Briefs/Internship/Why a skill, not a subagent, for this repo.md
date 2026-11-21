@@ -12,6 +12,6 @@ tags:
 # Why a skill, not a subagent, for this repo
 
 ## Connections
-- [[review-loop-change_1]] - `contains` [EXTRACTED]
+- [[review-loop-change_2]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/What_to_check

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "code"
-community: "vault_root"
+community: "stage1_reject"
 location: "L17"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/stage1_reject
 ---
 
 # _simplify_titled()
@@ -15,4 +15,4 @@ tags:
 - [[test_relevance.py]] - `contains` [EXTRACTED]
 - [[test_stage1_does_not_reject_real_tax_technology_intern()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/vault_root
+#graphify/code #graphify/EXTRACTED #community/stage1_reject

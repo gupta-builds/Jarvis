@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "rationale"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # Task L — the deterministic pairwise 'debate' comparator. Each stage is tested in
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_debate.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/rationale #graphify/EXTRACTED #community/classify

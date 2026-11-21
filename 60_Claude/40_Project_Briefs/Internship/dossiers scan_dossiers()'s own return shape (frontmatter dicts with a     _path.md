@@ -1,12 +1,12 @@
 ---
 source_file: "screen_report.py"
 type: "rationale"
-community: "vault_root"
+community: "scan_dossiers"
 location: "L31"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/scan_dossiers
 ---
 
 # dossiers: scan_dossiers()'s own return shape (frontmatter dicts with a     _path
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[build_report()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/vault_root
+#graphify/rationale #graphify/EXTRACTED #community/scan_dossiers

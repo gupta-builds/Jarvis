@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "writer.py"
+community: "extract_content"
 location: "L322"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/extract_content
 ---
 
 # test_extract_content_strips_read_more_and_follow_us_chrome_real_manhattan_case()
@@ -16,4 +16,4 @@ tags:
 - [[extract_content()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/extract_content

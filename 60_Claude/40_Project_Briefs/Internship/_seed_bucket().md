@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "plan_removals"
+community: "_run_once_kwargs"
 location: "L917"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/_run_once_kwargs
 ---
 
 # _seed_bucket()
@@ -20,4 +20,4 @@ tags:
 - [[test_run_once_under_hard_pause_threshold_runs_normally()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/plan_removals
+#graphify/code #graphify/EXTRACTED #community/_run_once_kwargs

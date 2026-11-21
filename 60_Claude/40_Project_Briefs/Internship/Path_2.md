@@ -1,18 +1,18 @@
 ---
 source_file: ""
 type: "code"
-community: "interndock.py"
+community: "test_company_cache.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/interndockpy
+  - community/test_company_cachepy
 ---
 
 # Path
 
 ## Connections
-- [[_merge_dict_json()]] - `references` [EXTRACTED]
-- [[_union_json_list()]] - `references` [EXTRACTED]
-- [[run_reseed()]] - `calls` [EXTRACTED]
+- [[_cache_path()]] - `references` [EXTRACTED]
+- [[demo()]] - `calls` [EXTRACTED]
+- [[save()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/interndockpy
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

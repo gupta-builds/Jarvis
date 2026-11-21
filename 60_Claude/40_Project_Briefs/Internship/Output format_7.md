@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/contact-researcher/SKILL.md"
+source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "_fake_http_get"
-location: "L63"
+community: "/review-loop-change"
+location: "L49"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community//review-loop-change
 ---
 
 # Output format
 
 ## Connections
-- [[contact-researcher_1]] - `contains` [EXTRACTED]
+- [[review-loop-change]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community//review-loop-change

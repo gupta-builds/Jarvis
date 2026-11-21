@@ -94,15 +94,16 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 6 edges to [[_COMMUNITY_recheck.py]]
+- 4 edges to [[_COMMUNITY_run_pipeline.py]]
 - 2 edges to [[_COMMUNITY_test_freehire.py]]
 - 2 edges to [[_COMMUNITY_interndock.py]]
-- 2 edges to [[_COMMUNITY_test_writer.py]]
+- 2 edges to [[_COMMUNITY_normalize.py]]
+- 2 edges to [[_COMMUNITY_test_run_pipeline.py]]
 - 1 edge to [[_COMMUNITY_commit_and_push_with_retry]]
-- 1 edge to [[_COMMUNITY_plan_removals]]
+- 1 edge to [[_COMMUNITY__run_once_kwargs]]
 
 ## Top bridge nodes
-- [[schema_drift.py]] - degree 22, connects to 4 communities
+- [[schema_drift.py]] - degree 22, connects to 5 communities
 - [[SchemaDriftError]] - degree 11, connects to 4 communities
 - [[test_schema_drift.py]] - degree 61, connects to 3 communities
 - [[check_all()]] - degree 18, connects to 1 community

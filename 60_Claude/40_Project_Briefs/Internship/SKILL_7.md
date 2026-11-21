@@ -1,18 +1,17 @@
 ---
-source_file: ".cursor/skills/contact-researcher/SKILL.md"
+source_file: ".codex/skills/contact-researcher/SKILL.md"
 type: "document"
-community: "_fake_http_get"
+community: "contact-researcher"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/contact-researcher
 ---
 
 # SKILL.md
 
 ## Connections
-- [[SKILL_10]] - `references` [EXTRACTED]
 - [[contact-researcher_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

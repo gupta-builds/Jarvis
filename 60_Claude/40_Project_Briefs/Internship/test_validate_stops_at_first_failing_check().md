@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "render_dossier"
+community: "test_validate.py"
 location: "L181"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/render_dossier
+  - community/test_validatepy
 ---
 
 # test_validate_stops_at_first_failing_check()
@@ -17,4 +17,4 @@ tags:
 - [[test_validate.py]] - `contains` [EXTRACTED]
 - [[validate()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/render_dossier
+#graphify/code #graphify/EXTRACTED #community/test_validatepy

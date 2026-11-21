@@ -1,12 +1,12 @@
 ---
 source_file: "revalidate.py"
 type: "rationale"
-community: "commit_and_push_with_retry"
+community: "revalidate.py"
 location: "L37"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/revalidatepy
 ---
 
 # The dossier's own already-fetched content (verbatim, as originally     written)
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[extract_posting_content()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/rationale #graphify/EXTRACTED #community/revalidatepy

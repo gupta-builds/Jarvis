@@ -150,3 +150,8 @@ Fixed during the 2026-10-17 pass: [[Installations]], [[Ubuntu - WSL]] (two wrong
 2. **One owner per note.** Only the session that closes a build edits this Index and the Runs Index.
 3. A prompt is a working document: once its build is closed it is deleted and the findings keep the facts. Quarantines and backups follow the same rule.
 4. If Syncthing writes a `*.sync-conflict-*` file, diff it against the live note and merge anything unique before discarding it.
+
+
+## Update 2026-11-21 - branch naming
+
+Where this index says worktrees use `<machine>/<topic>` branches, read it as task-named branches (`feature|fix|docs|chore/<topic>`, no machine prefix). See the update at the end of `Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem`.

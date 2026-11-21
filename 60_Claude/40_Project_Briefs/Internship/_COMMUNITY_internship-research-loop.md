@@ -1,17 +1,14 @@
 ---
 type: community
-members: 4
+members: 1
 ---
 
 # internship-research-loop
 
-**Members:** 4 nodes
+**Members:** 1 nodes
 
 ## Members
-- [[Local dev]] - document - README.md
-- [[README]] - document - README.md
-- [[Status]] - document - README.md
-- [[internship-research-loop]] - document - README.md
+- [[internship-research-loop]] - code - pyproject.toml
 
 ## Live Query (requires Dataview plugin)
 

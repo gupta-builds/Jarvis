@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L238"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # Real per-bucket file counts in the vault checkout — Viewed/ isn't one     of BUC
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[count_dossiers_by_bucket()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/recheckpy
+#graphify/rationale #graphify/EXTRACTED #community/run_pipelinepy

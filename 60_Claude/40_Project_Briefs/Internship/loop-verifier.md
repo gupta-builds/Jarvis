@@ -13,6 +13,7 @@ tags:
 
 ## Connections
 - [[Checks to run, in this order]] - `contains` [EXTRACTED]
-- [[Output format_2]] - `contains` [EXTRACTED]
+- [[Memory — verdict history (added 2026-09-08)]] - `contains` [EXTRACTED]
+- [[Output format_3]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order

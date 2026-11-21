@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "check_ai_jobs_schema"
+community: "relevance.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_ai_jobs_schema
+  - community/relevancepy
 ---
 
 # relevance.py
@@ -22,4 +22,4 @@ tags:
 - [[test_posting_page.py]] - `imports_from` [EXTRACTED]
 - [[test_relevance.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_ai_jobs_schema
+#graphify/code #graphify/EXTRACTED #community/relevancepy

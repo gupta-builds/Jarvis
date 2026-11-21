@@ -1,5 +1,5 @@
 ---
-source_file: ".cursor/skills/cover-letter-alteration/SKILL.md"
+source_file: ".codex/skills/cover-letter-alteration/SKILL.md"
 type: "document"
 community: "Steps"
 location: "L16"

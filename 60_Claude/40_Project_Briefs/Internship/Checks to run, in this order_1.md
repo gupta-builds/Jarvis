@@ -1,5 +1,5 @@
 ---
-source_file: ".cursor/skills/loop-health-check/SKILL.md"
+source_file: ".codex/skills/loop-health-check/SKILL.md"
 type: "document"
 community: "Checks to run, in this order"
 location: "L17"

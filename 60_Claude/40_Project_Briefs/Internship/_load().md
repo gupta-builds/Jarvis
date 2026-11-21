@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "write_dossier"
+community: "normalize_josegael"
 location: "L32"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/normalize_josegael
 ---
 
 # _load()
@@ -29,4 +29,4 @@ tags:
 - [[test_zshah101_citizens_only_real_anduril_entry()]] - `calls` [EXTRACTED]
 - [[test_zshah101_matches_spring_2027()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/normalize_josegael

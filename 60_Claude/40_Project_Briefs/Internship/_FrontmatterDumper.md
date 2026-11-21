@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "vault_root"
+community: "scan_dossiers"
 location: "L26"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/scan_dossiers
 ---
 
 # _FrontmatterDumper
@@ -17,4 +17,4 @@ tags:
 - [[dump_frontmatter()]] - `indirect_call` [INFERRED]
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/vault_root
+#graphify/code #graphify/EXTRACTED #community/scan_dossiers

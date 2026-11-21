@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "rationale"
-community: "writer.py"
+community: "extract_content"
 location: "L168"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/extract_content
 ---
 
 # Real bug, confirmed 2026-07-26 on both Google dossiers sourced via     Freehire
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_extract_content_skips_google_careers_listing_shell()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/writerpy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

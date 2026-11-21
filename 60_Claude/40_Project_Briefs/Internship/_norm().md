@@ -1,12 +1,12 @@
 ---
 source_file: "core/filter.py"
 type: "code"
-community: "write_dossier"
+community: "filter.py"
 location: "L14"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/filterpy
 ---
 
 # _norm()
@@ -23,4 +23,4 @@ tags:
 - [[filter.py]] - `contains` [EXTRACTED]
 - [[matched_term_in_free_text()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/filterpy

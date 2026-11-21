@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "schema_drift.py"
+community: "Generating a resume .docx"
 location: "L10"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/schema_driftpy
+  - community/Generating_a_resume_docx
 ---
 
 # Reference
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[Generating a resume .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/schema_driftpy
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

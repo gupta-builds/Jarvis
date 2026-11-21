@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_log.py"
 type: "code"
-community: "recheck.py"
+community: "run_pipeline.py"
 location: "L43"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/run_pipelinepy
 ---
 
 # test_should_run_weekly_rollup_only_fires_sunday_2300_utc()
@@ -16,4 +16,4 @@ tags:
 - [[should_run_weekly_rollup()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

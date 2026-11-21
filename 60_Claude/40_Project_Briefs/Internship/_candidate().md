@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "code"
-community: "test_write_dossier_creates_missing_dossiers_dir"
+community: "classify"
 location: "L14"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_write_dossier_creates_missing_dossiers_dir
+  - community/classify
 ---
 
 # _candidate()
@@ -22,4 +22,4 @@ tags:
 - [[test_debate_compare_ties_between_two_preferred_companies_falls_through()]] - `calls` [EXTRACTED]
 - [[test_debate_compare_without_bucket_urgency_skips_stage_2()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir
+#graphify/code #graphify/EXTRACTED #community/classify

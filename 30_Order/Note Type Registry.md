@@ -60,7 +60,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Internship Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
 | career-fair | 2 | input | `20_Progress/Internship/Career Fair/` | none | [[Internship Notes Standard]] (second Spec) | [[Career Fair Intake]] | built |
 | interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Internship Interview Prep Template]] | [[Interview Prep Standard]] | [[Internship Pipeline]] (step 8) | built (unexercised) |
-| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Application Documents Standard]] | [[Application Document Preparation]] | built (no instance yet) |
+| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` (`Altered/` for working exports) | none | [[Application Documents Standard]] | [[Application Document Preparation]] | built (no instance yet) |
 | cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Internship Cover Letter Template]] | [[Application Documents Standard]] | [[Application Document Preparation]] | built (no instance yet) |
 | application-packet | none | the exact resume, letter and `posting.md` sent | `20_Progress/Internship/Sent/<dossier file name>/` (private; the folder does not exist yet) | none | rules in [[Application Documents Standard]] | [[Application Document Preparation]] | planned |
 | apply-lane-generated (Apply Queue, Follow-ups, Deadline Map, Loop Status) | 3 | generated / report | `20_Progress/Internship/Applying/` (private) | none (script-written) | [[Generated Output Standard]] | none | planned (not built) |
@@ -90,7 +90,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | distilled | 1 | evergreen / distilled | `60_Claude/20_Distilled_Notes/` | [[Evergreen Note Template]] | [[Evergreen Standard]] | [[Summary to Distilled]] | built |
 | synthesis | 1 | evergreen / synthesis | `60_Claude/20_Distilled_Notes/Synthesis/` | [[Cross-Domain Synthesis Template]] | [[Evergreen Standard]] | [[Summary to Distilled]] | built |
 | identity-note | 1 | evergreen / identity | `10_Areas/Life/Truths of Life/` | none (2 notes) | [[Evergreen Standard]] | none | built |
-| reference-resource | 1 | reference | `40_Resources/`, `10_Areas/AI`, `10_Areas/Trading` | [[Reference Guide Template]] | [[Reference Standard]] | [[Promotion]] | built |
+| reference-resource | 1 | reference | `40_Resources/`, `10_Areas/AI`, `10_Areas/Trading`, `20_Progress/Internship/` | [[Reference Guide Template]] | [[Reference Standard]] | [[Promotion]] | built |
 | output-story | 1 | output / story | next to its project, `20_Progress/` | [[Interview Story Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
 | output-bullet | 1 | output / bullet | same | [[Portfolio Bullet Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
 | output-one-pager | 1 | output / one-pager | same | [[Project One-Pager Template]] | [[Output Standard]] | [[Output with Provenance]] | built |

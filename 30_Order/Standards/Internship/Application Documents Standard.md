@@ -58,8 +58,8 @@ This is the contract behind [[Resume Alteration]] and [[Cover Letter Alteration]
 
 | Item | Rule |
 |---|---|
-| Allowed folders | Banks and working drafts: `20_Progress/Internship/Resumes/` and `Cover Letters/`, flat. The sent packet: `20_Progress/Internship/Sent/<dossier file name>/`. |
-| File name | `Main Resume.md` and `Main Cover Letter.md` for the banks (the names `Main Resume.*` and `Main Cover Letter.*` are reserved); `<Role> - <Company>.docx` per application, overwritten until the packet is archived, then frozen in `Sent/`. |
+| Allowed folders | Banks: `20_Progress/Internship/Resumes/` and `Cover Letters/`. Working resume exports: `Resumes/Altered/`. Working letters: `Cover Letters/`. The sent packet: `20_Progress/Internship/Sent/<dossier file name>/`. |
+| File name | `Main Resume.md` and `Main Cover Letter.md` for the banks (the names `Main Resume.*` and `Main Cover Letter.*` are reserved); `Resumes/Altered/<Role> - <Company>.docx` per application and `Cover Letters/<Role> - <Company>.docx` per letter, overwritten until the packet is archived, then frozen in `Sent/`. |
 | Kind | `type: output` with `output_kind: resume` or `cover-letter`. |
 | Status | `seed` while fragments lack evidence, `sprout` once every fragment is tagged and confirmed, `tree` once an application went out on it. |
 ## Headings
@@ -109,7 +109,7 @@ Paths in the Right and Wrong lines start at `20_Progress/Internship/Resumes/`.
 | `type: project`, `status: active` (Main Resume) | `type: output`, `output_kind: resume`, `status` by maturity | Mechanical |
 | No `source_concepts` | Add the project notes the content uses | Judgment |
 | Five "Resume - How to ..." and five "Cover Letter - How to ..." stubs of about nine words | Write or delete; a named empty file is not progress | Judgment, needs a yes |
-| `Altered/` or `Tailored/` subfolder, or `Build the first Tailored/ cut` in `next` | Flatten into `Resumes/` | Mechanical |
+| A `Tailored/` subfolder, or `Build the first Tailored/ cut` in `next` | Use `Resumes/Altered/` | Mechanical |
 | A "Not Yet Built" section in a bank | Remove once real fragments exist | Judgment |
 ## Done Conditions
 - `Main Resume.md` holds evidence-tagged bullets Anant approved, and the letter bank holds real, tagged fragments.

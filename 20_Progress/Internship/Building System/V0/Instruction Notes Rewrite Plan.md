@@ -7,7 +7,7 @@ tags:
   - internship
   - system-design
 project_kind: plan
-next: "Decide the jobs of Applying, Resumes and Cover Letters in the first interview."
+next: "Resolve Sunday’s tier 2 letter gap and the guide lint mismatch."
 related_progress: []
 notes:
   - "[[20_Progress/Internship/Building System/Weekend Build|Weekend Build]]"
@@ -18,6 +18,8 @@ notes:
 ==Agree on the reader, job and disposition of all 30 internship instruction and navigation notes before rewriting any of them.==
 ## Current State
 ==The 2026-11-21 Dell audit found 30 broken link occurrences, 13 wrong claim groups, 13 stale claim groups, eight duplicated jobs or content groups and 11 notes with no evidenced reader.==
+### Rewrite progress
+- Observed, 2026-11-21. Landed kit read and compared. Twelve decisions recorded. Both document folders still contain five stubs. The Obsidian index reports no inbound links to the ten stubs. All three guide drafts were checked in memory and failed reference-resource lint with 4:wrong-folder. The first batch is pending. No family note has changed in this pass.
 ### Note inventory
 | Path from vault root | Bytes | Kind | Claimed job | Reader evidence | Candidate | Top defects |
 |---|---:|---|---|---|---|---|
@@ -126,21 +128,59 @@ notes:
 ## Sequence
 ==Settle one family at a time, then compare the recorded decisions with the new system notes.==
 1. Applying, Resumes and Cover Letters. Decide the instruction note, the purpose of Now, both sets of stubs and document destinations.
-2. Programs and Contacts. Decide what tier 1 and networking need, the role of the two guides, the empty Networking Strategies file and which parts of the outreach reference survive.
-3. Tracker family. Decide the owner of application status, due dates, escalations and follow-up. Record which dashboards and old Kanban routes need a change.
+2. Tracker family. Decide the owner of application status, due dates, escalations and follow-up.
+3. Programs and Contacts. Decide which guidance survives and clear inbound links before any retirement.
 4. List and MOCs. Decide where counts, active states and weekly roll-ups are read, including how to protect generated lines and handle unknown repo dependencies.
 5. Hub, README, Links & Interlinks and Cheats. Decide the entry point, where folder routing lives and which references remain useful.
-6. When Anant says the system notes have landed, re-read the Standards, Templates and Workflows and bring any conflicts back for a decision. Execute an approved rewrite one note at a time only after Anant says to write.
+6. Review the final lint and broken-link counts, and hand kit friction back to the kit owner.
 ## Open Questions
 ==A decision is closed when Anant has chosen the reader, job and disposition that affect a rewrite.==
-- [ ] Decide whether Applications-to-Create guides preparation for both lanes or routes directly to the workflow.
-- [ ] Decide whether Now renders submitted rows or combines submitted rows and in-flight preparation.
-- [ ] Decide whether the five resume stubs become one guide, selected guides or are retired.
-- [ ] Decide whether the five cover-letter stubs become one guide, selected guides or are retired.
-- [ ] Choose the output path for tailored resumes and the home of each submitted packet.
+- [x] 2026-11-21. Applications-to-Create guides both lanes.
+- [x] 2026-11-21. Now reads submitted Tracker records only.
+- [x] 2026-11-21. One resume guide, then remove the five stubs.
+- [x] 2026-11-21. One cover-letter guide, then remove the five stubs.
+- [x] 2026-11-21. Resumes/Altered for working exports and Sent for submission packets.
 - [ ] Decide the surviving Programs and Contacts guides, message bank and empty Networking Strategies note.
 - [ ] Decide the Tracker views, Deadline Tracker history, Main Log jobs and whether the Kanban is still needed.
 - [ ] Decide where the Run Log’s generated rows should live and whether to request repo verification of its writer, readers and enrichment route.
 - [ ] Decide the long-term entry point and the destinations for duplicate Cheats and resources.
 - [ ] Decide whether any named adjacent notes need a separate pass.
+- [ ] Decide how tier 2 proceeds on Sunday when a bank letter is called for and the bank is absent.
+- [ ] Resolve reference-resource classification for the three guides in 20_Progress.
 ## Decisions
+==Decisions below use the 2026-11-21 P1 reply where it supersedes the plan.==
+1. 2026-11-21, Anant’s batch 1. Applications-to-Create is the short guide to what each lane creates. The Pipeline and Application Document Preparation Workflows carry the steps.
+2. 2026-11-21, Anant’s batch 1. Now shows submitted applications from Tracker/Each One/Applied/ only. It shows company, title, tier, date_applied, next follow-up date, result and the Tracker link. Pending work stays in Applying notes and the future Apply Queue. The newer Tracker copy decision supersedes the plan’s Applying join.
+3. 2026-11-21, Anant’s batch 1. Replace five resume stubs with one guide in work order and five letter stubs with one tier-based guide. Remove the stubs after both guides exist and inbound links are clear. Hold Main Cover Letter and every fragment for a separate session with Anant.
+4. 2026-11-21, Anant’s batch 1 and the plan’s packet decision. Working DOCX in Resumes/Altered/<Role> - <Company>.docx. Sent/<dossier file name>/ preserves exact resume DOCX, letter DOCX when sent and posting.md. Tier 1 and tier 2 Applying notes reach approved before archive. Tier 3 confirms at mark_applied when built. Tracker has no approval field. Applying stage values are Preparing, awaiting-approval, approved, Applied, Offer, Rejected, Withdrawn.
+5. 2026-11-21, Anant’s batch 1 and Operator Q11. Role folder sets resume_variant: AI & ML to ai, Fullstack to fullstack, CyS & Finance to systems, Other to the closest. Anant can override the value and approves every document, including tier 3 resumes.
+6. 2026-11-21, Operator Q13 and Checkpoint 2 tier 2, confirmed in the P1 reply. Tiers 1 and 2 get Program, Contact, Applying and Tracker. Tier 3 gets a Tracker at submission. Prepare tier 2 Program and Contact beforehand, one at a time with /promote-dossier. Ready means captured posting, live deadline, Screen not rejected, resume_variant and letter_mode set, and a Program for tiers 1 and 2. Contact is optional for readiness. Screen is manual today.
+7. 2026-11-21, Operator Q6/Q10/Q14 and Checkpoint 2 banner. Internship Dashboard is the first screen, with Apply Queue once built. Use the daily note and weekly Goals note for work shipped, tasks, streak and monthly goals. Show starred next/actions, pending actions and loop status where the inputs can render.
+8. 2026-11-21, Operator Q13 and P1 reply. Programs MOC and Contacts MOC remain prose folder MOCs. Retire Networking Strategies after inbound links are repaired. Dossiers MOC and Viewed/Removed Dossiers MOC keep their exact paths.
+9. 2026-11-21, Operator Q18. Deadline Map is a private planned weekly generator. The old tracker’s disposition is a separate confirmation.
+10. 2026-11-21, Operator Q17. Each booked interview gets a note in Preperation/Interviews/ with format, JD-to-project mapping, pitch, talking points, questions and a debrief within a day. Agent drafts JD analysis and questions. Anant writes pitch and answers.
+11. 2026-11-21, Operator Q9/Q10/Q15/Q16. Follow up at 7 and 14 days from Mimic and log a dated Tracker Timeline line. Weekly and monthly reviews run by hand. Weekly reports three numbers. Monthly makes four decisions.
+12. 2026-11-21, Operator Q2/Q4, Phase 2 reply and P1 reply. Eight dossier folders, company is the host employer, _Career Fair is exempt from deadlines, and Applied and Archived are excluded from counts. The 29 Current trackers are not submissions. Limits, quota, minute estimates and Sunday counts stay in Source of Truth and the loop config.
+### Contracts
+- Observed decision. By hand today, the submission Tracker is Tracker/Each One/Applied/<dossier file name>.md, with date_applied, tier, starred, resume_variant, letter_mode and a related_notes link to the dossier. Program and contact links are blank when the respective notes do not exist. It carries no approval field.
+- Observed decision. Now reads Applied trackers and shows company, title, tier, date_applied, next follow-up date, result and the Tracker link. No Applying or dossier join.
+- Observed decision. Resume working exports use Resumes/Altered/<Role> - <Company>.docx. The submission copy uses Sent/<dossier file name>/ with the resume DOCX, letter DOCX when sent and posting.md. Approval follows the Applying stage sequence above. Tier 3 confirmation at archive has no Tracker field.
+- Observed decision. The future writer emits tier (1, 2 or 3), resume_variant (ai, fullstack, systems or other), and letter_mode (tailored, bank or none). Anant sets starred and screens by eye. Screen keys are screened_date, screened_decision and screened_reason when recorded.
+- Observed decision. The future local generator writes Apply Queue, Follow-ups, Deadline Map and Loop Status under Applying/ as type generated, gen_kind report, with generator. Loop Status fields are last_run, last_success, paused and built_at.
+- Observed decision. The loop writer links the two fixed MOC paths. Keep the public log paths Run Log, Excluded - Losing The Debate and Excluded - Failed The Write Gate. The hyphen filename follow-up belongs to the code repo.
+- Observed decision. The future mark_applied and Archived mover record the cross-source duplicate key before moving the dossier. Archived writes removed_date and removed_reason: deadline lapsed for deadline moves and skips _Career Fair. Dry-run evidence must show deletion from the tracked role folder.
+### Later
+- Applications-to-Create, lane entries: add the local Apply Queue and mark_applied routes after their manual replacements are exercised and the tools exist.
+- Internship Dashboard, Apply Queue, Starred and Pending Actions: add the queue, pending list and any starred metadata views once their live inputs exist.
+- Internship Dashboard, Loop Status: add the local banner once last_run, last_success, paused and built_at are written. Token expiry stays a code follow-up.
+- Now, Submitted applications: render the Applied tracker view when live rows exist and the field sources can be verified. Follow-ups and pending actions get their own view when generated.
+- Deadline Tracker, current reference: revisit retirement after Deadline Map exists and after the Tracker batch says yes.
+- Cover Letter Guide, Tier 2: link the fragment bank once Anant has written and approved it in its own session.
+- Dossiers MOC, Folder map: link Applied and Archived when the folders exist and include numeric tier only after the writer emits it.
+- Run Log and both Excluded logs: verify code writers and emitted filenames in a separate repo pass. Preserve all machine-written lines.
+### Kit friction
+- Observed. Note Type Registry has all seven named rows, and Frontmatter Standard includes resource, link-hub and research. Reference Standard’s reference-resource Spec matches 40_Resources and 10_Areas only. The Kit map puts Applications-to-Create in 20_Progress, and the two new guide locations face the same classifier restriction. The actual script classified all three drafts as reference-resource and returned 4:wrong-folder on each. No classification change was attempted.
+- Observed. Application Documents Standard, Allowed folders and Legacy Shapes, and Application Document Preparation step 6 prescribe flat resume output. The P1 reply explicitly chooses Resumes/Altered. Use the P1 path in the guide and leave the kit conflict for its owner.
+- Observed. The plan’s Contracts Now row mentions Applying notes. The newer Tracker copy decision and the plan’s Phase 2 reply use Applied Trackers only. Use the latter.
+- Observed. The plan’s whole-loop status row offers the log family for Main Log. The Registry’s log row lists AI log locations and excludes the Tracker location. Resolve Main Log’s job before assigning a family.
+- Observed. External PowerShell launch was denied and Node REPL cannot spawn an external Node child. The read-only in-process Vault Lint script can evaluate one path with protected trees excluded.

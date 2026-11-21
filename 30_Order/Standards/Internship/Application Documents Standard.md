@@ -22,6 +22,7 @@ notes:
   - "[[Cover Letter Alteration]]"
   - "[[Applying Standard]]"
   - "[[Human Writing Standard]]"
+  - "[[Internship Apply Lane]]"
 ---
 # Application Documents Standard
 ==Every line of every resume and letter traces to approved evidence, tailoring only selects, orders and rephrases what is already true, and nothing is sent before Anant approves it.==

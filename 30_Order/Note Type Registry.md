@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-11-07
+updated: 2026-11-21
 tags:
   - system
   - registry
@@ -22,7 +22,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | family-standard, policy-standard | 1 | system / standard | `30_Order/Standards/` | [[Standard Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built |
 | workflow | 1 | system / workflow | `30_Order/Workflows/` | [[Workflow Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built |
 | system-guide | 2 | system / guide | `30_Order/` | none | [[Note Kit Standard]] | none | built |
-| system-component | 2 | system / spec | `30_Order/System/` | none | [[System Component Standard]] | none; Loop Contract Change for the internship-loop records | built |
+| system-component | 2 | system / spec | `30_Order/System/` | none | [[System Component Standard]] | none; [[Loop Contract Change]] for the internship-loop records | built |
 | generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built |
 | (policies) vocabulary, fit, editing | none | system / standard | `30_Order/Standards/` | none | [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]] | [[Conformance on Touch]] | built |
 | (policy) writing | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Human Writing Standard]] (also holds the three application-document checks) | [[Human Content Writer]], [[Researcher]], [[Application Document Preparation]] | built |
@@ -53,22 +53,19 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 ## Career
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|
-| internship-dossier | 2 | input / job-dossier | `10_Areas/Career/Internships/List/Dossiers/` | none (bot-written) | [[Internship Notes Standard]] | [[Internship Pipeline]] | built |
-| internship-tracker | 1 | tracker | `10_Areas/Career/Internships/Tracker/Each One/` | [[Internship Tracker Template]] | [[Internship Tracker Standard]] | [[Internship Tracking Workflow]] | built |
+| internship-dossier | 2 | input / job-dossier | `10_Areas/Career/Internships/List/Dossiers/` (eight folders, see the Standard) | none (bot-written) | [[Internship Notes Standard]] | [[Internship Pipeline]] | built (the writer does not yet emit the Spec's new keys) |
+| internship-tracker | 1 | tracker | `10_Areas/Career/Internships/Tracker/Each One/` (`Applied/`, `Result/`; `Current/` is legacy) | [[Internship Tracker Template]] | [[Internship Tracker Standard]] | [[Internship Pipeline]] | built (unexercised) |
 | internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Internship Program Template]] | [[Program Standard]] | [[Internship Pipeline]] | built |
 | internship-contact | 1 | contact | `10_Areas/Career/Internships/Contacts/Each One/` | [[Internship Contact Template]] | [[Contact Standard]] | [[Internship Pipeline]] | built |
 | internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Internship Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
 | career-fair | 2 | input | `20_Progress/Internship/Career Fair/` | none | [[Internship Notes Standard]] (second Spec) | [[Career Fair Intake]] | built |
-| interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Internship Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
-| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Application Documents Standard]] | [[Application Document Preparation]] | built |
+| interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Internship Interview Prep Template]] | [[Interview Prep Standard]] | [[Internship Pipeline]] (step 8) | built (unexercised) |
+| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Application Documents Standard]] | [[Application Document Preparation]] | built (no instance yet) |
 | cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Internship Cover Letter Template]] | [[Application Documents Standard]] | [[Application Document Preparation]] | built (no instance yet) |
-| intake-log | 2 | input / clipping | `10_Areas/Career/Internships/List/Dossiers/_Today/` | none | [[Deadline and Intake Triage Standard]] | none | built |
-| deadline-tracker | 2 | dashboard / dashboard | `10_Areas/Career/Internships/Tracker/Deadline Tracker.md` | none | [[Deadline and Intake Triage Standard]] | [[Internship Review System]] | built |
+| application-packet | none | the exact resume, letter and `posting.md` sent | `20_Progress/Internship/Sent/<dossier file name>/` (private; the folder does not exist yet) | none | rules in [[Application Documents Standard]] | [[Application Document Preparation]] | planned |
+| apply-lane-generated (Apply Queue, Follow-ups, Deadline Map, Loop Status) | 3 | generated / report | `20_Progress/Internship/Applying/` (private) | none (script-written) | [[Generated Output Standard]] | none | planned (not built) |
 | internship-loop-review-weekly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/` | [[Internship Loop Weekly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |
 | internship-loop-review-monthly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/` | [[Internship Loop Monthly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |
-| job-company | 1 | reference / company | none yet | [[Job & Company Template]] | none until a first note exists | none | decide |
-| linkedin-post | 1 | output / post | none yet | [[LinkedIn Post Template]] | none until a first note exists | none | decide |
-| cheat | 1 | project | `20_Progress/Internship/` | [[Cheat Template]] | none until a decision | none | decide |
 ## Projects
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|

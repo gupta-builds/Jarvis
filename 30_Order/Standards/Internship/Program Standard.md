@@ -19,6 +19,7 @@ notes:
   - "[[Internship Tracker Standard]]"
   - "[[Contact Standard]]"
   - "[[Internship Pipeline]]"
+  - "[[Internship Promotion Agents]]"
 ---
 # Program Standard
 ==A Program note is static research on one internship: what it is, who can apply, the traps, and enough about the company to hold an informed conversation. Live status lives elsewhere.==

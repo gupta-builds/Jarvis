@@ -18,6 +18,8 @@ notes:
   - "[[Internship Tracker Standard]]"
   - "[[Program Standard]]"
   - "[[Internship Pipeline]]"
+  - "[[Internship Promotion Agents]]"
+  - "[[Internship Apply Lane]]"
 ---
 # Applying Standard
 ==An Applying note is the live hub for one tier 1 or tier 2 application: its stage, its documents, its next move, and a dated log. It is created when preparation starts, not at submission.==

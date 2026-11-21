@@ -13,13 +13,14 @@ tier: 1
 maps_to:
   - "[[Internship Tracker Template]]"
 used_by:
-  - "[[Internship Tracking Workflow]]"
   - "[[Internship Pipeline]]"
 gold_standard: "[[10_Areas/Career/Internships/Tracker/Each One/Current/2027 Software Engineering Internship - Uber]]"
 notes:
   - "[[Applying Standard]]"
   - "[[Program Standard]]"
   - "[[Contact Standard]]"
+  - "[[Internship Promotion Agents]]"
+  - "[[Internship Apply Lane]]"
 ---
 # Internship Tracker Standard
 ==A Tracker note is the dated record of one application, created when it is submitted: where it stands, when each step happened, and the single next move.==

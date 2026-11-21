@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-05-31
-updated: 2026-10-28
+updated: 2026-11-21
 tags:
   - system
   - workflow
@@ -30,6 +30,7 @@ produce      outputs next to the project they serve
 |---|---|---|
 | [[Building a Note Kit]] | A note type is being written regularly and has no Standard, or an existing Standard fails its own checks. | [[Note Kit Standard]] |
 | [[Conformance on Touch]] | Any session opens an existing note to change it, or to rely on it. | [[Conformance Standard]] |
+| [[Loop Contract Change]] | A change to what the internship research loop writes into the vault, or to a System record for the loop. | [[System Component Standard]] |
 ## Ingestion and projects
 | Workflow | Use when | Serves |
 |---|---|---|
@@ -47,6 +48,7 @@ produce      outputs next to the project they serve
 | [[Enrichment]] | An existing note matters enough to deepen but is thin, with no examples, source anchors, or drills. | [[Editing Standard]] |
 | [[Human Content Writer]] | Any session drafts new prose for a note, or rewrites a note that reads as generic. | [[Human Writing Standard]] |
 | [[Output with Provenance]] | You need an artifact for an outsider: an interview story, a portfolio bullet, or a project one-pager. | [[Output Standard]] |
+| [[Promotion]] | A distilled note is trusted, has been reused, and reads like lookup material or domain truth. | [[Reference Standard]] |
 | [[Plugins Usage]] | A note needs a live list, a task, a card, a board, a widget, or a diagram. | [[Plugins Usage Standard]] |
 | [[Researcher]] | A question needs an answer built from sources, or a topic is new to the vault. | [[Human Writing Standard]] |
 ## Projects
@@ -77,14 +79,10 @@ produce      outputs next to the project they serve
 ## Internship and career
 | Workflow | Use when | Serves |
 |---|---|---|
-| [[Application Document Preparation]] | Real preparation of an application starts (Pipeline step 5). | [[Applying Standard]] |
-| [[Application Document Preparation 1]] |  |  |
+| [[Application Document Preparation]] | Real preparation of an application starts (Pipeline step 6), or a tier 3 application is about to be archived. | [[Application Documents Standard]] |
 | [[Career Fair Intake]] | A career fair or recruiting event produces postings and conversations to follow up. | [[Internship Notes Standard]] |
-| [[Internship - Design Rationale]] | Course-specific production plan |  |
 | [[Internship Pipeline]] | A posting is found, or an internship is being pursued or tracked. | [[Internship Tracker Standard]] |
-| [[Internship Review System]] | Every Friday for the Weekly review, the 1st of each month for the Monthly review, and every third day for the Deadline Sweep. | [[Internship Loop Review Standard]] |
-| [[Internship Tracking Workflow]] | A deadline changes, preparation starts, an application is submitted, or an outcome lands. | [[Internship Tracker Standard]] |
-| [[Promotion]] | A distilled note is trusted, has been reused, and reads like lookup material or domain truth. | [[Reference Standard]] |
+| [[Internship Review System]] | Anant runs the Weekly review on Fridays and the Monthly review on the 1st, by hand. | [[Internship Loop Review Standard]] |
 ## Operations
 | Workflow | Use when | Serves |
 |---|---|---|

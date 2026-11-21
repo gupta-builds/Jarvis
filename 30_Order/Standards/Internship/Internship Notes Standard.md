@@ -17,6 +17,8 @@ gold_standard: "[[10_Areas/Career/Internships/List/Dossiers/_Career Fair/Compute
 notes:
   - "[[Program Standard]]"
   - "[[Internship Tracker Standard]]"
+  - "[[Internship Loop Run]]"
+  - "[[Internship Loop Upkeep]]"
 ---
 # Internship Notes Standard
 ==A dossier is a bot-written posting capture that makes a 60-second decision possible; the vault contract is its frontmatter, its links, and the folder that records its state.==

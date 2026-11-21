@@ -18,6 +18,7 @@ notes:
   - "[[Program Standard]]"
   - "[[Internship Tracker Standard]]"
   - "[[Internship Pipeline]]"
+  - "[[Internship Promotion Agents]]"
 ---
 # Contact Standard
 ==A Contact note is the company-level outreach file for one internship: sourced facts about who to reach, the live unsent draft, and an honest log of what was actually said.==

@@ -7,7 +7,7 @@ related_progress:
   - "[[Source of Truth]]"
   - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
   - "[[Internship Notes Standard]]"
-  - "[[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]"
+  - "[[Claude Code Prompts]]"
 tags:
   - internship
   - automation
@@ -16,7 +16,7 @@ tags:
 next:
 ---
 # Claude Code Prompts — Archive
-Every prompt ever run against `gupta-builds/internship-research-loop`, in order, verbatim, with what actually happened when it ran. [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] is the live counterpart — it holds only the guide plus whatever prompt runs next, and gets overwritten every build cycle; this note is where that content lands once a prompt is done, so nothing is lost. Read [[System - Build Log]] for the narrative/decision history around these; read this note for the prompts' exact text and exact results.
+Every prompt ever run against `gupta-builds/internship-research-loop`, in order, verbatim, with what actually happened when it ran. [[Claude Code Prompts]] is the live counterpart — it holds only the guide plus whatever prompt runs next, and gets overwritten every build cycle; this note is where that content lands once a prompt is done, so nothing is lost. Read [[System - Build Log]] for the narrative/decision history around these; read this note for the prompts' exact text and exact results.
 
 ## Prompts 1-3 — Done, Confirmed Live (2026-07-26)
 Persona/timing config, CS-relevance gate + priority classification, and the promote-dossier skill/agents all shipped and verified live via direct `gh api` checks the same day. Full detail in [[System - Build Log]] (this summary is all that ever lived in the prompts file for these three — never expanded here).
@@ -653,7 +653,7 @@ Same scope boundary, same discipline, same report-back shape as Prompt 26.
 **Result — inferred from verified vault state, not from a first-hand session report (the actual per-dossier session output was never captured in this file — flagged, not fabricated).** Confirmed directly against the live vault, 2026-09-04: `Programs/Serious/` + `Programs/Considering/` hold 10 + 4 = 14 notes (up from 5 total promotions as of the last Monthly Review), `Contacts/Each One/` holds 10, `Tracker/Each One/` holds 10 — roughly consistent with most of the combined 15-dossier Batch A/B list having gone through `/promote-dossier` successfully, with a small shortfall between Program count (14) and Contact/Tracker count (10) that could mean either a few dossiers didn't get a Contact/Tracker note, or per-company contact-research reuse (Castleton, LPL) meant one Contact note serves multiple Programs. **Not resolved**: which of the 15 specific dossiers succeeded, which (if any) hit "nothing found" on contact research, and why Contacts/Tracker undercounts Programs by 4. Worth a direct per-dossier check before treating this batch as fully closed.
 
 ## Prompts 1-2 of the 2026-09-04 Era — Closed Out Without Full Execution (2026-09-06)
-- **Prompt 1 (Building System Refresh, 2026-09-04):** Task D (the overdue Weekly + Monthly review) is genuinely done — see [[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship Loop Weekly Review — 2026-W36]] and [[60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/Internship Loop Monthly Review — 2026-09]]. Tasks A (status check), B (test parametrization), C (vault reorg), and E (public v0 README) were never executed. Superseded, not lost: B and E are folded into the new v0.1 execution plan ([[20_Progress/Internship/Building System/Research Loop - Implementation Plan]]); C stays out of scope (vault dossier/promotion cleanup, explicitly deprioritized 2026-09-06); A (run.yml status) remains a standing human decision, not a prompt task.
+- **Prompt 1 (Building System Refresh, 2026-09-04):** Task D (the overdue Weekly + Monthly review) is genuinely done — see [[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship Loop Weekly Review — 2026-W36]] and [[60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/Internship Loop Monthly Review — 2026-09]]. Tasks A (status check), B (test parametrization), C (vault reorg), and E (public v0 README) were never executed. Superseded, not lost: B and E are folded into the new v0.1 execution plan ([[Research Loop - Implementation Plan]]); C stays out of scope (vault dossier/promotion cleanup, explicitly deprioritized 2026-09-06); A (run.yml status) remains a standing human decision, not a prompt task.
 - **Prompt 2 (Fix Microsoft `stage1_reject` Sidebar-Link Content Bleed):** never run. Its diagnosis was correct and is reused, unedited, as Prompt 2 of the new v0.1 execution plan — not rewritten, just renumbered into the new sequence.
 
 Full original text of both, preserved verbatim below since neither actually finished (the vault's normal archive-on-completion rule doesn't quite fit an unrun prompt, but silently dropping real text isn't this vault's practice either):
@@ -668,7 +668,7 @@ Handoff from [[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship 
 **Not in scope for this prompt:** the other 9 dossiers issue #9 flags (Optiver, Zipline, American Fidelity, Amex) are real, defensible removal candidates per the same review — a Screen-pass decision, not a code fix, and explicitly left as an Open Question there.
 
 # Prompt 1 — Company Registry: Collapse Three Unsynced Classification Mechanisms Into One (written 2026-09-06, run 2026-09-06, archived 2026-09-06)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] (the "Second Reset, 2026-09-06" section) — required Plan Mode before any edit, given three files jointly decide real bucket/rank outcomes for live postings.
+Full prompt text lived in [[Claude Code Prompts]] (the "Second Reset, 2026-09-06" section) — required Plan Mode before any edit, given three files jointly decide real bucket/rank outcomes for live postings.
 
 ## The Plan (as approved)
 Unify company-classification signals into `core/company_registry.py`.
@@ -691,7 +691,7 @@ Unify company-classification signals into `core/company_registry.py`.
 **Confirmed independently by a fresh session (2026-09-06, not just trusting this report):** `git status` shows exactly the expected files modified (`core/classify.py`, `core/debate.py`, `core/relevance.py`, `run_pipeline.py`, `tests/test_classify.py`) plus the two new files, nothing else touched; `pytest` re-run directly shows 453 passed.
 
 # Prompt 2 — Extraction Fix + `matched_reason` Completion + Test/Doc Housekeeping (written 2026-09-06, run 2026-09-06, archived 2026-09-06)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — three tasks, `effort: high`, no Plan-Mode gate (none touched Prompt 1's cross-cutting files).
+Full prompt text lived in [[Claude Code Prompts]] — three tasks, `effort: high`, no Plan-Mode gate (none touched Prompt 1's cross-cutting files).
 
 ## The Execution Report (as delivered)
 **Task A (Microsoft sidebar bleed) — fixed.** Root cause: Microsoft's `vanshb03` postings point at a generic careers-search URL whose shell uses a bare `# Jobs` heading and a `## Get personalized job recommendations` promo heading — neither matched the old `_LISTING_SHELL_RESET_RE`, so the extractor captured the 9-job sidebar list verbatim, including "Supply Chain Program Management Intern," tripping `_STAGE1_REJECT_RE`. Fix: two new narrow patterns added, cited to a new fixture (`tests/fixtures/posting_microsoft_careers.md`). Verified against all 6 flagged dossiers: 2 now extract clean, the other 4 correctly degrade to thin (no real per-job heading in their stored fetch, same precedent as Zipline) — zero false positives either way. Google/Zipline fixtures unaffected.
@@ -708,7 +708,7 @@ Confirmed directly: `pytest` re-run shows 471 passed; every diff (`ingestion/pos
 **Two issues found that weren't in the report:** (1) the actual git commit (`96261d8`, local only, not yet pushed) bundles Prompt 1+2's real changes together with the entire pre-existing-uncommitted `.claude/` folder and a `CLAUDE.md` edit — material explicitly out of scope this round, now welded into the same commit as reviewed work. (2) `requirements.txt` gained `python-docx==1.2.0`, unneeded by any of Task A/B/C — almost certainly a side effect of the same bundling. Flagged to the human; not fixed unilaterally (a commit-history change, however low-risk while unpushed, needs a decision, not an assumption).
 
 # Prompt 3 — Company-Research Cache (written 2026-09-06, run 2026-09-06, archived 2026-09-06)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — additive-only (`core/company_cache.py`, new), no Plan-Mode gate.
+Full prompt text lived in [[Claude Code Prompts]] — additive-only (`core/company_cache.py`, new), no Plan-Mode gate.
 
 ## The Execution Report (as delivered)
 Built `core/company_cache.py`, standalone, not wired into any `.claude/` skill/agent or `enrich.py`'s call flow. Storage: `state/company_cache/<normalized-name>.json`, one file per company, keyed via `core.identity._norm_company`. Schema mirrors `enrich.py`'s real field names verbatim. `load(company, ttl_days=30, cache_dir=...)` → `None` on missing/corrupt/malformed/non-dict/expired — never raises. `save(...)` stamps `checked` to today. `is_expired(...)` is pure, boundary-tested at exactly 30/31 days. Docstring flags both ground-truth points explicitly (first per-key cache dir in the repo; a cache hit is a lead, never a substitute for verification). `demo()`/`python -m core.company_cache` runs a real save→load→backdate→corrupt cycle against a throwaway temp dir, verified not to touch the real `state/company_cache/`. `pytest`: 471 → 483 (12 new tests).
@@ -717,7 +717,7 @@ Built `core/company_cache.py`, standalone, not wired into any `.claude/` skill/a
 Confirmed directly: `pytest` re-run shows 483 passed; `core/company_cache.py` and `tests/test_company_cache.py` exist and are still untracked in git (not yet committed — no repeat of Prompt 2's bundling issue); `state/` directory listing shows no `company_cache/` polluting real state (module correctly scoped to its own subdirectory, never touched during tests per the demo's own design).
 
 # Prompt 4 — Investigate & Plan: Hourly Discovery Refinement + Manual Cold-Start Reseed Action (written 2026-09-06, run 2026-09-06/07, archived 2026-09-07)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — investigate-then-plan, Plan Mode required on both builds independently before any code/workflow file.
+Full prompt text lived in [[Claude Code Prompts]] — investigate-then-plan, Plan Mode required on both builds independently before any code/workflow file.
 
 ## Build 1 — Hourly discovery refinement: no code change
 Read the Improvement Plan §3, the write-starvation postmortem (incl. both correction addenda), `core/debate.py`/`core/company_registry.py`/`core/identity.py`/`core/profile.yaml`, and checked the vault directly for `Excluded — Losing The Debate.md` (exists, 390 entries, all 2026-08-21 to 08-25, consistent with `run.yml` pausing 08-29 — stale by design, not broken) and `Excluded — Failed The Write Gate.md` (does not exist — the write-gate-failure-memory fix has test coverage but zero production evidence it's ever fired). Recommendation: leave `bucket_urgency` cross-bucket activation and `TIER_RANK`'s single grade exactly as-is — the former is explicitly gated behind `run.yml` being back on and watched (still disabled); the latter needs a `profile.yaml` preference judgment call only the human can make, not a code limitation (`TIER_RANK.get(tier, 1)` is already tier-agnostic). No code proposed for Build 1.
@@ -734,10 +734,10 @@ Confirmed directly: `pytest` re-run shows 486 passed; `git status` shows only th
 1. **`opt_cache.json` is never seeded from the real file nor merged back** — `reseed.py` passes `opt_cache_path=scratch_dir / "opt_cache.json"` (always empty) and the scratch dir is `rmtree`'d at the end. The plan's own reasoning for seeding `excluded_uids.json` ("skipping known-dead uids saves real Firecrawl calls") applies identically here and was missed — every OPT-excluded posting gets re-fetched and re-checked on the very next normal hourly run too, since an OPT-rejected uid never reaches `seen_ids`.
 2. **`main()`'s actual orchestration has zero test coverage** — only the small pure helper `_union_json_list` is tested. `run_once()`'s existing dependency injection (`http_get`/`push_fn`/`fetch_page_fn`) was available to test the real merge-after-run flow end-to-end and wasn't used.
 
-Follow-up: [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt fixes both, plus builds the "ready to screen" prioritized-dossier report ([[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] §4(b), previously scoped, never built) — made acute now that a single reseed run can drop 100+ dossiers on a human at once.
+Follow-up: [[Claude Code Prompts]]'s next prompt fixes both, plus builds the "ready to screen" prioritized-dossier report ([[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] §4(b), previously scoped, never built) — made acute now that a single reseed run can drop 100+ dossiers on a human at once.
 
 # Prompt 5 — Harden the Reseed Action + Build the Ready-to-Screen Report (written 2026-09-07, run 2026-09-07, archived 2026-09-07)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — fixed the two gaps Prompt 4's independent review found; no Plan-Mode gate (Task A mirrored an approved pattern, B was test-only, C was read-only/additive).
+Full prompt text lived in [[Claude Code Prompts]] — fixed the two gaps Prompt 4's independent review found; no Plan-Mode gate (Task A mirrored an approved pattern, B was test-only, C was read-only/additive).
 
 ## The Execution Report (as delivered)
 **Task A:** `opt_cache.json` now seeds from the real file and merges back via a new `_merge_dict_json` (scratch wins on key collision). Real merged output shown in the report — a pre-existing excluded verdict survived untouched alongside a genuinely new eligible verdict.
@@ -749,7 +749,7 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 Confirmed directly: `pytest` re-run shows 491 passed; all 4 new/changed files present (`reseed.py`, `screen_report.py`, `tests/test_reseed.py`, `tests/test_screen_report.py`); `git status` shows only expected files, `.claude/` migration work untouched; `_merge_dict_json`/`run_reseed`/`OPT_CACHE_FILENAME` all confirmed live in `reseed.py` by direct grep. No issues found — this is the first of the five build prompts with a clean independent review on the first pass.
 
 # Prompt 6 — Exact-5 Competitive Quota + Hard Capacity Pause (written 2026-09-07, run 2026-09-07/08, archived 2026-09-08)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — PLAN MODE FIRST (the highest-stakes prompt since Prompt 1, touching `run_once`'s live write-selection path directly).
+Full prompt text lived in [[Claude Code Prompts]] — PLAN MODE FIRST (the highest-stakes prompt since Prompt 1, touching `run_once`'s live write-selection path directly).
 
 ## The Plan (as approved) — with two real corrections to the prompt itself
 The executing session caught two errors in the prompt's own ground truth before writing any code: (1) "2/1/1/2 ≤ 3/3/3/1" is false — Other's new quota (2) exceeds its old ceiling (1); layering the new quota inside the old ceiling would make Other structurally unfillable and, under all-or-nothing, make every run write nothing forever. Resolved by **replacing**, not layering: `run_once` stops calling `_prioritize_and_cap`/`MAX_NEW_WRITES_PER_RUN` for its live path, calls new `_select_exact_quota`/`QUOTA_PER_RUN` instead; the old function/constant are kept, unreached, same precedent as `debate.py`'s own documented-but-unreached `bucket_urgency` stage. (2) "Exact-5" is wrong — 2+1+1+2 = 6, not 5. The per-bucket values (the actual confirmed decision) win over the round-number label.
@@ -763,7 +763,7 @@ Hard-pause check runs first in `run_once`, before schema-drift/any fetch (a loca
 Read every changed section of `run_pipeline.py` directly: the hard-pause check's placement, `_select_exact_quota`'s shortfall/all-or-nothing logic, the `budget`/`quota` mutual-exclusivity branch, `disable_workflow`. Read all 4 required scenario tests in full — each asserts exactly what it claims, including a test docstring that explicitly documents and corrects the "5 vs. 6" arithmetic error rather than silently working around it. Confirmed `run.yml`'s new permission and `Source of Truth.md`'s addendum directly (not from the report). `pytest` re-run independently: 499 passed. `git status` matches expected file set exactly, no bundling.
 
 # Prompt 7 — Commit The Pipeline Work Cleanly, Leave `.claude/` Untouched (written 2026-09-08, run 2026-09-08, archived 2026-09-08)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — a git-hygiene prompt, not a code-change prompt; commit-only, explicitly no push.
+Full prompt text lived in [[Claude Code Prompts]] — a git-hygiene prompt, not a code-change prompt; commit-only, explicitly no push.
 
 ## The Execution Report (as delivered)
 4 clean local commits, exactly the planned grouping: `8186ea7` (company cache, 2 files/241 insertions), `193d5a5` (reseed action, 3 files/362 insertions), `775dbd2` (screen report, 2 files/140 insertions), `bee5146` (exact-quota + hard-pause, 4 files/369 insertions/28 deletions) — each with a staged-set confirmation run before committing. `pytest`: 499 passed on final `HEAD`. `.claude/` files confirmed identical (3 modified, 5 untracked) to before the session started. Nothing pushed. Flagged proactively: local `master` has diverged 5 ahead / 4 behind `origin/master` (4 daily `recheck.yml` auto-commits) — noted as pre-existing, not caused by this session.
@@ -772,7 +772,7 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 Confirmed directly: `git log --oneline -6` matches exactly; `git show --stat` on all 4 commits matches the claimed file sets and line counts exactly (241/362/140/369+28); `pytest` re-run independently shows 499 passed; `git status` shows only the `.claude/` files, unchanged. Each commit carries a proper `Co-Authored-By: Claude Sonnet 5` + `Claude-Session` trailer. Confirmed the flagged divergence is real (`git status -sb`: "ahead 5, behind 4") and checked what origin's 4 extra commits actually touch: `logs/rechecks.jsonl` and `state/dossier_uids.json` only — zero file overlap with any local commit, so a rebase should be mechanically conflict-free. Second fully clean independent review in a row.
 
 # Prompt 8 — Reconcile The Divergence With `origin/master` (Still No Push) (written 2026-09-08, run unknown — see note below)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — a mechanical, low-risk rebase-and-verify prompt: commit the then-fresh `run.yml` notify-step diff, `git fetch` + `git rebase origin/master` (not a merge), re-run `pytest`, confirm `.claude/`'s file set stayed exactly unchanged, and explicitly still not push.
+Full prompt text lived in [[Claude Code Prompts]] — a mechanical, low-risk rebase-and-verify prompt: commit the then-fresh `run.yml` notify-step diff, `git fetch` + `git rebase origin/master` (not a merge), re-run `pytest`, confirm `.claude/`'s file set stayed exactly unchanged, and explicitly still not push.
 
 ```
 Run at effort: high. Low risk, mechanical — the file-overlap check is already done (see ground truth), this is confirmation and execution, not a design decision.
@@ -805,10 +805,10 @@ Report back: the run.yml diff you committed and the commit message you used, git
 ```
 
 ## Result — Reconstructed, Not Contemporaneous
-**No execution report was ever written back into [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] before that file moved on to its next content — this is the exact gap the 2026-10-03 status session named explicitly ("the vault's build notes stop at 2026-09-08 and the repo runs to 09-26").** This entry is reconstructed from indirect evidence, not a contemporaneous independent review like Prompts 1-7 above all got. Treat it as plausible, not confirmed:
+**No execution report was ever written back into [[Claude Code Prompts]] before that file moved on to its next content — this is the exact gap the 2026-10-03 status session named explicitly ("the vault's build notes stop at 2026-09-08 and the repo runs to 09-26").** This entry is reconstructed from indirect evidence, not a contemporaneous independent review like Prompts 1-7 above all got. Treat it as plausible, not confirmed:
 - The 2026-10-03 status reply states directly: "All 499 tests pass, local master matches origin, and PR #12 is merged" — consistent with this rebase having succeeded and the branch later reaching a merged PR.
 - No real session transcript or `git reflog`/`git log` evidence was checked against this specific prompt's exact steps (the commit-the-notify-step-then-rebase sequence) before writing this entry.
-**Standing task for the next session that touches this history** (folded into [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt, Task 9): confirm directly — via `git log` showing the actual rebase-era commits, or via the real session transcript if one was exported — whether Prompt 8 ran as written, and correct this entry with real evidence instead of the inference above.
+**Standing task for the next session that touches this history** (folded into [[Claude Code Prompts]]'s next prompt, Task 9): confirm directly — via `git log` showing the actual rebase-era commits, or via the real session transcript if one was exported — whether Prompt 8 ran as written, and correct this entry with real evidence instead of the inference above.
 
 ### Correction, 2026-10-03 — checked against `git reflog`/`git log`, replaces the "plausible, not confirmed" inference above
 **Prompt 8 was not run as written on 2026-09-08.** Evidence (repo `internship-research-loop`, local reflog + history):
@@ -819,12 +819,12 @@ Report back: the run.yml diff you committed and the commit message you used, git
 Status: closed as **superseded by the 2026-09-26 migration session**; the earlier "Standing task" is discharged.
 
 # Session 1 — Truth-Up & Deep Codebase Audit (written 2026-10-03, run 2026-10-03/04, archived 2026-10-04)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — ten tasks, `effort: high`, built on a pasted 2026-10-03 status-check reply, with explicit standing non-negotiable rules against re-enabling `run.yml`, deciding tiers/hard-pause/mirrors, or committing anything bundled with the parallel Codex vault sweep's work.
+Full prompt text lived in [[Claude Code Prompts]] — ten tasks, `effort: high`, built on a pasted 2026-10-03 status-check reply, with explicit standing non-negotiable rules against re-enabling `run.yml`, deciding tiers/hard-pause/mirrors, or committing anything bundled with the parallel Codex vault sweep's work.
 
 ## Result — Reconstructed From The Session's Own Chat Report, Not A File-Written Report
 **This file was never updated by the session itself** — the exact same gap this file's own lessons-learned list already names for Prompt 8 (a session's report existing only in chat, not written back here) recurred, even after being named as a standing lesson. The report below is reconstructed verbatim from what the session told the human in conversation, not independently re-verified by this archiving pass. Treat every number as session-reported, not archive-confirmed, until a future session re-checks it directly.
 
-**Tasks 1-10: all reported done.** `pytest` 499 → 528, both green. Nothing pushed; nothing committed either — the session deliberately stayed on `master` because a separate, legitimate Codex session was simultaneously editing `AGENTS.md`, adding `docs/codex/`, and the human had independently deleted every `.agents/skills/*` file by hand. **Confirmed by the human directly, 2026-10-04: both of those changes are valid and intentional** (the `.agents` deletion was the human's own action; the `AGENTS.md`/`docs/codex/` edits are a separate, approved Codex mirror-consolidation session) — nothing needs restoring, and this is not a collision to resolve, only a commit to sequence cleanly in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt.
+**Tasks 1-10: all reported done.** `pytest` 499 → 528, both green. Nothing pushed; nothing committed either — the session deliberately stayed on `master` because a separate, legitimate Codex session was simultaneously editing `AGENTS.md`, adding `docs/codex/`, and the human had independently deleted every `.agents/skills/*` file by hand. **Confirmed by the human directly, 2026-10-04: both of those changes are valid and intentional** (the `.agents` deletion was the human's own action; the `AGENTS.md`/`docs/codex/` edits are a separate, approved Codex mirror-consolidation session) — nothing needs restoring, and this is not a collision to resolve, only a commit to sequence cleanly in [[Claude Code Prompts]]'s next prompt.
 
 **Task 3 (Graphify):** confirmed still a pure structural mirror, no source text, pinned to `bee5146b`. Every spot-checked function sits at its cited line (`_select_exact_quota` L188, `plan_removals` L63). Constants still have no nodes (consistent with Prompt 11's 2026-08-23 finding); the `.claude` scripts are missing from the mirror — new, not previously flagged.
 
@@ -865,10 +865,10 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 4. Hard-pause at 300 — fine at the current ~278, but should count `_Career Fair/` toward it (Finding 5).
 5. Mirrors — **resolved independently, 2026-10-04**: the human deleted `.agents` directly; a separate Codex session is handling `AGENTS.md`/`docs/codex/`. Not an open decision anymore.
 
-Follow-up: [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt (Session 2) commits this session's own changes cleanly (separately from the human's `.agents` deletion and the parallel Codex session's `AGENTS.md`/`docs/codex/` work), fixes Finding 1 (quota-shortfall) and Finding 8 (`reseed.yml` injection) as the two safety-relevant items worth doing now, patches §1's stale field list, and explicitly leaves Findings 2-7/9-11 and every Decision above untouched for a later, separately-scoped pass.
+Follow-up: [[Claude Code Prompts]]'s next prompt (Session 2) commits this session's own changes cleanly (separately from the human's `.agents` deletion and the parallel Codex session's `AGENTS.md`/`docs/codex/` work), fixes Finding 1 (quota-shortfall) and Finding 8 (`reseed.yml` injection) as the two safety-relevant items worth doing now, patches §1's stale field list, and explicitly leaves Findings 2-7/9-11 and every Decision above untouched for a later, separately-scoped pass.
 
 # Session 2 — Commit Cleanly, Fix The Two Safety-Relevant Findings, One Small Standard Cleanup (written 2026-10-04, run 2026-10-04, archived 2026-10-04)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — deliberately narrow scope (commit + 2 findings + 1 doc cleanup), explicit non-negotiable rule to write the report into the file itself this time, after Session 1 reported only in chat.
+Full prompt text lived in [[Claude Code Prompts]] — deliberately narrow scope (commit + 2 findings + 1 doc cleanup), explicit non-negotiable rule to write the report into the file itself this time, after Session 1 reported only in chat.
 
 ## Result — Written Into The File By The Session Itself (first full compliance since Prompt 7)
 **Task 1:** tree state matched the human's 2026-10-04 confirmation exactly — 21 `.agents/skills/*` deletions, `AGENTS.md` modified, untracked `docs/codex/` (3 files), plus Session 1's own 14 files. Nothing else. Not re-litigated, as instructed.
@@ -889,7 +889,7 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 **Also correctly not done:** moving this prompt + report into the Archive — the live prompt said "once reviewed," and the session read that literally rather than self-archiving. This archiving pass is that review.
 
 # Session 3 — Branch Hygiene, Then Investigate-Then-Plan For The 184 Ambiguous Dossiers (written 2026-10-04, run 2026-10-04, archived 2026-10-04)
-Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — branch hygiene, a `dossier_uids.json` reconciliation, and a strict investigate-only task (no live fetch, no code committed for Task 3) against Codex's 184-ambiguous-dossier handoff.
+Full prompt text lived in [[Claude Code Prompts]] — branch hygiene, a `dossier_uids.json` reconciliation, and a strict investigate-only task (no live fetch, no code committed for Task 3) against Codex's 184-ambiguous-dossier handoff.
 
 ## Result — Written Into The File By The Session Itself (second in a row, after an MCP timeout detour)
 **Process note, worth keeping:** the session's write attempt to this file timed out four times via the Jarvis MCP mid-session, then succeeded on retry after also correcting a wrong heading path on its first retry attempt. The report did land, correctly, under this file's `# Codebase` section — confirmed by this archiving pass reading it back directly. Nothing was lost; flagging only because it's the second real MCP-reliability hiccup this project has hit (the first being Prompt 1's sandbox network/write blocker on the Codex side) — infrastructure flakiness, not a session behavior problem.
@@ -912,4 +912,4 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 ## Decision Point, Carried Into Session 4
 **Whether to build and run the ~15-20 URL pilot is a real, bounded, low-risk next step** — small (far short of the full 184/185), reversible (writes a verdict JSONL, moves nothing), and self-validating (known-answer controls catch a broken script before it's trusted on anything real). Session 4 is authorized to build and run it (not the full batch) on exactly these terms.
 
-Follow-up: [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt (Session 4) rebases the `dell-latitude/deadline-quota-and-reseed-fixes` branch onto the real current `origin/master` (investigating the likely `.agents`/`AGENTS.md` conflict first, since origin may have already superseded the local uncommitted changes there), does a bounded read-only investigation of the dossier_uids.json write-time gap Task 2 surfaced, and builds + runs the pilot script on the 7 hand-picked URLs above — stopping there, not scaling to the full ambiguous set without a further explicit go-ahead.
+Follow-up: [[Claude Code Prompts]]'s next prompt (Session 4) rebases the `dell-latitude/deadline-quota-and-reseed-fixes` branch onto the real current `origin/master` (investigating the likely `.agents`/`AGENTS.md` conflict first, since origin may have already superseded the local uncommitted changes there), does a bounded read-only investigation of the dossier_uids.json write-time gap Task 2 surfaced, and builds + runs the pilot script on the 7 hand-picked URLs above — stopping there, not scaling to the full ambiguous set without a further explicit go-ahead.

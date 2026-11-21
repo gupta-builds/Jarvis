@@ -22,7 +22,7 @@ next: "First real Deadline Sweep and first Weekly/Monthly review on the new cron
 ==The one section every review, sweep, and skill checks and updates — see [[30_Order/Workflows/Internship/Internship Review System]]'s Escalation section. Nothing gets removed from here except by a dated resolution line; nothing sits here past two review cycles without a stated reason.==
 - **[2026-09-05, RESOLVED]** Castleton Commodities Intl (Data Science/ML) and KeyBank (Data Intern) deadlines passed with zero Applying-note activity — confirmed missed, no action taken, per direct human decision. A corpus-wide sweep the same day found 3 more Program notes in the identical state (Castleton Full-Stack, Castleton Data Engineering, KeyBank Analytics & Quantitative Modeling) that neither review had caught. All 5 moved to `Programs/{Serious,Considering}/Missed/` with a dated Outcome section on each note.
 - **[2026-09-05, OPEN]** Uber's original application req (jobs.uber.com/en/jobs/300697/) returned "Not found" on a live check — confirm whether it's genuinely expired before further outreach prep (see that Program note's Contact note).
-- **[2026-09-05, OPEN]** The Microsoft `stage1_reject` sidebar-link regression (6 genuine dossiers) still needs its codebase fix — filed as [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s Prompt 2, not yet run.
+- **[2026-09-05, OPEN]** The Microsoft `stage1_reject` sidebar-link regression (6 genuine dossiers) still needs its codebase fix — filed as [[Claude Code Prompts]]'s Prompt 2, not yet run.
 - **[2026-09-05, OPEN]** `run.yml` (hourly discovery) has been `disabled_manually` since 2026-08-29 — re-enabling is explicitly reserved for a direct human decision, not this file. Every dossier/discovery number below is a snapshot of a paused system.
 
 ## Health Check — Progress Against The End Goal
@@ -64,7 +64,7 @@ Full detail and status-per-period: [[60_Claude/30_Reviews/Internship Loop/Intern
 - [[10_Areas/Career/Internships/Tracker/Deadline Tracker]] — the sweep's live output.
 - [[10_Areas/Career/Internships/Tracker/Internship - Dashboard]] — the live Dataview views over current vault state (Programs, Contacts, Applying funnel) — this log states point-in-time numbers as of a review; the Dashboard is always current.
 - [[20_Progress/Internship/Building System/System - Build Log]] — the full dated build history of the loop itself (code-side).
-- [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — the live queue of codebase-fix handoffs from reviews (see Prompt 2, the Microsoft regression).
+- [[Claude Code Prompts]] — the live queue of codebase-fix handoffs from reviews (see Prompt 2, the Microsoft regression).
 - [[60_Claude/07_AI_Information/Session Logs/log.md]] — one-line mentions of vault-side fixes made during a review.
 - [[30_Order/Workflows/Internship/Internship Pipeline]] — the actual step-by-step process this whole system is reviewing against.
 

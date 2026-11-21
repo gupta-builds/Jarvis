@@ -7,7 +7,7 @@ tags:
   - internship
   - freshness-sweep
 notes:
-  - "[[20_Progress/Internship/Building System/Runs/Codex Prompts]]"
+  - "[[Codex Prompts]]"
   - "[[10_Areas/Career/Internships/Tracker/Deadline Tracker]]"
 next:
 ---

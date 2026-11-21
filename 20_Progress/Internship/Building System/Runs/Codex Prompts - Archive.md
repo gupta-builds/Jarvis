@@ -3,11 +3,10 @@ type: reference
 status: tree
 created: 2026-10-03
 updated: 2026-10-04
-
 related_progress:
   - "[[Source of Truth]]"
   - "[[Internship Notes Standard]]"
-  - "[[20_Progress/Internship/Building System/Runs/Codex Prompts]]"
+  - "[[Codex Prompts]]"
 tags:
   - internship
   - automation
@@ -17,7 +16,7 @@ tags:
 next:
 ---
 # Codex Prompts — Archive
-Every prompt ever run against the Jarvis vault via a Codex (GPT-5.6) session, in order, verbatim, with what actually happened when it ran. [[20_Progress/Internship/Building System/Runs/Codex Prompts]] is the live counterpart — it holds only the guide plus whatever prompt runs next, and gets overwritten every build cycle; this note is where that content lands once a prompt is done (or definitively blocked), so nothing is lost. Mirrors [[Claude Code Prompts - Archive]]'s own convention exactly.
+Every prompt ever run against the Jarvis vault via a Codex (GPT-5.6) session, in order, verbatim, with what actually happened when it ran. [[Codex Prompts]] is the live counterpart — it holds only the guide plus whatever prompt runs next, and gets overwritten every build cycle; this note is where that content lands once a prompt is done (or definitively blocked), so nothing is lost. Mirrors [[Claude Code Prompts - Archive]]'s own convention exactly.
 
 ## Prompt 1 — Dossier Freshness, Deadline, and Removal Sweep (written 2026-10-03, attempted 2026-10-03, blocked — not executed)
 
@@ -44,7 +43,7 @@ The session reported, verbatim:
 
 **Correctly handled:** the session followed its own non-negotiable rule exactly — stopped rather than fabricate 278 statuses it couldn't actually check, moved nothing, invented no deadlines. This is the intended failure mode, not a session error.
 
-Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt (Prompt 2) opens with an explicit go/no-go environment check before attempting any real work, and separates the deadline-backfill task (which doesn't require live fetch) from the freshness-recheck task (which does and must now be treated as partial/best-effort given the sandbox's real network constraints).
+Follow-up: [[Codex Prompts]]'s next prompt (Prompt 2) opens with an explicit go/no-go environment check before attempting any real work, and separates the deadline-backfill task (which doesn't require live fetch) from the freshness-recheck task (which does and must now be treated as partial/best-effort given the sandbox's real network constraints).
 
 ## Prompt 2 — Environment-Constrained Retry (written 2026-10-03, run 2026-10-04, archived 2026-10-04)
 
@@ -53,19 +52,19 @@ Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next 
 ```
 
 ### Result — Deadline Backfill Complete, Freshness Recheck Correctly Skipped
-Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompts]] by the session itself — first full-compliance report in this file's short history, unlike both of [[Claude Code Prompts - Archive]]'s own chat-only-report gaps.
+Written directly into [[Codex Prompts]] by the session itself — first full-compliance report in this file's short history, unlike both of [[Claude Code Prompts - Archive]]'s own chat-only-report gaps.
 
 - **Scope recount:** 278 dossiers (130 AI/ML, 41 Fullstack, 48 CyS & Finance, 59 Other), matching Prompt 1's count exactly.
 - **Task 0:** write access confirmed (scratch file written and removed). Fetch tool identified as `web__run`; its 5-URL viability test came back 3/5 real (AbbVie, Virtu, Audax) and 2/5 unusable (The Trade Desk generically redirected, Chevron returned empty/error) — correctly judged not reliable enough for a 278-page pass, and correctly **not** attempted further, per Prompt 2's own rule.
 - **Deadline backfill: 278/278 complete**, using only each dossier's stored `## Posting` text, independent of the fetch-tool verdict. 11 real `deadline_posted` values extracted (8 AI/ML, 1 Fullstack, 0 CyS & Finance, 2 Other); the remaining 267 got `own_deadline: 2026-10-11` (today + 7, the one-time retroactive formula, exactly as specified — not `date_found` + 7).
-- **Freshness recheck: 0/278, by design** — the session reported this plainly as a skip, not a failure, with the exact two-probe evidence behind the call. No dossier moved; `state/dossier_uids.json` untouched; the handoff manifest to [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] is honestly empty.
+- **Freshness recheck: 0/278, by design** — the session reported this plainly as a skip, not a failure, with the exact two-probe evidence behind the call. No dossier moved; `state/dossier_uids.json` untouched; the handoff manifest to [[Claude Code Prompts]] is honestly empty.
 - **Tracking artifacts updated:** `Tracker/Deadline Tracker.md` re-anchored to 2026-10-04 with all 278 re-bucketed (prior historical material preserved below the new section — though see the correction below, a stray diff artifact leaked into the new section's own first line). `_Today/No Deadline.md` replaced with an explicit retirement note, flagging correctly that the note's own meaning needs redefining now that every live dossier carries some deadline value.
 - **[[Internship Notes Standard]] patched:** §1's required-field list and a new §8 (later found, on direct inspection 2026-10-04, to be a single coherent section incorporating both this session's retroactive-sweep framing and the parallel Claude Code session's code-level `extract_deadline()` detail — the "expect a collision" risk both sessions flagged did not become real damage).
 
 ### Correction, 2026-10-04 — a formatting defect in the session's own tracking-artifact edit
-Direct inspection of `Tracker/Deadline Tracker.md` after this prompt found a stray leading `+` character on the new section's own first heading line (`+# Current sweep — 2026-10-04`) — almost certainly a unified-diff hunk marker that leaked into the written content rather than being stripped. Cosmetic, not a data-integrity issue (every dossier entry beneath it reads correctly), but real and uncorrected as of this archiving pass. Queued as a one-line fix in [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt.
+Direct inspection of `Tracker/Deadline Tracker.md` after this prompt found a stray leading `+` character on the new section's own first heading line (`+# Current sweep — 2026-10-04`) — almost certainly a unified-diff hunk marker that leaked into the written content rather than being stripped. Cosmetic, not a data-integrity issue (every dossier entry beneath it reads correctly), but real and uncorrected as of this archiving pass. Queued as a one-line fix in [[Codex Prompts]]'s next prompt.
 
-Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt (Prompt 3) fixes the stray `+`, then finishes the one piece of the original three-part ask still outstanding — the freshness recheck — using a corrected, non-binary methodology: attempt every dossier individually rather than gating the whole batch on a 5-sample pass/fail verdict, prioritizing the 3 already-`Already Over` dossiers first since they're the smallest, highest-value set to resolve.
+Follow-up: [[Codex Prompts]]'s next prompt (Prompt 3) fixes the stray `+`, then finishes the one piece of the original three-part ask still outstanding — the freshness recheck — using a corrected, non-binary methodology: attempt every dossier individually rather than gating the whole batch on a 5-sample pass/fail verdict, prioritizing the 3 already-`Already Over` dossiers first since they're the smallest, highest-value set to resolve.
 
 ## Prompt 3 — Freshness Recheck, Per-Item, Prioritized By Urgency (written and run 2026-10-04, archived 2026-10-04)
 
@@ -74,7 +73,7 @@ Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next 
 ```
 
 ### Result — 278/278 Attempted, Real Partial Coverage Delivered
-Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompts]] by the session itself — second file-written report in a row.
+Written directly into [[Codex Prompts]] by the session itself — second file-written report in a row.
 
 - **Recount confirmed:** 278 (130/41/48/59), matching Prompts 1-2 exactly.
 - **Stray `+` fixed** in `Tracker/Deadline Tracker.md`'s "Current sweep" heading; nothing else in that file touched beyond removing the 9 dossiers this pass confirmed closed.
@@ -86,7 +85,7 @@ Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompt
 ### What The ~66% Ambiguous Rate Actually Means
 Not a process failure — a real, now well-characterized structural limit of this sandbox's one working fetch path (`web__run`). The ambiguous reasons cited are systematic, not transient: HTTP 403/406/503 (bot detection), zero-line/empty HTML (JS-only rendering this tool can't execute), and generic blocked/inaccessible responses. A same-tool retry on the same 184 URLs would very likely reproduce the same result, not improve it — this is the ceiling of what this environment can resolve, not a gap to close with more attempts. The real remaining 184 need either a genuinely different fetch capability (the codebase repo's own production Firecrawl access, which the pipeline already depends on and which plainly handles cases this tool can't) or a human eyeball pass; re-running this same sweep a third time is not the right next move.
 
-Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt (Prompt 4) does not repeat the freshness attempt. It builds the "ready to screen" prioritized view ([[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] §4(b) — scoped back on 2026-09-04, never built), using the real data now on hand: 85 confirmed-open + 184 still-live-but-unconfirmed dossiers, each with a real deadline-urgency bucket from `Deadline Tracker.md`. [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next session separately investigates whether the codebase's own Firecrawl-backed tooling can resolve some of the 184 — that's an investigate-then-plan task there, not repeated here.
+Follow-up: [[Codex Prompts]]'s next prompt (Prompt 4) does not repeat the freshness attempt. It builds the "ready to screen" prioritized view ([[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] §4(b) — scoped back on 2026-09-04, never built), using the real data now on hand: 85 confirmed-open + 184 still-live-but-unconfirmed dossiers, each with a real deadline-urgency bucket from `Deadline Tracker.md`. [[Claude Code Prompts]]'s next session separately investigates whether the codebase's own Firecrawl-backed tooling can resolve some of the 184 — that's an investigate-then-plan task there, not repeated here.
 
 ## Prompt 4 — Build The Ready-To-Screen Prioritized View (written and run 2026-10-04, archived 2026-10-04)
 
@@ -95,7 +94,7 @@ Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next 
 ```
 
 ### Result — View Built, One Real Self-Caught Discrepancy In Prompt 3's Own Numbers
-Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompts]] by the session itself — third file-written report in a row.
+Written directly into [[Codex Prompts]] by the session itself — third file-written report in a row.
 
 - **Recount confirmed:** 269 active dossiers (128 AI/ML, 38 Fullstack, 45 CyS & Finance, 58 Other) — matches the expected 278 − 9 exactly.
 - **A real discrepancy in Prompt 3's own report, caught and handled correctly, not papered over:** Prompt 3's headline claimed 85 confirmed-open, but its own item-level evidence only names 84 — one of the two Microsoft "AI Software Engineering Intern" dossiers turned out to be a generic page match the session didn't trust enough to count as confirmed. Rather than guess which way to round, this session recomputed the full split from scratch: **84 Tier 1 + 0 Tier 2 + 176 Tier 3 + 6 lower-urgency unconfirmed + 3 Already-Over/unconfirmed = 269**, with the disputed dossier landing in the unconfirmed side, not Tier 1. No missing verdict was guessed into the confirmed-open count.
@@ -104,4 +103,4 @@ Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompt
 - **The 3 Already-Over/unconfirmed dossiers (Moog, Regions Bank, Manhattan Associates) called out in their own section**, exactly as asked — flagged as simultaneously the most urgent (deadline already passed) and least trustworthy (never confirmed either way) items in the corpus, not buried in a tier.
 - **[[10_Areas/Career/Internships/List/Ready to Screen]] written** with full `type: index` frontmatter, `notes:` linking `Deadline Tracker`, this prompt file, and [[Deadline and Intake Triage Standard]], and a cadence note tying regeneration to that Standard's existing 3-day sweep rather than inventing a new schedule. No dossier or tracker field was edited.
 
-Follow-up: none scoped yet on the vault side. The original three-part ask (freshness, deadlines, current-as-of-today) is complete to this environment's real limits, and the Ready-to-Screen view is the thing that makes all of it actually useful. The next legitimate trigger for a Codex prompt is either the next standalone 3-day deadline sweep (not due until ~2026-10-07) or applying [[Internship Notes Standard]] §4's removal protocol to whatever [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s pilot script eventually confirms closed — neither exists yet as of this archiving pass, so [[20_Progress/Internship/Building System/Runs/Codex Prompts]] is intentionally left at just the guide, not padded with invented work.
+Follow-up: none scoped yet on the vault side. The original three-part ask (freshness, deadlines, current-as-of-today) is complete to this environment's real limits, and the Ready-to-Screen view is the thing that makes all of it actually useful. The next legitimate trigger for a Codex prompt is either the next standalone 3-day deadline sweep (not due until ~2026-10-07) or applying [[Internship Notes Standard]] §4's removal protocol to whatever [[Claude Code Prompts]]'s pilot script eventually confirms closed — neither exists yet as of this archiving pass, so [[Codex Prompts]] is intentionally left at just the guide, not padded with invented work.

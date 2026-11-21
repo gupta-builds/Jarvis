@@ -101,7 +101,7 @@ The following notes were read as the prior source of truth:
 - [[40_Resources/CS/AI/Workflows/Claude Code/Graphify Workflow]]
 - [[60_Claude/40_Project_Briefs/Graphify — Internship Research Loop Implementation]]
 - [[20_Progress/Internship/Building System/Source of Truth]]
-- [[20_Progress/Internship/Building System/Research Loop - Implementation Plan]]
+- [[Research Loop - Implementation Plan]]
 - [[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]
 - [[20_Progress/Internship/Building System/Research Loop - Resources]]
 - [[20_Progress/Internship/Building System/System - Build Log]]

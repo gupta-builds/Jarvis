@@ -13,7 +13,7 @@ notes:
   - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]]"
   - "[[10_Areas/Career/Internships/Tracker/Tracker|Application Tracker]]"
   - "[[10_Areas/Life/Plans/Fall 2026/LeetCode & CodePath|LeetCode & CodePath]]"
-  - "[[20_Progress/Internship/Building System/Research Loop - Implementation Plan|Research Loop - Implementation Plan]]"
+  - "[[Research Loop - Implementation Plan|Research Loop - Implementation Plan]]"
   - "[[40_Resources/UMN/SAO/AIIS|AIIS]]"
   - "[[20_Progress/Degree/Fall'26 Syllabus|Fall'26 Syllabus]]"
   - "[[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]]"

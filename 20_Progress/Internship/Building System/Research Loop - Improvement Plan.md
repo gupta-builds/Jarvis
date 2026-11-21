@@ -7,20 +7,14 @@ related_progress:
   - "[[Source of Truth]]"
   - "[[Phases Run]]"
   - "[[Internship Pipeline]]"
-  - "[[20_Progress/Internship/Building System/Runs/Discovery Step Postmortem —
-    Write-Starvation Incident (2026-08-26)]]"
+  - "[[Discovery Step Postmortem — Write-Starvation Incident (2026-08-26)]]"
   - "[[20_Progress/Internship/Building System/V0/Dossier Corrections]]"
   - "[[Research Loop - Implementation Plan]]"
 tags:
   - internship
   - automation
   - system-design
-next: "2026-09-06: added a codebase-depth diagnosis section
-  (precision-not-volume framing, the company-registry root-cause fix, and
-  confirmed scope exclusions) after a fresh from-code read — see the new section
-  right above # Old Plan. The actual execution sequence now lives in [[Research
-  Loop - Implementation Plan]]'s new Execution Plan section, not here. run.yml
-  re-enable timing is still the human's separate call, unchanged."
+next: "2026-09-06: added a codebase-depth diagnosis section (precision-not-volume framing, the company-registry root-cause fix, and confirmed scope exclusions) after a fresh from-code read — see the new section right above # Old Plan. The actual execution sequence now lives in [[Research Loop - Implementation Plan]]'s new Execution Plan section, not here. run.yml re-enable timing is still the human's separate call, unchanged."
 ---
 # Research Loop — Improvement Plan
 ==The honest account of what's actually broken or missing. First written 2026-07-19 against the live repo and live vault; substantially updated 2026-07-25 after a live follow-up session that investigated real misses (a Google posting, four manually-clipped internships), checked real hit rates against Greenhouse/Lever/Ashby, and then built and tested four new ingestion sources plus a measured OPT-regex improvement. Priority 2 moved from "planned" to "built, tested, not yet pushed" in that session. Priority 1 has not moved — it is still the single most important thing not yet done.== [[Source of Truth]] states what the system was supposed to become; this note states what's still standing between here and there.

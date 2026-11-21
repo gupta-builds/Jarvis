@@ -8,7 +8,7 @@ related_progress:
   - "[[Internship Notes Standard]]"
   - "[[Deadline and Intake Triage Standard]]"
   - "[[20_Progress/Internship/Building System/V0/Dossier Corrections]]"
-  - "[[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]"
+  - "[[Claude Code Prompts]]"
   - "[[20_Progress/Internship/Building System/Runs/Codex Prompts - Archive]]"
   - "[[10_Areas/Career/Internships/List/Ready to Screen]]"
 tags:

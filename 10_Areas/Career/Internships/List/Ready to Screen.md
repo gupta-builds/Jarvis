@@ -9,9 +9,9 @@ tags:
   - career
 notes:
   - "[[10_Areas/Career/Internships/Tracker/Deadline Tracker]]"
-  - "[[20_Progress/Internship/Building System/Runs/Codex Prompts]]"
+  - "[[Codex Prompts]]"
   - "[[30_Order/Standards/Internship/Deadline and Intake Triage Standard]]"
-next: "Regenerate after the next 3-day deadline sweep."
+next: Regenerate after the next 3-day deadline sweep.
 ---
 # Ready to Screen
 ## Purpose
@@ -57,4 +57,4 @@ The primary view is capped at 18 dossiers: the top nine from each non-empty tier
 | Unconfirmed after Next Week — left out | 6 | 0 |
 | Already Over and unconfirmed — flagged above | 3 | 3 |
 | Active scope | 269 | 21 including flags |
-The scope reconciles without overlap: `84 + 0 + 176 + 6 + 3 = 269`. Prompt 3's aggregate line says 85 open / 184 ambiguous, but its item-level record names only 84 opens; this view leaves the unmatched item unconfirmed instead of inventing a verdict. [[10_Areas/Career/Internships/Tracker/Deadline Tracker|Deadline Tracker]] holds the complete urgency view; [[20_Progress/Internship/Building System/Runs/Codex Prompts|Prompt 4's report]] records this cutoff and its provenance.
+The scope reconciles without overlap: `84 + 0 + 176 + 6 + 3 = 269`. Prompt 3's aggregate line says 85 open / 184 ambiguous, but its item-level record names only 84 opens; this view leaves the unmatched item unconfirmed instead of inventing a verdict. [[10_Areas/Career/Internships/Tracker/Deadline Tracker|Deadline Tracker]] holds the complete urgency view; [[Codex Prompts|Prompt 4's report]] records this cutoff and its provenance.

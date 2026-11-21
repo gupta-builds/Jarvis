@@ -6,20 +6,20 @@ related_progress:
   - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
   - "[[20_Progress/Internship/Building System/Source of Truth]]"
   - "[[20_Progress/Internship/Building System/System - Build Log]]"
-  - "[[20_Progress/Internship/Building System/Runs/Discovery Step Postmortem — Write-Starvation Incident (2026-08-26)]]"
-  - "[[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]"
+  - "[[Discovery Step Postmortem — Write-Starvation Incident (2026-08-26)]]"
+  - "[[Claude Code Prompts]]"
 tags:
   - internship
   - automation
   - prompts
   - reboot
-next: "All open questions answered 2026-09-04. Every task (A-E) is now fully specified and runnable, no [PLACEHOLDER]s remain. Task D (the overdue Weekly+Monthly review) is being run directly in the same session that resolved these questions, since the context is already loaded — see the new review notes it produces for the actual findings."
+next: All open questions answered 2026-09-04. Every task (A-E) is now fully specified and runnable, no [PLACEHOLDER]s remain. Task D (the overdue Weekly+Monthly review) is being run directly in the same session that resolved these questions, since the context is already loaded — see the new review notes it produces for the actual findings.
 ---
 # Prompt 1 Reboot — Building System Refresh Session
 ==This is a **prompt to run**, not a finished record — every `[PLACEHOLDER: ...]` below needs a real answer before this session starts. It exists because the user asked, in the same session this was written, for "an excellent prompt for an in-depth session," with explicit instructions: state the goal plainly, don't let the model hallucinate, use the right words. This note is that prompt.==
 
 ## Why "Prompt 1," Not "Prompt 28"
-[[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] is on Prompt 27 and its own `next` field says Prompts 26/27 already ran (10 `Programs/Serious/` + 4 `Considering/` + 10 Contacts + 10 Tracker notes now exist, confirmed live 2026-09-04 — up from 5 total promotions as of the last Monthly Review). The user's explicit instruction this session was to "start fresh from Prompt 1" for the next era of this project: the discovery-side postmortem is done, the write-gate fix has shipped, and the actual goal now is throughput (5 dossiers/hour) plus getting a public v0 out, not more one-off bugfix prompts. **This does not mean deleting Prompt history** - `Claude Code Prompts — Archive.md` keeps every prior prompt's full record. It means the numbering for this new phase starts over, and this file (not a continuation of 26/27) is Prompt 1 of that phase.
+[[Claude Code Prompts]] is on Prompt 27 and its own `next` field says Prompts 26/27 already ran (10 `Programs/Serious/` + 4 `Considering/` + 10 Contacts + 10 Tracker notes now exist, confirmed live 2026-09-04 — up from 5 total promotions as of the last Monthly Review). The user's explicit instruction this session was to "start fresh from Prompt 1" for the next era of this project: the discovery-side postmortem is done, the write-gate fix has shipped, and the actual goal now is throughput (5 dossiers/hour) plus getting a public v0 out, not more one-off bugfix prompts. **This does not mean deleting Prompt history** - `Claude Code Prompts — Archive.md` keeps every prior prompt's full record. It means the numbering for this new phase starts over, and this file (not a continuation of 26/27) is Prompt 1 of that phase.
 
 ## The Actual Goal, Stated Plainly
 Not "write more notes." The measurable target, restated from the user's own words this session: **get real internships moving through the entire pipeline (find → dossier → screen → program/contact/tracker → reach out → apply) fast, at a sustained ~5 dossiers/hour discovery rate**, with a public, generic v0 of the discovery half live on the internet with a real README, and a repeatable, checkable way to confirm the pipeline is actually catching every real posting from its sources (not just producing dossiers that look plausible).

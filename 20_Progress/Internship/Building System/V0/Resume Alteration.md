@@ -10,13 +10,13 @@ tags:
 notes:
   - "[[Internship Pipeline]]"
   - "[[30_Order/Workflows/Internship/Application Document Preparation]]"
-  - "[[Resume Alteration Standard]]"
+  - "[[Application Documents Standard]]"
   - "[[Cover Letter Alteration]]"
   - "[[Humanizer]]"
 next: Rebuild Main Resume.md into the evidence-tagged structure this note assumes — gated on the human reviewing Resume Alteration Standard first (see 'Not Yet Built' below).
 ---
 # Resume Alteration
-==Was an empty stub until 2026-08-28. This is the design note for turning [[20_Progress/Internship/Resumes/Main Resume]] — currently a vague bullet bank behind a PDF — into a real per-application resume system.== Written after a discovery session that clarified the missing piece in [[Internship Pipeline]]: nothing defined what actually happens between "I found a program" and "a resume exists that's actually tailored to it." This note is that definition. The enforceable rules live in [[Resume Alteration Standard]]; this note is the narrative — why the system is shaped this way and how it fits the rest of the pipeline.
+==Was an empty stub until 2026-08-28. This is the design note for turning [[20_Progress/Internship/Resumes/Main Resume]] — currently a vague bullet bank behind a PDF — into a real per-application resume system.== Written after a discovery session that clarified the missing piece in [[Internship Pipeline]]: nothing defined what actually happens between "I found a program" and "a resume exists that's actually tailored to it." This note is that definition. The enforceable rules live in [[Application Documents Standard]]; this note is the narrative — why the system is shaped this way and how it fits the rest of the pipeline.
 
 ## Scope
 Governs the Main Resume master (`Resumes/Main Resume.md` / `.docx` / `.pdf`) and every per-application tailored resume DOCX. Cover letters have their own parallel note, [[Cover Letter Alteration]] — the two systems are siblings, not one system with two outputs, because a resume and a cover letter get evaluated by different readers (ATS + skim vs. a human reading start to finish) and can be revised independently. The style/tone review both pass through before either is written lives in [[Humanizer]], not here.
@@ -30,7 +30,7 @@ Governs the Main Resume master (`Resumes/Main Resume.md` / `.docx` / `.pdf`) and
 - The Cheats note [[10_Areas/Career/Internships/Cheats/Resume Tailoring, LinkedIn Search & Outreach Discovery]] still describes the old `Resumes/Altered/<company>.md` Markdown-cut workflow. That note is left as-is (out of scope for this session) but should be read as historical once the system below is actually built — its five-prompt JD-keyword sequence is still useful *content*, just not the file convention.
 
 ## The Master Resume (Three Artifacts, One Source of Truth)
-1. **`Resumes/Main Resume.md`** — the source of truth. Structured, evidence-tagged bullets (mirroring the existing `#skill/...` tag convention), each one traceable to real work. Rebuilding this into that shape is a separate, later task — not done by this note, and gated on a human reviewing [[Resume Alteration Standard]] first, since that standard is what defines what counts as evidence.
+1. **`Resumes/Main Resume.md`** — the source of truth. Structured, evidence-tagged bullets (mirroring the existing `#skill/...` tag convention), each one traceable to real work. Rebuilding this into that shape is a separate, later task — not done by this note, and gated on a human reviewing [[Application Documents Standard]] first, since that standard is what defines what counts as evidence.
 2. **`Resumes/Main Resume.docx`** — the canonical export, generated from the Markdown, never hand-edited independently of it. If a discrepancy exists between the two, the Markdown wins and the DOCX is regenerated.
 3. **`Resumes/Main Resume.pdf`** — the submission-format export, generated the same way.
 `Main Resume.*` are reserved filenames at the root of `Resumes/` — no per-application file is ever named this.
@@ -44,7 +44,7 @@ A JD requirement with no matching evidence anywhere in those three sources is lo
 
 ## The Tailoring Boundary
 **Allowed:** selecting which existing bullets appear, reordering them to lead with what the JD emphasizes, and accurately rephrasing wording to mirror the JD's own terminology (e.g. "built REST APIs" → "designed RESTful services" if that's genuinely what happened).
-**Not allowed:** inventing a bullet, changing a real number, claiming a tool/skill that wasn't actually used, or inflating scope ("contributed to" becoming "led" without that being true). Full enumeration in [[Resume Alteration Standard]].
+**Not allowed:** inventing a bullet, changing a real number, claiming a tool/skill that wasn't actually used, or inflating scope ("contributed to" becoming "led" without that being true). Full enumeration in [[Application Documents Standard]].
 
 ## Per-Application Flow
 Full step-by-step sequencing (with the cover-letter side folded in) lives in [[30_Order/Workflows/Internship/Application Document Preparation]]; this is the resume-specific half of it:
@@ -63,7 +63,7 @@ Full step-by-step sequencing (with the cover-letter side folded in) lives in [[3
 Nothing in this note is live automation. It's the contract the next build has to satisfy.
 
 ## Interfaces
-- [[Resume Alteration Standard]] — the enforceable evidence/source/naming/overwrite rules.
+- [[Application Documents Standard]] — the enforceable evidence/source/naming/overwrite rules.
 - [[30_Order/Workflows/Internship/Application Document Preparation]] — where this slots into [[Internship Pipeline]] Step 5, alongside the cover-letter half.
 - [[Humanizer]] — the pre-write style gate every draft passes through.
 - [[Cover Letter Alteration]] — the sibling system for the other half of an application packet.

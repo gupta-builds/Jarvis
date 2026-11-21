@@ -81,7 +81,7 @@ Paths in the Right and Wrong lines start at `10_Areas/Career/Internships/Contact
 | The note sits in one of the three folders and its `status` agrees with the folder | The folder is how a human sees state | Reader (status key: Lint, check 1) |
 | Blank keys stay blank, never the string `null`; every wikilink stays on one line | `null` is read as text, and a folded link breaks | Reader |
 | `related_programs` resolves | The Contact must reach its Program | Lint, check 3 |
-| Every fact has a source | An unsourced contact fact sends the outreach to a guess | Reader |
+| Every fact has a source. An empty contact search is a valid result and blocks nothing | An unsourced fact sends the outreach to a guess | Reader |
 | The Conversation Log holds real exchanges | A placeholder log hides that no contact happened | Reader |
 | No message is sent by an agent | Every draft is reviewed and sent by hand | Reader |
 ## Legacy Shapes

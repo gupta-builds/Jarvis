@@ -75,7 +75,7 @@ Paths in the Right and Wrong lines start at `60_Claude/30_Reviews/Internship Loo
 - **Right:** `2026-08-24 through 2026-09-04 (12 days, not 7` (`Weekly/Internship Loop Weekly Review — 2026-W36.md`)
 - **Wrong:** None seen.
 ### Weekly: the three numbers
-- **Write:** under `Dossiers Written by Tier`, the new dossiers this week by tier against the quota read from Source of Truth. Under `Applications and Follow-ups`, applications submitted this week and follow-ups overdue, counted from the Trackers. Under `Loop Run Health`, days since the last successful hourly run with failed runs counted, from the Loop Status note and `gh run list`. Anything a script can count is counted across the whole set, not sampled.
+- **Write:** under `Dossiers Written by Tier`, the new dossiers this week by tier against the quota read from Source of Truth. Under `Applications and Follow-ups`, applications submitted this week and follow-ups overdue, counted from the Trackers. Under `Loop Run Health`, days since the last successful hourly run with failed runs counted, from the Loop Status note and `gh run list`, and the number of dossiers in `_Career Fair/`, which count toward the hard pause and which no mover archives. Anything a script can count is counted across the whole set, not sampled.
 - **Length:** one number and one sentence of cause each.
 - **Never:** an estimated count, or a number with no query named.
 - **Right:** `Exact corpus-wide counts (287 live dossiers,` (`Weekly/Internship Loop Weekly Review — 2026-W36.md`)

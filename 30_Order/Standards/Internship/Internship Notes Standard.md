@@ -22,16 +22,16 @@ notes:
 ---
 # Internship Notes Standard
 ==A dossier is a bot-written posting capture that makes a 60-second decision possible; the vault contract is its frontmatter, its links, and the folder that records its state.==
-This is the Standard for dossiers in `10_Areas/Career/Internships/List/Dossiers/` and for the raw captures a career fair leaves in `20_Progress/Internship/Career Fair/`. The bot's extraction rules, hard gates, limits and manifest belong to the `internship-research-loop` repo and Source of Truth, not here. It is not the Program, Contact or Tracker note, which have their own Standards.
+This is the Standard for dossiers in `10_Areas/Career/Internships/List/Dossiers/` and the raw captures a career fair leaves in `20_Progress/Internship/Career Fair/`. The bot's gates and limits belong to the loop repo and Source of Truth.
 ## Spec
 ```json
 {
   "family": "internship-dossier",
   "tier": 2,
   "match": {"type": "input", "kind": "job-dossier", "path": "^10_Areas/Career/Internships/List/Dossiers/", "where": {}, "where_not": {}},
-  "legacy_match": [{"path": "^10_Areas/Career/Internships/List/Dossiers/(?!_Today/)(?!.*(MOC|to-Create)\\.md$).*\\.md$", "where": {"company": "*"}, "absent": ["type"]}],
-  "status": ["seed", "tree", "archived"],
-  "required_keys": ["type", "input_kind", "status", "review_state", "created", "updated", "tags", "company", "title", "url", "source", "terms", "locations", "target_year", "date_posted", "date_found", "deadline_posted", "own_deadline", "matched_reason", "next", "notes", "tier", "resume_variant", "letter_mode"],
+  "legacy_match": [{"path": "^10_Areas/Career/Internships/List/Dossiers/(?!_Today/)(?!.*(MOC|to-Create)\\.md$).*\\.md$","where": {"company": "*"}, "absent": ["type"]}],
+  "status": ["seed","tree","archived"],
+  "required_keys": ["type","input_kind","status","review_state","created","updated","tags","company","title","url","source","terms","locations","target_year","date_posted","date_found","deadline_posted","own_deadline","matched_reason","next","notes","tier","resume_variant","letter_mode"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "terms": "list", "locations": "list", "target_year": "list", "notes": "list", "date_posted": "text?", "deadline_posted": "text?", "own_deadline": "text?", "next": "text?", "tier": "number", "resume_variant": "text", "letter_mode": "text"},
   "headings": [],
   "optional_headings": []
@@ -42,8 +42,8 @@ This is the Standard for dossiers in `10_Areas/Career/Internships/List/Dossiers/
   "family": "career-fair",
   "tier": 2,
   "match": {"type": "input", "kind": null, "path": "^20_Progress/Internship/Career Fair", "strict_path": true, "where": {}, "where_not": {}},
-  "status": ["seed", "sprout", "tree", "archived"],
-  "required_keys": ["type", "input_kind", "status", "created", "updated", "tags"],
+  "status": ["seed","sprout","tree","archived"],
+  "required_keys": ["type","input_kind","status","created","updated","tags"],
   "key_types": {"created": "date", "updated": "date", "tags": "list"},
   "headings": [],
   "optional_headings": []
@@ -53,25 +53,25 @@ This is the Standard for dossiers in `10_Areas/Career/Internships/List/Dossiers/
 | Item | Rule |
 |---|---|
 | Allowed folders | Dossiers: `List/Dossiers/` in `1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, `Other`, `Viewed`, `_Career Fair`, `Applied`, `Archived`. Captures: `20_Progress/Internship/Career Fair/`. |
-| File name | Dossier: `<Title> - <Company>`; a numeric suffix means a file name collision, not a duplicate posting. Capture: the topic (`Transcript - OPT`). |
-| Kind | `type: input` with `input_kind: job-dossier`. Captures: `input_kind` is `clipping` (the company list) or `transcript` (a raw paste). |
-| Status | Dossier `seed`, `tree` or `archived`, set by the state table below. Captures `seed` until worked through, then `archived`. |
+| File name | `<Title> - <Company>`; a numeric suffix means a collision, not a duplicate posting. Capture: the topic. |
+| Kind | `type: input`, `input_kind: job-dossier`. Captures: `clipping` or `transcript`. |
+| Status | Per the state table. Captures `seed` until worked through, then `archived`. |
 ## Headings
-The body is bot output, so headings are not enforced. The frontmatter and the folder are. Dossier paths in the Right and Wrong lines start at `10_Areas/Career/Internships/List/Dossiers/`.
+Dossier paths in the Right and Wrong lines start at `10_Areas/Career/Internships/List/Dossiers/`.
 ### Frontmatter
-- **Write:** `type: input`, `input_kind: job-dossier`, then `company`, `title`, `url`, `source`, `terms`, `locations`, `target_year`, `date_posted`, `date_found`, the deadline pair, `matched_reason`, `status`, `review_state`, `created`, `updated`, `next`, `notes`, `tier`, `resume_variant`, `letter_mode`, `tags`. `starred`, `date_applied` and the screen keys appear when set. `created` is `date_found`; `updated` is `date_found` at write and changes on every move. `tier` is 1, 2 or 3 from the company file.
+- **Write:** the Spec's keys. `created` is `date_found`; `updated` is `date_found` at write and changes on every move. `tier` is 1, 2 or 3 from the company file. `starred`, `date_applied` and the screen keys appear when set.
 - **Length:** one line per key; `matched_reason` one sentence.
-- **Never:** `matched_reason: matched`. The signal sits in the callout and is missing from the field; six of nine sources write the bare word.
+- **Never:** `matched_reason: matched`; six of nine sources write the bare word.
 - **Right:** `matched_reason: One of 12 engineering tracks within TSMC's Summer 2027 AZ internship` (`_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md`)
 - **Wrong:** `matched_reason: matched` (`1 - AI & ML/A.I. Developer Co-Op (Boston, MA) - Manhattan Associates.md`)
 ### Company
-- **Write:** the host employer exactly as the posting names it. A placement intermediary goes in the body. One spelling per company, so the `company/<slug>` tag clusters its postings.
+- **Write:** the host employer exactly as the posting names it; a placement intermediary goes in the body. One spelling per company, so `company/<slug>` clusters its postings.
 - **Length:** one line.
-- **Never:** a typo copied from a source, or an intermediary's name. Montenson for Mortenson sits in 5 dossiers.
+- **Never:** a copied typo or an intermediary's name; Montenson for Mortenson is in 5 dossiers.
 - **Right:** None seen.
 - **Wrong:** `company: Montenson` (`1 - AI & ML/AI Intern - Montenson.md`)
 ### States and moves
-- **Write:** `status` is maturity only; `review_state` says whether a person looked; the folder says where the dossier stands. They change together, as the table says.
+- **Write:** `status` is maturity, `review_state` says whether a person looked, the folder says where it stands. They change together, as below.
 - **Length:** one row per folder.
 - **Never:** a stage word in `status`. `removed` and `unreviewed` are not in the vocabulary.
 - **Right:** None yet.
@@ -80,38 +80,38 @@ The body is bot output, so headings are not enforced. The frontmatter and the fo
 | Folder | status | review_state | Moved there by | When | Today |
 |---|---|---|---|---|---|
 | The four role folders | `seed` | `unreviewed` | Loop writer, by role | At write | by code |
-| Same folder, screened | `seed` | `reviewed` | Anant, reading the posting | At Screen | by hand |
+| Same folder, screened | `seed` | `reviewed` | Anant, after weighing fit with the goal in [[Engineer Edge Roadmap]]; "it looked interesting" is not a weighing; pay and Contact reachability never decide it | At Screen | by hand |
 | Same folder, promoted | `tree` | `reviewed` | `/promote-dossier`, which writes the Program note | `next` names the Program | by hand |
-| `_Career Fair/` | `seed` | `unreviewed` | Anant, the manual lane | At capture | by hand |
-| `Applied/` | `archived` | `reviewed` | `mark_applied`, which sets `date_applied` | At submission | by hand |
-| `Viewed/` | `archived` | unchanged | Recheck job, which sets `removed_date` and `removed_reason` | The posting closed | by code |
-| `Archived/` | `archived` | unchanged | The Archived mover, with `removed_reason: deadline lapsed` | The deadline passed with no application | by hand |
+| `_Career Fair/` | `seed` | `unreviewed`, then `reviewed` | Anant, the manual lane. The daily Archived mover skips it, so he archives a fair dossier by hand once its fair has passed | At capture | by hand |
+| `Applied/` | `archived` | `reviewed` | `mark_applied`, which sets `date_applied` | Only when the application was actually submitted, not decided or drafted | by hand |
+| `Viewed/` | `archived` | unchanged | Recheck, which sets `removed_date` and `removed_reason` | The posting closed | by code |
+| `Archived/` | `archived` | unchanged | The Archived mover, `removed_reason: deadline lapsed` | The deadline passed with no application | by hand |
 ### Deadline
-- **Write:** exactly one of `deadline_posted` (the posting states it) or `own_deadline` (a forcing date the writer sets when the posting states none); the other key stays blank. `Viewed/` and `_Career Fair/` dossiers may carry neither.
+- **Write:** exactly one of `deadline_posted` (the posting states it) or `own_deadline` (a forcing date the writer sets when the posting states none); the other stays blank. `Viewed/` and `_Career Fair/` dossiers may carry neither, and nothing in `_Career Fair/` ever carries `removed_reason: deadline lapsed`.
 - **Length:** one value.
 - **Never:** an inferred date, or both keys with values.
 - **Right:** `deadline_posted: 2026-09-30` (`1 - AI & ML/A.I. Developer Co-Op (Boston, MA) - Manhattan Associates.md`)
 - **Wrong:** None seen.
 ### Links and tags
-- **Write:** `notes` holds the Dossiers MOC link; a `Viewed/` dossier also holds the Removed Dossiers MOC link. Any other note links to a dossier by file name, so a move between folders breaks nothing. `tags` carries `internship`, `company/<slug>`, and `auto-discovered` for bot finds.
+- **Write:** `notes` holds the Dossiers MOC link, plus the Removed Dossiers MOC link in `Viewed/`. Other notes link to a dossier by file name, so a move breaks nothing. `tags` carries `internship`, `company/<slug>`, `auto-discovered` for bot finds.
 - **Length:** two links at most; three tags.
-- **Never:** a path-qualified link to a dossier. It dies when the dossier moves; the Deadline Tracker holds twelve such dead links.
+- **Never:** a path-qualified link to a dossier. The Deadline Tracker has twelve dead ones.
 - **Right:** `  - "[[10_Areas/Career/Internships/List/Dossiers MOC]]"` (`_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md`)
 - **Wrong:** `- [[10_Areas/Career/Internships/List/Dossiers/Other/Software Engineering Intern (Summer 2027) - RTX]] — deadline was 2026-08-21` (`10_Areas/Career/Internships/Tracker/Deadline Tracker.md`)
 ### Screen fields
-- **Write:** `screened_date`, `screened_decision` (`pass` or `reject`) and `screened_reason` (the signal), added by Anant after he reads the posting. Until an eligibility gate exists he screens by eye. A PhD, clearance or citizenship role is `reject` with that reason.
+- **Write:** `screened_date`, `screened_decision` (`pass` or `reject`) and `screened_reason` (the signal), added by Anant after he reads the posting; until an eligibility gate exists he screens by eye. A PhD, clearance or citizenship role is `reject`.
 - **Length:** three keys.
 - **Never:** backfilled screen fields, or a `reject` with no reason.
 - **Right:** None yet.
 - **Wrong:** None seen.
 ### Body and ready to apply
-- **Write:** the title, a `> [!NOTE]` match callout, then `## Posting (fetched DATE)` with the posting text. A dossier is ready to apply when the posting text was captured, the deadline has not lapsed, `screened_decision` is not `reject`, `resume_variant` and `letter_mode` are set, and for tier 1 and tier 2 a Program note exists. A Contact note is not a gate.
+- **Write:** the title, a `> [!NOTE]` match callout, then `## Posting (fetched DATE)` with the posting text. A dossier is ready to apply when the text of this one posting was captured (not a directory page of many roles), the deadline has not lapsed, `screened_decision` is not `reject`, `resume_variant` and `letter_mode` are set, and for tier 1 and tier 2 a Program note exists. A Contact note is not a gate.
 - **Length:** the posting text.
-- **Never:** apply from a dossier whose posting text was not captured, or delete a closed posting.
+- **Never:** apply from a dossier with no posting text, or delete a closed posting.
 - **Right:** `## Posting (fetched 2026-09-22)` (`_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md`)
 - **Wrong:** `Found 2026-07-28 via Freehire. No posting content fetched.` (`Other/Software Engineering Intern, Summer 2027 - Google.md`)
 ### Career fair capture
-- **Write:** one note per source or conversation, titled by topic, with `type: input`, `input_kind`, `status: seed`, real `created` and `updated`, and the raw text under `## Raw Transcript`. Every posting heard about gets a dossier in `_Career Fair/` with `source: "CareerFair-Manual"`, the `career-fair` tag and a specific `matched_reason`. A company with no posting gets a line in the company list and no dossier. Captures are private; the ignore rule is pending.
+- **Write:** one note per source, titled by topic, with `input_kind`, `status: seed`, real dates, and the raw text under `## Raw Transcript`. Every posting heard about gets a `_Career Fair/` dossier with `source: "CareerFair-Manual"`, the `career-fair` tag and a specific `matched_reason`; a company with no posting gets a list line only. Captures are private; the ignore rule is pending.
 - **Length:** whatever was captured; one dossier per posting.
 - **Never:** a rewrite after capture, the starter instruction left in the body, or `input_kind: presentation`.
 - **Right:** `source: "CareerFair-Manual"` (`_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md`)
@@ -119,37 +119,25 @@ The body is bot output, so headings are not enforced. The frontmatter and the fo
 ### Rules
 | Rule | Why | Enforced by |
 |---|---|---|
-| `type: input`, `input_kind: job-dossier`, and every Spec key present | Dossiers are found by kind | Lint, check 1 |
-| `status` is `seed`, `tree` or `archived`, and the folder agrees with the state table | Folder and status disagreeing hides a stalled dossier | Lint, check 1 (status); Reader (folder) |
-| Exactly one deadline key has a value, except in `Viewed/` and `_Career Fair/` | Two values disagree | Reader |
-| `matched_reason` names the signal | A bare word gives the screener nothing to check | Reader |
-| `company` is the host employer, spelled the way the posting spells it | A typo splits one company in two | Reader |
-| `notes` resolves to the MOC and the `company/<slug>` tag is present | The MOC and company clusters need both | Lint, check 3 (link); Reader (tag) |
-| A closed posting moves to `Viewed/` with its removal keys and is not deleted | The record shows why it was dropped | Reader |
-| A raw capture is never rewritten, and every posting heard about has a dossier or a line in the list | Distillation happens in the dossier, so the source stays checkable | Reader |
+| Every Spec key is present with `type: input`, `input_kind: job-dossier` | Dossiers are found by kind | Lint, check 1 |
+| `status` is in the vocabulary and the folder agrees with the state table | A mismatch hides a stall | Lint, check 1 (status); Reader (folder) |
+| One deadline key has a value, except in `Viewed/` and `_Career Fair/` | Two values disagree | Reader |
+| One posting, one dossier (the same `url` is never filed twice), and one company's quant roles sit in one role folder | A split or duplicate pile hides the real count | Reader |
+| `matched_reason` names the signal; `company` is the host employer | A bare word or typo misleads the screener | Reader |
+| `notes` resolves to the MOC and the `company/<slug>` tag is present | Clusters need both | Lint, check 3 (link); Reader (tag) |
+| A closed posting moves to `Viewed/` with its removal keys, never deleted | The record shows why it was dropped | Reader |
+| A raw capture is never rewritten; every posting heard about has a dossier or a list line | The source stays checkable | Reader |
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
-| No `type` or `input_kind` | Add `type: input`, `input_kind: job-dossier` | Mechanical |
-| `status: unreviewed` | `status: seed` and `review_state: unreviewed` | Mechanical |
-| `status: removed` with `removed_date` | `status: archived`, folder `Viewed/` | Mechanical |
-| `status: promoted` | `status: tree` | Mechanical |
-| No `created` or `updated` | `created` and `updated` from `date_found` | Mechanical |
+| No `type`, `input_kind`, `created` or `updated` | Add them; `created` and `updated` from `date_found` | Mechanical |
+| `status: unreviewed`, `removed`, `promoted` | `seed` with `review_state: unreviewed`; `archived`; `tree` | Mechanical |
 | `preference_tier` | `tier` 1, 2 or 3 | Judgment |
 | No `notes` | Add the Dossiers MOC link | Mechanical |
-| `matched_reason: matched` | Name the signal from the callout | Judgment |
-| `company` a typo or an intermediary | The host employer | Judgment |
-| `input_kind: presentation`, blank `created` on a capture | `input_kind: clipping`, real dates | Mechanical |
+| `matched_reason: matched`, or a typo or intermediary in `company` | Name the signal; the host employer | Judgment |
+| Capture typed `presentation` or with a blank `created` | `clipping`, real dates | Mechanical |
 ## Done Conditions
-- Frontmatter carries every Spec key, `status` is in the vocabulary, and the folder agrees with the state table.
-- Exactly one deadline key has a value outside `Viewed/` and `_Career Fair/`.
-- `notes` resolves to the MOC, and no other note links to the dossier by path.
-- The note passes [[Vault Lint]] for `internship-dossier`, or for `career-fair` when it is a capture.
+- Every Spec key is present, `status` and the folder agree with the state table, and no note links to the dossier by path.
+- The note passes [[Vault Lint]] for `internship-dossier`, or `career-fair` for a capture.
 ## Gold Standard Example
-[[10_Areas/Career/Internships/List/Dossiers/_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC]]: a specific `matched_reason`, the MOC link, the company tag and the posting heading. It does not pass lint: no `type`, `input_kind`, `created`, `updated`, `tier`, `resume_variant` or `letter_mode`, and `status: unreviewed`. No dossier can pass until the loop writes the new keys.
-Measured 2026-11-21 with `--family internship-dossier`: 354 notes, 0 pass; `--family career-fair`: 4 notes, 0 pass.
-
-| Note | Folder | Strength | Lacks |
-|---|---|---|---|
-| Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC (gold) | `List/Dossiers/_Career Fair/` | Specific reason, MOC link | The seven new keys; `status: unreviewed` |
-| Transcript - OPT | `20_Progress/Internship/Career Fair/` | The `Raw Transcript` heading | Blank `created`, no `updated`, the starter instruction in the body |
+[[10_Areas/Career/Internships/List/Dossiers/_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC]]: a specific `matched_reason`, the MOC link, the company tag and the posting heading. It does not pass lint: no `type`, `input_kind`, `created`, `updated`, `tier`, `resume_variant` or `letter_mode`, and `status: unreviewed`. Measured 2026-11-21: dossiers 354 notes, 0 pass; captures 4 notes, 0 pass.

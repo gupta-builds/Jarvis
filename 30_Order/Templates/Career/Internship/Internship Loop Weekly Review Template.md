@@ -20,7 +20,7 @@ next:
 ## Applications and Follow-ups
 <!-- Applications submitted this week and follow-ups overdue, counted from the Trackers. -->
 ## Loop Run Health
-<!-- Days since the last successful hourly run, failed runs counted, from Loop Status and gh run list. -->
+<!-- Days since the last successful run, failed runs counted, and the number of dossiers in _Career Fair/. -->
 ## Findings
 <!-- Specific findings cited by exact file. Nothing to report is valid. -->
 ## Immediate Actions

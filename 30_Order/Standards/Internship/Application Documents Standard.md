@@ -59,7 +59,7 @@ This is the contract behind [[Resume Alteration]] and [[Cover Letter Alteration]
 | Item | Rule |
 |---|---|
 | Allowed folders | Banks and working drafts: `20_Progress/Internship/Resumes/` and `Cover Letters/`, flat. The sent packet: `20_Progress/Internship/Sent/<dossier file name>/`. |
-| File name | `Main Resume.md` and `Main Cover Letter.md` for the banks; `<Role> - <Company>.docx` per application, overwritten until the packet is archived, then frozen in `Sent/`. |
+| File name | `Main Resume.md` and `Main Cover Letter.md` for the banks (the names `Main Resume.*` and `Main Cover Letter.*` are reserved); `<Role> - <Company>.docx` per application, overwritten until the packet is archived, then frozen in `Sent/`. |
 | Kind | `type: output` with `output_kind: resume` or `cover-letter`. |
 | Status | `seed` while fragments lack evidence, `sprout` once every fragment is tagged and confirmed, `tree` once an application went out on it. |
 ## Headings
@@ -77,7 +77,7 @@ Paths in the Right and Wrong lines start at `20_Progress/Internship/Resumes/`.
 - **Right:** `#skill/programming` (`Main Resume.md`)
 - **Wrong:** None seen.
 ### Resume: Experience, Projects, Logged Gaps, Tailoring Notes
-- **Write:** bullets, each tracing to an approved fragment, a linked project note, or a fact Anant supplied, with an evidence tag. Logged Gaps names claims with no confirmed fact so they stay out of any variant. Tailoring Notes holds choices that carry across applications.
+- **Write:** bullets, each an action verb, the task, and a result (Google's "accomplished X as measured by Y by doing Z"), tracing to an approved fragment, a linked project note, or a fact Anant supplied, with an evidence tag. A number appears only if it is real. Logged Gaps names claims with no confirmed fact so they stay out of any variant. Tailoring Notes holds choices that carry across applications.
 - **Length:** two to four bullets per role; one line per gap.
 - **Never:** a bullet, metric, tool or outcome that was invented, a changed number, or inflated scope.
 - **Right:** `Built and deployed Assisto with Next.js, React.js, JavaScript, and Tailwind CSS.` (`Main Resume.md`)
@@ -96,9 +96,11 @@ Paths in the Right and Wrong lines start at `20_Progress/Internship/Resumes/`.
 | Tailoring may select, reorder and rephrase to the posting's terms if the fact is unchanged. It may not invent, change a number, claim an unused skill, or inflate scope | Tailoring changes emphasis, not facts | Reader |
 | The resume variant comes from the dossier's `resume_variant` (`ai`, `fullstack`, `systems`, `other`) and only selects tagged bullets | A variant is a view of approved content | Reader |
 | The letter follows `letter_mode`: `tailored` for tier 1, `bank` plus one company hook for tier 2, `none` for tier 3 unless the form requires one. Open with something specific to the company; use two or three real experiences | A letter is read start to finish by a person | Reader |
-| ATS baseline: single column, no tables, text boxes or graphics; familiar section names; one date format; standard fonts; a text-based PDF; one page. Posting terms only where they truthfully describe work | A parser that drops a section loses the evidence. Sources: [[Resume & Cover Letter - ATS Research Log]] | Reader |
+| ATS baseline: single column, no tables, headers, footers, text boxes or graphics; familiar section names; one date format; 10 to 12 pt standard fonts; one page; a text-based PDF or DOCX under 2.5 MB whose text can be highlighted; a name and an email, phone or link in the body; company names with their legal suffix and full job titles. Posting terms only where they truthfully describe work, with no keyword count | A parser that drops a section loses the evidence. Sources: [[Resume & Cover Letter - ATS Research Log]] | Reader |
+| A letter is plain text: no text boxes, images, colour or shading, black standard font, one page. A posting that asks for a letter or a format overrides `letter_mode` | Parsers and readers drop formatting, and a live posting beats a default | Reader |
 | Anant approves everything before it is sent. Tier 1 and tier 2: the Applying note's `stage` reaches `approved` after the content plan and the humanized draft are approved, and before anything is archived. Tier 3: `mark_applied` asks for confirmation before it archives. The Tracker carries no approval key | Evidence and tone are separate checks, and nothing leaves unapproved | Reader |
-| The humanizer gate runs on every draft before a DOCX is written: a pass or fail with line-level flags, never a silent rewrite | Tone is checked after evidence | Reader |
+| The [[Humanizer]] gate runs on every draft before a DOCX is written: a pass or fail, with each flag naming the phrase, the pattern it breaks and a suggested fix, never a silent rewrite | Tone is checked after evidence | Reader |
+| Before a resume variant is approved, its plan is held against the self-audit in [[HackerRank Hiring-Agent Scoring Rubric]]: personal repos are not called open source, every project has a working link, no project is tutorial-shaped (todo list, calculator), and a portfolio site and LinkedIn profile are listed when they exist | A screener scores these, and a gap is closed with real work, never a line | Reader |
 | The packet in `Sent/<dossier file name>/` holds the exact resume DOCX, the letter DOCX when one is sent, and `posting.md`, and is never edited after | The record of what was sent must be the file that was sent | Reader |
 | The resume has its seven headings and the letter bank its five, in order | The banks are read by section | Lint, check 2 |
 ## Legacy Shapes

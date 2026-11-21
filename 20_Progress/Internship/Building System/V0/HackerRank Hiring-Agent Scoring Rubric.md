@@ -9,7 +9,7 @@ tags:
   - ats
   - github-source
 notes:
-  - "[[Resume Alteration Standard]]"
+  - "[[Application Documents Standard]]"
   - "[[Resume & Cover Letter - ATS Research Log]]"
 next: "Cross-check the deduction rules (no-link penalty, generic-name penalty) against a real (a)/(b) source if one ever surfaces one; right now this is the only source that quantifies them at all."
 ---
@@ -48,6 +48,6 @@ next: "Cross-check the deduction rules (no-link penalty, generic-name penalty) a
 - +1 — LinkedIn profile present
 - +1–3 — genuinely high-quality technical blog writing
 
-## How this feeds [[Resume Alteration Standard]] / [[Resume Alteration]]
+## How this feeds [[Application Documents Standard]] / [[Resume Alteration]]
 
 A self-audit checklist, not a tool to run — nothing here should get wired in as software (see the test log for why the pipeline itself failed to even complete a run). Before a resume goes through [[Resume Alteration]]'s drafting flow, it's worth holding the content plan up against this table: is "open source" actually external contributions or just personal repos labeled generously? Do the "self projects" read as distinguishable from a tutorial, and do they all have working links? Is anything in the bonus list (GSoC, a portfolio site, blog writing) true of the candidate but currently missing from the draft?

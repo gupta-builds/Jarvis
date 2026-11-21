@@ -25,14 +25,14 @@ notes:
   - "[[HackerRank Hiring-Agent Scoring Rubric]]"
   - "[[Resume & Cover Letter - ATS Research Log]]"
   - "[[Internship Pipeline]]"
-  - "[[Internship Tracking Workflow]]"
+  - "[[Internship Pipeline]]"
   - "[[Internship Notes Standard]]"
   - "[[Career Fair '25 & '26]]"
   - "[[Career Fair Intake]]"
   - "[[Main Resume]]"
   - "[[Application Document Preparation]]"
-  - "[[Resume Alteration Standard]]"
-  - "[[Cover Letter Alteration Standard]]"
+  - "[[Application Documents Standard]]"
+  - "[[Application Documents Standard]]"
   - "[[Human Writing Standard]]"
 ---
 # Weekend Build
@@ -138,7 +138,7 @@ Every code step ships as its own small change with a recorded API fixture, a tes
 	- [[Research Loop - Resources]]: the coverage table, freehire's role, what Workday really needs.
 	- [[Research Loop - Improvement Plan]] and [[System - Build Log]]: the 2026-11-20 findings and this decision log.
 	- [[Resume & Cover Letter - System Map]]: remove stale `.cursor` and `second-brain-claudekit` paths and record that `Altered/` is empty.
-	- [[Internship Pipeline]] and [[Internship Tracking Workflow]]: a fast lane for tier 2 and 3 where Program and Contact notes are optional.
+	- [[Internship Pipeline]] and [[Internship Pipeline]]: a fast lane for tier 2 and 3 where Program and Contact notes are optional.
 	- [[Internship Notes Standard]]: the new `tier`, `resume_variant`, `letter_mode` and `applied` fields.
 	- [[Resume Alteration]] and [[Cover Letter Alteration]]: replace the stale "current state" paragraphs, and mark Main Resume as rebuilt.
 	- The repo's `README.md`, `PRD.md` and `docs/codex/ARCHITECTURE.md`: correct the "private vault" claim and the limits.
@@ -162,8 +162,8 @@ Every code step ships as its own small change with a recorded API fixture, a tes
 9. **Archive stale dossiers and relaunch (Must).** Move the 269 expired dossiers into `List/Dossiers/Archived/`. Never use `50_Archive/`. Keep the seen-state so archived listings do not re-enter, and verify that in the dry run first. Run a dry run, then one bounded live run with a write cap, then re-enable the cron. Close stale issues #4 to #11 once the sweep passes. Done when the live run pushes new tiered dossiers and the next scheduled hour runs on its own.
 10. **Apply queue (Must).** Extend `screen_report.py` into a daily zero-LLM `Apply Queue` note, ordered as in Decisions, top N per tier and bucket, with `resume_variant` and `letter_mode` on every row. Done when it lists real dossiers with correct tiers.
 11. **`mark_applied` and follow-ups (Must for mark_applied, Should for follow-ups).** `mark_applied` moves the dossier to `Applied/`, sets `date_applied`, creates the Tracker note, adds a row to `Applying/Now.md` and archives the exact resume, letter and posting text sent. A daily zero-LLM follow-up note surfaces anything quiet at 7 and 14 days. Done when a dry run on three dossiers produces all three artifacts.
-12. **Resume variants (Must).** Write the builder that parses `#skill/...` tags in [[Main Resume]] into a `ResumePlan` and renders the `ai`, `fullstack` and `systems` variants through `generate_resume_docx.py`. Check the output folder rule in [[Resume Alteration Standard]]. Done when three DOCX files exist and the text layer check below passes.
-13. **Cover letter bank (Must, needs Anant, about 40 minutes).** Run the `cover-letter-builder` agent as an interview and write `Cover Letters/Main Cover Letter.md`: four opening hooks by company type, four experience paragraphs each tied to a real project, and a closing. Then create the `Cover Letters/` folder and the DOCX export. Done when Anant has approved every fragment, and letters assemble at 250 to 350 words per [[Cover Letter Alteration Standard]].
+12. **Resume variants (Must).** Write the builder that parses `#skill/...` tags in [[Main Resume]] into a `ResumePlan` and renders the `ai`, `fullstack` and `systems` variants through `generate_resume_docx.py`. Check the output folder rule in [[Application Documents Standard]]. Done when three DOCX files exist and the text layer check below passes.
+13. **Cover letter bank (Must, needs Anant, about 40 minutes).** Run the `cover-letter-builder` agent as an interview and write `Cover Letters/Main Cover Letter.md`: four opening hooks by company type, four experience paragraphs each tied to a real project, and a closing. Then create the `Cover Letters/` folder and the DOCX export. Done when Anant has approved every fragment, and letters assemble at 250 to 350 words per [[Application Documents Standard]].
 14. **Document gates (Must for the first three, Should for the rest).**
 	- Evidence rule: every claim traces to a bullet, a project note or a supplied fact, and gaps are logged and never guessed.
 	- [[Humanizer]]: a pass or fail with line level flags and no silent rewriting, run before any DOCX is written.
@@ -218,4 +218,4 @@ By end of Saturday:
 ## Related Notes
 - [[Source of Truth]] owns the limits and gates. [[Research Loop - Improvement Plan]] and [[Research Loop - Implementation Plan]] are the earlier plans this one extends.
 - [[Resume Alteration]], [[Cover Letter Alteration]], [[Humanizer]], [[HackerRank Hiring-Agent Scoring Rubric]] and [[Resume & Cover Letter - ATS Research Log]] are the V0 designs steps 12 to 14 implement. [[Dossier Corrections]] is step 8.
-- [[Application Document Preparation]], [[Internship Pipeline]] and [[Internship Tracking Workflow]] are the workflows the apply lane shortens.
+- [[Application Document Preparation]], [[Internship Pipeline]] and [[Internship Pipeline]] are the workflows the apply lane shortens.

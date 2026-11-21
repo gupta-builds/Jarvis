@@ -120,7 +120,7 @@ This is Anant's reply in your P1 session. Your ledger, V0/Instruction Notes Rewr
 - Writing is authorized for every family whose Decisions are recorded in the ledger. Retire, merge, delete and rename each need Anant's yes on that family's list first. Do the rewrites first and the removals last.
 
 ### Answers to your first batch
-1. Applications-to-Create becomes a short guide that covers both lanes (fast lane and tier 1 lane). Option A.
+1. Applications-to-Create becomes a short guide that covers both lanes (fast lane and tier 1 lane). Option A. The landed Workflows (Internship Pipeline and Application Document Preparation) now carry the steps, and the kit map in V0/System Rebuild Plan.md says so. So the guide states only what to create for each lane and points to the Workflow. It never restates a step. If it would be a restatement, say so and propose retiring it.
 2. Applying/Now shows submitted applications only. Option A. The daily Apply Queue carries pending work, and mark_applied adds the submission row to Now.
 3. The five Resume stubs become one resume guide. Option A. Order it as Anant works: choose the variant, check evidence, tailor, export.
 4. The five Cover Letter stubs become one cover-letter guide. Option A. It explains the three modes (tailored, bank, none) and when each applies. The bank holds the fragments.

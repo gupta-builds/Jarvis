@@ -32,7 +32,7 @@ This is the Standard for notes in `10_Areas/Career/Internships/Programs/Serious/
   "match": {"type": "reference", "kind": "program", "path": "^10_Areas/Career/Internships/Programs/(Serious|Considering)/", "where": {}, "where_not": {}},
   "legacy_match": [{"path": "^10_Areas/Career/Internships/Programs/(Serious|Considering)/(?!.*(MOC|to-Create)\\.md$).*\\.md$", "where": {"company": "*"}, "absent": ["type"]}],
   "status": ["seed", "sprout", "tree", "archived"],
-  "required_keys": ["type", "reference_kind", "status", "created", "updated", "tags", "name", "company", "program_type", "deadline_posted", "deadline_real", "application_url", "list_origin", "recruiter_contact"],
+  "required_keys": ["type", "reference_kind", "status", "created", "updated", "tags", "name", "company", "program_type", "role_type", "deadline_posted", "deadline_real", "application_url", "list_origin", "recruiter_contact"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "deadline_posted": "text?", "deadline_real": "text?", "list_origin": "text?", "recruiter_contact": "text?"},
   "headings": ["Program Overview", "Eligibility", "Company Information", "Traps & Gotchas", "Prep Checklist"],
   "optional_headings": ["Related Resources"]
@@ -48,9 +48,9 @@ This is the Standard for notes in `10_Areas/Career/Internships/Programs/Serious/
 ## Headings
 Paths in the Right and Wrong lines start at `10_Areas/Career/Internships/Programs/Serious/`.
 ### Frontmatter
-- **Write:** the 14 keys in the Spec. `name` reads "Role at Company". `deadline_posted` is the posting's own date; `deadline_real` is the date that actually binds. `list_origin` links the source dossier by file name or reads `manual-web-find (Anant, DATE)`. Keys outside the Spec (`wave`, `opens_date`, `duration_weeks`, `benefits`, `careers_page`, `eligible_classes`, `grad_year`, pay) are allowed and are not required. Lint has no extra-key rule, so do not strip them from notes agents write.
+- **Write:** the 15 keys in the Spec. `name` reads "Role at Company". `role_type` is `internship` or `co-op`. `deadline_posted` is the requisition's own date, not a program-wide page's; `deadline_real` is the date that actually binds, taken from a company-owned page. `list_origin` links the source dossier by file name or reads `manual-web-find (Anant, DATE)`. Keys outside the Spec (`applying_note`, `wave`, `opens_date`, `duration_weeks`, `benefits`, `careers_page`, `eligible_classes`, `grad_year`, pay) are allowed and are not required. Lint has no extra-key rule, so do not strip them from notes agents write.
 - **Length:** one line per key; every wikilink on one line.
-- **Never:** the string `null`. Blank keys stay blank.
+- **Never:** the string `null`, or a deadline taken from a secondary source. Blank keys stay blank.
 - **Right:** `list_origin: manual-web-find (Anant, 2026-07-23 clip, promoted 2026-07-29)` (`2027-Nuro-AI-Platform-SWE.md`)
 - **Wrong:** `wave: null` (`2027-Deepgram-SWE-VoiceAI.md`)
 ### Program Overview

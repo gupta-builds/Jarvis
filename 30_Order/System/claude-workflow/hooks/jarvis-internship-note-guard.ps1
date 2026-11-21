@@ -61,7 +61,7 @@ if ($relLower -match '^10_areas\\career\\internships\\list\\dossiers\\' -and $re
 }
 elseif ($relLower -match '^10_areas\\career\\internships\\programs\\(serious|considering)\\' -and $relLower -notmatch '\\ended\\' ) {
     $noteType = "program"
-    $requiredFields = @("type", "reference_kind", "status", "created", "updated", "tags", "name", "company", "program_type", "deadline_posted", "deadline_real", "application_url", "list_origin", "recruiter_contact")
+    $requiredFields = @("type", "reference_kind", "status", "created", "updated", "tags", "name", "company", "program_type", "role_type", "deadline_posted", "deadline_real", "application_url", "list_origin", "recruiter_contact")
 }
 elseif ($relLower -match '^10_areas\\career\\internships\\contacts\\each one\\(ongoing|ended|come back)\\') {
     $noteType = "contact"

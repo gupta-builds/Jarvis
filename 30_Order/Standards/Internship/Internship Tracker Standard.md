@@ -24,7 +24,7 @@ notes:
 ---
 # Internship Tracker Standard
 ==A Tracker note is the dated record of one application, created when it is submitted: where it stands, when each step happened, and the single next move.==
-This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/`. It is not `Tracker.md`, `Now`, or the Deadline Map, which are views, and not the Applying note, which holds the preparation hub ([[Applying Standard]]). The Tracker is private: the ignore rule is pending. It stands alone, because the dossier leaves the tracked tree when the application is made.
+This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/`. It is not `Tracker.md`, `Now`, or the Deadline Map, which are views, and not the Applying note ([[Applying Standard]]). The Tracker is private (ignore rule pending) and stands alone, because the dossier leaves the tracked tree when the application is made. A Tracker outside `Applied/` is not an application: `Now`, the weekly review and every count read `Applied/` only.
 ## Spec
 ```json
 {
@@ -79,7 +79,7 @@ Paths in the Right and Wrong lines start at `10_Areas/Career/Internships/Tracker
 | `status` follows the folder | The dashboard counts by folder and status | Lint, check 1 |
 | `program` and `contact` resolve when set | A dead link cuts the Tracker off from its research | Lint, check 3 |
 | When a Program note's `deadline_posted` or `deadline_real` changes, the Tracker's `deadline` takes it in the same sitting | Two deadlines for one application are a bug | Reader |
-| `result` is one of the four values | The vocabulary is closed | Reader |
+| `result` records a real outcome (offer, rejection, withdrawal or missed), never a guess about how it is going | The vocabulary is closed and the record is true | Reader |
 | The two headings appear in order | The dashboard reads them | Lint, check 2 |
 ## Legacy Shapes
 | Old shape | New shape | Move |

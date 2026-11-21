@@ -12,8 +12,8 @@ notes:
   - "[[Resume Alteration]]"
   - "[[Cover Letter Alteration]]"
   - "[[Humanizer]]"
-  - "[[Resume Alteration Standard]]"
-  - "[[Cover Letter Alteration Standard]]"
+  - "[[Application Documents Standard]]"
+  - "[[Application Documents Standard]]"
   - "[[Human Writing Standard]]"
   - "[[30_Order/Workflows/Internship/Application Document Preparation]]"
   - "[[Resume & Cover Letter - ATS Research Log]]"
@@ -31,8 +31,8 @@ The resume/cover-letter system now spans nine vault notes plus two repo-side Cur
 - [[Humanizer]] — the pre-write style gate both documents pass through before a file is ever written; defines the minimal input/output interface, not the full checklist (that's the Standard below).
 
 ## The Enforceable Layer — what a skill/agent/human must actually do
-- [[Resume Alteration Standard]] — the resume contract: source-of-truth hierarchy, evidence-only claims (fail-closed), the tailoring boundary, the external-source register (§4, reorganized 2026-08-29 into ATS-vendor / company-and-program / university-and-association groups), file/naming/overwrite rules, the approval gate, and the sourced ATS format & keyword baseline (§8).
-- [[Cover Letter Alteration Standard]] — the mirrored cover-letter contract: same evidence rule, narrative selection and length instead of bullet ordering, its own §7 source register.
+- [[Application Documents Standard]] — the resume contract: source-of-truth hierarchy, evidence-only claims (fail-closed), the tailoring boundary, the external-source register (§4, reorganized 2026-08-29 into ATS-vendor / company-and-program / university-and-association groups), file/naming/overwrite rules, the approval gate, and the sourced ATS format & keyword baseline (§8).
+- [[Application Documents Standard]] — the mirrored cover-letter contract: same evidence rule, narrative selection and length instead of bullet ordering, its own §7 source register.
 - [[Human Writing Standard]] — the tone/style checklist both Standards defer to; a document can pass every rule above and still fail this gate for how it reads.
 
 ## The Workflow Layer — when each of the above actually runs

@@ -10,6 +10,7 @@ tags:
 name:
 company:
 program_type:
+role_type: internship
 deadline_posted:
 deadline_real:
 application_url:

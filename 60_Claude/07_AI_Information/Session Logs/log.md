@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-06-02
-updated: 2026-10-29
+updated: 2026-11-21
 tags:
   - log
 system_kind: log
@@ -1903,3 +1903,7 @@ Headless run on the Dell via the `Jarvis-WeeklyReview` scheduled task, no human 
 
 ## [2026-11-15] review | Weekly Synthesis 2026-W46
 Headless run on `gupta-builds` via the `Jarvis-WeeklyReview` task, which started at 18:56 instead of 06:00 (the 11-08 run on this machine died on a sign-in warning). Eleven course notes landed (CSCI 4061, 5304, 4521, MGMT 3015) but the internship tracker is still 29/0/0 (eighth review at zero, 52 days frozen), Uber named for 9:00 am on 11-09 never left `Current/`, and the one daily note was never closed. Syncthing reads IN SYNC after a transient 18:56 banner, no conflicts or stashes, order fit 4.5% (256/5,677). Log maintenance flag-only, nothing deleted. Next: send the Uber application on 11-16, close a real daily note, log the first LeetCode row in one chosen tracker. Full review: [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W46]].
+
+## [2026-11-21] build | Internship kit rebuilt and System records written (System Rebuild Plan, Phase 2)
+
+Rebuilt the internship kit in `30_Order` from 31 files to 20: seven Standards rewritten, Application Documents Standard added in place of the Resume and Cover Letter Standards, eight Templates and four Workflows rebuilt, Loop Contract Change added, Promotion moved to `Workflows/Enrichment/`, and eight files cut with their links repaired in `30_Order`. Added four records for the loop in `30_Order/System/internship-loop/` (Run, Upkeep, Promotion Agents, and the unbuilt Apply Lane) and updated the guard hook's field lists, which parsed and listed the Spec's missing keys on a real note of each of the six families. A closing pass the same day restored `role_type` to the Program Spec, trimmed the Notes Standard to 1,499 words by the Note Kit measure, carried the V0 rules and the Design Rationale conditions into the Standards (V0 trace: 48 rows, none unexplained), and retargeted 31 wikilinks in six notes, links only. Checks: `--kit` 0 errors and 7 warnings, `--specs` 75 Specs from 56 Standards, `--path 30_Order/` 130 of 132 (the misses are two course workflows), every internship instance family still 0% because no instance note was edited. Read-only `gh` showed the loop's `run` workflow `active` with its newest scheduled run on 2026-11-21 17:51 UTC concluding `failure` and none listed between 2026-08-29 and then; recheck last ran 2026-09-20 and revalidate 2026-09-14; issues 4 to 11 are open. The cause is unknown, so records A and B stay `sprout`. Next: Anant sends the Codex P2 for the 30 instruction notes, then the loop-code prompts for the Contracts; Weekend Build step 2 owns the run diagnosis. Full record and follow-ups: [[System Rebuild Plan]].

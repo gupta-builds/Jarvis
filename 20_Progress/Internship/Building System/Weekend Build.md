@@ -84,6 +84,7 @@ Approved by Anant on 2026-11-20.
 ### Company tiers
 Three tiers, grouping only. A tier decides which dossiers get applied to first in the week. It sits on top of the four role buckets (`1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, `Other`). Three rules do more work than any list: a company with a Program or Contact note is at least tier 2, anything from the manual `CareerFair-Manual` lane is tier 2, and everything unlisted is tier 3. Quant and cybersecurity firms have no group of their own and fall to tier 3 unless the career fair lane brings them in. The CyS & Finance bucket quota of one per run still guarantees they flow.
 *Tier 1, confirmed:* Anthropic, OpenAI, NVIDIA, Meta, Google, Amazon, Netflix, Microsoft, Apple.
+
 | Tier 1 company | Backend to read | Verified 2026-11-20 |
 |---|---|---|
 | Anthropic | Greenhouse | 637 jobs |
@@ -93,6 +94,7 @@ Three tiers, grouping only. A tier decides which dossiers get applied to first i
 | Netflix, Microsoft | Eightfold | reached through freehire, native check needed |
 | Google, Meta, Apple | Custom parsers (Google results HTML, Apple `jobs.apple.com`, Meta own site) | not built |
 *Tier 2:*
+
 | Group | Companies |
 |---|---|
 | Named by Anant | Seagate, Oracle, ABB |
@@ -113,6 +115,7 @@ Order by tier, then soonest deadline, then newest posting, then overlap with the
 - Their word "tier" means seniority. Ours means company group, so keep the two names apart in code.
 ### Resume and cover letter classification
 Every dossier carries three fields that decide what gets generated.
+
 | Field | Values | Rule |
 |---|---|---|
 | `resume_variant` | `ai`, `fullstack`, `systems`, `other` | Chosen from the role bucket. `systems` serves CyS & Finance. `other` takes the closest of the three. |
@@ -201,12 +204,17 @@ By end of Saturday:
 - [ ] Should `company:` hold the host employer or the placement intermediary for Acds and Apprenticely roles?
 - [ ] Does the code repo need its `profile.yaml` removed from git history, or only from the tree going forward? The vault repo history is handled by another session.
 - [ ] Is `Archived/` under `List/Dossiers/` the right home for the 269 stale dossiers?
+- [ ] Firecrawl has 0 credits until 2026-11-27. Top up now, or run the loop with the posting fetch failing open until the reset?
+## Corrections
+- 2026-11-21: Current State says the `Cover Letters/` folder does not exist, and step 13 says to create it. Wrong. The folder exists at `20_Progress/Internship/Cover Letters/` and holds 5 seed stubs of about 200 bytes dated 2026-09-06, and `Resumes/` holds 5 matching stubs and an empty `Altered/`. The claim came from [[Cover Letter Alteration]] and was not checked against the folder. Step 13 now means: use the existing folder, add `Main Cover Letter.md` to it, and let the Claude prompt P1 in [[Claude Code Prompts]] decide what happens to the stubs.
 ## Evidence
 - `Source of Truth.md` limits sections, read 2026-11-20: 50 per bucket, 150/170 info, 190/200 issue, hard pause 300, `MAX_DEBATE_LOSSES = 48`, quota 2/1/1/2.
 - Repo reads 2026-11-20: `ingestion/freehire.py`, `ingestion/normalize.py`, `ingestion/sources.py`, `core/company_registry.py`, `core/debate.py`, `core/classify.py`, `core/profile.yaml`, `run_pipeline.py`, `.github/workflows/run.yml`, `screen_report.py`.
 - Live probes 2026-11-20: Simplify `listings.json` has 17,687 entries and 5,140 active, vanshb03 has 4,125 and 2,503 active. The `Summer2026` and `Summer2027` Simplify URLs return identical data, so our `SIMPLIFY_URL` is only a stale name for a renamed repo.
 - GitHub API 2026-11-20: `career-ops-hq/career-ops` 83,965 stars, created 2026-04-04, MIT. `ai-job-search-dev/ai-job-search` 72,842 stars, created 2026-03-18, MIT, with `community-portals` at 15 stars.
 - SmartRecruiters `SeagateTechnology1` returned one posting from 2016. freehire had one Seagate row, on BambooHR.
+- Firecrawl scrape calls on 2026-11-21 failed with "Insufficient credits ... your team has 0 left, with plan credits resetting at 2026-11-27". The pipeline's posting fetch fails open, so dossiers written before the reset carry no fetched posting text.
+- Vault inventory 2026-11-21: `10_Areas/Career/Internships/List/Dossiers` holds about 359 notes (1 - AI & ML 128, Viewed 76, Other 58, 3 - CyS & Finance 45, 2 - Fullstack 38, _Career Fair 11, _Today 3). `60_Claude/40_Project_Briefs/Internship` holds 1,396 Graphify export files.
 ## Related Notes
 - [[Source of Truth]] owns the limits and gates. [[Research Loop - Improvement Plan]] and [[Research Loop - Implementation Plan]] are the earlier plans this one extends.
 - [[Resume Alteration]], [[Cover Letter Alteration]], [[Humanizer]], [[HackerRank Hiring-Agent Scoring Rubric]] and [[Resume & Cover Letter - ATS Research Log]] are the V0 designs steps 12 to 14 implement. [[Dossier Corrections]] is step 8.

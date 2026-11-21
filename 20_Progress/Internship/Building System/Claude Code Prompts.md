@@ -9,12 +9,10 @@ tags:
   - prompts
 project_kind: prompt
 prompt_shape: queue
-next: 'P1 is done (PRs 15, 16, 17 open; 16 and 17 are drafts). Merge 15, 16, 17
-  in order and remove the P1 worktrees. Then run P1.5a (deterministic PR gates
-  and ruleset, under "P1.5 - Repo Governance"). P1.5b and P1.5c follow one at a
-  time. P2 onward waits for P1.5a to merge. Independent: Dell Vault, where P1 and
-  P3 are sent and Dell Vault P4 (two small kit fixes found by the Codex session)
-  goes into the same session now; the Codex P3 follows in parallel.'
+next: 'Merge PR #18 (repo governance, ready), then the owner steps under "P1.5
+  Status": set REPO_BOT_TOKEN and JARVIS_PUSH_TOKEN, test recheck.yml, apply the
+  two rulesets, create the Project board (needs gh auth refresh -s project). P2
+  starts after #18 merges. Independent: Dell Vault P1.'
 related_progress:
   - "[[Weekend Build]]"
   - "[[Source of Truth]]"
@@ -324,3 +322,24 @@ Do not add Copilot, an LLM, or any non-GitHub third-party action. Do not apply t
 ````
 ### P1.5a status (2026-11-21)
 Done, PR #18 ready, not merged; PRs #15-#17 merged and their worktrees removed first. `pytest` and `pr-gates` green on the PR. The Actions bot cannot be a ruleset bypass actor on this user-owned repo (API 422), admin-role bypass does not cover the Actions token, and `branch_name_pattern` is unsupported on this plan, so `master.json` has no bypass and must not be applied until you choose a PAT or a `bot-state` branch. Also found: `JARVIS_PUSH_TOKEN` fails with Bad credentials, so the scheduled pipeline is broken. Full result and the owner commands in order: [[P1.5a Deterministic PR Gates (2026-11-21)]].
+
+
+# P1.5 Status (updated 2026-11-21, review and hardening pass)
+
+**PR #18 is ready to merge** (`chore/pr-gates-and-ruleset`, issue #19, milestone `Weekend Build 2026-11-21`). Anant asked for the whole governance loop in one PR, so P1.5b and P1.5c from the table above were folded in; the PR carries `large-ok` (972 lines, 23 files) on purpose. 547 tests pass; `pytest`, `pr-gates` and `dependency-review` are green. Run this P1.5 note: `Runs/P1.5a Deterministic PR Gates (2026-11-21).md`.
+
+**What was added beyond the first pass**
+- Gates: `tests_with_code` (35 of 35 real code commits touched tests/), `workflow_lint` (no PR text in `run:`, `permissions:` present, pinned actions; it correctly flags PR #12's pre-fix `reseed.yml`), `conventions` (the repo's `check_conventions.py` check 1 as a hard fail, checks 2-4 as warnings), `linked_issue` now enforced. Checked offline against PRs #12, #14, #17, #18: legacy PRs fail only where they really lack an issue, template or valid branch name.
+- Issue system, live on GitHub: 12 labels from `.github/labels.yml`, milestone, phase issues #19-#27 (P1.5-P9), owner issues #28 (schedules dormant since 2026-08-29), #29 (rotate `JARVIS_PUSH_TOKEN`, add `REPO_BOT_TOKEN`), #30 (delete probe repo). Bot alerts #4-#11 labelled `bot-alert`; #9 and #10 closed as superseded by #11.
+- Token decision (Anant): a repo-scoped fine-grained PAT, `REPO_BOT_TOKEN`, is what workflows use to push this repo; the global agent PAT is never used by a workflow. Workflows fall back to the default token until the secret exists.
+- Ruleset: `master.json` bypasses the Repository admin role (the only bypass the probe showed working), requires `pytest`, `pr-gates`, `dependency-review`; `copilot-review.json` is separate, review once per PR, not on push or drafts. Trade-off recorded in the workflow doc: any owner token, including the agent PAT, can then push to master; the local pre-push hook is the guard.
+- Copilot instructions: `.github/copilot-instructions.md` plus three path-scoped files. Dependency graph enabled by turning on vulnerability alerts (no automatic security PRs).
+- Docs: the issue-to-merge loop, gate table, owner steps and a reuse checklist are in `docs/TWO_LAPTOP_WORKFLOW.md`.
+
+**Not done or unverified**
+- Copilot review did not start: requesting it by `gh pr edit --add-reviewer @copilot` and by the REST API left the reviewer list empty. Check Copilot code review is enabled for the account (github.com/settings/copilot) or add Copilot from the PR sidebar.
+- The Project board with an Iteration field is not created: the CLI token lacks the `project` scope. Owner runs `gh auth refresh -s project`, then it is created.
+- `copilot_code_review` as a ruleset rule type is untested on this plan.
+- Why the schedules stopped is still unexplained (issue #28).
+
+**Owner steps, in order:** merge #18 (`gh pr merge 18 --rebase`); set both secrets (`gh secret set REPO_BOT_TOKEN`, `gh secret set JARVIS_PUSH_TOKEN`); run `recheck.yml` once by hand; apply the two rulesets (commands in the workflow doc); delete the probe repo (`gh auth refresh -s delete_repo`, `gh repo delete gupta-builds/ruleset-probe-20261121`); remove the P1.5 worktree. **Gate for P2:** #18 merged and the PR gates running on a later PR.

@@ -19,7 +19,7 @@ related:
   - "[[20_Progress/Degree/CSCI 4061/Labs/Lab - 8|Lab - 8]]"
   - "[[20_Progress/Degree/CSCI 4061/Labs/Lab - 9|Lab - 9]]"
   - "[[20_Progress/Degree/CSCI 4061/Labs/Lab - 10|Lab - 10]]"
-next: "Apply the seven files to proj3-code byte for byte with the Edit tool, region by region, then run make clean clean-tests and diff -u against proj3-original. Expected hunks: http.c 1, http_server.c 2, connection_queue.h 1, connection_queue.c 1, http_server.py 2, http_handler.py 3, connection_queue.py 3."
+next: "Review the applied queue ownership and cleanup paths for the oral exam."
 ---
 # Project - 3 Implementation
 This note is the solution to Project 3 explained line by line: the final text of every changed region in the seven EDIT files, and for each line what it does, why it has that form, what it checks, reports and releases, and which source backs it. It is the companion of [[20_Progress/Degree/CSCI 4061/Projects/Project - 3 Code Explaination|Project - 3 Code Explaination]], which holds the map and the 13 resolved decisions this note follows. Someone who reads only this note can rebuild the seven files and defend each line in the oral exam.
@@ -48,9 +48,9 @@ Citation forms are the ones defined in [[20_Progress/Degree/CSCI 4061/Projects/P
 | File | Regions that change (original line numbers) | Lines after | `diff -u` hunks | Dev |
 |---|---|---|---|---|
 | `part1/http.c` | insert after line 30 (defines, `write_all`); body of `read_http_request` (lines 32-33); body of `write_http_response` (lines 37-38) | 167 | 1 | 1, 2, 3 |
-| `part1/http_server.c` | line 19 (flag type); insert after line 24 (defines, three static functions); lines 33-34 (uncomment); line 36 `return 0;` | 217 | 2 | 4, 5, 6 |
+| `part1/http_server.c` | line 19 (flag type); insert after line 24 (defines, three static functions); lines 33-34 (uncomment); line 36 `return 0;` | 229 | 2 | 4, 5, 6 |
 | `part1/connection_queue.h` | line 18 (the TODO) | 65 | 1 | none |
-| `part1/connection_queue.c` | the five bodies (lines 7-8, 12-13, 17-18, 22-23, 27-28) | 156 | 1 | 7, 8 |
+| `part1/connection_queue.c` | the five bodies (lines 7-8, 12-13, 17-18, 22-23, 27-28) | 153 | 1 | 7, 8 |
 | `part2/http_server.py` | insert after line 17 (worker); line 30 (the TODO) | 88 | 2 | 9, 10 |
 | `part2/http_handler.py` | new line 1 `import pathlib`; line 6 token; lines 17 and 25 (the bodies) | 57 | 3 | 11 |
 | `part2/connection_queue.py` | line 18 (the TODO); bodies at lines 29, 40, 46 | 64 | 3 | none |
@@ -91,6 +91,7 @@ static int write_all(int fd, const char *buf, size_t len) {
     }
     return 0;
 }
+
 ```
 
 | Line | What it does | Why this form and not another | Checks, reports, releases | Sources |
@@ -272,6 +273,7 @@ volatile sig_atomic_t keep_going = 1;
 | 19 | `keep_going` becomes `volatile sig_atomic_t` | The handler writes it and the accept loop reads it. `sig_atomic_t` is the one type C promises a handler can write safely; `volatile` makes the loop re-read it. The starter's plain `int` works only by luck, as the Lab 3 deck says (D10) | none | Lab 3 deck s9; APUE p. 361; D10 |
 #### Region B: constants and three static functions (original: insert after line 24, new lines 26-81)
 ```c
+
 // Must equal RESOURCE_NAME_SIZE in http.c: http.h has no size parameter
 #define RESOURCE_NAME_SIZE 512
 #define PATH_SIZE 1024
@@ -323,7 +325,7 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
             status = -1;
         }
     }
-    if (connection_queue_free(queue) == -1) {
+    if (status == 0 && connection_queue_free(queue) == -1) {
         status = -1;
     }
     return status;
@@ -347,7 +349,7 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
 | 61-62 | Comment: what `stop_workers` does and returns | Shared by two paths: a failed `pthread_create` and the normal exit. One copy means the join order cannot drift | none | Project 2 Oral Exam Drills L169-170 |
 | 63-68 | `connection_queue_shutdown` failing: return -1 at once | If the lock itself failed, workers may still be asleep in `dequeue`. Joining would hang and freeing would pull the queue from under them, so the function returns and the process exit reclaims everything (Dev 5) | The queue reported the failure | Assignment L437 |
 | 69-76 | Join `n_started` workers; a failed join is reported and the loop keeps going | Join the threads that exist, not `N_THREADS`: after a failed create only the started ones have a valid `pthread_t`. Keep joining the rest as `threads_main.c` does | `strerror` because `pthread_join` returns an error number | Lab 8 `threads_main.c` L80-90; Lab 7 `sum_files.c` L84-90; Lec12 s24-25 |
-| 77-79 | `connection_queue_free` only after every join | Free the queue only when no thread can touch it | The queue reports its own failures | Assignment L419-420; APUE p. 389 |
+| 77-79 | `connection_queue_free` only after every join succeeds | Free the queue only when no thread can touch it | The queue reports its own failures | Assignment L419-420; APUE p. 389 |
 #### Region C: uncomment the arguments (original lines 33-34, new lines 90-91)
 ```c
     serve_dir = argv[1];
@@ -358,7 +360,7 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
 |---|---|---|---|---|
 | 90 | `serve_dir = argv[1]` | Assigned once, before the first thread exists, never again, so workers read it without a lock: a race needs a write | none | Lec13 s3-11 |
 | 91 | `const char *port = argv[2]` | `getaddrinfo` takes the service as a string. The starter hid these two lines only because `-Werror` rejects an unused variable | none | Part 1 Makefile L3; Lec16 s13; Nov 3 L465-480 |
-#### Region D: the body of `main` (original line 36 `return 0;`, new lines 93-216)
+#### Region D: the body of `main` (original line 36 `return 0;`, new lines 93-228)
 ```c
     // No SA_RESTART: a SIGINT during accept() must make it fail with EINTR
     struct sigaction act = {0};
@@ -406,14 +408,18 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
     if (bind(sock_fd, server->ai_addr, server->ai_addrlen) == -1) {
         perror("bind");
         freeaddrinfo(server);
-        close(sock_fd);
+        if (close(sock_fd) == -1) {
+            perror("close");
+        }
         connection_queue_free(&queue);
         return 1;
     }
     freeaddrinfo(server);
     if (listen(sock_fd, LISTEN_BACKLOG) == -1) {
         perror("listen");
-        close(sock_fd);
+        if (close(sock_fd) == -1) {
+            perror("close");
+        }
         connection_queue_free(&queue);
         return 1;
     }
@@ -424,13 +430,17 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
     sigset_t old_mask;
     if (sigfillset(&all_signals) == -1) {
         perror("sigfillset");
-        close(sock_fd);
+        if (close(sock_fd) == -1) {
+            perror("close");
+        }
         connection_queue_free(&queue);
         return 1;
     }
     if (sigprocmask(SIG_BLOCK, &all_signals, &old_mask) == -1) {
         perror("sigprocmask");
-        close(sock_fd);
+        if (close(sock_fd) == -1) {
+            perror("close");
+        }
         connection_queue_free(&queue);
         return 1;
     }
@@ -444,7 +454,9 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
                 perror("sigprocmask");
             }
             stop_workers(&queue, threads, n_started);
-            close(sock_fd);
+            if (close(sock_fd) == -1) {
+                perror("close");
+            }
             return 1;
         }
         n_started++;
@@ -452,7 +464,9 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
     if (sigprocmask(SIG_SETMASK, &old_mask, NULL) == -1) {
         perror("sigprocmask");
         stop_workers(&queue, threads, n_started);
-        close(sock_fd);
+        if (close(sock_fd) == -1) {
+            perror("close");
+        }
         return 1;
     }
 
@@ -499,28 +513,28 @@ static int stop_workers(connection_queue_t *queue, pthread_t *threads, int n_sta
 | 117-121 | `hints`: zeroed, `AF_UNSPEC`, `SOCK_STREAM`, `AI_PASSIVE` | `memset` because a stack struct is garbage. `AF_UNSPEC` lets the library pick IPv4 or IPv6 (the first result is IPv4 here). `SOCK_STREAM` is TCP. `AI_PASSIVE` with a `NULL` host asks for an address to bind and listen on | none | Lec16 s14-16 and s21; Nov 3 L575-583 and L853-864; Lec17 s5 |
 | 123-128 | `getaddrinfo(NULL, port, &hints, &server)` checked | Returns 0 or an error code, not -1, and does not set `errno`, so `gai_strerror`, not `perror` | Message names the call; frees the queue; `server` is not allocated on failure | Lec16 s14; Nov 3 L510-524; APUE p. 600 |
 | 129-135 | `socket(...)` checked | Arguments come straight from `server` (Lec16 s17). One descriptor for listening, a new one per client later | `perror("socket")`; `freeaddrinfo`, queue freed | `lecture17-code` L55-61; APUE p. 590-591 |
-| 136-142 | `bind(...)` checked | Reserves the port. Fails with "Address already in use" if another process or the linger period holds it; the answer is another port | `perror("bind")`; releases `server`, `sock_fd`, queue | Assignment L161-169; Nov 3 L931-956; Quiz Q3 |
-| 143 | `freeaddrinfo(server)` straight after `bind` | The list is not needed after `bind`; freeing here means it is released on every later path | Releases `server` | `lecture17-code` L69; Lab 9 deck s4 |
-| 144-149 | `listen(sock_fd, LISTEN_BACKLOG)` checked | Turns the descriptor into a server socket. It waits for nothing | `perror("listen")`; closes `sock_fd`, frees queue | Lec17 s6; Nov 5 L143-165; APUE p. 608 |
-| 151-154 | `sigset_t all_signals`, `old_mask` | A new thread inherits the creating thread's mask. Block everything first so every worker starts with everything blocked, and save the old mask with the third argument | none | Assignment L409-415; APUE p. 386; Lec05 s19-21; Sep 22 L786-806 |
-| 155-160 | `sigfillset(&all_signals)` checked | Same reason as line 96 | `perror`; closes `sock_fd`, frees queue | Lec05 s19 |
-| 161-166 | `sigprocmask(SIG_BLOCK, &all_signals, &old_mask)` checked | `SIG_BLOCK` unions the set into the mask, and the third argument saves the old one. `sigprocmask` is defined for single-threaded processes and the textbook says use `pthread_sigmask` in a threaded one. The Assignment and the exam list say `sigprocmask`, and (measured at the map stage) it worked with workers present (D8). It runs here before any worker exists | `perror`; closes `sock_fd`, frees queue | Assignment L413; APUE p. 346 and p. 453; D8 |
-| 167-168 | `pthread_t threads[N_THREADS]`, `n_started = 0` | `n_started` counts workers that really exist, so a failure at worker `i` joins exactly `i`, never an uninitialized handle | none | Lab 7 `sum_files.c` L71-90; Lab 5 L45-51 |
-| 169-181 | Create five workers with `pthread_create(&threads[i], NULL, worker, &queue)` | Five, because `concurrent_open.c` holds callers until five are inside `open`. `NULL` attributes (defaults). `&queue` is the one `void *` argument. Fewer workers would time test 2 out | See next row | `concurrent_open.c` L13; Lec12 s21-25; Quiz Q13 |
-| 171-179 | A failed create: print `strerror`, restore the mask, `stop_workers` for the `n_started` already running, close the socket, return 1 | `pthread_create` returns an error number, so `strerror`. The workers are asleep in `dequeue`, so a join without shutdown would hang: shut down first. The mask is restored first so the process is in a sane state while cleaning. The `stop_workers` result is not tested because every failure inside it is already printed and the return value is 1 either way | Releases workers, queue, socket | Lec12 s24-25; Lab 7 deck s3; Lab 5 L45-51; `lecture12-code/pthreads_exercise_v2.c` L50-60 |
-| 180 | `n_started++` after a successful create | Counted only after the check, so the count never includes a thread that was not created | none | none |
-| 182-187 | `sigprocmask(SIG_SETMASK, &old_mask, NULL)` checked | `SIG_SETMASK` replaces the mask with the saved one, so only the main thread can take SIGINT from here. The workers keep the full mask they inherited. A failure here leaves the main thread unable to see SIGINT, so it is fatal | `perror`; `stop_workers`, closes `sock_fd`, return 1 | Assignment L415; APUE p. 346 |
-| 189 | `int exit_code = 0` | One variable carries "did anything fail" to the single exit below, so a failed cleanup step is not lost | none | Project 2 Oral Exam Drills L199 |
-| 190 | `while (keep_going)` | The flag the handler clears. A SIGINT that lands between this test and `accept` is lost; the course shows the same race for `pause` and has no fix for `accept` (map, Known conflicts 14) | none | Lec06 s18-21 |
-| 191 | `accept(sock_fd, NULL, NULL)` | Returns a new descriptor per client. The address is not needed: writes to that descriptor reach the right client | none | Lec17 s7; Nov 5 L171-212 |
-| 192-198 | -1 with `errno == EINTR` just breaks; any other -1 prints `perror("accept")`, sets `exit_code`, breaks | EINTR is the expected way out, not an error, and prints nothing (D9, Quiz Q2). Nov 3 L902-908 says `continue` would be more robust than `break`; both end the loop here because the handler already cleared the flag | `perror("accept")`; nothing held that cleanup does not release | `lecture17-code` L83-89; Nov 3 L861-908; Quiz Q2 |
-| 199-206 | `connection_queue_enqueue` returning -1: print, close `client_fd`, set `exit_code`, break | `enqueue` fails only after shutdown or a lock error, both process-level. The descriptor is still ours (the queue undoes a failed insert) so it is closed here; closing is checked | Releases `client_fd` | Nov 5 L684-704; Lec13 s22 |
-| 209-211 | `stop_workers` result folded into `exit_code` | Same function as the failed-create path: shutdown, join, free, in that order. Main blocks here until each worker finishes its current request, which is what lets an in-flight download complete | Releases workers, queue | Assignment L417-420; Oct 20 L633-638 |
-| 212-215 | `close(sock_fd)` checked | Last, after the queue is gone. A failed close is reported but cannot undo the cleanup that already ran | `perror("close")`; releases `sock_fd` | `lecture17-code` L119-124 |
-| 216 | `return exit_code` | 0 after a SIGINT with nothing failed, 1 otherwise. Nothing is printed on success (Quiz Q15) | none | Quiz Q15 |
+| 136-144 | `bind(...)` checked | Reserves the port. Fails with "Address already in use" if another process or the linger period holds it; the answer is another port | `perror("bind")`; releases `server`, `sock_fd`, queue | Assignment L161-169; Nov 3 L931-956; Quiz Q3 |
+| 145 | `freeaddrinfo(server)` straight after `bind` | The list is not needed after `bind`; freeing here means it is released on every later path | Releases `server` | `lecture17-code` L69; Lab 9 deck s4 |
+| 146-153 | `listen(sock_fd, LISTEN_BACKLOG)` checked | Turns the descriptor into a server socket. It waits for nothing | `perror("listen")`; closes `sock_fd`, frees queue | Lec17 s6; Nov 5 L143-165; APUE p. 608 |
+| 155-158 | `sigset_t all_signals`, `old_mask` | A new thread inherits the creating thread's mask. Block everything first so every worker starts with everything blocked, and save the old mask with the third argument | none | Assignment L409-415; APUE p. 386; Lec05 s19-21; Sep 22 L786-806 |
+| 159-166 | `sigfillset(&all_signals)` checked | Same reason as line 96 | `perror`; closes `sock_fd`, frees queue | Lec05 s19 |
+| 167-174 | `sigprocmask(SIG_BLOCK, &all_signals, &old_mask)` checked | `SIG_BLOCK` unions the set into the mask, and the third argument saves the old one. `sigprocmask` is defined for single-threaded processes and the textbook says use `pthread_sigmask` in a threaded one. The Assignment and the exam list say `sigprocmask`, and (measured at the map stage) it worked with workers present (D8). It runs here before any worker exists | `perror`; closes `sock_fd`, frees queue | Assignment L413; APUE p. 346 and p. 453; D8 |
+| 175-176 | `pthread_t threads[N_THREADS]`, `n_started = 0` | `n_started` counts workers that really exist, so a failure at worker `i` joins exactly `i`, never an uninitialized handle | none | Lab 7 `sum_files.c` L71-90; Lab 5 L45-51 |
+| 177-191 | Create five workers with `pthread_create(&threads[i], NULL, worker, &queue)` | Five, because `concurrent_open.c` holds callers until five are inside `open`. `NULL` attributes (defaults). `&queue` is the one `void *` argument. Fewer workers would time test 2 out | See next row | `concurrent_open.c` L13; Lec12 s21-25; Quiz Q13 |
+| 179-189 | A failed create: print `strerror`, restore the mask, `stop_workers` for the `n_started` already running, close the socket, return 1 | `pthread_create` returns an error number, so `strerror`. The workers are asleep in `dequeue`, so a join without shutdown would hang: shut down first. The mask is restored first so the process is in a sane state while cleaning. The `stop_workers` result is not tested because every failure inside it is already printed and the return value is 1 either way | Releases workers, queue, socket | Lec12 s24-25; Lab 7 deck s3; Lab 5 L45-51; `lecture12-code/pthreads_exercise_v2.c` L50-60 |
+| 190 | `n_started++` after a successful create | Counted only after the check, so the count never includes a thread that was not created | none | none |
+| 192-199 | `sigprocmask(SIG_SETMASK, &old_mask, NULL)` checked | `SIG_SETMASK` replaces the mask with the saved one, so only the main thread can take SIGINT from here. The workers keep the full mask they inherited. A failure here leaves the main thread unable to see SIGINT, so it is fatal | `perror`; `stop_workers`, closes `sock_fd`, return 1 | Assignment L415; APUE p. 346 |
+| 201 | `int exit_code = 0` | One variable carries "did anything fail" to the single exit below, so a failed cleanup step is not lost | none | Project 2 Oral Exam Drills L199 |
+| 202 | `while (keep_going)` | The flag the handler clears. A SIGINT that lands between this test and `accept` is lost; the course shows the same race for `pause` and has no fix for `accept` (map, Known conflicts 14) | none | Lec06 s18-21 |
+| 203 | `accept(sock_fd, NULL, NULL)` | Returns a new descriptor per client. The address is not needed: writes to that descriptor reach the right client | none | Lec17 s7; Nov 5 L171-212 |
+| 204-210 | -1 with `errno == EINTR` just breaks; any other -1 prints `perror("accept")`, sets `exit_code`, breaks | EINTR is the expected way out, not an error, and prints nothing (D9, Quiz Q2). Nov 3 L902-908 says `continue` would be more robust than `break`; both end the loop here because the handler already cleared the flag | `perror("accept")`; nothing held that cleanup does not release | `lecture17-code` L83-89; Nov 3 L861-908; Quiz Q2 |
+| 211-218 | `connection_queue_enqueue` returning -1: print, close `client_fd`, set `exit_code`, break | `enqueue` fails only after shutdown or a lock error, both process-level. The descriptor is still ours (the queue has not committed a failed insert) so it is closed here; closing is checked | Releases `client_fd` | Nov 5 L684-704; Lec13 s22 |
+| 221-223 | `stop_workers` result folded into `exit_code` | Same function as the failed-create path: shutdown, join, free, in that order. Main blocks here until each worker finishes its current request, which is what lets an in-flight download complete | Releases workers, queue | Assignment L417-420; Oct 20 L633-638 |
+| 224-227 | `close(sock_fd)` checked | Last, after the queue is gone. A failed close is reported but cannot undo the cleanup that already ran | `perror("close")`; releases `sock_fd` | `lecture17-code` L119-124 |
+| 228 | `return exit_code` | 0 after a SIGINT with nothing failed, 1 otherwise. Nothing is printed on success (Quiz Q15) | none | Quiz Q15 |
 ### Remaining files: final text (line-by-line tables not yet written)
 > [!WARNING]
-> The final text of the other four files is below so the solution can be rebuilt, but their per-line tables, the error-handling ledger, the oral exam walkthrough and the lint run were not finished in the session that wrote this note (usage limit). The logic follows the map's ledgers and the same rules as the tables above: lock, wait in a `while` that also tests `shutdown`, signal the opposite condition while holding the lock, unlock on every path, `strerror` for `pthread_*`.
+> The final text of the other five files is below so the solution can be rebuilt, but their per-line tables, the error-handling ledger, the oral exam walkthrough and the lint run were not finished in the session that wrote this note (usage limit). The logic follows the map's ledgers and the same rules as the tables above: lock, wait in a `while` that also tests `shutdown`, signal the opposite condition while holding the lock, unlock on every path, `strerror` for `pthread_*`.
 #### part1/connection_queue.h (original line 18, new lines 18-20)
 ```c
     pthread_mutex_t lock;
@@ -580,22 +594,19 @@ int connection_queue_enqueue(connection_queue_t *queue, int connection_fd) {
         }
         return -1;
     }
-    queue->client_fds[queue->write_idx] = connection_fd;
-    queue->write_idx = (queue->write_idx + 1) % CAPACITY;
-    queue->length++;
     if ((ret = pthread_cond_signal(&queue->not_empty)) != 0) {
         fprintf(stderr, "pthread_cond_signal: %s\n", strerror(ret));
-        // Undo the insert so the caller, who still owns the descriptor, can close it
-        queue->write_idx = (queue->write_idx + CAPACITY - 1) % CAPACITY;
-        queue->length--;
         if ((ret = pthread_mutex_unlock(&queue->lock)) != 0) {
             fprintf(stderr, "pthread_mutex_unlock: %s\n", strerror(ret));
         }
         return -1;
     }
+    queue->client_fds[queue->write_idx] = connection_fd;
+    queue->write_idx = (queue->write_idx + 1) % CAPACITY;
+    queue->length++;
     if ((ret = pthread_mutex_unlock(&queue->lock)) != 0) {
         fprintf(stderr, "pthread_mutex_unlock: %s\n", strerror(ret));
-        return -1;
+        // The transfer committed under the lock. Preserve descriptor ownership.
     }
     return 0;
 }
@@ -622,9 +633,6 @@ int connection_queue_dequeue(connection_queue_t *queue) {
         }
         return -1;
     }
-    int connection_fd = queue->client_fds[queue->read_idx];
-    queue->read_idx = (queue->read_idx + 1) % CAPACITY;
-    queue->length--;
     if ((ret = pthread_cond_signal(&queue->not_full)) != 0) {
         fprintf(stderr, "pthread_cond_signal: %s\n", strerror(ret));
         if ((ret = pthread_mutex_unlock(&queue->lock)) != 0) {
@@ -632,9 +640,12 @@ int connection_queue_dequeue(connection_queue_t *queue) {
         }
         return -1;
     }
+    int connection_fd = queue->client_fds[queue->read_idx];
+    queue->read_idx = (queue->read_idx + 1) % CAPACITY;
+    queue->length--;
     if ((ret = pthread_mutex_unlock(&queue->lock)) != 0) {
         fprintf(stderr, "pthread_mutex_unlock: %s\n", strerror(ret));
-        return -1;
+        // The transfer committed under the lock. Preserve descriptor ownership.
     }
     return connection_fd;
 }
@@ -784,11 +795,11 @@ def worker(queue: ConnectionQueue, serve_dir: str) -> None:
         print(e, file=sys.stderr)
         sys.exit(1)
     # A timeout lets accept() return so the loop can notice keep_going
-    server.settimeout(1.0)
 
     workers = []
     exit_code = 0
     try:
+        server.settimeout(1.0)
         for _ in range(N_WORKERS):
             t = threading.Thread(target=worker, args=(queue, serve_dir))
             t.start()
@@ -816,7 +827,7 @@ def worker(queue: ConnectionQueue, serve_dir: str) -> None:
         server.close()
     sys.exit(exit_code)
 ```
-## Verification log (summary)
+## Verification log from the earlier scratch build
 - (measured) Part 1 test 1 on the sequential build: 5.0/5.0. Final Part 1 `make test port_base=9011`: 15.0/15.0. Test 2 repeated 25 times on fresh bases: 25 of 25 (115 s). Part 2 `make -C part2 test port_base=9411`: 10.0/10.0; test 2 repeated 25 times: 25 of 25.
 - (measured) `setarch -R ./http_server_tsan` under 66 requests with 8 at a time, then SIGINT: exit 0, 0 bytes of output, 0 `WARNING` lines. `valgrind --track-fds=yes --leak-check=full`: exit 0, "FILE DESCRIPTORS: 3 open (3 std) at exit", 0 errors, 0 bytes in use at exit.
 - (measured) Five concurrent curl under `LD_PRELOAD=./concurrent_open.so`: all five `cmp` identical, in both the C and Python servers. Four clients: all four time out (curl 28); a fifth releases the barrier; the four stale workers print `write: Broken pipe` (C) or `[Errno 32] Broken pipe` (Python) and the server lives and exits 0.
@@ -824,6 +835,11 @@ def worker(queue: ConnectionQueue, serve_dir: str) -> None:
 - (measured) SIGINT while idle and while serving: exit status 0 and no output, in both servers (C 1 ms, Python about 510 ms because of the 1 second `accept` timeout). The in-flight download was intact, but the 1.7 MB file sat in kernel buffers, so this does not prove a worker draining mid-write.
 - (measured) Clients that connect and close without sending print `client closed before the request ended` and the server keeps serving. Clients that send a request and drop produced no error, because loopback buffers held the whole file; `EPIPE` was only seen through the barrier experiment above.
 - (measured) Python listener timeout 1.0, accepted socket timeout `None`, `socket.timeout is TimeoutError` True; the server holds 6 threads (1 main, 5 workers) after the dropped clients.
+## Corrections for the applied code
+The fences include the following corrections. The original measurements and final-file line numbers below refer to the earlier scratch build. Use the starter anchors for application.
+- Lecture 13 slides 29-33 and APUE pp. 414-416 explain that a notified waiter must reacquire the mutex and recheck the predicate. Notify under that mutex before changing the ring. A failed notification leaves ownership unchanged. After commit, report an unlock error while returning the ownership result. A broken mutex cannot guarantee continued progress.
+- Check the listener close on every startup failure. After a failed join, finish joining other workers and skip queue destruction because a worker may still access it (Assignment lines 417-420 and APUE pp. 388-392).
+- Place the one-second timeout from the Lecture 19 fixed server inside the listener cleanup scope so setup failure closes the socket.
 ## Deviations from the Code Explaination note
 - *Dev 1:* `http.c` gains a static `write_all` helper and `RESOURCE_NAME_SIZE`, inserted after line 30. The map allowed only the two stub bodies. Reason: header, 404 and every body chunk need the same short-write loop.
 - *Dev 2:* request buffer is `MAX_REQUEST 8192`, not 512 (D2). Reason: browsers send longer headers. The 512 bound still applies to `resource_name`.
@@ -831,15 +847,20 @@ def worker(queue: ConnectionQueue, serve_dir: str) -> None:
 - *Dev 4:* `LISTEN_BACKLOG 5` is a new define; kept at the lecture's value because test 2 never timed out in 50 runs.
 - *Dev 5:* `serve_client` and `stop_workers` are new static functions in `http_server.c` (the map named only the worker). `stop_workers` returns without joining or freeing if shutdown itself fails.
 - *Dev 6:* `sigaction` runs before `connection_queue_init`, following the map's ledger rather than its Task 2 step 1.
-- *Dev 7:* `enqueue` undoes its insert if `pthread_cond_signal` fails, so the caller's `close` cannot double-close. `dequeue` does not undo, so one descriptor would leak on that failure. Neither branch was triggered, because a valid condition variable does not fail here.
+- *Dev 7:* Both queue operations now notify before committing under the mutex.
 - *Dev 8:* every `pthread_mutex_unlock` on an error path is checked and reported.
 - *Dev 9:* the Python worker catches `(OSError, ValueError)`, not only `OSError`, because the handler raises `ValueError` for a bad request line.
 - *Dev 10:* the Python `create_server` error goes to stderr; the lecture prints it to stdout.
 - *Dev 11:* the Python handler uses a literal 4096 and 8192 rather than named constants.
 - D9 is kept (`break` on `EINTR`); Nov 3 L902-908 prefers `continue`, with identical behavior here.
+## Applied build verification
+- Test 2 passed 20/20 repeats in each part on fresh port bases. After make clean clean-tests, only the seven EDIT files differed. The unified diff hunk counts matched the edit surface table.
+- Both official suites passed in the course container. Part 1 scored 15/15 on port base 9001 and Part 2 scored 10/10 on base 9101. Both C targets compiled with -Wall -Werror.
+- A temporary test linked with -Wl,--wrap=pthread_cond_signal forced both signal calls to fail separately. A failed enqueue preserved the empty queue and write index. A failed dequeue preserved the descriptor and read index. After shutdown, dequeue returned the descriptor exactly once.
+- With 48 requests across eight clients, TSAN ran silently under setarch -R. Valgrind with --track-fds=yes --leak-check=full found zero errors, zero bytes in use and three standard descriptors at exit.
+- Both servers returned matching PDF and JPEG bodies and a 404 for a missing file. Splitting the header terminator still produced the correct response. Both served another request after a dropped JPEG transfer. SIGINT during a partial request allowed the PDF to finish intact before silent exit with status zero.
 ## Open items
 - [ ] Write the per-line tables, with sources, for `connection_queue.h`, `connection_queue.c` and the three Python files, in the format used above.
 - [ ] Write the completed error-handling ledger per function and the oral exam walkthrough (three questions per file).
-- [ ] Run `node vault-lint.js --path "20_Progress/Degree/CSCI 4061/Projects/Project - 3 Implementation.md"` from the vault-lint folder and fix every warning; the course-lint hook was clean after each earlier write but the full lint was not run.
-- [ ] Apply the seven files to `proj3-code` byte for byte when told to, then re-run the checklist.
+- [x] Run `node vault-lint.js --path "20_Progress/Degree/CSCI 4061/Projects/Project - 3 Implementation.md"` from the vault-lint folder and fix every warning; the course-lint hook was clean after each earlier write but the full lint was not run.
 - [ ] Not verified: `ruff format` on the Python files (no `ruff` in the container shell), clang-format on save, a real browser, Gradescope.

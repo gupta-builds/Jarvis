@@ -1,12 +1,12 @@
 ---
 source_file: "core/git_ops.py"
 type: "rationale"
-community: "commit_and_push_with_retry"
+community: "test_git_ops.py"
 location: "L24"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/test_git_opspy
 ---
 
 # Stages everything under repo_dir, commits, and pushes. On a rejected     push (s
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[commit_and_push_with_retry()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/rationale #graphify/EXTRACTED #community/test_git_opspy

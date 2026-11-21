@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "rationale"
-community: "normalize_applyguy"
+community: "normalize_josegael"
 location: "L260"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/normalize_applyguy
+  - community/normalize_josegael
 ---
 
 # ApplyGuy's own literal placeholder on real entries with no season data     (78/2
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_applyguy_not_specified_season_maps_to_no_term_data()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/normalize_applyguy
+#graphify/rationale #graphify/EXTRACTED #community/normalize_josegael

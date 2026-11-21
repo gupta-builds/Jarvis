@@ -1,12 +1,12 @@
 ---
 source_file: "recheck.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "test_recheck.py"
 location: "L63"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/test_recheckpy
 ---
 
 # plan_removals()
@@ -23,4 +23,4 @@ tags:
 - [[test_failed_fetch_skips_that_sources_dossiers_entirely()]] - `calls` [EXTRACTED]
 - [[test_recheck.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/test_recheckpy

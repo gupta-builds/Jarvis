@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "Generating a cover letter .docx"
+community: "pre-push"
 location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_cover_letter_docx
+  - community/pre-push
 ---
 
 # Steps
@@ -17,4 +17,4 @@ tags:
 - [[3. Generate, verify, report (low freedom)_2]] - `contains` [EXTRACTED]
 - [[Generating a cover letter .docx_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx
+#graphify/document #graphify/EXTRACTED #community/pre-push

@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-07-16
-updated: 2026-10-16
+updated: 2026-11-21
 tags:
   - system
   - workflow
@@ -11,28 +11,28 @@ system_kind: workflow
 serves: "[[Internship Tracker Standard]]"
 trigger: A posting is found, or an internship is being pursued or tracked.
 notes:
-  - "[[Internship - Design Rationale]]"
   - "[[Application Document Preparation]]"
   - "[[Internship Review System]]"
+  - "[[Internship Notes Standard]]"
   - "[[10_Areas/Career/Internships/Internships Hub]]"
 ---
 # Internship Pipeline
-Move a posting from found to an offer or rejection recorded, without losing the research or the relationship. Why each step is shaped this way: [[Internship - Design Rationale]].
+Move a posting from found to an outcome recorded, in the lane its tier sets, without losing the research or the relationship.
 ## Use when
-Finding, pursuing, or tracking any internship. Research lives in `10_Areas/Career/Internships/`; live status lives in `20_Progress/Internship/`.
+Finding, pursuing or tracking any internship. Research lives in `10_Areas/Career/Internships/`; live status in `20_Progress/Internship/`. Quotas and limits are in Source of Truth and the loop's config, not here.
 ## Steps
-1. **Find.** The research loop writes dossiers to `List/Dossiers/`, or you add a manual find ([[Internship Notes Standard]]). Neither is a commitment.
-2. **Screen.** Does it push toward the goal in [[Engineer Edge Roadmap]], and fit what you have built or want to build? Contact reachability is noted, never a gate, and pay is never a factor. Record `screened_*` on the dossier.
-3. **Commit.** Create a Program, a Contact, and a Tracker note in one sitting under one shared file name ([[Program Standard]], [[Contact Standard]], [[Internship Tracker Standard]]).
-4. **Reach out.** Draft in the Contact note from `Mimic`, send by hand, and log every real exchange.
-5. **Tailor.** Create the Applying note now, before any document exists ([[Applying Standard]]), then run [[Application Document Preparation]].
-6. **Deep dive.** Only when ready to apply, write `Programs/Job & Company/<Company> - <Position>`. No Standard exists until a first note does.
-7. **Apply.** Submit. Set `stage: Applied` and `date_applied`, move the Tracker to `Applied/` and the Program to `Ended/`, and add a row to `Applying/Now.md`.
-8. **Prep.** When a screen or onsite is scheduled, write an [[Interview Prep Standard]] note and link it from the Applying note.
+1. **Find.** The loop writes dossiers (by code), or Anant adds a manual find to `_Career Fair/` (by hand). Neither is a commitment.
+2. **Screen.** By hand: read the posting for fit with the goal in [[Engineer Edge Roadmap]] and for PhD, clearance or citizenship requirements. Record `screened_*` on the dossier and set `starred` if wanted. Pay is never a factor.
+3. **Choose the lane** by the dossier's `tier`. Tier 3 takes the fast lane: steps 7 to 9, no Program, Contact or Applying note. Tier 1 and tier 2 take the apply lane.
+4. **Commit** (tier 1 and 2). Before apply day, one at a time with `/promote-dossier`, create the Program and Contact notes ([[Program Standard]], [[Contact Standard]]); no batch mode exists. A Program note is required before the dossier is ready to apply; a Contact note is not a gate.
+5. **Reach out.** Anant drafts in the Contact note from `Mimic`, sends by hand, and logs every real exchange.
+6. **Prepare** (tier 1 and 2). Create the Applying note, then run [[Application Document Preparation]].
+7. **Apply.** Anant submits. By hand today: set `date_applied`; move the dossier to `Applied/`; create the Tracker in `Applied/` from its Template, copying `tier`, `starred`, `resume_variant` and `letter_mode`; add a row to `Now`; copy the resume, letter and `posting.md` into `Sent/<dossier file name>/`; note the follow-up dates. `mark_applied` will do this when built, and tier 3 confirms before it archives.
+8. **Follow up and prepare.** Anant sends follow-ups from Mimic and logs each in the Tracker Timeline. When an interview is booked, write an [[Interview Prep Standard]] note and update the Tracker's Interview Steps.
 9. **Close.** Set the outcome on the Applying note, move the Tracker to `Result/` with the same word, and leave the Program as reference.
 ## Do not
-Do not write a thinner note for `Considering` than for `Serious`. Do not edit a Program note to record status. Do not treat the manual steps as proven: no real Applying note exists yet.
+Do not create a Tracker before the application is submitted. Do not write a thinner Program for `Considering` than for `Serious`. Do not edit a Program note to record status. Do not treat a step as automated until its System record says it is built; today the loop only finds and writes dossiers.
 ## Done when
-- Every program you pursue has a Program, Contact, and Tracker, cross-linked, plus an Applying note once preparation starts.
-- No active Applying note goes a week without a Log entry.
-- The reviews in [[Internship Review System]] have run on cadence.
+- Every submitted application has its dossier in `Applied/`, its Tracker in `Applied/`, its packet in `Sent/` and its follow-up dates.
+- Every tier 1 and tier 2 application also has a Program, Contact and Applying note, cross-linked, and the Applying `stage` agrees with the Tracker folder.
+- The reviews in [[Internship Review System]] were run when due.

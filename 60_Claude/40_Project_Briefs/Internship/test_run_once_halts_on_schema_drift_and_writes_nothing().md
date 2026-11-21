@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "_run_once_kwargs"
-location: "L641"
+community: "_fake_http_get"
+location: "L653"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/_run_once_kwargs
+  - community/_fake_http_get
 ---
 
 # test_run_once_halts_on_schema_drift_and_writes_nothing()
@@ -16,4 +16,4 @@ tags:
 - [[_run_once_kwargs()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/_run_once_kwargs
+#graphify/code #graphify/EXTRACTED #community/_fake_http_get

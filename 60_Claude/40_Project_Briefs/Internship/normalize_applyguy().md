@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "code"
-community: "normalize_applyguy"
+community: "normalize.py"
 location: "L120"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_applyguy
+  - community/normalizepy
 ---
 
 # normalize_applyguy()
@@ -26,4 +26,4 @@ tags:
 - [[test_filter.py]] - `imports` [EXTRACTED]
 - [[test_run_pipeline.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_applyguy
+#graphify/code #graphify/EXTRACTED #community/normalizepy

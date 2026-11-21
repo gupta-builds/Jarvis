@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "rationale"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 location: "L72"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # opt_cache.json is a dict keyed by uid ({uid: {verdict, signal,     checked}}), n
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_merge_dict_json()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_reseedpy
+#graphify/rationale #graphify/EXTRACTED #community/linkedin_recruiter_snippet

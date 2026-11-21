@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "cross_source_key"
+community: "validate"
 location: "L90"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # test_not_duplicate_rejects_seen_uid()
@@ -15,4 +15,4 @@ tags:
 - [[check_not_duplicate()]] - `calls` [EXTRACTED]
 - [[test_validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/cross_source_key
+#graphify/code #graphify/EXTRACTED #community/validate

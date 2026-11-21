@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # datetime
@@ -14,4 +14,4 @@ tags:
 - [[reseed.py]] - `imports_from` [EXTRACTED]
 - [[run_reseed()]] - `references` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_reseedpy
+#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet

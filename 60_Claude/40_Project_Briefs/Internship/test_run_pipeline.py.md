@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "test_run_pipeline.py"
+community: "_fake_http_get"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_run_pipelinepy
+  - community/_fake_http_get
 ---
 
 # test_run_pipeline.py
@@ -36,6 +36,7 @@ tags:
 - [[filter.py]] - `imports_from` [EXTRACTED]
 - [[git_ops.py]] - `imports_from` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
+- [[json]] - `imports` [EXTRACTED]
 - [[load_profile()]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[normalize_applyguy()]] - `imports` [EXTRACTED]
@@ -43,6 +44,8 @@ tags:
 - [[normalize_simplify()]] - `imports` [EXTRACTED]
 - [[normalize_vanshb03()]] - `imports` [EXTRACTED]
 - [[normalize_zshah101()]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[schema_drift.py]] - `imports_from` [EXTRACTED]
 - [[test_build_matched_reason_applyguy_includes_term_and_category()]] - `contains` [EXTRACTED]
@@ -61,6 +64,8 @@ tags:
 - [[test_discover_interndock_fails_open_on_sitemap_error()]] - `contains` [EXTRACTED]
 - [[test_discover_interndock_fetches_only_new_candidates_and_persists_state()]] - `contains` [EXTRACTED]
 - [[test_discover_interndock_returns_empty_when_fetch_fn_is_none()]] - `contains` [EXTRACTED]
+- [[test_dossier_gets_stated_deadline_from_fetched_page_and_no_own_deadline()]] - `contains` [EXTRACTED]
+- [[test_dossier_with_no_stated_deadline_gets_own_deadline_seven_days_out()]] - `contains` [EXTRACTED]
 - [[test_eligible_posting_gets_content_section()]] - `contains` [EXTRACTED]
 - [[test_fetch_and_filter_counts_and_matches()]] - `contains` [EXTRACTED]
 - [[test_fetch_failure_fails_open_to_thin_dossier()]] - `contains` [EXTRACTED]
@@ -97,11 +102,14 @@ tags:
 - [[test_select_exact_quota_does_not_grant_a_reserved_slot_unlike_prioritize_and_cap()]] - `contains` [EXTRACTED]
 - [[test_select_exact_quota_reports_shortfall_and_returns_nothing_when_a_bucket_is_short()]] - `contains` [EXTRACTED]
 - [[test_select_exact_quota_selects_exactly_and_defers_rest_in_debate_order()]] - `contains` [EXTRACTED]
+- [[test_select_exact_quota_shortfall_defers_only_real_losers()]] - `contains` [EXTRACTED]
+- [[test_thin_dossier_when_fetch_fails_still_gets_own_deadline()]] - `contains` [EXTRACTED]
 - [[test_validate_and_write_happy_path()]] - `contains` [EXTRACTED]
 - [[test_validate_and_write_rejects_cross_source_duplicate()]] - `contains` [EXTRACTED]
 - [[test_validate_and_write_rejects_dead_url()]] - `contains` [EXTRACTED]
 - [[test_validate_and_write_seeds_dedup_keys_from_existing_vault_files()]] - `contains` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `imports_from` [EXTRACTED]
 - [[test_zero_match_alert.py]] - `imports_from` [EXTRACTED]
+- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_run_pipelinepy
+#graphify/code #graphify/EXTRACTED #community/_fake_http_get

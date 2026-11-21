@@ -28,5 +28,6 @@ tags:
 - [[test_select_exact_quota_does_not_grant_a_reserved_slot_unlike_prioritize_and_cap()]] - `calls` [EXTRACTED]
 - [[test_select_exact_quota_reports_shortfall_and_returns_nothing_when_a_bucket_is_short()]] - `calls` [EXTRACTED]
 - [[test_select_exact_quota_selects_exactly_and_defers_rest_in_debate_order()]] - `calls` [EXTRACTED]
+- [[test_select_exact_quota_shortfall_defers_only_real_losers()]] - `calls` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/_listing_with_date

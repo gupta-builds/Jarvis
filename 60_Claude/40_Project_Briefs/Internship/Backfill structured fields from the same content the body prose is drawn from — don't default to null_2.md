@@ -1,12 +1,12 @@
 ---
 source_file: ".cursor/skills/promote-dossier/reference/note-templates.md"
 type: "document"
-community: "contact-researcher"
+community: "promote-dossier note templates"
 location: "L11"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/contact-researcher
+  - community/promote-dossier_note_templates
 ---
 
 # Backfill structured fields from the same content the body prose is drawn from — don't default to null
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[promote-dossier note templates_2]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/contact-researcher
+#graphify/document #graphify/EXTRACTED #community/promote-dossier_note_templates

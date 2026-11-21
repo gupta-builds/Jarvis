@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "commit_and_push_with_retry"
+community: "normalize.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/normalizepy
 ---
 
 # datetime
@@ -14,4 +14,4 @@ tags:
 - [[_commit_log()]] - `references` [EXTRACTED]
 - [[recheck.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/normalizepy

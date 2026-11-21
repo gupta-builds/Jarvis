@@ -1,12 +1,12 @@
 ---
 source_file: "core/company_registry.py"
 type: "code"
-community: "classify"
+community: "test_company_cache.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_company_cachepy
 ---
 
 # company_registry.py
@@ -22,4 +22,4 @@ tags:
 - [[screen_report.py]] - `imports_from` [EXTRACTED]
 - [[test_company_registry.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

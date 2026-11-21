@@ -1,12 +1,12 @@
 ---
 source_file: "recheck.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "normalize.py"
 location: "L172"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/normalizepy
 ---
 
 # _commit_log()
@@ -18,4 +18,4 @@ tags:
 - [[main()_8]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/normalizepy

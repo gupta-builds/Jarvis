@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "rationale"
-community: "stage1_reject"
+community: "test_relevance.py"
 location: "L62"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/test_relevancepy
 ---
 
 # Real, live Databricks posting (AIJobs, found 2026-07-26) — genuinely     PM work
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_stage1_rejects_real_databricks_product_management_title()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/stage1_reject
+#graphify/rationale #graphify/EXTRACTED #community/test_relevancepy

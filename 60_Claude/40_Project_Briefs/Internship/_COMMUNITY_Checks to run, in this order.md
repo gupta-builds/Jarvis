@@ -8,15 +8,15 @@ members: 9
 **Members:** 9 nodes
 
 ## Members
-- [[1. Full test suite]] - document - .claude/agents/loop-verifier.md
-- [[2. Scheduled workflow history (last N runs each)]] - document - .claude/agents/loop-verifier.md
-- [[3. Vault dossier counts vs. what run logs claim was written]] - document - .claude/agents/loop-verifier.md
-- [[4. seen_ids.json  vault divergence]] - document - .claude/agents/loop-verifier.md
-- [[5. Auto-filed GitHub issues]] - document - .claude/agents/loop-verifier.md
-- [[Checks to run, in this order]] - document - .claude/agents/loop-verifier.md
-- [[Memory — verdict history (added 2026-09-08)]] - document - .claude/agents/loop-verifier.md
-- [[Output format_3]] - document - .claude/agents/loop-verifier.md
-- [[loop-verifier]] - document - .claude/agents/loop-verifier.md
+- [[1. Full test suite_1]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[2. Scheduled workflow history (last N runs each)_1]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[3. Vault dossier counts vs. what run logs claim was written_1]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[4. seen_ids.json  vault divergence_1]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[5. Auto-filed GitHub issues_1]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[Checks to run, in this order_1]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[Output format_11]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[SKILL_11]] - document - .codex/skills/loop-health-check/SKILL.md
+- [[loop-health-check]] - document - .codex/skills/loop-health-check/SKILL.md
 
 ## Live Query (requires Dataview plugin)
 

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_git_ops.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "test_git_ops.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/test_git_opspy
 ---
 
 # test_git_ops.py
@@ -19,10 +19,12 @@ tags:
 - [[_run()]] - `contains` [EXTRACTED]
 - [[commit_and_push_with_retry()]] - `imports` [EXTRACTED]
 - [[git_ops.py]] - `imports_from` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[remote_and_clones()]] - `contains` [EXTRACTED]
+- [[subprocess]] - `imports` [EXTRACTED]
 - [[test_nothing_to_commit_returns_false()]] - `contains` [EXTRACTED]
 - [[test_raises_after_exhausting_retries_on_persistent_conflict()]] - `contains` [EXTRACTED]
 - [[test_retries_once_on_rejected_push_and_succeeds()]] - `contains` [EXTRACTED]
 - [[test_simple_push_succeeds_without_race()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/test_git_opspy

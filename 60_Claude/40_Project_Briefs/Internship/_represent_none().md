@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "writer.py"
+community: "scan_dossiers"
 location: "L35"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/scan_dossiers
 ---
 
 # _represent_none()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/scan_dossiers

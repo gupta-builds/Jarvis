@@ -1,12 +1,12 @@
 ---
 source_file: "core/classify.py"
 type: "code"
-community: "classify"
+community: "test_classify.py"
 location: "L81"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # classification_callout()
@@ -20,4 +20,4 @@ tags:
 - [[test_classify.py]] - `imports` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/test_classifypy

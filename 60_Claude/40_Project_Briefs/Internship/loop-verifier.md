@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/loop-verifier.md"
 type: "document"
-community: "Checks to run, in this order"
+community: "recheck.py"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Checks_to_run_in_this_order
+  - community/recheckpy
 ---
 
 # loop-verifier.md
@@ -16,4 +16,4 @@ tags:
 - [[Memory — verdict history (added 2026-09-08)]] - `contains` [EXTRACTED]
 - [[Output format_3]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order
+#graphify/document #graphify/EXTRACTED #community/recheckpy

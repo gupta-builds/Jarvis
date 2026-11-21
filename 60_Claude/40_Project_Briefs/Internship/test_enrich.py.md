@@ -17,6 +17,7 @@ tags:
 - [[extract_bylines()]] - `imports` [EXTRACTED]
 - [[infer_email()]] - `imports` [EXTRACTED]
 - [[linkedin_recruiter_snippet()]] - `imports` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[read_dossier()]] - `imports` [EXTRACTED]
 - [[replace_enrichment()]] - `imports` [EXTRACTED]
 - [[test_excluded_contact_domains_filters_indeed_glassdoor_simplify_linkedin_jobs()]] - `contains` [EXTRACTED]
@@ -27,5 +28,6 @@ tags:
 - [[test_read_dossier_parses_frontmatter()]] - `contains` [EXTRACTED]
 - [[test_read_dossier_rejects_non_dossier()]] - `contains` [EXTRACTED]
 - [[test_replace_enrichment_appends_then_replaces()]] - `contains` [EXTRACTED]
+- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/test_enrichpy

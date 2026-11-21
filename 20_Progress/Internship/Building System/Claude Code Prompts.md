@@ -9,16 +9,10 @@ tags:
   - prompts
 project_kind: prompt
 prompt_shape: queue
-next: "Run Acer Codebase P1 (git, worktree and Tailscale baseline, 2026-11-21)
-  first, from the Acer over Remote-SSH at effort high; it executes on the Dell
-  and opens three PRs that Anant merges before any other codebase prompt runs.
-  The Dell Vault P1 (internship system audit) is independent: run it in a fresh
-  Claude Code session from the vault root at effort high. At its checkpoint send
-  Dell Vault P2 as the reply (it widens the scope to the instruction notes and
-  the loop's System records, then interviews Anant). Move both and the result
-  into [[Claude Code Prompts - Archive]] when Phase 2 lands. Queue After P1 under Acer Codebase lists the next phases and the
-  gates already settled; write each phase prompt only after the previous report
-  is reviewed."
+next: 'P1 is done (PRs 15, 16, 17 open; 16 and 17 are drafts). Merge 15, 16, 17
+  in order and remove the P1 worktrees. Then run P1.5a (deterministic PR gates
+  and ruleset, under "P1.5 - Repo Governance"). P1.5b and P1.5c follow one at a
+  time. P2 onward waits for P1.5a to merge. Independent: Dell Vault P1.'
 related_progress:
   - "[[Weekend Build]]"
   - "[[Source of Truth]]"
@@ -280,3 +274,95 @@ Numbering is per section. Each phase is one branch, one worktree, one PR, and it
 # P1 Status (updated 2026-11-21)
 P1 is complete: the three branches are pushed with tests green (499, 499, 529), PRs #15, #16 and #17 are open and mergeable, the `pre-push` hook is fixed (`GIT_*` scrubbed, shipped in PR 15), `delete_branch_on_merge` is on, and Tailscale was verified. Report: `Runs/P1 Baseline - Git and Worktree Cleanup (2026-11-21).md`.
 **Gate for P2 and every later phase:** Anant merges 15, then 16, then 17 (`gh pr merge <n> --rebase`), and the three worktrees are unlocked and removed. Each later phase starts from a fresh worktree off the merged `master`.
+
+
+# P1.5 - Repo Governance (approved by Anant 2026-11-21)
+
+One phase, three sequential PRs, each opened only after the previous one is merged (the 2026-11-21 lesson: never host PRs in parallel).
+
+| Step | Branch | Contents | Gate to start |
+|---|---|---|---|
+| **P1.5a** (prompt below) | `chore/pr-gates-and-ruleset` | Zero-LLM, zero-cost deterministic gates: `pr-gates` Action, fixed `test.yml`, Dependabot config, importable ruleset JSON, throwaway-repo proof of the bot bypass | PRs #15, #16, #17 merged, worktrees removed |
+| P1.5b | `chore/issues-board-labels` | Label set, issue forms, Project board with Iteration field, milestones, close or relabel the 8 stale bot issues (#4-#11), flip the `linked-issue` gate from warn to enforce, issue-sync Action | P1.5a merged and rulesets applied by the owner |
+| P1.5c | `chore/copilot-review-setup` | `.github/copilot-instructions.md`, path-scoped `*.instructions.md`, decision on how Copilot treats `CLAUDE.md`/`AGENTS.md`, the review-on-ready ruleset at Lite or Balanced, review-on-push OFF | P1.5b merged |
+
+**Principle (Anant, 2026-11-21):** the strongest layer is deterministic, zero-cost, zero-LLM rules and runs that fire on every PR. Copilot comes last and handles judgment only. Everything below the gates is written later and individualised per repo.
+
+**Facts found 2026-11-21 that shape P1.5a:**
+- `test.yml` triggers on `push` and `pull_request`, so each PR branch runs pytest twice.
+- No ruleset, no branch protection, no Project, 0 milestones, no issue forms, default labels only.
+- Dependabot security and version updates are disabled. Secret scanning and push protection are enabled.
+- The pipeline is dormant: `run.yml` last ran on a schedule on 2026-08-29, `recheck.yml` on 2026-09-20, `revalidate.yml` on 2026-09-14, and all five workflows still show "active".
+- The bot commits `state/` and `logs/` to `master` with the default `GITHUB_TOKEN` (github-actions identity). `JARVIS_PUSH_TOKEN` is used only for the Jarvis checkout. Whether a ruleset can let that identity through is conflicting in the sources, so P1.5a proves it on a throwaway repo.
+- Copilot review reads instructions from the PR head branch, so a PR can change the rules that review it. A ruleset must require the PR to pass the required checks regardless.
+
+## Acer or Dell - Codebase - P1.5a - Deterministic PR Gates and Ruleset
+
+**Model:** Claude Code, Sonnet 5.5, effort high, on the Dell WSL (Remote-SSH from the Acer is fine). Start the session in the main checkout; the session creates its own worktree.
+
+````text
+You are P1.5a. Build the zero-LLM, zero-cost PR gates for gupta-builds/internship-research-loop (public) and prove how the ruleset treats the Actions bot. One branch, one PR, no merge.
+
+## Why This Exists
+On 2026-11-21 three PRs were opened at once, test.yml ran pytest twice per PR, there is no ruleset, and a pre-push hook bug let a worktree push corrupt .git/config. Anant wants the strongest layer of the GitHub workflow to be deterministic rules that run on every PR, before any Copilot or LLM review exists. Copilot setup is P1.5c, not this prompt.
+
+## Preconditions (Task 0 verifies; stop and report if any fail)
+- PRs #15, #16 and #17 are MERGED, the three P1 worktrees are removed, and the main checkout is on a clean master equal to origin/master. If not, stop.
+- Host is DESKTOP-3VBG0JH. Never clone anywhere else.
+
+## Hard Rules
+1. Zero LLM. The gates are python3 standard library plus `gh`/`git`. No Copilot request, no API call to any model, no third-party action except GitHub-owned ones pinned by version tag (actions/checkout@v4, actions/setup-python@v5, actions/dependency-review-action@v4).
+2. Script-injection safety: NEVER interpolate ${{ github.event.* }} text (title, body, branch, commit messages) into a `run:` script. Pass it through `env:` or read GITHUB_EVENT_PATH. This is the same fix reseed.yml got in commit e115db4.
+3. Triggers are `pull_request`, never `pull_request_target`. Each workflow declares least-privilege `permissions:` (contents: read; pull-requests: read).
+4. Every threshold and pattern cites real data in a comment next to the code (CLAUDE.md convention 4): measure first, then set. Run `gh pr list --state all --limit 50 --json number,title,additions,deletions,changedFiles,headRefName` and `git log origin/master --format=%s` and derive size and title-length limits from them.
+5. You do NOT apply any ruleset or change any repo setting on gupta-builds/internship-research-loop. You write importable JSON and print the exact commands for Anant. The only GitHub resource you create is the one throwaway probe repo in Task 7.
+6. No merge, no push to master, no `--no-verify`, no `git add -A`, no force push except `--force-with-lease` on your own branch. Export GRAPHIFY_SKIP_HOOK=1 in the worktree. Commits author "Anant Gupta"; verify `git log -1 --format=%an` after the first commit.
+7. Do not re-enable, disable or dispatch any scheduled workflow (run, recheck, revalidate, reseed). Report only.
+8. Commit after each task. Keep the PR under about 600 changed lines excluding tests.
+
+## Task Order
+0. Preflight, read-only. Verify the preconditions. Report: why the scheduled workflows have not run since 2026-08-29 / 2026-09-20 (look at `gh run list` and the Actions tab state, whether GitHub auto-disabled them, and the 60-day-inactivity rule for scheduled workflows in public repos). Check whether requirements.txt (used by CI) and pyproject.toml/uv.lock (used by the pre-push hook) agree on test dependencies; report drift, do not fix it.
+1. Worktree. `git worktree add ~/projects/work/.worktrees/internship-research-loop-chore-pr-gates-and-ruleset -b chore/pr-gates-and-ruleset origin/master`, then `git worktree lock` with owner and date. Work only there.
+2. Fix .github/workflows/test.yml: `on: pull_request` plus `push: branches: [master]`; add `concurrency` (cancel-in-progress per ref); `permissions: contents: read`; keep the job id and name exactly `pytest` (the ruleset requires that context). Commit.
+3. Write scripts/ci/pr_gates.py: pure functions, one per gate, each returning a list of violation strings, plus a thin main() that reads the PR from GITHUB_EVENT_PATH and uses `gh api` for files, commits and open PRs. Offline mode `--pr N` runs the same checks against a real PR for local proof. Gates:
+   - branch_name: ^(feature|fix|docs|chore)/[a-z0-9]+(-[a-z0-9]+)*$, allow dependabot/*. Real data: the retired `<machine>/<topic>` form and this repo's current branches.
+   - pr_title: length and no trailing period, WIP or Draft prefix; limits from the measured history of origin/master subjects (do not invent conventional-commit rules the history does not follow).
+   - commits: no merge commits (exactly one parent), subject length limit from data, no `fixup!`, `squash!` or `WIP`, and no author or committer named `Test` or at `test@example.com` (real incident 2026-11-21, commit authored by a test fixture).
+   - forbidden_paths: ^Cover Letters/, \.env, \.mcp\.env, \.(pem|key)$, ^graphify-out/, ^\.worktrees/, \.(orig|rej|bundle)$, recovery-, ^\.claude/settings\.local\.json$. Public repo: these must never land.
+   - template_sections (ready-for-review only): the PR body contains the "Verification" and "Repository conventions" sections of .github/pull_request_template.md and no unchecked box in them (N/A means check the box and write N/A).
+   - size (ready-for-review only): changed files and added+deleted lines under limits measured from PRs #1-#17; label `large-ok` overrides.
+   - wip_limit (ready-for-review only): fail if another OPEN NON-DRAFT PR with a lower number exists; label `parallel-ok` overrides. Real data: PRs #15-#17 were opened together on 2026-11-21.
+   - linked_issue: body has `(Closes|Fixes|Resolves|Refs) #N` or label `no-issue`. Ships in WARN mode (annotation only) because the issue system does not exist until P1.5b. Implement a single GATES_ENFORCE set so P1.5b flips it with a one-line change.
+   Draft PRs evaluate only branch_name, pr_title, commits, forbidden_paths and linked_issue. Output a Markdown table to $GITHUB_STEP_SUMMARY and `::error` annotations. Do not post PR comments.
+4. Tests: tests/test_pr_gates.py, unit tests on the pure functions with fixtures built from real data (the bad identity from 2026-11-21, a `Cover Letters/x.md` path, the old machine-prefixed branch name, PR #17's real size). Full suite must pass.
+5. .github/workflows/pr-gates.yml: `on: pull_request` types opened, edited, synchronize, reopened, ready_for_review, labeled, unlabeled; permissions contents: read, pull-requests: read; one job named exactly `pr-gates`; checkout with fetch-depth 0; run `python3 scripts/ci/pr_gates.py` with GH_TOKEN from github.token via env. Add a separate non-required job `dependency-review` (actions/dependency-review-action@v4, fail-on-severity high) that runs only when requirements.txt, pyproject.toml, uv.lock or .github/workflows change. Add .github/dependabot.yml: pip and github-actions, monthly, grouped, open-pull-requests-limit 1 (Anant wants minimal PRs).
+6. Ruleset JSON, importable and reviewed, not applied. Write .github/rulesets/master.json: target the default branch; rules deletion, non_fast_forward, required_linear_history, pull_request (0 required approvals because this is a solo repo, allowed_merge_methods ["rebase"], required_review_thread_resolution true), required_status_checks (strict_required_status_checks_policy true; contexts `pytest` and `pr-gates`); enforcement active; bypass_actors decided in Task 7. Also write .github/rulesets/branch-names.json only if Task 7 shows the plan supports a branch_name_pattern rule, targeting all branches except master and dependabot/**.
+7. Bypass proof on a throwaway repo (no data, public so rulesets are testable on any plan): create public `gupta-builds/ruleset-probe-20261121` with one workflow_dispatch workflow that commits a file to master using the default GITHUB_TOKEN. Run this matrix and record each result verbatim:
+   a. ruleset requiring a PR, NO bypass actors: dispatch the workflow (control: expect rejected).
+   b. same ruleset, bypass actor `{"actor_id":15368,"actor_type":"Integration","bypass_mode":"always"}` (GitHub Actions app): dispatch again. Accepted or rejected?
+   c. same ruleset, bypass actor Repository admin `{"actor_id":5,"actor_type":"RepositoryRole","bypass_mode":"always"}`: does a direct push as the owner succeed? Does the Actions dispatch still fail?
+   d. does the API accept a `branch_name_pattern` rule on this plan, and does pushing a branch named `bad-name` get rejected?
+   Then `gh repo archive` the probe repo and tell Anant to delete it (`gh auth refresh -s delete_repo` then `gh repo delete`). Use the result to fix bypass_actors in master.json. If NEITHER (b) nor a PAT route works, do not guess: write the fallback option (bot writes state/ and logs/ to a `bot-state` branch) in the report as a decision for Anant and leave master.json without a bypass for the bot.
+8. Prove it on real PRs. Run `python3 scripts/ci/pr_gates.py --pr 15` and 16 and 17 and paste the output tables into the report. Anything that fails on a merged, legitimate PR means the threshold is wrong; recalibrate with data, not by loosening blindly.
+9. Docs: add a short "PR gates" section to docs/TWO_LAPTOP_WORKFLOW.md (what each gate checks, the one-open-PR rule, draft until ready, the override labels, how to apply the rulesets). Do not create a new doc.
+10. Final verification: full pytest passes; YAML parses (python3 -c yaml.safe_load on every workflow); `actionlint` if available; `git diff origin/master --stat` shows only intended files; push with the pre-push hook active (never bypass); open ONE draft PR, then mark it ready only when the checks `pytest` and `pr-gates` are green on the PR itself. Do not request Copilot. Do not merge.
+11. Report. Write the Result into Runs/P1.5a Deterministic PR Gates (2026-11-21).md (create it) and a short status under this heading in Claude Code Prompts.md. Include: the Task 7 matrix, the Task 8 tables, the measured thresholds with their data, the pipeline-dormancy finding, and the exact owner commands, in order:
+    - `gh api -X POST repos/gupta-builds/internship-research-loop/rulesets --input .github/rulesets/master.json`
+    - (if supported) the same for branch-names.json
+    - settings the owner toggles: Dependabot security updates ON; Actions default workflow permissions stay read; keep "Allow GitHub Actions to create and approve pull requests" OFF.
+    - the merge command and worktree removal.
+
+## Report Back (in the run note)
+Per task: what changed, commands run, real output. Anything skipped and why. Anything you could not verify.
+
+## Grading Rubric
+- Gates are deterministic, stdlib-only, and each threshold cites measured data. (3)
+- No `${{ github.event.* }}` inside any run script. (2)
+- test.yml runs once per PR and the job is still named `pytest`. (1)
+- The bypass question is answered by the probe matrix, not by assumption. (3)
+- Nothing applied to the live repo; one PR; not merged; Copilot not requested. (2)
+- Report is honest about failures and recalibrations. (1)
+
+## What Not To Do
+Do not add Copilot, an LLM, or any non-GitHub third-party action. Do not apply the ruleset. Do not touch run/recheck/revalidate/reseed. Do not open more than one PR. Do not enforce linked_issue yet. Do not create issues, labels, a Project or milestones (that is P1.5b).
+````

@@ -27,3 +27,13 @@ members: 12
 TABLE source_file, type FROM #community/check_conventionspy
 SORT file.name ASC
 ```
+
+## Connections to other communities
+- 1 edge to [[_COMMUNITY_pytest]]
+- 1 edge to [[_COMMUNITY_Path]]
+- 1 edge to [[_COMMUNITY_revalidate.py]]
+- 1 edge to [[_COMMUNITY_test_git_ops.py]]
+- 1 edge to [[_COMMUNITY_sys]]
+
+## Top bridge nodes
+- [[check_conventions.py_1]] - degree 14, connects to 5 communities

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "test_posting_page.py"
-location: "L80"
+community: "extract_content"
+location: "L81"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_posting_pagepy
+  - community/extract_content
 ---
 
 # test_fetch_posting_markdown_calls_firecrawl()
@@ -15,4 +15,4 @@ tags:
 - [[fetch_posting_markdown()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy
+#graphify/code #graphify/EXTRACTED #community/extract_content

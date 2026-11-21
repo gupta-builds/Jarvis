@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "code"
-community: "cross_source_key"
+community: "validate"
 location: "L27"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # _DupeKeyLoader
@@ -16,4 +16,4 @@ tags:
 - [[check_format_compliance()]] - `indirect_call` [INFERRED]
 - [[validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/cross_source_key
+#graphify/code #graphify/EXTRACTED #community/validate

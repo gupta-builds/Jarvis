@@ -2,7 +2,7 @@
 source_file: "vault_writer/writer.py"
 type: "code"
 community: "scan_dossiers"
-location: "L96"
+location: "L115"
 tags:
   - graphify/code
   - graphify/EXTRACTED

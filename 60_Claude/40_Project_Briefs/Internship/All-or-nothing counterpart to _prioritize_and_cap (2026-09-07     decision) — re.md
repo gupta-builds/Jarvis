@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "classify"
-location: "L189"
+community: "enrich.py"
+location: "L195"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # All-or-nothing counterpart to _prioritize_and_cap (2026-09-07     decision) — re
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_select_exact_quota()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/enrichpy

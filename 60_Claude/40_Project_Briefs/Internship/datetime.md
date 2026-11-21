@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "run_pipeline.py"
+community: "test_run_log.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/run_pipelinepy
+  - community/test_run_logpy
 ---
 
 # datetime
@@ -16,4 +16,4 @@ tags:
 - [[run_log.py]] - `imports_from` [EXTRACTED]
 - [[should_run_weekly_rollup()]] - `references` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/run_pipelinepy
+#graphify/code #graphify/EXTRACTED #community/test_run_logpy

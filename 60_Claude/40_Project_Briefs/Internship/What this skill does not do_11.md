@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/resume-alteration/SKILL.md"
 type: "document"
-community: "Steps"
+community: "datetime"
 location: "L51"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/datetime
 ---
 
 # What this skill does not do
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[resume-alteration]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/datetime

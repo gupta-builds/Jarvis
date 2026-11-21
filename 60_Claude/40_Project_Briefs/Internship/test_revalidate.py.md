@@ -15,6 +15,7 @@ tags:
 - [[check_dossier()]] - `imports` [EXTRACTED]
 - [[extract_posting_content()]] - `imports` [EXTRACTED]
 - [[find_regressions()]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
 - [[revalidate.py]] - `imports_from` [EXTRACTED]
 - [[revalidate.py — re-checks live dossiers against current core code using their o]] - `rationale_for` [EXTRACTED]
 - [[test_check_dossier_flags_real_non_us_location()]] - `contains` [EXTRACTED]

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "code"
-community: "classify"
+community: "enrich.py"
 location: "L30"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # test_debate_compare_ties_between_two_preferred_companies_falls_through()
@@ -17,4 +17,4 @@ tags:
 - [[debate_compare()]] - `calls` [EXTRACTED]
 - [[test_debate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/enrichpy

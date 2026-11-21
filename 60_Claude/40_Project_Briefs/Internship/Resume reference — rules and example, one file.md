@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-resume-docx/reference/resume-reference.md"
 type: "document"
-community: "Generating a resume .docx"
+community: "contact-researcher"
 location: "L7"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_resume_docx
+  - community/contact-researcher
 ---
 
 # Resume reference — rules and example, one file
@@ -17,4 +17,4 @@ tags:
 - [[What's specific to `.docx` generation]] - `contains` [EXTRACTED]
 - [[resume-reference]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

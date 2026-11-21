@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/cover-letter-builder.md"
 type: "document"
-community: "Steps"
+community: "phd_only_exclusion"
 location: "L95"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/phd_only_exclusion
 ---
 
 # What you do not do
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[cover-letter-builder]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/phd_only_exclusion

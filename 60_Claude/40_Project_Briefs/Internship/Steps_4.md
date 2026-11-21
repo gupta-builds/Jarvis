@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "Generating a resume .docx"
+community: "contact-researcher"
 location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_resume_docx
+  - community/contact-researcher
 ---
 
 # Steps
@@ -17,4 +17,4 @@ tags:
 - [[3. Generate, verify, report (low freedom)_1]] - `contains` [EXTRACTED]
 - [[Generating a resume .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

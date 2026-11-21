@@ -10,19 +10,10 @@ tags:
 name:
 company:
 program_type:
-eligible_classes: []
-grad_year:
-role_type: internship
-wave:
-opens_date:
 deadline_posted:
 deadline_real:
-duration_weeks:
-benefits: []
 application_url:
-careers_page:
 list_origin:
-applying_note:
 recruiter_contact:
 notes: []
 next:

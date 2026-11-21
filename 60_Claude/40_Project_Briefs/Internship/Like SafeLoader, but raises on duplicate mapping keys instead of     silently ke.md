@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "rationale"
-community: "cross_source_key"
+community: "validate"
 location: "L28"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # Like SafeLoader, but raises on duplicate mapping keys instead of     silently ke
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_DupeKeyLoader]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/cross_source_key
+#graphify/rationale #graphify/EXTRACTED #community/validate

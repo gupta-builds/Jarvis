@@ -1,12 +1,12 @@
 ---
 source_file: "core/run_log.py"
 type: "code"
-community: "run_pipeline.py"
+community: "test_run_log.py"
 location: "L36"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/run_pipelinepy
+  - community/test_run_logpy
 ---
 
 # should_run_weekly_rollup()
@@ -19,4 +19,4 @@ tags:
 - [[test_run_log.py]] - `imports` [EXTRACTED]
 - [[test_should_run_weekly_rollup_only_fires_sunday_2300_utc()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/run_pipelinepy
+#graphify/code #graphify/EXTRACTED #community/test_run_logpy

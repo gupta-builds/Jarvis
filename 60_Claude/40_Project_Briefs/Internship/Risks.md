@@ -2,7 +2,7 @@
 source_file: "PRD.md"
 type: "document"
 community: "Internship Research Loop — PRD"
-location: "L78"
+location: "L82"
 tags:
   - graphify/document
   - graphify/EXTRACTED

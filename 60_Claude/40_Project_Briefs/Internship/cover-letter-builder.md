@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/cover-letter-builder.md"
 type: "document"
-community: "Steps"
+community: "phd_only_exclusion"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/phd_only_exclusion
 ---
 
 # cover-letter-builder.md
@@ -19,4 +19,4 @@ tags:
 - [[What you do not do_1]] - `contains` [EXTRACTED]
 - [[Why this exists, and why it's safe to run now]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/phd_only_exclusion

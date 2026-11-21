@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_reseed.py"
 type: "code"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # _page_with()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_reseed.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_reseedpy
+#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet

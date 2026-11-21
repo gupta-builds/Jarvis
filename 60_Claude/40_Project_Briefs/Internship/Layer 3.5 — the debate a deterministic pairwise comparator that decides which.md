@@ -1,12 +1,12 @@
 ---
 source_file: "core/debate.py"
 type: "rationale"
-community: "classify"
+community: "enrich.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # Layer 3.5 — the "debate": a deterministic pairwise comparator that decides which
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[debate.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/enrichpy

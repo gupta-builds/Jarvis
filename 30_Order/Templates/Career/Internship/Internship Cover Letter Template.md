@@ -16,10 +16,10 @@ notes: []
 ## How This Bank Is Organized
 <!-- The fragment types and their tags: hook, experience, closing, plus the evidence tag. Name this file Main Cover Letter. -->
 ## Opening Hooks
-<!-- One or more evidence-backed hooks per company archetype: startup, big tech, quant finance, research. -->
+<!-- One or more evidence-backed hooks per company archetype, each specific to the company. -->
 ## Experience Paragraphs
-<!-- One real project or role per paragraph, tagged by the JD requirement theme it proves. -->
+<!-- One real project or role per paragraph, tagged by the posting requirement theme it proves. -->
 ## Closings
-<!-- A closing that restates fit in one line, names the next step, and thanks the reader. -->
+<!-- A closing that restates fit in one line and names the next step. -->
 ## Logged Gaps
 <!-- Claims that came up without a confirmed fact; they stay here, not in a fragment. -->

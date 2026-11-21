@@ -15,14 +15,14 @@ notes:
 ---
 # Note Type Registry
 ==Every kind of note the vault holds has one row here: its tier, where it lives, and the Template, Standard, and Workflow that shape it.==
-To write or fix a note, find its row, open the Standard, copy the Template, follow the Workflow. A note type with no row has no kit; build one with [[Building a Note Kit]] before writing it. Tiers are defined in [[Conformance Standard]]. A kit's state is `built` (written to the contract), `align` (exists, must be rewritten to the contract), `planned` (not written, named here), or `decide` (waiting on a user decision). Planned names are plain text and become links when written.
+To write or fix a note, find its row, open the Standard, copy the Template, follow the Workflow. A note type with no row has no kit; build one with [[Building a Note Kit]] before writing it. Tiers are defined in [[Conformance Standard]]. A kit's state is `built` (written to the contract), `align` (exists, must be rewritten to the contract), `planned` (not written, named here), or `decide` (waiting on a user decision). A state may carry a parenthetical qualifier, such as `built (unexercised)`, that says what is still unproven; the qualifier stays until a real note proves it. Planned names are plain text and become links when written.
 ## Foundation
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|
 | family-standard, policy-standard | 1 | system / standard | `30_Order/Standards/` | [[Standard Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built |
 | workflow | 1 | system / workflow | `30_Order/Workflows/` | [[Workflow Template]] | [[Note Kit Standard]] | [[Building a Note Kit]] | built |
 | system-guide | 2 | system / guide | `30_Order/` | none | [[Note Kit Standard]] | none | built |
-| system-component | 2 | system / spec | `30_Order/System/` | none | [[System Component Standard]] | none | built |
+| system-component | 2 | system / spec | `30_Order/System/` | none | [[System Component Standard]] | none; Loop Contract Change for the internship-loop records | built |
 | generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built |
 | (policies) vocabulary, fit, editing | none | system / standard | `30_Order/Standards/` | none | [[Frontmatter Standard]], [[Conformance Standard]], [[Editing Standard]] | [[Conformance on Touch]] | built |
 | (policy) writing | none | system / standard | `30_Order/Standards/Enrich/` | none | [[Human Writing Standard]] (also holds the three application-document checks) | [[Human Content Writer]], [[Researcher]], [[Application Document Preparation]] | built |
@@ -58,10 +58,10 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Internship Program Template]] | [[Program Standard]] | [[Internship Pipeline]] | built |
 | internship-contact | 1 | contact | `10_Areas/Career/Internships/Contacts/Each One/` | [[Internship Contact Template]] | [[Contact Standard]] | [[Internship Pipeline]] | built |
 | internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Internship Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
-| career-fair | 2 | input | `20_Progress/Internship/Career Fair/` | none | [[Career Fair Standard]] | [[Career Fair Intake]] | built |
+| career-fair | 2 | input | `20_Progress/Internship/Career Fair/` | none | [[Internship Notes Standard]] (second Spec) | [[Career Fair Intake]] | built |
 | interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Internship Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
-| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Resume Alteration Standard]] | [[Application Document Preparation]] | built |
-| cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Internship Cover Letter Template]] | [[Cover Letter Alteration Standard]] | [[Application Document Preparation]] | built (no instance yet) |
+| resume-alteration | 1 | output / resume | `20_Progress/Internship/Resumes/` | none | [[Application Documents Standard]] | [[Application Document Preparation]] | built |
+| cover-letter | 1 | output / cover-letter | `20_Progress/Internship/Cover Letters/` | [[Internship Cover Letter Template]] | [[Application Documents Standard]] | [[Application Document Preparation]] | built (no instance yet) |
 | intake-log | 2 | input / clipping | `10_Areas/Career/Internships/List/Dossiers/_Today/` | none | [[Deadline and Intake Triage Standard]] | none | built |
 | deadline-tracker | 2 | dashboard / dashboard | `10_Areas/Career/Internships/Tracker/Deadline Tracker.md` | none | [[Deadline and Intake Triage Standard]] | [[Internship Review System]] | built |
 | internship-loop-review-weekly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/` | [[Internship Loop Weekly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |

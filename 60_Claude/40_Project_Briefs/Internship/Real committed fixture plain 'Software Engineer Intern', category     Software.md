@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "rationale"
-community: "classify"
+community: "test_classify.py"
 location: "L54"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # Real committed fixture: plain 'Software Engineer Intern', category     Software
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_classify_other_from_real_zshah101_fixture()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/test_classifypy

@@ -1,12 +1,12 @@
 ---
 source_file: "core/debate.py"
 type: "rationale"
-community: "classify"
+community: "enrich.py"
 location: "L31"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # Standard cmp semantics: negative if a should rank first, positive if     b shoul
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[debate_compare()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/enrichpy

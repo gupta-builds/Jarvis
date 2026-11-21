@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "normalize_applyguy"
+community: "normalize.py"
 location: "L255"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_applyguy
+  - community/normalizepy
 ---
 
 # test_applyguy_should_reject()
@@ -16,4 +16,4 @@ tags:
 - [[normalize_applyguy()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_applyguy
+#graphify/code #graphify/EXTRACTED #community/normalizepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "code"
-community: "classify"
+community: "test_classify.py"
 location: "L148"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # test_classify_real_optiver_austin_swe_content_routes_to_cys_finance_with_company()
@@ -16,4 +16,4 @@ tags:
 - [[classify()]] - `calls` [EXTRACTED]
 - [[test_classify.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/test_classifypy

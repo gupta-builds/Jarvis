@@ -1,12 +1,12 @@
 ---
 source_file: "core/debate.py"
 type: "code"
-community: "classify"
+community: "enrich.py"
 location: "L72"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # compute_bucket_urgency()
@@ -21,4 +21,4 @@ tags:
 - [[test_debate_compare_prefers_bucket_at_risk_of_going_unfilled()]] - `calls` [EXTRACTED]
 - [[{bucket max(0, budgetbucket - candidate_countbucket)} for every     bucket]] - `rationale_for` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/enrichpy

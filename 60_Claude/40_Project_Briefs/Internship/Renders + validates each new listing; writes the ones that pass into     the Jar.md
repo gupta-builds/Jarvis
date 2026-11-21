@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "cross_source_key"
-location: "L645"
+community: "validate"
+location: "L651"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # Renders + validates each new listing; writes the ones that pass into     the Jar
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[validate_and_write()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/cross_source_key
+#graphify/rationale #graphify/EXTRACTED #community/validate

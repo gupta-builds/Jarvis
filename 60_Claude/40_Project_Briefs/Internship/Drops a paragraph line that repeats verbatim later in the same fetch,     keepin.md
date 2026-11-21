@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "posting_page.py"
-location: "L251"
+community: "extract_content"
+location: "L317"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/extract_content
 ---
 
 # Drops a paragraph line that repeats verbatim later in the same fetch,     keepin
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_dedupe_paragraphs()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/posting_pagepy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

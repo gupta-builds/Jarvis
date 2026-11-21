@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_zero_match_alert.py"
 type: "code"
-community: "test_zero_match_alert.py"
+community: "extract_deadline"
 location: "L126"
 tags:
   - graphify/code
   - graphify/INFERRED
-  - community/test_zero_match_alertpy
+  - community/extract_deadline
 ---
 
 # test_run_once_does_not_alert_below_threshold()
@@ -15,4 +15,4 @@ tags:
 - [[_run_once_kwargs()]] - `calls` [INFERRED]
 - [[test_zero_match_alert.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/INFERRED #community/test_zero_match_alertpy
+#graphify/code #graphify/INFERRED #community/extract_deadline

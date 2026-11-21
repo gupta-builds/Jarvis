@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_identity.py"
 type: "code"
-community: "test_identity.py"
+community: "normalize_simplify"
 location: "L17"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_identitypy
+  - community/normalize_simplify
 ---
 
 # test_simplify_uid_uses_upstream_id()
@@ -17,4 +17,4 @@ tags:
 - [[normalize_simplify()]] - `calls` [EXTRACTED]
 - [[test_identity.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_identitypy
+#graphify/code #graphify/EXTRACTED #community/normalize_simplify

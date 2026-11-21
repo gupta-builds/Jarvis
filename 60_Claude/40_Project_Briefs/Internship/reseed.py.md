@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "code"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # reseed.py
@@ -18,9 +18,14 @@ tags:
 - [[fetch_interndock_drop()]] - `imports` [EXTRACTED]
 - [[fetch_posting_markdown()]] - `imports` [EXTRACTED]
 - [[interndock.py]] - `imports_from` [EXTRACTED]
+- [[json]] - `imports` [EXTRACTED]
+- [[os]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
 - [[posting_page.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[run_reseed()]] - `contains` [EXTRACTED]
+- [[shutil]] - `imports` [EXTRACTED]
+- [[tempfile]] - `imports` [EXTRACTED]
 - [[test_reseed.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_reseedpy
+#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet

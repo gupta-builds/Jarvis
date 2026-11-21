@@ -12,6 +12,7 @@ tags:
 # revalidate.py
 
 ## Connections
+- [[argparse]] - `imports` [EXTRACTED]
 - [[check_dossier()]] - `contains` [EXTRACTED]
 - [[extract_posting_content()]] - `contains` [EXTRACTED]
 - [[file_github_issue()]] - `imports` [EXTRACTED]
@@ -19,6 +20,9 @@ tags:
 - [[find_regressions()]] - `contains` [EXTRACTED]
 - [[location_eligible()]] - `imports` [EXTRACTED]
 - [[main()_9]] - `contains` [EXTRACTED]
+- [[os]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
+- [[re]] - `imports` [EXTRACTED]
 - [[relevance.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[scan_dossiers()]] - `imports` [EXTRACTED]

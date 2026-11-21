@@ -2,7 +2,7 @@
 source_file: "tests/test_run_pipeline.py"
 type: "code"
 community: "matches"
-location: "L450"
+location: "L462"
 tags:
   - graphify/code
   - graphify/EXTRACTED

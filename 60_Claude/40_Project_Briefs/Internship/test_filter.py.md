@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "test_filter.py"
+community: "normalize_josegael"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_filterpy
+  - community/normalize_josegael
 ---
 
 # test_filter.py
@@ -18,6 +18,7 @@ tags:
 - [[_matches_josegael()]] - `imports` [EXTRACTED]
 - [[degrees_eligible()]] - `imports` [EXTRACTED]
 - [[filter.py]] - `imports_from` [EXTRACTED]
+- [[json]] - `imports` [EXTRACTED]
 - [[load_profile()]] - `imports` [EXTRACTED]
 - [[location_eligible()]] - `imports` [EXTRACTED]
 - [[matched_term_in_free_text()]] - `imports` [EXTRACTED]
@@ -32,6 +33,8 @@ tags:
 - [[normalize_simplify()]] - `imports` [EXTRACTED]
 - [[normalize_vanshb03()]] - `imports` [EXTRACTED]
 - [[normalize_zshah101()]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[test_active_false_rejects_any_source()]] - `contains` [EXTRACTED]
 - [[test_applyguy_not_specified_season_maps_to_no_term_data()]] - `contains` [EXTRACTED]
 - [[test_applyguy_prefers_listing_url_over_tracking_url()]] - `contains` [EXTRACTED]
@@ -82,4 +85,4 @@ tags:
 - [[test_zshah101_should_match()]] - `contains` [EXTRACTED]
 - [[test_zshah101_should_reject()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_filterpy
+#graphify/code #graphify/EXTRACTED #community/normalize_josegael

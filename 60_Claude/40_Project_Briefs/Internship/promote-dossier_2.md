@@ -1,12 +1,12 @@
 ---
 source_file: ".cursor/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "contact-researcher"
+community: "promote-dossier note templates"
 location: "L11"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/contact-researcher
+  - community/promote-dossier_note_templates
 ---
 
 # promote-dossier
@@ -18,4 +18,4 @@ tags:
 - [[Steps_16]] - `contains` [EXTRACTED]
 - [[What this skill does not do_15]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/contact-researcher
+#graphify/document #graphify/EXTRACTED #community/promote-dossier_note_templates

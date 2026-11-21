@@ -1,12 +1,12 @@
 ---
 source_file: "core/run_log.py"
 type: "code"
-community: "run_pipeline.py"
+community: "test_run_log.py"
 location: "L13"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/run_pipelinepy
+  - community/test_run_logpy
 ---
 
 # append_run_log()
@@ -21,4 +21,4 @@ tags:
 - [[test_load_recent_runs_filters_by_timestamp()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/run_pipelinepy
+#graphify/code #graphify/EXTRACTED #community/test_run_logpy

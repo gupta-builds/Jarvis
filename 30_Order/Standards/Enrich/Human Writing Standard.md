@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-15
-updated: 2026-11-07
+updated: 2026-11-21
 tags:
   - system
   - standards
@@ -19,8 +19,7 @@ notes:
   - "[[HUMAN_WRITING]]"
   - "[[Decoration Standard]]"
   - "[[Humanizer]]"
-  - "[[Resume Alteration Standard]]"
-  - "[[Cover Letter Alteration Standard]]"
+  - "[[Application Documents Standard]]"
 ---
 # Human Writing Standard
 ==Voice lives in HUMAN_WRITING. This Standard is the prose check a reviewer or an agent runs on a draft, and it ends in lines that can be pointed at.==
@@ -38,7 +37,7 @@ This is the checkable counterpart to [[HUMAN_WRITING]]. It does not restate how 
 | 8 | Evidence survives the pass | After a tone rewrite every claim still traces to the same source. A claim that drifts from its source is a regression | Reader |
 | 9 | Thin thinking | If a note is thin because the thinking is thin, it says so instead of hiding it with better wording | Reader |
 ## Application documents
-A resume content plan or cover letter draft runs all nine checks, then three more before it becomes a DOCX. This is the pass or fail gate behind [[Humanizer]]. It checks tone and phrasing only; factual correctness is the earlier gate in [[Resume Alteration Standard]] and [[Cover Letter Alteration Standard]].
+A resume content plan or cover letter draft runs all nine checks, then three more before it becomes a DOCX. This is the pass or fail gate behind [[Humanizer]]. It checks tone and phrasing only; factual correctness is the earlier gate in [[Application Documents Standard]].
 
 | # | Check | Passes when | Enforced by |
 |---|---|---|---|

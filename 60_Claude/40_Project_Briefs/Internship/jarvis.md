@@ -1,14 +1,14 @@
 ---
 source_file: ".claude/context/jarvis.md"
 type: "document"
-community: "jarvis.md"
+community: "context/jarvis.md"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/jarvismd
+  - community/context/jarvismd
 ---
 
 # jarvis.md
 
-#graphify/document #graphify/EXTRACTED #community/jarvismd
+#graphify/document #graphify/EXTRACTED #community/context/jarvismd

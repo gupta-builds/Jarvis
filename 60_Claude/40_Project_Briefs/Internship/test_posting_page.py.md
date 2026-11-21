@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "test_posting_page.py"
+community: "extract_content"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_posting_pagepy
+  - community/extract_content
 ---
 
 # test_posting_page.py
@@ -15,10 +15,13 @@ tags:
 - [[OPT signals and content extraction — every eligibility string below marked 'real]] - `rationale_for` [EXTRACTED]
 - [[_content_fetch_url()]] - `imports` [EXTRACTED]
 - [[extract_content()]] - `imports` [EXTRACTED]
+- [[extract_deadline()]] - `imports` [EXTRACTED]
 - [[fetch_posting_markdown()]] - `imports` [EXTRACTED]
 - [[opt_exclusion()]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
 - [[phd_only_exclusion()]] - `imports` [EXTRACTED]
 - [[posting_page.py]] - `imports_from` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[relevance.py]] - `imports_from` [EXTRACTED]
 - [[stage1_reject()]] - `imports` [EXTRACTED]
 - [[test_content_fetch_url_leaves_ashby_non_application_urls_alone()]] - `contains` [EXTRACTED]
@@ -38,11 +41,14 @@ tags:
 - [[test_extract_content_strips_read_more_and_follow_us_chrome_real_manhattan_case()]] - `contains` [EXTRACTED]
 - [[test_extract_content_treats_real_zipline_board_index_as_unconfirmed()]] - `contains` [EXTRACTED]
 - [[test_extract_content_with_no_internal_structure_stays_one_block()]] - `contains` [EXTRACTED]
+- [[test_extract_deadline_none_when_posting_states_no_real_deadline()]] - `contains` [EXTRACTED]
+- [[test_extract_deadline_real_phrasings()]] - `contains` [EXTRACTED]
 - [[test_fetch_posting_markdown_calls_firecrawl()]] - `contains` [EXTRACTED]
 - [[test_fetch_posting_markdown_strips_ashby_application_suffix_before_calling_firecrawl()]] - `contains` [EXTRACTED]
 - [[test_non_signals_stay_eligible()]] - `contains` [EXTRACTED]
 - [[test_phd_only_exclusion_does_not_reject_bachelors_masters_eligible_real_text()]] - `contains` [EXTRACTED]
 - [[test_phd_only_exclusion_rejects_explicit_equivalent_phrasing()]] - `contains` [EXTRACTED]
 - [[test_phd_only_exclusion_rejects_real_optiver_text()]] - `contains` [EXTRACTED]
+- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy
+#graphify/code #graphify/EXTRACTED #community/extract_content

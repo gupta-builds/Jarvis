@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/promote-dossier/reference/worked-example.md"
 type: "document"
-community: "Worked example — one full `/promote-dossier` run"
+community: "parametrize"
 location: "L7"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Worked_example__one_full_/promote-dossier_run
+  - community/parametrize
 ---
 
 # Worked example — one full `/promote-dossier` run
@@ -22,4 +22,4 @@ tags:
 - [[8. Report_1]] - `contains` [EXTRACTED]
 - [[worked-example_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Worked_example__one_full_/promote-dossier_run
+#graphify/document #graphify/EXTRACTED #community/parametrize

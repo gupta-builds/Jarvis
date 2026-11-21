@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/generating-resume-docx/reference/resume-reference.md"
 type: "document"
-community: "Generating a resume .docx"
+community: "posting_page.py"
 location: "L22"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_resume_docx
+  - community/posting_pagepy
 ---
 
 # What's specific to `.docx` generation
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[Resume reference — rules and example, one file_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx
+#graphify/document #graphify/EXTRACTED #community/posting_pagepy

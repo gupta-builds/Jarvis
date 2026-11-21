@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "rationale"
-community: "classify"
+community: "test_classify.py"
 location: "L149"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # Same company, a different real posting, a different keyword ('AI-     enabled' v
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_classify_real_optiver_austin_swe_content_routes_to_cys_finance_with_company()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/test_classifypy

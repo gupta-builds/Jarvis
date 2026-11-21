@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "code"
-community: "test_identity.py"
+community: "test_company_cache.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_identitypy
+  - community/test_company_cachepy
 ---
 
 # identity.py
@@ -21,6 +21,7 @@ tags:
 - [[cross_source_key()]] - `contains` [EXTRACTED]
 - [[debate.py]] - `imports_from` [EXTRACTED]
 - [[extract_ats_job_id()]] - `contains` [EXTRACTED]
+- [[re]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_debate_losses.py]] - `imports_from` [EXTRACTED]
 - [[test_identity.py]] - `imports_from` [EXTRACTED]
@@ -29,4 +30,4 @@ tags:
 - [[validate.py]] - `imports_from` [EXTRACTED]
 - [[writer.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_identitypy
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "rationale"
-community: "classify"
+community: "test_classify.py"
 location: "L81"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # Real false positive: Mosaic Company 'Operations & Automation     Engineering Co-
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_classify_does_not_match_bare_threat_real_mosaic_safety_disclaimer()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/test_classifypy

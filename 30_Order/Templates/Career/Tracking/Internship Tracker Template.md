@@ -10,6 +10,10 @@ program:
 contact:
 company:
 url:
+tier:
+starred:
+resume_variant:
+letter_mode:
 date_noted: <% tp.date.now("YYYY-MM-DD") %>
 date_researched:
 date_created: <% tp.date.now("YYYY-MM-DD") %>
@@ -23,6 +27,6 @@ notes: []
 ---
 # <% tp.file.title %>
 ## Timeline
-<!-- Five dated lines: Noted, Researched, Created, Applied, Result. Unset ones read an em dash. -->
+<!-- Dated lines: Noted, Researched, Created, Applied, Result, then one line per follow-up sent. Unset ones read a dash. -->
 ## Next Action
 <!-- The one physical move now, with the reason. -->

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "test_filter.py"
+community: "normalize_josegael"
 location: "L157"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_filterpy
+  - community/normalize_josegael
 ---
 
 # test_location_new_london_ct_is_not_caught_by_bare_london_fallback()
@@ -16,4 +16,4 @@ tags:
 - [[location_eligible()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_filterpy
+#graphify/code #graphify/EXTRACTED #community/normalize_josegael

@@ -2,7 +2,7 @@
 source_file: "tests/test_run_pipeline.py"
 type: "rationale"
 community: "normalize_simplify"
-location: "L489"
+location: "L501"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

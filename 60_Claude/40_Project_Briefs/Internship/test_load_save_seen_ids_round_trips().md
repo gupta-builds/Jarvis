@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "test_run_pipeline.py"
+community: "_fake_http_get"
 location: "L148"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_run_pipelinepy
+  - community/_fake_http_get
 ---
 
 # test_load_save_seen_ids_round_trips()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_run_pipelinepy
+#graphify/code #graphify/EXTRACTED #community/_fake_http_get

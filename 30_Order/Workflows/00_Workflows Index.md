@@ -79,7 +79,7 @@ produce      outputs next to the project they serve
 |---|---|---|
 | [[Application Document Preparation]] | Real preparation of an application starts (Pipeline step 5). | [[Applying Standard]] |
 | [[Application Document Preparation 1]] |  |  |
-| [[Career Fair Intake]] | A career fair or recruiting event produces postings and conversations to follow up. | [[Career Fair Standard]] |
+| [[Career Fair Intake]] | A career fair or recruiting event produces postings and conversations to follow up. | [[Internship Notes Standard]] |
 | [[Internship - Design Rationale]] | Course-specific production plan |  |
 | [[Internship Pipeline]] | A posting is found, or an internship is being pursued or tracked. | [[Internship Tracker Standard]] |
 | [[Internship Review System]] | Every Friday for the Weekly review, the 1st of each month for the Monthly review, and every third day for the Deadline Sweep. | [[Internship Loop Review Standard]] |

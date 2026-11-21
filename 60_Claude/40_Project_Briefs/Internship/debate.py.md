@@ -1,12 +1,12 @@
 ---
 source_file: "core/debate.py"
 type: "code"
-community: "classify"
+community: "enrich.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # debate.py
@@ -24,4 +24,4 @@ tags:
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_debate.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/enrichpy

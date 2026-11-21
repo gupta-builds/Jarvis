@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_zero_match_alert.py"
 type: "rationale"
-community: "test_zero_match_alert.py"
+community: "extract_deadline"
 location: "L60"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_zero_match_alertpy
+  - community/extract_deadline
 ---
 
 # A single fetch hiccup (fetch_count == 0, e.g. a swallowed     RequestException)
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_zero_match_streak_unaffected_by_a_zero_fetch_run()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_zero_match_alertpy
+#graphify/rationale #graphify/EXTRACTED #community/extract_deadline

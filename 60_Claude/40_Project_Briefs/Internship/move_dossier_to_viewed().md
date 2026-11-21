@@ -2,7 +2,7 @@
 source_file: "vault_writer/writer.py"
 type: "code"
 community: "test_writer.py"
-location: "L209"
+location: "L230"
 tags:
   - graphify/code
   - graphify/EXTRACTED

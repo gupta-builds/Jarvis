@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # Path
@@ -15,4 +15,4 @@ tags:
 - [[_union_json_list()]] - `references` [EXTRACTED]
 - [[run_reseed()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_reseedpy
+#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet

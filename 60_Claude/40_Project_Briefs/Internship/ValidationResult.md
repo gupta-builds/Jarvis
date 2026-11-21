@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "code"
-community: "cross_source_key"
+community: "validate"
 location: "L21"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # ValidationResult
@@ -20,4 +20,4 @@ tags:
 - [[validate()]] - `references` [EXTRACTED]
 - [[validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/cross_source_key
+#graphify/code #graphify/EXTRACTED #community/validate

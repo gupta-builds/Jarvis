@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "rationale"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 location: "L95"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # Explicit-args orchestration function — mirrors run_pipeline.py's own     split b
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[run_reseed()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_reseedpy
+#graphify/rationale #graphify/EXTRACTED #community/linkedin_recruiter_snippet

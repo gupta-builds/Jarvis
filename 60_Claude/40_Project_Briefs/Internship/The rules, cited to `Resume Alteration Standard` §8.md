@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-resume-docx/reference/resume-reference.md"
 type: "document"
-community: "Generating a resume .docx"
+community: "contact-researcher"
 location: "L11"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_resume_docx
+  - community/contact-researcher
 ---
 
 # The rules, cited to `Resume Alteration Standard` §8
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[Resume reference — rules and example, one file]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

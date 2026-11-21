@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "test_run_once_all_or_nothing_short_bucket_writes_nothing"
+community: "test_run_once_full_quota_writes_exactly_and_in_debate_order"
 location: "L193"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_run_once_all_or_nothing_short_bucket_writes_nothing
+  - community/test_run_once_full_quota_writes_exactly_and_in_debate_order
 ---
 
 # _stub_fetch_and_filter()
@@ -17,4 +17,4 @@ tags:
 - [[test_run_once_full_quota_writes_exactly_and_in_debate_order()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_run_once_all_or_nothing_short_bucket_writes_nothing
+#graphify/code #graphify/EXTRACTED #community/test_run_once_full_quota_writes_exactly_and_in_debate_order

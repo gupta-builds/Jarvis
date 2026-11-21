@@ -8,15 +8,15 @@ members: 9
 **Members:** 9 nodes
 
 ## Members
-- [[1. Take the input]] - document - .claude/agents/promotion.md
-- [[2. Ask two concrete questions — same shape as `promote-dossier`]] - document - .claude/agents/promotion.md
-- [[3. Invoke contact research and show findings — before writing anything]] - document - .claude/agents/promotion.md
-- [[4. On explicit go-ahead only, invoke the writers in order]] - document - .claude/agents/promotion.md
-- [[Prerequisite_2]] - document - .claude/agents/promotion.md
-- [[Steps_2]] - document - .claude/agents/promotion.md
-- [[What this agent does not do]] - document - .claude/agents/promotion.md
-- [[Why this exists — a real, confirmed gap]] - document - .claude/agents/promotion.md
-- [[promotion]] - document - .claude/agents/promotion.md
+- [[promoting-manual-find]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[1. Collect the lead]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[2. Confirm Step 2 (the fit test) already happened]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[3. Hand off to `promotion`]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[4. Report back]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[SKILL_3]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[Steps_6]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[What this skill does not do_3]] - document - .claude/skills/promoting-manual-find/SKILL.md
+- [[Why a separate skill from `promote-dossier`]] - document - .claude/skills/promoting-manual-find/SKILL.md
 
 ## Live Query (requires Dataview plugin)
 

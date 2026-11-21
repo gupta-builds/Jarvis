@@ -1,14 +1,15 @@
 param()
 
-# PostToolUse validator for the internship system's five governed note types.
+# PostToolUse validator for the internship system's six governed note types.
 # Fires after every Write/Edit/MultiEdit; a no-op for anything outside
 # 10_Areas/Career/Internships/ or 20_Progress/Internship/Applying/.
 #
-# What it checks: the required-frontmatter-field lists already stated in
-# 30_Order/Standards/Internship/Internship Notes Standard.md (dossiers),
-# CLAUDE.md's Program/Contact/Tracker contract (mirrored in
-# internship-research-loop's own CLAUDE.md), and
-# 30_Order/Standards/Internship/Applying Standard.md (Applying notes).
+# What it checks: the required keys of each family's Spec in
+# 30_Order/Standards/Internship/ (Internship Notes Standard for dossiers,
+# Program Standard, Contact Standard, Internship Tracker Standard, Applying
+# Standard). The lists below are a hand-kept copy of those Specs until this
+# hook reads the Specs directly; change a Spec and its list in the same step
+# (see the Loop Contract Change Workflow). Updated 2026-11-21.
 # A missing field is surfaced via additionalContext (informational, never
 # blocking - PostToolUse can't undo a write that already happened) and one
 # line is appended to logs/internship-note-guard.jsonl, per the North Star's
@@ -56,23 +57,27 @@ $requiredFields = @()
 
 if ($relLower -match '^10_areas\\career\\internships\\list\\dossiers\\' -and $relLower -notmatch '\\_today\\') {
     $noteType = "dossier"
-    $requiredFields = @("company", "title", "url", "source", "terms", "locations", "target_year", "date_posted", "date_found", "matched_reason", "status", "next", "notes", "tags")
+    $requiredFields = @("type", "input_kind", "status", "review_state", "created", "updated", "tags", "company", "title", "url", "source", "terms", "locations", "target_year", "date_posted", "date_found", "deadline_posted", "own_deadline", "matched_reason", "next", "notes", "tier", "resume_variant", "letter_mode")
 }
 elseif ($relLower -match '^10_areas\\career\\internships\\programs\\(serious|considering)\\' -and $relLower -notmatch '\\ended\\' ) {
     $noteType = "program"
-    $requiredFields = @("name", "company", "program_type", "eligible_classes", "grad_year", "role_type", "opens_date", "deadline_posted", "deadline_real", "application_url", "list_origin", "applying_note", "recruiter_contact", "tags")
+    $requiredFields = @("type", "reference_kind", "status", "created", "updated", "tags", "name", "company", "program_type", "deadline_posted", "deadline_real", "application_url", "list_origin", "recruiter_contact")
 }
 elseif ($relLower -match '^10_areas\\career\\internships\\contacts\\each one\\(ongoing|ended|come back)\\') {
     $noteType = "contact"
-    $requiredFields = @("type", "name", "role", "company", "how_found", "relationship", "related_programs", "tags")
+    $requiredFields = @("type", "status", "created", "updated", "tags", "name", "role", "company", "linkedin_url", "email", "how_found", "relationship", "related_programs", "last_contact_date", "next")
 }
 elseif ($relLower -match '^10_areas\\career\\internships\\tracker\\each one\\(current|applied|result)\\') {
     $noteType = "tracker"
-    $requiredFields = @("type", "program", "contact", "company", "url", "date_noted", "date_researched", "date_created", "date_applied", "date_result", "result", "deadline", "related_notes", "tags")
+    $requiredFields = @("type", "status", "created", "updated", "tags", "program", "contact", "company", "url", "tier", "starred", "resume_variant", "letter_mode", "date_noted", "date_researched", "date_created", "date_applied", "date_result", "result", "deadline", "related_notes", "next")
 }
-elseif ($relLower -match '^20_progress\\internship\\applying\\' -and $fileNameLower -notin @("now.md", "_this week.md")) {
+elseif ($relLower -match '^20_progress\\internship\\applying\\' -and $fileNameLower -notin @("now.md", "_this week.md", "apply queue.md", "follow-ups.md", "deadline map.md", "loop status.md")) {
     $noteType = "applying"
-    $requiredFields = @("type", "status", "program", "tracker", "company", "job_url", "date_applied", "resume_version", "cover_letter", "contacts", "tags", "next")
+    $requiredFields = @("type", "project_kind", "status", "stage", "created", "updated", "tags", "program", "tracker", "company", "job_url", "date_applied", "date_response", "next_deadline", "resume_version", "cover_letter", "contacts", "interview_note", "related_progress", "next")
+}
+elseif ($relLower -match '^20_progress\\internship\\preperation\\interviews\\' -and $fileNameLower -ne "interview questions.md") {
+    $noteType = "interview-prep"
+    $requiredFields = @("type", "project_kind", "status", "created", "updated", "tags", "company", "applying", "interview_date", "next")
 }
 else {
     exit 0

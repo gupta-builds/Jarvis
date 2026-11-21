@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "Worked example — one full `/promote-dossier` run"
+community: "/promote-dossier"
 location: "L35"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Worked_example__one_full_/promote-dossier_run
+  - community//promote-dossier
 ---
 
 # Steps
@@ -18,4 +18,4 @@ tags:
 - [[3. Invoke contact research and show findings — before writing anything_1]] - `contains` [EXTRACTED]
 - [[4. On explicit go-ahead only, write all three notes together]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Worked_example__one_full_/promote-dossier_run
+#graphify/document #graphify/EXTRACTED #community//promote-dossier

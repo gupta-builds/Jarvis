@@ -7,31 +7,26 @@ updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - review
   - internship
-notes:
-  - "[[Internship Loop Review Standard]]"
+notes: []
 next:
 ---
 # <% tp.file.title %>
 ## Period Covered
 <!-- The calendar month, or the real range if the review ran late. -->
 ## Sources Reviewed
-<!-- Every folder opened: Programs, Contacts, Tracker, Applying, Preperation, and the latest sweep. -->
-## Pipeline Checklist
-<!-- The month graded against the Pipeline's Done When list. -->
-## Per-Program Trace
-<!-- Noted to result for each note trio, flagging anything stalled. -->
-## Deadline Sweep Reconciliation
-<!-- A real query of every live Program deadline against the sweep's Already Over bucket. -->
-## Application Census
-<!-- Counted Ended, Missed, Serious, Considering, not yet reached out, not yet researched, each with its query. -->
-## Health Check
-<!-- Applications submitted against the 500 target, days left, required rate, actual rate. -->
-## Note-Shape Conformance
-<!-- Program, Contact, Tracker, and Applying notes against their Standards; name blocked checks. -->
+<!-- One line per source opened, with its path. Name what could not be checked. -->
+## Tier Changes
+<!-- Any company that moves tier in companies.yml, with the evidence, or no change. -->
+## Quota and Limits
+<!-- Whether quota or limits change, citing the file read, or no change. -->
+## Sources
+<!-- Which sources to add or drop, with their yield, or no change. -->
+## Keep Running
+<!-- Whether the loop keeps running, and why. -->
 ## Findings
 <!-- Specific findings cited by exact file. -->
 ## Immediate Actions
-<!-- Anything that cannot wait a month. Escalates to the Main Log the same day. -->
+<!-- Anything that cannot wait a month. -->
 ## Decided Fixes
 <!-- Only items at 100% clarity. -->
 ## Open Questions

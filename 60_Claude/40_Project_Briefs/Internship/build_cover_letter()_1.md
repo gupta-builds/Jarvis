@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/generating-cover-letter-docx/scripts/generate_cover_letter_docx.py"
 type: "code"
-community: "ContentPlan"
+community: "Path"
 location: "L125"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/ContentPlan
+  - community/Path
 ---
 
 # build_cover_letter()
@@ -17,4 +17,4 @@ tags:
 - [[_validate()_2]] - `calls` [EXTRACTED]
 - [[generate_cover_letter_docx.py_1]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/ContentPlan
+#graphify/code #graphify/EXTRACTED #community/Path

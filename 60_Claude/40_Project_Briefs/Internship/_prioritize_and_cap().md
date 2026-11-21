@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "classify"
-location: "L132"
+community: "enrich.py"
+location: "L138"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # _prioritize_and_cap()
@@ -20,4 +20,4 @@ tags:
 - [[run_once()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/enrichpy

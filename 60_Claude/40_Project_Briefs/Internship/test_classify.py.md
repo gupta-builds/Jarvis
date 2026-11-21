@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "code"
-community: "classify"
+community: "test_classify.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # test_classify.py
@@ -16,9 +16,12 @@ tags:
 - [[classify()]] - `imports` [EXTRACTED]
 - [[classify.py]] - `imports_from` [EXTRACTED]
 - [[coreclassify.py — real examples throughout, same fixtures as test_relevance.py]] - `rationale_for` [EXTRACTED]
+- [[json]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[normalize_vanshb03()]] - `imports` [EXTRACTED]
 - [[normalize_zshah101()]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[test_classification_callout_format_has_no_numeric_label()]] - `contains` [EXTRACTED]
 - [[test_classification_callout_other_bucket_has_no_signal_but_still_no_number()]] - `contains` [EXTRACTED]
 - [[test_classify_ai_ml_from_real_bosch_content()]] - `contains` [EXTRACTED]
@@ -32,4 +35,4 @@ tags:
 - [[test_classify_real_optiver_phd_content_routes_to_cys_finance_with_company()]] - `contains` [EXTRACTED]
 - [[test_classify_still_matches_genuine_threat_intelligence_content()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/test_classifypy

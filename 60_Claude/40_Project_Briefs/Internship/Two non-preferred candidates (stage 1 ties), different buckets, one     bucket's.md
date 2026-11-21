@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "rationale"
-community: "classify"
+community: "enrich.py"
 location: "L41"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/enrichpy
 ---
 
 # Two non-preferred candidates (stage 1 ties), different buckets, one     bucket's
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_debate_compare_prefers_bucket_at_risk_of_going_unfilled()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/enrichpy

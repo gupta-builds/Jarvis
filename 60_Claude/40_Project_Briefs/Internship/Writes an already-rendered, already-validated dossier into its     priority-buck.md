@@ -2,7 +2,7 @@
 source_file: "vault_writer/writer.py"
 type: "rationale"
 community: "test_writer.py"
-location: "L178"
+location: "L199"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

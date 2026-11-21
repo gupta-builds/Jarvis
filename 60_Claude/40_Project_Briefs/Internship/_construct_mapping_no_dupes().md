@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "code"
-community: "cross_source_key"
+community: "validate"
 location: "L32"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # _construct_mapping_no_dupes()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/cross_source_key
+#graphify/code #graphify/EXTRACTED #community/validate

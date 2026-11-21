@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "rationale"
 community: "run_pipeline.py"
-location: "L603"
+location: "L609"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

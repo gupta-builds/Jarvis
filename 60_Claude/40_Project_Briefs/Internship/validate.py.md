@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "code"
-community: "cross_source_key"
+community: "validate"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # validate.py
@@ -22,9 +22,12 @@ tags:
 - [[check_required_fields()_2]] - `contains` [EXTRACTED]
 - [[check_url_live()]] - `contains` [EXTRACTED]
 - [[cross_source_key()]] - `imports` [EXTRACTED]
+- [[dataclasses]] - `imports_from` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
+- [[requests]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_validate.py]] - `imports_from` [EXTRACTED]
 - [[validate()]] - `contains` [EXTRACTED]
+- [[yaml]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/cross_source_key
+#graphify/code #graphify/EXTRACTED #community/validate

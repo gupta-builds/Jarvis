@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "posting_page.py"
-location: "L136"
+community: "extract_content"
+location: "L137"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/extract_content
 ---
 
 # The matched PhD-exclusivity phrase, or None if the posting shows no     explicit
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[phd_only_exclusion()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/posting_pagepy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

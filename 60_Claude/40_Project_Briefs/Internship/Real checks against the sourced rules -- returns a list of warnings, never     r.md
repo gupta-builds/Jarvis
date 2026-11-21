@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-cover-letter-docx/scripts/generate_cover_letter_docx.py"
 type: "rationale"
-community: "ContentPlan"
+community: "generate_cover_letter_docx.py"
 location: "L91"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/ContentPlan
+  - community/generate_cover_letter_docxpy
 ---
 
 # Real checks against the sourced rules -- returns a list of warnings, never     r
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_validate()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/ContentPlan
+#graphify/rationale #graphify/EXTRACTED #community/generate_cover_letter_docxpy

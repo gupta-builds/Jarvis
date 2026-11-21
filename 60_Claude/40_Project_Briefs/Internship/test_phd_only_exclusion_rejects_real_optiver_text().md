@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "posting_page.py"
-location: "L220"
+community: "extract_content"
+location: "L221"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/extract_content
 ---
 
 # test_phd_only_exclusion_rejects_real_optiver_text()
@@ -16,4 +16,4 @@ tags:
 - [[phd_only_exclusion()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/posting_pagepy
+#graphify/code #graphify/EXTRACTED #community/extract_content

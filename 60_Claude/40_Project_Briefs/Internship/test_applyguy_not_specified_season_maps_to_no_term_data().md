@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "normalize_applyguy"
+community: "normalize_josegael"
 location: "L259"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_applyguy
+  - community/normalize_josegael
 ---
 
 # test_applyguy_not_specified_season_maps_to_no_term_data()
@@ -17,4 +17,4 @@ tags:
 - [[normalize_applyguy()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_applyguy
+#graphify/code #graphify/EXTRACTED #community/normalize_josegael

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "normalize_simplify"
-location: "L384"
+community: "test_run_pipeline.py"
+location: "L396"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_simplify
+  - community/test_run_pipelinepy
 ---
 
 # test_build_matched_reason_per_source()
@@ -18,4 +18,4 @@ tags:
 - [[normalize_simplify()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_simplify
+#graphify/code #graphify/EXTRACTED #community/test_run_pipelinepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "test_posting_page.py"
-location: "L104"
+community: "extract_content"
+location: "L105"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_posting_pagepy
+  - community/extract_content
 ---
 
 # test_content_fetch_url_strips_ashby_application_suffix()
@@ -16,4 +16,4 @@ tags:
 - [[_content_fetch_url()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy
+#graphify/code #graphify/EXTRACTED #community/extract_content

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "posting_page.py"
-location: "L258"
+community: "extract_content"
+location: "L259"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/extract_content
 ---
 
 # test_phd_only_exclusion_rejects_explicit_equivalent_phrasing()
@@ -15,4 +15,4 @@ tags:
 - [[phd_only_exclusion()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/posting_pagepy
+#graphify/code #graphify/EXTRACTED #community/extract_content

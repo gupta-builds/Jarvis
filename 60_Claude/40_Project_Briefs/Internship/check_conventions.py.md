@@ -14,12 +14,17 @@ tags:
 ## Connections
 - [[DiffHunk]] - `contains` [EXTRACTED]
 - [[Finding]] - `contains` [EXTRACTED]
+- [[argparse]] - `imports` [EXTRACTED]
 - [[check_1_zero_llm()]] - `contains` [EXTRACTED]
 - [[check_2_permissive_default()]] - `contains` [EXTRACTED]
 - [[check_3_write_gate_order()]] - `contains` [EXTRACTED]
 - [[check_4_cited_real_data()]] - `contains` [EXTRACTED]
+- [[dataclasses]] - `imports_from` [EXTRACTED]
 - [[get_diff()]] - `contains` [EXTRACTED]
 - [[main()_2]] - `contains` [EXTRACTED]
 - [[parse_diff()]] - `contains` [EXTRACTED]
+- [[re]] - `imports` [EXTRACTED]
+- [[subprocess]] - `imports` [EXTRACTED]
+- [[sys]] - `imports` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/check_conventionspy

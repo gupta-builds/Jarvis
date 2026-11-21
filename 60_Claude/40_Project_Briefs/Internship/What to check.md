@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "/review-loop-change"
+community: "What to check"
 location: "L23"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community//review-loop-change
+  - community/What_to_check
 ---
 
 # What to check
@@ -18,4 +18,4 @@ tags:
 - [[3. Fail-closed write-gate ordering]] - `contains` [EXTRACTED]
 - [[4. Every new rule cites the real live data it was built from]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community//review-loop-change
+#graphify/document #graphify/EXTRACTED #community/What_to_check

@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "/review-loop-change"
+community: "What to check"
 location: "L7"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community//review-loop-change
+  - community/What_to_check
 ---
 
 # /review-loop-change
@@ -19,4 +19,4 @@ tags:
 - [[What to check]] - `contains` [EXTRACTED]
 - [[Why a skill, not an agent, for this repo]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community//review-loop-change
+#graphify/document #graphify/EXTRACTED #community/What_to_check

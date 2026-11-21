@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "Generating a cover letter .docx"
+community: "test_posting_page.py"
 location: "L29"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_cover_letter_docx
+  - community/test_posting_pagepy
 ---
 
 # Output format
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[Generating a cover letter .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx
+#graphify/document #graphify/EXTRACTED #community/test_posting_pagepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_write_gate_failures.py"
 type: "rationale"
-community: "_run_once_kwargs"
+community: "test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold"
 location: "L141"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/_run_once_kwargs
+  - community/test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold
 ---
 
 # End-to-end via run_once: pre-seed write_gate_failures.json with the     real cit
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/_run_once_kwargs
+#graphify/rationale #graphify/EXTRACTED #community/test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold

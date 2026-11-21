@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "rationale"
-community: "cross_source_key"
+community: "validate"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # Layer 4 — the five-check write gate. Fail any check -> item is rejected and neve
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[validate.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/cross_source_key
+#graphify/rationale #graphify/EXTRACTED #community/validate

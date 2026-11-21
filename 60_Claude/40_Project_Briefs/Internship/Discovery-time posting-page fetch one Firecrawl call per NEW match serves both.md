@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "posting_page.py"
+community: "extract_content"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/extract_content
 ---
 
 # Discovery-time posting-page fetch: one Firecrawl call per NEW match serves both
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[posting_page.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/posting_pagepy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

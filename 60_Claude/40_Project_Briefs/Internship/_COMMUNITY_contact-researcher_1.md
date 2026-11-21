@@ -1,20 +1,28 @@
 ---
 type: community
-members: 7
+members: 15
 ---
 
 # contact-researcher
 
-**Members:** 7 nodes
+**Members:** 15 nodes
 
 ## Members
-- [[Hard line (non-negotiable, inherited from enrich.py's own docstring)_1]] - document - .codex/skills/contact-researcher/SKILL.md
-- [[Output format_8]] - document - .codex/skills/contact-researcher/SKILL.md
-- [[SKILL_7]] - document - .codex/skills/contact-researcher/SKILL.md
-- [[The one rule that overrides everything else_1]] - document - .codex/skills/contact-researcher/SKILL.md
-- [[What to look for, and how to report each_1]] - document - .codex/skills/contact-researcher/SKILL.md
-- [[What you have available_1]] - document - .codex/skills/contact-researcher/SKILL.md
-- [[contact-researcher_1]] - document - .codex/skills/contact-researcher/SKILL.md
+- [[1. `python-docx` (low freedom)_1]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[2. Build the `ResumePlan` (medium freedom)]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[3. Generate, verify, report (low freedom)_1]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[Example — fabricated, format only, never a content source_1]] - document - .claude/skills/generating-resume-docx/reference/resume-reference.md
+- [[Generating a resume .docx]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[Output format_6]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[Precondition]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[Reference_1]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[Resume reference — rules and example, one file]] - document - .claude/skills/generating-resume-docx/reference/resume-reference.md
+- [[SKILL_1]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[Steps_4]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[The rules, cited to `Resume Alteration Standard` §8]] - document - .claude/skills/generating-resume-docx/reference/resume-reference.md
+- [[What this skill does not do_1]] - document - .claude/skills/generating-resume-docx/SKILL.md
+- [[What's specific to `.docx` generation]] - document - .claude/skills/generating-resume-docx/reference/resume-reference.md
+- [[resume-reference]] - document - .claude/skills/generating-resume-docx/reference/resume-reference.md
 
 ## Live Query (requires Dataview plugin)
 

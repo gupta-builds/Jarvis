@@ -1,12 +1,12 @@
 ---
 source_file: "grade_resume.py"
 type: "code"
-community: "grade"
-location: "L28"
+community: "pytest"
+location: "L36"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/grade
+  - community/pytest
 ---
 
 # parse_bullets()
@@ -18,4 +18,4 @@ tags:
 - [[test_grade_resume.py]] - `imports` [EXTRACTED]
 - [[test_parse_bullets_keeps_only_tagged()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/grade
+#graphify/code #graphify/EXTRACTED #community/pytest

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "test_filter.py"
+community: "normalize_josegael"
 location: "L57"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_filterpy
+  - community/normalize_josegael
 ---
 
 # test_simplify_should_reject()
@@ -16,4 +16,4 @@ tags:
 - [[normalize_simplify()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_filterpy
+#graphify/code #graphify/EXTRACTED #community/normalize_josegael

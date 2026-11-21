@@ -14,8 +14,11 @@ tags:
 ## Connections
 - [[_simplify_titled()]] - `contains` [EXTRACTED]
 - [[corerelevance.py's two-stage gate — real examples throughout, no synthetic non-]] - `rationale_for` [EXTRACTED]
+- [[json]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[normalize_simplify()]] - `imports` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
+- [[pytest]] - `imports` [EXTRACTED]
 - [[relevance.py]] - `imports_from` [EXTRACTED]
 - [[stage1_reject()]] - `imports` [EXTRACTED]
 - [[stage2_confirm()]] - `imports` [EXTRACTED]

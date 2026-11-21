@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "code"
 community: "filter.py"
-location: "L577"
+location: "L583"
 tags:
   - graphify/code
   - graphify/EXTRACTED

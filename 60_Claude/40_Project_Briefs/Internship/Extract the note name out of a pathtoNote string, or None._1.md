@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/promote-dossier/scripts/validate_note_trio.py"
 type: "rationale"
-community: "validate_note_trio.py"
+community: "revalidate.py"
 location: "L63"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/validate_note_triopy
+  - community/revalidatepy
 ---
 
 # Extract the note name out of a "[[path/to/Note]]" string, or None.
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[wikilink_target()_1]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/validate_note_triopy
+#graphify/rationale #graphify/EXTRACTED #community/revalidatepy

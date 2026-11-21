@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-11-07
+updated: 2026-11-21
 tags:
   - system
   - standards
@@ -10,7 +10,8 @@ system_kind: standard
 family: system-component
 tier: 2
 maps_to: []
-used_by: []
+used_by:
+  - "[[Loop Contract Change]]"
 gold_standard: "[[30_Order/System/jarvis-memory/Jarvis Memory|Jarvis Memory]]"
 notes:
   - "[[Note Kit Standard]]"
@@ -36,7 +37,7 @@ This is the Standard for the documentation of tooling that runs the vault: sync,
 
 | Item | Rule |
 |---|---|
-| Allowed folders | `30_Order/System/<component>/`, one record per component. |
+| Allowed folders | `30_Order/System/<component>/`, one record per component. A folder may hold several related records, one per component, such as `internship-loop/`. |
 | File name | The component's name (`Jarvis Memory`), never `README.md`: wikilinks resolve by name, and six identical READMEs hid each other. |
 | Kind | `type: system` with `system_kind: spec`. |
 | Status | `sprout` from the first save. `tree` once Verify has been run and its result written in the record. `archived` after Retire. |
@@ -54,7 +55,7 @@ This is the Standard for the documentation of tooling that runs the vault: sync,
 - **Right:** `A local SQLite registry of every vault note, with an MCP server file that can expose it to AI tools, so an agent could find the few right notes by metadata instead of loading the vault.`
 - **Wrong:** None seen.
 ### Trigger
-- **Write:** the schedule, hook event, or command that runs it, and on which machine.
+- **Write:** the schedule, hook event, or command that runs it, and on which machine. A component that runs on GitHub Actions names the workflow file, says the runner is GitHub-hosted, and gives its cron in UTC, not a machine.
 - **Length:** one to three sentences, with the commands in a code block.
 - **Never:** the history of how the trigger was added or missed. That goes in the session log.
 - **Right:** None seen.
@@ -66,15 +67,15 @@ This is the Standard for the documentation of tooling that runs the vault: sync,
 - **Right:** None seen.
 - **Wrong:** `the exporter's WSL branch and its Windows fallbacks named the old machine`
 ### State
-- **Write:** every file the component writes at runtime: logs, databases, markers, caches. Runtime state stays out of tracked source, so name the ignore rule.
+- **Write:** every file the component writes at runtime: logs, databases, markers, caches. Runtime state stays out of tracked source, so name the ignore rule. State a component tracks on purpose in its own repo (the loop commits `state/` and `logs/`) is named with the commit step that writes it.
 - **Length:** one paragraph.
 - **Never:** runtime state beside source in `30_Order`.
 - **Right:** `is derived state, 3.0 MB after the 2026-11-05 rebuild`
 - **Wrong:** None seen.
 ### Failure Behavior
-- **Write:** fail open or fail closed, where the failure is logged, and who sees it.
+- **Write:** fail open or fail closed, where the failure is logged, and who sees it. Name every secret the component uses, by name only, and say how its expiry is checked or that it is not checked.
 - **Length:** two to four sentences.
-- **Never:** a silent failure.
+- **Never:** a silent failure, or a claim that expiry is checked when no check was seen to run.
 - **Right:** `A stale index returns old paths rather than an error, so a search result that points to a missing note means reindex.`
 - **Wrong:** None seen.
 ### Verify
@@ -96,6 +97,7 @@ This is the Standard for the documentation of tooling that runs the vault: sync,
 | `trigger` and `owner` are filled | A component nobody owns stops unnoticed | Lint, check 1 |
 | No tracked file under `30_Order/System/` is runtime state | Logs and databases in source break sync | Reader |
 | Verify was run once against real output when the record was written | A Verify never run is a guess | Reader |
+| Every secret is named and its expiry check is stated or marked unchecked | A token that expires silently stops the component | Reader |
 | No two records share a file name | Wikilinks resolve by name | Kit |
 ## Legacy Shapes
 | Old shape | New shape | Move |

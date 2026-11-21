@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-08-23
-updated: 2026-11-07
+updated: 2026-11-21
 tags:
   - system
   - standards
@@ -22,8 +22,8 @@ notes:
   - "[[Contact Standard]]"
 ---
 # Internship Tracker Standard
-==A Tracker note is the dated index of one internship: where it stands, when each step happened, and the single next move.==
-This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/`. It is not `Tracker/Tracker.md`, `Deadline Tracker.md`, or the Dashboard, which are views, and not the Applying note, which takes over the narrative ([[Applying Standard]]). A Tracker note stays the source of truth for the stage until an Applying note exists.
+==A Tracker note is the dated record of one application, created when it is submitted: where it stands, when each step happened, and the single next move.==
+This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/`. It is not `Tracker.md`, `Now`, or the Deadline Map, which are views, and not the Applying note, which holds the preparation hub ([[Applying Standard]]). The Tracker is private: the ignore rule is pending. It stands alone, because the dossier leaves the tracked tree when the application is made.
 ## Spec
 ```json
 {
@@ -31,8 +31,8 @@ This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/
   "tier": 1,
   "match": {"type": "tracker", "kind": null, "path": "^10_Areas/Career/Internships/Tracker/Each One/(Current|Applied|Result)/", "where": {}, "where_not": {}},
   "status": ["active", "paused", "complete", "archived"],
-  "required_keys": ["type", "status", "created", "updated", "tags", "program", "contact", "company", "url", "date_noted", "date_researched", "date_created", "date_applied", "date_result", "result", "deadline", "related_notes", "next"],
-  "key_types": {"created": "date", "updated": "date", "tags": "list", "related_notes": "list", "date_researched": "text?", "date_applied": "text?", "date_result": "text?", "result": "text?", "deadline": "text?", "next": "text?"},
+  "required_keys": ["type", "status", "created", "updated", "tags", "program", "contact", "company", "url", "tier", "starred", "resume_variant", "letter_mode", "date_noted", "date_researched", "date_created", "date_applied", "date_result", "result", "deadline", "related_notes", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "related_notes": "list", "program": "text?", "contact": "text?", "tier": "number?", "starred": "text?", "resume_variant": "text?", "letter_mode": "text?", "date_researched": "text?", "date_applied": "text?", "date_result": "text?", "result": "text?", "deadline": "text?", "next": "text?"},
   "headings": ["Timeline", "Next Action"],
   "optional_headings": ["Summary", "Company Information", "Conversation", "Interview Steps", "Loop Process"]
 }
@@ -40,31 +40,32 @@ This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/
 
 | Item | Rule |
 |---|---|
-| Allowed folders | `10_Areas/Career/Internships/Tracker/Each One/Current/`, `Applied/`, or `Result/`. |
-| File name | The same name as its Program note. Unique in the vault. |
+| Allowed folders | `Tracker/Each One/Applied/` and `Result/`. `Current/` holds the trackers made at Commit before this rule; nothing new is written there. `Applied/` and `Result/` do not exist today, so the first move into each creates it. |
+| File name | The dossier's file name, `<Title> - <Company>`, the same as its Program note when one exists. Unique in the vault. |
 | Kind | `type: tracker`, no kind key. |
-| Status | `active` in `Current/` and `Applied/`, `complete` in `Result/`. |
+| Status | `active` in `Applied/` and `Current/`, `complete` in `Result/`. |
 ## Headings
+Paths in the Right and Wrong lines start at `10_Areas/Career/Internships/Tracker/Each One/Current/`.
 ### Frontmatter
-- **Write:** `program` and `contact` as quoted wikilinks on one line to the paired notes, resolving from the day the note exists. `related_notes` links back to the originating dossier. Date fields stay blank until the real date happens. `result` is `Offer`, `Rejected`, `Withdrawn`, or `Missed` (the deadline passed and nothing was submitted; `date_result` is that deadline), set only in `Result/`.
+- **Write:** `related_notes` links the dossier by file name. `program` and `contact` are quoted wikilinks on one line to the paired notes when they exist, and blank for tier 3. `tier`, `starred`, `resume_variant` and `letter_mode` are copied from the dossier at apply time. Date keys stay blank until the real date. `result` is `Offer`, `Rejected`, `Withdrawn` or `Missed` (the deadline passed with nothing submitted), set only in `Result/`. There is no approval key: approval lives on the Applying note's `stage`.
 - **Length:** one line per key; no folded value.
-- **Never:** a wikilink folded across two lines by a YAML wrap, or the string `null` in a date or result field.
-- **Right:** `program: "[[10_Areas/Career/Internships/Programs/Serious/2027-Uber-SWE-CareerPrep]]"`
-- **Wrong:** None seen.
+- **Never:** a wikilink folded across two lines, or the string `null` in a date or result key.
+- **Right:** `program: "[[10_Areas/Career/Internships/Programs/Serious/2027-Uber-SWE-CareerPrep]]"` (`2027 Software Engineering Internship - Uber.md`)
+- **Wrong:** `date_result: null` (`Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md`)
 ### Timeline
-- **Write:** five dated lines: Noted, Researched, Created, Applied, Result. Unset ones read as a dash placeholder. Fill each when it happens, not from memory.
-- **Length:** five lines.
-- **Never:** a date filled from memory.
-- **Right:** `- **Noted:** 2026-07-20 (manual web clip)`
+- **Write:** dated lines Noted, Researched, Created, Applied and Result, then one line for each follow-up sent. Follow-ups fall due 7 and 14 days after `date_applied`. Anant writes each one from Mimic and logs the date sent. Unset lines read a dash. Fill each when it happens.
+- **Length:** five lines plus one per follow-up.
+- **Never:** a date filled from memory, or a follow-up line for a message not sent.
+- **Right:** `- **Noted:** 2026-07-20 (manual web clip)` (`2027 Software Engineering Internship - Uber.md`)
 - **Wrong:** None seen.
 ### Next Action
-- **Write:** the one physical move now, with the reason. It is current: if its date has passed, rewrite it.
+- **Write:** the one physical move now, with the reason. It is current: when its date passes, rewrite it.
 - **Length:** one to two sentences.
 - **Never:** a stale move.
-- **Right:** `The application_url returned "Not found" on a live check 2026-09-05`
+- **Right:** `The application_url returned "Not found" on a live check 2026-09-05` (`2027 Software Engineering Internship - Uber.md`)
 - **Wrong:** None seen.
 ### Optional sections
-- **Write:** `Summary` (why this internship), `Company Information` (a pointer to the Program note), `Conversation`, `Interview Steps`, and `Loop Process`, added when that stage arrives.
+- **Write:** `Summary`, `Company Information` (a pointer to the Program note), `Conversation`, `Interview Steps` (updated when an interview is booked), and `Loop Process`, added when that stage arrives.
 - **Length:** as the stage needs.
 - **Never:** an empty optional section.
 - **Right:** None yet.
@@ -72,25 +73,27 @@ This is the Standard for notes in `10_Areas/Career/Internships/Tracker/Each One/
 ### Rules
 | Rule | Why | Enforced by |
 |---|---|---|
-| `Current/` from creation until a real application goes out; `Applied/` when submitted, with `date_applied` set in the same sitting; `Result/` when an outcome lands, with `date_result` and `result` | A note whose folder disagrees with its dates is a bug, not a style choice | Reader |
+| The note is created in `Applied/` in the sitting the application is submitted, with `date_applied` set and the dossier moved to `Applied/` | A Tracker made earlier records an application that did not happen | Reader |
+| Moving to `Result/` sets `date_result`, `result` and `status: complete` together, and the Applying note's `stage` takes the same word | The folder and the dates must agree | Reader |
 | `status` follows the folder | The dashboard counts by folder and status | Lint, check 1 |
-| `program` and `contact` resolve | A tracker with a dead link cannot reach its research | Lint, check 3 |
+| `program` and `contact` resolve when set | A dead link cuts the Tracker off from its research | Lint, check 3 |
+| When a Program note's `deadline_posted` or `deadline_real` changes, the Tracker's `deadline` takes it in the same sitting | Two deadlines for one application are a bug | Reader |
 | `result` is one of the four values | The vocabulary is closed | Reader |
 | The two headings appear in order | The dashboard reads them | Lint, check 2 |
 ## Legacy Shapes
 | Old shape | New shape | Move |
 |---|---|---|
 | No `status`, `created`, `updated` (32 of 32) | Add them; `status` follows the folder | Mechanical |
-| Body cites "Internship Pipeline Step 8" | Tracker is step 3, apply is step 7, close is step 9 | Mechanical |
-| Value folded across lines | One line per value | Mechanical |
-| `null` string in a date or result field | Leave blank | Mechanical |
-| Note sits outside `Current/`, `Applied/`, `Result/` (3 notes) | Move to `Current/`, `Applied/`, or `Result/` to match its dates | Judgment |
-| `result: missed` outside `Result/` | Move to `Result/`; `Missed` is now allowed | Judgment |
+| Created at Commit and sitting in `Current/` (29) | Stays until applied, then moves to `Applied/` | Judgment |
+| No `tier`, `starred`, `resume_variant`, `letter_mode` | Add them, blank if unknown | Mechanical |
+| Body cites "Internship Pipeline Step 8" | Cite the step by name | Mechanical |
+| Value folded across lines, or the string `null` | One line, or blank | Mechanical |
+| Note outside the three folders (3) | Move to the folder its dates match | Judgment |
 ## Done Conditions
 - Every note is in one of the three folders and its dates agree with the folder.
-- `program` and `contact` resolve, and `Next Action` is current.
+- `program` and `contact` resolve when set, and `Next Action` is current.
 - `result` is one of the four values, set only in `Result/`.
 - The note passes [[Vault Lint]] for `internship-tracker`.
 ## Gold Standard Example
-[[10_Areas/Career/Internships/Tracker/Each One/Current/2027 Software Engineering Internship - Uber]]: resolving `program` and `contact`, a five-line Timeline, and a concrete Next Action. It does not pass lint: no `status`, `created`, or `updated`.
-Measured 2026-11-07 with `--family internship-tracker`: 32 notes, 0 pass. 29 sit in `Current/`; none in `Applied/` or `Result/`.
+[[10_Areas/Career/Internships/Tracker/Each One/Current/2027 Software Engineering Internship - Uber]]: resolving `program` and `contact`, a five-line Timeline and a concrete Next Action. It does not pass lint: no `status`, `created` or `updated`, and none of the four copied keys.
+Measured 2026-11-21 with `--family internship-tracker`: 32 notes, 0 pass. 29 sit in `Current/`; none in `Applied/` or `Result/`.

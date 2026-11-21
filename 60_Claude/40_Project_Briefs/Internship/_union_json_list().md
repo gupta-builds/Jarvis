@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "code"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 location: "L64"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # _union_json_list()
@@ -20,4 +20,4 @@ tags:
 - [[test_reseed.py]] - `imports` [EXTRACTED]
 - [[test_unions_scratch_and_real_ids()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_reseedpy
+#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet

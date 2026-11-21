@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/promote-dossier/scripts/validate_note_trio.py"
 type: "code"
-community: "validate_note_trio.py"
+community: "revalidate.py"
 location: "L103"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/validate_note_triopy
+  - community/revalidatepy
 ---
 
 # main()
@@ -18,4 +18,4 @@ tags:
 - [[read_frontmatter()_1]] - `calls` [EXTRACTED]
 - [[validate_note_trio.py_1]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/validate_note_triopy
+#graphify/code #graphify/EXTRACTED #community/revalidatepy

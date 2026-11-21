@@ -1,17 +1,16 @@
 ---
 type: community
-members: 48
+members: 41
 ---
 
 # test_identity.py
 
-**Members:** 48 nodes
+**Members:** 41 nodes
 
 ## Members
 - [[A sourceATS with no recognizable job id in its URL shape (e.g.     Freehire's T]] - rationale - tests/test_identity.py
 - [[Both remaining sources guarantee an id; a listing without one is a bug     (the]] - rationale - tests/test_identity.py
 - [[Fix 1, Prompt 5 review (2026-07-30) the Google pattern used to have no     doma]] - rationale - tests/test_identity.py
-- [[Layer 3 — stable dedup keys for a Listing.  Both remaining sources carry a stabl]] - rationale - core/identity.py
 - [[Real American Express board URL shape from the 2026-08-23     excluded-log audit]] - rationale - tests/test_identity.py
 - [[Real American Express duplicate the Oracle Cloud HCM job URL doesn't     embed]] - rationale - tests/test_identity.py
 - [[Real Aquatic vs Aquatic Capital Management same Greenhouse posting,     same UR]] - rationale - tests/test_identity.py
@@ -26,10 +25,8 @@ members: 48
 - [[Real, confirmed 2026-07-29 — a genuine TRIPLE duplicate three     different tit]] - rationale - tests/test_identity.py
 - [[The ATS-native job id embedded in url, or None if url is from a     sourceATS w]] - rationale - core/identity.py
 - [[The matched preference tier (e.g. 'high'), or None if company isn't in     prefe]] - rationale - core/identity.py
-- [[_load()_2]] - code - tests/test_identity.py
 - [[company_matches_preference()]] - code - core/identity.py
 - [[extract_ats_job_id()]] - code - core/identity.py
-- [[identity.py]] - code - core/identity.py
 - [[test_company_matches_preference_case_insensitive()]] - code - tests/test_identity.py
 - [[test_company_matches_preference_none_for_empty_preferred_dict()]] - code - tests/test_identity.py
 - [[test_company_matches_preference_none_for_unlisted_company()]] - code - tests/test_identity.py
@@ -51,11 +48,7 @@ members: 48
 - [[test_extract_ats_job_id_workday_unifies_real_fti_consulting_duplicate()]] - code - tests/test_identity.py
 - [[test_extract_ats_job_id_workday_unifies_real_medtronic_duplicate()]] - code - tests/test_identity.py
 - [[test_identity.py]] - code - tests/test_identity.py
-- [[test_josegael_uid_uses_upstream_id()]] - code - tests/test_identity.py
 - [[test_missing_raw_id_raises()]] - code - tests/test_identity.py
-- [[test_simplify_uid_uses_upstream_id()]] - code - tests/test_identity.py
-- [[test_uids_stable_across_recomputation()]] - code - tests/test_identity.py
-- [[test_uids_unique_across_distinct_listings()]] - code - tests/test_identity.py
 
 ## Live Query (requires Dataview plugin)
 
@@ -65,23 +58,22 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 11 edges to [[_COMMUNITY_normalize_simplify]]
-- 11 edges to [[_COMMUNITY_cross_source_key]]
-- 7 edges to [[_COMMUNITY_classify]]
-- 3 edges to [[_COMMUNITY_run_pipeline.py]]
-- 3 edges to [[_COMMUNITY_writer.py]]
+- 9 edges to [[_COMMUNITY_validate]]
+- 8 edges to [[_COMMUNITY_normalize_simplify]]
+- 4 edges to [[_COMMUNITY_test_company_cache.py]]
+- 3 edges to [[_COMMUNITY_enrich.py]]
+- 3 edges to [[_COMMUNITY_scan_dossiers]]
+- 2 edges to [[_COMMUNITY_run_pipeline.py]]
 - 2 edges to [[_COMMUNITY_matches]]
-- 2 edges to [[_COMMUNITY_normalize_josegael]]
-- 1 edge to [[_COMMUNITY_test_company_cache.py]]
 - 1 edge to [[_COMMUNITY_filter.py]]
-- 1 edge to [[_COMMUNITY_test_debate_losses.py]]
-- 1 edge to [[_COMMUNITY_test_reseed.py]]
-- 1 edge to [[_COMMUNITY_test_run_pipeline.py]]
+- 1 edge to [[_COMMUNITY_writer.py]]
 - 1 edge to [[_COMMUNITY_normalize.py]]
+- 1 edge to [[_COMMUNITY_normalize_josegael]]
+- 1 edge to [[_COMMUNITY_pytest]]
 
 ## Top bridge nodes
-- [[identity.py]] - degree 16, connects to 9 communities
-- [[test_identity.py]] - degree 37, connects to 7 communities
-- [[company_matches_preference()]] - degree 14, connects to 3 communities
-- [[test_josegael_uid_uses_upstream_id()]] - degree 4, connects to 2 communities
+- [[test_identity.py]] - degree 40, connects to 10 communities
+- [[company_matches_preference()]] - degree 14, connects to 5 communities
+- [[extract_ats_job_id()]] - degree 13, connects to 2 communities
 - [[test_missing_raw_id_raises()]] - degree 4, connects to 2 communities
+- [[test_cross_source_key_prefers_job_id_over_text_real_amex_duplicate()]] - degree 3, connects to 1 community

@@ -16,6 +16,9 @@ tags:
 - [[ResumePlan_1]] - `contains` [EXTRACTED]
 - [[_demo_plan()_3]] - `contains` [EXTRACTED]
 - [[_validate()_3]] - `contains` [EXTRACTED]
+- [[argparse]] - `imports` [EXTRACTED]
 - [[build_resume()_1]] - `contains` [EXTRACTED]
+- [[dataclasses]] - `imports_from` [EXTRACTED]
+- [[sys]] - `imports` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/generate_resume_docxpy

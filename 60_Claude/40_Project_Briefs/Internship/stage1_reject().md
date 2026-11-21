@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "stage1_reject"
+community: "run_pipeline.py"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/run_pipelinepy
 ---
 
 # stage1_reject()
@@ -32,4 +32,4 @@ tags:
 - [[test_stage1_rejects_real_databricks_product_management_title()]] - `calls` [EXTRACTED]
 - [[test_stage1_rejects_real_investor_relations_title()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

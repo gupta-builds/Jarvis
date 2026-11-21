@@ -1,18 +1,19 @@
 ---
 source_file: "tests/test_recheck.py"
 type: "code"
-community: "commit_and_push_with_retry"
+community: "test_recheck.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/test_recheckpy
 ---
 
 # test_recheck.py
 
 ## Connections
 - [[_fm()]] - `contains` [EXTRACTED]
+- [[pathlib]] - `imports_from` [EXTRACTED]
 - [[plan_removals is the recheck's whole decision surface — pure, tested offline.]] - `rationale_for` [EXTRACTED]
 - [[plan_removals()]] - `imports` [EXTRACTED]
 - [[recheck.py]] - `imports_from` [EXTRACTED]
@@ -23,4 +24,4 @@ tags:
 - [[test_dossier_with_no_manifest_entry_is_skipped_not_removed()]] - `contains` [EXTRACTED]
 - [[test_failed_fetch_skips_that_sources_dossiers_entirely()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/code #graphify/EXTRACTED #community/test_recheckpy

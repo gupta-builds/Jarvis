@@ -2,7 +2,7 @@
 source_file: "tests/test_run_pipeline.py"
 type: "code"
 community: "normalize_simplify"
-location: "L555"
+location: "L567"
 tags:
   - graphify/code
   - graphify/EXTRACTED

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "rationale"
-community: "test_posting_page.py"
-location: "L105"
+community: "extract_content"
+location: "L106"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_posting_pagepy
+  - community/extract_content
 ---
 
 # Real bug, confirmed live 2026-07-26: the same CTGT posting returned     4015 cha
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_content_fetch_url_strips_ashby_application_suffix()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_posting_pagepy
+#graphify/rationale #graphify/EXTRACTED #community/extract_content

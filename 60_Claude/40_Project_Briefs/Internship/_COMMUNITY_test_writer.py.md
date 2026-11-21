@@ -1,11 +1,11 @@
 ---
 type: community
-members: 31
+members: 32
 ---
 
 # test_writer.py
 
-**Members:** 31 nodes
+**Members:** 32 nodes
 
 ## Members
 - [[Copy of the committed throwaway_vault skeleton in a scratch dir per test,     so]] - rationale - tests/test_writer.py
@@ -28,6 +28,7 @@ members: 31
 - [[test_move_dossier_to_viewed_moves_file_and_updates_frontmatter()]] - code - tests/test_writer.py
 - [[test_move_dossier_to_viewed_updates_uid_manifest()]] - code - tests/test_writer.py
 - [[test_render_dossier_frontmatter_contains_moc_link_and_company_tag()]] - code - tests/test_writer.py
+- [[test_render_dossier_renders_both_deadline_keys()]] - code - tests/test_writer.py
 - [[test_write_dossier_creates_missing_dossiers_dir()]] - code - tests/test_writer.py
 - [[test_write_dossier_different_uid_same_role_company_gets_collision_suffix()]] - code - tests/test_writer.py
 - [[test_write_dossier_is_idempotent_on_uid()]] - code - tests/test_writer.py
@@ -48,18 +49,19 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 14 edges to [[_COMMUNITY_writer.py]]
-- 11 edges to [[_COMMUNITY_test_validate.py]]
-- 3 edges to [[_COMMUNITY_normalize.py]]
+- 12 edges to [[_COMMUNITY_writer.py]]
+- 12 edges to [[_COMMUNITY_test_validate.py]]
+- 10 edges to [[_COMMUNITY_scan_dossiers]]
+- 5 edges to [[_COMMUNITY_normalize.py]]
 - 2 edges to [[_COMMUNITY_normalize_simplify]]
-- 2 edges to [[_COMMUNITY_commit_and_push_with_retry]]
-- 2 edges to [[_COMMUNITY_scan_dossiers]]
 - 1 edge to [[_COMMUNITY_run_pipeline.py]]
-- 1 edge to [[_COMMUNITY_cross_source_key]]
+- 1 edge to [[_COMMUNITY_validate]]
+- 1 edge to [[_COMMUNITY_pytest]]
+- 1 edge to [[_COMMUNITY_linkedin_recruiter_snippet]]
 
 ## Top bridge nodes
-- [[test_writer.py]] - degree 33, connects to 4 communities
-- [[move_dossier_to_viewed()]] - degree 13, connects to 4 communities
+- [[test_writer.py]] - degree 42, connects to 7 communities
 - [[write_dossier()]] - degree 18, connects to 3 communities
-- [[load_dossier_uids()]] - degree 9, connects to 3 communities
+- [[move_dossier_to_viewed()]] - degree 13, connects to 2 communities
+- [[load_dossier_uids()]] - degree 9, connects to 2 communities
 - [[dossier_filename()]] - degree 9, connects to 1 community

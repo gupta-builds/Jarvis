@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "code"
-community: "classify"
+community: "test_company_cache.py"
 location: "L93"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_company_cachepy
 ---
 
 # _norm_company()
@@ -19,4 +19,4 @@ tags:
 - [[identity.py]] - `contains` [EXTRACTED]
 - [[is_quant_finance_company()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/test_company_cachepy

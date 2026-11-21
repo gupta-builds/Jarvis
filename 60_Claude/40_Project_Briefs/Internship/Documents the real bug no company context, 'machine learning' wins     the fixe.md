@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "rationale"
-community: "classify"
+community: "test_classify.py"
 location: "L132"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # Documents the real bug: no company context, 'machine learning' wins     the fixe
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_classify_real_optiver_phd_content_lands_in_ai_ml_without_company()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/classify
+#graphify/rationale #graphify/EXTRACTED #community/test_classifypy

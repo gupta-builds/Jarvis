@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "cross_source_key"
-location: "L643"
+community: "validate"
+location: "L649"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/cross_source_key
+  - community/validate
 ---
 
 # validate_and_write()
@@ -19,6 +19,7 @@ tags:
 - [[classify()]] - `calls` [EXTRACTED]
 - [[cross_source_key()]] - `calls` [EXTRACTED]
 - [[extract_content()]] - `calls` [EXTRACTED]
+- [[extract_deadline()]] - `calls` [EXTRACTED]
 - [[opt_exclusion()]] - `calls` [EXTRACTED]
 - [[phd_only_exclusion()]] - `calls` [EXTRACTED]
 - [[render_dossier()]] - `calls` [EXTRACTED]
@@ -29,4 +30,4 @@ tags:
 - [[validate()]] - `calls` [EXTRACTED]
 - [[write_dossier()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/cross_source_key
+#graphify/code #graphify/EXTRACTED #community/validate

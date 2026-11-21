@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "code"
-community: "test_reseed.py"
+community: "linkedin_recruiter_snippet"
 location: "L83"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_reseedpy
+  - community/linkedin_recruiter_snippet
 ---
 
 # run_reseed()
@@ -21,4 +21,4 @@ tags:
 - [[test_reseed.py]] - `imports` [EXTRACTED]
 - [[test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_reseedpy
+#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet

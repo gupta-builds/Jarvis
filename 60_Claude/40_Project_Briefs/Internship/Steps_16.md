@@ -1,12 +1,12 @@
 ---
 source_file: ".cursor/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "contact-researcher"
+community: "promote-dossier note templates"
 location: "L37"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/contact-researcher
+  - community/promote-dossier_note_templates
 ---
 
 # Steps
@@ -18,4 +18,4 @@ tags:
 - [[4. On explicit go-ahead only, write all three notes together_2]] - `contains` [EXTRACTED]
 - [[promote-dossier_2]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/contact-researcher
+#graphify/document #graphify/EXTRACTED #community/promote-dossier_note_templates

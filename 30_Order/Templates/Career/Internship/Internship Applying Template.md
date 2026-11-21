@@ -27,14 +27,14 @@ notes: []
 ## Goal
 <!-- One sentence on what winning looks like for this program. -->
 ## Current State
-<!-- Stage, blocker, what you are waiting on, and which diagnosis fits. -->
+<!-- Stage, blocker, what you are waiting on, and which diagnosis fits. Dated. -->
 ## Interlinks
-<!-- One line each: Contact, Job Detail, Networking, Job Description, Fit. Depth lives on the linked note. -->
+<!-- One line each: the dossier, the Program note, the Contact note, and the Tracker once it exists. -->
 ## Documents
-<!-- One line each for the resume and cover letter: what each leads with. -->
+<!-- One line each for the resume and the letter: what each leads with, and the approval state. -->
 ## Next Action
 <!-- The single next move, identical to next in the frontmatter. -->
 ## Open Questions
 <!-- Real unknowns as task lines. -->
 ## Log
-<!-- Dated, one line per event. -->
+<!-- Dated, one line per event, including each approval. -->

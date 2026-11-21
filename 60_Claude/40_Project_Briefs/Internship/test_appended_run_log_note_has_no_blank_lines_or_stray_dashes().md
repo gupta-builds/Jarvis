@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_log.py"
 type: "code"
-community: "run_pipeline.py"
+community: "test_run_log.py"
 location: "L104"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/run_pipelinepy
+  - community/test_run_logpy
 ---
 
 # test_appended_run_log_note_has_no_blank_lines_or_stray_dashes()
@@ -16,4 +16,4 @@ tags:
 - [[append_weekly_rollup()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/run_pipelinepy
+#graphify/code #graphify/EXTRACTED #community/test_run_logpy

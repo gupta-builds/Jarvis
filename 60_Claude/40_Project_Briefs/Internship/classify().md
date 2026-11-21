@@ -1,12 +1,12 @@
 ---
 source_file: "core/classify.py"
 type: "code"
-community: "classify"
+community: "test_classify.py"
 location: "L61"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/classify
+  - community/test_classifypy
 ---
 
 # classify()
@@ -34,4 +34,4 @@ tags:
 - [[test_classify_still_matches_genuine_threat_intelligence_content()]] - `calls` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/classify
+#graphify/code #graphify/EXTRACTED #community/test_classifypy

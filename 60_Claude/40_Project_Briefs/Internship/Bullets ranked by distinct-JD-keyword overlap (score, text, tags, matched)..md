@@ -1,12 +1,12 @@
 ---
 source_file: "grade_resume.py"
 type: "rationale"
-community: "grade"
-location: "L48"
+community: "pytest"
+location: "L56"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/grade
+  - community/pytest
 ---
 
 # Bullets ranked by distinct-JD-keyword overlap: (score, text, tags, matched).
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[grade()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/grade
+#graphify/rationale #graphify/EXTRACTED #community/pytest

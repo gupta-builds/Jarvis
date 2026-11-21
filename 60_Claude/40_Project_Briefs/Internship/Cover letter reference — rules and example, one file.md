@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md"
 type: "document"
-community: "Generating a cover letter .docx"
+community: "test_posting_page.py"
 location: "L7"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Generating_a_cover_letter_docx
+  - community/test_posting_pagepy
 ---
 
 # Cover letter reference — rules and example, one file
@@ -18,4 +18,4 @@ tags:
 - [[The rules, tiered]] - `contains` [EXTRACTED]
 - [[cover-letter-reference]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx
+#graphify/document #graphify/EXTRACTED #community/test_posting_pagepy

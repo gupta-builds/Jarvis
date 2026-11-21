@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "rationale"
-community: "writer.py"
+community: "scan_dossiers"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/scan_dossiers
 ---
 
 # Renders the fixed dossier template and writes it into a vault checkout.  Renderi
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[writer.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/writerpy
+#graphify/rationale #graphify/EXTRACTED #community/scan_dossiers

@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "rationale"
-community: "relevance.py"
+community: "revalidate.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/relevancepy
+  - community/revalidatepy
 ---
 
 # Layer 2.5 — CS/software-relevance gate. Runs after matches() passes, before the
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[relevance.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/relevancepy
+#graphify/rationale #graphify/EXTRACTED #community/revalidatepy

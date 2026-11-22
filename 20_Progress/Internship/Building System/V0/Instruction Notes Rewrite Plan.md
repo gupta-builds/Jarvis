@@ -7,7 +7,7 @@ tags:
   - internship
   - system-design
 project_kind: plan
-next: "Confirm the remaining four note families and their removal lists."
+next: "Clear the three remaining inbound-link locations, then retire the two approved notes."
 related_progress: []
 notes:
   - "[[20_Progress/Internship/Building System/Weekend Build|Weekend Build]]"
@@ -19,6 +19,7 @@ notes:
 ## Current State
 ==The 2026-11-21 Dell audit found 30 broken link occurrences, 13 wrong claim groups, 13 stale claim groups, eight duplicated jobs or content groups and 11 notes with no evidenced reader.==
 ### Rewrite progress
+- Observed, 2026-11-21. Families A to E were written as approved. Twenty touched notes passed individual lint, including the three added notes. Ten stubs were retired. Two approved retirements still wait for narrowly scoped inbound repairs. See Evidence for the Sunday trace, lint and recount.
 - Observed, 2026-11-21. Applying family complete. Applications-to-Create, Resume Guide and Cover Letter Guide each passed reference-resource lint 1/1. Apply Today passed dashboard lint 1/1. After the ledger’s links were repointed and Obsidian reported no inbound links to the ten stubs, all ten approved stubs were removed. Readback confirmed the four notes have no unresolved links. Now remains with the Tracker family.
 - Observed, 2026-11-21. Landed kit read and compared. Twelve decisions recorded. Both document folders still contain five stubs. The Obsidian index reports no inbound links to the ten stubs. All three guide drafts were checked in memory and failed reference-resource lint with 4:wrong-folder. That preflight preceded the landed kit fix and the family writes.
 ### Note inventory
@@ -141,13 +142,17 @@ notes:
 - [x] 2026-11-21. One resume guide, then remove the five stubs.
 - [x] 2026-11-21. One cover-letter guide, then remove the five stubs.
 - [x] 2026-11-21. Resumes/Altered for working exports and Sent for submission packets.
-- [ ] Decide the surviving Programs and Contacts guides, message bank and empty Networking Strategies note.
-- [ ] Decide the Tracker views, Deadline Tracker history, Main Log jobs and whether the Kanban is still needed.
-- [ ] Decide where the Run Log’s generated rows should live and whether to request repo verification of its writer, readers and enrichment route.
-- [ ] Decide the long-term entry point and the destinations for duplicate Cheats and resources.
-- [ ] Decide whether any named adjacent notes need a separate pass.
+- [x] 2026-11-21. Programs and Contacts guidance was rewritten. Networking Strategies is approved for retirement after both inbound links are cleared.
+- [x] 2026-11-21. Now, Kanban, Main Log and Deadline Tracker dispositions were decided.
+- [x] 2026-11-21. Run Log and Excluded logs stay at fixed paths. Code follow-up is recorded.
+- [x] 2026-11-21. Dashboard, Hub pointer, folder map, link hub and two research references were decided.
+- [x] 2026-11-21. Anant approved a read-only _Today review. No intake disposition is approved.
 - [x] 2026-11-21. Tier 2 proceeds without an optional letter. A required letter is individually tailored and approved.
 - [x] 2026-11-21. The kit owner extended reference-resource to 20_Progress/Internship. The three guides pass.
+- [ ] Authorize a link-only change to Ready to Screen and Prompt 3 Freshness Sweep Scratch before deleting Deadline Tracker.
+- [ ] Authorize the additional Contacts-to-Create wikilink line before deleting Networking Strategies.
+- [ ] Decide the proposed dispositions of the three _Today intake notes.
+- [ ] Decide whether to rename the two example letter Word files. Keep them as named until then.
 ## Decisions
 ==Decisions below use the 2026-11-21 P1 reply where it supersedes the plan.==
 1. 2026-11-21, Anant’s batch 1. Applications-to-Create is the short guide to what each lane creates. The Pipeline and Application Document Preparation Workflows carry the steps.
@@ -165,6 +170,11 @@ notes:
 13. 2026-11-21, Anant’s first-family confirmation. Keep all three guides at their approved paths and re-run the actual classifier. No lint exception.
 14. 2026-11-21, Anant’s first-family confirmation. Until Main Cover Letter exists, omit an optional tier 2 letter and tailor and approve each required one individually.
 15. 2026-11-21, Anant’s first-family confirmation. Apply Today is a manual table with company, role, tier, dossier, optional Program, resume_variant, letter_mode and Applying stage or tier 3 status. Now remains for submitted applications.
+16. 2026-11-21, Anant B1–B3. Now owns submissions. Application Tracker is a pointer. Tracker keeps its Kanban and the researched-versus-submitted count. Main Log keeps verified open escalations. Retire Deadline Tracker after repairing every inbound link. Add posting URL and stated deadline or none stated to Apply Today.
+17. 2026-11-21, Anant C1–C2. Cut Programs-to-Create’s Job & Company section and Outreach’s channel snapshot. Retire Networking Strategies after the authorized link and next repair. The additional YAML occurrence needs separate permission.
+18. 2026-11-21, Anant D1–D2. Dossiers MOC keeps its path and folder map. Capacity goes to the Dashboard, with literal folder counts and a reference to Source of Truth for limits. Read the three intake notes and propose dispositions only.
+19. 2026-11-21, Anant E1–E2. Hub becomes a Dashboard pointer. README is the current folder map. Links & Interlinks is a link hub. The two Cheats hold search and resume research separately, and outreach wording stays in Mimic.
+20. 2026-11-21, Anant’s letter update. Main and examples live at the root of Cover Letters. Per-application letters land in Cover Letters/Altered. The two examples are bank seeds. Anant reviews any technical-example wording reused in a tailored letter. Hold the filenames until Anant decides on correction.
 ### Contracts
 - Observed decision. By hand today, the submission Tracker is Tracker/Each One/Applied/<dossier file name>.md, with date_applied, tier, starred, resume_variant, letter_mode and a related_notes link to the dossier. Program and contact links are blank when the respective notes do not exist. It carries no approval field.
 - Observed decision. Now reads Applied trackers and shows company, title, tier, date_applied, next follow-up date, result and the Tracker link. No Applying or dossier join.
@@ -174,7 +184,12 @@ notes:
 - Observed decision. The loop writer links the two fixed MOC paths. Keep the public log paths Run Log, Excluded - Losing The Debate and Excluded - Failed The Write Gate. The hyphen filename follow-up belongs to the code repo.
 - Observed decision. The future mark_applied and Archived mover record the cross-source duplicate key before moving the dossier. Archived writes removed_date and removed_reason: deadline lapsed for deadline moves and skips _Career Fair. Dry-run evidence must show deletion from the tracked role folder.
 ### Later
-- End of rewrite: re-run the four first-family lint checks. Each passed immediately after its write. The later repeat attempt could not start the Node runtime.
+- Before Sunday, Anant adds ignore rules for `Cover Letters/Altered/` and `Sent/`. Anant reports no tracked history for those paths. The letter export directory was empty, and `Sent/` returned ENOENT. No git check was run during this pass.
+- Internship Dashboard, monthly goals: find the current weekly Goals note before rendering. Weekly listing stopped at W46, whose goal refers to a previous lane. The Career streak section reads the observed daily `win_career` field.
+- Internship Dashboard, Apply Queue, Starred, Pending actions and Loop Status: add these sections when their live inputs exist. Today’s tasks and completed tasks use the daily note.
+- Contacts-to-Create, Networking Strategies link: clear both wiki occurrences and stale next once the additional line is authorized, then retire the empty note.
+- Deadline Tracker retirement: add Apply Today redirects with link-only authorization in Ready to Screen and the scratch report, then remove the old file.
+- Cover Letter Guide, Examples and export: ask before correcting the Word filenames. Until the bank exists remains until the separate fragment session.
 - Applications-to-Create, lane entries: add the local Apply Queue and mark_applied routes after their manual replacements are exercised and the tools exist.
 - Internship Dashboard, Apply Queue, Starred and Pending Actions: add the queue, pending list and any starred metadata views once their live inputs exist.
 - Internship Dashboard, Loop Status: add the local banner once last_run, last_success, paused and built_at are written. Token expiry stays a code follow-up.
@@ -185,9 +200,172 @@ notes:
 - Dossiers MOC, Folder map: link Applied and Archived when the folders exist and include numeric tier only after the writer emits it.
 - Run Log and both Excluded logs: verify code writers and emitted filenames in a separate repo pass. Preserve all machine-written lines.
 ### Kit friction
+- Observed. The plan’s Contracts table includes a Now join with tier 1 and tier 2 Applying notes. Its later operator decision and Anant’s direct ruling require Applied Trackers only. C28 uses the latter. Pipeline step 7 still says to add a Now row by hand.
+- Observed. Tracker Template has company, date_applied, tier and result. The contract calls for title and next follow-up date without corresponding keys. Now derives them from the docket filename and date_applied. No new Tracker fields were invented. The date is the next scheduled checkpoint, not an unsent-message detector.
+- Observed. Tracker Standard sets result in Result only, while Now reads Applied only by decision. Now has a Result column; closed Trackers leave the view. Timeline-based overdue detection is a Follow-ups contract.
+- Observed. Pipeline step 9 says to set an Applying outcome even though tier 3 has no Applying note. Document Preparation’s tier 3 language mentions confirmation at archive. The live guides put Anant’s approval before sending as directed.
+- Observed. The former Deadline Tracker aftercare said wait for Deadline Map. Anant’s newer B3 retires the manual sweep now after link repair. Keep the old file pending that repair only.
+- Observed. The guide classifier and both export paths now match the plan’s corrected Decision. The first-use parent for Sent is still absent and its ignore rule is pending.
+- Unknown. A raw-note count convention for startday and the live Dataview rendering have not been exercised. The JavaScript view passed the fixture trace.
 - Observed, resolved on 2026-11-21. Reference Standard now covers 20_Progress/Internship. Application Documents Standard and Application Document Preparation step 6 both point to Resumes/Altered. The three guide paths each pass reference-resource.
 - Observed. Note Type Registry has all seven named rows, and Frontmatter Standard includes resource, link-hub and research. Reference Standard’s reference-resource Spec matches 40_Resources and 10_Areas only. The Kit map puts Applications-to-Create in 20_Progress, and the two new guide locations face the same classifier restriction. The actual script classified all three drafts as reference-resource and returned 4:wrong-folder on each. No classification change was attempted.
 - Observed. Application Documents Standard, Allowed folders and Legacy Shapes, and Application Document Preparation step 6 prescribe flat resume output. The P1 reply explicitly chooses Resumes/Altered. Use the P1 path in the guide and leave the kit conflict for its owner.
 - Observed. The plan’s Contracts Now row mentions Applying notes. The newer Tracker copy decision and the plan’s Phase 2 reply use Applied Trackers only. Use the latter.
 - Observed. The plan’s whole-loop status row offers the log family for Main Log. The Registry’s log row lists AI log locations and excludes the Tracker location. Resolve Main Log’s job before assigning a family.
 - Observed. External PowerShell launch was denied and Node REPL cannot spawn an external Node child. The read-only in-process Vault Lint script can evaluate one path with protected trees excluded.
+### Code Build Brief
+==The code sessions must preserve the fields and paths the hand workflow reads.==
+Use the commands from `30_Order/System/vault-lint/`, with a vault-relative sample the implementation wrote. The four local generated notes use `type: generated`, `gen_kind: report` and `generator`, and live under `20_Progress/Internship/Applying/`. Lint checks note shape. For state transitions and external artifacts, run the extra assertion in the last column. End contract-changing code prompts by updating the record through Loop Contract Change.
+### Code contracts
+| Contract | Exact output | Reader and heading | Producer today | Sunday | Acceptance |
+|---|---|---|---|---|---|
+| C1 type, input_kind | `input`, `job-dossier` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C2 created, updated | `created` is `date_found`; `updated` is `date_found` at write and is set by every mover | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C3 company | The host employer as the posting names it | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C4 title, url, source, terms, locations, target_year, date_posted, date_found | As today | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C5 deadline_posted or own_deadline | Exactly one; `own_deadline` is `date_found` plus 7 days | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C6 matched_reason | One sentence naming the signal, never the bare word `matched` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C7 status, review_state | `seed`, `unreviewed` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C8 tier | 1, 2 or 3 from `companies.yml`, replaces `preference_tier` | 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C9 resume_variant, letter_mode | `ai`, `fullstack`, `systems`, `other`; `tailored`, `bank`, `none` | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications; 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C10 starred | `true` or blank | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Starred (later) | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C11 next, notes, tags | Blank; the Dossiers MOC link; `internship`, `auto-discovered`, `company/<slug>` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C12 screened_date, screened_decision, screened_reason | `pass` or `reject` with the signal | 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C13 date_applied | Set at submission; the dossier moves to `Applied/` | 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C14 removed_date, removed_reason, status `archived` | On a move to `Viewed/` (closed posting) or `Archived/` (`removed_reason: deadline lapsed`) | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code for `Viewed/`, by hand for `Archived/` | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C15 Dossier folders | `10_Areas/Career/Internships/List/Dossiers/`: `1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, `Other`, `Viewed`, `_Career Fair`, `Applied`, `Archived` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code for the first four and `Viewed`; by hand for the rest | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C16 Counts | Counted by the limits as Source of Truth and the loop config say; `Viewed`, `Applied` and `Archived` are excluded | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Dossier capacity | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C17 Fixed links the writer emits | `10_Areas/Career/Internships/List/Dossiers MOC` and `10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C18 Log files under `List/` | `Run Log`, `Excluded - Losing The Debate`, `Excluded - Failed The Write Gate` (hyphen names) | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Loop Status (later) | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` against a written log sample; assert the hyphen filename. |
+| C19 Tracker | `10_Areas/Career/Internships/Tracker/Each One/{Current,Applied,Result}/<dossier file name>.md` with `status: active`, `date_applied`, `tier`, `starred`, `resume_variant`, `letter_mode`, `related_notes` linking the dossier, `program` and `contact` blank unless those notes exist. No approval field. | 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-tracker --list 1` |
+| C20 Packet | `20_Progress/Internship/Sent/<dossier file name>/` with the resume DOCX, the letter DOCX when sent, and `posting.md`. Private. | 20_Progress/Internship/Cover Letters/Cover Letter Guide.md § Examples and export | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-tracker --list 1` against the paired Tracker; inspect the frozen packet’s exact files. |
+| C21 Applying `stage` | `Preparing`, `awaiting-approval`, `approved`, `Applied`, `Offer`, `Rejected`, `Withdrawn`. Tier 1 and tier 2 reach `approved` before anything is archived. | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications; 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-applying --list 1`; review the stage transition fixture. |
+| C22 Duplicate key | Before `mark_applied` or the Archived mover moves a dossier out of the tracked tree, it writes the dossier's cross-source duplicate key into the loop repo's state | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` against the resulting dossier; check the duplicate key is persisted before any move. |
+| C23 Dry run | A dry run shows the move reaching the loop's checkout as a deletion from the role folder | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` against the staged sample; verify dry-run deletion in the consumer checkout fixture. |
+| C24 Apply Queue | Dossier link, company, tier, role folder, deadline, `resume_variant`, `letter_mode`, estimated minutes; ordered by tier, soonest deadline, newest posting, resume overlap | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Apply Queue (later) | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` |
+| C25 Follow-ups | Trackers whose `date_applied` plus 7 or plus 14 days has arrived with no follow-up line in the Timeline. Anant writes the follow-up and logs a dated Timeline line. | 10_Areas/Career/Internships/Contacts/Mimic.md § Application follow-up; 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` |
+| C26 Deadline Map | Buckets Already Over, Soon, Next Week, Next Month, Later from live dossiers, Program `deadline_posted` and `deadline_real`, and Tracker `deadline`. Weekly. | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Deadline Map (later) | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` |
+| C27 Loop Status | `last_run`, `last_success`, `paused`, `built_at`, from a read-only `gh run list` on the run workflow. No commit. The Dashboard banner warns when `built_at` is over a day old or `last_success` is over 3 hours old. | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Loop Status (later) | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` |
+| C28 `Now` rows | Company, title from Tracker filename, tier, date_applied, next follow-up date, result, Tracker link. Applied Trackers only. | 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-tracker --list 1`; evaluate the view against an Applied and a Current fixture. |
+| C29 Working exports | `Resumes/Altered/<Role> - <Company>.docx` and `Cover Letters/Altered/<Role> - <Company>.docx` | 20_Progress/Internship/Resumes/Resume Guide.md § Export; 20_Progress/Internship/Cover Letters/Cover Letter Guide.md § Examples and export | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-applying --list 1`; compare approved draft to both manually exported files. |
+| C30 Privacy | Before Sunday add ignore rules for `Cover Letters/Altered/` and `Sent/`. The generated apply lane runs locally and its outputs stay private. | 20_Progress/Internship/Cover Letters/Cover Letter Guide.md § Examples and export | by hand | must exist before Sunday | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` against a local sample. Verify ignore coverage separately before writing private data. |
+| C31 PostToolUse guard | Use the note Specs for field declarations. Keep separate guard lists until the guard reads them. | 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by code for current guard | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-applying --list 1`; run the guard on the same sample and compare required fields. |
+| C32 Issue label and title | `dossier-ready`; `<N> new dossier(s) ready for /promote-dossier` | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Loop Status (later) | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1`; assert the emitted label and title against an issue payload fixture. |
+| C33 Apply Today manual row | Company, role, tier, posting URL, stated deadline or `none stated`, dossier link, optional Program link, `resume_variant`, `letter_mode`, Applying stage or tier 3 status. | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family dashboard --list 1` against `20_Progress/Internship/Applying/Apply Today.md`; inspect the table headers. |
+### Later dependency map
+| Later item | Contract that unblocks it |
+|---|---|
+| Replace manual Apply Today after exercising the generated queue | C24 Apply Queue, C33 manual header compatibility |
+| Link queue and mark_applied from Applications-to-Create | C13 submitted dossier, C19 Tracker, C20 packet, C22 duplicate key, C24 queue |
+| Enable Dashboard starred and pending views | C10 starred, C19 Tracker, C24 queue, C25 Follow-ups |
+| Add Deadline Map and retire the old sweep after its inbound link repairs | C26 Deadline Map for the view. Link-only authorization is separately required to remove the old file now. |
+| Add Loop Status and validate run freshness | C27 Loop Status, C32 issue payload |
+| Link numeric tiers and new states in the Dossiers MOC | C8 tier, C14 removed keys, C15 folders |
+| Resolve Run Log and Excluded log filenames | C18 generated log filenames |
+| Bank session and removal of Until the bank exists | C29 working document split and Anant’s approval of the Main Cover Letter fragments. No code contract supplies fragment text. |
+| Ignore new letter export and Sent paths before Sunday | C30 privacy |
+| Add monthly goals and richer daily views | Current Goals and daily sources. These input notes are outside the loop contract. |
+| Rerun per-note checks and clarify startday read mode | C19 Tracker shape, C28 Now rows. Confirm whether startday reads rendered or raw Markdown. |
+## Evidence
+==All twenty changed application and navigation notes pass individual lint. Two approved retirements still need inbound-link edits outside the current permission.==
+### Main Log triage
+| Former item | Finding | Evidence and disposition |
+|---|---|---|
+| Castleton and KeyBank | Observed closed | Main Log had RESOLVED dated 2026-09-05. Its evidence places the five missed Programs in the Missed folders. The November folder recount found four Serious/Missed and one Considering/Missed. |
+| Uber requisition 300697 | Unknown as of this pass | Main Log’s old live check says Not found. No newer verified open requisition was found in the inspected vault notes. Omitted from the confirmed-open dashboard. No posting page was fetched. |
+| Microsoft careers-shell regression | Observed superseded | System - Build Log L151 records the extraction fix and fixture in 5b59609. Existing dossiers may still need separate revalidation. |
+| Hourly discovery disabled_manually | Observed superseded | System Rebuild Plan reports active workflow and a scheduled failure on 2026-11-21 at 17:51 UTC, with cause unknown. Main Log carries that distinct failure for follow-up. |
+### Read-only intake review
+| File under `10_Areas/Career/Internships/List/Dossiers/_Today/` | What it is | Inbound links | Could writer or recheck read it as a dossier? | Proposed disposition |
+|---|---|---|---|---|
+| Manual Internship Listings.md | Observed. Vivaldi link capture with no dossier frontmatter. | Obsidian backlinks: none. | Unknown. It lacks dossier fields. The writer and recheck folder scan were outside scope. | Keep as raw capture outside the dossier tree after approval. |
+| New Internships Listings.md | Observed. Dated manual screening log for InternDock, speedyapply and other lists. No dossier frontmatter. | Obsidian backlinks: none. | Unknown. It is a multi-posting log. Scanner behavior is unverified. | Keep as a dated source log outside the dossier tree after approval. |
+| No Deadline.md | Observed. Queue retired by its own text on 2026-10-04. No dossier frontmatter or entries. | Obsidian backlinks: none. | Unknown. A missing dossier envelope does not prove runtime exclusion. | Retire after approval and a direct inbound-link check. |
+### Sunday hand trace
+| Step | Tier 1 | Tier 3 |
+|---|---|---|
+| 1. Open Applications-to-Create | Pass. Both Workflow links and document guide links resolve. | Pass. Tier 3 route goes to Apply Today and requires a Tracker at submission. |
+| 2. Add an Apply Today row | Pass. Hand trace entered Example Labs, ML Intern, tier 1, a posting URL, its stated deadline, dossier and Program links, ai, tailored, Preparing. Header and separator each have ten columns. | Pass. Hand trace entered Example Systems, Systems Intern, tier 3, a posting URL and none stated, dossier link, blank Program, systems, none and the current manual status. |
+| 3. Create Program and Contact | Pass. Programs and Contacts/Each One/Ongoing exist. Internship Program and Contact Templates resolve. A Program is the readiness gate. | Pass. Skip both. The manual row permits a blank Program. |
+| 4. Create Applying | Pass. Applying exists, and Internship Applying Template declares stage: Preparing, program, tracker, contacts, resume_version and cover_letter. | Pass. Skip Applying. The manual row records the tier 3 status. |
+| 5. Prepare resume | Pass. Resume Guide and Main Resume resolve, and Resumes/Altered exists. Use the approved variant and role-company DOCX filename. | Pass. Resumes/Altered exists. Route uses Anant’s approval of the tier 3 resume before submission. |
+| 6. Prepare letter | Pass. Tailored mode and Cover Letters/Altered exist. The two example filenames were listed and their Word contents stayed unopened. | Pass. No letter for this sample; the Cover Letter Guide says to check the form for a requirement. |
+| 7. Approve | Pass. Hand trace goes Preparing, awaiting-approval, approved. Application Documents Standard requires approval before archiving. | Pass. Anant approves the resume manually before submission. No Tracker approval key. |
+| 8. Create Tracker in Applied | Pass under first-use rule. Existing parent Each One found. Tracker Template carries date_applied, company, tier, starred, resume_variant and letter_mode. Applied and Result are absent and Standard creates them on first use. | Pass under first-use rule. Same template, with program and contact blank. |
+| 9. See row in Now | Pass on simulated data. Query reads existing Each One, selects the exact Applied subfolder, and uses template keys plus file metadata and date arithmetic. Title ML Intern and first checkpoint 2026-11-29 for a Nov 22 submission. | Pass on simulated data. Title Systems Intern and Nov 29 checkpoint appeared. Current and Result fixtures were excluded. |
+| 10. Archive the exact packet | Fail in current live state. Sent returned ENOENT and ignore coverage is pending. Create the first packet only after privacy is in place. | Fail in current live state. Same missing parent and privacy prerequisite. Tier 3 packet would hold the approved resume and posting.md. |
+Observed. Both hand traces used fictitious postings. The Now JavaScript was run with two Applied fixture records, one Current and one Result fixture, and a mocked Dataview API. This checks selection and displayed values. No application, contact, output document, Tracker or packet was created. Live Obsidian rendering is unknown until a real Tracker exists.
+### Original note dispositions
+| Path | Outcome |
+|---|---|
+| `20_Progress/Internship/Applying/Applications-to-Create.md` | Rewritten as the two-lane record guide |
+| `20_Progress/Internship/Applying/Now.md` | Rewritten as Applied-only submission view |
+| `10_Areas/Career/Internships/Tracker/Application Tracker.md` | Merged into Now; old path is a pointer |
+| `10_Areas/Career/Internships/Tracker/Tracker.md` | Rewritten as four-lane Kanban plus count |
+| `10_Areas/Career/Internships/Tracker/Internship - Dashboard.md` | Rewritten as first screen with daily tasks, shipped work, career streak and capacity |
+| `10_Areas/Career/Internships/Tracker/Deadline Tracker.md` | Retained pending two authorized link repairs; retirement approved |
+| `10_Areas/Career/Internships/Tracker/Main Log.md` | Rewritten as manual escalation dashboard |
+| `10_Areas/Career/Internships/Programs/Programs-to-Create.md` | Rewritten as Program creation reference |
+| `10_Areas/Career/Internships/Programs/Programs MOC.md` | Rewritten as prose Program map |
+| `10_Areas/Career/Internships/Contacts/Contacts MOC.md` | Rewritten as prose Contact map |
+| `10_Areas/Career/Internships/Contacts/Mimic.md` | Rewritten as public outreach examples |
+| `10_Areas/Career/Internships/Contacts/Outreach Discovery & Automation Status.md` | Rewritten as private discovery-tool reference |
+| `10_Areas/Career/Internships/Contacts/Networking Strategies.md` | Retained pending authorization for the second inbound link line; retirement approved |
+| `10_Areas/Career/Internships/List/Dossiers MOC.md` | Rewritten as fixed-path dossier map |
+| `10_Areas/Career/Internships/List/Run Log.md` | Retained as generated output by instruction |
+| `10_Areas/Career/Internships/Internships Hub.md` | Merged into Dashboard; old path is a pointer |
+| `10_Areas/Career/Internships/README.md` | Rewritten as current folder map |
+| `10_Areas/Career/Internships/Links & Interlinks.md` | Rewritten as a link hub |
+| `10_Areas/Career/Internships/Cheats/LinkedIn Premium.md` | Rewritten as LinkedIn search research at its current path |
+| `10_Areas/Career/Internships/Cheats/Resume Tailoring, LinkedIn Search & Outreach Discovery.md` | Rewritten as resume tailoring research at its current path |
+Observed. The ten original placeholders are itemized in Current State. Each was retired after its content was replaced by the corresponding guide and its inbound links cleared.
+### Individual lint
+| Note | Result |
+|---|---|
+| `10_Areas/Career/Internships/Cheats/LinkedIn Premium.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Cheats/Resume Tailoring, LinkedIn Search & Outreach Discovery.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Contacts/Contacts MOC.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Contacts/Mimic.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Contacts/Outreach Discovery & Automation Status.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Internships Hub.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Links & Interlinks.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/List/Dossiers MOC.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Programs/Programs MOC.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Programs/Programs-to-Create.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/README.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Tracker/Application Tracker.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Tracker/Internship - Dashboard.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Tracker/Main Log.md` | FIT: 1/1 = 100.0% |
+| `10_Areas/Career/Internships/Tracker/Tracker.md` | FIT: 1/1 = 100.0% |
+| `20_Progress/Internship/Applying/Applications-to-Create.md` | FIT: 1/1 = 100.0% |
+| `20_Progress/Internship/Applying/Apply Today.md` | FIT: 1/1 = 100.0% |
+| `20_Progress/Internship/Applying/Now.md` | FIT: 1/1 = 100.0% |
+| `20_Progress/Internship/Cover Letters/Cover Letter Guide.md` | FIT: 1/1 = 100.0% |
+| `20_Progress/Internship/Resumes/Resume Guide.md` | FIT: 1/1 = 100.0% |
+### Folder lint
+| Folder | Fit |
+|---|---|
+| `10_Areas/Career/Internships/Tracker/` | FIT: 4/38 = 10.5% |
+| `10_Areas/Career/Internships/Programs/` | FIT: 2/33 = 6.1% |
+| `10_Areas/Career/Internships/Contacts/` | FIT: 3/35 = 8.6% |
+| `10_Areas/Career/Internships/List/` | FIT: 1/366 = 0.3% |
+| `10_Areas/Career/Internships/Cheats/` | FIT: 2/2 = 100.0% |
+| `10_Areas/Career/Internships/` | FIT: 15/477 = 3.1% |
+| `20_Progress/Internship/Applying/` | FIT: 3/5 = 60.0% |
+| `20_Progress/Internship/Resumes/` | FIT: 1/2 = 50.0% |
+| `20_Progress/Internship/Cover Letters/` | FIT: 1/1 = 100.0% |
+| `20_Progress/Internship/Building System/V0/` | FIT: 2/10 = 20.0% |
+### Before and after
+| Original 30-note audit measure | Before | After |
+|---|---:|---:|
+| Broken wiki link occurrences | 30 | 12, all on the retained Deadline Tracker |
+| Original wrong-claim groups still present | 13 | 0 of the original 13 |
+| Original notes with no evidenced reader | 11 | 1, generated Run Log |
+| Original notes retired | 0 | 10 |
+| Rewritten original notes | 0 | 17 |
+| Original notes retained without rewrite | 30 | 3: Deadline Tracker, Networking Strategies and Run Log |
+Observed. Capacity folder listings returned 128, 38, 45, 58 and 11 Markdown dossiers. Programs’ five directory listings total 31 research records. The Applied Tracker folder was absent, so submitted Trackers counted zero. The rewrite views derive counts from files rather than storing these numbers.
+Observed. The startday skill names `Tracker/Tracker.md` for the researched-versus-applied count. No required raw Markdown field or count syntax was found. Retained the four Kanban lanes and plugin marker with a live count table in the Markdown source.
+Observed. Two out-of-scope notes still link Deadline Tracker: `10_Areas/Career/Internships/List/Ready to Screen.md` (frontmatter and body) and `20_Progress/Internship/Building System/Runs/Prompt 3 Freshness Sweep Scratch.md` (frontmatter). Main Log’s link was removed. The approved removal waits for link-only authorization in the two other files.
+Observed. `Contacts-to-Create.md` has a frontmatter wikilink and a separate body wikilink to Networking Strategies in addition to its stale next field. The approved one-line-plus-next scope cannot clear both links. The two files are still present. No unrelated edits were made.
+Observed. Generated Run Log retains its old syntax and machine lines. The existing Excluded log is untouched. The second promised Excluded filename is absent from the List listing. Code writer behavior is unknown.

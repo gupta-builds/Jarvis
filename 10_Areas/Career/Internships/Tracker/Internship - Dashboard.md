@@ -1,113 +1,63 @@
 ---
-created: 2026-07-09
-updated: 2026-07-26
 type: dashboard
+dashboard_kind: dashboard
 status: active
-tags:
-  - internships
-  - tracking
-  - career
-  - dashboard
+created: 2026-07-09
+updated: 2026-11-21
+tags: [internship, dashboard]
 notes:
-  - "[[Internships Hub]]"
-  - "[[Internship Pipeline]]"
-  - "[[Source of Truth]]"
+  - "[[30_Order/Standards/Operations/Dashboard Standard]]"
 ---
-# 📊 Internship Dashboard — The Whole Process
-==Not per-internship — this is the health of the entire loop, one screen.== For one specific internship's detail, go to its Tracker/Each One note. For the kanban glance, see [[Tracker]]. For the raw pipeline status doc, see [[Internships Hub]].
-## 🔎 Discovery — Dossier Pipeline Health
-```dataview
-TABLE WITHOUT ID
-  file.folder as "Priority Folder", length(rows) as "Count", "/ 50" as Limit
-FROM "10_Areas/Career/Internships/List/Dossiers"
-WHERE company AND file.folder != "10_Areas/Career/Internships/List/Dossiers"
-GROUP BY file.folder
+# Internship Dashboard
+Open [[20_Progress/Internship/Applying/Apply Today|Apply Today]] for work in flight and [[20_Progress/Internship/Applying/Now|Now]] for submissions.
+## Today’s tasks
+> [!NOTE]
+> ==Read incomplete internship tasks from today’s daily note.==
+
+```dataviewjs
+const day = dv.date("today").toFormat("yyyy-MM-dd");
+const daily = dv.page("10_Areas/Life/Enumerate/Daily/" + day);
+const tasks = daily ? daily.file.tasks.where(t => !t.completed && /internship|apply today/i.test(t.text)) : [];
+if (tasks.length) dv.taskList(tasks, false); else dv.paragraph("No matching tasks in today’s daily note.");
 ```
-> [!IMPORTANT]
-> Total cap is 201 across all four priority folders (50 each) — warning stages at 150, 170, 190, 200. If any single folder is closing in on 50, that's the one to screen down before the next push, not the others.
-## 🧭 Screening Backlog — Found, Not Yet Screened
-```dataview
-TABLE company, title, file.folder as "Priority"
-FROM "10_Areas/Career/Internships/List/Dossiers"
-WHERE company AND length(file.inlinks) = 0
-SORT date_found DESC
-LIMIT 15
+## What shipped
+> [!NOTE]
+> ==Read completed internship tasks recorded in the daily notes.==
+
+```dataviewjs
+const day = dv.date("today").startOf("day");
+const daily = dv.pages('"10_Areas/Life/Enumerate/Daily"').where(p => p.file.day);
+for (const [label, from, to] of [["Yesterday",day.minus({days:1}),day.minus({days:1})],["This week",day.startOf("week"),day]]) {
+  const tasks = daily.where(p => p.file.day >= from && p.file.day <= to).file.tasks.where(t => t.completed && /internship|apply today/i.test(t.text));
+  dv.header(3,label);
+  if (tasks.length) dv.taskList(tasks,false); else dv.paragraph("No matching completed tasks.");
+}
 ```
-## 🌊 Programs — Committed Research
-```dataview
-TABLE WITHOUT ID
-  "Serious" as Folder, length(rows) as Count
-FROM "10_Areas/Career/Internships/Programs/Serious"
-WHERE company
-GROUP BY true
+## Career streak
+> [!NOTE]
+> ==Count consecutive daily notes with `win_career` checked.==
+
+```dataviewjs
+const root = "10_Areas/Life/Enumerate/Daily/";
+let day = dv.date("today").startOf("day");
+if (!dv.page(root + day.toFormat("yyyy-MM-dd"))) day = day.minus({days:1});
+let count = 0;
+while (dv.page(root + day.toFormat("yyyy-MM-dd"))?.win_career === true) {
+  count++;
+  day = day.minus({days:1});
+}
+dv.paragraph(count + (count === 1 ? " day" : " days"));
 ```
-```dataview
-TABLE WITHOUT ID
-  "Considering" as Folder, length(rows) as Count
-FROM "10_Areas/Career/Internships/Programs/Considering"
-WHERE company
-GROUP BY true
+## Dossier capacity
+> [!NOTE]
+> ==Count the four role folders and the Career Fair folder.==
+
+```dataviewjs
+const root = "10_Areas/Career/Internships/List/Dossiers";
+const buckets = ["1 - AI & ML","2 - Fullstack","3 - CyS & Finance","Other","_Career Fair"];
+const counts = buckets.map(name => [name,dv.pages(`"${root}/${name}"`).where(p => p.file.folder === root + "/" + name && p.company).length]);
+dv.table(["Folder","Dossiers"],counts);
 ```
-```dataview
-TABLE company, deadline_real as "Real Deadline", pay_per_week as "Pay/Week"
-FROM "10_Areas/Career/Internships/Programs/Serious" OR "10_Areas/Career/Internships/Programs/Considering"
-WHERE deadline_real <= date(today) + dur(30 days)
-SORT deadline_real ASC
-```
-## 🔄 Applying — Live Status
-```dataview
-TABLE WITHOUT ID
-  file.link as "Application",
-  company as "Company",
-  status as "Stage",
-  next_deadline as "Next Deadline"
-FROM "20_Progress/Internship/Applying"
-WHERE status AND status != "Offer" AND status != "Rejected" AND status != "Withdrawn"
-SORT next_deadline ASC
-```
-### Funnel Counts
-```dataview
-TABLE WITHOUT ID
-  rows.status as "Status",
-  length(rows) as "Count"
-FROM "20_Progress/Internship/Applying"
-WHERE status
-GROUP BY status
-```
-### Offer / Rejected / Withdrawn
-```dataview
-TABLE WITHOUT ID
-  file.link as "Application",
-  status as "Result",
-  date_response as "Date"
-FROM "20_Progress/Internship/Applying"
-WHERE status IN ("Offer", "Rejected", "Withdrawn")
-SORT date_response DESC
-```
-## 👥 Contacts — Relationship State
-```dataview
-TABLE WITHOUT ID
-  "Ongoing" as Folder, length(rows) as Count
-FROM "10_Areas/Career/Internships/Contacts/Each One/Ongoing"
-GROUP BY true
-```
-```dataview
-TABLE WITHOUT ID
-  "Come Back" as Folder, length(rows) as Count
-FROM "10_Areas/Career/Internships/Contacts/Each One/Come Back"
-GROUP BY true
-```
-## 💰 Research — Sorted By Compensation
-```dataview
-TABLE
-  company as "Company",
-  program_type as "Type",
-  pay_per_week as "Pay/Week"
-FROM "10_Areas/Career/Internships/Programs/Serious" OR "10_Areas/Career/Internships/Programs/Considering"
-WHERE pay_per_week
-SORT pay_per_week DESC
-```
-## 🎯 This Week
-Work this from [[_This Week]] and [[Now]], not from here — this dashboard is for scanning the whole system, those notes are for doing.
-## 📚 External Resources
-See [[Links & Interlinks]] for job boards and career-fair links, [[20_Progress/Internship/Building System/Research Loop - Resources]] for the loop's own data sources.
+See [[20_Progress/Internship/Building System/Source of Truth|Source of Truth]] for limits.
+## Escalations
+==Use [[10_Areas/Career/Internships/Tracker/Main Log|Main Log]] to review unresolved issues that have been verified.==

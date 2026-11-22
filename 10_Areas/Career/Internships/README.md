@@ -1,26 +1,19 @@
 ---
-created: 2026-07-09
-updated: 2026-07-26
-type: evergreen
+type: index
 status: sprout
-tags:
-  - evergreen
-  - career
+created: 2026-07-09
+updated: 2026-11-21
+tags: [internship, moc]
 notes:
-  - "[[Internships Hub]]"
-  - "[[Internship Pipeline]]"
+  - "[[30_Order/Standards/MOC Standard]]"
 ---
-# README — Internships Folder
-Start at [[Internships Hub]] for what this domain covers and why it's split from `20_Progress/Internship/`. This file is the mechanical folder guide — what goes where, not why.
-## Folder Map
-| Folder | Holds | Template |
-| --- | --- | --- |
-| `List/` | Monthly capture logs of manually-found postings, plus `Dossiers/` — auto-discovered by `internship-research-loop`, screened for eligibility and CS/software relevance, sorted into priority subfolders (`1 - AI & ML/`, `2 - Fullstack/`, `3 - CyS & Finance/`, `Other/`); `Viewed/` is a human triage bin, not pipeline output | [[List Monthly Log Template]] |
-| `Programs/Serious/` and `Programs/Considering/` | Static research, one note per program that passed the fit test — identical template and depth in both; the split is preference/timing only (pursuing now vs. later/undecided), never rigor | [[Program Template]] |
-| `Contacts/` | `Each One/` — one contact note per internship (recruiter/HR/public info, researched by the loop's `enrich.py` on promotion); `Mimic.md` is the outreach-message template library | [[Contact Template]] |
-| `Cheats/` | Proven tactics and methods | [[Cheat Template]] |
-| `Tracker/` | Dashboard (detailed) and Kanban (glance); `Each One/` — one dated index note per committed internship, the fast-scan source of truth until an Applying note exists | — |
-## Rewritten 2026-07-16
-This README previously documented a one-time 2027-cycle setup guide (13 hardcoded programs, a single-tier tracker). That content is superseded by [[Internship Pipeline]], which splits static research (here) from live status (`20_Progress/Internship/Applying/`). The full session record of that redesign is in [[System - Build Log]].
-## Updated 2026-07-26
-Added the priority-folder dossier system, the `Programs/Serious` + `Programs/Considering` split, and `Tracker/Each One` + `Contacts/Each One` — see [[Internship Pipeline]] for the full sequence and [[Claude Code Prompts]] for the codebase side of this change.
+# Internships Folder Map
+## Purpose
+==Start here when you need the right internship folder or working note.==
+## Map
+==Open the note that owns the work you need to do.==
+- [[10_Areas/Career/Internships/Tracker/Internship - Dashboard|Internship Dashboard]] is the starting screen.
+- [[10_Areas/Career/Internships/List/Dossiers MOC|Dossiers MOC]] maps public posting records.
+- [[10_Areas/Career/Internships/Programs/Programs MOC|Programs MOC]] and [[10_Areas/Career/Internships/Contacts/Contacts MOC|Contacts MOC]] route to research and outreach. Programs are private, ignore rule pending. Contacts are private and git-ignored, except the public [[10_Areas/Career/Internships/Contacts/Mimic|Mimic]].
+- [[20_Progress/Internship/Applying/Apply Today|Apply Today]] holds work in flight. [[20_Progress/Internship/Applying/Now|Now]] reads submitted Tracker notes. Applying and individual Trackers are private, ignore rule pending.
+- [[10_Areas/Career/Internships/Links & Interlinks|Links & Interlinks]] collects search entry points.

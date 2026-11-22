@@ -1,52 +1,18 @@
 ---
-type: evergreen
-status: active
+type: index
+status: sprout
 created: 2026-07-26
-tags:
-  - internship
-  - moc
+updated: 2026-11-21
+tags: [internship, moc]
 notes:
-  - "[[10_Areas/Career/Internships/Programs/Programs-to-Create]]"
-  - "[[Internship Pipeline]]"
-  - "[[10_Areas/Career/Internships/Tracker/Internship - Dashboard]]"
+  - "[[30_Order/Standards/MOC Standard]]"
 ---
-# Programs — Map of Content
-==Everything currently in `Programs/`, live.== This is a folder-scoped visualization, not a replacement for [[10_Areas/Career/Internships/Tracker/Internship - Dashboard]] — that dashboard also joins in live Applying status; this note only shows what's actually sitting in `Programs/` right now, split by folder. See [[10_Areas/Career/Internships/Programs/Programs-to-Create]] for how a note gets here at all.
-## Serious — Pursuing Now
-```dataview
-TABLE
-  company,
-  wave,
-  deadline_real as "Real Deadline",
-  pay_per_week as "Pay/Week",
-  eligible_classes as "Eligible",
-  applying_note as "Applying Note"
-FROM "10_Areas/Career/Internships/Programs/Serious"
-SORT deadline_real ASC
-```
-## Considering — Interested, Not Yet Committed
-```dataview
-TABLE
-  company,
-  wave,
-  deadline_real as "Real Deadline",
-  pay_per_week as "Pay/Week",
-  eligible_classes as "Eligible"
-FROM "10_Areas/Career/Internships/Programs/Considering"
-SORT deadline_real ASC
-```
-## Counts
-```dataview
-TABLE WITHOUT ID
-  "Serious" as Folder, length(rows) as Count
-FROM "10_Areas/Career/Internships/Programs/Serious"
-WHERE company
-GROUP BY true
-```
-```dataview
-TABLE WITHOUT ID
-  "Considering" as Folder, length(rows) as Count
-FROM "10_Areas/Career/Internships/Programs/Considering"
-WHERE company
-GROUP BY true
-```
+# Programs MOC
+## Purpose
+==Private, ignore rule pending. Use this map to find the Program research and its preparation guide.==
+## Map
+==Open the note that owns the work you need to do.==
+- [[10_Areas/Career/Internships/Programs/Programs-to-Create|Programs to Create]] shows when to write a Program.
+- [[30_Order/Standards/Internship/Program Standard|Program Standard]] defines the Program’s sections and source requirements.
+- Open a Program by dossier name under `Programs/`. Older Program records live in the existing subfolders.
+- [[20_Progress/Internship/Applying/Applications-to-Create|Applying guide]] shows the records that follow preparation.

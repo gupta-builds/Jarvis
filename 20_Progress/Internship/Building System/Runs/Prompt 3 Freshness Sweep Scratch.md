@@ -8,7 +8,6 @@ tags:
   - freshness-sweep
 notes:
   - "[[Codex Prompts]]"
-  - "[[10_Areas/Career/Internships/Tracker/Deadline Tracker]]"
 next:
 ---
 # Prompt 3 Freshness Sweep Scratch

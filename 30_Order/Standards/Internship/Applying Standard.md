@@ -72,7 +72,7 @@ Paths in the Right and Wrong lines start at `20_Progress/Internship/Applying/`.
 - **Right:** None yet.
 - **Wrong:** None seen.
 ### Documents
-- **Write:** one line each for the resume and the letter, naming what each leads with, and the approval state. Tier 2 names the company hook.
+- **Write:** one line each for the resume and the letter, naming what each leads with, and the approval state. When a tier 2 letter is sent, name its company hook.
 - **Length:** two lines.
 - **Never:** a copy of the document.
 - **Right:** None yet.

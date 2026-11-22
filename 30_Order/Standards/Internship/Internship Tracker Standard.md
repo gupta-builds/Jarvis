@@ -53,6 +53,7 @@ Paths in the Right and Wrong lines start at `10_Areas/Career/Internships/Tracker
 - **Never:** a wikilink folded across two lines, or the string `null` in a date or result key.
 - **Right:** `program: "[[10_Areas/Career/Internships/Programs/Serious/2027-Uber-SWE-CareerPrep]]"` (`2027 Software Engineering Internship - Uber.md`)
 - **Wrong:** `date_result: null` (`Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC.md`)
+- `Now` derives the title from the Tracker filename and the next scheduled follow-up date from `date_applied`, without additional keys.
 ### Timeline
 - **Write:** dated lines Noted, Researched, Created, Applied and Result, then one line for each follow-up sent. Follow-ups fall due 7 and 14 days after `date_applied`. Anant writes each one from Mimic and logs the date sent. Unset lines read a dash. Fill each when it happens.
 - **Length:** five lines plus one per follow-up.
@@ -75,7 +76,7 @@ Paths in the Right and Wrong lines start at `10_Areas/Career/Internships/Tracker
 | Rule | Why | Enforced by |
 |---|---|---|
 | The note is created in `Applied/` in the sitting the application is submitted, with `date_applied` set and the dossier moved to `Applied/` | A Tracker made earlier records an application that did not happen | Reader |
-| Moving to `Result/` sets `date_result`, `result` and `status: complete` together, and the Applying note's `stage` takes the same word | The folder and the dates must agree | Reader |
+| When a real outcome lands, set `date_result`, `result` and `status: complete` and move the Tracker to `Result/` in the same sitting. Only tiers 1 and 2 also set Applying `stage` | The folder and the dates must agree | Reader |
 | `status` follows the folder | The dashboard counts by folder and status | Lint, check 1 |
 | `program` and `contact` resolve when set | A dead link cuts the Tracker off from its research | Lint, check 3 |
 | When a Program note's `deadline_posted` or `deadline_real` changes, the Tracker's `deadline` takes it in the same sitting | Two deadlines for one application are a bug | Reader |

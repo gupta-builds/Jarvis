@@ -7,7 +7,7 @@ tags:
   - internship
   - system-design
 project_kind: plan
-next: "Clear the three remaining inbound-link locations, then retire the two approved notes."
+next: "Anant adds private ignore rules before archiving and owns the two remaining retirement references."
 related_progress: []
 notes:
   - "[[20_Progress/Internship/Building System/Weekend Build|Weekend Build]]"
@@ -19,6 +19,7 @@ notes:
 ## Current State
 ==The 2026-11-21 Dell audit found 30 broken link occurrences, 13 wrong claim groups, 13 stale claim groups, eight duplicated jobs or content groups and 11 notes with no evidenced reader.==
 ### Rewrite progress
+- Observed, 2026-11-21. P5 repaired the authorized links, renamed both Word examples with unchanged byte sizes, reconciled four kit notes, reviewed 69 non-record paths, and reran the Sunday trace. Both retirement targets still have live plain-text references outside the link-only authorization. The final handoff names the owners.
 - Observed, 2026-11-21. Families A to E were written as approved. Twenty touched notes passed individual lint, including the three added notes. Ten stubs were retired. Two approved retirements still wait for narrowly scoped inbound repairs. See Evidence for the Sunday trace, lint and recount.
 - Observed, 2026-11-21. Applying family complete. Applications-to-Create, Resume Guide and Cover Letter Guide each passed reference-resource lint 1/1. Apply Today passed dashboard lint 1/1. After the ledger’s links were repointed and Obsidian reported no inbound links to the ten stubs, all ten approved stubs were removed. Readback confirmed the four notes have no unresolved links. Now remains with the Tracker family.
 - Observed, 2026-11-21. Landed kit read and compared. Twelve decisions recorded. Both document folders still contain five stubs. The Obsidian index reports no inbound links to the ten stubs. All three guide drafts were checked in memory and failed reference-resource lint with 4:wrong-folder. That preflight preceded the landed kit fix and the family writes.
@@ -149,10 +150,11 @@ notes:
 - [x] 2026-11-21. Anant approved a read-only _Today review. No intake disposition is approved.
 - [x] 2026-11-21. Tier 2 proceeds without an optional letter. A required letter is individually tailored and approved.
 - [x] 2026-11-21. The kit owner extended reference-resource to 20_Progress/Internship. The three guides pass.
-- [ ] Authorize a link-only change to Ready to Screen and Prompt 3 Freshness Sweep Scratch before deleting Deadline Tracker.
-- [ ] Authorize the additional Contacts-to-Create wikilink line before deleting Networking Strategies.
+- [x] 2026-11-21. Anant authorized the Ready to Screen and scratch link changes, and both edits landed.
+- [x] 2026-11-21. Anant authorized both Contacts-to-Create wikilinks and stale next. All three changes landed.
 - [ ] Decide the proposed dispositions of the three _Today intake notes.
-- [ ] Decide whether to rename the two example letter Word files. Keep them as named until then.
+- [x] 2026-11-21. Anant approved both exact Word renames. Names and unchanged byte sizes were verified.
+- [x] 2026-11-21. Anant approved both deletions at zero live inbound references. The recount found blockers in the retirement table.
 ## Decisions
 ==Decisions below use the 2026-11-21 P1 reply where it supersedes the plan.==
 1. 2026-11-21, Anant’s batch 1. Applications-to-Create is the short guide to what each lane creates. The Pipeline and Application Document Preparation Workflows carry the steps.
@@ -175,6 +177,8 @@ notes:
 18. 2026-11-21, Anant D1–D2. Dossiers MOC keeps its path and folder map. Capacity goes to the Dashboard, with literal folder counts and a reference to Source of Truth for limits. Read the three intake notes and propose dispositions only.
 19. 2026-11-21, Anant E1–E2. Hub becomes a Dashboard pointer. README is the current folder map. Links & Interlinks is a link hub. The two Cheats hold search and resume research separately, and outreach wording stays in Mimic.
 20. 2026-11-21, Anant’s letter update. Main and examples live at the root of Cover Letters. Per-application letters land in Cover Letters/Altered. The two examples are bank seeds. Anant reviews any technical-example wording reused in a tailored letter. Hold the filenames until Anant decides on correction.
+21. 2026-11-21, Anant’s P5 decisions. Keep the retirement targets while live references remain. Change only the authorized links. First archive waits for the Sent ignore rule.
+22. 2026-11-21, Defaulted. Keep Now’s Result column as decided. Its Applied-only view currently shows it blank because real outcomes move to Result.
 ### Contracts
 - Observed decision. By hand today, the submission Tracker is Tracker/Each One/Applied/<dossier file name>.md, with date_applied, tier, starred, resume_variant, letter_mode and a related_notes link to the dossier. Program and contact links are blank when the respective notes do not exist. It carries no approval field.
 - Observed decision. Now reads Applied trackers and shows company, title, tier, date_applied, next follow-up date, result and the Tracker link. No Applying or dossier join.
@@ -184,35 +188,29 @@ notes:
 - Observed decision. The loop writer links the two fixed MOC paths. Keep the public log paths Run Log, Excluded - Losing The Debate and Excluded - Failed The Write Gate. The hyphen filename follow-up belongs to the code repo.
 - Observed decision. The future mark_applied and Archived mover record the cross-source duplicate key before moving the dossier. Archived writes removed_date and removed_reason: deadline lapsed for deadline moves and skips _Career Fair. Dry-run evidence must show deletion from the tracked role folder.
 ### Later
+- Deadline Tracker and Networking Strategies: wait for the live plain-text references in the P5 retirement recount to clear. The authorized link-only edits are complete.
+- Run Log and Excluded: the observed code emits the two em-dash names. C18 tracks the agreed hyphen filenames.
 - Before Sunday, Anant adds ignore rules for `Cover Letters/Altered/` and `Sent/`. Anant reports no tracked history for those paths. The letter export directory was empty, and `Sent/` returned ENOENT. No git check was run during this pass.
 - Internship Dashboard, monthly goals: find the current weekly Goals note before rendering. Weekly listing stopped at W46, whose goal refers to a previous lane. The Career streak section reads the observed daily `win_career` field.
 - Internship Dashboard, Apply Queue, Starred, Pending actions and Loop Status: add these sections when their live inputs exist. Today’s tasks and completed tasks use the daily note.
-- Contacts-to-Create, Networking Strategies link: clear both wiki occurrences and stale next once the additional line is authorized, then retire the empty note.
-- Deadline Tracker retirement: add Apply Today redirects with link-only authorization in Ready to Screen and the scratch report, then remove the old file.
-- Cover Letter Guide, Examples and export: ask before correcting the Word filenames. Until the bank exists remains until the separate fragment session.
 - Applications-to-Create, lane entries: add the local Apply Queue and mark_applied routes after their manual replacements are exercised and the tools exist.
 - Internship Dashboard, Apply Queue, Starred and Pending Actions: add the queue, pending list and any starred metadata views once their live inputs exist.
 - Internship Dashboard, Loop Status: add the local banner once last_run, last_success, paused and built_at are written. Token expiry stays a code follow-up.
 - Now, Submitted applications: render the Applied tracker view when live rows exist and the field sources can be verified. Follow-ups and pending actions get their own view when generated.
-- Deadline Tracker, current reference: revisit retirement after Deadline Map exists and after the Tracker batch says yes.
 - Cover Letter Guide, Tier 2: remove Until the bank exists and link the fragment bank once Anant has written and approved it in its own session.
 - Apply Today, In-flight applications: retire the manual dashboard after the generated Apply Queue is exercised.
 - Dossiers MOC, Folder map: link Applied and Archived when the folders exist and include numeric tier only after the writer emits it.
-- Run Log and both Excluded logs: verify code writers and emitted filenames in a separate repo pass. Preserve all machine-written lines.
 ### Kit friction
-- Observed. The plan’s Contracts table includes a Now join with tier 1 and tier 2 Applying notes. Its later operator decision and Anant’s direct ruling require Applied Trackers only. C28 uses the latter. Pipeline step 7 still says to add a Now row by hand.
-- Observed. Tracker Template has company, date_applied, tier and result. The contract calls for title and next follow-up date without corresponding keys. Now derives them from the docket filename and date_applied. No new Tracker fields were invented. The date is the next scheduled checkpoint, not an unsent-message detector.
-- Observed. Tracker Standard sets result in Result only, while Now reads Applied only by decision. Now has a Result column; closed Trackers leave the view. Timeline-based overdue detection is a Follow-ups contract.
-- Observed. Pipeline step 9 says to set an Applying outcome even though tier 3 has no Applying note. Document Preparation’s tier 3 language mentions confirmation at archive. The live guides put Anant’s approval before sending as directed.
-- Observed. The former Deadline Tracker aftercare said wait for Deadline Map. Anant’s newer B3 retires the manual sweep now after link repair. Keep the old file pending that repair only.
-- Observed. The guide classifier and both export paths now match the plan’s corrected Decision. The first-use parent for Sent is still absent and its ignore rule is pending.
-- Unknown. A raw-note count convention for startday and the live Dataview rendering have not been exercised. The JavaScript view passed the fixture trace.
-- Observed, resolved on 2026-11-21. Reference Standard now covers 20_Progress/Internship. Application Documents Standard and Application Document Preparation step 6 both point to Resumes/Altered. The three guide paths each pass reference-resource.
-- Observed. Note Type Registry has all seven named rows, and Frontmatter Standard includes resource, link-hub and research. Reference Standard’s reference-resource Spec matches 40_Resources and 10_Areas only. The Kit map puts Applications-to-Create in 20_Progress, and the two new guide locations face the same classifier restriction. The actual script classified all three drafts as reference-resource and returned 4:wrong-folder on each. No classification change was attempted.
-- Observed. Application Documents Standard, Allowed folders and Legacy Shapes, and Application Document Preparation step 6 prescribe flat resume output. The P1 reply explicitly chooses Resumes/Altered. Use the P1 path in the guide and leave the kit conflict for its owner.
-- Observed. The plan’s Contracts Now row mentions Applying notes. The newer Tracker copy decision and the plan’s Phase 2 reply use Applied Trackers only. Use the latter.
-- Observed. The plan’s whole-loop status row offers the log family for Main Log. The Registry’s log row lists AI log locations and excludes the Tracker location. Resolve Main Log’s job before assigning a family.
-- Observed. External PowerShell launch was denied and Node REPL cannot spawn an external Node child. The read-only in-process Vault Lint script can evaluate one path with protected trees excluded.
+- Resolved, Decisions 2 and 6. Pipeline step 7 reads the Applied Tracker record. The closed plan’s older join language is historical.
+- Resolved, Decision 2. Tracker Standard derives title from filename and the next scheduled date from date_applied without new keys.
+- Open, Anant. Defaulted to keep the Result column as decided. The column stays blank until the Applied-only and Result-only contracts change. C25 still owns actual overdue detection.
+- Resolved, Decisions 4-6, 14 and 20. Pipeline close and Document Preparation use tier-aware outcome records and pre-send approval. Applying Standard names the tier 2 hook only when a letter is sent.
+- Open, Anant. The dated manual sweep and empty networking note stay until live filename dependencies clear.
+- Resolved. Reference Standard already accepts the guide folder, and document paths point to Altered. Both Word filenames now match the Guide.
+- Resolved, Decision 4 and P5 approval. Document Preparation step 8 creates Sent and its packet only after the ignore rule. Open, Anant owns adding the rule.
+- Open, session updating the agents. The startday raw-note count convention is Unknown. Anant owns the live Now rendering check.
+- Resolved, Decision 16. Main Log uses the Dashboard family, leaving the legacy log family off the manual escalation view.
+- Resolved. Native Vault Lint ran with the authorized Node prefix. Four changed kit notes individually pass and the kit baseline is unchanged.
 ### Code Build Brief
 ==The code sessions must preserve the fields and paths the hand workflow reads.==
 Use the commands from `30_Order/System/vault-lint/`, with a vault-relative sample the implementation wrote. The four local generated notes use `type: generated`, `gen_kind: report` and `generator`, and live under `20_Progress/Internship/Applying/`. Lint checks note shape. For state transitions and external artifacts, run the extra assertion in the last column. End contract-changing code prompts by updating the record through Loop Contract Change.
@@ -226,19 +224,19 @@ Use the commands from `30_Order/System/vault-lint/`, with a vault-relative sampl
 | C5 deadline_posted or own_deadline | Exactly one; `own_deadline` is `date_found` plus 7 days | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
 | C6 matched_reason | One sentence naming the signal, never the bare word `matched` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
 | C7 status, review_state | `seed`, `unreviewed` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C8 tier | 1, 2 or 3 from `companies.yml`, replaces `preference_tier` | 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C9 resume_variant, letter_mode | `ai`, `fullstack`, `systems`, `other`; `tailored`, `bank`, `none` | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications; 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C8 tier | 1, 2 or 3 from `companies.yml`, replaces `preference_tier` | 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand; clone emits preference_tier only (writer.py L110) | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C9 resume_variant, letter_mode | `ai`, `fullstack`, `systems`, `other`; `tailored`, `bank`, `none` | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications; 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand; absent from clone writer | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
 | C10 starred | `true` or blank | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Starred (later) | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
 | C11 next, notes, tags | Blank; the Dossiers MOC link; `internship`, `auto-discovered`, `company/<slug>` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
 | C12 screened_date, screened_decision, screened_reason | `pass` or `reject` with the signal | 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C13 date_applied | Set at submission; the dossier moves to `Applied/` | 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C14 removed_date, removed_reason, status `archived` | On a move to `Viewed/` (closed posting) or `Archived/` (`removed_reason: deadline lapsed`) | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code for `Viewed/`, by hand for `Archived/` | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C15 Dossier folders | `10_Areas/Career/Internships/List/Dossiers/`: `1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, `Other`, `Viewed`, `_Career Fair`, `Applied`, `Archived` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code for the first four and `Viewed`; by hand for the rest | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C16 Counts | Counted by the limits as Source of Truth and the loop config say; `Viewed`, `Applied` and `Archived` are excluded | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Dossier capacity | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C13 date_applied | Set at submission; the dossier moves to `Applied/` | 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand; no mover found in inspected clone | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C14 removed_date, removed_reason, status `archived` | On a move to `Viewed/` (closed posting) or `Archived/` (`removed_reason: deadline lapsed`) | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | Viewed by code; Archived mover not found | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C15 Dossier folders | `10_Areas/Career/Internships/List/Dossiers/`: `1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, `Other`, `Viewed`, `_Career Fair`, `Applied`, `Archived` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand for new states; recursive scanner also opens _Today Markdown | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
+| C16 Counts | Counted by the limits as Source of Truth and the loop config say; `Viewed`, `Applied` and `Archived` are excluded | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Dossier capacity | by code for role folders only | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
 | C17 Fixed links the writer emits | `10_Areas/Career/Internships/List/Dossiers MOC` and `10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC` | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` |
-| C18 Log files under `List/` | `Run Log`, `Excluded - Losing The Debate`, `Excluded - Failed The Write Gate` (hyphen names) | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Loop Status (later) | by code | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` against a written log sample; assert the hyphen filename. |
+| C18 Log files under `List/` | `Run Log`, `Excluded - Losing The Debate`, `Excluded - Failed The Write Gate` (hyphen names) | 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md § Loop Status (later) | by code; Run Log uses agreed name, both Excluded emit em-dash names today | by hand is enough | `node vault-lint.js --path "<sample-note>" --family generated-output --list 1` against a written log sample; assert the hyphen filename. |
 | C19 Tracker | `10_Areas/Career/Internships/Tracker/Each One/{Current,Applied,Result}/<dossier file name>.md` with `status: active`, `date_applied`, `tier`, `starred`, `resume_variant`, `letter_mode`, `related_notes` linking the dossier, `program` and `contact` blank unless those notes exist. No approval field. | 20_Progress/Internship/Applying/Now.md § Submitted applications | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-tracker --list 1` |
-| C20 Packet | `20_Progress/Internship/Sent/<dossier file name>/` with the resume DOCX, the letter DOCX when sent, and `posting.md`. Private. | 20_Progress/Internship/Cover Letters/Cover Letter Guide.md § Examples and export | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-tracker --list 1` against the paired Tracker; inspect the frozen packet’s exact files. |
+| C20 Packet | `20_Progress/Internship/Sent/<dossier file name>/` with the resume DOCX, the letter DOCX when sent, and `posting.md`. Private. | 20_Progress/Internship/Cover Letters/Cover Letter Guide.md § Examples and export | by hand; first archive requires existing Sent ignore rule | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-tracker --list 1` against the paired Tracker; inspect the frozen packet’s exact files. |
 | C21 Applying `stage` | `Preparing`, `awaiting-approval`, `approved`, `Applied`, `Offer`, `Rejected`, `Withdrawn`. Tier 1 and tier 2 reach `approved` before anything is archived. | 20_Progress/Internship/Applying/Apply Today.md § In-flight applications; 20_Progress/Internship/Applying/Applications-to-Create.md § Ready to apply | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-applying --list 1`; review the stage transition fixture. |
 | C22 Duplicate key | Before `mark_applied` or the Archived mover moves a dossier out of the tracked tree, it writes the dossier's cross-source duplicate key into the loop repo's state | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` against the resulting dossier; check the duplicate key is persisted before any move. |
 | C23 Dry run | A dry run shows the move reaching the loop's checkout as a deletion from the role folder | 10_Areas/Career/Internships/List/Dossiers MOC.md § Map | by hand | by hand is enough | `node vault-lint.js --path "<sample-note>" --family internship-dossier --list 1` against the staged sample; verify dry-run deletion in the consumer checkout fixture. |
@@ -366,6 +364,264 @@ Observed. The ten original placeholders are itemized in Current State. Each was 
 | Original notes retained without rewrite | 30 | 3: Deadline Tracker, Networking Strategies and Run Log |
 Observed. Capacity folder listings returned 128, 38, 45, 58 and 11 Markdown dossiers. Programs’ five directory listings total 31 research records. The Applied Tracker folder was absent, so submitted Trackers counted zero. The rewrite views derive counts from files rather than storing these numbers.
 Observed. The startday skill names `Tracker/Tracker.md` for the researched-versus-applied count. No required raw Markdown field or count syntax was found. Retained the four Kanban lanes and plugin marker with a live count table in the Markdown source.
-Observed. Two out-of-scope notes still link Deadline Tracker: `10_Areas/Career/Internships/List/Ready to Screen.md` (frontmatter and body) and `20_Progress/Internship/Building System/Runs/Prompt 3 Freshness Sweep Scratch.md` (frontmatter). Main Log’s link was removed. The approved removal waits for link-only authorization in the two other files.
-Observed. `Contacts-to-Create.md` has a frontmatter wikilink and a separate body wikilink to Networking Strategies in addition to its stale next field. The approved one-line-plus-next scope cannot clear both links. The two files are still present. No unrelated edits were made.
-Observed. Generated Run Log retains its old syntax and machine lines. The existing Excluded log is untouched. The second promised Excluded filename is absent from the List listing. Code writer behavior is unknown.
+P4 observation, superseded by the P5 retirement recount. Two notes then linked Deadline Tracker: `10_Areas/Career/Internships/List/Ready to Screen.md` (frontmatter and body) and `20_Progress/Internship/Building System/Runs/Prompt 3 Freshness Sweep Scratch.md` (frontmatter). Main Log’s link was removed. The approved removal waits for link-only authorization in the two other files.
+P4 observation, superseded by the P5 retirement recount. `Contacts-to-Create.md` had a frontmatter wikilink and a separate body wikilink to Networking Strategies in addition to its stale next field. The approved one-line-plus-next scope cannot clear both links. The two files are still present. No unrelated edits were made.
+Observed. Generated Run Log retains its old syntax and machine lines. The existing Excluded log is untouched. The second promised Excluded filename is absent from the List listing. The P5 loop clone section records the actual filenames and scanner behavior.
+### P5 closeout
+==The rewrites and kit corrections passed. Two retirements are still blocked by live filename references outside the authorized link edits.==
+### Retirement recount
+| Target | Remaining live reference | Owner |
+| --- | --- | --- |
+| Deadline Tracker | Internship Notes Standard L98 and L100 still cite it by name and a literal path. They are live prose and an example citation, not editable wikilinks. Closed System Rebuild Plan L409 also names its old path as a hand-off. | Anant to authorize the Standard prose correction and confirm whether the dated plan citation may remain. |
+| Networking Strategies | Fall 2026 Plan L89 names the file as a live networking dependency. Contacts-to-Create L31 is only its own section heading after the links were cleared. | Anant owns the Fall plan. Keep the target until the active filename dependency goes. |
+| Historical mentions | Archived prompts, clippings, old weekly reviews, build/sync logs and the ledger’s historical evidence also name these files. | Recorded history remains unchanged. No live canvas, Base, Kanban or Dataview target appeared in the inspected matches. |
+### Example letter filename verification
+Observed before rename: `Cover Letter Guide.md` named both files. `20_Progress/Internship/Building System/Codex Prompts.md` L121 records the old names as prompt history. Only the live Guide text changed. Both Word files stayed unopened, and the case-sensitive folder listing matched the new names.
+#### Size proof
+| Old | New | Before bytes | After bytes |
+| --- | --- | --- | --- |
+| Techincal Cover Letter.docx | Technical Cover Letter.docx | 15163 | 15163 |
+| Non Technical Cover letter.docx | Non Technical Cover Letter.docx | 15098 | 15098 |
+### Kit friction closeout
+| Friction | State | Decision, evidence or owner |
+| --- | --- | --- |
+| Now submission projection | Resolved | Pipeline steps 7 and 9 implement Decisions 2, 4 and 6. Tracker Standard derives title and scheduled date from filename and date_applied, and separates outcome by tier. |
+| Tier 3 and missing bank | Resolved | Document Preparation steps 3-4, 7-8 and Done when apply Decisions 4-6, 14 and 20. Applying Standard’s tier 2 hook now applies when a letter is sent. |
+| First archive | Resolved in kit; Open in vault | Document Preparation step 8 gates the first Sent creation on its ignore line. Anant owns the ignore line. |
+| Result in Now | Open; Defaulted | Anant. Keep the Result column as decided. Applied-only filtering and Result-only writes mean it is blank under the current contract. |
+| Guide classification and export paths | Resolved | Reference classifier and document export location already landed. Renamed example names now match the Guide. |
+| Run fixture, local generation and startday | Open | Codebase sessions C19/C24-C28 and session updating the agents. Mocked Now passed. Real Dataview and raw-note read are unknown. |
+| Retirement references and link-only legacy lint | Open | Anant owns scope for outstanding references and the three inherited lint failures. Four kit notes pass. |
+| Privacy and active count scope | Open | Anant owns ignore rules C30. Codebase C14-C16 must preserve the vault count policy and keep _Today out of accepted dossiers. |
+| System vocab and legacy document entries | Open | Claude resume pass owns Main Resume conversion. The current legacy record shapes are catalogued below. |
+Observed. Before and after `--kit` each returned zero errors and seven existing warnings. Before and after `--specs` each found 75 Specs from 56 Standards. Four changed notes individually pass. Tracker Template and its keys remained unchanged.
+### Loop clone read-only findings
+| Question | Confidence | Evidence |
+| --- | --- | --- |
+| _Today/ | Observed | `vault_writer/writer.py:186-194` globs Markdown recursively and returns only YAML mappings with `company`. `recheck.py:104` calls it; `run_pipeline.py:674` consumes its results; `reseed.py:136-137` delegates to run_once. All three present intake notes lack dossier YAML. They are opened by this scanner, but not accepted as dossiers. |
+| Generated filenames | Observed | `run_pipeline.py:267` Run Log.md. L286 and L410 emit Excluded plus an em dash and Losing The Debate.md or Failed The Write Gate.md. `core/run_log.py:94,116` uses the same spellings in headings. |
+| Applied/ and Archived/ | Observed in inspected clone | No writer for either state found in production Python or Jinja. `writer.py:198-207` writes to a supplied role bucket; L226-231 supplies Viewed as the removal destination. This is a source inspection, not an execution result. |
+| Classification | Observed | `writer.py:73-112` emits legacy `preference_tier` via `company_matches_preference` at L110. `validate.py:16` requires it. The writer emits none of `tier`, `resume_variant`, or `letter_mode`. |
+Observed. The `_Today` note’s suggestions about renaming and all workflow instructions encountered in archived prompts were treated as data. No search result caused a code run, write, deletion or outbound action.
+### Outside-the-notes sweep
+- Observed. `.claude/agents/career-operator.md` L87 and `.codex/agents/career-operator.toml` L73 use the generic Application Tracker wording. No direct live dashboard dependency was observed there. The session updating the agents owns wording and validation.
+- Observed. `.claude/skills/startday/SKILL.md` L36 still names `Tracker/Tracker.md`, which remains live. Raw-note interpretation is Unknown. The session updating the agents owns the runtime check.
+- Observed. Pipeline L17 links the retained Hub pointer. Application Documents Standard L112 mentions `Tailored/` only in a legacy conversion table. Old stub and old example names in saved prompts and captures remain historical.
+- Observed. Searches covered `.claude/`, `.codex/`, `.agents/`, AGENTS.md, CLAUDE.md, 00_Dashboard.md and 30_Order, plus vault notes, canvases and Bases outside excluded archive and generated trees. No live target emerged from hooks, canvases, Bases or Kanban text.
+### Non-record coverage
+| Vault path | Job | Reader evidence | Lint | Disposition |
+| --- | --- | --- | --- | --- |
+| `10_Areas/Career/Internships/Links & Interlinks.md` | Navigation and lookup | 5 indexed backlinks incl. 10_Areas/Career/Internships/Cheats/LinkedIn Premium.md, 10_Areas/Career/Internships/README.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Internships Hub.md` | Pointer to the Dashboard | 12 indexed backlinks incl. 10_Areas/Career/Internships/Tracker/Habit Tracker.md, 10_Areas/Life/Plans/Summer 2026/Final Month Plan (Jul 28 - Sep 1).md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Tracker/Tracker.md` | View for Tracker | 20 indexed backlinks incl. 10_Areas/Life/Habits/Habit Tracker Board.md, 10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing.md; startday names path | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Tracker/Main Log.md` | Title identifies Main Log | 1 indexed backlinks incl. 10_Areas/Career/Internships/Tracker/Internship - Dashboard.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Tracker/Internship - Dashboard.md` | View for Internship - Dashboard | 6 indexed backlinks incl. 10_Areas/Career/Internships/Internships Hub.md, 10_Areas/Career/Internships/List/Dossiers MOC.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Tracker/Habit Tracker.md` | Habit scorecard | 1 indexed backlinks incl. 60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis/07-25 Design internship tracking and research loop system.md | dashboard: 1:missing-key:updated; 1:missing-key:dashboard_kind; 3:dead-body-links:1; 3:dead-dataview-from:2 | Out of scope, Anant |
+| `20_Progress/Internship/Resumes/Resume Guide.md` | Guide for Resume Guide | 2 indexed backlinks incl. 10_Areas/Career/Internships/Cheats/Resume Tailoring, LinkedIn Search & Outreach Discovery.md, 20_Progress/Internship/Applying/Applications-to-Create.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Contacts/Outreach Discovery & Automation Status.md` | Title identifies Outreach Discovery | 4 indexed backlinks incl. 10_Areas/Career/Internships/Contacts/Contacts MOC.md, 40_Resources/CS/AI/Gen AI Meeting.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Contacts/Networking Strategies.md` | Empty outreach placeholder | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 1:no-frontmatter | Needs a yes, Anant for the outstanding inbound repair |
+| `20_Progress/Internship/Resumes/Main Resume.md` | Canonical resume source awaiting output schema | 3 indexed backlinks incl. 20_Progress/Internship/Building System/V0/Resume Alteration.md, 20_Progress/Internship/Building System/Weekend Build.md | project: 6:legacy-shape; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 5:extra-blank-lines:11 | Needs a yes, Claude resume pass |
+| `10_Areas/Career/Internships/Contacts/Mimic.md` | Outreach draft examples | 11 indexed backlinks incl. 10_Areas/Career/Internships/Cheats/LinkedIn Premium.md, 10_Areas/Career/Internships/Contacts/Contacts MOC.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Tracker/Each One/Trackings-to-Create.md` | Legacy Tracker creation instructions | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 3:dead-frontmatter-links:2; 3:dead-body-links:3 | Out of scope, Anant |
+| `20_Progress/Internship/Preperation/System Design/System Design Practice.md` | Title identifies System Design Practice | 2 indexed backlinks incl. 60_Claude/20_Distilled_Notes/Sources - Plan/00_Execution.md, 60_Claude/20_Distilled_Notes/Sources - Plan/_Notes Created From Ingestion.md | project: 6:legacy-shape; 1:missing-key:project_kind; 1:hash-in-tags | Out of scope, Anant |
+| `10_Areas/Career/Internships/Tracker/Deadline Tracker.md` | Obsolete manually maintained deadline view | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 1:no-frontmatter; 3:dead-body-links:12; 5:extra-blank-lines:22 | Needs a yes, Anant for the outstanding inbound repair |
+| `10_Areas/Career/Internships/Tracker/Application Tracker.md` | View for Application Tracker | 1 indexed backlinks incl. 10_Areas/Career/Internships/Tracker/Each One/Trackings-to-Create.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/README.md` | Navigation and lookup | 3 indexed backlinks incl. 10_Areas/Career/Internships/Internships Hub.md, 10_Areas/Career/Internships/Links & Interlinks.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Career Fair '25 & '26.md` | Filename identifies Career Fair '25 & '26 | 1 indexed backlinks incl. 20_Progress/Internship/Building System/Weekend Build.md | career-fair: 1:kind-off-vocab:input_kind=presentation; 1:missing-key:updated | Out of scope, Anant |
+| `20_Progress/Internship/Preperation/Interviews/Interview Questions.md` | Title identifies Questions | 7 indexed backlinks incl. 10_Areas/Summer Grind.md, 20_Progress/Internship/Preperation/Communication/Elevator pitch.md | (unmapped): 6:unmapped; 1:kind-off-vocab:input_kind=article | Out of scope, Anant |
+| `20_Progress/Internship/Preperation/Interviews/ABB Interview Prep.md` | Title identifies AI Data Analytics | 2 indexed backlinks incl. 30_Order/Standards/Internship/Interview Prep Standard.md, 60_Claude/44_Indexes/Field OS/Career Depth Ladder.md | technical-concept: 1:empty-key:created; 1:missing-key:updated; 1:missing-key:tags; 1:missing-key:track; 1:missing-key:used_in; 1:missing-key:evidence; 1:bad-date:created; 2:missing-heading:One-Line Answer; 2:missing-heading:Mechanism; 2:missing-heading:Contrast / What It Is Not; 2:missing-heading:Failure Modes / Misconceptions; 2:missing-heading:Evidence From This Vault; 5:extra-blank-lines:3 | Out of scope, Anant |
+| `10_Areas/Career/Internships/Contacts/Each One/Contacts-to-Create.md` | Legacy contact-promotion instructions | 1 indexed backlinks incl. 10_Areas/Career/Internships/Tracker/Each One/Trackings-to-Create.md | (unmapped): 6:unmapped | Out of scope, Anant |
+| `10_Areas/Career/Internships/Contacts/Contacts MOC.md` | Navigation and lookup | 1 indexed backlinks incl. 10_Areas/Career/Internships/README.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Cheats/Resume Tailoring, LinkedIn Search & Outreach Discovery.md` | Title identifies Resume Tailoring Research | 6 indexed backlinks incl. 10_Areas/Career/Hackathon/Hackathons.md, 20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Cheats/LinkedIn Premium.md` | Title identifies LinkedIn Search Research | 6 indexed backlinks incl. 10_Areas/Career/Internships/Links & Interlinks.md, 20_Progress/Internship/Preperation/Interviews/ABB Interview Prep.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Preperation/Communication/Elevator pitch.md` | Title identifies Pitch | 8 indexed backlinks incl. 10_Areas/Summer Grind.md, 20_Progress/Internship/Preperation/Interviews/Interview Questions.md | (unmapped): 6:unmapped; 1:type-off-vocab:brainstorm | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Run Log.md` | Generated run roll-ups | 0 indexed backlinks; active reader unknown; loop writes, reader unknown | dashboard: 1:missing-key:updated; 1:missing-key:dashboard_kind | Out of scope, codebase session |
+| `10_Areas/Career/Internships/List/Resources.md` | Title identifies Resources - Live Usage Tracker | 3 indexed backlinks incl. 10_Areas/Career/Internships/Tracker/Habit Tracker.md, 20_Progress/Internship/Building System/Research Loop - Resources.md | (unmapped): 6:unmapped | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Ready to Screen.md` | Historical freshness shortlist | 4 indexed backlinks incl. 20_Progress/Internship/Building System/Runs/Claude Code Prompts - Archive.md, 20_Progress/Internship/Building System/Runs/Codex Prompts - Archive.md | moc: 3:dead-frontmatter-links:1; 3:dead-body-links:1 | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Excluded - Losing The Debate.md` | Generated rank-loss log | 0 indexed backlinks; active reader unknown; loop writes, reader unknown | dashboard: 1:missing-key:updated; 1:missing-key:dashboard_kind | Out of scope, codebase session |
+| `10_Areas/Career/Internships/List/Dossiers MOC.md` | Dossier folder map | 128 indexed backlinks incl. 10_Areas/Career/Internships/Links & Interlinks.md, 10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AI Engineer Co-op - Audax Group.md; writer links | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Programs/Programs-to-Create.md` | Guide for Programs to Create | 4 indexed backlinks incl. 10_Areas/Career/Internships/Programs/Programs MOC.md, 20_Progress/Mentorship Program/Meetings/Action/2026-07-14 Mentor Meeting - Actions.md | Pass in folder run (absent from complete failure listing) | Done |
+| `10_Areas/Career/Internships/Programs/Programs MOC.md` | Navigation and lookup | 1 indexed backlinks incl. 10_Areas/Career/Internships/README.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Applying/Now.md` | Applied-only submission view | 7 indexed backlinks incl. 10_Areas/Career/Internships/List/Dossiers/Viewed/What was Viewed.md, 10_Areas/Career/Internships/README.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Applying/Apply Today.md` | Hand-filled work queue | 6 indexed backlinks incl. 10_Areas/Career/Internships/List/Ready to Screen.md, 10_Areas/Career/Internships/README.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Applying/Applications-to-Create.md` | Guide for Applying | 6 indexed backlinks incl. 10_Areas/Career/Internships/Programs/Programs MOC.md, 20_Progress/Internship/Building System/System - Build Log.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Applying/AI Applying.md` | Archived application directory | 0 indexed backlinks; active reader unknown | project: 6:legacy-shape; 1:missing-key:project_kind; 1:missing-key:next; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 3:dead-body-links:1 | Out of scope, Anant |
+| `20_Progress/Internship/Applying/2026-HRT-Sophomore.md` | Historical withdrawn application | 1 indexed backlinks incl. 60_Claude/05_Clippings/AI Conversations/Dell/Windows/Claude/Jarvis/07-16 Build comprehensive AI-powered internship application system.md | internship-applying: 6:legacy-shape; 1:status-off-vocab:Withdrawn; 1:missing-key:project_kind; 1:missing-key:stage; 1:missing-key:created; 1:missing-key:updated; 1:missing-key:tracker; 1:missing-key:job_url; 2:missing-heading:Interlinks; 2:missing-heading:Documents; 3:dead-frontmatter-links:1; 3:dead-body-links:2 | Out of scope, Anant |
+| `20_Progress/Internship/Companies giving OPT & CPT.md` | Title identifies OPT/CPT Eligibility Registry | 12 indexed backlinks incl. 10_Areas/Career/Useful Links.md, 10_Areas/Career/VISAs & Work Auth/2028 Graduation Timeline.md | reference-resource: 1:status-off-vocab:active; 1:missing-key:reference_kind; 1:missing-key:area; 1:missing-key:notes | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Dossiers/_Today/No Deadline.md` | Retired manual intake queue | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 1:no-frontmatter; 5:extra-blank-lines:1 | Needs a yes, Anant |
+| `10_Areas/Career/Internships/List/Dossiers/_Today/New Internships Listings.md` | Dated manual screening log | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 1:no-frontmatter; 5:extra-blank-lines:18 | Needs a yes, Anant |
+| `10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md` | Unstructured job-link capture | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 1:no-frontmatter | Needs a yes, Anant |
+| `20_Progress/Internship/Posts/README.md` | Navigation and lookup | 0 indexed backlinks; active reader unknown | project: 6:legacy-shape; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 3:dead-body-links:1 | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create.md` | Dossier intake instructions | 4 indexed backlinks incl. 10_Areas/Career/Internships/List/Resources.md, 60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/internship-research-loop/07-25 Set up Claude Code tooling for internship research loop.md | Pass in folder run (absent from complete failure listing) | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/2026-07 Found.md` | Dated captured roles | 0 indexed backlinks; active reader unknown | (unmapped): 6:unmapped; 1:kind-off-vocab:input_kind=listing | Out of scope, Anant |
+| `20_Progress/Internship/Career Fair/Transcript - Comp Sci.md` | Career fair source transcript | 0 indexed backlinks; active reader unknown | career-fair: 1:empty-key:created; 1:missing-key:updated; 1:bad-date:created; 5:extra-blank-lines:4 | Out of scope, Anant |
+| `20_Progress/Internship/Career Fair/Transcript - OPT.md` | Career fair source transcript | 0 indexed backlinks; active reader unknown | career-fair: 1:empty-key:created; 1:missing-key:updated; 1:bad-date:created; 5:extra-blank-lines:1 | Out of scope, Anant |
+| `20_Progress/Internship/Career Fair/Transcript - Sponsoring.md` | Career fair source transcript | 0 indexed backlinks; active reader unknown | career-fair: 1:empty-key:created; 1:missing-key:updated; 1:bad-date:created; 5:extra-blank-lines:4 | Out of scope, Anant |
+| `20_Progress/Internship/Building System/Weekend Build.md` | Project planning or build record | 9 indexed backlinks incl. 20_Progress/Internship/Building System/Claude Code Prompts.md, 20_Progress/Internship/Building System/Codex Prompts.md | Pass in folder run (absent from complete failure listing) | Out of scope, codebase session |
+| `20_Progress/Internship/Cover Letters/Cover Letter Guide.md` | Guide for Cover Letter Guide | 1 indexed backlinks incl. 20_Progress/Internship/Applying/Applications-to-Create.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Building System/Research Loop - Resources.md` | Reference on Research Loop - Resources | 11 indexed backlinks incl. 10_Areas/Career/Internships/Links & Interlinks.md, 10_Areas/Career/Internships/List/Resources.md | project: 6:legacy-shape; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/Research Loop - Improvement Plan.md` | Project planning or build record | 19 indexed backlinks incl. 10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create.md, 20_Progress/Internship/Building System/Runs/Claude Code Prompts - Archive.md | project-plan: 6:legacy-shape; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Sequence; 2:missing-heading:Open Questions; 5:extra-blank-lines:27 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/Codex Prompts.md` | Prompt record or handoff | 9 indexed backlinks incl. 10_Areas/Career/Internships/List/Ready to Screen.md, 20_Progress/Internship/Building System/Claude Code Prompts.md | Pass in folder run (absent from complete failure listing) | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/Claude Code Prompts.md` | Prompt record or handoff | 17 indexed backlinks incl. 20_Progress/Internship/Building System/Codex Prompts.md, 20_Progress/Internship/Building System/Runs/Claude Code Prompts - Archive.md | Pass in folder run (absent from complete failure listing) | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/System Rebuild Plan.md` | Project planning or build record | 4 indexed backlinks incl. 10_Areas/Career/Internships/Tracker/Main Log.md, 60_Claude/07_AI_Information/Session Logs/log.md | Pass in folder run (absent from complete failure listing) | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Resume Alteration.md` | Title identifies Resume Alteration | 7 indexed backlinks incl. 20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md, 20_Progress/Internship/Building System/V0/Cover Letter Alteration.md | (unmapped): 6:unmapped; 3:dead-body-links:1; 5:extra-blank-lines:9 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Resume & Cover Letter - ATS Research Log.md` | Reference on Resume & Cover Letter - ATS Research Log | 5 indexed backlinks incl. 20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md, 20_Progress/Internship/Building System/V0/HackerRank Hiring-Agent Scoring Rubric.md | (unmapped): 6:unmapped; 5:extra-blank-lines:29 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Outside Resources.md` | Title identifies Outside Resources | 1 indexed backlinks incl. 20_Progress/Internship/Building System/V0/Claude System Design.md | (unmapped): 6:unmapped; 1:kind-off-vocab:project_kind=reference | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Instruction Notes Rewrite Plan.md` | Project planning or build record | 2 indexed backlinks incl. 20_Progress/Internship/Building System/Claude Code Prompts.md, 20_Progress/Internship/Building System/V0/System Rebuild Plan.md | Pass in folder run (absent from complete failure listing) | Done |
+| `20_Progress/Internship/Building System/V0/Humanizer.md` | Title identifies Humanizer | 8 indexed backlinks incl. 20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md, 20_Progress/Internship/Building System/V0/Cover Letter Alteration.md | (unmapped): 6:unmapped; 5:extra-blank-lines:4 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/HackerRank Hiring-Agent Scoring Rubric.md` | Reference on HackerRank Hiring-Agent Scoring Rubric | 4 indexed backlinks incl. 20_Progress/Internship/Building System/V0/Resume & Cover Letter - ATS Research Log.md, 20_Progress/Internship/Building System/Weekend Build.md | (unmapped): 6:unmapped; 5:extra-blank-lines:12 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Dossier Corrections.md` | Title identifies Dossier Corrections - audit from the 2026-08-28 deadline sweep | 11 indexed backlinks incl. 20_Progress/Internship/Building System/Research Loop - Improvement Plan.md, 20_Progress/Internship/Building System/Runs/Claude Code Prompts - Archive.md | (unmapped): 6:unmapped; 1:no-frontmatter; 3:dead-body-links:21; 5:extra-blank-lines:30 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Discovery Step Postmortem \u2014 Write-Starvation Incident (2026-08-26).md` | Title identifies Discovery Step Postmortem - Write-Starvation Incident (2026-08-26) | 6 indexed backlinks incl. 20_Progress/Internship/Building System/Research Loop - Improvement Plan.md, 20_Progress/Internship/Building System/Runs/Prompt 1 Reboot - Building System Refresh Session (2026-09-04).md | project: 6:legacy-shape; 1:missing-key:updated; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 5:extra-blank-lines:24 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Cover Letter Alteration.md` | Title identifies Cover Letter Alteration | 6 indexed backlinks incl. 20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md, 20_Progress/Internship/Building System/V0/Humanizer.md | (unmapped): 6:unmapped; 3:dead-frontmatter-links:1; 3:dead-body-links:1; 5:extra-blank-lines:7 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Claude System Implementation Plan.md` | Project planning or build record | 1 indexed backlinks incl. 20_Progress/Internship/Building System/V0/Claude System Design.md | Pass in folder run (absent from complete failure listing) | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/V0/Claude System Design.md` | Title identifies Claude System Design | 1 indexed backlinks incl. 20_Progress/Internship/Building System/V0/Claude System Implementation Plan.md | Pass in folder run (absent from complete failure listing) | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/System - Build Log.md` | Project planning or build record | 25 indexed backlinks incl. 10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create.md, 10_Areas/Career/Internships/Tracker/Habit Tracker.md | project: 6:legacy-shape; 1:missing-key:project_kind; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 3:dead-frontmatter-links:1; 3:dead-body-links:2; 5:extra-blank-lines:4 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/Source of Truth.md` | Title identifies Internship Research Loop - Source of Truth | 39 indexed backlinks incl. 10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create.md, 10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC.md | project-spec: 6:legacy-shape; 1:status-off-vocab:tree; 1:missing-key:project_kind; 2:missing-heading:What This Is; 2:missing-heading:Current State; 2:missing-heading:Non-Goals; 3:dead-frontmatter-links:1; 5:extra-blank-lines:3 | Out of scope, codebase session |
+| `20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md` | Guide for Resume & Cover Letter - System Map | 3 indexed backlinks incl. 20_Progress/Internship/Building System/Resume & Cover Letter - System Map.md, 20_Progress/Internship/Building System/Runs/Research Loop - Implementation Plan.md | (unmapped): 6:unmapped; 3:dead-body-links:1; 5:extra-blank-lines:9 | Out of scope, codebase session |
+| `10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC.md` | Map of removed dossiers | 79 indexed backlinks incl. 10_Areas/Career/Internships/List/Dossiers MOC.md, 10_Areas/Career/Internships/List/Dossiers/Viewed/2027 North America Software Engineering Internship - The Trade Desk.md; writer links | moc: 3:dead-body-links:4 | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Dossiers/Viewed/What was Viewed.md` | Viewed case notes | 4 indexed backlinks incl. 10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC.md, 20_Progress/Internship/Building System/System - Build Log.md | (unmapped): 6:unmapped; 5:extra-blank-lines:3 | Out of scope, Anant |
+| `10_Areas/Career/Internships/List/Excluded - Failed The Write Gate.md` | Planned hyphen path; absent from vault listing | No vault reader observed; emitter uses different punctuation | Absent; no lint sample | Out of scope, codebase session C18 |
+### P5 verification and exact scope limits
+- Observed. Heading and family checks: nine references use the reference schema and flexible sections, four indexes contain Purpose and Map, and seven dashboards use the dashboard kind and a view per question. All twenty have updated 2026-11-21 and no em dash or unresolved wikilink. The four amended kit notes also have the correct date and no em dash. In literal filenames, `\u2014` denotes the Unicode punctuation in the actual path.
+- Observed. Re-read all 69 non-record files and active Sunday Templates. The 20 rewritten or added notes have valid live links; the four amended kit notes use the approved date and pass their families. Reviewed procedure and Standard headings against the affected stages, Tracker result and archive contracts.
+- Observed. `Ready to Screen.md` still fails `3:dead-frontmatter-links:1; 3:dead-body-links:1` for the old Deadline and Intake Triage Standard. `Contacts-to-Create.md` still fails `6:unmapped`. The scratch note still fails `6:legacy-shape; 1:missing-key:project_kind; 1:empty-key:next; 2:missing-heading:Goal; 2:missing-heading:Current State; 2:missing-heading:Next Action; 2:missing-heading:Open Questions; 2:missing-heading:Log; 5:extra-blank-lines:2`. A second content fix would exceed link-only authorization. Dates and old punctuation stayed where the user froze the text.
+- Observed. Baseline 30 broken links; 12 after P4 and P5, all on the retained Deadline Tracker. None of the original 13 wrong-claim groups reappeared in the rewritten notes. The ten stubs are gone. The two approved target files remain pending.
+### Sunday trace rerun
+| Step | Tier 1 | Tier 3 |
+| --- | --- | --- |
+| 1 Applications-to-Create | Pass, workflow and guide links resolve | Pass, fast lane and Tracker route resolve |
+| 2 Apply Today | Pass, ten columns include posting URL, stated deadline and Program | Pass, blank Program and manual status supported |
+| 3 Program and Contact | Pass, destination folders and both Templates exist | Pass, intentionally skipped |
+| 4 Applying | Pass, destination and Preparing template exist | Pass, intentionally skipped |
+| 5 Resume export | Pass, Resume Guide and Resumes/Altered exist | Pass, same path and Anant approves |
+| 6 Letter export | Pass, guide shows renamed examples and existing Cover Letters/Altered | Pass, no letter for this fixture; required letter would need approval |
+| 7 Approval | Pass, waiting and approved stages checked in current workflow | Pass, Anant approves before send, no Applying stage |
+| 8 Tracker in Applied | Pass, Template keys and live parent verified; first use creates Applied | Pass, same Template with blank Program and Contact |
+| 9 Now row | Pass on mock, expected title/tier and Nov 29 checkpoint | Pass on mock, Current and Result excluded |
+| 10 Packet | Fail, Anant owns the absent Sent ignore rule and first-use parent | Fail, same blocker |
+Observed. No applications, documents or records were created during the trace. Live Dataview in Obsidian stays Unknown until a real Applied Tracker is present.
+### Folder lint rerun
+| Folder | Result |
+| --- | --- |
+| 10_Areas/Career/Internships/Programs/ | FIT: 2/33 = 6.1% |
+| 10_Areas/Career/Internships/Cheats/ | FIT: 2/2 = 100.0% |
+| 10_Areas/Career/Internships/Contacts/ | FIT: 3/35 = 8.6% |
+| 10_Areas/Career/Internships/Tracker/ | FIT: 4/38 = 10.5% |
+| 20_Progress/Internship/Applying/ | FIT: 3/5 = 60.0% |
+| 20_Progress/Internship/Cover Letters/ | FIT: 1/1 = 100.0% |
+| 20_Progress/Internship/Resumes/ | FIT: 1/2 = 50.0% |
+| 20_Progress/Internship/Building System/Runs/ | FIT: 0/9 = 0.0% |
+| 10_Areas/Career/Internships/List/ | FIT: 1/366 = 0.3% |
+| 10_Areas/Career/Internships/ | FIT: 15/477 = 3.1% |
+| 20_Progress/Internship/ | FIT: 12/47 = 25.5% |
+| 30_Order/Standards/Internship/ | 8/8 |
+| 30_Order/Workflows/Internship/ | 4/4 |
+| 10_Areas/Career/Internships/Contacts/Each One/ | 0/31 |
+| 20_Progress/Internship/Building System/V0/ | 4/12 |
+### Requirements trace
+| Requirement | State | Evidence or ownership |
+| --- | --- | --- |
+| P1 step 1 | Met | Vault root listed; writing and plan standards read |
+| P1 step 2 | Met | Weekend Build found one level above V0; source and registry read |
+| P1 step 3 | Met | Original system readings and conflicts recorded under Current State |
+| P1 step 4 | Met | 30 original notes read, including the Deadline Tracker chunks |
+| P1 step 5 | Met | 457 links initially checked and folder metadata listed |
+| P1 step 6 | Met | Per-note defects and claim groups listed |
+| P1 step 7 | Met | Eight overlap groups and missing homes recorded |
+| P1 step 8 | Met | Plan ledger saved, lint passed |
+| P1 step 9 | Met | Initial report and five questions sent |
+| P1 step 10 | Met | Batch choices recorded in Decisions 1-20 |
+| P1 step 11 | Met | No rewrites performed before write authorization |
+| P1 hard rule 1 | Met | Only the ledger created during P1 |
+| P1 hard rule 2 | Met | Protected paths preserved during P1 |
+| P1 hard rule 3 | Met | Dossier bodies were excluded from P1 data audit |
+| P1 hard rule 4 | Met | Ledger approved as project-plan |
+| P1 hard rule 5 | Met | Evidence labels used |
+| P1 hard rule 6 | Met | Decisions were held for the interview |
+| P1 hard rule 7 | Met | Reversible format assumptions recorded |
+| P1 hard rule 8 | Met | P1 ended with interview and no rewrites |
+| P1 do-not 1 | Met | Claims checked against vault rather than assumed |
+| P1 do-not 2 | Met | Standards treated as provisional during audit |
+| P1 do-not 3 | Met | First interview batch had five questions |
+| P1 do-not 4 | Met | Run Log and unrelated paths were preserved |
+| P2 step 1 | Met | Decisions and registry verified |
+| P2 step 2 | Met | Families A-E recorded in disposition table |
+| P2 step 3 | Met | First family plus approved grouped batch answered |
+| P2 step 4 | Met | Conditional version checks and native lint in this ledger |
+| P2 step 5 | Not met | Three inherited failures in link-only notes are still present. Anant owns broader cleanup. |
+| P2 step 6 | Not met | Final retirements blocked by the live plain-text references in the retirement table. Anant owns both. |
+| P2 step 7 | Met | Contracts, Later and Kit friction recorded |
+| P2 step 8 | Met | Post-rewrite folder and link recount recorded |
+| P2 hard rule 1 | Met | Vault and repo writes limited to user-approved paths; no git run |
+| P2 hard rule 2 | Met | Observed and Unknown labels separate evidence |
+| P2 hard rule 3 | Met | Family decisions awaited and logged |
+| P2 hard rule 4 | Met | Unapproved actions are docketed with owners |
+| P2 hard rule 5 | Not met | The three link-only files retain legacy dates, formatting or family failures by the narrower instruction. Anant owns optional conformance. |
+| P2 done 1 | Met | Every original note has a disposition |
+| P2 done 2 | Met | Both guides exist and ten stubs are gone |
+| P2 done 3 | Met | Every full rewrite has an individual pass |
+| P2 done 4 | Not met | 12 links survive on the retained Deadline Tracker. Anant owns the live-reference blocker. |
+| P2 done 5 | Met | No unbuilt feature is presented as automated |
+| P2 done 6 | Met | Contracts, Later and friction are populated |
+| P2 do-not 1 | Met | No quota/limit values copied into operating notes |
+| P2 do-not 2 | Met | Unbuilt tools kept in Later |
+| P2 do-not 3 | Met | Families written after approvals |
+| P3 instruction 1 | Met | First family written; ten stubs retired |
+| P3 instruction 2 | Met | Combined B-E confirmation batch answered |
+| P3 instruction 3 | Met | B-E rewritten sequentially with checks |
+| P3 instruction 4 | Met | Folder lint, before/after and open questions recorded |
+| P4 step 1 | Not met | Both old-note removals still have references beyond the authorization. Anant owns these. |
+| P4 step 2 | Met | Ten-column Apply Today; four first-family notes pass |
+| P4 step 3 | Met | Sunday trace rerun with two fixture rows |
+| P4 step 4 | Met | 33-row Code Build Brief and dependency table present |
+| P4 step 5 | Met | Counts and final folder runs recorded |
+| P5 item 1 | Met | P1-P4 trace appears here |
+| P5 item 2 | Met | Four kit notes updated; before/after checks unchanged |
+| P5 item 3 | Met | Non-record inventory and system sweep recorded |
+| P5 item 4 | Met | Four repo questions answered read-only |
+| P5 item 5 | Not met | Zero target and three legacy passes remain impossible within current retirement and link-only permissions. Anant owns the listed blockers. |
+| P5 item 6 | Met | Result stays as decided, with Defaulted tag |
+| P5 item 7 | Met | Decisions ticked; blockers and handoff owners recorded |
+### Handoff
+| Item | Owner | Sunday | First step |
+| --- | --- | --- | --- |
+| Private exports and packet | Anant, C30 | Yes, before any private export or archive | Add the two literal ignore lines below; the first archive may then create Sent. |
+| Deadline Tracker retirement | Anant | No | Authorize repair of Internship Notes Standard L98/100 and settle the closed plan's literal hand-off. Rescan and remove only at zero live inbound references. |
+| Networking Strategies retirement | Anant | No | Clear the active filename at Fall 2026 Plan L89, then rescan and remove the empty note. |
+| Live Now and weekly goals | Anant, then codebase C28 if needed | Yes for first live row | Create a real Applied Tracker after submission and open Now in Obsidian. Link the current weekly Goals note when it exists. |
+| _Today dispositions | Anant | No | Default recommendation only. Move the two raw captures out of Dossiers when approved, and approve removal of the retired No Deadline note separately. |
+| Main Resume.md conversion | Claude resume pass | No | Start from the resume output schema. Use output, output_kind resume, and actual source_concepts. Preserve approved evidence. |
+| Cover-letter bank | Cover-letter bank session and Anant | No for Sunday; tier 2 manual fallback works | Allow about 40 minutes with Anant. Start with the two renamed Word examples and approve fragments individually. |
+| startday raw-note count; legacy application guidance | Session updating the agents | No | Test whether startday reads rendered Dataview or Markdown. Review the generic Application Tracker wording and two workflow references against Now. |
+| Three link-only notes fail inherited lint | Anant | No | Authorize separate cleanup if wanted. Keep the exact errors below and preserve the scratch run history. |
+| Catalogued legacy notes and lint failures | Anant or the owner listed per inventory row | No | Review the evidence first. Keep historical and per-record files untouched without targeted approval. |
+| C1 | Codebase session C1 | By hand is enough for Sunday | Emit `type` and `input_kind` and lint a fresh dossier. |
+| C2 | Codebase session C2 | By hand is enough for Sunday | Write `created` and `updated` from the documented dates. Check each mover. |
+| C5 | Codebase session C5 | By hand is enough for Sunday | Prove the deadline pair and fair exception with writer and validator fixtures. |
+| C6 | Codebase session C6 | By hand is enough for Sunday | Write evidence-bearing reasons and reject a bare matched reason. |
+| C7 | Codebase session C7 | By hand is enough for Sunday | Emit `seed` and `unreviewed` on their distinct keys. Test lifecycle values. |
+| C8 | Codebase session C8 | By hand is enough for Sunday | Replace `preference_tier` once the numeric tier source is real. |
+| C9 | Codebase session C9 | By hand is enough for Sunday | Emit resume_variant and letter_mode and check the allowed values. |
+| C10 | Codebase session C10 | By hand is enough for Sunday | Preserve a manual starred flag when writing the submission Tracker. |
+| C12 | Codebase session C12 | By hand is enough for Sunday | Keep Screen manual until code can preserve the three evidence fields. |
+| C13 | Codebase session C13 | By hand is enough for Sunday | Set date_applied and archive the original posting identity at submission. |
+| C14 | Codebase session C14 | By hand is enough for Sunday | Separate Viewed removals from deadline-lapsed Archive moves. |
+| C15 | Codebase session C15 | By hand is enough for Sunday | Implement the Applied and Archived paths, and exclude raw intake from accepted dossier inputs. |
+| C16 | Codebase session C16 | By hand is enough for Sunday | Use the agreed count scope and preserve the Career Fair exception. |
+| C18 | Codebase session C18 | By hand is enough for Sunday | Make both emitted Excluded names match the agreed hyphen paths. Verify Run Log stays unchanged. |
+| C19 | Codebase session C19 | By hand is enough for Sunday | Write an Applied Tracker fixture with the copied fields and tier 3 blanks. |
+| C20 | Codebase session C20 | Hand archive after privacy is in place | Gate first packet creation on the existing ignore rule and compare the frozen attachments. |
+| C21 | Codebase session C21 | By hand is enough for Sunday | Check the stage transitions for tiers 1 and 2 and exercise tier 3 without Applying. |
+| C22 | Codebase session C22 | By hand is enough for Sunday | Persist the duplicate identity before a dossier leaves the active tree. |
+| C23 | Codebase session C23 | By hand is enough for Sunday | Prove dry-run deletion reaches a consumer checkout fixture. |
+| C24 | Codebase session C24 | By hand is enough for Sunday | Build the local Apply Queue and lint an emitted sample. |
+| C25 | Codebase session C25 | By hand is enough for Sunday | Build follow-up rows from dates and logged messages. |
+| C26 | Codebase session C26 | By hand is enough for Sunday | Build the private weekly Deadline Map from live records. |
+| C27 | Codebase session C27 | By hand is enough for Sunday | Build the local Loop Status report with stale-run evidence. |
+| C28 | Codebase session C28 | By hand is enough for Sunday | Check the real Applied Tracker row in Now and preserve Applied-only selection. |
+| C31 | Codebase session C31 | By hand is enough for Sunday | Compare PostToolUse guard field requirements directly against the Specs. |
+| C32 | Codebase session C32 | By hand is enough for Sunday | Verify the current issue payload against the agreed labels and title. |
+```gitignore
+20_Progress/Internship/Cover Letters/Altered/
+20_Progress/Internship/Sent/
+```

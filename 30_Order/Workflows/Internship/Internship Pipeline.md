@@ -27,9 +27,9 @@ Finding, pursuing or tracking any internship. Limits live in Source of Truth.
 4. **Commit** (tier 1 and 2). Before apply day, create the Program and Contact notes one at a time with `/promote-dossier`; no batch mode exists. Only the Program gates applying.
 5. **Reach out.** Anant drafts from `Mimic`, sends by hand, and logs each exchange.
 6. **Prepare** (tier 1 and 2). Create the Applying note and run [[Application Document Preparation]].
-7. **Apply.** Anant submits. By hand today: set `date_applied`; move the dossier to `Applied/`; create the Tracker in `Applied/` from its Template, copying `tier`, `starred`, `resume_variant`, `letter_mode`; let `Now` read the Tracker from `Tracker/Each One/Applied/`; copy the resume, letter and `posting.md` into `Sent/<dossier file name>/`; note the follow-up dates.
+7. **Apply.** Anant submits. Set `date_applied`, move the dossier to `Applied/`, and create the Tracker in `Tracker/Each One/Applied/` with `tier`, `starred`, `resume_variant` and `letter_mode`. `Now` reads that Tracker. Archive the packet through [[Application Document Preparation]] and note follow-up dates.
 8. **Follow up.** Send follow-ups from Mimic and log each in the Tracker Timeline. When an interview is booked, write an [[Interview Prep Standard]] note.
-9. **Close.** Record the outcome on the Applying note for tiers 1 and 2. Tier 3 records it on the Tracker. Set the Tracker’s `result` and move it to `Result/`.
+9. **Close.** For tiers 1 and 2, record the outcome on Applying. All tiers set Tracker `result` and move it to `Result/`.
 ## Do not
 Do not create a Tracker before submission or edit a Program to record status. Treat no step as automated until its System record says it is built.
 ## Done when

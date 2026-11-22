@@ -27,4 +27,4 @@ Use the posting and Program to choose the hook. Anant approves each letter befor
 Check the application form for a letter requirement. Follow [[30_Order/Workflows/Internship/Application Document Preparation|Application Document Preparation]] when a letter is required. Anant approves every document that goes out.
 ## Examples and export
 ==Keep example and main letters directly in `Cover Letters/`, and export a working application letter to `Cover Letters/Altered/<Role> - <Company>.docx`.==
-`Non Technical Cover letter.docx` and `Techincal Cover Letter.docx` are seeds for the fragment bank. Use them to discuss what belongs in the bank. The technical example is generic and may need updating. `Cover Letters/Altered/` and `Sent/` are private, ignore rule pending.
+`Non Technical Cover Letter.docx` and `Technical Cover Letter.docx` are seeds for the fragment bank. Use them to discuss what belongs in the bank. The technical example is generic and may need updating. `Cover Letters/Altered/` and `Sent/` are private, ignore rule pending.

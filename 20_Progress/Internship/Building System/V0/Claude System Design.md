@@ -9,7 +9,7 @@ tags:
   - claude-code
   - system-design
 project_kind: spec
-next: "Anant reads this note and the Claude System Implementation Plan, answers the Open Questions below, then the implementation phases C0 to C7 run one prompt at a time after the three P1 pull requests are merged."
+next: "A separate session reviews this note and the Claude System Implementation Plan, sets the phase order, and writes the prompts after Anant merges the three P1 pull requests."
 related_progress: []
 notes:
   - "[[Weekend Build]]"
@@ -34,7 +34,7 @@ notes:
 # Claude System Design
 ## What This Is
 ==The Claude layer of internship-research-loop is a flat hierarchy: the main session orchestrates, six thin agents govern, skill folders hold every procedure, scripts and hooks enforce every rule that has no exceptions, and each claim in an application traces to a source Anant approved.==
-This note is the design and the research behind it. [[Claude System Implementation Plan]] (to create) is the build: the files, their wording, and the order. Nothing here is built yet. It covers the repo's `.claude/` folder, the `.codex/` and `.agents/` mirror, `CLAUDE.md`, `AGENTS.md`, hooks, permissions, the Humanizer, and how a session starts knowing where yesterday ended. The Dell's global `~/.claude` clean-up comes after this, as a separate piece of work.
+This note is the design and the research behind it. [[Claude System Implementation Plan]] is the build: the files, their wording, and the order. Nothing here is built yet. It covers the repo's `.claude/` folder, the `.codex/` and `.agents/` mirror, `CLAUDE.md`, `AGENTS.md`, hooks, permissions, the Humanizer, and how a session starts knowing where yesterday ended. The Dell's global `~/.claude` clean-up comes after this, as a separate piece of work.
 ### The problem
 The current layer was built one agent at a time between July and September, and it has four structural faults. The Current State section holds the evidence for each.
 - **The procedure lives in the agents.** Eight agent files total 541 lines. `contact-researcher` (110 lines) and `cover-letter-builder` (102) carry full procedures, output formats and rules. The skills that point at them are thin wrappers. Agent descriptions are loaded into every session, so stale prose such as "Currently blocked" costs tokens on every turn and is now wrong.
@@ -86,19 +86,19 @@ Anant
 - **Reviewers have no Write or Edit tool.** They return edits as text and the orchestrator applies them, as `application-reviewer` does in ai-job-search. Bash gives a reviewer a way around a no-edit rule, so the code-reviewer's Bash is limited by an allowlist and a hook.
 - **Model.** Agents run `model: sonnet`. The docs show `haiku` for gate-type steps. Opus is for Anant to choose per run, not a default.
 ### Skills
-Names are gerunds for procedures and verbs for commands, following Anthropic's naming guidance. Each procedure skill has exactly one owner agent that preloads it, or it is a command. A lint script (see Enforcement) fails the build on an orphan skill.
+Names are gerunds for procedures and verbs for commands, following Anthropic's naming guidance. Each procedure skill has exactly one owner agent that preloads it, or it is a command. A lint script (see Definition of Done, and Tests and evaluations in the Implementation Plan) fails the build on an orphan skill.
 
 | Skill | Kind | Owner | Scripts | What it does |
 |---|---|---|---|---|
 | `finding-resources` | Procedure | researcher, drafter | `check_vault_reachability.py` | Where to look: the Jarvis folders, the Standards, when to use Firecrawl, how to extract a PDF with MinerU, what to do when a tool is down |
 | `researching-companies` | Procedure | `company-researcher` | `contact_signals.py` | Source order, the three-search ceiling, claim-to-URL rule, contact discovery, honest "nothing found" |
-| `tailoring-resumes` | Procedure | `application-drafter` | `resume_plan.py` | Select, order and rephrase tagged bullets from `Main Resume.md`; log gaps; never invent |
+| `tailoring-resumes` | Procedure | `application-drafter` | the P8 variant builder, when it exists | Select, order and rephrase tagged bullets from `Main Resume.md`; log gaps; never invent |
 | `writing-cover-letters` | Procedure | `application-drafter` | none | Letter by `letter_mode`, the four mandatory questions, the bank interview that Anant runs in the main session |
 | `drafting-outreach` | Procedure | `application-drafter` | none | Recruiter, hiring manager, peer and referral messages from `Mimic`, with length and one-ask rules; follow-ups at 7 and 14 days |
 | `checking-evidence` | Procedure | drafter, reviewer | `evidence_check.py` | The closed source list, the claim ledger, the number, date, employer and skill match |
 | `humanizing-writing` | Procedure | drafter, reviewer | `humanizer_check.py`, `banned_phrases.txt` | The 12 checks split between script and reviewer, the banned lists, the flag format |
-| `reviewing-applications` | Procedure | `application-reviewer` | `verdict_check.py` | Spec compliance, then quality, against the claim ledger; the verdict contract |
-| `writing-internship-notes` | Procedure | `note-writer` | `check_vault_reachability.py`, `lint_note.py` | The four note families, pointing at the vault Standards for field lists, never copying them |
+| `reviewing-applications` | Procedure | `application-reviewer` | none (the verdict check is the shared hook `verdict_check.py`) | Spec compliance, then quality, against the claim ledger; the verdict contract |
+| `writing-internship-notes` | Procedure | `note-writer` | `lint_note.py` (the reachability check is the single copy in `finding-resources`) | The four note families, pointing at the vault Standards for field lists, never copying them |
 | `reviewing-code-changes` | Procedure | `code-reviewer` | `check_conventions.py` | The four conventions, branch and worktree hygiene, protected files |
 | `verifying-the-loop` | Procedure | `loop-verifier` | `loop_status.py` | Test run, workflow history, vault versus log counts, issues |
 | `generating-resume-docx`, `generating-cover-letter-docx` | Procedure | main session | existing generators, `verify_docx.py` | Lay approved text into DOCX, then check the text layer |
@@ -120,6 +120,7 @@ All hooks are `command` type, written in Python, and zero-LLM. A `prompt` or `ag
 | SessionStart `startup\|clear\|compact\|resume` | `session_context.py` | Print branch, worktree, dirty count, ahead and behind, last scheduled run, open pull requests, and the Next section of `docs/HANDOFF.md` |
 | Stop | `stop_gate.py` | When code changed, run ruff and pytest; exit 2 with the output on failure; check `stop_hook_active` first |
 | PreToolUse `SubagentHandback` (in each reviewer's frontmatter) | `verdict_check.py` | Block a reviewer report whose first line is not `VERDICT: PASS`, `REVISE` or `BLOCK` |
+| PreToolUse on the jarvis vault write tools (added in phase C4) | `private_path_guard.py` | Block a write of application content into a vault path that `git check-ignore` does not confirm as ignored, because the vault repo is public |
 - **`permissions.deny`:** `Read(.env*)`, `Read(graphify-out/**)`, `Edit(graphify-out/**)`, `Write(graphify-out/**)`. `permissions.allow` holds only the exact commands the skills run, as ai-job-search's CI freezes its own list. `ask` stays on `git push` and the vault delete tool.
 - **Deny rules match text.** The docs say a Bash deny rule "isn't a security boundary around the program", so the hook carries the Bash checks and the deny rules are a cheap first layer.
 - **Hooks fire inside subagents too,** and project-level agent frontmatter hooks run only after the folder is trusted.
@@ -171,8 +172,10 @@ A session starts from facts the code computes and from a short note Anant's sess
 ### Graphify
 - **What it costs.** The git hooks run `graphify update`, which is AST-only and uses no model tokens. Tokens go to running `/graphify .` on markdown, which calls the model, and to reading outputs: `GRAPH_REPORT.md` is 44 KB, `graph.json` 1.6 MB and `graph.html` 1.5 MB, and each `graphify query` returns about 2,000 tokens by default.
 - **What the evidence says.** A 60-session audit by a user found zero graphify CLI calls and about 1,500 hook reminders. One review says graphify barely helps under 100 files. No independent benchmark exists on a repo this size. The only official benchmark is a 1M-line repo and shows an accuracy gain, not a token saving.
-- **Policy for Claude.** Claude runs graphify commands and never reads or writes `graphify-out/`. `deny` rules cover Read, Edit and Write on it. `graphify query`, `path`, `explain` and `update` are allowed Bash commands. CLAUDE.md names the commands in two lines and says to use them for cross-file questions only. `docs/codex/ARCHITECTURE.md` (53 lines) is the hand-written map.
-- **Sessions set `GRAPHIFY_SKIP_HOOK=1`** through the settings `env` block, so a commit during a phase does not rebuild the graph or export notes into the vault. Anant runs `graphify update .` after a merge.
+- **Decided by Anant on 2026-11-21.** Graphify output is not committed with every commit, and the exported notes stay out of Obsidian because they add clutter to the graph and load time. The graph serves Claude's `graphify query` calls and is not browsed.
+- **Policy for Claude.** Claude runs graphify commands and never reads or edits `graphify-out/`. `deny` rules cover Read and Edit on it. `graphify query`, `path`, `explain` and `update` are allowed Bash commands. CLAUDE.md names the commands in two lines and says to use them for cross-file questions only. `docs/codex/ARCHITECTURE.md` (53 lines) is the hand-written map.
+- **The per-commit export goes.** The `graphify-jarvis-sync` block in `.git/hooks/post-commit` is removed, so a commit stops exporting notes into the vault. The vault side (ignore rule, `git rm --cached`, the Obsidian exclusion) is done by a vault session. [[Claude System Implementation Plan]] has the steps.
+- **Sessions set `GRAPHIFY_SKIP_HOOK=1`** through the settings `env` block, so a commit during a phase does not rebuild the graph. Anant runs `graphify update .` after a merge.
 - **Measure it.** After two weeks, count `graphify query` entries in `~/.cache/graphify-queries.log`. Few queries mean Claude is not using it, and the hooks can go.
 ### Instruction files
 - **CLAUDE.md** is written for Claude Code. **AGENTS.md** is written for Codex and any other tool and stands alone. They are separate files by Anant's decision. Claude Code reads CLAUDE.md first when both exist and never reads AGENTS.md in that case, and Codex never reads CLAUDE.md. Rules that must hold in both tools appear in both, in the same words. A script compares the shared rule lines so the two do not drift.
@@ -197,7 +200,7 @@ A session starts from facts the code computes and from a short note Anant's sess
 - **Subagents cost more tokens, not fewer.** Anthropic reports about 4 times the tokens of chat for an agent and about 15 times for a multi-agent system, and its docs say a fresh subagent "can end up slower than doing the task where you are". Agents here are used for parallel work, independent review, noisy output and tool limits, never to save context. That is why there are six and why mechanical work is a script.
 - **Time saved is the point.** The daily batch prepares five applications ahead, so apply day is only review and submit. The batch runs the five in parallel and the reviewer runs once per application, with at most two revision rounds before a human decides.
 ## Current State
-Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault. Each claim cites its source.
+==The layer is eight agents of 541 lines that carry the procedure, advisory hooks, no deny rules, empty context files, and a Codex copy that has drifted.== Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault. Each claim cites its source.
 ### What exists in `.claude/`
 | Path | Finding | Disposition |
 |---|---|---|
@@ -216,7 +219,7 @@ Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault.
 | `settings.json` | An `allow` list, an `ask` list, two hooks, no `deny` | Rewrite |
 | `.claudeignore` | The docs say it "has no effect" | Delete; `permissions.deny` replaces it |
 - **The existing tracked tree on `origin/master`:** `.claude/` holds 8 agents, 2 hooks, 5 rules, `settings.json` and 17 skill files; `.codex/` holds 8 agents, `hooks.json`, 2 hooks and 21 skill files, including four skills that `.claude` lacks.
-- **Stale references.** `.cursor/skills/...` and `second-brain-claudekit` appear in agent and skill text. A `.cursor/` folder still exists at the repo root.
+- **Stale references.** `.cursor/skills/...` and `second-brain-claudekit` appear in agent and skill text, naming skills that do not exist in `.claude`. The `.cursor/` folder at the repo root belongs to another AI platform that Anant uses in this project. It is out of scope and stays untouched. Only the stale citations in `.claude` files are replaced.
 ### Findings that shape the design
 - **Subagents cannot ask the user.** Three of eight agents list a tool they cannot use.
 - **Worktrees break the existing hooks.** `review-reminder.sh` exits silently outside the hardcoded path. `CLAUDE_PROJECT_DIR` stays fixed at the main checkout even inside a worktree, per the worktrees page, so hook scripts read `cwd` from the hook input or run `git rev-parse --show-toplevel`.
@@ -228,7 +231,7 @@ Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault.
 - `CLAUDE.md` is 84 lines and `AGENTS.md` 85 lines, near-duplicates. `PRD.md` is 94 lines and its Current State was last verified on 2026-10-03: it lists `.agents/`, which is gone, and says scheduled runs are not observable.
 - **The scheduled loop is dormant.** The last runs were `recheck.yml` on 2026-09-20 and `revalidate.yml` on 2026-09-14. The working tree's `logs/runs.jsonl` ends on 2026-08-29. Working-tree `state/` and `logs/` are older than origin because Actions commit to origin.
 - **Git state.** P1 is complete: three pull requests (#15, #16, #17) are open and mergeable and none is merged. The main checkout is `master`, clean. An earlier reading in this session saw `core.bare=true` in the main checkout; that was a side effect of a pre-push hook running tests inside a linked worktree, and P1 repaired it. See Corrections.
-- **Graphify.** `graphify-out/` is 18 MB, with a dated 1.6 MB backup folder for each of 12 days. The repo's `CLAUDE.md` does not mention graphify. The global `~/.claude/CLAUDE.md` triggers it only on `/graphify`. The post-commit hook also exports notes into `60_Claude/40_Project_Briefs/Internship` in the vault on every commit; that is 1,396 export files.
+- **Graphify.** `graphify-out/` is 18 MB, including a dated backup folder for each of 12 days, the newest 1.6 MB. The repo's `CLAUDE.md` does not mention graphify. The global `~/.claude/CLAUDE.md` triggers it only on `/graphify`. The post-commit hook also exports notes into `60_Claude/40_Project_Briefs/Internship` in the vault on every commit; that is 1,396 export files.
 - **Codex.** The mirror exists but is hand-made, uses `.codex/skills`, and the `hooks.json` hardcodes an absolute repo path.
 ### The Humanizer, today
 - [[Humanizer]]: interface only, dated 2026-08-28.
@@ -253,7 +256,7 @@ Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault.
 - No fix to the vault path mismatch between the Dell and the Acer. Skills read the vault root from `JARVIS_DIR` and never hardcode it.
 ## Definition of Done
 ==The layer is done when a fresh Sonnet session in a new worktree starts with the right facts, runs `/daily-batch` on five dossiers, and every draft it returns has passed the scripts and a fresh reviewer, with no unlisted file written.==
-- The lint script passes: every agent and skill has valid frontmatter, no skill is orphaned, no `SKILL.md` exceeds 500 lines, every referenced file exists, and no instruction file contains a `.cursor`, `second-brain-claudekit`, or hardcoded home path.
+- The lint script passes: every agent and skill has valid frontmatter, no skill is orphaned, no `SKILL.md` exceeds 500 lines, every referenced file exists, and no instruction file cites a `.cursor/skills/...` path that does not exist, `second-brain-claudekit`, or a hardcoded home path.
 - Each hook has a test that pipes a sample payload and asserts the exit code and stderr text.
 - The two check scripts pass fixtures for each check number, and print `VALIDATOR NOT RUN` with exit 2 when an input is missing.
 - Each skill has at least three evaluation prompts, two that should trigger it and one near-miss that should not, and the results were read from transcripts for Sonnet.
@@ -261,14 +264,17 @@ Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault.
 - `/skill-doctor` or the transcript audit shows no skill unused after two weeks of daily use, or the unused skill is removed.
 - A dated record in `30_Order/System/internship-loop/` and a thin pointer note exist in the vault, created at the files Anant names.
 ## Open Questions
-- [ ] Where does `docs/HANDOFF.md` live: committed in the repo as designed, or in the vault's `Runs/` folder? The design picks the repo so the Codex session reads it too.
-- [ ] Which phase order against the existing queue: the design puts C0 and C1 after P2, and C2 to C5 before P7, P8 and P9, because those need the skills.
-- [ ] Does the Dell's Claude Code version support `SubagentHandback` hooks? If not, the verdict check runs from the command skill.
-- [ ] Which skills path does the installed Codex load: `.agents/skills` or `.codex/skills`?
-- [ ] Is `graphify` on the Dell's PATH, and does Anant want the post-commit vault export kept?
-- [ ] Does `node vault-lint.js` run on the Dell, so `note-writer` can lint what it writes?
+- [x] Where `docs/HANDOFF.md` lives. Answered 2026-11-21: in the codebase, written by a session inside it.
+- [x] Phase order against the queue. Answered 2026-11-21: a separate session sets it after reviewing these notes.
+- [x] Whether to keep the graphify export into the vault. Answered 2026-11-21: no, and the exported notes are excluded from Obsidian.
+- [x] Whether to delete `.cursor/`. Answered 2026-11-21: no, another AI platform uses it.
+- [ ] Does the Dell's Claude Code version support `SubagentHandback` hooks? If not, the verdict check runs from the command skill. Phase C0 tests it.
+- [ ] Does AskUserQuestion fail inside a subagent? The design assumes it does, from the docs. Phase C0 tests it.
+- [ ] Which skills path does the installed Codex load: `.agents/skills` or `.codex/skills`? Phase C0 tests it.
+- [ ] Is `graphify` on the Dell's PATH, and does `node vault-lint.js` run there? Phase C0 tests both.
 - [ ] Should reviewer rounds stay capped at two before a human decides?
 ## Corrections
+- 2026-11-21: [[HackerRank Hiring-Agent Scoring Rubric]] describes four categories and 120 points. The current `roles/software_engineering_intern` files in the repo have five categories (open source 35, self projects 30, production 25, technical skills 10, AI fluency 10) and a printed maximum of 110, plus bonuses capped at 20. The vault note predates the AI fluency category and is out of date. This note uses the live repo. A vault session should update the vault note and decide whether the Resume Alteration self-audit needs an AI fluency item.
 - 2026-11-21: an earlier message in this session said the main checkout's `core.bare=true` was probably the git session's intentional work. Wrong. [[Claude Code Prompts]] and the P1 run note show it was a side effect: the tracked `pre-push` hook ran the tests inside a linked worktree, and `GIT_DIR` made the tests operate on the real repository. P1 repaired it and fixed the hook.
 - 2026-11-21: an earlier message in this session proposed `$CLAUDE_PROJECT_DIR` to fix the hardcoded repo root in hooks. Wrong for worktrees: the docs say it stays fixed at the project root where the session started. Hook scripts use `cwd` from the hook input.
 - 2026-11-21: an earlier message treated the `promotion` agent's `Task` tool as a working nested spawn. The docs say a spawn allowlist is ignored inside a subagent definition, and AskUserQuestion is unavailable to subagents, so the agent could not run its consent steps.
@@ -308,7 +314,7 @@ Measured on 2026-11-21 through read-only SSH to the Dell and reads of the vault.
 - **Graphify** (Graphify-Labs/graphify, 151k stars, package `graphifyy`): code is AST-only and local; docs, PDFs and images go to a model; `graphify claude install` writes a CLAUDE.md section and PreToolUse hooks that inject one sentence at most five times per session; the hook source honors `GRAPHIFY_SKIP_HOOK=1` and skips linked worktrees. Nothing here comes from an independent small-repo benchmark.
 - **Codex** (learn.chatgpt.com): skills are discovered in `.agents/skills`; custom agents are `.codex/agents/*.toml` with `name`, `description`, `developer_instructions`; hooks use the same event, matcher and handler shape as Claude and need trust after each change; AGENTS.md is concatenated root to working directory with a 32 KiB cap; custom prompts are deprecated in favor of skills; OpenAI's `migrate-to-codex` skill is a reference for a converter. These pages were read through summaries, and the file paths need a live test.
 ## Related Notes
-==This note is the design; [[Claude System Implementation Plan]] (to create) is the build, and the rest are the sources it extends.==
+==This note is the design; [[Claude System Implementation Plan]] is the build, and the rest are the sources it extends.==
 - [[Weekend Build]] and [[System Rebuild Plan]] own the apply lane and its contracts. [[Source of Truth]] owns the limits.
 - [[Humanizer]], [[Human Writing Standard]], [[Application Documents Standard]], [[HackerRank Hiring-Agent Scoring Rubric]] and [[Resume & Cover Letter - ATS Research Log]] are the document rules this layer makes mechanical.
 - [[Applying Standard]], [[Internship Tracker Standard]], [[Internship Pipeline]], [[Application Document Preparation]], [[Internship Promotion Agents]] and [[Internship Apply Lane]] are the vault records the skills follow and the System record this work updates.

@@ -190,3 +190,26 @@ Make the final message self-contained for someone who did not read your progress
 - Do not describe the Apply Queue, mark_applied or Loop Status as working.
 - Do not widen the scope. List neighbors, and ask first.
 `````
+
+## Sent: Dell Vault P3, answers to batch 1 (2026-11-21)
+Sent into the P1 session. Family (a) was written, ten stubs removed, Apply Today created. Replaced by P4 in the live queue.
+`````text
+Model: the same Codex session as P1 and P2, GPT-6.2 Sol, reasoning effort `high`, no change. If the session is gone, start a fresh Sol session at `high` and open with "The ledger and V0/System Rebuild Plan.md are the memory". Send it now. P2 stopped after the first batch because it told you to stop and ask. This reply answers both questions, authorizes family (a), and changes the rhythm for the rest: one combined batch for families (b) to (e), then every remaining family written in one run. The Claude session is fixing the two kit defects you found in parallel.
+This is Anant's reply in your P1 session. Your first batch was right, and both of your blockers are real. Answers, then what to do.
+
+### Answers
+1. Guide paths: keep the approved paths. Do not relocate the guides. The kit owner is extending the reference-resource path to include 20_Progress/Internship/, and is correcting the flat resume output in the Application Documents Standard and step 6 of Application Document Preparation to Resumes/Altered/ at the same time. Until that lands, 4:wrong-folder on the three guide paths is expected, not a failure. Record the lint result for each guide as "fits except 4:wrong-folder, kit fix pending", and re-run lint on all three at the end. If the fix has landed by then, they must pass at 100%. Do not use a lint exception.
+2. Cover-letter guide, tier 2. Neither A nor a Sunday exception for everything. Until Main Cover Letter exists: if the posting makes the letter optional, apply without one; if the posting requires one, write one tailored, evidence-based letter for that application and have Anant approve it individually; never park a tier 2 application at the letter step, and never send an unapproved letter. The guide says this in one short paragraph headed "Until the bank exists". Add a Later entry to remove that paragraph and link the bank once Anant has written it in its own session. Do not create the bank or any fragment.
+
+### New note, decided
+Add one hand-filled note, Applying/Apply Today, for Sunday and until the generated Apply Queue exists. It is the by-hand queue: one row per application in flight, with company, role, tier, dossier link, Program link where one exists, resume_variant, letter_mode and Applying stage (or status for tier 3, which has no Applying note). Use the Dashboard Standard and Template if they fit a hand-filled table. If no kit note type fits, say so and ask in the combined batch. It is not Now, which shows submitted applications. Add a Later entry to retire it when the generated Apply Queue is exercised. It describes only what works by hand.
+
+### What to do
+1. Write family (a) now: Applications-to-Create, the resume guide, the cover-letter guide, Apply Today, the Applying and Resumes and Cover Letters folder notes in your ledger, and Now if you counted it under (a). Follow your P2 steps 4 to 6. Remove the ten stubs once both guides exist and the inbound links are clear. The ledger records no inbound links to them, so that removal is approved.
+2. Then post one combined message with the confirm questions for families (b) Tracker family, (c) Programs and Contacts, (d) List and the MOCs, (e) Hub, README, Links & Interlinks and Cheats. At most five per family, numbered by family, each with your recommended default first and the family's removal list attached, so one answer approves both. Use the Proposed items in P2 as your starting recommendations. Ask nothing that Decided, the kit or the vault already answers. Resolve Main Log's job in this batch, since the Registry's log row does not cover it. Show the lint results for family (a) in the same message.
+3. When Anant answers, write families (b) to (e) in one run, in that order, with the same per-note re-read, lint and ledger record. Do not stop between families unless a note changed on disk underneath you, a lint check fails after two fixes, or a removal was not approved.
+4. Finish as P2 step 8 says: lint every folder holding a touched note, recount broken links, the before and after table, the Current State, the open questions ticked, then the self-contained report. Include the Kit friction list. Add what you found in this reply's Answers if the kit owner has not already fixed it.
+
+### Rules that still apply
+Everything in P2's Hard Rules, Done When and What Not To Do. The write scope gains one note, Applying/Apply Today.
+`````

@@ -25,7 +25,7 @@ A tier 1 or 2 dossier is ready to apply. A tier 3 application uses steps 4 and 6
 3. **Plan.** Propose a traceable content plan: bullets, order, rephrasing, honest gaps. Write nothing yet.
 4. **Approve.** Anant approves the plan in one sitting; `stage` goes to `awaiting-approval`, then `approved`. For tier 3, Anant confirms the variant resume when the packet is archived. Changes return to the plan.
 5. **Humanize.** The draft passes the humanizer gate; a fail returns to Draft with line-level flags.
-6. **Write.** Write `Resumes/Altered/<Role> - <Company>.docx` and, when one is sent, `Cover Letters/<Role> - <Company>.docx`.
+6. **Write.** Write `Resumes/Altered/<Role> - <Company>.docx` and, when one is sent, `Cover Letters/Altered/<Role> - <Company>.docx`.
 7. **Link.** Set `resume_version` and `cover_letter`, and add one Documents line on what each leads with.
 8. **Archive.** At submission, copy the exact files and the posting text into `Sent/<dossier file name>/` (Pipeline step 7). Never edit a packet after.
 ## Do not

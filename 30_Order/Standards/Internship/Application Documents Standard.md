@@ -58,8 +58,8 @@ This is the contract behind [[Resume Alteration]] and [[Cover Letter Alteration]
 
 | Item | Rule |
 |---|---|
-| Allowed folders | Banks: `20_Progress/Internship/Resumes/` and `Cover Letters/`. Working resume exports: `Resumes/Altered/`. Working letters: `Cover Letters/`. The sent packet: `20_Progress/Internship/Sent/<dossier file name>/`. |
-| File name | `Main Resume.md` and `Main Cover Letter.md` for the banks (the names `Main Resume.*` and `Main Cover Letter.*` are reserved); `Resumes/Altered/<Role> - <Company>.docx` per application and `Cover Letters/<Role> - <Company>.docx` per letter, overwritten until the packet is archived, then frozen in `Sent/`. |
+| Allowed folders | Banks: `20_Progress/Internship/Resumes/` and `Cover Letters/`. Working resume exports: `Resumes/Altered/`. Working letters: `Cover Letters/Altered/`. Example and main letters stay directly in `Cover Letters/`, outside `Altered/`; only a letter made for one application goes in `Altered/`. The sent packet: `20_Progress/Internship/Sent/<dossier file name>/`. |
+| File name | `Main Resume.md` and `Main Cover Letter.md` for the banks (the names `Main Resume.*` and `Main Cover Letter.*` are reserved); `Resumes/Altered/<Role> - <Company>.docx` per application and `Cover Letters/Altered/<Role> - <Company>.docx` per letter, overwritten until the packet is archived, then frozen in `Sent/`. |
 | Kind | `type: output` with `output_kind: resume` or `cover-letter`. |
 | Status | `seed` while fragments lack evidence, `sprout` once every fragment is tagged and confirmed, `tree` once an application went out on it. |
 ## Headings

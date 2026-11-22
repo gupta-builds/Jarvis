@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "code"
-community: "test_classify.py"
+community: "classify"
 location: "L131"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_classifypy
+  - community/classify
 ---
 
 # test_classify_real_optiver_phd_content_lands_in_ai_ml_without_company()
@@ -16,4 +16,4 @@ tags:
 - [[classify()]] - `calls` [EXTRACTED]
 - [[test_classify.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_classifypy
+#graphify/code #graphify/EXTRACTED #community/classify

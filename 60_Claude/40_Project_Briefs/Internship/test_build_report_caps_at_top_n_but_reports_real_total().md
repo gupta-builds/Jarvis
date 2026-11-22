@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_screen_report.py"
 type: "code"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L54"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # test_build_report_caps_at_top_n_but_reports_real_total()
@@ -17,4 +17,4 @@ tags:
 - [[scan_dossiers()]] - `calls` [EXTRACTED]
 - [[test_screen_report.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/scan_dossiers
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

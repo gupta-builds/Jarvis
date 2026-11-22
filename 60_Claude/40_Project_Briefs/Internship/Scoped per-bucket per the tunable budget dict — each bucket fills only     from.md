@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "rationale"
-community: "enrich.py"
+community: "company_matches_preference"
 location: "L139"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/enrichpy
+  - community/company_matches_preference
 ---
 
 # Scoped per-bucket per the tunable budget dict — each bucket fills only     from
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_prioritize_and_cap()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/enrichpy
+#graphify/rationale #graphify/EXTRACTED #community/company_matches_preference

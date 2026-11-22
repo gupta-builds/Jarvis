@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/review-loop-change/reference/example-review.md"
 type: "document"
-community: "What to check"
+community: "/review-loop-change"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community//review-loop-change
 ---
 
 # example-review.md
@@ -15,4 +15,4 @@ tags:
 - [[SKILL_4]] - `references` [EXTRACTED]
 - [[Worked example — `check_conventions.py` catching real violations]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community//review-loop-change

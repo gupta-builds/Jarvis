@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "code"
-community: "extract_content"
+community: "posting_page.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/extract_content
+  - community/posting_pagepy
 ---
 
 # posting_page.py
@@ -22,11 +22,8 @@ tags:
 - [[interndock.py]] - `imports_from` [EXTRACTED]
 - [[opt_exclusion()]] - `contains` [EXTRACTED]
 - [[phd_only_exclusion()]] - `contains` [EXTRACTED]
-- [[re]] - `imports` [EXTRACTED]
-- [[requests]] - `imports` [EXTRACTED]
 - [[reseed.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_posting_page.py]] - `imports_from` [EXTRACTED]
-- [[urllib_parse]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/extract_content
+#graphify/code #graphify/EXTRACTED #community/posting_pagepy

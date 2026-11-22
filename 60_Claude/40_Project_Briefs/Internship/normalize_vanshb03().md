@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/normalize.py"
 type: "code"
-community: "normalize_vanshb03"
+community: "matches"
 location: "L79"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_vanshb03
+  - community/matches
 ---
 
 # normalize_vanshb03()
@@ -27,4 +27,4 @@ tags:
 - [[test_vanshb03_should_match()]] - `calls` [EXTRACTED]
 - [[test_vanshb03_should_reject()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_vanshb03
+#graphify/code #graphify/EXTRACTED #community/matches

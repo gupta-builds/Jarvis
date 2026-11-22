@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "test_posting_page.py"
+community: "Generating a cover letter .docx"
 location: "L6"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/test_posting_pagepy
+  - community/Generating_a_cover_letter_docx
 ---
 
 # Generating a cover letter .docx
@@ -19,4 +19,4 @@ tags:
 - [[Steps_3]] - `contains` [EXTRACTED]
 - [[What this skill does not do]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/test_posting_pagepy
+#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx

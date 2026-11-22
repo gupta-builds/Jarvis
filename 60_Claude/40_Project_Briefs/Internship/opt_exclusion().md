@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "code"
-community: "extract_content"
+community: "test_posting_page.py"
 location: "L106"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/extract_content
+  - community/test_posting_pagepy
 ---
 
 # opt_exclusion()
@@ -20,4 +20,4 @@ tags:
 - [[test_posting_page.py]] - `imports` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/extract_content
+#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy

@@ -19,14 +19,11 @@ tags:
 - [[filter.py]] - `imports_from` [EXTRACTED]
 - [[freehire — real ground-truth records only (see fixturesfreehire.json) Google's]] - `rationale_for` [EXTRACTED]
 - [[freehire.py]] - `imports_from` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[load_profile()]] - `imports` [EXTRACTED]
 - [[lookup_company_on_freehire()]] - `imports` [EXTRACTED]
 - [[matches()]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[normalize_freehire()]] - `imports` [EXTRACTED]
-- [[pathlib]] - `imports_from` [EXTRACTED]
-- [[pytest]] - `imports` [EXTRACTED]
 - [[test_fetch_freehire_filters_to_structured_intern_seniority()]] - `contains` [EXTRACTED]
 - [[test_fetch_freehire_skips_a_dead_company_without_crashing()]] - `contains` [EXTRACTED]
 - [[test_google_ground_truth_posting_matches()]] - `contains` [EXTRACTED]
@@ -35,6 +32,5 @@ tags:
 - [[test_lookup_company_on_freehire_slugifies_the_company_name()]] - `contains` [EXTRACTED]
 - [[test_normalize_freehire_strips_tracking_param_and_splits_locations()]] - `contains` [EXTRACTED]
 - [[test_nuro_ground_truth_posting_rejects_no_year_anywhere()]] - `contains` [EXTRACTED]
-- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/test_freehirepy

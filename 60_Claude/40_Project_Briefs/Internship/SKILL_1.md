@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "contact-researcher"
+community: "Generating a resume .docx"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/contact-researcher
+  - community/Generating_a_resume_docx
 ---
 
 # SKILL.md
@@ -15,4 +15,4 @@ tags:
 - [[Generating a resume .docx]] - `contains` [EXTRACTED]
 - [[resume-reference]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/contact-researcher
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

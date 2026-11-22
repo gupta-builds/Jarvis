@@ -1,24 +1,21 @@
 ---
 type: community
-members: 11
+members: 8
 ---
 
 # Steps
 
-**Members:** 11 nodes
+**Members:** 8 nodes
 
 ## Members
-- [[1. Take the input_9]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[2. Gather evidence_3]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[3. Propose the content plan — before writing anything_3]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[4. Humanizer gate_3]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[5. Write the file_3]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[6. Link back_3]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[Prerequisite — read this before running_6]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[SKILL_22]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[Steps_17]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[What this skill does not do_16]] - document - .cursor/skills/resume-alteration/SKILL.md
-- [[resume-alteration_1]] - document - .cursor/skills/resume-alteration/SKILL.md
+- [[testing_1]] - document - .codex/skills/testing/SKILL.md
+- [[1. Take the input_6]] - document - .codex/skills/testing/SKILL.md
+- [[2. Invoke `testing-tools`_1]] - document - .codex/skills/testing/SKILL.md
+- [[3. Relay its report as-is_1]] - document - .codex/skills/testing/SKILL.md
+- [[SKILL_17]] - document - .codex/skills/testing/SKILL.md
+- [[Steps_14]] - document - .codex/skills/testing/SKILL.md
+- [[What this skill does not do_13]] - document - .codex/skills/testing/SKILL.md
+- [[Why this needed building (2026-09-06)_1]] - document - .codex/skills/testing/SKILL.md
 
 ## Live Query (requires Dataview plugin)
 

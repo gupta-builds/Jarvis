@@ -1,12 +1,12 @@
 ---
 source_file: "reseed.py"
 type: "code"
-community: "linkedin_recruiter_snippet"
+community: "test_reseed.py"
 location: "L71"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/linkedin_recruiter_snippet
+  - community/test_reseedpy
 ---
 
 # _merge_dict_json()
@@ -20,4 +20,4 @@ tags:
 - [[test_merge_dict_json_scratch_wins_on_collision()]] - `calls` [EXTRACTED]
 - [[test_reseed.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

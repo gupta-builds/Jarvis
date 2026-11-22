@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "code"
-community: "validate"
+community: "cross_source_key"
 location: "L97"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/validate
+  - community/cross_source_key
 ---
 
 # cross_source_key()
@@ -29,4 +29,4 @@ tags:
 - [[validate.py]] - `imports` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/validate
+#graphify/code #graphify/EXTRACTED #community/cross_source_key

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "rationale"
-community: "test_relevance.py"
+community: "stage1_reject"
 location: "L71"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_relevancepy
+  - community/stage1_reject
 ---
 
 # Real, live Conagra Brands posting (SimplifyJobs, found 2026-07-27,     still in
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_stage1_rejects_real_conagra_demand_science_rotational_title()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_relevancepy
+#graphify/rationale #graphify/EXTRACTED #community/stage1_reject

@@ -22,15 +22,9 @@ tags:
 - [[linkedin_recruiter_snippet()]] - `contains` [EXTRACTED]
 - [[main()_6]] - `contains` [EXTRACTED]
 - [[mx_ok()]] - `contains` [EXTRACTED]
-- [[os]] - `imports` [EXTRACTED]
-- [[re]] - `imports` [EXTRACTED]
 - [[read_dossier()]] - `contains` [EXTRACTED]
 - [[replace_enrichment()]] - `contains` [EXTRACTED]
-- [[requests]] - `imports` [EXTRACTED]
-- [[sys]] - `imports` [EXTRACTED]
 - [[test_enrich.py]] - `imports_from` [EXTRACTED]
 - [[trim()]] - `contains` [EXTRACTED]
-- [[urllib_parse]] - `imports_from` [EXTRACTED]
-- [[yaml]] - `imports` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/test_enrichpy

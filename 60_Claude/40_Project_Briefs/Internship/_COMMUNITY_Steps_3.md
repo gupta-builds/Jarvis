@@ -1,24 +1,21 @@
 ---
 type: community
-members: 11
+members: 8
 ---
 
 # Steps
 
-**Members:** 11 nodes
+**Members:** 8 nodes
 
 ## Members
-- [[1. Take the input_3]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[2. Gather evidence]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[3. Propose the content plan — before writing anything]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[4. Humanizer gate]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[5. Write the file]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[6. Link back]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[Prerequisite — read this before running_1]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[SKILL_8]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[Steps_8]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[What this skill does not do_6]] - document - .codex/skills/cover-letter-alteration/SKILL.md
-- [[cover-letter-alteration]] - document - .codex/skills/cover-letter-alteration/SKILL.md
+- [[testing]] - document - .claude/skills/testing/SKILL.md
+- [[1. Take the input_2]] - document - .claude/skills/testing/SKILL.md
+- [[2. Invoke `testing-tools`]] - document - .claude/skills/testing/SKILL.md
+- [[3. Relay its report as-is]] - document - .claude/skills/testing/SKILL.md
+- [[SKILL_6]] - document - .claude/skills/testing/SKILL.md
+- [[Steps_7]] - document - .claude/skills/testing/SKILL.md
+- [[What this skill does not do_5]] - document - .claude/skills/testing/SKILL.md
+- [[Why this needed building (2026-09-06)]] - document - .claude/skills/testing/SKILL.md
 
 ## Live Query (requires Dataview plugin)
 

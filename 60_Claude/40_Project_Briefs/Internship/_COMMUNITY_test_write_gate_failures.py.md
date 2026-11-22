@@ -32,13 +32,12 @@ SORT file.name ASC
 
 ## Connections to other communities
 - 2 edges to [[_COMMUNITY_matches]]
-- 2 edges to [[_COMMUNITY_test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold]]
+- 2 edges to [[_COMMUNITY__run_once_kwargs]]
 - 1 edge to [[_COMMUNITY_normalize_simplify]]
 - 1 edge to [[_COMMUNITY_normalize.py]]
 - 1 edge to [[_COMMUNITY_run_pipeline.py]]
-- 1 edge to [[_COMMUNITY__fake_http_get]]
-- 1 edge to [[_COMMUNITY_scan_dossiers]]
+- 1 edge to [[_COMMUNITY_test_run_pipeline.py]]
 
 ## Top bridge nodes
-- [[test_write_gate_failures.py]] - degree 17, connects to 7 communities
+- [[test_write_gate_failures.py]] - degree 16, connects to 6 communities
 - [[_dead_link_listing()]] - degree 4, connects to 2 communities

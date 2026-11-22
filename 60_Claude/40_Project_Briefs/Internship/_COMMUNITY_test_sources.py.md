@@ -38,12 +38,3 @@ members: 23
 TABLE source_file, type FROM #community/test_sourcespy
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 2 edges to [[_COMMUNITY_scan_dossiers]]
-- 1 edge to [[_COMMUNITY_pytest]]
-- 1 edge to [[_COMMUNITY_test_reseed.py]]
-- 1 edge to [[_COMMUNITY_linkedin_recruiter_snippet]]
-
-## Top bridge nodes
-- [[test_sources.py]] - degree 24, connects to 4 communities

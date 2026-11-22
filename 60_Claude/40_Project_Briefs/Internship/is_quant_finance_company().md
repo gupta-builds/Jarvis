@@ -1,12 +1,12 @@
 ---
 source_file: "core/company_registry.py"
 type: "code"
-community: "test_company_cache.py"
+community: "company_registry.py"
 location: "L30"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_company_cachepy
+  - community/company_registrypy
 ---
 
 # is_quant_finance_company()
@@ -21,4 +21,4 @@ tags:
 - [[test_is_quant_finance_company_punctuation_insensitive()]] - `calls` [EXTRACTED]
 - [[test_is_quant_finance_company_true_for_all_8_confirmed_companies()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_company_cachepy
+#graphify/code #graphify/EXTRACTED #community/company_registrypy

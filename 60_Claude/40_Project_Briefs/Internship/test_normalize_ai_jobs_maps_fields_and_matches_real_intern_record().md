@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "matches"
+community: "normalize.py"
 location: "L480"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/matches
+  - community/normalizepy
 ---
 
 # test_normalize_ai_jobs_maps_fields_and_matches_real_intern_record()
@@ -17,4 +17,4 @@ tags:
 - [[normalize_ai_jobs()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/matches
+#graphify/code #graphify/EXTRACTED #community/normalizepy

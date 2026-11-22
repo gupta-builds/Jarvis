@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "rationale"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L179"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # Frontmatter dicts of every dossier file actually present in the vault     checko
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[scan_dossiers()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/scan_dossiers
+#graphify/rationale #graphify/EXTRACTED #community/test_writerpy

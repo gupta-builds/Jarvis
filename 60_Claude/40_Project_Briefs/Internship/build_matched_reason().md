@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "filter.py"
+community: "run_pipeline.py"
 location: "L583"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/filterpy
+  - community/run_pipelinepy
 ---
 
 # build_matched_reason()
@@ -16,4 +16,4 @@ tags:
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/filterpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

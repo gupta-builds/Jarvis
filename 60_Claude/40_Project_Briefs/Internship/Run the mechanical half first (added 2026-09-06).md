@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "What to check"
+community: "/review-loop-change"
 location: "L19"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community//review-loop-change
 ---
 
 # Run the mechanical half first (added 2026-09-06)
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[review-loop-change]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community//review-loop-change

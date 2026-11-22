@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "revalidate.py"
+community: "validate_note_trio.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/revalidatepy
+  - community/validate_note_triopy
 ---
 
 # Path
@@ -16,4 +16,4 @@ tags:
 - [[read_frontmatter()]] - `references` [EXTRACTED]
 - [[wikilink_target()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/revalidatepy
+#graphify/code #graphify/EXTRACTED #community/validate_note_triopy

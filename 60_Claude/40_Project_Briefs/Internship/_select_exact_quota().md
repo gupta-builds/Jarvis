@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "enrich.py"
+community: "run_pipeline.py"
 location: "L194"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/enrichpy
+  - community/run_pipelinepy
 ---
 
 # _select_exact_quota()
@@ -19,4 +19,4 @@ tags:
 - [[run_once()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/enrichpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

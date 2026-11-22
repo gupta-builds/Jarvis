@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "revalidate.py"
+community: "relevance.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/revalidatepy
+  - community/relevancepy
 ---
 
 # relevance.py
@@ -15,7 +15,6 @@ tags:
 - [[Layer 2.5 — CSsoftware-relevance gate. Runs after matches() passes, before the]] - `rationale_for` [EXTRACTED]
 - [[_norm()_1]] - `contains` [EXTRACTED]
 - [[company_registry.py]] - `imports_from` [EXTRACTED]
-- [[re]] - `imports` [EXTRACTED]
 - [[revalidate.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[stage1_reject()]] - `contains` [EXTRACTED]
@@ -23,4 +22,4 @@ tags:
 - [[test_posting_page.py]] - `imports_from` [EXTRACTED]
 - [[test_relevance.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/revalidatepy
+#graphify/code #graphify/EXTRACTED #community/relevancepy

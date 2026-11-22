@@ -1,12 +1,12 @@
 ---
 source_file: "grade_resume.py"
 type: "code"
-community: "pytest"
+community: "test_grade_resume.py"
 location: "L65"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/pytest
+  - community/test_grade_resumepy
 ---
 
 # resolve_resume_path()
@@ -20,4 +20,4 @@ tags:
 - [[test_resolve_resume_path_exits_with_message_when_nothing_configured()]] - `calls` [EXTRACTED]
 - [[test_resolve_resume_path_explicit_arg_wins_over_env()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/pytest
+#graphify/code #graphify/EXTRACTED #community/test_grade_resumepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "code"
-community: "enrich.py"
+community: "test_debate.py"
 location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/enrichpy
+  - community/test_debatepy
 ---
 
 # test_debate_compare_skips_bucket_fill_need_for_same_bucket_pair()
@@ -17,4 +17,4 @@ tags:
 - [[debate_compare()]] - `calls` [EXTRACTED]
 - [[test_debate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/enrichpy
+#graphify/code #graphify/EXTRACTED #community/test_debatepy

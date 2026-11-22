@@ -13,6 +13,7 @@ tags:
 
 ## Connections
 - [[Deferred or unverified]] - `contains` [EXTRACTED]
+- [[Linked issue]] - `contains` [EXTRACTED]
 - [[Repository conventions]] - `contains` [EXTRACTED]
 - [[Verification]] - `contains` [EXTRACTED]
 - [[What changed]] - `contains` [EXTRACTED]

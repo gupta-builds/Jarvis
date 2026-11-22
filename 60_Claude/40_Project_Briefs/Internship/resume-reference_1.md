@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/generating-resume-docx/reference/resume-reference.md"
 type: "document"
-community: "posting_page.py"
+community: "Generating a resume .docx"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/Generating_a_resume_docx
 ---
 
 # resume-reference.md
@@ -15,4 +15,4 @@ tags:
 - [[Resume reference — rules and example, one file_1]] - `contains` [EXTRACTED]
 - [[SKILL_10]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/posting_pagepy
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

@@ -1,12 +1,12 @@
 ---
 source_file: "core/run_log.py"
 type: "code"
-community: "test_run_log.py"
+community: "run_pipeline.py"
 location: "L81"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_run_logpy
+  - community/run_pipelinepy
 ---
 
 # append_weekly_rollup()
@@ -21,4 +21,4 @@ tags:
 - [[test_appended_run_log_note_has_no_blank_lines_or_stray_dashes()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_run_logpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

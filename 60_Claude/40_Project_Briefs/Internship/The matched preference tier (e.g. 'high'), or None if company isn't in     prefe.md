@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "rationale"
-community: "test_identity.py"
+community: "company_matches_preference"
 location: "L109"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_identitypy
+  - community/company_matches_preference
 ---
 
 # The matched preference tier (e.g. 'high'), or None if company isn't in     prefe
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[company_matches_preference()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_identitypy
+#graphify/rationale #graphify/EXTRACTED #community/company_matches_preference

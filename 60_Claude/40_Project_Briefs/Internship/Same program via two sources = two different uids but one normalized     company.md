@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "rationale"
-community: "validate"
+community: "validate.py"
 location: "L72"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/validate
+  - community/validatepy
 ---
 
 # Same program via two sources = two different uids but one normalized     company
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[check_cross_source_duplicate()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/validate
+#graphify/rationale #graphify/EXTRACTED #community/validatepy

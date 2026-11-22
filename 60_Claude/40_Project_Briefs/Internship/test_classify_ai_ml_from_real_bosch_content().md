@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "code"
-community: "test_classify.py"
+community: "classify"
 location: "L29"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_classifypy
+  - community/classify
 ---
 
 # test_classify_ai_ml_from_real_bosch_content()
@@ -15,4 +15,4 @@ tags:
 - [[classify()]] - `calls` [EXTRACTED]
 - [[test_classify.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_classifypy
+#graphify/code #graphify/EXTRACTED #community/classify

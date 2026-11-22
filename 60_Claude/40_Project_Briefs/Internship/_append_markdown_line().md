@@ -1,12 +1,12 @@
 ---
 source_file: "core/run_log.py"
 type: "code"
-community: "test_run_log.py"
+community: "run_pipeline.py"
 location: "L69"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_run_logpy
+  - community/run_pipelinepy
 ---
 
 # _append_markdown_line()
@@ -17,4 +17,4 @@ tags:
 - [[append_write_gate_excluded_log()]] - `calls` [EXTRACTED]
 - [[run_log.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_run_logpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

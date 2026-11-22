@@ -1,12 +1,12 @@
 ---
 source_file: "screen_report.py"
 type: "code"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L65"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # main()
@@ -16,4 +16,4 @@ tags:
 - [[scan_dossiers()]] - `calls` [EXTRACTED]
 - [[screen_report.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/scan_dossiers
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

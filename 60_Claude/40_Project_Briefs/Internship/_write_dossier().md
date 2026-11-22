@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_screen_report.py"
 type: "code"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L11"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # _write_dossier()
@@ -17,4 +17,4 @@ tags:
 - [[test_build_report_ranks_preferred_first_then_recency_and_excludes_viewed()]] - `calls` [EXTRACTED]
 - [[test_screen_report.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/scan_dossiers
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "code"
-community: "test_classify.py"
+community: "classify"
 location: "L53"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_classifypy
+  - community/classify
 ---
 
 # test_classify_other_from_real_zshah101_fixture()
@@ -17,4 +17,4 @@ tags:
 - [[normalize_zshah101()]] - `calls` [EXTRACTED]
 - [[test_classify.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_classifypy
+#graphify/code #graphify/EXTRACTED #community/classify

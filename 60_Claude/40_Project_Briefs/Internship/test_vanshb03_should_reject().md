@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "normalize_vanshb03"
+community: "matches"
 location: "L202"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_vanshb03
+  - community/matches
 ---
 
 # test_vanshb03_should_reject()
@@ -16,4 +16,4 @@ tags:
 - [[normalize_vanshb03()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_vanshb03
+#graphify/code #graphify/EXTRACTED #community/matches

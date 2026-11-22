@@ -16,7 +16,6 @@ tags:
 - [[Map each source's raw shape to one internal Listing dataclass.]] - `rationale_for` [EXTRACTED]
 - [[_parse_iso_ts()]] - `contains` [EXTRACTED]
 - [[_strip_html()]] - `contains` [EXTRACTED]
-- [[dataclasses]] - `imports_from` [EXTRACTED]
 - [[freehire.py]] - `imports_from` [EXTRACTED]
 - [[interndock.py]] - `imports_from` [EXTRACTED]
 - [[normalize_ai_jobs()]] - `contains` [EXTRACTED]
@@ -29,7 +28,6 @@ tags:
 - [[normalize_simplify()]] - `contains` [EXTRACTED]
 - [[normalize_vanshb03()]] - `contains` [EXTRACTED]
 - [[normalize_zshah101()]] - `contains` [EXTRACTED]
-- [[re]] - `imports` [EXTRACTED]
 - [[sources.py]] - `imports_from` [EXTRACTED]
 - [[test_classify.py]] - `imports_from` [EXTRACTED]
 - [[test_debate.py]] - `imports_from` [EXTRACTED]
@@ -43,6 +41,5 @@ tags:
 - [[test_validate.py]] - `imports_from` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `imports_from` [EXTRACTED]
 - [[test_writer.py]] - `imports_from` [EXTRACTED]
-- [[typing]] - `imports_from` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/normalizepy

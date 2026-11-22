@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/validate.py"
 type: "code"
-community: "test_validate.py"
+community: "validate.py"
 location: "L55"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_validatepy
+  - community/validatepy
 ---
 
 # check_url_live()
@@ -21,4 +21,4 @@ tags:
 - [[validate()]] - `calls` [EXTRACTED]
 - [[validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_validatepy
+#graphify/code #graphify/EXTRACTED #community/validatepy

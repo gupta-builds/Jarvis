@@ -1,12 +1,12 @@
 ---
 source_file: "core/classify.py"
 type: "code"
-community: "test_classify.py"
+community: "classify"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_classifypy
+  - community/classify
 ---
 
 # classify.py
@@ -18,9 +18,8 @@ tags:
 - [[company_registry.py]] - `imports_from` [EXTRACTED]
 - [[debate.py]] - `imports_from` [EXTRACTED]
 - [[is_quant_finance_company()]] - `imports` [EXTRACTED]
-- [[re]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[screen_report.py]] - `imports_from` [EXTRACTED]
 - [[test_classify.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_classifypy
+#graphify/code #graphify/EXTRACTED #community/classify

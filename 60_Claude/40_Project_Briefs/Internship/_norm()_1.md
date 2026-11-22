@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "revalidate.py"
+community: "relevance.py"
 location: "L30"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/revalidatepy
+  - community/relevancepy
 ---
 
 # _norm()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[relevance.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/revalidatepy
+#graphify/code #graphify/EXTRACTED #community/relevancepy

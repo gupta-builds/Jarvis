@@ -1,12 +1,12 @@
 ---
 source_file: ".cursor/skills/contact-researcher/SKILL.md"
 type: "document"
-community: "promote-dossier note templates"
+community: "contact-researcher"
 location: "L11"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/promote-dossier_note_templates
+  - community/contact-researcher
 ---
 
 # contact-researcher
@@ -19,4 +19,4 @@ tags:
 - [[What to look for, and how to report each_2]] - `contains` [EXTRACTED]
 - [[What you have available_2]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/promote-dossier_note_templates
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "_fake_http_get"
+community: "test_run_pipeline.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/test_run_pipelinepy
 ---
 
 # test_run_pipeline.py
@@ -36,7 +36,6 @@ tags:
 - [[filter.py]] - `imports_from` [EXTRACTED]
 - [[git_ops.py]] - `imports_from` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[load_profile()]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[normalize_applyguy()]] - `imports` [EXTRACTED]
@@ -44,8 +43,6 @@ tags:
 - [[normalize_simplify()]] - `imports` [EXTRACTED]
 - [[normalize_vanshb03()]] - `imports` [EXTRACTED]
 - [[normalize_zshah101()]] - `imports` [EXTRACTED]
-- [[pathlib]] - `imports_from` [EXTRACTED]
-- [[pytest]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[schema_drift.py]] - `imports_from` [EXTRACTED]
 - [[test_build_matched_reason_applyguy_includes_term_and_category()]] - `contains` [EXTRACTED]
@@ -110,6 +107,5 @@ tags:
 - [[test_validate_and_write_seeds_dedup_keys_from_existing_vault_files()]] - `contains` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `imports_from` [EXTRACTED]
 - [[test_zero_match_alert.py]] - `imports_from` [EXTRACTED]
-- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/_fake_http_get
+#graphify/code #graphify/EXTRACTED #community/test_run_pipelinepy

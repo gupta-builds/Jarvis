@@ -1,41 +1,24 @@
 ---
 type: community
-members: 49
+members: 32
 ---
 
 # test_relevance.py
 
-**Members:** 49 nodes
+**Members:** 32 nodes
 
 ## Members
-- [[A genuine software-engineering-track rotational program that names     actual en]] - rationale - tests/test_relevance.py
 - [[A genuinely technical Vertiv posting must still pass even though the     company]] - rationale - tests/test_relevance.py
 - [[A hardware-adjacent titlecompany with content that never mentions     any real]] - rationale - tests/test_relevance.py
 - [[Called only when posting_content is non-empty. True = passes (either     not adj]] - rationale - core/relevance.py
 - [[Hardware is not auto-excluded — Jane Street's FPGAASIC internship is     a real]] - rationale - tests/test_relevance.py
 - [[No adjacent-field hint at all — already cleared stage 1, content     (even empty]] - rationale - tests/test_relevance.py
 - [[Not company-gated (see module note above) and no signal-word match     in its ow]] - rationale - tests/test_relevance.py
-- [[Real committed fixture (testsfixturessimplifyjobs.json) — Grant     Thornton ']] - rationale - tests/test_relevance.py
 - [[Real, documented limitation adding 'truist' to the hint list doesn't     flip t]] - rationale - tests/test_relevance.py
-- [[Real, live Conagra Brands posting (SimplifyJobs, found 2026-07-27,     still in]] - rationale - tests/test_relevance.py
-- [[Real, live Databricks posting (AIJobs, found 2026-07-26) — genuinely     PM work]] - rationale - tests/test_relevance.py
-- [[Real, live FC Cincinnati Greenhouse posting (fccincinnati board,     2026-07-26)]] - rationale - tests/test_relevance.py
-- [[Real, live Walleye Capital Greenhouse posting (walleyecapital-external-students]] - rationale - tests/test_relevance.py
-- [[Real, live Walleye Capital Greenhouse posting — 'Risk Technology     Analyst Int]] - rationale - tests/test_relevance.py
 - [[Same documented limitation as Truist above KeyBank's real content     (from 'Da]] - rationale - tests/test_relevance.py
-- [[_simplify_titled()]] - code - tests/test_relevance.py
 - [[corerelevance.py's two-stage gate — real examples throughout, no synthetic non-]] - rationale - tests/test_relevance.py
 - [[stage2_confirm()]] - code - core/relevance.py
 - [[test_relevance.py]] - code - tests/test_relevance.py
-- [[test_stage1_does_not_reject_engineering_track_rotational_program()]] - code - tests/test_relevance.py
-- [[test_stage1_does_not_reject_plain_software_titles()]] - code - tests/test_relevance.py
-- [[test_stage1_does_not_reject_product_engineer_titles()]] - code - tests/test_relevance.py
-- [[test_stage1_does_not_reject_real_risk_technology_analyst_title()]] - code - tests/test_relevance.py
-- [[test_stage1_does_not_reject_real_tax_technology_intern()]] - code - tests/test_relevance.py
-- [[test_stage1_rejects_real_academy_performance_analyst_title()]] - code - tests/test_relevance.py
-- [[test_stage1_rejects_real_conagra_demand_science_rotational_title()]] - code - tests/test_relevance.py
-- [[test_stage1_rejects_real_databricks_product_management_title()]] - code - tests/test_relevance.py
-- [[test_stage1_rejects_real_investor_relations_title()]] - code - tests/test_relevance.py
 - [[test_stage2_confirms_appian_infosec_from_real_content()]] - code - tests/test_relevance.py
 - [[test_stage2_confirms_bosch_ml_internship_from_real_content()]] - code - tests/test_relevance.py
 - [[test_stage2_confirms_jane_street_cybersecurity_from_real_content()]] - code - tests/test_relevance.py
@@ -66,17 +49,13 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 11 edges to [[_COMMUNITY_run_pipeline.py]]
-- 4 edges to [[_COMMUNITY_revalidate.py]]
-- 2 edges to [[_COMMUNITY_normalize_simplify]]
-- 2 edges to [[_COMMUNITY_scan_dossiers]]
-- 1 edge to [[_COMMUNITY_validate]]
+- 11 edges to [[_COMMUNITY_stage1_reject]]
+- 2 edges to [[_COMMUNITY_relevance.py]]
+- 2 edges to [[_COMMUNITY_revalidate.py]]
+- 2 edges to [[_COMMUNITY_run_pipeline.py]]
 - 1 edge to [[_COMMUNITY_normalize.py]]
-- 1 edge to [[_COMMUNITY_pytest]]
+- 1 edge to [[_COMMUNITY_normalize_simplify]]
 
 ## Top bridge nodes
-- [[test_relevance.py]] - degree 40, connects to 6 communities
+- [[test_relevance.py]] - degree 37, connects to 4 communities
 - [[stage2_confirm()]] - degree 28, connects to 3 communities
-- [[test_stage1_does_not_reject_real_tax_technology_intern()]] - degree 5, connects to 2 communities
-- [[test_stage1_rejects_real_academy_performance_analyst_title()]] - degree 3, connects to 1 community
-- [[test_stage1_rejects_real_investor_relations_title()]] - degree 3, connects to 1 community

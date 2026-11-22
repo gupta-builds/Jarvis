@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L115"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # dump_frontmatter()
@@ -20,4 +20,4 @@ tags:
 - [[test_screen_report.py]] - `imports` [EXTRACTED]
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/scan_dossiers
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

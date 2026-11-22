@@ -1,12 +1,12 @@
 ---
 source_file: "core/classify.py"
 type: "rationale"
-community: "test_classify.py"
+community: "classify"
 location: "L62"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_classifypy
+  - community/classify
 ---
 
 # Returns (bucket_name, signal) — signal is the specific real phrase     that drov
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[classify()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_classifypy
+#graphify/rationale #graphify/EXTRACTED #community/classify

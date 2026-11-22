@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L178"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # scan_dossiers()
@@ -27,4 +27,4 @@ tags:
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/scan_dossiers
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

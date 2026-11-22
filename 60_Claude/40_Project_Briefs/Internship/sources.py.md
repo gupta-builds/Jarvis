@@ -33,7 +33,6 @@ tags:
 - [[normalize_vanshb03()]] - `imports` [EXTRACTED]
 - [[normalize_zshah101()]] - `imports` [EXTRACTED]
 - [[recheck.py]] - `imports_from` [EXTRACTED]
-- [[requests]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[schema_drift.py]] - `imports_from` [EXTRACTED]
 - [[test_schema_drift.py]] - `imports_from` [EXTRACTED]

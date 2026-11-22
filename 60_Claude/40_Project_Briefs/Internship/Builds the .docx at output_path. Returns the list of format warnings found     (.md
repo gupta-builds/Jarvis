@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/generating-cover-letter-docx/scripts/generate_cover_letter_docx.py"
 type: "rationale"
-community: "generate_cover_letter_docx.py"
+community: "ContentPlan"
 location: "L126"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/generate_cover_letter_docxpy
+  - community/ContentPlan
 ---
 
 # Builds the .docx at output_path. Returns the list of format warnings found     (
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[build_cover_letter()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/generate_cover_letter_docxpy
+#graphify/rationale #graphify/EXTRACTED #community/ContentPlan

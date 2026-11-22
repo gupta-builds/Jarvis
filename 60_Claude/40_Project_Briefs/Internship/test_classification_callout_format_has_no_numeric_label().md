@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_classify.py"
 type: "code"
-community: "test_classify.py"
+community: "classify"
 location: "L65"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_classifypy
+  - community/classify
 ---
 
 # test_classification_callout_format_has_no_numeric_label()
@@ -15,4 +15,4 @@ tags:
 - [[classification_callout()]] - `calls` [EXTRACTED]
 - [[test_classify.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_classifypy
+#graphify/code #graphify/EXTRACTED #community/classify

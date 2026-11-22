@@ -17,7 +17,6 @@ tags:
 - [[_dead_link_listing()]] - `contains` [EXTRACTED]
 - [[_rejection()]] - `contains` [EXTRACTED]
 - [[compute_uid()]] - `imports` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[test_a_different_check_restarts_the_streak_instead_of_accumulating()]] - `contains` [EXTRACTED]

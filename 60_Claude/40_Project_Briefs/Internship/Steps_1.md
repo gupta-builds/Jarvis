@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/cover-letter-builder.md"
 type: "document"
-community: "phd_only_exclusion"
+community: "Steps"
 location: "L31"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/phd_only_exclusion
+  - community/Steps
 ---
 
 # Steps
@@ -21,4 +21,4 @@ tags:
 - [[7. Report what changed, and what's still open]] - `contains` [EXTRACTED]
 - [[cover-letter-builder]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/phd_only_exclusion
+#graphify/document #graphify/EXTRACTED #community/Steps

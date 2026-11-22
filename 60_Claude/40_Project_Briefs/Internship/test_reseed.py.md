@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_reseed.py"
 type: "code"
-community: "linkedin_recruiter_snippet"
+community: "test_reseed.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/linkedin_recruiter_snippet
+  - community/test_reseedpy
 ---
 
 # test_reseed.py
@@ -18,7 +18,6 @@ tags:
 - [[_union_json_list()]] - `imports` [EXTRACTED]
 - [[compute_uid()]] - `imports` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[normalize.py]] - `imports_from` [EXTRACTED]
 - [[normalize_simplify()]] - `imports` [EXTRACTED]
 - [[reseed.py]] - `imports_from` [EXTRACTED]
@@ -31,6 +30,5 @@ tags:
 - [[test_run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()]] - `contains` [EXTRACTED]
 - [[test_unions_scratch_and_real_ids()]] - `contains` [EXTRACTED]
-- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/linkedin_recruiter_snippet
+#graphify/code #graphify/EXTRACTED #community/test_reseedpy

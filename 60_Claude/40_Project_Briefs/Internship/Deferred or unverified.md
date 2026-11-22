@@ -2,7 +2,7 @@
 source_file: ".github/pull_request_template.md"
 type: "document"
 community: "pull_request_template.md"
-location: "L21"
+location: "L25"
 tags:
   - graphify/document
   - graphify/EXTRACTED

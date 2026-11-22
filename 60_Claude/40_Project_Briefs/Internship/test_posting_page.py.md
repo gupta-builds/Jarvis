@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "extract_content"
+community: "test_posting_page.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/extract_content
+  - community/test_posting_pagepy
 ---
 
 # test_posting_page.py
@@ -18,10 +18,8 @@ tags:
 - [[extract_deadline()]] - `imports` [EXTRACTED]
 - [[fetch_posting_markdown()]] - `imports` [EXTRACTED]
 - [[opt_exclusion()]] - `imports` [EXTRACTED]
-- [[pathlib]] - `imports_from` [EXTRACTED]
 - [[phd_only_exclusion()]] - `imports` [EXTRACTED]
 - [[posting_page.py]] - `imports_from` [EXTRACTED]
-- [[pytest]] - `imports` [EXTRACTED]
 - [[relevance.py]] - `imports_from` [EXTRACTED]
 - [[stage1_reject()]] - `imports` [EXTRACTED]
 - [[test_content_fetch_url_leaves_ashby_non_application_urls_alone()]] - `contains` [EXTRACTED]
@@ -49,6 +47,5 @@ tags:
 - [[test_phd_only_exclusion_does_not_reject_bachelors_masters_eligible_real_text()]] - `contains` [EXTRACTED]
 - [[test_phd_only_exclusion_rejects_explicit_equivalent_phrasing()]] - `contains` [EXTRACTED]
 - [[test_phd_only_exclusion_rejects_real_optiver_text()]] - `contains` [EXTRACTED]
-- [[unittest_mock]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/extract_content
+#graphify/code #graphify/EXTRACTED #community/test_posting_pagepy

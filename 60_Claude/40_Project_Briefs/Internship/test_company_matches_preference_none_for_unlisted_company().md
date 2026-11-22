@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_identity.py"
 type: "code"
-community: "test_identity.py"
+community: "company_matches_preference"
 location: "L156"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_identitypy
+  - community/company_matches_preference
 ---
 
 # test_company_matches_preference_none_for_unlisted_company()
@@ -15,4 +15,4 @@ tags:
 - [[company_matches_preference()]] - `calls` [EXTRACTED]
 - [[test_identity.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_identitypy
+#graphify/code #graphify/EXTRACTED #community/company_matches_preference

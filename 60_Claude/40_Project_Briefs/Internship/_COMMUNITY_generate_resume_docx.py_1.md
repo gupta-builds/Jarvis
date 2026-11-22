@@ -23,11 +23,3 @@ members: 8
 TABLE source_file, type FROM #community/generate_resume_docxpy
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 1 edge to [[_COMMUNITY_pytest]]
-- 1 edge to [[_COMMUNITY_Path]]
-- 1 edge to [[_COMMUNITY_sys]]
-
-## Top bridge nodes
-- [[generate_resume_docx.py_1]] - degree 8, connects to 3 communities

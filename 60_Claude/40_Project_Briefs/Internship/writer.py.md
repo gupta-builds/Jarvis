@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "scan_dossiers"
+community: "test_writer.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/scan_dossiers
+  - community/test_writerpy
 ---
 
 # writer.py
@@ -23,12 +23,8 @@ tags:
 - [[dossier_filename()]] - `contains` [EXTRACTED]
 - [[dump_frontmatter()]] - `contains` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
-- [[jinja2]] - `imports_from` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[load_dossier_uids()]] - `contains` [EXTRACTED]
 - [[move_dossier_to_viewed()]] - `contains` [EXTRACTED]
-- [[pathlib]] - `imports_from` [EXTRACTED]
-- [[re]] - `imports` [EXTRACTED]
 - [[recheck.py]] - `imports_from` [EXTRACTED]
 - [[render_dossier()]] - `contains` [EXTRACTED]
 - [[revalidate.py]] - `imports_from` [EXTRACTED]
@@ -40,6 +36,5 @@ tags:
 - [[test_validate.py]] - `imports_from` [EXTRACTED]
 - [[test_writer.py]] - `imports_from` [EXTRACTED]
 - [[write_dossier()]] - `contains` [EXTRACTED]
-- [[yaml]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/scan_dossiers
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

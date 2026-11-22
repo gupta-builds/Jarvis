@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "What to check"
+community: "/review-loop-change"
 location: "L49"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community//review-loop-change
 ---
 
 # Output format
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[review-loop-change]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community//review-loop-change

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_writer.py"
 type: "code"
-community: "writer.py"
+community: "test_writer.py"
 location: "L164"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/test_writerpy
 ---
 
 # test_company_slug_normalizes_case_and_whitespace_for_same_company_clustering()
@@ -16,4 +16,4 @@ tags:
 - [[company_slug()]] - `calls` [EXTRACTED]
 - [[test_writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

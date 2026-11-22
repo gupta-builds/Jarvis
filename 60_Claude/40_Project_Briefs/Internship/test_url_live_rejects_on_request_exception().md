@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "test_validate.py"
+community: "validate.py"
 location: "L75"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_validatepy
+  - community/validatepy
 ---
 
 # test_url_live_rejects_on_request_exception()
@@ -15,4 +15,4 @@ tags:
 - [[check_url_live()]] - `calls` [EXTRACTED]
 - [[test_validate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_validatepy
+#graphify/code #graphify/EXTRACTED #community/validatepy

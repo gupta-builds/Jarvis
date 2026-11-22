@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "posting_page.py"
+community: "Generating a resume .docx"
 location: "L6"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/posting_pagepy
+  - community/Generating_a_resume_docx
 ---
 
 # Generating a resume .docx
@@ -19,4 +19,4 @@ tags:
 - [[Steps_10]] - `contains` [EXTRACTED]
 - [[What this skill does not do_8]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/posting_pagepy
+#graphify/document #graphify/EXTRACTED #community/Generating_a_resume_docx

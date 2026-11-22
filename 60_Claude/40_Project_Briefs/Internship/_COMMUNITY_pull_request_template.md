@@ -1,14 +1,15 @@
 ---
 type: community
-members: 5
+members: 6
 ---
 
 # pull_request_template.md
 
-**Members:** 5 nodes
+**Members:** 6 nodes
 
 ## Members
 - [[Deferred or unverified]] - document - .github/pull_request_template.md
+- [[Linked issue]] - document - .github/pull_request_template.md
 - [[Repository conventions]] - document - .github/pull_request_template.md
 - [[Verification]] - document - .github/pull_request_template.md
 - [[What changed]] - document - .github/pull_request_template.md

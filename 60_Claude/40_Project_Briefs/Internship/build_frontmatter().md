@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "code"
-community: "writer.py"
+community: "test_writer.py"
 location: "L73"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/test_writerpy
 ---
 
 # build_frontmatter()
@@ -28,4 +28,4 @@ tags:
 - [[uid and category are deliberately not rendered — uid stays available     interna]] - `rationale_for` [EXTRACTED]
 - [[writer.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/writerpy
+#graphify/code #graphify/EXTRACTED #community/test_writerpy

@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/promote-dossier/scripts/validate_note_trio.py"
 type: "code"
-community: "revalidate.py"
+community: "validate_note_trio.py"
 location: "L62"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/revalidatepy
+  - community/validate_note_triopy
 ---
 
 # wikilink_target()
@@ -17,4 +17,4 @@ tags:
 - [[check_cross_links()]] - `calls` [EXTRACTED]
 - [[validate_note_trio.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/revalidatepy
+#graphify/code #graphify/EXTRACTED #community/validate_note_triopy

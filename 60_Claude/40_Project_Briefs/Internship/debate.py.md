@@ -1,12 +1,12 @@
 ---
 source_file: "core/debate.py"
 type: "code"
-community: "enrich.py"
+community: "company_matches_preference"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/enrichpy
+  - community/company_matches_preference
 ---
 
 # debate.py
@@ -24,4 +24,4 @@ tags:
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_debate.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/enrichpy
+#graphify/code #graphify/EXTRACTED #community/company_matches_preference

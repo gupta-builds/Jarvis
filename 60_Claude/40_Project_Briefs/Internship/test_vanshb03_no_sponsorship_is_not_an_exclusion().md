@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "code"
-community: "normalize_vanshb03"
+community: "matches"
 location: "L206"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_vanshb03
+  - community/matches
 ---
 
 # test_vanshb03_no_sponsorship_is_not_an_exclusion()
@@ -18,4 +18,4 @@ tags:
 - [[normalize_vanshb03()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_vanshb03
+#graphify/code #graphify/EXTRACTED #community/matches

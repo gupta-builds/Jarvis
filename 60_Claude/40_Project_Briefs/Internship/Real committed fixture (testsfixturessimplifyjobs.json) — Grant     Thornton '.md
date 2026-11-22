@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_relevance.py"
 type: "rationale"
-community: "test_relevance.py"
+community: "stage1_reject"
 location: "L37"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_relevancepy
+  - community/stage1_reject
 ---
 
 # Real committed fixture (tests/fixtures/simplifyjobs.json) — Grant     Thornton '
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_stage1_does_not_reject_real_tax_technology_intern()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_relevancepy
+#graphify/rationale #graphify/EXTRACTED #community/stage1_reject

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_filter.py"
 type: "rationale"
-community: "normalize_josegael"
+community: "normalize_applyguy"
 location: "L269"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/normalize_josegael
+  - community/normalize_applyguy
 ---
 
 # url is applyguy.ai's own utm-tagged redirect page; listingUrl is the     real em
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_applyguy_prefers_listing_url_over_tracking_url()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/normalize_josegael
+#graphify/rationale #graphify/EXTRACTED #community/normalize_applyguy

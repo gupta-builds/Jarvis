@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/skills/promote-dossier/scripts/check_vault_reachability.py"
 type: "code"
-community: "sys"
+community: "check_vault_reachability.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/sys
+  - community/check_vault_reachabilitypy
 ---
 
 # check_vault_reachability.py
@@ -14,11 +14,6 @@ tags:
 ## Connections
 - [[check_mcp_registration()]] - `contains` [EXTRACTED]
 - [[check_sibling_checkout()]] - `contains` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[main()]] - `contains` [EXTRACTED]
-- [[os]] - `imports` [EXTRACTED]
-- [[pathlib]] - `imports_from` [EXTRACTED]
-- [[subprocess]] - `imports` [EXTRACTED]
-- [[sys]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/sys
+#graphify/code #graphify/EXTRACTED #community/check_vault_reachabilitypy

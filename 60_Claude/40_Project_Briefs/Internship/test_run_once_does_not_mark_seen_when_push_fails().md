@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "_fake_http_get"
+community: "_run_once_kwargs"
 location: "L670"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/_run_once_kwargs
 ---
 
 # test_run_once_does_not_mark_seen_when_push_fails()
@@ -17,4 +17,4 @@ tags:
 - [[_run_once_kwargs()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/_fake_http_get
+#graphify/code #graphify/EXTRACTED #community/_run_once_kwargs

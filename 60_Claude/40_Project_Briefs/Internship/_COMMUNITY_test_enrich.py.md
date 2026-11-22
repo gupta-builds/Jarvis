@@ -43,15 +43,3 @@ members: 28
 TABLE source_file, type FROM #community/test_enrichpy
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 2 edges to [[_COMMUNITY_sys]]
-- 2 edges to [[_COMMUNITY_revalidate.py]]
-- 1 edge to [[_COMMUNITY_test_reseed.py]]
-- 1 edge to [[_COMMUNITY_extract_content]]
-- 1 edge to [[_COMMUNITY_pytest]]
-- 1 edge to [[_COMMUNITY_linkedin_recruiter_snippet]]
-
-## Top bridge nodes
-- [[enrich.py]] - degree 20, connects to 4 communities
-- [[test_enrich.py]] - degree 17, connects to 2 communities

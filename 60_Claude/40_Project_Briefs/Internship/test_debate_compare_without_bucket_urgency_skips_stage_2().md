@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "code"
-community: "enrich.py"
+community: "test_debate.py"
 location: "L90"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/enrichpy
+  - community/test_debatepy
 ---
 
 # test_debate_compare_without_bucket_urgency_skips_stage_2()
@@ -17,4 +17,4 @@ tags:
 - [[debate_compare()]] - `calls` [EXTRACTED]
 - [[test_debate.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/enrichpy
+#graphify/code #graphify/EXTRACTED #community/test_debatepy

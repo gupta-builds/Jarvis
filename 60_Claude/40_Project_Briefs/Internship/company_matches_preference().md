@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "code"
-community: "test_identity.py"
+community: "company_matches_preference"
 location: "L108"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_identitypy
+  - community/company_matches_preference
 ---
 
 # company_matches_preference()
@@ -27,4 +27,4 @@ tags:
 - [[test_identity.py]] - `imports` [EXTRACTED]
 - [[writer.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_identitypy
+#graphify/code #graphify/EXTRACTED #community/company_matches_preference

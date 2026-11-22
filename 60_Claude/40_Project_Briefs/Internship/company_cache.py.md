@@ -18,9 +18,7 @@ tags:
 - [[demo()]] - `contains` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]
 - [[is_expired()]] - `contains` [EXTRACTED]
-- [[json]] - `imports` [EXTRACTED]
 - [[load()]] - `contains` [EXTRACTED]
-- [[pathlib]] - `imports_from` [EXTRACTED]
 - [[save()]] - `contains` [EXTRACTED]
 - [[test_company_cache.py]] - `imports_from` [EXTRACTED]
 

@@ -1,12 +1,12 @@
 ---
 source_file: "run_pipeline.py"
 type: "code"
-community: "validate"
+community: "run_pipeline.py"
 location: "L649"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/validate
+  - community/run_pipelinepy
 ---
 
 # validate_and_write()
@@ -30,4 +30,4 @@ tags:
 - [[validate()]] - `calls` [EXTRACTED]
 - [[write_dossier()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/validate
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

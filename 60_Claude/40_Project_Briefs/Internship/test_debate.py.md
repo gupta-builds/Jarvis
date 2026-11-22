@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_debate.py"
 type: "code"
-community: "enrich.py"
+community: "test_debate.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/enrichpy
+  - community/test_debatepy
 ---
 
 # test_debate.py
@@ -29,4 +29,4 @@ tags:
 - [[test_debate_compare_ties_between_two_preferred_companies_falls_through()]] - `contains` [EXTRACTED]
 - [[test_debate_compare_without_bucket_urgency_skips_stage_2()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/enrichpy
+#graphify/code #graphify/EXTRACTED #community/test_debatepy

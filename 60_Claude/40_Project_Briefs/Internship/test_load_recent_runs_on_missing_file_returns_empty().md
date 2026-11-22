@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_log.py"
 type: "code"
-community: "test_run_log.py"
+community: "run_pipeline.py"
 location: "L39"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_run_logpy
+  - community/run_pipelinepy
 ---
 
 # test_load_recent_runs_on_missing_file_returns_empty()
@@ -16,4 +16,4 @@ tags:
 - [[load_recent_runs()]] - `calls` [EXTRACTED]
 - [[test_run_log.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_run_logpy
+#graphify/code #graphify/EXTRACTED #community/run_pipelinepy

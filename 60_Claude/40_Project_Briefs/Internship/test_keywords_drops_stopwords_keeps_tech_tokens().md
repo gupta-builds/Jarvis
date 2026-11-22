@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_grade_resume.py"
 type: "code"
-community: "pytest"
+community: "test_grade_resume.py"
 location: "L22"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/pytest
+  - community/test_grade_resumepy
 ---
 
 # test_keywords_drops_stopwords_keeps_tech_tokens()
@@ -15,4 +15,4 @@ tags:
 - [[keywords()]] - `calls` [EXTRACTED]
 - [[test_grade_resume.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/pytest
+#graphify/code #graphify/EXTRACTED #community/test_grade_resumepy

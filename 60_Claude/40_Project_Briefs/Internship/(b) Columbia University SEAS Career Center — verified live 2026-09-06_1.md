@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/generating-cover-letter-docx/reference/cover-letter-reference.md"
 type: "document"
-community: "pre-push"
+community: "Generating a cover letter .docx"
 location: "L20"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/pre-push
+  - community/Generating_a_cover_letter_docx
 ---
 
 # (b) Columbia University SEAS Career Center — verified live 2026-09-06
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[The rules, tiered_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/pre-push
+#graphify/document #graphify/EXTRACTED #community/Generating_a_cover_letter_docx

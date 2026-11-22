@@ -1,12 +1,12 @@
 ---
 source_file: ".cursor/skills/promote-dossier/reference/note-templates.md"
 type: "document"
-community: "promote-dossier note templates"
+community: "contact-researcher"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/promote-dossier_note_templates
+  - community/contact-researcher
 ---
 
 # note-templates.md
@@ -15,4 +15,4 @@ tags:
 - [[SKILL_21]] - `references` [EXTRACTED]
 - [[promote-dossier note templates_2]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/promote-dossier_note_templates
+#graphify/document #graphify/EXTRACTED #community/contact-researcher

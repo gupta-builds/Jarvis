@@ -1,12 +1,12 @@
 ---
 source_file: ".claude/agents/loop-verifier.md"
 type: "document"
-community: "recheck.py"
+community: "Checks to run, in this order"
 location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/Checks_to_run_in_this_order
 ---
 
 # Checks to run, in this order
@@ -19,4 +19,4 @@ tags:
 - [[5. Auto-filed GitHub issues]] - `contains` [EXTRACTED]
 - [[loop-verifier]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/recheckpy
+#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order

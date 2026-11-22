@@ -1,12 +1,12 @@
 ---
 source_file: ".codex/skills/resume-alteration/SKILL.md"
 type: "document"
-community: "datetime"
+community: "Steps"
 location: "L16"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/datetime
+  - community/Steps
 ---
 
 # Prerequisite — read this before running
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[resume-alteration]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/datetime
+#graphify/document #graphify/EXTRACTED #community/Steps

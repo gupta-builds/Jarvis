@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/sources.py"
 type: "code"
-community: "normalize_vanshb03"
+community: "normalize.py"
 location: "L108"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/normalize_vanshb03
+  - community/normalizepy
 ---
 
 # fetch_vanshb03()
@@ -17,4 +17,4 @@ tags:
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[sources.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/normalize_vanshb03
+#graphify/code #graphify/EXTRACTED #community/normalizepy

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_zero_match_alert.py"
 type: "code"
-community: "extract_deadline"
+community: "test_zero_match_alert.py"
 location: "L37"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/extract_deadline
+  - community/test_zero_match_alertpy
 ---
 
 # test_zero_match_streak_fires_exactly_once_at_threshold()
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_zero_match_alert.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/extract_deadline
+#graphify/code #graphify/EXTRACTED #community/test_zero_match_alertpy

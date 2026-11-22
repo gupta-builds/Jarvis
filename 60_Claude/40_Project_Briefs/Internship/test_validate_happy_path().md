@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_validate.py"
 type: "code"
-community: "test_validate.py"
+community: "validate.py"
 location: "L174"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_validatepy
+  - community/validatepy
 ---
 
 # test_validate_happy_path()
@@ -17,4 +17,4 @@ tags:
 - [[test_validate.py]] - `contains` [EXTRACTED]
 - [[validate()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_validatepy
+#graphify/code #graphify/EXTRACTED #community/validatepy

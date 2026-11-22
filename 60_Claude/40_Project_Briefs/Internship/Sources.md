@@ -1,12 +1,12 @@
 ---
 source_file: "README.md"
 type: "document"
-community: "internship-research-loop"
+community: "Two-laptop Git workflow (single host, one worktree per task)"
 location: "L11"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/internship-research-loop
+  - community/Two-laptop_Git_workflow_single_host_one_worktree_per_task
 ---
 
 # Sources
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[internship-research-loop_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/internship-research-loop
+#graphify/document #graphify/EXTRACTED #community/Two-laptop_Git_workflow_single_host_one_worktree_per_task

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_company_registry.py"
 type: "code"
-community: "test_company_cache.py"
+community: "company_registry.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_company_cachepy
+  - community/company_registrypy
 ---
 
 # test_company_registry.py
@@ -21,4 +21,4 @@ tags:
 - [[test_is_quant_finance_company_true_for_all_8_confirmed_companies()]] - `contains` [EXTRACTED]
 - [[test_tier_rank_not_re_tiered()]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_company_cachepy
+#graphify/code #graphify/EXTRACTED #community/company_registrypy

@@ -227,3 +227,11 @@ Done, PR #18 ready, not merged; PRs #15-#17 merged and their worktrees removed f
 - `copilot_code_review` as a ruleset rule type is untested on this plan.
 - Why the schedules stopped is still unexplained (issue #28).
 **Owner steps, in order:** merge #18 (`gh pr merge 18 --rebase`); set both secrets (`gh secret set REPO_BOT_TOKEN`, `gh secret set JARVIS_PUSH_TOKEN`); run `recheck.yml` once by hand; apply the two rulesets (commands in the workflow doc); delete the probe repo (`gh auth refresh -s delete_repo`, `gh repo delete gupta-builds/ruleset-probe-20261121`); remove the P1.5 worktree. **Gate for P2:** #18 merged and the PR gates running on a later PR.
+
+
+# P1.5 Closed (2026-11-21, evening)
+- PR #18 merged (rebase). Copilot reviewed it once: 6 findings (2 blocker, 4 should-fix), 5 fixed, 1 declined and tracked in #31. Real catches: the gate ran from the PR's own checkout (now `pull_request_target`, base branch only, linted), a missing `dossier-ready` label, the owner's real identity in a public test fixture. Review record is the last comment on the PR.
+- Copilot works on the owner's account through the Student Developer Pack. Rule: one review per PR at ready-for-review, never per push; gates stay zero-LLM.
+- `REPO_BOT_TOKEN` and `JARVIS_PUSH_TOKEN` are set (90-day expiry, over-broad permissions: tighten at renewal, about 2027-02-19). Probe repo deleted. Rulesets in `.github/rulesets/` are NOT applied yet: owner decision.
+- GitHub is the sprint record: project board "Internship Loop - Weekend Build" (user project 4), sprint "Thanksgiving Lock In or Fail" (9 days from 2026-11-21), epic #46 with sub-issues P2 to P11, owner tasks (#34 cover letter interview, #35 decisions, #36 apply day), backlog #39 to #43, critical certifi alert #38.
+- Next: P2 (#20) and #38 certifi. Start each phase from its issue.

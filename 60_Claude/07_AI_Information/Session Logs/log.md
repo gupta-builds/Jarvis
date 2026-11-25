@@ -1919,3 +1919,7 @@ Saved the projected plan in SumatraPDF with 33 slot highlights on page 1 and 17 
 ## [2026-11-25] update | UMN plan annotation corrections
 
 Replaced eight summary notes and six overflow bars with a four-note grid and short slot tags. Added 17 requirement tags on page 2 and restored coverage of the last letter in Technology and Society. Saved the plan in SumatraPDF, checked both pages at 100%, and rendered them with MinerU.
+
+## [2026-11-25] update | UMN plan final Fall 2026 pass
+
+Updated the Senior slots, three year summaries, and page 2 requirement tags. Added the three-term planning panel. The transcript confirms CSCI 4707, 5512, 5521, and MOT 4002 are registered for 10 credits. Saved the PDF in SumatraPDF, checked both pages at 100%, and rendered them with MinerU.

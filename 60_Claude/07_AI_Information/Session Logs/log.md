@@ -1915,3 +1915,7 @@ Headless run on `gupta-builds` via the `Jarvis-WeeklyReview` task, which started
 ## [2026-11-25] update | UMN four-year plan annotations
 
 Saved the projected plan in SumatraPDF with 33 slot highlights on page 1 and 17 requirement highlights on page 2. The writing-intensive rows follow [[APAS]] with CSCI 4511W in-major and CSCI 3081W any-department. Checked both pages at 100% and rendered them with MinerU.
+
+## [2026-11-25] update | UMN plan annotation corrections
+
+Replaced eight summary notes and six overflow bars with a four-note grid and short slot tags. Added 17 requirement tags on page 2 and restored coverage of the last letter in Technology and Society. Saved the plan in SumatraPDF, checked both pages at 100%, and rendered them with MinerU.

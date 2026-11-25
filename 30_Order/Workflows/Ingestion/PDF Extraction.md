@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-09-29
-updated: 2026-10-29
+updated: 2026-11-25
 tags:
   - system
   - workflow
@@ -37,7 +37,7 @@ mineru search "terms" --json
 ```
 `{short_id}` is printed by the wrapper. The wrapper's exit codes: 0 done, 1 MinerU error (show the user the text), 2 not a file, 3 still parsing (rerun), 4 `mineru` not installed.
 ## The guard
-A PreToolUse hook, `hooks/jarvis-pdf-guard.ps1`, is registered in `C:\Users\anant\.claude\settings.json` (user level, so every project and every subagent). It denies `Read` on a `.pdf`, and a shell command that runs `pdftotext`, `pdftoppm`, `pdfimages`, `pdftohtml`, `mutool`, or python with `pypdf`, `PyPDF2`, `pdfplumber`, `fitz`, `pymupdf`, `pdfminer` or `extract_pdf.py`. The denial message carries the wrapper command with the PDF path filled in, so the next call is already the right one. Each denial appends a `pdf_guard` line (tool and rule only, no path) to `jarvis-session-activity.jsonl`; the weekly review counts them. The owner can switch it off for one session by starting `claude` with `JARVIS_ALLOW_PDF_READ=1`. It works for Claude Code only; Codex, Cursor and Kiro are covered by the rule in `AGENTS.md`, not by a hook.
+A PreToolUse hook, `hooks/jarvis-pdf-guard.ps1`, is registered in `C:\Users\anant\.claude\settings.json` (user level, so every project and every subagent). It denies `Read` on a `.pdf`, and a shell command that runs `pdftotext`, `pdftoppm`, `pdfimages`, `pdftohtml`, `mutool`, or python with `pypdf`, `PyPDF2`, `pdfplumber`, `fitz`, `pymupdf`, `pdfminer` or `extract_pdf.py`. The denial message carries the wrapper command with the PDF path filled in, so the next call is already the right one. Each denial appends a `pdf_guard` line (tool and rule only, no path) to `jarvis-session-activity.jsonl`; the weekly review counts them. The owner can switch it off for one session by starting `claude` with `JARVIS_ALLOW_PDF_READ=1`. It works for Claude Code only; Codex, Cursor and Kiro are covered by the rule in `AGENTS.md`, not by a hook. SumatraPDF (installed on both machines) is the one other allowed PDF tool: the owner views, highlights and annotates with it by hand, and the guard does not block launching it. Annotations are saved into the PDF from SumatraPDF (Ctrl+Shift+S). It is not a reader for agents, so MinerU stays the only way to read a PDF.
 ## When it fails
 | What you see | Meaning | Do |
 |---|---|---|

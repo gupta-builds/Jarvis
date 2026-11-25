@@ -11,7 +11,8 @@
 #   mutool, or a python/py command using pypdf, PyPDF2, pdfplumber, fitz, pymupdf,
 #   pdfminer, or the retired extract_pdf.py. Searching for those words (grep, rg) is
 #   not blocked: only a command that starts with the tool counts.
-# Allows everything else, including mineru itself.
+# Allows everything else, including mineru itself and launching SumatraPDF, the one other
+# allowed PDF tool (the owner views, highlights and annotates with it by hand).
 #
 # Registered in ~/.claude/settings.json (user level, so every project and every
 # subagent is covered), with an "if" filter so the shell only starts for PDF-ish calls.
@@ -83,7 +84,7 @@ try {
 catch { }
 
 $reason = @"
-BLOCKED by the Jarvis PDF guard ($rule). Do not read a PDF directly or with pdftotext, pypdf or similar: Read puts the whole file in the transcript as base64 (25 to 50 MB per PDF) and the extractors lose math and tables. Vault rule: MinerU only.
+BLOCKED by the Jarvis PDF guard ($rule). Do not read a PDF directly or with pdftotext, pypdf or similar: Read puts the whole file in the transcript as base64 (25 to 50 MB per PDF) and the extractors lose math and tables. Vault rule: MinerU only for reading. SumatraPDF (installed on both machines) is the one other allowed PDF tool, for the owner to view, highlight and annotate by hand; Claude does not drive it or read PDFs through it.
 Run this instead (it starts the MinerU server if it is stopped and prints the Markdown file to read):
 powershell -NoProfile -ExecutionPolicy Bypass -File $wrapper "$target"
 Useful options: -Pages 120-135 (one chapter, much faster than the whole book), -Tier advanced (old scan or dense math). For a long document it may print STILL PARSING (exit 3): run the same command again, the work is kept. Then use Read on the Markdown path it prints, in pieces with offset and limit.

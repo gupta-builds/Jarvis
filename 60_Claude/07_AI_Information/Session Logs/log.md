@@ -1911,3 +1911,7 @@ Rebuilt the internship kit in `30_Order` from 31 files to 20: seven Standards re
 ## [2026-11-22] review | Weekly Synthesis 2026-W47
 
 Headless run on `gupta-builds` via the `Jarvis-WeeklyReview` task, which started at 14:20 instead of 06:00. The week went into the internship kit rebuild (11-21), but the tracker is still 29/0/0 (ninth review at zero, 59 days frozen), the only daily note (`2026-11-20`) is an unrendered Templater stub, and 1,750 stray graphify files landed in `60_Claude/40_Project_Briefs/Internship/` on 11-21 (463 already committed). Syncthing read NOT IN SYNC at 14:23 and 14:25 with the other laptop 23 items behind and no movement, no conflicts or stashes, 83 git-index-locked deferrals on 11-17 to 11-19, order fit 5.2% (322/6,233). Log maintenance flag-only, nothing deleted. Next: send the Uber application on 11-23, open and close a real daily note, find the graphify exporter and settle the Syncthing lag. Full review: [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W47]].
+
+## [2026-11-25] update | UMN four-year plan annotations
+
+Saved the projected plan in SumatraPDF with 33 slot highlights on page 1 and 17 requirement highlights on page 2. The writing-intensive rows follow [[APAS]] with CSCI 4511W in-major and CSCI 3081W any-department. Checked both pages at 100% and rendered them with MinerU.

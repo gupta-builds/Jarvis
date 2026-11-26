@@ -1923,3 +1923,7 @@ Replaced eight summary notes and six overflow bars with a four-note grid and sho
 ## [2026-11-25] update | UMN plan final Fall 2026 pass
 
 Updated the Senior slots, three year summaries, and page 2 requirement tags. Added the three-term planning panel. The transcript confirms CSCI 4707, 5512, 5521, and MOT 4002 are registered for 10 credits. Saved the PDF in SumatraPDF, checked both pages at 100%, and rendered them with MinerU.
+
+## [2026-11-25] update | UMN plan tag and layout fixes
+
+Separated the CSci 2011 and 2033 tags, replaced the page 2 requirement tags with two yellow keys, and moved the future-term panel down. Shortened four course names to keep each on one line. The PDF still has 16 highlights on page 2.

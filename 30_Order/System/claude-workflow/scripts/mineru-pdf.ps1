@@ -6,6 +6,13 @@
 #   mineru-pdf.ps1 "C:\path\file.pdf" -Pages 120-135        only a chapter (much faster)
 #   mineru-pdf.ps1 "C:\path\file.pdf" -Tier advanced        old scan or dense math
 #   mineru-pdf.ps1 "C:\path\file.pdf" -OutFile "D:\x\y.md" choose the output file
+#   mineru-pdf.ps1 "C:\path\file.pdf" -KeepServer           leave the server running (batches)
+#
+# The MinerU server holds about 10 GB of committed memory while it runs, which local
+# models need. So the script stops the server as soon as a parse finishes or fails.
+# It does NOT stop it while a parse is still running (exit 3), because stopping would
+# discard that progress. For several PDFs in a row, pass -KeepServer on every call but
+# the last, or run `mineru server stop` yourself when the batch is done.
 #
 # What it adds over calling `mineru parse` directly:
 #   - If the server is stopped (the failure that sent earlier sessions to
@@ -27,7 +34,8 @@ param(
     [ValidateSet("flash", "basic", "standard", "advanced")][string]$Tier = "standard",
     [string]$OutFile = "",
     [int]$MaxWaitSec = 110,
-    [switch]$Force
+    [switch]$Force,
+    [switch]$KeepServer
 )
 
 $ErrorActionPreference = "Stop"
@@ -80,6 +88,16 @@ function Start-MineruServer {
     return $false
 }
 
+# Stops the server to free its memory. Never throws: a failed stop must not turn a good
+# parse into an error. Returns $true when the server reports it is no longer running.
+function Stop-MineruServer {
+    try { & mineru server stop 2>$null | Out-Null } catch { }
+    try {
+        $st = Invoke-Mineru @("server", "status", "--json")
+        return -not ($st.Json -and $st.Json.running)
+    } catch { return $false }
+}
+
 $startedServer = $false
 $result = $null
 while ($true) {
@@ -98,6 +116,7 @@ while ($true) {
     if ($errCode -eq "server_not_running" -and -not $startedServer) {
         $startedServer = $true
         if (-not (Start-MineruServer)) {
+            if (-not $KeepServer) { [void](Stop-MineruServer) }
             Write-Output "MINERU ERROR: the server did not start. Run 'mineru server start', then 'mineru server status --json', and read $env:USERPROFILE\.mineru\logs\doclib.stderr.log."
             exit 1
         }
@@ -110,6 +129,7 @@ while ($true) {
         continue
     }
     $msg = if ($r.Json -and $r.Json.error) { "$errCode : $($r.Json.error.message)" } else { "exit $($r.Code), no JSON on stdout" }
+    if (-not $KeepServer) { [void](Stop-MineruServer) }
     Write-Output "MINERU ERROR: $msg"
     exit 1
 }
@@ -126,5 +146,12 @@ Write-Output "Figures  : mineru read $locator/page:N --format image --output pag
 Write-Output "Find     : mineru search `"terms`" --json                  across everything parsed so far"
 if ($Tier -in @("flash", "basic")) {
     Write-Output "NOTE     : $Tier tier is for previewing. Re-run with -Tier standard before building a note from it."
+}
+if ($KeepServer) {
+    Write-Output "Server   : left running (-KeepServer). Run 'mineru server stop' when the last document is done."
+} elseif (Stop-MineruServer) {
+    Write-Output "Server   : stopped to free about 10 GB of committed memory. The Markdown above is complete. 'mineru read' and 'mineru search' need the server: run 'mineru server start', use them, then 'mineru server stop'."
+} else {
+    Write-Output "Server   : WARNING, it did not stop. Run 'mineru server stop' before loading a local model."
 }
 exit 0

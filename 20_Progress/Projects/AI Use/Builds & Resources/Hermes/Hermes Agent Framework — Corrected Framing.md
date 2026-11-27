@@ -2,13 +2,14 @@
 type: evergreen
 status: sprout
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-11-26
 tags:
   - evergreen
   - ai
 notes:
   - "[[Hermes Agent — Trading & Alert System (Distilled)]]"
   - "[[Internship Pipeline]]"
+  - "[[Hermes Agent]]"
 next:
 ---
 # Hermes Agent Framework — Corrected Framing
@@ -31,3 +32,5 @@ No new "Hermes" build is needed. The pattern is already in daily use under diffe
 - [[Internship Pipeline]] — Steps 1 and 4, where Plays 1/3/4 already run
 - [[PDF's Ingestion Implementation#Knowledge Gathering & Intelligence Automation System (10% of Work Needed) - BUILD|Knowledge Gathering & Intelligence Automation]] — the closest open slot for Play 2
 - [[00_Execution]] — the resolved finding this note carries forward
+## Correction, 2026-11-26
+The opening of this note says Hermes "isn't an installable app". That holds for zachdoesai's framework and for the money playbook. It does not hold for the NousResearch `hermes-agent` software, which is a real agent with a desktop app and a CLI. It is installed on the Acer as of 2026-11-26 (v0.21.3 at `D:\Apps\Hermes`) and answers through Ollama. "No new Hermes build is needed" applies to the money plays only. A local-agent build now exists, tracked in [[Hermes System]] and mapped in [[Hermes Map]]. [[Acer Live State — 2026-09-16]] gets the same update for its three-senses paragraph.

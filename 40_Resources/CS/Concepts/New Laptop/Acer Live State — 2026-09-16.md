@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-09-16
-updated: 2026-10-15
+updated: 2026-11-26
 course: Life
 track:
   - laptop
@@ -240,3 +240,6 @@ WSL 2.7.14.0 to 3.0.3.0, kernel 6.18.54.1, systemd running with 0 failed units, 
 
 ## Build 5c: Acer as a remote workspace - 2026-10-17
 Historical note, not a re-audit. Conversation capture now runs on the Acer (hooks in WSL and Windows, a WSL user timer, a Windows scheduled task, output under `AI Conversations/Acer/`). The WSL clones were bundled and removed; the "4 commits only on the Acer" finding of 2026-10-15 was wrong in effect, because PR #13 had rebase-merged them on 2026-10-04. WSL caches were trimmed (72 to 60 percent used). The Windows side gained the `dell-wsl` SSH alias, Tailscale unattended mode, VS Code remote defaults, a Terminal profile and the `dell` and `dcode` shortcuts. Full record: [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]].
+
+## Local AI state, 2026-11-26
+The "Hermes is not one thing" paragraph above (WSL execution log, 2026-09-18) listed the NousResearch `hermes-agent` as "not evaluated yet". It is now installed: v0.21.3 at `D:\Apps\Hermes`, answering through Ollama 0.40.18 with models in `D:\AI\models\ollama`. Docker Desktop is installed with its disk image in `D:\WSL\DockerDesktopWSL` and is not running. Measured on the same day: 31.4 GiB of RAM with 9.6 GiB available, an RTX 5070 Ti Laptop with 11.94 GiB of VRAM that runs under a software power cap, and a C: drive that still needs the cleanup tracked in [[C Drive Bloat - Failure Log and Prevention Rules]]. The build is in [[Hermes Local Build Log]], the RAM audit in [[Local AI Memory Budget]], and the whole cluster in [[Hermes Map]].

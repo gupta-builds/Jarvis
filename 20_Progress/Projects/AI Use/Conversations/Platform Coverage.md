@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-21
-updated: 2026-10-30
+updated: 2026-11-26
 tags:
   - project
   - ai
@@ -49,3 +49,4 @@ This does not rank platforms or say which to wire next. The research plan puts t
 - **Order, set by the owner:** Claude Code on the Acer, then the Dell (repo conversations only), then Codex and Cursor. Until all platforms write the same record, the second reviewer is a Claude-assisted pass; a local model follows ([[20_Progress/Projects/AI Use/Conversations/Local Reviewer|Local Reviewer]]).
 - **Design consequence:** the event fields in [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] are platform-neutral on purpose (session, agent, prompt, tool, target, ok, ms), so a Codex or Cursor exporter can write the same record from files instead of hooks.
 - **Not re-measured:** Cowork, Kiro, Antigravity, local models (Ollama still has no model), claude.ai chat and ChatGPT.
+- **2026-11-26, local models and Hermes.** The "Local models" row above is out of date. Ollama on the Acer now holds two models (`gemma4:12b-it-qat`, `ornith-1.5:9b`) in `D:\AI\models\ollama`, and Hermes Agent runs on them. Hermes keeps its own session store (`state.db` under `D:\Apps\Hermes`; 1 session and 2 messages on this date) and exports with `hermes sessions export`. No exporter is registered, so the row's State is still "not captured". The plan is [[Hermes Conversation Tracking Plan]].

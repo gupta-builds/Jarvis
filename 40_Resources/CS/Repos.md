@@ -51,7 +51,7 @@ AI agents, frameworks, models, and LLM tooling.
 
 ### Agents & Frameworks
 
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) — 171K-star Nous Research coding agent with ACP/MCP/Claude Code support; the most-starred agent on GitHub right now. (How to use? New to hermes and need an entire setup guide) → [[hermes-agent]] (this is the NousResearch coding-agent repo, not zachdoesai's "Hermes Agent" framework — see [[Hermes Agent Framework — Corrected Framing]] for that distinct, unrelated use of the same name)
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) — 171K-star Nous Research coding agent with ACP/MCP/Claude Code support; the most-starred agent on GitHub right now. (How to use? New to hermes and need an entire setup guide) → [[hermes-agent]] (*2026-11-26: installed on the Acer, see [[Hermes Agent]] and [[Hermes Map]]*) (this is the NousResearch coding-agent repo, not zachdoesai's "Hermes Agent" framework — see [[Hermes Agent Framework — Corrected Framing]] for that distinct, unrelated use of the same name)
 - [OpenCode](https://github.com/anomalyco/opencode) — 166K-star open source coding agent; terminal-first, multi-model, actively developed alternative to Claude Code. (HOW Useful if i hit claude limits? How useful with local models?) → [[opencode]]
 - [Browser Use](https://github.com/browser-use/browser-use) — 96K-star Python library making websites accessible for AI agents via Playwright; the standard for browser automation. (*USEFUL, how much?*) → [[browser-use]]
 - [Goose](https://github.com/aaif-goose/goose) — 50K-star open source extensible AI agent (Rust); install/execute/edit/test with any LLM; ACP + MCP native; moved from block/goose to the Linux Foundation's Agentic AI Foundation. (*Confused to what exactly is this useful for? is this exactly like claude app?*) → [[goose (github)]]
@@ -67,8 +67,8 @@ AI agents, frameworks, models, and LLM tooling.
 ### Models & Hardware
 
 - [Unsloth](https://github.com/unslothai/unsloth) — 65K-star fine-tuning acceleration for local open models (Gemma 4, Qwen3, DeepSeek); web UI included → [[unsloth]], [[Model Distillation]] (the Unsloth fine-tuning step in the deferred 70B→3B pipeline)
-- [AirLLM](https://github.com/lyogavin/airllm) — run 70B LLMs on a single 4GB GPU via layer-by-layer streaming; no quantization required. (*USEFUL FOR RUNNING LOCAL MODELS?*) → [[airllm]]
-- [llmfit](https://github.com/AlexsJones/llmfit) — hundreds of models/providers, one command to find what fits your hardware; Rust, GGUF/MLX support → [[llmfit]]
+- [AirLLM](https://github.com/lyogavin/airllm) — run 70B LLMs on a single 4GB GPU via layer-by-layer streaming; no quantization required. (*USEFUL FOR RUNNING LOCAL MODELS? 2026-11-26: not for chat speed, it streams every layer from disk per token; see [[Offload Engines and PolyStrata]]*) → [[airllm]]
+- [llmfit](https://github.com/AlexsJones/llmfit) — hundreds of models/providers, one command to find what fits your hardware; Rust, GGUF/MLX support (*2026-11-26: installed 1.1.10; trust it for quant sizes and discovery only, its fit verdict ignores sliding-window attention, see [[Local Model Lineup]]*) → [[llmfit]]
 - [Free LLM API Resources](https://github.com/cheahjs/free-llm-api-resources) — curated and updated list of free LLM inference endpoints accessible via API → [[free-llm-api-resources]]
 
 ### Other

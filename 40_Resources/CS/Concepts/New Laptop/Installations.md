@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-09-13
-updated: 2026-10-17
+updated: 2026-11-26
 course: Life
 track:
   - laptop
@@ -90,9 +90,9 @@ Combined footprint: roughly 500MB-700MB installed. Immaterial against a 310GB C:
 | nvm-windows | Node version manager | GitHub release | installs itself + Node under its own dir | C: (small) | Planned |
 | Claude Code CLI | primary AI dev surface | `npm install -g` via nvm-windows Node | inside nvm's node install path | C: | Planned |
 | VS Code | primary editor | code.visualstudio.com | user-chosen | **D:** | **Done** |
-| Docker Desktop | containers | docker.com | app on C: (bucket A), disk image redirected | App C:, disk image **D:\WSL\Docker** (corrected back from C:) | Planned |
+| Docker Desktop | containers | docker.com | app on C: (bucket A), disk image redirected | App C:, disk image **D:\WSL\Docker** (corrected back from C:) | Planned. Acer, 2026-11-26: installed, 29.8 CLI, disk image in `D:\WSL\DockerDesktopWSL` (15.9 GB), no auto-start. See [[Hermes Docker Sandbox Plan]] |
 | Obsidian | Jarvis/The Plan vaults | obsidian.md | `AppData\Local\Programs` (app), vaults opened from D: | App C:, data D: | Planned |
-| Ollama | local LLM runtime | ollama.com | app C:, models redirected via `OLLAMA_MODELS` | App C:, models D:\AI\ollama-models | Planned |
+| Ollama | local LLM runtime | ollama.com | app C:, models redirected via `OLLAMA_MODELS` | App C:, models D:\AI\ollama-models | Planned. Acer, 2026-11-26: installed 0.40.18, app on C:, models in `D:\AI\models\ollama` set in the app's Model location, not `OLLAMA_MODELS`, two models pulled. See [[Hermes Local Build Log]] |
 | uv | Python package/env manager | astral.sh installer | `%USERPROFILE%\.local\bin` | C: (tiny) | Planned |
 | Miniconda | Jupyter/notebook exception only | Anaconda installer | base `C:\Users\anant\miniconda3`; envs, pkgs and specs on **D:\Apps\Miniconda** (corrected 2026-10-12, `D:\conda` never existed) | base C:, envs **D:** | **Done** |
 | GitHub CLI (`gh`) | Windows-side git auth | official winget package | `Program Files` | C: (small) | Recommended addition |

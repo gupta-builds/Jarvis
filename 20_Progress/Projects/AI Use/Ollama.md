@@ -7,7 +7,7 @@ tags:
   - ai
   - ollama
   - local-ai
-reference_kind: tool-profile
+reference_kind: settings-doc
 area:
   - ai
 notes:
@@ -33,7 +33,6 @@ Ollama is the local model server on the Acer: it downloads models, loads them on
 | Loaded models | 1, parallel requests 1 | a 12 GB card holds one model plus its cache |
 | Cloud | off | the setup is meant to be fully local |
 | Network exposure | off | only this machine reaches it |
-
 The five `OLLAMA_*` variables are user-scope environment variables and are read only when the app starts, so changing them needs a restart from a shell that has them. The model path and the context slider are app settings. Steps and checks are in [[Hermes Local Build Log]].
 ## Installed models
 `gemma4:12b-it-qat` (11.9B, Q4_0, vision, audio, tools, thinking, 7.6 GB in VRAM at 64K) and `ornith-1.5:9b` (9.0B, Q4_K_M, vision, tools, thinking, 6.9 GB at 64K). Both returned correct tool calls and sit 100% on the GPU. The reasoning for these models and the other four is in [[Local Model Lineup]].

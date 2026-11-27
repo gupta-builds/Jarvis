@@ -37,7 +37,6 @@ Build order:
 | 6 | Engine upgrade: PolyStrata or llama.cpp router, the 35B brain | planned, [[Offload Engines and PolyStrata]] |
 | 7 | Profiles, Kanban, model routing | planned, [[Hermes Model Routing]] |
 | 8 | Slack, computer use, saved-reel review | later |
-
 ## Next Action
 Set up the Docker terminal backend with one scoped workspace mount and prove the mount with docker inspect.
 ## Open Questions

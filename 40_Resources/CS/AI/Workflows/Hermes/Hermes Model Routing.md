@@ -28,7 +28,6 @@ Which model answers which kind of work in Hermes, from the model-routing video a
 | Model routes (advanced delegation plugin, needs Hermes 0.22.5 or later) | A named route per task, such as fast, balanced, deep, each on a different model or provider | Cannot be combined with profile routes |
 | Profile routes | The profile's model, skills, keys and soul | Its memory and custom context; those must be passed in |
 | Kanban | A full profile with its memory, run as its own process, with cards saved in a database | Slower to set up |
-
 Sub-agents are not persistent: if the parent quits, their work is lost. Kanban cards survive.
 ## Decision tree from the video
 1. *Internal housekeeping?* Use auxiliary models. Compression, skills hub, triage specifier and decomposer save the most tokens.
@@ -45,5 +44,4 @@ With one 12 GB GPU and `OLLAMA_MAX_LOADED_MODELS=1`, routing is serialization. A
 | Fast | quick chat, vision, titles | Gemma 4 12B | Ollama now |
 | Balanced | coding agent, sub-agents | Ornith 1.5 9B | Ollama now |
 | Deep | overnight Kanban workers, long coding | Ornith 1.5 35B, Qwen3.8-27B | PolyStrata or llama.cpp, later |
-
 The fallbacks per lane are in [[Local Model Lineup]]. Hermes also has `hermes fallback`, which tries another provider when the primary fails, and a mixture-of-agents mode in which two small models answer and an aggregator compares them. Neither is configured yet. The second needs two models resident at once, which this GPU cannot do.

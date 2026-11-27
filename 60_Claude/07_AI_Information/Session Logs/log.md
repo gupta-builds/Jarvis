@@ -1927,3 +1927,7 @@ Updated the Senior slots, three year summaries, and page 2 requirement tags. Add
 ## [2026-11-25] update | UMN plan tag and layout fixes
 
 Separated the CSci 2011 and 2033 tags, replaced the page 2 requirement tags with two yellow keys, and moved the future-term panel down. Shortened four course names to keep each on one line. The PDF still has 16 highlights on page 2.
+
+## [2026-11-26] update | Hermes local AI: research, Ollama and Hermes connected, notes written
+
+Researched the four Hermes videos, the last 30 days of Ollama, llama.cpp, Hermes and model releases, PolyStrata, and the Acer's RAM and VRAM. Locked six models (Ornith 35B and 9B, Gemma 4 12B, with Qwen3.6-35B, Mellum2.1 and Qwen3.8-27B as fallbacks) and found that llmfit's fit verdict ignores sliding-window attention. Restarted Ollama so its settings applied, moved its store to `D:\AI\models\ollama`, pulled `gemma4:12b-it-qat` and `ornith-1.5:9b`, and pointed Hermes v0.21.3 at it (config backed up). Both models pass a tool-call test and Hermes answers through Ollama. Gemma 12B decodes at 39.6 tokens per second under a GPU software power cap, which is still open. Stopped the MinerU server and made `mineru-pdf.ps1` and the global `CLAUDE.md` stop it after each parse. Wrote the Hermes cluster, starting at [[Hermes Map]], and patched Installations, Acer Live State, Platform Coverage, Repos and Corrected Framing. Lint left only registry placement findings for `Builds & Resources`. Next: Docker sandbox, then conversation tracking.

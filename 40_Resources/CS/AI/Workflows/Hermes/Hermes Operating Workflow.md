@@ -44,7 +44,6 @@ Only one model stays loaded (`OLLAMA_MAX_LOADED_MODELS=1`), so every switch pays
 | Coding agent work, sub-agents | `ornith-1.5:9b` | SWE-bench Verified 70.6 reported by the vendor, tool call verified, 6.9 GB at 64K |
 | General chat, screenshots, audio | `gemma4:12b-it-qat` | vision and audio, tool call verified, 7.6 GB at 64K |
 | Heavy or overnight work | the 35B lane | not built yet, see [[Offload Engines and PolyStrata]] |
-
 Switch inside a session with `/model <name>`, or run `hermes model`. Cold loads measured on 2026-11-26: Ornith 9B 17 s, Gemma 12B 46 s the first time from a cold disk.
 ## What slows it down
 Hermes sends a fixed prompt on every call: about 29.9 KB of system prompt and 41.8 KB of tool schemas for 24 tools, roughly 17,000 tokens. The first turn pays for it in prefill, and later turns reuse the cache while the stable part of the prompt does not change. Trim it with `hermes tools` and `hermes skills`, and check the effect with `hermes prompt-size`. The GPU power cap and a context mismatch are the other two causes, both in the table below.

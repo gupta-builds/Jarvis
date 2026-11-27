@@ -32,7 +32,6 @@ The six models chosen for this laptop on 2026-11-26, why each earned its slot, a
 | Fallback 1 | Qwen3.6-35B-A3B UD-Q3_K_M (16.6 GB), plain llama.cpp | covers Daily 1 on a different engine | SWE-bench Verified 73.4 |
 | Fallback 2 | Mellum2.1-12B-A2.5B Instruct Q4_K_M (8.07 GB) plus MTP head | covers Daily 2, different vendor | SWE-bench Verified 40.4, 2.5B active, built for sub-agents |
 | Fallback 3 | Qwen3.8-27B UD-Q3_K_XL (13.15 GB) plus MTP head (1.37 GB) | covers Daily 3 and the deep overnight lane | Terminal-Bench 2.1 73.0, SWE-bench Pro 61.7 |
-
 Every number is vendor-reported on the vendor's own harness. No independent head-to-head exists. Ornith's results were averaged over five runs with the git history removed, and it still trails Muse-Glimmer-30B on MCP-Atlas (75.5).
 *Who trained what:* Ornith 1.5 continues pretraining and uses reinforcement learning on tasks, scaffolds and rollouts the model generates for itself, on a Qwen3.5 base. Gemma 4 is Google DeepMind's, trained on web text in more than 140 languages, code, images and audio. Mellum2.1 is JetBrains', post-trained with reinforcement learning on repository tasks in sandboxes where only passing hidden tests earn reward. Qwen3.8-27B is Alibaba's dense model with a vision encoder and a multi-token-prediction head.
 *Swap rule:* if Qwen3.8-27B cannot hold 15 tokens per second at 32K context, replace it with Groot-19B-A3B Q4_K_M (Apache 2.0, multimodal, reported ahead of Qwen3.6-35B on 12 of 16 benchmarks). It is a young, less proven publisher, so it gets its own checks first.
@@ -46,7 +45,6 @@ VRAM needed = weights on the GPU + KV cache + about 0.8 GiB of compute buffers +
 | Mellum2.1-12B-A2.5B | 7 of 28, 4 KV heads of 128, plus 21 sliding | 0.94 GB | about 0.5 | about 9.3 GiB (estimate) |
 | Qwen3.6-35B-A3B, Ornith 35B, Groot | 10 of 40, 2 KV heads of 256 | 1.34 GB | about 0.71 | weights spill to RAM |
 | Qwen3.8-27B | 16 of 64, 4 KV heads of 256 | 4.29 GB | about 2.3 | about 16 GiB, so about 4 GiB spills |
-
 The card has 11.94 GiB free because the display runs on the Intel iGPU. Two of these models cannot sit in VRAM together, so every lane switch is a load. Dense decode speed is roughly the bytes read per token over the memory bandwidth. A dense 27B with 4 GiB in system RAM reads about 5 GB at 92 GB/s each token, which is why Qwen3.8-27B is estimated at 13 to 21 tokens per second and the MoE models are not.
 ## Speed reality on this machine
 Estimates came from other people's cards: Gemma 12B 85 to 90 on a 3080 Ti, so 60 to 66 expected here. The measured warm figure is 39.6 tokens per second because the GPU runs under a software power cap of 54 to 65 W ([[Hermes Local Build Log]]). Treat every estimate above as a ceiling until the power mode is sorted and each model has passed the gate below.
@@ -60,7 +58,6 @@ Estimates came from other people's cards: Gemma 12B 85 to 90 on a 3080 Ti, so 60
 | Qwen3.6-35B-A3B | `unsloth/Qwen3.6-35B-A3B-GGUF`, `UD-Q3_K_M` (16.6 GB) or `UD-Q4_K_M` (22.13 GB) |
 | Mellum2.1 Instruct | `JetBrains/Mellum2.1-12B-A2.5B-Instruct-GGUF`, `Q4_K_M` (8.07 GB), plus the MTP file |
 | Qwen3.8-27B | `unsloth/Qwen3.8-27B-GGUF`, `UD-Q3_K_XL` (13.15 GB) and `MTP/mtp-Qwen3.8-27B-Q4_0.gguf` (1.37 GB) |
-
 Set `LLAMA_CACHE` and `HF_HOME` to D: so no download lands on C:.
 ## Rejected, and why
 - Gemma 4 E4B and 26B-A4B: the vault now holds one Gemma. The 26B stays a candidate only if Groot fails.

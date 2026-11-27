@@ -34,7 +34,6 @@ RAMMap Use Counts, in GiB:
 | Page tables, system PTE, kernel stacks | 1.1 | 0 | 0 |
 | Metafile and driver locked | 1.0 | 0.4 | 0 |
 | Total | 19.8 | 9.3 | 2.3 |
-
 *What is not available:* the 2.3 GiB modified list must be written to disk before reuse, so it does not count as available. Standby is available and is where model files sit after loading.
 ## Who holds it
 Resident private memory by app: Windows memory compression 2.1, Vivaldi 1.6 (already trimmed by hand), Claude Desktop 1.2 across 14 processes, Obsidian 0.9 resident and 2.2 private across 5 processes, Defender 0.55, ChatGPT 0.36, Toggl 0.30, WebView2 hosts 0.27, NVIDIA App 0.21, PredatorSense about 1.1 across 5 processes. `dwm.exe` holds 2.2 GiB of shared GPU memory, which is system RAM used as graphics memory because the display runs on the Intel iGPU.
@@ -46,7 +45,6 @@ Two processes show large commitments but little real memory. The MinerU PDF serv
 | 12B and 9B models in VRAM | 2 to 3 GiB | yes, with dev tools open |
 | 35B mixture-of-experts with experts in RAM | 6 to 12 GiB | marginal at 9.6 GiB |
 | Qwen3.8-27B at Q3 | 2 to 4 GiB | yes, but its speed is the risk |
-
 The 12 GB card holds more of each model than the 8 GB laptops in the PolyStrata benchmarks, so spill figures here are smaller than its published RAM estimates. Those estimates assume an 8 GB card.
 ## Rules decided
 - The MinerU server holds about 10 GB of commit while it runs. The script `mineru-pdf.ps1` now stops it when a parse finishes (`-KeepServer` for batches), and the global `CLAUDE.md` says never to leave it running. Tested on 2026-11-26: the server started, parsed in 41 s, and ended stopped with no processes left.

@@ -33,7 +33,6 @@ What actually lets a 12 GB laptop run models larger than its VRAM at usable spee
 | llama-swap | A YAML file starts and stops model servers, with groups, idle timers, metrics and other engines | You write and maintain the rules |
 | Hermes Local Models | The desktop app installs and manages llama.cpp, rates models against the hardware, guarantees 64K context, and spills expert weights first | Part of Hermes v0.22 and later, newer than the installed v0.21.3 |
 | Ollama | Convenient, tool calling and vision flags per library tag | No expert-offload knob, no MTP, reported slower than llama.cpp on Qwen3.6-35B |
-
 Ollama is the right engine for the 12B and 9B models that fit in VRAM. It is the wrong one for the 35B lane.
 ## PolyStrata
 PolyStrata is an MIT-licensed engine built on the Strata project that keeps a model's experts in RAM, caches the hot ones in VRAM, and swaps installed models while the server runs. It reads the same GGUF files as llama.cpp and serves OpenAI and Anthropic APIs on localhost, so Hermes and Claude Code can use it. Created 2026-10-06, about 1,600 stars, one maintainer, last push 2026-11-25.

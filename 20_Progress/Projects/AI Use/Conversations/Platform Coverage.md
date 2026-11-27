@@ -34,7 +34,7 @@ For each platform: what exists on the Acer as source data (existence and counts 
 | Local models | `~/.ollama/models` exists; Ollama and Jan have profile notes under `20_Progress/Projects/AI Use/` | none | 0 | Nothing logs a local run |
 | claude.ai chat, ChatGPT | none on disk | none | 0 | No pipeline; the README lists `Claude App/` and `OpenCode/` folders that do not exist |
 `~/.config/opencode` also exists on this machine; it is not in any folder or note.
-## What the table says
+## Current State
 - Claude Code is the only platform with a working path on both OSes, and it is the one this build covers.
 - Cursor and Cowork were wired and have stopped; their notes are history.
 - Codex has the freshest unexported data: 44 session files, 9 days. Nothing reads them.
@@ -49,4 +49,4 @@ This does not rank platforms or say which to wire next. The research plan puts t
 - **Order, set by the owner:** Claude Code on the Acer, then the Dell (repo conversations only), then Codex and Cursor. Until all platforms write the same record, the second reviewer is a Claude-assisted pass; a local model follows ([[20_Progress/Projects/AI Use/Conversations/Local Reviewer|Local Reviewer]]).
 - **Design consequence:** the event fields in [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] are platform-neutral on purpose (session, agent, prompt, tool, target, ok, ms), so a Codex or Cursor exporter can write the same record from files instead of hooks.
 - **Not re-measured:** Cowork, Kiro, Antigravity, local models (Ollama still has no model), claude.ai chat and ChatGPT.
-- **2026-11-26, local models and Hermes.** The "Local models" row above is out of date. Ollama on the Acer now holds two models (`gemma4:12b-it-qat`, `ornith-1.5:9b`) in `D:\AI\models\ollama`, and Hermes Agent runs on them. Hermes keeps its own session store (`state.db` under `D:\Apps\Hermes`; 1 session and 2 messages on this date) and exports with `hermes sessions export`. No exporter is registered, so the row's State is still "not captured". The plan is [[Hermes Conversation Tracking Plan]].
+- **2026-11-26, local models and Hermes.** The "Local models" row above is out of date. Ollama on the Acer now holds two models (`gemma4:12b-it-qat`, `ornith-1.5:9b`) in `D:\AI\models\ollama`, and Hermes Agent runs on them. Hermes keeps its own session store (`state.db` under `D:\Apps\Hermes`; 1 session and 2 messages on this date) and exports with `hermes sessions export`. No exporter is registered, so the row's State is still "not captured". The plan is [[Hermes Conversation Tracking Plan]], now the next Hermes build, with the capture folder fixed on the same date as `60_Claude/05_Clippings/AI Conversations/Acer/Windows/Hermes/<project>/` (a count of 2 sessions and 4 messages was read the same evening). The Standard [[Conversations]] now lists `hermes` as a `source_app`.

@@ -1,6 +1,6 @@
 ---
 type: project
-status: active
+status: archived
 created: 2026-11-26
 updated: 2026-11-26
 tags:
@@ -8,13 +8,14 @@ tags:
   - hermes
   - docker
 project_kind: plan
-next: Decide whether to update Hermes to the current stable tag first, then run step 1 of the Sequence.
+next: none
 related_progress:
   - "[[Hermes System]]"
 notes:
   - "[[Hermes Local Build Log]]"
   - "[[Hermes Video Notes]]"
   - "[[Local AI Memory Budget]]"
+  - "[[Hermes Primed Home Plan]]"
 ---
 # Hermes Docker Sandbox Plan
 ## Goal
@@ -34,3 +35,6 @@ Before step 1, confirm: Docker Desktop 29.8 is installed with its disk image on 
 ## Open Questions
 - [ ] Which container image gives Playwright and Chrome DevTools what they need? The default is `nikolaik/python-nodejs:python3.11-nodejs20`.
 - [ ] Should the update in step 1 wait until the other open questions in [[Hermes System]] are settled?
+## Corrections
+### 2026-11-26: dropped, replaced by the primed home
+The plan above stays as written. On 2026-11-26 the owner decided not to build it: a container has to be maintained and primed with its own settings, and the agent would still be cut off from the vault it exists to work in. The replacement is [[Hermes Primed Home Plan]], which keeps the terminal backend `local` and relies on approvals, deny rules, hooks, checkpoints, git and backups ([[Hermes Control Surface]]). What survives from this note: the finding that `docker_mount_cwd_to_workspace` was unreliable in the desktop app, the rule never to mount the home folder, and the fallback of running one risky job class in a container later. The two open questions above are closed with the plan.

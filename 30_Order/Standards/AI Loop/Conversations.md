@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-15
-updated: 2026-11-07
+updated: 2026-11-26
 tags:
   - system
   - standards
@@ -58,7 +58,7 @@ This Standard covers the two notes a conversation with an AI tool produces: the 
 | Status | Export: `seed` with `review_state: raw`. Summary: `sprout` once written, `tree` after the owner checked it against the export. |
 ## Headings
 ### Raw export
-- **Write:** frontmatter with the identity keys in the Spec (`source_app` is `claude-code`, `cowork`, `cursor`, or another tool's lower-case name; `source_os` is `windows` or `wsl`) plus optional metrics (`tools_used`, `tokens`, `cost_usd`, `model`, `turn_count`, `duration_minutes`). The body is the transcript: a `## You` or `## Claude` turn per heading and a `## Actions Taken` list. Written by `export-claude-session.ps1`, the Cursor sweep, or the WSL hook, never by hand; re-exporting the same `session_id` updates the note in place.
+- **Write:** frontmatter with the identity keys in the Spec (`source_app` is `claude-code`, `cowork`, `cursor`, `hermes`, or another tool's lower-case name; `source_os` is `windows` or `wsl`) plus optional metrics (`tools_used`, `tokens`, `cost_usd`, `model`, `turn_count`, `duration_minutes`). The body is the transcript: a `## You` or `## Claude` turn per heading and a `## Actions Taken` list. Written by `export-claude-session.ps1`, the Cursor sweep, or the WSL hook, never by hand; re-exporting the same `session_id` updates the note in place.
 - **Length:** no limit. A transcript over 20,000 words is an archive, not a note.
 - **Never:** `status: raw`. `raw` is not a status: the exporter sets `status: seed` and `review_state: raw`. Never invent a metric the tool did not report.
 - **Right:** `review_state: raw`

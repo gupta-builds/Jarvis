@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-15
-updated: 2026-11-21
+updated: 2026-11-26
 tags:
   - system
   - standards
@@ -20,13 +20,13 @@ notes:
 ---
 # Reference Standard
 ==A reference note is something you look up to do the work, and the hub stays useful only because each entry was added on purpose.==
-This is the Standard for `type: reference` notes in `40_Resources/` and the tool hubs and domain guides in `10_Areas/`, and the internship loop's guides in `20_Progress/Internship/`: plugin documentation, settings records, tool profiles, link lists, and guides. It is not a distilled note ([[Evergreen Standard]]), not a machine rebuild runbook ([[Machine Runbook Standard]]), and not a tool setup record ([[Tool Setup]]).
+This is the Standard for `type: reference` notes in `40_Resources/` and the tool hubs and domain guides in `10_Areas/`, the internship loop's guides in `20_Progress/Internship/`, and the research notes beside a tool's build record in `20_Progress/Projects/AI Use/Builds & Resources/`: plugin documentation, settings records, tool profiles, link lists, and guides. It is not a distilled note ([[Evergreen Standard]]), not a machine rebuild runbook ([[Machine Runbook Standard]]), and not a tool setup record ([[Tool Setup]]).
 ## Spec
 ```json
 {
   "family": "reference-resource",
   "tier": 1,
-  "match": {"type": "reference", "kind": null, "path": "^(40_Resources|10_Areas|20_Progress/Internship)/", "where": {}, "where_not": {}},
+  "match": {"type": "reference", "kind": null, "path": "^(40_Resources|10_Areas|20_Progress/Internship|20_Progress/Projects/AI Use/Builds & Resources)/|^20_Progress/Projects/AI Use/[^/]+\\.md$", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "reference_kind", "area", "notes"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "notes": "list"},
@@ -38,7 +38,7 @@ This is the Standard for `type: reference` notes in `40_Resources/` and the tool
 
 | Item | Rule |
 |---|---|
-| Allowed folders | `40_Resources/`, `10_Areas/`, or `20_Progress/Internship/` (the loop's guides next to the notes they serve), with a backlink to the `10_Areas` domain it serves. |
+| Allowed folders | `40_Resources/`, `10_Areas/`, `20_Progress/Internship/` (the loop's guides next to the notes they serve), or `20_Progress/Projects/AI Use/Builds & Resources/<Tool>/` (the research and lookup notes that sit beside a tool's build record, kinds `research` and `resource`), or a tool's own profile or settings note directly in `20_Progress/Projects/AI Use/` (`Ollama`, `Jan`; both added 2026-11-26), with a backlink to the `10_Areas` domain it serves. |
 | File name | What the note is about (`CPT Program`, `Dataview and Dashboards`). Unique in the vault. |
 | Kind | `type: reference` with `reference_kind` from the table below. |
 | Status | `seed` until it has been used. `sprout` once relied on in work. `tree` once a fact in it was re-checked (`reviewed` holds the date). |

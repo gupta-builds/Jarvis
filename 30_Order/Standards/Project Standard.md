@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-06-01
-updated: 2026-11-07
+updated: 2026-11-26
 tags:
   - system
   - standards
@@ -27,7 +27,7 @@ This is the Standard for the status page of one project in `20_Progress/`: an ou
 {
   "family": "project",
   "tier": 1,
-  "match": {"type": "project", "kind": "project", "path": "^20_Progress/(Projects|Internship|Mentorship Program)/", "where": {}, "where_not": {}},
+  "match": {"type": "project", "kind": "project", "path": "^(20_Progress/(Projects|Internship|Mentorship Program)/|20_Progress/AI/[^/]+\\.md$)", "where": {}, "where_not": {}},
   "legacy_match": [{"type": "project", "path": "^20_Progress/(Projects|Internship|Mentorship Program)/", "absent": ["project_kind"]}],
   "status": ["active", "paused", "complete", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "project_kind", "next"],
@@ -39,7 +39,7 @@ This is the Standard for the status page of one project in `20_Progress/`: an ou
 
 | Item | Rule |
 |---|---|
-| Allowed folders | `20_Progress/Projects/`, `20_Progress/Internship/`, or `20_Progress/Mentorship Program/`. |
+| Allowed folders | `20_Progress/Projects/`, `20_Progress/Internship/`, or `20_Progress/Mentorship Program/`; and a note directly in `20_Progress/AI/` for a tool's own project (`Hermes System`, added 2026-11-26). The tool folders below `20_Progress/AI/` hold Setup notes and mirrors, not projects ([[Tool Setup]]). |
 | File name | The project's name. Unique in the vault; the title line equals it. |
 | Kind | `type: project` with `project_kind: project`. A spec, plan, code mirror, or prompt has another `project_kind`. |
 | Status | `active` while work continues, `paused` with a reason in Current State, `complete` when the Goal is met, `archived` when abandoned or superseded. |

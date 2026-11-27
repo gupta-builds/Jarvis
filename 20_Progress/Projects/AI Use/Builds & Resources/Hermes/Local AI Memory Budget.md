@@ -55,6 +55,7 @@ The 12 GB card holds more of each model than the 8 GB laptops in the PolyStrata 
 ## What is still open
 - Obsidian's 2.2 GiB private memory has not been audited by plugin.
 - The Cowork VM can be disabled in Claude Desktop, which would remove 4 GB of commit and 9.2 GB of disk. Not decided.
-- `.wslconfig` caps the WSL VM at 20 GB, and Docker Desktop shares that VM. It needs a lower cap before the Docker phase.
+- Hermes holds about 1.2 GB when idle (measured 2026-11-26: five desktop-app processes at about 815 MB, four Python processes at about 420 MB). Close the desktop app between sessions if the 35B lane is wanted, and use the CLI.
+- `.wslconfig` caps the WSL VM at 20 GB. The Docker phase was dropped on 2026-11-26, so the cap only matters for WSL itself.
 - A session prompt for the RAM work exists and has not been run. It leaves Obsidian and VS Code open, never kills an app that is not on an approved list, and builds an AI-mode switch script.
 SSD health was checked the same day: CrystalDiskInfo showed Good at 100%, 61 C, 4,942 GB written over 1,467 powered hours and 26 unsafe shutdowns, with no media errors. The C: bloat and idle-write findings belong to the cleanup work in [[C Drive Bloat - Failure Log and Prevention Rules]].

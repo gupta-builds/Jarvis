@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-11-07
+updated: 2026-11-26
 tags:
   - system
   - standards
@@ -19,13 +19,13 @@ notes:
 ---
 # Machine Runbook Standard
 ==A runbook says why it exists, what must be true before starting, the steps, and the dated checkpoints that prove each step happened on the real machine.==
-This is the Standard for notes that rebuild, migrate, or configure a computer: the New Laptop set (Acer and Dell rebuild, WSL, VS Code, sync, decommission). They are `reference` notes of kind `runbook`, not course concepts. It is not the documentation of tooling the vault runs ([[System Component Standard]]), and a machine's dotfile snapshots are not notes.
+This is the Standard for notes that rebuild, migrate, or configure a computer: the New Laptop set (Acer and Dell rebuild, WSL, VS Code, sync, decommission) and the dated build record of one tool set up on it, such as the local AI stack under `Builds & Resources/`. They are `reference` notes of kind `runbook`, not course concepts. It is not the documentation of tooling the vault runs ([[System Component Standard]]), and a machine's dotfile snapshots are not notes.
 ## Spec
 ```json
 {
   "family": "machine-runbook",
   "tier": 1,
-  "match": {"type": "reference", "kind": "runbook", "path": "^40_Resources/CS/", "where": {}, "where_not": {}},
+  "match": {"type": "reference", "kind": "runbook", "path": "^(40_Resources/CS/|20_Progress/Projects/AI Use/Builds & Resources/)", "where": {}, "where_not": {}},
   "legacy_match": [{"path": "^40_Resources/CS/Concepts/New Laptop/"}],
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "reference_kind"],
@@ -37,7 +37,7 @@ This is the Standard for notes that rebuild, migrate, or configure a computer: t
 
 | Item | Rule |
 |---|---|
-| Allowed folders | `40_Resources/CS/`, today under `Concepts/New Laptop/`. |
+| Allowed folders | `40_Resources/CS/`, today under `Concepts/New Laptop/`; and `20_Progress/Projects/AI Use/Builds & Resources/<Tool>/` for the build record of one tool installed on a machine (added 2026-11-26 for `Hermes Local Build Log`). |
 | File name | The job and the machine or tool (`VS Code - Install Loop`). Unique in the vault. |
 | Kind | `type: reference` with `reference_kind: runbook`. |
 | Status | `seed` while unverified, `sprout` while being run, `tree` once a full run confirmed it, `archived` when the machine is retired. |

@@ -15,7 +15,8 @@ notes:
   - "[[Hermes Local Build Log]]"
   - "[[Local AI Memory Budget]]"
   - "[[Local Model Lineup]]"
-next: Re-run the speed test after the Predator mode check and record the result in the Hermes Local Build Log.
+  - "[[Hermes Control Surface]]"
+next: Re-run the speed test after the Predator mode check, and replace the Each day section with the real routine once the ledger digest exists.
 ---
 # Hermes Operating Workflow
 How to start, check and troubleshoot Hermes on the Acer when it runs on Ollama. The vault uses it so a session does not rediscover the same failures. Read it before a session and whenever Hermes is slow or gives odd answers.
@@ -56,12 +57,17 @@ Hermes sends a fixed prompt on every call: about 29.9 KB of system prompt and 41
 | Raw tool JSON appears in the reply | Tool format not parsed | `ollama show <model>` must list `tools`, then test `/api/chat` with a tool |
 | `hermes config set` removed every comment | It rewrites the file | Active settings were diffed and kept; the backup is in `D:\Apps\Hermes\backups\config` |
 | Helper tasks cause pauses | A different auxiliary model forces a swap | Keep auxiliary tasks on the main model, see [[Hermes Model Routing]] |
-| Docker volume not mounted from the Desktop app | Known bug in v0.21 builds, issues 61115 and 63383 | Check with `docker inspect`, update Hermes |
+| A script using `hermes -z` ran a risky command without asking | `-z` bypasses approvals | Use `-z` for read-only questions only; deny rules and hooks still apply ([[Hermes Control Surface]]) |
+| A hook never fires from the gateway or a scheduled run | Hooks need first-use consent and a headless run cannot answer | Approve once by hand with `hermes hooks test`, then `hermes hooks doctor` |
+## Each day
+Once the primed home exists ([[Hermes Primed Home Plan]]), the day has a fixed shape. Read the digest from last night ([[Hermes Change Ledger Spec]]): backups present, home committed, nothing flagged as overdone. Open sessions from the vault folder so the vault rules load. Close the day by letting the 30 minute capture task export the sessions, then glance at the Hermes folder in the vault. Until the ledger exists, run `hermes checkpoints` and `hermes sessions stats` as the quick check.
 ## Commands worth remembering
 ```powershell
 hermes sessions list
-hermes sessions export --format md --newer-than 1 D:\AI\hermes\exports   # bulk export needs a filter
-hermes kanban boards
-hermes profile list
+hermes sessions export --format jsonl --newer-than 1d --dry-run   # bulk export needs a filter
+hermes approvals test "git push --force"   # verdict only, never runs it
+hermes hooks list ; hermes hooks doctor
+hermes checkpoints status
+hermes backup --quick --label manual -o D:\AI\hermes\backups   # the zip holds secrets, never open or sync it
 hermes pause / hermes resume        # emergency stop for cron, Kanban and gateway turns
 ```

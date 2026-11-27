@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-11-21
+updated: 2026-11-26
 tags:
   - system
   - registry
@@ -69,13 +69,13 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 ## Projects
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|
-| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Status Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief to Progress]] | built |
+| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/`, and a note directly in `20_Progress/AI/` (a tool's own project; its subfolders hold Setup notes) | [[Project Status Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief to Progress]] | built |
 | project-spec | 1 | project / spec | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Project Spec Template]] | [[Spec and Plan Standard]] | none | built |
 | project-plan | 1 | project / plan | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Project Plan Template]] | [[Spec and Plan Standard]] | none | built |
 | code-mirror-doc | 1 | project / code-mirror | `60_Claude/40_Project_Briefs/CausalOps/` | [[Code File Mirror Template]] | [[Code Mirror Doc Standard]] | none | built |
 | agent-prompt | 1 | project / prompt | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Agent Task Prompt Template]] | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
 | prompt-queue | 1 | project / prompt (`prompt_shape: queue`) | `20_Progress/Internship/Building System/Runs/` | none | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
-| machine-runbook | 1 | reference / runbook | `40_Resources/CS/` | [[Machine Setup Runbook Template]] | [[Machine Runbook Standard]] | none | built |
+| machine-runbook | 1 | reference / runbook | `40_Resources/CS/`, `20_Progress/Projects/AI Use/Builds & Resources/<Tool>/` (the build record of one tool on one machine) | [[Machine Setup Runbook Template]] | [[Machine Runbook Standard]] | none | built |
 | technical-concept | 1 | concept | `20_Progress/Projects/`, `20_Progress/Internship/`, `40_Resources/CS/`, `40_Resources/UMN/SAO/` | [[Technical Concept Template]] | [[Technical Concept Standard]] | none | built (no gold example yet) |
 | transcript | 2 | input / transcript | `20_Progress/`, `10_Areas/` (not `Degree/` or `Career Fair`), in a `Transcripts/` folder | [[Transcript Template]] | [[Transcript Standard]] | [[Meeting Workflow]] | built |
 | brief | 1 | input / brief | `20_Progress/`, `10_Areas/`, `60_Claude/40_Project_Briefs/` | [[Brief Template]] | [[Brief Standard]] | [[Meeting Workflow]] | built |
@@ -90,7 +90,7 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 | distilled | 1 | evergreen / distilled | `60_Claude/20_Distilled_Notes/` | [[Evergreen Note Template]] | [[Evergreen Standard]] | [[Summary to Distilled]] | built |
 | synthesis | 1 | evergreen / synthesis | `60_Claude/20_Distilled_Notes/Synthesis/` | [[Cross-Domain Synthesis Template]] | [[Evergreen Standard]] | [[Summary to Distilled]] | built |
 | identity-note | 1 | evergreen / identity | `10_Areas/Life/Truths of Life/` | none (2 notes) | [[Evergreen Standard]] | none | built |
-| reference-resource | 1 | reference | `40_Resources/`, `10_Areas/AI`, `10_Areas/Trading`, `20_Progress/Internship/` | [[Reference Guide Template]] | [[Reference Standard]] | [[Promotion]] | built |
+| reference-resource | 1 | reference | `40_Resources/`, `10_Areas/AI`, `10_Areas/Trading`, `20_Progress/Internship/`, `20_Progress/Projects/AI Use/Builds & Resources/<Tool>/` (kinds `research` and `resource` beside a build record), and a tool's profile or settings note directly in `20_Progress/Projects/AI Use/` | [[Reference Guide Template]] | [[Reference Standard]] | [[Promotion]] | built |
 | output-story | 1 | output / story | next to its project, `20_Progress/` | [[Interview Story Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
 | output-bullet | 1 | output / bullet | same | [[Portfolio Bullet Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
 | output-one-pager | 1 | output / one-pager | same | [[Project One-Pager Template]] | [[Output Standard]] | [[Output with Provenance]] | built |

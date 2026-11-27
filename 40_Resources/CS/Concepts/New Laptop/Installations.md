@@ -2,7 +2,7 @@
 type: reference
 status: sprout
 created: 2026-09-13
-updated: 2026-11-26
+updated: 2026-11-27
 tags:
   - machine
   - acer
@@ -262,6 +262,7 @@ Configs are the golden set in [[WSL Toolkit Config Reference]] (`37-toolkit-appl
 #### Acer, Windows side (2026-10-15: Parts 0 to 3 done)
 **Update 2026-10-17 (Build 5c):** `Host dell-wsl` alias with keep-alives in `~\.ssh\config`; Tailscale 1.104.1 set to run unattended (`ForceDaemon` true); `remote.SSH.defaultExtensions` in VS Code settings; Windows Terminal profile `Dell (SSH)`; `dell` and `dcode` from `~\.config\toolkit-local\dell-remote.ps1`; scheduled task `ConversationCapture-Backfill-Windows` (every 30 minutes) and Stop and SessionEnd hooks in `C:\Users\anant\.claude\settings.json`. `99-verify.ps1 -Machine acer` still 0 FAIL.
 The Acer is the reference for the toolkit's configs, so the Dell was built to match it. On 2026-10-15 Part 0 (read-only) and Part 2 (apply configs) ran on the Acer: PowerShell 7.6.7, Terminal 1.24, Starship 1.26.0, zoxide, fzf 0.74.4, fd 10.5.0, bat 0.26.1, delta 0.20.1, ripgrep 15.2.0, NanaZip, Git 2.55.0, standalone uv 0.12.19, Claude Code 2.1.301, Codex 0.162.1, Docker 4.91.0 and Tailscale 1.104.1 were already present. Part 2 wrote the managed profile block in both PowerShell profiles, the delta include, nine git settings, the Terminal merge, `STARSHIP_CONFIG`, `TOOLKIT_VAULT_ROOT` and the user PATH order. Part 1 then ran (user, UAC): pnpm 12.11.2 (Windows copy), uv-managed Python 3.13.15 and mcp-remote 0.2.1 installed, GitHub CLI upgraded to 2.102.0. Part 3 ran: `99-verify.ps1` has 0 FAIL, the catalog is `Tool Catalog - GUPTA-BUILDS`. The Acer's real bat and fd files were promoted into the shared toolkit source and the Dell applied them on 2026-10-17. Open on this side: Node 24.19.0 (Dell 24.20.0) is a user decision. Differences to expect: vault root `D:\_Anant\20_Progress\Documents\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer's WSL), the RTX 5070 Ti, VS Code on D:\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The parity matrix (22 tools identical, 12 with benign version drift, 3 Dell-only by design, shared configs equal) and the Acer's run log are in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
+**Update 2026-11-27 (health pass):** Removed from the Acer: Teams and its Office add-in, OneDrive, the Copilot app, and 19 Store apps (Dropbox OEM, Mixed Reality Link, Power Automate Desktop, Clipchamp, the Bing apps, Xbox Game Bar and others). Kept by decision: Office, Edge, WebView2, Phone Link and Cross Device. Docker Desktop, Loom, Slack, OneDrive and RiotClient no longer start at logon. Claude Desktop's startup task is off, so the Cowork VM no longer runs unless the app is opened by hand. CrystalDiskInfo now starts at logon (task `CrystalDiskInfo`). Scripts, undo steps and results: [[Acer Health Pass - 2026-11-26]].
 #### Growth rules
 The standing rules and one check command each (tool versions, config hashes, font registration, environment variables, startup time, catalog freshness, no secrets in shell rc files) are in [[Machine Toolkit - Tool Use Cases and Agent Guide#Growth rules]].
 #### How to refresh this section

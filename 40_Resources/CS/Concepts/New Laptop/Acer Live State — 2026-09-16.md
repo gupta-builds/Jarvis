@@ -2,7 +2,7 @@
 type: reference
 status: sprout
 created: 2026-09-16
-updated: 2026-11-26
+updated: 2026-11-27
 tags:
   - machine
   - acer
@@ -168,6 +168,8 @@ WSL 2.7.14.0 to 3.0.3.0, kernel 6.18.54.1, systemd running with 0 failed units, 
 Historical note, not a re-audit. Conversation capture now runs on the Acer (hooks in WSL and Windows, a WSL user timer, a Windows scheduled task, output under `AI Conversations/Acer/`). The WSL clones were bundled and removed; the "4 commits only on the Acer" finding of 2026-10-15 was wrong in effect, because PR #13 had rebase-merged them on 2026-10-04. WSL caches were trimmed (72 to 60 percent used). The Windows side gained the `dell-wsl` SSH alias, Tailscale unattended mode, VS Code remote defaults, a Terminal profile and the `dell` and `dcode` shortcuts. Full record: [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]].
 ### Local AI state, 2026-11-26
 The "Hermes is not one thing" paragraph above (WSL execution log, 2026-09-18) listed the NousResearch `hermes-agent` as "not evaluated yet". It is now installed: v0.21.3 at `D:\Apps\Hermes`, answering through Ollama 0.40.18 with models in `D:\AI\models\ollama`. Docker Desktop is installed with its disk image in `D:\WSL\DockerDesktopWSL` and is not running. Measured on the same day: 31.4 GiB of RAM with 9.6 GiB available, an RTX 5070 Ti Laptop with 11.94 GiB of VRAM that runs under a software power cap, and a C: drive that still needs the cleanup tracked in [[C Drive Bloat - Failure Log and Prevention Rules]]. The build is in [[Hermes Local Build Log]], the RAM audit in [[Local AI Memory Budget]], and the whole cluster in [[Hermes Map]].
+### Health pass, 2026-11-27
+Teams, OneDrive, the Copilot app and 19 Store apps are gone, startup is trimmed, tool caches sit on `D:\Cache`, the Claude Cowork VM is off at logon, and an NVIDIA display container bug that rewrote `nvlog.nvlgstg` is stopped at the source by disabling the `_nvtopps` plugin. A clean 10-minute idle test measured 0.0 MB from `NVDisplay.Container.exe` and 0.27 GB per hour for the whole disk. The SSD counter test has its `after-sleep` row (power cycles 90, unsafe shutdowns 26, both unchanged). Every change, its undo, the monitoring and the deferred items (pagefile on or after 2026-12-03, model mode before a big model) are in [[Acer Health Pass - 2026-11-26]].
 ## Open Questions
 1. Run the audit script above, paste back results.
 2. Confirm which Google account G: is syncing from.
@@ -177,3 +179,4 @@ The "Hermes is not one thing" paragraph above (WSL execution log, 2026-09-18) li
 - [[New Laptop Setup]] — the pinned source of truth; the OneDrive/redirection conflict warning and the fresh-install-only AI platform policy now live there
 - [[WSL New Laptop Master Plan — Verified 2026-09-11]] — Phase 2 WSL commands, now to run with D: once `wsl -l -v` confirms no existing distro
 - [[Google Drive Sync Policy]] — the documents-only sync rule, confirmed followed for this laptop's Drive sync
+- [[Acer Health Pass - 2026-11-26]] — the C: cleanup, NVIDIA write fix, Cowork VM and SSD counter test, with undo steps

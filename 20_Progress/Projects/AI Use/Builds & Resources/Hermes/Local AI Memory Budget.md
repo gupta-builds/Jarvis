@@ -2,7 +2,7 @@
 type: reference
 status: sprout
 created: 2026-11-26
-updated: 2026-11-26
+updated: 2026-11-27
 tags:
   - ai
   - local-ai
@@ -14,10 +14,11 @@ area:
 notes:
   - "[[Hermes Map]]"
   - "[[Local Model Lineup]]"
+  - "[[Local AI Run Practice]]"
   - "[[Hermes Local Build Log]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Machine Audit 2026-10-22]]"
-next: Run the RAM session prompt, then re-measure Available RAM with Obsidian and VS Code open.
+next: Run the Results table test in Local AI Run Practice, then decide whether the 35B lane fits beside dev tools.
 ---
 # Local AI Memory Budget
 A measured account of where this laptop's 31.4 GiB of RAM goes and what a local model can count on. The vault uses it to decide which model lane can load and what to change first. Read it before loading anything larger than the 12B and 9B models.
@@ -54,8 +55,8 @@ The 12 GB card holds more of each model than the 8 GB laptops in the PolyStrata 
 - Dev work (Playwright, localhost servers, Chrome DevTools) runs beside the VRAM-only lane. The 35B lane waits until dev tools are closed or capped.
 ## What is still open
 - Obsidian's 2.2 GiB private memory has not been audited by plugin.
-- The Cowork VM can be disabled in Claude Desktop, which would remove 4 GB of commit and 9.2 GB of disk. Not decided.
+- The Cowork VM: since 2026-11-27 Claude Desktop's startup task is off and no VM runs, which removes 4 GB of commit. Opening Claude Desktop starts it again, and the 9 GB bundle is kept on purpose ([[Acer Health Pass - 2026-11-26]]).
 - Hermes holds about 1.2 GB when idle (measured 2026-11-26: five desktop-app processes at about 815 MB, four Python processes at about 420 MB). Close the desktop app between sessions if the 35B lane is wanted, and use the CLI.
-- `.wslconfig` caps the WSL VM at 20 GB. The Docker phase was dropped on 2026-11-26, so the cap only matters for WSL itself.
-- A session prompt for the RAM work exists and has not been run. It leaves Obsidian and VS Code open, never kills an app that is not on an approved list, and builds an AI-mode switch script.
+- `.wslconfig` caps the WSL VM at 8 GB with 8 processors and `autoMemoryReclaim=dropCache` since 2026-11-27 (it was 20 GB and 18), effective the next time WSL starts. The Docker phase was dropped on 2026-11-26.
+- The RAM session ran on 2026-11-27. With Obsidian and VS Code open and the other apps closed, Available reached 15.6 GiB and Active plus Modified 15.9 GiB, against 7.2 to 9.4 and 22.1 to 24.2 with the normal apps open. The app-closing mode it built was removed by decision, so the remaining levers are tuning and measuring runs, in [[Local AI Run Practice]]. ChatGPT no longer starts at logon.
 SSD health was checked the same day: CrystalDiskInfo showed Good at 100%, 61 C, 4,942 GB written over 1,467 powered hours and 26 unsafe shutdowns, with no media errors. The C: bloat and idle-write findings belong to the cleanup work in [[C Drive Bloat - Failure Log and Prevention Rules]].
